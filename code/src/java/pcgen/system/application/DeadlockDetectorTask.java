@@ -33,37 +33,37 @@ import pcgen.util.Logging;
  */
 public class DeadlockDetectorTask
 {
-	private final DeadlockHandler deadlockHandler;
-	private static final ThreadFactory THREAD_FACTORY = r ->
-	{
-		Thread thread = new Thread(r);
-		thread.setDaemon(true);
-		thread.setName("deadlock-detector");
-		return thread;
-	};
-	private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1, THREAD_FACTORY);
+    private final DeadlockHandler deadlockHandler;
+    private static final ThreadFactory THREAD_FACTORY = r ->
+    {
+        Thread thread = new Thread(r);
+        thread.setDaemon(true);
+        thread.setName("deadlock-detector");
+        return thread;
+    };
+    private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1, THREAD_FACTORY);
 
-	private final Runnable deadlockCheck = () -> {
-		long[] deadlockedThreadIds = ManagementFactory.getThreadMXBean().findDeadlockedThreads();
+    private final Runnable deadlockCheck = () -> {
+        long[] deadlockedThreadIds = ManagementFactory.getThreadMXBean().findDeadlockedThreads();
 
-		if (deadlockedThreadIds != null)
-		{
-			ThreadInfo[] threadInfos =
-					ManagementFactory.getThreadMXBean().getThreadInfo(deadlockedThreadIds);
+        if (deadlockedThreadIds != null)
+        {
+            ThreadInfo[] threadInfos =
+                    ManagementFactory.getThreadMXBean().getThreadInfo(deadlockedThreadIds);
 
-			DeadlockDetectorTask.this.deadlockHandler.handleDeadlock(threadInfos);
-		}
-	};
+            DeadlockDetectorTask.this.deadlockHandler.handleDeadlock(threadInfos);
+        }
+    };
 
-	public DeadlockDetectorTask(final DeadlockHandler deadlockHandler)
-	{
-		this.deadlockHandler = deadlockHandler;
-	}
+    public DeadlockDetectorTask(final DeadlockHandler deadlockHandler)
+    {
+        this.deadlockHandler = deadlockHandler;
+    }
 
-	public void initialize()
-	{
-		Logging.debugPrint("starting deadlock detector");
-		executor.scheduleAtFixedRate(
-				this.deadlockCheck, 1, 1, TimeUnit.MINUTES);
-	}
+    public void initialize()
+    {
+        Logging.debugPrint("starting deadlock detector");
+        executor.scheduleAtFixedRate(
+                this.deadlockCheck, 1, 1, TimeUnit.MINUTES);
+    }
 }

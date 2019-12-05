@@ -34,61 +34,61 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter<Language>
 {
 
-	private static final Class<Language> LANGUAGE_CLASS = Language.class;
-	private CDOMReference<Language> allLanguages;
+    private static final Class<Language> LANGUAGE_CLASS = Language.class;
+    private CDOMReference<Language> allLanguages;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Language> cl, String value, String args)
-	{
-		allLanguages = context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS);
-		return (value == null) && (args == null);
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Language> cl, String value, String args)
+    {
+        allLanguages = context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS);
+        return (value == null) && (args == null);
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "LANGBONUS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LANGBONUS";
+    }
 
-	@Override
-	public Class<Language> getReferenceClass()
-	{
-		return LANGUAGE_CLASS;
-	}
+    @Override
+    public Class<Language> getReferenceClass()
+    {
+        return LANGUAGE_CLASS;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return getTokenName();
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return getTokenName();
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Language l)
-	{
-		return pc.getDisplay().getLanguageBonusSelectionList().contains(l);
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Language l)
+    {
+        return pc.getDisplay().getLanguageBonusSelectionList().contains(l);
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		return obj instanceof LangBonusToken;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj instanceof LangBonusToken;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return 3568;
-	}
+    @Override
+    public int hashCode()
+    {
+        return 3568;
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Language, R> c)
-	{
-		return c.convert(allLanguages, this);
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Language, R> c)
+    {
+        return c.convert(allLanguages, this);
+    }
 }

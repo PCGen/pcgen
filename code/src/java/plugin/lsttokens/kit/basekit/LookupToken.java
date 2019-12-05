@@ -37,62 +37,62 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class LookupToken extends AbstractToken implements CDOMPrimaryToken<KitGear>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "LOOKUP";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "LOOKUP";
+    }
 
-	@Override
-	public Class<KitGear> getTokenClass()
-	{
-		return KitGear.class;
-	}
+    @Override
+    public Class<KitGear> getTokenClass()
+    {
+        return KitGear.class;
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
-	{
-		ParsingSeparator sep = new ParsingSeparator(value, ',');
-		sep.addGroupingPair('[', ']');
-		sep.addGroupingPair('(', ')');
+    @Override
+    public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
+    {
+        ParsingSeparator sep = new ParsingSeparator(value, ',');
+        sep.addGroupingPair('[', ']');
+        sep.addGroupingPair('(', ')');
 
-		String first = sep.next();
-		if (!sep.hasNext())
-		{
-			return new ParseResult.Fail("Token must contain separator ','");
-		}
-		String second = sep.next();
-		if (sep.hasNext())
-		{
-			return new ParseResult.Fail("Token cannot have more than one separator ','");
-		}
-		Formula formula = FormulaFactory.getFormulaFor(second);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		kitGear.loadLookup(first, formula);
-		return ParseResult.SUCCESS;
-	}
+        String first = sep.next();
+        if (!sep.hasNext())
+        {
+            return new ParseResult.Fail("Token must contain separator ','");
+        }
+        String second = sep.next();
+        if (sep.hasNext())
+        {
+            return new ParseResult.Fail("Token cannot have more than one separator ','");
+        }
+        Formula formula = FormulaFactory.getFormulaFor(second);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        kitGear.loadLookup(first, formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitGear kitGear)
-	{
-		Collection<NamedFormula> lookups = kitGear.getLookups();
-		if (lookups == null)
-		{
-			return null;
-		}
-		List<String> list = new ArrayList<>();
-		for (NamedFormula nf : lookups)
-		{
-			list.add(nf.getName() + ',' + nf.getFormula().toString());
-		}
-		return list.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitGear kitGear)
+    {
+        Collection<NamedFormula> lookups = kitGear.getLookups();
+        if (lookups == null)
+        {
+            return null;
+        }
+        List<String> list = new ArrayList<>();
+        for (NamedFormula nf : lookups)
+        {
+            list.add(nf.getName() + ',' + nf.getFormula().toString());
+        }
+        return list.toArray(new String[0]);
+    }
 }

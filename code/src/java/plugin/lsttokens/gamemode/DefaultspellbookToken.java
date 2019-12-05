@@ -11,16 +11,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class DefaultspellbookToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "DEFAULTSPELLBOOK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DEFAULTSPELLBOOK";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		gameMode.setDefaultSpellBook(value);
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        gameMode.setDefaultSpellBook(value);
+        return true;
+    }
 }

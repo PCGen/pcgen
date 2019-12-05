@@ -31,44 +31,44 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements CDOMPrimaryToken<KitSelect>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "SELECT";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "SELECT";
+    }
 
-	@Override
-	public Class<KitSelect> getTokenClass()
-	{
-		return KitSelect.class;
-	}
+    @Override
+    public Class<KitSelect> getTokenClass()
+    {
+        return KitSelect.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitSelect kitSelect, String value)
-	{
-		Formula formula = FormulaFactory.getFormulaFor(value);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		kitSelect.setFormula(formula);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitSelect kitSelect, String value)
+    {
+        Formula formula = FormulaFactory.getFormulaFor(value);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        kitSelect.setFormula(formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitSelect kitSelect)
-	{
-		Formula f = kitSelect.getFormula();
-		if (f == null)
-		{
-			return null;
-		}
-		return new String[]{f.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitSelect kitSelect)
+    {
+        Formula f = kitSelect.getFormula();
+        if (f == null)
+        {
+            return null;
+        }
+        return new String[]{f.toString()};
+    }
 
 }

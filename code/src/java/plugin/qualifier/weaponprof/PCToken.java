@@ -26,16 +26,16 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 public class PCToken extends AbstractPCQualifierToken<WeaponProf>
 {
 
-	@Override
-	protected Collection<WeaponProf> getPossessed(PlayerCharacter pc)
-	{
-		return pc.getDisplay().getWeaponProfSet();
-	}
+    @Override
+    protected Collection<WeaponProf> getPossessed(PlayerCharacter pc)
+    {
+        return pc.getDisplay().getWeaponProfSet();
+    }
 
-	@Override
-	public Class<? super WeaponProf> getReferenceClass()
-	{
-		return WeaponProf.class;
-	}
+    @Override
+    public Class<? super WeaponProf> getReferenceClass()
+    {
+        return WeaponProf.class;
+    }
 
 }

@@ -30,77 +30,76 @@ import pcgen.util.Logging;
 public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements CDOMCompatibilityToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ADD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ADD";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		ParsingSeparator sep = new ParsingSeparator(value, '|');
-		sep.addGroupingPair('[', ']');
-		sep.addGroupingPair('(', ')');
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        ParsingSeparator sep = new ParsingSeparator(value, '|');
+        sep.addGroupingPair('[', ']');
+        sep.addGroupingPair('(', ')');
 
-		String addType = sep.next();
-		if (!"FEAT".equals(addType))
-		{
-			return new ParseResult.Fail("Incompatible with ADD:FEAT:" + value);
-		}
-		String activeValue = sep.next();
-		Formula count;
-		if (!sep.hasNext())
-		{
-			count = FormulaFactory.ONE;
-		}
-		else
-		{
-			count = FormulaFactory.getFormulaFor(activeValue);
-			if (!count.isValid())
-			{
-				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
-			}
-			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
-			{
-				return new ParseResult.Fail("Count in ADD:FEAT must be > 0");
-			}
-			activeValue = sep.next();
-		}
-		if (sep.hasNext())
-		{
-			return new ParseResult.Fail("ADD:FEAT had too many pipe separated items: " + value);
-		}
-			if (!context.processToken(obj, "ADD", "ABILITY|" + count.toString() + "|FEAT|NORMAL|" + activeValue))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error from ADD:FEAT");
-			}
+        String addType = sep.next();
+        if (!"FEAT".equals(addType))
+        {
+            return new ParseResult.Fail("Incompatible with ADD:FEAT:" + value);
+        }
+        String activeValue = sep.next();
+        Formula count;
+        if (!sep.hasNext())
+        {
+            count = FormulaFactory.ONE;
+        } else
+        {
+            count = FormulaFactory.getFormulaFor(activeValue);
+            if (!count.isValid())
+            {
+                return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
+            }
+            if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
+            {
+                return new ParseResult.Fail("Count in ADD:FEAT must be > 0");
+            }
+            activeValue = sep.next();
+        }
+        if (sep.hasNext())
+        {
+            return new ParseResult.Fail("ADD:FEAT had too many pipe separated items: " + value);
+        }
+        if (!context.processToken(obj, "ADD", "ABILITY|" + count.toString() + "|FEAT|NORMAL|" + activeValue))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Delegation Error from ADD:FEAT");
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public int compatibilityLevel()
-	{
-		return 6;
-	}
+    @Override
+    public int compatibilityLevel()
+    {
+        return 6;
+    }
 
-	@Override
-	public int compatibilitySubLevel()
-	{
-		return 4;
-	}
+    @Override
+    public int compatibilitySubLevel()
+    {
+        return 4;
+    }
 
-	@Override
-	public int compatibilityPriority()
-	{
-		return 0;
-	}
+    @Override
+    public int compatibilityPriority()
+    {
+        return 0;
+    }
 }

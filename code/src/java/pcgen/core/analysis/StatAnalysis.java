@@ -23,38 +23,38 @@ import pcgen.core.PlayerCharacter;
 
 public final class StatAnalysis
 {
-	private StatAnalysis()
-	{
-	}
+    private StatAnalysis()
+    {
+    }
 
-	/**
-	 * Retrieve a correctly calculated attribute value where one or more
-	 * types are excluded.
-	 *
-	 * @param stat The abbreviation of the stat to be calculated
-	 * @param useTemp Should temporary bonuses be included?
-	 * @param useEquip Should equipment bonuses be included?
-	 * @return The value of the stat
-	 */
-	public static int getPartialStatFor(PlayerCharacter aPC, PCStat stat, boolean useTemp, boolean useEquip)
-	{
-		if (aPC.hasNonStatStat(stat))
-		{
-			return 10;
-		}
+    /**
+     * Retrieve a correctly calculated attribute value where one or more
+     * types are excluded.
+     *
+     * @param stat     The abbreviation of the stat to be calculated
+     * @param useTemp  Should temporary bonuses be included?
+     * @param useEquip Should equipment bonuses be included?
+     * @return The value of the stat
+     */
+    public static int getPartialStatFor(PlayerCharacter aPC, PCStat stat, boolean useTemp, boolean useEquip)
+    {
+        if (aPC.hasNonStatStat(stat))
+        {
+            return 10;
+        }
 
-		// Only check for a lock if the stat hasn't been unlocked
-		if (!aPC.hasUnlockedStat(stat))
-		{
-			Number val = aPC.getLockedStat(stat);
-			if (val != null)
-			{
-				return val.intValue();
-			}
-		}
+        // Only check for a lock if the stat hasn't been unlocked
+        if (!aPC.hasUnlockedStat(stat))
+        {
+            Number val = aPC.getLockedStat(stat);
+            if (val != null)
+            {
+                return val.intValue();
+            }
+        }
 
-		int y = aPC.getPartialStatFor(stat, useTemp, useEquip);
-		return y;
-	}
+        int y = aPC.getPartialStatFor(stat, useTemp, useEquip);
+        return y;
+    }
 
 }

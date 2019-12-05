@@ -29,25 +29,25 @@ import org.junit.jupiter.api.BeforeEach;
  */
 public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 {
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		TokenRegistration.register(new PreAgeSetParser());
-		TokenRegistration.register(new PreAgeSetWriter());
-	}
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        TokenRegistration.register(new PreAgeSetParser());
+        TokenRegistration.register(new PreAgeSetWriter());
+    }
 
-	@Override
-	public String getBaseString()
-	{
-		return "AGESET";
-	}
+    @Override
+    public String getBaseString()
+    {
+        return "AGESET";
+    }
 
-	@Override
-	public boolean isTypeAllowed()
-	{
-		return false;
-	}
+    @Override
+    public boolean isTypeAllowed()
+    {
+        return false;
+    }
 
 }

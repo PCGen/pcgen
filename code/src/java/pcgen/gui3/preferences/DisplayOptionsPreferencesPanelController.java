@@ -34,54 +34,54 @@ import javafx.scene.control.ComboBox;
 public class DisplayOptionsPreferencesPanelController implements ResettableController
 {
 
-	private final DisplayOptionsPreferencesPanelModel model = new DisplayOptionsPreferencesPanelModel();
-	@FXML
-	private CheckBox showSkillRanks;
-	@FXML
-	private CheckBox showSkillModifier;
-	@FXML
-	private CheckBox useOutputNamesEquipment;
-	@FXML
-	private CheckBox useOutputNamesSpells;
-	@FXML
-	private CheckBox useOutputNamesOther;
-	@FXML
-	private ComboBox<String> cmbChoiceMethods;
+    private final DisplayOptionsPreferencesPanelModel model = new DisplayOptionsPreferencesPanelModel();
+    @FXML
+    private CheckBox showSkillRanks;
+    @FXML
+    private CheckBox showSkillModifier;
+    @FXML
+    private CheckBox useOutputNamesEquipment;
+    @FXML
+    private CheckBox useOutputNamesSpells;
+    @FXML
+    private CheckBox useOutputNamesOther;
+    @FXML
+    private ComboBox<String> cmbChoiceMethods;
 
-	@FXML
-	void initialize()
-	{
-		cmbChoiceMethods.setItems(model.choiceOptionsAsObservableList());
-	}
+    @FXML
+    void initialize()
+    {
+        cmbChoiceMethods.setItems(model.choiceOptionsAsObservableList());
+    }
 
 
-	@Override
-	public void reset()
-	{
-		GuiAssertions.assertIsJavaFXThread();
-		cmbChoiceMethods.getSelectionModel().select(UIPropertyContext.getSingleChoiceAction());
-		showSkillModifier.setSelected(
-				PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false));
-		showSkillRanks.setSelected(
-				PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false));
-		useOutputNamesEquipment.setSelected(SettingsHandler.guiUsesOutputNameEquipment());
-		useOutputNamesSpells.setSelected(SettingsHandler.guiUsesOutputNameSpells());
-		useOutputNamesOther.setSelected(
-				PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false));
-	}
+    @Override
+    public void reset()
+    {
+        GuiAssertions.assertIsJavaFXThread();
+        cmbChoiceMethods.getSelectionModel().select(UIPropertyContext.getSingleChoiceAction());
+        showSkillModifier.setSelected(
+                PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false));
+        showSkillRanks.setSelected(
+                PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false));
+        useOutputNamesEquipment.setSelected(SettingsHandler.guiUsesOutputNameEquipment());
+        useOutputNamesSpells.setSelected(SettingsHandler.guiUsesOutputNameSpells());
+        useOutputNamesOther.setSelected(
+                PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false));
+    }
 
-	@Override
-	public void apply()
-	{
-		SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment.isSelected());
-		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells.isSelected());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
-				useOutputNamesOther.isSelected());
-		UIPropertyContext.setSingleChoiceAction(cmbChoiceMethods.getSelectionModel().getSelectedIndex());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN,
-				showSkillModifier.isSelected());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN,
-				showSkillRanks.isSelected());
+    @Override
+    public void apply()
+    {
+        SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment.isSelected());
+        SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells.isSelected());
+        PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
+                useOutputNamesOther.isSelected());
+        UIPropertyContext.setSingleChoiceAction(cmbChoiceMethods.getSelectionModel().getSelectedIndex());
+        PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN,
+                showSkillModifier.isSelected());
+        PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN,
+                showSkillRanks.isSelected());
 
-	}
+    }
 }

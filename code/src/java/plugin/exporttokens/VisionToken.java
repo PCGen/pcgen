@@ -34,70 +34,68 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class VisionToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "VISION";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VISION";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		List<Vision> visionList = new ArrayList<>(display.getVisionList());
+        List<Vision> visionList = new ArrayList<>(display.getVisionList());
 
-		int visionIndex = 0;
-		int startIndex = 0;
+        int visionIndex = 0;
+        int startIndex = 0;
 
-		if (aTok.hasMoreTokens())
-		{
-			try
-			{
-				startIndex = Integer.parseInt(aTok.nextToken());
-				visionIndex = startIndex + 1;
-			}
-			catch (NumberFormatException e)
-			{
-				//TODO: Should this really be ignored?
-			}
-		}
-		else
-		{
-			visionIndex = visionList.size();
-		}
+        if (aTok.hasMoreTokens())
+        {
+            try
+            {
+                startIndex = Integer.parseInt(aTok.nextToken());
+                visionIndex = startIndex + 1;
+            } catch (NumberFormatException e)
+            {
+                //TODO: Should this really be ignored?
+            }
+        } else
+        {
+            visionIndex = visionList.size();
+        }
 
-		if (visionList.isEmpty() || startIndex >= visionList.size())
-		{
-			return "";
-		}
+        if (visionList.isEmpty() || startIndex >= visionList.size())
+        {
+            return "";
+        }
 
-		List<Vision> subList = visionList.subList(Math.max(startIndex, 0), Math.min(visionIndex, visionList.size()));
+        List<Vision> subList = visionList.subList(Math.max(startIndex, 0), Math.min(visionIndex, visionList.size()));
 
-		StringBuilder result = new StringBuilder();
-		for (Vision vision : subList)
-		{
-			if (result.length() > 0)
-			{
-				result.append(", ");
-			}
-			result.append(vision.getType());
-			String distStr = vision.getDistance().toString();
-			int dist = 0;
-			if ((distStr != null) && (!distStr.trim().isEmpty()))
-			{
-				dist = Integer.parseInt(distStr);
-			}
-			if (dist > 0)
-			{
-				result.append(" (");
-				result.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(dist));
-				result.append(Globals.getGameModeUnitSet().getDistanceUnit());
-				result.append(')');
-			}
-		}
+        StringBuilder result = new StringBuilder();
+        for (Vision vision : subList)
+        {
+            if (result.length() > 0)
+            {
+                result.append(", ");
+            }
+            result.append(vision.getType());
+            String distStr = vision.getDistance().toString();
+            int dist = 0;
+            if ((distStr != null) && (!distStr.trim().isEmpty()))
+            {
+                dist = Integer.parseInt(distStr);
+            }
+            if (dist > 0)
+            {
+                result.append(" (");
+                result.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(dist));
+                result.append(Globals.getGameModeUnitSet().getDistanceUnit());
+                result.append(')');
+            }
+        }
 
-		return result.toString();
-	}
+        return result.toString();
+    }
 }

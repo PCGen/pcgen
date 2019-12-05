@@ -33,35 +33,34 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreTotalABWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "totalab";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "totalab";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
-		try
-		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-			{
-				writer.write('!');
-			}
-			writer.write("PRETOTALAB:" + (prereq.isOverrideQualify() ? "Q:" : ""));
-			writer.write(prereq.getOperand());
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
+        try
+        {
+            if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+            {
+                writer.write('!');
+            }
+            writer.write("PRETOTALAB:" + (prereq.isOverrideQualify() ? "Q:" : ""));
+            writer.write(prereq.getOperand());
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
 }

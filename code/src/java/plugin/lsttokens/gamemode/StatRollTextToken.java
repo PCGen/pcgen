@@ -29,32 +29,31 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class StatRollTextToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "STATROLLTEXT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "STATROLLTEXT";
+    }
 
-	//
-	// STATROLLTEXT:<stat_val>,<display_text>
-	//
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		final StringTokenizer tok = new StringTokenizer(value, "\t");
-		if (tok.countTokens() == 2)
-		{
-			try
-			{
-				final int statValue = Integer.parseInt(tok.nextToken());
-				gameMode.addStatDisplayText(statValue, tok.nextToken());
-				return true;
-			}
-			catch (NumberFormatException exc)
-			{
-				// returns false
-			}
-		}
-		return false;
-	}
+    //
+    // STATROLLTEXT:<stat_val>,<display_text>
+    //
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        final StringTokenizer tok = new StringTokenizer(value, "\t");
+        if (tok.countTokens() == 2)
+        {
+            try
+            {
+                final int statValue = Integer.parseInt(tok.nextToken());
+                gameMode.addStatDisplayText(statValue, tok.nextToken());
+                return true;
+            } catch (NumberFormatException exc)
+            {
+                // returns false
+            }
+        }
+        return false;
+    }
 }

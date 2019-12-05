@@ -23,14 +23,14 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 8th level Human Monk.
- * 
+ * <p>
  * See PCG file for details.
  */
 public class pcGenGUIMonKeeTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testMonKee() throws Exception
-	{
-		runTest("3e_MonKee", "3e");
-	}
+    @Test
+    public void testMonKee() throws Exception
+    {
+        runTest("3e_MonKee", "3e");
+    }
 }

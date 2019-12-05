@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2012 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -49,82 +49,82 @@ import util.TestURI;
 public class DomainCcSkillTest extends AbstractTokenModelTest
 {
 
-	private static CcskillToken token = new CcskillToken();
-	private Skill sk;
-	private PCClass dragon;
-	private LocalSkillCostFacet lscFacet;
-	private LocalAddedSkillCostFacet lascFacet;
-	private static SkillToken CHOOSE_SKILL_TOKEN = new SkillToken();
-	protected DomainInputFacet domainInputFacet = FacetLibrary
-		.getFacet(DomainInputFacet.class);
+    private static CcskillToken token = new CcskillToken();
+    private Skill sk;
+    private PCClass dragon;
+    private LocalSkillCostFacet lscFacet;
+    private LocalAddedSkillCostFacet lascFacet;
+    private static SkillToken CHOOSE_SKILL_TOKEN = new SkillToken();
+    protected DomainInputFacet domainInputFacet = FacetLibrary
+            .getFacet(DomainInputFacet.class);
 
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		lscFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
-		lascFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
-		sk = context.getReferenceContext().constructCDOMObject(Skill.class, "MySkill");
-		dragon = context.getReferenceContext().constructCDOMObject(PCClass.class, "Dragon");
-		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
-		ChooserFactory.setDelegate(new MockUIDelegate());
-	}
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        lscFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
+        lascFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
+        sk = context.getReferenceContext().constructCDOMObject(Skill.class, "MySkill");
+        dragon = context.getReferenceContext().constructCDOMObject(PCClass.class, "Dragon");
+        dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
+        ChooserFactory.setDelegate(new MockUIDelegate());
+    }
 
-	@Test
-	public void testDirect()
-	{
-		Domain source = create(Domain.class, "Source");
-		ParseResult result = token.parseToken(context, source, "MySkill");
-		if (result != ParseResult.SUCCESS)
-		{
-			result.printMessages(TestURI.getURI());
-			fail("Test Setup Failed");
-		}
-		new ExclusiveToken().parseToken(context, sk, "Yes");
-		finishLoad();
-		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
-		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
-		assertTrue(lscFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
-		pc.addClass(dragon);
-		pc.setDirty(true);
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
-		domainInputFacet.remove(id, source);
-		assertFalse(lscFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
-	}
+    @Test
+    public void testDirect()
+    {
+        Domain source = create(Domain.class, "Source");
+        ParseResult result = token.parseToken(context, source, "MySkill");
+        if (result != ParseResult.SUCCESS)
+        {
+            result.printMessages(TestURI.getURI());
+            fail("Test Setup Failed");
+        }
+        new ExclusiveToken().parseToken(context, sk, "Yes");
+        finishLoad();
+        assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
+        domainInputFacet.add(id, source, new ClassSource(dragon, 0));
+        assertTrue(lscFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
+        pc.addClass(dragon);
+        pc.setDirty(true);
+        assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
+        domainInputFacet.remove(id, source);
+        assertFalse(lscFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
+    }
 
-	@Test
-	public void testList()
-	{
-		Domain source = create(Domain.class, "Source");
-		ParseResult result = token.parseToken(context, source, "LIST");
-		if (result != ParseResult.SUCCESS)
-		{
-			result.printMessages(TestURI.getURI());
-			fail("Test Setup Failed");
-		}
-		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "MySkill");
-		if (result != ParseResult.SUCCESS)
-		{
-			result.printMessages(TestURI.getURI());
-			fail("Test Setup Failed");
-		}
-		new ExclusiveToken().parseToken(context, sk, "Yes");
-		finishLoad();
-		assertFalse(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
-		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
-		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
-		assertTrue(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
-		pc.addClass(dragon);
-		pc.setDirty(true);
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
-		domainInputFacet.remove(id, source);
-		assertFalse(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
-	}
+    @Test
+    public void testList()
+    {
+        Domain source = create(Domain.class, "Source");
+        ParseResult result = token.parseToken(context, source, "LIST");
+        if (result != ParseResult.SUCCESS)
+        {
+            result.printMessages(TestURI.getURI());
+            fail("Test Setup Failed");
+        }
+        result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "MySkill");
+        if (result != ParseResult.SUCCESS)
+        {
+            result.printMessages(TestURI.getURI());
+            fail("Test Setup Failed");
+        }
+        new ExclusiveToken().parseToken(context, sk, "Yes");
+        finishLoad();
+        assertFalse(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
+        assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
+        domainInputFacet.add(id, source, new ClassSource(dragon, 0));
+        assertTrue(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
+        pc.addClass(dragon);
+        pc.setDirty(true);
+        assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
+        domainInputFacet.remove(id, source);
+        assertFalse(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
+    }
 
-	@Override
-	public CDOMToken<?> getToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMToken<?> getToken()
+    {
+        return token;
+    }
 }

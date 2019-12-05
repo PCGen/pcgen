@@ -28,20 +28,20 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //REGION
 public class RegionToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "REGION";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "REGION";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		StringBuilder sb = new StringBuilder(40);
-		sb.append(display.getRegionString());
-		Optional<SubRegion> subRegion = display.getSubRegion();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        StringBuilder sb = new StringBuilder(40);
+        sb.append(display.getRegionString());
+        Optional<SubRegion> subRegion = display.getSubRegion();
         subRegion.ifPresent(region -> sb.append(" (").append(region.toString()).append(')'));
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 }

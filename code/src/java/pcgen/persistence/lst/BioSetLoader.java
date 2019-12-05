@@ -38,133 +38,128 @@ import org.apache.commons.lang3.StringUtils;
 
 public final class BioSetLoader extends LstLineFileLoader
 {
-	/**
-	 * The current Region being processed
-	 */
-	private Optional<Region> region = Optional.empty();
+    /**
+     * The current Region being processed
+     */
+    private Optional<Region> region = Optional.empty();
 
-	BioSet bioSet = new BioSet();
+    BioSet bioSet = new BioSet();
 
-	/**
-	 * The age set (bracket) currently being processed. Used by the parseLine
-	 * method to hold state between calls.
-	 */
-	int currentAgeSetIndex = 0;
+    /**
+     * The age set (bracket) currently being processed. Used by the parseLine
+     * method to hold state between calls.
+     */
+    int currentAgeSetIndex = 0;
 
-	/**
-	 * Clear the Region.
-	 */
-	public void clear()
-	{
-		region = Optional.empty();
-	}
+    /**
+     * Clear the Region.
+     */
+    public void clear()
+    {
+        region = Optional.empty();
+    }
 
-	@Override
-	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
-	{
-		currentAgeSetIndex = 0;
-		GameMode game = SystemCollections.getGameModeNamed(gameMode);
-		bioSet = game.getBioSet();
-		super.loadLstFile(context, fileName);
-		game.setBioSet(bioSet);
-	}
+    @Override
+    public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
+    {
+        currentAgeSetIndex = 0;
+        GameMode game = SystemCollections.getGameModeNamed(gameMode);
+        bioSet = game.getBioSet();
+        super.loadLstFile(context, fileName);
+        game.setBioSet(bioSet);
+    }
 
-	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-	{
-		if (lstLine.startsWith("#"))
-		{
-			//Is a comment
-			return;
-		}
-		if (lstLine.startsWith("AGESET:"))
-		{
-			String line = lstLine.substring(7);
-			int pipeLoc = line.indexOf('|');
-			if (pipeLoc == -1)
-			{
-				Logging.errorPrint(
-					"Found invalid AGESET " + "in Bio Settings " + sourceURI + ", was expecting a |: " + lstLine);
-				return;
-			}
-			String ageIndexString = line.substring(0, pipeLoc);
-			try
-			{
-				currentAgeSetIndex = Integer.parseInt(ageIndexString);
-			}
-			catch (NumberFormatException e)
-			{
-				Logging.errorPrint("Illegal Index for AGESET " + "in Bio Settings " + sourceURI + ": " + ageIndexString
-					+ " was not an integer");
-			}
-			StringTokenizer colToken = new StringTokenizer(line.substring(pipeLoc + 1), SystemLoader.TAB_DELIM);
-			AgeSet ageSet = new AgeSet();
-			ageSet.setSourceURI(sourceURI);
-			ageSet.setAgeIndex(currentAgeSetIndex);
-			ageSet.setName(colToken.nextToken());
-			while (colToken.hasMoreTokens())
-			{
-				LstUtils.processToken(context, ageSet, sourceURI,
-					colToken.nextToken());
-			}
+    @Override
+    public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+    {
+        if (lstLine.startsWith("#"))
+        {
+            //Is a comment
+            return;
+        }
+        if (lstLine.startsWith("AGESET:"))
+        {
+            String line = lstLine.substring(7);
+            int pipeLoc = line.indexOf('|');
+            if (pipeLoc == -1)
+            {
+                Logging.errorPrint(
+                        "Found invalid AGESET " + "in Bio Settings " + sourceURI + ", was expecting a |: " + lstLine);
+                return;
+            }
+            String ageIndexString = line.substring(0, pipeLoc);
+            try
+            {
+                currentAgeSetIndex = Integer.parseInt(ageIndexString);
+            } catch (NumberFormatException e)
+            {
+                Logging.errorPrint("Illegal Index for AGESET " + "in Bio Settings " + sourceURI + ": " + ageIndexString
+                        + " was not an integer");
+            }
+            StringTokenizer colToken = new StringTokenizer(line.substring(pipeLoc + 1), SystemLoader.TAB_DELIM);
+            AgeSet ageSet = new AgeSet();
+            ageSet.setSourceURI(sourceURI);
+            ageSet.setAgeIndex(currentAgeSetIndex);
+            ageSet.setName(colToken.nextToken());
+            while (colToken.hasMoreTokens())
+            {
+                LstUtils.processToken(context, ageSet, sourceURI,
+                        colToken.nextToken());
+            }
 
-			ageSet = bioSet.addToAgeMap(region, ageSet, sourceURI);
-			Integer oldIndex = bioSet.addToNameMap(ageSet);
-			if (oldIndex != null && oldIndex != currentAgeSetIndex)
-			{
-				Logging.errorPrint("Incompatible Index for AGESET " + "in Bio Settings " + sourceURI + ": "
-						+ oldIndex + " and " + currentAgeSetIndex + " for " + ageSet.getDisplayName());
-			}
-			
-		}
-		else if (lstLine.startsWith("REGION:"))
-		{
-			region = Optional.of(Region.getConstant(lstLine.substring(7)));
-		}
-		else if (lstLine.startsWith("RACENAME:"))
-		{
-			StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-			String raceName = colToken.nextToken().substring(9);
-			List<String> preReqList = null;
+            ageSet = bioSet.addToAgeMap(region, ageSet, sourceURI);
+            Integer oldIndex = bioSet.addToNameMap(ageSet);
+            if (oldIndex != null && oldIndex != currentAgeSetIndex)
+            {
+                Logging.errorPrint("Incompatible Index for AGESET " + "in Bio Settings " + sourceURI + ": "
+                        + oldIndex + " and " + currentAgeSetIndex + " for " + ageSet.getDisplayName());
+            }
 
-			while (colToken.hasMoreTokens())
-			{
-				String colString = colToken.nextToken();
+        } else if (lstLine.startsWith("REGION:"))
+        {
+            region = Optional.of(Region.getConstant(lstLine.substring(7)));
+        } else if (lstLine.startsWith("RACENAME:"))
+        {
+            StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+            String raceName = colToken.nextToken().substring(9);
+            List<String> preReqList = null;
 
-				if (PreParserFactory.isPreReqString(colString))
-				{
-					if (preReqList == null)
-					{
-						preReqList = new ArrayList<>();
-					}
+            while (colToken.hasMoreTokens())
+            {
+                String colString = colToken.nextToken();
 
-					preReqList.add(colString);
-				}
-				else
-				{
-					String aString = colString;
+                if (PreParserFactory.isPreReqString(colString))
+                {
+                    if (preReqList == null)
+                    {
+                        preReqList = new ArrayList<>();
+                    }
 
-					if (preReqList != null)
-					{
-						final StringBuilder sBuf = new StringBuilder(100 + colString.length());
-						sBuf.append(colString);
+                    preReqList.add(colString);
+                } else
+                {
+                    String aString = colString;
 
-						for (String aPreReqList : preReqList)
-						{
-							sBuf.append('[').append(aPreReqList).append(']');
-						}
+                    if (preReqList != null)
+                    {
+                        final StringBuilder sBuf = new StringBuilder(100 + colString.length());
+                        sBuf.append(colString);
 
-						aString = sBuf.toString();
-					}
+                        for (String aPreReqList : preReqList)
+                        {
+                            sBuf.append('[').append(aPreReqList).append(']');
+                        }
 
-					bioSet.addToUserMap(region, raceName, aString, currentAgeSetIndex);
-				}
-			}
-		}
-		else if (!StringUtils.isEmpty(lstLine))
-		{
-			Logging.errorPrint("Unable to process line " + lstLine
-				+ "in Bio Settings " + sourceURI);
-		}
-	}
+                        aString = sBuf.toString();
+                    }
+
+                    bioSet.addToUserMap(region, raceName, aString, currentAgeSetIndex);
+                }
+            }
+        } else if (!StringUtils.isEmpty(lstLine))
+        {
+            Logging.errorPrint("Unable to process line " + lstLine
+                    + "in Bio Settings " + sourceURI);
+        }
+    }
 }

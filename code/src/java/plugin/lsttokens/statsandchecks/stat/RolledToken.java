@@ -28,21 +28,21 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class RolledToken extends AbstractYesNoToken<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ROLLED";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ROLLED";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.ROLLED;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.ROLLED;
+    }
 
-	@Override
-	public Class<PCStat> getTokenClass()
-	{
-		return PCStat.class;
-	}
+    @Override
+    public Class<PCStat> getTokenClass()
+    {
+        return PCStat.class;
+    }
 }

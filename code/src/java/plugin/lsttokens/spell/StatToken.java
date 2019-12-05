@@ -32,40 +32,40 @@ import pcgen.rules.persistence.token.ParseResult;
 public class StatToken extends AbstractNonEmptyToken<Spell> implements CDOMPrimaryToken<Spell>
 {
 
-	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
+    private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "STAT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "STAT";
+    }
 
-	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
-	{
-		CDOMSingleRef<PCStat> pcs = context.getReferenceContext().getCDOMReference(PCSTAT_CLASS, value);
-		if (pcs == null)
-		{
-			return new ParseResult.Fail("Invalid Stat Abbreviation in Token " + getTokenName() + ": " + value);
-		}
-		context.getObjectContext().put(spell, ObjectKey.SPELL_STAT, pcs);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    public ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
+    {
+        CDOMSingleRef<PCStat> pcs = context.getReferenceContext().getCDOMReference(PCSTAT_CLASS, value);
+        if (pcs == null)
+        {
+            return new ParseResult.Fail("Invalid Stat Abbreviation in Token " + getTokenName() + ": " + value);
+        }
+        context.getObjectContext().put(spell, ObjectKey.SPELL_STAT, pcs);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Spell spell)
-	{
-		CDOMSingleRef<PCStat> pcs = context.getObjectContext().getObject(spell, ObjectKey.SPELL_STAT);
-		if (pcs == null)
-		{
-			return null;
-		}
-		return new String[]{pcs.getLSTformat(false)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Spell spell)
+    {
+        CDOMSingleRef<PCStat> pcs = context.getObjectContext().getObject(spell, ObjectKey.SPELL_STAT);
+        if (pcs == null)
+        {
+            return null;
+        }
+        return new String[]{pcs.getLSTformat(false)};
+    }
 
-	@Override
-	public Class<Spell> getTokenClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTokenClass()
+    {
+        return Spell.class;
+    }
 }

@@ -1,6 +1,6 @@
 /*
  * (c) Copyright 2019 Thomas Parker thpr@users.sourceforge.net
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
  * either version 2.1 of the License, or (at your option) any later version.
@@ -22,49 +22,49 @@ import pcgen.base.util.FormatManager;
 
 public class SimpleSetModifier<T> implements Modifier<T>
 {
-	
-	private T object;
-	private FormatManager<T> formatManager;
 
-	public SimpleSetModifier(FormatManager<T> formatManager, T object)
-	{
-		this.formatManager = formatManager;
-		this.object = object;
-	}
+    private T object;
+    private FormatManager<T> formatManager;
 
-	@Override
-	public T process(EvaluationManager manager)
-	{
-		return object;
-	}
+    public SimpleSetModifier(FormatManager<T> formatManager, T object)
+    {
+        this.formatManager = formatManager;
+        this.object = object;
+    }
 
-	@Override
-	public void getDependencies(DependencyManager fdm)
-	{
-	}
+    @Override
+    public T process(EvaluationManager manager)
+    {
+        return object;
+    }
 
-	@Override
-	public long getPriority()
-	{
-		return 0;
-	}
+    @Override
+    public void getDependencies(DependencyManager fdm)
+    {
+    }
 
-	@Override
-	public FormatManager<T> getVariableFormat()
-	{
-		return formatManager;
-	}
+    @Override
+    public long getPriority()
+    {
+        return 0;
+    }
 
-	@Override
-	public String getIdentification()
-	{
-		return "SET";
-	}
+    @Override
+    public FormatManager<T> getVariableFormat()
+    {
+        return formatManager;
+    }
 
-	@Override
-	public String getInstructions()
-	{
-		return formatManager.unconvert(object);
-	}
+    @Override
+    public String getIdentification()
+    {
+        return "SET";
+    }
+
+    @Override
+    public String getInstructions()
+    {
+        return formatManager.unconvert(object);
+    }
 
 }

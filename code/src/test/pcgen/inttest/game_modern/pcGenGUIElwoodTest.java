@@ -30,9 +30,9 @@ import org.junit.jupiter.api.Test;
  */
 public class pcGenGUIElwoodTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testElwood() throws Exception
-	{
-		runTest("msrd_Elwood", "Modern");
-	}
+    @Test
+    public void testElwood() throws Exception
+    {
+        runTest("msrd_Elwood", "Modern");
+    }
 }

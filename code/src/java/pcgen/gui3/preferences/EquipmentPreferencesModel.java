@@ -26,42 +26,42 @@ import javafx.beans.property.SimpleIntegerProperty;
  */
 final class EquipmentPreferencesModel
 {
-	static final class Bounds
-	{
-		private Bounds(final int min, final int max)
-		{
-			this.min = min;
-			this.max = max;
-		}
+    static final class Bounds
+    {
+        private Bounds(final int min, final int max)
+        {
+            this.min = min;
+            this.max = max;
+        }
 
-		public final int min;
-		public final int max;
-	}
+        public final int min;
+        public final int max;
+    }
 
-	private final IntegerProperty maxPotionLevel = new SimpleIntegerProperty();
-	private final Bounds maxPotionLevelBounds = new Bounds(1, 9);
-	private final IntegerProperty maxWandLevel = new SimpleIntegerProperty();
-	private final Bounds maxWandLevelBounds = new Bounds(1, 9);
+    private final IntegerProperty maxPotionLevel = new SimpleIntegerProperty();
+    private final Bounds maxPotionLevelBounds = new Bounds(1, 9);
+    private final IntegerProperty maxWandLevel = new SimpleIntegerProperty();
+    private final Bounds maxWandLevelBounds = new Bounds(1, 9);
 
-	IntegerProperty maxPotionLevelProperty()
-	{
-		return maxPotionLevel;
-	}
+    IntegerProperty maxPotionLevelProperty()
+    {
+        return maxPotionLevel;
+    }
 
-	Bounds getMaxPotionLevelBounds()
-	{
-		return maxPotionLevelBounds;
-	}
+    Bounds getMaxPotionLevelBounds()
+    {
+        return maxPotionLevelBounds;
+    }
 
-	IntegerProperty maxWandLevelProperty()
-	{
-		return maxWandLevel;
-	}
+    IntegerProperty maxWandLevelProperty()
+    {
+        return maxWandLevel;
+    }
 
-	Bounds getMaxWandLevelBounds()
-	{
-		return maxWandLevelBounds;
-	}
+    Bounds getMaxWandLevelBounds()
+    {
+        return maxWandLevelBounds;
+    }
 
 
 }

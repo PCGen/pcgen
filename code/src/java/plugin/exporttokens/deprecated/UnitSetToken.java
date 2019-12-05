@@ -25,9 +25,9 @@ import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * {@code UnitSetToken}.
- *
+ * <p>
  * Token formats are:
- * 
+ * <p>
  * UNITSET
  * UNITSET.HEIGHTUNIT
  * UNITSET.DISTANCEUNIT
@@ -35,34 +35,31 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class UnitSetToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "UNITSET";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "UNITSET";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("UNITSET".equals(tokenSource))
-		{
-			retString = Globals.getGameModeUnitSet().getDisplayName();
-		}
-		else if ("UNITSET.HEIGHTUNIT".equals(tokenSource))
-		{
-			retString = Globals.getGameModeUnitSet().getHeightUnit();
-		}
-		else if ("UNITSET.DISTANCEUNIT".equals(tokenSource))
-		{
-			retString = Globals.getGameModeUnitSet().getDistanceUnit();
-		}
-		else if ("UNITSET.WEIGHTUNIT".equals(tokenSource))
-		{
-			retString = Globals.getGameModeUnitSet().getWeightUnit();
-		}
+        if ("UNITSET".equals(tokenSource))
+        {
+            retString = Globals.getGameModeUnitSet().getDisplayName();
+        } else if ("UNITSET.HEIGHTUNIT".equals(tokenSource))
+        {
+            retString = Globals.getGameModeUnitSet().getHeightUnit();
+        } else if ("UNITSET.DISTANCEUNIT".equals(tokenSource))
+        {
+            retString = Globals.getGameModeUnitSet().getDistanceUnit();
+        } else if ("UNITSET.WEIGHTUNIT".equals(tokenSource))
+        {
+            retString = Globals.getGameModeUnitSet().getWeightUnit();
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 }

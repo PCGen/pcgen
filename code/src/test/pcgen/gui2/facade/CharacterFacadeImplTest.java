@@ -32,42 +32,41 @@ import org.junit.jupiter.api.Test;
 /**
  * The Class {@code CharacterFacadeImplTest} verifies the behaviour of
  * CharacterFacadeImpl.
- *
+ * <p>
  * <br/>
- * 
  */
 
 public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 {
 
-	private MockDataSetFacade dataset;
-	private MockUIDelegate uiDelegate;
+    private MockDataSetFacade dataset;
+    private MockUIDelegate uiDelegate;
 
-	/**
-	 * Check the default equipment set created by CharacterFacadeImpl. 
-	 */
-	@Test
-	public void testDefaultEquipSet()
-	{
-		PlayerCharacter pc = new PlayerCharacter();
-		CharacterFacadeImpl charFacade =
-				new CharacterFacadeImpl(pc, uiDelegate, dataset);
-		assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
-		EquipSet defaultEquipSet =
-				pc.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
-		assertNotNull("Unable to find default equip set", defaultEquipSet);
-		assertEquals("Incorrect id of the default equip set",
-			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
-	}
+    /**
+     * Check the default equipment set created by CharacterFacadeImpl.
+     */
+    @Test
+    public void testDefaultEquipSet()
+    {
+        PlayerCharacter pc = new PlayerCharacter();
+        CharacterFacadeImpl charFacade =
+                new CharacterFacadeImpl(pc, uiDelegate, dataset);
+        assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
+        EquipSet defaultEquipSet =
+                pc.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
+        assertNotNull("Unable to find default equip set", defaultEquipSet);
+        assertEquals("Incorrect id of the default equip set",
+                EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
+    }
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		dataset = new MockDataSetFacade(SettingsHandler.getGame());
-		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
-		uiDelegate = new MockUIDelegate();
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        dataset = new MockDataSetFacade(SettingsHandler.getGame());
+        dataset.addAbilityCategory(BuildUtilities.getFeatCat());
+        uiDelegate = new MockUIDelegate();
+    }
 
 }

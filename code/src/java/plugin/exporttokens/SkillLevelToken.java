@@ -27,54 +27,55 @@ import pcgen.util.Logging;
 
 /**
  * {@code SkillLevelToken}  outputs the number of skills
- * the character obtained at the specified level. The format 
- * for this tag is SKILLLEVEL.x.TOTAL 
+ * the character obtained at the specified level. The format
+ * for this tag is SKILLLEVEL.x.TOTAL
  */
 
 // SKILLLEVEL
 public class SkillLevelToken extends SkillToken
 {
-	/** token name */
-	public static final String TOKEN_NAME = "SKILLLEVEL";
+    /**
+     * token name
+     */
+    public static final String TOKEN_NAME = "SKILLLEVEL";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKEN_NAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKEN_NAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		CharacterDisplay display = pc.getDisplay();
-		SkillDetails details = buildSkillDetails(tokenSource);
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        CharacterDisplay display = pc.getDisplay();
+        SkillDetails details = buildSkillDetails(tokenSource);
 
-		if (details.getPropertyCount() > 0 && "TOTAL".equals(details.getProperty(0)))
-		{
-			final int aLevelOffset;
+        if (details.getPropertyCount() > 0 && "TOTAL".equals(details.getProperty(0)))
+        {
+            final int aLevelOffset;
 
-			try
-			{
-				aLevelOffset = Integer.parseInt(details.getSkillId()) - 1;
+            try
+            {
+                aLevelOffset = Integer.parseInt(details.getSkillId()) - 1;
 
-				if ((aLevelOffset >= display.getLevelInfoSize()) || (aLevelOffset < 0))
-				{
-					return "0";
-				}
+                if ((aLevelOffset >= display.getLevelInfoSize()) || (aLevelOffset < 0))
+                {
+                    return "0";
+                }
 
-				final PCLevelInfo wLevelInfo = display.getLevelInfo(aLevelOffset);
-				final int wOutput = wLevelInfo.getSkillPointsGained(pc);
-				return Integer.toString(wOutput);
-			}
-			catch (NumberFormatException nfe)
-			{
-				Logging.errorPrint("Error replacing SKILLLEVEL." + tokenSource, nfe);
+                final PCLevelInfo wLevelInfo = display.getLevelInfo(aLevelOffset);
+                final int wOutput = wLevelInfo.getSkillPointsGained(pc);
+                return Integer.toString(wOutput);
+            } catch (NumberFormatException nfe)
+            {
+                Logging.errorPrint("Error replacing SKILLLEVEL." + tokenSource, nfe);
 
-				return "";
-			}
-		}
+                return "";
+            }
+        }
 
-		return "";
-	}
+        return "";
+    }
 
 }

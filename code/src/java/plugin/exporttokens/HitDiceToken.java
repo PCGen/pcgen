@@ -37,149 +37,152 @@ import pcgen.util.Delta;
  */
 public class HitDiceToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "HITDICE";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "HITDICE";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("HITDICE".equals(tokenSource) || "HITDICE.LONG".equals(tokenSource))
-		{
-			retString = getHitDiceToken(pc);
-		}
-		else if ("HITDICE.MEDIUM".equals(tokenSource))
-		{
-			retString = getMediumToken(pc);
-		}
-		else if ("HITDICE.SHORT".equals(tokenSource))
-		{
-			retString = getShortToken(pc.getDisplay());
-		}
+        if ("HITDICE".equals(tokenSource) || "HITDICE.LONG".equals(tokenSource))
+        {
+            retString = getHitDiceToken(pc);
+        } else if ("HITDICE.MEDIUM".equals(tokenSource))
+        {
+            retString = getMediumToken(pc);
+        } else if ("HITDICE.SHORT".equals(tokenSource))
+        {
+            retString = getShortToken(pc.getDisplay());
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the medium version of the HITDICE token
-	 * @param pc
-	 * @return the medium version of the HITDICE token
-	 */
-	public static String getHitDiceToken(PlayerCharacter pc)
-	{
-		StringBuilder ret = new StringBuilder();
-		String del = "";
+    /**
+     * Get the medium version of the HITDICE token
+     *
+     * @param pc
+     * @return the medium version of the HITDICE token
+     */
+    public static String getHitDiceToken(PlayerCharacter pc)
+    {
+        StringBuilder ret = new StringBuilder();
+        String del = "";
 
-		CharacterDisplay display = pc.getDisplay();
-		for (PCClass pcClass : display.getClassSet())
-		{
-			HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
+        CharacterDisplay display = pc.getDisplay();
+        for (PCClass pcClass : display.getClassSet())
+        {
+            HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
 
-			IntStream.range(0, display.getLevel(pcClass))
-					.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
-					.filter(hitDie -> hitDie != 0).forEach(hitDie ->
-						hdMap.merge(hitDie, 1, Integer::sum)
-			);
+            IntStream.range(0, display.getLevel(pcClass))
+                    .map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+                    .filter(hitDie -> hitDie != 0).forEach(hitDie ->
+                    hdMap.merge(hitDie, 1, Integer::sum)
+            );
 
-			for (final Map.Entry<Integer, Integer> entry : hdMap.entrySet())
-			{
-				Integer value = entry.getValue();
-				ret.append(del);
-				ret.append('(');
-				ret.append(value).append('d').append((int) entry.getKey());
-				ret.append(')');
-				del = "+";
-			}
-		}
+            for (final Map.Entry<Integer, Integer> entry : hdMap.entrySet())
+            {
+                Integer value = entry.getValue();
+                ret.append(del);
+                ret.append('(');
+                ret.append(value).append('d').append((int) entry.getKey());
+                ret.append(')');
+                del = "+";
+            }
+        }
 
-		// Get CON bonus contribution to hitpoint total
-		int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
+        // Get CON bonus contribution to hitpoint total
+        int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
 
-		// Add in feat bonus
-		temp += (int) pc.getTotalBonusTo("HP", "CURRENTMAX");
+        // Add in feat bonus
+        temp += (int) pc.getTotalBonusTo("HP", "CURRENTMAX");
 
-		if (temp != 0)
-		{
-			ret.append(Delta.toString(temp));
-		}
+        if (temp != 0)
+        {
+            ret.append(Delta.toString(temp));
+        }
 
-		return ret.toString();
-	}
+        return ret.toString();
+    }
 
-	/**
-	 * Get the HITDICE token
-	 * @param pc
-	 * @return the HITDICE token
-	 */
-	public static String getMediumToken(PlayerCharacter pc)
-	{
-		StringBuilder ret = new StringBuilder();
-		String del = "";
-		Integer total = 0;
+    /**
+     * Get the HITDICE token
+     *
+     * @param pc
+     * @return the HITDICE token
+     */
+    public static String getMediumToken(PlayerCharacter pc)
+    {
+        StringBuilder ret = new StringBuilder();
+        String del = "";
+        Integer total = 0;
 
-		HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
+        HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
 
-		CharacterDisplay display = pc.getDisplay();
-		display.getClassSet().forEach(pcClass ->
-				IntStream.range(0, display.getLevel(pcClass))
-						.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
-						.filter(hitDie -> hitDie != 0)
-						.forEach(hitDie -> hdMap.merge(hitDie, 1, Integer::sum)));
+        CharacterDisplay display = pc.getDisplay();
+        display.getClassSet().forEach(pcClass ->
+                IntStream.range(0, display.getLevel(pcClass))
+                        .map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+                        .filter(hitDie -> hitDie != 0)
+                        .forEach(hitDie -> hdMap.merge(hitDie, 1, Integer::sum)));
 
-		if (hdMap.size() > 1)
-		{
-			ret.append(getShortToken(display));
-			ret.append(" HD; ");
-		}
-		for (final Map.Entry<Integer, Integer> entry : hdMap.entrySet())
-		{
-			Integer value = entry.getValue();
-			ret.append(del);
-			ret.append(value).append('d').append((int) entry.getKey());
-			total += value;
-			del = "+";
-		}
+        if (hdMap.size() > 1)
+        {
+            ret.append(getShortToken(display));
+            ret.append(" HD; ");
+        }
+        for (final Map.Entry<Integer, Integer> entry : hdMap.entrySet())
+        {
+            Integer value = entry.getValue();
+            ret.append(del);
+            ret.append(value).append('d').append((int) entry.getKey());
+            total += value;
+            del = "+";
+        }
 
-		// Get CON bonus contribution to hitpoint total
-		int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
+        // Get CON bonus contribution to hitpoint total
+        int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
 
-		// Add in feat bonus
-		temp += (int) pc.getTotalBonusTo("HP", "CURRENTMAX");
+        // Add in feat bonus
+        temp += (int) pc.getTotalBonusTo("HP", "CURRENTMAX");
 
-		if (temp != 0)
-		{
-			ret.append(Delta.toString(temp));
-		}
+        if (temp != 0)
+        {
+            ret.append(Delta.toString(temp));
+        }
 
-		return ret.toString();
-	}
+        return ret.toString();
+    }
 
-	/**
-	 * Get the short version of the HITDICE token
-	 * @param display
-	 * @return the short version of the HITDICE token
-	 */
-	public static String getShortToken(CharacterDisplay display)
-	{
-		int dice = display.getClassSet().stream()
-				.map(pcClass ->
-						IntStream.range(0, display.getLevel(pcClass))
-								.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
-								.boxed()
-								.collect(Collectors.toMap(Function.identity(),
-										hitDie -> 1,
+    /**
+     * Get the short version of the HITDICE token
+     *
+     * @param display
+     * @return the short version of the HITDICE token
+     */
+    public static String getShortToken(CharacterDisplay display)
+    {
+        int dice = display.getClassSet().stream()
+                .map(pcClass ->
+                        IntStream.range(0, display.getLevel(pcClass))
+                                .map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+                                .boxed()
+                                .collect(Collectors.toMap(Function.identity(),
+                                        hitDie -> 1,
                                         Integer::sum,
-										LinkedHashMap::new)))
-				.mapToInt(hdMap -> hdMap.entrySet().stream().mapToInt(Map.Entry::getValue).sum())
-				.sum();
+                                        LinkedHashMap::new)))
+                .mapToInt(hdMap -> hdMap.entrySet().stream().mapToInt(Map.Entry::getValue).sum())
+                .sum();
 
-		return String.valueOf(dice);
-	}
+        return String.valueOf(dice);
+    }
 }

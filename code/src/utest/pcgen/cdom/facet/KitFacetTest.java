@@ -24,21 +24,21 @@ import pcgen.core.Kit;
 
 public class KitFacetTest extends AbstractListFacetTest<Kit>
 {
-	private KitFacet facet = new KitFacet();
+    private KitFacet facet = new KitFacet();
 
-	@Override
-	protected AbstractListFacet<CharID, Kit> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractListFacet<CharID, Kit> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected Kit getObject()
-	{
-		Kit t = new Kit();
-		t.setName("Kit" + n++);
-		return t;
-	}
+    @Override
+    protected Kit getObject()
+    {
+        Kit t = new Kit();
+        t.setName("Kit" + n++);
+        return t;
+    }
 }

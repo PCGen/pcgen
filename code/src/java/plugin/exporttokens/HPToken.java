@@ -27,18 +27,20 @@ import pcgen.io.exporttoken.Token;
  */
 public class HPToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "HP";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "HP";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Integer.toString(pc.hitPoints());
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Integer.toString(pc.hitPoints());
+    }
 }

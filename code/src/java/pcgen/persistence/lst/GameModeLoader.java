@@ -28,55 +28,54 @@ import pcgen.util.Logging;
 
 /**
  * {@code GameModeLoader}.
- *
  */
 public final class GameModeLoader
 {
-	/**
-	 * Private constructor added to inhibit instance creation for this utility class.
-	 */
-	private GameModeLoader()
-	{
-		// Empty Constructor
-	}
+    /**
+     * Private constructor added to inhibit instance creation for this utility class.
+     */
+    private GameModeLoader()
+    {
+        // Empty Constructor
+    }
 
-	/**
-	 * Parse the MISC game information line in the game mode file
-	 * @param gameMode
-	 * @param aLine
-	 * @param source
-	 * @param lineNum
-	 */
-	public static void parseMiscGameInfoLine(GameMode gameMode, String aLine, URI source, int lineNum)
-	{
-		if (gameMode == null)
-		{
-			return;
-		}
+    /**
+     * Parse the MISC game information line in the game mode file
+     *
+     * @param gameMode
+     * @param aLine
+     * @param source
+     * @param lineNum
+     */
+    public static void parseMiscGameInfoLine(GameMode gameMode, String aLine, URI source, int lineNum)
+    {
+        if (gameMode == null)
+        {
+            return;
+        }
 
-		final int idxColon = aLine.indexOf(':');
-		if (idxColon < 0)
-		{
-			return;
-		}
+        final int idxColon = aLine.indexOf(':');
+        if (idxColon < 0)
+        {
+            return;
+        }
 
-		final String key = aLine.substring(0, idxColon);
-		final String value = aLine.substring(idxColon + 1).trim();
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(GameModeLstToken.class);
-		GameModeLstToken token = (GameModeLstToken) tokenMap.get(key);
-		if (token != null)
-		{
-			LstUtils.deprecationCheck(token, gameMode.getName(), source, value);
-			if (!token.parse(gameMode, value.intern(), source))
-			{
-				Logging.errorPrint("Error parsing misc. game info " + gameMode.getName() + '/' + source + ':'
-					+ Integer.toString(lineNum) + " \"" + aLine + "\"");
-			}
-		}
-		else
-		{
-			Logging.errorPrint("Illegal misc. game info " + gameMode.getName() + '/' + source + ':'
-				+ Integer.toString(lineNum) + " \"" + aLine + "\"");
-		}
-	}
+        final String key = aLine.substring(0, idxColon);
+        final String value = aLine.substring(idxColon + 1).trim();
+        Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(GameModeLstToken.class);
+        GameModeLstToken token = (GameModeLstToken) tokenMap.get(key);
+        if (token != null)
+        {
+            LstUtils.deprecationCheck(token, gameMode.getName(), source, value);
+            if (!token.parse(gameMode, value.intern(), source))
+            {
+                Logging.errorPrint("Error parsing misc. game info " + gameMode.getName() + '/' + source + ':'
+                        + Integer.toString(lineNum) + " \"" + aLine + "\"");
+            }
+        } else
+        {
+            Logging.errorPrint("Illegal misc. game info " + gameMode.getName() + '/' + source + ':'
+                    + Integer.toString(lineNum) + " \"" + aLine + "\"");
+        }
+    }
 }

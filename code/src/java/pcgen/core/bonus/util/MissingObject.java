@@ -22,23 +22,25 @@ package pcgen.core.bonus.util;
  */
 public class MissingObject
 {
-	private String objectName = "";
+    private String objectName = "";
 
-	/**
-	 * Constructor
-	 * @param aName
-	 */
-	public MissingObject(final String aName)
-	{
-		objectName = aName;
-	}
+    /**
+     * Constructor
+     *
+     * @param aName
+     */
+    public MissingObject(final String aName)
+    {
+        objectName = aName;
+    }
 
-	/**
-	 * Get the Object Name that is missing
-	 * @return the Object Name that is missing
-	 */
-	public String getObjectName()
-	{
-		return objectName;
-	}
+    /**
+     * Get the Object Name that is missing
+     *
+     * @return the Object Name that is missing
+     */
+    public String getObjectName()
+    {
+        return objectName;
+    }
 }

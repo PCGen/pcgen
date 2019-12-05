@@ -26,42 +26,41 @@ import pcgen.rules.persistence.token.ParseResult;
 public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo> implements CDOMPrimaryToken<LoadInfo>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "LOADMULTSTEP";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LOADMULTSTEP";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
-	{
-		try
-		{
-			int step = Integer.parseInt(value);
-			if (step <= 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " expected a positive integer, found : " + value);
-			}
-			info.setLoadMultStep(Integer.parseInt(value));
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
-		}
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
+    {
+        try
+        {
+            int step = Integer.parseInt(value);
+            if (step <= 0)
+            {
+                return new ParseResult.Fail(getTokenName() + " expected a positive integer, found : " + value);
+            }
+            info.setLoadMultStep(Integer.parseInt(value));
+            return ParseResult.SUCCESS;
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, LoadInfo info)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public String[] unparse(LoadContext context, LoadInfo info)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Class<LoadInfo> getTokenClass()
-	{
-		return LoadInfo.class;
-	}
+    @Override
+    public Class<LoadInfo> getTokenClass()
+    {
+        return LoadInfo.class;
+    }
 }

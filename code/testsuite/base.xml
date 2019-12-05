@@ -1,2049 +1,2082 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-|MANUALWHITESPACE|
-	<!--
-	  =============== =====================
-	  ====================================|BR|
-			BIO|BR|
-	  ====================================
-	  ====================================-->
-|ENDMANUALWHITESPACE|
-	<basics>
-		<bonuses>|BONUSLIST.STAT.STR|</bonuses>
-		<bonuses>|BONUSLIST.STAT.STR.TOTAL|</bonuses>
-		<bonuses>|BONUSLIST.CHECK.BASE|</bonuses>
-		<bonuses>|BONUSLIST.CHECK.BASE.TOTAL|</bonuses>
-		<name>|NAME|</name>
-		<followerof>|FOLLOWEROF|</followerof>
-		<playername>|PLAYERNAME|</playername>
-		<action_points>|VAR.ACTION.INTVAL|</action_points>
-		<age>|AGE|</age>
-		<alignment>
-			<long>|ALIGNMENT|</long>
-			<short>|ALIGNMENT.SHORT|</short>
-		</alignment>
-		<bab>|ATTACK.MELEE.BASE|</bab>
-		<bio>|BIO|</bio>
-		<birthplace>|BIRTHPLACE|</birthplace>
-		<catchphrase>|CATCHPHRASE|</catchphrase>
-		<classes>
-|FOR,%class,0,countdistinct("CLASSES")-1,1,0|
-			<class>
-				<name>|CLASS.%class|</name>
-				<abbreviation>|CLASSABB.%class|</abbreviation>
-				<level>|CLASS.%class.LEVEL|</level>
-				<bonuslist>|CLASS.%class.BONUSLIST|</bonuslist>
-				<sequence>|%class|</sequence>
-			</class>
-|ENDFOR|	<!-- Classes -->
-			<levels_total>|TOTALLEVELS|</levels_total>
-			<levels_ecl>|ECL|</levels_ecl>
-			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform>|FOR.0,10,1,\CLASSABB.%\\CLASS.%.LEVEL\, , ,1|</shortform>
-			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
-		</classes>
-		<deity>
-			<name>|DEITY|</name>
-			<alignment>|DEITY.ALIGNMENT|</alignment>
-			<description>|DEITY.DESCRIPTION|</description>
-			<domainlist>|DEITY.DOMAINLIST|</domainlist>
-			<favoredweapon>|DEITY.FAVOREDWEAPON|</favoredweapon>
-<!-->			<followeralignment>|DEITY.FOLLOWERALIGNMENT|</followeralignment>  This is no longer valid and keeps throwing out errors-->
-			<holyitem>|DEITY.HOLYITEM|</holyitem>
-			<pantheonlist>|DEITY.PANTHEONLIST|</pantheonlist>
-			<source>|DEITY.SOURCE|</source>
-			<special_abilities>|DEITY.SA|</special_abilities>
-			<appearance>|DEITY.APPEARANCE|</appearance>
-			<title>|DEITY.TITLE|</title>
-			<worshippers>|DEITY.WORSHIPPERS|</worshippers>
-		</deity>
-		<description>|DESC|</description>
-		<experience>
-			<current>|EXP.CURRENT|</current>
-			<next_level>|EXP.NEXT|</next_level>
-			<factor>|EXP.FACTOR|</factor>
-			<penalty>|EXP.PENALTY|</penalty>
-		</experience>
-		<eyes>
-			<color>|COLOR.EYE|</color>
-		</eyes>
-		<hair>
-			<color>|COLOR.HAIR|</color>
-			<length>|LENGTH.HAIR|</length>
-		</hair>
-		<skin>
-			<color>|COLOR.SKIN|</color>
-		</skin>
-		<cr>|CR|</cr>
-		<face>
-		<face>|FACE|</face>
-			<short>|FACE.SHORT|</short>
-			<squares>|FACE.SQUARES|</squares>
-		</face>
-		<favoredlist>|FAVOREDLIST|</favoredlist>
-		<followerlist>|FOLLOWERLIST|</followerlist>
-		<gender>
-			<long>|GENDER.LONG|</long>
-			<short>|GENDER.SHORT|</short>
-		</gender>
-		<handed>|HANDED|</handed>
-		<height>
-			<total>|HEIGHT|</total>
-			<feet>|HEIGHT.FOOTPART|</feet>
-			<inches>|HEIGHT.INCHPART|</inches>
-		</height>
-		<hitdice>|HITDICE|</hitdice>
-		<interests>|INTERESTS|</interests>
-		<languages>
-|FOR,%lang,0,COUNT[LANGUAGES]-1,1,0|		
-			<language>|LANGUAGES.%lang|</language>
-|ENDFOR|		
-			<all>|LANGUAGES|</all>
-		</languages>
-		<location>|LOCATION|</location>
-		<move>
-|FOR,%move,0,COUNT[MOVE]-1,1,0|
-			<move>
-				<name>|MOVE.%move.NAME|</name>
-				<rate>|MOVE.%move.RATE|</rate>
-				<squares>|MOVE.%move.SQUARES|</squares>
-			</move>
-|ENDFOR|
-			<all>|MOVEMENT|</all>
-		</move>
-		<personality>
-			<trait>|PERSONALITY1|</trait>
-			<trait>|PERSONALITY2|</trait>
-		</personality>
-		<portrait>|PORTRAIT|</portrait>
-		<phobias>|PHOBIAS|</phobias>
-		<race>|RACE|</race>
-		<reach>
-		<reach>|REACH|</reach>
-			<squares>|REACH.SQUARES|</squares>
-		</reach>
-		<region>|REGION|</region>
-		<reputation>|VAR.REPUTATION.INTVAL|</reputation>
-		<residence>|RESIDENCE|</residence>
-		<size>
-			<long>|SIZELONG|</long>
-			<short>|SIZE|</short>
-		</size>
-		<speechtendency>|SPEECHTENDENCY|</speechtendency>
-		<type>|TYPE|</type>
-		<vision>
-|FOR,%vision,0,COUNT[VISION]-1,1,0|
-			<vision>|VISION.%vision|</vision>
-|ENDFOR|
-			<all>|VISION|</all>
-		</vision>
-		<wealth>|VAR.WEALTH.INTVAL|</wealth>
-		<weight>
-			<weight_unit>|WEIGHT|</weight_unit>
-			<weight_nounit>|WEIGHT.NOUNIT|</weight_nounit>
-		</weight>
-		<poolpoints>
-			<cost>|POOL.COST|</cost>
-			<current>|POOL.CURRENT|</current>
-		</poolpoints>
-		<notes>
-|FOR,%note,0,COUNT[NOTES]-1,1,0|
-			<note>
-				<name>|NOTE.%note.NAME|</name>
-				<value>|NOTE.%note.VALUE|</value>
-			</note>
-|ENDFOR|
-		</notes>
-	</basics>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITIES
-	  ====================================
-	  ====================================-->
-	<abilities>
-|FOR,%stat,0,COUNT[STATS]-1,1,0|	
-		<ability>
-			<name>
-				<long>|STAT.%stat.LONGNAME|</long>
-				<short>|STAT.%stat.NAME|</short>
-			</name>
-			<score>|STAT.%stat|</score>
-			<modifier>|STAT.%stat.MOD|</modifier>
-			<base>|STAT.%stat.BASE|</base>
-			<basemod>|STAT.%stat.BASEMOD|</basemod>
-			<noequip>|STAT.%stat.NOEQUIP|</noequip>
-			<noequip_mod>|STAT.%stat.MOD.NOEQUIP|</noequip_mod>
-			<no_temp_score>|STAT.%stat.NOTEMP|</no_temp_score>
-			<no_temp_modifier>|STAT.%stat.MOD.NOTEMP|</no_temp_modifier>
-		</ability>
-|ENDFOR|		
-	</abilities>
-	<!--
-	  ====================================
-	  ====================================
-			HIT POINTS
-	  ====================================
-	  ====================================-->
-	<hit_points>
-		<points>|HP|</points>
-		<alternate>|ALTHP|</alternate>
-		<die>|HITDICE|</die>
-		<current/>
-		<subdual/>
-		<damage_reduction>|DR|</damage_reduction>
-		<damage_threshold>|VAR.DAMAGETHRESHOLD.INTVAL|</damage_threshold>
-		<history>
-|FOR,%level,1,ECL,1,1|
-			<roll>
-				<level>|%level|</level>
-				<roll>|HPROLL.%level|</roll>
-				<stat>|HPROLL.%level.STAT|</stat>
-				<total>|HPROLL.%level.TOTAL|</total>
-			</roll>
-|ENDFOR|		
-		</history>
-	</hit_points>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR CLASS
-	  ====================================
-	  ====================================-->
-	<armor_class>
-		<total>|AC.Total|</total>
-		<listing>|BONUS.COMBAT.AC.LISTING|</listing>
-		<flat>|AC.Flatfooted|</flat>
-		<touch>|AC.Touch|</touch>
-		<base>|AC.Base|</base>
-		<armor_bonus>|AC.Armor|</armor_bonus>
-		<shield_bonus>|AC.Shield|</shield_bonus>
-		<stat_mod>|AC.Ability|</stat_mod>
-		<size_mod>|AC.Size|</size_mod>
-		<natural>|AC.NaturalArmor|</natural>
-		<class_bonus>|AC.ClassDefense|</class_bonus>
-		<dodge_bonus>|AC.Dodge|</dodge_bonus>
-		<misc>|AC.Misc|</misc>
-		<miss_chance/>
-		<max_dex>|MAXDEX|</max_dex>
-		<spell_failure>|SPELLFAILURE|</spell_failure>
-		<check_penalty>|ACCHECK|</check_penalty>
-		<spell_resistance>|SR|</spell_resistance>
-	</armor_class>
-	<!--
-	  ====================================
-	  ====================================
-			INITIATIVE
-	  ====================================
-	  ====================================-->
-	<initiative>
-		<total>|INITIATIVEMOD|</total>
-		<dex_mod>|STAT.1.MOD|</dex_mod>
-		<misc_mod>|INITIATIVEMISC|</misc_mod>
-	</initiative>
-	<!--
-	  ====================================
-	  ====================================
-			SKILLS
-	  ====================================
-	  ====================================-->
-	<skills>
-		<skillpoints>
-			<total>|SKILLPOINTS.TOTAL|</total>
-			<used>|SKILLPOINTS.USED|</used>
-			<unused>|SKILLPOINTS.UNUSED|</unused>
-		</skillpoints>
-		<list_mods>|SKILLLISTMODS|</list_mods>
-		<max_class_skill_level>|MAXSKILLLEVEL|</max_class_skill_level>
-		<max_cross_class_skill_level>|MAXCCSKILLLEVEL|</max_cross_class_skill_level>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
-		<skill>
-			<name>|SKILL.%skill|</name>
-			<ranks>|SKILL.%skill.RANK|</ranks>
-			<mod>|SKILL.%skill.MOD|<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>|SKILL.%skill.TOTAL|</skill_mod>
-			<ability_mod>|SKILL.%skill.ABMOD|<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>|SKILL.%skill.MISC|<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>|SKILL.%skill.ABILITY|</ability>
-			<synergy>|SKILL.%skill.SYNERGY|</synergy>
-			<untrained>|SKILL.%skill.UNTRAINED|</untrained>
-			<exclusive>|SKILL.%skill.EXCLUSIVE|</exclusive>
-			<trained_total>|SKILL.%skill.TRAINED_TOTAL|</trained_total>
-			<exclusive_total>|SKILL.%skill.EXCLUSIVE_TOTAL|</exclusive_total>
-		</skill>
-|ENDFOR|	<!-- Skills -->
-	</skills>
-	<!--
-	  ====================================
-	  ====================================
-			SAVING THROWS
-	  ====================================
-	  ====================================-->
-	<saving_throws>
-		<conditional_modifiers/>
-		<saving_throw>
-			<name>
-				<long>fortitude</long>
-				<short>fort</short>
-			</name>
-			<ability>constitution</ability>
-			<total>|CHECK.0.TOTAL|</total>
-			<base>|CHECK.0.BASE|</base>
-			<abil_mod>|STAT.2.MOD|</abil_mod>
-			<feats>|CHECK.0.FEATS|</feats>
-			<magic_mod>|CHECK.0.MAGIC|</magic_mod>
-			<misc_mod>|CHECK.0.MISC.NOMAGIC.NOSTAT|</misc_mod>
-			<race>|CHECK.0.RACE|</race>
-			<epic_mod>|CHECK.0.EPIC|</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>reflex</long>
-				<short>ref</short>
-			</name>
-			<ability>dexterity</ability>
-			<total>|CHECK.1.TOTAL|</total>
-			<base>|CHECK.1.BASE|</base>
-			<feats>|CHECK.1.FEATS|</feats>
-			<abil_mod>|STAT.1.MOD|</abil_mod>
-			<magic_mod>|CHECK.1.MAGIC|</magic_mod>
-			<misc_mod>|CHECK.1.MISC.NOMAGIC.NOSTAT|</misc_mod>
-			<race>|CHECK.1.RACE|</race>
-			<epic_mod>|CHECK.1.EPIC|</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>will</long>
-				<short>will</short>
-			</name>
-			<ability>wisdom</ability>
-			<total>|CHECK.2.TOTAL|</total>
-			<base>|CHECK.2.BASE|</base>
-			<abil_mod>|STAT.4.MOD|</abil_mod>
-			<feats>|CHECK.2.FEATS|</feats>
-			<magic_mod>|CHECK.2.MAGIC|</magic_mod>
-			<misc_mod>|CHECK.2.MISC.NOMAGIC.NOSTAT|</misc_mod>
-			<race>|CHECK.2.RACE|</race>
-			<epic_mod>|CHECK.2.EPIC|</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-	</saving_throws>
-	<!--
-	  ====================================
-	  ====================================
-			ATTACK
-	  ====================================
-	  ====================================-->
-	<attack>
-		<melee>
-			<total>|ATTACK.MELEE.TOTAL|</total>
-			<bab>|ATTACK.MELEE.BASE|</bab>
-			<base_attack_bonus>|ATTACK.MELEE|</base_attack_bonus>
-			<stat_mod>|ATTACK.MELEE.STAT|</stat_mod>
-			<size_mod>|ATTACK.MELEE.SIZE|</size_mod>
-			<misc_mod>|ATTACK.MELEE.MISC|</misc_mod>
-			<epic_mod>|ATTACK.MELEE.EPIC|</epic_mod>
-			<temp_mod/>
-		</melee>
-		<ranged>
-			<total>|ATTACK.RANGED.TOTAL|</total>
-			<bab>|ATTACK.RANGED.BASE|</bab>
-			<base_attack_bonus>|ATTACK.RANGED|</base_attack_bonus>
-			<stat_mod>|ATTACK.RANGED.STAT|</stat_mod>
-			<size_mod>|ATTACK.RANGED.SIZE|</size_mod>
-			<misc_mod>|ATTACK.RANGED.MISC|</misc_mod>
-			<epic_mod>|ATTACK.RANGED.EPIC|</epic_mod>
-			<temp_mod/>
-		</ranged>
-		<grapple>
-			<total>|ATTACK.GRAPPLE.TOTAL|</total>
-			<bab>|ATTACK.GRAPPLE.BASE|</bab>
-			<base_attack_bonus>|ATTACK.GRAPPLE|</base_attack_bonus>
-			<stat_mod>|ATTACK.GRAPPLE.STAT|</stat_mod>
-			<size_mod>|ATTACK.GRAPPLE.SIZE|</size_mod>
-			<misc_mod>|ATTACK.GRAPPLE.MISC|</misc_mod>
-			<epic_mod>|ATTACK.GRAPPLE.EPIC|</epic_mod>
-			<temp_mod/>
-		</grapple>
-	</attack>
-	<!--
-	  ====================================
-	  ====================================
-			WEAPONS
-	  ====================================
-	  ====================================-->
-	<weapons>
-		<unarmed>
-			<total>|WEAPONH.TOTALHIT|</total>
-			<damage>|WEAPONH.DAMAGE|</damage>
-			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
-			<!-- Should be changed to a variable due to improved crit -->
-		</unarmed>
-
-		
-|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
-
-|IIF(WEAPON.%weap.CATEGORY:BOTH)|
+    |MANUALWHITESPACE|
+    <!--
+      =============== =====================
+      ====================================|BR|
+            BIO|BR|
+      ====================================
+      ====================================-->
+    |ENDMANUALWHITESPACE|
+    <basics>
+        <bonuses>|BONUSLIST.STAT.STR|</bonuses>
+        <bonuses>|BONUSLIST.STAT.STR.TOTAL|</bonuses>
+        <bonuses>|BONUSLIST.CHECK.BASE|</bonuses>
+        <bonuses>|BONUSLIST.CHECK.BASE.TOTAL|</bonuses>
+        <name>|NAME|</name>
+        <followerof>|FOLLOWEROF|</followerof>
+        <playername>|PLAYERNAME|</playername>
+        <action_points>|VAR.ACTION.INTVAL|</action_points>
+        <age>|AGE|</age>
+        <alignment>
+            <long>|ALIGNMENT|</long>
+            <short>|ALIGNMENT.SHORT|</short>
+        </alignment>
+        <bab>|ATTACK.MELEE.BASE|</bab>
+        <bio>|BIO|</bio>
+        <birthplace>|BIRTHPLACE|</birthplace>
+        <catchphrase>|CATCHPHRASE|</catchphrase>
+        <classes>
+            |FOR,%class,0,countdistinct("CLASSES")-1,1,0|
+            <class>
+                <name>|CLASS.%class|</name>
+                <abbreviation>|CLASSABB.%class|</abbreviation>
+                <level>|CLASS.%class.LEVEL|</level>
+                <bonuslist>|CLASS.%class.BONUSLIST|</bonuslist>
+                <sequence>|%class|</sequence>
+            </class>
+            |ENDFOR|    <!-- Classes -->
+            <levels_total>|TOTALLEVELS|</levels_total>
+            <levels_ecl>|ECL|</levels_ecl>
+            <!-- shortform below should be removed - it can be derived from class info above -->
+            <shortform>|FOR.0,10,1,\CLASSABB.%\\CLASS.%.LEVEL\, , ,1|</shortform>
+            <!-- CLASSLIST is not extracted because we can derive it from the information above -->
+        </classes>
+        <deity>
+            <name>|DEITY|</name>
+            <alignment>|DEITY.ALIGNMENT|</alignment>
+            <description>|DEITY.DESCRIPTION|</description>
+            <domainlist>|DEITY.DOMAINLIST|</domainlist>
+            <favoredweapon>|DEITY.FAVOREDWEAPON|</favoredweapon>
+            <!-->			<followeralignment>|DEITY.FOLLOWERALIGNMENT|</followeralignment>  This is no longer valid and keeps throwing out errors-->
+            <holyitem>|DEITY.HOLYITEM|</holyitem>
+            <pantheonlist>|DEITY.PANTHEONLIST|</pantheonlist>
+            <source>|DEITY.SOURCE|</source>
+            <special_abilities>|DEITY.SA|</special_abilities>
+            <appearance>|DEITY.APPEARANCE|</appearance>
+            <title>|DEITY.TITLE|</title>
+            <worshippers>|DEITY.WORSHIPPERS|</worshippers>
+        </deity>
+        <description>|DESC|</description>
+        <experience>
+            <current>|EXP.CURRENT|</current>
+            <next_level>|EXP.NEXT|</next_level>
+            <factor>|EXP.FACTOR|</factor>
+            <penalty>|EXP.PENALTY|</penalty>
+        </experience>
+        <eyes>
+            <color>|COLOR.EYE|</color>
+        </eyes>
+        <hair>
+            <color>|COLOR.HAIR|</color>
+            <length>|LENGTH.HAIR|</length>
+        </hair>
+        <skin>
+            <color>|COLOR.SKIN|</color>
+        </skin>
+        <cr>|CR|</cr>
+        <face>
+            <face>|FACE|</face>
+            <short>|FACE.SHORT|</short>
+            <squares>|FACE.SQUARES|</squares>
+        </face>
+        <favoredlist>|FAVOREDLIST|</favoredlist>
+        <followerlist>|FOLLOWERLIST|</followerlist>
+        <gender>
+            <long>|GENDER.LONG|</long>
+            <short>|GENDER.SHORT|</short>
+        </gender>
+        <handed>|HANDED|</handed>
+        <height>
+            <total>|HEIGHT|</total>
+            <feet>|HEIGHT.FOOTPART|</feet>
+            <inches>|HEIGHT.INCHPART|</inches>
+        </height>
+        <hitdice>|HITDICE|</hitdice>
+        <interests>|INTERESTS|</interests>
+        <languages>
+            |FOR,%lang,0,COUNT[LANGUAGES]-1,1,0|
+            <language>|LANGUAGES.%lang|</language>
+            |ENDFOR|
+            <all>|LANGUAGES|</all>
+        </languages>
+        <location>|LOCATION|</location>
+        <move>
+            |FOR,%move,0,COUNT[MOVE]-1,1,0|
+            <move>
+                <name>|MOVE.%move.NAME|</name>
+                <rate>|MOVE.%move.RATE|</rate>
+                <squares>|MOVE.%move.SQUARES|</squares>
+            </move>
+            |ENDFOR|
+            <all>|MOVEMENT|</all>
+        </move>
+        <personality>
+            <trait>|PERSONALITY1|</trait>
+            <trait>|PERSONALITY2|</trait>
+        </personality>
+        <portrait>|PORTRAIT|</portrait>
+        <phobias>|PHOBIAS|</phobias>
+        <race>|RACE|</race>
+        <reach>
+            <reach>|REACH|</reach>
+            <squares>|REACH.SQUARES|</squares>
+        </reach>
+        <region>|REGION|</region>
+        <reputation>|VAR.REPUTATION.INTVAL|</reputation>
+        <residence>|RESIDENCE|</residence>
+        <size>
+            <long>|SIZELONG|</long>
+            <short>|SIZE|</short>
+        </size>
+        <speechtendency>|SPEECHTENDENCY|</speechtendency>
+        <type>|TYPE|</type>
+        <vision>
+            |FOR,%vision,0,COUNT[VISION]-1,1,0|
+            <vision>|VISION.%vision|</vision>
+            |ENDFOR|
+            <all>|VISION|</all>
+        </vision>
+        <wealth>|VAR.WEALTH.INTVAL|</wealth>
+        <weight>
+            <weight_unit>|WEIGHT|</weight_unit>
+            <weight_nounit>|WEIGHT.NOUNIT|</weight_nounit>
+        </weight>
+        <poolpoints>
+            <cost>|POOL.COST|</cost>
+            <current>|POOL.CURRENT|</current>
+        </poolpoints>
+        <notes>
+            |FOR,%note,0,COUNT[NOTES]-1,1,0|
+            <note>
+                <name>|NOTE.%note.NAME|</name>
+                <value>|NOTE.%note.VALUE|</value>
+            </note>
+            |ENDFOR|
+        </notes>
+    </basics>
+    <!--
+      ====================================
+      ====================================
+            ABILITIES
+      ====================================
+      ====================================-->
+    <abilities>
+        |FOR,%stat,0,COUNT[STATS]-1,1,0|
+        <ability>
+            <name>
+                <long>|STAT.%stat.LONGNAME|</long>
+                <short>|STAT.%stat.NAME|</short>
+            </name>
+            <score>|STAT.%stat|</score>
+            <modifier>|STAT.%stat.MOD|</modifier>
+            <base>|STAT.%stat.BASE|</base>
+            <basemod>|STAT.%stat.BASEMOD|</basemod>
+            <noequip>|STAT.%stat.NOEQUIP|</noequip>
+            <noequip_mod>|STAT.%stat.MOD.NOEQUIP|</noequip_mod>
+            <no_temp_score>|STAT.%stat.NOTEMP|</no_temp_score>
+            <no_temp_modifier>|STAT.%stat.MOD.NOTEMP|</no_temp_modifier>
+        </ability>
+        |ENDFOR|
+    </abilities>
+    <!--
+      ====================================
+      ====================================
+            HIT POINTS
+      ====================================
+      ====================================-->
+    <hit_points>
+        <points>|HP|</points>
+        <alternate>|ALTHP|</alternate>
+        <die>|HITDICE|</die>
+        <current/>
+        <subdual/>
+        <damage_reduction>|DR|</damage_reduction>
+        <damage_threshold>|VAR.DAMAGETHRESHOLD.INTVAL|</damage_threshold>
+        <history>
+            |FOR,%level,1,ECL,1,1|
+            <roll>
+                <level>|%level|</level>
+                <roll>|HPROLL.%level|</roll>
+                <stat>|HPROLL.%level.STAT|</stat>
+                <total>|HPROLL.%level.TOTAL|</total>
+            </roll>
+            |ENDFOR|
+        </history>
+    </hit_points>
+    <!--
+      ====================================
+      ====================================
+            ARMOR CLASS
+      ====================================
+      ====================================-->
+    <armor_class>
+        <total>|AC.Total|</total>
+        <listing>|BONUS.COMBAT.AC.LISTING|</listing>
+        <flat>|AC.Flatfooted|</flat>
+        <touch>|AC.Touch|</touch>
+        <base>|AC.Base|</base>
+        <armor_bonus>|AC.Armor|</armor_bonus>
+        <shield_bonus>|AC.Shield|</shield_bonus>
+        <stat_mod>|AC.Ability|</stat_mod>
+        <size_mod>|AC.Size|</size_mod>
+        <natural>|AC.NaturalArmor|</natural>
+        <class_bonus>|AC.ClassDefense|</class_bonus>
+        <dodge_bonus>|AC.Dodge|</dodge_bonus>
+        <misc>|AC.Misc|</misc>
+        <miss_chance/>
+        <max_dex>|MAXDEX|</max_dex>
+        <spell_failure>|SPELLFAILURE|</spell_failure>
+        <check_penalty>|ACCHECK|</check_penalty>
+        <spell_resistance>|SR|</spell_resistance>
+    </armor_class>
+    <!--
+      ====================================
+      ====================================
+            INITIATIVE
+      ====================================
+      ====================================-->
+    <initiative>
+        <total>|INITIATIVEMOD|</total>
+        <dex_mod>|STAT.1.MOD|</dex_mod>
+        <misc_mod>|INITIATIVEMISC|</misc_mod>
+    </initiative>
+    <!--
+      ====================================
+      ====================================
+            SKILLS
+      ====================================
+      ====================================-->
+    <skills>
+        <skillpoints>
+            <total>|SKILLPOINTS.TOTAL|</total>
+            <used>|SKILLPOINTS.USED|</used>
+            <unused>|SKILLPOINTS.UNUSED|</unused>
+        </skillpoints>
+        <list_mods>|SKILLLISTMODS|</list_mods>
+        <max_class_skill_level>|MAXSKILLLEVEL|</max_class_skill_level>
+        <max_cross_class_skill_level>|MAXCCSKILLLEVEL|</max_cross_class_skill_level>
+        |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+        <skill>
+            <name>|SKILL.%skill|</name>
+            <ranks>|SKILL.%skill.RANK|</ranks>
+            <mod>|SKILL.%skill.MOD|<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>|SKILL.%skill.TOTAL|</skill_mod>
+            <ability_mod>|SKILL.%skill.ABMOD|<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>|SKILL.%skill.MISC|<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>|SKILL.%skill.ABILITY|</ability>
+            <synergy>|SKILL.%skill.SYNERGY|</synergy>
+            <untrained>|SKILL.%skill.UNTRAINED|</untrained>
+            <exclusive>|SKILL.%skill.EXCLUSIVE|</exclusive>
+            <trained_total>|SKILL.%skill.TRAINED_TOTAL|</trained_total>
+            <exclusive_total>|SKILL.%skill.EXCLUSIVE_TOTAL|</exclusive_total>
+        </skill>
+        |ENDFOR|    <!-- Skills -->
+    </skills>
+    <!--
+      ====================================
+      ====================================
+            SAVING THROWS
+      ====================================
+      ====================================-->
+    <saving_throws>
+        <conditional_modifiers/>
+        <saving_throw>
+            <name>
+                <long>fortitude</long>
+                <short>fort</short>
+            </name>
+            <ability>constitution</ability>
+            <total>|CHECK.0.TOTAL|</total>
+            <base>|CHECK.0.BASE|</base>
+            <abil_mod>|STAT.2.MOD|</abil_mod>
+            <feats>|CHECK.0.FEATS|</feats>
+            <magic_mod>|CHECK.0.MAGIC|</magic_mod>
+            <misc_mod>|CHECK.0.MISC.NOMAGIC.NOSTAT|</misc_mod>
+            <race>|CHECK.0.RACE|</race>
+            <epic_mod>|CHECK.0.EPIC|</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>reflex</long>
+                <short>ref</short>
+            </name>
+            <ability>dexterity</ability>
+            <total>|CHECK.1.TOTAL|</total>
+            <base>|CHECK.1.BASE|</base>
+            <feats>|CHECK.1.FEATS|</feats>
+            <abil_mod>|STAT.1.MOD|</abil_mod>
+            <magic_mod>|CHECK.1.MAGIC|</magic_mod>
+            <misc_mod>|CHECK.1.MISC.NOMAGIC.NOSTAT|</misc_mod>
+            <race>|CHECK.1.RACE|</race>
+            <epic_mod>|CHECK.1.EPIC|</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>will</long>
+                <short>will</short>
+            </name>
+            <ability>wisdom</ability>
+            <total>|CHECK.2.TOTAL|</total>
+            <base>|CHECK.2.BASE|</base>
+            <abil_mod>|STAT.4.MOD|</abil_mod>
+            <feats>|CHECK.2.FEATS|</feats>
+            <magic_mod>|CHECK.2.MAGIC|</magic_mod>
+            <misc_mod>|CHECK.2.MISC.NOMAGIC.NOSTAT|</misc_mod>
+            <race>|CHECK.2.RACE|</race>
+            <epic_mod>|CHECK.2.EPIC|</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+    </saving_throws>
+    <!--
+      ====================================
+      ====================================
+            ATTACK
+      ====================================
+      ====================================-->
+    <attack>
+        <melee>
+            <total>|ATTACK.MELEE.TOTAL|</total>
+            <bab>|ATTACK.MELEE.BASE|</bab>
+            <base_attack_bonus>|ATTACK.MELEE|</base_attack_bonus>
+            <stat_mod>|ATTACK.MELEE.STAT|</stat_mod>
+            <size_mod>|ATTACK.MELEE.SIZE|</size_mod>
+            <misc_mod>|ATTACK.MELEE.MISC|</misc_mod>
+            <epic_mod>|ATTACK.MELEE.EPIC|</epic_mod>
+            <temp_mod/>
+        </melee>
+        <ranged>
+            <total>|ATTACK.RANGED.TOTAL|</total>
+            <bab>|ATTACK.RANGED.BASE|</bab>
+            <base_attack_bonus>|ATTACK.RANGED|</base_attack_bonus>
+            <stat_mod>|ATTACK.RANGED.STAT|</stat_mod>
+            <size_mod>|ATTACK.RANGED.SIZE|</size_mod>
+            <misc_mod>|ATTACK.RANGED.MISC|</misc_mod>
+            <epic_mod>|ATTACK.RANGED.EPIC|</epic_mod>
+            <temp_mod/>
+        </ranged>
+        <grapple>
+            <total>|ATTACK.GRAPPLE.TOTAL|</total>
+            <bab>|ATTACK.GRAPPLE.BASE|</bab>
+            <base_attack_bonus>|ATTACK.GRAPPLE|</base_attack_bonus>
+            <stat_mod>|ATTACK.GRAPPLE.STAT|</stat_mod>
+            <size_mod>|ATTACK.GRAPPLE.SIZE|</size_mod>
+            <misc_mod>|ATTACK.GRAPPLE.MISC|</misc_mod>
+            <epic_mod>|ATTACK.GRAPPLE.EPIC|</epic_mod>
+            <temp_mod/>
+        </grapple>
+    </attack>
+    <!--
+      ====================================
+      ====================================
+            WEAPONS
+      ====================================
+      ====================================-->
+    <weapons>
+        <unarmed>
+            <total>|WEAPONH.TOTALHIT|</total>
+            <damage>|WEAPONH.DAMAGE|</damage>
+            <critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
+            <!-- Should be changed to a variable due to improved crit -->
+        </unarmed>
 
 
+        |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
 
-|IIF(WEAPON.%weap.CATEGORY:Ranged)|
-|ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
-		<weapon>
-			<common>
-				<name>
-					<short>|WEAPON.%weap.NAME|</short>
-					<long>|WEAPON.%weap.LONGNAME|</long>
-				</name>
-				<category>|WEAPON.%weap.CATEGORY|</category>
-				<critical>
-					<range>|WEAPON.%weap.CRIT|</range>
-					<multiplier>|WEAPON.%weap.MULT|</multiplier>
-				</critical>
-				<to_hit>
-					<hit>|WEAPON.%weap.HIT|</hit>
-					<magic_hit>|WEAPON.%weap.MAGICHIT|</magic_hit>
-					<total_hit>|WEAPON.%weap.TOTALHIT|</total_hit>
-				</to_hit>
-				<feat>|WEAPON.%weap.FEAT|</feat>
-				<hand>|WEAPON.%weap.HAND|</hand>
-				<num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
-				<reach>|WEAPON.%weap.REACH|</reach>
-				<size>|WEAPON.%weap.SIZE|</size>
-				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
-				<template>|WEAPON.%weap.TEMPLATE|</template>
-				<type>|WEAPON.%weap.TYPE|</type>
-				<weight>|WEAPON.%weap.WT|</weight>
-				<sequence>|%weap|</sequence>
-			</common>
-			<melee>
-				<w1_h1_p>
-					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit>|WEAPON.%weap.BASEHIT|</to_hit>
-					<damage>|WEAPON.%weap.BASICDAMAGE|</damage>
-				</w1_h1_p>
-				<w1_h1_o>
-					<!-- One weapon, 1 handed, offhand -->
-					<to_hit>|WEAPON.%weap.OHHIT|</to_hit>
-					<damage>|WEAPON.%weap.OHDAMAGE|</damage>
-				</w1_h1_o>
-				<w1_h2>
-					<!-- One weapon, 2 handed -->
-					<to_hit>|WEAPON.%weap.THHIT|</to_hit>
-					<damage>|WEAPON.%weap.THDAMAGE|</damage>
-				</w1_h2>
-				<w2_p_oh>
-					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit>|WEAPON.%weap.TWPHITH|</to_hit>
-					<damage>|WEAPON.%weap.BASICDAMAGE|</damage>
-				</w2_p_oh>
-				<w2_p_ol>
-					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit>|WEAPON.%weap.TWPHITL|</to_hit>
-					<damage>|WEAPON.%weap.BASICDAMAGE|</damage>
-				</w2_p_ol>
-				<w2_o>
-					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit>|WEAPON.%weap.TWOHIT|</to_hit>
-					<damage>|WEAPON.%weap.OHDAMAGE|</damage>
-				</w2_o>
-			</melee>
-|ENDIF| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
-|IIF(WEAPON.%weap.CATEGORY:Ranged)|
-			<ranges>
-|FOR,%range,0,4,1,0|
-				<range>
-					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
-					<to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
-					<damage>|WEAPON.%weap.RANGELIST.%range.DAMAGE|</damage>
-				</range>
-|ENDFOR|	<!-- Range -->
-			</ranges>
-		</weapon>
-|ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
-|ENDIF| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
+        |IIF(WEAPON.%weap.CATEGORY:BOTH)|
 
 
-|ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:BOTH) -->
+        |IIF(WEAPON.%weap.CATEGORY:Ranged)|
+        |ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
+        <weapon>
+            <common>
+                <name>
+                    <short>|WEAPON.%weap.NAME|</short>
+                    <long>|WEAPON.%weap.LONGNAME|</long>
+                </name>
+                <category>|WEAPON.%weap.CATEGORY|</category>
+                <critical>
+                    <range>|WEAPON.%weap.CRIT|</range>
+                    <multiplier>|WEAPON.%weap.MULT|</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>|WEAPON.%weap.HIT|</hit>
+                    <magic_hit>|WEAPON.%weap.MAGICHIT|</magic_hit>
+                    <total_hit>|WEAPON.%weap.TOTALHIT|</total_hit>
+                </to_hit>
+                <feat>|WEAPON.%weap.FEAT|</feat>
+                <hand>|WEAPON.%weap.HAND|</hand>
+                <num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
+                <reach>|WEAPON.%weap.REACH|</reach>
+                <size>|WEAPON.%weap.SIZE|</size>
+                <special_properties>|WEAPON.%weap.SPROP|</special_properties>
+                <template>|WEAPON.%weap.TEMPLATE|</template>
+                <type>|WEAPON.%weap.TYPE|</type>
+                <weight>|WEAPON.%weap.WT|</weight>
+                <sequence>|%weap|</sequence>
+            </common>
+            <melee>
+                <w1_h1_p>
+                    <!-- One weapon, 1 hand, primary hand -->
+                    <to_hit>|WEAPON.%weap.BASEHIT|</to_hit>
+                    <damage>|WEAPON.%weap.BASICDAMAGE|</damage>
+                </w1_h1_p>
+                <w1_h1_o>
+                    <!-- One weapon, 1 handed, offhand -->
+                    <to_hit>|WEAPON.%weap.OHHIT|</to_hit>
+                    <damage>|WEAPON.%weap.OHDAMAGE|</damage>
+                </w1_h1_o>
+                <w1_h2>
+                    <!-- One weapon, 2 handed -->
+                    <to_hit>|WEAPON.%weap.THHIT|</to_hit>
+                    <damage>|WEAPON.%weap.THDAMAGE|</damage>
+                </w1_h2>
+                <w2_p_oh>
+                    <!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+                    <to_hit>|WEAPON.%weap.TWPHITH|</to_hit>
+                    <damage>|WEAPON.%weap.BASICDAMAGE|</damage>
+                </w2_p_oh>
+                <w2_p_ol>
+                    <!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+                    <to_hit>|WEAPON.%weap.TWPHITL|</to_hit>
+                    <damage>|WEAPON.%weap.BASICDAMAGE|</damage>
+                </w2_p_ol>
+                <w2_o>
+                    <!-- Two weapons, this weapon in off-hand -->
+                    <to_hit>|WEAPON.%weap.TWOHIT|</to_hit>
+                    <damage>|WEAPON.%weap.OHDAMAGE|</damage>
+                </w2_o>
+            </melee>
+            |ENDIF| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
+            |IIF(WEAPON.%weap.CATEGORY:Ranged)|
+            <ranges>
+                |FOR,%range,0,4,1,0|
+                <range>
+                    <distance>|WEAPON.%weap.RANGELIST.%range|</distance>
+                    <to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
+                    <damage>|WEAPON.%weap.RANGELIST.%range.DAMAGE|</damage>
+                </range>
+                |ENDFOR|    <!-- Range -->
+            </ranges>
+        </weapon>
+        |ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
+        |ENDIF| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
 
 
-|IIF(WEAPON.%weap.CATEGORY:Ranged)|
-
-		<weapon>
-			<common>
-				<name>
-					<short>|WEAPON.%weap.NAME|</short>
-					<long>|WEAPON.%weap.LONGNAME|</long>
-				</name>
-				<category>|WEAPON.%weap.CATEGORY|</category>
-				<critical>
-					<range>|WEAPON.%weap.CRIT|</range>
-					<multiplier>|WEAPON.%weap.MULT|</multiplier>
-				</critical>
-				<to_hit>
-					<hit>|WEAPON.%weap.HIT|</hit>
-					<magic_hit>|WEAPON.%weap.MAGICHIT|</magic_hit>
-					<total_hit>|WEAPON.%weap.TOTALHIT|</total_hit>
-				</to_hit>
-				<feat>|WEAPON.%weap.FEAT|</feat>
-				<hand>|WEAPON.%weap.HAND|</hand>
-				<num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
-				<reach>|WEAPON.%weap.REACH|</reach>
-				<size>|WEAPON.%weap.SIZE|</size>
-				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
-				<template>|WEAPON.%weap.TEMPLATE|</template>
-				<type>|WEAPON.%weap.TYPE|</type>
-				<weight>|WEAPON.%weap.WT|</weight>
-				<sequence>|%weap|</sequence>
-			</common>
-|IIF(WEAPON.%weap.CONTENTS:0)|
-			<ranges>
-|FOR,%range,0,4,1,0|
-				<range>
-					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
-					<to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
-					<damage>|WEAPON.%weap.RANGELIST.%range.DAMAGE|</damage>
-				</range>
-|ENDFOR|	<!-- Range -->
-			</ranges>
-|ELSE|   <!-- IIF(WEAPON.%weap.CONTENTS:0) -->
-|FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
-			<ranges>
-				<ammunition>
-					<name>|WEAPON.%weap.CONTENTS.%ammo|</name>
-					<special_properties>|WEAPON.%weap.CONTENTS.%ammo.SPROP|</special_properties>
-				</ammunition>
-|FOR,%range,0,4,1,0|
-				<range>
-					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
-					<to_hit>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|</to_hit>
-					<damage>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|</damage>
-				</range>
-|ENDFOR|	<!-- Range -->
-			</ranges>
-|ENDFOR|  <!-- FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,1 -->
-|ENDIF|   <!-- IIF(WEAPON.%weap.CONTENTS:0) -->
-		</weapon>
-
-|ELSE|  <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
+        |ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:BOTH) -->
 
 
-|IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.%weap.CATEGORY:NATURAL)|
-		<weapon>
-			<common>
-				<name>
-					<short>|WEAPON.%weap.NAME|</short>
-					<long>|WEAPON.%weap.LONGNAME|</long>
-				</name>
-				<category>|WEAPON.%weap.CATEGORY|</category>
-				<critical>
-					<range>|WEAPON.%weap.CRIT|</range>
-					<multiplier>|WEAPON.%weap.MULT|</multiplier>
-				</critical>
-				<to_hit>
-					<hit>|WEAPON.%weap.HIT|</hit>
-					<magic_hit>|WEAPON.%weap.MAGICHIT|</magic_hit>
-					<total_hit>|WEAPON.%weap.TOTALHIT|</total_hit>
-				</to_hit>
-				<feat>|WEAPON.%weap.FEAT|</feat>
-				<hand>|WEAPON.%weap.HAND|</hand>
-				<num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
-				<reach>|WEAPON.%weap.REACH|</reach>
-				<size>|WEAPON.%weap.SIZE|</size>
-				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
-				<template>|WEAPON.%weap.TEMPLATE|</template>
-				<type>|WEAPON.%weap.TYPE|</type>
-				<weight>|WEAPON.%weap.WT|</weight>
-				<sequence>|%weap|</sequence>
-			</common>
-			<simple>
-				<to_hit>|WEAPON.%weap.TOTALHIT|</to_hit>
-				<damage>|WEAPON.%weap.DAMAGE|</damage>
-				<range>|WEAPON.%weap.RANGE|</range>
-			</simple>
-		</weapon>
-|ELSE|  <!-- IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee) -->
-		<weapon>
-			<common>
-				<name>
-					<short>|WEAPON.%weap.NAME|</short>
-					<long>|WEAPON.%weap.LONGNAME|</long>
-				</name>
-				<category>|WEAPON.%weap.CATEGORY|</category>
-				<critical>
-					<range>|WEAPON.%weap.CRIT|</range>
-					<multiplier>|WEAPON.%weap.MULT|</multiplier>
-				</critical>
-				<to_hit>
-					<hit>|WEAPON.%weap.HIT|</hit>
-					<magic_hit>|WEAPON.%weap.MAGICHIT|</magic_hit>
-					<total_hit>|WEAPON.%weap.TOTALHIT|</total_hit>
-				</to_hit>
-				<feat>|WEAPON.%weap.FEAT|</feat>
-				<hand>|WEAPON.%weap.HAND|</hand>
-				<num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
-				<reach>|WEAPON.%weap.REACH|</reach>
-				<size>|WEAPON.%weap.SIZE|</size>
-				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
-				<template>|WEAPON.%weap.TEMPLATE|</template>
-				<type>|WEAPON.%weap.TYPE|</type>
-				<weight>|WEAPON.%weap.WT|</weight>
-				<sequence>|%weap|</sequence>
-			</common>
-			<melee>
-				<w1_h1_p>
-					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit>|WEAPON.%weap.BASEHIT|</to_hit>
-					<damage>|WEAPON.%weap.BASICDAMAGE|</damage>
-				</w1_h1_p>
-				<w1_h1_o>
-					<!-- One weapon, 1 handed, offhand -->
-					<to_hit>|WEAPON.%weap.OHHIT|</to_hit>
-					<damage>|WEAPON.%weap.OHDAMAGE|</damage>
-				</w1_h1_o>
-				<w1_h2>
-					<!-- One weapon, 2 handed -->
-					<to_hit>|WEAPON.%weap.THHIT|</to_hit>
-					<damage>|WEAPON.%weap.THDAMAGE|</damage>
-				</w1_h2>
-				<w2_p_oh>
-					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit>|WEAPON.%weap.TWPHITH|</to_hit>
-					<damage>|WEAPON.%weap.BASICDAMAGE|</damage>
-				</w2_p_oh>
-				<w2_p_ol>
-					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit>|WEAPON.%weap.TWPHITL|</to_hit>
-					<damage>|WEAPON.%weap.BASICDAMAGE|</damage>
-				</w2_p_ol>
-				<w2_o>
-					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit>|WEAPON.%weap.TWOHIT|</to_hit>
-					<damage>|WEAPON.%weap.OHDAMAGE|</damage>
-				</w2_o>
-			</melee>
-		</weapon>
-|ENDIF|  <!-- IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee) -->
-|ENDIF|  <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
-|ENDIF|  <!-- IIF(WEAPON.%weap.CATEGORY:BOTH) -->
-|ENDFOR|  <!-- FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1 -->
-	</weapons>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR
-	  ====================================
-	  ====================================-->
-	<protection>
-|FOR,%armor,0,COUNT[EQTYPE.Armor]-1,1,0|
-		<armor>
-			<name>|ARMOR.Armor.ALL.%armor.NAME|</name>
-			<acbonus>|ARMOR.Armor.ALL.%armor.ACBONUS|</acbonus>
-			<accheck>|ARMOR.Armor.ALL.%armor.ACCHECK|</accheck>
-			<baseac>|ARMOR.Armor.ALL.%armor.BASEAC|</baseac>
-			<edr>|ARMOR.Armor.ALL.%armor.EDR|</edr>
-			<maxdex>|ARMOR.Armor.ALL.%armor.MAXDEX|</maxdex>
-			<move>|ARMOR.Armor.ALL.%armor.MOVE|</move>
-			<spellfail>|ARMOR.Armor.ALL.%armor.SPELLFAIL|</spellfail>
-			<special_properties>|ARMOR.Armor.ALL.%armor.SPROP|</special_properties>
-			<totalac>|ARMOR.Armor.ALL.%armor.TOTALAC|</totalac>
-			<type>|ARMOR.Armor.ALL.%armor.TYPE|</type>
-			<wt>|ARMOR.Armor.ALL.%armor.WT|</wt>
-		</armor>
-|ENDFOR|
-|FOR,%armor,0,COUNT[EQTYPE.SHIELD]-1,1,0|
-		<shield>
-			<name>|ARMOR.SHIELD.ALL.%armor.NAME|</name>
-			<acbonus>|ARMOR.SHIELD.ALL.%armor.ACBONUS|</acbonus>
-			<accheck>|ARMOR.SHIELD.ALL.%armor.ACCHECK|</accheck>
-			<baseac>|ARMOR.SHIELD.ALL.%armor.BASEAC|</baseac>
-			<edr>|ARMOR.SHIELD.ALL.%armor.EDR|</edr>
-			<maxdex>|ARMOR.SHIELD.ALL.%armor.MAXDEX|</maxdex>
-			<move>|ARMOR.SHIELD.ALL.%armor.MOVE|</move>
-			<spellfail>|ARMOR.SHIELD.ALL.%armor.SPELLFAIL|</spellfail>
-			<special_properties>|ARMOR.SHIELD.ALL.%armor.SPROP|</special_properties>
-			<totalac>|ARMOR.SHIELD.ALL.%armor.TOTALAC|</totalac>
-			<type>|ARMOR.SHIELD.ALL.%armor.TYPE|</type>
-			<wt>|ARMOR.SHIELD.ALL.%armor.WT|</wt>
-		</shield>
-|ENDFOR|
-|FOR,%armor,0,COUNT[EQTYPE.ACITEM]-1,1,0|
-		<item>
-			<name>|ARMOR.ACITEM.%armor.NAME|</name>
-			<acbonus>|ARMOR.ACITEM.%armor.ACBONUS|</acbonus>
-			<accheck>|ARMOR.ACITEM.%armor.ACCHECK|</accheck>
-			<baseac>|ARMOR.ACITEM.%armor.BASEAC|</baseac>
-			<edr>|ARMOR.ACITEM.%armor.EDR|</edr>
-			<maxdex>|ARMOR.ACITEM.%armor.MAXDEX|</maxdex>
-			<move>|ARMOR.ACITEM.%armor.MOVE|</move>
-			<spellfail>|ARMOR.ACITEM.%armor.SPELLFAIL|</spellfail>
-			<special_properties>|ARMOR.ACITEM.%armor.SPROP|</special_properties>
-			<totalac>|ARMOR.ACITEM.%armor.TOTALAC|</totalac>
-			<type>|ARMOR.ACITEM.%armor.TYPE|</type>
-			<wt>|ARMOR.ACITEM.%armor.WT|</wt>
-		</item>
-|ENDFOR|
-	</protection>
-	<!--
-	  ====================================
-	  ====================================
-			CLASS-DEPENDANT FEATURES
-	  ====================================
-	  ====================================-->
-	<class_features>
-|%VAR.BardicMusicLevel.GTEQ.1|
-		<bardic_music>
-			<uses_per_day>|VAR.BardicMusicLevel.INTVAL|</uses_per_day>
-			<effects>Effects (Perform ranks required)</effects>
-			<text>Inspire Courage(3), Countersong(3), Fascinate(3),Inspire Competence(6), Suggestion(9), Inspire Greatness(12)</text>
-		</bardic_music>
-|%|
-|%VAR.BardicMusic.GTEQ.1|
-		<bardic_music>
-			<uses_per_day>|VAR.BardicMusic.INTVAL|</uses_per_day>
-			<effects>Effects (Perform ranks required)</effects>
-			<text>Inspire Courage(3), Countersong(3), Fascinate(3),Inspire Competence(6), Suggestion(9), Inspire Greatness(12)</text>
-		</bardic_music>
-|%|	<!-- Bard -->
+        |IIF(WEAPON.%weap.CATEGORY:Ranged)|
+
+        <weapon>
+            <common>
+                <name>
+                    <short>|WEAPON.%weap.NAME|</short>
+                    <long>|WEAPON.%weap.LONGNAME|</long>
+                </name>
+                <category>|WEAPON.%weap.CATEGORY|</category>
+                <critical>
+                    <range>|WEAPON.%weap.CRIT|</range>
+                    <multiplier>|WEAPON.%weap.MULT|</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>|WEAPON.%weap.HIT|</hit>
+                    <magic_hit>|WEAPON.%weap.MAGICHIT|</magic_hit>
+                    <total_hit>|WEAPON.%weap.TOTALHIT|</total_hit>
+                </to_hit>
+                <feat>|WEAPON.%weap.FEAT|</feat>
+                <hand>|WEAPON.%weap.HAND|</hand>
+                <num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
+                <reach>|WEAPON.%weap.REACH|</reach>
+                <size>|WEAPON.%weap.SIZE|</size>
+                <special_properties>|WEAPON.%weap.SPROP|</special_properties>
+                <template>|WEAPON.%weap.TEMPLATE|</template>
+                <type>|WEAPON.%weap.TYPE|</type>
+                <weight>|WEAPON.%weap.WT|</weight>
+                <sequence>|%weap|</sequence>
+            </common>
+            |IIF(WEAPON.%weap.CONTENTS:0)|
+            <ranges>
+                |FOR,%range,0,4,1,0|
+                <range>
+                    <distance>|WEAPON.%weap.RANGELIST.%range|</distance>
+                    <to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
+                    <damage>|WEAPON.%weap.RANGELIST.%range.DAMAGE|</damage>
+                </range>
+                |ENDFOR|    <!-- Range -->
+            </ranges>
+            |ELSE|   <!-- IIF(WEAPON.%weap.CONTENTS:0) -->
+            |FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
+            <ranges>
+                <ammunition>
+                    <name>|WEAPON.%weap.CONTENTS.%ammo|</name>
+                    <special_properties>|WEAPON.%weap.CONTENTS.%ammo.SPROP|</special_properties>
+                </ammunition>
+                |FOR,%range,0,4,1,0|
+                <range>
+                    <distance>|WEAPON.%weap.RANGELIST.%range|</distance>
+                    <to_hit>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|</to_hit>
+                    <damage>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|</damage>
+                </range>
+                |ENDFOR|    <!-- Range -->
+            </ranges>
+            |ENDFOR|  <!-- FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,1 -->
+            |ENDIF|   <!-- IIF(WEAPON.%weap.CONTENTS:0) -->
+        </weapon>
+
+        |ELSE|  <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
 
 
-|%BARBARIAN=1|	<!-- If character is a barbarian -->
-		<rage>
-			<uses_per_day>|VAR.RAGE.INTVAL|</uses_per_day>
-			<description>The Barbarian temporarily gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage once per encounter, and only a certain number of times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
-
-|%|
-|%BARBARIAN=15|	<!-- If character is a barbarian -->
-			<description>Starting at 15th level, the barbarian's rage bonuses become +6 to Strength, +6 to Constitution, and a +3 morale bonus to Will saves. (The AC penalty remains at -2.)</description>
-|%|	<!-- Barbarian of 15th Level -->
-|%BARBARIAN=1|	<!-- If character is a barbarian -->
-		</rage>
-|%|	<!-- Character Rage -->
-
-
-	<!-- Turning ability -->
-|IIF(countdistinct("ABILITIES";"NAME=Turn Undead")>0)|
-	<turning kind="UNDEAD" type="TURN">
-			<level>|VAR.TurnLevelUndead.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceUndead.INTVAL|d|VAR.TurnDieSizeUndead.INTVAL||VAR.TurnDamagePlusUndead.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesUndead.INTVAL|</uses_per_day>
-			<notes>You destroy Undead creatures with total hit dice up to |(VAR.TurnLevelUndead/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Rebuke Undead")>0)|
-	<turning kind="UNDEAD" type="REBUKE">
-			<level>|VAR.TurnLevelUndead.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceUndead.INTVAL|d|VAR.TurnDieSizeUndead.INTVAL||VAR.TurnDamagePlusUndead.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesUndead.INTVAL|</uses_per_day>
-			<notes>You command Undead creatures with total hit dice up to |VAR.TurnLevelUndead.INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Turn Air")>0)|
-	<turning kind="AIR" type="TURN">
-			<level>|VAR.TurnLevelAir.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceAir.INTVAL|d|VAR.TurnDieSizeAir.INTVAL||VAR.TurnDamagePlusAir.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesAir.INTVAL|</uses_per_day>
-			<notes>You destroy Air creatures with total hit dice up to |(VAR.TurnLevelAir/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Rebuke Air")>0)|
-	<turning kind="AIR" type="REBUKE">
-			<level>|VAR.TurnLevelAir.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceAir.INTVAL|d|VAR.TurnDieSizeAir.INTVAL||VAR.TurnDamagePlusAir.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesAir.INTVAL|</uses_per_day>
-			<notes>You command Air creatures with total hit dice up to |VAR.TurnLevelAir.INTVAL|</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Turn Earth")>0)|
-	<turning kind="EARTH" type="TURN">
-			<level>|VAR.TurnLevelEarth.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceEarth.INTVAL|d|VAR.TurnDieSizeEarth.INTVAL||VAR.TurnDamagePlusEarth.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesEarth.INTVAL|</uses_per_day>
-			<notes>You destroy Earth creatures with total hit dice up to |(VAR.TurnLevelEarth/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Rebuke Earth")>0)|
-	<turning kind="EARTH" type="REBUKE">
-			<level>|VAR.TurnLevelEarth.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceEarth.INTVAL|d|VAR.TurnDieSizeEarth.INTVAL||VAR.TurnDamagePlusEarth.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesEarth.INTVAL|</uses_per_day>
-			<notes>You command Earth creatures with total hit dice up to |VAR.TurnLevelEarth.INTVAL|</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Turn Fire")>0)|
-	<turning kind="FIRE" type="TURN">
-			<level>|VAR.TurnLevelFire.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceFire.INTVAL|d|VAR.TurnDieSizeFire.INTVAL||VAR.TurnDamagePlusFire.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesFire.INTVAL|</uses_per_day>
-			<notes>You destroy Fire creatures with total hit dice up to |(VAR.TurnLevelFire/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Rebuke Fire")>0)|
-	<turning kind="FIRE" type="REBUKE">
-			<level>|VAR.TurnLevelFire.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceFire.INTVAL|d|VAR.TurnDieSizeFire.INTVAL||VAR.TurnDamagePlusFire.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesFire.INTVAL|</uses_per_day>
-			<notes>You command Fire creatures with total hit dice up to |VAR.TurnLevelFire.INTVAL|</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Turn Water")>0)|
-	<turning kind="WATER" type="TURN">
-			<level>|VAR.TurnLevelWater.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceWater.INTVAL|d|VAR.TurnDieSizeWater.INTVAL||VAR.TurnDamagePlusWater.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesWater.INTVAL|</uses_per_day>
-			<notes>You destroy Water creatures with total hit dice up to |(VAR.TurnLevelWater/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Rebuke Water")>0)|
-	<turning kind="WATER" type="REBUKE">
-			<level>|VAR.TurnLevelWater.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceWater.INTVAL|d|VAR.TurnDieSizeWater.INTVAL||VAR.TurnDamagePlusWater.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesWater.INTVAL|</uses_per_day>
-			<notes>You command Water creatures with total hit dice up to |VAR.TurnLevelWater.INTVAL|</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Turn Plant")>0)|
-	<turning kind="PLANT" type="TURN">
-			<level>|VAR.TurnLevelPlant.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDicePlant.INTVAL|d|VAR.TurnDieSizePlant.INTVAL||VAR.TurnDamagePlusPlant.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesPlant.INTVAL|</uses_per_day>
-			<notes>You destroy Plant creatures with total hit dice up to |(VAR.TurnLevelPlant/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(countdistinct("ABILITIES";"NAME=Rebuke Plant")>0)|
-	<turning kind="PLANT" type="REBUKE">
-			<level>|VAR.TurnLevelPlant.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDicePlant.INTVAL|d|VAR.TurnDieSizePlant.INTVAL||VAR.TurnDamagePlusPlant.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesPlant.INTVAL|</uses_per_day>
-			<notes>You command Plant creatures with total hit dice up to |VAR.TurnLevelPlant.INTVAL|.</notes>
-		</turning>
-|ENDIF|
-
-
-
-|%VAR.StunningAttack.GTEQ.1|
-		<stunning_fist>
-			<save_dc>|VAR.StunDC.INTVAL|</save_dc>
-			<uses_per_day>|VAR.StunningAttack.INTVAL|</uses_per_day>
-		</stunning_fist>
-|%|	<!-- 3.0 stunning fist -->
-
-|%VAR.StunningFistAttack.GTEQ.1|
-		<stunning_fist>
-			<save_dc>|VAR.StunningFistDC.INTVAL|</save_dc>
-			<uses_per_day>|VAR.StunningFistAttack.INTVAL|</uses_per_day>
-		</stunning_fist>
-|%|	<!-- 3.5 stunning fist -->
-
-|%VAR.WholenessHpLVL.GTEQ.1|
-		<wholeness_of_body>
-			<hp_per_day>|VAR.WholenessHpLVL.INTVAL*2|</hp_per_day>
-		</wholeness_of_body>
-|%|	<!-- 3.0 wholeness of body -->
-
-|%VAR.WholenessBody.GTEQ.1|
-		<wholeness_of_body>
-			<hp_per_day>|VAR.WholenessBody.INTVAL|</hp_per_day>
-		</wholeness_of_body>
-|%|	<!-- 3.5 wholeness of body -->
-
-|%VAR.TOTALPOWERPOINTS.GTEQ.1|	<!-- Psionics -->
-		<psionics>
-|IIF(HASVAR:Manifester.OR.HASVAR:PsychicWarriorManifester)|
-			<type>3.0</type>
-|ELSE|
-			<type>3.5</type>
-|ENDIF|
-			<base_pp>|VAR.BASEPOWERPOINTS.INTVAL|</base_pp>
-			<bonus_pp>|VAR.BONUSPOWERPOINTS.INTVAL|</bonus_pp>
-			<total_pp>|VAR.TOTALPOWERPOINTS.INTVAL|</total_pp>
-		</psionics>
-|%|	<!-- Psionics -->
-
-|%VAR.LayOnHands.GTEQ.1|
-		<layonhands>
-			<hp_per_day>|VAR.LayOnHands.INTVAL|</hp_per_day>
-		</layonhands>
-|%|
-
-|%VAR.WildshapeTimes.GTEQ.1|
-		<wildshape>
-			<uses_per_day>|VAR.WildShapeTimes.INTVAL|</uses_per_day>
-			<elemental_uses_per_day>|VAR.WildShapeElementalTimes.INTVAL|</elemental_uses_per_day>
-			<duration>|VAR.WildShapeDuration.INTVAL|</duration>
-		</wildshape>
-|%|
-
-
-|%VAR.LeadershipScore.GTEQ.1|
-		<leadership>
-			<score>|VAR.LeadershipScore.INTVAL|</score>
-			<max_cohort_level>|VAR.LeadershipMaxCohortLvl|</max_cohort_level>
-		</leadership>
-|%|
-	</class_features>
-	<!--
-	  ====================================
-	  ====================================
-			EQUIPMENT
-	  ====================================
-	  ====================================-->
-	<equipment>
-|FOR,%equip,0,COUNT[EQUIPMENT.MERGELOC]-1,1,1|
-		<item>
-			<longname>|EQ.MERGELOC.%equip.LONGNAME|</longname>
-			<id>|EQ.MERGELOC.%equip.ID|</id>
-			<name>|EQ.MERGELOC.%equip.NAME|</name>
-			<carried>|EQ.MERGELOC.%equip.CARRIED|</carried>
-			<charges>|EQ.MERGELOC.%equip.CHARGES|</charges>
-			<charges_used>|EQ.MERGELOC.%equip.CHARGESUSED|</charges_used>
-			<contents>|EQ.MERGELOC.%equip.CONTENTS|</contents>
-			<contents_num>|EQ.MERGELOC.%equip.CONTENTSNUM|</contents_num>
-			<content_weight>|EQ.MERGELOC.%equip.CONTENTWEIGHT|</content_weight>
-			<cost>|EQ.MERGELOC.%equip.COST|</cost>
-			<equipped>|EQ.MERGELOC.%equip.EQUIPPED|</equipped>
-			<location>|EQ.MERGELOC.%equip.LOCATION|</location>
-			<maxcharges>|EQ.MERGELOC.%equip.MAXCHARGES|</maxcharges>
-			<note>|EQ.MERGELOC.%equip.NOTE|</note>
-			<quantity>|EQ.MERGELOC.%equip.QTY|</quantity>
-			<checkbox>|EQ.MERGELOC.%equip.CHECKBOXES|</checkbox>
-			<size>
-				<long>|EQ.MERGELOC.%equip.SIZELONG|</long>
-				<short>|EQ.MERGELOC.%equip.SIZE|</short>
-			</size>
-			<special_properties>|EQ.MERGELOC.%equip.SPROP|</special_properties>
-			<type>|EQ.MERGELOC.%equip.TYPE|</type>
-			<weight>|EQ.MERGELOC.%equip.WT|</weight>
-			<bonuslist>|EQ.MERGELOC.%equip.BONUSLIST|</bonuslist>
-		</item>
-|ENDFOR|	<!-- Equipment -->
-		<total>
-			<weight>|TOTAL.WEIGHT|</weight>
-			<value>|TOTAL.VALUE|</value>
-			<load>|TOTAL.LOAD|</load>
-			<capacity>|TOTAL.CAPACITY|</capacity>
-		</total>
-		<equipmentsets>
-|EQSET.START|
-      <equipmentset name="|EQSET.NAME|">
-|FOR,%equip,0,COUNT[EQUIPMENT.MERGELOC]-1,1,1|
-		<item>
-					<name>|EQ.MERGELOC.%equip.NAME|</name>
-					<carried>|EQ.MERGELOC.%equip.CARRIED|</carried>
-					<charges>|EQ.MERGELOC.%equip.CHARGES|</charges>
-					<charges_used>|EQ.MERGELOC.%equip.CHARGESUSED|</charges_used>
-					<contents>|EQ.MERGELOC.%equip.CONTENTS|</contents>
-					<cost>|EQ.MERGELOC.%equip.COST|</cost>
-					<equipped>|EQ.MERGELOC.%equip.EQUIPPED|</equipped>
-					<location>|EQ.MERGELOC.%equip.LOCATION|</location>
-					<maxcharges>|EQ.MERGELOC.%equip.MAXCHARGES|</maxcharges>
-					<note>|EQ.MERGELOC.%equip.NOTE|</note>
-					<quantity>|EQ.MERGELOC.%equip.QTY|</quantity>
-					<size>
-						<long>|EQ.MERGELOC.%equip.SIZELONG|</long>
-						<short>|EQ.MERGELOC.%equip.SIZE|</short>
-					</size>
-					<special_properties>|EQ.MERGELOC.%equip.SPROP|</special_properties>
-					<type>|EQ.MERGELOC.%equip.TYPE|</type>
-					<weight>|EQ.MERGELOC.%equip.WT|</weight>
-					<bonuslist>|EQ.MERGELOC.%equip.BONUSLIST|</bonuslist>
-				</item>
-|ENDFOR|	<!-- Equipment -->
-			</equipmentset>
-|EQSET.END|
-      </equipmentsets>
-	</equipment>
-	<weight_allowance>
-		<light>|WEIGHT.LIGHT|</light>
-		<medium>|WEIGHT.MEDIUM|</medium>
-		<heavy>|WEIGHT.HEAVY|</heavy>
-		<lift_over_head>|WEIGHT.OVERHEAD|</lift_over_head>
-		<lift_off_ground>|WEIGHT.OFFGROUND|</lift_off_ground>
-		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>|WEIGHT.PUSHDRAG|</push_drag>
-	</weight_allowance>
-	<!--
-	  ====================================
-	  ====================================
-			SPECIAL ABILITIES
-	  ====================================
-	  ====================================-->
-	<special_abilities>
-|FOR,%sa,0,COUNT[SA]-1,1,1|
-		<ability>
-			<name>|SPECIALABILITY.%sa|</name>
-			<description>|SPECIALABILITY.%sa.DESCRIPTION|</description>
-		</ability>
-|ENDFOR|	<!-- Special Abilities -->
-		<race>|RACE.ABILITYLIST|</race>
-|FOR,%class,0,COUNT[CLASSES]-1,1,1|
-		<class>
-			<class>|CLASS.%class|</class>
-			<ability>|CLASS.%class.SALIST|</ability>
-		</class>
-|ENDFOR|
-	</special_abilities>
-	<!--
-	  ====================================
-	  ====================================
-			FEATS
-	  ====================================
-	  ====================================-->
-	<feats>
-		<!-- Visible standard feats (not including the auto feats) -->
-|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|	
-		<feat>
-			<name>|ABILITY.FEAT.VISIBLE.%feat|</name>
-			<description>|ABILITY.FEAT.VISIBLE.%feat.DESC|</description>
-			<type>|ABILITY.FEAT.VISIBLE.%feat.TYPE|</type>
-			<associated>|ABILITY.FEAT.VISIBLE.%feat.ASSOCIATED|</associated>
-			<count>|ABILITY.FEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-|ENDFOR|	
-
-		<!-- Auto feats -->
-|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|	
-		<feat>
-			<name>|ABILITYAUTO.FEAT.VISIBLE.%feat|</name>
-			<description>|ABILITYAUTO.FEAT.VISIBLE.%feat.DESC|</description>
-			<type>|ABILITYAUTO.FEAT.VISIBLE.%feat.TYPE|</type>
-			<associated>|ABILITYAUTO.FEAT.VISIBLE.%feat.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.FEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-|ENDFOR|	
-
-		<!-- Virtual Feats -->
-|FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|	
-		<feat>
-			<name>|VFEAT.VISIBLE.%feat|</name>
-			<description>|VFEAT.VISIBLE.%feat.DESC|</description>
-			<type>|VFEAT.VISIBLE.%feat.TYPE|</type>
-			<associated>|VFEAT.VISIBLE.%feat.ASSOCIATED|</associated>
-			<count>|VFEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-		</feat>
-|ENDFOR|	
-		<!-- End Virtual Feats -->
-		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-|FOR,%feat,0,COUNT[FEATS.HIDDEN]-1,1,0|
-		<feat>
-			<name>|FEAT.HIDDEN.%feat|</name>
-			<description>|FEAT.HIDDEN.%feat.DESC|</description>
-			<type>|FEAT.HIDDEN.%feat.TYPE|</type>
-			<associated>|FEAT.HIDDEN.%feat.ASSOCIATED|</associated>
-			<count>|FEAT.HIDDEN.%feat.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-|ENDFOR|
-<!-- Hidden VFEATS -->
-|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=HIDDEN","NATURE=VIRTUAL")-1,1,0|
-		<feat>
-			<name>|VABILITY.FEAT.HIDDEN.%feat|</name>
-			<description>|VABILITY.FEAT.HIDDEN.%feat.DESC|</description>
-			<type>|VABILITY.FEAT.HIDDEN.%feat.TYPE|</type>
-			<associated>|VABILITY.FEAT.HIDDEN.%feat.ASSOCIATED|</associated>
-			<count>|VABILITY.FEAT.HIDDEN.%feat.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-|ENDFOR|
-<!-- END Hidden VFEATS -->
-|FOR,%feat,0,COUNT[FEATSAUTO.HIDDEN]-1,1,0|
-		<feat>
-			<name>|FEATAUTO.HIDDEN.%feat|</name>
-			<description>|FEATAUTO.HIDDEN.%feat.DESC|</description>
-			<type>|FEATAUTO.HIDDEN.%feat.TYPE|</type>
-			<associated>|FEATAUTO.HIDDEN.%feat.ASSOCIATED|</associated>
-			<count>|FEATAUTO.HIDDEN.%feat.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-|ENDFOR|
-	</feats>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITY OBJECTS
-	  ====================================
-	  ====================================-->
-
-	<ability_objects>
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Visible Standard "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Special Ability.VISIBLE.%ability|</name>
-			<description>|ABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Special Ability.VISIBLE.%ability|</name>
-			<description>|ABILITYAUTO.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Visible Virtual "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Special Ability.VISIBLE.%ability|</name>
-			<description>|VABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
-			<type>|VABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Hidden Standard "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Special Ability.HIDDEN.%ability|</name>
-			<description>|ABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITY.Special Ability.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITY.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Special Ability.HIDDEN.%ability|</name>
-			<description>|ABILITYAUTO.Special Ability.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Special Ability.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Hidden Virtual "Special Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Special Ability.HIDDEN.%ability|</name>
-			<description>|VABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
-			<type>|VABILITY.Special Ability.HIDDEN.%ability.TYPE|</type>
-			<associated>|VABILITY.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- "Salient Divine Ability" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Salient Divine Ability.VISIBLE.%ability|</name>
-			<description>|ABILITY.Salient Divine Ability.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Salient Divine Ability.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Salient Divine Ability.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Salient Divine Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Salient Divine Ability</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- "Mutation" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Mutation.VISIBLE.%ability|</name>
-			<description>|ABILITY.Mutation.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Mutation.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Mutation.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Mutation.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Mutation</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Visible Standard "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Talent.VISIBLE.%ability|</name>
-			<description>|ABILITY.Talent.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Talent.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Visible Automatic "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Talent.VISIBLE.%ability|</name>
-			<description>|ABILITYAUTO.Talent.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Talent.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Visible Virtual "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Talent.VISIBLE.%ability|</name>
-			<description>|VABILITY.Talent.VISIBLE.%ability.DESC|</description>
-			<type>|VABILITY.Talent.VISIBLE.%ability.TYPE|</type>
-			<associated>|VABILITY.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Hidden Standard "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Talent.HIDDEN.%ability|</name>
-			<description>|ABILITY.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITY.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Hidden Automatic "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Talent.HIDDEN.%ability|</name>
-			<description>|ABILITYAUTO.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Hidden Virtual "Talent" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Talent.HIDDEN.%ability|</name>
-			<description>|VABILITY.Talent.HIDDEN.%ability.DESC|</description>
-			<type>|VABILITY.Talent.HIDDEN.%ability.TYPE|</type>
-			<associated>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-			<category>Talent</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Visible Standard "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Internal.VISIBLE.%ability|</name>
-			<description>|ABILITY.Internal.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITY.Internal.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITY.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Visible Automatic "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Internal.VISIBLE.%ability|</name>
-			<description>|ABILITYAUTO.Internal.VISIBLE.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Internal.VISIBLE.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Visible Virtual "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Internal.VISIBLE.%ability|</name>
-			<description>|VABILITY.Internal.VISIBLE.%ability.DESC|</description>
-			<type>|VABILITY.Internal.VISIBLE.%ability.TYPE|</type>
-			<associated>|VABILITY.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
-|ELSE|
-	<!-- Hidden Standard "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-		<ability_object>
-			<name>|ABILITY.Internal.HIDDEN.%ability|</name>
-			<description>|ABILITY.Internal.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITY.Internal.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITY.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITY.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
-|ELSE|
-	<!-- Hidden Automatic "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-		<ability_object>
-			<name>|ABILITYAUTO.Internal.HIDDEN.%ability|</name>
-			<description>|ABILITYAUTO.Internal.HIDDEN.%ability.DESC|</description>
-			<type>|ABILITYAUTO.Internal.HIDDEN.%ability.TYPE|</type>
-			<associated>|ABILITYAUTO.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|ABILITYAUTO.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
-|ELSE|
-	<!-- Hidden Virtual "Internal" Ability Objects -->
-|ENDIF|
-|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-		<ability_object>
-			<name>|VABILITY.Internal.HIDDEN.%ability|</name>
-			<description>|VABILITY.Internal.HIDDEN.%ability.DESC|</description>
-			<type>|VABILITY.Internal.HIDDEN.%ability.TYPE|</type>
-			<associated>|VABILITY.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
-			<count>|VABILITY.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-			<category>Internal</category>
-		</ability_object>
-|ENDFOR|
-	</ability_objects>
+        |IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.%weap.CATEGORY:NATURAL)|
+        <weapon>
+            <common>
+                <name>
+                    <short>|WEAPON.%weap.NAME|</short>
+                    <long>|WEAPON.%weap.LONGNAME|</long>
+                </name>
+                <category>|WEAPON.%weap.CATEGORY|</category>
+                <critical>
+                    <range>|WEAPON.%weap.CRIT|</range>
+                    <multiplier>|WEAPON.%weap.MULT|</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>|WEAPON.%weap.HIT|</hit>
+                    <magic_hit>|WEAPON.%weap.MAGICHIT|</magic_hit>
+                    <total_hit>|WEAPON.%weap.TOTALHIT|</total_hit>
+                </to_hit>
+                <feat>|WEAPON.%weap.FEAT|</feat>
+                <hand>|WEAPON.%weap.HAND|</hand>
+                <num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
+                <reach>|WEAPON.%weap.REACH|</reach>
+                <size>|WEAPON.%weap.SIZE|</size>
+                <special_properties>|WEAPON.%weap.SPROP|</special_properties>
+                <template>|WEAPON.%weap.TEMPLATE|</template>
+                <type>|WEAPON.%weap.TYPE|</type>
+                <weight>|WEAPON.%weap.WT|</weight>
+                <sequence>|%weap|</sequence>
+            </common>
+            <simple>
+                <to_hit>|WEAPON.%weap.TOTALHIT|</to_hit>
+                <damage>|WEAPON.%weap.DAMAGE|</damage>
+                <range>|WEAPON.%weap.RANGE|</range>
+            </simple>
+        </weapon>
+        |ELSE|  <!-- IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee) -->
+        <weapon>
+            <common>
+                <name>
+                    <short>|WEAPON.%weap.NAME|</short>
+                    <long>|WEAPON.%weap.LONGNAME|</long>
+                </name>
+                <category>|WEAPON.%weap.CATEGORY|</category>
+                <critical>
+                    <range>|WEAPON.%weap.CRIT|</range>
+                    <multiplier>|WEAPON.%weap.MULT|</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>|WEAPON.%weap.HIT|</hit>
+                    <magic_hit>|WEAPON.%weap.MAGICHIT|</magic_hit>
+                    <total_hit>|WEAPON.%weap.TOTALHIT|</total_hit>
+                </to_hit>
+                <feat>|WEAPON.%weap.FEAT|</feat>
+                <hand>|WEAPON.%weap.HAND|</hand>
+                <num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
+                <reach>|WEAPON.%weap.REACH|</reach>
+                <size>|WEAPON.%weap.SIZE|</size>
+                <special_properties>|WEAPON.%weap.SPROP|</special_properties>
+                <template>|WEAPON.%weap.TEMPLATE|</template>
+                <type>|WEAPON.%weap.TYPE|</type>
+                <weight>|WEAPON.%weap.WT|</weight>
+                <sequence>|%weap|</sequence>
+            </common>
+            <melee>
+                <w1_h1_p>
+                    <!-- One weapon, 1 hand, primary hand -->
+                    <to_hit>|WEAPON.%weap.BASEHIT|</to_hit>
+                    <damage>|WEAPON.%weap.BASICDAMAGE|</damage>
+                </w1_h1_p>
+                <w1_h1_o>
+                    <!-- One weapon, 1 handed, offhand -->
+                    <to_hit>|WEAPON.%weap.OHHIT|</to_hit>
+                    <damage>|WEAPON.%weap.OHDAMAGE|</damage>
+                </w1_h1_o>
+                <w1_h2>
+                    <!-- One weapon, 2 handed -->
+                    <to_hit>|WEAPON.%weap.THHIT|</to_hit>
+                    <damage>|WEAPON.%weap.THDAMAGE|</damage>
+                </w1_h2>
+                <w2_p_oh>
+                    <!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+                    <to_hit>|WEAPON.%weap.TWPHITH|</to_hit>
+                    <damage>|WEAPON.%weap.BASICDAMAGE|</damage>
+                </w2_p_oh>
+                <w2_p_ol>
+                    <!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+                    <to_hit>|WEAPON.%weap.TWPHITL|</to_hit>
+                    <damage>|WEAPON.%weap.BASICDAMAGE|</damage>
+                </w2_p_ol>
+                <w2_o>
+                    <!-- Two weapons, this weapon in off-hand -->
+                    <to_hit>|WEAPON.%weap.TWOHIT|</to_hit>
+                    <damage>|WEAPON.%weap.OHDAMAGE|</damage>
+                </w2_o>
+            </melee>
+        </weapon>
+        |ENDIF|  <!-- IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee) -->
+        |ENDIF|  <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
+        |ENDIF|  <!-- IIF(WEAPON.%weap.CATEGORY:BOTH) -->
+        |ENDFOR|  <!-- FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1 -->
+    </weapons>
+    <!--
+      ====================================
+      ====================================
+            ARMOR
+      ====================================
+      ====================================-->
+    <protection>
+        |FOR,%armor,0,COUNT[EQTYPE.Armor]-1,1,0|
+        <armor>
+            <name>|ARMOR.Armor.ALL.%armor.NAME|</name>
+            <acbonus>|ARMOR.Armor.ALL.%armor.ACBONUS|</acbonus>
+            <accheck>|ARMOR.Armor.ALL.%armor.ACCHECK|</accheck>
+            <baseac>|ARMOR.Armor.ALL.%armor.BASEAC|</baseac>
+            <edr>|ARMOR.Armor.ALL.%armor.EDR|</edr>
+            <maxdex>|ARMOR.Armor.ALL.%armor.MAXDEX|</maxdex>
+            <move>|ARMOR.Armor.ALL.%armor.MOVE|</move>
+            <spellfail>|ARMOR.Armor.ALL.%armor.SPELLFAIL|</spellfail>
+            <special_properties>|ARMOR.Armor.ALL.%armor.SPROP|</special_properties>
+            <totalac>|ARMOR.Armor.ALL.%armor.TOTALAC|</totalac>
+            <type>|ARMOR.Armor.ALL.%armor.TYPE|</type>
+            <wt>|ARMOR.Armor.ALL.%armor.WT|</wt>
+        </armor>
+        |ENDFOR|
+        |FOR,%armor,0,COUNT[EQTYPE.SHIELD]-1,1,0|
+        <shield>
+            <name>|ARMOR.SHIELD.ALL.%armor.NAME|</name>
+            <acbonus>|ARMOR.SHIELD.ALL.%armor.ACBONUS|</acbonus>
+            <accheck>|ARMOR.SHIELD.ALL.%armor.ACCHECK|</accheck>
+            <baseac>|ARMOR.SHIELD.ALL.%armor.BASEAC|</baseac>
+            <edr>|ARMOR.SHIELD.ALL.%armor.EDR|</edr>
+            <maxdex>|ARMOR.SHIELD.ALL.%armor.MAXDEX|</maxdex>
+            <move>|ARMOR.SHIELD.ALL.%armor.MOVE|</move>
+            <spellfail>|ARMOR.SHIELD.ALL.%armor.SPELLFAIL|</spellfail>
+            <special_properties>|ARMOR.SHIELD.ALL.%armor.SPROP|</special_properties>
+            <totalac>|ARMOR.SHIELD.ALL.%armor.TOTALAC|</totalac>
+            <type>|ARMOR.SHIELD.ALL.%armor.TYPE|</type>
+            <wt>|ARMOR.SHIELD.ALL.%armor.WT|</wt>
+        </shield>
+        |ENDFOR|
+        |FOR,%armor,0,COUNT[EQTYPE.ACITEM]-1,1,0|
+        <item>
+            <name>|ARMOR.ACITEM.%armor.NAME|</name>
+            <acbonus>|ARMOR.ACITEM.%armor.ACBONUS|</acbonus>
+            <accheck>|ARMOR.ACITEM.%armor.ACCHECK|</accheck>
+            <baseac>|ARMOR.ACITEM.%armor.BASEAC|</baseac>
+            <edr>|ARMOR.ACITEM.%armor.EDR|</edr>
+            <maxdex>|ARMOR.ACITEM.%armor.MAXDEX|</maxdex>
+            <move>|ARMOR.ACITEM.%armor.MOVE|</move>
+            <spellfail>|ARMOR.ACITEM.%armor.SPELLFAIL|</spellfail>
+            <special_properties>|ARMOR.ACITEM.%armor.SPROP|</special_properties>
+            <totalac>|ARMOR.ACITEM.%armor.TOTALAC|</totalac>
+            <type>|ARMOR.ACITEM.%armor.TYPE|</type>
+            <wt>|ARMOR.ACITEM.%armor.WT|</wt>
+        </item>
+        |ENDFOR|
+    </protection>
+    <!--
+      ====================================
+      ====================================
+            CLASS-DEPENDANT FEATURES
+      ====================================
+      ====================================-->
+    <class_features>
+        |%VAR.BardicMusicLevel.GTEQ.1|
+        <bardic_music>
+            <uses_per_day>|VAR.BardicMusicLevel.INTVAL|</uses_per_day>
+            <effects>Effects (Perform ranks required)</effects>
+            <text>Inspire Courage(3), Countersong(3), Fascinate(3),Inspire Competence(6), Suggestion(9), Inspire
+                Greatness(12)
+            </text>
+        </bardic_music>
+        |%|
+        |%VAR.BardicMusic.GTEQ.1|
+        <bardic_music>
+            <uses_per_day>|VAR.BardicMusic.INTVAL|</uses_per_day>
+            <effects>Effects (Perform ranks required)</effects>
+            <text>Inspire Courage(3), Countersong(3), Fascinate(3),Inspire Competence(6), Suggestion(9), Inspire
+                Greatness(12)
+            </text>
+        </bardic_music>
+        |%|    <!-- Bard -->
 
 
-	<!--
-	  ====================================
-	  ====================================
-			MISCELLANEOUS
-	  ====================================
-	  ====================================-->
+        |%BARBARIAN=1|    <!-- If character is a barbarian -->
+        <rage>
+            <uses_per_day>|VAR.RAGE.INTVAL|</uses_per_day>
+            <description>The Barbarian temporarily gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on
+                Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the
+                character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued
+                (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the
+                barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage
+                once per encounter, and only a certain number of times per day (determined by level). Entering a rage
+                takes no time itself, but the barbarian can only do it during his action.
+            </description>
+
+            |%|
+            |%BARBARIAN=15|    <!-- If character is a barbarian -->
+            <description>Starting at 15th level, the barbarian's rage bonuses become +6 to Strength, +6 to Constitution,
+                and a +3 morale bonus to Will saves. (The AC penalty remains at -2.)
+            </description>
+            |%|    <!-- Barbarian of 15th Level -->
+            |%BARBARIAN=1|    <!-- If character is a barbarian -->
+        </rage>
+        |%|    <!-- Character Rage -->
 
 
-|%DOMAIN.1|
-	<domains>
-|FOR,%domain,1,COUNT[DOMAINS],1,0|
-		<domain>
-			<name>|DOMAIN.%domain|</name>
-			<power>|DOMAIN.%domain.POWER|</power>
-		</domain>
-|ENDFOR|	<!-- Domains -->
-	</domains>
-|%|	<!-- Domains -->
-	<weapon_proficiencies>|WEAPONPROFS|</weapon_proficiencies>
-	<languages>|LANGUAGES|</languages>
-|%TEMPLATE|
-	<templates>
-		<list>|TEMPLATELIST|</list>
-|FOR,%template,0,COUNT[TEMPLATES]-1,1,1|
-		<template>
-			<name>|TEMPLATE.%template.NAME|</name>
-			<strmod>|TEMPLATE.%template.STRMOD|</strmod>
-			<dexmod>|TEMPLATE.%template.DEXMOD|</dexmod>
-			<conmod>|TEMPLATE.%template.CONMOD|</conmod>
-			<intmod>|TEMPLATE.%template.INTMOD|</intmod>
-			<wismod>|TEMPLATE.%template.WISMOD|</wismod>
-			<chamod>|TEMPLATE.%template.CHAMOD|</chamod>
-			<cr>|TEMPLATE.%template.CR|</cr>
-			<dr>|TEMPLATE.%template.DR|</dr>
-			<feat>|TEMPLATE.%template.FEAT|</feat>
-			<sa>|TEMPLATE.%template.SA|</sa>
-			<sr>|TEMPLATE.%template.SR|</sr>
-			<bonuslist>|TEMPLATE.%template.BONUSLIST|</bonuslist>
-		</template>
-|ENDFOR|
-	</templates>
-|%|
+        <!-- Turning ability -->
+        |IIF(countdistinct("ABILITIES";"NAME=Turn Undead")>0)|
+        <turning kind="UNDEAD" type="TURN">
+            <level>|VAR.TurnLevelUndead.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceUndead.INTVAL|d|VAR.TurnDieSizeUndead.INTVAL||VAR.TurnDamagePlusUndead.INTVAL.SIGN|
+            </damage>
+            <uses_per_day>|VAR.TurnTimesUndead.INTVAL|</uses_per_day>
+            <notes>You destroy Undead creatures with total hit dice up to |(VAR.TurnLevelUndead/2).INTVAL|.</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Rebuke Undead")>0)|
+        <turning kind="UNDEAD" type="REBUKE">
+            <level>|VAR.TurnLevelUndead.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceUndead.INTVAL|d|VAR.TurnDieSizeUndead.INTVAL||VAR.TurnDamagePlusUndead.INTVAL.SIGN|
+            </damage>
+            <uses_per_day>|VAR.TurnTimesUndead.INTVAL|</uses_per_day>
+            <notes>You command Undead creatures with total hit dice up to |VAR.TurnLevelUndead.INTVAL|.</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Turn Air")>0)|
+        <turning kind="AIR" type="TURN">
+            <level>|VAR.TurnLevelAir.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceAir.INTVAL|d|VAR.TurnDieSizeAir.INTVAL||VAR.TurnDamagePlusAir.INTVAL.SIGN|</damage>
+            <uses_per_day>|VAR.TurnTimesAir.INTVAL|</uses_per_day>
+            <notes>You destroy Air creatures with total hit dice up to |(VAR.TurnLevelAir/2).INTVAL|.</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Rebuke Air")>0)|
+        <turning kind="AIR" type="REBUKE">
+            <level>|VAR.TurnLevelAir.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceAir.INTVAL|d|VAR.TurnDieSizeAir.INTVAL||VAR.TurnDamagePlusAir.INTVAL.SIGN|</damage>
+            <uses_per_day>|VAR.TurnTimesAir.INTVAL|</uses_per_day>
+            <notes>You command Air creatures with total hit dice up to |VAR.TurnLevelAir.INTVAL|</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Turn Earth")>0)|
+        <turning kind="EARTH" type="TURN">
+            <level>|VAR.TurnLevelEarth.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceEarth.INTVAL|d|VAR.TurnDieSizeEarth.INTVAL||VAR.TurnDamagePlusEarth.INTVAL.SIGN|
+            </damage>
+            <uses_per_day>|VAR.TurnTimesEarth.INTVAL|</uses_per_day>
+            <notes>You destroy Earth creatures with total hit dice up to |(VAR.TurnLevelEarth/2).INTVAL|.</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Rebuke Earth")>0)|
+        <turning kind="EARTH" type="REBUKE">
+            <level>|VAR.TurnLevelEarth.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceEarth.INTVAL|d|VAR.TurnDieSizeEarth.INTVAL||VAR.TurnDamagePlusEarth.INTVAL.SIGN|
+            </damage>
+            <uses_per_day>|VAR.TurnTimesEarth.INTVAL|</uses_per_day>
+            <notes>You command Earth creatures with total hit dice up to |VAR.TurnLevelEarth.INTVAL|</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Turn Fire")>0)|
+        <turning kind="FIRE" type="TURN">
+            <level>|VAR.TurnLevelFire.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceFire.INTVAL|d|VAR.TurnDieSizeFire.INTVAL||VAR.TurnDamagePlusFire.INTVAL.SIGN|</damage>
+            <uses_per_day>|VAR.TurnTimesFire.INTVAL|</uses_per_day>
+            <notes>You destroy Fire creatures with total hit dice up to |(VAR.TurnLevelFire/2).INTVAL|.</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Rebuke Fire")>0)|
+        <turning kind="FIRE" type="REBUKE">
+            <level>|VAR.TurnLevelFire.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceFire.INTVAL|d|VAR.TurnDieSizeFire.INTVAL||VAR.TurnDamagePlusFire.INTVAL.SIGN|</damage>
+            <uses_per_day>|VAR.TurnTimesFire.INTVAL|</uses_per_day>
+            <notes>You command Fire creatures with total hit dice up to |VAR.TurnLevelFire.INTVAL|</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Turn Water")>0)|
+        <turning kind="WATER" type="TURN">
+            <level>|VAR.TurnLevelWater.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceWater.INTVAL|d|VAR.TurnDieSizeWater.INTVAL||VAR.TurnDamagePlusWater.INTVAL.SIGN|
+            </damage>
+            <uses_per_day>|VAR.TurnTimesWater.INTVAL|</uses_per_day>
+            <notes>You destroy Water creatures with total hit dice up to |(VAR.TurnLevelWater/2).INTVAL|.</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Rebuke Water")>0)|
+        <turning kind="WATER" type="REBUKE">
+            <level>|VAR.TurnLevelWater.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDiceWater.INTVAL|d|VAR.TurnDieSizeWater.INTVAL||VAR.TurnDamagePlusWater.INTVAL.SIGN|
+            </damage>
+            <uses_per_day>|VAR.TurnTimesWater.INTVAL|</uses_per_day>
+            <notes>You command Water creatures with total hit dice up to |VAR.TurnLevelWater.INTVAL|</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Turn Plant")>0)|
+        <turning kind="PLANT" type="TURN">
+            <level>|VAR.TurnLevelPlant.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDicePlant.INTVAL|d|VAR.TurnDieSizePlant.INTVAL||VAR.TurnDamagePlusPlant.INTVAL.SIGN|
+            </damage>
+            <uses_per_day>|VAR.TurnTimesPlant.INTVAL|</uses_per_day>
+            <notes>You destroy Plant creatures with total hit dice up to |(VAR.TurnLevelPlant/2).INTVAL|.</notes>
+        </turning>
+        |ENDIF|
+        |IIF(countdistinct("ABILITIES";"NAME=Rebuke Plant")>0)|
+        <turning kind="PLANT" type="REBUKE">
+            <level>|VAR.TurnLevelPlant.INTVAL|</level>
+            <turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
+            <damage>|VAR.TurnDicePlant.INTVAL|d|VAR.TurnDieSizePlant.INTVAL||VAR.TurnDamagePlusPlant.INTVAL.SIGN|
+            </damage>
+            <uses_per_day>|VAR.TurnTimesPlant.INTVAL|</uses_per_day>
+            <notes>You command Plant creatures with total hit dice up to |VAR.TurnLevelPlant.INTVAL|.</notes>
+        </turning>
+        |ENDIF|
 
-|%PROHIBITEDLIST|
-	<prohibited_schools>|PROHIBITEDLIST|</prohibited_schools>
-|%|
 
-	<misc>
-|%MISC.FUNDS|
-		<funds>
-			<fund>|MISC.FUNDS|</fund>
-		</funds>
-|%|
-|%MISC.COMPANIONS|
-		<companions>
-			<companion>|MISC.COMPANIONS|</companion>
-		</companions>
-|%|
-|%MISC.MAGIC|
-		<magics>
-			<magic>|MISC.MAGIC|</magic>
-		</magics>
-|%|
-	</misc>
-	<!--
-	  ====================================
-	  ====================================
-			COMPANIONS
-	  ====================================
-	  ====================================-->
-	<companions>
-|%FOLLOWERTYPE.FAMILIAR|	
-		<familiar>
-			<!-- Note that only one familiar is allowed, so no support for multiple familiars -->
-			<name>|FOLLOWERTYPE.FAMILIAR.0.NAME|</name>
-			<race>|FOLLOWERTYPE.FAMILIAR.0.RACE|</race>
-			<hp>|FOLLOWERTYPE.FAMILIAR.0.HP|</hp>
-			<ac>|FOLLOWERTYPE.FAMILIAR.0.BONUS.COMBAT.AC.TOTAL|</ac>
-			<fortitude>|FOLLOWERTYPE.FAMILIAR.0.CHECK.0.TOTAL|</fortitude>
-			<reflex>|FOLLOWERTYPE.FAMILIAR.0.CHECK.1.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.FAMILIAR.0.CHECK.2.TOTAL|</willpower>
-			<initiative_mod>|FOLLOWERTYPE.FAMILIAR.0.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</special_properties>
-			<attacks>
-|FOR,%weap,0,COUNT[FOLLOWERTYPE.FAMILIAR.0.EQTYPE.WEAPON]-1,1,0|
-				<attack>
-					<common>
-						<name>
-							<short>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.NAME|</short>
-							<long>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.LONGNAME|</long>
-						</name>
-						<category>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.CATEGORY|</category>
-						<critical>
-							<range>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.CRIT|</range>
-							<multiplier>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.MULT|</multiplier>
-						</critical>
-						<to_hit>
-							<hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.HIT|</hit>
-							<magic_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.MAGICHIT|</magic_hit>
-							<total_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TOTALHIT|</total_hit>
-						</to_hit>
-						<feat>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.FEAT|</feat>
-						<hand>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.HAND|</hand>
-						<num_attacks>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
-						<reach>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.REACH|</reach>
-						<size>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.SIZE|</size>
-						<special_properties>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.SPROP|</special_properties>
-						<template>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TEMPLATE|</template>
-						<type>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TYPE|</type>
-						<weight>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.WT|</weight>
-						<sequence>|%weap|</sequence>
-					</common>
-					<simple>
-						<to_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TOTALHIT|</to_hit>
-						<damage>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.DAMAGE|</damage>
-						<range>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.RANGE|</range>
-					</simple>
-				</attack>
-|ENDFOR|
-			</attacks>
-		</familiar>
-|%|
-|%FOLLOWERTYPE.SPECIAL MOUNT|
-		<mount>
-			<!-- Note that only one mount is allowed, so no support for multiple mounts -->
-			<name>|FOLLOWERTYPE.SPECIAL MOUNT.0.NAME|</name>
-			<race>|FOLLOWERTYPE.SPECIAL MOUNT.0.RACE|</race>
-			<hp>|FOLLOWERTYPE.SPECIAL MOUNT.0.HP|</hp>
-			<ac>|FOLLOWERTYPE.SPECIAL MOUNT.0.BONUS.COMBAT.AC.TOTAL|</ac>
-			<fortitude>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.0.TOTAL|</fortitude>
-			<reflex>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.1.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.2.TOTAL|</willpower>
-			<initiative_mod>|FOLLOWERTYPE.SPECIAL MOUNT.0.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.0.SPECIALLIST|</special_properties>
-			<attacks>
-|FOR,%weap,0,COUNT[FOLLOWERTYPE.SPECIAL MOUNT.0.EQTYPE.WEAPON]-1,1,0|
-				<attack>
-					<common>
-						<name>
-							<short>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.NAME|</short>
-							<long>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.LONGNAME|</long>
-						</name>
-						<category>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.CATEGORY|</category>
-						<critical>
-							<range>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.CRIT|</range>
-							<multiplier>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.MULT|</multiplier>
-						</critical>
-						<to_hit>
-							<hit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.HIT|</hit>
-							<magic_hit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.MAGICHIT|</magic_hit>
-							<total_hit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TOTALHIT|</total_hit>
-						</to_hit>
-						<feat>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.FEAT|</feat>
-						<hand>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.HAND|</hand>
-						<num_attacks>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
-						<reach>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.REACH|</reach>
-						<size>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.SIZE|</size>
-						<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.SPROP|</special_properties>
-						<template>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TEMPLATE|</template>
-						<type>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TYPE|</type>
-						<weight>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.WT|</weight>
-						<sequence>|%weap|</sequence>
-					</common>
-					<simple>
-						<to_hit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TOTALHIT|</to_hit>
-						<damage>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.DAMAGE|</damage>
-						<range>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.RANGE|</range>
-					</simple>
-				</attack>
-|ENDFOR|
-			</attacks>
-		</mount>
-|%|
-|%FOLLOWERTYPE.ANIMAL COMPANION|
-|FOR,%companion,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION]-1,1,0|
-		<companion>
-			<name>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.NAME|</name>
-			<race>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.RACE|</race>
-			<hp>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.HP|</hp>
-			<ac>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
-			<fortitude>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
-			<reflex>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.2.TOTAL|</willpower>
-			<initiative_mod>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.SPECIALLIST|</special_properties>
-			<attacks>
-|FOR,%weap,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%companion.EQTYPE.WEAPON]-1,1,0|
-				<attack>
-					<common>
-						<name>
-							<short>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.NAME|</short>
-							<long>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.LONGNAME|</long>
-						</name>
-						<category>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.CATEGORY|</category>
-						<critical>
-							<range>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.CRIT|</range>
-							<multiplier>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.MULT|</multiplier>
-						</critical>
-						<to_hit>
-							<hit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.HIT|</hit>
-							<magic_hit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.MAGICHIT|</magic_hit>
-							<total_hit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TOTALHIT|</total_hit>
-						</to_hit>
-						<feat>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.FEAT|</feat>
-						<hand>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.HAND|</hand>
-						<num_attacks>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
-						<reach>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.REACH|</reach>
-						<size>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.SIZE|</size>
-						<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.SPROP|</special_properties>
-						<template>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TEMPLATE|</template>
-						<type>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TYPE|</type>
-						<weight>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.WT|</weight>
-						<sequence>|%weap|</sequence>
-					</common>
-					<simple>
-						<to_hit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TOTALHIT|</to_hit>
-						<damage>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.DAMAGE|</damage>
-						<range>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.RANGE|</range>
-					</simple>
-				</attack>
-|ENDFOR|
-			</attacks>
-		</companion>
-|ENDFOR|	<!-- Followertype Animal -->
-|%|
-|%FOLLOWERTYPE.FOLLOWER|
-|FOR,%companion,0,COUNT[FOLLOWERTYPE.FOLLOWER],1,0|
-		<follower>
-			<name>|FOLLOWERTYPE.FOLLOWER.%companion.NAME|</name>
-			<race>|FOLLOWERTYPE.FOLLOWER.%companion.RACE|</race>
-			<hp>|FOLLOWERTYPE.FOLLOWER.%companion.HP|</hp>
-			<ac>|FOLLOWERTYPE.FOLLOWER.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
-			<fortitude>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.0.TOTAL|</fortitude>
-			<reflex>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.1.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.2.TOTAL|</willpower>
-			<initiative_mod>|FOLLOWERTYPE.FOLLOWER.%companion.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.SPECIALLIST|</special_properties>
-			<attacks>
-|FOR,%weap,0,COUNT[FOLLOWERTYPE.FOLLOWER.%companion.EQTYPE.WEAPON]-1,1,0|
-				<attack>
-					<common>
-						<name>
-							<short>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.NAME|</short>
-							<long>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.LONGNAME|</long>
-						</name>
-						<attacks>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.ATTACKS|</attacks>
-						<damage>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.BASICDAMAGE|</damage>
-						<bonusdamage>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.BONUSDAMAGE|</bonusdamage>
-						<category>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.CATEGORY|</category>
-						<critical>
-							<range>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.CRIT|</range>
-							<multiplier>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.MULT|</multiplier>
-						</critical>
-						<damage>
-							<primary_hand>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.DAMAGE|</primary_hand>
-							<magic_damage>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.MAGICDAMAGE|</magic_damage>
-						</damage>
-						<to_hit>
-							<hit>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.HIT|</hit>
-							<magic_hit>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.MAGICHIT|</magic_hit>
-							<total_hit>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.TOTALHIT|</total_hit>
-						</to_hit>
-						<feat>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.FEAT|</feat>
-						<hand>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.HAND|</hand>
-						<num_attacks>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.NUMATTACKS|</num_attacks>
-						<base_range>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.RANGENOUNITS|</base_range>
-						<reach>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.REACH|</reach>
-						<size>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.SIZE|</size>
-						<special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.SPROP|</special_properties>
-						<template>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.TEMPLATE|</template>
-						<type>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.TYPE|</type>
-						<weight>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.WT|</weight>
-						<sequence>|%weap|</sequence>
-					</common>
-				</attack>
-|ENDFOR|
-			</attacks>
-		</follower>
-|ENDFOR|	<!-- Followertype Follower -->
-|%|
-	</companions>
-	<!--
-	  ====================================
-	  ====================================
-			SPELLS
-	  ====================================
-	  ====================================-->
-	<spells>
-		<!-- ### BEGIN Innate spells ### -->
-|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
-|IIF(%spellrace:0)|
-	<spells_innate number="none"/>
-|ELSE|
-	<spells_innate>
-|FOR,%spellbook,1,1,1,1|
-|FOR,%class,0,0,1,1|
-|FOR,%level,0,0,1,1|
-|%SPELLLISTBOOK.%class.%level.%spellbook|
-		<racial_innate>
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-			<spell>
-					<name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
-					<outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
-					<times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
-					<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
-					<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
-					<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
-					<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
-					<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
-					<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
-					<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
-					<target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
-					<saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
-					<school>
-						<school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
-						<subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
-						<descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
-						<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
-					</school>
-					<source>
-						<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
-						<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
-						<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
-						<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
-					</source>
-					<spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
-					<description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
-					<bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
-				</spell>
-|ENDFOR|
-		</racial_innate>
-|%|
-|ENDFOR|
-|ENDFOR|
-|ENDFOR|
+        |%VAR.StunningAttack.GTEQ.1|
+        <stunning_fist>
+            <save_dc>|VAR.StunDC.INTVAL|</save_dc>
+            <uses_per_day>|VAR.StunningAttack.INTVAL|</uses_per_day>
+        </stunning_fist>
+        |%|    <!-- 3.0 stunning fist -->
 
-		<class_innate>
-|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-|FOR,%class,0,0,1,1|
-|FOR,%level,0,0,1,1|
-|%SPELLLISTBOOK.%class.%level.%spellbook|
-			<spellbook number="%spellbook" name="|SPELLBOOKNAME.%spellbook|">
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-				<spell>
-						<name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
-						<outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
-						<times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
-						<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
-						<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
-						<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
-						<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
-						<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
-						<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
-						<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
-						<target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
-						<saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
-						<school>
-							<school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
-							<subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
-							<descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
-							<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
-						</school>
-						<source>
-							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
-							<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
-							<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
-							<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
-						</source>
-						<spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
-						<description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
-						<bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
-					</spell>
-|ENDFOR|
-			</spellbook>
-|%|
-|ENDFOR|
-|ENDFOR|
-|ENDFOR|
-		</class_innate>
-		</spells_innate>
-|ENDIF|
-<!-- ### END Innate spells ### -->
-		<!-- ### BEGIN Known spells ### -->
-		<known_spells>
-|FOR,%spellbook,0,0,1,0|
-|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
-|%SPELLLISTCLASS.%class|
-		<class number="%class" spelllistclass="|SPELLLISTCLASS.%class|" spellcastertype="|SPELLLISTTYPE.%class|">
-|FOR,%level,0,9,1,1|
-|FOR,%spellcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
-|IIF(%spellcount:0)|
-			<level number="%level" known="0" cast="0"/>
-|ELSE|
-			<level number="%level" known="|SPELLLISTKNOWN.%class.%level|" cast="|SPELLLISTCAST.%class.%level|">
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-				<spell>
-						<name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
-						<outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
-						<times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
-						<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
-						<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
-						<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
-						<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
-						<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
-						<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
-						<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
-						<target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
-						<saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
-						<school>
-							<school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
-							<subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
-							<descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
-							<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
-						</school>
-						<source>
-							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
-							<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
-							<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
-							<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
-						</source>
-						<spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
-						<description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
-						<bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
-					</spell>
-|ENDFOR|
-			</level>
-|ENDIF|
-|ENDFOR|
-|ENDFOR|
-		</class>
-|%|
-|ENDFOR|
-|ENDFOR|
-	</known_spells>
-		<!-- ### END Known spells ### -->
-		<!-- ### BEGIN memorized spells ### -->
-|FOR,%memorised,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,1,0|
-|IIF(%memorised:0)|
-	<memorized_spells/>
-|ELSE|
-	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
-|IIF(%spellrace:0)|
-|ELSE|
+        |%VAR.StunningFistAttack.GTEQ.1|
+        <stunning_fist>
+            <save_dc>|VAR.StunningFistDC.INTVAL|</save_dc>
+            <uses_per_day>|VAR.StunningFistAttack.INTVAL|</uses_per_day>
+        </stunning_fist>
+        |%|    <!-- 3.5 stunning fist -->
 
-<!-- ### BEGIN innate memorized spells ### -->
-|FOR,%spellbook,1,1,1,1|
-|FOR,%class,0,0,1,1|
-|FOR,%level,0,0,1,1|
-|%SPELLLISTBOOK.%class.%level.%spellbook|
-		<racial_innate_memorized>
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-			<spell>
-					<name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
-					<outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
-					<times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
-					<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
-					<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
-					<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
-					<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
-					<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
-					<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
-					<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
-					<target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
-					<saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
-					<school>
-						<school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
-						<subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
-						<descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
-						<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
-					</school>
-					<source>
-						<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
-						<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
-						<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
-						<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
-					</source>
-					<spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
-					<description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
-					<bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
-				</spell>
-|ENDFOR|
-		</racial_innate_memorized>
-|%|
-|ENDFOR|
-|ENDFOR|
-|ENDFOR|
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
-|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-|FOR,%class,0,0,1,1|
-|FOR,%level,0,0,1,1|
-|%SPELLLISTBOOK.%class.%level.%spellbook|
-			<spellbook number="%spellbook" name="|SPELLBOOKNAME.%spellbook|">
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-				<spell>
-						<name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
-						<outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
-						<times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
-						<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
-						<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
-						<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
-						<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
-						<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
-						<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
-						<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
-						<target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
-						<saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
-						<school>
-							<school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
-							<subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
-							<descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
-							<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
-						</school>
-						<source>
-							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
-							<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
-							<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
-							<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
-						</source>
-						<spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
-						<description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
-						<bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
-					</spell>
-|ENDFOR|
-			</spellbook>
-|%|
-|ENDFOR|
-|ENDFOR|
-|ENDFOR|
-		</class_innate_memorized>
-			<!-- ### END class innate memorized spells ### -->
-|ENDIF|
-|ENDFOR|
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
-|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-|FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1|
-<!-- FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-|FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
-<!-- FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1 -->
-|IIF(%foo:0.OR.%bar:0)|
-<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="%spellbook" name="|SPELLBOOKNAME.%spellbook|">
-|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
-|%SPELLLISTCLASS.%class|
-			<class number="%class" spelllistclass="|SPELLLISTCLASS.%class|">
-|FOR,%level,0,9,1,1|
-|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
-|IIF(%spelllevelcount:0)|
-				<level number="%level" spellcount="%spelllevelcount"/>
-|ELSE|
-				<level number="%level" spellcount="%spelllevelcount">
-|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
-					<spell>
-							<name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
-							<outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
-							<times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
-							<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
-							<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
-							<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
-							<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
-							<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
-							<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
-							<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
-							<target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
-							<saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
-							<school>
-								<school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
-								<subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
-								<descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
-								<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
-							</school>
-							<source>
-								<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
-								<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
-								<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
-								<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
-							</source>
-							<spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
-							<description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
-							<bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
-						</spell>
-|ENDFOR|
-				</level>
-|ENDIF|
-|ENDFOR|
-|ENDFOR|
-			</class>
-|%|
-|ENDFOR|
-		</spellbook>
-|ELSE|
-|ENDIF|
-<!-- END FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1 -->
-|ENDFOR|
-<!-- END FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-|ENDFOR|
-|ENDFOR|
-	</memorized_spells>
-|ENDIF|
-|ENDFOR|
-<!-- ### END class Spellbook memorized spells ### -->
-	</spells>
+        |%VAR.WholenessHpLVL.GTEQ.1|
+        <wholeness_of_body>
+            <hp_per_day>|VAR.WholenessHpLVL.INTVAL*2|</hp_per_day>
+        </wholeness_of_body>
+        |%|    <!-- 3.0 wholeness of body -->
+
+        |%VAR.WholenessBody.GTEQ.1|
+        <wholeness_of_body>
+            <hp_per_day>|VAR.WholenessBody.INTVAL|</hp_per_day>
+        </wholeness_of_body>
+        |%|    <!-- 3.5 wholeness of body -->
+
+        |%VAR.TOTALPOWERPOINTS.GTEQ.1|    <!-- Psionics -->
+        <psionics>
+            |IIF(HASVAR:Manifester.OR.HASVAR:PsychicWarriorManifester)|
+            <type>3.0</type>
+            |ELSE|
+            <type>3.5</type>
+            |ENDIF|
+            <base_pp>|VAR.BASEPOWERPOINTS.INTVAL|</base_pp>
+            <bonus_pp>|VAR.BONUSPOWERPOINTS.INTVAL|</bonus_pp>
+            <total_pp>|VAR.TOTALPOWERPOINTS.INTVAL|</total_pp>
+        </psionics>
+        |%|    <!-- Psionics -->
+
+        |%VAR.LayOnHands.GTEQ.1|
+        <layonhands>
+            <hp_per_day>|VAR.LayOnHands.INTVAL|</hp_per_day>
+        </layonhands>
+        |%|
+
+        |%VAR.WildshapeTimes.GTEQ.1|
+        <wildshape>
+            <uses_per_day>|VAR.WildShapeTimes.INTVAL|</uses_per_day>
+            <elemental_uses_per_day>|VAR.WildShapeElementalTimes.INTVAL|</elemental_uses_per_day>
+            <duration>|VAR.WildShapeDuration.INTVAL|</duration>
+        </wildshape>
+        |%|
+
+
+        |%VAR.LeadershipScore.GTEQ.1|
+        <leadership>
+            <score>|VAR.LeadershipScore.INTVAL|</score>
+            <max_cohort_level>|VAR.LeadershipMaxCohortLvl|</max_cohort_level>
+        </leadership>
+        |%|
+    </class_features>
+    <!--
+      ====================================
+      ====================================
+            EQUIPMENT
+      ====================================
+      ====================================-->
+    <equipment>
+        |FOR,%equip,0,COUNT[EQUIPMENT.MERGELOC]-1,1,1|
+        <item>
+            <longname>|EQ.MERGELOC.%equip.LONGNAME|</longname>
+            <id>|EQ.MERGELOC.%equip.ID|</id>
+            <name>|EQ.MERGELOC.%equip.NAME|</name>
+            <carried>|EQ.MERGELOC.%equip.CARRIED|</carried>
+            <charges>|EQ.MERGELOC.%equip.CHARGES|</charges>
+            <charges_used>|EQ.MERGELOC.%equip.CHARGESUSED|</charges_used>
+            <contents>|EQ.MERGELOC.%equip.CONTENTS|</contents>
+            <contents_num>|EQ.MERGELOC.%equip.CONTENTSNUM|</contents_num>
+            <content_weight>|EQ.MERGELOC.%equip.CONTENTWEIGHT|</content_weight>
+            <cost>|EQ.MERGELOC.%equip.COST|</cost>
+            <equipped>|EQ.MERGELOC.%equip.EQUIPPED|</equipped>
+            <location>|EQ.MERGELOC.%equip.LOCATION|</location>
+            <maxcharges>|EQ.MERGELOC.%equip.MAXCHARGES|</maxcharges>
+            <note>|EQ.MERGELOC.%equip.NOTE|</note>
+            <quantity>|EQ.MERGELOC.%equip.QTY|</quantity>
+            <checkbox>|EQ.MERGELOC.%equip.CHECKBOXES|</checkbox>
+            <size>
+                <long>|EQ.MERGELOC.%equip.SIZELONG|</long>
+                <short>|EQ.MERGELOC.%equip.SIZE|</short>
+            </size>
+            <special_properties>|EQ.MERGELOC.%equip.SPROP|</special_properties>
+            <type>|EQ.MERGELOC.%equip.TYPE|</type>
+            <weight>|EQ.MERGELOC.%equip.WT|</weight>
+            <bonuslist>|EQ.MERGELOC.%equip.BONUSLIST|</bonuslist>
+        </item>
+        |ENDFOR|    <!-- Equipment -->
+        <total>
+            <weight>|TOTAL.WEIGHT|</weight>
+            <value>|TOTAL.VALUE|</value>
+            <load>|TOTAL.LOAD|</load>
+            <capacity>|TOTAL.CAPACITY|</capacity>
+        </total>
+        <equipmentsets>
+            |EQSET.START|
+            <equipmentset name="|EQSET.NAME|">
+                |FOR,%equip,0,COUNT[EQUIPMENT.MERGELOC]-1,1,1|
+                <item>
+                    <name>|EQ.MERGELOC.%equip.NAME|</name>
+                    <carried>|EQ.MERGELOC.%equip.CARRIED|</carried>
+                    <charges>|EQ.MERGELOC.%equip.CHARGES|</charges>
+                    <charges_used>|EQ.MERGELOC.%equip.CHARGESUSED|</charges_used>
+                    <contents>|EQ.MERGELOC.%equip.CONTENTS|</contents>
+                    <cost>|EQ.MERGELOC.%equip.COST|</cost>
+                    <equipped>|EQ.MERGELOC.%equip.EQUIPPED|</equipped>
+                    <location>|EQ.MERGELOC.%equip.LOCATION|</location>
+                    <maxcharges>|EQ.MERGELOC.%equip.MAXCHARGES|</maxcharges>
+                    <note>|EQ.MERGELOC.%equip.NOTE|</note>
+                    <quantity>|EQ.MERGELOC.%equip.QTY|</quantity>
+                    <size>
+                        <long>|EQ.MERGELOC.%equip.SIZELONG|</long>
+                        <short>|EQ.MERGELOC.%equip.SIZE|</short>
+                    </size>
+                    <special_properties>|EQ.MERGELOC.%equip.SPROP|</special_properties>
+                    <type>|EQ.MERGELOC.%equip.TYPE|</type>
+                    <weight>|EQ.MERGELOC.%equip.WT|</weight>
+                    <bonuslist>|EQ.MERGELOC.%equip.BONUSLIST|</bonuslist>
+                </item>
+                |ENDFOR|    <!-- Equipment -->
+            </equipmentset>
+            |EQSET.END|
+        </equipmentsets>
+    </equipment>
+    <weight_allowance>
+        <light>|WEIGHT.LIGHT|</light>
+        <medium>|WEIGHT.MEDIUM|</medium>
+        <heavy>|WEIGHT.HEAVY|</heavy>
+        <lift_over_head>|WEIGHT.OVERHEAD|</lift_over_head>
+        <lift_off_ground>|WEIGHT.OFFGROUND|</lift_off_ground>
+        <!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
+        <push_drag>|WEIGHT.PUSHDRAG|</push_drag>
+    </weight_allowance>
+    <!--
+      ====================================
+      ====================================
+            SPECIAL ABILITIES
+      ====================================
+      ====================================-->
+    <special_abilities>
+        |FOR,%sa,0,COUNT[SA]-1,1,1|
+        <ability>
+            <name>|SPECIALABILITY.%sa|</name>
+            <description>|SPECIALABILITY.%sa.DESCRIPTION|</description>
+        </ability>
+        |ENDFOR|    <!-- Special Abilities -->
+        <race>|RACE.ABILITYLIST|</race>
+        |FOR,%class,0,COUNT[CLASSES]-1,1,1|
+        <class>
+            <class>|CLASS.%class|</class>
+            <ability>|CLASS.%class.SALIST|</ability>
+        </class>
+        |ENDFOR|
+    </special_abilities>
+    <!--
+      ====================================
+      ====================================
+            FEATS
+      ====================================
+      ====================================-->
+    <feats>
+        <!-- Visible standard feats (not including the auto feats) -->
+        |FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+        <feat>
+            <name>|ABILITY.FEAT.VISIBLE.%feat|</name>
+            <description>|ABILITY.FEAT.VISIBLE.%feat.DESC|</description>
+            <type>|ABILITY.FEAT.VISIBLE.%feat.TYPE|</type>
+            <associated>|ABILITY.FEAT.VISIBLE.%feat.ASSOCIATED|</associated>
+            <count>|ABILITY.FEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        |ENDFOR|
+
+        <!-- Auto feats -->
+        |FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+        <feat>
+            <name>|ABILITYAUTO.FEAT.VISIBLE.%feat|</name>
+            <description>|ABILITYAUTO.FEAT.VISIBLE.%feat.DESC|</description>
+            <type>|ABILITYAUTO.FEAT.VISIBLE.%feat.TYPE|</type>
+            <associated>|ABILITYAUTO.FEAT.VISIBLE.%feat.ASSOCIATED|</associated>
+            <count>|ABILITYAUTO.FEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        |ENDFOR|
+
+        <!-- Virtual Feats -->
+        |FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|
+        <feat>
+            <name>|VFEAT.VISIBLE.%feat|</name>
+            <description>|VFEAT.VISIBLE.%feat.DESC|</description>
+            <type>|VFEAT.VISIBLE.%feat.TYPE|</type>
+            <associated>|VFEAT.VISIBLE.%feat.ASSOCIATED|</associated>
+            <count>|VFEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>T</virtual>
+        </feat>
+        |ENDFOR|
+        <!-- End Virtual Feats -->
+        <!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
+        |FOR,%feat,0,COUNT[FEATS.HIDDEN]-1,1,0|
+        <feat>
+            <name>|FEAT.HIDDEN.%feat|</name>
+            <description>|FEAT.HIDDEN.%feat.DESC|</description>
+            <type>|FEAT.HIDDEN.%feat.TYPE|</type>
+            <associated>|FEAT.HIDDEN.%feat.ASSOCIATED|</associated>
+            <count>|FEAT.HIDDEN.%feat.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+        </feat>
+        |ENDFOR|
+        <!-- Hidden VFEATS -->
+        |FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=HIDDEN","NATURE=VIRTUAL")-1,1,0|
+        <feat>
+            <name>|VABILITY.FEAT.HIDDEN.%feat|</name>
+            <description>|VABILITY.FEAT.HIDDEN.%feat.DESC|</description>
+            <type>|VABILITY.FEAT.HIDDEN.%feat.TYPE|</type>
+            <associated>|VABILITY.FEAT.HIDDEN.%feat.ASSOCIATED|</associated>
+            <count>|VABILITY.FEAT.HIDDEN.%feat.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>T</virtual>
+        </feat>
+        |ENDFOR|
+        <!-- END Hidden VFEATS -->
+        |FOR,%feat,0,COUNT[FEATSAUTO.HIDDEN]-1,1,0|
+        <feat>
+            <name>|FEATAUTO.HIDDEN.%feat|</name>
+            <description>|FEATAUTO.HIDDEN.%feat.DESC|</description>
+            <type>|FEATAUTO.HIDDEN.%feat.TYPE|</type>
+            <associated>|FEATAUTO.HIDDEN.%feat.ASSOCIATED|</associated>
+            <count>|FEATAUTO.HIDDEN.%feat.ASSOCIATEDCOUNT|</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+        </feat>
+        |ENDFOR|
+    </feats>
+    <!--
+      ====================================
+      ====================================
+            ABILITY OBJECTS
+      ====================================
+      ====================================-->
+
+    <ability_objects>
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Special
+        Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+        |ELSE|
+        <!-- Visible Standard "Special Ability" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special
+        Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+        <ability_object>
+            <name>|ABILITY.Special Ability.VISIBLE.%ability|</name>
+            <description>|ABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
+            <type>|ABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
+            <associated>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Special
+        Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+        |ELSE|
+        <!-- Visible Automatic "Special Ability" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special
+        Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+        <ability_object>
+            <name>|ABILITYAUTO.Special Ability.VISIBLE.%ability|</name>
+            <description>|ABILITYAUTO.Special Ability.VISIBLE.%ability.DESC|</description>
+            <type>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE|</type>
+            <associated>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Special
+        Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+        |ELSE|
+        <!-- Visible Virtual "Special Ability" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special
+        Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+        <ability_object>
+            <name>|VABILITY.Special Ability.VISIBLE.%ability|</name>
+            <description>|VABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
+            <type>|VABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
+            <associated>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>T</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Special
+        Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+        |ELSE|
+        <!-- Hidden Standard "Special Ability" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special
+        Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+        <ability_object>
+            <name>|ABILITY.Special Ability.HIDDEN.%ability|</name>
+            <description>|ABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
+            <type>|ABILITY.Special Ability.HIDDEN.%ability.TYPE|</type>
+            <associated>|ABILITY.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|ABILITY.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Special
+        Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+        |ELSE|
+        <!-- Hidden Automatic "Special Ability" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special
+        Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+        <ability_object>
+            <name>|ABILITYAUTO.Special Ability.HIDDEN.%ability|</name>
+            <description>|ABILITYAUTO.Special Ability.HIDDEN.%ability.DESC|</description>
+            <type>|ABILITYAUTO.Special Ability.HIDDEN.%ability.TYPE|</type>
+            <associated>|ABILITYAUTO.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|ABILITYAUTO.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Special
+        Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+        |ELSE|
+        <!-- Hidden Virtual "Special Ability" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special
+        Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+        <ability_object>
+            <name>|VABILITY.Special Ability.HIDDEN.%ability|</name>
+            <description>|VABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
+            <type>|VABILITY.Special Ability.HIDDEN.%ability.TYPE|</type>
+            <associated>|VABILITY.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|VABILITY.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>T</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Salient Divine
+        Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+        |ELSE|
+        <!-- "Salient Divine Ability" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Salient Divine
+        Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+        <ability_object>
+            <name>|ABILITY.Salient Divine Ability.VISIBLE.%ability|</name>
+            <description>|ABILITY.Salient Divine Ability.VISIBLE.%ability.DESC|</description>
+            <type>|ABILITY.Salient Divine Ability.VISIBLE.%ability.TYPE|</type>
+            <associated>|ABILITY.Salient Divine Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|ABILITY.Salient Divine Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Salient Divine Ability</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+        |ELSE|
+        <!-- "Mutation" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+        <ability_object>
+            <name>|ABILITY.Mutation.VISIBLE.%ability|</name>
+            <description>|ABILITY.Mutation.VISIBLE.%ability.DESC|</description>
+            <type>|ABILITY.Mutation.VISIBLE.%ability.TYPE|</type>
+            <associated>|ABILITY.Mutation.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|ABILITY.Mutation.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Mutation</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+        |ELSE|
+        <!-- Visible Standard "Talent" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+        <ability_object>
+            <name>|ABILITY.Talent.VISIBLE.%ability|</name>
+            <description>|ABILITY.Talent.VISIBLE.%ability.DESC|</description>
+            <type>|ABILITY.Talent.VISIBLE.%ability.TYPE|</type>
+            <associated>|ABILITY.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|ABILITY.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Talent</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+        |ELSE|
+        <!-- Visible Automatic "Talent" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+        <ability_object>
+            <name>|ABILITYAUTO.Talent.VISIBLE.%ability|</name>
+            <description>|ABILITYAUTO.Talent.VISIBLE.%ability.DESC|</description>
+            <type>|ABILITYAUTO.Talent.VISIBLE.%ability.TYPE|</type>
+            <associated>|ABILITYAUTO.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|ABILITYAUTO.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Talent</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+        |ELSE|
+        <!-- Visible Virtual "Talent" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+        <ability_object>
+            <name>|VABILITY.Talent.VISIBLE.%ability|</name>
+            <description>|VABILITY.Talent.VISIBLE.%ability.DESC|</description>
+            <type>|VABILITY.Talent.VISIBLE.%ability.TYPE|</type>
+            <associated>|VABILITY.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|VABILITY.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>T</virtual>
+            <category>Talent</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+        |ELSE|
+        <!-- Hidden Standard "Talent" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+        <ability_object>
+            <name>|ABILITY.Talent.HIDDEN.%ability|</name>
+            <description>|ABILITY.Talent.HIDDEN.%ability.DESC|</description>
+            <type>|ABILITY.Talent.HIDDEN.%ability.TYPE|</type>
+            <associated>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Talent</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+        |ELSE|
+        <!-- Hidden Automatic "Talent" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+        <ability_object>
+            <name>|ABILITYAUTO.Talent.HIDDEN.%ability|</name>
+            <description>|ABILITYAUTO.Talent.HIDDEN.%ability.DESC|</description>
+            <type>|ABILITYAUTO.Talent.HIDDEN.%ability.TYPE|</type>
+            <associated>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Talent</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+        |ELSE|
+        <!-- Hidden Virtual "Talent" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+        <ability_object>
+            <name>|VABILITY.Talent.HIDDEN.%ability|</name>
+            <description>|VABILITY.Talent.HIDDEN.%ability.DESC|</description>
+            <type>|VABILITY.Talent.HIDDEN.%ability.TYPE|</type>
+            <associated>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>T</virtual>
+            <category>Talent</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+        |ELSE|
+        <!-- Visible Standard "Internal" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+        <ability_object>
+            <name>|ABILITY.Internal.VISIBLE.%ability|</name>
+            <description>|ABILITY.Internal.VISIBLE.%ability.DESC|</description>
+            <type>|ABILITY.Internal.VISIBLE.%ability.TYPE|</type>
+            <associated>|ABILITY.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|ABILITY.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+        |ELSE|
+        <!-- Visible Automatic "Internal" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+        <ability_object>
+            <name>|ABILITYAUTO.Internal.VISIBLE.%ability|</name>
+            <description>|ABILITYAUTO.Internal.VISIBLE.%ability.DESC|</description>
+            <type>|ABILITYAUTO.Internal.VISIBLE.%ability.TYPE|</type>
+            <associated>|ABILITYAUTO.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|ABILITYAUTO.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+        |ELSE|
+        <!-- Visible Virtual "Internal" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+        <ability_object>
+            <name>|VABILITY.Internal.VISIBLE.%ability|</name>
+            <description>|VABILITY.Internal.VISIBLE.%ability.DESC|</description>
+            <type>|VABILITY.Internal.VISIBLE.%ability.TYPE|</type>
+            <associated>|VABILITY.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
+            <count>|VABILITY.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>T</virtual>
+            <category>Internal</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+        |ELSE|
+        <!-- Hidden Standard "Internal" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+        <ability_object>
+            <name>|ABILITY.Internal.HIDDEN.%ability|</name>
+            <description>|ABILITY.Internal.HIDDEN.%ability.DESC|</description>
+            <type>|ABILITY.Internal.HIDDEN.%ability.TYPE|</type>
+            <associated>|ABILITY.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|ABILITY.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+        |ELSE|
+        <!-- Hidden Automatic "Internal" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+        <ability_object>
+            <name>|ABILITYAUTO.Internal.HIDDEN.%ability|</name>
+            <description>|ABILITYAUTO.Internal.HIDDEN.%ability.DESC|</description>
+            <type>|ABILITYAUTO.Internal.HIDDEN.%ability.TYPE|</type>
+            <associated>|ABILITYAUTO.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|ABILITYAUTO.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        |ENDFOR|
+        |IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+        |ELSE|
+        <!-- Hidden Virtual "Internal" Ability Objects -->
+        |ENDIF|
+        |FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+        <ability_object>
+            <name>|VABILITY.Internal.HIDDEN.%ability|</name>
+            <description>|VABILITY.Internal.HIDDEN.%ability.DESC|</description>
+            <type>|VABILITY.Internal.HIDDEN.%ability.TYPE|</type>
+            <associated>|VABILITY.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
+            <count>|VABILITY.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>T</virtual>
+            <category>Internal</category>
+        </ability_object>
+        |ENDFOR|
+    </ability_objects>
+
+
+    <!--
+      ====================================
+      ====================================
+            MISCELLANEOUS
+      ====================================
+      ====================================-->
+
+
+    |%DOMAIN.1|
+    <domains>
+        |FOR,%domain,1,COUNT[DOMAINS],1,0|
+        <domain>
+            <name>|DOMAIN.%domain|</name>
+            <power>|DOMAIN.%domain.POWER|</power>
+        </domain>
+        |ENDFOR|    <!-- Domains -->
+    </domains>
+    |%|    <!-- Domains -->
+    <weapon_proficiencies>|WEAPONPROFS|</weapon_proficiencies>
+    <languages>|LANGUAGES|</languages>
+    |%TEMPLATE|
+    <templates>
+        <list>|TEMPLATELIST|</list>
+        |FOR,%template,0,COUNT[TEMPLATES]-1,1,1|
+        <template>
+            <name>|TEMPLATE.%template.NAME|</name>
+            <strmod>|TEMPLATE.%template.STRMOD|</strmod>
+            <dexmod>|TEMPLATE.%template.DEXMOD|</dexmod>
+            <conmod>|TEMPLATE.%template.CONMOD|</conmod>
+            <intmod>|TEMPLATE.%template.INTMOD|</intmod>
+            <wismod>|TEMPLATE.%template.WISMOD|</wismod>
+            <chamod>|TEMPLATE.%template.CHAMOD|</chamod>
+            <cr>|TEMPLATE.%template.CR|</cr>
+            <dr>|TEMPLATE.%template.DR|</dr>
+            <feat>|TEMPLATE.%template.FEAT|</feat>
+            <sa>|TEMPLATE.%template.SA|</sa>
+            <sr>|TEMPLATE.%template.SR|</sr>
+            <bonuslist>|TEMPLATE.%template.BONUSLIST|</bonuslist>
+        </template>
+        |ENDFOR|
+    </templates>
+    |%|
+
+    |%PROHIBITEDLIST|
+    <prohibited_schools>|PROHIBITEDLIST|</prohibited_schools>
+    |%|
+
+    <misc>
+        |%MISC.FUNDS|
+        <funds>
+            <fund>|MISC.FUNDS|</fund>
+        </funds>
+        |%|
+        |%MISC.COMPANIONS|
+        <companions>
+            <companion>|MISC.COMPANIONS|</companion>
+        </companions>
+        |%|
+        |%MISC.MAGIC|
+        <magics>
+            <magic>|MISC.MAGIC|</magic>
+        </magics>
+        |%|
+    </misc>
+    <!--
+      ====================================
+      ====================================
+            COMPANIONS
+      ====================================
+      ====================================-->
+    <companions>
+        |%FOLLOWERTYPE.FAMILIAR|
+        <familiar>
+            <!-- Note that only one familiar is allowed, so no support for multiple familiars -->
+            <name>|FOLLOWERTYPE.FAMILIAR.0.NAME|</name>
+            <race>|FOLLOWERTYPE.FAMILIAR.0.RACE|</race>
+            <hp>|FOLLOWERTYPE.FAMILIAR.0.HP|</hp>
+            <ac>|FOLLOWERTYPE.FAMILIAR.0.BONUS.COMBAT.AC.TOTAL|</ac>
+            <fortitude>|FOLLOWERTYPE.FAMILIAR.0.CHECK.0.TOTAL|</fortitude>
+            <reflex>|FOLLOWERTYPE.FAMILIAR.0.CHECK.1.TOTAL|</reflex>
+            <willpower>|FOLLOWERTYPE.FAMILIAR.0.CHECK.2.TOTAL|</willpower>
+            <initiative_mod>|FOLLOWERTYPE.FAMILIAR.0.INITIATIVEMOD|</initiative_mod>
+            <special_properties>|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</special_properties>
+            <attacks>
+                |FOR,%weap,0,COUNT[FOLLOWERTYPE.FAMILIAR.0.EQTYPE.WEAPON]-1,1,0|
+                <attack>
+                    <common>
+                        <name>
+                            <short>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.NAME|</short>
+                            <long>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.LONGNAME|</long>
+                        </name>
+                        <category>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.CATEGORY|</category>
+                        <critical>
+                            <range>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.CRIT|</range>
+                            <multiplier>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.MULT|</multiplier>
+                        </critical>
+                        <to_hit>
+                            <hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.HIT|</hit>
+                            <magic_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.MAGICHIT|</magic_hit>
+                            <total_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TOTALHIT|</total_hit>
+                        </to_hit>
+                        <feat>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.FEAT|</feat>
+                        <hand>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.HAND|</hand>
+                        <num_attacks>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
+                        <reach>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.REACH|</reach>
+                        <size>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.SIZE|</size>
+                        <special_properties>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.SPROP|</special_properties>
+                        <template>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TEMPLATE|</template>
+                        <type>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TYPE|</type>
+                        <weight>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.WT|</weight>
+                        <sequence>|%weap|</sequence>
+                    </common>
+                    <simple>
+                        <to_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TOTALHIT|</to_hit>
+                        <damage>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.DAMAGE|</damage>
+                        <range>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.RANGE|</range>
+                    </simple>
+                </attack>
+                |ENDFOR|
+            </attacks>
+        </familiar>
+        |%|
+        |%FOLLOWERTYPE.SPECIAL MOUNT|
+        <mount>
+            <!-- Note that only one mount is allowed, so no support for multiple mounts -->
+            <name>|FOLLOWERTYPE.SPECIAL MOUNT.0.NAME|</name>
+            <race>|FOLLOWERTYPE.SPECIAL MOUNT.0.RACE|</race>
+            <hp>|FOLLOWERTYPE.SPECIAL MOUNT.0.HP|</hp>
+            <ac>|FOLLOWERTYPE.SPECIAL MOUNT.0.BONUS.COMBAT.AC.TOTAL|</ac>
+            <fortitude>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.0.TOTAL|</fortitude>
+            <reflex>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.1.TOTAL|</reflex>
+            <willpower>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.2.TOTAL|</willpower>
+            <initiative_mod>|FOLLOWERTYPE.SPECIAL MOUNT.0.INITIATIVEMOD|</initiative_mod>
+            <special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.0.SPECIALLIST|</special_properties>
+            <attacks>
+                |FOR,%weap,0,COUNT[FOLLOWERTYPE.SPECIAL MOUNT.0.EQTYPE.WEAPON]-1,1,0|
+                <attack>
+                    <common>
+                        <name>
+                            <short>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.NAME|</short>
+                            <long>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.LONGNAME|</long>
+                        </name>
+                        <category>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.CATEGORY|</category>
+                        <critical>
+                            <range>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.CRIT|</range>
+                            <multiplier>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.MULT|</multiplier>
+                        </critical>
+                        <to_hit>
+                            <hit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.HIT|</hit>
+                            <magic_hit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.MAGICHIT|</magic_hit>
+                            <total_hit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TOTALHIT|</total_hit>
+                        </to_hit>
+                        <feat>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.FEAT|</feat>
+                        <hand>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.HAND|</hand>
+                        <num_attacks>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
+                        <reach>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.REACH|</reach>
+                        <size>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.SIZE|</size>
+                        <special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.SPROP|</special_properties>
+                        <template>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TEMPLATE|</template>
+                        <type>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TYPE|</type>
+                        <weight>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.WT|</weight>
+                        <sequence>|%weap|</sequence>
+                    </common>
+                    <simple>
+                        <to_hit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TOTALHIT|</to_hit>
+                        <damage>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.DAMAGE|</damage>
+                        <range>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.RANGE|</range>
+                    </simple>
+                </attack>
+                |ENDFOR|
+            </attacks>
+        </mount>
+        |%|
+        |%FOLLOWERTYPE.ANIMAL COMPANION|
+        |FOR,%companion,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION]-1,1,0|
+        <companion>
+            <name>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.NAME|</name>
+            <race>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.RACE|</race>
+            <hp>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.HP|</hp>
+            <ac>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
+            <fortitude>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
+            <reflex>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.REFLEX.TOTAL|</reflex>
+            <willpower>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.2.TOTAL|</willpower>
+            <initiative_mod>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.INITIATIVEMOD|</initiative_mod>
+            <special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.SPECIALLIST|</special_properties>
+            <attacks>
+                |FOR,%weap,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%companion.EQTYPE.WEAPON]-1,1,0|
+                <attack>
+                    <common>
+                        <name>
+                            <short>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.NAME|</short>
+                            <long>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.LONGNAME|</long>
+                        </name>
+                        <category>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.CATEGORY|</category>
+                        <critical>
+                            <range>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.CRIT|</range>
+                            <multiplier>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.MULT|</multiplier>
+                        </critical>
+                        <to_hit>
+                            <hit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.HIT|</hit>
+                            <magic_hit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.MAGICHIT|</magic_hit>
+                            <total_hit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TOTALHIT|</total_hit>
+                        </to_hit>
+                        <feat>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.FEAT|</feat>
+                        <hand>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.HAND|</hand>
+                        <num_attacks>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
+                        <reach>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.REACH|</reach>
+                        <size>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.SIZE|</size>
+                        <special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.SPROP|</special_properties>
+                        <template>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TEMPLATE|</template>
+                        <type>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TYPE|</type>
+                        <weight>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.WT|</weight>
+                        <sequence>|%weap|</sequence>
+                    </common>
+                    <simple>
+                        <to_hit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TOTALHIT|</to_hit>
+                        <damage>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.DAMAGE|</damage>
+                        <range>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.RANGE|</range>
+                    </simple>
+                </attack>
+                |ENDFOR|
+            </attacks>
+        </companion>
+        |ENDFOR|    <!-- Followertype Animal -->
+        |%|
+        |%FOLLOWERTYPE.FOLLOWER|
+        |FOR,%companion,0,COUNT[FOLLOWERTYPE.FOLLOWER],1,0|
+        <follower>
+            <name>|FOLLOWERTYPE.FOLLOWER.%companion.NAME|</name>
+            <race>|FOLLOWERTYPE.FOLLOWER.%companion.RACE|</race>
+            <hp>|FOLLOWERTYPE.FOLLOWER.%companion.HP|</hp>
+            <ac>|FOLLOWERTYPE.FOLLOWER.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
+            <fortitude>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.0.TOTAL|</fortitude>
+            <reflex>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.1.TOTAL|</reflex>
+            <willpower>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.2.TOTAL|</willpower>
+            <initiative_mod>|FOLLOWERTYPE.FOLLOWER.%companion.INITIATIVEMOD|</initiative_mod>
+            <special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.SPECIALLIST|</special_properties>
+            <attacks>
+                |FOR,%weap,0,COUNT[FOLLOWERTYPE.FOLLOWER.%companion.EQTYPE.WEAPON]-1,1,0|
+                <attack>
+                    <common>
+                        <name>
+                            <short>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.NAME|</short>
+                            <long>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.LONGNAME|</long>
+                        </name>
+                        <attacks>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.ATTACKS|</attacks>
+                        <damage>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.BASICDAMAGE|</damage>
+                        <bonusdamage>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.BONUSDAMAGE|</bonusdamage>
+                        <category>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.CATEGORY|</category>
+                        <critical>
+                            <range>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.CRIT|</range>
+                            <multiplier>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.MULT|</multiplier>
+                        </critical>
+                        <damage>
+                            <primary_hand>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.DAMAGE|</primary_hand>
+                            <magic_damage>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.MAGICDAMAGE|</magic_damage>
+                        </damage>
+                        <to_hit>
+                            <hit>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.HIT|</hit>
+                            <magic_hit>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.MAGICHIT|</magic_hit>
+                            <total_hit>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.TOTALHIT|</total_hit>
+                        </to_hit>
+                        <feat>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.FEAT|</feat>
+                        <hand>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.HAND|</hand>
+                        <num_attacks>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.NUMATTACKS|</num_attacks>
+                        <base_range>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.RANGENOUNITS|</base_range>
+                        <reach>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.REACH|</reach>
+                        <size>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.SIZE|</size>
+                        <special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.SPROP|</special_properties>
+                        <template>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.TEMPLATE|</template>
+                        <type>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.TYPE|</type>
+                        <weight>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.WT|</weight>
+                        <sequence>|%weap|</sequence>
+                    </common>
+                </attack>
+                |ENDFOR|
+            </attacks>
+        </follower>
+        |ENDFOR|    <!-- Followertype Follower -->
+        |%|
+    </companions>
+    <!--
+      ====================================
+      ====================================
+            SPELLS
+      ====================================
+      ====================================-->
+    <spells>
+        <!-- ### BEGIN Innate spells ### -->
+        |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
+        |IIF(%spellrace:0)|
+        <spells_innate number="none"/>
+        |ELSE|
+        <spells_innate>
+            |FOR,%spellbook,1,1,1,1|
+            |FOR,%class,0,0,1,1|
+            |FOR,%level,0,0,1,1|
+            |%SPELLLISTBOOK.%class.%level.%spellbook|
+            <racial_innate>
+                |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+                <spell>
+                    <name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
+                    <outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
+                    <times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
+                    <range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
+                    <components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
+                    <castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+                    <casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+                    <dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
+                    <duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
+                    <effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
+                    <target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
+                    <saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
+                    <school>
+                        <school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
+                        <subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
+                        <descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
+                        <fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+                        <source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+                        <sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
+                        <sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
+                    </source>
+                    <spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
+                    <description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
+                    <bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
+                </spell>
+                |ENDFOR|
+            </racial_innate>
+            |%|
+            |ENDFOR|
+            |ENDFOR|
+            |ENDFOR|
+
+            <class_innate>
+                |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+                |FOR,%class,0,0,1,1|
+                |FOR,%level,0,0,1,1|
+                |%SPELLLISTBOOK.%class.%level.%spellbook|
+                <spellbook number="%spellbook" name="|SPELLBOOKNAME.%spellbook|">
+                    |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+                    <spell>
+                        <name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
+                        <outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
+                        <times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
+                        <range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
+                        <components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
+                        <castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+                        <casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+                        <dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
+                        <duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
+                        <effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
+                        <target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
+                        <saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
+                        <school>
+                            <school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
+                            <subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
+                            <descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
+                            <fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+                            <source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+                            <sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
+                            <sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
+                        </source>
+                        <spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
+                        <description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
+                        <bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
+                    </spell>
+                    |ENDFOR|
+                </spellbook>
+                |%|
+                |ENDFOR|
+                |ENDFOR|
+                |ENDFOR|
+            </class_innate>
+        </spells_innate>
+        |ENDIF|
+        <!-- ### END Innate spells ### -->
+        <!-- ### BEGIN Known spells ### -->
+        <known_spells>
+            |FOR,%spellbook,0,0,1,0|
+            |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+            |%SPELLLISTCLASS.%class|
+            <class number="%class" spelllistclass="|SPELLLISTCLASS.%class|" spellcastertype="|SPELLLISTTYPE.%class|">
+                |FOR,%level,0,9,1,1|
+                |FOR,%spellcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+                |IIF(%spellcount:0)|
+                <level number="%level" known="0" cast="0"/>
+                |ELSE|
+                <level number="%level" known="|SPELLLISTKNOWN.%class.%level|" cast="|SPELLLISTCAST.%class.%level|">
+                    |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+                    <spell>
+                        <name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
+                        <outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
+                        <times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
+                        <range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
+                        <components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
+                        <castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+                        <casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+                        <dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
+                        <duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
+                        <effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
+                        <target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
+                        <saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
+                        <school>
+                            <school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
+                            <subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
+                            <descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
+                            <fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+                            <source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+                            <sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
+                            <sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
+                        </source>
+                        <spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
+                        <description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
+                        <bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
+                    </spell>
+                    |ENDFOR|
+                </level>
+                |ENDIF|
+                |ENDFOR|
+                |ENDFOR|
+            </class>
+            |%|
+            |ENDFOR|
+            |ENDFOR|
+        </known_spells>
+        <!-- ### END Known spells ### -->
+        <!-- ### BEGIN memorized spells ### -->
+        |FOR,%memorised,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,1,0|
+        |IIF(%memorised:0)|
+        <memorized_spells/>
+        |ELSE|
+        <memorized_spells>
+            <!-- ### BEGIN innate memorized spell section -->
+            |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
+            |IIF(%spellrace:0)|
+            |ELSE|
+
+            <!-- ### BEGIN innate memorized spells ### -->
+            |FOR,%spellbook,1,1,1,1|
+            |FOR,%class,0,0,1,1|
+            |FOR,%level,0,0,1,1|
+            |%SPELLLISTBOOK.%class.%level.%spellbook|
+            <racial_innate_memorized>
+                |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+                <spell>
+                    <name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
+                    <outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
+                    <times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
+                    <range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
+                    <components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
+                    <castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+                    <casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+                    <dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
+                    <duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
+                    <effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
+                    <target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
+                    <saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
+                    <school>
+                        <school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
+                        <subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
+                        <descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
+                        <fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+                        <source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+                        <sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
+                        <sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
+                    </source>
+                    <spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
+                    <description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
+                    <bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
+                </spell>
+                |ENDFOR|
+            </racial_innate_memorized>
+            |%|
+            |ENDFOR|
+            |ENDFOR|
+            |ENDFOR|
+            <!-- ### END innate memorized spells ### -->
+            <!-- ### BEGIN class innate memorized spells ### -->
+            <class_innate_memorized>
+                |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+                |FOR,%class,0,0,1,1|
+                |FOR,%level,0,0,1,1|
+                |%SPELLLISTBOOK.%class.%level.%spellbook|
+                <spellbook number="%spellbook" name="|SPELLBOOKNAME.%spellbook|">
+                    |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+                    <spell>
+                        <name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
+                        <outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
+                        <times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
+                        <range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
+                        <components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
+                        <castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+                        <casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+                        <dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
+                        <duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
+                        <effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
+                        <target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
+                        <saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
+                        <school>
+                            <school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
+                            <subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
+                            <descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
+                            <fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+                            <source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+                            <sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
+                            <sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
+                        </source>
+                        <spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
+                        <description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
+                        <bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
+                    </spell>
+                    |ENDFOR|
+                </spellbook>
+                |%|
+                |ENDFOR|
+                |ENDFOR|
+                |ENDFOR|
+            </class_innate_memorized>
+            <!-- ### END class innate memorized spells ### -->
+            |ENDIF|
+            |ENDFOR|
+            <!-- ### END innate memorized spell section -->
+            <!-- ### BEGIN class Spellbook memorized spells ### -->
+            |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+            |FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1|
+            <!-- FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
+            |FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
+            <!-- FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1 -->
+            |IIF(%foo:0.OR.%bar:0)|
+            <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
+            <spellbook number="%spellbook" name="|SPELLBOOKNAME.%spellbook|">
+                |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+                |%SPELLLISTCLASS.%class|
+                <class number="%class" spelllistclass="|SPELLLISTCLASS.%class|">
+                    |FOR,%level,0,9,1,1|
+                    |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+                    |IIF(%spelllevelcount:0)|
+                    <level number="%level" spellcount="%spelllevelcount"/>
+                    |ELSE|
+                    <level number="%level" spellcount="%spelllevelcount">
+                        |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+                        <spell>
+                            <name>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</name>
+                            <outputname>|SPELLMEM.%class.%spellbook.%level.%spell.OUTPUTNAME|</outputname>
+                            <times_memorized>|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|</times_memorized>
+                            <range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
+                            <components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
+                            <castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+                            <casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
+                            <dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
+                            <duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
+                            <effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
+                            <target>|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|</target>
+                            <saveinfo>|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|</saveinfo>
+                            <school>
+                                <school>|SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|</school>
+                                <subschool>|SPELLMEM.%class.%spellbook.%level.%spell.SUBSCHOOL|</subschool>
+                                <descriptor>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTOR|</descriptor>
+                                <fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
+                            </school>
+                            <source>
+                                <sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+                                <source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+                                <sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
+                                <sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
+                            </source>
+                            <spell_resistance>|SPELLMEM.%class.%spellbook.%level.%spell.SR|</spell_resistance>
+                            <description>|SPELLMEM.%class.%spellbook.%level.%spell.DESCRIPTION|</description>
+                            <bonusspell>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|</bonusspell>
+                        </spell>
+                        |ENDFOR|
+                    </level>
+                    |ENDIF|
+                    |ENDFOR|
+                    |ENDFOR|
+                </class>
+                |%|
+                |ENDFOR|
+            </spellbook>
+            |ELSE|
+            |ENDIF|
+            <!-- END FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1 -->
+            |ENDFOR|
+            <!-- END FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
+            |ENDFOR|
+            |ENDFOR|
+        </memorized_spells>
+        |ENDIF|
+        |ENDFOR|
+        <!-- ### END class Spellbook memorized spells ### -->
+    </spells>
 </character>

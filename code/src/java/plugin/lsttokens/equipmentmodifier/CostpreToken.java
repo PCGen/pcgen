@@ -30,41 +30,41 @@ import pcgen.rules.persistence.token.ParseResult;
  * Deals with COSTPRE token
  */
 public class CostpreToken extends AbstractNonEmptyToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "COSTPRE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "COSTPRE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
-	{
-		Formula formula = FormulaFactory.getFormulaFor(value);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		context.getObjectContext().put(mod, FormulaKey.BASECOST, formula);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
+    {
+        Formula formula = FormulaFactory.getFormulaFor(value);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        context.getObjectContext().put(mod, FormulaKey.BASECOST, formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		Formula f = context.getObjectContext().getFormula(mod, FormulaKey.BASECOST);
-		if (f == null)
-		{
-			return null;
-		}
-		return new String[]{f.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, EquipmentModifier mod)
+    {
+        Formula f = context.getObjectContext().getFormula(mod, FormulaKey.BASECOST);
+        if (f == null)
+        {
+            return null;
+        }
+        return new String[]{f.toString()};
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

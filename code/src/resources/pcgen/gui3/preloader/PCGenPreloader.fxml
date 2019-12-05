@@ -36,7 +36,7 @@
                 </ImageView>
             </center>
             <bottom>
-                <PCGenStatusBar fx:id="pcGenStatusBar" />
+                <PCGenStatusBar fx:id="pcGenStatusBar"/>
             </bottom>
         </BorderPane>
     </AnchorPane>

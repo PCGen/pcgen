@@ -29,37 +29,34 @@ import pcgen.util.enumeration.Tab;
 
 /**
  * TabLoader loads TAB lines from the miscinfo.lst file for a game mode.
- * 
- * 
  */
 public class TabLoader extends SimpleLoader<TabInfo>
 {
 
-	private List<String> deprecatedTabNames =
-			Arrays.asList("ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES", "NATURALWEAPONS", "SOURCEINFO");
+    private List<String> deprecatedTabNames =
+            Arrays.asList("ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES", "NATURALWEAPONS", "SOURCEINFO");
 
-	public TabLoader()
-	{
-		super(TabInfo.class);
-	}
+    public TabLoader()
+    {
+        super(TabInfo.class);
+    }
 
-	@Override
-	protected String processFirstToken(LoadContext context, String token)
-	{
-		if (!Tab.exists(token))
-		{
-			if (deprecatedTabNames.contains(token.toUpperCase()))
-			{
-				Logging.deprecationPrint("TAB:" + token + " has been deprecated and is now ignored.", context);
-			}
-			else
-			{
-				Logging.errorPrint("TAB:" + token + " is not valid.", context);
-			}
-			return null;
-		}
+    @Override
+    protected String processFirstToken(LoadContext context, String token)
+    {
+        if (!Tab.exists(token))
+        {
+            if (deprecatedTabNames.contains(token.toUpperCase()))
+            {
+                Logging.deprecationPrint("TAB:" + token + " has been deprecated and is now ignored.", context);
+            } else
+            {
+                Logging.errorPrint("TAB:" + token + " is not valid.", context);
+            }
+            return null;
+        }
 
-		return super.processFirstToken(context, token);
-	}
+        return super.processFirstToken(context, token);
+    }
 
 }

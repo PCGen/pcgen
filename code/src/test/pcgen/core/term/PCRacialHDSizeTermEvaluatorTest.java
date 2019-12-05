@@ -46,93 +46,91 @@ import org.junit.jupiter.api.Test;
 
 /**
  * PCRacialHDSizeTermEvaluatorTest checks the function of the RACIALHDSIZE variable.
- * 
- * 
  */
 public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 {
-	PCClass humanoidClass;
-	PCClass pcClass;
-	Race bugbearRace = new Race();
-	Race humanRace = new Race();
-	PCRacialHDSizeTermEvaluator eval = new PCRacialHDSizeTermEvaluator("RACIALHDSIZE");
+    PCClass humanoidClass;
+    PCClass pcClass;
+    Race bugbearRace = new Race();
+    Race humanRace = new Race();
+    PCRacialHDSizeTermEvaluator eval = new PCRacialHDSizeTermEvaluator("RACIALHDSIZE");
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
 
-		Campaign customCampaign = new Campaign();
-		customCampaign.setName("Unit Test");
-		customCampaign.setName("KEY_Unit Test");
-		customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Unit Test data"));
-		CampaignSourceEntry source = new CampaignSourceEntry(customCampaign,
-					new URI("file:/" + getClass().getName() + ".java"));
-		LoadContext context = Globals.getContext();
-		PCClassLoader classLoader = new PCClassLoader();
-		
-		// Create the humanoid monster class
-		final String humanoidClassLine =
-				"CLASS:Humanoid	KEY:KEY_Humanoid	HD:8	TYPE:Monster	CLASSTYPE:Monster	"
-						+ "STARTSKILLPTS:2	MODTOSKILLS:YES";
-		humanoidClass = classLoader.parseLine(context, null, humanoidClassLine, source);
-		context.getReferenceContext().importObject(humanoidClass);
-		
-		// Create the pc class
-		final String pcClassLine = "CLASS:TestPCClass	TYPE:PC		HD:10";
-		pcClass = classLoader.parseLine(context, null, pcClassLine, source);
-		context.getReferenceContext().importObject(pcClass);
+        Campaign customCampaign = new Campaign();
+        customCampaign.setName("Unit Test");
+        customCampaign.setName("KEY_Unit Test");
+        customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Unit Test data"));
+        CampaignSourceEntry source = new CampaignSourceEntry(customCampaign,
+                new URI("file:/" + getClass().getName() + ".java"));
+        LoadContext context = Globals.getContext();
+        PCClassLoader classLoader = new PCClassLoader();
 
-		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
-		// Create the BugBear race
-		bugbearRace.setName("Bugbear");
-		bugbearRace.put(StringKey.KEY_NAME, "KEY_Bugbear");
-		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
-		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
-		bugbearRace.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
-				CDOMDirectSingleRef.getRef(humanoidClass), FormulaFactory.getFormulaFor(3)));
-		context.getReferenceContext().importObject(bugbearRace);
-		
-		// Create the human race
-		humanRace.setName("Human");
-		humanRace.put(StringKey.KEY_NAME, "KEY_Human");
-		humanRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
-		context.getReferenceContext().importObject(humanRace);
-	}
+        // Create the humanoid monster class
+        final String humanoidClassLine =
+                "CLASS:Humanoid	KEY:KEY_Humanoid	HD:8	TYPE:Monster	CLASSTYPE:Monster	"
+                        + "STARTSKILLPTS:2	MODTOSKILLS:YES";
+        humanoidClass = classLoader.parseLine(context, null, humanoidClassLine, source);
+        context.getReferenceContext().importObject(humanoidClass);
 
-	/**
-	 * Check for creature with racial HD but no class levels
-	 */
-	@Test
-	public void testBugbearWithNoClassLevels()
-	{
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(bugbearRace);
-		assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
-	}
+        // Create the pc class
+        final String pcClassLine = "CLASS:TestPCClass	TYPE:PC		HD:10";
+        pcClass = classLoader.parseLine(context, null, pcClassLine, source);
+        context.getReferenceContext().importObject(pcClass);
 
-	/**
-	 * Check for creature with racial HD and class levels
-	 */
-	@Test
-	public void testBugbearWithClassLevels()
-	{
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(bugbearRace);
-		pc.incrementClassLevel(1, pcClass);
-		assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
-	}
+        CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+        // Create the BugBear race
+        bugbearRace.setName("Bugbear");
+        bugbearRace.put(StringKey.KEY_NAME, "KEY_Bugbear");
+        bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
+        bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
+        bugbearRace.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
+                CDOMDirectSingleRef.getRef(humanoidClass), FormulaFactory.getFormulaFor(3)));
+        context.getReferenceContext().importObject(bugbearRace);
 
-	/**
-	 * Check for creature with no racial HD
-	 */
-	@Test
-	public void testHuman()
-	{
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(humanRace);
-		pc.incrementClassLevel(1, pcClass);
-		assertEquals("Human racial HD size should be 0", 0, eval.resolve(pc.getDisplay()), 0.001);
-	}
+        // Create the human race
+        humanRace.setName("Human");
+        humanRace.put(StringKey.KEY_NAME, "KEY_Human");
+        humanRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
+        context.getReferenceContext().importObject(humanRace);
+    }
+
+    /**
+     * Check for creature with racial HD but no class levels
+     */
+    @Test
+    public void testBugbearWithNoClassLevels()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(bugbearRace);
+        assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
+    }
+
+    /**
+     * Check for creature with racial HD and class levels
+     */
+    @Test
+    public void testBugbearWithClassLevels()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(bugbearRace);
+        pc.incrementClassLevel(1, pcClass);
+        assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
+    }
+
+    /**
+     * Check for creature with no racial HD
+     */
+    @Test
+    public void testHuman()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(humanRace);
+        pc.incrementClassLevel(1, pcClass);
+        assertEquals("Human racial HD size should be 0", 0, eval.resolve(pc.getDisplay()), 0.001);
+    }
 }

@@ -27,41 +27,41 @@ import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 
 /**
- * PChasVarFunction allows character variable presence to be queried in a 
- * Freemarker template. It checks if the character has a variable and returns 
- * true if so. e.g. ${pchasvar("Foo")} 
- * 
+ * PChasVarFunction allows character variable presence to be queried in a
+ * Freemarker template. It checks if the character has a variable and returns
+ * true if so. e.g. ${pchasvar("Foo")}
  */
 public class PCHasVarFunction implements TemplateMethodModelEx, CharacterExportAction
 {
-	private PlayerCharacter pc;
-	private ExportHandler eh;
+    private PlayerCharacter pc;
+    private ExportHandler eh;
 
-	/**
-	 * Create a new instance of PCBooleanFunction
-	 * @param pc The character being exported.
-	 * @param eh The managing export handler.
-	 */
-	public PCHasVarFunction(PlayerCharacter pc, ExportHandler eh)
-	{
-		this.pc = pc;
-		this.eh = eh;
-	}
+    /**
+     * Create a new instance of PCBooleanFunction
+     *
+     * @param pc The character being exported.
+     * @param eh The managing export handler.
+     */
+    public PCHasVarFunction(PlayerCharacter pc, ExportHandler eh)
+    {
+        this.pc = pc;
+        this.eh = eh;
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Object exec(List arg0) throws TemplateModelException
-	{
-		if (arg0.size() != 1)
-		{
-			throw new TemplateModelException("Wrong arguments. formula required");
-		}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public Object exec(List arg0) throws TemplateModelException
+    {
+        if (arg0.size() != 1)
+        {
+            throw new TemplateModelException("Wrong arguments. formula required");
+        }
 
-		String tag = arg0.get(0).toString();
+        String tag = arg0.get(0).toString();
 
-		String value = getExportVariable(tag, pc, eh);
+        String value = getExportVariable(tag, pc, eh);
 
-		return pc.hasVariable(value);
-	}
+        return pc.hasVariable(value);
+    }
 
 }

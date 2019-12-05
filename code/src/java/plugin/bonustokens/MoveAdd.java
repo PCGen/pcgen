@@ -27,52 +27,52 @@ import pcgen.util.enumeration.Load;
  **/
 public final class MoveAdd extends BonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{Load.LIGHT.toString(), Load.MEDIUM.toString(), Load.HEAVY.toString(), Load.OVERLOAD.toString()};
+    private static final String[] BONUS_TAGS =
+            {Load.LIGHT.toString(), Load.MEDIUM.toString(), Load.HEAVY.toString(), Load.OVERLOAD.toString()};
 
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		for (int i = 0; i < BONUS_TAGS.length; ++i)
-		{
-			if (BONUS_TAGS[i].equals(token))
-			{
-				addBonusInfo(i);
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        for (int i = 0;i < BONUS_TAGS.length;++i)
+        {
+            if (BONUS_TAGS[i].equals(token))
+            {
+                addBonusInfo(i);
 
-				return true;
-			}
-		}
+                return true;
+            }
+        }
 
-		if (token.startsWith(Constants.LST_TYPE_EQUAL))
-		{
-			addBonusInfo(token.replace('=', '.'));
-		}
-		else
-		{
-			addBonusInfo(token);
-		}
+        if (token.startsWith(Constants.LST_TYPE_EQUAL))
+        {
+            addBonusInfo(token.replace('=', '.'));
+        } else
+        {
+            addBonusInfo(token);
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		if (obj instanceof Integer)
-		{
-			return BONUS_TAGS[(Integer) obj];
-		}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        if (obj instanceof Integer)
+        {
+            return BONUS_TAGS[(Integer) obj];
+        }
 
-		return (String) obj;
-	}
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "MOVEADD";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "MOVEADD";
+    }
 }

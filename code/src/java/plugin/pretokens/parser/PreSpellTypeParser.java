@@ -27,57 +27,57 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreSpellTypeParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	@Override
-	protected boolean requiresValue()
-	{
-		return true;
-	}
+    @Override
+    protected boolean requiresValue()
+    {
+        return true;
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"SPELLTYPE"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"SPELLTYPE"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		makeCheckmult(prereq, "SPELLTYPE");
-		return prereq;
-	}
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        makeCheckmult(prereq, "SPELLTYPE");
+        return prereq;
+    }
 
-	private static void makeCheckmult(Prerequisite prereq, String kind)
-	{
-		if (prereq == null)
-		{
-			return;
-		}
-		if (prereq.getKind() != null && prereq.getKind().equalsIgnoreCase(kind))
-		{
-			prereq.setCountMultiples(true);
-		}
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			makeCheckmult(element, kind);
-		}
-	}
+    private static void makeCheckmult(Prerequisite prereq, String kind)
+    {
+        if (prereq == null)
+        {
+            return;
+        }
+        if (prereq.getKind() != null && prereq.getKind().equalsIgnoreCase(kind))
+        {
+            prereq.setCountMultiples(true);
+        }
+        for (Prerequisite element : prereq.getPrerequisites())
+        {
+            makeCheckmult(element, kind);
+        }
+    }
 
 }

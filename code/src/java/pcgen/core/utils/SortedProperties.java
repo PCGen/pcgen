@@ -33,96 +33,94 @@ import pcgen.util.Logging;
 public class SortedProperties extends Properties
 {
 
-	/**
-	 * Store properties
-	 * @param out
-	 * @param header
-	 */
-	public void mystore(final FileOutputStream out, final String header)
-	{
-		BufferedWriter bw = null;
-		final SortedMap<Object, Object> aMap = new TreeMap<>(this);
-		final Iterator<Map.Entry<Object, Object>> entries = aMap.entrySet().iterator();
-		Map.Entry<Object, Object> entry;
+    /**
+     * Store properties
+     *
+     * @param out
+     * @param header
+     */
+    public void mystore(final FileOutputStream out, final String header)
+    {
+        BufferedWriter bw = null;
+        final SortedMap<Object, Object> aMap = new TreeMap<>(this);
+        final Iterator<Map.Entry<Object, Object>> entries = aMap.entrySet().iterator();
+        Map.Entry<Object, Object> entry;
 
-		try
-		{
-			bw = new BufferedWriter(new OutputStreamWriter(out, "8859_1"));
-			bw.write(header);
-			bw.newLine();
+        try
+        {
+            bw = new BufferedWriter(new OutputStreamWriter(out, "8859_1"));
+            bw.write(header);
+            bw.newLine();
 
-			while (entries.hasNext())
-			{
-				entry = entries.next();
+            while (entries.hasNext())
+            {
+                entry = entries.next();
 
-				// The following characters must be escaped:
-				// #, !, = and :
-				final String aString = fixUp((String) entry.getValue());
-				bw.write(convertStringToKey((String) entry.getKey()) + "=" + aString);
-				bw.newLine();
-			}
+                // The following characters must be escaped:
+                // #, !, = and :
+                final String aString = fixUp((String) entry.getValue());
+                bw.write(convertStringToKey((String) entry.getKey()) + "=" + aString);
+                bw.newLine();
+            }
 
-			bw.flush();
-		}
-		catch (final IOException ex)
-		{
-			Logging.errorPrint("Error writing to the options.ini file: ", ex);
-		}
-		finally
-		{
-			try
-			{
-				if (bw != null)
-				{
-					bw.flush();
-					bw.close();
-				}
-			}
-			catch (IOException iox)
-			{
-				if (Logging.isDebugMode())
-				{
-					Logging.debugPrint("Caught exception trying to close writer in SortedProperties.mystore", iox);
-				}
+            bw.flush();
+        } catch (final IOException ex)
+        {
+            Logging.errorPrint("Error writing to the options.ini file: ", ex);
+        } finally
+        {
+            try
+            {
+                if (bw != null)
+                {
+                    bw.flush();
+                    bw.close();
+                }
+            } catch (IOException iox)
+            {
+                if (Logging.isDebugMode())
+                {
+                    Logging.debugPrint("Caught exception trying to close writer in SortedProperties.mystore", iox);
+                }
 
-				// ignore
-			}
-		}
-	}
+                // ignore
+            }
+        }
+    }
 
-	private static String fixUp(final String aString)
-	{
-		final StringBuilder ab = new StringBuilder(aString.length());
+    private static String fixUp(final String aString)
+    {
+        final StringBuilder ab = new StringBuilder(aString.length());
 
-		for (int i = 0; i < aString.length(); i++)
-		{
-			// #, !, = and :
-			if ((aString.charAt(i) == '#') || (aString.charAt(i) == '\\') || (aString.charAt(i) == '!')
-				|| (aString.charAt(i) == '=') || (aString.charAt(i) == ':'))
-			{
-				ab.append("\\").append(aString.charAt(i));
-			}
-			else
-			{
-				ab.append(aString.charAt(i));
-			}
-		}
+        for (int i = 0;i < aString.length();i++)
+        {
+            // #, !, = and :
+            if ((aString.charAt(i) == '#') || (aString.charAt(i) == '\\') || (aString.charAt(i) == '!')
+                    || (aString.charAt(i) == '=') || (aString.charAt(i) == ':'))
+            {
+                ab.append("\\").append(aString.charAt(i));
+            } else
+            {
+                ab.append(aString.charAt(i));
+            }
+        }
 
-		return ab.toString();
-	}
+        return ab.toString();
+    }
 
-	/**
-	 * Convert the supplied string into a property key, escaping any 
-	 * terminator characters within the string.  
-	 * @param rawKey The text to be converted
-	 * @return The valid properties key
-	 */
-	private static String convertStringToKey(String rawKey)
-	{
-		String key = rawKey.replaceAll(" ", "\\\\ ");
-		key = key.replaceAll(":", "\\\\:");
-		key = key.replaceAll("=", "\\\\=");
-		return key;
-	}
+    /**
+     * Convert the supplied string into a property key, escaping any
+     * terminator characters within the string.
+     *
+     * @param rawKey The text to be converted
+     * @return The valid properties key
+     */
+    private static String convertStringToKey(String rawKey)
+    {
+        String key = rawKey.replaceAll(" ", "\\\\ ");
+        key = key.replaceAll(":", "\\\\:");
+        key = key.replaceAll("=", "\\\\=");
+        return key;
+    }
 
 }

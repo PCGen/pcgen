@@ -26,42 +26,41 @@ import org.jetbrains.annotations.Nullable;
  */
 public final class ColorUtilty
 {
-	private ColorUtilty()
-	{
-	}
+    private ColorUtilty()
+    {
+    }
 
-	/**
-	 * Provides string from a Color which can be passed to {@code Color.valueOf}
-	 *
-	 * @param color color to convert
-	 */
-	public static String colorToRGBString(final Color color)
-	{
-		return String.format(
-				"#%02X%02X%02X",
-				(int) (color.getRed() * 255),
-				(int) (color.getGreen() * 255),
-				(int) (color.getBlue() * 255)
-		);
-	}
+    /**
+     * Provides string from a Color which can be passed to {@code Color.valueOf}
+     *
+     * @param color color to convert
+     */
+    public static String colorToRGBString(final Color color)
+    {
+        return String.format(
+                "#%02X%02X%02X",
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255)
+        );
+    }
 
-	/**
-	 *
-	 * @param color JavaFX color
-	 * @return AWT color
-	 */
-	@Nullable
-	public static java.awt.Color colorToAWTColor(final Color color)
-	{
-		if (color == null)
-		{
-			return null;
-		}
-		return new java.awt.Color(
-				(int) (color.getRed() * 255),
-				(int) (color.getGreen() * 255),
-				(int) (color.getBlue() * 255)
-		);
-	}
+    /**
+     * @param color JavaFX color
+     * @return AWT color
+     */
+    @Nullable
+    public static java.awt.Color colorToAWTColor(final Color color)
+    {
+        if (color == null)
+        {
+            return null;
+        }
+        return new java.awt.Color(
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255)
+        );
+    }
 
 }

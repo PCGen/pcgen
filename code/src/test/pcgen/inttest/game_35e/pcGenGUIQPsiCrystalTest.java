@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
  */
 public class pcGenGUIQPsiCrystalTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testQPsiCrystal() throws Exception
-	{
-		runTest("35e_Q-PsiCrystal", "35e");
-	}
+    @Test
+    public void testQPsiCrystal() throws Exception
+    {
+        runTest("35e_Q-PsiCrystal", "35e");
+    }
 }

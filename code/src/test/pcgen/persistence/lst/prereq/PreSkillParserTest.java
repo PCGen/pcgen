@@ -16,93 +16,93 @@ import org.junit.jupiter.api.Test;
 
 public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 {
-	
-	@Test
-	public void test1() throws PersistenceLayerException
-	{
-		PreSkillParser producer = new PreSkillParser();
 
-		Prerequisite prereq =
-				producer.parse("SKILL",
-					"3,Decipher Script=7,Disable Device=7,Escape Artist=7", false,
-					false);
+    @Test
+    public void test1() throws PersistenceLayerException
+    {
+        PreSkillParser producer = new PreSkillParser();
 
-		assertEquals(
-		"<prereq operator=\"GTEQ\" operand=\"3\" >\n"
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Decipher Script\" operator=\"GTEQ\" operand=\"7\" >\n"
-		+ "</prereq>\n"
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Disable Device\" operator=\"GTEQ\" operand=\"7\" >\n"
-		+ "</prereq>\n"
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Escape Artist\" operator=\"GTEQ\" operand=\"7\" >\n"
-		+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        Prerequisite prereq =
+                producer.parse("SKILL",
+                        "3,Decipher Script=7,Disable Device=7,Escape Artist=7", false,
+                        false);
+
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"3\" >\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Decipher Script\" operator=\"GTEQ\" operand=\"7\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Disable Device\" operator=\"GTEQ\" operand=\"7\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Escape Artist\" operator=\"GTEQ\" operand=\"7\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
 
-	@Test
-	public void test2() throws PersistenceLayerException
-	{
-		PreSkillParser producer = new PreSkillParser();
+    @Test
+    public void test2() throws PersistenceLayerException
+    {
+        PreSkillParser producer = new PreSkillParser();
 
-		Prerequisite prereq =
-				producer.parse("SKILL", "2,TYPE.Knowledge=10,TYPE.Knowledge=10",
-					false, false);
+        Prerequisite prereq =
+                producer.parse("SKILL", "2,TYPE.Knowledge=10,TYPE.Knowledge=10",
+                        false, false);
 
-		assertEquals(
-		"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
-		+ "</prereq>\n"
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
-		+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
-	@Test
-	public void test3() throws Exception
-	{
-		PreSkillParser producer = new PreSkillParser();
+    @Test
+    public void test3() throws Exception
+    {
+        PreSkillParser producer = new PreSkillParser();
 
-		Prerequisite prereq =
-				producer.parse("SKILL",
-					"3,TYPE.Knowledge=10", false,
-					false);
+        Prerequisite prereq =
+                producer.parse("SKILL",
+                        "3,TYPE.Knowledge=10", false,
+                        false);
 
-		assertEquals(
-		"<prereq operator=\"GTEQ\" operand=\"3\" >\n"
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
-		+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"3\" >\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
-	@Test
-	public void testTypeEquals() throws Exception
-	{
-		PreSkillParser producer = new PreSkillParser();
+    @Test
+    public void testTypeEquals() throws Exception
+    {
+        PreSkillParser producer = new PreSkillParser();
 
-		Prerequisite prereq =
-				producer.parse("SKILL",
-					"3,TYPE=Knowledge=10", false,
-					false);
+        Prerequisite prereq =
+                producer.parse("SKILL",
+                        "3,TYPE=Knowledge=10", false,
+                        false);
 
-		assertEquals(
-		"<prereq operator=\"GTEQ\" operand=\"3\" >\n"
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE=Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
-		+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"3\" >\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE=Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
-	@Test
-	public void testTypeEqualsMult() throws Exception
-	{
-		PreSkillParser producer = new PreSkillParser();
+    @Test
+    public void testTypeEqualsMult() throws Exception
+    {
+        PreSkillParser producer = new PreSkillParser();
 
-		Prerequisite prereq =
-				producer.parse("SKILL",
-					"3,TYPE=Knowledge=10,TYPE=Craft=6", false,
-					false);
+        Prerequisite prereq =
+                producer.parse("SKILL",
+                        "3,TYPE=Knowledge=10,TYPE=Craft=6", false,
+                        false);
 
-		assertEquals(
-		"<prereq operator=\"GTEQ\" operand=\"3\" >\n"
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE=Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
-		+ "</prereq>\n" 
-		+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE=Craft\" operator=\"GTEQ\" operand=\"6\" >\n"
-		+ "</prereq>\n"
-		+ "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"3\" >\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE=Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE=Craft\" operator=\"GTEQ\" operand=\"6\" >\n"
+                        + "</prereq>\n"
+                        + "</prereq>\n", prereq.toString());
+    }
 }

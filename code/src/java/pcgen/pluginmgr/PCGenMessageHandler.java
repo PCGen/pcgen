@@ -23,17 +23,16 @@ import java.util.EventListener;
 
 /**
  * The template {@code PCGenMessageHandler} defines an object
- * that can act on a PCGenMessage. 
- *
- * 
+ * that can act on a PCGenMessage.
  */
 @FunctionalInterface
 public interface PCGenMessageHandler extends EventListener
 {
-	/**
-	 * Allow the implementor a chance to process a message. The message may be consumed, 
-	 * in which case no further classes will be asked to handle the message. 
-	 * @param msg The message
-	 */
+    /**
+     * Allow the implementor a chance to process a message. The message may be consumed,
+     * in which case no further classes will be asked to handle the message.
+     *
+     * @param msg The message
+     */
     void handleMessage(PCGenMessage msg);
 }

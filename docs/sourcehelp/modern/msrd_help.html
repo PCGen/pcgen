@@ -1,382 +1,382 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Frank Kliewe - fklieweATt-onlineDOTde
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Frank Kliewe - fklieweATt-onlineDOTde
 
-                Description:
-                MSRD Help
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Modern System Reference Document help file
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Modern System Reference Document help file
-  </h1>
-  <p class="indent1">
-   <strong>
-    Game Mode: Modern
-   </strong>
-  </p>
-  <p class="indent1">
-   MSRD &gt; COMPLETE
-  </p>
-  <p class="indent2">
-   <strong>
-    MSRD Basics
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    MSRD Arcana
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    MSRD Future
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    MSRD Menaces
-   </strong>
-  </p>
-  <p class="indent1">
-   MSRD &gt; PARTIAL &gt; BASICS
-  </p>
-  <p class="indent2">
-   <strong>
-    Modern - Basics
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Modern - Creatures
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Modern - FX
-   </strong>
-  </p>
-  <p class="indent1">
-   MSRD &gt; PARTIAL &gt; ARCANA
-  </p>
-  <p class="indent2">
-   <strong>
-    Arcana - Basics
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Arcana - Creatures
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Arcana - Psionics
-   </strong>
-  </p>
-  <p class="indent1">
-   MSRD &gt; PARTIAL &gt; FUTURE
-  </p>
-  <p class="indent2">
-   <strong>
-    Future - Basics
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Future - Cybernetics
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Future - Equipment
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Future - Mecha
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Future - Mutations
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    Future - Robots
-   </strong>
-  </p>
-  <p>
-   The Modern System Reference Document, or MSRD, contains the core
-rules for the Modern d20 role playing game published by Wizards of
-the Coast under the Open Gaming License and contains much of the
-material found in the core book.
-  </p>
-  <h2>
-   Loading the MSRD
-  </h2>
-  <p class="indent1">
-   To load the MSRD set you always have to load at
-least the Basics. You have two options for that: you can load the
-complete MSRD Basics set, which contains all the sets from the MSRD
-&gt; PARTIAL &gt; BASICS section, or you can load just the partial
-Modern Basics set from that section. Other than that you can mix
-and match the complete section sets with the partial sets as you
-like, but you should not load a Complete section set and any of the
-Partial sets from that very section at the same time because it is
-basically loading the same data twice.
-  </p>
-  <h2>
-   General Issues
-  </h2>
-  <p class="indent1">
-   <strong>
-    Wealth
-   </strong>
-  </p>
-  <p class="indent1">
-   The Wealth system in the MSRD is not fully
-implemented within
-   <strong>
-    PCGen
-   </strong>
-   , though it is fairly easy
-to work around the limitations. When adding the first level of a
-base class you are prompted to choose the result of your starting
-wealth roll which you will need to make manually. This roll is
-added to any bonuses granted from your starting occupation and/or
-feats which may effect Wealth and that is your Starting Wealth
-Score. The starting Wealth Score and Current Wealth Score are
-displayed on the Abilities Tab in the Special Abilities window and
-on the Special Abilities Block of the OS. Your Current Wealth Score
-is displayed in the lower right pane of the Class Tab as well as on
-the first page of the OS. Since Wealth is fluid and can change
-based on circumstances within the game a Temporary Bonus exists
-named Wealth Adjustment which allows you to do exactly that. You
-will find this in the Temporary Bonus Sub-Tab of the Inventory Tab
-under Templates. You can apply a modifier from 10 to -10, if you
-need more or there is more than one adjustment to make you can
-apply the Wealth Adjustment as many times as is needed. Wealth
-Adjustment is applied to the Current Wealth Score and leaves the
-Starting Wealth Score untouched.
-  </p>
-  <p class="indent1">
-   Buying stuff.
-   <strong>
-    PCGen
-   </strong>
-   does not
-yet support the abstract wealth system presented in the Modern
-rules. As a work around we use the COST attribute to hold the
-Purchase DC of the item instead of its monetary value. You should
-check the box marked 'Ignore Cost', consult the Purchase DC of the
-item and your Current Wealth Score and make your rolls
-manually.
-  </p>
-  <p class="new">
-   *** Updated 5.9.5
-  </p>
-  <p class="indent1">
-   <strong>
-    Action Points
-   </strong>
-  </p>
-  <p class="indent1">
-   Action Points are now granted automatically by
-the class that provides them. Modification of the Action Points is
-still done on the
-   <i>
-    Temporary Bonus Sub-Tab
-   </i>
-   of the
-   <i>
-    Inventory Tab
-   </i>
-   . There are now two temporary modifiers named
-   <strong>
-    Used Action Points
-   </strong>
-   and
-   <strong>
-    Bonus Action
-Points
-   </strong>
-   , which can be used to modify a character's Action
-Points.
-  </p>
-  <p class="indent1">
-   The
-   <strong>
-    Used Action Points
-   </strong>
-   tracker
-is to be applied if you spend Action Points. It records APs as
-spent and thus reduces the amount of available ones. The
-   <strong>
-    Bonus Action Points
-   </strong>
-   tracker can be used, if you
-should get Action Points from an unexpected source, like a GM
-handing out Bonus APs or some House Rule of yours. Your remaining
-Action Points will then be automatically calculated from the
-difference of gained and spent Action Points. Both can be applied
-multiple times.
-  </p>
-  <p class="new">
-   *** Updated 5.13.11
-  </p>
-  <p class="indent1">
-   <strong>
-    Languages
-   </strong>
-  </p>
-  <p class="indent1">
-   Unlike the fantasy game, Modern does not grant
-bonus languages based on the characters Intelligence Mod, however
-up until version 5.13.11 this rule was erronously implemented. This
-has been corrected and in addition there is no longer a pop up
-selector to choose the charatcers native language. Instead all
-characters are granted 1 bonus language which represents the native
-language and can be chosen at any time from the Language, Weapon
-Prof &amp; SA window.
-  </p>
-  <h2>
-   Classes
-  </h2>
-  <p class="indent1">
-   <strong>
-    Smart Hero
-   </strong>
-  </p>
-  <p class="indent1">
-   Because of limitations with the
-   <strong>
-    PCGen
-   </strong>
-   code the Smart Hero's
-   <strong>
-    Linguist
-   </strong>
-   talent will not appear as a talent choice
-at first level. If you want to select it at first level anyway,
-instead of selecting a talent, close the
-   <i>
-    Feat Choice
-   </i>
-   window
-without making a selection, add the necessary ranks in the
-Read/Write Language and Speak Language skills on the
-   <i>
-    Skills
-tab
-   </i>
-   , and select
-   <strong>
-    Linguist
-   </strong>
-   as one of the feats
-on the
-   <i>
-    Feats tab
-   </i>
-   .
-  </p>
-  <h2>
-   Equipment
-  </h2>
-  <p class="indent1">
-   <strong>
-    Firearms and Ammunition
-   </strong>
-  </p>
-  <p class="indent1">
-   Ammunition is sold in bundles, the number of
-which depends on the type. In
-   <strong>
-    PCGen
-   </strong>
-   you will find
-two versions of each ammo, one is a bundle in which it is sold and
-one is a single projectile. The two versions are identical accept
-for the name, the Buy DC listed is always for the bundle, you can't
-buy single bullets. The single projectile version exists for the
-convenience of being able to add an exact amount of these items to
-the character sheet, they will appear on the sheet with check boxes
-handy for tracking spent ammo. You can also load bullets into
-firearms in the Equipping Tab and checkboxes will appear under the
-firearms listing in the main Equipment Block.
-  </p>
-  <p class="indent1">
-   <strong>
-    Weapon Accessories
-   </strong>
-  </p>
-  <p class="indent1">
-   Some weapon accessories only make sense when
-attached to a weapon. For that matter the
-   <i>
-    Illuminator
-   </i>
-   ,
-   <i>
-    Laser Sight
-   </i>
-   ,
-   <i>
-    Standard Scope
-   </i>
-   ,
-   <i>
-    Electro-optical
-Scope
-   </i>
-   ,
-   <i>
-    Speed Loader
-   </i>
-   , and
-   <i>
-    Suppressor
-   </i>
-   were not
-included as equipment in
-   <strong>
-    PCGen
-   </strong>
-   , but as equipment
-modifiers. To use one of these items you have to select the weapon
-you want to apply the item to and customize it. To do so,
-right-click the weapon and select "
-   <i>
-    Create custom item
-   </i>
-   " in
-the menu. This will open the "
-   <i>
-    Item Customizer
-   </i>
-   ", where you
-can select the modifiers you want to attach to your weapon.
-  </p>
-  <p>
-  </p>
- </body>
+               Description:
+               MSRD Help
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Modern System Reference Document help file
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Modern System Reference Document help file
+</h1>
+<p class="indent1">
+    <strong>
+        Game Mode: Modern
+    </strong>
+</p>
+<p class="indent1">
+    MSRD &gt; COMPLETE
+</p>
+<p class="indent2">
+    <strong>
+        MSRD Basics
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        MSRD Arcana
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        MSRD Future
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        MSRD Menaces
+    </strong>
+</p>
+<p class="indent1">
+    MSRD &gt; PARTIAL &gt; BASICS
+</p>
+<p class="indent2">
+    <strong>
+        Modern - Basics
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Modern - Creatures
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Modern - FX
+    </strong>
+</p>
+<p class="indent1">
+    MSRD &gt; PARTIAL &gt; ARCANA
+</p>
+<p class="indent2">
+    <strong>
+        Arcana - Basics
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Arcana - Creatures
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Arcana - Psionics
+    </strong>
+</p>
+<p class="indent1">
+    MSRD &gt; PARTIAL &gt; FUTURE
+</p>
+<p class="indent2">
+    <strong>
+        Future - Basics
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Future - Cybernetics
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Future - Equipment
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Future - Mecha
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Future - Mutations
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        Future - Robots
+    </strong>
+</p>
+<p>
+    The Modern System Reference Document, or MSRD, contains the core
+    rules for the Modern d20 role playing game published by Wizards of
+    the Coast under the Open Gaming License and contains much of the
+    material found in the core book.
+</p>
+<h2>
+    Loading the MSRD
+</h2>
+<p class="indent1">
+    To load the MSRD set you always have to load at
+    least the Basics. You have two options for that: you can load the
+    complete MSRD Basics set, which contains all the sets from the MSRD
+    &gt; PARTIAL &gt; BASICS section, or you can load just the partial
+    Modern Basics set from that section. Other than that you can mix
+    and match the complete section sets with the partial sets as you
+    like, but you should not load a Complete section set and any of the
+    Partial sets from that very section at the same time because it is
+    basically loading the same data twice.
+</p>
+<h2>
+    General Issues
+</h2>
+<p class="indent1">
+    <strong>
+        Wealth
+    </strong>
+</p>
+<p class="indent1">
+    The Wealth system in the MSRD is not fully
+    implemented within
+    <strong>
+        PCGen
+    </strong>
+    , though it is fairly easy
+    to work around the limitations. When adding the first level of a
+    base class you are prompted to choose the result of your starting
+    wealth roll which you will need to make manually. This roll is
+    added to any bonuses granted from your starting occupation and/or
+    feats which may effect Wealth and that is your Starting Wealth
+    Score. The starting Wealth Score and Current Wealth Score are
+    displayed on the Abilities Tab in the Special Abilities window and
+    on the Special Abilities Block of the OS. Your Current Wealth Score
+    is displayed in the lower right pane of the Class Tab as well as on
+    the first page of the OS. Since Wealth is fluid and can change
+    based on circumstances within the game a Temporary Bonus exists
+    named Wealth Adjustment which allows you to do exactly that. You
+    will find this in the Temporary Bonus Sub-Tab of the Inventory Tab
+    under Templates. You can apply a modifier from 10 to -10, if you
+    need more or there is more than one adjustment to make you can
+    apply the Wealth Adjustment as many times as is needed. Wealth
+    Adjustment is applied to the Current Wealth Score and leaves the
+    Starting Wealth Score untouched.
+</p>
+<p class="indent1">
+    Buying stuff.
+    <strong>
+        PCGen
+    </strong>
+    does not
+    yet support the abstract wealth system presented in the Modern
+    rules. As a work around we use the COST attribute to hold the
+    Purchase DC of the item instead of its monetary value. You should
+    check the box marked 'Ignore Cost', consult the Purchase DC of the
+    item and your Current Wealth Score and make your rolls
+    manually.
+</p>
+<p class="new">
+    *** Updated 5.9.5
+</p>
+<p class="indent1">
+    <strong>
+        Action Points
+    </strong>
+</p>
+<p class="indent1">
+    Action Points are now granted automatically by
+    the class that provides them. Modification of the Action Points is
+    still done on the
+    <i>
+        Temporary Bonus Sub-Tab
+    </i>
+    of the
+    <i>
+        Inventory Tab
+    </i>
+    . There are now two temporary modifiers named
+    <strong>
+        Used Action Points
+    </strong>
+    and
+    <strong>
+        Bonus Action
+        Points
+    </strong>
+    , which can be used to modify a character's Action
+    Points.
+</p>
+<p class="indent1">
+    The
+    <strong>
+        Used Action Points
+    </strong>
+    tracker
+    is to be applied if you spend Action Points. It records APs as
+    spent and thus reduces the amount of available ones. The
+    <strong>
+        Bonus Action Points
+    </strong>
+    tracker can be used, if you
+    should get Action Points from an unexpected source, like a GM
+    handing out Bonus APs or some House Rule of yours. Your remaining
+    Action Points will then be automatically calculated from the
+    difference of gained and spent Action Points. Both can be applied
+    multiple times.
+</p>
+<p class="new">
+    *** Updated 5.13.11
+</p>
+<p class="indent1">
+    <strong>
+        Languages
+    </strong>
+</p>
+<p class="indent1">
+    Unlike the fantasy game, Modern does not grant
+    bonus languages based on the characters Intelligence Mod, however
+    up until version 5.13.11 this rule was erronously implemented. This
+    has been corrected and in addition there is no longer a pop up
+    selector to choose the charatcers native language. Instead all
+    characters are granted 1 bonus language which represents the native
+    language and can be chosen at any time from the Language, Weapon
+    Prof &amp; SA window.
+</p>
+<h2>
+    Classes
+</h2>
+<p class="indent1">
+    <strong>
+        Smart Hero
+    </strong>
+</p>
+<p class="indent1">
+    Because of limitations with the
+    <strong>
+        PCGen
+    </strong>
+    code the Smart Hero's
+    <strong>
+        Linguist
+    </strong>
+    talent will not appear as a talent choice
+    at first level. If you want to select it at first level anyway,
+    instead of selecting a talent, close the
+    <i>
+        Feat Choice
+    </i>
+    window
+    without making a selection, add the necessary ranks in the
+    Read/Write Language and Speak Language skills on the
+    <i>
+        Skills
+        tab
+    </i>
+    , and select
+    <strong>
+        Linguist
+    </strong>
+    as one of the feats
+    on the
+    <i>
+        Feats tab
+    </i>
+    .
+</p>
+<h2>
+    Equipment
+</h2>
+<p class="indent1">
+    <strong>
+        Firearms and Ammunition
+    </strong>
+</p>
+<p class="indent1">
+    Ammunition is sold in bundles, the number of
+    which depends on the type. In
+    <strong>
+        PCGen
+    </strong>
+    you will find
+    two versions of each ammo, one is a bundle in which it is sold and
+    one is a single projectile. The two versions are identical accept
+    for the name, the Buy DC listed is always for the bundle, you can't
+    buy single bullets. The single projectile version exists for the
+    convenience of being able to add an exact amount of these items to
+    the character sheet, they will appear on the sheet with check boxes
+    handy for tracking spent ammo. You can also load bullets into
+    firearms in the Equipping Tab and checkboxes will appear under the
+    firearms listing in the main Equipment Block.
+</p>
+<p class="indent1">
+    <strong>
+        Weapon Accessories
+    </strong>
+</p>
+<p class="indent1">
+    Some weapon accessories only make sense when
+    attached to a weapon. For that matter the
+    <i>
+        Illuminator
+    </i>
+    ,
+    <i>
+        Laser Sight
+    </i>
+    ,
+    <i>
+        Standard Scope
+    </i>
+    ,
+    <i>
+        Electro-optical
+        Scope
+    </i>
+    ,
+    <i>
+        Speed Loader
+    </i>
+    , and
+    <i>
+        Suppressor
+    </i>
+    were not
+    included as equipment in
+    <strong>
+        PCGen
+    </strong>
+    , but as equipment
+    modifiers. To use one of these items you have to select the weapon
+    you want to apply the item to and customize it. To do so,
+    right-click the weapon and select "
+    <i>
+        Create custom item
+    </i>
+    " in
+    the menu. This will open the "
+    <i>
+        Item Customizer
+    </i>
+    ", where you
+    can select the modifiers you want to attach to your weapon.
+</p>
+<p>
+</p>
+</body>
 </html>

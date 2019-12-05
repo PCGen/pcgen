@@ -44,124 +44,124 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class PreHDTest extends AbstractCharacterTestCase
 {
-	Race race = new Race();
-	Race race1 = new Race();
-	PCClass monClass = new PCClass();
+    Race race = new Race();
+    Race race1 = new Race();
+    PCClass monClass = new PCClass();
 
-	/**
-	 * Test the PREHD code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	public void testHD() throws PersistenceLayerException
-	{
-		race.setName("Human");
-		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
-		race.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
-		Globals.getContext().getReferenceContext().importObject(race);
+    /**
+     * Test the PREHD code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    public void testHD() throws PersistenceLayerException
+    {
+        race.setName("Human");
+        CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+        race.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
+        Globals.getContext().getReferenceContext().importObject(race);
 
-		PCClass raceClass = new PCClass();
-		raceClass.setName("Race Class");
-		raceClass.put(StringKey.KEY_NAME, "RaceClass");
-		raceClass.put(ObjectKey.IS_MONSTER, true);
-		Globals.getContext().getReferenceContext().importObject(raceClass);
+        PCClass raceClass = new PCClass();
+        raceClass.setName("Race Class");
+        raceClass.put(StringKey.KEY_NAME, "RaceClass");
+        raceClass.put(ObjectKey.IS_MONSTER, true);
+        Globals.getContext().getReferenceContext().importObject(raceClass);
 
-		race.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
-				CDOMDirectSingleRef.getRef(raceClass), FormulaFactory
-						.getFormulaFor(3)));
+        race.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
+                CDOMDirectSingleRef.getRef(raceClass), FormulaFactory
+                .getFormulaFor(3)));
 
-		final PlayerCharacter character = getCharacter();
-		character.setRace(race);
+        final PlayerCharacter character = getCharacter();
+        character.setRace(race);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREHD:MIN=4");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREHD:MIN=4");
 
-		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=3");
+        prereq = factory.parse("PREHD:MIN=3");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=1,MAX=3");
+        prereq = factory.parse("PREHD:MIN=1,MAX=3");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=3,MAX=6");
+        prereq = factory.parse("PREHD:MIN=3,MAX=6");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=4,MAX=7");
+        prereq = factory.parse("PREHD:MIN=4,MAX=7");
 
-		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=1,MAX=2");
+        prereq = factory.parse("PREHD:MIN=1,MAX=2");
 
-		assertFalse("Character doesn't have 2 or less HD", PrereqHandler
-			.passes(prereq, character, null));
-	}
+        assertFalse("Character doesn't have 2 or less HD", PrereqHandler
+                .passes(prereq, character, null));
+    }
 
-	/**
-	 * Tests using monster class levels.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testClassLevels() throws PersistenceLayerException
-	{
-		monClass.setName("Humanoid");
-		monClass.put(ObjectKey.IS_MONSTER, true);
-		Globals.getContext().getReferenceContext().importObject(monClass);
+    /**
+     * Tests using monster class levels.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testClassLevels() throws PersistenceLayerException
+    {
+        monClass.setName("Humanoid");
+        monClass.put(ObjectKey.IS_MONSTER, true);
+        Globals.getContext().getReferenceContext().importObject(monClass);
 
-		race1.setName("Bugbear");
-		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
-		race1.put(FormulaKey.SIZE, new FixedSizeFormula(largeRef));
+        race1.setName("Bugbear");
+        CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
+        race1.put(FormulaKey.SIZE, new FixedSizeFormula(largeRef));
 
-		race1.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
-				CDOMDirectSingleRef.getRef(monClass), FormulaFactory
-						.getFormulaFor(3)));
-		Globals.getContext().getReferenceContext().importObject(race1);
+        race1.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
+                CDOMDirectSingleRef.getRef(monClass), FormulaFactory
+                .getFormulaFor(3)));
+        Globals.getContext().getReferenceContext().importObject(race1);
 
-		final PlayerCharacter character = new PlayerCharacter();
-		character.setRace(race1);
+        final PlayerCharacter character = new PlayerCharacter();
+        character.setRace(race1);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREHD:MIN=4");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREHD:MIN=4");
 
-		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=3");
+        prereq = factory.parse("PREHD:MIN=3");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=1,MAX=3");
+        prereq = factory.parse("PREHD:MIN=1,MAX=3");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=3,MAX=6");
+        prereq = factory.parse("PREHD:MIN=3,MAX=6");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=4,MAX=7");
+        prereq = factory.parse("PREHD:MIN=4,MAX=7");
 
-		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHD:MIN=1,MAX=2");
+        prereq = factory.parse("PREHD:MIN=1,MAX=2");
 
-		assertFalse("Character doesn't have 2 or less HD", PrereqHandler
-			.passes(prereq, character, null));
-	}
+        assertFalse("Character doesn't have 2 or less HD", PrereqHandler
+                .passes(prereq, character, null));
+    }
 }

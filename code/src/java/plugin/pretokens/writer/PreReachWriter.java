@@ -30,32 +30,31 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreReachWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "reach";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "reach";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return null;
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return null;
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		try
-		{
-			writer.write("PREREACH" + (prereq.isOverrideQualify() ? "Q:" : ""));
-			writer.write(prereq.getOperator().toString().toUpperCase());
-			writer.write(':');
-			writer.write(prereq.getOperand());
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        try
+        {
+            writer.write("PREREACH" + (prereq.isOverrideQualify() ? "Q:" : ""));
+            writer.write(prereq.getOperator().toString().toUpperCase());
+            writer.write(':');
+            writer.write(prereq.getOperand());
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
 }

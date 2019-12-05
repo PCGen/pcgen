@@ -31,34 +31,35 @@ import pcgen.system.LanguageBundle;
 public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-	{
-		final String subSchool = prereq.getKey();
-		final int requiredLevel = Integer.parseInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+    {
+        final String subSchool = prereq.getKey();
+        final int requiredLevel = Integer.parseInt(prereq.getOperand());
 
-		final List<Spell> aArrayList =
-				character.aggregateSpellList(
-					"No-Match", subSchool, "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
+        final List<Spell> aArrayList =
+                character.aggregateSpellList(
+                        "No-Match", subSchool, "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
 
-		final int runningTotal = prereq.getOperator().compare(aArrayList.size(), 1);
-		return countedTotal(prereq, runningTotal);
-	}
+        final int runningTotal = prereq.getOperator().compare(aArrayList.size(), 1);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "SPELLSCHOOLSUB"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "SPELLSCHOOLSUB"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString("PreSpellSchoolSub.toHtml_spell_sub_school", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString("PreSpellSchoolSub.toHtml_spell_sub_school", //$NON-NLS-1$
+                prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
+    }
 }

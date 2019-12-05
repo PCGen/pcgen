@@ -45,145 +45,144 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class TipOfTheDayHandler
 {
-	private static final PropertyContext PROPERTY_CONTEXT = UIPropertyContext.createContext("TipOfTheDay");
+    private static final PropertyContext PROPERTY_CONTEXT = UIPropertyContext.createContext("TipOfTheDay");
 
-	private static TipOfTheDayHandler INSTANCE = null;
+    private static TipOfTheDayHandler INSTANCE = null;
 
-	private List<String> tipList = null;
-	private int lastNumber = -1;
+    private List<String> tipList = null;
+    private int lastNumber = -1;
 
-	/**
-	 * Create a new instance of TipOfTheDayHandler
-	 */
-	private TipOfTheDayHandler()
-	{
-		lastNumber = PROPERTY_CONTEXT.initInt("lastTip", -1);
-	}
+    /**
+     * Create a new instance of TipOfTheDayHandler
+     */
+    private TipOfTheDayHandler()
+    {
+        lastNumber = PROPERTY_CONTEXT.initInt("lastTip", -1);
+    }
 
-	public static synchronized TipOfTheDayHandler getInstance()
-	{
-		if (INSTANCE == null)
-		{
-			INSTANCE = new TipOfTheDayHandler();
-		}
-		return INSTANCE;
-	}
+    public static synchronized TipOfTheDayHandler getInstance()
+    {
+        if (INSTANCE == null)
+        {
+            INSTANCE = new TipOfTheDayHandler();
+        }
+        return INSTANCE;
+    }
 
-	/**
-	 * @return the lastNumber
-	 */
-	public int getLastNumber()
-	{
-		return lastNumber;
-	}
+    /**
+     * @return the lastNumber
+     */
+    public int getLastNumber()
+    {
+        return lastNumber;
+    }
 
-	public synchronized void loadTips()
-	{
-		tipList = new ArrayList<>(20);
-		String systemDir = ConfigurationSettings.getSystemsDir();
-		String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
-		String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$
-		final String tipsFilePath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
-			+ SettingsHandler.getGame().getName() + File.separator;
-		final String tipsDefaultPath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
-			+ "default" + File.separator; //$NON-NLS-1$
-		String[] tipFiles = {tipsFilePath + tipsFileName, tipsDefaultPath + tipsFileName,
-			tipsFilePath + tipsFileNameDefault, tipsDefaultPath + tipsFileNameDefault};
+    public synchronized void loadTips()
+    {
+        tipList = new ArrayList<>(20);
+        String systemDir = ConfigurationSettings.getSystemsDir();
+        String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
+        String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$
+        final String tipsFilePath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
+                + SettingsHandler.getGame().getName() + File.separator;
+        final String tipsDefaultPath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
+                + "default" + File.separator; //$NON-NLS-1$
+        String[] tipFiles = {tipsFilePath + tipsFileName, tipsDefaultPath + tipsFileName,
+                tipsFilePath + tipsFileNameDefault, tipsDefaultPath + tipsFileNameDefault};
 
-		boolean loaded = false;
-		for (String path : tipFiles)
-		{
-			try
-			{
-				loadTipFile(path);
-				Logging.log(Logging.INFO, "Loaded tips from " + path); //$NON-NLS-1$
-				loaded = true;
-				break;
-			}
-			catch (IOException e)
-			{
-				if (Logging.isDebugMode())
-				{
-					Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
-				}
-			}
-		}
+        boolean loaded = false;
+        for (String path : tipFiles)
+        {
+            try
+            {
+                loadTipFile(path);
+                Logging.log(Logging.INFO, "Loaded tips from " + path); //$NON-NLS-1$
+                loaded = true;
+                break;
+            } catch (IOException e)
+            {
+                if (Logging.isDebugMode())
+                {
+                    Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
+                }
+            }
+        }
 
-		if (!loaded)
-		{
-			Logging.errorPrint("Warning: game mode " + SettingsHandler.getGame().getName()
-				+ " is missing tips. Tried all of " + StringUtils.join(tipFiles, "\n"));
-		}
+        if (!loaded)
+        {
+            Logging.errorPrint("Warning: game mode " + SettingsHandler.getGame().getName()
+                    + " is missing tips. Tried all of " + StringUtils.join(tipFiles, "\n"));
+        }
 
-	}
+    }
 
-	private void loadTipFile(String tipsFilePath) throws IOException
-	{
-		final File tipsFile = new File(tipsFilePath);
+    private void loadTipFile(String tipsFilePath) throws IOException
+    {
+        final File tipsFile = new File(tipsFilePath);
 
-		final char[] inputLine;
-		try (Reader tipsReader = new BufferedReader(new InputStreamReader(new FileInputStream(tipsFile),
-				StandardCharsets.UTF_8
-		)))
-		{
-			final int length = (int) tipsFile.length();
-			inputLine = new char[length];
-			tipsReader.read(inputLine, 0, length);
-		}
+        final char[] inputLine;
+        try (Reader tipsReader = new BufferedReader(new InputStreamReader(new FileInputStream(tipsFile),
+                StandardCharsets.UTF_8
+        )))
+        {
+            final int length = (int) tipsFile.length();
+            inputLine = new char[length];
+            tipsReader.read(inputLine, 0, length);
+        }
 
-		final StringTokenizer aTok = new StringTokenizer(new String(inputLine), "\r\n", false);
+        final StringTokenizer aTok = new StringTokenizer(new String(inputLine), "\r\n", false);
 
-		while (aTok.hasMoreTokens())
-		{
-			String line = aTok.nextToken();
-			// Skip comments and blank lines.
-			if (!line.trim().isEmpty() && (line.charAt(0) != LstFileLoader.LINE_COMMENT_CHAR))
-			{
-				tipList.add(line);
-			}
-		}
-	}
+        while (aTok.hasMoreTokens())
+        {
+            String line = aTok.nextToken();
+            // Skip comments and blank lines.
+            if (!line.trim().isEmpty() && (line.charAt(0) != LstFileLoader.LINE_COMMENT_CHAR))
+            {
+                tipList.add(line);
+            }
+        }
+    }
 
-	public synchronized boolean hasTips()
-	{
-		return (tipList != null) && (!tipList.isEmpty());
-	}
+    public synchronized boolean hasTips()
+    {
+        return (tipList != null) && (!tipList.isEmpty());
+    }
 
-	public synchronized String getNextTip()
-	{
-		if (hasTips())
-		{
-			if (++lastNumber >= tipList.size())
-			{
-				lastNumber = 0;
-			}
-			PROPERTY_CONTEXT.setInt("lastTip", lastNumber);
+    public synchronized String getNextTip()
+    {
+        if (hasTips())
+        {
+            if (++lastNumber >= tipList.size())
+            {
+                lastNumber = 0;
+            }
+            PROPERTY_CONTEXT.setInt("lastTip", lastNumber);
 
-			return tipList.get(lastNumber);
-		}
+            return tipList.get(lastNumber);
+        }
 
-		return "";
-	}
+        return "";
+    }
 
-	public synchronized String getPrevTip()
-	{
-		if (hasTips())
-		{
-			if (--lastNumber < 0)
-			{
-				lastNumber = tipList.size() - 1;
-			}
-			PROPERTY_CONTEXT.setInt("lastTip", lastNumber);
+    public synchronized String getPrevTip()
+    {
+        if (hasTips())
+        {
+            if (--lastNumber < 0)
+            {
+                lastNumber = tipList.size() - 1;
+            }
+            PROPERTY_CONTEXT.setInt("lastTip", lastNumber);
 
-			return tipList.get(lastNumber);
-		}
+            return tipList.get(lastNumber);
+        }
 
-		return "";
-	}
+        return "";
+    }
 
-	public static boolean shouldShowTipOfTheDay()
-	{
-		return PROPERTY_CONTEXT.getBoolean("showTipOfTheDay", true);
-	}
+    public static boolean shouldShowTipOfTheDay()
+    {
+        return PROPERTY_CONTEXT.getBoolean("showTipOfTheDay", true);
+    }
 
 }

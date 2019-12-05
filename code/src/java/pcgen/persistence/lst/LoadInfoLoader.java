@@ -29,17 +29,19 @@ import pcgen.rules.context.LoadContext;
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {
 
-	/** Creates a new instance of LoadInfoLoader */
-	public LoadInfoLoader()
-	{
-		super(LoadInfo.class);
-	}
+    /**
+     * Creates a new instance of LoadInfoLoader
+     */
+    public LoadInfoLoader()
+    {
+        super(LoadInfo.class);
+    }
 
-	@Override
-	protected LoadInfo getLoadable(LoadContext context, String firstToken, URI sourceURI)
-	{
-		LoadInfo loadable = context.getReferenceContext().constructNowIfNecessary(LoadInfo.class, getGameMode());
-		LstUtils.processToken(context, loadable, sourceURI, firstToken);
-		return loadable;
-	}
+    @Override
+    protected LoadInfo getLoadable(LoadContext context, String firstToken, URI sourceURI)
+    {
+        LoadInfo loadable = context.getReferenceContext().constructNowIfNecessary(LoadInfo.class, getGameMode());
+        LstUtils.processToken(context, loadable, sourceURI, firstToken);
+        return loadable;
+    }
 }

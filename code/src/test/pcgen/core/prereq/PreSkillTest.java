@@ -39,343 +39,343 @@ import org.junit.jupiter.api.Test;
 
 public class PreSkillTest extends AbstractCharacterTestCase
 {
-	private Skill balance = null;
-	private Skill knowledge = null;
-	private Skill tumble = null;
+    private Skill balance = null;
+    private Skill knowledge = null;
+    private Skill tumble = null;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		final PlayerCharacter character = getCharacter();
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        final PlayerCharacter character = getCharacter();
 
-		final PCClass myClass = new PCClass();
-		myClass.setName("My Class");
+        final PCClass myClass = new PCClass();
+        myClass.setName("My Class");
 
-		LoadContext context = Globals.getContext();
-		
-		knowledge = new Skill();
-		context.unconditionallyProcess(knowledge, "CLASSES", "MyClass");
-		knowledge.setName("KNOWLEDGE (ARCANA)");
-		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
-		context.getReferenceContext().importObject(knowledge);
-		SkillRankControl.modRanks(6.0, myClass, true, character, knowledge);
+        LoadContext context = Globals.getContext();
 
-		Skill knowledge2 = new Skill();
-		context.unconditionallyProcess(knowledge2, "CLASSES", "MyClass");
-		knowledge2.setName("KNOWLEDGE (NATURE)");
-		TestHelper.addType(knowledge2, "KNOWLEDGE.INT");
-		context.getReferenceContext().importObject(knowledge2);
-		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge2);
+        knowledge = new Skill();
+        context.unconditionallyProcess(knowledge, "CLASSES", "MyClass");
+        knowledge.setName("KNOWLEDGE (ARCANA)");
+        TestHelper.addType(knowledge, "KNOWLEDGE.INT");
+        context.getReferenceContext().importObject(knowledge);
+        SkillRankControl.modRanks(6.0, myClass, true, character, knowledge);
 
-		tumble = new Skill();
-		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
-		tumble.setName("Tumble");
-		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		context.getReferenceContext().importObject(tumble);
-		SkillRankControl.modRanks(8.0, myClass, true, character, tumble);
+        Skill knowledge2 = new Skill();
+        context.unconditionallyProcess(knowledge2, "CLASSES", "MyClass");
+        knowledge2.setName("KNOWLEDGE (NATURE)");
+        TestHelper.addType(knowledge2, "KNOWLEDGE.INT");
+        context.getReferenceContext().importObject(knowledge2);
+        SkillRankControl.modRanks(8.0, myClass, true, character, knowledge2);
 
-		balance = new Skill();
-		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
-		balance.setName("Balance");
-		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		context.getReferenceContext().importObject(balance);
-		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
+        tumble = new Skill();
+        context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
+        tumble.setName("Tumble");
+        tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
+        context.getReferenceContext().importObject(tumble);
+        SkillRankControl.modRanks(8.0, myClass, true, character, tumble);
 
-		Skill target = new Skill();
-		context.unconditionallyProcess(target, "CLASSES", "MyClass");
-		target.setName("Target");
-		target.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
-		context.getReferenceContext().importObject(target);
+        balance = new Skill();
+        context.unconditionallyProcess(balance, "CLASSES", "MyClass");
+        balance.setName("Balance");
+        balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
+        context.getReferenceContext().importObject(balance);
+        SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
-		Skill target2 = new Skill();
-		context.unconditionallyProcess(target2, "CLASSES", "MyClass");
-		target2.setName("Target2");
-		target2.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
-		context.getReferenceContext().importObject(target2);
+        Skill target = new Skill();
+        context.unconditionallyProcess(target, "CLASSES", "MyClass");
+        target.setName("Target");
+        target.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
+        context.getReferenceContext().importObject(target);
 
-		Skill fake = new Skill();
-		context.unconditionallyProcess(fake, "CLASSES", "MyClass");
-		fake.setName("Fake");
-		fake.addToListFor(ListKey.TYPE, Type.getConstant("WIS"));
-		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target));
-		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target2));
-		context.getReferenceContext().importObject(fake);
-		SkillRankControl.modRanks(6.0, myClass, true, character, fake);
+        Skill target2 = new Skill();
+        context.unconditionallyProcess(target2, "CLASSES", "MyClass");
+        target2.setName("Target2");
+        target2.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
+        context.getReferenceContext().importObject(target2);
 
-		Skill fake2 = new Skill();
-		context.unconditionallyProcess(fake2, "CLASSES", "MyClass");
-		fake2.setName("Fake 2");
-		fake2.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
-		context.getReferenceContext().importObject(fake2);
-		SkillRankControl.modRanks(8.0, myClass, true, character, fake2);
-		
-		context.getReferenceContext().buildDerivedObjects();
-		context.getReferenceContext().resolveReferences(null);
-	}
+        Skill fake = new Skill();
+        context.unconditionallyProcess(fake, "CLASSES", "MyClass");
+        fake.setName("Fake");
+        fake.addToListFor(ListKey.TYPE, Type.getConstant("WIS"));
+        fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target));
+        fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target2));
+        context.getReferenceContext().importObject(fake);
+        SkillRankControl.modRanks(6.0, myClass, true, character, fake);
 
-	@AfterEach
-	@Override
-	public void tearDown() throws Exception
-	{
-		knowledge = null;
-		balance = null;
-		tumble = null;
+        Skill fake2 = new Skill();
+        context.unconditionallyProcess(fake2, "CLASSES", "MyClass");
+        fake2.setName("Fake 2");
+        fake2.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
+        context.getReferenceContext().importObject(fake2);
+        SkillRankControl.modRanks(8.0, myClass, true, character, fake2);
 
-		super.tearDown();
-	}
+        context.getReferenceContext().buildDerivedObjects();
+        context.getReferenceContext().resolveReferences(null);
+    }
 
-	@Test
-	void testDexType()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("TYPE.DEX");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("5");
+    @AfterEach
+    @Override
+    public void tearDown() throws Exception
+    {
+        knowledge = null;
+        balance = null;
+        tumble = null;
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        super.tearDown();
+    }
 
-	@Test
-	void testDexTypeEqualsFails()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("TYPE.DEX");
-		prereq.setOperator(PrerequisiteOperator.EQ);
-		prereq.setOperand("5");
+    @Test
+    void testDexType()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("TYPE.DEX");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("5");
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-	}
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-	@Test
-	void testDexTypeEqualsPasses()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("TYPE.DEX");
-		prereq.setOperator(PrerequisiteOperator.EQ);
-		prereq.setOperand("8");
+    @Test
+    void testDexTypeEqualsFails()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("TYPE.DEX");
+        prereq.setOperator(PrerequisiteOperator.EQ);
+        prereq.setOperand("5");
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+    }
 
-	@Test
-	void testKnowedgeSubType()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("knowledge");
-		prereq.setSubKey("arcana");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("2");
+    @Test
+    void testDexTypeEqualsPasses()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("TYPE.DEX");
+        prereq.setOperator(PrerequisiteOperator.EQ);
+        prereq.setOperand("8");
 
-		final PlayerCharacter character = getCharacter();
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+    @Test
+    void testKnowedgeSubType()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("knowledge");
+        prereq.setSubKey("arcana");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("2");
 
-	@Test
-	void testKnowedgeSubTypeFail()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("knowledge");
-		prereq.setSubKey("arcana");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("9");
+        final PlayerCharacter character = getCharacter();
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-	@Test
-	void testKnowedgeSubTypePasesExact()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("knowledge");
-		prereq.setSubKey("arcana");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("6");
+    @Test
+    void testKnowedgeSubTypeFail()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("knowledge");
+        prereq.setSubKey("arcana");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("9");
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+    }
 
-	@Test
-	void testKnowedgeType()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("TYPE.knowledge");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("8");
+    @Test
+    void testKnowedgeSubTypePasesExact()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("knowledge");
+        prereq.setSubKey("arcana");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("6");
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-	@Test
-	public void testKnowedgeWrongSubType()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("knowledge");
-		prereq.setSubKey("religion");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("8");
+    @Test
+    void testKnowedgeType()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("TYPE.knowledge");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("8");
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-	}
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-	@Test
-	public void testPass()
-	{
-		final PlayerCharacter character = getCharacter();
+    @Test
+    public void testKnowedgeWrongSubType()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("knowledge");
+        prereq.setSubKey("religion");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("8");
 
-		final PCClass myClass = new PCClass();
-		myClass.setName("My Class");
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+    }
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("skill");
-		prereq.setKey("tumble");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("2");
+    @Test
+    public void testPass()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        final PCClass myClass = new PCClass();
+        myClass.setName("My Class");
 
-	@Test
-	void testTotalType()
-	{
-		//		PreSkillTotalParser producer = new PreSkillTotalParser();
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("skill");
+        prereq.setKey("tumble");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("2");
 
-		//		Prerequisite prereq = producer.parse("SKILLTOT","TYPE.Knowledge=20", false, false);
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("10");
+    @Test
+    void testTotalType()
+    {
+        //		PreSkillTotalParser producer = new PreSkillTotalParser();
 
-		final Prerequisite subreq = new Prerequisite();
-		subreq.setKind("skill");
-		subreq.setKey("TYPE.DEX");
-		subreq.setOperator(PrerequisiteOperator.GTEQ);
-		subreq.setOperand("1");
-		subreq.setTotalValues(true);
+        //		Prerequisite prereq = producer.parse("SKILLTOT","TYPE.Knowledge=20", false, false);
 
-		prereq.addPrerequisite(subreq);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("10");
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        final Prerequisite subreq = new Prerequisite();
+        subreq.setKind("skill");
+        subreq.setKey("TYPE.DEX");
+        subreq.setOperator(PrerequisiteOperator.GTEQ);
+        subreq.setOperand("1");
+        subreq.setTotalValues(true);
 
-	@Test
-	void testType()
-	{
-		final Prerequisite subreq = new Prerequisite();
-		subreq.setKind("skill");
-		subreq.setKey("TYPE.DEX");
-		subreq.setOperator(PrerequisiteOperator.GTEQ);
-		subreq.setOperand("7");
-		subreq.setTotalValues(true);
+        prereq.addPrerequisite(subreq);
 
-		final PlayerCharacter character = getCharacter();
-		final boolean passes = PrereqHandler.passes(subreq, character, null);
-		assertTrue(passes);
-	}
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-	@Test
-	void testLevelsTwoClasses() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
+    @Test
+    void testType()
+    {
+        final Prerequisite subreq = new Prerequisite();
+        subreq.setKind("skill");
+        subreq.setKey("TYPE.DEX");
+        subreq.setOperator(PrerequisiteOperator.GTEQ);
+        subreq.setOperand("7");
+        subreq.setTotalValues(true);
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory.parse("PRESKILL:2,Balance=4,Tumble=2");
+        final PlayerCharacter character = getCharacter();
+        final boolean passes = PrereqHandler.passes(subreq, character, null);
+        assertTrue(passes);
+    }
 
-		assertTrue(PrereqHandler.passes(prereq, character, null));
-	}
+    @Test
+    void testLevelsTwoClasses() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
 
-	@Test
-	void testServesAsExactMatch() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        Prerequisite prereq = factory.parse("PRESKILL:2,Balance=4,Tumble=2");
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory.parse("PRESKILL:2,Target=4,Target2=4");
-		assertTrue(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILL:1,Target=5,Target2=5");
-		assertTrue(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILL:2,Target=7,Target2=7");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILL:2,Target=4,Target2=7");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-	}
+        assertTrue(PrereqHandler.passes(prereq, character, null));
+    }
 
-	@Test
-	void testServesAsTypeMatch() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
+    @Test
+    void testServesAsExactMatch() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory.parse("PRESKILL:1,TYPE.INT=4");
-		assertTrue(PrereqHandler.passes(prereq, character, null));
-	
-		prereq = factory.parse("PRESKILL:1,TYPE.STR=6");
-		assertTrue(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILL:1,TYPE.ST%=6");
-		assertTrue(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILL:1,TYPE.STR=7");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILL:1,TYPE.ST%=7");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-		
-		
-		prereq = factory.parse("PRESKILL:1,TYPE.CHA=1");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILL:1,TYPE.CH%=7");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-	}
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        Prerequisite prereq = factory.parse("PRESKILL:2,Target=4,Target2=4");
+        assertTrue(PrereqHandler.passes(prereq, character, null));
 
-	@Test
-	void testServesAsTotalsMatch() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
+        prereq = factory.parse("PRESKILL:1,Target=5,Target2=5");
+        assertTrue(PrereqHandler.passes(prereq, character, null));
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		
-		Prerequisite prereq = factory.parse("PRESKILLTOT:Tumble,Target=18");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILLTOT:Tumble,Target2=14");
-		assertTrue(PrereqHandler.passes(prereq, character, null));
-		
-		prereq = factory.parse("PRESKILLTOT:Foo,Target=40");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-		
+        prereq = factory.parse("PRESKILL:2,Target=7,Target2=7");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
 
-	}
+        prereq = factory.parse("PRESKILL:2,Target=4,Target2=7");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
+    }
+
+    @Test
+    void testServesAsTypeMatch() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
+
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        Prerequisite prereq = factory.parse("PRESKILL:1,TYPE.INT=4");
+        assertTrue(PrereqHandler.passes(prereq, character, null));
+
+        prereq = factory.parse("PRESKILL:1,TYPE.STR=6");
+        assertTrue(PrereqHandler.passes(prereq, character, null));
+
+        prereq = factory.parse("PRESKILL:1,TYPE.ST%=6");
+        assertTrue(PrereqHandler.passes(prereq, character, null));
+
+        prereq = factory.parse("PRESKILL:1,TYPE.STR=7");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
+
+        prereq = factory.parse("PRESKILL:1,TYPE.ST%=7");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
+
+
+        prereq = factory.parse("PRESKILL:1,TYPE.CHA=1");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
+
+        prereq = factory.parse("PRESKILL:1,TYPE.CH%=7");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
+    }
+
+    @Test
+    void testServesAsTotalsMatch() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
+
+        final PreParserFactory factory = PreParserFactory.getInstance();
+
+        Prerequisite prereq = factory.parse("PRESKILLTOT:Tumble,Target=18");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
+
+        prereq = factory.parse("PRESKILLTOT:Tumble,Target2=14");
+        assertTrue(PrereqHandler.passes(prereq, character, null));
+
+        prereq = factory.parse("PRESKILLTOT:Foo,Target=40");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
+
+
+    }
 }

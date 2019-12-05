@@ -27,31 +27,31 @@ import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with tokens:
- *
+ * <p>
  * DESC
  * DESC, text delimiter
  */
 public class DescToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "DESC";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DESC";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		StringTokenizer tok = new StringTokenizer(tokenSource, ",", false);
-		tok.nextToken();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        StringTokenizer tok = new StringTokenizer(tokenSource, ",", false);
+        tok.nextToken();
 
-		String delim = "$1";
-		if (tok.hasMoreTokens())
-		{
-			delim = tok.nextToken();
-		}
+        String delim = "$1";
+        if (tok.hasMoreTokens())
+        {
+            delim = tok.nextToken();
+        }
 
-		return display.getSafeStringFor(PCStringKey.DESCRIPTION).replaceAll("(\n)", delim);
-	}
+        return display.getSafeStringFor(PCStringKey.DESCRIPTION).replaceAll("(\n)", delim);
+    }
 
 }

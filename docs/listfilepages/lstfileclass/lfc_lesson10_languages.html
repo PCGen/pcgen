@@ -1,131 +1,131 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                        
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #10: .lst - Languages
-  </h1>
-  <p>
-   By Professor Chris Chandler (Barak).
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *languages.lst
-  </p>
-  <p class="indent0">
-   <strong>
-    PCGen LST Standard:
-   </strong>
-   PCGen
-6.00.x
-  </p>
-  <p class="indent0">
-   <strong>
-    GameMode:
-   </strong>
-   3.5e (RSRD)
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../datafilestagpages/datafileslanguages.html#type">
-     TYPE
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #10: .lst - Languages
+</h1>
+<p>
+    By Professor Chris Chandler (Barak).
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    *languages.lst
+</p>
+<p class="indent0">
+    <strong>
+        PCGen LST Standard:
+    </strong>
+    PCGen
+    6.00.x
+</p>
+<p class="indent0">
+    <strong>
+        GameMode:
+    </strong>
+    3.5e (RSRD)
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../datafilestagpages/datafileslanguages.html#type">
+        TYPE
     </a></code>
-  </p>
-  <hr/>
-  <p>
-   This lesson is intended to cover creating your own
-"Languages".
-  </p>
-  <p>
-   This LST file defines the languages that may be spoken, written
-or read by a character. It is even simpler than the
-   <span class="lstfile">
+</p>
+<hr/>
+<p>
+    This lesson is intended to cover creating your own
+    "Languages".
+</p>
+<p>
+    This LST file defines the languages that may be spoken, written
+    or read by a character. It is even simpler than the
+    <span class="lstfile">
     weaponprofs.lst
    </span>
-   file in that it consists of just
-the language name and a TYPE tag for each one.
-  </p>
-  <p>
-   The language LST files are where the
-   <code>CHOOSE:LANG</code>
-   tag generates its list from when it is invoked. This file also
-tells PCGen, in conjunction with the
-   <code>LANGBONUS</code>
-   tag,
-what languages are available for races to choose from as bonus
-languages based on their primary language stat.
-  </p>
-  <hr/>
-  <h4>
-   &lt;Language Name&gt;
-  </h4>
-  <p>
-   The language file is a lst file that has one language entry per
-line. The first thing on each line is the name of the language.
-There is no tag for it, the program assumes that whatever is there
-at the beginning of the line is the name of a language.
-  </p>
-  <hr/>
-  <p>
-   <strong>
+    file in that it consists of just
+    the language name and a TYPE tag for each one.
+</p>
+<p>
+    The language LST files are where the
+    <code>CHOOSE:LANG</code>
+    tag generates its list from when it is invoked. This file also
+    tells PCGen, in conjunction with the
+    <code>LANGBONUS</code>
+    tag,
+    what languages are available for races to choose from as bonus
+    languages based on their primary language stat.
+</p>
+<hr/>
+<h4>
+    &lt;Language Name&gt;
+</h4>
+<p>
+    The language file is a lst file that has one language entry per
+    line. The first thing on each line is the name of the language.
+    There is no tag for it, the program assumes that whatever is there
+    at the beginning of the line is the name of a language.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>TYPE</code>
+    </strong>
+</p>
+<p>
+    The
     <code>TYPE</code>
-   </strong>
-  </p>
-  <p>
-   The
-   <code>TYPE</code>
-   tag is used to set the type/group of the
-language. It may take multiple types delimited by periods. The
-types used are usually Spoken, Read, and Written. Some
-examples:
-  </p>
-  <blockquote>
-   <p>
-    <code>English TYPE:Spoken.Read.Written
-     <br/>
-     Sign Language TYPE:Spoken.Read
-     <br/>
-     Trade Pidgin TYPE:Spoken</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   That's really all there is to those simple .lst files.
-  </p>
-  <p>
-   Barak
-   <br/>
-   LST Chimp
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    tag is used to set the type/group of the
+    language. It may take multiple types delimited by periods. The
+    types used are usually Spoken, Read, and Written. Some
+    examples:
+</p>
+<blockquote>
+    <p>
+        <code>English TYPE:Spoken.Read.Written
+            <br/>
+            Sign Language TYPE:Spoken.Read
+            <br/>
+            Trade Pidgin TYPE:Spoken</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    That's really all there is to those simple .lst files.
+</p>
+<p>
+    Barak
+    <br/>
+    LST Chimp
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

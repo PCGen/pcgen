@@ -31,61 +31,60 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreLegsParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"LEGS", "LEGSEQ", "LEGSGT", "LEGSGTEQ", "LEGSLT", "LEGSLTEQ", "LEGSNEQ"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"LEGS", "LEGSEQ", "LEGSGT", "LEGSGTEQ", "LEGSLT", "LEGSLTEQ", "LEGSNEQ"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.LEGS))
-		{
-			throw new PersistenceLayerException(
-				"PRELEGS is deprecated (does not function) when LEGS CodeControl is used");
-		}
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		try
-		{
-			prereq.setKind("legs");
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.LEGS))
+        {
+            throw new PersistenceLayerException(
+                    "PRELEGS is deprecated (does not function) when LEGS CodeControl is used");
+        }
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        try
+        {
+            prereq.setKind("legs");
 
-			// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
-			String compType = kind.substring(4);
-			if (compType.isEmpty())
-			{
-				compType = "gteq";
-			}
-			prereq.setOperator(compType);
+            // Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
+            String compType = kind.substring(4);
+            if (compType.isEmpty())
+            {
+                compType = "gteq";
+            }
+            prereq.setOperator(compType);
 
-			prereq.setOperand(formula);
-			if (invertResult)
-			{
-				prereq.setOperator(prereq.getOperator().invert());
-			}
-		}
-		catch (PrerequisiteException pe)
-		{
-			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
-		}
-		return prereq;
-	}
+            prereq.setOperand(formula);
+            if (invertResult)
+            {
+                prereq.setOperator(prereq.getOperator().invert());
+            }
+        } catch (PrerequisiteException pe)
+        {
+            throw new PersistenceLayerException(
+                    "Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
+        }
+        return prereq;
+    }
 }

@@ -31,60 +31,59 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreHandsParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"HANDS", "HANDSEQ", "HANDSGT", "HANDSGTEQ", "HANDSLT", "HANDSLTEQ", "HANDSNEQ"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"HANDS", "HANDSEQ", "HANDSGT", "HANDSGTEQ", "HANDSLT", "HANDSLTEQ", "HANDSNEQ"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.CREATUREHANDS))
-		{
-			throw new PersistenceLayerException("PREHANDS is disabled when CREATUREHANDS CodeControl is used");
-		}
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		try
-		{
-			prereq.setKind("hands");
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.CREATUREHANDS))
+        {
+            throw new PersistenceLayerException("PREHANDS is disabled when CREATUREHANDS CodeControl is used");
+        }
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        try
+        {
+            prereq.setKind("hands");
 
-			// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
-			String compType = kind.substring(5);
-			if (compType.isEmpty())
-			{
-				compType = "gteq";
-			}
-			prereq.setOperator(compType);
+            // Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
+            String compType = kind.substring(5);
+            if (compType.isEmpty())
+            {
+                compType = "gteq";
+            }
+            prereq.setOperator(compType);
 
-			prereq.setOperand(formula);
-			if (invertResult)
-			{
-				prereq.setOperator(prereq.getOperator().invert());
-			}
-		}
-		catch (PrerequisiteException pe)
-		{
-			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
-		}
-		return prereq;
-	}
+            prereq.setOperand(formula);
+            if (invertResult)
+            {
+                prereq.setOperator(prereq.getOperator().invert());
+            }
+        } catch (PrerequisiteException pe)
+        {
+            throw new PersistenceLayerException(
+                    "Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
+        }
+        return prereq;
+    }
 }

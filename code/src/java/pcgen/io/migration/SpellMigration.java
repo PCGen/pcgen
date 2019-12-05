@@ -27,39 +27,38 @@ import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 
 /**
- * SpellMigration translates old spell keys into their current values. This is 
- * used to allow clean loading of older characters which were saved with spell 
+ * SpellMigration translates old spell keys into their current values. This is
+ * used to allow clean loading of older characters which were saved with spell
  * keys that have now been changed in the data.
- * 
  */
 public final class SpellMigration
 {
-	private static Map<int[], List<MigrationRule>> spellChangesForVer = new HashMap<>();
+    private static Map<int[], List<MigrationRule>> spellChangesForVer = new HashMap<>();
 
-	private SpellMigration()
-	{
-	}
+    private SpellMigration()
+    {
+    }
 
-	/**
-	 * Find the new spell key to replace the provided one.
-	 * 
-	 * @param spellKey The original spell key as found in the character file.
-	 * @param pcgVer The version of PCGen in which the character was created.
-	 * @return The new spell key, or the passed in one if it has not changed.
-	 */
-	public static String getNewSpellKey(String spellKey, int[] pcgVer, String gameModeName)
-	{
-		List<MigrationRule> spellChangeList = spellChangesForVer.computeIfAbsent(pcgVer,
-			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.SPELL));
+    /**
+     * Find the new spell key to replace the provided one.
+     *
+     * @param spellKey The original spell key as found in the character file.
+     * @param pcgVer   The version of PCGen in which the character was created.
+     * @return The new spell key, or the passed in one if it has not changed.
+     */
+    public static String getNewSpellKey(String spellKey, int[] pcgVer, String gameModeName)
+    {
+        List<MigrationRule> spellChangeList = spellChangesForVer.computeIfAbsent(pcgVer,
+                v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.SPELL));
 
-		for (MigrationRule rule : spellChangeList)
-		{
-			if (rule.getOldKey().equalsIgnoreCase(spellKey))
-			{
-				return rule.getNewKey();
-			}
-		}
-		return spellKey;
-	}
+        for (MigrationRule rule : spellChangeList)
+        {
+            if (rule.getOldKey().equalsIgnoreCase(spellKey))
+            {
+                return rule.getNewKey();
+            }
+        }
+        return spellKey;
+    }
 
 }

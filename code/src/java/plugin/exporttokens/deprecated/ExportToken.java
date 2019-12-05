@@ -29,7 +29,7 @@ import pcgen.system.PCGenPropBundle;
 
 /**
  * Deals with Tokens:
- * 
+ * <p>
  * EXPORT
  * EXPORT.DATE
  * EXPORT.TIME
@@ -37,33 +37,33 @@ import pcgen.system.PCGenPropBundle;
  */
 public class ExportToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "EXPORT";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "EXPORT";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String exportString = "";
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String exportString = "";
 
-		if ("EXPORT.DATE".equals(tokenSource))
-		{
-			exportString = LocalDate.now(Clock.systemUTC()).toString();
-		}
-		else if ("EXPORT.TIME".equals(tokenSource))
-		{
-			exportString = LocalTime.now(Clock.systemUTC()).toString();
-		}
-		else if ("EXPORT.VERSION".equals(tokenSource))
-		{
-			exportString = PCGenPropBundle.getVersionNumber();
-		}
+        if ("EXPORT.DATE".equals(tokenSource))
+        {
+            exportString = LocalDate.now(Clock.systemUTC()).toString();
+        } else if ("EXPORT.TIME".equals(tokenSource))
+        {
+            exportString = LocalTime.now(Clock.systemUTC()).toString();
+        } else if ("EXPORT.VERSION".equals(tokenSource))
+        {
+            exportString = PCGenPropBundle.getVersionNumber();
+        }
 
-		return exportString;
-	}
+        return exportString;
+    }
 }

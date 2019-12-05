@@ -64,158 +64,158 @@ import org.junit.jupiter.params.provider.MethodSource;
  */
 public class DataLoadTest implements PCGenTaskListener
 {
-	/** The name of our dummy config file. */
-	private static final String TEST_CONFIG_FILE = "config.ini.junit";
+    /**
+     * The name of our dummy config file.
+     */
+    private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
-	private Collection<LogRecord> errors = new ArrayList<>();
+    private Collection<LogRecord> errors = new ArrayList<>();
 
 
-	/**
-	 * Tidy up the config file we created. 
-	 */
-	@AfterAll
-	static void afterClass()
-	{
-		new File(TEST_CONFIG_FILE).delete();
-	}
+    /**
+     * Tidy up the config file we created.
+     */
+    @AfterAll
+    static void afterClass()
+    {
+        new File(TEST_CONFIG_FILE).delete();
+    }
 
-	/**
-	 * Build the list of sources to be checked. Also initialises the plugins and 
-	 * loads the game mode and campaign files.
-	 */
-	public static Stream<Object[]> data()
-	{
-		// Set things up
-		loadGameModes();
-		SettingsHandler.setOutputDeprecationMessages(false);
-		SettingsHandler.setInputUnconstructedMessages(false);
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
-			PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES, true);
+    /**
+     * Build the list of sources to be checked. Also initialises the plugins and
+     * loads the game mode and campaign files.
+     */
+    public static Stream<Object[]> data()
+    {
+        // Set things up
+        loadGameModes();
+        SettingsHandler.setOutputDeprecationMessages(false);
+        SettingsHandler.setInputUnconstructedMessages(false);
+        PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+                PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES, true);
 
-		List<SourceSelectionFacade> basicSources = getBasicSources();
-		assertFalse(basicSources.isEmpty(), "No sources found");
-		Collection<Object[]> params = new ArrayList<>();
-		basicSources.forEach(ssf -> {
-			String testName = ssf.toString().replaceAll("[(\\)]", "_");
-			params.add(new Object[]{ssf, testName});
-		});
-		return params.stream();
-	}
+        List<SourceSelectionFacade> basicSources = getBasicSources();
+        assertFalse(basicSources.isEmpty(), "No sources found");
+        Collection<Object[]> params = new ArrayList<>();
+        basicSources.forEach(ssf -> {
+            String testName = ssf.toString().replaceAll("[(\\)]", "_");
+            params.add(new Object[]{ssf, testName});
+        });
+        return params.stream();
+    }
 
-	/**
-	 * Test the load of the current source.
-	 * This will check for any load errors or warnings but ignores deprecation warnings.
-	 */
-	@ParameterizedTest
-	@MethodSource("data")
-	void testLoadSources(SourceSelectionFacade sourceSelection)
-	{
-		UIDelegate uiDelegate = new MockUIDelegate();
+    /**
+     * Test the load of the current source.
+     * This will check for any load errors or warnings but ignores deprecation warnings.
+     */
+    @ParameterizedTest
+    @MethodSource("data")
+    void testLoadSources(SourceSelectionFacade sourceSelection)
+    {
+        UIDelegate uiDelegate = new MockUIDelegate();
 
-		PCGenTask loader =
-				new SourceFileLoader(sourceSelection, uiDelegate);
-		errors = new ArrayList<>();
-		loader.addPCGenTaskListener(this);
-		loader.run();
-		GameMode selectedGame = SystemCollections
-			.getGameModeNamed(sourceSelection.getGameMode().get().getName());
-		selectedGame.clearLoadContext();
+        PCGenTask loader =
+                new SourceFileLoader(sourceSelection, uiDelegate);
+        errors = new ArrayList<>();
+        loader.addPCGenTaskListener(this);
+        loader.run();
+        GameMode selectedGame = SystemCollections
+                .getGameModeNamed(sourceSelection.getGameMode().get().getName());
+        selectedGame.clearLoadContext();
 
-		Collection<String> errorList = new ArrayList<>();
-		Collection<String> warningList = new ArrayList<>();
-		for (LogRecord logRecord : errors)
-		{
-			if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
-			{
-				errorList.add(logRecord.getMessage());
-			}
-			else if (logRecord.getLevel().intValue() > Logging.INFO.intValue())
-			{
-				warningList.add(logRecord.getMessage());
-			}
-		}
-		assertEquals("",
-			StringUtils.join(errorList, ",\n"), () -> "Errors encountered while loading " + sourceSelection
-		);
-		assertEquals("",
-			StringUtils.join(errorList, ",\n"), () -> "Warnings encountered while loading " + sourceSelection
-		);
-	}
+        Collection<String> errorList = new ArrayList<>();
+        Collection<String> warningList = new ArrayList<>();
+        for (LogRecord logRecord : errors)
+        {
+            if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
+            {
+                errorList.add(logRecord.getMessage());
+            } else if (logRecord.getLevel().intValue() > Logging.INFO.intValue())
+            {
+                warningList.add(logRecord.getMessage());
+            }
+        }
+        assertEquals("",
+                StringUtils.join(errorList, ",\n"), () -> "Errors encountered while loading " + sourceSelection
+        );
+        assertEquals("",
+                StringUtils.join(errorList, ",\n"), () -> "Warnings encountered while loading " + sourceSelection
+        );
+    }
 
-	private static void loadGameModes()
-	{
-		String pccLoc = TestHelper.findDataFolder();
-		System.out.println("Got data folder of " + pccLoc);
-		try
-		{
-			String configFolder = "testsuite";
-			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
-				pccLoc);
-		}
-		catch (IOException e)
-		{
-			Logging.errorPrint("DataTest.loadGameModes failed", e);
-		}
+    private static void loadGameModes()
+    {
+        String pccLoc = TestHelper.findDataFolder();
+        System.out.println("Got data folder of " + pccLoc);
+        try
+        {
+            String configFolder = "testsuite";
+            TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
+                    pccLoc);
+        } catch (IOException e)
+        {
+            Logging.errorPrint("DataTest.loadGameModes failed", e);
+        }
 
-		PropertyContextFactory configFactory =
-				new PropertyContextFactory(SystemUtils.USER_DIR);
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings
-			.getInstance(TEST_CONFIG_FILE));
-		Main.loadProperties(false);
-		PCGenTask loadPluginTask = Main.createLoadPluginTask();
-		loadPluginTask.run();
-		PCGenTask gameModeFileLoader = new GameModeFileLoader();
-		gameModeFileLoader.run();
-		PCGenTask campaignFileLoader = new CampaignFileLoader();
-		campaignFileLoader.run();
-	}
+        PropertyContextFactory configFactory =
+                new PropertyContextFactory(SystemUtils.USER_DIR);
+        configFactory.registerAndLoadPropertyContext(ConfigurationSettings
+                .getInstance(TEST_CONFIG_FILE));
+        Main.loadProperties(false);
+        PCGenTask loadPluginTask = Main.createLoadPluginTask();
+        loadPluginTask.run();
+        PCGenTask gameModeFileLoader = new GameModeFileLoader();
+        gameModeFileLoader.run();
+        PCGenTask campaignFileLoader = new CampaignFileLoader();
+        campaignFileLoader.run();
+    }
 
-	private static List<SourceSelectionFacade> getBasicSources()
-	{
-		List<SourceSelectionFacade> basicSources = new ArrayList<>();
-		for (Campaign campaign : Globals.getCampaignList())
-		{
-			if (campaign.getSafe(ObjectKey.SHOW_IN_MENU))
-			{
-				SourceSelectionFacade sourceSelection =
-						FacadeFactory.createSourceSelection(campaign.getGameModes()
-							.getElementAt(0), Collections.singletonList(campaign), campaign.getKeyName());
-				basicSources.add(sourceSelection);
-			}
-		}
-		for (GameMode mode : SystemCollections.getUnmodifiableGameModeList())
-		{
-			if (!mode.getDefaultDataSetList().isEmpty())
-			{
-				List<Campaign> qcamps = new ArrayList<>();
-				List<String> sources = mode.getDefaultDataSetList();
-				for (String string : sources)
-				{
-					Campaign camp = Globals.getCampaignKeyed(string);
-					assertNotNull(camp, () -> "Cannot find source " + string
-							+ " for game mode " + mode);
-					qcamps.add(camp);
-				}
-				basicSources.add(FacadeFactory.createSourceSelection(
-					mode, qcamps, mode.getDefaultSourceTitle()));
-			}
-		}
-		return basicSources;
-	}
+    private static List<SourceSelectionFacade> getBasicSources()
+    {
+        List<SourceSelectionFacade> basicSources = new ArrayList<>();
+        for (Campaign campaign : Globals.getCampaignList())
+        {
+            if (campaign.getSafe(ObjectKey.SHOW_IN_MENU))
+            {
+                SourceSelectionFacade sourceSelection =
+                        FacadeFactory.createSourceSelection(campaign.getGameModes()
+                                .getElementAt(0), Collections.singletonList(campaign), campaign.getKeyName());
+                basicSources.add(sourceSelection);
+            }
+        }
+        for (GameMode mode : SystemCollections.getUnmodifiableGameModeList())
+        {
+            if (!mode.getDefaultDataSetList().isEmpty())
+            {
+                List<Campaign> qcamps = new ArrayList<>();
+                List<String> sources = mode.getDefaultDataSetList();
+                for (String string : sources)
+                {
+                    Campaign camp = Globals.getCampaignKeyed(string);
+                    assertNotNull(camp, () -> "Cannot find source " + string
+                            + " for game mode " + mode);
+                    qcamps.add(camp);
+                }
+                basicSources.add(FacadeFactory.createSourceSelection(
+                        mode, qcamps, mode.getDefaultSourceTitle()));
+            }
+        }
+        return basicSources;
+    }
 
-	@Override
-	public void progressChanged(PCGenTaskEvent event)
-	{
-		// Ignore
+    @Override
+    public void progressChanged(PCGenTaskEvent event)
+    {
+        // Ignore
 
-	}
+    }
 
-	/**
-	 * Record any log messages written by the source load.
-	 */
-	@Override
-	public void errorOccurred(PCGenTaskEvent event)
-	{
-		errors.add(event.getErrorRecord());
-	}
+    /**
+     * Record any log messages written by the source load.
+     */
+    @Override
+    public void errorOccurred(PCGenTaskEvent event)
+    {
+        errors.add(event.getErrorRecord());
+    }
 }

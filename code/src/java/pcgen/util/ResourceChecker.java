@@ -23,35 +23,33 @@ package pcgen.util;
 final class ResourceChecker
 {
 
-	private ResourceChecker()
-	{
-	}
+    private ResourceChecker()
+    {
+    }
 
-	/**
-	 * Return TRUE if the resource exists in the jar
-	 *
-	 * @param resourceName
-	 * @param jarName
-	 * @param sb
-	 * @return TRUE if the resource exists in the jar
-	 */
-	static boolean hasResource(final String resourceName, final String jarName, StringBuilder sb)
-	{
-		try
-		{
-			Class.forName(resourceName);
-			return true;
-		}
-		catch (ClassNotFoundException cnfex)
-		{
-			sb.append("Missing resource: ").append(jarName).append('\n');
-		}
-		catch (NoClassDefFoundError ncdfer)
-		{
-			sb.append("Missing dependency of resource: ").append(jarName).append('\n');
-			Logging.errorPrint("Error loading class " + resourceName + ": " + ncdfer, ncdfer);
-		}
-		return false;
-	}
+    /**
+     * Return TRUE if the resource exists in the jar
+     *
+     * @param resourceName
+     * @param jarName
+     * @param sb
+     * @return TRUE if the resource exists in the jar
+     */
+    static boolean hasResource(final String resourceName, final String jarName, StringBuilder sb)
+    {
+        try
+        {
+            Class.forName(resourceName);
+            return true;
+        } catch (ClassNotFoundException cnfex)
+        {
+            sb.append("Missing resource: ").append(jarName).append('\n');
+        } catch (NoClassDefFoundError ncdfer)
+        {
+            sb.append("Missing dependency of resource: ").append(jarName).append('\n');
+            Logging.errorPrint("Error loading class " + resourceName + ": " + ncdfer, ncdfer);
+        }
+        return false;
+    }
 
 }

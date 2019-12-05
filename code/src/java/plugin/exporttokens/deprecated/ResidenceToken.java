@@ -26,15 +26,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //RESIDENCE
 public class ResidenceToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "RESIDENCE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "RESIDENCE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getSafeStringFor(PCStringKey.RESIDENCE);
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getSafeStringFor(PCStringKey.RESIDENCE);
+    }
 }

@@ -35,117 +35,118 @@ import org.junit.jupiter.api.BeforeEach;
 
 class GenderFacetTest
 {
-	/*
-	 * NOTE: This is not literal unit testing - it is leveraging the existing
-	 * TemplateFacet framework. This class trusts that TemplateFacetTest has
-	 * fully vetted TemplateFacet. PLEASE ensure all tests there are working
-	 * before investigating tests here.
-	 */
-	private CharID id;
-	private CharID altid;
-	private GenderFacet facet;
-	private TemplateFacet tfacet = new TemplateFacet();
+    /*
+     * NOTE: This is not literal unit testing - it is leveraging the existing
+     * TemplateFacet framework. This class trusts that TemplateFacetTest has
+     * fully vetted TemplateFacet. PLEASE ensure all tests there are working
+     * before investigating tests here.
+     */
+    private CharID id;
+    private CharID altid;
+    private GenderFacet facet;
+    private TemplateFacet tfacet = new TemplateFacet();
 
-	@BeforeEach
-	public void setUp() {
-		facet = new GenderFacet();
-		facet.setTemplateFacet(tfacet);
-		DataSetID cid = DataSetID.getID();
-		id = CharID.getID(cid);
-		altid = CharID.getID(cid);
-	}
+    @BeforeEach
+    public void setUp()
+    {
+        facet = new GenderFacet();
+        facet.setTemplateFacet(tfacet);
+        DataSetID cid = DataSetID.getID();
+        id = CharID.getID(cid);
+        altid = CharID.getID(cid);
+    }
 
-	@AfterEach
-	public void tearDown()
-	{
-		id = null;
-		altid = null;
-		facet = null;
-		tfacet = null;
-	}
+    @AfterEach
+    public void tearDown()
+    {
+        id = null;
+        altid = null;
+        facet = null;
+        tfacet = null;
+    }
 
-	@Test
-	public void testGenderUnsetNull()
-	{
-		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
-	}
+    @Test
+    public void testGenderUnsetNull()
+    {
+        assertEquals(Gender.getDefaultValue(), facet.getGender(id));
+    }
 
-	@Test
-	public void testWithNothingInTemplates()
-	{
-		tfacet.add(id, new PCTemplate(), this);
-		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
-	}
+    @Test
+    public void testWithNothingInTemplates()
+    {
+        tfacet.add(id, new PCTemplate(), this);
+        assertEquals(Gender.getDefaultValue(), facet.getGender(id));
+    }
 
-	@Test
-	public void testAvoidPollution()
-	{
-		PCTemplate pct = new PCTemplate();
-		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
-		tfacet.add(id, pct, this);
-		assertEquals(Gender.getDefaultValue(), facet.getGender(altid));
-	}
+    @Test
+    public void testAvoidPollution()
+    {
+        PCTemplate pct = new PCTemplate();
+        pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
+        tfacet.add(id, pct, this);
+        assertEquals(Gender.getDefaultValue(), facet.getGender(altid));
+    }
 
-	@Test
-	public void testGenderSet()
-	{
-		assertTrue(facet.canSetGender(id));
-		facet.set(id, Gender.Female);
-		assertTrue(facet.canSetGender(id));
-		assertEquals(Gender.Female, facet.getGender(id));
-		facet.remove(id);
-		assertTrue(facet.canSetGender(id));
-		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
-	}
-	
-	@Test
-	public void testGenderLocked()
-	{
-		assertTrue(facet.canSetGender(id));
-		PCTemplate pct = new PCTemplate();
-		pct.put(ObjectKey.GENDER_LOCK, Gender.Female);
-		tfacet.add(id, pct, this);
-		assertFalse(facet.canSetGender(id));
-		assertEquals(Gender.Female, facet.getGender(id));
-		tfacet.remove(id, pct, this);
-		assertTrue(facet.canSetGender(id));
-		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
-	}
+    @Test
+    public void testGenderSet()
+    {
+        assertTrue(facet.canSetGender(id));
+        facet.set(id, Gender.Female);
+        assertTrue(facet.canSetGender(id));
+        assertEquals(Gender.Female, facet.getGender(id));
+        facet.remove(id);
+        assertTrue(facet.canSetGender(id));
+        assertEquals(Gender.getDefaultValue(), facet.getGender(id));
+    }
 
-	@Test
-	public void testGenderSetLockDominates()
-	{
-		facet.set(id, Gender.Female);
-		assertEquals(Gender.Female, facet.getGender(id));
-		PCTemplate pct = new PCTemplate();
-		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
-		tfacet.add(id, pct, this);
-		assertEquals(Gender.Neuter, facet.getGender(id));
-		tfacet.remove(id, pct, this);
-		assertEquals(Gender.Female, facet.getGender(id));
-	}
+    @Test
+    public void testGenderLocked()
+    {
+        assertTrue(facet.canSetGender(id));
+        PCTemplate pct = new PCTemplate();
+        pct.put(ObjectKey.GENDER_LOCK, Gender.Female);
+        tfacet.add(id, pct, this);
+        assertFalse(facet.canSetGender(id));
+        assertEquals(Gender.Female, facet.getGender(id));
+        tfacet.remove(id, pct, this);
+        assertTrue(facet.canSetGender(id));
+        assertEquals(Gender.getDefaultValue(), facet.getGender(id));
+    }
 
-	@Test
-	public void testMultipleGenderSetSecondDominatesGender()
-	{
-		PCTemplate pct = new PCTemplate();
-		pct.setName("PCT");
-		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
-		tfacet.add(id, pct, this);
-		assertEquals(Gender.Neuter, facet.getGender(id));
-		PCTemplate pct2 = new PCTemplate();
-		pct2.setName("Other");
-		pct2.put(ObjectKey.GENDER_LOCK, Gender.Female);
-		tfacet.add(id, pct2, this);
-		assertEquals(Gender.Female, facet.getGender(id));
-		tfacet.remove(id, pct, this);
-		assertEquals(Gender.Female, facet.getGender(id));
-		tfacet.add(id, pct, this);
-		assertEquals(Gender.Neuter, facet.getGender(id));
-		tfacet.remove(id, pct, this);
-		assertEquals(Gender.Female, facet.getGender(id));
-		tfacet.remove(id, pct2, this);
-		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
-	}
+    @Test
+    public void testGenderSetLockDominates()
+    {
+        facet.set(id, Gender.Female);
+        assertEquals(Gender.Female, facet.getGender(id));
+        PCTemplate pct = new PCTemplate();
+        pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
+        tfacet.add(id, pct, this);
+        assertEquals(Gender.Neuter, facet.getGender(id));
+        tfacet.remove(id, pct, this);
+        assertEquals(Gender.Female, facet.getGender(id));
+    }
+
+    @Test
+    public void testMultipleGenderSetSecondDominatesGender()
+    {
+        PCTemplate pct = new PCTemplate();
+        pct.setName("PCT");
+        pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
+        tfacet.add(id, pct, this);
+        assertEquals(Gender.Neuter, facet.getGender(id));
+        PCTemplate pct2 = new PCTemplate();
+        pct2.setName("Other");
+        pct2.put(ObjectKey.GENDER_LOCK, Gender.Female);
+        tfacet.add(id, pct2, this);
+        assertEquals(Gender.Female, facet.getGender(id));
+        tfacet.remove(id, pct, this);
+        assertEquals(Gender.Female, facet.getGender(id));
+        tfacet.add(id, pct, this);
+        assertEquals(Gender.Neuter, facet.getGender(id));
+        tfacet.remove(id, pct, this);
+        assertEquals(Gender.Female, facet.getGender(id));
+        tfacet.remove(id, pct2, this);
+        assertEquals(Gender.getDefaultValue(), facet.getGender(id));
+    }
 
 }

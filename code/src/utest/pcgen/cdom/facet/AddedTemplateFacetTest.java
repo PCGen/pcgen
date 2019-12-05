@@ -23,25 +23,25 @@ import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.PCTemplate;
 
 public class AddedTemplateFacetTest extends
-		AbstractSourcedListFacetTest<PCTemplate>
+        AbstractSourcedListFacetTest<PCTemplate>
 {
 
-	private AddedTemplateFacet facet = new AddedTemplateFacet();
+    private AddedTemplateFacet facet = new AddedTemplateFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, PCTemplate> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, PCTemplate> getFacet()
+    {
+        return facet;
+    }
 
-	public static int n = 0;
+    public static int n = 0;
 
-	@Override
-	protected PCTemplate getObject()
-	{
-		PCTemplate wp = new PCTemplate();
-		wp.setName("WP" + n++);
-		return wp;
-	}
+    @Override
+    protected PCTemplate getObject()
+    {
+        PCTemplate wp = new PCTemplate();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 
 }

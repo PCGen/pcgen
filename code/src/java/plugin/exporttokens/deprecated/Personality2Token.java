@@ -25,16 +25,16 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //PERSONALITY2
 public class Personality2Token extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "PERSONALITY2";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "PERSONALITY2";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getTrait2();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getTrait2();
+    }
 
 }

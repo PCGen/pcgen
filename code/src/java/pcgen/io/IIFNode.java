@@ -24,63 +24,67 @@ import java.util.List;
 
 /**
  * {@code IIFNode}.
- *
  */
 class IIFNode
 {
-	private final List<Object> falseChildren;
-	private final List<Object> trueChildren;
-	private final String expr;
+    private final List<Object> falseChildren;
+    private final List<Object> trueChildren;
+    private final String expr;
 
-	IIFNode(final String expr)
-	{
-		this.expr = expr;
-		trueChildren = new ArrayList<>();
-		falseChildren = new ArrayList<>();
-	}
+    IIFNode(final String expr)
+    {
+        this.expr = expr;
+        trueChildren = new ArrayList<>();
+        falseChildren = new ArrayList<>();
+    }
 
-	/**
-	 * Add a 'true' child to the tree
-	 * @param child
-	 */
-	public void addTrueChild(Object child)
-	{
-		trueChildren.add(child);
-	}
+    /**
+     * Add a 'true' child to the tree
+     *
+     * @param child
+     */
+    public void addTrueChild(Object child)
+    {
+        trueChildren.add(child);
+    }
 
-	/**
-	 * List the nodes that are truly children
-	 * @return the nodes that are truly children
-	 */
-	public final List<?> trueChildren()
-	{
-		return Collections.unmodifiableList(trueChildren);
-	}
+    /**
+     * List the nodes that are truly children
+     *
+     * @return the nodes that are truly children
+     */
+    public final List<?> trueChildren()
+    {
+        return Collections.unmodifiableList(trueChildren);
+    }
 
-	/**
-	 * Add a false child
-	 * @param child
-	 */
-	public void addFalseChild(final Object child)
-	{
-		falseChildren.add(child);
-	}
+    /**
+     * Add a false child
+     *
+     * @param child
+     */
+    public void addFalseChild(final Object child)
+    {
+        falseChildren.add(child);
+    }
 
-	/**
-	 * Returns an expression for the node
-	 * @return an expression for the node
-	 */
-	public final String expr()
-	{
-		return expr;
-	}
+    /**
+     * Returns an expression for the node
+     *
+     * @return an expression for the node
+     */
+    public final String expr()
+    {
+        return expr;
+    }
 
-	/**
-	 * List the false children
-	 * @return the false children
-	 */
-	public final List<?> falseChildren()
-	{
-		return Collections.unmodifiableList(falseChildren);
-	}
+    /**
+     * List the false children
+     *
+     * @return the false children
+     */
+    public final List<?> falseChildren()
+    {
+        return Collections.unmodifiableList(falseChildren);
+    }
 }

@@ -31,52 +31,51 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class SizeToken extends AbstractNonEmptyToken<KitGear> implements CDOMPrimaryToken<KitGear>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "SIZE";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "SIZE";
+    }
 
-	@Override
-	public Class<KitGear> getTokenClass()
-	{
-		return KitGear.class;
-	}
+    @Override
+    public Class<KitGear> getTokenClass()
+    {
+        return KitGear.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
-	{
-		if ("PC".equals(value))
-		{
-			kitGear.setSizeToPC(true);
-		}
-		else
-		{
-			CDOMSingleRef<SizeAdjustment> size =
-					context.getReferenceContext().getCDOMReference(SizeAdjustment.class, value);
-			kitGear.setSize(size);
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
+    {
+        if ("PC".equals(value))
+        {
+            kitGear.setSizeToPC(true);
+        } else
+        {
+            CDOMSingleRef<SizeAdjustment> size =
+                    context.getReferenceContext().getCDOMReference(SizeAdjustment.class, value);
+            kitGear.setSize(size);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitGear kitGear)
-	{
-		CDOMSingleRef<SizeAdjustment> sz = kitGear.getSize();
-		if (sz == null)
-		{
-			Boolean b = kitGear.getSizeToPC();
-			if (b == null)
-			{
-				return null;
-			}
-			return new String[]{"PC"};
-		}
-		return new String[]{sz.getLSTformat(false)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitGear kitGear)
+    {
+        CDOMSingleRef<SizeAdjustment> sz = kitGear.getSize();
+        if (sz == null)
+        {
+            Boolean b = kitGear.getSizeToPC();
+            if (b == null)
+            {
+                return null;
+            }
+            return new String[]{"PC"};
+        }
+        return new String[]{sz.getLSTformat(false)};
+    }
 }

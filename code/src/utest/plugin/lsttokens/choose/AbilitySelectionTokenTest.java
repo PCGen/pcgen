@@ -35,124 +35,124 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.ability.PCToken;
 
 public class AbilitySelectionTokenTest extends
-		AbstractChooseTokenTestCase<CDOMObject, Ability>
+        AbstractChooseTokenTestCase<CDOMObject, Ability>
 {
 
-	static ChooseLst token = new ChooseLst();
-	static AbilitySelectionToken subtoken = new AbilitySelectionToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+    static ChooseLst token = new ChooseLst();
+    static AbilitySelectionToken subtoken = new AbilitySelectionToken();
+    static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
-	@Override
-	public Class<Ability> getCDOMClass()
-	{
-		return Ability.class;
-	}
+    @Override
+    public Class<Ability> getCDOMClass()
+    {
+        return Ability.class;
+    }
 
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
+    @Override
+    public CDOMLoader<CDOMObject> getLoader()
+    {
+        return loader;
+    }
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getToken()
+    {
+        return token;
+    }
 
-	@Override
-	public CDOMSecondaryToken<?> getSubToken()
-	{
-		return subtoken;
-	}
+    @Override
+    public CDOMSecondaryToken<?> getSubToken()
+    {
+        return subtoken;
+    }
 
-	@Override
-	public Class<Ability> getTargetClass()
-	{
-		return Ability.class;
-	}
+    @Override
+    public Class<Ability> getTargetClass()
+    {
+        return Ability.class;
+    }
 
-	@Override
-	protected boolean allowsQualifier()
-	{
-		return true;
-	}
+    @Override
+    protected boolean allowsQualifier()
+    {
+        return true;
+    }
 
-	@Override
-	protected String getChoiceTitle()
-	{
-		return subtoken.getDefaultTitle();
-	}
+    @Override
+    protected String getChoiceTitle()
+    {
+        return subtoken.getDefaultTitle();
+    }
 
-	@Override
-	protected QualifierToken<Ability> getPCQualifier()
-	{
-		return new PCToken();
-	}
+    @Override
+    protected QualifierToken<Ability> getPCQualifier()
+    {
+        return new PCToken();
+    }
 
-	@Override
-	protected Loadable construct(LoadContext loadContext, String one)
-	{
-		AbilityCategory cat = loadContext.getReferenceContext()
-				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
-						"Special Ability");
-		Ability a = cat.newInstance();
-		a.setName(one);
-		loadContext.getReferenceContext().importObject(a);
-		return a;
-	}
+    @Override
+    protected Loadable construct(LoadContext loadContext, String one)
+    {
+        AbilityCategory cat = loadContext.getReferenceContext()
+                .silentlyGetConstructedCDOMObject(AbilityCategory.class,
+                        "Special Ability");
+        Ability a = cat.newInstance();
+        a.setName(one);
+        loadContext.getReferenceContext().importObject(a);
+        return a;
+    }
 
-	@Override
-	protected ReferenceManufacturer<Ability> getManufacturer()
-	{
-		Category<Ability> cat = primaryContext.getReferenceContext()
-				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
-						"Special Ability");
-		return primaryContext.getReferenceContext().getManufacturerId(cat);
-	}
+    @Override
+    protected ReferenceManufacturer<Ability> getManufacturer()
+    {
+        Category<Ability> cat = primaryContext.getReferenceContext()
+                .silentlyGetConstructedCDOMObject(AbilityCategory.class,
+                        "Special Ability");
+        return primaryContext.getReferenceContext().getManufacturerId(cat);
+    }
 
-	@Override
-	protected boolean isTypeLegal()
-	{
-		return true;
-	}
+    @Override
+    protected boolean isTypeLegal()
+    {
+        return true;
+    }
 
-	@Override
-	protected boolean isAllLegal()
-	{
-		return true;
-	}
+    @Override
+    protected boolean isAllLegal()
+    {
+        return true;
+    }
 
-	@Override
-	public String getSubTokenName()
-	{
-		return super.getSubTokenName() + "|Special Ability";
-	}
+    @Override
+    public String getSubTokenName()
+    {
+        return super.getSubTokenName() + "|Special Ability";
+    }
 
-	@Override
-	public void testUnparseLegal()
-	{
-		//Hard to get correct - doesn't assume Category :(
-	}
+    @Override
+    public void testUnparseLegal()
+    {
+        //Hard to get correct - doesn't assume Category :(
+    }
 
-	@Override
-	protected Ability get(LoadContext context, String name)
-	{
-		Ability a = BuildUtilities.getFeatCat().newInstance();
-		a.setName(name);
-		context.getReferenceContext().importObject(a);
-		return a;
-	}
+    @Override
+    protected Ability get(LoadContext context, String name)
+    {
+        Ability a = BuildUtilities.getFeatCat().newInstance();
+        a.setName(name);
+        context.getReferenceContext().importObject(a);
+        return a;
+    }
 
-	@Override
-	protected void additionalSetup(LoadContext context)
-	{
-		super.additionalSetup(context);
-		context.getReferenceContext().constructCDOMObject(AbilityCategory.class,
-			"Special Ability");
-		//Build dummy objects so the ReferenceContext is properly initialized
-		construct(context, "Dummy");
-	}
-	
-	
+    @Override
+    protected void additionalSetup(LoadContext context)
+    {
+        super.additionalSetup(context);
+        context.getReferenceContext().constructCDOMObject(AbilityCategory.class,
+                "Special Ability");
+        //Build dummy objects so the ReferenceContext is properly initialized
+        construct(context, "Dummy");
+    }
+
+
 }

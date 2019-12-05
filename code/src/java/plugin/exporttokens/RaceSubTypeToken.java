@@ -31,43 +31,42 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //RACESUBTYPE.x
 public class RaceSubTypeToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "RACESUBTYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "RACESUBTYPE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		int i = 0;
-		if (aTok.hasMoreTokens())
-		{
-			try
-			{
-				i = Integer.parseInt(aTok.nextToken());
-			}
-			catch (NumberFormatException notUsed)
-			{
-				// This is an error. We will return the first item
-			}
-		}
+        int i = 0;
+        if (aTok.hasMoreTokens())
+        {
+            try
+            {
+                i = Integer.parseInt(aTok.nextToken());
+            } catch (NumberFormatException notUsed)
+            {
+                // This is an error. We will return the first item
+            }
+        }
 
-		RaceSubType rst = getRaceSubTypeToken(display, i);
-		return rst == null ? Constants.EMPTY_STRING : rst.toString();
-	}
+        RaceSubType rst = getRaceSubTypeToken(display, i);
+        return rst == null ? Constants.EMPTY_STRING : rst.toString();
+    }
 
-	private static RaceSubType getRaceSubTypeToken(CharacterDisplay display, int index)
-	{
-		//CONSIDER Why is this necessary to protect the index?  Calling code should be more careful
-		List<RaceSubType> subTypes = new ArrayList<>(display.getRacialSubTypes());
-		if (index >= 0 && index < subTypes.size())
-		{
-			return subTypes.get(index);
-		}
-		return null;
-	}
+    private static RaceSubType getRaceSubTypeToken(CharacterDisplay display, int index)
+    {
+        //CONSIDER Why is this necessary to protect the index?  Calling code should be more careful
+        List<RaceSubType> subTypes = new ArrayList<>(display.getRacialSubTypes());
+        if (index >= 0 && index < subTypes.size())
+        {
+            return subTypes.get(index);
+        }
+        return null;
+    }
 }

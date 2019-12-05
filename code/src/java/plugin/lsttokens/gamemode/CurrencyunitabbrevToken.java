@@ -11,16 +11,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class CurrencyunitabbrevToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "CURRENCYUNITABBREV";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CURRENCYUNITABBREV";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		gameMode.setCurrencyUnitAbbrev(value);
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        gameMode.setCurrencyUnitAbbrev(value);
+        return true;
+    }
 }

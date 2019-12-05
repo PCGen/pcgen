@@ -47,80 +47,78 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate> implements CDOMPrimaryToken<KitTemplate>
 {
-	private static final Class<PCTemplate> TEMPLATE_CLASS = PCTemplate.class;
+    private static final Class<PCTemplate> TEMPLATE_CLASS = PCTemplate.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 *
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "TEMPLATE";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "TEMPLATE";
+    }
 
-	@Override
-	public Class<KitTemplate> getTokenClass()
-	{
-		return KitTemplate.class;
-	}
+    @Override
+    public Class<KitTemplate> getTokenClass()
+    {
+        return KitTemplate.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitTemplate kitTemplate, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitTemplate kitTemplate, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
-		while (tok.hasMoreTokens())
-		{
-			String tokText = tok.nextToken();
-			int openLoc = tokText.indexOf('[');
-			String name;
-			List<CDOMSingleRef<PCTemplate>> subList;
-			if (openLoc == -1)
-			{
-				name = tokText;
-				subList = null;
-			}
-			else
-			{
-				name = tokText.substring(0, openLoc);
-				subList = new ArrayList<>();
-				String rest = tokText.substring(openLoc + 1);
-				StringTokenizer subTok = new StringTokenizer(rest, "[]");
-				while (subTok.hasMoreTokens())
-				{
-					String subStr = subTok.nextToken();
-					if (subStr.startsWith("TEMPLATE:"))
-					{
-						String ownedTemplateName = subStr.substring(9);
+        while (tok.hasMoreTokens())
+        {
+            String tokText = tok.nextToken();
+            int openLoc = tokText.indexOf('[');
+            String name;
+            List<CDOMSingleRef<PCTemplate>> subList;
+            if (openLoc == -1)
+            {
+                name = tokText;
+                subList = null;
+            } else
+            {
+                name = tokText.substring(0, openLoc);
+                subList = new ArrayList<>();
+                String rest = tokText.substring(openLoc + 1);
+                StringTokenizer subTok = new StringTokenizer(rest, "[]");
+                while (subTok.hasMoreTokens())
+                {
+                    String subStr = subTok.nextToken();
+                    if (subStr.startsWith("TEMPLATE:"))
+                    {
+                        String ownedTemplateName = subStr.substring(9);
 
-						CDOMSingleRef<PCTemplate> ref =
-								context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS, ownedTemplateName);
-						subList.add(ref);
-					}
-					else
-					{
-						return new ParseResult.Fail(
-							"Did not understand " + getTokenName() + " option: " + subStr + " in line: " + value);
-					}
-				}
-			}
-			CDOMSingleRef<PCTemplate> ref = context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS, name);
-			kitTemplate.addTemplate(ref, subList);
-		}
-		return ParseResult.SUCCESS;
-	}
+                        CDOMSingleRef<PCTemplate> ref =
+                                context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS, ownedTemplateName);
+                        subList.add(ref);
+                    } else
+                    {
+                        return new ParseResult.Fail(
+                                "Did not understand " + getTokenName() + " option: " + subStr + " in line: " + value);
+                    }
+                }
+            }
+            CDOMSingleRef<PCTemplate> ref = context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS, name);
+            kitTemplate.addTemplate(ref, subList);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitTemplate kitTemplate)
-	{
-		return kitTemplate.isEmpty() ? null : new String[]{kitTemplate.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitTemplate kitTemplate)
+    {
+        return kitTemplate.isEmpty() ? null : new String[]{kitTemplate.toString()};
+    }
 }

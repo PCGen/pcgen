@@ -23,51 +23,49 @@ import pcgen.util.Logging;
 
 /**
  * VersionAwareToken is a token class that needs to verify a version.
- * 
  */
 public abstract class VersionAwareToken
 {
 
-	public abstract String getTokenName();
+    public abstract String getTokenName();
 
-	/**
-	 * Check the supplied version number is in a valid format for a PCGen version number.
-	 * @param version The version number to be checked.
-	 * @return true if the version is valid.
-	 */
-	protected boolean validateVersionNumber(String version)
-	{
-		// extract the tokens from the version line
-		String[] tokens = version.split(" |\\.|\\-", 4); //$NON-NLS-1$
+    /**
+     * Check the supplied version number is in a valid format for a PCGen version number.
+     *
+     * @param version The version number to be checked.
+     * @return true if the version is valid.
+     */
+    protected boolean validateVersionNumber(String version)
+    {
+        // extract the tokens from the version line
+        String[] tokens = version.split(" |\\.|\\-", 4); //$NON-NLS-1$
 
-		if (tokens.length < 3)
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid version in " + getTokenName() + ':' + version
-				+ " must have 3 number parts e.g. " + getTokenName() + ":6.0.2");
-			return false;
-		}
+        if (tokens.length < 3)
+        {
+            Logging.log(Logging.LST_ERROR, "Invalid version in " + getTokenName() + ':' + version
+                    + " must have 3 number parts e.g. " + getTokenName() + ":6.0.2");
+            return false;
+        }
 
-		for (int idx = 0; idx < 3 && idx < tokens.length; idx++)
-		{
-			try
-			{
-				Integer.parseInt(tokens[idx]);
-			}
-			catch (NumberFormatException e)
-			{
-				if (idx == 2 && (tokens[idx].startsWith("RC")))
-				{
-					// Ignore we are not concerned about Release candidates
-				}
-				else
-				{
-					Logging.log(Logging.LST_ERROR, "Invalid version in " + getTokenName() + ':' + version
-						+ " must have 3 number parts e.g. " + getTokenName() + ":6.0.2");
-					return false;
-				}
-			}
-		}
-		return true;
-	}
+        for (int idx = 0;idx < 3 && idx < tokens.length;idx++)
+        {
+            try
+            {
+                Integer.parseInt(tokens[idx]);
+            } catch (NumberFormatException e)
+            {
+                if (idx == 2 && (tokens[idx].startsWith("RC")))
+                {
+                    // Ignore we are not concerned about Release candidates
+                } else
+                {
+                    Logging.log(Logging.LST_ERROR, "Invalid version in " + getTokenName() + ':' + version
+                            + " must have 3 number parts e.g. " + getTokenName() + ":6.0.2");
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 }

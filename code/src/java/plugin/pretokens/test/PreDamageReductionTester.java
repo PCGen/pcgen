@@ -27,28 +27,29 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreDamageReductionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        int runningTotal = 0;
 
-		final int target = Integer.parseInt(prereq.getOperand());
-		Integer reduction = display.getDR(prereq.getKey());
-		if (reduction != null)
-		{
-			runningTotal = prereq.getOperator().compare(reduction, target);
-		}
+        final int target = Integer.parseInt(prereq.getOperand());
+        Integer reduction = display.getDR(prereq.getKey());
+        if (reduction != null)
+        {
+            runningTotal = prereq.getOperator().compare(reduction, target);
+        }
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "DR"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "DR"; //$NON-NLS-1$
+    }
 }

@@ -43,27 +43,31 @@ import java.util.Random;
 public abstract class Die
 {
 
-	private final DiceConfig dc;
+    private final DiceConfig dc;
 
-	/** Random number seed */
-	static final Random RAND = new Random();
+    /**
+     * Random number seed
+     */
+    static final Random RAND = new Random();
 
-	protected Die(final DiceConfig dc)
-	{
-		this.dc = dc;
-	}
+    protected Die(final DiceConfig dc)
+    {
+        this.dc = dc;
+    }
 
-	/** Name of the die in the nds+m format
-	 * @return Name of the die
-	 */
-	@Override
-	public String toString()
-	{
-		return dc.toFormula();
-	}
+    /**
+     * Name of the die in the nds+m format
+     *
+     * @return Name of the die
+     */
+    @Override
+    public String toString()
+    {
+        return dc.toFormula();
+    }
 
-	public int roll()
-	{
-		return dc.roll();
-	}
+    public int roll()
+    {
+        return dc.roll();
+    }
 }

@@ -31,63 +31,63 @@ import pcgen.core.Race;
 import org.junit.jupiter.api.BeforeEach;
 
 public class FavoredClassFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, PCClass>
+        AbstractExtractingFacetTest<CDOMObject, PCClass>
 {
-	private static int n = 0;
+    private static int n = 0;
 
-	private FavoredClassFacet facet = new FavoredClassFacet();
-	private PCClass[] target;
-	private CDOMObject[] source;
+    private FavoredClassFacet facet = new FavoredClassFacet();
+    private PCClass[] target;
+    private CDOMObject[] source;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Template1");
-		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race1");
-		PCClass st1 = new PCClass();
-		st1.setName("Prof1");
-		PCClass st2 = new PCClass();
-		st1.setName("Prof2");
-		cdo1.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef.getRef(st1));
-		cdo2.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef.getRef(st2));
-		source = new CDOMObject[]{cdo1, cdo2};
-		target = new PCClass[]{st1, st2};
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        CDOMObject cdo1 = new PCTemplate();
+        cdo1.setName("Template1");
+        CDOMObject cdo2 = new Race();
+        cdo2.setName("Race1");
+        PCClass st1 = new PCClass();
+        st1.setName("Prof1");
+        PCClass st2 = new PCClass();
+        st1.setName("Prof2");
+        cdo1.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef.getRef(st1));
+        cdo2.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef.getRef(st2));
+        source = new CDOMObject[]{cdo1, cdo2};
+        target = new PCClass[]{st1, st2};
+    }
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, PCClass> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, PCClass> getFacet()
+    {
+        return facet;
+    }
 
-	@Override
-	protected PCClass getObject()
-	{
-		PCClass wp = new PCClass();
-		wp.setName("WP" + n++);
-		return wp;
-	}
+    @Override
+    protected PCClass getObject()
+    {
+        PCClass wp = new PCClass();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 
-	@Override
-	protected CDOMObject getContainingObject(int i)
-	{
-		return source[i];
-	}
+    @Override
+    protected CDOMObject getContainingObject(int i)
+    {
+        return source[i];
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, CDOMObject> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected PCClass getTargetObject(int i)
-	{
-		return target[i];
-	}
+    @Override
+    protected PCClass getTargetObject(int i)
+    {
+        return target[i];
+    }
 
 }

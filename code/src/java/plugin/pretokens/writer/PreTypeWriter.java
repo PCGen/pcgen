@@ -34,112 +34,108 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreTypeWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "type";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "type";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
 
-		try
-		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
-			{
-				writer.write('!');
-			}
+        try
+        {
+            if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+            {
+                writer.write('!');
+            }
 
-			writer.write("PRETYPE:" + (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
-			writer.write(prereq.getKey());
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+            writer.write("PRETYPE:" + (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
+            writer.write(prereq.getKey());
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
-	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
-	{
-		// If this is NOT a PREMULT... fail
-		if (prereq.getKind() != null)
-		{
-			return false;
-		}
-		PrerequisiteOperator oper = null;
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			//
-			// ...testing one item...
-			//
-			if (!"1".equals(p.getOperand()))
-			{
-				return false;
-			}
-			//
-			// ...with all PREARMORTYPE entries...
-			//
-			if (!kindHandled().equalsIgnoreCase(p.getKind()))
-			{
-				return false;
-			}
-			//
-			// ...and the same operator...
-			//
-			if (oper == null)
-			{
-				oper = p.getOperator();
-			}
-			else
-			{
-				if (!oper.equals(p.getOperator()))
-				{
-					return false;
-				}
-			}
-		}
-		String count = prereq.getOperand();
-		if (PrerequisiteOperator.NEQ.equals(oper))
-		{
-			try
-			{
-				int i = Integer.parseInt(count);
-				if (prereq.getPrerequisiteCount() != i)
-				{
-					return false;
-				}
-			}
-			catch (NumberFormatException e)
-			{
-				return false;
-			}
-		}
-		else if (!PrerequisiteOperator.EQ.equals(oper))
-		{
-			return false;
-		}
-		if (!PrerequisiteOperator.GTEQ.equals(prereq.getOperator()) ^ !PrerequisiteOperator.EQ.equals(oper))
-		{
-			writer.write('!');
-		}
+    @Override
+    public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+    {
+        // If this is NOT a PREMULT... fail
+        if (prereq.getKind() != null)
+        {
+            return false;
+        }
+        PrerequisiteOperator oper = null;
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            //
+            // ...testing one item...
+            //
+            if (!"1".equals(p.getOperand()))
+            {
+                return false;
+            }
+            //
+            // ...with all PREARMORTYPE entries...
+            //
+            if (!kindHandled().equalsIgnoreCase(p.getKind()))
+            {
+                return false;
+            }
+            //
+            // ...and the same operator...
+            //
+            if (oper == null)
+            {
+                oper = p.getOperator();
+            } else
+            {
+                if (!oper.equals(p.getOperator()))
+                {
+                    return false;
+                }
+            }
+        }
+        String count = prereq.getOperand();
+        if (PrerequisiteOperator.NEQ.equals(oper))
+        {
+            try
+            {
+                int i = Integer.parseInt(count);
+                if (prereq.getPrerequisiteCount() != i)
+                {
+                    return false;
+                }
+            } catch (NumberFormatException e)
+            {
+                return false;
+            }
+        } else if (!PrerequisiteOperator.EQ.equals(oper))
+        {
+            return false;
+        }
+        if (!PrerequisiteOperator.GTEQ.equals(prereq.getOperator()) ^ !PrerequisiteOperator.EQ.equals(oper))
+        {
+            writer.write('!');
+        }
 
-		writer.write("PRE" + kindHandled().toUpperCase(Locale.ENGLISH) + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(oper.equals(PrerequisiteOperator.EQ) ? prereq.getOperand() : "1");
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			writer.write(',');
-			writer.write(p.getKey());
-		}
-		return true;
-	}
+        writer.write("PRE" + kindHandled().toUpperCase(Locale.ENGLISH) + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+        writer.write(oper.equals(PrerequisiteOperator.EQ) ? prereq.getOperand() : "1");
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            writer.write(',');
+            writer.write(p.getKey());
+        }
+        return true;
+    }
 
 }

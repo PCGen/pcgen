@@ -23,44 +23,45 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 class GlobalsTest
 {
-	@BeforeEach
-	void setUp() {
-		Globals.clearCampaignsForRefresh();
-		final GameMode gamemode = new GameMode("3.5");
-		gamemode.setBonusFeatLevels("3|3");
-		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
-		gamemode.addLevelInfo("Normal", new LevelInfo());
-		gamemode.addXPTableName("Normal");
-		gamemode.setDefaultXPTableName("Normal");
-		gamemode.clearLoadContext();
-		LoadInfo loadable =
-				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
-						LoadInfo.class, gamemode.getName());
-		loadable.addLoadScoreValue(0, BigDecimal.ONE);
-		GameModeFileLoader.addDefaultTabInfo(gamemode);
-		SystemCollections.addToGameModeList(gamemode);
-		SettingsHandler.setGame("3.5");
+    @BeforeEach
+    void setUp()
+    {
+        Globals.clearCampaignsForRefresh();
+        final GameMode gamemode = new GameMode("3.5");
+        gamemode.setBonusFeatLevels("3|3");
+        ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
+        gamemode.addLevelInfo("Normal", new LevelInfo());
+        gamemode.addXPTableName("Normal");
+        gamemode.setDefaultXPTableName("Normal");
+        gamemode.clearLoadContext();
+        LoadInfo loadable =
+                gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
+                        LoadInfo.class, gamemode.getName());
+        loadable.addLoadScoreValue(0, BigDecimal.ONE);
+        GameModeFileLoader.addDefaultTabInfo(gamemode);
+        SystemCollections.addToGameModeList(gamemode);
+        SettingsHandler.setGame("3.5");
 
-		TestHelper.makeSizeAdjustments();
-	}
+        TestHelper.makeSizeAdjustments();
+    }
 
-	/**
-	 * Test the Preview Tab
-	 */
-	@Test
-	public void testPreviewTab()
-	{
-		// Expect to be initialised false
-		assertThat("Initialised False", SettingsHandler.isIgnoreMonsterHDCap(), is(false));
+    /**
+     * Test the Preview Tab
+     */
+    @Test
+    public void testPreviewTab()
+    {
+        // Expect to be initialised false
+        assertThat("Initialised False", SettingsHandler.isIgnoreMonsterHDCap(), is(false));
 
-		// Set true, expect to get true back
-		SettingsHandler.setIgnoreMonsterHDCap(true);
-		assertThat("Show update to True", SettingsHandler.isIgnoreMonsterHDCap(), is(true));
+        // Set true, expect to get true back
+        SettingsHandler.setIgnoreMonsterHDCap(true);
+        assertThat("Show update to True", SettingsHandler.isIgnoreMonsterHDCap(), is(true));
 
-		// Set false again to prove it toggles properly
-		SettingsHandler.setIgnoreMonsterHDCap(false);
-		assertThat("Show update to False", SettingsHandler.isIgnoreMonsterHDCap(), is(false));
-	}
+        // Set false again to prove it toggles properly
+        SettingsHandler.setIgnoreMonsterHDCap(false);
+        assertThat("Show update to False", SettingsHandler.isIgnoreMonsterHDCap(), is(false));
+    }
 
 //	/**
 //	 * I was going to add separate test methods for
@@ -390,30 +391,30 @@ class GlobalsTest
 //
 //	}
 
-	@Test
-	public void testAdjustDamage()
-	{
-		GameMode gameMode = SettingsHandler.getGame();
-		assertThat("size list initialised",
-				Globals.getContext().getReferenceContext().getConstructedObjectCount(SizeAdjustment.class),
-			is(greaterThan(0)));
-		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
-		d6.addToDownList(new RollInfo("1d4"));
-		d6.addToDownList(new RollInfo("1d3"));
-		d6.addToDownList(new RollInfo("1d2"));
-		d6.addToDownList(new RollInfo("1"));
-		d6.addToUpList(new RollInfo("1d8"));
-		d6.addToUpList(new RollInfo("2d6"));
-		d6.addToUpList(new RollInfo("3d6"));
-		d6.addToUpList(new RollInfo("4d6"));
-		d6.addToUpList(new RollInfo("6d6"));
-		d6.addToUpList(new RollInfo("8d6"));
-		d6.addToUpList(new RollInfo("12d6"));
-		Globals.getContext().getReferenceContext().importObject(d6);
-		assertEquals(
-				"1d4",
-				Globals.adjustDamage("1d6", -1),
-				"reduction of damage due to smaller size"
-		);
-	}
+    @Test
+    public void testAdjustDamage()
+    {
+        GameMode gameMode = SettingsHandler.getGame();
+        assertThat("size list initialised",
+                Globals.getContext().getReferenceContext().getConstructedObjectCount(SizeAdjustment.class),
+                is(greaterThan(0)));
+        BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
+        d6.addToDownList(new RollInfo("1d4"));
+        d6.addToDownList(new RollInfo("1d3"));
+        d6.addToDownList(new RollInfo("1d2"));
+        d6.addToDownList(new RollInfo("1"));
+        d6.addToUpList(new RollInfo("1d8"));
+        d6.addToUpList(new RollInfo("2d6"));
+        d6.addToUpList(new RollInfo("3d6"));
+        d6.addToUpList(new RollInfo("4d6"));
+        d6.addToUpList(new RollInfo("6d6"));
+        d6.addToUpList(new RollInfo("8d6"));
+        d6.addToUpList(new RollInfo("12d6"));
+        Globals.getContext().getReferenceContext().importObject(d6);
+        assertEquals(
+                "1d4",
+                Globals.adjustDamage("1d6", -1),
+                "reduction of damage due to smaller size"
+        );
+    }
 }

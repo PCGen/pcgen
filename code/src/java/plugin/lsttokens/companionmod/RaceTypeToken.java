@@ -31,34 +31,34 @@ import pcgen.rules.persistence.token.ParseResult;
 public class RaceTypeToken extends AbstractNonEmptyToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "RACETYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "RACETYPE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CompanionMod cMod, String value)
-	{
-		context.getObjectContext().put(cMod, ObjectKey.RACETYPE, RaceType.getConstant(value));
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CompanionMod cMod, String value)
+    {
+        context.getObjectContext().put(cMod, ObjectKey.RACETYPE, RaceType.getConstant(value));
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CompanionMod cMod)
-	{
-		RaceType raceType = context.getObjectContext().getObject(cMod, ObjectKey.RACETYPE);
-		if (raceType == null)
-		{
-			return null;
-		}
-		return new String[]{raceType.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CompanionMod cMod)
+    {
+        RaceType raceType = context.getObjectContext().getObject(cMod, ObjectKey.RACETYPE);
+        if (raceType == null)
+        {
+            return null;
+        }
+        return new String[]{raceType.toString()};
+    }
 
-	@Override
-	public Class<CompanionMod> getTokenClass()
-	{
-		return CompanionMod.class;
-	}
+    @Override
+    public Class<CompanionMod> getTokenClass()
+    {
+        return CompanionMod.class;
+    }
 
 }

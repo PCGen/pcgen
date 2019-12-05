@@ -28,116 +28,111 @@ import pcgen.util.Logging;
 
 /**
  * {@code EncumbranceToken}
- * 
  */
 public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo>
-		implements CDOMPrimaryToken<LoadInfo>, DeferredToken<LoadInfo>
+        implements CDOMPrimaryToken<LoadInfo>, DeferredToken<LoadInfo>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ENCUMBRANCE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ENCUMBRANCE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
-	{
-		String[] tokens = value.split("\\|");
-		int tokenCount = tokens.length;
-		if ((tokenCount != 2) && (tokenCount != 4))
-		{
-			return new ParseResult.Fail("Expected " + getTokenName() + " to have 2 or 4 arguments, found: " + value);
-		}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
+    {
+        String[] tokens = value.split("\\|");
+        int tokenCount = tokens.length;
+        if ((tokenCount != 2) && (tokenCount != 4))
+        {
+            return new ParseResult.Fail("Expected " + getTokenName() + " to have 2 or 4 arguments, found: " + value);
+        }
 
-		String multString = tokens[1];
-		int divLoc = multString.indexOf('/');
-		double mult;
-		if (divLoc == -1)
-		{
-			try
-			{
-				mult = Double.parseDouble(multString);
-			}
-			catch (NumberFormatException e)
-			{
-				return new ParseResult.Fail(
-					"Expected " + getTokenName() + " multiple to be a decimal (or a fraction), found: " + multString);
-			}
-		}
-		else
-		{
-			if (divLoc != multString.lastIndexOf('/'))
-			{
-				return new ParseResult.Fail(
-					"Expected " + getTokenName() + " multiple to be a decimal or a fraction, found: " + multString);
-			}
-			mult = Double.parseDouble(multString.substring(0, divLoc))
-				/ Double.parseDouble(multString.substring(divLoc + 1));
-		}
+        String multString = tokens[1];
+        int divLoc = multString.indexOf('/');
+        double mult;
+        if (divLoc == -1)
+        {
+            try
+            {
+                mult = Double.parseDouble(multString);
+            } catch (NumberFormatException e)
+            {
+                return new ParseResult.Fail(
+                        "Expected " + getTokenName() + " multiple to be a decimal (or a fraction), found: " + multString);
+            }
+        } else
+        {
+            if (divLoc != multString.lastIndexOf('/'))
+            {
+                return new ParseResult.Fail(
+                        "Expected " + getTokenName() + " multiple to be a decimal or a fraction, found: " + multString);
+            }
+            mult = Double.parseDouble(multString.substring(0, divLoc))
+                    / Double.parseDouble(multString.substring(divLoc + 1));
+        }
 
-		String moveFormula;
-		int checkPenalty;
-		if (tokenCount == 4)
-		{
-			moveFormula = tokens[2];
-			try
-			{
-				checkPenalty = Integer.parseInt(tokens[3]);
-			}
-			catch (NumberFormatException e)
-			{
-				return new ParseResult.Fail(
-					"Expected " + getTokenName() + " penalty to be an integer, found: " + tokens[3]);
-			}
-		}
-		else
-		{
-			moveFormula = "";
-			checkPenalty = 0;
-		}
+        String moveFormula;
+        int checkPenalty;
+        if (tokenCount == 4)
+        {
+            moveFormula = tokens[2];
+            try
+            {
+                checkPenalty = Integer.parseInt(tokens[3]);
+            } catch (NumberFormatException e)
+            {
+                return new ParseResult.Fail(
+                        "Expected " + getTokenName() + " penalty to be an integer, found: " + tokens[3]);
+            }
+        } else
+        {
+            moveFormula = "";
+            checkPenalty = 0;
+        }
 
-		info.addLoadMultiplier(tokens[0].toUpperCase(), (float) mult, moveFormula, checkPenalty);
-		return ParseResult.SUCCESS;
-	}
+        info.addLoadMultiplier(tokens[0].toUpperCase(), (float) mult, moveFormula, checkPenalty);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, LoadInfo info)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public String[] unparse(LoadContext context, LoadInfo info)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Class<LoadInfo> getTokenClass()
-	{
-		return LoadInfo.class;
-	}
+    @Override
+    public Class<LoadInfo> getTokenClass()
+    {
+        return LoadInfo.class;
+    }
 
-	@Override
-	public Class<LoadInfo> getDeferredTokenClass()
-	{
-		return LoadInfo.class;
-	}
+    @Override
+    public Class<LoadInfo> getDeferredTokenClass()
+    {
+        return LoadInfo.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, LoadInfo info)
-	{
-		if (info.getLoadMultiplierCount() == 0)
-		{
-			Logging.errorPrint("Warning: load.lst for game mode " + info.getDisplayName()
-				+ " does not contain load category definitions. " + "No weight categories will be available. "
-				+ "Please refer to the documentation for the Load List file. See: " + info.getSourceURI());
-			return false;
-		}
-		if ((info.getLoadMultiplier("LIGHT") == null) || (info.getLoadMultiplier("MEDIUM") == null)
-			|| (info.getLoadMultiplier("HEAVY") == null))
-		{
-			Logging.errorPrint("Warning: load.lst for game mode " + info.getDisplayName()
-				+ " does not contain load category definitions " + "for 'Light', 'Medium' and 'Heavy'. "
-				+ "Please refer to the documentation for the Load List file. See: " + info.getSourceURI());
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean process(LoadContext context, LoadInfo info)
+    {
+        if (info.getLoadMultiplierCount() == 0)
+        {
+            Logging.errorPrint("Warning: load.lst for game mode " + info.getDisplayName()
+                    + " does not contain load category definitions. " + "No weight categories will be available. "
+                    + "Please refer to the documentation for the Load List file. See: " + info.getSourceURI());
+            return false;
+        }
+        if ((info.getLoadMultiplier("LIGHT") == null) || (info.getLoadMultiplier("MEDIUM") == null)
+                || (info.getLoadMultiplier("HEAVY") == null))
+        {
+            Logging.errorPrint("Warning: load.lst for game mode " + info.getDisplayName()
+                    + " does not contain load category definitions " + "for 'Light', 'Medium' and 'Heavy'. "
+                    + "Please refer to the documentation for the Load List file. See: " + info.getSourceURI());
+            return false;
+        }
+        return true;
+    }
 }

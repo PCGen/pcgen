@@ -14,25 +14,24 @@ import pcgen.util.Logging;
 public class UnitsetToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "UNITSET";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "UNITSET";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			SimpleLoader<UnitSet> unitSetLoader = new SimpleLoader<>(UnitSet.class);
-			unitSetLoader.parseLine(gameMode.getModeContext(), value, source);
-			return true;
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getMessage());
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            SimpleLoader<UnitSet> unitSetLoader = new SimpleLoader<>(UnitSet.class);
+            unitSetLoader.parseLine(gameMode.getModeContext(), value, source);
+            return true;
+        } catch (Exception e)
+        {
+            Logging.errorPrint(e.getMessage());
+            return false;
+        }
+    }
 }

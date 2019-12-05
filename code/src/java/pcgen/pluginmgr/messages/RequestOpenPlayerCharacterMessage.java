@@ -27,49 +27,48 @@ import pcgen.pluginmgr.PCGenMessage;
 /**
  * The Class {@code RequestOpenPlayerCharacterMessage} encapsulates a
  * message requesting that a specific character be loaded. The requester may
- * ask that the character be added to the message for later use, however this 
+ * ask that the character be added to the message for later use, however this
  * should not be assumed to be present until all message processing is completed.
- *
- * 
  */
 @SuppressWarnings("serial")
 public class RequestOpenPlayerCharacterMessage extends PCGenMessage
 {
-	private final File file;
-	private final boolean blockLoadedMessage;
-	private PlayerCharacter playerCharacter;
+    private final File file;
+    private final boolean blockLoadedMessage;
+    private PlayerCharacter playerCharacter;
 
-	/**
-	 * Create a new instance of RequestOpenPlayerCharacterMessage
-	 * @param source The object requesting the open.
-	 * @param file The character file to be opened.
-	 * @param blockLoadedMessage Should the character loaded message be blocked?
-	 */
-	public RequestOpenPlayerCharacterMessage(Object source, File file, boolean blockLoadedMessage)
-	{
-		super(source);
-		this.file = file;
-		this.blockLoadedMessage = blockLoadedMessage;
-	}
+    /**
+     * Create a new instance of RequestOpenPlayerCharacterMessage
+     *
+     * @param source             The object requesting the open.
+     * @param file               The character file to be opened.
+     * @param blockLoadedMessage Should the character loaded message be blocked?
+     */
+    public RequestOpenPlayerCharacterMessage(Object source, File file, boolean blockLoadedMessage)
+    {
+        super(source);
+        this.file = file;
+        this.blockLoadedMessage = blockLoadedMessage;
+    }
 
-	public File getFile()
-	{
-		return file;
-	}
+    public File getFile()
+    {
+        return file;
+    }
 
-	public boolean isBlockLoadedMessage()
-	{
-		return blockLoadedMessage;
-	}
+    public boolean isBlockLoadedMessage()
+    {
+        return blockLoadedMessage;
+    }
 
-	public void setPlayerCharacter(PlayerCharacter playerCharacter)
-	{
-		this.playerCharacter = playerCharacter;
-	}
+    public void setPlayerCharacter(PlayerCharacter playerCharacter)
+    {
+        this.playerCharacter = playerCharacter;
+    }
 
-	public PlayerCharacter getPlayerCharacter()
-	{
-		return playerCharacter;
-	}
+    public PlayerCharacter getPlayerCharacter()
+    {
+        return playerCharacter;
+    }
 
 }

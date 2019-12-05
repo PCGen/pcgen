@@ -29,68 +29,66 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * PreRaceParserTest checks that the PreRaceParser class is operating 
+ * PreRaceParserTest checks that the PreRaceParser class is operating
  * correctly.
  */
 class PreRaceParserTest extends EnUsLocaleDependentTestCase
 {
 
-	/**
-	 * Test that exclusions are parsed properly.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testExclusions() throws PersistenceLayerException
-	{
-		PreRaceParser parser = new PreRaceParser();
+    /**
+     * Test that exclusions are parsed properly.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testExclusions() throws PersistenceLayerException
+    {
+        PreRaceParser parser = new PreRaceParser();
 
-		Prerequisite prereq =
-				parser.parse("race", "1,Elf%,[Elf (aquatic)]",
-					false, false);
+        Prerequisite prereq =
+                parser.parse("race", "1,Elf%,[Elf (aquatic)]",
+                        false, false);
 
-		assertEquals(
-				"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
-			+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf%\" operator=\"GTEQ\" operand=\"1\" >\n"
-			+ "</prereq>\n"
-			+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf (aquatic)\" operator=\"LT\" operand=\"1\" >\n"
-			+ "</prereq>\n</prereq>\n", prereq.toString(), "PRERACE with an excluded race");
-	}
-	
-	/**
-	 * Test that an error is produced if separators are incorrect.
-	 */
-	@Test
-	public void testInvalidSeparators()
-	{
-		try
-		{
-			PreRaceParser parser = new PreRaceParser();
-			parser.parse("race", "1,,KEY_a", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
-	}
-	
-	/**
-	 * Test that an error is produced if separators are incorrect
-	 */
-	@Test
-	public void testInvalidCharacter()
-	{
-		try
-		{
-			PreRaceParser parser = new PreRaceParser();
-			parser.parse("race", "1,KEY_a|Key_b", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
-	}
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+                        + "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf%\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf (aquatic)\" operator=\"LT\" operand=\"1\" >\n"
+                        + "</prereq>\n</prereq>\n", prereq.toString(), "PRERACE with an excluded race");
+    }
+
+    /**
+     * Test that an error is produced if separators are incorrect.
+     */
+    @Test
+    public void testInvalidSeparators()
+    {
+        try
+        {
+            PreRaceParser parser = new PreRaceParser();
+            parser.parse("race", "1,,KEY_a", false, false);
+            fail("Should have thrown a PersistenceLayerException.");
+        } catch (PersistenceLayerException e)
+        {
+            // Ignore, this is the expected result.
+        }
+    }
+
+    /**
+     * Test that an error is produced if separators are incorrect
+     */
+    @Test
+    public void testInvalidCharacter()
+    {
+        try
+        {
+            PreRaceParser parser = new PreRaceParser();
+            parser.parse("race", "1,KEY_a|Key_b", false, false);
+            fail("Should have thrown a PersistenceLayerException.");
+        } catch (PersistenceLayerException e)
+        {
+            // Ignore, this is the expected result.
+        }
+    }
 
 }

@@ -36,73 +36,73 @@ import org.junit.jupiter.api.Test;
 
 /**
  * {@code ACTokenTest} tests the function of the AC token and
- * thus the calculations of armor class.  
+ * thus the calculations of armor class.
  */
 public class AttackTokenTest extends AbstractCharacterTestCase
 {
-	PCClass myClass = new PCClass();
+    PCClass myClass = new PCClass();
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		PlayerCharacter character = getCharacter();
-		setPCStat(character, str, 14);
-		str.removeListFor(ListKey.BONUS);
-		LoadContext context = Globals.getContext();
-		final BonusObj aBonus = Bonus.newBonus(context, "COMBAT|TOHIT.Melee|STR|TYPE=Ability");
-		
-		if (aBonus != null)
-		{
-			str.addToListFor(ListKey.BONUS, aBonus);
-		}
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        PlayerCharacter character = getCharacter();
+        setPCStat(character, str, 14);
+        str.removeListFor(ListKey.BONUS);
+        LoadContext context = Globals.getContext();
+        final BonusObj aBonus = Bonus.newBonus(context, "COMBAT|TOHIT.Melee|STR|TYPE=Ability");
+
+        if (aBonus != null)
+        {
+            str.addToListFor(ListKey.BONUS, aBonus);
+        }
 //		// Ignoring max dex
 //		stat.addBonusList("COMBAT|AC|DEX|TYPE=Ability");
 
-		EquipSet def = new EquipSet("0.1", "Default");
-		character.addEquipSet(def);
-		character.setCalcEquipmentList();
+        EquipSet def = new EquipSet("0.1", "Default");
+        character.addEquipSet(def);
+        character.setCalcEquipmentList();
 
-		character.calcActiveBonuses();
+        character.calcActiveBonuses();
 
-		myClass.setName("My Class");
-		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BASEAB|CL+5");
-		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
-		Globals.getContext().getReferenceContext().importObject(myClass);
+        myClass.setName("My Class");
+        myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
+        final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BASEAB|CL+5");
+        myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
+        Globals.getContext().getReferenceContext().importObject(myClass);
 
-	}
+    }
 
-	/**
-	 * Test the character's attack calcs with no bonus.
-	 */
-	@Test
-	public void testBase()
-	{
-		assertEquals("Total melee attack no bonus", "+2", new AttackToken()
-			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
+    /**
+     * Test the character's attack calcs with no bonus.
+     */
+    @Test
+    public void testBase()
+    {
+        assertEquals("Total melee attack no bonus", "+2", new AttackToken()
+                .getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
 
-		assertEquals("Total melee attack no bonus short", "+2",
-			new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
-				getCharacter(), null));
-	}
+        assertEquals("Total melee attack no bonus short", "+2",
+                new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
+                        getCharacter(), null));
+    }
 
-	/**
-	 * Test the character's attack calcs with a bonus.
-	 */
-	@Test
-	public void testIterative()
-	{
-		getCharacter().incrementClassLevel(1, myClass, true);
-		getCharacter().calcActiveBonuses();
+    /**
+     * Test the character's attack calcs with a bonus.
+     */
+    @Test
+    public void testIterative()
+    {
+        getCharacter().incrementClassLevel(1, myClass, true);
+        getCharacter().calcActiveBonuses();
 
-		assertEquals("Total melee attack no bonus", "+8/+3", new AttackToken()
-			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
+        assertEquals("Total melee attack no bonus", "+8/+3", new AttackToken()
+                .getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
 
-		assertEquals("Total melee attack no bonus short", "+8",
-			new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
-				getCharacter(), null));
-	}
+        assertEquals("Total melee attack no bonus short", "+8",
+                new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
+                        getCharacter(), null));
+    }
 
 }

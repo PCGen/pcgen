@@ -32,39 +32,41 @@ import pcgen.rules.context.AbstractReferenceContext;
 public class PreSizeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
-	{
-		final int targetSize = getTargetSizeInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
+    {
+        final int targetSize = getTargetSizeInt(prereq.getOperand());
 
-		final int runningTotal = prereq.getOperator().compare(pc.sizeInt(), targetSize);
+        final int runningTotal = prereq.getOperator().compare(pc.sizeInt(), targetSize);
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter pc) {
-		final int targetSize = getTargetSizeInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter pc)
+    {
+        final int targetSize = getTargetSizeInt(prereq.getOperand());
 
-		final int runningTotal = prereq.getOperator().compare(equipment.sizeInt(), targetSize);
+        final int runningTotal = prereq.getOperator().compare(equipment.sizeInt(), targetSize);
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "SIZE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "SIZE"; //$NON-NLS-1$
+    }
 
-	private int getTargetSizeInt(String size)
-	{
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		SizeAdjustment sa = ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, size);
-		return sa.get(IntegerKey.SIZEORDER);
-	}
+    private int getTargetSizeInt(String size)
+    {
+        AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+        SizeAdjustment sa = ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, size);
+        return sa.get(IntegerKey.SIZEORDER);
+    }
 }

@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FindBugsFilter
-    xmlns="https://github.com/spotbugs/filter/3.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
+        xmlns="https://github.com/spotbugs/filter/3.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
 
-  <!-- We have many problems in older code, so avoid checking them for now.
-    As we improve code quality expand this exclusion-->
-  <Match>
-    <Not>
-      <Or>
-        <Package name="~pcgen\.base\..*"/>
-        <Package name="~pcgen\.cdom\..*"/>
-        <Package name="~pcgen\.output\..*"/>
-      </Or>
-    </Not>
-  </Match>
-  <Match>
-    <!-- high number of false positive -->
-    <Bug pattern="PSC_PRESIZE_COLLECTIONS,DM_CONVERT_CASE"/>
-  </Match>
-  <Match>
-    <!-- not relevent to pcgen -->
-    <Bug pattern="IJU_SETUP_NO_SUPER,DP_DO_INSIDE_DO_PRIVILEGED,DM_EXIT,SE_NO_SERIALVERSIONID"/>
-  </Match>
-  <Match>
-    <!-- we have other tools for code style -->
-    <!--NM_CLASS_NAMING_CONVENTION,MS_SHOULD_BE_FINAL,NM_METHOD_NAMING_CONVENTION,-->
-    <Bug
-        pattern="DM_BOXED_PRIMITIVE_FOR_PARSING,SIC_INNER_SHOULD_BE_STATIC,ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD,ITC_INHERITANCE_TYPE_CHECKING,RI_REDUNDANT_INTERFACES"/>
-  </Match>
-  <Match>
-    <!-- visibility concerns: we should eventually turn these on -->
-    <Bug pattern="MS_PKGPROTECT,OPM_OVERLY_PERMISSIVE_METHOD"/>
-  </Match>
-  <Match>
-    <!-- we use null too much for now -->
-    <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
-  </Match>
-  <Match>
-    <Class name="~.*\.*Test"/>
+    <!-- We have many problems in older code, so avoid checking them for now.
+      As we improve code quality expand this exclusion-->
+    <Match>
+        <Not>
+            <Or>
+                <Package name="~pcgen\.base\..*"/>
+                <Package name="~pcgen\.cdom\..*"/>
+                <Package name="~pcgen\.output\..*"/>
+            </Or>
+        </Not>
+    </Match>
+    <Match>
+        <!-- high number of false positive -->
+        <Bug pattern="PSC_PRESIZE_COLLECTIONS,DM_CONVERT_CASE"/>
+    </Match>
+    <Match>
+        <!-- not relevent to pcgen -->
+        <Bug pattern="IJU_SETUP_NO_SUPER,DP_DO_INSIDE_DO_PRIVILEGED,DM_EXIT,SE_NO_SERIALVERSIONID"/>
+    </Match>
+    <Match>
+        <!-- we have other tools for code style -->
+        <!--NM_CLASS_NAMING_CONVENTION,MS_SHOULD_BE_FINAL,NM_METHOD_NAMING_CONVENTION,-->
+        <Bug
+                pattern="DM_BOXED_PRIMITIVE_FOR_PARSING,SIC_INNER_SHOULD_BE_STATIC,ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD,ITC_INHERITANCE_TYPE_CHECKING,RI_REDUNDANT_INTERFACES"/>
+    </Match>
+    <Match>
+        <!-- visibility concerns: we should eventually turn these on -->
+        <Bug pattern="MS_PKGPROTECT,OPM_OVERLY_PERMISSIVE_METHOD"/>
+    </Match>
+    <Match>
+        <!-- we use null too much for now -->
+        <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR"/>
+    </Match>
+    <Match>
+        <Class name="~.*\.*Test"/>
 
-    <Not>
-      <!-- 'IJU' is the code for Bugs related to JUnit test code -->
-      <Bug code="IJU"/>
-    </Not>
-  </Match>
+        <Not>
+            <!-- 'IJU' is the code for Bugs related to JUnit test code -->
+            <Bug code="IJU"/>
+        </Not>
+    </Match>
 </FindBugsFilter>

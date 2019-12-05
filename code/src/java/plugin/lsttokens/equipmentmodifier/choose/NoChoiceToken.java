@@ -26,57 +26,56 @@ import pcgen.rules.persistence.token.ParseResult;
 public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "NOCHOICE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "NOCHOICE";
+    }
 
-	@Override
-	public String getParentToken()
-	{
-		return "CHOOSE";
-	}
+    @Override
+    public String getParentToken()
+    {
+        return "CHOOSE";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, EquipmentModifier obj, String value)
-	{
-		if (value == null)
-		{
-			// No args - legal
-			context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName());
-			return ParseResult.SUCCESS;
-		}
-		return new ParseResult.Fail("CHOOSE:" + getTokenName() + " must not have arguments: " + value);
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, EquipmentModifier obj, String value)
+    {
+        if (value == null)
+        {
+            // No args - legal
+            context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName());
+            return ParseResult.SUCCESS;
+        }
+        return new ParseResult.Fail("CHOOSE:" + getTokenName() + " must not have arguments: " + value);
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
-	{
-		String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);
-		if (chooseString == null)
-		{
-			return null;
-		}
-		String returnString;
-		if (getTokenName().equals(chooseString))
-		{
-			returnString = "";
-		}
-		else
-		{
-			if (!chooseString.contains(getTokenName() + '|'))
-			{
-				return null;
-			}
-			returnString = chooseString.substring(getTokenName().length() + 1);
-		}
-		return new String[]{returnString};
-	}
+    @Override
+    public String[] unparse(LoadContext context, EquipmentModifier eqMod)
+    {
+        String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);
+        if (chooseString == null)
+        {
+            return null;
+        }
+        String returnString;
+        if (getTokenName().equals(chooseString))
+        {
+            returnString = "";
+        } else
+        {
+            if (!chooseString.contains(getTokenName() + '|'))
+            {
+                return null;
+            }
+            returnString = chooseString.substring(getTokenName().length() + 1);
+        }
+        return new String[]{returnString};
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

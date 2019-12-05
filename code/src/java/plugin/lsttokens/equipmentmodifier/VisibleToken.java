@@ -28,24 +28,25 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code VisibleToken} handles the processing of the VISIBLE tag in the
  * definition of an Equipment Modifier.
- *
+ * <p>
  * (Sat, 24 May 2008) $
  */
 public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "VISIBLE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VISIBLE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier eqm, String value)
-	{
-		Visibility vis;
-        switch (value) {
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier eqm, String value)
+    {
+        Visibility vis;
+        switch (value)
+        {
             case "QUALIFY":
                 vis = Visibility.QUALIFY;
                 break;
@@ -58,42 +59,39 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
             default:
                 return new ParseResult.Fail("Can't understand Visibility: " + value);
         }
-		context.getObjectContext().put(eqm, ObjectKey.VISIBILITY, vis);
-		return ParseResult.SUCCESS;
-	}
+        context.getObjectContext().put(eqm, ObjectKey.VISIBILITY, vis);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier eqm)
-	{
-		Visibility vis = context.getObjectContext().getObject(eqm, ObjectKey.VISIBILITY);
-		if (vis == null)
-		{
-			return null;
-		}
-		String visString;
-		if (vis.equals(Visibility.DEFAULT))
-		{
-			visString = "YES";
-		}
-		else if (vis.equals(Visibility.QUALIFY))
-		{
-			visString = "QUALIFY";
-		}
-		else if (vis.equals(Visibility.HIDDEN))
-		{
-			visString = "NO";
-		}
-		else
-		{
-			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a EqMod");
-			return null;
-		}
-		return new String[]{visString};
-	}
+    @Override
+    public String[] unparse(LoadContext context, EquipmentModifier eqm)
+    {
+        Visibility vis = context.getObjectContext().getObject(eqm, ObjectKey.VISIBILITY);
+        if (vis == null)
+        {
+            return null;
+        }
+        String visString;
+        if (vis.equals(Visibility.DEFAULT))
+        {
+            visString = "YES";
+        } else if (vis.equals(Visibility.QUALIFY))
+        {
+            visString = "QUALIFY";
+        } else if (vis.equals(Visibility.HIDDEN))
+        {
+            visString = "NO";
+        } else
+        {
+            context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a EqMod");
+            return null;
+        }
+        return new String[]{visString};
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

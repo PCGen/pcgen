@@ -27,34 +27,34 @@ import pcgen.rules.context.LoadContext;
 public final class ItemWeight extends BonusObj
 {
 
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		if (token.startsWith(Constants.LST_TYPE_EQUAL))
-		{
-			addBonusInfo(token.replace('=', '.'));
-		}
-		else
-		{
-			addBonusInfo(token);
-		}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        if (token.startsWith(Constants.LST_TYPE_EQUAL))
+        {
+            addBonusInfo(token.replace('=', '.'));
+        } else
+        {
+            addBonusInfo(token);
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "ITEMWEIGHT";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "ITEMWEIGHT";
+    }
 }

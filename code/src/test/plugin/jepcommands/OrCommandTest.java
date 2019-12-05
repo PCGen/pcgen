@@ -37,8 +37,7 @@ public class OrCommandTest
         try
         {
             pCommand.run(stack);
-        }
-        catch (ParseException ignored)
+        } catch (ParseException ignored)
         {
         }
     }
@@ -47,8 +46,8 @@ public class OrCommandTest
     @Test
     public void testOr01()
     {
-        final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Object>         s = new Stack<>();
+        final PostfixMathCommandI c = new OrCommand();
+        final Stack<Object> s = new Stack<>();
 
         s.push(1.0);
         s.push(2.0);
@@ -66,8 +65,8 @@ public class OrCommandTest
     @Test
     public void testOr02()
     {
-        final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Double>         s = new Stack<>();
+        final PostfixMathCommandI c = new OrCommand();
+        final Stack<Double> s = new Stack<>();
 
         s.push(0.0);
         s.push(2.0);
@@ -85,8 +84,8 @@ public class OrCommandTest
     @Test
     public void testOr03()
     {
-        final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Boolean>        s = new Stack<>();
+        final PostfixMathCommandI c = new OrCommand();
+        final Stack<Boolean> s = new Stack<>();
 
         s.push(false);
         s.push(false);
@@ -105,8 +104,8 @@ public class OrCommandTest
     @Test
     public void testOr04()
     {
-        final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Object>         s = new Stack<>();
+        final PostfixMathCommandI c = new OrCommand();
+        final Stack<Object> s = new Stack<>();
 
         s.push(0.0);
         s.push(false);
@@ -125,8 +124,8 @@ public class OrCommandTest
     @Test
     public void testOr05()
     {
-        final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Object>         s = new Stack<>();
+        final PostfixMathCommandI c = new OrCommand();
+        final Stack<Object> s = new Stack<>();
 
         s.push(false);
         s.push(false);
@@ -139,6 +138,6 @@ public class OrCommandTest
 
         final Object result = s.pop();
 
-        assertThat("if (false,false,false,false) returns 0.0", (Double)result, is(closeTo(0.0, 0.1)));
+        assertThat("if (false,false,false,false) returns 0.0", (Double) result, is(closeTo(0.0, 0.1)));
     }
 }

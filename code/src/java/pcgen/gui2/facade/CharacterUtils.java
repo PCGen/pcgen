@@ -33,86 +33,85 @@ import pcgen.util.Logging;
 
 final class CharacterUtils
 {
-	private CharacterUtils()
-	{
-	}
+    private CharacterUtils()
+    {
+    }
 
-	private static boolean isFreeClothing(Equipment eq, PlayerCharacter aPC, SizeAdjustment pcSizeAdj)
-	{
-		return !eq.isType("Magic")
-				&& (CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0))
-				&& pcSizeAdj.equals(eq.getSizeAdjustment());
-	}
+    private static boolean isFreeClothing(Equipment eq, PlayerCharacter aPC, SizeAdjustment pcSizeAdj)
+    {
+        return !eq.isType("Magic")
+                && (CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0))
+                && pcSizeAdj.equals(eq.getSizeAdjustment());
+    }
 
-	static void selectClothes(final PlayerCharacter aPC)
-	{
-		if (Globals.checkRule(RuleConstants.FREECLOTHES) && ((aPC.getDisplay().totalNonMonsterLevels()) == 1))
-		{
-			//
-			// See what the PC is already carrying
-			//
-			List<Equipment> clothes = aPC.getEquipmentOfType("Clothing.Resizable", 3); //$NON-NLS-1$ 
+    static void selectClothes(final PlayerCharacter aPC)
+    {
+        if (Globals.checkRule(RuleConstants.FREECLOTHES) && ((aPC.getDisplay().totalNonMonsterLevels()) == 1))
+        {
+            //
+            // See what the PC is already carrying
+            //
+            List<Equipment> clothes = aPC.getEquipmentOfType("Clothing.Resizable", 3); //$NON-NLS-1$
 
-			//
-			// Check to see if any of the clothing the PC
-			// is carrying will actually fit and
-			// has a zero price attached
-			//
-			SizeAdjustment pcSizeAdj = aPC.getSizeAdjustment();
+            //
+            // Check to see if any of the clothing the PC
+            // is carrying will actually fit and
+            // has a zero price attached
+            //
+            SizeAdjustment pcSizeAdj = aPC.getSizeAdjustment();
 
-			boolean hasClothes = clothes.stream()
-			                            .anyMatch(eq -> isFreeClothing(eq, aPC, pcSizeAdj));
+            boolean hasClothes = clothes.stream()
+                    .anyMatch(eq -> isFreeClothing(eq, aPC, pcSizeAdj));
 
 
-			// If the PC has no clothing items, or none that
-			// are sized to fit, then allow them to pick
-			// a free set
+            // If the PC has no clothing items, or none that
+            // are sized to fit, then allow them to pick
+            // a free set
 
-			if (!hasClothes)
-			{
-				clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable.Starting", "Magic.Custom.Auto_Gen");
-				if (clothes.isEmpty())
-				{
-					clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic.Custom.Auto_Gen");
-				}
+            if (!hasClothes)
+            {
+                clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable.Starting", "Magic.Custom.Auto_Gen");
+                if (clothes.isEmpty())
+                {
+                    clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic.Custom.Auto_Gen");
+                }
 
-				List<Equipment> selectedClothes = new ArrayList<>();
-				selectedClothes =
-						Globals.getChoiceFromList(
-							LanguageBundle.getString("in_sumSelectAFreeSetOfClothing"), //$NON-NLS-1$ 
-					clothes, selectedClothes, 1, aPC);
+                List<Equipment> selectedClothes = new ArrayList<>();
+                selectedClothes =
+                        Globals.getChoiceFromList(
+                                LanguageBundle.getString("in_sumSelectAFreeSetOfClothing"), //$NON-NLS-1$
+                                clothes, selectedClothes, 1, aPC);
 
-				if (!selectedClothes.isEmpty())
-				{
-					Equipment eq = selectedClothes.get(0);
+                if (!selectedClothes.isEmpty())
+                {
+                    Equipment eq = selectedClothes.get(0);
 
-					if (eq != null)
-					{
-						eq = eq.clone();
-						eq.setQty(1.0);
+                    if (eq != null)
+                    {
+                        eq = eq.clone();
+                        eq.setQty(1.0);
 
-						//
-						// Need to resize to fit?
-						//
-						if (!pcSizeAdj.equals(eq.getSizeAdjustment()))
-						{
-							eq.resizeItem(aPC, pcSizeAdj);
-						}
+                        //
+                        // Need to resize to fit?
+                        //
+                        if (!pcSizeAdj.equals(eq.getSizeAdjustment()))
+                        {
+                            eq.resizeItem(aPC, pcSizeAdj);
+                        }
 
-						eq.setCostMod('-' + eq.getCost(aPC).toString()); // make cost 0
+                        eq.setCostMod('-' + eq.getCost(aPC).toString()); // make cost 0
 
-						if (aPC.getEquipmentNamed(eq.nameItemFromModifiers(aPC)) == null)
-						{
-							aPC.addEquipment(eq);
-						}
-						else
-						{
-							Logging.errorPrint("Cannot add duplicate equipment to PC"); //$NON-NLS-1$
-						}
-					}
-				}
-			}
-		}
+                        if (aPC.getEquipmentNamed(eq.nameItemFromModifiers(aPC)) == null)
+                        {
+                            aPC.addEquipment(eq);
+                        } else
+                        {
+                            Logging.errorPrint("Cannot add duplicate equipment to PC"); //$NON-NLS-1$
+                        }
+                    }
+                }
+            }
+        }
 
-	}
+    }
 }

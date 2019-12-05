@@ -27,31 +27,31 @@ import pcgen.rules.context.LoadContext;
  */
 public class GlobalEQScope implements PCGenScope
 {
-	/**
-	 * The name of the Global Scope for Equipment, publicly available for reuse...
-	 */
-	private static final String GLOBAL_SCOPE_NAME = "EQ";
+    /**
+     * The name of the Global Scope for Equipment, publicly available for reuse...
+     */
+    private static final String GLOBAL_SCOPE_NAME = "EQ";
 
-	public static String getScopeName()
-	{
-		return GLOBAL_SCOPE_NAME;
-	}
+    public static String getScopeName()
+    {
+        return GLOBAL_SCOPE_NAME;
+    }
 
-	@Override
-	public String getName()
-	{
-		return GLOBAL_SCOPE_NAME;
-	}
+    @Override
+    public String getName()
+    {
+        return GLOBAL_SCOPE_NAME;
+    }
 
-	@Override
-	public Optional<PCGenScope> getParentScope()
-	{
-		return Optional.empty();
-	}
+    @Override
+    public Optional<PCGenScope> getParentScope()
+    {
+        return Optional.empty();
+    }
 
-	@Override
-	public Optional<FormatManager<?>> getFormatManager(LoadContext context)
-	{
-		return Optional.empty();
-	}
+    @Override
+    public Optional<FormatManager<?>> getFormatManager(LoadContext context)
+    {
+        return Optional.empty();
+    }
 }

@@ -28,21 +28,21 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class IsmatureToken extends AbstractYesNoToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ISMATURE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ISMATURE";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.IS_MATURE;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.IS_MATURE;
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

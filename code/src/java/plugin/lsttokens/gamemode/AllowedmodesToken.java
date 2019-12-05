@@ -30,20 +30,20 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AllowedmodesToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ALLOWEDMODES";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ALLOWEDMODES";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		StringTokenizer aTok = new StringTokenizer(value, "|");
-		while (aTok.hasMoreTokens())
-		{
-			gameMode.addAllowedMode(aTok.nextToken());
-		}
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        StringTokenizer aTok = new StringTokenizer(value, "|");
+        while (aTok.hasMoreTokens())
+        {
+            gameMode.addAllowedMode(aTok.nextToken());
+        }
+        return true;
+    }
 }

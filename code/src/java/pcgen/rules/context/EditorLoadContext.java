@@ -1,16 +1,16 @@
 /*
  * Copyright 2009-2010 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -21,34 +21,34 @@ import pcgen.cdom.base.CDOMObject;
 
 public class EditorLoadContext extends LoadContextInst
 {
-	private final String contextType;
+    private final String contextType;
 
-	public EditorLoadContext()
-	{
-		super(EditorReferenceContext.createEditorReferenceContext(), new EditorListContext(),
-			new EditorObjectContext());
-		contextType = "Editor";
-	}
+    public EditorLoadContext()
+    {
+        super(EditorReferenceContext.createEditorReferenceContext(), new EditorListContext(),
+                new EditorObjectContext());
+        contextType = "Editor";
+    }
 
-	/*
-	 * Get the type of context we're running in (either Editor or Runtime)
-	 */
-	@Override
-	public String getContextType()
-	{
-		return contextType;
-	}
+    /*
+     * Get the type of context we're running in (either Editor or Runtime)
+     */
+    @Override
+    public String getContextType()
+    {
+        return contextType;
+    }
 
-	@Override
-	public boolean consolidate()
-	{
-		return false;
-	}
+    @Override
+    public boolean consolidate()
+    {
+        return false;
+    }
 
-	public void purge(CDOMObject cdo)
-	{
-		((EditorObjectContext) getObjectContext()).purge(cdo);
-		((EditorListContext) getListContext()).purge(cdo);
-		((EditorReferenceContext) getReferenceContext()).purge(cdo);
-	}
+    public void purge(CDOMObject cdo)
+    {
+        ((EditorObjectContext) getObjectContext()).purge(cdo);
+        ((EditorListContext) getListContext()).purge(cdo);
+        ((EditorReferenceContext) getReferenceContext()).purge(cdo);
+    }
 }

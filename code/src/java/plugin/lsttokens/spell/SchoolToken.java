@@ -36,77 +36,74 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements CDOMPrimaryToken<Spell>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SCHOOL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SCHOOL";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
-	{
-		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
+    {
+        StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 
-		boolean first = true;
-		while (aTok.hasMoreTokens())
-		{
-			String tokString = aTok.nextToken();
-			if (Constants.LST_DOT_CLEAR.equals(tokString))
-			{
-				if (!first)
-				{
-					return new ParseResult.Fail(
-						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item: " + value);
-				}
-				context.getObjectContext().removeList(spell, ListKey.SPELL_SCHOOL);
-			}
-			else if (Constants.LST_ALL.equals(tokString))
-			{
-				return new ParseResult.Fail(getTokenName() + "used reserved word ALL: " + value);
-			}
-			else if (Constants.LST_ANY.equals(tokString))
-			{
-				return new ParseResult.Fail(getTokenName() + "used reserved word ANY: " + value);
-			}
-			else
-			{
-				SpellSchool ss = context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, tokString);
-				context.getObjectContext().addToList(spell, ListKey.SPELL_SCHOOL, ss);
-			}
-			first = false;
-		}
-		return ParseResult.SUCCESS;
-	}
+        boolean first = true;
+        while (aTok.hasMoreTokens())
+        {
+            String tokString = aTok.nextToken();
+            if (Constants.LST_DOT_CLEAR.equals(tokString))
+            {
+                if (!first)
+                {
+                    return new ParseResult.Fail(
+                            "  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item: " + value);
+                }
+                context.getObjectContext().removeList(spell, ListKey.SPELL_SCHOOL);
+            } else if (Constants.LST_ALL.equals(tokString))
+            {
+                return new ParseResult.Fail(getTokenName() + "used reserved word ALL: " + value);
+            } else if (Constants.LST_ANY.equals(tokString))
+            {
+                return new ParseResult.Fail(getTokenName() + "used reserved word ANY: " + value);
+            } else
+            {
+                SpellSchool ss = context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, tokString);
+                context.getObjectContext().addToList(spell, ListKey.SPELL_SCHOOL, ss);
+            }
+            first = false;
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Spell spell)
-	{
-		Changes<SpellSchool> changes = context.getObjectContext().getListChanges(spell, ListKey.SPELL_SCHOOL);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		StringJoiner joiner = new StringJoiner(Constants.PIPE);
-		if (changes.includesGlobalClear())
-		{
-			joiner.add(Constants.LST_DOT_CLEAR);
-		}
-		if (changes.hasAddedItems())
-		{
-			changes.getAdded().forEach(added -> joiner.add(added.toString()));
-		}
-		return new String[]{joiner.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Spell spell)
+    {
+        Changes<SpellSchool> changes = context.getObjectContext().getListChanges(spell, ListKey.SPELL_SCHOOL);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        StringJoiner joiner = new StringJoiner(Constants.PIPE);
+        if (changes.includesGlobalClear())
+        {
+            joiner.add(Constants.LST_DOT_CLEAR);
+        }
+        if (changes.hasAddedItems())
+        {
+            changes.getAdded().forEach(added -> joiner.add(added.toString()));
+        }
+        return new String[]{joiner.toString()};
+    }
 
-	@Override
-	public Class<Spell> getTokenClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTokenClass()
+    {
+        return Spell.class;
+    }
 }

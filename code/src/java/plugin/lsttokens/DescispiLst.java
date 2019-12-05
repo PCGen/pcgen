@@ -25,21 +25,21 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class DescispiLst extends AbstractYesNoToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "DESCISPI";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DESCISPI";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.DESC_PI;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.DESC_PI;
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

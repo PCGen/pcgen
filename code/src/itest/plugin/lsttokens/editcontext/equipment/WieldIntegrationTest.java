@@ -36,66 +36,66 @@ import org.junit.jupiter.api.Test;
 import util.GameModeSupport;
 
 public class WieldIntegrationTest extends
-		AbstractIntegrationTestCase<Equipment>
+        AbstractIntegrationTestCase<Equipment>
 {
-	private static final CDOMPrimaryToken<Equipment> token = new WieldToken();
-	private static final CDOMLoader<Equipment> loader = new CDOMTokenLoader<>();
+    private static final CDOMPrimaryToken<Equipment> token = new WieldToken();
+    private static final CDOMLoader<Equipment> loader = new CDOMTokenLoader<>();
 
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(new PreVariableParser());
-		TokenRegistration.register(new PreVariableWriter());
-		GameModeSupport.addDefaultWieldCategories(primaryContext);
-		GameModeSupport.addDefaultWieldCategories(secondaryContext);
-	}
+    @Override
+    public void setUp() throws PersistenceLayerException, URISyntaxException
+    {
+        super.setUp();
+        TokenRegistration.register(new PreVariableParser());
+        TokenRegistration.register(new PreVariableWriter());
+        GameModeSupport.addDefaultWieldCategories(primaryContext);
+        GameModeSupport.addDefaultWieldCategories(secondaryContext);
+    }
 
-	@Override
-	public Class<Equipment> getCDOMClass()
-	{
-		return Equipment.class;
-	}
+    @Override
+    public Class<Equipment> getCDOMClass()
+    {
+        return Equipment.class;
+    }
 
-	@Override
-	public CDOMLoader<Equipment> getLoader()
-	{
-		return loader;
-	}
+    @Override
+    public CDOMLoader<Equipment> getLoader()
+    {
+        return loader;
+    }
 
-	@Override
-	public CDOMPrimaryToken<Equipment> getToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<Equipment> getToken()
+    {
+        return token;
+    }
 
-	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
-	{
-		verifyCleanStart();
-		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "OneHanded");
-		commit(modCampaign, tc, "Light");
-		completeRoundRobin(tc);
-	}
+    @Test
+    public void testRoundRobinSimple() throws PersistenceLayerException
+    {
+        verifyCleanStart();
+        TestContext tc = new TestContext();
+        commit(testCampaign, tc, "OneHanded");
+        commit(modCampaign, tc, "Light");
+        completeRoundRobin(tc);
+    }
 
-	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
-	{
-		verifyCleanStart();
-		TestContext tc = new TestContext();
-		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "TwoHanded");
-		completeRoundRobin(tc);
-	}
+    @Test
+    public void testRoundRobinNoSet() throws PersistenceLayerException
+    {
+        verifyCleanStart();
+        TestContext tc = new TestContext();
+        emptyCommit(testCampaign, tc);
+        commit(modCampaign, tc, "TwoHanded");
+        completeRoundRobin(tc);
+    }
 
-	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
-	{
-		verifyCleanStart();
-		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Light");
-		emptyCommit(modCampaign, tc);
-		completeRoundRobin(tc);
-	}
+    @Test
+    public void testRoundRobinNoReset() throws PersistenceLayerException
+    {
+        verifyCleanStart();
+        TestContext tc = new TestContext();
+        commit(testCampaign, tc, "Light");
+        emptyCommit(modCampaign, tc);
+        completeRoundRobin(tc);
+    }
 }

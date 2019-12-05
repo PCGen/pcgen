@@ -37,17 +37,17 @@ class IfCommandTest
         try
         {
             pCommand.run(stack);
-        }
-        catch (ParseException ignored)
+        } catch (ParseException ignored)
         {
         }
     }
 
     /* Test the case where the condition is a zero double */
     @Test
-    public void testIf01() {
-        final PostfixMathCommandI   c = new IfCommand();
-        final Stack<Double>         s = new Stack<>();
+    public void testIf01()
+    {
+        final PostfixMathCommandI c = new IfCommand();
+        final Stack<Double> s = new Stack<>();
 
         s.push(0.0);
         s.push(1.0);
@@ -64,8 +64,8 @@ class IfCommandTest
     @Test
     public void testIf02()
     {
-        final PostfixMathCommandI   c = new IfCommand();
-        final Stack<Double>         s = new Stack<>();
+        final PostfixMathCommandI c = new IfCommand();
+        final Stack<Double> s = new Stack<>();
 
         s.push(1.0);
         s.push(1.0);
@@ -82,8 +82,8 @@ class IfCommandTest
     @Test
     public void testIf03()
     {
-        final PostfixMathCommandI   c = new IfCommand();
-        final Stack<Boolean>         s = new Stack<>();
+        final PostfixMathCommandI c = new IfCommand();
+        final Stack<Boolean> s = new Stack<>();
 
         s.push(false);
         s.push(false);
@@ -100,8 +100,8 @@ class IfCommandTest
     @Test
     public void testIf04()
     {
-        final PostfixMathCommandI   c = new IfCommand();
-        final Stack<Boolean>         s = new Stack<>();
+        final PostfixMathCommandI c = new IfCommand();
+        final Stack<Boolean> s = new Stack<>();
 
         s.push(true);
         s.push(false);

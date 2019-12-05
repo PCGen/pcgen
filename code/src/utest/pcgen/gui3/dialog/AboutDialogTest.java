@@ -38,28 +38,28 @@ import org.testfx.matcher.base.NodeMatchers;
 @ExtendWith(ApplicationExtension.class)
 class AboutDialogTest
 {
-	@Start
-	private void Start(Stage stage) throws IOException
-	{
-		FXMLLoader loader = new FXMLLoader();
-		URL resource = AboutDialogController.class.getResource("AboutDialog.fxml");
-		assert resource != null;
-		loader.setLocation(resource);
-		// initialize the language bundle
-		LanguageBundle.getString("");
-		ResourceBundle bundle = LanguageBundle.getBundle();
-		assert bundle != null;
-		loader.setResources(bundle);
-		Scene scene = loader.load();
-		stage.setScene(scene);
-		stage.show();
-	}
+    @Start
+    private void Start(Stage stage) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader();
+        URL resource = AboutDialogController.class.getResource("AboutDialog.fxml");
+        assert resource != null;
+        loader.setLocation(resource);
+        // initialize the language bundle
+        LanguageBundle.getString("");
+        ResourceBundle bundle = LanguageBundle.getBundle();
+        assert bundle != null;
+        loader.setResources(bundle);
+        Scene scene = loader.load();
+        stage.setScene(scene);
+        stage.show();
+    }
 
-	@Test
-	void test_about_dialog_loads(final FxRobotInterface robot)
-	{
-		FxAssert.verifyThat("#abt_credits", NodeMatchers.isVisible());
-	}
+    @Test
+    void test_about_dialog_loads(final FxRobotInterface robot)
+    {
+        FxAssert.verifyThat("#abt_credits", NodeMatchers.isVisible());
+    }
 
 
 }

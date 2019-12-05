@@ -1,20 +1,20 @@
 /*
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  */
 package pcgen.gui2.sources;
 
@@ -82,179 +82,177 @@ import pcgen.util.Comparators;
 public class SourceSelectionDialog extends JDialog implements ActionListener, ChangeListener, ListSelectionListener
 {
 
-	private static final UIPropertyContext CONTEXT =
-			UIPropertyContext.createContext("SourceSelectionDialog"); //$NON-NLS-1$
-	private static final String PROP_SELECTED_SOURCE = "selectedSource"; //$NON-NLS-1$
-	private static final String LOAD_COMMAND = "Load"; //$NON-NLS-1$
-	private static final String CANCEL_COMMAND = "Cancel"; //$NON-NLS-1$
-	private static final String SAVE_COMMAND = "Save"; //$NON-NLS-1$
-	private static final String DELETE_COMMAND = "Delete"; //$NON-NLS-1$
-	private static final String INSTALLDATA_COMMAND = "Install"; //$NON-NLS-1$
-	private final PCGenFrame frame;
-	private final QuickSourceSelectionPanel basicPanel;
-	private final AdvancedSourceSelectionPanel advancedPanel;
-	private final JTabbedPane tabs;
-	private final JPanel buttonPanel;
-	private final JButton loadButton;
-	private final JButton cancelButton;
-	private final JButton deleteButton;
-	private final JButton installDataButton;
-	private final JButton saveButton;
-	private final JCheckBox alwaysAdvancedCheck;
+    private static final UIPropertyContext CONTEXT =
+            UIPropertyContext.createContext("SourceSelectionDialog"); //$NON-NLS-1$
+    private static final String PROP_SELECTED_SOURCE = "selectedSource"; //$NON-NLS-1$
+    private static final String LOAD_COMMAND = "Load"; //$NON-NLS-1$
+    private static final String CANCEL_COMMAND = "Cancel"; //$NON-NLS-1$
+    private static final String SAVE_COMMAND = "Save"; //$NON-NLS-1$
+    private static final String DELETE_COMMAND = "Delete"; //$NON-NLS-1$
+    private static final String INSTALLDATA_COMMAND = "Install"; //$NON-NLS-1$
+    private final PCGenFrame frame;
+    private final QuickSourceSelectionPanel basicPanel;
+    private final AdvancedSourceSelectionPanel advancedPanel;
+    private final JTabbedPane tabs;
+    private final JPanel buttonPanel;
+    private final JButton loadButton;
+    private final JButton cancelButton;
+    private final JButton deleteButton;
+    private final JButton installDataButton;
+    private final JButton saveButton;
+    private final JCheckBox alwaysAdvancedCheck;
 
-	public SourceSelectionDialog(PCGenFrame frame, UIContext uiContext)
-	{
-		super(frame, true);
-		this.frame = frame;
-		setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect")); //$NON-NLS-1$
-		this.tabs = new JTabbedPane();
-		this.basicPanel = new QuickSourceSelectionPanel();
-		this.advancedPanel = new AdvancedSourceSelectionPanel(frame, uiContext);
-		this.buttonPanel = new JPanel();
-		this.loadButton = new JButton();
-		CommonMenuText.name(loadButton, "load"); //$NON-NLS-1$
-		this.cancelButton = new JButton();
-		CommonMenuText.name(cancelButton, "cancel"); //$NON-NLS-1$
+    public SourceSelectionDialog(PCGenFrame frame, UIContext uiContext)
+    {
+        super(frame, true);
+        this.frame = frame;
+        setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect")); //$NON-NLS-1$
+        this.tabs = new JTabbedPane();
+        this.basicPanel = new QuickSourceSelectionPanel();
+        this.advancedPanel = new AdvancedSourceSelectionPanel(frame, uiContext);
+        this.buttonPanel = new JPanel();
+        this.loadButton = new JButton();
+        CommonMenuText.name(loadButton, "load"); //$NON-NLS-1$
+        this.cancelButton = new JButton();
+        CommonMenuText.name(cancelButton, "cancel"); //$NON-NLS-1$
 
-		this.deleteButton = new JButton();
-		CommonMenuText.name(deleteButton, "delete"); //$NON-NLS-1$
-		this.installDataButton = new JButton();
-		CommonMenuText.name(installDataButton, "mnuSourcesInstallData"); //$NON-NLS-1$
-		this.saveButton = new JButton();
-		CommonMenuText.name(saveButton, "saveSelection"); //$NON-NLS-1$
-		this.alwaysAdvancedCheck = new JCheckBox(LanguageBundle.getString("in_sourceAlwaysAdvanced"), //$NON-NLS-1$
-			!UIPropertyContext.getInstance().initBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY, true));
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		initComponents();
-		initDefaults();
-		pack();
-	}
+        this.deleteButton = new JButton();
+        CommonMenuText.name(deleteButton, "delete"); //$NON-NLS-1$
+        this.installDataButton = new JButton();
+        CommonMenuText.name(installDataButton, "mnuSourcesInstallData"); //$NON-NLS-1$
+        this.saveButton = new JButton();
+        CommonMenuText.name(saveButton, "saveSelection"); //$NON-NLS-1$
+        this.alwaysAdvancedCheck = new JCheckBox(LanguageBundle.getString("in_sourceAlwaysAdvanced"), //$NON-NLS-1$
+                !UIPropertyContext.getInstance().initBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY, true));
+        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        initComponents();
+        initDefaults();
+        pack();
+    }
 
-	public static boolean skipSourceSelection()
-	{
-		return UIPropertyContext.getInstance().initBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION, false);
-	}
+    public static boolean skipSourceSelection()
+    {
+        return UIPropertyContext.getInstance().initBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION, false);
+    }
 
-	private void initComponents()
-	{
-		Container pane = getContentPane();
-		pane.setLayout(new BorderLayout());
+    private void initComponents()
+    {
+        Container pane = getContentPane();
+        pane.setLayout(new BorderLayout());
 
-		tabs.add(LanguageBundle.getString("in_basic"), basicPanel); //$NON-NLS-1$
-		tabs.add(LanguageBundle.getString("in_advanced"), advancedPanel); //$NON-NLS-1$
-		tabs.addChangeListener(this);
-		pane.add(tabs, BorderLayout.CENTER);
+        tabs.add(LanguageBundle.getString("in_basic"), basicPanel); //$NON-NLS-1$
+        tabs.add(LanguageBundle.getString("in_advanced"), advancedPanel); //$NON-NLS-1$
+        tabs.addChangeListener(this);
+        pane.add(tabs, BorderLayout.CENTER);
 
-		loadButton.setDefaultCapable(true);
-		getRootPane().setDefaultButton(loadButton);
+        loadButton.setDefaultCapable(true);
+        getRootPane().setDefaultButton(loadButton);
 
-		loadButton.setActionCommand(LOAD_COMMAND);
-		cancelButton.setActionCommand(CANCEL_COMMAND);
-		deleteButton.setActionCommand(DELETE_COMMAND);
-		saveButton.setActionCommand(SAVE_COMMAND);
-		installDataButton.setActionCommand(INSTALLDATA_COMMAND);
+        loadButton.setActionCommand(LOAD_COMMAND);
+        cancelButton.setActionCommand(CANCEL_COMMAND);
+        deleteButton.setActionCommand(DELETE_COMMAND);
+        saveButton.setActionCommand(SAVE_COMMAND);
+        installDataButton.setActionCommand(INSTALLDATA_COMMAND);
 
-		loadButton.addActionListener(this);
-		cancelButton.addActionListener(this);
-		saveButton.addActionListener(this);
-		deleteButton.addActionListener(this);
-		installDataButton.addActionListener(this);
+        loadButton.addActionListener(this);
+        cancelButton.addActionListener(this);
+        saveButton.addActionListener(this);
+        deleteButton.addActionListener(this);
+        installDataButton.addActionListener(this);
 
-		Box buttons = Box.createHorizontalBox();
-		buttons.add(buttonPanel);
-		buttons.add(Box.createHorizontalGlue());
-		buttons.add(installDataButton);
-		buttons.add(Box.createHorizontalGlue());
-		buttons.add(loadButton);
-		buttons.add(Box.createHorizontalStrut(5));
-		buttons.add(cancelButton);
-		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		pane.add(buttons, BorderLayout.SOUTH);
+        Box buttons = Box.createHorizontalBox();
+        buttons.add(buttonPanel);
+        buttons.add(Box.createHorizontalGlue());
+        buttons.add(installDataButton);
+        buttons.add(Box.createHorizontalGlue());
+        buttons.add(loadButton);
+        buttons.add(Box.createHorizontalStrut(5));
+        buttons.add(cancelButton);
+        buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        pane.add(buttons, BorderLayout.SOUTH);
 
-		Utility.installEscapeCloseOperation(this);
-	}
+        Utility.installEscapeCloseOperation(this);
+    }
 
-	private void initDefaults()
-	{
-		boolean useBasic = CONTEXT.initBoolean("useBasic", true); //$NON-NLS-1$
-		SourceSelectionFacade selection = basicPanel.getSourceSelection();
-		if (selection != null && useBasic)
-		{
-			basicPanel.makeSourceSelected(selection);
-		}
-		else
-		{
-			deleteButton.setEnabled(false);
-		}
-		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-		if (useBasic)
-		{
-			setBasicButtons();
-			advancedPanel.setSourceSelection(basicPanel.getSourceSelection());
-		}
-		else
-		{
-			setAdvancedButtons();
-			tabs.setSelectedIndex(1);
-		}
-	}
+    private void initDefaults()
+    {
+        boolean useBasic = CONTEXT.initBoolean("useBasic", true); //$NON-NLS-1$
+        SourceSelectionFacade selection = basicPanel.getSourceSelection();
+        if (selection != null && useBasic)
+        {
+            basicPanel.makeSourceSelected(selection);
+        } else
+        {
+            deleteButton.setEnabled(false);
+        }
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+        if (useBasic)
+        {
+            setBasicButtons();
+            advancedPanel.setSourceSelection(basicPanel.getSourceSelection());
+        } else
+        {
+            setAdvancedButtons();
+            tabs.setSelectedIndex(1);
+        }
+    }
 
-	@Override
-	public void valueChanged(ListSelectionEvent e)
-	{
-		if (!e.getValueIsAdjusting())
-		{
-			SourceSelectionFacade selection = basicPanel.getSourceSelection();
-			deleteButton.setEnabled(selection.isModifiable());
-			advancedPanel.setSourceSelection(selection);
-		}
-	}
+    @Override
+    public void valueChanged(ListSelectionEvent e)
+    {
+        if (!e.getValueIsAdjusting())
+        {
+            SourceSelectionFacade selection = basicPanel.getSourceSelection();
+            deleteButton.setEnabled(selection.isModifiable());
+            advancedPanel.setSourceSelection(selection);
+        }
+    }
 
-	private void setBasicButtons()
-	{
-		buttonPanel.removeAll();
-		buttonPanel.add(deleteButton);
-		buttonPanel.revalidate();
-	}
+    private void setBasicButtons()
+    {
+        buttonPanel.removeAll();
+        buttonPanel.add(deleteButton);
+        buttonPanel.revalidate();
+    }
 
-	private void setAdvancedButtons()
-	{
-		buttonPanel.removeAll();
-		buttonPanel.add(saveButton);
-		buttonPanel.add(alwaysAdvancedCheck);
-		buttonPanel.revalidate();
-	}
+    private void setAdvancedButtons()
+    {
+        buttonPanel.removeAll();
+        buttonPanel.add(saveButton);
+        buttonPanel.add(alwaysAdvancedCheck);
+        buttonPanel.revalidate();
+    }
 
-	/**
-	 * Set the selected advanced sources for a particular game mode and
-	 * remember them. Overrides existing selections.
-	 *
-	 * @param sourceSel A selection facade of the sources to set.
-	 */
-	public void setAdvancedSources(final SourceSelectionFacade sourceSel)
-	{
-		advancedPanel.setSourceSelection(sourceSel);
-		advancedPanel.rememberSelectedSources();
-	}
+    /**
+     * Set the selected advanced sources for a particular game mode and
+     * remember them. Overrides existing selections.
+     *
+     * @param sourceSel A selection facade of the sources to set.
+     */
+    public void setAdvancedSources(final SourceSelectionFacade sourceSel)
+    {
+        advancedPanel.setSourceSelection(sourceSel);
+        advancedPanel.rememberSelectedSources();
+    }
 
-	@Override
-	public void stateChanged(ChangeEvent e)
-	{
-		if (tabs.getSelectedComponent() == basicPanel)
-		{
-			setBasicButtons();
-		}
-		else
-		{
-			setAdvancedButtons();
-		}
-	}
+    @Override
+    public void stateChanged(ChangeEvent e)
+    {
+        if (tabs.getSelectedComponent() == basicPanel)
+        {
+            setBasicButtons();
+        } else
+        {
+            setAdvancedButtons();
+        }
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		String command = e.getActionCommand();
-        switch (command) {
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        String command = e.getActionCommand();
+        switch (command)
+        {
             case SAVE_COMMAND:
                 final JList sourcesList = new JList<>();
                 final JTextField nameField = new JTextField();
@@ -267,20 +265,24 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
                 panel.add(nameField, BorderLayout.SOUTH);
                 int ret = JOptionPane.showOptionDialog(this, panel, "Save the source selection as...",
                         JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
-                if (ret == JOptionPane.OK_OPTION) {
+                if (ret == JOptionPane.OK_OPTION)
+                {
                     String name = nameField.getText();
                     List<Campaign> selectedCampaigns = advancedPanel.getSelectedCampaigns();
                     GameMode selectedGameMode = advancedPanel.getSelectedGameMode();
 
                     SourceSelectionFacade selection = null;
-                    for (SourceSelectionFacade sourceSelectionFacade : sources) {
-                        if (sourceSelectionFacade.toString().equals(name)) {
+                    for (SourceSelectionFacade sourceSelectionFacade : sources)
+                    {
+                        if (sourceSelectionFacade.toString().equals(name))
+                        {
                             selection = sourceSelectionFacade;
                             break;
 
                         }
                     }
-                    if (selection == null) {
+                    if (selection == null)
+                    {
                         selection = FacadeFactory.createCustomSourceSelection(name);
                     }
                     selection.setCampaigns(selectedCampaigns);
@@ -304,292 +306,285 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
                 setVisible(false);
                 break;
         }
-	}
+    }
 
-	private void fireSourceLoad()
-	{
-		SourceSelectionFacade selection;
-		if (tabs.getSelectedComponent() == basicPanel)
-		{
-			selection = basicPanel.getSourceSelection();
-		}
-		else
-		{
-			selection = FacadeFactory.createSourceSelection(advancedPanel.getSelectedGameMode(),
-				advancedPanel.getSelectedCampaigns());
-		}
-		if (selection == null)
-		{
-			return;
-		}
-		List<Campaign> campaigns = ListFacades.wrap(selection.getCampaigns());
-		if (FacadeFactory.passesPrereqs(campaigns))
-		{
-			setVisible(false);
-			frame.loadSourceSelection(selection);
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(this, "Some sources have unfulfilled prereqs", "Cannot Load Selected Sources",
-				JOptionPane.INFORMATION_MESSAGE);
-		}
-	}
+    private void fireSourceLoad()
+    {
+        SourceSelectionFacade selection;
+        if (tabs.getSelectedComponent() == basicPanel)
+        {
+            selection = basicPanel.getSourceSelection();
+        } else
+        {
+            selection = FacadeFactory.createSourceSelection(advancedPanel.getSelectedGameMode(),
+                    advancedPanel.getSelectedCampaigns());
+        }
+        if (selection == null)
+        {
+            return;
+        }
+        List<Campaign> campaigns = ListFacades.wrap(selection.getCampaigns());
+        if (FacadeFactory.passesPrereqs(campaigns))
+        {
+            setVisible(false);
+            frame.loadSourceSelection(selection);
+        } else
+        {
+            JOptionPane.showMessageDialog(this, "Some sources have unfulfilled prereqs", "Cannot Load Selected Sources",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 
-	@Override
-	public void setVisible(boolean visible)
-	{
-		if (visible)
-		{
-			advancedPanel.refreshDisplay();
-		}
-		else
-		{
-			UIPropertyContext.getInstance().setBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY,
-				!alwaysAdvancedCheck.isSelected());
-		}
-		super.setVisible(visible);
-	}
+    @Override
+    public void setVisible(boolean visible)
+    {
+        if (visible)
+        {
+            advancedPanel.refreshDisplay();
+        } else
+        {
+            UIPropertyContext.getInstance().setBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY,
+                    !alwaysAdvancedCheck.isSelected());
+        }
+        super.setVisible(visible);
+    }
 
-	private static class SourcesTableModel extends FilteredListFacadeTableModel<SourceSelectionFacade>
-	{
+    private static class SourcesTableModel extends FilteredListFacadeTableModel<SourceSelectionFacade>
+    {
 
-		private final List<SourceSelectionFacade> displayedSources;
+        private final List<SourceSelectionFacade> displayedSources;
 
-		public SourcesTableModel()
-		{
-			setDelegate(FacadeFactory.getSourceSelections());
-			displayedSources = new ArrayList<>();
-			displayedSources.addAll(ListFacades.wrap(FacadeFactory.getDisplayedSourceSelections()));
-		}
+        public SourcesTableModel()
+        {
+            setDelegate(FacadeFactory.getSourceSelections());
+            displayedSources = new ArrayList<>();
+            displayedSources.addAll(ListFacades.wrap(FacadeFactory.getDisplayedSourceSelections()));
+        }
 
-		public void dispose()
-		{
-			//this detaches the listeners
-			setDelegate(null);
-		}
+        public void dispose()
+        {
+            //this detaches the listeners
+            setDelegate(null);
+        }
 
-		public SourceSelectionFacade[] getDisplayedSources()
-		{
-			return displayedSources.toArray(new SourceSelectionFacade[0]);
-		}
+        public SourceSelectionFacade[] getDisplayedSources()
+        {
+            return displayedSources.toArray(new SourceSelectionFacade[0]);
+        }
 
-		@Override
-		protected Object getValueAt(SourceSelectionFacade element, int column)
-		{
-			if (column == -1)
-			{
-				return displayedSources.contains(element);
-			}
-			else
-			{
-				return element;
-			}
-		}
+        @Override
+        protected Object getValueAt(SourceSelectionFacade element, int column)
+        {
+            if (column == -1)
+            {
+                return displayedSources.contains(element);
+            } else
+            {
+                return element;
+            }
+        }
 
-		@Override
-		public int getColumnCount()
-		{
-			return 1;
-		}
+        @Override
+        public int getColumnCount()
+        {
+            return 1;
+        }
 
-		@Override
-		public Class<?> getColumnClass(int columnIndex)
-		{
-			if (columnIndex == -1)
-			{
-				return Boolean.class;
-			}
-			else
-			{
-				return Object.class;
-			}
-		}
+        @Override
+        public Class<?> getColumnClass(int columnIndex)
+        {
+            if (columnIndex == -1)
+            {
+                return Boolean.class;
+            } else
+            {
+                return Object.class;
+            }
+        }
 
-		@Override
-		public boolean isCellEditable(int rowIndex, int columnIndex)
-		{
-			return columnIndex == -1;
-		}
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex)
+        {
+            return columnIndex == -1;
+        }
 
-		@Override
-		public String getColumnName(int column)
-		{
-			return "Sources";
-		}
+        @Override
+        public String getColumnName(int column)
+        {
+            return "Sources";
+        }
 
-		@Override
-		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
-		{
-			Boolean bool = (Boolean) aValue;
-			SourceSelectionFacade source = sortedList.getElementAt(rowIndex);
-			if (bool)
-			{
-				displayedSources.add(source);
-			}
-			else
-			{
-				displayedSources.remove(source);
-			}
-		}
+        @Override
+        public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+        {
+            Boolean bool = (Boolean) aValue;
+            SourceSelectionFacade source = sortedList.getElementAt(rowIndex);
+            if (bool)
+            {
+                displayedSources.add(source);
+            } else
+            {
+                displayedSources.remove(source);
+            }
+        }
 
-	}
+    }
 
-	private class QuickSourceSelectionPanel extends JPanel implements ListSelectionListener
-	{
+    private class QuickSourceSelectionPanel extends JPanel implements ListSelectionListener
+    {
 
-		private static final String DEFAULT_SOURCE = "Pathfinder RPG for Players"; //$NON-NLS-1$
-		private final JList sourceList;
-		private final InfoPane infoPane;
-		private final InfoPaneLinkAction linkAction;
+        private static final String DEFAULT_SOURCE = "Pathfinder RPG for Players"; //$NON-NLS-1$
+        private final JList sourceList;
+        private final InfoPane infoPane;
+        private final InfoPaneLinkAction linkAction;
 
-		public QuickSourceSelectionPanel()
-		{
-			sourceList = new JList<>();
-			infoPane = new InfoPane(LanguageBundle.getString("in_src_info")); //$NON-NLS-1$
-			linkAction = new InfoPaneLinkAction(infoPane);
+        public QuickSourceSelectionPanel()
+        {
+            sourceList = new JList<>();
+            infoPane = new InfoPane(LanguageBundle.getString("in_src_info")); //$NON-NLS-1$
+            linkAction = new InfoPaneLinkAction(infoPane);
 
-			initComponents();
-			initDefaults();
-		}
+            initComponents();
+            initDefaults();
+        }
 
-		private void initComponents()
-		{
-			setLayout(new BorderLayout());
-			JLabel label = new JLabel(LanguageBundle.getString("in_qsrc_intro"));
-			label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-			add(label, BorderLayout.NORTH);
-			ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
-				FacadeFactory.getDisplayedSourceSelections());
-			sourceList.setModel(new FacadeListModel<>(sources));
-			sourceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			sourceList.setCellRenderer(new SourceListCellRenderer());
-			sourceList.addMouseListener(new MouseAdapter()
-			{
+        private void initComponents()
+        {
+            setLayout(new BorderLayout());
+            JLabel label = new JLabel(LanguageBundle.getString("in_qsrc_intro"));
+            label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            add(label, BorderLayout.NORTH);
+            ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
+                    FacadeFactory.getDisplayedSourceSelections());
+            sourceList.setModel(new FacadeListModel<>(sources));
+            sourceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            sourceList.setCellRenderer(new SourceListCellRenderer());
+            sourceList.addMouseListener(new MouseAdapter()
+            {
 
-				@Override
-				public void mouseClicked(MouseEvent e)
-				{
-					if (e.getClickCount() > 1)
-					{
-						Point p = e.getPoint();
-						int index = sourceList.locationToIndex(p);
-						if (sourceList.getCellBounds(index, index).contains(p))
-						{
-							fireSourceLoad();
-						}
-					}
+                @Override
+                public void mouseClicked(MouseEvent e)
+                {
+                    if (e.getClickCount() > 1)
+                    {
+                        Point p = e.getPoint();
+                        int index = sourceList.locationToIndex(p);
+                        if (sourceList.getCellBounds(index, index).contains(p))
+                        {
+                            fireSourceLoad();
+                        }
+                    }
 
-				}
+                }
 
-			});
-			FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-			mainPane.setTopComponent(new JScrollPane(sourceList));
+            });
+            FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+            mainPane.setTopComponent(new JScrollPane(sourceList));
 
-			linkAction.install();
-			infoPane.setPreferredSize(new Dimension(800, 150));
-			mainPane.setBottomComponent(infoPane);
-			add(mainPane, BorderLayout.CENTER);
-		}
+            linkAction.install();
+            infoPane.setPreferredSize(new Dimension(800, 150));
+            mainPane.setBottomComponent(infoPane);
+            add(mainPane, BorderLayout.CENTER);
+        }
 
-		private void initDefaults()
-		{
-			final ListModel sortedModel = sourceList.getModel();
-			String defaultSelectedSource = CONTEXT.initProperty(PROP_SELECTED_SOURCE, DEFAULT_SOURCE);
-			int index = Collections.binarySearch(new AbstractList<Object>()
-			{
+        private void initDefaults()
+        {
+            final ListModel sortedModel = sourceList.getModel();
+            String defaultSelectedSource = CONTEXT.initProperty(PROP_SELECTED_SOURCE, DEFAULT_SOURCE);
+            int index = Collections.binarySearch(new AbstractList<Object>()
+            {
 
-				@Override
-				public Object get(int idx)
-				{
-					return sortedModel.getElementAt(idx);
-				}
+                @Override
+                public Object get(int idx)
+                {
+                    return sortedModel.getElementAt(idx);
+                }
 
-				@Override
-				public int size()
-				{
-					return sortedModel.getSize();
-				}
+                @Override
+                public int size()
+                {
+                    return sortedModel.getSize();
+                }
 
-			}, defaultSelectedSource, Comparators.toStringIgnoreCaseCollator());
-			if (index >= 0)
-			{
-				sourceList.setSelectedIndex(index);
-			}
-			else if (sortedModel.getSize() > 0)
-			{
-				sourceList.setSelectedIndex(0);
-			}
-			sourceList.addListSelectionListener(this);
-		}
+            }, defaultSelectedSource, Comparators.toStringIgnoreCaseCollator());
+            if (index >= 0)
+            {
+                sourceList.setSelectedIndex(index);
+            } else if (sortedModel.getSize() > 0)
+            {
+                sourceList.setSelectedIndex(0);
+            }
+            sourceList.addListSelectionListener(this);
+        }
 
-		public SourceSelectionFacade getSourceSelection()
-		{
-			return (SourceSelectionFacade) sourceList.getSelectedValue();
-		}
+        public SourceSelectionFacade getSourceSelection()
+        {
+            return (SourceSelectionFacade) sourceList.getSelectedValue();
+        }
 
-		void setSourceSelection(SourceSelectionFacade source)
-		{
-			sourceList.setSelectedValue(source, true);
-		}
+        void setSourceSelection(SourceSelectionFacade source)
+        {
+            sourceList.setSelectedValue(source, true);
+        }
 
-		@Override
-		public void valueChanged(ListSelectionEvent e)
-		{
-			SourceSelectionFacade selection = getSourceSelection();
-			if (selection != null)
-			{
-				CONTEXT.setProperty(PROP_SELECTED_SOURCE, selection.toString());
-				makeSourceSelected(selection);
-			}
-			else
-			{
-				deleteButton.setEnabled(false);
-			}
-		}
+        @Override
+        public void valueChanged(ListSelectionEvent e)
+        {
+            SourceSelectionFacade selection = getSourceSelection();
+            if (selection != null)
+            {
+                CONTEXT.setProperty(PROP_SELECTED_SOURCE, selection.toString());
+                makeSourceSelected(selection);
+            } else
+            {
+                deleteButton.setEnabled(false);
+            }
+        }
 
-		/**
-		 * Take the necessary action to show the source the currently selected 
-		 * source. This assumes that the source list has already been updated, 
-		 * either as a default setting, or from a user action. It does not set
-		 * the source to be remembered as the last selection as that may 
-		 * interfere with startup defaults, so the caller must do that if 
-		 * responding to a user action. 
-		 * @param selection The sources selected.
-		 */
-		public void makeSourceSelected(SourceSelectionFacade selection)
-		{
-			advancedPanel.setSourceSelection(selection);
-			deleteButton.setEnabled(selection.isModifiable());
-			infoPane.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(selection));
-		}
+        /**
+         * Take the necessary action to show the source the currently selected
+         * source. This assumes that the source list has already been updated,
+         * either as a default setting, or from a user action. It does not set
+         * the source to be remembered as the last selection as that may
+         * interfere with startup defaults, so the caller must do that if
+         * responding to a user action.
+         *
+         * @param selection The sources selected.
+         */
+        public void makeSourceSelected(SourceSelectionFacade selection)
+        {
+            advancedPanel.setSourceSelection(selection);
+            deleteButton.setEnabled(selection.isModifiable());
+            infoPane.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(selection));
+        }
 
-		private class SourceListCellRenderer extends DefaultListCellRenderer
-		{
+        private class SourceListCellRenderer extends DefaultListCellRenderer
+        {
 
-			@Override
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
-				boolean cellHasFocus)
-			{
-				super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-				setToolTipText("");
-				if (value instanceof SourceSelectionFacade)
-				{
-					SourceSelectionFacade selection = (SourceSelectionFacade) value;
-					if (selection.isModifiable())
-					{
-						setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getCustomItemColor()));
-					}
-					if (selection.getLoadingState() == LoadingState.LOADED_WITH_ERRORS)
-					{
-						setForeground(Color.LIGHT_GRAY);
-						setToolTipText(selection.getLoadingErrorMessage());
-					}
-				}
-				return this;
-			}
+            @Override
+            public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
+                    boolean cellHasFocus)
+            {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                setToolTipText("");
+                if (value instanceof SourceSelectionFacade)
+                {
+                    SourceSelectionFacade selection = (SourceSelectionFacade) value;
+                    if (selection.isModifiable())
+                    {
+                        setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getCustomItemColor()));
+                    }
+                    if (selection.getLoadingState() == LoadingState.LOADED_WITH_ERRORS)
+                    {
+                        setForeground(Color.LIGHT_GRAY);
+                        setToolTipText(selection.getLoadingErrorMessage());
+                    }
+                }
+                return this;
+            }
 
-		}
+        }
 
-	}
+    }
 
 }

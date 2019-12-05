@@ -1,16 +1,16 @@
 /*
  * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -41,36 +41,35 @@ import freemarker.template.TemplateModelException;
 public class SourceModel implements TemplateHashModel
 {
 
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
+    private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
-	/**
-	 * The underlying CharID used to get items from the underlying SourceModel
-	 */
-	private final CharID id;
+    /**
+     * The underlying CharID used to get items from the underlying SourceModel
+     */
+    private final CharID id;
 
-	/**
-	 * The underlying CDOMObject, from which information is retrieved
-	 */
-	private final CDOMObject cdo;
+    /**
+     * The underlying CDOMObject, from which information is retrieved
+     */
+    private final CDOMObject cdo;
 
-	/**
-	 * Constructs a new SourceModel with the underlying CharID and CDOMObject.
-	 * 
-	 * @param id
-	 *            The underlying CharID used to get items from the underlying SourceModel
-	 * @param cdo
-	 *            The underlying CDOMObject, from which information is retrieved
-	 */
-	public SourceModel(CharID id, CDOMObject cdo)
-	{
-		this.id = id;
-		this.cdo = cdo;
-	}
+    /**
+     * Constructs a new SourceModel with the underlying CharID and CDOMObject.
+     *
+     * @param id  The underlying CharID used to get items from the underlying SourceModel
+     * @param cdo The underlying CDOMObject, from which information is retrieved
+     */
+    public SourceModel(CharID id, CDOMObject cdo)
+    {
+        this.id = id;
+        this.cdo = cdo;
+    }
 
-	@Override
-	public TemplateModel get(String key) throws TemplateModelException
-	{
-        switch (key) {
+    @Override
+    public TemplateModel get(String key) throws TemplateModelException
+    {
+        switch (key)
+        {
             case "custom":
                 Boolean isCustom = cdo.isType(Constants.TYPE_CUSTOM);
                 return SimpleWrapperLibrary.wrap(isCustom);
@@ -83,7 +82,8 @@ public class SourceModel implements TemplateHashModel
             case "date":
                 Date sourceDate = cdo.get(ObjectKey.SOURCE_DATE);
                 //Fall back on Campaign if necessary
-                if (sourceDate == null) {
+                if (sourceDate == null)
+                {
                     Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
                     sourceDate = campaign.get(ObjectKey.SOURCE_DATE);
                 }
@@ -94,36 +94,40 @@ public class SourceModel implements TemplateHashModel
             case "web":
                 String sourceWeb = getSource(StringKey.SOURCE_WEB);
                 return SimpleWrapperLibrary.wrap(sourceWeb);
-            case "campaignsource": {
+            case "campaignsource":
+            {
                 Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
                 return WRAPPER_FACET.wrap(id, campaign.get(StringKey.SOURCE_SHORT));
             }
-            case "pubname": {
+            case "pubname":
+            {
                 Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
                 return WRAPPER_FACET.wrap(id, campaign.getSafe(StringKey.PUB_NAME_LONG));
             }
-            case "pubnameweb": {
+            case "pubnameweb":
+            {
                 Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
                 return WRAPPER_FACET.wrap(id, campaign.getSafe(StringKey.PUB_NAME_WEB));
             }
         }
-		throw new TemplateModelException("source info does not have output of type " + key);
-	}
+        throw new TemplateModelException("source info does not have output of type " + key);
+    }
 
-	private String getSource(StringKey sourceWeb)
-	{
-		String sourceValue = cdo.get(sourceWeb);
-		//Fall back on Campaign if necessary
-		if (sourceValue == null)
-		{
-			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			sourceValue = campaign.get(sourceWeb);
-		}
-		return sourceValue;
-	}
+    private String getSource(StringKey sourceWeb)
+    {
+        String sourceValue = cdo.get(sourceWeb);
+        //Fall back on Campaign if necessary
+        if (sourceValue == null)
+        {
+            Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
+            sourceValue = campaign.get(sourceWeb);
+        }
+        return sourceValue;
+    }
 
-	@Override
-	public boolean isEmpty() {
-		return false;
-	}
+    @Override
+    public boolean isEmpty()
+    {
+        return false;
+    }
 }

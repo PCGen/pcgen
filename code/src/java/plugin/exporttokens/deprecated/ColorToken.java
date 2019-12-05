@@ -32,73 +32,74 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class ColorToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "COLOR";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "COLOR";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("COLOR.EYE".equals(tokenSource))
-		{
-			retString = getEyeToken(display);
-		}
-		else if ("COLOR.HAIR".equals(tokenSource))
-		{
-			retString = getHairToken(display);
-		}
-		else if ("COLOR.SKIN".equals(tokenSource))
-		{
-			retString = getSkinToken(display);
-		}
+        if ("COLOR.EYE".equals(tokenSource))
+        {
+            retString = getEyeToken(display);
+        } else if ("COLOR.HAIR".equals(tokenSource))
+        {
+            retString = getHairToken(display);
+        } else if ("COLOR.SKIN".equals(tokenSource))
+        {
+            retString = getSkinToken(display);
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the eye colour token 
-	 * @param display the display for the character being exported
-	 * @return eye colour
-	 */
-	private static String getEyeToken(CharacterDisplay display)
-	{
-		if (display.getSuppressBioField(BiographyField.EYE_COLOR))
-		{
-			return "";
-		}
-		return display.getSafeStringFor(PCStringKey.EYECOLOR);
-	}
+    /**
+     * Get the eye colour token
+     *
+     * @param display the display for the character being exported
+     * @return eye colour
+     */
+    private static String getEyeToken(CharacterDisplay display)
+    {
+        if (display.getSuppressBioField(BiographyField.EYE_COLOR))
+        {
+            return "";
+        }
+        return display.getSafeStringFor(PCStringKey.EYECOLOR);
+    }
 
-	/**
-	 * Get the Hair token 
-	 * @param display the display for the character being exported
-	 * @return hair color
-	 */
-	private static String getHairToken(CharacterDisplay display)
-	{
-		if (display.getSuppressBioField(BiographyField.HAIR_COLOR))
-		{
-			return "";
-		}
-		return display.getSafeStringFor(PCStringKey.HAIRCOLOR);
-	}
+    /**
+     * Get the Hair token
+     *
+     * @param display the display for the character being exported
+     * @return hair color
+     */
+    private static String getHairToken(CharacterDisplay display)
+    {
+        if (display.getSuppressBioField(BiographyField.HAIR_COLOR))
+        {
+            return "";
+        }
+        return display.getSafeStringFor(PCStringKey.HAIRCOLOR);
+    }
 
-	/**
-	 * Get the skin token
-	 * @param display the display of the character being exported
-	 * @return skin color
-	 */
-	private static String getSkinToken(CharacterDisplay display)
-	{
-		if (display.getSuppressBioField(BiographyField.SKIN_TONE))
-		{
-			return "";
-		}
-		return display.getSafeStringFor(PCStringKey.SKINCOLOR);
-	}
+    /**
+     * Get the skin token
+     *
+     * @param display the display of the character being exported
+     * @return skin color
+     */
+    private static String getSkinToken(CharacterDisplay display)
+    {
+        if (display.getSuppressBioField(BiographyField.SKIN_TONE))
+        {
+            return "";
+        }
+        return display.getSafeStringFor(PCStringKey.SKINCOLOR);
+    }
 
 }

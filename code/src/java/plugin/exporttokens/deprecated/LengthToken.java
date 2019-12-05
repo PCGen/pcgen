@@ -28,23 +28,23 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class LengthToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "LENGTH";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LENGTH";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("LENGTH.HAIR".equals(tokenSource))
-		{
-			retString = display.getSafeStringFor(PCStringKey.HAIRSTYLE);
-		}
+        if ("LENGTH.HAIR".equals(tokenSource))
+        {
+            retString = display.getSafeStringFor(PCStringKey.HAIRSTYLE);
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
 }

@@ -16,6 +16,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core.prereq;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -39,79 +40,79 @@ import org.junit.jupiter.api.Test;
  */
 public class PreLangTest extends AbstractCharacterTestCase
 {
-	final Language elven = new Language();
-	final Language dwarven = new Language();
-	final Language halfling = new Language();
+    final Language elven = new Language();
+    final Language dwarven = new Language();
+    final Language halfling = new Language();
 
-	/**
-	 * Test the PRELANG code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testLang() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		character.addFreeLanguage(elven, elven);
+    /**
+     * Test the PRELANG code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testLang() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        character.addFreeLanguage(elven, elven);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRELANG:1,KEY_Elven");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PRELANG:1,KEY_Elven");
 
-		assertTrue("Character should have elven", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character should have elven", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PRELANG:1,KEY_Elven,KEY_Dwarven");
+        prereq = factory.parse("PRELANG:1,KEY_Elven,KEY_Dwarven");
 
-		assertTrue("Character should have elven", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character should have elven", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PRELANG:2,KEY_Elven,KEY_Dwarven");
+        prereq = factory.parse("PRELANG:2,KEY_Elven,KEY_Dwarven");
 
-		assertFalse("Character doesn't have Dwarven", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character doesn't have Dwarven", PrereqHandler.passes(
+                prereq, character, null));
 
-		character.addFreeLanguage(dwarven, dwarven);
+        character.addFreeLanguage(dwarven, dwarven);
 
-		assertTrue("Character has Elven and Dwarven", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character has Elven and Dwarven", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PRELANG:3,ANY");
+        prereq = factory.parse("PRELANG:3,ANY");
 
-		assertFalse("Character doesn't have 3 langs", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character doesn't have 3 langs", PrereqHandler.passes(
+                prereq, character, null));
 
-		character.addFreeLanguage(halfling, halfling);
+        character.addFreeLanguage(halfling, halfling);
 
-		assertTrue("Character has Elven, Dwarven, and Halfling", PrereqHandler
-			.passes(prereq, character, null));
+        assertTrue("Character has Elven, Dwarven, and Halfling", PrereqHandler
+                .passes(prereq, character, null));
 
-		prereq = factory.parse("PRELANG:3,Elven");
+        prereq = factory.parse("PRELANG:3,Elven");
 
-		assertFalse("PRE test should look at keys", PrereqHandler.passes(
-			prereq, character, null));
-	}
+        assertFalse("PRE test should look at keys", PrereqHandler.passes(
+                prereq, character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
+    public void setUp() throws Exception
+    {
+        super.setUp();
 
-		elven.setName("Elven");
-		elven.put(StringKey.KEY_NAME, "KEY_Elven");
-		TestHelper.addType(elven, "Spoken.Written");
-		Globals.getContext().getReferenceContext().importObject(elven);
+        elven.setName("Elven");
+        elven.put(StringKey.KEY_NAME, "KEY_Elven");
+        TestHelper.addType(elven, "Spoken.Written");
+        Globals.getContext().getReferenceContext().importObject(elven);
 
-		dwarven.setName("Dwarven");
-		dwarven.put(StringKey.KEY_NAME, "KEY_Dwarven");
-		TestHelper.addType(dwarven, "Spoken.Written");
-		Globals.getContext().getReferenceContext().importObject(dwarven);
+        dwarven.setName("Dwarven");
+        dwarven.put(StringKey.KEY_NAME, "KEY_Dwarven");
+        TestHelper.addType(dwarven, "Spoken.Written");
+        Globals.getContext().getReferenceContext().importObject(dwarven);
 
-		halfling.setName("Halfling");
-		halfling.put(StringKey.KEY_NAME, "KEY_Halfling");
-		halfling.addToListFor(ListKey.TYPE, Type.getConstant("Spoken"));
-		Globals.getContext().getReferenceContext().importObject(halfling);
-	}
+        halfling.setName("Halfling");
+        halfling.put(StringKey.KEY_NAME, "KEY_Halfling");
+        halfling.addToListFor(ListKey.TYPE, Type.getConstant("Spoken"));
+        Globals.getContext().getReferenceContext().importObject(halfling);
+    }
 }

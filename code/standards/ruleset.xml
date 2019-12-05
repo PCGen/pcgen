@@ -90,7 +90,7 @@
         <exclude name="UnnecessaryModifier"/>
         <exclude name="UnnecessaryReturn"/>
         <!-- Understores not required for readability -->
-        <exclude name="UseUnderscoresInNumericLiterals" />
+        <exclude name="UseUnderscoresInNumericLiterals"/>
         <!-- This is excluded because we use "useless" parenthesis for readability -->
         <exclude name="UselessParentheses"/>
         <!-- not our style -->
@@ -98,11 +98,11 @@
         <!-- Deprecated -->
         <exclude name="VariableNamingConventions"/>
         <exclude name="FieldNamingConventions"/>
-        <exclude name="LinguisticNaming" />
-        <exclude name="LocalVariableNamingConventions" />
+        <exclude name="LinguisticNaming"/>
+        <exclude name="LocalVariableNamingConventions"/>
         <exclude name="FormalParameterNamingConventions"/>
         <exclude name="IdenticalCatchBranches"/>
-        <exclude name="TooManyStaticImports" />
+        <exclude name="TooManyStaticImports"/>
         <exclude name="ShortMethodName"/>
     </rule>
     <rule ref="category/java/design.xml">

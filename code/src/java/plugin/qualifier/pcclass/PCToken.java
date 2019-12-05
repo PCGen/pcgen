@@ -27,16 +27,16 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 public class PCToken extends AbstractPCQualifierToken<PCClass>
 {
 
-	@Override
-	protected Collection<PCClass> getPossessed(PlayerCharacter pc)
-	{
-		return new ArrayList<>(pc.getDisplay().getClassSet());
-	}
+    @Override
+    protected Collection<PCClass> getPossessed(PlayerCharacter pc)
+    {
+        return new ArrayList<>(pc.getDisplay().getClassSet());
+    }
 
-	@Override
-	public Class<? super PCClass> getReferenceClass()
-	{
-		return PCClass.class;
-	}
+    @Override
+    public Class<? super PCClass> getReferenceClass()
+    {
+        return PCClass.class;
+    }
 
 }

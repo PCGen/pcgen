@@ -24,43 +24,42 @@ import pcgen.util.Logging;
 /**
  * This Token converts a list (what was likely a ListKey based token storing
  * strings or TypeSafeConstants in the past) into a FACTSET.
- * 
- * @param <T>
- *            The type of object on which this AbstractToFactSetToken can
+ *
+ * @param <T> The type of object on which this AbstractToFactSetToken can
  *            operate.
  */
 public abstract class AbstractToFactSetToken<T extends Loadable> extends AbstractNonEmptyToken<T>
-		implements CDOMCompatibilityToken<T>
+        implements CDOMCompatibilityToken<T>
 {
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
-	{
-			if (!context.processToken(obj, "FACTSET", getTokenName() + '|' + value))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error to FACTSET");
-			}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
+    {
+        if (!context.processToken(obj, "FACTSET", getTokenName() + '|' + value))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Delegation Error to FACTSET");
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public int compatibilityLevel()
-	{
-		return 6;
-	}
+    @Override
+    public int compatibilityLevel()
+    {
+        return 6;
+    }
 
-	@Override
-	public int compatibilitySubLevel()
-	{
-		return 4;
-	}
+    @Override
+    public int compatibilitySubLevel()
+    {
+        return 4;
+    }
 
-	@Override
-	public int compatibilityPriority()
-	{
-		return 0;
-	}
+    @Override
+    public int compatibilityPriority()
+    {
+        return 0;
+    }
 
 }

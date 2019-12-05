@@ -27,12 +27,12 @@ import pcgen.core.Campaign;
 public interface SourceEntry
 {
 
-	URI getURI();
+    URI getURI();
 
-	Campaign getCampaign();
+    Campaign getCampaign();
 
-	List<String> getIncludeItems();
+    List<String> getIncludeItems();
 
-	List<String> getExcludeItems();
+    List<String> getExcludeItems();
 
 }

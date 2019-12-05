@@ -21,94 +21,97 @@ package pcgen.util;
 
 /**
  * The Class {@code SignedInteger} provides a number which always carries a
- * leading sign in its string representation. It is currently used for displaying 
+ * leading sign in its string representation. It is currently used for displaying
  * numerically sorted lists of modifiers in choosers.
- *
- * 
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>
 {
 
-	/** Version for serialisation. */
-	private static final long serialVersionUID = 3744855657358887537L;
+    /**
+     * Version for serialisation.
+     */
+    private static final long serialVersionUID = 3744855657358887537L;
 
-	/** The integer value being represented. */
-	private final int value;
+    /**
+     * The integer value being represented.
+     */
+    private final int value;
 
-	/**
-	 * Create a new instance of SignedInteger
-	 * @param value The integer value to be represented.
-	 */
-	public SignedInteger(int value)
-	{
-		this.value = value;
-	}
+    /**
+     * Create a new instance of SignedInteger
+     *
+     * @param value The integer value to be represented.
+     */
+    public SignedInteger(int value)
+    {
+        this.value = value;
+    }
 
-	@Override
-	public double doubleValue()
-	{
-		return value;
-	}
+    @Override
+    public double doubleValue()
+    {
+        return value;
+    }
 
-	@Override
-	public float floatValue()
-	{
-		return value;
-	}
+    @Override
+    public float floatValue()
+    {
+        return value;
+    }
 
-	@Override
-	public int intValue()
-	{
-		return value;
-	}
+    @Override
+    public int intValue()
+    {
+        return value;
+    }
 
-	@Override
-	public long longValue()
-	{
-		return value;
-	}
+    @Override
+    public long longValue()
+    {
+        return value;
+    }
 
-	@Override
-	public String toString()
-	{
-		if (value > 0)
-		{
-			return "+" + value;
-		}
-		return String.valueOf(value);
-	}
+    @Override
+    public String toString()
+    {
+        if (value > 0)
+        {
+            return "+" + value;
+        }
+        return String.valueOf(value);
+    }
 
-	@Override
-	public int compareTo(SignedInteger arg0)
-	{
+    @Override
+    public int compareTo(SignedInteger arg0)
+    {
         return Integer.compare(value, arg0.value);
     }
 
-	@Override
-	public int hashCode()
-	{
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + value;
-		return result;
-	}
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + value;
+        return result;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (!(obj instanceof SignedInteger))
-		{
-			return false;
-		}
-		SignedInteger other = (SignedInteger) obj;
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+        {
+            return true;
+        }
+        if (obj == null)
+        {
+            return false;
+        }
+        if (!(obj instanceof SignedInteger))
+        {
+            return false;
+        }
+        SignedInteger other = (SignedInteger) obj;
         return value == other.value;
     }
 

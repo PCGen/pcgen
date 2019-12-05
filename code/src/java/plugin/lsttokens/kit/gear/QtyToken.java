@@ -31,43 +31,43 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class QtyToken extends AbstractNonEmptyToken<KitGear> implements CDOMPrimaryToken<KitGear>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "QTY";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "QTY";
+    }
 
-	@Override
-	public Class<KitGear> getTokenClass()
-	{
-		return KitGear.class;
-	}
+    @Override
+    public Class<KitGear> getTokenClass()
+    {
+        return KitGear.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
-	{
-		Formula formula = FormulaFactory.getFormulaFor(value);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		kitGear.setQuantity(formula);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
+    {
+        Formula formula = FormulaFactory.getFormulaFor(value);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        kitGear.setQuantity(formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitGear kitGear)
-	{
-		Formula f = kitGear.getQuantity();
-		if (f == null)
-		{
-			return null;
-		}
-		return new String[]{f.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitGear kitGear)
+    {
+        Formula f = kitGear.getQuantity();
+        if (f == null)
+        {
+            return null;
+        }
+        return new String[]{f.toString()};
+    }
 }

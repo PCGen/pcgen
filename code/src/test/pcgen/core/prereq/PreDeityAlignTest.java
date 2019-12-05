@@ -39,55 +39,55 @@ import org.junit.jupiter.api.Test;
  */
 public class PreDeityAlignTest extends AbstractCharacterTestCase
 {
-	private Deity deity;
+    private Deity deity;
 
-	/**
-	 * Test that alignment abbreviation values work correctly in Deity Align tests.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testAbbrev() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
-		assertEquals("Deity should have been set for character.", deity,
-			character.getDeity());
+    /**
+     * Test that alignment abbreviation values work correctly in Deity Align tests.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testAbbrev() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
+        assertEquals("Deity should have been set for character.", deity,
+                character.getDeity());
 
-		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("deityAlign");
-		prereq.setOperand("NG");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        Prerequisite prereq = new Prerequisite();
+        prereq.setKind("deityAlign");
+        prereq.setOperand("NG");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertTrue("Abbrev NG should match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+        assertTrue("Abbrev NG should match deity's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
 
-		prereq = new Prerequisite();
-		prereq.setKind("deityAlign");
-		prereq.setOperand("LG");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        prereq = new Prerequisite();
+        prereq.setKind("deityAlign");
+        prereq.setOperand("LG");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Abbrev LG should not match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+        assertFalse("Abbrev LG should not match deity's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITYALIGN:NG");
-		assertTrue("Abbrev NG should match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-		prereq = factory.parse("PREDEITYALIGN:LG");
-		assertFalse("Abbrev LG should not match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-	}
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREDEITYALIGN:NG");
+        assertTrue("Abbrev NG should match deity's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
+        prereq = factory.parse("PREDEITYALIGN:LG");
+        assertFalse("Abbrev LG should not match deity's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
     public void setUp() throws Exception
-	{
-		super.setUp();
-		deity = new Deity();
-		deity.setName("TestDeity");
-		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
-	}
+    {
+        super.setUp();
+        deity = new Deity();
+        deity.setName("TestDeity");
+        deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
+    }
 
 }

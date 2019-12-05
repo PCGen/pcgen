@@ -29,97 +29,90 @@ import pcgen.rules.context.LoadContext;
  * This class is a LstFileLoader used to load character traits.
  *
  * <p>
- *
  */
 public class TraitLoader extends LstLineFileLoader
 {
-	private int traitType = -1;
+    private int traitType = -1;
 
-	@Override
-	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
-	{
-		traitType = -1;
-		super.loadLstFile(context, fileName);
-	}
+    @Override
+    public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
+    {
+        traitType = -1;
+        super.loadLstFile(context, fileName);
+    }
 
-	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-	{
-		if (lstLine.charAt(0) != '[')
-		{
-			switch (traitType)
-			{
-				case 0:
-					SystemCollections.addToTraitList(lstLine.intern(), gameMode);
+    @Override
+    public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+    {
+        if (lstLine.charAt(0) != '[')
+        {
+            switch (traitType)
+            {
+                case 0:
+                    SystemCollections.addToTraitList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				case 1:
-					SystemCollections.addToSpeechList(lstLine.intern(), gameMode);
+                case 1:
+                    SystemCollections.addToSpeechList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				case 2:
-					SystemCollections.addToPhraseList(lstLine.intern(), gameMode);
+                case 2:
+                    SystemCollections.addToPhraseList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				case 3:
-					SystemCollections.addToPhobiaList(lstLine.intern(), gameMode);
+                case 3:
+                    SystemCollections.addToPhobiaList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				case 4:
-					SystemCollections.addToInterestsList(lstLine.intern(), gameMode);
+                case 4:
+                    SystemCollections.addToInterestsList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				case 5:
-					SystemCollections.addToHairStyleList(lstLine.intern(), gameMode);
+                case 5:
+                    SystemCollections.addToHairStyleList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				//case 6:
-				//	break;
-				default:
-					break;
-			}
-		}
-		else
-		{
-			if (lstLine.startsWith("[TRAIT]"))
-			{
-				traitType = 0;
-			}
-			else if (lstLine.startsWith("[SPEECH]"))
-			{
-				traitType = 1;
-			}
-			else if (lstLine.startsWith("[PHRASE]"))
-			{
-				traitType = 2;
-			}
-			else if (lstLine.startsWith("[PHOBIA]"))
-			{
-				traitType = 3;
-			}
-			else if (lstLine.startsWith("[INTERESTS]"))
-			{
-				traitType = 4;
-			}
-			else if (lstLine.startsWith("[HAIRSTYLE]"))
-			{
-				traitType = 5;
-			}
+                //case 6:
+                //	break;
+                default:
+                    break;
+            }
+        } else
+        {
+            if (lstLine.startsWith("[TRAIT]"))
+            {
+                traitType = 0;
+            } else if (lstLine.startsWith("[SPEECH]"))
+            {
+                traitType = 1;
+            } else if (lstLine.startsWith("[PHRASE]"))
+            {
+                traitType = 2;
+            } else if (lstLine.startsWith("[PHOBIA]"))
+            {
+                traitType = 3;
+            } else if (lstLine.startsWith("[INTERESTS]"))
+            {
+                traitType = 4;
+            } else if (lstLine.startsWith("[HAIRSTYLE]"))
+            {
+                traitType = 5;
+            }
 
-			//else if (lstLine.startsWith("[HAIRLENGTH]"))
-			//{
-			//	traitType = 6;
-			//}
-			else
-			{
-				traitType = -1;
-			}
-		}
-	}
+            //else if (lstLine.startsWith("[HAIRLENGTH]"))
+            //{
+            //	traitType = 6;
+            //}
+            else
+            {
+                traitType = -1;
+            }
+        }
+    }
 }

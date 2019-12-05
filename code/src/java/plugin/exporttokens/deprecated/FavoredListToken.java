@@ -29,39 +29,40 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class FavoredListToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "FAVOREDLIST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FAVOREDLIST";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return getFavoredListToken(display);
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return getFavoredListToken(display);
+    }
 
-	/**
-	 * Retrieve the list of favored classes for the PC.
-	 * @param display The character to be queried.
-	 * @return The text comma seperated list of favored classes.
-	 */
-	public static String getFavoredListToken(CharacterDisplay display)
-	{
-		if (display.hasAnyFavoredClass())
-		{
-			return "Any";
-		}
-		StringBuilder sb = new StringBuilder();
-		boolean first = true;
-		for (PCClass pcc : display.getFavoredClasses())
-		{
-			if (!first)
-			{
-				sb.append(", ");
-			}
-			sb.append(pcc.getFullKey());
-		}
-		return sb.toString();
-	}
+    /**
+     * Retrieve the list of favored classes for the PC.
+     *
+     * @param display The character to be queried.
+     * @return The text comma seperated list of favored classes.
+     */
+    public static String getFavoredListToken(CharacterDisplay display)
+    {
+        if (display.hasAnyFavoredClass())
+        {
+            return "Any";
+        }
+        StringBuilder sb = new StringBuilder();
+        boolean first = true;
+        for (PCClass pcc : display.getFavoredClasses())
+        {
+            if (!first)
+            {
+                sb.append(", ");
+            }
+            sb.append(pcc.getFullKey());
+        }
+        return sb.toString();
+    }
 }

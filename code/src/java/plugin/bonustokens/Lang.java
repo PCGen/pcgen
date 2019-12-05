@@ -24,36 +24,39 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Lang extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"BONUS"};
+    private static final String[] BONUS_TAGS = {"BONUS"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "LANG";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "LANG";
+    }
 
-	/**
-	 * Get by index, an individual language attribute that may be bonused.
-	 * @param tagNumber the index of the language attribute.
-	 * @return The language attribute.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual language attribute that may be bonused.
+     *
+     * @param tagNumber the index of the language attribute.
+     * @return The language attribute.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of language attributes that may be bonused.
-	 * @return The number of language attributes.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of language attributes that may be bonused.
+     *
+     * @return The number of language attributes.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 }

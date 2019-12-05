@@ -33,95 +33,95 @@ import pcgen.facade.util.event.ReferenceListener;
  * CompanionFacade.
  * This class is used to help aid implementation of the
  * {@code CompanionSupportFacadeImpl}
+ *
  * @see pcgen.gui2.facade.CompanionSupportFacadeImpl
  */
 public class CompanionFacadeDelegate implements CompanionFacade
 {
 
-	private CompanionFacade delegate;
-	private final DelegateReferenceFacade<String> nameDelegate;
-	private final DelegateReferenceFacade<File> fileDelegate;
-	private final DelegateReferenceFacade<Race> raceDelegate;
+    private CompanionFacade delegate;
+    private final DelegateReferenceFacade<String> nameDelegate;
+    private final DelegateReferenceFacade<File> fileDelegate;
+    private final DelegateReferenceFacade<Race> raceDelegate;
 
-	public CompanionFacadeDelegate()
-	{
-		this.nameDelegate = new DelegateReferenceFacade<>();
-		this.fileDelegate = new DelegateReferenceFacade<>();
-		this.raceDelegate = new DelegateReferenceFacade<>();
-	}
+    public CompanionFacadeDelegate()
+    {
+        this.nameDelegate = new DelegateReferenceFacade<>();
+        this.fileDelegate = new DelegateReferenceFacade<>();
+        this.raceDelegate = new DelegateReferenceFacade<>();
+    }
 
-	public void setCompanionFacade(CompanionFacade companionFacade)
-	{
-		delegate = companionFacade;
-		nameDelegate.setDelegate(companionFacade.getNameRef());
-		fileDelegate.setDelegate(companionFacade.getFileRef());
-		raceDelegate.setDelegate(companionFacade.getRaceRef());
-	}
+    public void setCompanionFacade(CompanionFacade companionFacade)
+    {
+        delegate = companionFacade;
+        nameDelegate.setDelegate(companionFacade.getNameRef());
+        fileDelegate.setDelegate(companionFacade.getFileRef());
+        raceDelegate.setDelegate(companionFacade.getRaceRef());
+    }
 
-	/**
-	 * @return The CompanionFacade backing this CompanionFacadeDelegate 
-	 */
-	CompanionFacade getDelegate()
-	{
-		return delegate;
-	}
+    /**
+     * @return The CompanionFacade backing this CompanionFacadeDelegate
+     */
+    CompanionFacade getDelegate()
+    {
+        return delegate;
+    }
 
-	@Override
-	public ReferenceFacade<String> getNameRef()
-	{
-		return nameDelegate;
-	}
+    @Override
+    public ReferenceFacade<String> getNameRef()
+    {
+        return nameDelegate;
+    }
 
-	@Override
-	public ReferenceFacade<File> getFileRef()
-	{
-		return fileDelegate;
-	}
+    @Override
+    public ReferenceFacade<File> getFileRef()
+    {
+        return fileDelegate;
+    }
 
-	@Override
-	public ReferenceFacade<Race> getRaceRef()
-	{
-		return raceDelegate;
-	}
+    @Override
+    public ReferenceFacade<Race> getRaceRef()
+    {
+        return raceDelegate;
+    }
 
-	@Override
-	public String getCompanionType()
-	{
-		if (delegate == null)
-		{
-			return null;
-		}
-		return delegate.getCompanionType();
-	}
+    @Override
+    public String getCompanionType()
+    {
+        if (delegate == null)
+        {
+            return null;
+        }
+        return delegate.getCompanionType();
+    }
 
-	private static class DelegateReferenceFacade<T> extends DefaultReferenceFacade<T> implements ReferenceListener<T>
-	{
+    private static class DelegateReferenceFacade<T> extends DefaultReferenceFacade<T> implements ReferenceListener<T>
+    {
 
-		private ReferenceFacade<T> delegate;
+        private ReferenceFacade<T> delegate;
 
-		public void setDelegate(ReferenceFacade<T> newDelegate)
-		{
-			if (delegate != null)
-			{
-				delegate.removeReferenceListener(this);
-			}
-			delegate = newDelegate;
-			if (delegate != null)
-			{
-				delegate.addReferenceListener(this);
-				set(delegate.get());
-			}
-			else
-			{
-				set(null);
-			}
-		}
+        public void setDelegate(ReferenceFacade<T> newDelegate)
+        {
+            if (delegate != null)
+            {
+                delegate.removeReferenceListener(this);
+            }
+            delegate = newDelegate;
+            if (delegate != null)
+            {
+                delegate.addReferenceListener(this);
+                set(delegate.get());
+            } else
+            {
+                set(null);
+            }
+        }
 
-		@Override
-		public void referenceChanged(ReferenceEvent<T> e)
-		{
-			set(e.getNewReference());
-		}
+        @Override
+        public void referenceChanged(ReferenceEvent<T> e)
+        {
+            set(e.getNewReference());
+        }
 
-	}
+    }
 }

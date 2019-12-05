@@ -31,46 +31,45 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class ApplyToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "APPLY";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "APPLY";
+    }
 
-	@Override
-	public Class<Kit> getTokenClass()
-	{
-		return Kit.class;
-	}
+    @Override
+    public Class<Kit> getTokenClass()
+    {
+        return Kit.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit, String value)
-	{
-		try
-		{
-			KitApply ka = KitApply.valueOf(value);
-			kit.put(ObjectKey.APPLY_MODE, ka);
-			return ParseResult.SUCCESS;
-		}
-		catch (IllegalArgumentException e)
-		{
-			return new ParseResult.Fail(getTokenName() + " encountered unexpected application type: " + value);
-		}
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit, String value)
+    {
+        try
+        {
+            KitApply ka = KitApply.valueOf(value);
+            kit.put(ObjectKey.APPLY_MODE, ka);
+            return ParseResult.SUCCESS;
+        } catch (IllegalArgumentException e)
+        {
+            return new ParseResult.Fail(getTokenName() + " encountered unexpected application type: " + value);
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Kit kit)
-	{
-		KitApply bd = kit.get(ObjectKey.APPLY_MODE);
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Kit kit)
+    {
+        KitApply bd = kit.get(ObjectKey.APPLY_MODE);
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd.toString()};
+    }
 }

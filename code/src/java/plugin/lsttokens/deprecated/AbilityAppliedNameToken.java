@@ -25,15 +25,15 @@ import pcgen.rules.persistence.token.AbstractToFactToken;
  */
 public class AbilityAppliedNameToken extends AbstractToFactToken<Ability>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "APPLIEDNAME";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "APPLIEDNAME";
+    }
 
-	@Override
-	public Class<Ability> getTokenClass()
-	{
-		return Ability.class;
-	}
+    @Override
+    public Class<Ability> getTokenClass()
+    {
+        return Ability.class;
+    }
 }

@@ -27,25 +27,26 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreCharactertypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		String characterType = display.getCharacterType();
-		if (characterType != null && characterType.equalsIgnoreCase(prereq.getKey()))
-		{
-			return countedTotal(prereq, 1);
-		}
-		return countedTotal(prereq, 0);
-	}
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        String characterType = display.getCharacterType();
+        if (characterType != null && characterType.equalsIgnoreCase(prereq.getKey()))
+        {
+            return countedTotal(prereq, 1);
+        }
+        return countedTotal(prereq, 0);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "CHARACTERTYPE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "CHARACTERTYPE"; //$NON-NLS-1$
+    }
 
 }

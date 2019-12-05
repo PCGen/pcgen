@@ -30,69 +30,69 @@ import org.junit.jupiter.api.Test;
 
 public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 {
-	private CharID id;
-	private WeightFacet facet = new WeightFacet();
+    private CharID id;
+    private WeightFacet facet = new WeightFacet();
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		DataSetID cid = DataSetID.getID();
-		id = CharID.getID(cid);
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        DataSetID cid = DataSetID.getID();
+        id = CharID.getID(cid);
+    }
 
-	@AfterEach
-	@Override
-	public void tearDown()
-	{
-		id = null;
-		facet = null;
-		super.tearDown();
-	}
+    @AfterEach
+    @Override
+    public void tearDown()
+    {
+        id = null;
+        facet = null;
+        super.tearDown();
+    }
 
-	@Test
-	public void testWeightUnsetZero()
-	{
-		assertEquals(0, facet.getWeight(id));
-	}
+    @Test
+    public void testWeightUnsetZero()
+    {
+        assertEquals(0, facet.getWeight(id));
+    }
 
-	@Test
-	public void testWeightSetZeroValid()
-	{
-		facet.set(id, 0);
-		assertEquals(0, facet.getWeight(id));
-	}
+    @Test
+    public void testWeightSetZeroValid()
+    {
+        facet.set(id, 0);
+        assertEquals(0, facet.getWeight(id));
+    }
 
-	@Test
-	public void testWeightSetNegative()
-	{
-		facet.set(id, -250);
-		/*
-		 * TODO Some form of error here?
-		 */
-	}
+    @Test
+    public void testWeightSetNegative()
+    {
+        facet.set(id, -250);
+        /*
+         * TODO Some form of error here?
+         */
+    }
 
-	@Test
-	public void testRemoveWeight()
-	{
-		facet.set(id, 25);
-		assertEquals(25, facet.getWeight(id));
-		facet.remove(id);
-		assertEquals(0, facet.getWeight(id));
-	}
+    @Test
+    public void testRemoveWeight()
+    {
+        facet.set(id, 25);
+        assertEquals(25, facet.getWeight(id));
+        facet.remove(id);
+        assertEquals(0, facet.getWeight(id));
+    }
 
-	@Override
-	protected AbstractItemFacet<CharID, Integer> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractItemFacet<CharID, Integer> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 1;
+    private int n = 1;
 
-	@Override
-	protected Integer getItem()
-	{
-		return n++;
-	}
+    @Override
+    protected Integer getItem()
+    {
+        return n++;
+    }
 }

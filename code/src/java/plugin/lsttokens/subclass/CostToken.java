@@ -28,27 +28,27 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class CostToken extends AbstractIntToken<SubClass> implements CDOMPrimaryToken<SubClass>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "COST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "COST";
+    }
 
-	@Override
-	protected IntegerKey integerKey()
-	{
-		return IntegerKey.COST;
-	}
+    @Override
+    protected IntegerKey integerKey()
+    {
+        return IntegerKey.COST;
+    }
 
-	@Override
-	protected int minValue()
-	{
-		return 0;
-	}
+    @Override
+    protected int minValue()
+    {
+        return 0;
+    }
 
-	@Override
-	public Class<SubClass> getTokenClass()
-	{
-		return SubClass.class;
-	}
+    @Override
+    public Class<SubClass> getTokenClass()
+    {
+        return SubClass.class;
+    }
 }

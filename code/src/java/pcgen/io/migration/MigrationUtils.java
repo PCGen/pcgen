@@ -28,35 +28,34 @@ import pcgen.core.system.MigrationRule.ObjectType;
 
 /**
  * MigrationUtils provides common helper functions for migration classes.
- * 
- * 
  */
 public final class MigrationUtils
 {
 
-	private MigrationUtils()
-	{
-	}
+    private MigrationUtils()
+    {
+    }
 
-	/**
-	 * Retrieve a list of migration rules which should be applied based on the supplied filters.  
-	 * @param pcgVer The PCGen version the character was saved in.
-	 * @param gameModeName The character's game mode.
-	 * @param objectType The type of object being migrated.
-	 * @return A list of migration rules.
-	 */
-	protected static List<MigrationRule> getChangeList(int[] pcgVer, String gameModeName, ObjectType objectType)
-	{
-		List<MigrationRule> sourceChangeList = new ArrayList<>();
-		List<MigrationRule> migrationRuleList = SystemCollections.getUnmodifiableMigrationRuleList(gameModeName);
-		for (MigrationRule migrationRule : migrationRuleList)
-		{
-			if (migrationRule.getObjectType() == objectType && migrationRule.changeAppliesToVer(pcgVer))
-			{
-				sourceChangeList.add(migrationRule);
-			}
-		}
-		return sourceChangeList;
-	}
+    /**
+     * Retrieve a list of migration rules which should be applied based on the supplied filters.
+     *
+     * @param pcgVer       The PCGen version the character was saved in.
+     * @param gameModeName The character's game mode.
+     * @param objectType   The type of object being migrated.
+     * @return A list of migration rules.
+     */
+    protected static List<MigrationRule> getChangeList(int[] pcgVer, String gameModeName, ObjectType objectType)
+    {
+        List<MigrationRule> sourceChangeList = new ArrayList<>();
+        List<MigrationRule> migrationRuleList = SystemCollections.getUnmodifiableMigrationRuleList(gameModeName);
+        for (MigrationRule migrationRule : migrationRuleList)
+        {
+            if (migrationRule.getObjectType() == objectType && migrationRule.changeAppliesToVer(pcgVer))
+            {
+                sourceChangeList.add(migrationRule);
+            }
+        }
+        return sourceChangeList;
+    }
 
 }

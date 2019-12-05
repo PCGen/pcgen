@@ -37,28 +37,28 @@ import pcgen.io.exporttoken.AbilityToken;
  */
 public class VAbilityToken extends AbilityToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "VABILITY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VABILITY";
+    }
 
-	@Override
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
-	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
-		Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
-		return listOfAbilities;
-	}
+    @Override
+    protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
+    {
+        final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
+        Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
+        for (AbilityCategory aCat : allCats)
+        {
+            if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+            {
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+            }
+        }
+        return listOfAbilities;
+    }
 
 }

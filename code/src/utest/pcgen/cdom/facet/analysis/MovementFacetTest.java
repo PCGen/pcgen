@@ -32,61 +32,61 @@ import pcgen.core.SimpleMovement;
 import org.junit.jupiter.api.BeforeEach;
 
 public class MovementFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, SimpleMovement>
+        AbstractExtractingFacetTest<CDOMObject, SimpleMovement>
 {
 
-	private MovementFacet facet = new MovementFacet();
-	private SimpleMovement[] target;
-	private CDOMObject[] source;
+    private MovementFacet facet = new MovementFacet();
+    private SimpleMovement[] target;
+    private CDOMObject[] source;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Templ");
-		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race");
-		PCStat pcs1 = new PCStat();
-		pcs1.setName("Stat1");
-		PCStat pcs2 = new PCStat();
-		pcs2.setName("Stat2");
-		SimpleMovement st1 = new SimpleMovement(MovementType.getConstant("Walk"), 10);
-		SimpleMovement st2 = new SimpleMovement(MovementType.getConstant("Swim"), 20);
-		cdo1.addToListFor(ListKey.SIMPLEMOVEMENT, st1);
-		cdo2.addToListFor(ListKey.SIMPLEMOVEMENT, st2);
-		source = new CDOMObject[]{cdo1, cdo2};
-		target = new SimpleMovement[]{st1, st2};
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        CDOMObject cdo1 = new PCTemplate();
+        cdo1.setName("Templ");
+        CDOMObject cdo2 = new Race();
+        cdo2.setName("Race");
+        PCStat pcs1 = new PCStat();
+        pcs1.setName("Stat1");
+        PCStat pcs2 = new PCStat();
+        pcs2.setName("Stat2");
+        SimpleMovement st1 = new SimpleMovement(MovementType.getConstant("Walk"), 10);
+        SimpleMovement st2 = new SimpleMovement(MovementType.getConstant("Swim"), 20);
+        cdo1.addToListFor(ListKey.SIMPLEMOVEMENT, st1);
+        cdo2.addToListFor(ListKey.SIMPLEMOVEMENT, st2);
+        source = new CDOMObject[]{cdo1, cdo2};
+        target = new SimpleMovement[]{st1, st2};
+    }
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, SimpleMovement> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, SimpleMovement> getFacet()
+    {
+        return facet;
+    }
 
-	@Override
-	protected SimpleMovement getObject()
-	{
-		return new SimpleMovement(MovementType.getConstant("Walk"), 20);
-	}
+    @Override
+    protected SimpleMovement getObject()
+    {
+        return new SimpleMovement(MovementType.getConstant("Walk"), 20);
+    }
 
-	@Override
-	protected CDOMObject getContainingObject(int i)
-	{
-		return source[i];
-	}
+    @Override
+    protected CDOMObject getContainingObject(int i)
+    {
+        return source[i];
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, CDOMObject> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected SimpleMovement getTargetObject(int i)
-	{
-		return target[i];
-	}
+    @Override
+    protected SimpleMovement getTargetObject(int i)
+    {
+        return target[i];
+    }
 }

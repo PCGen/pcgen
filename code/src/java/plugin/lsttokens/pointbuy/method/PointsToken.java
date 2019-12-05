@@ -26,33 +26,32 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * {@code CostToken}
- * 
  */
 public class PointsToken extends AbstractNonEmptyToken<PointBuyMethod> implements CDOMPrimaryToken<PointBuyMethod>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "POINTS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "POINTS";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PointBuyMethod pbm, String value)
-	{
-		pbm.setPointFormula(value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, PointBuyMethod pbm, String value)
+    {
+        pbm.setPointFormula(value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PointBuyMethod pbm)
-	{
-		return new String[]{pbm.getPointFormula()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, PointBuyMethod pbm)
+    {
+        return new String[]{pbm.getPointFormula()};
+    }
 
-	@Override
-	public Class<PointBuyMethod> getTokenClass()
-	{
-		return PointBuyMethod.class;
-	}
+    @Override
+    public Class<PointBuyMethod> getTokenClass()
+    {
+        return PointBuyMethod.class;
+    }
 }

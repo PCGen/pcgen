@@ -28,48 +28,50 @@ import pcgen.core.PlayerCharacter;
  */
 public final class KitSelect extends BaseKit
 {
-	private Formula theFormula;
+    private Formula theFormula;
 
-	/**
-	 * Get formula
-	 * @return formula
-	 */
-	public Formula getFormula()
-	{
-		return theFormula;
-	}
+    /**
+     * Get formula
+     *
+     * @return formula
+     */
+    public Formula getFormula()
+    {
+        return theFormula;
+    }
 
-	/**
-	 * Set formula
-	 * @param aFormula
-	 */
-	public void setFormula(Formula aFormula)
-	{
-		theFormula = aFormula;
-	}
+    /**
+     * Set formula
+     *
+     * @param aFormula
+     */
+    public void setFormula(Formula aFormula)
+    {
+        theFormula = aFormula;
+    }
 
-	@Override
-	public String toString()
-	{
-		return theFormula.toString();
-	}
+    @Override
+    public String toString()
+    {
+        return theFormula.toString();
+    }
 
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		aKit.setSelectValue(theFormula.resolve(aPC, "").intValue());
-		return true;
-	}
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        aKit.setSelectValue(theFormula.resolve(aPC, "").intValue());
+        return true;
+    }
 
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		// Nothing to do.
-	}
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        // Nothing to do.
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Select";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Select";
+    }
 }

@@ -23,11 +23,11 @@ import pcgen.core.PlayerCharacter;
 
 public interface PrerequisiteTest
 {
-	int passes(Prerequisite prereq, PlayerCharacter character, CDOMObject source) throws PrerequisiteException;
+    int passes(Prerequisite prereq, PlayerCharacter character, CDOMObject source) throws PrerequisiteException;
 
-	int passes(Prerequisite prereq, Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException;
+    int passes(Prerequisite prereq, Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException;
 
-	String toHtmlString(Prerequisite prereq);
+    String toHtmlString(Prerequisite prereq);
 
-	String kindHandled();
+    String kindHandled();
 }

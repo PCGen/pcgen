@@ -58,212 +58,197 @@ import pcgen.util.Logging;
 
 public class StatToken extends Token
 {
-	public static final String TOKENNAME = "STAT";
+    public static final String TOKENNAME = "STAT";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		if (aTok.countTokens() < 2)
-		{
-			Logging.errorPrint("Invalid STAT token:" + tokenSource, new Throwable());
-			return "";
-		}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        if (aTok.countTokens() < 2)
+        {
+            Logging.errorPrint("Invalid STAT token:" + tokenSource, new Throwable());
+            return "";
+        }
 
-		aTok.nextToken();
-		int indexOfStat;
-		indexOfStat = Integer.parseInt(aTok.nextToken());
-		if ((indexOfStat < 0) || (indexOfStat >= pc.getDisplay().getStatCount()))
-		{
-			return "";
-		}
-		List<PCStat> statList = new ArrayList<>(pc.getDisplay().getStatSet());
-		statList.sort(Comparator.comparing(SortKeyRequired::getSortKey));
-		PCStat stat = statList.get(indexOfStat);
+        aTok.nextToken();
+        int indexOfStat;
+        indexOfStat = Integer.parseInt(aTok.nextToken());
+        if ((indexOfStat < 0) || (indexOfStat >= pc.getDisplay().getStatCount()))
+        {
+            return "";
+        }
+        List<PCStat> statList = new ArrayList<>(pc.getDisplay().getStatSet());
+        statList.sort(Comparator.comparing(SortKeyRequired::getSortKey));
+        PCStat stat = statList.get(indexOfStat);
 
-		String findType = "STAT";
+        String findType = "STAT";
 
-		boolean useBase = false;
-		boolean useLevel = false;
-		int aLevel = 0;
+        boolean useBase = false;
+        boolean useLevel = false;
+        int aLevel = 0;
 
-		boolean useEquip = true;
-		boolean useTemp = true;
-		boolean usePost = true;
+        boolean useEquip = true;
+        boolean useTemp = true;
+        boolean usePost = true;
 
-		while (aTok.hasMoreTokens())
-		{
-			String token = aTok.nextToken();
+        while (aTok.hasMoreTokens())
+        {
+            String token = aTok.nextToken();
 
-			if ("NAME".equals(token))
-			{
-				return stat.getKeyName();
-			}
-			if ("LONGNAME".equals(token))
-			{
-				return stat.getDisplayName();
-			}
+            if ("NAME".equals(token))
+            {
+                return stat.getKeyName();
+            }
+            if ("LONGNAME".equals(token))
+            {
+                return stat.getDisplayName();
+            }
 
-			if ("ISNONABILITY".equals(token))
-			{
-				return pc.getDisplay().isNonAbility(stat) ? "Y" : "N";
-			}
+            if ("ISNONABILITY".equals(token))
+            {
+                return pc.getDisplay().isNonAbility(stat) ? "Y" : "N";
+            }
 
-			if ("STAT".equals(token))
-			{
-				findType = "STAT";
-			}
-			else if ("MOD".equals(token))
-			{
-				findType = "MOD";
-			}
-			else if ("BASE".equals(token))
-			{
-				useBase = true;
-			}
-			else if ("BASEMOD".equals(token))
-			{
-				findType = "MOD";
-				useBase = true;
-			}
-			else if ("NOTEMP".equals(token))
-			{
-				useTemp = false;
-			}
-			else if ("NOTEMPMOD".equals(token))
-			{
-				findType = "MOD";
-				useTemp = false;
-			}
-			else if ("NOEQUIP".equals(token))
-			{
-				useEquip = false;
-			}
-			else if ("NOPOST".equals(token))
-			{
-				usePost = false;
-			}
-			else if ("LEVEL".equals(token))
-			{
-				try
-				{
-					aLevel = Integer.parseInt(aTok.nextToken());
-				}
-				catch (NumberFormatException nfe)
-				{
-					Logging.errorPrint("Malformed LEVEL.x tag");
-				}
-				useLevel = true;
-			}
-		}
+            if ("STAT".equals(token))
+            {
+                findType = "STAT";
+            } else if ("MOD".equals(token))
+            {
+                findType = "MOD";
+            } else if ("BASE".equals(token))
+            {
+                useBase = true;
+            } else if ("BASEMOD".equals(token))
+            {
+                findType = "MOD";
+                useBase = true;
+            } else if ("NOTEMP".equals(token))
+            {
+                useTemp = false;
+            } else if ("NOTEMPMOD".equals(token))
+            {
+                findType = "MOD";
+                useTemp = false;
+            } else if ("NOEQUIP".equals(token))
+            {
+                useEquip = false;
+            } else if ("NOPOST".equals(token))
+            {
+                usePost = false;
+            } else if ("LEVEL".equals(token))
+            {
+                try
+                {
+                    aLevel = Integer.parseInt(aTok.nextToken());
+                } catch (NumberFormatException nfe)
+                {
+                    Logging.errorPrint("Malformed LEVEL.x tag");
+                }
+                useLevel = true;
+            }
+        }
 
-		if (findType.equals("MOD"))
-		{
-			if (useBase)
-			{
-				retString = getBaseModToken(pc, stat);
-			}
-			else
-			{
-				retString = getModToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel);
-			}
-		}
-		else
-		{
-			if (useBase)
-			{
-				retString = getBaseToken(pc, stat);
-			}
-			else
-			{
-				retString = getStatToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel);
-			}
-		}
+        if (findType.equals("MOD"))
+        {
+            if (useBase)
+            {
+                retString = getBaseModToken(pc, stat);
+            } else
+            {
+                retString = getModToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel);
+            }
+        } else
+        {
+            if (useBase)
+            {
+                retString = getBaseToken(pc, stat);
+            } else
+            {
+                retString = getStatToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel);
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	private static String getStatToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
-	                                   boolean usePost, boolean useLevel, int aLevel)
-	{
-		return getStatToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel, true);
-	}
+    private static String getStatToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
+            boolean usePost, boolean useLevel, int aLevel)
+    {
+        return getStatToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel, true);
+    }
 
-	private static String getStatToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
-	                                   boolean usePost, boolean useLevel, int aLevel, final boolean checkGameMode)
-	{
-		if (pc.getDisplay().isNonAbility(stat))
-		{
-			return "*";
-		}
+    private static String getStatToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
+            boolean usePost, boolean useLevel, int aLevel, final boolean checkGameMode)
+    {
+        if (pc.getDisplay().isNonAbility(stat))
+        {
+            return "*";
+        }
 
-		int aTotal = 0;
+        int aTotal = 0;
 
-		if (useLevel)
-		{
-			if (useEquip && useTemp)
-			{
-				aTotal = pc.getTotalStatAtLevel(stat, aLevel, usePost);
-			}
-			else
-			{
-				aTotal = pc.getPartialStatAtLevel(stat, aLevel, usePost, useTemp, useEquip);
-			}
-		}
-		else if (useEquip && useTemp)
-		{
-			aTotal = pc.getTotalStatFor(stat);
-		}
-		else
-		{
-			aTotal = StatAnalysis.getPartialStatFor(pc, stat, useTemp, useEquip);
-		}
+        if (useLevel)
+        {
+            if (useEquip && useTemp)
+            {
+                aTotal = pc.getTotalStatAtLevel(stat, aLevel, usePost);
+            } else
+            {
+                aTotal = pc.getPartialStatAtLevel(stat, aLevel, usePost, useTemp, useEquip);
+            }
+        } else if (useEquip && useTemp)
+        {
+            aTotal = pc.getTotalStatFor(stat);
+        } else
+        {
+            aTotal = StatAnalysis.getPartialStatFor(pc, stat, useTemp, useEquip);
+        }
 
-		if (checkGameMode)
-		{
-			return SettingsHandler.getGame().getStatDisplayText(aTotal);
-		}
-		return Integer.toString(aTotal);
-	}
+        if (checkGameMode)
+        {
+            return SettingsHandler.getGame().getStatDisplayText(aTotal);
+        }
+        return Integer.toString(aTotal);
+    }
 
-	private static String getModToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
-	                                  boolean usePost, boolean useLevel, int aLevel)
-	{
-		if (pc.getDisplay().isNonAbility(stat))
-		{
-			return "+0";
-		}
-		int aTotal = Integer.parseInt(getStatToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel, false));
+    private static String getModToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
+            boolean usePost, boolean useLevel, int aLevel)
+    {
+        if (pc.getDisplay().isNonAbility(stat))
+        {
+            return "+0";
+        }
+        int aTotal = Integer.parseInt(getStatToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel, false));
 
-		int temp = pc.getModForNumber(aTotal, stat);
-		return Delta.toString(temp);
-	}
+        int temp = pc.getModForNumber(aTotal, stat);
+        return Delta.toString(temp);
+    }
 
-	private static String getBaseToken(PlayerCharacter pc, PCStat stat)
-	{
-		if (pc.getDisplay().isNonAbility(stat))
-		{
-			return "*";
-		}
-		return Integer.toString(pc.getBaseStatFor(stat));
-	}
+    private static String getBaseToken(PlayerCharacter pc, PCStat stat)
+    {
+        if (pc.getDisplay().isNonAbility(stat))
+        {
+            return "*";
+        }
+        return Integer.toString(pc.getBaseStatFor(stat));
+    }
 
-	private static String getBaseModToken(PlayerCharacter pc, PCStat stat)
-	{
-		if (pc.getDisplay().isNonAbility(stat))
-		{
-			return "+0";
-		}
-		int aTotal = Integer.parseInt(getBaseToken(pc, stat));
-		int temp = pc.getModForNumber(aTotal, stat);
+    private static String getBaseModToken(PlayerCharacter pc, PCStat stat)
+    {
+        if (pc.getDisplay().isNonAbility(stat))
+        {
+            return "+0";
+        }
+        int aTotal = Integer.parseInt(getBaseToken(pc, stat));
+        int temp = pc.getModForNumber(aTotal, stat);
 
-		return Delta.toString(temp);
-	}
+        return Delta.toString(temp);
+    }
 }

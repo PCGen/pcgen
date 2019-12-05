@@ -28,52 +28,51 @@ import pcgen.util.Logging;
 public class PreAgeSetParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{
-			"AGESET", "AGESETEQ", "AGESETGT", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			"AGESETGTEQ", "AGESETLT", "AGESETLTEQ", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			"AGESETNEQ"}; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{
+                "AGESET", "AGESETEQ", "AGESETGT", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                "AGESETGTEQ", "AGESETLT", "AGESETLTEQ", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                "AGESETNEQ"}; //$NON-NLS-1$
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
 
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		//Operand should be either an integer or a recognizable String
-		try
-		{
-			Integer.parseInt(prereq.getKey());
-			Logging.errorPrint(
-				"You are using an old form of PREAGESET," + " you should use the age set name, e.g.: PREAGESET:1,Old");
-		}
-		catch (NumberFormatException exc)
-		{
-			//prereq.setOperand(formula); //assume recognizable String for now
-		}
+        //Operand should be either an integer or a recognizable String
+        try
+        {
+            Integer.parseInt(prereq.getKey());
+            Logging.errorPrint(
+                    "You are using an old form of PREAGESET," + " you should use the age set name, e.g.: PREAGESET:1,Old");
+        } catch (NumberFormatException exc)
+        {
+            //prereq.setOperand(formula); //assume recognizable String for now
+        }
 
-		return prereq;
+        return prereq;
 
-	}
+    }
 
 }

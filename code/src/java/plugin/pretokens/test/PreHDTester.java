@@ -30,41 +30,41 @@ import pcgen.system.LanguageBundle;
 public class PreHDTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal;
-		try
-		{
-			final int targetHD = Integer.parseInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal;
+        try
+        {
+            final int targetHD = Integer.parseInt(prereq.getOperand());
 
-			runningTotal = prereq.getOperator().compare(display.totalHitDice(), targetHD);
-		}
-		catch (NumberFormatException nfe)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreHD.error.bad_operand", prereq.getOperand()), nfe); //$NON-NLS-1$
-		}
-		return countedTotal(prereq, runningTotal);
-	}
+            runningTotal = prereq.getOperator().compare(display.totalHitDice(), targetHD);
+        } catch (NumberFormatException nfe)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreHD.error.bad_operand", prereq.getOperand()), nfe); //$NON-NLS-1$
+        }
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "HD"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "HD"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		final String foo = LanguageBundle.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
-			prereq.getKind().toUpperCase() + ':', prereq.getOperator().toDisplayString(), prereq.getOperand());
-		return foo;
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        final String foo = LanguageBundle.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
+                prereq.getKind().toUpperCase() + ':', prereq.getOperator().toDisplayString(), prereq.getOperand());
+        return foo;
+    }
 
 }

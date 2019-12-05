@@ -36,224 +36,224 @@ import pcgen.core.analysis.DomainApplication;
  */
 public class KitDeity extends BaseKit
 {
-	private CDOMSingleRef<Deity> theDeityRef;
-	private Formula choiceCount;
+    private CDOMSingleRef<Deity> theDeityRef;
+    private Formula choiceCount;
 
-	private List<CDOMSingleRef<Domain>> theDomains = null;
+    private List<CDOMSingleRef<Domain>> theDomains = null;
 
-	// These members store the state of an instance of this class.  They are
-	// not cloned.
-	private Deity theDeity = null;
-	private List<Domain> domainsToAdd = null;
+    // These members store the state of an instance of this class.  They are
+    // not cloned.
+    private Deity theDeity = null;
+    private List<Domain> domainsToAdd = null;
 
-	/**
-	 * Add the domain
-	 * @param ref
-	 */
-	public void addDomain(final CDOMSingleRef<Domain> ref)
-	{
-		if (theDomains == null)
-		{
-			theDomains = new ArrayList<>(3);
-		}
-		theDomains.add(ref);
-	}
+    /**
+     * Add the domain
+     *
+     * @param ref
+     */
+    public void addDomain(final CDOMSingleRef<Domain> ref)
+    {
+        if (theDomains == null)
+        {
+            theDomains = new ArrayList<>(3);
+        }
+        theDomains.add(ref);
+    }
 
-	/**
-	 * Get domains
-	 * @return list of domains
-	 */
-	public List<CDOMSingleRef<Domain>> getDomains()
-	{
-		if (theDomains == null)
-		{
-			return null;
-		}
+    /**
+     * Get domains
+     *
+     * @return list of domains
+     */
+    public List<CDOMSingleRef<Domain>> getDomains()
+    {
+        if (theDomains == null)
+        {
+            return null;
+        }
 
-		return Collections.unmodifiableList(theDomains);
-	}
+        return Collections.unmodifiableList(theDomains);
+    }
 
-	@Override
-	public String toString()
-	{
-		StringBuilder buf = new StringBuilder();
+    @Override
+    public String toString()
+    {
+        StringBuilder buf = new StringBuilder();
 
-		buf.append(theDeityRef.getLSTformat(false));
+        buf.append(theDeityRef.getLSTformat(false));
 
-		if (theDomains != null && !theDomains.isEmpty())
-		{
-			buf.append(" (");
-			if (choiceCount != null)
-			{
-				buf.append(choiceCount);
-				buf.append(" of ");
-			}
-			for (Iterator<CDOMSingleRef<Domain>> i = theDomains.iterator(); i.hasNext();)
-			{
-				buf.append(i.next());
-				if (i.hasNext())
-				{
-					buf.append(", ");
-				}
-			}
-			buf.append(")");
-		}
+        if (theDomains != null && !theDomains.isEmpty())
+        {
+            buf.append(" (");
+            if (choiceCount != null)
+            {
+                buf.append(choiceCount);
+                buf.append(" of ");
+            }
+            for (Iterator<CDOMSingleRef<Domain>> i = theDomains.iterator();i.hasNext();)
+            {
+                buf.append(i.next());
+                if (i.hasNext())
+                {
+                    buf.append(", ");
+                }
+            }
+            buf.append(")");
+        }
 
-		return buf.toString();
-	}
+        return buf.toString();
+    }
 
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		domainsToAdd = null;
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        domainsToAdd = null;
 
-		theDeity = theDeityRef.get();
+        theDeity = theDeityRef.get();
 
-		if (!aPC.canSelectDeity(theDeity))
-		{
-			warnings.add("DEITY: Cannot select deity \"" + theDeity.getDisplayName() + "\"");
-			return false;
-		}
-		aPC.setDeity(theDeity);
+        if (!aPC.canSelectDeity(theDeity))
+        {
+            warnings.add("DEITY: Cannot select deity \"" + theDeity.getDisplayName() + "\"");
+            return false;
+        }
+        aPC.setDeity(theDeity);
 
-		if (theDomains == null || theDomains.isEmpty())
-		{
-			// nothing else to do.
-			return true;
-		}
+        if (theDomains == null || theDomains.isEmpty())
+        {
+            // nothing else to do.
+            return true;
+        }
 
-		if (aPC.getMaxCharacterDomains() <= 0)
-		{
-			warnings.add("DEITY: Not allowed to choose a domain");
+        if (aPC.getMaxCharacterDomains() <= 0)
+        {
+            warnings.add("DEITY: Not allowed to choose a domain");
 
-			return true;
-		}
-		int numberOfChoices;
-		if (choiceCount == null)
-		{
-			numberOfChoices = theDomains.size();
-		}
-		else
-		{
-			numberOfChoices = choiceCount.resolve(aPC, "").intValue();
-		}
+            return true;
+        }
+        int numberOfChoices;
+        if (choiceCount == null)
+        {
+            numberOfChoices = theDomains.size();
+        } else
+        {
+            numberOfChoices = choiceCount.resolve(aPC, "").intValue();
+        }
 
-		//
-		// Can't choose more entries than there are...
-		//
-		if (numberOfChoices > theDomains.size())
-		{
-			numberOfChoices = theDomains.size();
-		}
+        //
+        // Can't choose more entries than there are...
+        //
+        if (numberOfChoices > theDomains.size())
+        {
+            numberOfChoices = theDomains.size();
+        }
 
-		if (numberOfChoices == 0)
-		{
-			// No choices allowed, we are done.
-			return true;
-		}
+        if (numberOfChoices == 0)
+        {
+            // No choices allowed, we are done.
+            return true;
+        }
 
-		List<CDOMSingleRef<Domain>> xs;
-		if (numberOfChoices == theDomains.size())
-		{
-			xs = theDomains;
-		}
-		else
-		{
-			//
-			// Force user to make enough selections
-			//
-			while (true)
-			{
-				xs = Globals.getChoiceFromList("Choose Domains", theDomains, new ArrayList<>(), numberOfChoices, aPC);
+        List<CDOMSingleRef<Domain>> xs;
+        if (numberOfChoices == theDomains.size())
+        {
+            xs = theDomains;
+        } else
+        {
+            //
+            // Force user to make enough selections
+            //
+            while (true)
+            {
+                xs = Globals.getChoiceFromList("Choose Domains", theDomains, new ArrayList<>(), numberOfChoices, aPC);
 
-				if (!xs.isEmpty())
-				{
-					break;
-				}
-			}
-		}
-		//
-		// Add to list of things to add to the character
-		//
-		for (CDOMSingleRef<Domain> ref : xs)
-		{
-			Domain domain = ref.get();
-			if (!domain.qualifies(aPC, domain))
-			{
-				warnings.add("DEITY: Not qualified for domain \"" + domain.getDisplayName() + "\"");
-				continue;
-			}
-			if (aPC.getDomainCount() >= aPC.getMaxCharacterDomains())
-			{
-				warnings.add("DEITY: No more allowed domains");
+                if (!xs.isEmpty())
+                {
+                    break;
+                }
+            }
+        }
+        //
+        // Add to list of things to add to the character
+        //
+        for (CDOMSingleRef<Domain> ref : xs)
+        {
+            Domain domain = ref.get();
+            if (!domain.qualifies(aPC, domain))
+            {
+                warnings.add("DEITY: Not qualified for domain \"" + domain.getDisplayName() + "\"");
+                continue;
+            }
+            if (aPC.getDomainCount() >= aPC.getMaxCharacterDomains())
+            {
+                warnings.add("DEITY: No more allowed domains");
 
-				return false;
-			}
-			if (!aPC.hasDefaultDomainSource())
-			{
-				warnings.add("DEITY: Cannot add domain \"" + domain.getDisplayName()
-					+ "\" as the character does not have a domain " + "source yet.");
-				return false;
-			}
-			if (domainsToAdd == null)
-			{
-				domainsToAdd = new ArrayList<>();
-			}
-			domainsToAdd.add(domain);
+                return false;
+            }
+            if (!aPC.hasDefaultDomainSource())
+            {
+                warnings.add("DEITY: Cannot add domain \"" + domain.getDisplayName()
+                        + "\" as the character does not have a domain " + "source yet.");
+                return false;
+            }
+            if (domainsToAdd == null)
+            {
+                domainsToAdd = new ArrayList<>();
+            }
+            domainsToAdd.add(domain);
 
-			aPC.addDomain(domain);
-			DomainApplication.applyDomain(aPC, domain);
-		}
-		aPC.calcActiveBonuses();
-		return true;
-	}
+            aPC.addDomain(domain);
+            DomainApplication.applyDomain(aPC, domain);
+        }
+        aPC.calcActiveBonuses();
+        return true;
+    }
 
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		if (theDeity == null)
-		{
-			return;
-		}
-		aPC.setDeity(theDeity);
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        if (theDeity == null)
+        {
+            return;
+        }
+        aPC.setDeity(theDeity);
 
-		if (domainsToAdd != null)
-		{
-			for (Domain domain : domainsToAdd)
-			{
-				aPC.addDomain(domain);
-				DomainApplication.applyDomain(aPC, domain);
-			}
-		}
-		aPC.calcActiveBonuses();
+        if (domainsToAdd != null)
+        {
+            for (Domain domain : domainsToAdd)
+            {
+                aPC.addDomain(domain);
+                DomainApplication.applyDomain(aPC, domain);
+            }
+        }
+        aPC.calcActiveBonuses();
 
-		theDeity = null;
-		domainsToAdd = null;
-	}
+        theDeity = null;
+        domainsToAdd = null;
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Deity";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Deity";
+    }
 
-	public void setCount(Formula formula)
-	{
-		choiceCount = formula;
-	}
+    public void setCount(Formula formula)
+    {
+        choiceCount = formula;
+    }
 
-	public Formula getCount()
-	{
-		return choiceCount;
-	}
+    public Formula getCount()
+    {
+        return choiceCount;
+    }
 
-	public void setDeity(CDOMSingleRef<Deity> ref)
-	{
-		theDeityRef = ref;
-	}
+    public void setDeity(CDOMSingleRef<Deity> ref)
+    {
+        theDeityRef = ref;
+    }
 
-	public CDOMSingleRef<Deity> getDeityRef()
-	{
-		return theDeityRef;
-	}
+    public CDOMSingleRef<Deity> getDeityRef()
+    {
+        return theDeityRef;
+    }
 }

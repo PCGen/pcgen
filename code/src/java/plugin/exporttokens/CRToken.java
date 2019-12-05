@@ -28,31 +28,29 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class CRToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "CR";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CR";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
-		Integer cr = display.calcCR();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
+        Integer cr = display.calcCR();
 
-		if (cr == null)
-		{
-			retString = "0";
-		}
-		else if (cr >= 1)
-		{
-			retString = cr.toString();
-		}
-		else if (cr < 1)
-		{
-			// If the CR is a fractional CR then we get the 1/x format from the map
-			retString = SettingsHandler.getGame().getCRSteps().get(cr);
-		}
-		return retString;
-	}
+        if (cr == null)
+        {
+            retString = "0";
+        } else if (cr >= 1)
+        {
+            retString = cr.toString();
+        } else if (cr < 1)
+        {
+            // If the CR is a fractional CR then we get the 1/x format from the map
+            retString = SettingsHandler.getGame().getCRSteps().get(cr);
+        }
+        return retString;
+    }
 }

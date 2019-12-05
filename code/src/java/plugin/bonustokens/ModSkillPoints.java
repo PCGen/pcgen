@@ -24,36 +24,39 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class ModSkillPoints extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"NUMBER"};
+    private static final String[] BONUS_TAGS = {"NUMBER"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "MODSKILLPOINTS";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "MODSKILLPOINTS";
+    }
 
-	/**
-	 * Get by index, an individual attribute that may be bonused.
-	 * @param tagNumber the index of the skill point attribute.
-	 * @return The skill point attribute.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual attribute that may be bonused.
+     *
+     * @param tagNumber the index of the skill point attribute.
+     * @return The skill point attribute.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of skill point attributes that may be bonused.
-	 * @return The number of skill point attributes.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of skill point attributes that may be bonused.
+     *
+     * @return The number of skill point attributes.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 }

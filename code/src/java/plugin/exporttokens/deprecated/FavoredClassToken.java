@@ -27,20 +27,20 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Class handles AGE Token 
+ * Class handles AGE Token
  */
 public class FavoredClassToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "FAVOREDCLASS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FAVOREDCLASS";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		SortedSet<PCClass> favClass = display.getFavoredClasses();
-		return favClass.isEmpty() ? "" : StringUtil.join(favClass, ", ");
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        SortedSet<PCClass> favClass = display.getFavoredClasses();
+        return favClass.isEmpty() ? "" : StringUtil.join(favClass, ", ");
+    }
 }

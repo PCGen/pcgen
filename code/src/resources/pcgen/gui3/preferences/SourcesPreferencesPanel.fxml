@@ -23,18 +23,18 @@
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.SourcesPreferencesPanelController">
     <VBox>
-        <CheckBox fx:id="campLoad" text="%in_Prefs_autoLoadAtStart" />
-        <CheckBox fx:id="charCampLoad" text="%in_Prefs_autoLoadWithPC" />
-        <CheckBox fx:id="allowOptsInSource" text="%in_Prefs_allowOptionInSource" />
-        <CheckBox fx:id="saveCustom" text="%in_Prefs_saveCustom" />
-        <CheckBox fx:id="showOGL" text="%in_Prefs_displayOGL" />
-        <CheckBox fx:id="showMature" text="%in_Prefs_displayMature" />
-        <Label labelFor="$sourceOptions" text="%in_Prefs_sourceDisplay" />
-        <ChoiceBox fx:id="sourceOptions" />
-        <CheckBox fx:id="loadURL" text="%in_Prefs_loadURLs" />
-        <CheckBox fx:id="allowOverride" text="%in_Prefs_allowOverride" />
-        <CheckBox fx:id="skipSourceSelect" text="%in_Prefs_skipSourceSelect" />
-        <CheckBox fx:id="useAdvancedSourceSelect" text="%in_Prefs_useAdvancedSourceSelect" />
-        <CheckBox fx:id="allowMultiLineObjectsSelect" text="%in_Prefs_allowMultiLineObjectsSelect" />
+        <CheckBox fx:id="campLoad" text="%in_Prefs_autoLoadAtStart"/>
+        <CheckBox fx:id="charCampLoad" text="%in_Prefs_autoLoadWithPC"/>
+        <CheckBox fx:id="allowOptsInSource" text="%in_Prefs_allowOptionInSource"/>
+        <CheckBox fx:id="saveCustom" text="%in_Prefs_saveCustom"/>
+        <CheckBox fx:id="showOGL" text="%in_Prefs_displayOGL"/>
+        <CheckBox fx:id="showMature" text="%in_Prefs_displayMature"/>
+        <Label labelFor="$sourceOptions" text="%in_Prefs_sourceDisplay"/>
+        <ChoiceBox fx:id="sourceOptions"/>
+        <CheckBox fx:id="loadURL" text="%in_Prefs_loadURLs"/>
+        <CheckBox fx:id="allowOverride" text="%in_Prefs_allowOverride"/>
+        <CheckBox fx:id="skipSourceSelect" text="%in_Prefs_skipSourceSelect"/>
+        <CheckBox fx:id="useAdvancedSourceSelect" text="%in_Prefs_useAdvancedSourceSelect"/>
+        <CheckBox fx:id="allowMultiLineObjectsSelect" text="%in_Prefs_allowMultiLineObjectsSelect"/>
     </VBox>
 </Scene>

@@ -18,45 +18,44 @@
 package pcgen.core.character;
 
 /**
- * @param <T>
- * Todo This doesn't belong in this package.  It should probably be an inner
- * class in VariableProcessor.
+ * @param <T> Todo This doesn't belong in this package.  It should probably be an inner
+ *            class in VariableProcessor.
  */
 public final class CachedVariable<T>
 {
-	private int serial;
-	private T value;
+    private int serial;
+    private T value;
 
-	/**
-	 * @return Returns the serial.
-	 */
-	public int getSerial()
-	{
-		return serial;
-	}
+    /**
+     * @return Returns the serial.
+     */
+    public int getSerial()
+    {
+        return serial;
+    }
 
-	/**
-	 * @param i The serial to set.
-	 */
-	public void setSerial(final int i)
-	{
-		serial = i;
-	}
+    /**
+     * @param i The serial to set.
+     */
+    public void setSerial(final int i)
+    {
+        serial = i;
+    }
 
-	/**
-	 * @return Returns the value.
-	 */
-	public T getValue()
-	{
-		return value;
-	}
+    /**
+     * @return Returns the value.
+     */
+    public T getValue()
+    {
+        return value;
+    }
 
-	/**
-	 * @param v The value to set.
-	 */
-	public void setValue(final T v)
-	{
-		value = v;
-	}
+    /**
+     * @param v The value to set.
+     */
+    public void setValue(final T v)
+    {
+        value = v;
+    }
 
 }

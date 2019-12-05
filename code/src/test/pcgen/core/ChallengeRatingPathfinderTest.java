@@ -41,405 +41,437 @@ import util.TestURI;
  */
 public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 {
-	private Race standardRace;
-	private Race koboldRace;
-	private Race drowNobleRace;
-	private Race babauRace;
-	private Race dryadRace;
-	private Race companionRace;
-	private Race zombieRace;
-	private Race direRatRace;
-	private Race miteRace;
-	private Race beetleRace;
-	private Race centipedeRace;
-	
-	private PCClass pcClass;
-	private PCClass pcClass2;
-	private PCClass npcClass;
-	private PCClass npcClass2;
-	private PCClass companionClass;
+    private Race standardRace;
+    private Race koboldRace;
+    private Race drowNobleRace;
+    private Race babauRace;
+    private Race dryadRace;
+    private Race companionRace;
+    private Race zombieRace;
+    private Race direRatRace;
+    private Race miteRace;
+    private Race beetleRace;
+    private Race centipedeRace;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		GameMode gameMode = SettingsHandler.getGame();
-		gameMode.addCRstep(0, "1/2");
-		gameMode.addCRstep(-1, "1/3");
-		gameMode.addCRstep(-2, "1/4");
-		gameMode.addCRstep(-3, "1/6");
-		gameMode.addCRstep(-4, "1/8");
-		gameMode.setCRThreshold("BASECR");
-		gameMode.setMonsterRoleList(new ArrayList<>(Arrays.asList("Combat", "Skill", "Druid")));
-		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
-		LoadContext modeContext = gameMode.getModeContext();
-		methodLoader.parseLine(modeContext,
-			"PC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-1	CRMODPRIORITY:1",
-			TestURI.getURI());
-		methodLoader.parseLine(modeContext,
-			"NPC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-2	CRMODPRIORITY:2",
-			TestURI.getURI());
-		methodLoader.parseLine(modeContext,
-			"Monster		CRFORMULA:0		ISMONSTER:YES", TestURI.getURI());
-		methodLoader.parseLine(modeContext, "Companion	CRFORMULA:NONE	ISMONSTER:YES",
-			TestURI.getURI());
-		
-		LoadContext context = Globals.getContext();
+    private PCClass pcClass;
+    private PCClass pcClass2;
+    private PCClass npcClass;
+    private PCClass npcClass2;
+    private PCClass companionClass;
 
-		CampaignSourceEntry source = TestHelper.createSource(getClass());
-		GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
-		PCClassLoader classLoader = new PCClassLoader();
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        GameMode gameMode = SettingsHandler.getGame();
+        gameMode.addCRstep(0, "1/2");
+        gameMode.addCRstep(-1, "1/3");
+        gameMode.addCRstep(-2, "1/4");
+        gameMode.addCRstep(-3, "1/6");
+        gameMode.addCRstep(-4, "1/8");
+        gameMode.setCRThreshold("BASECR");
+        gameMode.setMonsterRoleList(new ArrayList<>(Arrays.asList("Combat", "Skill", "Druid")));
+        SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
+        LoadContext modeContext = gameMode.getModeContext();
+        methodLoader.parseLine(modeContext,
+                "PC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-1	CRMODPRIORITY:1",
+                TestURI.getURI());
+        methodLoader.parseLine(modeContext,
+                "NPC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-2	CRMODPRIORITY:2",
+                TestURI.getURI());
+        methodLoader.parseLine(modeContext,
+                "Monster		CRFORMULA:0		ISMONSTER:YES", TestURI.getURI());
+        methodLoader.parseLine(modeContext, "Companion	CRFORMULA:NONE	ISMONSTER:YES",
+                TestURI.getURI());
 
-		final String standardRaceLine = "Standard Race";
-		raceLoader.parseLine(context, null, standardRaceLine, source);
-		standardRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Standard Race");
+        LoadContext context = Globals.getContext();
 
-		final String koboldRaceLine = "Kobold	CRMOD:NPC|-3";
-		raceLoader.parseLine(context, null, koboldRaceLine, source);
-		koboldRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Kobold");
+        CampaignSourceEntry source = TestHelper.createSource(getClass());
+        GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
+        PCClassLoader classLoader = new PCClassLoader();
 
-		final String drowNobleLine = "Drow Noble	CRMOD:PC.NPC|0";
-		raceLoader.parseLine(context, null, drowNobleLine, source);
-		drowNobleRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Drow Noble");
+        final String standardRaceLine = "Standard Race";
+        raceLoader.parseLine(context, null, standardRaceLine, source);
+        standardRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Standard Race");
 
-		final String babauLine = "Babau	MONSTERCLASS:TestMonsterClass:7	CR:6	ROLE:Combat.Skill";
-		raceLoader.parseLine(context, null, babauLine, source);
-		babauRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Babau");
+        final String koboldRaceLine = "Kobold	CRMOD:NPC|-3";
+        raceLoader.parseLine(context, null, koboldRaceLine, source);
+        koboldRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Kobold");
 
-		final String dryadLine = "Dryad	MONSTERCLASS:TestMonsterClass:8	CR:7	ROLE:Druid";
-		raceLoader.parseLine(context, null, dryadLine, source);
-		dryadRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Dryad");
+        final String drowNobleLine = "Drow Noble	CRMOD:PC.NPC|0";
+        raceLoader.parseLine(context, null, drowNobleLine, source);
+        drowNobleRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Drow Noble");
 
-		final String companionLine = "TestCompanion	MONSTERCLASS:TestCompanionClass:4";
-		raceLoader.parseLine(context, null, companionLine, source);
-		companionRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "TestCompanion");
+        final String babauLine = "Babau	MONSTERCLASS:TestMonsterClass:7	CR:6	ROLE:Combat.Skill";
+        raceLoader.parseLine(context, null, babauLine, source);
+        babauRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Babau");
 
-		final String zombieLine = "Zombie	MONSTERCLASS:TestMonsterClass:1	CR:1/2	ROLE:Combat";
-		raceLoader.parseLine(context, null, zombieLine, source);
-		zombieRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Zombie");
+        final String dryadLine = "Dryad	MONSTERCLASS:TestMonsterClass:8	CR:7	ROLE:Druid";
+        raceLoader.parseLine(context, null, dryadLine, source);
+        dryadRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Dryad");
 
-		final String direRatLine = "Dire Rat	MONSTERCLASS:TestMonsterClass:1	CR:1/3	ROLE:Combat";
-		raceLoader.parseLine(context, null, direRatLine, source);
-		direRatRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Dire rat");
+        final String companionLine = "TestCompanion	MONSTERCLASS:TestCompanionClass:4";
+        raceLoader.parseLine(context, null, companionLine, source);
+        companionRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "TestCompanion");
 
-		final String miteLine = "Mite	MONSTERCLASS:TestMonsterClass:1	CR:1/4	ROLE:Combat";
-		raceLoader.parseLine(context, null, miteLine, source);
-		miteRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Mite");
+        final String zombieLine = "Zombie	MONSTERCLASS:TestMonsterClass:1	CR:1/2	ROLE:Combat";
+        raceLoader.parseLine(context, null, zombieLine, source);
+        zombieRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Zombie");
 
-		final String beetleLine = "Beetle	MONSTERCLASS:TestMonsterClass:1	CR:1/6	ROLE:Combat";
-		raceLoader.parseLine(context, null, beetleLine, source);
-		beetleRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Beetle");
+        final String direRatLine = "Dire Rat	MONSTERCLASS:TestMonsterClass:1	CR:1/3	ROLE:Combat";
+        raceLoader.parseLine(context, null, direRatLine, source);
+        direRatRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Dire rat");
 
-		final String centipedeLine = "Centipede	MONSTERCLASS:TestMonsterClass:1	CR:1/8	Centipede";
-		raceLoader.parseLine(context, null, centipedeLine, source);
-		centipedeRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Centipede");
-		
-		final String pcClassLine = "CLASS:TestPCClass	TYPE:PC		ROLE:Combat";
-		pcClass = classLoader.parseLine(context, null, pcClassLine, source);
-		
-		final String pcClassLine2 = "CLASS:TestPCClass2	TYPE:PC		ROLE:Druid";
-		pcClass2 = classLoader.parseLine(context, null, pcClassLine2, source);
-		
-		final String npcClassLine = "CLASS:TestNPCClass	TYPE:NPC";
-		npcClass = classLoader.parseLine(context, null, npcClassLine, source);
+        final String miteLine = "Mite	MONSTERCLASS:TestMonsterClass:1	CR:1/4	ROLE:Combat";
+        raceLoader.parseLine(context, null, miteLine, source);
+        miteRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Mite");
 
-		final String npcClassLine2 = "CLASS:TestNPCClass2	TYPE:NPC";
-		npcClass2 = classLoader.parseLine(context, null, npcClassLine2, source);
+        final String beetleLine = "Beetle	MONSTERCLASS:TestMonsterClass:1	CR:1/6	ROLE:Combat";
+        raceLoader.parseLine(context, null, beetleLine, source);
+        beetleRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Beetle");
 
-		final String monsterClassLine = "CLASS:TestMonsterClass	HD:8	CLASSTYPE:Monster";
-		classLoader.parseLine(context, null, monsterClassLine, source);
+        final String centipedeLine = "Centipede	MONSTERCLASS:TestMonsterClass:1	CR:1/8	Centipede";
+        raceLoader.parseLine(context, null, centipedeLine, source);
+        centipedeRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Centipede");
 
-		final String companionClassLine = "CLASS:TestCompanionClass	HD:8	CLASSTYPE:Companion";
-		companionClass = classLoader.parseLine(context, null, companionClassLine, source);
+        final String pcClassLine = "CLASS:TestPCClass	TYPE:PC		ROLE:Combat";
+        pcClass = classLoader.parseLine(context, null, pcClassLine, source);
 
-		finishLoad();
-	}
+        final String pcClassLine2 = "CLASS:TestPCClass2	TYPE:PC		ROLE:Druid";
+        pcClass2 = classLoader.parseLine(context, null, pcClassLine2, source);
 
-	/**
-	 * Test PC class level 1 => CR 1/2
+        final String npcClassLine = "CLASS:TestNPCClass	TYPE:NPC";
+        npcClass = classLoader.parseLine(context, null, npcClassLine, source);
+
+        final String npcClassLine2 = "CLASS:TestNPCClass2	TYPE:NPC";
+        npcClass2 = classLoader.parseLine(context, null, npcClassLine2, source);
+
+        final String monsterClassLine = "CLASS:TestMonsterClass	HD:8	CLASSTYPE:Monster";
+        classLoader.parseLine(context, null, monsterClassLine, source);
+
+        final String companionClassLine = "CLASS:TestCompanionClass	HD:8	CLASSTYPE:Companion";
+        companionClass = classLoader.parseLine(context, null, companionClassLine, source);
+
+        finishLoad();
+    }
+
+    /**
+     * Test PC class level 1 => CR 1/2
      */
-	@Test
-	public void testPCClassLevel1() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(standardRace);
-		pc.incrementClassLevel(1, pcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.01);
-	}
+    @Test
+    public void testPCClassLevel1()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(standardRace);
+        pc.incrementClassLevel(1, pcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.01);
+    }
 
-	/**
-	 * Test PC class level 2 => CR 1/4
+    /**
+     * Test PC class level 2 => CR 1/4
      */
-	@Test
-	public void testPCClassLevel2() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(standardRace);
-		pc.incrementClassLevel(2, pcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.01);
-	}
+    @Test
+    public void testPCClassLevel2()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(standardRace);
+        pc.incrementClassLevel(2, pcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.01);
+    }
 
-	/**
-	 * Test NPC class level 1 => CR 1/3
+    /**
+     * Test NPC class level 1 => CR 1/3
      */
-	@Test
-	public void testNPCClassLevel1() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(standardRace);
-		pc.incrementClassLevel(1, npcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.011);
-	}
+    @Test
+    public void testNPCClassLevel1()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(standardRace);
+        pc.incrementClassLevel(1, npcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.011);
+    }
 
-	/**
-	 * Test NPC class level 2 => CR 1/2
+    /**
+     * Test NPC class level 2 => CR 1/2
      */
-	@Test
-	public void testNPCClassLevel2() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(standardRace);
-		pc.incrementClassLevel(2, npcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.01);
-	}
+    @Test
+    public void testNPCClassLevel2()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(standardRace);
+        pc.incrementClassLevel(2, npcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.01);
+    }
 
-	/**
-	 * Test NPC class level 3 => CR 1
+    /**
+     * Test NPC class level 3 => CR 1
      */
-	@Test
-	public void testNPCClassLevel3() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(standardRace);
-		pc.incrementClassLevel(3, npcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.01);
-	}
-	
-	
-	/**
-	 * Test PC class multiclass level 4/4 => CR 7
-     */
-	@Test
-	public void testMultiClassPCLevel4PCLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(standardRace);
-		pc.incrementClassLevel(4, pcClass);
-		pc.incrementClassLevel(4, pcClass2);
-		assertEquals(SettingsHandler.getGame().getCRInteger("7"), pc.getDisplay().calcCR(), 0.01);
-	}
-	
-	/**
-	 * Test NPC class multiclass level 4/4 => CR 6
-     */
-	@Test
-	public void testMultiClassNPCLevel4NPCLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(standardRace);
-		pc.incrementClassLevel(4, npcClass);
-		pc.incrementClassLevel(4, npcClass2);
-		assertEquals(SettingsHandler.getGame().getCRInteger("6"), pc.getDisplay().calcCR(), 0.01);
-	}
-
-	/**
-	 * Test NPC/PC class multiclass level 4/4 => CR 7
-     */
-	@Test
-	public void testMultiClassNPCLevel4PCLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(standardRace);
-		pc.incrementClassLevel(4, npcClass);
-		pc.incrementClassLevel(4, pcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("7"), pc.getDisplay().calcCR(), 0.01);
-	}
-	
-
-	/**
-	 * Test NPC class level 1, kobold (CRMOD:NPC|-3) => CR 1/4
-     */
-	@Test
-	public void testNPCClassKoboldLevel1() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(koboldRace);
-		pc.incrementClassLevel(1, npcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/4"), pc.getDisplay().calcCR(), 0.01);
-	}
-
-	/**
-	 * Test NPC class level 2, kobold (CRMOD:NPC|-3) => CR 1/3
-     */
-	@Test
-	public void testNPCClassKoboldLevel2() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(koboldRace);
-		pc.incrementClassLevel(2, npcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.011);
-	}
-
-	/**
-	 * Test NPC class level 3, kobold (CRMOD:NPC|-3) => CR 1/2
-     */
-	@Test
-	public void testNPCClassKoboldLevel3() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(koboldRace);
-		pc.incrementClassLevel(3, npcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.01);
-	}
-
-	/**
-	 * Test NPC class level 4, kobold (CRMOD:NPC|-3) => CR 1
-     */
-	@Test
-	public void testNPCClassKoboldLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(koboldRace);
-		pc.incrementClassLevel(4, npcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.01);
-	}
-
-	/**
-	 * Test PC class level 4, kobold (CRMOD:NPC|-3) => CR 3
-     */
-	@Test
-	public void testPCClassKoboldLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(koboldRace);
-		pc.incrementClassLevel(4, pcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("3"), pc.getDisplay().calcCR(), 0.01);
-	}
+    @Test
+    public void testNPCClassLevel3()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(standardRace);
+        pc.incrementClassLevel(3, npcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.01);
+    }
 
 
-	/**
-	 * Test PC class level 4, drow noble (CRMOD:PC.NPC|0) => CR 4
+    /**
+     * Test PC class multiclass level 4/4 => CR 7
      */
-	@Test
-	public void testPCClassDrowNobleLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(drowNobleRace);
-		pc.incrementClassLevel(4, pcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("4"), pc.getDisplay().calcCR(), 0.01);
-	}
+    @Test
+    public void testMultiClassPCLevel4PCLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(standardRace);
+        pc.incrementClassLevel(4, pcClass);
+        pc.incrementClassLevel(4, pcClass2);
+        assertEquals(SettingsHandler.getGame().getCRInteger("7"), pc.getDisplay().calcCR(), 0.01);
+    }
 
-	/**
-	 * Test NPC class level 4, drow noble (CRMOD:PC.NPC|0) => CR 4
+    /**
+     * Test NPC class multiclass level 4/4 => CR 6
      */
-	@Test
-	public void testNPCClassDrowNobleLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(drowNobleRace);
-		pc.incrementClassLevel(4, npcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("4"), pc.getDisplay().calcCR(), 0.01);
-	}
+    @Test
+    public void testMultiClassNPCLevel4NPCLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(standardRace);
+        pc.incrementClassLevel(4, npcClass);
+        pc.incrementClassLevel(4, npcClass2);
+        assertEquals(SettingsHandler.getGame().getCRInteger("6"), pc.getDisplay().calcCR(), 0.01);
+    }
 
-	/**
-	 * Test PC class key level 4 babau => CR 10
+    /**
+     * Test NPC/PC class multiclass level 4/4 => CR 7
      */
-	@Test
-	public void testPCClassBabauKeyLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(babauRace);
-		pc.incrementClassLevel(4, pcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("10"), pc.getDisplay().calcCR(), 0.01);
-	}
+    @Test
+    public void testMultiClassNPCLevel4PCLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(standardRace);
+        pc.incrementClassLevel(4, npcClass);
+        pc.incrementClassLevel(4, pcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("7"), pc.getDisplay().calcCR(), 0.01);
+    }
 
-	/**
-	 * Test PC class key level 4 babau => CR 8
-     */
-	@Test
-	public void testPCClassBabauNonKeyLevel4() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(babauRace);
-		pc.incrementClassLevel(4, pcClass2);
-		assertEquals(SettingsHandler.getGame().getCRInteger("8"), pc.getDisplay().calcCR(), 0.01);
-	}
-	/**
-	 * Test PC class key level 10 babau => CR 13
-     */
-	@Test
-	public void testPCClassBabauNonKeyLevel10() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(babauRace);
-		pc.incrementClassLevel(10, pcClass2);
-		assertEquals(SettingsHandler.getGame().getCRInteger("13"), pc.getDisplay().calcCR(), 0.01);
-	}
 
-	/**
-	 * Test PC class key level 8 dryad => CR 15
+    /**
+     * Test NPC class level 1, kobold (CRMOD:NPC|-3) => CR 1/4
      */
-	@Test
-	public void testPCClassDyradKeyLevel8() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(dryadRace);
-		pc.incrementClassLevel(8, pcClass2);
-		assertEquals(SettingsHandler.getGame().getCRInteger("15"), pc.getDisplay().calcCR(), 0.01);
-	}
-	/**
-	 * Test PC class non key level 8 dryad => CR 11
-     */
-	@Test
-	public void testPCClassDryadNonKeyLevel8() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(dryadRace);
-		pc.incrementClassLevel(8, pcClass);
-		assertEquals(SettingsHandler.getGame().getCRInteger("11"), pc.getDisplay().calcCR(), 0.01);
-	}
-	
-	/**
-	 * Test Companion => CR 0
-     */
-	@Test
-	public void testCompanion() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(companionRace);
-		pc.incrementClassLevel(4, companionClass);
-		assertNull(pc.getDisplay().calcCR());
-	}
+    @Test
+    public void testNPCClassKoboldLevel1()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(koboldRace);
+        pc.incrementClassLevel(1, npcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/4"), pc.getDisplay().calcCR(), 0.01);
+    }
 
-	/**
-	 * Test zombie => CR 1/2
+    /**
+     * Test NPC class level 2, kobold (CRMOD:NPC|-3) => CR 1/3
      */
-	@Test
-	public void testZombie() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(zombieRace);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.01);
-	}
-	/**
-	 * Test dire rat => CR 1/3
-     */
-	@Test
-	public void testDireRat() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(direRatRace);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.1);
-	}
-	/**
-	 * Test mite => CR 1/4
-     */
-	@Test
-	public void testMite() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(miteRace);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/4"), pc.getDisplay().calcCR(), 0.011);
-	}
-	/**
-	 * Test beetle => CR 1/6
-     */
-	@Test
-	public void testBeetle() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(beetleRace);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/6"), pc.getDisplay().calcCR(), 0.1);
-	}
-	/**
-	 * Test centipede => CR 1/8
-     */
-	@Test
-	public void testCentipede() {
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(centipedeRace);
-		assertEquals(SettingsHandler.getGame().getCRInteger("1/8"), pc.getDisplay().calcCR(), 0.1);
-	}
+    @Test
+    public void testNPCClassKoboldLevel2()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(koboldRace);
+        pc.incrementClassLevel(2, npcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.011);
+    }
 
-	@Override
-	protected void defaultSetupEnd()
-	{
-		//Nothing, we will trigger ourselves
-	}
+    /**
+     * Test NPC class level 3, kobold (CRMOD:NPC|-3) => CR 1/2
+     */
+    @Test
+    public void testNPCClassKoboldLevel3()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(koboldRace);
+        pc.incrementClassLevel(3, npcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test NPC class level 4, kobold (CRMOD:NPC|-3) => CR 1
+     */
+    @Test
+    public void testNPCClassKoboldLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(koboldRace);
+        pc.incrementClassLevel(4, npcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test PC class level 4, kobold (CRMOD:NPC|-3) => CR 3
+     */
+    @Test
+    public void testPCClassKoboldLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(koboldRace);
+        pc.incrementClassLevel(4, pcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("3"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+
+    /**
+     * Test PC class level 4, drow noble (CRMOD:PC.NPC|0) => CR 4
+     */
+    @Test
+    public void testPCClassDrowNobleLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(drowNobleRace);
+        pc.incrementClassLevel(4, pcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("4"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test NPC class level 4, drow noble (CRMOD:PC.NPC|0) => CR 4
+     */
+    @Test
+    public void testNPCClassDrowNobleLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(drowNobleRace);
+        pc.incrementClassLevel(4, npcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("4"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test PC class key level 4 babau => CR 10
+     */
+    @Test
+    public void testPCClassBabauKeyLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(babauRace);
+        pc.incrementClassLevel(4, pcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("10"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test PC class key level 4 babau => CR 8
+     */
+    @Test
+    public void testPCClassBabauNonKeyLevel4()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(babauRace);
+        pc.incrementClassLevel(4, pcClass2);
+        assertEquals(SettingsHandler.getGame().getCRInteger("8"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test PC class key level 10 babau => CR 13
+     */
+    @Test
+    public void testPCClassBabauNonKeyLevel10()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(babauRace);
+        pc.incrementClassLevel(10, pcClass2);
+        assertEquals(SettingsHandler.getGame().getCRInteger("13"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test PC class key level 8 dryad => CR 15
+     */
+    @Test
+    public void testPCClassDyradKeyLevel8()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(dryadRace);
+        pc.incrementClassLevel(8, pcClass2);
+        assertEquals(SettingsHandler.getGame().getCRInteger("15"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test PC class non key level 8 dryad => CR 11
+     */
+    @Test
+    public void testPCClassDryadNonKeyLevel8()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(dryadRace);
+        pc.incrementClassLevel(8, pcClass);
+        assertEquals(SettingsHandler.getGame().getCRInteger("11"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test Companion => CR 0
+     */
+    @Test
+    public void testCompanion()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(companionRace);
+        pc.incrementClassLevel(4, companionClass);
+        assertNull(pc.getDisplay().calcCR());
+    }
+
+    /**
+     * Test zombie => CR 1/2
+     */
+    @Test
+    public void testZombie()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(zombieRace);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.01);
+    }
+
+    /**
+     * Test dire rat => CR 1/3
+     */
+    @Test
+    public void testDireRat()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(direRatRace);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.1);
+    }
+
+    /**
+     * Test mite => CR 1/4
+     */
+    @Test
+    public void testMite()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(miteRace);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/4"), pc.getDisplay().calcCR(), 0.011);
+    }
+
+    /**
+     * Test beetle => CR 1/6
+     */
+    @Test
+    public void testBeetle()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(beetleRace);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/6"), pc.getDisplay().calcCR(), 0.1);
+    }
+
+    /**
+     * Test centipede => CR 1/8
+     */
+    @Test
+    public void testCentipede()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setRace(centipedeRace);
+        assertEquals(SettingsHandler.getGame().getCRInteger("1/8"), pc.getDisplay().calcCR(), 0.1);
+    }
+
+    @Override
+    protected void defaultSetupEnd()
+    {
+        //Nothing, we will trigger ourselves
+    }
 }

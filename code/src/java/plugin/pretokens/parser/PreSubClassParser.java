@@ -25,13 +25,14 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreSubClassParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"SUBCLASS"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"SUBCLASS"};
+    }
 }

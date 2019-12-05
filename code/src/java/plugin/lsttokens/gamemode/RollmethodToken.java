@@ -32,25 +32,24 @@ import pcgen.util.Logging;
 public class RollmethodToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ROLLMETHOD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ROLLMETHOD";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			SimpleLoader<RollMethod> methodLoader = new SimpleLoader<>(RollMethod.class);
-			methodLoader.parseLine(gameMode.getModeContext(), value, source);
-			return true;
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getMessage());
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            SimpleLoader<RollMethod> methodLoader = new SimpleLoader<>(RollMethod.class);
+            methodLoader.parseLine(gameMode.getModeContext(), value, source);
+            return true;
+        } catch (Exception e)
+        {
+            Logging.errorPrint(e.getMessage());
+            return false;
+        }
+    }
 }

@@ -1,141 +1,141 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Eric Smith - mareduddATblackrootDOTorg
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Eric Smith - mareduddATblackrootDOTorg
 
-                Description:
-                Provides information on the content of PCGen Weapon Proficiency Files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Weapon Proficiency Files
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Weapon Proficiency Files
-  </h1>
-  <p>
-   The weapon proficiency list file is to set what each weapon
-category a weapon belongs to (Simple, Martial, Exotic, Natural) so
-that PCGen can determine whether or not a character qualifies to
-use that weapon or not. The 1st field is the name field, there is
-no tag for it, just the name of the weapon proficiency.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="hands" name="hands">
-    *** Updated
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   HANDS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of hands)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines the minimum number of hands required to use the
-weapon. Defaults to a value of 1.
-   </li>
-   <li>
-    <code>#IFLARGERTHANWEAPON</code>
-    is a flag that checks if the
-characters size is larger than the weapon.
-    <ul>
-     <li>
-      If true, the character is granted that prof.
-     </li>
-     <li>
-      If not, the proficiency does not apply.
-     </li>
-    </ul>
-   </li>
-   <li>
-    Used for Exotic 1-Hand weapons that are martial if wielded with
-both hands.
-   </li>
-   <li>
-    When modifying a weapon proficiency with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>HANDS</code>
-    tag, the data included in
-a new
-    <code>HANDS</code>
-    tag will overwrite the existing tag
-data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>HANDS:2</code>
-  </p>
-  <p class="indent3">
-   Weapon is wielded with two hands.
-  </p>
-  <p class="indent2">
-   <code>HANDS:1IFLARGERTHANWEAPON</code>
-  </p>
-  <p class="indent3">
-   Weapon is wielded with one hand if the PC is
-larger than the weapon size.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Template:
-   <code>Ogre Axe &lt;tab&gt;
-HANDS:1</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Ogre Axe.MOD &lt;tab&gt;
-HANDS:2</code>
-  </p>
-  <p class="indent2">
-   Results In:
-   <code>Ogre Axe &lt;tab&gt;
-HANDS:2</code>
-  </p>
-  <p class="indent3">
-   Weapon is wielded with two hands.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+               Description:
+               Provides information on the content of PCGen Weapon Proficiency Files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Weapon Proficiency Files
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Weapon Proficiency Files
+</h1>
+<p>
+    The weapon proficiency list file is to set what each weapon
+    category a weapon belongs to (Simple, Martial, Exotic, Natural) so
+    that PCGen can determine whether or not a character qualifies to
+    use that weapon or not. The 1st field is the name field, there is
+    no tag for it, just the name of the weapon proficiency.
+</p>
+<hr/>
+<p class="status">
+    <a id="hands" name="hands">
+        *** Updated
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    HANDS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of hands)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines the minimum number of hands required to use the
+        weapon. Defaults to a value of 1.
+    </li>
+    <li>
+        <code>#IFLARGERTHANWEAPON</code>
+        is a flag that checks if the
+        characters size is larger than the weapon.
+        <ul>
+            <li>
+                If true, the character is granted that prof.
+            </li>
+            <li>
+                If not, the proficiency does not apply.
+            </li>
+        </ul>
+    </li>
+    <li>
+        Used for Exotic 1-Hand weapons that are martial if wielded with
+        both hands.
+    </li>
+    <li>
+        When modifying a weapon proficiency with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>HANDS</code>
+        tag, the data included in
+        a new
+        <code>HANDS</code>
+        tag will overwrite the existing tag
+        data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>HANDS:2</code>
+</p>
+<p class="indent3">
+    Weapon is wielded with two hands.
+</p>
+<p class="indent2">
+    <code>HANDS:1IFLARGERTHANWEAPON</code>
+</p>
+<p class="indent3">
+    Weapon is wielded with one hand if the PC is
+    larger than the weapon size.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Template:
+    <code>Ogre Axe &lt;tab&gt;
+        HANDS:1</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Ogre Axe.MOD &lt;tab&gt;
+        HANDS:2</code>
+</p>
+<p class="indent2">
+    Results In:
+    <code>Ogre Axe &lt;tab&gt;
+        HANDS:2</code>
+</p>
+<p class="indent3">
+    Weapon is wielded with two hands.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

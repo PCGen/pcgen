@@ -23,7 +23,7 @@
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.MonsterPreferencesPanelController">
     <VBox>
-        <Label text="%in_Prefs_ignoreMonsterHDCap" labelFor="$ignoreMonsterHDCap" />
-        <CheckBox fx:id="ignoreMonsterHDCap" />
+        <Label text="%in_Prefs_ignoreMonsterHDCap" labelFor="$ignoreMonsterHDCap"/>
+        <CheckBox fx:id="ignoreMonsterHDCap"/>
     </VBox>
 </Scene>

@@ -24,42 +24,43 @@ import pcgen.facade.util.ReferenceFacade;
 
 /**
  * The Class {@code CompanionStub} contains a definition of a possible
- * companion (i.e. animal companion, familiar, follower etc) for a character.  
+ * companion (i.e. animal companion, familiar, follower etc) for a character.
  */
 
 public class CompanionStub implements CompanionStubFacade
 {
 
-	private final DefaultReferenceFacade<Race> race;
-	private final String companionType;
+    private final DefaultReferenceFacade<Race> race;
+    private final String companionType;
 
-	/**
-	 * Create a new instance of CompanionStub
-	 * @param race The race of the possible companion.
-	 * @param companionType The type of companion.
-	 */
-	CompanionStub(Race race, String companionType)
-	{
-		this.race = new DefaultReferenceFacade<>(race);
-		this.companionType = companionType;
-	}
+    /**
+     * Create a new instance of CompanionStub
+     *
+     * @param race          The race of the possible companion.
+     * @param companionType The type of companion.
+     */
+    CompanionStub(Race race, String companionType)
+    {
+        this.race = new DefaultReferenceFacade<>(race);
+        this.companionType = companionType;
+    }
 
-	@Override
-	public ReferenceFacade<Race> getRaceRef()
-	{
-		return race;
-	}
+    @Override
+    public ReferenceFacade<Race> getRaceRef()
+    {
+        return race;
+    }
 
-	@Override
-	public String getCompanionType()
-	{
-		return companionType;
-	}
+    @Override
+    public String getCompanionType()
+    {
+        return companionType;
+    }
 
-	@Override
-	public String toString()
-	{
-		return race.toString();
-	}
+    @Override
+    public String toString()
+    {
+        return race.toString();
+    }
 
 }

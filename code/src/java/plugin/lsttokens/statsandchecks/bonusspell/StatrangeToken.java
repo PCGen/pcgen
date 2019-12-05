@@ -28,47 +28,46 @@ import pcgen.rules.persistence.token.ParseResult;
 public class StatrangeToken implements CDOMPrimaryToken<BonusSpellInfo>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "STATRANGE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "STATRANGE";
+    }
 
-	@Override
-	public Class<BonusSpellInfo> getTokenClass()
-	{
-		return BonusSpellInfo.class;
-	}
+    @Override
+    public Class<BonusSpellInfo> getTokenClass()
+    {
+        return BonusSpellInfo.class;
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, BonusSpellInfo bsi, String value)
-	{
-		try
-		{
-			int intValue = Integer.parseInt(value);
-			if (intValue < 1)
-			{
-				return new ParseResult.Fail(getTokenName() + " must be an integer >= " + 1);
-			}
-			bsi.setStatRange(intValue);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
-		}
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, BonusSpellInfo bsi, String value)
+    {
+        try
+        {
+            int intValue = Integer.parseInt(value);
+            if (intValue < 1)
+            {
+                return new ParseResult.Fail(getTokenName() + " must be an integer >= " + 1);
+            }
+            bsi.setStatRange(intValue);
+            return ParseResult.SUCCESS;
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, BonusSpellInfo bsi)
-	{
-		int range = bsi.getStatRange();
-		if (range == 0)
-		{
-			return null;
-		}
-		return new String[]{String.valueOf(range)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, BonusSpellInfo bsi)
+    {
+        int range = bsi.getStatRange();
+        if (range == 0)
+        {
+            return null;
+        }
+        return new String[]{String.valueOf(range)};
+    }
 
 }

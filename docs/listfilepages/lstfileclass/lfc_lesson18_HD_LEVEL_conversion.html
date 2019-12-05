@@ -1,419 +1,419 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                                
-                $Author: maredudd800 $
-                $Date: 2007-10-22 15:06:52 -0400 (Mon, 22 Oct 2007) $
-                $Revision: 4393 $
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #18: .lst - Converting HD and LEVEL template tags
-  </h1>
-  <p>
-   By Professor Eddy Anthony (MoSaT).
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *template.lst
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../datafilestagpages/datafilestemplates.html#hd">
-     HD
+<!--
+               PCGen Documentation Project
+
+               $Author: maredudd800 $
+               $Date: 2007-10-22 15:06:52 -0400 (Mon, 22 Oct 2007) $
+               $Revision: 4393 $
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #18: .lst - Converting HD and LEVEL template tags
+</h1>
+<p>
+    By Professor Eddy Anthony (MoSaT).
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    *template.lst
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../datafilestagpages/datafilestemplates.html#hd">
+        HD
     </a>
-    ,
-    <a href="../datafilestagpages/datafilestemplates.html#level">
-     LEVEL
-    </a>
-    ,
+        ,
+        <a href="../datafilestagpages/datafilestemplates.html#level">
+            LEVEL
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesprexxx.html#prehd">
+            PREHD
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesprexxx.html#prelevel">
+            PRELEVEL
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesprexxx.html#prepclevel">
+            PREPCLEVEL
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesraces.html#cr">
+            CR
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesother.html#dr">
+            DR
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesother.html#sab">
+            SA
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesother.html#sab">
+            SAB
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesother.html#sr">
+            SR
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesother.html#ability">
+            ABILITY
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesbonus.html#dr">
+            BONUS:DR
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesbonus.html#misccr">
+            BONUS:MISC|CR
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesbonus.html#miscsr">
+            BONUS:MISC|SR
+        </a></code>
+</p>
+<p class="indent1">
+    The template tags HD and LEVEL are used in
+    templates to grant a character feats and abilities at specific
+    levels based on the character's total levels and are independent of
+    any specific character classes. The HD tag is counted against
+    levels of Monster Classes and the LEVEL tag is counted against the
+    character's total levels from all classes. Both the HD and LEVEL
+    tags provide the following functions: granting Damage Reduction,
+    granting additions to Challenge Rating and Spell Resistance,
+    granting Special Abilities and granting automatic feats.
+</p>
+<p class="indent1">
+    Both of these tags have been around a long time
+    and have been problematic at times in the past. Recently much work
+    has been done to standardize the tags used in PCGen LST and these
+    two tags stand out for not following the more recent preferred
+    syntax. For these reasons these two tags will likely be deprecated
+    in the future, as of version 5.14 they are still valid but may be
+    deprecated in the 5.15 line.
+</p>
+<p class="indent1">
+    Fortunately as of version 5.14 all the functions
+    provided by these tags can be replicated with other tags using the
+    latest syntax. This page will show you how to convert each existing
+    use of HD and LEVEL using different tags with newer syntax.
+</p>
+<hr/>
+<h3>
+    HD and LEVEL Syntax
+</h3>
+<p>
+    At its core the HD and LEVEL tags are an older form of PRExxx
+    tags, the HD tag is a prerequisite for a specified number of
+    monster levels and the LEVEL tag is a prerequisite for the number
+    of total levels the character has. Both of these tags can be
+    expressed with this syntax:
+</p>
+<p class="indent1">
+    <code>&lt;Prerequisite&gt;:&lt;levels
+        specified&gt;:&lt;Object granting tag&gt;:&lt;Object to be
+        granted&gt;</code>
+</p>
+<p>
+    The more modern syntax which replaces this can be expressed in
+    this way:
+</p>
+<p class="indent1">
+    <code>&lt;Object granting tag&gt;:&lt;Object to
+        be granted&gt;|&lt;Prerequisite&gt;:&lt;levels
+        specified&gt;</code>
+</p>
+<p>
+    The function of the HD tag is replaced by the prerequisite tag
     <a href="../globalfilestagpages/globalfilesprexxx.html#prehd">
-     PREHD
+        PREHD
     </a>
-    ,
+    and
+    the function of the LEVEL tag is replaced by the prerequisite tag
     <a href="../globalfilestagpages/globalfilesprexxx.html#prelevel">
-     PRELEVEL
+        PRELEVEL
     </a>
-    ,
+    .
+    All of the ranges that can be specified by the HD and LEVEL tags
+    can be replicated with the syntax that PREHD and PRELEVEL use as
+    well as a good deal more because of the flexibility these tags
+    have. For example:
+</p>
+<p class="indent1">
+    <code>HD:2+</code>
+    is now
+    <code>PREHD:MIN=2</code>
+</p>
+<p class="indent1">
+    <code>HD:5-7</code>
+    is now
+    <code>PREHD:MIN=5,MAX=7</code>
+</p>
+<p class="indent1">
+    <code>HD:1-10</code>
+    is now
+    <code>PREHD:MAX=10</code>
+</p>
+<p>
+    The same syntax applies to LEVEL and PRELEVEL. In addition there
+    is now a
     <a href="../globalfilestagpages/globalfilesprexxx.html#prepclevel">
-     PREPCLEVEL
+        PREPCLEVEL
     </a>
-    ,
-    <a href="../datafilestagpages/datafilesraces.html#cr">
-     CR
-    </a>
-    ,
+    tag which is a prerequisite for the number of non-monster levels
+    the character has. This is quite useful if you need a prerequisite
+    based on the number of character levels the character has
+    regardless of the number of racial hitdice. This is commonly used
+    to regulate feats which can only be taken at first level with
+    PREPCLEVEL:MAX=1, if PRELEVEL:MAX=1 were used then an Ogre with no
+    character class levels would not qualify because it has more than 1
+    level total even though they are all monster class levels.
+</p>
+<hr/>
+<h3>
+    CR (Challenge Rating)
+</h3>
+<p>
+    All Characters have a CR value which is initially set by the CR
+    tag in the race line. A CR tag by itself in a template will add to
+    this value. HD:x:CR:y and LEVEL:x:CR:y will both add to the CR
+    value at the levels specified. BONUS:MISC|CR|x can be used to
+    replace this function in both HD and LEVEL
+</p>
+<p class="indent1">
+    <code>HD:2+:CR:3</code>
+    is now
+    <code>BONUS:MISC|CR|3|PREHD:MIN=2</code>
+</p>
+<p class="indent1">
+    <code>HD:1-10:CR:2</code>
+    is
+    now
+    <code>BONUS:MISC|CR|2|PREHD:MAX=10</code>
+</p>
+<p class="indent1">
+    <code>LEVEL:5-7:CR:5</code>
+    is
+    now
+    <code>BONUS:MISC|CR|5|PRELEVEL:MIN=5,MAX=7</code>
+</p>
+<p>
+    Keep in mind that CR is additive and there can be several way to
+    express things, for example a template containing:
+</p>
+<p class="indent1">
+    <code>HD:1-3:CR:2 &lt;tab&gt; HD:4-6:CR:3
+        &lt;tab&gt; HD:7+:CR:4</code>
+</p>
+<p>
+    Can be converted most literally as:
+</p>
+<p class="indent1">
+    <code>BONUS:MISC|CR|2|MAX=3 &lt;tab&gt;
+        BONUS:MISC|CR|3|PREHD:MIN=4,MAX=6 &lt;tab&gt;
+        BONUS:MISC|CR|4|PREHD:MIN=7</code>
+</p>
+<p>
+    But can also be converted more economically as:
+</p>
+<p class="indent1">
+    <code>CR:2 &lt;tab&gt;
+        BONUS:MISC|CR|1|PREHD:MIN=4 &lt;tab&gt;
+        BONUS:MISC|CR|1|PREHD:MIN=7</code>
+</p>
+<hr/>
+<h3>
+    DR (Damage Reduction)
+</h3>
+<p>
+    DR granted by the HD or LEVEL tags can also be handled directly
+    by the
     <a href="../globalfilestagpages/globalfilesother.html#dr">
-     DR
+        DR
     </a>
-    ,
-    <a href="../globalfilestagpages/globalfilesother.html#sab">
-     SA
-    </a>
-    ,
-    <a href="../globalfilestagpages/globalfilesother.html#sab">
-     SAB
-    </a>
-    ,
-    <a href="../globalfilestagpages/globalfilesother.html#sr">
-     SR
-    </a>
-    ,
-    <a href="../globalfilestagpages/globalfilesother.html#ability">
-     ABILITY
-    </a>
-    ,
+    tag and
+    the
     <a href="../globalfilestagpages/globalfilesbonus.html#dr">
-     BONUS:DR
+        BONUS:DR
     </a>
-    ,
-    <a href="../globalfilestagpages/globalfilesbonus.html#misccr">
-     BONUS:MISC|CR
+    tag
+    since these both take PRExxx tags. There are two aspects to these
+    tags which need to be kept in mind, the first is that the DR tag
+    does not stack with itself. The second is that the BONUS:DR tag
+    requires that the character must already have a DR tag of the kind
+    it will bonus or it will have no effect. This means that if you
+    have DR:5/Magic and DR:10/Magic from 2 different templates they
+    will not stack and you will only get the better of the two (in this
+    case 10/Magic). It also means that for the tag BONUS:DR|Magic|2 to
+    have any effect you must first have a DR:x/Magic tag.
+</p>
+<p class="indent1">
+    <code>HD:2+:DR:10/+1</code>
+    is
+    now
+    <code>DR:10/+1|PREHD:MIN=2</code>
+</p>
+<p class="indent1">
+    <code>HD:1-10:DR:5/Cold
+        Iron</code>
+    is now
+    <code>DR:5/Cold Iron|PREHD:MAX=10</code>
+</p>
+<p class="indent1">
+    <code>LEVEL:5-7:DR:20/Silver</code>
+    is now
+    <code>DR:20/Silver|PRELEVEL:MIN=5,MAX=7</code>
+</p>
+<hr/>
+<h3>
+    FEAT
+</h3>
+<p>
+    Feats granted by the HD and LEVEL tags are automatic and do not
+    adjust the feat pool. Feats granted by the HD and LEVEL tags can be
+    converted to the ABILITY tag.
+</p>
+<p class="indent1">
+    <code>HD:1-10:FEAT:Blind
+        Fight</code>
+    is now
+    <code>ABILITY:FEAT|AUTOMATIC|Blind Fight|PREHD:MAX=10</code>
+</p>
+<p class="indent1">
+    <code>LEVEL:5-7:FEAT:Alertness</code>
+    is now
+    <code>ABILITY:FEAT|AUTOMATIC|Alertness|PRELEVEL:MIN=5,MAX=7</code>
+</p>
+<p>
+    The FEAT function of HD and LEVEL also supports TYPE.x which
+    will trigger a pop up window with a list of feats of type x. This
+    is the only HD and LEVEL function that will trigger a pop up
+    window. The recommended method to replace this function is to set
+    up an ability pool so the feats can be manually selected. See
+    Lesson #17: .lst -
+    <a href="lfc_lesson17_converting_feats_to_abilities.html">
+        Converting Feats
+        to Abilities
     </a>
-    ,
-    <a href="../globalfilestagpages/globalfilesbonus.html#miscsr">
-     BONUS:MISC|SR
-    </a></code>
-  </p>
-  <p class="indent1">
-   The template tags HD and LEVEL are used in
-templates to grant a character feats and abilities at specific
-levels based on the character's total levels and are independent of
-any specific character classes. The HD tag is counted against
-levels of Monster Classes and the LEVEL tag is counted against the
-character's total levels from all classes. Both the HD and LEVEL
-tags provide the following functions: granting Damage Reduction,
-granting additions to Challenge Rating and Spell Resistance,
-granting Special Abilities and granting automatic feats.
-  </p>
-  <p class="indent1">
-   Both of these tags have been around a long time
-and have been problematic at times in the past. Recently much work
-has been done to standardize the tags used in PCGen LST and these
-two tags stand out for not following the more recent preferred
-syntax. For these reasons these two tags will likely be deprecated
-in the future, as of version 5.14 they are still valid but may be
-deprecated in the 5.15 line.
-  </p>
-  <p class="indent1">
-   Fortunately as of version 5.14 all the functions
-provided by these tags can be replicated with other tags using the
-latest syntax. This page will show you how to convert each existing
-use of HD and LEVEL using different tags with newer syntax.
-  </p>
-  <hr/>
-  <h3>
-   HD and LEVEL Syntax
-  </h3>
-  <p>
-   At its core the HD and LEVEL tags are an older form of PRExxx
-tags, the HD tag is a prerequisite for a specified number of
-monster levels and the LEVEL tag is a prerequisite for the number
-of total levels the character has. Both of these tags can be
-expressed with this syntax:
-  </p>
-  <p class="indent1">
-   <code>&lt;Prerequisite&gt;:&lt;levels
-specified&gt;:&lt;Object granting tag&gt;:&lt;Object to be
-granted&gt;</code>
-  </p>
-  <p>
-   The more modern syntax which replaces this can be expressed in
-this way:
-  </p>
-  <p class="indent1">
-   <code>&lt;Object granting tag&gt;:&lt;Object to
-be granted&gt;|&lt;Prerequisite&gt;:&lt;levels
-specified&gt;</code>
-  </p>
-  <p>
-   The function of the HD tag is replaced by the prerequisite tag
-   <a href="../globalfilestagpages/globalfilesprexxx.html#prehd">
-    PREHD
-   </a>
-   and
-the function of the LEVEL tag is replaced by the prerequisite tag
-   <a href="../globalfilestagpages/globalfilesprexxx.html#prelevel">
-    PRELEVEL
-   </a>
-   .
-All of the ranges that can be specified by the HD and LEVEL tags
-can be replicated with the syntax that PREHD and PRELEVEL use as
-well as a good deal more because of the flexibility these tags
-have. For example:
-  </p>
-  <p class="indent1">
-   <code>HD:2+</code>
-   is now
-   <code>PREHD:MIN=2</code>
-  </p>
-  <p class="indent1">
-   <code>HD:5-7</code>
-   is now
-   <code>PREHD:MIN=5,MAX=7</code>
-  </p>
-  <p class="indent1">
-   <code>HD:1-10</code>
-   is now
-   <code>PREHD:MAX=10</code>
-  </p>
-  <p>
-   The same syntax applies to LEVEL and PRELEVEL. In addition there
-is now a
-   <a href="../globalfilestagpages/globalfilesprexxx.html#prepclevel">
-    PREPCLEVEL
-   </a>
-   tag which is a prerequisite for the number of non-monster levels
-the character has. This is quite useful if you need a prerequisite
-based on the number of character levels the character has
-regardless of the number of racial hitdice. This is commonly used
-to regulate feats which can only be taken at first level with
-PREPCLEVEL:MAX=1, if PRELEVEL:MAX=1 were used then an Ogre with no
-character class levels would not qualify because it has more than 1
-level total even though they are all monster class levels.
-  </p>
-  <hr/>
-  <h3>
-   CR (Challenge Rating)
-  </h3>
-  <p>
-   All Characters have a CR value which is initially set by the CR
-tag in the race line. A CR tag by itself in a template will add to
-this value. HD:x:CR:y and LEVEL:x:CR:y will both add to the CR
-value at the levels specified. BONUS:MISC|CR|x can be used to
-replace this function in both HD and LEVEL
-  </p>
-  <p class="indent1">
-   <code>HD:2+:CR:3</code>
-   is now
-   <code>BONUS:MISC|CR|3|PREHD:MIN=2</code>
-  </p>
-  <p class="indent1">
-   <code>HD:1-10:CR:2</code>
-   is
-now
-   <code>BONUS:MISC|CR|2|PREHD:MAX=10</code>
-  </p>
-  <p class="indent1">
-   <code>LEVEL:5-7:CR:5</code>
-   is
-now
-   <code>BONUS:MISC|CR|5|PRELEVEL:MIN=5,MAX=7</code>
-  </p>
-  <p>
-   Keep in mind that CR is additive and there can be several way to
-express things, for example a template containing:
-  </p>
-  <p class="indent1">
-   <code>HD:1-3:CR:2 &lt;tab&gt; HD:4-6:CR:3
-&lt;tab&gt; HD:7+:CR:4</code>
-  </p>
-  <p>
-   Can be converted most literally as:
-  </p>
-  <p class="indent1">
-   <code>BONUS:MISC|CR|2|MAX=3 &lt;tab&gt;
-BONUS:MISC|CR|3|PREHD:MIN=4,MAX=6 &lt;tab&gt;
-BONUS:MISC|CR|4|PREHD:MIN=7</code>
-  </p>
-  <p>
-   But can also be converted more economically as:
-  </p>
-  <p class="indent1">
-   <code>CR:2 &lt;tab&gt;
-BONUS:MISC|CR|1|PREHD:MIN=4 &lt;tab&gt;
-BONUS:MISC|CR|1|PREHD:MIN=7</code>
-  </p>
-  <hr/>
-  <h3>
-   DR (Damage Reduction)
-  </h3>
-  <p>
-   DR granted by the HD or LEVEL tags can also be handled directly
-by the
-   <a href="../globalfilestagpages/globalfilesother.html#dr">
-    DR
-   </a>
-   tag and
-the
-   <a href="../globalfilestagpages/globalfilesbonus.html#dr">
-    BONUS:DR
-   </a>
-   tag
-since these both take PRExxx tags. There are two aspects to these
-tags which need to be kept in mind, the first is that the DR tag
-does not stack with itself. The second is that the BONUS:DR tag
-requires that the character must already have a DR tag of the kind
-it will bonus or it will have no effect. This means that if you
-have DR:5/Magic and DR:10/Magic from 2 different templates they
-will not stack and you will only get the better of the two (in this
-case 10/Magic). It also means that for the tag BONUS:DR|Magic|2 to
-have any effect you must first have a DR:x/Magic tag.
-  </p>
-  <p class="indent1">
-   <code>HD:2+:DR:10/+1</code>
-   is
-now
-   <code>DR:10/+1|PREHD:MIN=2</code>
-  </p>
-  <p class="indent1">
-   <code>HD:1-10:DR:5/Cold
-Iron</code>
-   is now
-   <code>DR:5/Cold Iron|PREHD:MAX=10</code>
-  </p>
-  <p class="indent1">
-   <code>LEVEL:5-7:DR:20/Silver</code>
-   is now
-   <code>DR:20/Silver|PRELEVEL:MIN=5,MAX=7</code>
-  </p>
-  <hr/>
-  <h3>
-   FEAT
-  </h3>
-  <p>
-   Feats granted by the HD and LEVEL tags are automatic and do not
-adjust the feat pool. Feats granted by the HD and LEVEL tags can be
-converted to the ABILITY tag.
-  </p>
-  <p class="indent1">
-   <code>HD:1-10:FEAT:Blind
-Fight</code>
-   is now
-   <code>ABILITY:FEAT|AUTOMATIC|Blind Fight|PREHD:MAX=10</code>
-  </p>
-  <p class="indent1">
-   <code>LEVEL:5-7:FEAT:Alertness</code>
-   is now
-   <code>ABILITY:FEAT|AUTOMATIC|Alertness|PRELEVEL:MIN=5,MAX=7</code>
-  </p>
-  <p>
-   The FEAT function of HD and LEVEL also supports TYPE.x which
-will trigger a pop up window with a list of feats of type x. This
-is the only HD and LEVEL function that will trigger a pop up
-window. The recommended method to replace this function is to set
-up an ability pool so the feats can be manually selected. See
-Lesson #17: .lst -
-   <a href="lfc_lesson17_converting_feats_to_abilities.html">
-    Converting Feats
-to Abilities
-   </a>
-   for more detailed information on this subject.
-  </p>
-  <hr/>
-  <h3>
-   SA (Special Ability)
-  </h3>
-  <p>
-   The
-   <a href="../globalfilestagpages/globalfilesother.html#sab">
-    SA
-   </a>
-   tag is
-deprecated, it's replacement is the
-   <a href="../globalfilestagpages/globalfilesother.html#sab">
-    SAB
-   </a>
-   tag. SA
-tags granted with HD and LEVEL should be converted to SAB tags with
-the proper PRE tags.
-  </p>
-  <p class="indent1">
-   <code>HD:1-10:SA:Banana
-toss</code>
-   is now
-   <code>SAB:Banana toss|PREHD:MAX=10</code>
-  </p>
-  <p class="indent1">
-   <code>LEVEL:5-7:SA:Fire in the
-Hole</code>
-   is now
-   <code>SAB:Fire in the
-Hole|PRELEVEL:MIN=5,MAX=7</code>
-  </p>
-  <hr/>
-  <h3>
-   SR (Spell Resistance)
-  </h3>
-  <p>
-   All Characters initially have an SR value of 0 which can then be
-raised by the Global SR tag and the BONUS:MISC|SR|x tag. It is not
-necessary to have an SR tag raise the value above 0 before you can
-use BONUS:MISC|SR|x to raise it further unlike DR and data defined
-variables. HD:x:SR:y and LEVEL:x:SR:y will both add to the SR value
-at the levels specified. BONUS:MISC|SR|x can be used to replace
-this function in both HD and LEVEL
-  </p>
-  <p class="indent1">
-   <code>HD:2+:SR:3</code>
-   is now
-   <code>BONUS:MISC|SR|3|PREHD:MIN=2</code>
-  </p>
-  <p class="indent1">
-   <code>HD:1-10:SR:2</code>
-   is
-now
-   <code>BONUS:MISC|SR|2|PREHD:MAX=10</code>
-  </p>
-  <p class="indent1">
-   <code>LEVEL:5-7:SR:5</code>
-   is
-now
-   <code>BONUS:MISC|SR|5|PRELEVEL:MIN=5,MAX=7</code>
-  </p>
-  <p>
-   Keep in mind that SR is additive and there can be several way to
-express things, for example a template containing:
-  </p>
-  <p class="indent1">
-   <code>HD:1-3:SR:2 &lt;tab&gt; HD:4-6:SR:3
-&lt;tab&gt; HD:7+:SR:4</code>
-  </p>
-  <p>
-   Can be converted most literally as:
-  </p>
-  <p class="indent1">
-   <code>BONUS:MISC|SR|2|MAX=3 &lt;tab&gt;
-BONUS:MISC|SR|3|PREHD:MIN=4,MAX=6 &lt;tab&gt;
-BONUS:MISC|SR|4|PREHD:MIN=7</code>
-  </p>
-  <p>
-   But can also be converted more economically as:
-  </p>
-  <p class="indent1">
-   <code>SR:2 &lt;tab&gt;
-BONUS:MISC|SR|1|PREHD:MIN=4 &lt;tab&gt;
-BONUS:MISC|SR|1|PREHD:MIN=7</code>
-  </p>
-  <hr/>
-  <p>
-   Eddy
-   <br/>
-   LST Chimp
-  </p>
-  <p>
-  </p>
- </body>
+    for more detailed information on this subject.
+</p>
+<hr/>
+<h3>
+    SA (Special Ability)
+</h3>
+<p>
+    The
+    <a href="../globalfilestagpages/globalfilesother.html#sab">
+        SA
+    </a>
+    tag is
+    deprecated, it's replacement is the
+    <a href="../globalfilestagpages/globalfilesother.html#sab">
+        SAB
+    </a>
+    tag. SA
+    tags granted with HD and LEVEL should be converted to SAB tags with
+    the proper PRE tags.
+</p>
+<p class="indent1">
+    <code>HD:1-10:SA:Banana
+        toss</code>
+    is now
+    <code>SAB:Banana toss|PREHD:MAX=10</code>
+</p>
+<p class="indent1">
+    <code>LEVEL:5-7:SA:Fire in the
+        Hole</code>
+    is now
+    <code>SAB:Fire in the
+        Hole|PRELEVEL:MIN=5,MAX=7</code>
+</p>
+<hr/>
+<h3>
+    SR (Spell Resistance)
+</h3>
+<p>
+    All Characters initially have an SR value of 0 which can then be
+    raised by the Global SR tag and the BONUS:MISC|SR|x tag. It is not
+    necessary to have an SR tag raise the value above 0 before you can
+    use BONUS:MISC|SR|x to raise it further unlike DR and data defined
+    variables. HD:x:SR:y and LEVEL:x:SR:y will both add to the SR value
+    at the levels specified. BONUS:MISC|SR|x can be used to replace
+    this function in both HD and LEVEL
+</p>
+<p class="indent1">
+    <code>HD:2+:SR:3</code>
+    is now
+    <code>BONUS:MISC|SR|3|PREHD:MIN=2</code>
+</p>
+<p class="indent1">
+    <code>HD:1-10:SR:2</code>
+    is
+    now
+    <code>BONUS:MISC|SR|2|PREHD:MAX=10</code>
+</p>
+<p class="indent1">
+    <code>LEVEL:5-7:SR:5</code>
+    is
+    now
+    <code>BONUS:MISC|SR|5|PRELEVEL:MIN=5,MAX=7</code>
+</p>
+<p>
+    Keep in mind that SR is additive and there can be several way to
+    express things, for example a template containing:
+</p>
+<p class="indent1">
+    <code>HD:1-3:SR:2 &lt;tab&gt; HD:4-6:SR:3
+        &lt;tab&gt; HD:7+:SR:4</code>
+</p>
+<p>
+    Can be converted most literally as:
+</p>
+<p class="indent1">
+    <code>BONUS:MISC|SR|2|MAX=3 &lt;tab&gt;
+        BONUS:MISC|SR|3|PREHD:MIN=4,MAX=6 &lt;tab&gt;
+        BONUS:MISC|SR|4|PREHD:MIN=7</code>
+</p>
+<p>
+    But can also be converted more economically as:
+</p>
+<p class="indent1">
+    <code>SR:2 &lt;tab&gt;
+        BONUS:MISC|SR|1|PREHD:MIN=4 &lt;tab&gt;
+        BONUS:MISC|SR|1|PREHD:MIN=7</code>
+</p>
+<hr/>
+<p>
+    Eddy
+    <br/>
+    LST Chimp
+</p>
+<p>
+</p>
+</body>
 </html>

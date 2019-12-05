@@ -28,30 +28,30 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreGenderTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
-	{
-		int runningTotal;
-		boolean genderMatches = pc.getGenderString().startsWith(prereq.getKey());
-		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
-		{
-			runningTotal = genderMatches ? 1 : 0;
-		}
-		else
-		{
-			runningTotal = genderMatches ? 0 : 1;
-		}
-		return countedTotal(prereq, runningTotal);
-	}
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
+    {
+        int runningTotal;
+        boolean genderMatches = pc.getGenderString().startsWith(prereq.getKey());
+        if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
+        {
+            runningTotal = genderMatches ? 1 : 0;
+        } else
+        {
+            runningTotal = genderMatches ? 0 : 1;
+        }
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "GENDER"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "GENDER"; //$NON-NLS-1$
+    }
 
 }

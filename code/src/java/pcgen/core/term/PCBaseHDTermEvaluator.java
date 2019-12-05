@@ -24,38 +24,36 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * The Class {@code PCBaseHDTermEvaluator} is responsible for calculating
- * the character's unmodified number of racial hit dice, as specified by the 
- * MONSTERCLASS tag in the race definition. 
- * 
- * 
+ * the character's unmodified number of racial hit dice, as specified by the
+ * MONSTERCLASS tag in the race definition.
  */
 public class PCBaseHDTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	/**
-	 * Instantiates a new PCBaseHDTermEvaluator.
-	 * 
-	 * @param expressionString the expression string
-	 */
-	public PCBaseHDTermEvaluator(String expressionString)
-	{
-		this.originalText = expressionString;
-	}
+    /**
+     * Instantiates a new PCBaseHDTermEvaluator.
+     *
+     * @param expressionString the expression string
+     */
+    public PCBaseHDTermEvaluator(String expressionString)
+    {
+        this.originalText = expressionString;
+    }
 
-	@Override
-	public Float resolve(PlayerCharacter pc)
-	{
-		return pc.getDisplay().getBaseHD();
-	}
+    @Override
+    public Float resolve(PlayerCharacter pc)
+    {
+        return pc.getDisplay().getBaseHD();
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return false;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return false;
+    }
 
-	public boolean isStatic()
-	{
-		return false;
-	}
+    public boolean isStatic()
+    {
+        return false;
+    }
 }

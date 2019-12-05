@@ -24,21 +24,21 @@ import pcgen.core.PCCheck;
 
 public class CheckFacetTest extends AbstractListFacetTest<PCCheck>
 {
-	private CheckFacet facet = new CheckFacet();
+    private CheckFacet facet = new CheckFacet();
 
-	@Override
-	protected AbstractListFacet<CharID, PCCheck> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractListFacet<CharID, PCCheck> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected PCCheck getObject()
-	{
-		PCCheck t = new PCCheck();
-		t.setName("PCCheck" + n++);
-		return t;
-	}
+    @Override
+    protected PCCheck getObject()
+    {
+        PCCheck t = new PCCheck();
+        t.setName("PCCheck" + n++);
+        return t;
+    }
 }

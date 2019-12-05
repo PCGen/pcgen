@@ -31,27 +31,26 @@ import pcgen.util.Logging;
 public class TabToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "TAB";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TAB";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			TabLoader tabLoader = new TabLoader();
-			LoadContext modeContext = gameMode.getModeContext();
-			modeContext.setSourceURI(source);
-			tabLoader.parseLine(modeContext, value, source);
-			return true;
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getMessage(), e);
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            TabLoader tabLoader = new TabLoader();
+            LoadContext modeContext = gameMode.getModeContext();
+            modeContext.setSourceURI(source);
+            tabLoader.parseLine(modeContext, value, source);
+            return true;
+        } catch (Exception e)
+        {
+            Logging.errorPrint(e.getMessage(), e);
+            return false;
+        }
+    }
 }

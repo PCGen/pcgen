@@ -34,39 +34,39 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class AppliedBonusFacetTest extends AbstractListFacetTest<BonusObj>
 {
-	private AppliedBonusFacet facet = new AppliedBonusFacet();
-	private LoadContext context;
+    private AppliedBonusFacet facet = new AppliedBonusFacet();
+    private LoadContext context;
 
-	@Override
-	protected AbstractListFacet<CharID, BonusObj> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractListFacet<CharID, BonusObj> getFacet()
+    {
+        return facet;
+    }
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		context =
-				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
-					new ConsolidatedListCommitStrategy());
-		addBonus(Combat.class);
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        context =
+                new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+                        new ConsolidatedListCommitStrategy());
+        addBonus(Combat.class);
+    }
 
-	@AfterEach
-	@Override
-	public void tearDown()
-	{
-		TokenRegistration.clearTokens();
-		facet = null;
-		context = null;
-		super.tearDown();
-	}
+    @AfterEach
+    @Override
+    public void tearDown()
+    {
+        TokenRegistration.clearTokens();
+        facet = null;
+        context = null;
+        super.tearDown();
+    }
 
-	@Override
-	protected BonusObj getObject()
-	{
-		return Bonus.newBonus(context, "COMBAT|AC|2");
-	}
+    @Override
+    protected BonusObj getObject()
+    {
+        return Bonus.newBonus(context, "COMBAT|AC|2");
+    }
 }

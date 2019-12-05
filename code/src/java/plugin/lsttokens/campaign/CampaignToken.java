@@ -30,46 +30,46 @@ import pcgen.rules.persistence.token.ParseResult;
  * Class deals with CAMPAIGN Token
  */
 public class CampaignToken extends AbstractNonEmptyToken<Campaign>
-		implements CDOMPrimaryToken<Campaign>, InstallLstToken
+        implements CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "CAMPAIGN";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CAMPAIGN";
+    }
 
-	@Override
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
-	{
-		campaign.setName(value.intern());
-		return true;
-	}
+    @Override
+    public boolean parse(Campaign campaign, String value, URI sourceUri)
+    {
+        campaign.setName(value.intern());
+        return true;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
-	{
-		/*
-		 * TODO This violates the CDOM direct-access token rules, but given how
-		 * complicated NAME is, this is much easier to cheat here, and fix
-		 * later. This really has no major negative effect since campaigns can't
-		 * be .MODed or .COPYed, so direct access isn't a critical problem. -
-		 * thpr 12/23/08
-		 */
-		campaign.setName(value.intern());
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
+    {
+        /*
+         * TODO This violates the CDOM direct-access token rules, but given how
+         * complicated NAME is, this is much easier to cheat here, and fix
+         * later. This really has no major negative effect since campaigns can't
+         * be .MODed or .COPYed, so direct access isn't a critical problem. -
+         * thpr 12/23/08
+         */
+        campaign.setName(value.intern());
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		return new String[]{campaign.getDisplayName()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        return new String[]{campaign.getDisplayName()};
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 
 }

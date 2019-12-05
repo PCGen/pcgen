@@ -31,58 +31,55 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreShieldProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		final int numberRequired = Integer.parseInt(prereq.getOperand());
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        final int numberRequired = Integer.parseInt(prereq.getOperand());
+        int runningTotal = 0;
 
-		final String aString = prereq.getKey();
-		final boolean isType = aString.startsWith("TYPE") && aString.length() > 5;
-		final boolean isShieldType = aString.startsWith("SHIELDTYPE") && aString.length() > 11;
-		String typeString = null;
-		if (isType)
-		{
-			typeString = "SHIELD." + aString.substring(5);
-		}
-		else if (isShieldType)
-		{
-			typeString = "SHIELD." + aString.substring(11);
-		}
-		Equipment keyEquip =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, aString);
-		for (ProfProvider<ShieldProf> spp : display.getShieldProfList())
-		{
-			if (keyEquip != null && spp.providesProficiency(keyEquip.getShieldProf()))
-			{
-				runningTotal++;
-			}
-			else if (keyEquip != null && spp.providesEquipmentType(keyEquip.getType()))
-			{
-				runningTotal++;
-			}
-			else if (isType && spp.providesEquipmentType(typeString))
-			{
-				runningTotal++;
-			}
-			else if (isShieldType && spp.providesEquipmentType(typeString))
-			{
-				runningTotal++;
-			}
-		}
+        final String aString = prereq.getKey();
+        final boolean isType = aString.startsWith("TYPE") && aString.length() > 5;
+        final boolean isShieldType = aString.startsWith("SHIELDTYPE") && aString.length() > 11;
+        String typeString = null;
+        if (isType)
+        {
+            typeString = "SHIELD." + aString.substring(5);
+        } else if (isShieldType)
+        {
+            typeString = "SHIELD." + aString.substring(11);
+        }
+        Equipment keyEquip =
+                Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, aString);
+        for (ProfProvider<ShieldProf> spp : display.getShieldProfList())
+        {
+            if (keyEquip != null && spp.providesProficiency(keyEquip.getShieldProf()))
+            {
+                runningTotal++;
+            } else if (keyEquip != null && spp.providesEquipmentType(keyEquip.getType()))
+            {
+                runningTotal++;
+            } else if (isType && spp.providesEquipmentType(typeString))
+            {
+                runningTotal++;
+            } else if (isShieldType && spp.providesEquipmentType(typeString))
+            {
+                runningTotal++;
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, numberRequired);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, numberRequired);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "profwithshield"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "profwithshield"; //$NON-NLS-1$
+    }
 
 }

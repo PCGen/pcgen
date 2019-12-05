@@ -31,33 +31,33 @@ import pcgen.system.LanguageBundle;
 public class PreReachTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal;
-		try
-		{
-			final int targetReach = Integer.parseInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal;
+        try
+        {
+            final int targetReach = Integer.parseInt(prereq.getOperand());
 
-			int pcReach = FacetLibrary.getFacet(ReachFacet.class).getReach(display.getCharID());
-			runningTotal = prereq.getOperator().compare(pcReach, targetReach);
-		}
-		catch (NumberFormatException nfe)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreReach.error.badly_formed", prereq.getOperand()), nfe);
-		}
-		return countedTotal(prereq, runningTotal);
-	}
+            int pcReach = FacetLibrary.getFacet(ReachFacet.class).getReach(display.getCharID());
+            runningTotal = prereq.getOperator().compare(pcReach, targetReach);
+        } catch (NumberFormatException nfe)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreReach.error.badly_formed", prereq.getOperand()), nfe);
+        }
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "REACH"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "REACH"; //$NON-NLS-1$
+    }
 }

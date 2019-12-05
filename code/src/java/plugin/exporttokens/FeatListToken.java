@@ -13,24 +13,25 @@ import pcgen.io.exporttoken.AbilityListToken;
 public class FeatListToken extends AbilityListToken
 {
 
-	/**
-	 * Get the TOKENNAME
-	 * @return TOKENNAME
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "FEATLIST";
-	}
+    /**
+     * Get the TOKENNAME
+     *
+     * @return TOKENNAME
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "FEATLIST";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		// Skip the ABILITYLIST token itself
-		final String tokenString = aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        // Skip the ABILITYLIST token itself
+        final String tokenString = aTok.nextToken();
 
-		return getTokenForCategory(pc, aTok, tokenString, AbilityCategory.FEAT);
-	}
+        return getTokenForCategory(pc, aTok, tokenString, AbilityCategory.FEAT);
+    }
 
 }

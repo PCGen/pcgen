@@ -26,30 +26,31 @@ import pcgen.util.Logging;
  */
 public final class AbilityPool extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		if (token == null)
-		{
-			Logging.errorPrint("Malformed BONUS:ABILITYPOOL Requires Ability Category");
-		}
-		addBonusInfo(token);
-		return true;
-	}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        if (token == null)
+        {
+            Logging.errorPrint("Malformed BONUS:ABILITYPOOL Requires Ability Category");
+        }
+        addBonusInfo(token);
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "ABILITYPOOL";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "ABILITYPOOL";
+    }
 }

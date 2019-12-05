@@ -28,27 +28,26 @@ import pcgen.io.exporttoken.Token;
  */
 public class ACToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "AC";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "AC";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String solverValue = pc.getControl("ACVAR" + tokenSource);
-		int intValue;
-		if (solverValue != null)
-		{
-			Object val = pc.getGlobal(solverValue);
-			intValue = ((Number) val).intValue();
-		}
-		else
-		{
-			String acTypeKey = SettingsHandler.getGame().getACTypeName(tokenSource.substring(3));
-			intValue = pc.getDisplay().calcACOfType(acTypeKey);
-		}
-		return Integer.toString(intValue);
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String solverValue = pc.getControl("ACVAR" + tokenSource);
+        int intValue;
+        if (solverValue != null)
+        {
+            Object val = pc.getGlobal(solverValue);
+            intValue = ((Number) val).intValue();
+        } else
+        {
+            String acTypeKey = SettingsHandler.getGame().getACTypeName(tokenSource.substring(3));
+            intValue = pc.getDisplay().calcACOfType(acTypeKey);
+        }
+        return Integer.toString(intValue);
+    }
 }

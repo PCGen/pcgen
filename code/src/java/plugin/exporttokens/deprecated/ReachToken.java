@@ -32,51 +32,49 @@ import pcgen.io.exporttoken.Token;
 //REACH
 public class ReachToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "REACH";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "REACH";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("REACH".equals(tokenSource))
-		{
-			retString = getToken(pc);
-		}
-		else if ("REACH.VAL".equals(tokenSource))
-		{
-			return Integer.toString(getReachToken(pc));
-		}
-		else if ("REACH.SQUARES".equals(tokenSource))
-		{
-			retString = getSquaresToken(pc);
-		}
+        if ("REACH".equals(tokenSource))
+        {
+            retString = getToken(pc);
+        } else if ("REACH.VAL".equals(tokenSource))
+        {
+            return Integer.toString(getReachToken(pc));
+        } else if ("REACH.SQUARES".equals(tokenSource))
+        {
+            retString = getSquaresToken(pc);
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	public static int getReachToken(PlayerCharacter pc)
-	{
-		String pcReach = pc.getControl(CControl.PCREACH);
-		if (pcReach == null)
-		{
-			return FacetLibrary.getFacet(ReachFacet.class).getReach(pc.getCharID());
-		}
-		return ((Number) pc.getGlobal(pcReach)).intValue();
-	}
+    public static int getReachToken(PlayerCharacter pc)
+    {
+        String pcReach = pc.getControl(CControl.PCREACH);
+        if (pcReach == null)
+        {
+            return FacetLibrary.getFacet(ReachFacet.class).getReach(pc.getCharID());
+        }
+        return ((Number) pc.getGlobal(pcReach)).intValue();
+    }
 
-	public static String getToken(PlayerCharacter pc)
-	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(getReachToken(pc))
-			+ Globals.getGameModeUnitSet().getDistanceUnit();
-	}
+    public static String getToken(PlayerCharacter pc)
+    {
+        return Globals.getGameModeUnitSet().displayDistanceInUnitSet(getReachToken(pc))
+                + Globals.getGameModeUnitSet().getDistanceUnit();
+    }
 
-	public static String getSquaresToken(PlayerCharacter pc)
-	{
-		return new DecimalFormat("#.#").format(getReachToken(pc) / SettingsHandler.getGame().getSquareSize());
-	}
+    public static String getSquaresToken(PlayerCharacter pc)
+    {
+        return new DecimalFormat("#.#").format(getReachToken(pc) / SettingsHandler.getGame().getSquareSize());
+    }
 }

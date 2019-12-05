@@ -24,14 +24,14 @@ import pcgen.inttest.PcgenFtlTestCase;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test a 3e 1st lvl Half-Elf Bard 
+ * Test a 3e 1st lvl Half-Elf Bard
  */
 public class pcGenGUIBrdJoeTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testBrdJoe() throws Exception
-	{
-		runTest("3e_BrdJoe", "3e");
-	}
+    @Test
+    public void testBrdJoe() throws Exception
+    {
+        runTest("3e_BrdJoe", "3e");
+    }
 
 }

@@ -37,63 +37,62 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 @SuppressWarnings("serial")
 public final class Spell extends PObject implements InfoFacade, Ungranted
 {
-	public static final CDOMReference<SpellList> SPELLS;
+    public static final CDOMReference<SpellList> SPELLS;
 
-	static
-	{
-		SpellList wpl = new SpellList();
-		wpl.setName("*Spells");
-		SPELLS = CDOMDirectSingleRef.getRef(wpl);
-	}
+    static
+    {
+        SpellList wpl = new SpellList();
+        wpl.setName("*Spells");
+        SPELLS = CDOMDirectSingleRef.getRef(wpl);
+    }
 
-	@Override
-	public String getPCCText()
-	{
-		StringJoiner txt = new StringJoiner("\t");
-		txt.add(getDisplayName());
-		Globals.getContext().unparse(this).forEach(txt::add);
-		txt.add(PrerequisiteWriter.prereqsToString(this));
-		return txt.toString();
-	}
+    @Override
+    public String getPCCText()
+    {
+        StringJoiner txt = new StringJoiner("\t");
+        txt.add(getDisplayName());
+        Globals.getContext().unparse(this).forEach(txt::add);
+        txt.add(PrerequisiteWriter.prereqsToString(this));
+        return txt.toString();
+    }
 
-	/**
-	 * Tests to see if two Spell objects are equal.
-	 * 
-	 * @param obj Spell to compare to.
-	 * 
-	 * @return <tt>true</tt> if the Spells are the same.
-	 */
-	@Override
-	public boolean equals(final Object obj)
-	{
-		return obj instanceof Spell && getKeyName().equalsIgnoreCase(((Spell) obj).getKeyName());
-	}
+    /**
+     * Tests to see if two Spell objects are equal.
+     *
+     * @param obj Spell to compare to.
+     * @return <tt>true</tt> if the Spells are the same.
+     */
+    @Override
+    public boolean equals(final Object obj)
+    {
+        return obj instanceof Spell && getKeyName().equalsIgnoreCase(((Spell) obj).getKeyName());
+    }
 
-	/**
-	 * Need something consistent with equals - this causes conflicts with the same name
-	 * but that's ok, it's only a hashcode.
-	 */
-	@Override
-	public int hashCode()
-	{
-		return getKeyName().hashCode();
-	}
+    /**
+     * Need something consistent with equals - this causes conflicts with the same name
+     * but that's ok, it's only a hashcode.
+     */
+    @Override
+    public int hashCode()
+    {
+        return getKeyName().hashCode();
+    }
 
-	public boolean isAllowed(Type t)
-	{
-		boolean allowed = containsInList(ListKey.ITEM, t);
-		boolean prohibited = Type.POTION.equals(t) || containsInList(ListKey.PROHIBITED_ITEM, t);
-		return allowed || !prohibited;
-	}
+    public boolean isAllowed(Type t)
+    {
+        boolean allowed = containsInList(ListKey.ITEM, t);
+        boolean prohibited = Type.POTION.equals(t) || containsInList(ListKey.PROHIBITED_ITEM, t);
+        return allowed || !prohibited;
+    }
 
-	@Override
-	public String toString()
-	{
-		if (SettingsHandler.guiUsesOutputNameSpells())
-		{
-			return getOutputName();
-		}
+    @Override
+    public String toString()
+    {
+        if (SettingsHandler.guiUsesOutputNameSpells())
+        {
+            return getOutputName();
+        }
 
-		return getDisplayName();
-	}
+        return getDisplayName();
+    }
 }

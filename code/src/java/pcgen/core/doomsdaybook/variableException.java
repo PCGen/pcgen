@@ -25,12 +25,13 @@ package pcgen.core.doomsdaybook;
 class variableException extends Exception
 {
 
-	/**
-	 * Constructs an instance of {@code variableException} with the specified detail message.
-	 * @param msg the detail message.
-	 */
-	variableException(String msg)
-	{
-		super(msg);
-	}
+    /**
+     * Constructs an instance of {@code variableException} with the specified detail message.
+     *
+     * @param msg the detail message.
+     */
+    variableException(String msg)
+    {
+        super(msg);
+    }
 }

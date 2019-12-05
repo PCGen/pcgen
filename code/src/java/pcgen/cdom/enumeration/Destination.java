@@ -23,18 +23,18 @@ package pcgen.cdom.enumeration;
  */
 public enum Destination
 {
-	DATA("DATA"), VENDORDATA("VENDORDATA"), HOMEBREWDATA("HOMEBREWDATA");
+    DATA("DATA"), VENDORDATA("VENDORDATA"), HOMEBREWDATA("HOMEBREWDATA");
 
-	private final String text;
+    private final String text;
 
-	Destination(String destination)
-	{
-		text = destination;
-	}
+    Destination(String destination)
+    {
+        text = destination;
+    }
 
-	@Override
-	public String toString()
-	{
-		return text;
-	}
+    @Override
+    public String toString()
+    {
+        return text;
+    }
 }

@@ -33,58 +33,58 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 {
-	
-	@Test
-	public void testMultipleFails()
-	{
-		PreDamageReductionParser parser = new PreDamageReductionParser();
 
-		PersistenceLayerException ple = assertThrows(PersistenceLayerException.class, () -> {
-			parser.parse("DR", "Evil=5,Magic.10", false, false);
-			fail("should have thrown a PersistenceLayerException!");
-		});
-		assertEquals(
-				"Badly formed passesPreDR/number of DRs attribute: Evil=5", ple.getMessage());
-	}
-	
-	/**
-	 * Test multiple passes.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testMultiplePasses() throws PersistenceLayerException
-	{
-		PreDamageReductionParser parser = new PreDamageReductionParser();
+    @Test
+    public void testMultipleFails()
+    {
+        PreDamageReductionParser parser = new PreDamageReductionParser();
 
-		Prerequisite prereq =
-				parser.parse("DR", "1,Evil=5,Magic.10", false, false);
+        PersistenceLayerException ple = assertThrows(PersistenceLayerException.class, () -> {
+            parser.parse("DR", "Evil=5,Magic.10", false, false);
+            fail("should have thrown a PersistenceLayerException!");
+        });
+        assertEquals(
+                "Badly formed passesPreDR/number of DRs attribute: Evil=5", ple.getMessage());
+    }
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" "
-			+ "operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" "
-			+ "operator=\"GTEQ\" operand=\"10\" >\n</prereq>\n</prereq>\n",
-			prereq.toString());
-	}
+    /**
+     * Test multiple passes.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testMultiplePasses() throws PersistenceLayerException
+    {
+        PreDamageReductionParser parser = new PreDamageReductionParser();
 
-	
-	/**
-	 * Test no value.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testNoValue() throws PersistenceLayerException
-	{
-		PreDamageReductionParser parser = new PreDamageReductionParser();
+        Prerequisite prereq =
+                parser.parse("DR", "1,Evil=5,Magic.10", false, false);
 
-		Prerequisite prereq =
-				parser.parse("DR", "1,Evil=5,Magic", false, false);
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" "
+                        + "operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" "
+                        + "operator=\"GTEQ\" operand=\"10\" >\n</prereq>\n</prereq>\n",
+                prereq.toString());
+    }
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" "
-					+ "operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" "
-					+ "operator=\"GTEQ\" operand=\"0\" >\n</prereq>\n</prereq>\n",
-			prereq.toString());
-	}
+
+    /**
+     * Test no value.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testNoValue() throws PersistenceLayerException
+    {
+        PreDamageReductionParser parser = new PreDamageReductionParser();
+
+        Prerequisite prereq =
+                parser.parse("DR", "1,Evil=5,Magic", false, false);
+
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" "
+                        + "operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" "
+                        + "operator=\"GTEQ\" operand=\"0\" >\n</prereq>\n</prereq>\n",
+                prereq.toString());
+    }
 }

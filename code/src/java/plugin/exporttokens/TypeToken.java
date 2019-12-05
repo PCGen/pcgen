@@ -27,16 +27,16 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class TypeToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "TYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TYPE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getRaceType();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getRaceType();
+    }
 
 }

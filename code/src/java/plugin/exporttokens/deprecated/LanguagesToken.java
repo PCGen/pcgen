@@ -33,52 +33,50 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class LanguagesToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "LANGUAGES";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LANGUAGES";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		int languageIndex = 0;
-		int startIndex = 0;
+        int languageIndex = 0;
+        int startIndex = 0;
 
-		List<Language> languageList = new ArrayList<>(display.getSortedLanguageSet());
+        List<Language> languageList = new ArrayList<>(display.getSortedLanguageSet());
 
-		if (aTok.hasMoreTokens())
-		{
-			try
-			{
-				startIndex = Integer.parseInt(aTok.nextToken());
-				languageIndex = startIndex + 1;
-				/*
-				 * PERFORMANCE This can actually shortcut the subList below, as
-				 * it really is only grabbling one language
-				 */
-			}
-			catch (NumberFormatException e)
-			{
-				//TODO: Should this really be ignored?
-			}
-		}
-		else
-		{
-			languageIndex = languageList.size();
-		}
+        if (aTok.hasMoreTokens())
+        {
+            try
+            {
+                startIndex = Integer.parseInt(aTok.nextToken());
+                languageIndex = startIndex + 1;
+                /*
+                 * PERFORMANCE This can actually shortcut the subList below, as
+                 * it really is only grabbling one language
+                 */
+            } catch (NumberFormatException e)
+            {
+                //TODO: Should this really be ignored?
+            }
+        } else
+        {
+            languageIndex = languageList.size();
+        }
 
-		if (languageList.isEmpty())
-		{
-			return "";
-		}
+        if (languageList.isEmpty())
+        {
+            return "";
+        }
 
-		List<Language> subList =
-				languageList.subList(Math.max(startIndex, 0), Math.min(languageIndex, languageList.size()));
+        List<Language> subList =
+                languageList.subList(Math.max(startIndex, 0), Math.min(languageIndex, languageList.size()));
 
-		return StringUtil.join(subList, ", ");
-	}
+        return StringUtil.join(subList, ", ");
+    }
 }

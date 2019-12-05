@@ -29,102 +29,100 @@ import pcgen.rules.persistence.token.ParseResult;
  * Deals with CHARGES token
  */
 public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "CHARGES";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CHARGES";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
-	{
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " has no | : must be of format <min charges>|<max charges>: " + value);
-		}
-		if (value.lastIndexOf(Constants.PIPE) != pipeLoc)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " has two | : must be of format <min charges>|<max charges>: " + value);
-		}
-		String minChargeString = value.substring(0, pipeLoc);
-		int minCharges;
-		try
-		{
-			minCharges = Integer.parseInt(minChargeString);
-			if (minCharges < 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " min charges must be >= zero: " + value);
-			}
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(getTokenName() + " min charges is not an integer: " + value);
-		}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
+    {
+        int pipeLoc = value.indexOf(Constants.PIPE);
+        if (pipeLoc == -1)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " has no | : must be of format <min charges>|<max charges>: " + value);
+        }
+        if (value.lastIndexOf(Constants.PIPE) != pipeLoc)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " has two | : must be of format <min charges>|<max charges>: " + value);
+        }
+        String minChargeString = value.substring(0, pipeLoc);
+        int minCharges;
+        try
+        {
+            minCharges = Integer.parseInt(minChargeString);
+            if (minCharges < 0)
+            {
+                return new ParseResult.Fail(getTokenName() + " min charges must be >= zero: " + value);
+            }
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(getTokenName() + " min charges is not an integer: " + value);
+        }
 
-		String maxChargeString = value.substring(pipeLoc + 1);
-		int maxCharges;
-		try
-		{
-			maxCharges = Integer.parseInt(maxChargeString);
-			/*
-			 * No need to test max for negative, since min was tested and there
-			 * is a later test for max >= min
-			 */
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(getTokenName() + " max charges is not an integer: " + value);
-		}
+        String maxChargeString = value.substring(pipeLoc + 1);
+        int maxCharges;
+        try
+        {
+            maxCharges = Integer.parseInt(maxChargeString);
+            /*
+             * No need to test max for negative, since min was tested and there
+             * is a later test for max >= min
+             */
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(getTokenName() + " max charges is not an integer: " + value);
+        }
 
-		if (minCharges > maxCharges)
-		{
-			return new ParseResult.Fail(getTokenName() + " max charges must be >= min charges: " + value);
-		}
+        if (minCharges > maxCharges)
+        {
+            return new ParseResult.Fail(getTokenName() + " max charges must be >= min charges: " + value);
+        }
 
-		context.getObjectContext().put(mod, IntegerKey.MIN_CHARGES, minCharges);
-		context.getObjectContext().put(mod, IntegerKey.MAX_CHARGES, maxCharges);
-		return ParseResult.SUCCESS;
-	}
+        context.getObjectContext().put(mod, IntegerKey.MIN_CHARGES, minCharges);
+        context.getObjectContext().put(mod, IntegerKey.MAX_CHARGES, maxCharges);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		Integer max = context.getObjectContext().getInteger(mod, IntegerKey.MAX_CHARGES);
-		Integer min = context.getObjectContext().getInteger(mod, IntegerKey.MIN_CHARGES);
-		if (max == null && min == null)
-		{
-			return null;
-		}
-		if (max == null || min == null)
-		{
-			context.addWriteMessage("EquipmentModifier requires both MAX_CHARGES and MIN_CHARGES for " + getTokenName()
-				+ " if one of the two is present");
-			return null;
-		}
-		int minInt = min;
-		if (minInt < 0)
-		{
-			context.addWriteMessage("EquipmentModifier requires MIN_CHARGES be > 0");
-			return null;
-		}
-		if (max < minInt)
-		{
-			context.addWriteMessage(
-				"EquipmentModifier requires MAX_CHARGES be " + "greater than MIN_CHARGES for " + getTokenName());
-			return null;
-		}
-		return new String[]{min + Constants.PIPE + max};
-	}
+    @Override
+    public String[] unparse(LoadContext context, EquipmentModifier mod)
+    {
+        Integer max = context.getObjectContext().getInteger(mod, IntegerKey.MAX_CHARGES);
+        Integer min = context.getObjectContext().getInteger(mod, IntegerKey.MIN_CHARGES);
+        if (max == null && min == null)
+        {
+            return null;
+        }
+        if (max == null || min == null)
+        {
+            context.addWriteMessage("EquipmentModifier requires both MAX_CHARGES and MIN_CHARGES for " + getTokenName()
+                    + " if one of the two is present");
+            return null;
+        }
+        int minInt = min;
+        if (minInt < 0)
+        {
+            context.addWriteMessage("EquipmentModifier requires MIN_CHARGES be > 0");
+            return null;
+        }
+        if (max < minInt)
+        {
+            context.addWriteMessage(
+                    "EquipmentModifier requires MAX_CHARGES be " + "greater than MIN_CHARGES for " + getTokenName());
+            return null;
+        }
+        return new String[]{min + Constants.PIPE + max};
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

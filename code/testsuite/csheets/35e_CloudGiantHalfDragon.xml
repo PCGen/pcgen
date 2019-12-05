@@ -1,2001 +1,2040 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-<!--========================================================================
-BIO
-========================================================================-->
-	<basics>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<name>Bob</name>
-		<followerof></followerof>
-		<playername></playername>
-		<action_points>0</action_points>
-		<age>0</age>
-		<alignment>
-			<long>Chaotic Good</long>
-			<short>CG</short>
-		</alignment>
-		<bab>+12</bab>
-		<bio></bio>
-		<birthplace></birthplace>
-		<catchphrase></catchphrase>
-		<classes>
-			<class>
-				<name>Giant</name>
-				<abbreviation>Gia</abbreviation>
-				<level>17</level>
-				<bonuslist>Giant</bonuslist>
-				<sequence>0</sequence>
-			</class>
-			<levels_total>17</levels_total>
-			<levels_ecl>20</levels_ecl>
-			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform>Gia17</shortform>
-			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
-		</classes>
-		<deity>
-			<name></name>
-			<alignment></alignment>
-			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
-			<holyitem></holyitem>
-			<pantheonlist></pantheonlist>
-			<source></source>
-			<special_abilities></special_abilities>
-			<appearance></appearance>
-			<title></title>
-			<worshippers></worshippers>
-		</deity>
-		<description></description>
-		<experience>
-			<current>6000</current>
-			<next_level>210000</next_level>
-			<factor>100%</factor>
-			<penalty>0%</penalty>
-		</experience>
-		<eyes>
-			<color></color>
-		</eyes>
-		<hair>
-			<color></color>
-			<length></length>
-		</hair>
-		<skin>
-			<color></color>
-		</skin>
-		<cr>13</cr>
-		<face>
-		<face>15 ft.</face>
-			<short>15 ft.</short>
-			<squares>3</squares>
-		</face>
-		<favoredlist></favoredlist>
-		<followerlist></followerlist>
-		<gender>
-			<long>Male</long>
-			<short>Male</short>
-		</gender>
-		<handed>Right</handed>
-		<height>
-			<total>0&#39; 0&quot;</total>
-			<feet>0</feet>
-			<inches>0</inches>
-		</height>
-		<hitdice>(17d10)+153</hitdice>
-		<interests></interests>
-		<languages>
-			<language>Giant</language>
-			<all>Giant</all>
-		</languages>
-		<location></location>
-		<move>
-			<move>
-				<name>Walk</name>
-				<rate>50 ft.</rate>
-				<squares>10</squares>
-			</move>
-			<move>
-				<name>Fly</name>
-				<rate>100 ft.</rate>
-				<squares>20</squares>
-			</move>
-			<all>Walk 50 ft., Fly 100 ft.</all>
-		</move>
-		<personality>
-			<trait></trait>
-			<trait></trait>
-		</personality>
-		<portrait></portrait>
-		<phobias></phobias>
-		<race>Cloud Giant</race>
-		<reach>
-		<reach>15 ft.</reach>
-			<squares>3</squares>
-		</reach>
-		<region>None</region>
-		<reputation>0</reputation>
-		<residence></residence>
-		<size>
-			<long>Huge</long>
-			<short>H</short>
-		</size>
-		<speechtendency></speechtendency>
-		<type>Dragon</type>
-		<vision>
-			<vision>Darkvision (60 ft.)</vision>
-			<vision>Low-Light</vision>
-			<all>Darkvision (60 ft.), Low-Light</all>
-		</vision>
-		<wealth>0</wealth>
-		<weight>
-			<weight_unit>0 lbs.</weight_unit>
-			<weight_nounit>0</weight_nounit>
-		</weight>
-		<poolpoints>
-			<cost>0</cost>
-			<current>0</current>
-		</poolpoints>
-		<notes>
-			<note>
-				<name>Character Sheet Notes</name>
-				<value></value>
-			</note>
-		</notes>
-	</basics>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITIES
-	  ====================================
-	  ====================================-->
-	<abilities>
-		<ability>
-			<name>
-				<long>Strength</long>
-				<short>STR</short>
-			</name>
-			<score>50</score>
-			<modifier>+20</modifier>
-			<base>18</base>
-			<basemod>+4</basemod>
-			<noequip>50</noequip>
-			<noequip_mod>+20</noequip_mod>
-			<no_temp_score>50</no_temp_score>
-			<no_temp_modifier>+20</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Dexterity</long>
-				<short>DEX</short>
-			</name>
-			<score>18</score>
-			<modifier>+4</modifier>
-			<base>16</base>
-			<basemod>+3</basemod>
-			<noequip>18</noequip>
-			<noequip_mod>+4</noequip_mod>
-			<no_temp_score>18</no_temp_score>
-			<no_temp_modifier>+4</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Constitution</long>
-				<short>CON</short>
-			</name>
-			<score>28</score>
-			<modifier>+9</modifier>
-			<base>14</base>
-			<basemod>+2</basemod>
-			<noequip>28</noequip>
-			<noequip_mod>+9</noequip_mod>
-			<no_temp_score>28</no_temp_score>
-			<no_temp_modifier>+9</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Intelligence</long>
-				<short>INT</short>
-			</name>
-			<score>16</score>
-			<modifier>+3</modifier>
-			<base>12</base>
-			<basemod>+1</basemod>
-			<noequip>16</noequip>
-			<noequip_mod>+3</noequip_mod>
-			<no_temp_score>16</no_temp_score>
-			<no_temp_modifier>+3</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Wisdom</long>
-				<short>WIS</short>
-			</name>
-			<score>16</score>
-			<modifier>+3</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>16</noequip>
-			<noequip_mod>+3</noequip_mod>
-			<no_temp_score>16</no_temp_score>
-			<no_temp_modifier>+3</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Charisma</long>
-				<short>CHA</short>
-			</name>
-			<score>12</score>
-			<modifier>+1</modifier>
-			<base>8</base>
-			<basemod>-1</basemod>
-			<noequip>12</noequip>
-			<noequip_mod>+1</noequip_mod>
-			<no_temp_score>12</no_temp_score>
-			<no_temp_modifier>+1</no_temp_modifier>
-		</ability>
-	</abilities>
-	<!--
-	  ====================================
-	  ====================================
-			HIT POINTS
-	  ====================================
-	  ====================================-->
-	<hit_points>
-		<points>227</points>
-		<alternate>28</alternate>
-		<die>(17d10)+153</die>
-		<current/>
-		<subdual/>
-		<damage_reduction></damage_reduction>
-		<damage_threshold>0</damage_threshold>
-		<history>
-			<roll>
-				<level>1</level>
-				<roll>8</roll>
-				<stat>9</stat>
-				<total>17</total>
-			</roll>
-			<roll>
-				<level>2</level>
-				<roll>7</roll>
-				<stat>9</stat>
-				<total>16</total>
-			</roll>
-			<roll>
-				<level>3</level>
-				<roll>4</roll>
-				<stat>9</stat>
-				<total>13</total>
-			</roll>
-			<roll>
-				<level>4</level>
-				<roll>2</roll>
-				<stat>9</stat>
-				<total>11</total>
-			</roll>
-			<roll>
-				<level>5</level>
-				<roll>8</roll>
-				<stat>9</stat>
-				<total>17</total>
-			</roll>
-			<roll>
-				<level>6</level>
-				<roll>1</roll>
-				<stat>9</stat>
-				<total>10</total>
-			</roll>
-			<roll>
-				<level>7</level>
-				<roll>5</roll>
-				<stat>9</stat>
-				<total>14</total>
-			</roll>
-			<roll>
-				<level>8</level>
-				<roll>1</roll>
-				<stat>9</stat>
-				<total>10</total>
-			</roll>
-			<roll>
-				<level>9</level>
-				<roll>7</roll>
-				<stat>9</stat>
-				<total>16</total>
-			</roll>
-			<roll>
-				<level>10</level>
-				<roll>7</roll>
-				<stat>9</stat>
-				<total>16</total>
-			</roll>
-			<roll>
-				<level>11</level>
-				<roll>7</roll>
-				<stat>9</stat>
-				<total>16</total>
-			</roll>
-			<roll>
-				<level>12</level>
-				<roll>5</roll>
-				<stat>9</stat>
-				<total>14</total>
-			</roll>
-			<roll>
-				<level>13</level>
-				<roll>2</roll>
-				<stat>9</stat>
-				<total>11</total>
-			</roll>
-			<roll>
-				<level>14</level>
-				<roll>2</roll>
-				<stat>9</stat>
-				<total>11</total>
-			</roll>
-			<roll>
-				<level>15</level>
-				<roll>2</roll>
-				<stat>9</stat>
-				<total>11</total>
-			</roll>
-			<roll>
-				<level>16</level>
-				<roll>4</roll>
-				<stat>9</stat>
-				<total>13</total>
-			</roll>
-			<roll>
-				<level>17</level>
-				<roll>2</roll>
-				<stat>9</stat>
-				<total>11</total>
-			</roll>
-			<roll>
-				<level>18</level>
-				<roll>0</roll>
-				<stat>0</stat>
-				<total>0</total>
-			</roll>
-			<roll>
-				<level>19</level>
-				<roll>0</roll>
-				<stat>0</stat>
-				<total>0</total>
-			</roll>
-			<roll>
-				<level>20</level>
-				<roll>0</roll>
-				<stat>0</stat>
-				<total>0</total>
-			</roll>
-		</history>
-	</hit_points>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR CLASS
-	  ====================================
-	  ====================================-->
-	<armor_class>
-		<total>28</total>
-		<listing>ABILITY +4, BASE +10, NATURALARMOR +12, NATURALARMOR.STACK +4, SIZE -2</listing>
-		<flat>24</flat>
-		<touch>12</touch>
-		<base>10</base>
-		<armor_bonus>0</armor_bonus>
-		<shield_bonus>0</shield_bonus>
-		<stat_mod>4</stat_mod>
-		<size_mod>-2</size_mod>
-		<natural>16</natural>
-		<class_bonus>0</class_bonus>
-		<dodge_bonus>0</dodge_bonus>
-		<misc>0</misc>
-		<miss_chance/>
-		<max_dex></max_dex>
-		<spell_failure>0</spell_failure>
-		<check_penalty>+0</check_penalty>
-		<spell_resistance>0</spell_resistance>
-	</armor_class>
-	<!--
-	  ====================================
-	  ====================================
-			INITIATIVE
-	  ====================================
-	  ====================================-->
-	<initiative>
-		<total>+4</total>
-		<dex_mod>+4</dex_mod>
-		<misc_mod>+0</misc_mod>
-	</initiative>
-	<!--
-	  ====================================
-	  ====================================
-			SKILLS
-	  ====================================
-	  ====================================-->
-	<skills>
-		<skillpoints>
-			<total>180</total>
-			<used>50</used>
-			<unused>130</unused>
-		</skillpoints>
-		<list_mods>Climb +27, Diplomacy +5, Intimidate +11, Jump +28, Listen +15, Perform (String Instruments) +2, Sense Motive +9, Spot +15</list_mods>
-		<max_class_skill_level>20</max_class_skill_level>
-		<max_cross_class_skill_level>10</max_cross_class_skill_level>
-		<skill>
-			<name>Appraise</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Appraise</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Balance</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Balance</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Bluff</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Bluff</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Climb</name>
-			<ranks>7.0</ranks>
-			<mod>20<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>27</skill_mod>
-			<ability_mod>20<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Climb</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>27</trained_total>
-			<exclusive_total>27</exclusive_total>
-		</skill>
-		<skill>
-			<name>Concentration</name>
-			<ranks>0.0</ranks>
-			<mod>9<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>9</skill_mod>
-			<ability_mod>9<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CON</ability>
-			<synergy>Concentration</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>9</trained_total>
-			<exclusive_total>9</exclusive_total>
-		</skill>
-		<skill>
-			<name>Craft (Untrained)</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Craft (Untrained)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Diplomacy</name>
-			<ranks>2.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Diplomacy</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
-		</skill>
-		<skill>
-			<name>Disguise</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Disguise</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Escape Artist</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Escape Artist</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Forgery</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Forgery</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Gather Information</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Gather Information</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Heal</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Heal</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Hide</name>
-			<ranks>0.0</ranks>
-			<mod>-4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>-4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>-8<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Hide</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>-4</trained_total>
-			<exclusive_total>-4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Intimidate</name>
-			<ranks>10.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>11</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Intimidate</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>11</trained_total>
-			<exclusive_total>11</exclusive_total>
-		</skill>
-		<skill>
-			<name>Jump</name>
-			<ranks>0.0</ranks>
-			<mod>28<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>28</skill_mod>
-			<ability_mod>20<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>8<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Jump</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>28</trained_total>
-			<exclusive_total>28</exclusive_total>
-		</skill>
-		<skill>
-			<name>Listen</name>
-			<ranks>12.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>15</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Listen</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>15</trained_total>
-			<exclusive_total>15</exclusive_total>
-		</skill>
-		<skill>
-			<name>Move Silently</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Move Silently</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (String Instruments)</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (String Instruments)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Untrained)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Untrained)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Ride</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Ride</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Search</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Search</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Sense Motive</name>
-			<ranks>6.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>9</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Sense Motive</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>9</trained_total>
-			<exclusive_total>9</exclusive_total>
-		</skill>
-		<skill>
-			<name>Spot</name>
-			<ranks>12.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>15</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Spot</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>15</trained_total>
-			<exclusive_total>15</exclusive_total>
-		</skill>
-		<skill>
-			<name>Survival</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Survival</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Swim</name>
-			<ranks>0.0</ranks>
-			<mod>20<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>20</skill_mod>
-			<ability_mod>20<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Swim</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>20</trained_total>
-			<exclusive_total>20</exclusive_total>
-		</skill>
-		<skill>
-			<name>Use Rope</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Use Rope</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>4</exclusive_total>
-		</skill>
-	</skills>
-	<!--
-	  ====================================
-	  ====================================
-			SAVING THROWS
-	  ====================================
-	  ====================================-->
-	<saving_throws>
-		<conditional_modifiers/>
-		<saving_throw>
-			<name>
-				<long>fortitude</long>
-				<short>fort</short>
-			</name>
-			<ability>constitution</ability>
-			<total>+19</total>
-			<base>+10</base>
-			<abil_mod>+9</abil_mod>
-			<feats>+0</feats>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>reflex</long>
-				<short>ref</short>
-			</name>
-			<ability>dexterity</ability>
-			<total>+9</total>
-			<base>+5</base>
-			<feats>+0</feats>
-			<abil_mod>+4</abil_mod>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>will</long>
-				<short>will</short>
-			</name>
-			<ability>wisdom</ability>
-			<total>+10</total>
-			<base>+5</base>
-			<abil_mod>+3</abil_mod>
-			<feats>+2</feats>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+2</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-	</saving_throws>
-	<!--
-	  ====================================
-	  ====================================
-			ATTACK
-	  ====================================
-	  ====================================-->
-	<attack>
-		<melee>
-			<total>+30/+25/+20</total>
-			<bab>+12</bab>
-			<base_attack_bonus>+12/+7/+2</base_attack_bonus>
-			<stat_mod>+20</stat_mod>
-			<size_mod>-2</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</melee>
-		<ranged>
-			<total>+14/+9/+4</total>
-			<bab>+12</bab>
-			<base_attack_bonus>+12/+7/+2</base_attack_bonus>
-			<stat_mod>+4</stat_mod>
-			<size_mod>-2</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</ranged>
-		<grapple>
-			<total>+40/+35/+30</total>
-			<bab>+12</bab>
-			<base_attack_bonus>+12/+7/+2</base_attack_bonus>
-			<stat_mod>+20</stat_mod>
-			<size_mod>+8</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</grapple>
-	</attack>
-	<!--
-	  ====================================
-	  ====================================
-			WEAPONS
-	  ====================================
-	  ====================================-->
-	<weapons>
-		<unarmed>
-			<total>+30/+25/+20</total>
-			<damage>1d6+20</damage>
-			<critical>20/x2</critical>
-			<!-- Should be changed to a variable due to improved crit -->
-		</unarmed>
-		
-		<weapon>
-			<common>
-				<name>
-					<short>*Claw</short>
-					<long>*Claw (Natural/Primary)</long>
-				</name>
-				<category>Natural-Natural,Melee</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+30/+30</hit>
-					<magic_hit>+0</magic_hit>
-					<total_hit>+30/+30</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Primary</hand>
-				<num_attacks>2</num_attacks>
-				<reach>15</reach>
-				<size>H</size>
-				<special_properties></special_properties>
-				<template></template>
-				<type>PS</type>
-				<weight>0</weight>
-				<sequence>0</sequence>
-			</common>
-			<simple>
-				<to_hit>+30/+30</to_hit>
-				<damage>1d8+20</damage>
-				<range>0 ft.</range>
-			</simple>
-		</weapon>
-		<weapon>
-			<common>
-				<name>
-					<short>Slam</short>
-					<long>Slam (Natural/Primary)</long>
-				</name>
-				<category>Natural-Natural,Melee</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+30/+30</hit>
-					<magic_hit>+0</magic_hit>
-					<total_hit>+30/+30</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Carried</hand>
-				<num_attacks>2</num_attacks>
-				<reach>15</reach>
-				<size>H</size>
-				<special_properties></special_properties>
-				<template></template>
-				<type>B</type>
-				<weight>0</weight>
-				<sequence>1</sequence>
-			</common>
-			<simple>
-				<to_hit>+30/+30</to_hit>
-				<damage>1d6+20</damage>
-				<range>0 ft.</range>
-			</simple>
-		</weapon>
-		<weapon>
-			<common>
-				<name>
-					<short>*Bite</short>
-					<long>*Bite (Natural/Secondary)</long>
-				</name>
-				<category>Natural-Natural,Melee</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+25</hit>
-					<magic_hit>+0</magic_hit>
-					<total_hit>+25</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Off-hand</hand>
-				<num_attacks>1</num_attacks>
-				<reach>15</reach>
-				<size>H</size>
-				<special_properties></special_properties>
-				<template></template>
-				<type>BPS</type>
-				<weight>0</weight>
-				<sequence>2</sequence>
-			</common>
-			<simple>
-				<to_hit>+25</to_hit>
-				<damage>2d6+10</damage>
-				<range>0 ft.</range>
-			</simple>
-		</weapon>
-		<weapon>
-			<common>
-				<name>
-					<short>*Claw</short>
-					<long>*Claw (Natural/Secondary)</long>
-				</name>
-				<category>Natural-Natural,Melee</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+25</hit>
-					<magic_hit>+0</magic_hit>
-					<total_hit>+25</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Off-hand</hand>
-				<num_attacks>1</num_attacks>
-				<reach>15</reach>
-				<size>H</size>
-				<special_properties></special_properties>
-				<template></template>
-				<type>PS</type>
-				<weight>0</weight>
-				<sequence>3</sequence>
-			</common>
-			<simple>
-				<to_hit>+25</to_hit>
-				<damage>1d8+10</damage>
-				<range>0 ft.</range>
-			</simple>
-		</weapon>
-	</weapons>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR
-	  ====================================
-	  ====================================-->
-	<protection>
-	</protection>
-	<!--
-	  ====================================
-	  ====================================
-			CLASS-DEPENDANT FEATURES
-	  ====================================
-	  ====================================-->
-	<class_features>
-	<!-- Bard -->
+    <!--========================================================================
+    BIO
+    ========================================================================-->
+    <basics>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <name>Bob</name>
+        <followerof></followerof>
+        <playername></playername>
+        <action_points>0</action_points>
+        <age>0</age>
+        <alignment>
+            <long>Chaotic Good</long>
+            <short>CG</short>
+        </alignment>
+        <bab>+12</bab>
+        <bio></bio>
+        <birthplace></birthplace>
+        <catchphrase></catchphrase>
+        <classes>
+            <class>
+                <name>Giant</name>
+                <abbreviation>Gia</abbreviation>
+                <level>17</level>
+                <bonuslist>Giant</bonuslist>
+                <sequence>0</sequence>
+            </class>
+            <levels_total>17</levels_total>
+            <levels_ecl>20</levels_ecl>
+            <!-- shortform below should be removed - it can be derived from class info above -->
+            <shortform>Gia17</shortform>
+            <!-- CLASSLIST is not extracted because we can derive it from the information above -->
+        </classes>
+        <deity>
+            <name></name>
+            <alignment></alignment>
+            <description></description>
+            <domainlist></domainlist>
+            <favoredweapon></favoredweapon>
+            <holyitem></holyitem>
+            <pantheonlist></pantheonlist>
+            <source></source>
+            <special_abilities></special_abilities>
+            <appearance></appearance>
+            <title></title>
+            <worshippers></worshippers>
+        </deity>
+        <description></description>
+        <experience>
+            <current>6000</current>
+            <next_level>210000</next_level>
+            <factor>100%</factor>
+            <penalty>0%</penalty>
+        </experience>
+        <eyes>
+            <color></color>
+        </eyes>
+        <hair>
+            <color></color>
+            <length></length>
+        </hair>
+        <skin>
+            <color></color>
+        </skin>
+        <cr>13</cr>
+        <face>
+            <face>15 ft.</face>
+            <short>15 ft.</short>
+            <squares>3</squares>
+        </face>
+        <favoredlist></favoredlist>
+        <followerlist></followerlist>
+        <gender>
+            <long>Male</long>
+            <short>Male</short>
+        </gender>
+        <handed>Right</handed>
+        <height>
+            <total>0&#39; 0&quot;</total>
+            <feet>0</feet>
+            <inches>0</inches>
+        </height>
+        <hitdice>(17d10)+153</hitdice>
+        <interests></interests>
+        <languages>
+            <language>Giant</language>
+            <all>Giant</all>
+        </languages>
+        <location></location>
+        <move>
+            <move>
+                <name>Walk</name>
+                <rate>50 ft.</rate>
+                <squares>10</squares>
+            </move>
+            <move>
+                <name>Fly</name>
+                <rate>100 ft.</rate>
+                <squares>20</squares>
+            </move>
+            <all>Walk 50 ft., Fly 100 ft.</all>
+        </move>
+        <personality>
+            <trait></trait>
+            <trait></trait>
+        </personality>
+        <portrait></portrait>
+        <phobias></phobias>
+        <race>Cloud Giant</race>
+        <reach>
+            <reach>15 ft.</reach>
+            <squares>3</squares>
+        </reach>
+        <region>None</region>
+        <reputation>0</reputation>
+        <residence></residence>
+        <size>
+            <long>Huge</long>
+            <short>H</short>
+        </size>
+        <speechtendency></speechtendency>
+        <type>Dragon</type>
+        <vision>
+            <vision>Darkvision (60 ft.)</vision>
+            <vision>Low-Light</vision>
+            <all>Darkvision (60 ft.), Low-Light</all>
+        </vision>
+        <wealth>0</wealth>
+        <weight>
+            <weight_unit>0 lbs.</weight_unit>
+            <weight_nounit>0</weight_nounit>
+        </weight>
+        <poolpoints>
+            <cost>0</cost>
+            <current>0</current>
+        </poolpoints>
+        <notes>
+            <note>
+                <name>Character Sheet Notes</name>
+                <value></value>
+            </note>
+        </notes>
+    </basics>
+    <!--
+      ====================================
+      ====================================
+            ABILITIES
+      ====================================
+      ====================================-->
+    <abilities>
+        <ability>
+            <name>
+                <long>Strength</long>
+                <short>STR</short>
+            </name>
+            <score>50</score>
+            <modifier>+20</modifier>
+            <base>18</base>
+            <basemod>+4</basemod>
+            <noequip>50</noequip>
+            <noequip_mod>+20</noequip_mod>
+            <no_temp_score>50</no_temp_score>
+            <no_temp_modifier>+20</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Dexterity</long>
+                <short>DEX</short>
+            </name>
+            <score>18</score>
+            <modifier>+4</modifier>
+            <base>16</base>
+            <basemod>+3</basemod>
+            <noequip>18</noequip>
+            <noequip_mod>+4</noequip_mod>
+            <no_temp_score>18</no_temp_score>
+            <no_temp_modifier>+4</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Constitution</long>
+                <short>CON</short>
+            </name>
+            <score>28</score>
+            <modifier>+9</modifier>
+            <base>14</base>
+            <basemod>+2</basemod>
+            <noequip>28</noequip>
+            <noequip_mod>+9</noequip_mod>
+            <no_temp_score>28</no_temp_score>
+            <no_temp_modifier>+9</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Intelligence</long>
+                <short>INT</short>
+            </name>
+            <score>16</score>
+            <modifier>+3</modifier>
+            <base>12</base>
+            <basemod>+1</basemod>
+            <noequip>16</noequip>
+            <noequip_mod>+3</noequip_mod>
+            <no_temp_score>16</no_temp_score>
+            <no_temp_modifier>+3</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Wisdom</long>
+                <short>WIS</short>
+            </name>
+            <score>16</score>
+            <modifier>+3</modifier>
+            <base>10</base>
+            <basemod>+0</basemod>
+            <noequip>16</noequip>
+            <noequip_mod>+3</noequip_mod>
+            <no_temp_score>16</no_temp_score>
+            <no_temp_modifier>+3</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Charisma</long>
+                <short>CHA</short>
+            </name>
+            <score>12</score>
+            <modifier>+1</modifier>
+            <base>8</base>
+            <basemod>-1</basemod>
+            <noequip>12</noequip>
+            <noequip_mod>+1</noequip_mod>
+            <no_temp_score>12</no_temp_score>
+            <no_temp_modifier>+1</no_temp_modifier>
+        </ability>
+    </abilities>
+    <!--
+      ====================================
+      ====================================
+            HIT POINTS
+      ====================================
+      ====================================-->
+    <hit_points>
+        <points>227</points>
+        <alternate>28</alternate>
+        <die>(17d10)+153</die>
+        <current/>
+        <subdual/>
+        <damage_reduction></damage_reduction>
+        <damage_threshold>0</damage_threshold>
+        <history>
+            <roll>
+                <level>1</level>
+                <roll>8</roll>
+                <stat>9</stat>
+                <total>17</total>
+            </roll>
+            <roll>
+                <level>2</level>
+                <roll>7</roll>
+                <stat>9</stat>
+                <total>16</total>
+            </roll>
+            <roll>
+                <level>3</level>
+                <roll>4</roll>
+                <stat>9</stat>
+                <total>13</total>
+            </roll>
+            <roll>
+                <level>4</level>
+                <roll>2</roll>
+                <stat>9</stat>
+                <total>11</total>
+            </roll>
+            <roll>
+                <level>5</level>
+                <roll>8</roll>
+                <stat>9</stat>
+                <total>17</total>
+            </roll>
+            <roll>
+                <level>6</level>
+                <roll>1</roll>
+                <stat>9</stat>
+                <total>10</total>
+            </roll>
+            <roll>
+                <level>7</level>
+                <roll>5</roll>
+                <stat>9</stat>
+                <total>14</total>
+            </roll>
+            <roll>
+                <level>8</level>
+                <roll>1</roll>
+                <stat>9</stat>
+                <total>10</total>
+            </roll>
+            <roll>
+                <level>9</level>
+                <roll>7</roll>
+                <stat>9</stat>
+                <total>16</total>
+            </roll>
+            <roll>
+                <level>10</level>
+                <roll>7</roll>
+                <stat>9</stat>
+                <total>16</total>
+            </roll>
+            <roll>
+                <level>11</level>
+                <roll>7</roll>
+                <stat>9</stat>
+                <total>16</total>
+            </roll>
+            <roll>
+                <level>12</level>
+                <roll>5</roll>
+                <stat>9</stat>
+                <total>14</total>
+            </roll>
+            <roll>
+                <level>13</level>
+                <roll>2</roll>
+                <stat>9</stat>
+                <total>11</total>
+            </roll>
+            <roll>
+                <level>14</level>
+                <roll>2</roll>
+                <stat>9</stat>
+                <total>11</total>
+            </roll>
+            <roll>
+                <level>15</level>
+                <roll>2</roll>
+                <stat>9</stat>
+                <total>11</total>
+            </roll>
+            <roll>
+                <level>16</level>
+                <roll>4</roll>
+                <stat>9</stat>
+                <total>13</total>
+            </roll>
+            <roll>
+                <level>17</level>
+                <roll>2</roll>
+                <stat>9</stat>
+                <total>11</total>
+            </roll>
+            <roll>
+                <level>18</level>
+                <roll>0</roll>
+                <stat>0</stat>
+                <total>0</total>
+            </roll>
+            <roll>
+                <level>19</level>
+                <roll>0</roll>
+                <stat>0</stat>
+                <total>0</total>
+            </roll>
+            <roll>
+                <level>20</level>
+                <roll>0</roll>
+                <stat>0</stat>
+                <total>0</total>
+            </roll>
+        </history>
+    </hit_points>
+    <!--
+      ====================================
+      ====================================
+            ARMOR CLASS
+      ====================================
+      ====================================-->
+    <armor_class>
+        <total>28</total>
+        <listing>ABILITY +4, BASE +10, NATURALARMOR +12, NATURALARMOR.STACK +4, SIZE -2</listing>
+        <flat>24</flat>
+        <touch>12</touch>
+        <base>10</base>
+        <armor_bonus>0</armor_bonus>
+        <shield_bonus>0</shield_bonus>
+        <stat_mod>4</stat_mod>
+        <size_mod>-2</size_mod>
+        <natural>16</natural>
+        <class_bonus>0</class_bonus>
+        <dodge_bonus>0</dodge_bonus>
+        <misc>0</misc>
+        <miss_chance/>
+        <max_dex></max_dex>
+        <spell_failure>0</spell_failure>
+        <check_penalty>+0</check_penalty>
+        <spell_resistance>0</spell_resistance>
+    </armor_class>
+    <!--
+      ====================================
+      ====================================
+            INITIATIVE
+      ====================================
+      ====================================-->
+    <initiative>
+        <total>+4</total>
+        <dex_mod>+4</dex_mod>
+        <misc_mod>+0</misc_mod>
+    </initiative>
+    <!--
+      ====================================
+      ====================================
+            SKILLS
+      ====================================
+      ====================================-->
+    <skills>
+        <skillpoints>
+            <total>180</total>
+            <used>50</used>
+            <unused>130</unused>
+        </skillpoints>
+        <list_mods>Climb +27, Diplomacy +5, Intimidate +11, Jump +28, Listen +15, Perform (String Instruments) +2, Sense
+            Motive +9, Spot +15
+        </list_mods>
+        <max_class_skill_level>20</max_class_skill_level>
+        <max_cross_class_skill_level>10</max_cross_class_skill_level>
+        <skill>
+            <name>Appraise</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Appraise</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Balance</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Balance</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Bluff</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Bluff</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Climb</name>
+            <ranks>7.0</ranks>
+            <mod>20<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>27</skill_mod>
+            <ability_mod>20<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Climb</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>27</trained_total>
+            <exclusive_total>27</exclusive_total>
+        </skill>
+        <skill>
+            <name>Concentration</name>
+            <ranks>0.0</ranks>
+            <mod>9<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>9</skill_mod>
+            <ability_mod>9<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CON</ability>
+            <synergy>Concentration</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>9</trained_total>
+            <exclusive_total>9</exclusive_total>
+        </skill>
+        <skill>
+            <name>Craft (Untrained)</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Craft (Untrained)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Diplomacy</name>
+            <ranks>2.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>5</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Diplomacy</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>5</trained_total>
+            <exclusive_total>5</exclusive_total>
+        </skill>
+        <skill>
+            <name>Disguise</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Disguise</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Escape Artist</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Escape Artist</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Forgery</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Forgery</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Gather Information</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Gather Information</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Heal</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Heal</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Hide</name>
+            <ranks>0.0</ranks>
+            <mod>-4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>-4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>-8<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Hide</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>-4</trained_total>
+            <exclusive_total>-4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Intimidate</name>
+            <ranks>10.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>11</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Intimidate</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>11</trained_total>
+            <exclusive_total>11</exclusive_total>
+        </skill>
+        <skill>
+            <name>Jump</name>
+            <ranks>0.0</ranks>
+            <mod>28<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>28</skill_mod>
+            <ability_mod>20<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>8<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Jump</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>28</trained_total>
+            <exclusive_total>28</exclusive_total>
+        </skill>
+        <skill>
+            <name>Listen</name>
+            <ranks>12.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>15</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Listen</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>15</trained_total>
+            <exclusive_total>15</exclusive_total>
+        </skill>
+        <skill>
+            <name>Move Silently</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Move Silently</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Perform (String Instruments)</name>
+            <ranks>1.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>2</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Perform (String Instruments)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>2</trained_total>
+            <exclusive_total>2</exclusive_total>
+        </skill>
+        <skill>
+            <name>Perform (Untrained)</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Perform (Untrained)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Ride</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Ride</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Search</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Search</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Sense Motive</name>
+            <ranks>6.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>9</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Sense Motive</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>9</trained_total>
+            <exclusive_total>9</exclusive_total>
+        </skill>
+        <skill>
+            <name>Spot</name>
+            <ranks>12.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>15</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Spot</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>15</trained_total>
+            <exclusive_total>15</exclusive_total>
+        </skill>
+        <skill>
+            <name>Survival</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Survival</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Swim</name>
+            <ranks>0.0</ranks>
+            <mod>20<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>20</skill_mod>
+            <ability_mod>20<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Swim</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>20</trained_total>
+            <exclusive_total>20</exclusive_total>
+        </skill>
+        <skill>
+            <name>Use Rope</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Use Rope</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>4</exclusive_total>
+        </skill>
+    </skills>
+    <!--
+      ====================================
+      ====================================
+            SAVING THROWS
+      ====================================
+      ====================================-->
+    <saving_throws>
+        <conditional_modifiers/>
+        <saving_throw>
+            <name>
+                <long>fortitude</long>
+                <short>fort</short>
+            </name>
+            <ability>constitution</ability>
+            <total>+19</total>
+            <base>+10</base>
+            <abil_mod>+9</abil_mod>
+            <feats>+0</feats>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>reflex</long>
+                <short>ref</short>
+            </name>
+            <ability>dexterity</ability>
+            <total>+9</total>
+            <base>+5</base>
+            <feats>+0</feats>
+            <abil_mod>+4</abil_mod>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>will</long>
+                <short>will</short>
+            </name>
+            <ability>wisdom</ability>
+            <total>+10</total>
+            <base>+5</base>
+            <abil_mod>+3</abil_mod>
+            <feats>+2</feats>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+2</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+    </saving_throws>
+    <!--
+      ====================================
+      ====================================
+            ATTACK
+      ====================================
+      ====================================-->
+    <attack>
+        <melee>
+            <total>+30/+25/+20</total>
+            <bab>+12</bab>
+            <base_attack_bonus>+12/+7/+2</base_attack_bonus>
+            <stat_mod>+20</stat_mod>
+            <size_mod>-2</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </melee>
+        <ranged>
+            <total>+14/+9/+4</total>
+            <bab>+12</bab>
+            <base_attack_bonus>+12/+7/+2</base_attack_bonus>
+            <stat_mod>+4</stat_mod>
+            <size_mod>-2</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </ranged>
+        <grapple>
+            <total>+40/+35/+30</total>
+            <bab>+12</bab>
+            <base_attack_bonus>+12/+7/+2</base_attack_bonus>
+            <stat_mod>+20</stat_mod>
+            <size_mod>+8</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </grapple>
+    </attack>
+    <!--
+      ====================================
+      ====================================
+            WEAPONS
+      ====================================
+      ====================================-->
+    <weapons>
+        <unarmed>
+            <total>+30/+25/+20</total>
+            <damage>1d6+20</damage>
+            <critical>20/x2</critical>
+            <!-- Should be changed to a variable due to improved crit -->
+        </unarmed>
+
+        <weapon>
+            <common>
+                <name>
+                    <short>*Claw</short>
+                    <long>*Claw (Natural/Primary)</long>
+                </name>
+                <category>Natural-Natural,Melee</category>
+                <critical>
+                    <range>20</range>
+                    <multiplier>2</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>+30/+30</hit>
+                    <magic_hit>+0</magic_hit>
+                    <total_hit>+30/+30</total_hit>
+                </to_hit>
+                <feat></feat>
+                <hand>Primary</hand>
+                <num_attacks>2</num_attacks>
+                <reach>15</reach>
+                <size>H</size>
+                <special_properties></special_properties>
+                <template></template>
+                <type>PS</type>
+                <weight>0</weight>
+                <sequence>0</sequence>
+            </common>
+            <simple>
+                <to_hit>+30/+30</to_hit>
+                <damage>1d8+20</damage>
+                <range>0 ft.</range>
+            </simple>
+        </weapon>
+        <weapon>
+            <common>
+                <name>
+                    <short>Slam</short>
+                    <long>Slam (Natural/Primary)</long>
+                </name>
+                <category>Natural-Natural,Melee</category>
+                <critical>
+                    <range>20</range>
+                    <multiplier>2</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>+30/+30</hit>
+                    <magic_hit>+0</magic_hit>
+                    <total_hit>+30/+30</total_hit>
+                </to_hit>
+                <feat></feat>
+                <hand>Carried</hand>
+                <num_attacks>2</num_attacks>
+                <reach>15</reach>
+                <size>H</size>
+                <special_properties></special_properties>
+                <template></template>
+                <type>B</type>
+                <weight>0</weight>
+                <sequence>1</sequence>
+            </common>
+            <simple>
+                <to_hit>+30/+30</to_hit>
+                <damage>1d6+20</damage>
+                <range>0 ft.</range>
+            </simple>
+        </weapon>
+        <weapon>
+            <common>
+                <name>
+                    <short>*Bite</short>
+                    <long>*Bite (Natural/Secondary)</long>
+                </name>
+                <category>Natural-Natural,Melee</category>
+                <critical>
+                    <range>20</range>
+                    <multiplier>2</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>+25</hit>
+                    <magic_hit>+0</magic_hit>
+                    <total_hit>+25</total_hit>
+                </to_hit>
+                <feat></feat>
+                <hand>Off-hand</hand>
+                <num_attacks>1</num_attacks>
+                <reach>15</reach>
+                <size>H</size>
+                <special_properties></special_properties>
+                <template></template>
+                <type>BPS</type>
+                <weight>0</weight>
+                <sequence>2</sequence>
+            </common>
+            <simple>
+                <to_hit>+25</to_hit>
+                <damage>2d6+10</damage>
+                <range>0 ft.</range>
+            </simple>
+        </weapon>
+        <weapon>
+            <common>
+                <name>
+                    <short>*Claw</short>
+                    <long>*Claw (Natural/Secondary)</long>
+                </name>
+                <category>Natural-Natural,Melee</category>
+                <critical>
+                    <range>20</range>
+                    <multiplier>2</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>+25</hit>
+                    <magic_hit>+0</magic_hit>
+                    <total_hit>+25</total_hit>
+                </to_hit>
+                <feat></feat>
+                <hand>Off-hand</hand>
+                <num_attacks>1</num_attacks>
+                <reach>15</reach>
+                <size>H</size>
+                <special_properties></special_properties>
+                <template></template>
+                <type>PS</type>
+                <weight>0</weight>
+                <sequence>3</sequence>
+            </common>
+            <simple>
+                <to_hit>+25</to_hit>
+                <damage>1d8+10</damage>
+                <range>0 ft.</range>
+            </simple>
+        </weapon>
+    </weapons>
+    <!--
+      ====================================
+      ====================================
+            ARMOR
+      ====================================
+      ====================================-->
+    <protection>
+    </protection>
+    <!--
+      ====================================
+      ====================================
+            CLASS-DEPENDANT FEATURES
+      ====================================
+      ====================================-->
+    <class_features>
+        <!-- Bard -->
 
 
-	<!-- Pathfinder -->
-		<!-- Character Rage -->
-		<!-- Character Rage -->
+        <!-- Pathfinder -->
+        <!-- Character Rage -->
+        <!-- Character Rage -->
 
-	<!-- Turning ability -->
+        <!-- Turning ability -->
 
-	<!-- 3.0 stunning fist -->
+        <!-- 3.0 stunning fist -->
 
-	<!-- 3.5 stunning fist -->
+        <!-- 3.5 stunning fist -->
 
-	<!-- 3.0 wholeness of body -->
+        <!-- 3.0 wholeness of body -->
 
-	<!-- 3.5 wholeness of body -->
+        <!-- 3.5 wholeness of body -->
 
-	<!-- Psionics -->
-
-
+        <!-- Psionics -->
 
 
-	</class_features>
-	<!--
-	  ====================================
-	  ====================================
-			EQUIPMENT
-	  ====================================
-	  ====================================-->
-	<equipment>
-		<item>
-			<longname>Claw (Natural/Primary)</longname>
-			<id></id>
-			<name>Claw</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Huge</long>
-				<short>H</short>
-			</size>
-			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Slam (Natural/Primary)</longname>
-			<id></id>
-			<name>Slam</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>N</equipped>
-			<location>Carried</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Huge</long>
-				<short>H</short>
-			</size>
-			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Bite (Natural/Secondary)</longname>
-			<id></id>
-			<name>Bite</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Huge</long>
-				<short>H</short>
-			</size>
-			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Claw (Natural/Secondary)</longname>
-			<id></id>
-			<name>Claw</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Huge</long>
-				<short>H</short>
-			</size>
-			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<total>
-			<weight>0 lbs.</weight>
-			<value>0 gp</value>
-			<load>Light</load>
-			<capacity>102400</capacity>
-		</total>
-		<equipmentsets>
-		<equipmentset name="Default Set">
-			<item>
-				<name>Claw</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>0</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Huge</long>
-					<short>H</short>
-				</size>
-				<special_properties></special_properties>
-				<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Slam</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>0</cost>
-				<equipped>N</equipped>
-				<location>Carried</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Huge</long>
-					<short>H</short>
-				</size>
-				<special_properties></special_properties>
-				<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Bite</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>0</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Huge</long>
-					<short>H</short>
-				</size>
-				<special_properties></special_properties>
-				<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Claw</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>0</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Huge</long>
-					<short>H</short>
-				</size>
-				<special_properties></special_properties>
-				<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			</equipmentset>
-      </equipmentsets>
-	</equipment>
-	<weight_allowance>
-		<light>34133</light>
-		<medium>68266</medium>
-		<heavy>102400</heavy>
-		<lift_over_head>102400</lift_over_head>
-		<lift_off_ground>204800</lift_off_ground>
-		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>512000</push_drag>
-	</weight_allowance>
-	<!--
-	  ====================================
-	  ====================================
-			SPECIAL ABILITIES
-	  ====================================
-	  ====================================-->
-	<special_abilities>
-		<race></race>
-		<class>
-			<class>Giant</class>
-			<ability></ability>
-		</class>
-	</special_abilities>
-	<!--
-	  ====================================
-	  ====================================
-			FEATS
-	  ====================================
-	  ====================================-->
-	<feats>
-		<!-- Visible standard feats (not including the auto feats) -->
-		<feat>
-			<name>Awesome Blow</name>
-			<description>As a standard action, the creature may choose to subtract 4 from its melee attack roll and deliver an awesome blow.</description>
-			<type>GENERAL.FIGHTER</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Cleave</name>
-			<description>If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Improved Bull Rush</name>
-			<description>When you perform a bull rush you do not provoke an attack of opportunity from the defender. You also gain a +4 bonus on the opposed Strength check you make to push back the defender.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Improved Overrun</name>
-			<description>When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 bonus on your Strength check to knock down your opponent.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Iron Will</name>
-			<description>You get a +2 bonus on all Will saving throws.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Power Attack</name>
-			<description>On your action, before making attack rolls for a round, you may choose to subtract up to 12 from all melee attack rolls and add the same number to all melee damage rolls.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
+    </class_features>
+    <!--
+      ====================================
+      ====================================
+            EQUIPMENT
+      ====================================
+      ====================================-->
+    <equipment>
+        <item>
+            <longname>Claw (Natural/Primary)</longname>
+            <id></id>
+            <name>Claw</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>0</cost>
+            <equipped>Y</equipped>
+            <location>Equipped</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Huge</long>
+                <short>H</short>
+            </size>
+            <special_properties></special_properties>
+            <type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Slam (Natural/Primary)</longname>
+            <id></id>
+            <name>Slam</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>0</cost>
+            <equipped>N</equipped>
+            <location>Carried</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Huge</long>
+                <short>H</short>
+            </size>
+            <special_properties></special_properties>
+            <type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Bite (Natural/Secondary)</longname>
+            <id></id>
+            <name>Bite</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>0</cost>
+            <equipped>Y</equipped>
+            <location>Equipped</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Huge</long>
+                <short>H</short>
+            </size>
+            <special_properties></special_properties>
+            <type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Claw (Natural/Secondary)</longname>
+            <id></id>
+            <name>Claw</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>0</cost>
+            <equipped>Y</equipped>
+            <location>Equipped</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Huge</long>
+                <short>H</short>
+            </size>
+            <special_properties></special_properties>
+            <type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <total>
+            <weight>0 lbs.</weight>
+            <value>0 gp</value>
+            <load>Light</load>
+            <capacity>102400</capacity>
+        </total>
+        <equipmentsets>
+            <equipmentset name="Default Set">
+                <item>
+                    <name>Claw</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>0</cost>
+                    <equipped>Y</equipped>
+                    <location>Equipped</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Huge</long>
+                        <short>H</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>Slam</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>0</cost>
+                    <equipped>N</equipped>
+                    <location>Carried</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Huge</long>
+                        <short>H</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>Bite</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>0</cost>
+                    <equipped>Y</equipped>
+                    <location>Equipped</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Huge</long>
+                        <short>H</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>Claw</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>0</cost>
+                    <equipped>Y</equipped>
+                    <location>Equipped</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Huge</long>
+                        <short>H</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+            </equipmentset>
+        </equipmentsets>
+    </equipment>
+    <weight_allowance>
+        <light>34133</light>
+        <medium>68266</medium>
+        <heavy>102400</heavy>
+        <lift_over_head>102400</lift_over_head>
+        <lift_off_ground>204800</lift_off_ground>
+        <!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
+        <push_drag>512000</push_drag>
+    </weight_allowance>
+    <!--
+      ====================================
+      ====================================
+            SPECIAL ABILITIES
+      ====================================
+      ====================================-->
+    <special_abilities>
+        <race></race>
+        <class>
+            <class>Giant</class>
+            <ability></ability>
+        </class>
+    </special_abilities>
+    <!--
+      ====================================
+      ====================================
+            FEATS
+      ====================================
+      ====================================-->
+    <feats>
+        <!-- Visible standard feats (not including the auto feats) -->
+        <feat>
+            <name>Awesome Blow</name>
+            <description>As a standard action, the creature may choose to subtract 4 from its melee attack roll and
+                deliver an awesome blow.
+            </description>
+            <type>GENERAL.FIGHTER</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Cleave</name>
+            <description>If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack
+                against another creature within reach. You can use this ability once per round.
+            </description>
+            <type>GENERAL.FIGHTER.ATTACKOPTION</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Improved Bull Rush</name>
+            <description>When you perform a bull rush you do not provoke an attack of opportunity from the defender. You
+                also gain a +4 bonus on the opposed Strength check you make to push back the defender.
+            </description>
+            <type>GENERAL.FIGHTER.ATTACKOPTION</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Improved Overrun</name>
+            <description>When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain
+                a +4 bonus on your Strength check to knock down your opponent.
+            </description>
+            <type>GENERAL.FIGHTER.ATTACKOPTION</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Iron Will</name>
+            <description>You get a +2 bonus on all Will saving throws.</description>
+            <type>GENERAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Power Attack</name>
+            <description>On your action, before making attack rolls for a round, you may choose to subtract up to 12
+                from all melee attack rolls and add the same number to all melee damage rolls.
+            </description>
+            <type>GENERAL.FIGHTER.ATTACKOPTION</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
 
-		<!-- Auto feats -->
+        <!-- Auto feats -->
 
-		<!-- Virtual Feats -->
-		<!-- End Virtual Feats -->
-		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-<!-- Hidden VFEATS -->
-<!-- END Hidden VFEATS -->
-	</feats>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITY OBJECTS
-	  ====================================
-	  ====================================-->
+        <!-- Virtual Feats -->
+        <!-- End Virtual Feats -->
+        <!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
+        <!-- Hidden VFEATS -->
+        <!-- END Hidden VFEATS -->
+    </feats>
+    <!--
+      ====================================
+      ====================================
+            ABILITY OBJECTS
+      ====================================
+      ====================================-->
 
-	<ability_objects>
-		<!-- Visible Automatic "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>Air Traits</name>
-			<description></description>
-			<type>SUBTRAITABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Air Traits</name>
-			<description>Air creatures always have fly speeds and usually have perfect maneuverability</description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Darkvision</name>
-			<description>Range 60; Darkvision is the extraordinary ability to see with no light source at all, out to a range specified for the creature. Darkvision is black and white only (colors cannot be discerned). It does not allow characters to see anything that they could not see otherwise-invisible objects are still invisible, and illusions are still visible as what they seem to be. Likewise, darkvision subjects a creature to gaze attacks normally. The presence of light does not spoil darkvision.</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Dragon Traits</name>
-			<description></description>
-			<type>TRAITABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Dragon Traits</name>
-			<description>Dragons eat/sleep/breathe. Dragons are Immune to magic sleep effects and paralysis effects.</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Breath Weapon</name>
-			<description>60&#39; Line of Fire 1/day 6d8 (DC 27)</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Half-Dragon Wings</name>
-			<description></description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Immunity To Fire</name>
-			<description>You never take Fire damage</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Low-Light Vision</name>
-			<description>You can see 2x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Oversized Weapon</name>
-			<description>A cloud giant wields a great, two-handed morningstar (big enough for Gargantuan creatures) without penalty.</description>
-			<type>CLOUD GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Rock Catching</name>
-			<description>A giant of at least Large size can catch Small, Medium, or Large rocks (or projectiles of similar shape). Once per round, a giant that would normally be hit by a rock can make a Reflex save to catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one. (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) The giant must be ready for and aware of the attack in order to make a rock catching attempt.</description>
-			<type>GIANTRACETRAIT.SPECIALQUALITY.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Rock Throwing</name>
-			<description>The range increment is 140 feet for a cloud giant&#39;s thrown rocks.</description>
-			<type>CLOUD GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Rock Throwing</name>
-			<description>Adult giants are accomplished rock throwers and receive a +1 racial bonus on attack rolls when throwing rocks. A giant of at least Large size can hurl rocks weighing 40 to 50 pounds each (Small objects) up to five range increments. The size of the range increment varies with the giant&#39;s variety. A Huge giant can hurl rocks of 60 to 80 pounds (Medium objects).</description>
-			<type>GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Scent</name>
-			<description>30 ft. range</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.SENSE</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<!-- Hidden Automatic "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>Flight Maneuverability</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Giant Proficiencies</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Maneuverability(Average)</name>
-			<description></description>
-			<type>MANEUVERABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<!-- Visible Automatic "Internal" Ability Objects -->
-		<ability_object>
-			<name>Default</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Defines Required</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Race Traits ~ Giant (Cloud)</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Weapon Prof ~ Auto</name>
-			<description></description>
-			<type>WEAPONPROFAUTO.WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Weapon Prof ~ Martial</name>
-			<description></description>
-			<type>WEAPONPROFMARTIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Weapon Prof ~ Simple</name>
-			<description></description>
-			<type>WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<!-- Hidden Automatic "Internal" Ability Objects -->
-		<ability_object>
-			<name>Creature Type</name>
-			<description></description>
-			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-	</ability_objects>
-	<!--
-	  ====================================
-	  ====================================
-			MISCELLANEOUS
-	  ====================================
-	  ====================================-->
+    <ability_objects>
+        <!-- Visible Automatic "Special Ability" Ability Objects -->
+        <ability_object>
+            <name>Air Traits</name>
+            <description></description>
+            <type>SUBTRAITABILITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Air Traits</name>
+            <description>Air creatures always have fly speeds and usually have perfect maneuverability</description>
+            <type>SPECIALQUALITY.RACIALTRAIT</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Darkvision</name>
+            <description>Range 60; Darkvision is the extraordinary ability to see with no light source at all, out to a
+                range specified for the creature. Darkvision is black and white only (colors cannot be discerned). It
+                does not allow characters to see anything that they could not see otherwise-invisible objects are still
+                invisible, and illusions are still visible as what they seem to be. Likewise, darkvision subjects a
+                creature to gaze attacks normally. The presence of light does not spoil darkvision.
+            </description>
+            <type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Dragon Traits</name>
+            <description></description>
+            <type>TRAITABILITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Dragon Traits</name>
+            <description>Dragons eat/sleep/breathe. Dragons are Immune to magic sleep effects and paralysis effects.
+            </description>
+            <type>SPECIALQUALITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Breath Weapon</name>
+            <description>60&#39; Line of Fire 1/day 6d8 (DC 27)</description>
+            <type>SPECIALQUALITY.EXTRAORDINARY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Half-Dragon Wings</name>
+            <description></description>
+            <type>SPECIALQUALITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Immunity To Fire</name>
+            <description>You never take Fire damage</description>
+            <type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Low-Light Vision</name>
+            <description>You can see 2x as far as humans in low illumination. Characters with low-light vision have eyes
+                that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision
+                is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest
+                candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a
+                moonlit night as well as they can during the day.
+            </description>
+            <type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Oversized Weapon</name>
+            <description>A cloud giant wields a great, two-handed morningstar (big enough for Gargantuan creatures)
+                without penalty.
+            </description>
+            <type>CLOUD GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Rock Catching</name>
+            <description>A giant of at least Large size can catch Small, Medium, or Large rocks (or projectiles of
+                similar shape). Once per round, a giant that would normally be hit by a rock can make a Reflex save to
+                catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one.
+                (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) The giant
+                must be ready for and aware of the attack in order to make a rock catching attempt.
+            </description>
+            <type>GIANTRACETRAIT.SPECIALQUALITY.EXTRAORDINARY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Rock Throwing</name>
+            <description>The range increment is 140 feet for a cloud giant&#39;s thrown rocks.</description>
+            <type>CLOUD GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Rock Throwing</name>
+            <description>Adult giants are accomplished rock throwers and receive a +1 racial bonus on attack rolls when
+                throwing rocks. A giant of at least Large size can hurl rocks weighing 40 to 50 pounds each (Small
+                objects) up to five range increments. The size of the range increment varies with the giant&#39;s
+                variety. A Huge giant can hurl rocks of 60 to 80 pounds (Medium objects).
+            </description>
+            <type>GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Scent</name>
+            <description>30 ft. range</description>
+            <type>SPECIALQUALITY.EXTRAORDINARY.SENSE</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <!-- Hidden Automatic "Special Ability" Ability Objects -->
+        <ability_object>
+            <name>Flight Maneuverability</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Giant Proficiencies</name>
+            <description></description>
+            <type>INTERNAL.CLASSABILITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Maneuverability(Average)</name>
+            <description></description>
+            <type>MANEUVERABILITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <!-- Visible Automatic "Internal" Ability Objects -->
+        <ability_object>
+            <name>Default</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Defines Required</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Race Traits ~ Giant (Cloud)</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Weapon Prof ~ Auto</name>
+            <description></description>
+            <type>WEAPONPROFAUTO.WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Weapon Prof ~ Martial</name>
+            <description></description>
+            <type>WEAPONPROFMARTIAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Weapon Prof ~ Simple</name>
+            <description></description>
+            <type>WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <!-- Hidden Automatic "Internal" Ability Objects -->
+        <ability_object>
+            <name>Creature Type</name>
+            <description></description>
+            <type>INTERNAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+    </ability_objects>
+    <!--
+      ====================================
+      ====================================
+            MISCELLANEOUS
+      ====================================
+      ====================================-->
 
-	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Boulder, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells (Ray), Spells (Touch), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
-	<languages>Giant</languages>
+    <weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Boulder, Claw, Club, Crossbow (Heavy), Crossbow (Light),
+        Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Grapple,
+        Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow,
+        Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff,
+        Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle,
+        Slam, Sling, Spear, Spells (Ray), Spells (Touch), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed
+        Strike, Waraxe (Dwarven), Warhammer
+    </weapon_proficiencies>
+    <languages>Giant</languages>
 
-	<templates>
-		<list>Base Race Type, Half Dragon (Brass)</list>
-		<template>
-			<name>Base Race Type</name>
-			<strmod>0</strmod>
-			<dexmod>0</dexmod>
-			<conmod>0</conmod>
-			<intmod>0</intmod>
-			<wismod>0</wismod>
-			<chamod>0</chamod>
-			<cr>0</cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
-		<template>
-			<name>Half Dragon (Brass)</name>
-			<strmod>0</strmod>
-			<dexmod>0</dexmod>
-			<conmod>0</conmod>
-			<intmod>0</intmod>
-			<wismod>0</wismod>
-			<chamod>0</chamod>
-			<cr>0</cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
-	</templates>
+    <templates>
+        <list>Base Race Type, Half Dragon (Brass)</list>
+        <template>
+            <name>Base Race Type</name>
+            <strmod>0</strmod>
+            <dexmod>0</dexmod>
+            <conmod>0</conmod>
+            <intmod>0</intmod>
+            <wismod>0</wismod>
+            <chamod>0</chamod>
+            <cr>0</cr>
+            <dr></dr>
+            <feat></feat>
+            <sa></sa>
+            <sr>0</sr>
+            <bonuslist></bonuslist>
+        </template>
+        <template>
+            <name>Half Dragon (Brass)</name>
+            <strmod>0</strmod>
+            <dexmod>0</dexmod>
+            <conmod>0</conmod>
+            <intmod>0</intmod>
+            <wismod>0</wismod>
+            <chamod>0</chamod>
+            <cr>0</cr>
+            <dr></dr>
+            <feat></feat>
+            <sa></sa>
+            <sr>0</sr>
+            <bonuslist></bonuslist>
+        </template>
+    </templates>
 
-	<misc>
-	</misc>
-	<!--
-	  ====================================
-	  ====================================
-			COMPANIONS
-	  ====================================
-	  ====================================-->
+    <misc>
+    </misc>
+    <!--
+      ====================================
+      ====================================
+            COMPANIONS
+      ====================================
+      ====================================-->
 
-	<companions>
-	</companions>
-	<!--
-	  ====================================
-	  ====================================
-			SPELLS
-	  ====================================
-	  ====================================-->
-	<spells>
-		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate>
-		<racial_innate>
-					<spell>
-						<name>Fog Cloud</name>
-						<outputname>Fog Cloud</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Medium (250 ft.)</range>
-						<components>V, S</components>
-						<castingtime>1 standard action</castingtime>
-						<casterlevel>15</casterlevel>
-						<dc></dc>
-						<duration>150 minutes</duration>
-						<effect>Fog obscures vision.</effect>
-						<target>Fog spreads in 20-ft. radius, 20 ft. high</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Conjuration</school>
-							<subschool>Creation</subschool>
-							<descriptor></descriptor>
-							<fullschool>Conjuration (Creation)</fullschool>
-						</school>
-						<source>
-							<sourcelevel></sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsF-G</source>
-							<sourcepage>SpellsF-G</sourcepage>
-							<sourceshort>RSRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Fog obscures vision.</description>
-						<bonusspell></bonusspell>
-					</spell>
-					<spell>
-						<name>Levitate (self plus 2,000 pounds)</name>
-						<outputname>Levitate (self plus 2,000 pounds)</outputname>
-						<times_memorized>3</times_memorized>
-						<range>Personal</range>
-						<components>None</components>
-						<castingtime>1 standard action</castingtime>
-						<casterlevel>15</casterlevel>
-						<dc></dc>
-						<duration>15 minutes [D]</duration>
-						<effect>You move up and down at your direction.</effect>
-						<target>You and up to 2,000 pounds</target>
-						<saveinfo></saveinfo>
-						<school>
-							<school>Transmutation</school>
-							<subschool></subschool>
-							<descriptor></descriptor>
-							<fullschool>Transmutation</fullschool>
-						</school>
-						<source>
-							<sourcelevel></sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L</source>
-							<sourcepage>SpellsH-L</sourcepage>
-							<sourceshort>RSRD</sourceshort>
-						</source>
-						<spell_resistance></spell_resistance>
-						<description>You move up and down at your direction.</description>
-						<bonusspell></bonusspell>
-					</spell>
-					<spell>
-						<name>Obscuring Mist</name>
-						<outputname>Obscuring Mist</outputname>
-						<times_memorized>3</times_memorized>
-						<range>20 ft.</range>
-						<components>V, S</components>
-						<castingtime>1 standard action</castingtime>
-						<casterlevel>15</casterlevel>
-						<dc></dc>
-						<duration>15 minutes</duration>
-						<effect>Fog surrounds you.</effect>
-						<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Conjuration</school>
-							<subschool>Creation</subschool>
-							<descriptor></descriptor>
-							<fullschool>Conjuration (Creation)</fullschool>
-						</school>
-						<source>
-							<sourcelevel></sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsM-O</source>
-							<sourcepage>SpellsM-O</sourcepage>
-							<sourceshort>RSRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Fog surrounds you.</description>
-						<bonusspell></bonusspell>
-					</spell>
-		</racial_innate>
+    <companions>
+    </companions>
+    <!--
+      ====================================
+      ====================================
+            SPELLS
+      ====================================
+      ====================================-->
+    <spells>
+        <!-- ### BEGIN Innate spells ### -->
+        <spells_innate>
+            <racial_innate>
+                <spell>
+                    <name>Fog Cloud</name>
+                    <outputname>Fog Cloud</outputname>
+                    <times_memorized>1</times_memorized>
+                    <range>Medium (250 ft.)</range>
+                    <components>V, S</components>
+                    <castingtime>1 standard action</castingtime>
+                    <casterlevel>15</casterlevel>
+                    <dc></dc>
+                    <duration>150 minutes</duration>
+                    <effect>Fog obscures vision.</effect>
+                    <target>Fog spreads in 20-ft. radius, 20 ft. high</target>
+                    <saveinfo>None</saveinfo>
+                    <school>
+                        <school>Conjuration</school>
+                        <subschool>Creation</subschool>
+                        <descriptor></descriptor>
+                        <fullschool>Conjuration (Creation)</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel></sourcelevel>
+                        <source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsF-G</source>
+                        <sourcepage>SpellsF-G</sourcepage>
+                        <sourceshort>RSRD</sourceshort>
+                    </source>
+                    <spell_resistance>No</spell_resistance>
+                    <description>Fog obscures vision.</description>
+                    <bonusspell></bonusspell>
+                </spell>
+                <spell>
+                    <name>Levitate (self plus 2,000 pounds)</name>
+                    <outputname>Levitate (self plus 2,000 pounds)</outputname>
+                    <times_memorized>3</times_memorized>
+                    <range>Personal</range>
+                    <components>None</components>
+                    <castingtime>1 standard action</castingtime>
+                    <casterlevel>15</casterlevel>
+                    <dc></dc>
+                    <duration>15 minutes [D]</duration>
+                    <effect>You move up and down at your direction.</effect>
+                    <target>You and up to 2,000 pounds</target>
+                    <saveinfo></saveinfo>
+                    <school>
+                        <school>Transmutation</school>
+                        <subschool></subschool>
+                        <descriptor></descriptor>
+                        <fullschool>Transmutation</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel></sourcelevel>
+                        <source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L</source>
+                        <sourcepage>SpellsH-L</sourcepage>
+                        <sourceshort>RSRD</sourceshort>
+                    </source>
+                    <spell_resistance></spell_resistance>
+                    <description>You move up and down at your direction.</description>
+                    <bonusspell></bonusspell>
+                </spell>
+                <spell>
+                    <name>Obscuring Mist</name>
+                    <outputname>Obscuring Mist</outputname>
+                    <times_memorized>3</times_memorized>
+                    <range>20 ft.</range>
+                    <components>V, S</components>
+                    <castingtime>1 standard action</castingtime>
+                    <casterlevel>15</casterlevel>
+                    <dc></dc>
+                    <duration>15 minutes</duration>
+                    <effect>Fog surrounds you.</effect>
+                    <target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
+                    <saveinfo>None</saveinfo>
+                    <school>
+                        <school>Conjuration</school>
+                        <subschool>Creation</subschool>
+                        <descriptor></descriptor>
+                        <fullschool>Conjuration (Creation)</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel></sourcelevel>
+                        <source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsM-O</source>
+                        <sourcepage>SpellsM-O</sourcepage>
+                        <sourceshort>RSRD</sourceshort>
+                    </source>
+                    <spell_resistance>No</spell_resistance>
+                    <description>Fog surrounds you.</description>
+                    <bonusspell></bonusspell>
+                </spell>
+            </racial_innate>
 
-		<class_innate>
-		</class_innate>
-		</spells_innate>
-<!-- ### END Innate spells ### -->
-		<!-- ### BEGIN Known spells ### -->
-		<known_spells>
+            <class_innate>
+            </class_innate>
+        </spells_innate>
+        <!-- ### END Innate spells ### -->
+        <!-- ### BEGIN Known spells ### -->
+        <known_spells>
 
-	</known_spells>
-		<!-- ### END Known spells ### -->
-		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells>
-		<!-- ### BEGIN innate memorized spell section -->	
-		<!-- ### BEGIN innate memorized spells ### -->
-		<racial_innate_memorized>
-					<spell>
-						<name>Fog Cloud</name>
-						<outputname>Fog Cloud</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Medium (250 ft.)</range>
-						<components>V, S</components>
-						<castingtime>1 standard action</castingtime>
-						<casterlevel>15</casterlevel>
-						<dc></dc>
-						<duration>150 minutes</duration>
-						<effect>Fog obscures vision.</effect>
-						<target>Fog spreads in 20-ft. radius, 20 ft. high</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Conjuration</school>
-							<subschool>Creation</subschool>
-							<descriptor></descriptor>
-							<fullschool>Conjuration (Creation)</fullschool>
-						</school>
-						<source>
-							<sourcelevel></sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsF-G</source>
-							<sourcepage>SpellsF-G</sourcepage>
-							<sourceshort>RSRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Fog obscures vision.</description>
-						<bonusspell></bonusspell>
-					</spell>
-					<spell>
-						<name>Levitate (self plus 2,000 pounds)</name>
-						<outputname>Levitate (self plus 2,000 pounds)</outputname>
-						<times_memorized>3</times_memorized>
-						<range>Personal</range>
-						<components>None</components>
-						<castingtime>1 standard action</castingtime>
-						<casterlevel>15</casterlevel>
-						<dc></dc>
-						<duration>15 minutes [D]</duration>
-						<effect>You move up and down at your direction.</effect>
-						<target>You and up to 2,000 pounds</target>
-						<saveinfo></saveinfo>
-						<school>
-							<school>Transmutation</school>
-							<subschool></subschool>
-							<descriptor></descriptor>
-							<fullschool>Transmutation</fullschool>
-						</school>
-						<source>
-							<sourcelevel></sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L</source>
-							<sourcepage>SpellsH-L</sourcepage>
-							<sourceshort>RSRD</sourceshort>
-						</source>
-						<spell_resistance></spell_resistance>
-						<description>You move up and down at your direction.</description>
-						<bonusspell></bonusspell>
-					</spell>
-					<spell>
-						<name>Obscuring Mist</name>
-						<outputname>Obscuring Mist</outputname>
-						<times_memorized>3</times_memorized>
-						<range>20 ft.</range>
-						<components>V, S</components>
-						<castingtime>1 standard action</castingtime>
-						<casterlevel>15</casterlevel>
-						<dc></dc>
-						<duration>15 minutes</duration>
-						<effect>Fog surrounds you.</effect>
-						<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Conjuration</school>
-							<subschool>Creation</subschool>
-							<descriptor></descriptor>
-							<fullschool>Conjuration (Creation)</fullschool>
-						</school>
-						<source>
-							<sourcelevel></sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsM-O</source>
-							<sourcepage>SpellsM-O</sourcepage>
-							<sourceshort>RSRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Fog surrounds you.</description>
-						<bonusspell></bonusspell>
-					</spell>
-		</racial_innate_memorized>
-		<!-- ### END innate memorized spells ### -->
-		<!-- ### BEGIN class innate memorized spells ### -->
-		<class_innate_memorized>
-		</class_innate_memorized>
-			<!-- ### END class innate memorized spells ### -->
-		<!-- ### END innate memorized spell section -->
-	
-		<!-- ### BEGIN class Spellbook memorized spells ### -->
-	</memorized_spells>
-<!-- ### END class Spellbook memorized spells ### -->
-	</spells>
+        </known_spells>
+        <!-- ### END Known spells ### -->
+        <!-- ### BEGIN memorized spells ### -->
+        <memorized_spells>
+            <!-- ### BEGIN innate memorized spell section -->
+            <!-- ### BEGIN innate memorized spells ### -->
+            <racial_innate_memorized>
+                <spell>
+                    <name>Fog Cloud</name>
+                    <outputname>Fog Cloud</outputname>
+                    <times_memorized>1</times_memorized>
+                    <range>Medium (250 ft.)</range>
+                    <components>V, S</components>
+                    <castingtime>1 standard action</castingtime>
+                    <casterlevel>15</casterlevel>
+                    <dc></dc>
+                    <duration>150 minutes</duration>
+                    <effect>Fog obscures vision.</effect>
+                    <target>Fog spreads in 20-ft. radius, 20 ft. high</target>
+                    <saveinfo>None</saveinfo>
+                    <school>
+                        <school>Conjuration</school>
+                        <subschool>Creation</subschool>
+                        <descriptor></descriptor>
+                        <fullschool>Conjuration (Creation)</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel></sourcelevel>
+                        <source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsF-G</source>
+                        <sourcepage>SpellsF-G</sourcepage>
+                        <sourceshort>RSRD</sourceshort>
+                    </source>
+                    <spell_resistance>No</spell_resistance>
+                    <description>Fog obscures vision.</description>
+                    <bonusspell></bonusspell>
+                </spell>
+                <spell>
+                    <name>Levitate (self plus 2,000 pounds)</name>
+                    <outputname>Levitate (self plus 2,000 pounds)</outputname>
+                    <times_memorized>3</times_memorized>
+                    <range>Personal</range>
+                    <components>None</components>
+                    <castingtime>1 standard action</castingtime>
+                    <casterlevel>15</casterlevel>
+                    <dc></dc>
+                    <duration>15 minutes [D]</duration>
+                    <effect>You move up and down at your direction.</effect>
+                    <target>You and up to 2,000 pounds</target>
+                    <saveinfo></saveinfo>
+                    <school>
+                        <school>Transmutation</school>
+                        <subschool></subschool>
+                        <descriptor></descriptor>
+                        <fullschool>Transmutation</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel></sourcelevel>
+                        <source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L</source>
+                        <sourcepage>SpellsH-L</sourcepage>
+                        <sourceshort>RSRD</sourceshort>
+                    </source>
+                    <spell_resistance></spell_resistance>
+                    <description>You move up and down at your direction.</description>
+                    <bonusspell></bonusspell>
+                </spell>
+                <spell>
+                    <name>Obscuring Mist</name>
+                    <outputname>Obscuring Mist</outputname>
+                    <times_memorized>3</times_memorized>
+                    <range>20 ft.</range>
+                    <components>V, S</components>
+                    <castingtime>1 standard action</castingtime>
+                    <casterlevel>15</casterlevel>
+                    <dc></dc>
+                    <duration>15 minutes</duration>
+                    <effect>Fog surrounds you.</effect>
+                    <target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
+                    <saveinfo>None</saveinfo>
+                    <school>
+                        <school>Conjuration</school>
+                        <subschool>Creation</subschool>
+                        <descriptor></descriptor>
+                        <fullschool>Conjuration (Creation)</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel></sourcelevel>
+                        <source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsM-O</source>
+                        <sourcepage>SpellsM-O</sourcepage>
+                        <sourceshort>RSRD</sourceshort>
+                    </source>
+                    <spell_resistance>No</spell_resistance>
+                    <description>Fog surrounds you.</description>
+                    <bonusspell></bonusspell>
+                </spell>
+            </racial_innate_memorized>
+            <!-- ### END innate memorized spells ### -->
+            <!-- ### BEGIN class innate memorized spells ### -->
+            <class_innate_memorized>
+            </class_innate_memorized>
+            <!-- ### END class innate memorized spells ### -->
+            <!-- ### END innate memorized spell section -->
+
+            <!-- ### BEGIN class Spellbook memorized spells ### -->
+        </memorized_spells>
+        <!-- ### END class Spellbook memorized spells ### -->
+    </spells>
 </character>

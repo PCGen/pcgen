@@ -22,52 +22,55 @@ package pcgen.core.bonus.util;
  */
 public class SpellCastInfo
 {
-	private String classString = "";
-	private String level = "0";
-	private String type;
+    private String classString = "";
+    private String level = "0";
+    private String type;
 
-	/**
-	 * Constructor
-	 * @param argType
-	 * @param argLevel
-	 */
-	public SpellCastInfo(final String argType, final String argLevel)
-	{
-		if (argType.startsWith("TYPE"))
-		{
-			type = argType.substring(5);
-		}
-		else if (argType.startsWith("CLASS"))
-		{
-			classString = argType.substring(6);
-		}
-		level = argLevel;
-	}
+    /**
+     * Constructor
+     *
+     * @param argType
+     * @param argLevel
+     */
+    public SpellCastInfo(final String argType, final String argLevel)
+    {
+        if (argType.startsWith("TYPE"))
+        {
+            type = argType.substring(5);
+        } else if (argType.startsWith("CLASS"))
+        {
+            classString = argType.substring(6);
+        }
+        level = argLevel;
+    }
 
-	/**
-	 * Get the level
-	 * @return level
-	 */
-	public String getLevel()
-	{
-		return level;
-	}
+    /**
+     * Get the level
+     *
+     * @return level
+     */
+    public String getLevel()
+    {
+        return level;
+    }
 
-	/**
-	 * Get the PC Class name
-	 * @return the PC Class name
-	 */
-	public String getPcClassName()
-	{
-		return classString;
-	}
+    /**
+     * Get the PC Class name
+     *
+     * @return the PC Class name
+     */
+    public String getPcClassName()
+    {
+        return classString;
+    }
 
-	/**
-	 * Get the type
-	 * @return type
-	 */
-	public String getType()
-	{
-		return type;
-	}
+    /**
+     * Get the type
+     *
+     * @return type
+     */
+    public String getType()
+    {
+        return type;
+    }
 }

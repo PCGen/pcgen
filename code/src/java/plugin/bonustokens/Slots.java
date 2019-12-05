@@ -24,37 +24,40 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Slots extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"AMULET", "BELT", "BOOT", "BRACER", "CAPE", "EYEGEAR", "GLOVE", "HANDS",
-		"HEADGEAR", "LEGS", "ROBE", "RING", "Shield", "SHIRT", "SUIT", "WEAPON"};
+    private static final String[] BONUS_TAGS = {"AMULET", "BELT", "BOOT", "BRACER", "CAPE", "EYEGEAR", "GLOVE", "HANDS",
+            "HEADGEAR", "LEGS", "ROBE", "RING", "Shield", "SHIRT", "SUIT", "WEAPON"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "SLOTS";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "SLOTS";
+    }
 
-	/**
-	 * Get by index, an individual slot type that may be bonused.
-	 * @param tagNumber the index of the slot type.
-	 * @return The slot type.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual slot type that may be bonused.
+     *
+     * @param tagNumber the index of the slot type.
+     * @return The slot type.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of slot types that may be bonused.
-	 * @return The number of slot types.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of slot types that may be bonused.
+     *
+     * @return The number of slot types.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 }

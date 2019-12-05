@@ -35,36 +35,36 @@ import org.junit.jupiter.api.Test;
  */
 public class PreHandsTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Test the PREHANDS code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testHands() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		Race race = new Race();
-		race.put(IntegerKey.CREATURE_HANDS, 2);
+    /**
+     * Test the PREHANDS code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testHands() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        Race race = new Race();
+        race.put(IntegerKey.CREATURE_HANDS, 2);
 
-		character.setRace(race);
+        character.setRace(race);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREHANDSLT:2");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREHANDSLT:2");
 
-		assertFalse("Character has more than 1 hand", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has more than 1 hand", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREHANDSEQ:2");
+        prereq = factory.parse("PREHANDSEQ:2");
 
-		assertTrue("Character has 2 hands", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has 2 hands", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHANDSGT:2");
+        prereq = factory.parse("PREHANDSGT:2");
 
-		assertFalse("Character does not have more than 2 hands", PrereqHandler
-			.passes(prereq, character, null));
-	}
+        assertFalse("Character does not have more than 2 hands", PrereqHandler
+                .passes(prereq, character, null));
+    }
 }

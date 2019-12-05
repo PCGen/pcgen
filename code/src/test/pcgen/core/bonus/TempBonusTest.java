@@ -40,75 +40,73 @@ import org.junit.jupiter.api.Test;
 class TempBonusTest extends AbstractCharacterTestCase
 {
 
-	@Test
-	public void testPCTemporaryBonus()
-	{
-		LoadContext context = Globals.getContext();
-		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
-		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
-		spell.addToListFor(ListKey.BONUS_PC, bonus);
-		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasPCTempBonus(spell));
-		assertFalse(TempBonusHelper.hasNonPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
-		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
-		try
-		{
-			assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
-		}
-		catch (NullPointerException e)
-		{
-			//This is appropriate too
-		}
-	}
+    @Test
+    public void testPCTemporaryBonus()
+    {
+        LoadContext context = Globals.getContext();
+        BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
+        Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
+        spell.addToListFor(ListKey.BONUS_PC, bonus);
+        assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
+        assertTrue(TempBonusHelper.hasPCTempBonus(spell));
+        assertFalse(TempBonusHelper.hasNonPCTempBonus(spell));
+        assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
+        assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
+        try
+        {
+            assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
+        } catch (NullPointerException e)
+        {
+            //This is appropriate too
+        }
+    }
 
-	@Test
-	public void testANYPCTemporaryBonus()
-	{
-		LoadContext context = Globals.getContext();
-		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
-		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
-		spell.addToListFor(ListKey.BONUS_ANYPC, bonus);
-		assertTrue(TempBonusHelper.hasAnyPCTempBonus(spell));
-		assertFalse(TempBonusHelper.hasPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
-		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
-		try
-		{
-			assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
-		}
-		catch (NullPointerException e)
-		{
-			//This is appropriate too
-		}
-	}
+    @Test
+    public void testANYPCTemporaryBonus()
+    {
+        LoadContext context = Globals.getContext();
+        BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
+        Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
+        spell.addToListFor(ListKey.BONUS_ANYPC, bonus);
+        assertTrue(TempBonusHelper.hasAnyPCTempBonus(spell));
+        assertFalse(TempBonusHelper.hasPCTempBonus(spell));
+        assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
+        assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
+        assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
+        try
+        {
+            assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
+        } catch (NullPointerException e)
+        {
+            //This is appropriate too
+        }
+    }
 
-	@Test
-	public void testEquipmentTemporaryBonus()
-	{
-		PlayerCharacter character = getCharacter();
-		LoadContext context = Globals.getContext();
-		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
-		EquipBonus tb = new EquipBonus(bonus, "MARTIAL;SIMPLE;EXOTIC");
-		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
-		spell.addToListFor(ListKey.BONUS_EQUIP, tb);
-		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
-		assertFalse(TempBonusHelper.hasPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
-		assertFalse(TempBonusHelper.hasCharacterTempBonus(spell));
-		assertTrue(TempBonusHelper.hasEquipmentTempBonus(spell));
-		Set<String> eaStringSet = TempBonusHelper.getEquipmentApplyString(spell);
-		assertFalse(eaStringSet.isEmpty());
-		assertEquals(1, eaStringSet.size());
-		assertEquals("MARTIAL;SIMPLE;EXOTIC", eaStringSet.iterator().next());
-		Equipment dagger = context.getReferenceContext().constructNowIfNecessary(Equipment.class, "Dagger");
-		dagger.addToListFor(ListKey.TYPE, Type.WEAPON);
-		dagger.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
-		character.addEquipment(dagger);
-		List<InfoFacade> eList = TempBonusHelper.getListOfApplicableEquipment(spell, character);
-		assertEquals(1, eList.size());
-		assertEquals("Dagger", eList.iterator().next().getKeyName());
-	}
+    @Test
+    public void testEquipmentTemporaryBonus()
+    {
+        PlayerCharacter character = getCharacter();
+        LoadContext context = Globals.getContext();
+        BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
+        EquipBonus tb = new EquipBonus(bonus, "MARTIAL;SIMPLE;EXOTIC");
+        Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
+        spell.addToListFor(ListKey.BONUS_EQUIP, tb);
+        assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
+        assertFalse(TempBonusHelper.hasPCTempBonus(spell));
+        assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
+        assertFalse(TempBonusHelper.hasCharacterTempBonus(spell));
+        assertTrue(TempBonusHelper.hasEquipmentTempBonus(spell));
+        Set<String> eaStringSet = TempBonusHelper.getEquipmentApplyString(spell);
+        assertFalse(eaStringSet.isEmpty());
+        assertEquals(1, eaStringSet.size());
+        assertEquals("MARTIAL;SIMPLE;EXOTIC", eaStringSet.iterator().next());
+        Equipment dagger = context.getReferenceContext().constructNowIfNecessary(Equipment.class, "Dagger");
+        dagger.addToListFor(ListKey.TYPE, Type.WEAPON);
+        dagger.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+        character.addEquipment(dagger);
+        List<InfoFacade> eList = TempBonusHelper.getListOfApplicableEquipment(spell, character);
+        assertEquals(1, eList.size());
+        assertEquals("Dagger", eList.iterator().next().getKeyName());
+    }
 
 }

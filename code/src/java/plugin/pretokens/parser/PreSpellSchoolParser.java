@@ -25,19 +25,20 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreSpellSchoolParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"SPELLSCHOOL"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"SPELLSCHOOL"};
+    }
 
-	@Override
-	protected boolean requiresValue()
-	{
-		return true;
-	}
+    @Override
+    protected boolean requiresValue()
+    {
+        return true;
+    }
 }

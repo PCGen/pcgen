@@ -23,30 +23,30 @@ import java.util.stream.IntStream;
 
 class NSidedModifiedDieConfig implements DiceConfig
 {
-	private final int n;
-	private final int sides;
-	private final int bias;
+    private final int n;
+    private final int sides;
+    private final int bias;
 
-	NSidedModifiedDieConfig(final int n, final int sides, final int bias, final Random random)
-	{
-		this.n = n;
-		this.sides = sides;
-		this.bias = bias;
-	}
+    NSidedModifiedDieConfig(final int n, final int sides, final int bias, final Random random)
+    {
+        this.n = n;
+        this.sides = sides;
+        this.bias = bias;
+    }
 
-	@Override
-	public int roll()
-	{
-		return IntStream.generate(() -> Die.RAND.nextInt(sides) + 1).map(v -> v + bias).limit(n).sum();
-	}
+    @Override
+    public int roll()
+    {
+        return IntStream.generate(() -> Die.RAND.nextInt(sides) + 1).map(v -> v + bias).limit(n).sum();
+    }
 
-	@Override
-	public String toFormula()
-	{
-		if (bias == 0)
-		{
-			return MessageFormat.format("{0}d{1}", n, sides);
-		}
-		return MessageFormat.format("{0}d{1} + {2}", n, sides, bias);
-	}
+    @Override
+    public String toFormula()
+    {
+        if (bias == 0)
+        {
+            return MessageFormat.format("{0}d{1}", n, sides);
+        }
+        return MessageFormat.format("{0}d{1} + {2}", n, sides, bias);
+    }
 }

@@ -31,43 +31,43 @@ import pcgen.rules.persistence.token.ParseResult;
 public class OutputnameLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "OUTPUTNAME";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "OUTPUTNAME";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (obj instanceof EquipmentModifier)
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addWarningMessage(getTokenName() + " is not valid for an equipment modifier. The "
-				+ "FORMATCAT and NAMEOPT tags should be used instead. Will assume " + "NAMEOPT:TEXT=" + value
-				+ ". Object was " + obj.toString());
-			context.getObjectContext().put(obj, StringKey.NAME_TEXT, value);
-			context.getObjectContext().put(obj, ObjectKey.NAME_OPT, EqModNameOpt.valueOfIgnoreCase("TEXT"));
-			return cpr;
-		}
-		context.getObjectContext().put(obj, StringKey.OUTPUT_NAME, value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (obj instanceof EquipmentModifier)
+        {
+            ComplexParseResult cpr = new ComplexParseResult();
+            cpr.addWarningMessage(getTokenName() + " is not valid for an equipment modifier. The "
+                    + "FORMATCAT and NAMEOPT tags should be used instead. Will assume " + "NAMEOPT:TEXT=" + value
+                    + ". Object was " + obj.toString());
+            context.getObjectContext().put(obj, StringKey.NAME_TEXT, value);
+            context.getObjectContext().put(obj, ObjectKey.NAME_OPT, EqModNameOpt.valueOfIgnoreCase("TEXT"));
+            return cpr;
+        }
+        context.getObjectContext().put(obj, StringKey.OUTPUT_NAME, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		String oname = context.getObjectContext().getString(obj, StringKey.OUTPUT_NAME);
-		if (oname == null)
-		{
-			return null;
-		}
-		return new String[]{oname};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        String oname = context.getObjectContext().getString(obj, StringKey.OUTPUT_NAME);
+        if (oname == null)
+        {
+            return null;
+        }
+        return new String[]{oname};
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

@@ -29,133 +29,131 @@ import pcgen.core.bonus.BonusObj;
 
 /**
  * {@code PointBuyMethod}.
- * 
  */
 public final class PointBuyMethod implements BonusContainer, Loadable
 {
-	private URI sourceURI;
-	private String methodName = "";
-	private String pointFormula = "0";
-	private List<BonusObj> bonusList;
+    private URI sourceURI;
+    private String methodName = "";
+    private String pointFormula = "0";
+    private List<BonusObj> bonusList;
 
-	@Override
-	public URI getSourceURI()
-	{
-		return sourceURI;
-	}
+    @Override
+    public URI getSourceURI()
+    {
+        return sourceURI;
+    }
 
-	@Override
-	public void setSourceURI(URI source)
-	{
-		sourceURI = source;
-	}
+    @Override
+    public void setSourceURI(URI source)
+    {
+        sourceURI = source;
+    }
 
-	public String getPointFormula()
-	{
-		return pointFormula;
-	}
+    public String getPointFormula()
+    {
+        return pointFormula;
+    }
 
-	public void setPointFormula(final String argFormula)
-	{
-		pointFormula = argFormula;
-	}
+    public void setPointFormula(final String argFormula)
+    {
+        pointFormula = argFormula;
+    }
 
-	@Override
-	public String toString()
-	{
-		return methodName;
-	}
+    @Override
+    public String toString()
+    {
+        return methodName;
+    }
 
-	public String getDescription()
-	{
-		String desc = methodName;
-		if (!pointFormula.equals("0"))
-		{
-			desc += " (" + pointFormula + ')';
-		}
-		return desc;
-	}
+    public String getDescription()
+    {
+        String desc = methodName;
+        if (!pointFormula.equals("0"))
+        {
+            desc += " (" + pointFormula + ')';
+        }
+        return desc;
+    }
 
-	public void addBonus(BonusObj bon)
-	{
-		if (bonusList == null)
-		{
-			bonusList = new ArrayList<>();
-		}
-		bonusList.add(bon);
-	}
+    public void addBonus(BonusObj bon)
+    {
+        if (bonusList == null)
+        {
+            bonusList = new ArrayList<>();
+        }
+        bonusList.add(bon);
+    }
 
-	public Collection<BonusObj> getBonuses()
-	{
-		if (bonusList == null)
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(bonusList);
-	}
+    public Collection<BonusObj> getBonuses()
+    {
+        if (bonusList == null)
+        {
+            return Collections.emptyList();
+        }
+        return Collections.unmodifiableList(bonusList);
+    }
 
-	/**
-	 * returns all BonusObj's that are "active"
-	 * 
-	 * @param pc
-	 *            TODO
-	 * @return active bonuses
-	 */
-	@Override
-	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
-	{
-		final List<BonusObj> aList = new ArrayList<>();
-		for (BonusObj bonus : getBonuses())
-		{
-			if (pc.isApplied(bonus))
-			{
-				aList.add(bonus);
-			}
-		}
-		return aList;
-	}
+    /**
+     * returns all BonusObj's that are "active"
+     *
+     * @param pc TODO
+     * @return active bonuses
+     */
+    @Override
+    public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
+    {
+        final List<BonusObj> aList = new ArrayList<>();
+        for (BonusObj bonus : getBonuses())
+        {
+            if (pc.isApplied(bonus))
+            {
+                aList.add(bonus);
+            }
+        }
+        return aList;
+    }
 
-	/**
-	 * Sets all the BonusObj's to "active"
-	 * 
-	 * @param aPC
-	 */
-	@Override
-	public void activateBonuses(final PlayerCharacter aPC)
-	{
-		for (BonusObj bonus : getBonuses())
-		{
-			aPC.setApplied(bonus, bonus.qualifies(aPC, null));
-		}
-	}
+    /**
+     * Sets all the BonusObj's to "active"
+     *
+     * @param aPC
+     */
+    @Override
+    public void activateBonuses(final PlayerCharacter aPC)
+    {
+        for (BonusObj bonus : getBonuses())
+        {
+            aPC.setApplied(bonus, bonus.qualifies(aPC, null));
+        }
+    }
 
-	@Override
-	public String getDisplayName()
-	{
-		return methodName;
-	}
+    @Override
+    public String getDisplayName()
+    {
+        return methodName;
+    }
 
-	@Override
-	public String getKeyName()
-	{
-		return getDisplayName();
-	}
+    @Override
+    public String getKeyName()
+    {
+        return getDisplayName();
+    }
 
-	@Override
-	public boolean isInternal()
-	{
-		return false;
-	}
+    @Override
+    public boolean isInternal()
+    {
+        return false;
+    }
 
-	@Override
-	public boolean isType(String type)
-	{
-		return false;
-	}
+    @Override
+    public boolean isType(String type)
+    {
+        return false;
+    }
 
-	@Override
-	public void setName(String name)
-	{
-		methodName = name;
-	}
+    @Override
+    public void setName(String name)
+    {
+        methodName = name;
+    }
 }

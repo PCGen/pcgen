@@ -24,48 +24,47 @@ import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Handles BIO Output Token
- *
+ * <p>
  * BIO
  * BIO,text delimiter
  * BIO[.beforevalue[.aftervalue]]
  */
 public class BioToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "BIO";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BIO";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String beforeValue = "";
-		String afterValue = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String beforeValue = "";
+        String afterValue = "";
 
-		// TODO - What is the point of the first part of this if clause?  The token has 
-		// to at least contain 'BIO' which is a length of 3....  Is this to do with a 
-		// possibly reentrant EH?
-		if (tokenSource.length() <= 3 || tokenSource.charAt(3) == ',')
-		{
-			if (tokenSource.length() > 4)
-			{
-				afterValue = tokenSource.substring(4);
-			}
-		}
-		else
-		{
-			String[] tokens = tokenSource.split("\\.");
-			if (tokens.length > 1)
-			{
-				beforeValue = tokens[1];
-			}
-			if (tokens.length > 2)
-			{
-				afterValue = tokens[2];
-			}
-		}
+        // TODO - What is the point of the first part of this if clause?  The token has
+        // to at least contain 'BIO' which is a length of 3....  Is this to do with a
+        // possibly reentrant EH?
+        if (tokenSource.length() <= 3 || tokenSource.charAt(3) == ',')
+        {
+            if (tokenSource.length() > 4)
+            {
+                afterValue = tokenSource.substring(4);
+            }
+        } else
+        {
+            String[] tokens = tokenSource.split("\\.");
+            if (tokens.length > 1)
+            {
+                beforeValue = tokens[1];
+            }
+            if (tokens.length > 2)
+            {
+                afterValue = tokens[2];
+            }
+        }
 
-		return beforeValue + display.getBio().replaceAll("\n", afterValue + '\n' + beforeValue) + afterValue;
-	}
+        return beforeValue + display.getBio().replaceAll("\n", afterValue + '\n' + beforeValue) + afterValue;
+    }
 }

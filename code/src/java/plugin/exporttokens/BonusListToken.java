@@ -32,97 +32,99 @@ import pcgen.io.exporttoken.Token;
  */
 public class BonusListToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "BONUSLIST";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "BONUSLIST";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return getBonusListToken(tokenSource, pc);
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return getBonusListToken(tokenSource, pc);
+    }
 
-	/**
-	 * Get Bonus List Token
-	 * @param tokenSource
-	 * @param pc
-	 * @return String of Bonus List
-	 */
-	public static String getBonusListToken(String tokenSource, PlayerCharacter pc)
-	{
-		StringTokenizer bTok = new StringTokenizer(tokenSource.substring(10), ".", false);
-		String bonusString = "";
-		String substring = "";
-		String typeSeparator = " ";
-		String delim = ", ";
-		StringBuilder returnString = new StringBuilder();
+    /**
+     * Get Bonus List Token
+     *
+     * @param tokenSource
+     * @param pc
+     * @return String of Bonus List
+     */
+    public static String getBonusListToken(String tokenSource, PlayerCharacter pc)
+    {
+        StringTokenizer bTok = new StringTokenizer(tokenSource.substring(10), ".", false);
+        String bonusString = "";
+        String substring = "";
+        String typeSeparator = " ";
+        String delim = ", ";
+        StringBuilder returnString = new StringBuilder();
 
-		if (bTok.hasMoreTokens())
-		{
-			bonusString = bTok.nextToken();
-		}
+        if (bTok.hasMoreTokens())
+        {
+            bonusString = bTok.nextToken();
+        }
 
-		if (bTok.hasMoreTokens())
-		{
-			substring = bTok.nextToken();
-		}
+        if (bTok.hasMoreTokens())
+        {
+            substring = bTok.nextToken();
+        }
 
-		if (bTok.hasMoreTokens())
-		{
-			typeSeparator = bTok.nextToken();
-		}
+        if (bTok.hasMoreTokens())
+        {
+            typeSeparator = bTok.nextToken();
+        }
 
-		if (bTok.hasMoreTokens())
-		{
-			delim = bTok.nextToken();
-		}
+        if (bTok.hasMoreTokens())
+        {
+            delim = bTok.nextToken();
+        }
 
-		int typeLen = bonusString.length() + substring.length() + 2;
+        int typeLen = bonusString.length() + substring.length() + 2;
 
-		if ((!substring.isEmpty()) && (!bonusString.isEmpty()))
-		{
-			// Commented out this += since it's useless code (see TODO below) thpr 10/21/06
-			//int total = (int) pc.getTotalBonusTo(bonusString, substring);
+        if ((!substring.isEmpty()) && (!bonusString.isEmpty()))
+        {
+            // Commented out this += since it's useless code (see TODO below) thpr 10/21/06
+            //int total = (int) pc.getTotalBonusTo(bonusString, substring);
 
-			if ("TOTAL".equals(typeSeparator))
-			{
-				// TODO - Shouldn't this return retString? - ??? unknown date
-				// Commented out this += since it's useless code thpr 10/21/06
-				// retString += total;
+            if ("TOTAL".equals(typeSeparator))
+            {
+                // TODO - Shouldn't this return retString? - ??? unknown date
+                // Commented out this += since it's useless code thpr 10/21/06
+                // retString += total;
 
-				return "";
-			}
+                return "";
+            }
 
-			boolean needDelim = false;
-			for (Map.Entry<String, String> entry : pc.getBonusStrings(bonusString, substring).entrySet())
-			{
-				String aKey = entry.getKey();
+            boolean needDelim = false;
+            for (Map.Entry<String, String> entry : pc.getBonusStrings(bonusString, substring).entrySet())
+            {
+                String aKey = entry.getKey();
 
-				if (needDelim)
-				{
-					returnString.append(delim);
-				}
-				needDelim = true;
+                if (needDelim)
+                {
+                    returnString.append(delim);
+                }
+                needDelim = true;
 
-				if (aKey.length() > typeLen)
-				{
-					returnString.append(aKey.substring(typeLen));
-				}
-				else
-				{
-					returnString.append("None");
-				}
+                if (aKey.length() > typeLen)
+                {
+                    returnString.append(aKey.substring(typeLen));
+                } else
+                {
+                    returnString.append("None");
+                }
 
-				returnString.append(typeSeparator);
-				returnString.append(entry.getValue());
-			}
-		}
+                returnString.append(typeSeparator);
+                returnString.append(entry.getValue());
+            }
+        }
 
-		return returnString.toString();
-	}
+        return returnString.toString();
+    }
 }

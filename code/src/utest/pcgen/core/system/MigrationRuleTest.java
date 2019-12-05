@@ -29,104 +29,105 @@ import org.junit.jupiter.api.Test;
 class MigrationRuleTest
 {
 
-	private MigrationRule migrationRule;
+    private MigrationRule migrationRule;
 
-	@BeforeEach
-	void setUp() {
-		migrationRule = new MigrationRule(MigrationRule.ObjectType.SOURCE, "OldKey");
-	}
+    @BeforeEach
+    void setUp()
+    {
+        migrationRule = new MigrationRule(MigrationRule.ObjectType.SOURCE, "OldKey");
+    }
 
-	/**
-	 * Test changeAppliesToVer when only a maxver is specified.
-	 */
-	@Test
-	public void testChangeAppliesToVerMaxOnly()
-	{
-		migrationRule.setMaxVer("6.0.1");
+    /**
+     * Test changeAppliesToVer when only a maxver is specified.
+     */
+    @Test
+    public void testChangeAppliesToVerMaxOnly()
+    {
+        migrationRule.setMaxVer("6.0.1");
 
-		int[][] validVersions = {{5, 17, 10}, {6, 0, 0}, {6, 0, 1}};
-		confirmMigrationDoesApply(validVersions);
+        int[][] validVersions = {{5, 17, 10}, {6, 0, 0}, {6, 0, 1}};
+        confirmMigrationDoesApply(validVersions);
 
-		int[][] invalidVersions = {{6, 0, 2}, {6, 1, 0}, {6, 1, 5}, {6, 2, 0}, {7, 0, 0}};
-		confirmMigrationDoesNotApply(invalidVersions);
-	}
+        int[][] invalidVersions = {{6, 0, 2}, {6, 1, 0}, {6, 1, 5}, {6, 2, 0}, {7, 0, 0}};
+        confirmMigrationDoesNotApply(invalidVersions);
+    }
 
-	/**
-	 * Test changeAppliesToVer when a maxver and maxdev is specified.
-	 */
-	@Test
-	public void testChangeAppliesToVerMaxDev()
-	{
-		migrationRule.setMaxVer("6.0.1");
-		migrationRule.setMaxDevVer("6.1.3");
-		
-		int[][] validVersions = {{5, 17, 10}, {6, 0, 0}, {6, 0, 1}, {6, 1, 0}, {6, 1, 3}};
-		confirmMigrationDoesApply(validVersions);
+    /**
+     * Test changeAppliesToVer when a maxver and maxdev is specified.
+     */
+    @Test
+    public void testChangeAppliesToVerMaxDev()
+    {
+        migrationRule.setMaxVer("6.0.1");
+        migrationRule.setMaxDevVer("6.1.3");
 
-		int[][] invalidVersions = {{6, 0, 2}, {6, 1, 4}, {6, 2, 0}, {7, 0, 0}};
-		confirmMigrationDoesNotApply(invalidVersions);
-	}
+        int[][] validVersions = {{5, 17, 10}, {6, 0, 0}, {6, 0, 1}, {6, 1, 0}, {6, 1, 3}};
+        confirmMigrationDoesApply(validVersions);
 
-	/**
-	 * Test changeAppliesToVer when a maxver and minver is specified.
-	 */
-	@Test
-	public void testChangeAppliesToVerMinMax()
-	{
-		migrationRule.setMaxVer("6.0.1");
-		migrationRule.setMinVer("5.17.7");
+        int[][] invalidVersions = {{6, 0, 2}, {6, 1, 4}, {6, 2, 0}, {7, 0, 0}};
+        confirmMigrationDoesNotApply(invalidVersions);
+    }
 
-		int[][] validVersions = {{5, 17, 7}, {5, 17, 10}, {6, 0, 0}, {6, 0, 1}};
-		confirmMigrationDoesApply(validVersions);
+    /**
+     * Test changeAppliesToVer when a maxver and minver is specified.
+     */
+    @Test
+    public void testChangeAppliesToVerMinMax()
+    {
+        migrationRule.setMaxVer("6.0.1");
+        migrationRule.setMinVer("5.17.7");
 
-		int[][] invalidVersions = {{5, 17, 6}, {5, 16, 8}, {6, 0, 2}, {6, 0, 2},
-			{6, 1, 0}, {6, 1, 5}, {6, 2, 0}, {7, 0, 0}};
-		confirmMigrationDoesNotApply(invalidVersions);
-	}
+        int[][] validVersions = {{5, 17, 7}, {5, 17, 10}, {6, 0, 0}, {6, 0, 1}};
+        confirmMigrationDoesApply(validVersions);
 
-	/**
-	 * Test changeAppliesToVer when a maxver, minver and mindevver are specified.
-	 */
-	@Test
-	public void testChangeAppliesToVerMinDevMinMax()
-	{
-		migrationRule.setMaxVer("6.0.1");
-		migrationRule.setMinVer("5.16.4");
-		migrationRule.setMinDevVer("5.17.7");
+        int[][] invalidVersions = {{5, 17, 6}, {5, 16, 8}, {6, 0, 2}, {6, 0, 2},
+                {6, 1, 0}, {6, 1, 5}, {6, 2, 0}, {7, 0, 0}};
+        confirmMigrationDoesNotApply(invalidVersions);
+    }
 
-		int[][] validVersions = {{5, 17, 7}, {5, 17, 10}, {5, 16, 4}, {5, 16, 5}, {6, 0, 0}, {6, 0, 1}};
-		confirmMigrationDoesApply(validVersions);
+    /**
+     * Test changeAppliesToVer when a maxver, minver and mindevver are specified.
+     */
+    @Test
+    public void testChangeAppliesToVerMinDevMinMax()
+    {
+        migrationRule.setMaxVer("6.0.1");
+        migrationRule.setMinVer("5.16.4");
+        migrationRule.setMinDevVer("5.17.7");
 
-		int[][] invalidVersions = {{5, 17, 6}, {5, 16, 3}, {6, 0, 2}, {6, 0, 2},
-			{6, 1, 0}, {6, 1, 5}, {6, 2, 0}, {7, 0, 0}};
-		confirmMigrationDoesNotApply(invalidVersions);
-	}
+        int[][] validVersions = {{5, 17, 7}, {5, 17, 10}, {5, 16, 4}, {5, 16, 5}, {6, 0, 0}, {6, 0, 1}};
+        confirmMigrationDoesApply(validVersions);
+
+        int[][] invalidVersions = {{5, 17, 6}, {5, 16, 3}, {6, 0, 2}, {6, 0, 2},
+                {6, 1, 0}, {6, 1, 5}, {6, 2, 0}, {7, 0, 0}};
+        confirmMigrationDoesNotApply(invalidVersions);
+    }
 
 
-	private void confirmMigrationDoesApply(int[][] validVersions)
-	{
-		for (int[] pcgVer : validVersions)
-		{
-			assertTrue(
-					migrationRule.changeAppliesToVer(pcgVer),
-					() -> "Migration rule should apply for "
-							+ displayVersion(pcgVer));
-		}
-	}
+    private void confirmMigrationDoesApply(int[][] validVersions)
+    {
+        for (int[] pcgVer : validVersions)
+        {
+            assertTrue(
+                    migrationRule.changeAppliesToVer(pcgVer),
+                    () -> "Migration rule should apply for "
+                            + displayVersion(pcgVer));
+        }
+    }
 
-	private void confirmMigrationDoesNotApply(int[][] invalidVersions)
-	{
-		for (int[] pcgVer : invalidVersions)
-		{
-			assertFalse(
-					migrationRule.changeAppliesToVer(pcgVer),
-					() -> "Migration rule should not apply for "
-							+ displayVersion(pcgVer));
-		}
-	}
+    private void confirmMigrationDoesNotApply(int[][] invalidVersions)
+    {
+        for (int[] pcgVer : invalidVersions)
+        {
+            assertFalse(
+                    migrationRule.changeAppliesToVer(pcgVer),
+                    () -> "Migration rule should not apply for "
+                            + displayVersion(pcgVer));
+        }
+    }
 
-	private static String displayVersion(int[] pcgVer)
-	{
-		return pcgVer[0]+"."+pcgVer[1]+"."+pcgVer[2];
-	}
+    private static String displayVersion(int[] pcgVer)
+    {
+        return pcgVer[0] + "." + pcgVer[1] + "." + pcgVer[2];
+    }
 }

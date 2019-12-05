@@ -27,54 +27,53 @@ import pcgen.facade.util.ReferenceFacade;
 /**
  * The Class {@code CompanionNotLoaded} represents a characters's companion
  * (familiar, animal companion, mount etc) that is not currently loaded.
- *
- * 
  */
 public class CompanionNotLoaded implements CompanionFacade
 {
 
-	private final DefaultReferenceFacade<String> nameRef;
-	private final DefaultReferenceFacade<File> fileRef;
-	private final DefaultReferenceFacade<Race> raceRef;
-	private final String companionType;
+    private final DefaultReferenceFacade<String> nameRef;
+    private final DefaultReferenceFacade<File> fileRef;
+    private final DefaultReferenceFacade<Race> raceRef;
+    private final String companionType;
 
-	/**
-	 * Create a new instance of CompanionNotLoaded
-	 * @param name the name of the companion.
-	 * @param file The character file for the companion.
-	 * @param race The race of the companion.
-	 * @param compType The type of companion.
-	 */
-	public CompanionNotLoaded(String name, File file, Race race, String compType)
-	{
-		this.nameRef = new DefaultReferenceFacade<>(name);
-		this.fileRef = new DefaultReferenceFacade<>(file);
-		this.raceRef = new DefaultReferenceFacade<>(race);
-		this.companionType = compType;
-	}
+    /**
+     * Create a new instance of CompanionNotLoaded
+     *
+     * @param name     the name of the companion.
+     * @param file     The character file for the companion.
+     * @param race     The race of the companion.
+     * @param compType The type of companion.
+     */
+    public CompanionNotLoaded(String name, File file, Race race, String compType)
+    {
+        this.nameRef = new DefaultReferenceFacade<>(name);
+        this.fileRef = new DefaultReferenceFacade<>(file);
+        this.raceRef = new DefaultReferenceFacade<>(race);
+        this.companionType = compType;
+    }
 
-	@Override
-	public ReferenceFacade<String> getNameRef()
-	{
-		return nameRef;
-	}
+    @Override
+    public ReferenceFacade<String> getNameRef()
+    {
+        return nameRef;
+    }
 
-	@Override
-	public ReferenceFacade<File> getFileRef()
-	{
-		return fileRef;
-	}
+    @Override
+    public ReferenceFacade<File> getFileRef()
+    {
+        return fileRef;
+    }
 
-	@Override
-	public ReferenceFacade<Race> getRaceRef()
-	{
-		return raceRef;
-	}
+    @Override
+    public ReferenceFacade<Race> getRaceRef()
+    {
+        return raceRef;
+    }
 
-	@Override
-	public String getCompanionType()
-	{
-		return companionType;
-	}
+    @Override
+    public String getCompanionType()
+    {
+        return companionType;
+    }
 
 }

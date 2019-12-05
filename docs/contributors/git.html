@@ -1,309 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
-<meta name="description" content="How to use Git and GitHub for PCGen.">
-<meta name="keywords" content="git, github">
-<title>Using Git and GitHub</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
-<link rel="stylesheet" href="./asciidoctor.css">
+    <meta charset="UTF-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Asciidoctor 1.5.6.1">
+    <meta name="description" content="How to use Git and GitHub for PCGen.">
+    <meta name="keywords" content="git, github">
+    <title>Using Git and GitHub</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+    <link rel="stylesheet" href="./asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>Using Git and GitHub</h1>
+    <h1>Using Git and GitHub</h1>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>This guide will help you get up to speed on setting up your local Git repository, and to submit your work for inclusion into the PCGen <em>master</em>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_first_time">First time</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Here we are going to setup your own personal <em>fork</em> repository of the PCGen&#8217;s official repository on GitHub, and then <em>clone</em> from your fork repository (known as <em>remote</em> / <em>origin</em>) to your computer (known as <em>local</em>). The local repository is where you do all the required work.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Firstly make sure you have a <em>GitHub account</em>, if not head over to <a href="https://github.com/">GitHub</a> quickly to create your own account (either free or paid will do, as your pcgen repository will be public accessible).</p>
-</li>
-<li>
-<p>Log in with <em>your</em> GitHub account.</p>
-</li>
-<li>
-<p>Open a browser tab for PCGen&#8217;s official repository: <a href="https://github.com/PCGen/pcgen" class="bare">https://github.com/PCGen/pcgen</a>.</p>
-</li>
-<li>
-<p>Click on the word <strong>Fork</strong> (it is actually a button to make forks)</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/fork.png" alt="Fork">
-</div>
-</div>
-</li>
-<li>
-<p>Wait a little while, and page will update showing the pcgen repository as <code>&lt;your account&gt; / pcgen</code>, no longer displaying as <code>PCGen / pcgen</code>.</p>
-</li>
-<li>
-<p>Can close the browser tab now.</p>
-</li>
-<li>
-<p>From a console command prompt use the following <strong>git</strong> command to clone master from <code>&lt;your account&gt; / pcgen</code> repository.</p>
-</li>
-</ol>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git clone -b master https://github.com/&lt;your account&gt;/pcgen.git</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_working_on_an_issue_new_feature_etc">Working on an issue, new feature, etc</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>All work contributed to PCGen is done by making use of <em>git branches</em>, each feature or issue in it&#8217;s own branch, that will be pushed to your fork repository, then pulled from PCGen&#8217;s pcgen repository.</p>
-</div>
-<div class="sect2">
-<h3 id="_your_fork_repository">Your fork repository</h3>
-<div class="paragraph">
-<p>Before making any new <em>local</em> branches to do some work, it is best to make sure that your fork is up to date to the PCGen&#8217;s official repository. This will help alleviate merging issues later on. Once you fork is up to date, then you can update your local repository.</p>
-</div>
-<div class="paragraph">
-<p>These steps will ensure your fork is up to date:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Open your fork of the repository, that is <code>&lt;your name&gt; / pcgen</code>.</p>
-</li>
-<li>
-<p>Click on <strong>Compare</strong> button on the top right, to take you to the <code>Comparing changes</code> page.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/compare.png" alt="Compare">
-</div>
-</div>
-</li>
-<li>
-<p>You will notice repository has changed to <code>PCGen / pcgen</code>.</p>
-</li>
-<li>
-<p>Change <strong>Base:</strong> to your fork <code>&lt;your name&gt;/pcgen</code>, and wait for update to finish. Click on <strong>comparing across forks</strong> link, to display the origin and fork again.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/comparing.png" alt="Comparing">
-</div>
-</div>
-</li>
-<li>
-<p>Now change <strong>Head:</strong> to <code>PCGen/pcgen</code>, and wait for update to finish.</p>
-</li>
-<li>
-<p>Depending on the state you either have:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>"There isn’t anything to compare." being displayed. Meaning your fork is up to date to PCGen&#8217;s official repository. Nothing more is to be done here.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/comparing2.png" alt="Comparing2">
-</div>
-</div>
-</li>
-<li>
-<p>A list of commits appears. This shows the changes that has been merged in PCGen&#8217;s official repository since your fork was updated from the origin. Click on <strong>Create pull request</strong> button.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/comparing3.png" alt="Comparing3">
-</div>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Here you enter a suitable title for your pull request, such as given in the screenshot below. Once have title entere3d, click on <strong>Create pull request</strong> button.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/open-pr.png" alt="Open pull request">
-</div>
-</div>
-</li>
-<li>
-<p>A pull request is now created with a pull request number appearing at the end of your pull request title. Hopefully there will be no commits that needs to be resolved first in order to do the merge to update your fork repository.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/pr-create.png" alt="Pull request created">
-</div>
-</div>
-<div class="paragraph">
-<p>Below the list of comments the <strong>Merge pull request</strong> button to be clicked to initiate the merge.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/pr-merge.png" alt="Pull request merging">
-</div>
-</div>
-</li>
-<li>
-<p>The area containing <strong>Merge pull request</strong> changes to a confirmation button <strong>Confirm merge</strong>. Click the button to proceed with the merge.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/pr-merge-confirm.png" alt="Pull request merging confirm">
-</div>
-</div>
-</li>
-<li>
-<p>At the bottom of the commits list, you should now see an entry confirming the merge has taken place, with a <strong>Revert</strong> button and end of line entry. Now your fork repository is up to date with PCGen&#8217;s official repository.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/pr-merge-done.png" alt="Pull request merge completed">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_your_local_repository">Your local repository</h3>
-<div class="paragraph">
-<p>With the remote fork repository up to date, the local repository can updated to the fork by running these commands from a console command prompt.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+    <div id="preamble">
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>This guide will help you get up to speed on setting up your local Git repository, and to submit your
+                    work for inclusion into the PCGen <em>master</em>.</p>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_first_time">First time</h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>Here we are going to setup your own personal <em>fork</em> repository of the PCGen&#8217;s official
+                    repository on GitHub, and then <em>clone</em> from your fork repository (known as <em>remote</em> /
+                    <em>origin</em>) to your computer (known as <em>local</em>). The local repository is where you do
+                    all the required work.</p>
+            </div>
+            <div class="olist arabic">
+                <ol class="arabic">
+                    <li>
+                        <p>Firstly make sure you have a <em>GitHub account</em>, if not head over to <a
+                                href="https://github.com/">GitHub</a> quickly to create your own account (either free or
+                            paid will do, as your pcgen repository will be public accessible).</p>
+                    </li>
+                    <li>
+                        <p>Log in with <em>your</em> GitHub account.</p>
+                    </li>
+                    <li>
+                        <p>Open a browser tab for PCGen&#8217;s official repository: <a
+                                href="https://github.com/PCGen/pcgen" class="bare">https://github.com/PCGen/pcgen</a>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Click on the word <strong>Fork</strong> (it is actually a button to make forks)</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="../images/contributors/git/fork.png" alt="Fork">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Wait a little while, and page will update showing the pcgen repository as <code>&lt;your
+                            account&gt; / pcgen</code>, no longer displaying as <code>PCGen / pcgen</code>.</p>
+                    </li>
+                    <li>
+                        <p>Can close the browser tab now.</p>
+                    </li>
+                    <li>
+                        <p>From a console command prompt use the following <strong>git</strong> command to clone master
+                            from <code>&lt;your account&gt; / pcgen</code> repository.</p>
+                    </li>
+                </ol>
+            </div>
+            <div class="literalblock">
+                <div class="content">
+                    <pre>git clone -b master https://github.com/&lt;your account&gt;/pcgen.git</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_working_on_an_issue_new_feature_etc">Working on an issue, new feature, etc</h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>All work contributed to PCGen is done by making use of <em>git branches</em>, each feature or issue
+                    in it&#8217;s own branch, that will be pushed to your fork repository, then pulled from PCGen&#8217;s
+                    pcgen repository.</p>
+            </div>
+            <div class="sect2">
+                <h3 id="_your_fork_repository">Your fork repository</h3>
+                <div class="paragraph">
+                    <p>Before making any new <em>local</em> branches to do some work, it is best to make sure that your
+                        fork is up to date to the PCGen&#8217;s official repository. This will help alleviate merging
+                        issues later on. Once you fork is up to date, then you can update your local repository.</p>
+                </div>
+                <div class="paragraph">
+                    <p>These steps will ensure your fork is up to date:</p>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>Open your fork of the repository, that is <code>&lt;your name&gt; / pcgen</code>.</p>
+                        </li>
+                        <li>
+                            <p>Click on <strong>Compare</strong> button on the top right, to take you to the <code>Comparing
+                                changes</code> page.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/compare.png" alt="Compare">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>You will notice repository has changed to <code>PCGen / pcgen</code>.</p>
+                        </li>
+                        <li>
+                            <p>Change <strong>Base:</strong> to your fork <code>&lt;your name&gt;/pcgen</code>, and wait
+                                for update to finish. Click on <strong>comparing across forks</strong> link, to display
+                                the origin and fork again.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/comparing.png" alt="Comparing">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Now change <strong>Head:</strong> to <code>PCGen/pcgen</code>, and wait for update to
+                                finish.</p>
+                        </li>
+                        <li>
+                            <p>Depending on the state you either have:</p>
+                            <div class="ulist">
+                                <ul>
+                                    <li>
+                                        <p>"There isn’t anything to compare." being displayed. Meaning your fork is up
+                                            to date to PCGen&#8217;s official repository. Nothing more is to be done
+                                            here.</p>
+                                        <div class="imageblock">
+                                            <div class="content">
+                                                <img src="../images/contributors/git/comparing2.png" alt="Comparing2">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>A list of commits appears. This shows the changes that has been merged in
+                                            PCGen&#8217;s official repository since your fork was updated from the
+                                            origin. Click on <strong>Create pull request</strong> button.</p>
+                                        <div class="imageblock">
+                                            <div class="content">
+                                                <img src="../images/contributors/git/comparing3.png" alt="Comparing3">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Here you enter a suitable title for your pull request, such as given in the screenshot
+                                below. Once have title entere3d, click on <strong>Create pull request</strong> button.
+                            </p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/open-pr.png" alt="Open pull request">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>A pull request is now created with a pull request number appearing at the end of your
+                                pull request title. Hopefully there will be no commits that needs to be resolved first
+                                in order to do the merge to update your fork repository.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/pr-create.png" alt="Pull request created">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Below the list of comments the <strong>Merge pull request</strong> button to be
+                                    clicked to initiate the merge.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/pr-merge.png" alt="Pull request merging">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>The area containing <strong>Merge pull request</strong> changes to a confirmation button
+                                <strong>Confirm merge</strong>. Click the button to proceed with the merge.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/pr-merge-confirm.png"
+                                         alt="Pull request merging confirm">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>At the bottom of the commits list, you should now see an entry confirming the merge has
+                                taken place, with a <strong>Revert</strong> button and end of line entry. Now your fork
+                                repository is up to date with PCGen&#8217;s official repository.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/pr-merge-done.png"
+                                         alt="Pull request merge completed">
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_your_local_repository">Your local repository</h3>
+                <div class="paragraph">
+                    <p>With the remote fork repository up to date, the local repository can updated to the fork by
+                        running these commands from a console command prompt.</p>
+                </div>
+                <div class="listingblock">
+                    <div class="content">
 <pre>git checkout master
 git fetch origin</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_it_is_all_about_branches">It is all about branches</h3>
-<div class="paragraph">
-<p>Branches is where the real work take place. You can have multiple branches at the same time covering unrelated issues, features, etc. Having two or more branches on same topic may cause merging conflicts when pull requests are done later.</p>
-</div>
-<div class="paragraph">
-<p>Best to give your branch a short descriptive label, for easy remembering and know what the branch is handling without the need to inspect the branch.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Create a new branch for the given task, by executing the <strong>git</strong> command below.</p>
-<div class="listingblock">
-<div class="content">
-<pre>git checkout -b &lt;branch name&gt;</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Do the necessary work for the branch (also known as <em>workspace</em>).</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Tip:</strong> When wanting to remove files and it&#8217;s tracking from the repository, you must use <strong>git rm</strong> command as it will delete the file and remove tracking of the deleted file.</p>
-</li>
-<li>
-<p>Remember to use <strong>git add</strong> command for any new files that has been added to the workspace, to ensure the files are tracked and committed to the local repository.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Once satisfied with the work progress, used <strong>git status</strong> command to verify that the required new files are being tracked and all changes of existing files are being tracked.</p>
-<div class="listingblock">
-<div class="content">
-<pre>git status</pre>
-</div>
-</div>
-</li>
-<li>
-<p>If all looks good, commit the changes using the <strong>git commit</strong> command.</p>
-<div class="listingblock">
-<div class="content">
-<pre>git commit -m "&lt;commit message&gt;"</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Continue with work on the branch, committing changes, until the task is completed.</p>
-</li>
-<li>
-<p>Time has arrived to finally push all your local commits to your remote fork repository, by using the <strong>git push</strong> command.</p>
-<div class="listingblock">
-<div class="content">
-<pre>git push origin &lt;branch name&gt;</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_pull_requests">Pull requests</h3>
-<div class="paragraph">
-<p>Now that you commit(s) of your branch(es) have been pushed to your local fork repository. It is time to inform the PCGen maintainers that your work is ready for review to be included into the master branch of the official PCGen repository.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Open a browser tab for PCGen&#8217;s official repository: <a href="https://github.com/PCGen/pcgen" class="bare">https://github.com/PCGen/pcgen</a>.</p>
-</li>
-<li>
-<p>Click on <strong>Pull requests</strong>, to go to the <code>Pull requests</code> page.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/pull-requests.png" alt="Pull-requests">
-</div>
-</div>
-</li>
-<li>
-<p>Hopefully you see you recently pushed branch(es) to your forked repository being displayed.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/list-branches.png" alt="List-branches">
-</div>
-</div>
-</li>
-<li>
-<p>Click on <strong>Compare &amp; pull request</strong> button of the desired branch.</p>
-</li>
-<li>
-<p>Hopefully you see green <strong>Able to merge</strong> status. Edit the pull request comment, and click on the <strong>Create pull request</strong> button.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/create-pr.png" alt="Create-PR">
-</div>
-</div>
-</li>
-<li>
-<p>You should see your pull request successfully added and given a number (appears at end of PR title).</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/contributors/git/confirm.png" alt="Confirm">
-</div>
-</div>
-</li>
-<li>
-<p>Repeat for any addition branches detected for your fork repository.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_it_is_all_about_branches">It is all about branches</h3>
+                <div class="paragraph">
+                    <p>Branches is where the real work take place. You can have multiple branches at the same time
+                        covering unrelated issues, features, etc. Having two or more branches on same topic may cause
+                        merging conflicts when pull requests are done later.</p>
+                </div>
+                <div class="paragraph">
+                    <p>Best to give your branch a short descriptive label, for easy remembering and know what the branch
+                        is handling without the need to inspect the branch.</p>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>Create a new branch for the given task, by executing the <strong>git</strong> command
+                                below.</p>
+                            <div class="listingblock">
+                                <div class="content">
+                                    <pre>git checkout -b &lt;branch name&gt;</pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Do the necessary work for the branch (also known as <em>workspace</em>).</p>
+                            <div class="ulist">
+                                <ul>
+                                    <li>
+                                        <p><strong>Tip:</strong> When wanting to remove files and it&#8217;s tracking
+                                            from the repository, you must use <strong>git rm</strong> command as it will
+                                            delete the file and remove tracking of the deleted file.</p>
+                                    </li>
+                                    <li>
+                                        <p>Remember to use <strong>git add</strong> command for any new files that has
+                                            been added to the workspace, to ensure the files are tracked and committed
+                                            to the local repository.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Once satisfied with the work progress, used <strong>git status</strong> command to verify
+                                that the required new files are being tracked and all changes of existing files are
+                                being tracked.</p>
+                            <div class="listingblock">
+                                <div class="content">
+                                    <pre>git status</pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>If all looks good, commit the changes using the <strong>git commit</strong> command.</p>
+                            <div class="listingblock">
+                                <div class="content">
+                                    <pre>git commit -m "&lt;commit message&gt;"</pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Continue with work on the branch, committing changes, until the task is completed.</p>
+                        </li>
+                        <li>
+                            <p>Time has arrived to finally push all your local commits to your remote fork repository,
+                                by using the <strong>git push</strong> command.</p>
+                            <div class="listingblock">
+                                <div class="content">
+                                    <pre>git push origin &lt;branch name&gt;</pre>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_pull_requests">Pull requests</h3>
+                <div class="paragraph">
+                    <p>Now that you commit(s) of your branch(es) have been pushed to your local fork repository. It is
+                        time to inform the PCGen maintainers that your work is ready for review to be included into the
+                        master branch of the official PCGen repository.</p>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>Open a browser tab for PCGen&#8217;s official repository: <a
+                                    href="https://github.com/PCGen/pcgen"
+                                    class="bare">https://github.com/PCGen/pcgen</a>.</p>
+                        </li>
+                        <li>
+                            <p>Click on <strong>Pull requests</strong>, to go to the <code>Pull requests</code> page.
+                            </p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/pull-requests.png" alt="Pull-requests">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Hopefully you see you recently pushed branch(es) to your forked repository being
+                                displayed.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/list-branches.png" alt="List-branches">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Click on <strong>Compare &amp; pull request</strong> button of the desired branch.</p>
+                        </li>
+                        <li>
+                            <p>Hopefully you see green <strong>Able to merge</strong> status. Edit the pull request
+                                comment, and click on the <strong>Create pull request</strong> button.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/create-pr.png" alt="Create-PR">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>You should see your pull request successfully added and given a number (appears at end of
+                                PR title).</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="../images/contributors/git/confirm.png" alt="Confirm">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Repeat for any addition branches detected for your fork repository.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="footer">
-<div id="footer-text">
-Last updated 2019-01-06 12:36:05 SAST
-</div>
+    <div id="footer-text">
+        Last updated 2019-01-06 12:36:05 SAST
+    </div>
 </div>
 </body>
 </html>

@@ -27,15 +27,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class CharactertypeToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "CHARACTERTYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CHARACTERTYPE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getCharacterType();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getCharacterType();
+    }
 }

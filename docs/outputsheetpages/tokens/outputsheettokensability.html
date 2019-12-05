@@ -1,897 +1,897 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Sigurdur H. Olafsson - shoATtnDOTis
-                
-                Description:
-                Provides information on the use of Output Sheet Tokens: Ability Related.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Ability Related Output Sheet Tokens
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Ability Related Output Sheet Tokens
-  </h1>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="ac" name="ac">
-     Token
-Name:
-    </a>
-   </strong>
-   AC.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(ACTYPE value defined in gamemode's miscinfo.lst file.).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This token will display the ACTYPE formula
-defined in miscinfo.lst and calculate the AC.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>AC.Flatfooted</code>
-  </p>
-  <p class="indent3">
-   Will get the Flatfooted ACTYPE formula from
-miscinfo.lst.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="accheck" name="accheck">
-     Token
-Name:
-    </a>
-   </strong>
-   ACCHECK
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays the sum for Armour Check Penalty for
-all equiped armor.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ACCHECK</code>
-  </p>
-  <p class="indent3">
-   Displays Armour Check Penalty for all equiped
-armor.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="armor" name="armor">
-     Token
-Name:
-    </a>
-   </strong>
-   ARMOR.[x.]y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Merge
-Type - Optional)
-  </p>
-  <ul class="indent2">
-   <li>
-    MERGEALL - Causes all armor with the same name to be merged
-(default behavior).
-   </li>
-   <li>
-    MERGELOC - Causes all armor with the same name and in the same
-location to be merged.
-   </li>
-   <li>
-    MERGENONE - No armor with the same name will be merged.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number (The
-armor's position in the character's armor list - starting from
-zero).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Property
-(Armor Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    ACBONUS - Total bonus to AC including base and magical
-adjustments.
-   </li>
-   <li>
-    ACCHECK - Armor Check penalty for armor on relevant
-skills.
-   </li>
-   <li>
-    BASEAC - Just the armor's non-magical armor adjustment.
-   </li>
-   <li>
-    EDR - Damage Reduction provided by the armor.
-   </li>
-   <li>
-    MAXDEX - The armor's max dex adjustment to AC.
-   </li>
-   <li>
-    MOVE - Base movement allowed in the armor.
-   </li>
-   <li>
-    NAME(.NOSTAR) - Displays the name of the armor. If .NOSTAR is
-appended, the asterisk indicating whether the armor is equipped
-will be stripped from the output.
-   </li>
-   <li>
-    SPELLFAIL - Percentage failure of Arcane spells.
-   </li>
-   <li>
-    SPROP - Special properties.
-   </li>
-   <li>
-    TOTALAC - Same as ACBONUS.
-   </li>
-   <li>
-    TYPE - i.e. Light, Medium, Heavy, Shield, Extra.
-   </li>
-   <li>
-    WT - Weight.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Display properties of armor being worn.
-   </li>
-   <li>
-    The merge variable is optional.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ARMOR.0.MAXDEX</code>
-  </p>
-  <p class="indent3">
-   Displays the max dex adjustment to AC allowed by
-the armor being worn in position 0.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   ARMOR.x.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Property
-(Status).
-  </p>
-  <ul class="indent2">
-   <li>
-    ALL - All armor is included (no filter).
-   </li>
-   <li>
-    EQUIPPED - Only equipped armor is included.
-   </li>
-   <li>
-    NOT_EQUIPPED - Only amour that is not equipped is
-included.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number (The
-armor's position in the character's armor list - starting from
-zero).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Property
-(Armor Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    ACBONUS - Total bonus to AC including base and magical
-adjustments.
-   </li>
-   <li>
-    ACCHECK - Armor Check penalty for armor on relevant
-skills.
-   </li>
-   <li>
-    BASEAC - Just the armor's non-magical armor adjustment.
-   </li>
-   <li>
-    EDR - Damage Reduction provided by the armor.
-   </li>
-   <li>
-    MAXDEX - The armor's max dex adjustment to AC.
-   </li>
-   <li>
-    MOVE - Base movement allowed in the armor.
-   </li>
-   <li>
-    NAME(.NOSTAR) - Displays the name of the armor. If .NOSTAR is
-appended, the asterisk indicating whether the armor is equipped
-will be stripped from the output.
-   </li>
-   <li>
-    SPELLFAIL - Percentage failure of Arcane spells.
-   </li>
-   <li>
-    SPROP - Special properties.
-   </li>
-   <li>
-    TOTALAC - Same as ACBONUS.
-   </li>
-   <li>
-    TYPE - i.e. Light, Medium, Heavy, Shield, Extra.
-   </li>
-   <li>
-    WT - Weight.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays information about armor.
-   </li>
-   <li>
-    The merge variable is optional.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ARMOR.EQUIPPED.3.NAME</code>
-  </p>
-  <p class="indent3">
-   Would display the name of the 4th equipped item
-which bestows a bonus to AC.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   ARMOR.w.x.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Property or
-Type (Base).
-  </p>
-  <ul class="indent2">
-   <li>
-    SUIT - Only armor suits are included.
-   </li>
-   <li>
-    SHIRT - Only armor shirts are included.
-   </li>
-   <li>
-    SHIELD - Only shields are included.
-   </li>
-   <li>
-    ITEM - Only items that bestow an AC bonus are included.
-   </li>
-   <li>
-    &lt;type&gt; - Only the specified type are included.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Property
-(Status).
-  </p>
-  <ul class="indent2">
-   <li>
-    ALL - All armor is included (no filter).
-   </li>
-   <li>
-    EQUIPPED - Only equipped armor is included.
-   </li>
-   <li>
-    NOT_EQUIPPED - Only amour that is not equipped is
-included.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number (The
-armor's position in the character's armor list - starting from
-zero).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Property
-(Armor Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    ACBONUS - Total bonus to AC including base and magical
-adjustments.
-   </li>
-   <li>
-    ACCHECK - Armor Check penalty for armor on relevant
-skills.
-   </li>
-   <li>
-    BASEAC - Just the armor's non-magical armor adjustment.
-   </li>
-   <li>
-    EDR - Damage Reduction provided by the armor.
-   </li>
-   <li>
-    MAXDEX - The armor's max dex adjustment to AC.
-   </li>
-   <li>
-    MOVE - Base movement allowed in the armor.
-   </li>
-   <li>
-    NAME - Displays the name of the armor.
-   </li>
-   <li>
-    SPELLFAIL - Percentage failure of Arcane spells.
-   </li>
-   <li>
-    SPROP - Special properties.
-   </li>
-   <li>
-    TOTALAC - Same as ACBONUS.
-   </li>
-   <li>
-    TYPE - i.e. Light, Medium, Heavy, Shield, Extra.
-   </li>
-   <li>
-    WT - Weight.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays information about armor.
-   </li>
-   <li>
-    The merge variable is optional.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ARMOR.ITEM.EQUIPPED.1.NAME</code>
-  </p>
-  <p class="indent3">
-   Would display the name of the 2nd equipped armor
-item which bestows a bonus to AC.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   ARMOR.v.w.x.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Property or
-Type (Base).
-  </p>
-  <ul class="indent2">
-   <li>
-    SUIT - Only armor suits are included.
-   </li>
-   <li>
-    SHIRT - Only armor shirts are included.
-   </li>
-   <li>
-    SHIELD - Only shields are included.
-   </li>
-   <li>
-    ITEM - Only items that bestow an AC bonus are included.
-   </li>
-   <li>
-    &lt;type&gt; - Only the specified type are included.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text
-(Subtype - Any valid item type).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Property
-(Status).
-  </p>
-  <ul class="indent2">
-   <li>
-    ALL - All armor is included (no filter).
-   </li>
-   <li>
-    EQUIPPED - Only equipped armor is included.
-   </li>
-   <li>
-    NOT_EQUIPPED - Only amour that is not equipped is
-included.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number (The
-armor's position in the character's armor list - starting from
-zero).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Property
-(Armor Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    ACBONUS - Total bonus to AC including base and magical
-adjustments.
-   </li>
-   <li>
-    ACCHECK - Armor Check penalty for armor on relevant
-skills.
-   </li>
-   <li>
-    BASEAC - Just the armor's non-magical armor adjustment.
-   </li>
-   <li>
-    EDR - Damage Reduction provided by the armor.
-   </li>
-   <li>
-    MAXDEX - The armor's max dex adjustment to AC.
-   </li>
-   <li>
-    MOVE - Base movement allowed in the armor.
-   </li>
-   <li>
-    NAME - Displays the name of the armor.
-   </li>
-   <li>
-    SPELLFAIL - Percentage failure of Arcane spells.
-   </li>
-   <li>
-    SPROP - Special properties.
-   </li>
-   <li>
-    TOTALAC - Same as ACBONUS.
-   </li>
-   <li>
-    TYPE - i.e. Light, Medium, Heavy, Shield, Extra.
-   </li>
-   <li>
-    WT - Weight.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays information about armor.
-   </li>
-   <li>
-    The merge variable is optional.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ARMOR.ITEM.MITHRAL.EQUIPPED.x.NAME</code>
-  </p>
-  <p class="indent3">
-   Would display the name of the xth equipped
-mithral item, which is neither suit, shirt, nor shield, but bestows
-a bonus to AC.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="bonus" name="bonus">
-     Token
-Name:
-    </a>
-   </strong>
-   BONUS.w.x.[!]y.[!]y.[!]TYPE=z.[!]TYPE=z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text (Type
-of bonus - e.g. COMBAT).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Name
-of bonus - e.g. AC).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (The
-bonus type that is added or subtracted - e.g. "Armor" or
-"!Armor").
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text (Bonus
-type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays the sum of specific bonuses.
-   </li>
-   <li>
-    Adding "!" to the beginning of a bonus type will turn it into
-an exclude.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.BASE</code>
-  </p>
-  <p class="indent3">
-   Would display base AC.
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.TOTAL</code>
-  </p>
-  <p class="indent3">
-   Would display total AC.
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.TOTAL.!Armor</code>
-  </p>
-  <p class="indent3">
-   Would display the total AC less the Armor and
-Shield.
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.TOTAL.!Ability</code>
-  </p>
-  <p class="indent3">
-   Would display total AC - Ability Bonus.
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.Armor.Deflection.Ability</code>
-  </p>
-  <p class="indent3">
-   Would display the sum of Armor + Deflection
-Bonuses + Ability Bonus.
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.Natural Armor</code>
-  </p>
-  <p class="indent3">
-   Would display natural AC.
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.LISTING</code>
-  </p>
-  <p class="indent3">
-   Would display a list of all the components that
-make up the AC total.
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.ARMOR.!TYPE=Shield</code>
-  </p>
-  <p class="indent3">
-   Would display the armor bonus w/o the shield
-included.
-  </p>
-  <p class="indent2">
-   <code>BONUS.COMBAT.AC.TYPE=Shield</code>
-  </p>
-  <p class="indent3">
-   Would display the armor bonus granted by an
-equipped shield.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="maxdex" name="maxdex">
-     Token
-Name:
-    </a>
-   </strong>
-   MAXDEX
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays the maximum Dexterity bonus from all
-armor.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MAXDEX</code>
-  </p>
-  <p class="indent3">
-   Displays max Dex bonus for all equiped
-armor.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="spellfailure" name="spellfailure">
-     Token Name:
-    </a>
-   </strong>
-   SPELLFAILURE
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays the Arcane spell failure from all
-armor.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLFAILURE</code>
-  </p>
-  <p class="indent3">
-   Displays spell failure for all equiped
-armor.
-  </p>
-  <hr/>
-  <p class="new">
-   *** Updated 6.1.3
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="stat" name="stat">
-     Token
-Name:
-    </a>
-   </strong>
-   STAT.w.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Number as
-set by the statsandchecks.lst file in the gamemode (0=STR, 1=DEX,
-2=CON, 3=INT, 4=WIS, 5=CHA).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Property
-(Stat Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    None - The adjusted stat.
-   </li>
-   <li>
-    NAME - The short name of the stat.
-   </li>
-   <li>
-    LONGNAME - The long name of the stat.
-   </li>
-   <li>
-    STAT - The adjusted stat (same as STAT.x).
-   </li>
-   <li>
-    ISNONABILITY - evaluates to 'Y 'if the chracter does
-    <i>
-     not
-    </i>
-    have a score in the stat, 'N' otherwise.
-   </li>
-   <li>
-    MOD - The modifier for the stat.
-   </li>
-   <li>
-    BASE - The stat before adjustments.
-   </li>
-   <li>
-    BASEMOD The modifier of the stat before adjustments.
-   </li>
-   <li>
-    LEVEL.y.z.z - Displays the value for the stat at level y.
-Variable z is optional.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Character Level).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Property
-(Option).
-  </p>
-  <ul class="indent2">
-   <li>
-    NOPOST - Displays the stat value with no users modifications
-(Level advancement bonuses are still included - may be used with
-NOEQUIP).
-   </li>
-   <li>
-    NOEQUIP - Displays the stat value w/o any equipment adjustments
-(may be used with NOPOST and NOTEMP).
-   </li>
-   <li>
-    NOTEMP - Displays the stat value w/o any temporary bonus
-adjustments (may be used with NOPOST and NOEQUIP).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Used to display various kinds of stat
-information. Variables y and z are only used with the LEVEL
-property.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STAT.1.MOD</code>
-  </p>
-  <p class="indent3">
-   The Dexterity modifier for the stat.
-  </p>
-  <p class="indent2">
-   <code>STAT.1</code>
-  </p>
-  <p class="indent3">
-   The adjusted Dexterity total.
-  </p>
-  <p class="indent2">
-   <code>STAT.2.LEVEL.4</code>
-  </p>
-  <p class="indent3">
-   The Constitution at level 4.
-  </p>
-  <p class="indent2">
-   <code>STAT.2.LEVEL.4.NOPOST.NOEQUIP</code>
-  </p>
-  <p class="indent3">
-   The Constitution at Level 4 with no user
-modification and without equipment bonuses.
-  </p>
-  <p>
-  </p>
- </body>
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Sigurdur H. Olafsson - shoATtnDOTis
+
+               Description:
+               Provides information on the use of Output Sheet Tokens: Ability Related.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Ability Related Output Sheet Tokens
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Ability Related Output Sheet Tokens
+</h1>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="ac" name="ac">
+            Token
+            Name:
+        </a>
+    </strong>
+    AC.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (ACTYPE value defined in gamemode's miscinfo.lst file.).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This token will display the ACTYPE formula
+    defined in miscinfo.lst and calculate the AC.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>AC.Flatfooted</code>
+</p>
+<p class="indent3">
+    Will get the Flatfooted ACTYPE formula from
+    miscinfo.lst.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="accheck" name="accheck">
+            Token
+            Name:
+        </a>
+    </strong>
+    ACCHECK
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays the sum for Armour Check Penalty for
+    all equiped armor.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ACCHECK</code>
+</p>
+<p class="indent3">
+    Displays Armour Check Penalty for all equiped
+    armor.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="armor" name="armor">
+            Token
+            Name:
+        </a>
+    </strong>
+    ARMOR.[x.]y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Merge
+    Type - Optional)
+</p>
+<ul class="indent2">
+    <li>
+        MERGEALL - Causes all armor with the same name to be merged
+        (default behavior).
+    </li>
+    <li>
+        MERGELOC - Causes all armor with the same name and in the same
+        location to be merged.
+    </li>
+    <li>
+        MERGENONE - No armor with the same name will be merged.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number (The
+    armor's position in the character's armor list - starting from
+    zero).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Property
+    (Armor Property).
+</p>
+<ul class="indent2">
+    <li>
+        ACBONUS - Total bonus to AC including base and magical
+        adjustments.
+    </li>
+    <li>
+        ACCHECK - Armor Check penalty for armor on relevant
+        skills.
+    </li>
+    <li>
+        BASEAC - Just the armor's non-magical armor adjustment.
+    </li>
+    <li>
+        EDR - Damage Reduction provided by the armor.
+    </li>
+    <li>
+        MAXDEX - The armor's max dex adjustment to AC.
+    </li>
+    <li>
+        MOVE - Base movement allowed in the armor.
+    </li>
+    <li>
+        NAME(.NOSTAR) - Displays the name of the armor. If .NOSTAR is
+        appended, the asterisk indicating whether the armor is equipped
+        will be stripped from the output.
+    </li>
+    <li>
+        SPELLFAIL - Percentage failure of Arcane spells.
+    </li>
+    <li>
+        SPROP - Special properties.
+    </li>
+    <li>
+        TOTALAC - Same as ACBONUS.
+    </li>
+    <li>
+        TYPE - i.e. Light, Medium, Heavy, Shield, Extra.
+    </li>
+    <li>
+        WT - Weight.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Display properties of armor being worn.
+    </li>
+    <li>
+        The merge variable is optional.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ARMOR.0.MAXDEX</code>
+</p>
+<p class="indent3">
+    Displays the max dex adjustment to AC allowed by
+    the armor being worn in position 0.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    ARMOR.x.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Property
+    (Status).
+</p>
+<ul class="indent2">
+    <li>
+        ALL - All armor is included (no filter).
+    </li>
+    <li>
+        EQUIPPED - Only equipped armor is included.
+    </li>
+    <li>
+        NOT_EQUIPPED - Only amour that is not equipped is
+        included.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number (The
+    armor's position in the character's armor list - starting from
+    zero).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Property
+    (Armor Property).
+</p>
+<ul class="indent2">
+    <li>
+        ACBONUS - Total bonus to AC including base and magical
+        adjustments.
+    </li>
+    <li>
+        ACCHECK - Armor Check penalty for armor on relevant
+        skills.
+    </li>
+    <li>
+        BASEAC - Just the armor's non-magical armor adjustment.
+    </li>
+    <li>
+        EDR - Damage Reduction provided by the armor.
+    </li>
+    <li>
+        MAXDEX - The armor's max dex adjustment to AC.
+    </li>
+    <li>
+        MOVE - Base movement allowed in the armor.
+    </li>
+    <li>
+        NAME(.NOSTAR) - Displays the name of the armor. If .NOSTAR is
+        appended, the asterisk indicating whether the armor is equipped
+        will be stripped from the output.
+    </li>
+    <li>
+        SPELLFAIL - Percentage failure of Arcane spells.
+    </li>
+    <li>
+        SPROP - Special properties.
+    </li>
+    <li>
+        TOTALAC - Same as ACBONUS.
+    </li>
+    <li>
+        TYPE - i.e. Light, Medium, Heavy, Shield, Extra.
+    </li>
+    <li>
+        WT - Weight.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays information about armor.
+    </li>
+    <li>
+        The merge variable is optional.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ARMOR.EQUIPPED.3.NAME</code>
+</p>
+<p class="indent3">
+    Would display the name of the 4th equipped item
+    which bestows a bonus to AC.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    ARMOR.w.x.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Property or
+    Type (Base).
+</p>
+<ul class="indent2">
+    <li>
+        SUIT - Only armor suits are included.
+    </li>
+    <li>
+        SHIRT - Only armor shirts are included.
+    </li>
+    <li>
+        SHIELD - Only shields are included.
+    </li>
+    <li>
+        ITEM - Only items that bestow an AC bonus are included.
+    </li>
+    <li>
+        &lt;type&gt; - Only the specified type are included.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Property
+    (Status).
+</p>
+<ul class="indent2">
+    <li>
+        ALL - All armor is included (no filter).
+    </li>
+    <li>
+        EQUIPPED - Only equipped armor is included.
+    </li>
+    <li>
+        NOT_EQUIPPED - Only amour that is not equipped is
+        included.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number (The
+    armor's position in the character's armor list - starting from
+    zero).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Property
+    (Armor Property).
+</p>
+<ul class="indent2">
+    <li>
+        ACBONUS - Total bonus to AC including base and magical
+        adjustments.
+    </li>
+    <li>
+        ACCHECK - Armor Check penalty for armor on relevant
+        skills.
+    </li>
+    <li>
+        BASEAC - Just the armor's non-magical armor adjustment.
+    </li>
+    <li>
+        EDR - Damage Reduction provided by the armor.
+    </li>
+    <li>
+        MAXDEX - The armor's max dex adjustment to AC.
+    </li>
+    <li>
+        MOVE - Base movement allowed in the armor.
+    </li>
+    <li>
+        NAME - Displays the name of the armor.
+    </li>
+    <li>
+        SPELLFAIL - Percentage failure of Arcane spells.
+    </li>
+    <li>
+        SPROP - Special properties.
+    </li>
+    <li>
+        TOTALAC - Same as ACBONUS.
+    </li>
+    <li>
+        TYPE - i.e. Light, Medium, Heavy, Shield, Extra.
+    </li>
+    <li>
+        WT - Weight.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays information about armor.
+    </li>
+    <li>
+        The merge variable is optional.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ARMOR.ITEM.EQUIPPED.1.NAME</code>
+</p>
+<p class="indent3">
+    Would display the name of the 2nd equipped armor
+    item which bestows a bonus to AC.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    ARMOR.v.w.x.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (v):
+    </strong>
+    Property or
+    Type (Base).
+</p>
+<ul class="indent2">
+    <li>
+        SUIT - Only armor suits are included.
+    </li>
+    <li>
+        SHIRT - Only armor shirts are included.
+    </li>
+    <li>
+        SHIELD - Only shields are included.
+    </li>
+    <li>
+        ITEM - Only items that bestow an AC bonus are included.
+    </li>
+    <li>
+        &lt;type&gt; - Only the specified type are included.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text
+    (Subtype - Any valid item type).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Property
+    (Status).
+</p>
+<ul class="indent2">
+    <li>
+        ALL - All armor is included (no filter).
+    </li>
+    <li>
+        EQUIPPED - Only equipped armor is included.
+    </li>
+    <li>
+        NOT_EQUIPPED - Only amour that is not equipped is
+        included.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number (The
+    armor's position in the character's armor list - starting from
+    zero).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Property
+    (Armor Property).
+</p>
+<ul class="indent2">
+    <li>
+        ACBONUS - Total bonus to AC including base and magical
+        adjustments.
+    </li>
+    <li>
+        ACCHECK - Armor Check penalty for armor on relevant
+        skills.
+    </li>
+    <li>
+        BASEAC - Just the armor's non-magical armor adjustment.
+    </li>
+    <li>
+        EDR - Damage Reduction provided by the armor.
+    </li>
+    <li>
+        MAXDEX - The armor's max dex adjustment to AC.
+    </li>
+    <li>
+        MOVE - Base movement allowed in the armor.
+    </li>
+    <li>
+        NAME - Displays the name of the armor.
+    </li>
+    <li>
+        SPELLFAIL - Percentage failure of Arcane spells.
+    </li>
+    <li>
+        SPROP - Special properties.
+    </li>
+    <li>
+        TOTALAC - Same as ACBONUS.
+    </li>
+    <li>
+        TYPE - i.e. Light, Medium, Heavy, Shield, Extra.
+    </li>
+    <li>
+        WT - Weight.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays information about armor.
+    </li>
+    <li>
+        The merge variable is optional.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ARMOR.ITEM.MITHRAL.EQUIPPED.x.NAME</code>
+</p>
+<p class="indent3">
+    Would display the name of the xth equipped
+    mithral item, which is neither suit, shirt, nor shield, but bestows
+    a bonus to AC.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="bonus" name="bonus">
+            Token
+            Name:
+        </a>
+    </strong>
+    BONUS.w.x.[!]y.[!]y.[!]TYPE=z.[!]TYPE=z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text (Type
+    of bonus - e.g. COMBAT).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Name
+    of bonus - e.g. AC).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (The
+    bonus type that is added or subtracted - e.g. "Armor" or
+    "!Armor").
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text (Bonus
+    type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays the sum of specific bonuses.
+    </li>
+    <li>
+        Adding "!" to the beginning of a bonus type will turn it into
+        an exclude.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.BASE</code>
+</p>
+<p class="indent3">
+    Would display base AC.
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.TOTAL</code>
+</p>
+<p class="indent3">
+    Would display total AC.
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.TOTAL.!Armor</code>
+</p>
+<p class="indent3">
+    Would display the total AC less the Armor and
+    Shield.
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.TOTAL.!Ability</code>
+</p>
+<p class="indent3">
+    Would display total AC - Ability Bonus.
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.Armor.Deflection.Ability</code>
+</p>
+<p class="indent3">
+    Would display the sum of Armor + Deflection
+    Bonuses + Ability Bonus.
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.Natural Armor</code>
+</p>
+<p class="indent3">
+    Would display natural AC.
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.LISTING</code>
+</p>
+<p class="indent3">
+    Would display a list of all the components that
+    make up the AC total.
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.ARMOR.!TYPE=Shield</code>
+</p>
+<p class="indent3">
+    Would display the armor bonus w/o the shield
+    included.
+</p>
+<p class="indent2">
+    <code>BONUS.COMBAT.AC.TYPE=Shield</code>
+</p>
+<p class="indent3">
+    Would display the armor bonus granted by an
+    equipped shield.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="maxdex" name="maxdex">
+            Token
+            Name:
+        </a>
+    </strong>
+    MAXDEX
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays the maximum Dexterity bonus from all
+    armor.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MAXDEX</code>
+</p>
+<p class="indent3">
+    Displays max Dex bonus for all equiped
+    armor.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="spellfailure" name="spellfailure">
+            Token Name:
+        </a>
+    </strong>
+    SPELLFAILURE
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays the Arcane spell failure from all
+    armor.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLFAILURE</code>
+</p>
+<p class="indent3">
+    Displays spell failure for all equiped
+    armor.
+</p>
+<hr/>
+<p class="new">
+    *** Updated 6.1.3
+</p>
+<p class="indent0">
+    <strong>
+        <a id="stat" name="stat">
+            Token
+            Name:
+        </a>
+    </strong>
+    STAT.w.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Number as
+    set by the statsandchecks.lst file in the gamemode (0=STR, 1=DEX,
+    2=CON, 3=INT, 4=WIS, 5=CHA).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Property
+    (Stat Property).
+</p>
+<ul class="indent2">
+    <li>
+        None - The adjusted stat.
+    </li>
+    <li>
+        NAME - The short name of the stat.
+    </li>
+    <li>
+        LONGNAME - The long name of the stat.
+    </li>
+    <li>
+        STAT - The adjusted stat (same as STAT.x).
+    </li>
+    <li>
+        ISNONABILITY - evaluates to 'Y 'if the chracter does
+        <i>
+            not
+        </i>
+        have a score in the stat, 'N' otherwise.
+    </li>
+    <li>
+        MOD - The modifier for the stat.
+    </li>
+    <li>
+        BASE - The stat before adjustments.
+    </li>
+    <li>
+        BASEMOD The modifier of the stat before adjustments.
+    </li>
+    <li>
+        LEVEL.y.z.z - Displays the value for the stat at level y.
+        Variable z is optional.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Character Level).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Property
+    (Option).
+</p>
+<ul class="indent2">
+    <li>
+        NOPOST - Displays the stat value with no users modifications
+        (Level advancement bonuses are still included - may be used with
+        NOEQUIP).
+    </li>
+    <li>
+        NOEQUIP - Displays the stat value w/o any equipment adjustments
+        (may be used with NOPOST and NOTEMP).
+    </li>
+    <li>
+        NOTEMP - Displays the stat value w/o any temporary bonus
+        adjustments (may be used with NOPOST and NOEQUIP).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Used to display various kinds of stat
+    information. Variables y and z are only used with the LEVEL
+    property.
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STAT.1.MOD</code>
+</p>
+<p class="indent3">
+    The Dexterity modifier for the stat.
+</p>
+<p class="indent2">
+    <code>STAT.1</code>
+</p>
+<p class="indent3">
+    The adjusted Dexterity total.
+</p>
+<p class="indent2">
+    <code>STAT.2.LEVEL.4</code>
+</p>
+<p class="indent3">
+    The Constitution at level 4.
+</p>
+<p class="indent2">
+    <code>STAT.2.LEVEL.4.NOPOST.NOEQUIP</code>
+</p>
+<p class="indent3">
+    The Constitution at Level 4 with no user
+    modification and without equipment bonuses.
+</p>
+<p>
+</p>
+</body>
 </html>

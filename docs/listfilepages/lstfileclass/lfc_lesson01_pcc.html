@@ -1,361 +1,361 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                        
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #1: PCC - Campaign Info..
-  </h1>
-  <p>
-   By Professor Chris Chandler (Barak).
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *.pcc (basic
-creation)
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../datafilestagpages/datafilespcc.html#campaign">
-     CAMPAIGN
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#gamemode">
-     GAMEMODE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#rank">
-     RANK
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#type">
-     TYPE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#sourcelong">
-     SOURCELONG
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#sourceshort">
-     SOURCESHORT
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#sourceweb">
-     SOURCEWEB
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#isogl">
-     ISOGL
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#copyright">
-     COPYRIGHT
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#infotext">
-     INFOTEXT
-    </a></code>
-  </p>
-  <p>
-   This lesson will discuss what a PCC is, and what it uses to tell
-PCGen about itself. This will get a Campaign to show up in PCGen's
-source tab, and allow it to load (though it won't load anything
-till
-   <a href="lfc_lesson02_pcc.html">
-    lesson 2
-   </a>
-   ).
-  </p>
-  <hr/>
-  <h2>
-   PCC - what it is, and what it does.
-  </h2>
-  <p>
-   A PCGen Campaign Configuration file (PCC) is a text document
-which PCGen reads to gather what source files to load, and other
-information about itself (the 'campaign') and it's associated
-files. Without these types of files, PCGen would not be able to
-load the data files.
-  </p>
-  <p>
-   So, I've created my own world with lots of feats, classes,
-skills, etc. I want to create a new 'Campaign' in PCGen so I can
-easily make up characters and monsters for my world. I'm going to
-call it 'My stuff' since it is going to be stuff I'm making for
-myself.  :)
-  </p>
-  <p>
-   First I need to create a home for my PCC and the data files
-associated with it. I'm going to place it in a subdirectory of
-/data/ in the PCGen folder.  This is the standard practice,
-although you may certainly create it elsewhere if you wish. I'm
-going to make a new folder in /data/ called /mystuff/ just to make
-it easy to keep these files separate, and so I'll know where things
-are.
-  </p>
-  <p>
-   Next, I'm going to start up my favorite text editor and create
-and save an empty file.  I'll call it "mystuff.pcc". 
-Notice the .pcc - PCGen looks for that particular extension when
-first starting for the list of campaigns it can load.  This
-has to be the _final_ extension.  If you accidentally save it
-as mystuff.pcc.txt, PCGen will not "see" it and you won't be able
-to load your data.
-  </p>
-  <p>
-   Now I'm ready to start telling PCGen what my Campaign is and
-which files it needs to load.
-  </p>
-  <hr/>
-  <p>
-   <code><strong>
-     CAMPAIGN:
-    </strong></code>
-   The name used for the
-set of sources in the PCC
-  </p>
-  <p>
-   The first step is to name this campaign for PCGen. (PCGen *does
-not* use the PCC file name for that). Since it needs to create a
-memory object, and then define parts of it, we HAVE to name the
-campaign for PCGen on the FIRST LINE of the file. No other tag
-lines can come before it. We tell PCGen the name of the campaign by
-using the CAMPAIGN tag. So I put "
-   <code>CAMPAIGN:My Stuff</code>
-   "
-right at the very top. When PCGen lists my campaign, it will
-display 'My stuff' in the source tab.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>GAMEMODE:</code>
-   </strong>
-   what game mode the
-campaign is designed for.
-  </p>
-  <p>
-   The next thing I need to do is to tell PCGen what GameMode I
-want this campaign to run in. We use the GAMEMODE tag to tell PCGen
-which GameMode to run in. Since I want to run it in the normal
-gamemode that comes with PCGen, I'm going to use '3e' So I put
-"
-   <code>GAMEMODE:3e</code>
-   " on my second line. Note that this MUST
-be the second line in the file.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>RANK:</code>
-   </strong>
-   Loading order.
-  </p>
-  <p>
-   Moving on, the next step in the process is determining what
-priority the data files associated with this PCC have related to
-other sources, and what order PCGen should load things in.  To
-do this we use the RANK tag. Choosing the rank can get complicated,
-because it effects what happens when you use .MOD tags and other
-things. But, since this is the "basic PCC" lecture, we'll go the
-simple route for the moment. :)
-  </p>
-  <p>
-   I am making this my primary campaign file because I want to load
-this one _only_ so I don't have to think about the other sources in
-PCGen (and make it easier for my group to load the same stuff). I'm
-going to make it
-   <code>RANK:1</code>
-   . It should now load before any
-other source with a higher RANK number.
-  </p>
-  <p>
-   Currently, you can only have a RANK between 1 and 9, which
-limits how many things can be on different levels. If 2 PCCs are
-the same Rank, it loads them in whatever order it has them stored
-internally... That's going a bit deep, and we can cover that in
-depth in another lesson...
-  </p>
-  <hr/>
-  <p>
-   <code><strong>
-     TYPE:
-    </strong></code>
-   Displaying on the Source
-tab.
-  </p>
-  <p>
-   Now, I need to set up the tree of sources for this PCC that you
-see when you first start up PCGen. This is done by using a TYPE
-tag. This is a "." delimited list. Each "." creates a sub-level.
-The typical method of doing the TYPE tag is to list publisher, and
-then type of book, and then anything else necessary. So I'll enter
-"TYPE:PCGenLstMonkey.Campaign Setting.My World".
-  </p>
-  <p>
-   My file now looks like this (between the
-   <code>-----</code>
-   lines is the actual file):
-  </p>
-  <blockquote>
-   <p>
-    <code>-----------
-     <br/>
-     CAMPAIGN:My Stuff
-     <br/>
-     GAMEMODE:3e
-     <br/>
-     RANK:1
-     <br/>
-     TYPE:PCGenLstMonkey.Campaign Setting.My World
-     <br/>
-     -----------</code>
-   </p>
-  </blockquote>
-  <p>
-   What you'll see on the source screen when you start PCGen up now
-if you expanded the tree fully would be:
-  </p>
-  <blockquote>
-   <p>
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #1: PCC - Campaign Info..
+</h1>
+<p>
+    By Professor Chris Chandler (Barak).
+</p>
+<p class="indent0">
     <strong>
-     PCGenLstMonkey
-     <br/>
-     ^---Campaign Setting
-     <br/>
-     ^---My World
-     <br/>
-     ^---My Stuff
+        File(s) Covered:
     </strong>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <code><strong>
-     SOURCExxx:
+    *.pcc (basic
+    creation)
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../datafilestagpages/datafilespcc.html#campaign">
+        CAMPAIGN
+    </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#gamemode">
+            GAMEMODE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#rank">
+            RANK
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#type">
+            TYPE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#sourcelong">
+            SOURCELONG
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#sourceshort">
+            SOURCESHORT
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#sourceweb">
+            SOURCEWEB
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#isogl">
+            ISOGL
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#copyright">
+            COPYRIGHT
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#infotext">
+            INFOTEXT
+        </a></code>
+</p>
+<p>
+    This lesson will discuss what a PCC is, and what it uses to tell
+    PCGen about itself. This will get a Campaign to show up in PCGen's
+    source tab, and allow it to load (though it won't load anything
+    till
+    <a href="lfc_lesson02_pcc.html">
+        lesson 2
+    </a>
+    ).
+</p>
+<hr/>
+<h2>
+    PCC - what it is, and what it does.
+</h2>
+<p>
+    A PCGen Campaign Configuration file (PCC) is a text document
+    which PCGen reads to gather what source files to load, and other
+    information about itself (the 'campaign') and it's associated
+    files. Without these types of files, PCGen would not be able to
+    load the data files.
+</p>
+<p>
+    So, I've created my own world with lots of feats, classes,
+    skills, etc. I want to create a new 'Campaign' in PCGen so I can
+    easily make up characters and monsters for my world. I'm going to
+    call it 'My stuff' since it is going to be stuff I'm making for
+    myself.  :)
+</p>
+<p>
+    First I need to create a home for my PCC and the data files
+    associated with it. I'm going to place it in a subdirectory of
+    /data/ in the PCGen folder.  This is the standard practice,
+    although you may certainly create it elsewhere if you wish. I'm
+    going to make a new folder in /data/ called /mystuff/ just to make
+    it easy to keep these files separate, and so I'll know where things
+    are.
+</p>
+<p>
+    Next, I'm going to start up my favorite text editor and create
+    and save an empty file.  I'll call it "mystuff.pcc". 
+    Notice the .pcc - PCGen looks for that particular extension when
+    first starting for the list of campaigns it can load.  This
+    has to be the _final_ extension.  If you accidentally save it
+    as mystuff.pcc.txt, PCGen will not "see" it and you won't be able
+    to load your data.
+</p>
+<p>
+    Now I'm ready to start telling PCGen what my Campaign is and
+    which files it needs to load.
+</p>
+<hr/>
+<p>
+    <code><strong>
+        CAMPAIGN:
     </strong></code>
-   Identifying the source
-material.
-  </p>
-  <p>
-   Now we come to several tags that are very important if you're
-putting in somebody else's material (or perhaps even your own if
-you hope to publish some day). The first three give information on
-who created/published the material. Those tags are "SOURCELONG"
-which is used to give the publishers full name. Next is
-"SOURCESHORT" which is used to give an abbreviation to be used for
-the publisher and finally is "SOURCEWEB" which is used to put in
-the URL of the publishers web site. My entries for these tags will
-be:
-  </p>
-  <blockquote>
-   <p>
-    <code>SOURCELONG:PCGenLstMonkey
-     <br/></code>
-    <code>SOURCESHORT:PCGLM
-     <br/></code>
-    <code>SOURCEWEB:http://www.mystuffcampaign.com</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <strong>
-    <code>ISOGL</code>
-   </strong>
-   and
-   <code><strong>
-     COPYRIGHT:
+    The name used for the
+    set of sources in the PCC
+</p>
+<p>
+    The first step is to name this campaign for PCGen. (PCGen *does
+    not* use the PCC file name for that). Since it needs to create a
+    memory object, and then define parts of it, we HAVE to name the
+    campaign for PCGen on the FIRST LINE of the file. No other tag
+    lines can come before it. We tell PCGen the name of the campaign by
+    using the CAMPAIGN tag. So I put "
+    <code>CAMPAIGN:My Stuff</code>
+    "
+    right at the very top. When PCGen lists my campaign, it will
+    display 'My stuff' in the source tab.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>GAMEMODE:</code>
+    </strong>
+    what game mode the
+    campaign is designed for.
+</p>
+<p>
+    The next thing I need to do is to tell PCGen what GameMode I
+    want this campaign to run in. We use the GAMEMODE tag to tell PCGen
+    which GameMode to run in. Since I want to run it in the normal
+    gamemode that comes with PCGen, I'm going to use '3e' So I put
+    "
+    <code>GAMEMODE:3e</code>
+    " on my second line. Note that this MUST
+    be the second line in the file.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>RANK:</code>
+    </strong>
+    Loading order.
+</p>
+<p>
+    Moving on, the next step in the process is determining what
+    priority the data files associated with this PCC have related to
+    other sources, and what order PCGen should load things in.  To
+    do this we use the RANK tag. Choosing the rank can get complicated,
+    because it effects what happens when you use .MOD tags and other
+    things. But, since this is the "basic PCC" lecture, we'll go the
+    simple route for the moment. :)
+</p>
+<p>
+    I am making this my primary campaign file because I want to load
+    this one _only_ so I don't have to think about the other sources in
+    PCGen (and make it easier for my group to load the same stuff). I'm
+    going to make it
+    <code>RANK:1</code>
+    . It should now load before any
+    other source with a higher RANK number.
+</p>
+<p>
+    Currently, you can only have a RANK between 1 and 9, which
+    limits how many things can be on different levels. If 2 PCCs are
+    the same Rank, it loads them in whatever order it has them stored
+    internally... That's going a bit deep, and we can cover that in
+    depth in another lesson...
+</p>
+<hr/>
+<p>
+    <code><strong>
+        TYPE:
     </strong></code>
-   OGL Section 15
-information.
-  </p>
-  <p>
-   Next up is another important bit at least if you want to share
-your files, either with friends or with the rest of the PCGen
-community, the ISOGL tag. This is used to indicate whether or not
-the source falls under the OGL license (most do... It's really hard
-work for it not to).  So we'll enter it this way:
-"
-   <code>ISOGL:YES</code>
-   ". This will trigger the program to insert
-the information from the next tag we cover into the OGL (Open
-Gaming License) that we display on startup.
-  </p>
-  <p>
-   The next tag is the COPYRIGHT tag. We use this tag to enter our
-copyright information, or the publisher's copyright information.
-When entering others copyright information, it must be entered
-exactly as they have, mis-spellings and all. For my set the tag
-will look like this:
-  </p>
-  <blockquote>
-   <p>
-    <code>COPYRIGHT:PCGenLstMonkey Copyright 2003</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <strong>
-    <code>INFOTEXT:</code>
-   </strong>
-   further information for
-the user.
-  </p>
-  <p>
-   Now, I'd like people who look at my data set in PCGen to know
-what it's for, so I'll use the INFOTEXT tag to give them a little
-information about it. What you enter here will appear in the lower
-left pane of the PCGen UI with a heading of "INFO". My tag will
-read like this:
-  </p>
-  <blockquote>
-   <p>
-    <code>INFOTEXT:This data set contains all the information
-necessary to create a character for the mystuff campaign
-world</code>
-   </p>
-  </blockquote>
-  <p>
-   That is everything you need to tell PCGen about the Campaign
-itself.
-   <a href="lfc_lesson02_pcc.html">
-    Part II
-   </a>
-   will be actually
-linking up the PCC with LST files....
-  </p>
-  <p>
-   Barak
-   <br/>
-   LST Chimp
-  </p>
-  <p>
-  </p>
- </body>
+    Displaying on the Source
+    tab.
+</p>
+<p>
+    Now, I need to set up the tree of sources for this PCC that you
+    see when you first start up PCGen. This is done by using a TYPE
+    tag. This is a "." delimited list. Each "." creates a sub-level.
+    The typical method of doing the TYPE tag is to list publisher, and
+    then type of book, and then anything else necessary. So I'll enter
+    "TYPE:PCGenLstMonkey.Campaign Setting.My World".
+</p>
+<p>
+    My file now looks like this (between the
+    <code>-----</code>
+    lines is the actual file):
+</p>
+<blockquote>
+    <p>
+        <code>-----------
+            <br/>
+            CAMPAIGN:My Stuff
+            <br/>
+            GAMEMODE:3e
+            <br/>
+            RANK:1
+            <br/>
+            TYPE:PCGenLstMonkey.Campaign Setting.My World
+            <br/>
+            -----------</code>
+    </p>
+</blockquote>
+<p>
+    What you'll see on the source screen when you start PCGen up now
+    if you expanded the tree fully would be:
+</p>
+<blockquote>
+    <p>
+        <strong>
+            PCGenLstMonkey
+            <br/>
+            ^---Campaign Setting
+            <br/>
+            ^---My World
+            <br/>
+            ^---My Stuff
+        </strong>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <code><strong>
+        SOURCExxx:
+    </strong></code>
+    Identifying the source
+    material.
+</p>
+<p>
+    Now we come to several tags that are very important if you're
+    putting in somebody else's material (or perhaps even your own if
+    you hope to publish some day). The first three give information on
+    who created/published the material. Those tags are "SOURCELONG"
+    which is used to give the publishers full name. Next is
+    "SOURCESHORT" which is used to give an abbreviation to be used for
+    the publisher and finally is "SOURCEWEB" which is used to put in
+    the URL of the publishers web site. My entries for these tags will
+    be:
+</p>
+<blockquote>
+    <p>
+        <code>SOURCELONG:PCGenLstMonkey
+            <br/></code>
+        <code>SOURCESHORT:PCGLM
+            <br/></code>
+        <code>SOURCEWEB:http://www.mystuffcampaign.com</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <strong>
+        <code>ISOGL</code>
+    </strong>
+    and
+    <code><strong>
+        COPYRIGHT:
+    </strong></code>
+    OGL Section 15
+    information.
+</p>
+<p>
+    Next up is another important bit at least if you want to share
+    your files, either with friends or with the rest of the PCGen
+    community, the ISOGL tag. This is used to indicate whether or not
+    the source falls under the OGL license (most do... It's really hard
+    work for it not to).  So we'll enter it this way:
+    "
+    <code>ISOGL:YES</code>
+    ". This will trigger the program to insert
+    the information from the next tag we cover into the OGL (Open
+    Gaming License) that we display on startup.
+</p>
+<p>
+    The next tag is the COPYRIGHT tag. We use this tag to enter our
+    copyright information, or the publisher's copyright information.
+    When entering others copyright information, it must be entered
+    exactly as they have, mis-spellings and all. For my set the tag
+    will look like this:
+</p>
+<blockquote>
+    <p>
+        <code>COPYRIGHT:PCGenLstMonkey Copyright 2003</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <strong>
+        <code>INFOTEXT:</code>
+    </strong>
+    further information for
+    the user.
+</p>
+<p>
+    Now, I'd like people who look at my data set in PCGen to know
+    what it's for, so I'll use the INFOTEXT tag to give them a little
+    information about it. What you enter here will appear in the lower
+    left pane of the PCGen UI with a heading of "INFO". My tag will
+    read like this:
+</p>
+<blockquote>
+    <p>
+        <code>INFOTEXT:This data set contains all the information
+            necessary to create a character for the mystuff campaign
+            world</code>
+    </p>
+</blockquote>
+<p>
+    That is everything you need to tell PCGen about the Campaign
+    itself.
+    <a href="lfc_lesson02_pcc.html">
+        Part II
+    </a>
+    will be actually
+    linking up the PCC with LST files....
+</p>
+<p>
+    Barak
+    <br/>
+    LST Chimp
+</p>
+<p>
+</p>
+</body>
 </html>

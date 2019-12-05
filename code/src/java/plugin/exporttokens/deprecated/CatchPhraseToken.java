@@ -27,15 +27,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class CatchPhraseToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "CATCHPHRASE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CATCHPHRASE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getCatchPhrase();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getCatchPhrase();
+    }
 }

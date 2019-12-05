@@ -32,44 +32,44 @@ import pcgen.system.LanguageBundle;
 public class PreAttackTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal;
-		final int att = character.baseAttackBonus();
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal;
+        final int att = character.baseAttackBonus();
 
-		try
-		{
-			final int anInt = Integer.parseInt(prereq.getOperand());
-			runningTotal = prereq.getOperator().compare(att, anInt);
-		}
-		catch (NumberFormatException exc)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString(
-					"PreAttack.error.badly_formed_attribute", prereq.getOperand()), exc); //$NON-NLS-1$
-		}
+        try
+        {
+            final int anInt = Integer.parseInt(prereq.getOperand());
+            runningTotal = prereq.getOperator().compare(att, anInt);
+        } catch (NumberFormatException exc)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString(
+                            "PreAttack.error.badly_formed_attribute", prereq.getOperand()), exc); //$NON-NLS-1$
+        }
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "ATT"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "ATT"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString(
-			"PreAttack.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
-			prereq.getOperand());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString(
+                "PreAttack.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+                prereq.getOperand());
+    }
 
 }

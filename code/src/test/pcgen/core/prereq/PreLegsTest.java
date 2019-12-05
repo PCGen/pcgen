@@ -36,43 +36,43 @@ import org.junit.jupiter.api.Test;
  */
 class PreLegsTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Test the PRELEGS code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testLegs() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		Race race = new Race();
-		race.put(IntegerKey.LEGS, 2);
+    /**
+     * Test the PRELEGS code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testLegs() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        Race race = new Race();
+        race.put(IntegerKey.LEGS, 2);
 
-		character.setRace(race);
+        character.setRace(race);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRELEGSLT:2");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PRELEGSLT:2");
 
-		assertFalse("Character has more than 1 leg", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has more than 1 leg", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PRELEGSEQ:2");
+        prereq = factory.parse("PRELEGSEQ:2");
 
-		assertTrue("Character has 2 legs", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has 2 legs", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PRELEGSGT:2");
+        prereq = factory.parse("PRELEGSGT:2");
 
-		assertFalse("Character does not have more than 2 legs", PrereqHandler
-			.passes(prereq, character, null));
+        assertFalse("Character does not have more than 2 legs", PrereqHandler
+                .passes(prereq, character, null));
 
-		PCTemplate tmpl = new PCTemplate();
-		tmpl.put(IntegerKey.LEGS, 3);
+        PCTemplate tmpl = new PCTemplate();
+        tmpl.put(IntegerKey.LEGS, 3);
 
-		character.addTemplate(tmpl);
-		assertTrue("Character does have more than 2 legs", PrereqHandler
-			.passes(prereq, character, null));
-	}
+        character.addTemplate(tmpl);
+        assertTrue("Character does have more than 2 legs", PrereqHandler
+                .passes(prereq, character, null));
+    }
 }

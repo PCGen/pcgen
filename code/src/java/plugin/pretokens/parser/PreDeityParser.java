@@ -26,73 +26,72 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * {@code PreDeityParser} parses PREDEITY prerequisites. It handles both
  * new (PREDEITY:1,Odin) and old (PREDEITY:Odin) format syntax along with the
- * hasdeity syntax (PREDEITY:Y or PREDEITY:No). 
+ * hasdeity syntax (PREDEITY:Y or PREDEITY:No).
  */
 public class PreDeityParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"DEITY"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"DEITY"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		// Scan for any has deity options
-		replaceHasDeityPrereqs(prereq);
-		return prereq;
-	}
+        // Scan for any has deity options
+        replaceHasDeityPrereqs(prereq);
+        return prereq;
+    }
 
-	/**
-	 * Scan a predeity prerequisite and its children, converting any yes or no deity 
-	 * entries into hasdeity prereqs.
-	 *   
-	 * @param prereq The prereq to be scanned.
-	 */
-	private static void replaceHasDeityPrereqs(Prerequisite prereq)
-	{
-		String key = prereq.getKey();
-		if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null)
-		{
-			char firstChar = key.charAt(0);
-			if ((key.length() == 1) && (firstChar == 'y' || firstChar == 'Y' || firstChar == 'n' || firstChar == 'N')
-				|| key.equalsIgnoreCase("yes") || key.equalsIgnoreCase("no"))
-			{
-				if (firstChar == 'y' || firstChar == 'Y')
-				{
-					prereq.setKey("Y");
-				}
-				else
-				{
-					prereq.setKey("N");
-				}
-				prereq.setKind("has.deity");
-			}
-		}
+    /**
+     * Scan a predeity prerequisite and its children, converting any yes or no deity
+     * entries into hasdeity prereqs.
+     *
+     * @param prereq The prereq to be scanned.
+     */
+    private static void replaceHasDeityPrereqs(Prerequisite prereq)
+    {
+        String key = prereq.getKey();
+        if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null)
+        {
+            char firstChar = key.charAt(0);
+            if ((key.length() == 1) && (firstChar == 'y' || firstChar == 'Y' || firstChar == 'n' || firstChar == 'N')
+                    || key.equalsIgnoreCase("yes") || key.equalsIgnoreCase("no"))
+            {
+                if (firstChar == 'y' || firstChar == 'Y')
+                {
+                    prereq.setKey("Y");
+                } else
+                {
+                    prereq.setKey("N");
+                }
+                prereq.setKind("has.deity");
+            }
+        }
 
-		for (Prerequisite subprereq : prereq.getPrerequisites())
-		{
-			replaceHasDeityPrereqs(subprereq);
-		}
-	}
+        for (Prerequisite subprereq : prereq.getPrerequisites())
+        {
+            replaceHasDeityPrereqs(subprereq);
+        }
+    }
 }

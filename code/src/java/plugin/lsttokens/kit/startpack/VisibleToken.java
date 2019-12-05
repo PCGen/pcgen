@@ -31,28 +31,29 @@ import pcgen.util.enumeration.Visibility;
  */
 public class VisibleToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "VISIBLE";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "VISIBLE";
+    }
 
-	@Override
-	public Class<Kit> getTokenClass()
-	{
-		return Kit.class;
-	}
+    @Override
+    public Class<Kit> getTokenClass()
+    {
+        return Kit.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit, String value)
-	{
-		Visibility vis;
-        switch (value) {
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit, String value)
+    {
+        Visibility vis;
+        switch (value)
+        {
             case "QUALIFY":
                 vis = Visibility.QUALIFY;
                 break;
@@ -65,37 +66,34 @@ public class VisibleToken extends AbstractNonEmptyToken<Kit> implements CDOMPrim
             default:
                 return new ParseResult.Fail("Can't understand Visibility: " + value);
         }
-		kit.put(ObjectKey.VISIBILITY, vis);
-		return ParseResult.SUCCESS;
-	}
+        kit.put(ObjectKey.VISIBILITY, vis);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Kit kit)
-	{
-		Visibility vis = kit.get(ObjectKey.VISIBILITY);
-		if (vis == null)
-		{
-			return null;
-		}
-		String visString;
-		if (vis.equals(Visibility.DEFAULT))
-		{
-			visString = "YES";
-		}
-		else if (vis.equals(Visibility.QUALIFY))
-		{
-			visString = "QUALIFY";
-		}
-		else if (vis.equals(Visibility.HIDDEN))
-		{
-			visString = "NO";
-		}
-		else
-		{
-			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a Kit");
-			return null;
-		}
-		return new String[]{visString};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Kit kit)
+    {
+        Visibility vis = kit.get(ObjectKey.VISIBILITY);
+        if (vis == null)
+        {
+            return null;
+        }
+        String visString;
+        if (vis.equals(Visibility.DEFAULT))
+        {
+            visString = "YES";
+        } else if (vis.equals(Visibility.QUALIFY))
+        {
+            visString = "QUALIFY";
+        } else if (vis.equals(Visibility.HIDDEN))
+        {
+            visString = "NO";
+        } else
+        {
+            context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a Kit");
+            return null;
+        }
+        return new String[]{visString};
+    }
 
 }

@@ -35,67 +35,67 @@ import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * Implements a custom Freemarker macro to loop over the characte's equipment 
+ * Implements a custom Freemarker macro to loop over the characte's equipment
  * sets
- * 
+ *
  * <p>Parameters: None</p>
- * 
+ *
  * <p>Nested content is output once for each loop</p>
- * 
  */
 public class EquipSetLoopDirective implements TemplateDirectiveModel
 {
-	private PlayerCharacter pc;
+    private PlayerCharacter pc;
 
-	/**
-	 * Create a new instance of EquipSetLoopDirective
-	 * @param pc The character being exported.
-	 */
-	public EquipSetLoopDirective(PlayerCharacter pc)
-	{
-		this.pc = pc;
-	}
+    /**
+     * Create a new instance of EquipSetLoopDirective
+     *
+     * @param pc The character being exported.
+     */
+    public EquipSetLoopDirective(PlayerCharacter pc)
+    {
+        this.pc = pc;
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
-		throws TemplateException, IOException
-	{
-		if (body == null)
-		{
-			throw new TemplateModelException("This directive must have content.");
-		}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
+            throws TemplateException, IOException
+    {
+        if (body == null)
+        {
+            throw new TemplateModelException("This directive must have content.");
+        }
 
-		List<EquipSet> eqSetList = new ArrayList<>();
-		EquipSet currSet = null;
-		String currIdPath = pc.getCalcEquipSetId();
-		for (EquipSet es : pc.getDisplay().getEquipSet())
-		{
-			if (es.getParentIdPath().equals("0"))
-			{
-				eqSetList.add(es);
-				if (es.getIdPath().equals(currIdPath))
-				{
-					currSet = es;
-				}
-			}
-		}
+        List<EquipSet> eqSetList = new ArrayList<>();
+        EquipSet currSet = null;
+        String currIdPath = pc.getCalcEquipSetId();
+        for (EquipSet es : pc.getDisplay().getEquipSet())
+        {
+            if (es.getParentIdPath().equals("0"))
+            {
+                eqSetList.add(es);
+                if (es.getIdPath().equals(currIdPath))
+                {
+                    currSet = es;
+                }
+            }
+        }
 
-		for (EquipSet equipSet : eqSetList)
-		{
-			pc.setCalcEquipSetId(equipSet.getIdPath());
-			pc.setCalcEquipmentList(equipSet.getUseTempMods());
+        for (EquipSet equipSet : eqSetList)
+        {
+            pc.setCalcEquipSetId(equipSet.getIdPath());
+            pc.setCalcEquipmentList(equipSet.getUseTempMods());
 
-			// Executes the nested body (same as <#nested> in FTL). In this
-			// case we don't provide a special writer as the parameter:
-			body.render(env.getOut());
-		}
+            // Executes the nested body (same as <#nested> in FTL). In this
+            // case we don't provide a special writer as the parameter:
+            body.render(env.getOut());
+        }
 
-		if (currSet != null)
-		{
-			pc.setCalcEquipSetId(currSet.getIdPath());
-			pc.setCalcEquipmentList(currSet.getUseTempMods());
-		}
-	}
+        if (currSet != null)
+        {
+            pc.setCalcEquipSetId(currSet.getIdPath());
+            pc.setCalcEquipmentList(currSet.getUseTempMods());
+        }
+    }
 
 }

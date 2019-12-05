@@ -35,90 +35,93 @@ import pcgen.io.exporttoken.Token;
  */
 public class LevelToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "LEVEL";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "LEVEL";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		int level = 1;
+        int level = 1;
 
-		if (aTok.hasMoreTokens())
-		{
-			level = Integer.parseInt(aTok.nextToken());
-		}
+        if (aTok.hasMoreTokens())
+        {
+            level = Integer.parseInt(aTok.nextToken());
+        }
 
-		if (level < 1 || level > pc.getDisplay().getLevelInfoSize())
-		{
-			//TODO Error?
-			return "";
-		}
-		PCLevelInfo pcl = pc.getDisplay().getLevelInfo(level - 1);
+        if (level < 1 || level > pc.getDisplay().getLevelInfoSize())
+        {
+            //TODO Error?
+            return "";
+        }
+        PCLevelInfo pcl = pc.getDisplay().getLevelInfo(level - 1);
 
-		if (aTok.hasMoreTokens())
-		{
-			String tokName = aTok.nextToken();
-			if (tokName.equals("CLASSNAME"))
-			{
-				retString = pcl.getClassKeyName();
-			}
-			if (tokName.equals("CLASSLEVEL"))
-			{
-				retString = Integer.toString(pcl.getClassLevel());
-			}
-			if (tokName.equals("FEATLIST"))
-			{
-				//TODO This is likely a bug...
-				retString = "";
-			}
-			if (tokName.equals("HP"))
-			{
-				retString = getLevelHP(pc, pcl);
-			}
-			if (tokName.equals("SKILLPOINTS"))
-			{
-				retString = Integer.toString(pcl.getSkillPointsGained(pc));
-			}
-		}
-		return retString;
-	}
+        if (aTok.hasMoreTokens())
+        {
+            String tokName = aTok.nextToken();
+            if (tokName.equals("CLASSNAME"))
+            {
+                retString = pcl.getClassKeyName();
+            }
+            if (tokName.equals("CLASSLEVEL"))
+            {
+                retString = Integer.toString(pcl.getClassLevel());
+            }
+            if (tokName.equals("FEATLIST"))
+            {
+                //TODO This is likely a bug...
+                retString = "";
+            }
+            if (tokName.equals("HP"))
+            {
+                retString = getLevelHP(pc, pcl);
+            }
+            if (tokName.equals("SKILLPOINTS"))
+            {
+                retString = Integer.toString(pcl.getSkillPointsGained(pc));
+            }
+        }
+        return retString;
+    }
 
-	/**
-	 * Get the HP for the level
-	 * @param pc
-	 * @param pcl
-	 * @return the HP for the level
-	 */
-	public static String getLevelHP(PlayerCharacter pc, PCLevelInfo pcl)
-	{
-		String classKeyName = pcl.getClassKeyName();
-		PCClass aClass = pc.getClassKeyed(classKeyName);
-		if (aClass == null)
-		{
-			aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-				classKeyName);
-			if (aClass != null)
-			{
-				CDOMSingleRef<PCClass> exc = aClass.get(ObjectKey.EX_CLASS);
-				aClass = pc.getClassKeyed(exc.get().getKeyName());
-			}
-		}
-		if (aClass != null)
-		{
-			PCClassLevel classLevel = pc.getDisplay().getActiveClassLevel(aClass, pcl.getClassLevel() - 1);
-			Integer hp = pc.getDisplay().getHP(classLevel);
-			return hp == null ? "0" : hp.toString();
-		}
-		return "";
-	}
+    /**
+     * Get the HP for the level
+     *
+     * @param pc
+     * @param pcl
+     * @return the HP for the level
+     */
+    public static String getLevelHP(PlayerCharacter pc, PCLevelInfo pcl)
+    {
+        String classKeyName = pcl.getClassKeyName();
+        PCClass aClass = pc.getClassKeyed(classKeyName);
+        if (aClass == null)
+        {
+            aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+                    classKeyName);
+            if (aClass != null)
+            {
+                CDOMSingleRef<PCClass> exc = aClass.get(ObjectKey.EX_CLASS);
+                aClass = pc.getClassKeyed(exc.get().getKeyName());
+            }
+        }
+        if (aClass != null)
+        {
+            PCClassLevel classLevel = pc.getDisplay().getActiveClassLevel(aClass, pcl.getClassLevel() - 1);
+            Integer hp = pc.getDisplay().getHP(classLevel);
+            return hp == null ? "0" : hp.toString();
+        }
+        return "";
+    }
 }

@@ -1,212 +1,212 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <!-- PCGen Documentation Project Contributors: Shane Molnar - shaneATcliftonmotelDOTcomDOTau Eddy Anthony - eddybaATmindspringDOTcom Description: Provides information on the use of PCGen Game Mode:Level List. -->
-  <title>
-   Game Mode:Level List
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <hr/>
-  <h1>
-   Game Mode: level.lst
-  </h1>
-  <p>
-   The level.lst file determines level based benefits.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="level" name="level">
-     Tag Name:
-LEVEL:x
-    </a>
-   </strong>
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Level)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   LEVEL
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines level based benefits.
-   </li>
-   <li>
-    Using
-    <code>LEVEL</code>
-    in conjunction with a formula on the
-    <code>MINXP</code>
-    tag that utilizes the
-    <span class="lstvar">
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <!-- PCGen Documentation Project Contributors: Shane Molnar - shaneATcliftonmotelDOTcomDOTau Eddy Anthony - eddybaATmindspringDOTcom Description: Provides information on the use of PCGen Game Mode:Level List. -->
+    <title>
+        Game Mode:Level List
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<hr/>
+<h1>
+    Game Mode: level.lst
+</h1>
+<p>
+    The level.lst file determines level based benefits.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="level" name="level">
+            Tag Name:
+            LEVEL:x
+        </a>
+    </strong>
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Level)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    LEVEL
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines level based benefits.
+    </li>
+    <li>
+        Using
+        <code>LEVEL</code>
+        in conjunction with a formula on the
+        <code>MINXP</code>
+        tag that utilizes the
+        <span class="lstvar">
      LEVEL
     </span>
-    variable will determine the level
-benefits.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LEVEL:1 &lt;tab&gt; MINXP:0 &lt;tab&gt;
-CSKILLMAX:1 &lt;tab&gt; CCSKILLMAX:1</code>
-  </p>
-  <p class="indent3">
-   Identifies the minimum experience points amd
-maximum class and cross-class skill ranks for first level.
-  </p>
-  <p class="indent2">
-   <code>LEVEL:LEVEL &lt;tab&gt;
-MINXP:(LEVEL*LEVEL-LEVEL)*500 &lt;tab&gt; CSKILLMAX:LEVEL+3
-&lt;tab&gt; CCSKILLMAX:(LEVEL+3)/2</code>
-  </p>
-  <p class="indent3">
-   Establishes the standard level progression by
-experience points as used in the R/SRD.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="minxp" name="minxp">
-     Tag
-Name:
-    </a>
-   </strong>
-   MINXP:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number or
-Formula (Experience Points)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Sets the minimum experience points needed to achieve a
-level.
-   </li>
-   <li>
-    When used in conjunction with the
-    <code>LEVEL:LEVEL</code>
-    tag,
-    <code>MINXP</code>
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MINXP:(LEVEL*LEVEL-LEVEL)*500</code>
-  </p>
-  <p class="indent3">
-   The standard formula for level progression for
-the R/SRD.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="cskillmax" name="cskillmax">
-     Tag
-Name:
-    </a>
-   </strong>
-   CSKILLMAX:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number or
-Formula (Skill Rank)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets the maximum rank for class skills.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CSKILLMAX:LEVEL+3</code>
-  </p>
-  <p class="indent3">
-   The standard formula for maximum class skill
-ranks for the R/SRD.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="ccskillmax" name="ccskillmax">
-     Tag
-Name:
-    </a>
-   </strong>
-   CCSKILLMAX:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number or
-Formula (Skill Rank)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets the maximum rank for cross class
-skills.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CCSKILLMAX:(LEVEL+3)/2</code>
-  </p>
-  <p class="indent3">
-   The standard formula for maximum cross-class
-skill ranks for the R/SRD.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+        variable will determine the level
+        benefits.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LEVEL:1 &lt;tab&gt; MINXP:0 &lt;tab&gt;
+        CSKILLMAX:1 &lt;tab&gt; CCSKILLMAX:1</code>
+</p>
+<p class="indent3">
+    Identifies the minimum experience points amd
+    maximum class and cross-class skill ranks for first level.
+</p>
+<p class="indent2">
+    <code>LEVEL:LEVEL &lt;tab&gt;
+        MINXP:(LEVEL*LEVEL-LEVEL)*500 &lt;tab&gt; CSKILLMAX:LEVEL+3
+        &lt;tab&gt; CCSKILLMAX:(LEVEL+3)/2</code>
+</p>
+<p class="indent3">
+    Establishes the standard level progression by
+    experience points as used in the R/SRD.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="minxp" name="minxp">
+            Tag
+            Name:
+        </a>
+    </strong>
+    MINXP:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number or
+    Formula (Experience Points)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Sets the minimum experience points needed to achieve a
+        level.
+    </li>
+    <li>
+        When used in conjunction with the
+        <code>LEVEL:LEVEL</code>
+        tag,
+        <code>MINXP</code>
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MINXP:(LEVEL*LEVEL-LEVEL)*500</code>
+</p>
+<p class="indent3">
+    The standard formula for level progression for
+    the R/SRD.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="cskillmax" name="cskillmax">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CSKILLMAX:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number or
+    Formula (Skill Rank)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets the maximum rank for class skills.
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CSKILLMAX:LEVEL+3</code>
+</p>
+<p class="indent3">
+    The standard formula for maximum class skill
+    ranks for the R/SRD.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="ccskillmax" name="ccskillmax">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CCSKILLMAX:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number or
+    Formula (Skill Rank)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets the maximum rank for cross class
+    skills.
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CCSKILLMAX:(LEVEL+3)/2</code>
+</p>
+<p class="indent3">
+    The standard formula for maximum cross-class
+    skill ranks for the R/SRD.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

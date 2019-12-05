@@ -34,75 +34,74 @@ import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * Implements a custom Freemarker macro to allow exporting of a string value  
- * from the character. It evaluates a PCGen export token for the current character  
- * and returns the value as a string. e.g. {@literal <@pcstring tag="PLAYERNAME"/>} or 
+ * Implements a custom Freemarker macro to allow exporting of a string value
+ * from the character. It evaluates a PCGen export token for the current character
+ * and returns the value as a string. e.g. {@literal <@pcstring tag="PLAYERNAME"/>} or
  * ${pcstring('PLAYERNAME')}
- * 
- * 
  */
 public class PCStringDirective implements TemplateDirectiveModel, TemplateMethodModelEx, CharacterExportAction
 {
-	private PlayerCharacter pc;
-	private ExportHandler eh;
+    private PlayerCharacter pc;
+    private ExportHandler eh;
 
-	/**
-	 * Create a new instance of PCStringDirective
-	 * @param pc The character being exported.
-	 * @param eh The managing export handler.
-	 */
-	public PCStringDirective(PlayerCharacter pc, ExportHandler eh)
-	{
-		this.pc = pc;
-		this.eh = eh;
-	}
+    /**
+     * Create a new instance of PCStringDirective
+     *
+     * @param pc The character being exported.
+     * @param eh The managing export handler.
+     */
+    public PCStringDirective(PlayerCharacter pc, ExportHandler eh)
+    {
+        this.pc = pc;
+        this.eh = eh;
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
-		throws IOException, TemplateModelException
-	{
-		// Check if no parameters were given:
-		if (params.size() != 1 || params.get("tag") == null)
-		{
-			throw new TemplateModelException("This directive requires a single tag parameter.");
-		}
-		if (loopVars.length != 0)
-		{
-			throw new TemplateModelException("This directive doesn't allow loop variables.");
-		}
-		if (body != null)
-		{
-			throw new TemplateModelException("This directive cannot take a body.");
-		}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
+            throws IOException, TemplateModelException
+    {
+        // Check if no parameters were given:
+        if (params.size() != 1 || params.get("tag") == null)
+        {
+            throw new TemplateModelException("This directive requires a single tag parameter.");
+        }
+        if (loopVars.length != 0)
+        {
+            throw new TemplateModelException("This directive doesn't allow loop variables.");
+        }
+        if (body != null)
+        {
+            throw new TemplateModelException("This directive cannot take a body.");
+        }
 
-		String tag = params.get("tag").toString();
-		String value = getExportVariable(tag, pc, eh);
+        String tag = params.get("tag").toString();
+        String value = getExportVariable(tag, pc, eh);
 
-		if (tag.equals(value))
-		{
-			throw new TemplateModelException("Invalid export tag '" + tag + "'.");
-		}
+        if (tag.equals(value))
+        {
+            throw new TemplateModelException("Invalid export tag '" + tag + "'.");
+        }
 
-		env.getOut().append(value);
-	}
+        env.getOut().append(value);
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Object exec(List arg0) throws TemplateModelException
-	{
-		if (arg0.size() != 1)
-		{
-			throw new TemplateModelException("Wrong arguments. tag required");
-		}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public Object exec(List arg0) throws TemplateModelException
+    {
+        if (arg0.size() != 1)
+        {
+            throw new TemplateModelException("Wrong arguments. tag required");
+        }
 
-		String tag = arg0.get(0).toString();
-		String value = getExportVariable(tag, pc, eh);
+        String tag = arg0.get(0).toString();
+        String value = getExportVariable(tag, pc, eh);
 
-		if (tag.equals(value))
-		{
-			throw new TemplateModelException("Invalid export tag '" + tag + "'.");
-		}
-		return value;
-	}
+        if (tag.equals(value))
+        {
+            throw new TemplateModelException("Invalid export tag '" + tag + "'.");
+        }
+        return value;
+    }
 }

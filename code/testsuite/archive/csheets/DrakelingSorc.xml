@@ -1,1478 +1,1467 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-<!--========================================================================
-BIO
-========================================================================-->
-	<basics>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<name>DrakelingSorc</name>
-		<followerof></followerof>
-		<playername></playername>
-		<action_points>0</action_points>
-		<age>0</age>
-		<alignment>
-			<long>True Neutral</long>
-			<short>TN</short>
-		</alignment>
-		<bab>+2</bab>
-		<bio></bio>
-		<birthplace></birthplace>
-		<catchphrase></catchphrase>
-		<classes>
-			<class>
-				<name>Sorcerer</name>
-				<abbreviation>Sor</abbreviation>
-				<level>4</level>
-				<bonuslist>Sorcerer</bonuslist>
-				<sequence>0</sequence>
-			</class>
-			<levels_total>4</levels_total>
-			<levels_ecl>5</levels_ecl>
-			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Sor4                   </shortform>
-			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
-		</classes>
-		<deity>
-			<name></name>
-			<alignment></alignment>
-			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
-			<holyitem></holyitem>
-			<pantheonlist></pantheonlist>
-			<source></source>
-			<special_abilities></special_abilities>
-		</deity>
-		<description>
-			<para></para>
-		</description>
-		<experience>
-			<current>10000</current>
-			<next_level>15000</next_level>
-			<factor>100%</factor>
-			<penalty>0%</penalty>
-		</experience>
-		<eyes>
-			<color></color>
-		</eyes>
-		<hair>
-			<color></color>
-			<length></length>
-		</hair>
-		<skin>
-			<color></color>
-		</skin>
-		<cr>4</cr>
-		<face>5 ft. by 5 ft.</face>
-		<favoredlist>Any, Sorcerer</favoredlist>
-		<followerlist></followerlist>
-		<gender>
-			<long>Male</long>
-			<short>Male</short>
-		</gender>
-		<handed>Right</handed>
-		<height>
-			<total>0&#39; 0&quot;</total>
-			<feet>0</feet>
-			<inches>0</inches>
-		</height>
-		<hitdice>(4d4)+8</hitdice>
-		<interests></interests>
-		<languages>
-			<language>Common</language>
-			<language>Draconic</language>
-			<all>Common, Draconic</all>
-		</languages>
-		<location></location>
-		<move>
-			<all>Walk 30 ft.</all>
-		</move>
-		<personality>
-			<trait></trait>
-			<trait></trait>
-		</personality>
-		<portrait></portrait>
-		<phobias></phobias>
-		<race>Human</race>
-		<reach>5 ft.</reach>
-		<region>None</region>
-		<reputation>0</reputation>
-		<residence></residence>
-		<size>
-			<long>Medium</long>
-			<short>M</short>
-		</size>
-		<speechtendency></speechtendency>
-		<type>Humanoid</type>
-		<vision>Darkvision (60&#39;)</vision>
-		<wealth>0</wealth>
-		<weight>
-			<weight_unit>0 lbs.</weight_unit>
-			<weight_nounit>0</weight_nounit>
-		</weight>
-		<poolpoints>
-			<cost>0</cost>
-			<current>0</current>
-		</poolpoints>
-		<notes>
-		</notes>
-	</basics>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITIES
-	  ====================================
-	  ====================================-->
-	<abilities>
-		<ability>
-			<name>
-				<long>Strength</long>
-				<short>STR</short>
-			</name>
-			<score>16</score>
-			<modifier>+3</modifier>
-			<base>14</base>
-			<basemod>+2</basemod>
-			<noequip>16</noequip>
-			<noequip_mod>+3</noequip_mod>
-			<no_temp_score>16</no_temp_score>
-			<no_temp_modifier>+3</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Dexterity</long>
-				<short>DEX</short>
-			</name>
-			<score>16</score>
-			<modifier>+3</modifier>
-			<base>16</base>
-			<basemod>+3</basemod>
-			<noequip>16</noequip>
-			<noequip_mod>+3</noequip_mod>
-			<no_temp_score>16</no_temp_score>
-			<no_temp_modifier>+3</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Constitution</long>
-				<short>CON</short>
-			</name>
-			<score>14</score>
-			<modifier>+2</modifier>
-			<base>14</base>
-			<basemod>+2</basemod>
-			<noequip>14</noequip>
-			<noequip_mod>+2</noequip_mod>
-			<no_temp_score>14</no_temp_score>
-			<no_temp_modifier>+2</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Intelligence</long>
-				<short>INT</short>
-			</name>
-			<score>18</score>
-			<modifier>+4</modifier>
-			<base>18</base>
-			<basemod>+4</basemod>
-			<noequip>18</noequip>
-			<noequip_mod>+4</noequip_mod>
-			<no_temp_score>18</no_temp_score>
-			<no_temp_modifier>+4</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Wisdom</long>
-				<short>WIS</short>
-			</name>
-			<score>12</score>
-			<modifier>+1</modifier>
-			<base>14</base>
-			<basemod>+2</basemod>
-			<noequip>12</noequip>
-			<noequip_mod>+1</noequip_mod>
-			<no_temp_score>12</no_temp_score>
-			<no_temp_modifier>+1</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Charisma</long>
-				<short>CHA</short>
-			</name>
-			<score>21</score>
-			<modifier>+5</modifier>
-			<base>19</base>
-			<basemod>+4</basemod>
-			<noequip>21</noequip>
-			<noequip_mod>+5</noequip_mod>
-			<no_temp_score>21</no_temp_score>
-			<no_temp_modifier>+5</no_temp_modifier>
-		</ability>
-	</abilities>
-	<!--
-	  ====================================
-	  ====================================
-			HIT POINTS
-	  ====================================
-	  ====================================-->
-	<hit_points>
-		<points>19</points>
-		<die>(4d4)+8</die>
-		<current/>
-		<subdual/>
-		<damage_reduction></damage_reduction>
-		<damage_threshold>0</damage_threshold>
-		<history>
-			<roll>
-				<level>1</level>
-				<roll>4</roll>
-				<stat>2</stat>
-				<total>6</total>
-			</roll>
-			<roll>
-				<level>2</level>
-				<roll>2</roll>
-				<stat>2</stat>
-				<total>4</total>
-			</roll>
-			<roll>
-				<level>3</level>
-				<roll>1</roll>
-				<stat>2</stat>
-				<total>3</total>
-			</roll>
-			<roll>
-				<level>4</level>
-				<roll>4</roll>
-				<stat>2</stat>
-				<total>6</total>
-			</roll>
-			<roll>
-				<level>5</level>
-				<roll>0</roll>
-				<stat>0</stat>
-				<total>0</total>
-			</roll>
-		</history>
-	</hit_points>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR CLASS
-	  ====================================
-	  ====================================-->
-	<armor_class>
-		<total>13</total>
-		<listing>ABILITY +3, BASE +10</listing>
-		<flat>10</flat>
-		<touch>13</touch>
-		<base>10</base>
-		<armor_bonus>0</armor_bonus>
-		<shield_bonus>0</shield_bonus>
-		<stat_mod>3</stat_mod>
-		<size_mod>0</size_mod>
-		<natural>0</natural>
-		<class_bonus>0</class_bonus>
-		<dodge_bonus>0</dodge_bonus>
-		<misc>0</misc>
-		<miss_chance/>
-		<max_dex></max_dex>
-		<spell_failure>0</spell_failure>
-		<check_penalty>+0</check_penalty>
-		<spell_resistance>0</spell_resistance>
-	</armor_class>
-	<!--
-	  ====================================
-	  ====================================
-			INITIATIVE
-	  ====================================
-	  ====================================-->
-	<initiative>
-		<total>+3</total>
-		<dex_mod>+3</dex_mod>
-		<misc_mod>+0</misc_mod>
-	</initiative>
-	<!--
-	  ====================================
-	  ====================================
-			SKILLS
-	  ====================================
-	  ====================================-->
-	<skills>
-		<skillpoints>
-			<total>49</total>
-			<used>0</used>
-			<unused>49</unused>
-		</skillpoints>
-		<list_mods></list_mods>
-		<max_class_skill_level>7</max_class_skill_level>
-		<max_cross_class_skill_level>3.5</max_cross_class_skill_level>
-		<skill>
-			<name>Appraise</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Appraise</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Balance</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Balance</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Bluff</name>
-			<ranks>0.0</ranks>
-			<mod>5<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>5<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Bluff</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
-		</skill>
-		<skill>
-			<name>Climb</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Climb</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Concentration</name>
-			<ranks>0.0</ranks>
-			<mod>2<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>2<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CON</ability>
-			<synergy>Concentration</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
-		</skill>
-		<skill>
-			<name>Craft (Untrained)</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Craft (Untrained)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>Y</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Diplomacy</name>
-			<ranks>0.0</ranks>
-			<mod>5<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>5<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Diplomacy</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
-		</skill>
-		<skill>
-			<name>Disguise</name>
-			<ranks>0.0</ranks>
-			<mod>5<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>5<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Disguise</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
-		</skill>
-		<skill>
-			<name>Escape Artist</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Escape Artist</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Forgery</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Forgery</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Gather Information</name>
-			<ranks>0.0</ranks>
-			<mod>5<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>5<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Gather Information</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
-		</skill>
-		<skill>
-			<name>Heal</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Heal</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Hide</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Hide</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Intimidate</name>
-			<ranks>0.0</ranks>
-			<mod>5<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>5<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Intimidate</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
-		</skill>
-		<skill>
-			<name>Jump</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Jump</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Listen</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Listen</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Move Silently</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Move Silently</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform</name>
-			<ranks>0.0</ranks>
-			<mod>5<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>5<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
-		</skill>
-		<skill>
-			<name>Ride</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Ride</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Scry</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Scry</synergy>
-			<untrained>Y</untrained>
-			<exclusive>Y</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Search</name>
-			<ranks>0.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>4</skill_mod>
-			<ability_mod>4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Search</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>4</trained_total>
-			<exclusive_total>4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Sense Motive</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Sense Motive</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Spot</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Spot</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Swim</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Swim</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Use Rope</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Use Rope</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Wilderness Lore</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Wilderness Lore</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-	</skills>
-	<!--
-	  ====================================
-	  ====================================
-			SAVING THROWS
-	  ====================================
-	  ====================================-->
-	<saving_throws>
-		<conditional_modifiers/>
-		<saving_throw>
-			<name>
-				<long>fortitude</long>
-				<short>fort</short>
-			</name>
-			<ability>constitution</ability>
-			<total>+3</total>
-			<base>+1</base>
-			<abil_mod>+2</abil_mod>
-			<feats>+0</feats>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>reflex</long>
-				<short>ref</short>
-			</name>
-			<ability>dexterity</ability>
-			<total>+4</total>
-			<base>+1</base>
-			<feats>+0</feats>
-			<abil_mod>+3</abil_mod>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>willpower</long>
-				<short>will</short>
-			</name>
-			<ability>wisdom</ability>
-			<total>+5</total>
-			<base>+4</base>
-			<abil_mod>+1</abil_mod>
-			<feats>+0</feats>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-	</saving_throws>
-	<!--
-	  ====================================
-	  ====================================
-			ATTACK
-	  ====================================
-	  ====================================-->
-	<attack>
-		<melee>
-			<total>+5</total>
-			<bab>+2</bab>
-			<base_attack_bonus>+2</base_attack_bonus>
-			<stat_mod>+3</stat_mod>
-			<size_mod>+0</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</melee>
-		<ranged>
-			<total>+5</total>
-			<bab>+2</bab>
-			<base_attack_bonus>+2</base_attack_bonus>
-			<stat_mod>+3</stat_mod>
-			<size_mod>+0</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</ranged>
-		<grapple>
-			<total>+5</total>
-			<bab>+2</bab>
-			<base_attack_bonus>+2</base_attack_bonus>
-			<stat_mod>+3</stat_mod>
-			<size_mod>+0</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</grapple>
-	</attack>
-	<!--
-	  ====================================
-	  ====================================
-			WEAPONS
-	  ====================================
-	  ====================================-->
-	<weapons>
-		<unarmed>
-			<total>+5</total>
-			<damage>1d3+3</damage>
-			<critical>20/x2</critical>
-			<!-- Should be changed to a variable due to improved crit -->
-		</unarmed>
- 
-		
-	</weapons>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR
-	  ====================================
-	  ====================================-->
-	<protection>
-	</protection>
-	<!--
-	  ====================================
-	  ====================================
-			CLASS-DEPENDANT FEATURES
-	  ====================================
-	  ====================================-->
-	<class_features>
-
-	<!-- Bard -->
- 
- 
-
-	<!-- Barbarian of 15th Level -->
-	<!-- Character Rage -->
- 
- 
- 
- 
- 
-	<!-- 3.0 stunning fist -->
- 
-	<!-- 3.5 stunning fist -->
- 
-	<!-- 3.0 wholeness of body -->
- 
-	<!-- 3.5 wholeness of body -->
- 
-	<!-- Psionics -->
- 
-
- 
-
- 
- 
-
-	</class_features>
-	<!--
-	  ====================================
-	  ====================================
-			EQUIPMENT
-	  ====================================
-	  ====================================-->
-	<equipment>
-		<total>
-			<weight>0 lbs.</weight>
-			<value>0 gp</value>
-			<load>Light</load>
-			<capacity>230</capacity>
-		</total>
-		<equipmentsets>
-
-      <equipmentset name="Default Set">
-			</equipmentset>
-
-      </equipmentsets>
-	</equipment>
-	<weight_allowance>
-		<light>76</light>
-		<medium>153</medium>
-		<heavy>230</heavy>
-		<lift_over_head>230</lift_over_head>
-		<lift_off_ground>460</lift_off_ground>
-		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>1150</push_drag>
-	</weight_allowance>
-	<!--
-	  ====================================
-	  ====================================
-			SPECIAL ABILITIES
-	  ====================================
-	  ====================================-->
-	<special_abilities>
-		<ability>
-			<name>Energy Substitution for element</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Fire Resistance 10</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Summon Familiar</name>
-			<description></description>
-		</ability>
-		<race></race>
-		<class>
-			<class>Sorcerer</class>
-			<ability></ability>
-		</class>
-	</special_abilities>
-	<!--
-	  ====================================
-	  ====================================
-			FEATS
-	  ====================================
-	  ====================================-->
-	<feats>
-		<!-- Visible standard feats (not including the auto feats) -->
- 
-		<!-- Auto feats -->
-		<feat>
-			<name>Simple Weapon Proficiency</name>
-			<description>The character makes attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
- 
-		<!-- Virtual Feats -->
-		<!-- End Virtual Feats -->
-		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-		<feat>
-			<name>Drakeling Resistance Selection (Fire Resistance 10)</name>
-			<description></description>
-			<type>RACIALSELECTION</type>
-			<associated>Fire Resistance 10</associated>
-			<count>1</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-<!-- Hidden VFEATS -->
-<!-- END Hidden VFEATS -->
-		<feat>
-			<name>All Automatic Proficiencies</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Sorcerer Tracker - Summon Familiar</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Summon Familiar</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-	</feats>
-	<!--
-	  ====================================
-	  ====================================
-			MISCELLANEOUS
-	  ====================================
-	  ====================================-->
- 
- 
-	<!-- Domains -->
-	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Halfspear, Javelin, Mace, Mace (Heavy), Morningstar, Quarterstaff, Ray, Shortspear, Sickle, Sling, Unarmed Strike</weapon_proficiencies>
-	<languages>Common, Draconic</languages>
-
-	<templates>
-		<list>Drakeling</list>
-		<template>
-			<name>Drakeling</name>
-			<strmod>2</strmod>
-			<dexmod>0</dexmod>
-			<conmod>0</conmod>
-			<intmod>0</intmod>
-			<wismod>-2</wismod>
-			<chamod>2</chamod>
-			<cr>0</cr>
-			<dr></dr>
-			<feat></feat>
-			<sa>Energy Substitution for element</sa>
-			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
-	</templates>
-
- 
-
- 
-	<misc>
+    <!--========================================================================
+    BIO
+    ========================================================================-->
+    <basics>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <name>DrakelingSorc</name>
+        <followerof></followerof>
+        <playername></playername>
+        <action_points>0</action_points>
+        <age>0</age>
+        <alignment>
+            <long>True Neutral</long>
+            <short>TN</short>
+        </alignment>
+        <bab>+2</bab>
+        <bio></bio>
+        <birthplace></birthplace>
+        <catchphrase></catchphrase>
+        <classes>
+            <class>
+                <name>Sorcerer</name>
+                <abbreviation>Sor</abbreviation>
+                <level>4</level>
+                <bonuslist>Sorcerer</bonuslist>
+                <sequence>0</sequence>
+            </class>
+            <levels_total>4</levels_total>
+            <levels_ecl>5</levels_ecl>
+            <!-- shortform below should be removed - it can be derived from class info above -->
+            <shortform>Sor4</shortform>
+            <!-- CLASSLIST is not extracted because we can derive it from the information above -->
+        </classes>
+        <deity>
+            <name></name>
+            <alignment></alignment>
+            <description></description>
+            <domainlist></domainlist>
+            <favoredweapon></favoredweapon>
+            <!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
+            <holyitem></holyitem>
+            <pantheonlist></pantheonlist>
+            <source></source>
+            <special_abilities></special_abilities>
+        </deity>
+        <description>
+            <para></para>
+        </description>
+        <experience>
+            <current>10000</current>
+            <next_level>15000</next_level>
+            <factor>100%</factor>
+            <penalty>0%</penalty>
+        </experience>
+        <eyes>
+            <color></color>
+        </eyes>
+        <hair>
+            <color></color>
+            <length></length>
+        </hair>
+        <skin>
+            <color></color>
+        </skin>
+        <cr>4</cr>
+        <face>5 ft. by 5 ft.</face>
+        <favoredlist>Any, Sorcerer</favoredlist>
+        <followerlist></followerlist>
+        <gender>
+            <long>Male</long>
+            <short>Male</short>
+        </gender>
+        <handed>Right</handed>
+        <height>
+            <total>0&#39; 0&quot;</total>
+            <feet>0</feet>
+            <inches>0</inches>
+        </height>
+        <hitdice>(4d4)+8</hitdice>
+        <interests></interests>
+        <languages>
+            <language>Common</language>
+            <language>Draconic</language>
+            <all>Common, Draconic</all>
+        </languages>
+        <location></location>
+        <move>
+            <all>Walk 30 ft.</all>
+        </move>
+        <personality>
+            <trait></trait>
+            <trait></trait>
+        </personality>
+        <portrait></portrait>
+        <phobias></phobias>
+        <race>Human</race>
+        <reach>5 ft.</reach>
+        <region>None</region>
+        <reputation>0</reputation>
+        <residence></residence>
+        <size>
+            <long>Medium</long>
+            <short>M</short>
+        </size>
+        <speechtendency></speechtendency>
+        <type>Humanoid</type>
+        <vision>Darkvision (60&#39;)</vision>
+        <wealth>0</wealth>
+        <weight>
+            <weight_unit>0 lbs.</weight_unit>
+            <weight_nounit>0</weight_nounit>
+        </weight>
+        <poolpoints>
+            <cost>0</cost>
+            <current>0</current>
+        </poolpoints>
+        <notes>
+        </notes>
+    </basics>
+    <!--
+      ====================================
+      ====================================
+            ABILITIES
+      ====================================
+      ====================================-->
+    <abilities>
+        <ability>
+            <name>
+                <long>Strength</long>
+                <short>STR</short>
+            </name>
+            <score>16</score>
+            <modifier>+3</modifier>
+            <base>14</base>
+            <basemod>+2</basemod>
+            <noequip>16</noequip>
+            <noequip_mod>+3</noequip_mod>
+            <no_temp_score>16</no_temp_score>
+            <no_temp_modifier>+3</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Dexterity</long>
+                <short>DEX</short>
+            </name>
+            <score>16</score>
+            <modifier>+3</modifier>
+            <base>16</base>
+            <basemod>+3</basemod>
+            <noequip>16</noequip>
+            <noequip_mod>+3</noequip_mod>
+            <no_temp_score>16</no_temp_score>
+            <no_temp_modifier>+3</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Constitution</long>
+                <short>CON</short>
+            </name>
+            <score>14</score>
+            <modifier>+2</modifier>
+            <base>14</base>
+            <basemod>+2</basemod>
+            <noequip>14</noequip>
+            <noequip_mod>+2</noequip_mod>
+            <no_temp_score>14</no_temp_score>
+            <no_temp_modifier>+2</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Intelligence</long>
+                <short>INT</short>
+            </name>
+            <score>18</score>
+            <modifier>+4</modifier>
+            <base>18</base>
+            <basemod>+4</basemod>
+            <noequip>18</noequip>
+            <noequip_mod>+4</noequip_mod>
+            <no_temp_score>18</no_temp_score>
+            <no_temp_modifier>+4</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Wisdom</long>
+                <short>WIS</short>
+            </name>
+            <score>12</score>
+            <modifier>+1</modifier>
+            <base>14</base>
+            <basemod>+2</basemod>
+            <noequip>12</noequip>
+            <noequip_mod>+1</noequip_mod>
+            <no_temp_score>12</no_temp_score>
+            <no_temp_modifier>+1</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Charisma</long>
+                <short>CHA</short>
+            </name>
+            <score>21</score>
+            <modifier>+5</modifier>
+            <base>19</base>
+            <basemod>+4</basemod>
+            <noequip>21</noequip>
+            <noequip_mod>+5</noequip_mod>
+            <no_temp_score>21</no_temp_score>
+            <no_temp_modifier>+5</no_temp_modifier>
+        </ability>
+    </abilities>
+    <!--
+      ====================================
+      ====================================
+            HIT POINTS
+      ====================================
+      ====================================-->
+    <hit_points>
+        <points>19</points>
+        <die>(4d4)+8</die>
+        <current/>
+        <subdual/>
+        <damage_reduction></damage_reduction>
+        <damage_threshold>0</damage_threshold>
+        <history>
+            <roll>
+                <level>1</level>
+                <roll>4</roll>
+                <stat>2</stat>
+                <total>6</total>
+            </roll>
+            <roll>
+                <level>2</level>
+                <roll>2</roll>
+                <stat>2</stat>
+                <total>4</total>
+            </roll>
+            <roll>
+                <level>3</level>
+                <roll>1</roll>
+                <stat>2</stat>
+                <total>3</total>
+            </roll>
+            <roll>
+                <level>4</level>
+                <roll>4</roll>
+                <stat>2</stat>
+                <total>6</total>
+            </roll>
+            <roll>
+                <level>5</level>
+                <roll>0</roll>
+                <stat>0</stat>
+                <total>0</total>
+            </roll>
+        </history>
+    </hit_points>
+    <!--
+      ====================================
+      ====================================
+            ARMOR CLASS
+      ====================================
+      ====================================-->
+    <armor_class>
+        <total>13</total>
+        <listing>ABILITY +3, BASE +10</listing>
+        <flat>10</flat>
+        <touch>13</touch>
+        <base>10</base>
+        <armor_bonus>0</armor_bonus>
+        <shield_bonus>0</shield_bonus>
+        <stat_mod>3</stat_mod>
+        <size_mod>0</size_mod>
+        <natural>0</natural>
+        <class_bonus>0</class_bonus>
+        <dodge_bonus>0</dodge_bonus>
+        <misc>0</misc>
+        <miss_chance/>
+        <max_dex></max_dex>
+        <spell_failure>0</spell_failure>
+        <check_penalty>+0</check_penalty>
+        <spell_resistance>0</spell_resistance>
+    </armor_class>
+    <!--
+      ====================================
+      ====================================
+            INITIATIVE
+      ====================================
+      ====================================-->
+    <initiative>
+        <total>+3</total>
+        <dex_mod>+3</dex_mod>
+        <misc_mod>+0</misc_mod>
+    </initiative>
+    <!--
+      ====================================
+      ====================================
+            SKILLS
+      ====================================
+      ====================================-->
+    <skills>
+        <skillpoints>
+            <total>49</total>
+            <used>0</used>
+            <unused>49</unused>
+        </skillpoints>
+        <list_mods></list_mods>
+        <max_class_skill_level>7</max_class_skill_level>
+        <max_cross_class_skill_level>3.5</max_cross_class_skill_level>
+        <skill>
+            <name>Appraise</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Appraise</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Balance</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Balance</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Bluff</name>
+            <ranks>0.0</ranks>
+            <mod>5<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>5</skill_mod>
+            <ability_mod>5<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Bluff</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>5</trained_total>
+            <exclusive_total>5</exclusive_total>
+        </skill>
+        <skill>
+            <name>Climb</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Climb</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Concentration</name>
+            <ranks>0.0</ranks>
+            <mod>2<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>2</skill_mod>
+            <ability_mod>2<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CON</ability>
+            <synergy>Concentration</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>2</trained_total>
+            <exclusive_total>2</exclusive_total>
+        </skill>
+        <skill>
+            <name>Craft (Untrained)</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Craft (Untrained)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>Y</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Diplomacy</name>
+            <ranks>0.0</ranks>
+            <mod>5<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>5</skill_mod>
+            <ability_mod>5<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Diplomacy</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>5</trained_total>
+            <exclusive_total>5</exclusive_total>
+        </skill>
+        <skill>
+            <name>Disguise</name>
+            <ranks>0.0</ranks>
+            <mod>5<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>5</skill_mod>
+            <ability_mod>5<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Disguise</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>5</trained_total>
+            <exclusive_total>5</exclusive_total>
+        </skill>
+        <skill>
+            <name>Escape Artist</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Escape Artist</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Forgery</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Forgery</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Gather Information</name>
+            <ranks>0.0</ranks>
+            <mod>5<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>5</skill_mod>
+            <ability_mod>5<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Gather Information</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>5</trained_total>
+            <exclusive_total>5</exclusive_total>
+        </skill>
+        <skill>
+            <name>Heal</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Heal</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Hide</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Hide</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Intimidate</name>
+            <ranks>0.0</ranks>
+            <mod>5<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>5</skill_mod>
+            <ability_mod>5<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Intimidate</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>5</trained_total>
+            <exclusive_total>5</exclusive_total>
+        </skill>
+        <skill>
+            <name>Jump</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Jump</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Listen</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Listen</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Move Silently</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Move Silently</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Perform</name>
+            <ranks>0.0</ranks>
+            <mod>5<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>5</skill_mod>
+            <ability_mod>5<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Perform</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>5</trained_total>
+            <exclusive_total>5</exclusive_total>
+        </skill>
+        <skill>
+            <name>Ride</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Ride</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Scry</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Scry</synergy>
+            <untrained>Y</untrained>
+            <exclusive>Y</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Search</name>
+            <ranks>0.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>4</skill_mod>
+            <ability_mod>4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Search</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>4</trained_total>
+            <exclusive_total>4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Sense Motive</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Sense Motive</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Spot</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Spot</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Swim</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Swim</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Use Rope</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Use Rope</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Wilderness Lore</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Wilderness Lore</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+    </skills>
+    <!--
+      ====================================
+      ====================================
+            SAVING THROWS
+      ====================================
+      ====================================-->
+    <saving_throws>
+        <conditional_modifiers/>
+        <saving_throw>
+            <name>
+                <long>fortitude</long>
+                <short>fort</short>
+            </name>
+            <ability>constitution</ability>
+            <total>+3</total>
+            <base>+1</base>
+            <abil_mod>+2</abil_mod>
+            <feats>+0</feats>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>reflex</long>
+                <short>ref</short>
+            </name>
+            <ability>dexterity</ability>
+            <total>+4</total>
+            <base>+1</base>
+            <feats>+0</feats>
+            <abil_mod>+3</abil_mod>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>willpower</long>
+                <short>will</short>
+            </name>
+            <ability>wisdom</ability>
+            <total>+5</total>
+            <base>+4</base>
+            <abil_mod>+1</abil_mod>
+            <feats>+0</feats>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+    </saving_throws>
+    <!--
+      ====================================
+      ====================================
+            ATTACK
+      ====================================
+      ====================================-->
+    <attack>
+        <melee>
+            <total>+5</total>
+            <bab>+2</bab>
+            <base_attack_bonus>+2</base_attack_bonus>
+            <stat_mod>+3</stat_mod>
+            <size_mod>+0</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </melee>
+        <ranged>
+            <total>+5</total>
+            <bab>+2</bab>
+            <base_attack_bonus>+2</base_attack_bonus>
+            <stat_mod>+3</stat_mod>
+            <size_mod>+0</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </ranged>
+        <grapple>
+            <total>+5</total>
+            <bab>+2</bab>
+            <base_attack_bonus>+2</base_attack_bonus>
+            <stat_mod>+3</stat_mod>
+            <size_mod>+0</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </grapple>
+    </attack>
+    <!--
+      ====================================
+      ====================================
+            WEAPONS
+      ====================================
+      ====================================-->
+    <weapons>
+        <unarmed>
+            <total>+5</total>
+            <damage>1d3+3</damage>
+            <critical>20/x2</critical>
+            <!-- Should be changed to a variable due to improved crit -->
+        </unarmed>
 
 
+    </weapons>
+    <!--
+      ====================================
+      ====================================
+            ARMOR
+      ====================================
+      ====================================-->
+    <protection>
+    </protection>
+    <!--
+      ====================================
+      ====================================
+            CLASS-DEPENDANT FEATURES
+      ====================================
+      ====================================-->
+    <class_features>
 
-	</misc>
-	<!--
-	  ====================================
-	  ====================================
-			COMPANIONS
-	  ====================================
-	  ====================================-->
-	<companions>
+        <!-- Bard -->
 
 
+        <!-- Barbarian of 15th Level -->
+        <!-- Character Rage -->
 
 
-	</companions>
-	<!--
-	  ====================================
-	  ====================================
-			SPELLS
-	  ====================================
-	  ====================================-->
-	<spells>
-		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate>
+        <!-- 3.0 stunning fist -->
 
-		<racial_innate>
-			<spell>
-					<name>Cause Fear</name>
-					<outputname>Cause Fear</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Close (25 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 action</castingtime>
-					<dc>10</dc>
-					<duration>1d4 rounds</duration>
-					<effect>One creature flees for 1d4 rounds.</effect>
-					<target>One living creature</target>
-					<saveinfo>Will negates</saveinfo>
-					<school>
-						<school>Necromancy</school>
-						<subschool></subschool>
-						<descriptor>Fear, Mind-Affecting</descriptor>
-						<fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Adp1, Bgd1, Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
-						<sourcepage>srdspellsc.rtf</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>One creature flees for 1d4 rounds.</description>
-					<bonusspell></bonusspell>
-				</spell>
-		</racial_innate>
+        <!-- 3.5 stunning fist -->
 
- 
-		<class_innate>
-		</class_innate>
-		</spells_innate>
-<!-- ### END Innate spells ### -->
-		<!-- ### BEGIN Known spells ### -->
-		<known_spells>
+        <!-- 3.0 wholeness of body -->
 
-		<class number="1" spelllistclass="Sorcerer" spellcastertype="Arcane">
-			<level number="0" known="6" cast="6">
-				<spell>
-						<name>Detect Poison</name>
-						<outputname>Detect Poison</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Close (35 ft.)</range>
-						<components>V, S</components>
-						<castingtime>1 action</castingtime>
-						<dc>15</dc>
-						<duration>Instantaneous/10 minutes per target HD</duration>
-						<effect>Detects poison in one creature or small object.</effect>
-						<target>One creature, one object, or a 5-ft. cube</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Divination</school>
-							<subschool></subschool>
-							<descriptor></descriptor>
-							<fullschool>Divination</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Asn1, Clr0, Drd0, Pal1, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Detects poison in one creature or small object.</description>
-						<bonusspell></bonusspell>
-					</spell>
-				<spell>
-						<name>Disrupt Undead</name>
-						<outputname>Disrupt Undead</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Close (35 ft.)</range>
-						<components>V, S</components>
-						<castingtime>1 action</castingtime>
-						<dc>15</dc>
-						<duration>Instantaneous</duration>
-						<effect>Deals 1d6 damage to one undead.</effect>
-						<target>Ray</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Necromancy</school>
-							<subschool></subschool>
-							<descriptor></descriptor>
-							<fullschool>Necromancy</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>Yes</spell_resistance>
-						<description>Deals 1d6 damage to one undead.</description>
-						<bonusspell></bonusspell>
-					</spell>
-				<spell>
-						<name>Ghost Sound</name>
-						<outputname>Ghost Sound</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Close (35 ft.)</range>
-						<components>V, S, M</components>
-						<castingtime>1 action</castingtime>
-						<dc>15</dc>
-						<duration>4 rounds [D]</duration>
-						<effect>Figment sounds.</effect>
-						<target>Illusory sounds</target>
-						<saveinfo>Will disbelief</saveinfo>
-						<school>
-							<school>Illusion</school>
-							<subschool>Figment</subschool>
-							<descriptor></descriptor>
-							<fullschool>Illusion (Figment)</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Adp0, Asn1, Brd0, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsg.rtf</source>
-							<sourcepage>srdspellsg.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Figment sounds.</description>
-						<bonusspell></bonusspell>
-					</spell>
-				<spell>
-						<name>Mending</name>
-						<outputname>Mending</outputname>
-						<times_memorized>1</times_memorized>
-						<range>10 feet</range>
-						<components>V, S</components>
-						<castingtime>1 action</castingtime>
-						<dc>15</dc>
-						<duration>Instantaneous</duration>
-						<effect>Makes minor repairs on an object.</effect>
-						<target>10 ft.</target>
-						<saveinfo>Will negates (Harmless object)</saveinfo>
-						<school>
-							<school>Transmutation</school>
-							<subschool></subschool>
-							<descriptor></descriptor>
-							<fullschool>Transmutation</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
-							<sourcepage>srdspellsm.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>Yes (Harmless object)</spell_resistance>
-						<description>Makes minor repairs on an object.</description>
-						<bonusspell></bonusspell>
-					</spell>
-				<spell>
-						<name>Prestidigitation</name>
-						<outputname>Prestidigitation</outputname>
-						<times_memorized>1</times_memorized>
-						<range>10 feet</range>
-						<components>V, S</components>
-						<castingtime>1 action</castingtime>
-						<dc>15</dc>
-						<duration>1 hour</duration>
-						<effect>Performs minor tricks.</effect>
-						<target>See text</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Universal</school>
-							<subschool></subschool>
-							<descriptor></descriptor>
-							<fullschool>Universal</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
-							<sourcepage>srdspellsp.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Performs minor tricks.</description>
-						<bonusspell></bonusspell>
-					</spell>
-				<spell>
-						<name>Read Magic</name>
-						<outputname>Read Magic</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Personal</range>
-						<components>V, S, F</components>
-						<castingtime>1 action</castingtime>
-						<dc>15</dc>
-						<duration>40 minutes</duration>
-						<effect>Read scrolls and spellbooks.</effect>
-						<target>The character</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Universal</school>
-							<subschool></subschool>
-							<descriptor></descriptor>
-							<fullschool>Universal</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Pal1, Rgr1, Sor0, Wiz0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
-							<sourcepage>srdspellsqr.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Read scrolls and spellbooks.</description>
-						<bonusspell></bonusspell>
-					</spell>
-			</level>
-			<level number="1" known="3" cast="8">
-				<spell>
-						<name>Endure Elements</name>
-						<outputname>Endure Elements</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Touch</range>
-						<components>V, S</components>
-						<castingtime>1 action</castingtime>
-						<dc>16</dc>
-						<duration>24 hours</duration>
-						<effect>Ignores 5 damage/round from one energy type.</effect>
-						<target>Creature touched</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Abjuration</school>
-							<subschool></subschool>
-							<descriptor>Acid, Cold, Fire, Electricity, Sonic</descriptor>
-							<fullschool>Abjuration [Acid, Cold, Fire, Electricity, Sonic]</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Adp1, Clr1, Drd1, Pal1, Sor1, Strength1, Sun1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellse.rtf</source>
-							<sourcepage>srdspellse.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>Yes</spell_resistance>
-						<description>Ignores 5 damage/round from one energy type.</description>
-						<bonusspell></bonusspell>
-					</spell>
-				<spell>
-						<name>Mage Armor</name>
-						<outputname>Mage Armor</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Touch</range>
-						<components>V, S, F</components>
-						<castingtime>1 action</castingtime>
-						<dc>16</dc>
-						<duration>4 hours [D]</duration>
-						<effect>Gives subject +4 armor bonus.</effect>
-						<target>Creature touched</target>
-						<saveinfo>Will negates (Harmless)</saveinfo>
-						<school>
-							<school>Conjuration</school>
-							<subschool>Creation</subschool>
-							<descriptor>Force</descriptor>
-							<fullschool>Conjuration (Creation) [Force]</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Brd1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
-							<sourcepage>srdspellsm.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>Yes (Harmless)</spell_resistance>
-						<description>Gives subject +4 armor bonus.</description>
-						<bonusspell></bonusspell>
-					</spell>
-				<spell>
-						<name>Undetectable Aura</name>
-						<outputname>Undetectable Aura</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Touch</range>
-						<components>V, S, F</components>
-						<castingtime>1 action</castingtime>
-						<dc>16</dc>
-						<duration>4 days</duration>
-						<effect>Masks magic item&#39;s aura.</effect>
-						<target>Object touched weighing up to 20 lb.</target>
-						<saveinfo>None</saveinfo>
-						<school>
-							<school>Illusion</school>
-							<subschool>Glamer</subschool>
-							<descriptor></descriptor>
-							<fullschool>Illusion (Glamer)</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Magic1, Sor1, Wiz1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsuvwxyz.rtf</source>
-							<sourcepage>srdspellsuvwxyz.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>No</spell_resistance>
-						<description>Masks magic item&#39;s aura.</description>
-						<bonusspell></bonusspell>
-					</spell>
-			</level>
-			<level number="2" known="1" cast="4">
-				<spell>
-						<name>Flaming Sphere</name>
-						<outputname>Flaming Sphere</outputname>
-						<times_memorized>1</times_memorized>
-						<range>Medium (140 ft.)</range>
-						<components>V, S, M/DF</components>
-						<castingtime>1 action</castingtime>
-						<dc>17</dc>
-						<duration>4 rounds</duration>
-						<effect>Rolling ball of fire, 2d6 damage, lasts 4 rounds.</effect>
-						<target>3-ft.-radius sphere</target>
-						<saveinfo>Reflex negates</saveinfo>
-						<school>
-							<school>Evocation</school>
-							<subschool></subschool>
-							<descriptor>Fire</descriptor>
-							<fullschool>Evocation [Fire]</fullschool>
-						</school>
-						<source>
-							<sourcelevel>Drd2, Sor2, Wiz2</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsf.rtf</source>
-							<sourcepage>srdspellsf.rtf</sourcepage>
-							<sourceshort>SRD</sourceshort>
-						</source>
-						<spell_resistance>Yes</spell_resistance>
-						<description>Rolling ball of fire, 2d6 damage, lasts (CASTERLEVEL) rounds.</description>
-						<bonusspell></bonusspell>
-					</spell>
-			</level>
-			<level number="3" known="0" cast="0"/>
-			<level number="4" known="0" cast="0"/>
-			<level number="5" known="0" cast="0"/>
-			<level number="6" known="0" cast="0"/>
-			<level number="7" known="0" cast="0"/>
-			<level number="8" known="0" cast="0"/>
-			<level number="9" known="0" cast="0"/>
-		</class>
+        <!-- 3.5 wholeness of body -->
 
-	</known_spells>
-		<!-- ### END Known spells ### -->
-		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
- 
-<!-- ### BEGIN innate memorized spells ### -->
+        <!-- Psionics -->
 
-		<racial_innate_memorized>
-			<spell>
-					<name>Cause Fear</name>
-					<outputname>Cause Fear</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Close (25 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 action</castingtime>
-					<dc>10</dc>
-					<duration>1d4 rounds</duration>
-					<effect>One creature flees for 1d4 rounds.</effect>
-					<target>One living creature</target>
-					<saveinfo>Will negates</saveinfo>
-					<school>
-						<school>Necromancy</school>
-						<subschool></subschool>
-						<descriptor>Fear, Mind-Affecting</descriptor>
-						<fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Adp1, Bgd1, Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
-						<sourcepage>srdspellsc.rtf</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>One creature flees for 1d4 rounds.</description>
-					<bonusspell></bonusspell>
-				</spell>
-		</racial_innate_memorized>
 
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
-		</class_innate_memorized>
-			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
-	</memorized_spells>
-<!-- ### END class Spellbook memorized spells ### -->
-	</spells>
+    </class_features>
+    <!--
+      ====================================
+      ====================================
+            EQUIPMENT
+      ====================================
+      ====================================-->
+    <equipment>
+        <total>
+            <weight>0 lbs.</weight>
+            <value>0 gp</value>
+            <load>Light</load>
+            <capacity>230</capacity>
+        </total>
+        <equipmentsets>
+
+            <equipmentset name="Default Set">
+            </equipmentset>
+
+        </equipmentsets>
+    </equipment>
+    <weight_allowance>
+        <light>76</light>
+        <medium>153</medium>
+        <heavy>230</heavy>
+        <lift_over_head>230</lift_over_head>
+        <lift_off_ground>460</lift_off_ground>
+        <!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
+        <push_drag>1150</push_drag>
+    </weight_allowance>
+    <!--
+      ====================================
+      ====================================
+            SPECIAL ABILITIES
+      ====================================
+      ====================================-->
+    <special_abilities>
+        <ability>
+            <name>Energy Substitution for element</name>
+            <description></description>
+        </ability>
+        <ability>
+            <name>Fire Resistance 10</name>
+            <description></description>
+        </ability>
+        <ability>
+            <name>Summon Familiar</name>
+            <description></description>
+        </ability>
+        <race></race>
+        <class>
+            <class>Sorcerer</class>
+            <ability></ability>
+        </class>
+    </special_abilities>
+    <!--
+      ====================================
+      ====================================
+            FEATS
+      ====================================
+      ====================================-->
+    <feats>
+        <!-- Visible standard feats (not including the auto feats) -->
+
+        <!-- Auto feats -->
+        <feat>
+            <name>Simple Weapon Proficiency</name>
+            <description>The character makes attack rolls with simple weapons normally.</description>
+            <type>GENERAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+
+        <!-- Virtual Feats -->
+        <!-- End Virtual Feats -->
+        <!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
+        <feat>
+            <name>Drakeling Resistance Selection (Fire Resistance 10)</name>
+            <description></description>
+            <type>RACIALSELECTION</type>
+            <associated>Fire Resistance 10</associated>
+            <count>1</count>
+            <auto>F</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <!-- Hidden VFEATS -->
+        <!-- END Hidden VFEATS -->
+        <feat>
+            <name>All Automatic Proficiencies</name>
+            <description></description>
+            <type>SPECIAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Sorcerer Tracker - Summon Familiar</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Summon Familiar</name>
+            <description></description>
+            <type>SPECIAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+        </feat>
+    </feats>
+    <!--
+      ====================================
+      ====================================
+            MISCELLANEOUS
+      ====================================
+      ====================================-->
+
+
+    <!-- Domains -->
+    <weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet,
+        Gauntlet (Spiked), Halfspear, Javelin, Mace, Mace (Heavy), Morningstar, Quarterstaff, Ray, Shortspear, Sickle,
+        Sling, Unarmed Strike
+    </weapon_proficiencies>
+    <languages>Common, Draconic</languages>
+
+    <templates>
+        <list>Drakeling</list>
+        <template>
+            <name>Drakeling</name>
+            <strmod>2</strmod>
+            <dexmod>0</dexmod>
+            <conmod>0</conmod>
+            <intmod>0</intmod>
+            <wismod>-2</wismod>
+            <chamod>2</chamod>
+            <cr>0</cr>
+            <dr></dr>
+            <feat></feat>
+            <sa>Energy Substitution for element</sa>
+            <sr>0</sr>
+            <bonuslist></bonuslist>
+        </template>
+    </templates>
+
+
+    <misc>
+
+
+    </misc>
+    <!--
+      ====================================
+      ====================================
+            COMPANIONS
+      ====================================
+      ====================================-->
+    <companions>
+
+
+    </companions>
+    <!--
+      ====================================
+      ====================================
+            SPELLS
+      ====================================
+      ====================================-->
+    <spells>
+        <!-- ### BEGIN Innate spells ### -->
+        <spells_innate>
+
+            <racial_innate>
+                <spell>
+                    <name>Cause Fear</name>
+                    <outputname>Cause Fear</outputname>
+                    <times_memorized>1</times_memorized>
+                    <range>Close (25 ft.)</range>
+                    <components>V, S</components>
+                    <castingtime>1 action</castingtime>
+                    <dc>10</dc>
+                    <duration>1d4 rounds</duration>
+                    <effect>One creature flees for 1d4 rounds.</effect>
+                    <target>One living creature</target>
+                    <saveinfo>Will negates</saveinfo>
+                    <school>
+                        <school>Necromancy</school>
+                        <subschool></subschool>
+                        <descriptor>Fear, Mind-Affecting</descriptor>
+                        <fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel>Adp1, Bgd1, Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
+                        <source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
+                        <sourcepage>srdspellsc.rtf</sourcepage>
+                        <sourceshort>SRD</sourceshort>
+                    </source>
+                    <spell_resistance>Yes</spell_resistance>
+                    <description>One creature flees for 1d4 rounds.</description>
+                    <bonusspell></bonusspell>
+                </spell>
+            </racial_innate>
+
+
+            <class_innate>
+            </class_innate>
+        </spells_innate>
+        <!-- ### END Innate spells ### -->
+        <!-- ### BEGIN Known spells ### -->
+        <known_spells>
+
+            <class number="1" spelllistclass="Sorcerer" spellcastertype="Arcane">
+                <level number="0" known="6" cast="6">
+                    <spell>
+                        <name>Detect Poison</name>
+                        <outputname>Detect Poison</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>Close (35 ft.)</range>
+                        <components>V, S</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>15</dc>
+                        <duration>Instantaneous/10 minutes per target HD</duration>
+                        <effect>Detects poison in one creature or small object.</effect>
+                        <target>One creature, one object, or a 5-ft. cube</target>
+                        <saveinfo>None</saveinfo>
+                        <school>
+                            <school>Divination</school>
+                            <subschool></subschool>
+                            <descriptor></descriptor>
+                            <fullschool>Divination</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Asn1, Clr0, Drd0, Pal1, Sor0, Wiz0</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+                            <sourcepage>srdspellsd.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>No</spell_resistance>
+                        <description>Detects poison in one creature or small object.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                    <spell>
+                        <name>Disrupt Undead</name>
+                        <outputname>Disrupt Undead</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>Close (35 ft.)</range>
+                        <components>V, S</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>15</dc>
+                        <duration>Instantaneous</duration>
+                        <effect>Deals 1d6 damage to one undead.</effect>
+                        <target>Ray</target>
+                        <saveinfo>None</saveinfo>
+                        <school>
+                            <school>Necromancy</school>
+                            <subschool></subschool>
+                            <descriptor></descriptor>
+                            <fullschool>Necromancy</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Sor0, Wiz0</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
+                            <sourcepage>srdspellsd.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>Yes</spell_resistance>
+                        <description>Deals 1d6 damage to one undead.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                    <spell>
+                        <name>Ghost Sound</name>
+                        <outputname>Ghost Sound</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>Close (35 ft.)</range>
+                        <components>V, S, M</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>15</dc>
+                        <duration>4 rounds [D]</duration>
+                        <effect>Figment sounds.</effect>
+                        <target>Illusory sounds</target>
+                        <saveinfo>Will disbelief</saveinfo>
+                        <school>
+                            <school>Illusion</school>
+                            <subschool>Figment</subschool>
+                            <descriptor></descriptor>
+                            <fullschool>Illusion (Figment)</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Adp0, Asn1, Brd0, Sor0, Wiz0</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsg.rtf</source>
+                            <sourcepage>srdspellsg.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>No</spell_resistance>
+                        <description>Figment sounds.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                    <spell>
+                        <name>Mending</name>
+                        <outputname>Mending</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>10 feet</range>
+                        <components>V, S</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>15</dc>
+                        <duration>Instantaneous</duration>
+                        <effect>Makes minor repairs on an object.</effect>
+                        <target>10 ft.</target>
+                        <saveinfo>Will negates (Harmless object)</saveinfo>
+                        <school>
+                            <school>Transmutation</school>
+                            <subschool></subschool>
+                            <descriptor></descriptor>
+                            <fullschool>Transmutation</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Adp0, Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
+                            <sourcepage>srdspellsm.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>Yes (Harmless object)</spell_resistance>
+                        <description>Makes minor repairs on an object.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                    <spell>
+                        <name>Prestidigitation</name>
+                        <outputname>Prestidigitation</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>10 feet</range>
+                        <components>V, S</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>15</dc>
+                        <duration>1 hour</duration>
+                        <effect>Performs minor tricks.</effect>
+                        <target>See text</target>
+                        <saveinfo>None</saveinfo>
+                        <school>
+                            <school>Universal</school>
+                            <subschool></subschool>
+                            <descriptor></descriptor>
+                            <fullschool>Universal</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
+                            <sourcepage>srdspellsp.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>No</spell_resistance>
+                        <description>Performs minor tricks.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                    <spell>
+                        <name>Read Magic</name>
+                        <outputname>Read Magic</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>Personal</range>
+                        <components>V, S, F</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>15</dc>
+                        <duration>40 minutes</duration>
+                        <effect>Read scrolls and spellbooks.</effect>
+                        <target>The character</target>
+                        <saveinfo>None</saveinfo>
+                        <school>
+                            <school>Universal</school>
+                            <subschool></subschool>
+                            <descriptor></descriptor>
+                            <fullschool>Universal</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Adp0, Brd0, Clr0, Drd0, Pal1, Rgr1, Sor0, Wiz0</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
+                            <sourcepage>srdspellsqr.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>No</spell_resistance>
+                        <description>Read scrolls and spellbooks.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                </level>
+                <level number="1" known="3" cast="8">
+                    <spell>
+                        <name>Endure Elements</name>
+                        <outputname>Endure Elements</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>Touch</range>
+                        <components>V, S</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>16</dc>
+                        <duration>24 hours</duration>
+                        <effect>Ignores 5 damage/round from one energy type.</effect>
+                        <target>Creature touched</target>
+                        <saveinfo>None</saveinfo>
+                        <school>
+                            <school>Abjuration</school>
+                            <subschool></subschool>
+                            <descriptor>Acid, Cold, Fire, Electricity, Sonic</descriptor>
+                            <fullschool>Abjuration [Acid, Cold, Fire, Electricity, Sonic]</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Adp1, Clr1, Drd1, Pal1, Sor1, Strength1, Sun1, Wiz1</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellse.rtf</source>
+                            <sourcepage>srdspellse.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>Yes</spell_resistance>
+                        <description>Ignores 5 damage/round from one energy type.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                    <spell>
+                        <name>Mage Armor</name>
+                        <outputname>Mage Armor</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>Touch</range>
+                        <components>V, S, F</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>16</dc>
+                        <duration>4 hours [D]</duration>
+                        <effect>Gives subject +4 armor bonus.</effect>
+                        <target>Creature touched</target>
+                        <saveinfo>Will negates (Harmless)</saveinfo>
+                        <school>
+                            <school>Conjuration</school>
+                            <subschool>Creation</subschool>
+                            <descriptor>Force</descriptor>
+                            <fullschool>Conjuration (Creation) [Force]</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Brd1, Sor1, Wiz1</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
+                            <sourcepage>srdspellsm.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>Yes (Harmless)</spell_resistance>
+                        <description>Gives subject +4 armor bonus.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                    <spell>
+                        <name>Undetectable Aura</name>
+                        <outputname>Undetectable Aura</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>Touch</range>
+                        <components>V, S, F</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>16</dc>
+                        <duration>4 days</duration>
+                        <effect>Masks magic item&#39;s aura.</effect>
+                        <target>Object touched weighing up to 20 lb.</target>
+                        <saveinfo>None</saveinfo>
+                        <school>
+                            <school>Illusion</school>
+                            <subschool>Glamer</subschool>
+                            <descriptor></descriptor>
+                            <fullschool>Illusion (Glamer)</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Magic1, Sor1, Wiz1</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsuvwxyz.rtf</source>
+                            <sourcepage>srdspellsuvwxyz.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>No</spell_resistance>
+                        <description>Masks magic item&#39;s aura.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                </level>
+                <level number="2" known="1" cast="4">
+                    <spell>
+                        <name>Flaming Sphere</name>
+                        <outputname>Flaming Sphere</outputname>
+                        <times_memorized>1</times_memorized>
+                        <range>Medium (140 ft.)</range>
+                        <components>V, S, M/DF</components>
+                        <castingtime>1 action</castingtime>
+                        <dc>17</dc>
+                        <duration>4 rounds</duration>
+                        <effect>Rolling ball of fire, 2d6 damage, lasts 4 rounds.</effect>
+                        <target>3-ft.-radius sphere</target>
+                        <saveinfo>Reflex negates</saveinfo>
+                        <school>
+                            <school>Evocation</school>
+                            <subschool></subschool>
+                            <descriptor>Fire</descriptor>
+                            <fullschool>Evocation [Fire]</fullschool>
+                        </school>
+                        <source>
+                            <sourcelevel>Drd2, Sor2, Wiz2</sourcelevel>
+                            <source>Wizards of the Coast - System Reference Document, srdspellsf.rtf</source>
+                            <sourcepage>srdspellsf.rtf</sourcepage>
+                            <sourceshort>SRD</sourceshort>
+                        </source>
+                        <spell_resistance>Yes</spell_resistance>
+                        <description>Rolling ball of fire, 2d6 damage, lasts (CASTERLEVEL) rounds.</description>
+                        <bonusspell></bonusspell>
+                    </spell>
+                </level>
+                <level number="3" known="0" cast="0"/>
+                <level number="4" known="0" cast="0"/>
+                <level number="5" known="0" cast="0"/>
+                <level number="6" known="0" cast="0"/>
+                <level number="7" known="0" cast="0"/>
+                <level number="8" known="0" cast="0"/>
+                <level number="9" known="0" cast="0"/>
+            </class>
+
+        </known_spells>
+        <!-- ### END Known spells ### -->
+        <!-- ### BEGIN memorized spells ### -->
+        <memorized_spells>
+            <!-- ### BEGIN innate memorized spell section -->
+
+            <!-- ### BEGIN innate memorized spells ### -->
+
+            <racial_innate_memorized>
+                <spell>
+                    <name>Cause Fear</name>
+                    <outputname>Cause Fear</outputname>
+                    <times_memorized>1</times_memorized>
+                    <range>Close (25 ft.)</range>
+                    <components>V, S</components>
+                    <castingtime>1 action</castingtime>
+                    <dc>10</dc>
+                    <duration>1d4 rounds</duration>
+                    <effect>One creature flees for 1d4 rounds.</effect>
+                    <target>One living creature</target>
+                    <saveinfo>Will negates</saveinfo>
+                    <school>
+                        <school>Necromancy</school>
+                        <subschool></subschool>
+                        <descriptor>Fear, Mind-Affecting</descriptor>
+                        <fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
+                    </school>
+                    <source>
+                        <sourcelevel>Adp1, Bgd1, Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
+                        <source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
+                        <sourcepage>srdspellsc.rtf</sourcepage>
+                        <sourceshort>SRD</sourceshort>
+                    </source>
+                    <spell_resistance>Yes</spell_resistance>
+                    <description>One creature flees for 1d4 rounds.</description>
+                    <bonusspell></bonusspell>
+                </spell>
+            </racial_innate_memorized>
+
+            <!-- ### END innate memorized spells ### -->
+            <!-- ### BEGIN class innate memorized spells ### -->
+            <class_innate_memorized>
+            </class_innate_memorized>
+            <!-- ### END class innate memorized spells ### -->
+            <!-- ### END innate memorized spell section -->
+            <!-- ### BEGIN class Spellbook memorized spells ### -->
+        </memorized_spells>
+        <!-- ### END class Spellbook memorized spells ### -->
+    </spells>
 </character>

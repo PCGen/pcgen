@@ -31,68 +31,68 @@ import pcgen.rules.persistence.token.ParseResult;
 public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 {
 
-	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+    private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "CLASS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CLASS";
+    }
 
-	@Override
-	public String getParentToken()
-	{
-		return "CHOOSE";
-	}
+    @Override
+    public String getParentToken()
+    {
+        return "CHOOSE";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "PCClass choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "PCClass choice";
+    }
 
-	@Override
-	public PCClass decodeChoice(LoadContext context, String s)
-	{
-		int dotLoc = s.indexOf('.');
-		if (dotLoc == -1)
-		{
-			// Primitive
-			return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS, s);
-		}
+    @Override
+    public PCClass decodeChoice(LoadContext context, String s)
+    {
+        int dotLoc = s.indexOf('.');
+        if (dotLoc == -1)
+        {
+            // Primitive
+            return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS, s);
+        }
 
-		// SubClass
-		String parent = s.substring(0, dotLoc);
-		String subclass = s.substring(dotLoc + 1);
-		SubClassCategory scc = SubClassCategory.getConstant(parent);
-		return context.getReferenceContext().getManufacturerId(scc).getActiveObject(subclass);
-	}
+        // SubClass
+        String parent = s.substring(0, dotLoc);
+        String subclass = s.substring(dotLoc + 1);
+        SubClassCategory scc = SubClassCategory.getConstant(parent);
+        return context.getReferenceContext().getManufacturerId(scc).getActiveObject(subclass);
+    }
 
-	@Override
-	public String encodeChoice(PCClass choice)
-	{
-		return choice.getFullKey();
-	}
+    @Override
+    public String encodeChoice(PCClass choice)
+    {
+        return choice.getFullKey();
+    }
 
-	@Override
-	protected AssociationListKey<PCClass> getListKey()
-	{
-		return AssociationListKey.getKeyFor(PCCLASS_CLASS, "CHOOSE*PCCLASS");
-	}
+    @Override
+    protected AssociationListKey<PCClass> getListKey()
+    {
+        return AssociationListKey.getKeyFor(PCCLASS_CLASS, "CHOOSE*PCCLASS");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(PCCLASS_CLASS), obj,
-			value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(PCCLASS_CLASS), obj,
+                value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		/*
-		 * TODO This is not entirely true, as this is not correct for SubClasses... :/
-		 */
-		return "PCCLASS";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        /*
+         * TODO This is not entirely true, as this is not correct for SubClasses... :/
+         */
+        return "PCCLASS";
+    }
 }

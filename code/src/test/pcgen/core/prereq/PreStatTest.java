@@ -31,76 +31,76 @@ import org.junit.jupiter.api.Test;
 class PreStatTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 * Ensure a PRESTAT for a positive value works correctly.
-	 */
-	@Test
-	public void testPrePositive()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a PRESTAT for a positive value works correctly.
+     */
+    @Test
+    public void testPrePositive()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("stat");
-		prereq.setKey("STR");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("1");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("stat");
+        prereq.setKey("STR");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("1");
 
-		character.setStat(str, -1);
-		assertFalse("prestat:1,str=1 for str of -1", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, 0);
-		assertFalse("prestat:1,str=1 for str of 0", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, 1);
-		assertTrue("prestat:1,str=1 for str of 1", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, 2);
-		assertTrue("prestat:1,str=1 for str of 2", PrereqHandler.passes(prereq, character, null));
-	}
+        character.setStat(str, -1);
+        assertFalse("prestat:1,str=1 for str of -1", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, 0);
+        assertFalse("prestat:1,str=1 for str of 0", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, 1);
+        assertTrue("prestat:1,str=1 for str of 1", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, 2);
+        assertTrue("prestat:1,str=1 for str of 2", PrereqHandler.passes(prereq, character, null));
+    }
 
-	/**
-	 * Ensure a PRESTAT for zero works correctly.
-	 */
-	@Test
-	public void testPreZero()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a PRESTAT for zero works correctly.
+     */
+    @Test
+    public void testPreZero()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("stat");
-		prereq.setKey("STR");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("0");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("stat");
+        prereq.setKey("STR");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("0");
 
-		character.setStat(str, -1);
-		assertFalse("prestat:1,str=1 for str of -1", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, 0);
-		assertTrue("prestat:1,str=0 for str of 0", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, 1);
-		assertTrue("prestat:1,str=0 for str of 1", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, 2);
-		assertTrue("prestat:1,str=0 for str of 2", PrereqHandler.passes(prereq, character, null));
-	}
+        character.setStat(str, -1);
+        assertFalse("prestat:1,str=1 for str of -1", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, 0);
+        assertTrue("prestat:1,str=0 for str of 0", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, 1);
+        assertTrue("prestat:1,str=0 for str of 1", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, 2);
+        assertTrue("prestat:1,str=0 for str of 2", PrereqHandler.passes(prereq, character, null));
+    }
 
-	/**
-	 * Ensure a PRESTAT for a negative value works correctly.
-	 */
-	@Test
-	public void testPreNegative()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a PRESTAT for a negative value works correctly.
+     */
+    @Test
+    public void testPreNegative()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("stat");
-		prereq.setKey("STR");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("-1");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("stat");
+        prereq.setKey("STR");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("-1");
 
-		character.setStat(str, -2);
-		assertFalse("prestat:1,str=-1 for str of -2", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, 0);
-		assertTrue("prestat:1,str=-1 for str of 0", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, 1);
-		assertTrue("prestat:1,str=-1 for str of 1", PrereqHandler.passes(prereq, character, null));
-		character.setStat(str, -1);
-		assertTrue("prestat:1,str=-1 for str of -1", PrereqHandler.passes(prereq, character, null));
-	}
+        character.setStat(str, -2);
+        assertFalse("prestat:1,str=-1 for str of -2", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, 0);
+        assertTrue("prestat:1,str=-1 for str of 0", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, 1);
+        assertTrue("prestat:1,str=-1 for str of 1", PrereqHandler.passes(prereq, character, null));
+        character.setStat(str, -1);
+        assertTrue("prestat:1,str=-1 for str of -1", PrereqHandler.passes(prereq, character, null));
+    }
 
 }

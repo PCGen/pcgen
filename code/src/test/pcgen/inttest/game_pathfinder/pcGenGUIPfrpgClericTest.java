@@ -13,9 +13,9 @@ import org.junit.jupiter.api.Test;
 
 public class pcGenGUIPfrpgClericTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testCode() throws Exception
-	{
-		runTest("pf_Cleric", "Pathfinder_RPG");
-	}
+    @Test
+    public void testCode() throws Exception
+    {
+        runTest("pf_Cleric", "Pathfinder_RPG");
+    }
 }

@@ -29,20 +29,20 @@ import org.junit.jupiter.api.Test;
 
 class PreVisionParserTest extends EnUsLocaleDependentTestCase
 {
-	@Test
-	public void testMultiplePasses() throws PersistenceLayerException
-	{
-		PreVisionParser parser = new PreVisionParser();
+    @Test
+    public void testMultiplePasses() throws PersistenceLayerException
+    {
+        PreVisionParser parser = new PreVisionParser();
 
-		Prerequisite prereq =
-				parser.parse("VISION", "1,Blindsight=30,Darkvision=30", false,
-					false);
+        Prerequisite prereq =
+                parser.parse("VISION", "1,Blindsight=30,Darkvision=30", false,
+                        false);
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-			+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Blindsight\" operator=\"GTEQ\" operand=\"30\" >\n"
-			+ "</prereq>\n"
-			+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Darkvision\" operator=\"GTEQ\" operand=\"30\" >\n"
-			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Blindsight\" operator=\"GTEQ\" operand=\"30\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Darkvision\" operator=\"GTEQ\" operand=\"30\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 }

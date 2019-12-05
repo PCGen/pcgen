@@ -29,51 +29,50 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class CountToken extends AbstractToken implements CDOMPrimaryToken<KitAbilities>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 *
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "COUNT";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "COUNT";
+    }
 
-	@Override
-	public Class<KitAbilities> getTokenClass()
-	{
-		return KitAbilities.class;
-	}
+    @Override
+    public Class<KitAbilities> getTokenClass()
+    {
+        return KitAbilities.class;
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, KitAbilities kitAbil, String value)
-	{
-		try
-		{
-			int quan = Integer.parseInt(value);
-			if (quan <= 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
-			}
-			kitAbil.setCount(quan);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
-		}
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, KitAbilities kitAbil, String value)
+    {
+        try
+        {
+            int quan = Integer.parseInt(value);
+            if (quan <= 0)
+            {
+                return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
+            }
+            kitAbil.setCount(quan);
+            return ParseResult.SUCCESS;
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitAbilities kitAbil)
-	{
-		Integer bd = kitAbil.getCount();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitAbilities kitAbil)
+    {
+        Integer bd = kitAbil.getCount();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd.toString()};
+    }
 }

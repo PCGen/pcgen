@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
  */
 public class pcGenGUIAliceTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testCode() throws Exception
-	{
-		runTest("35e_Alice", "35e");
-	}
+    @Test
+    public void testCode() throws Exception
+    {
+        runTest("35e_Alice", "35e");
+    }
 }

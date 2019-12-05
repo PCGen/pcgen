@@ -30,44 +30,44 @@ import pcgen.system.LanguageBundle;
 public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
-		int number;
-		try
-		{
-			number = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException exceptn)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString(
-					"PreSpecialAbility.error.bad_operand", prereq.toString()), exceptn); //$NON-NLS-1$
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
+        int number;
+        try
+        {
+            number = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException exceptn)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString(
+                            "PreSpecialAbility.error.bad_operand", prereq.toString()), exceptn); //$NON-NLS-1$
+        }
 
-		final String aString = prereq.getKey().toUpperCase();
-		for (SpecialAbility sa : character.getSpecialAbilityList())
-		{
-			if (sa.getKeyName().toUpperCase().startsWith(aString))
-			{
-				runningTotal++;
-			}
-		}
+        final String aString = prereq.getKey().toUpperCase();
+        for (SpecialAbility sa : character.getSpecialAbilityList())
+        {
+            if (sa.getKeyName().toUpperCase().startsWith(aString))
+            {
+                runningTotal++;
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, number);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, number);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "SA"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "SA"; //$NON-NLS-1$
+    }
 
 }

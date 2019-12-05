@@ -31,50 +31,49 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class RankToken extends AbstractNonEmptyToken<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "RANK";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "RANK";
+    }
 
-	@Override
-	public Class<KitSkill> getTokenClass()
-	{
-		return KitSkill.class;
-	}
+    @Override
+    public Class<KitSkill> getTokenClass()
+    {
+        return KitSkill.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill, String value)
-	{
-		try
-		{
-			BigDecimal rank = new BigDecimal(value);
-			if (rank.compareTo(BigDecimal.ZERO) < 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " must be a positive number: " + value);
-			}
-			kitSkill.setRank(rank);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException e)
-		{
-			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
-		}
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill, String value)
+    {
+        try
+        {
+            BigDecimal rank = new BigDecimal(value);
+            if (rank.compareTo(BigDecimal.ZERO) < 0)
+            {
+                return new ParseResult.Fail(getTokenName() + " must be a positive number: " + value);
+            }
+            kitSkill.setRank(rank);
+            return ParseResult.SUCCESS;
+        } catch (NumberFormatException e)
+        {
+            return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitSkill kitSkill)
-	{
-		BigDecimal bd = kitSkill.getRank();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitSkill kitSkill)
+    {
+        BigDecimal bd = kitSkill.getRank();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd.toString()};
+    }
 }

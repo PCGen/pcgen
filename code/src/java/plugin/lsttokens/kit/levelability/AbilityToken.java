@@ -34,73 +34,73 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class AbilityToken extends AbstractToken implements CDOMPrimaryToken<KitLevelAbility>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 *
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "ABILITY";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "ABILITY";
+    }
 
-	@Override
-	public Class<KitLevelAbility> getTokenClass()
-	{
-		return KitLevelAbility.class;
-	}
+    @Override
+    public Class<KitLevelAbility> getTokenClass()
+    {
+        return KitLevelAbility.class;
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, KitLevelAbility kitAbility, String value)
-	{
-		if (!value.startsWith("PROMPT:"))
-		{
-			return new ParseResult.Fail("Expected " + getTokenName() + " to start with PROMPT: " + value);
-		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		String first = st.nextToken();
-		PersistentTransitionChoice<?> ptc;
-		ptc = Compatibility.processOldAdd(context, first);
-		if (ptc == null)
-		{
-			return new ParseResult.Fail("Error was in " + getTokenName() + ' ' + value);
-		}
-		kitAbility.setAdd(ptc);
+    @Override
+    public ParseResult parseToken(LoadContext context, KitLevelAbility kitAbility, String value)
+    {
+        if (!value.startsWith("PROMPT:"))
+        {
+            return new ParseResult.Fail("Expected " + getTokenName() + " to start with PROMPT: " + value);
+        }
+        StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+        String first = st.nextToken();
+        PersistentTransitionChoice<?> ptc;
+        ptc = Compatibility.processOldAdd(context, first);
+        if (ptc == null)
+        {
+            return new ParseResult.Fail("Error was in " + getTokenName() + ' ' + value);
+        }
+        kitAbility.setAdd(ptc);
 
-		while (st.hasMoreTokens())
-		{
-			String choiceString = st.nextToken();
-			if (!choiceString.startsWith("CHOICE:"))
-			{
-				return new ParseResult.Fail(
-					"Expected " + getTokenName() + " choice string to start with CHOICE: " + value);
-			}
-			String choice = choiceString.substring(7);
-			if (first.equals("FEAT") && !choice.startsWith("CATEGORY="))
-			{
-				/*
-				 * In the case of FEAT, need to provide the context (since
-				 * persistence assumes this CATEGORY= exists)
-				 */
-				choice = "CATEGORY=FEAT|" + choice;
-			}
-			/*
-			 * TODO This is load order dependent, this really should be storing
-			 * references into kitAbility, not a String - thpr Dec 8 2012
-			 */
-			if (ptc.decodeChoice(context, choice) == null)
-			{
-				return new ParseResult.Fail(choiceString + " is not a valid selection for ADD:" + first);
-			}
-			kitAbility.addChoice(choice);
-		}
-		return ParseResult.SUCCESS;
-	}
+        while (st.hasMoreTokens())
+        {
+            String choiceString = st.nextToken();
+            if (!choiceString.startsWith("CHOICE:"))
+            {
+                return new ParseResult.Fail(
+                        "Expected " + getTokenName() + " choice string to start with CHOICE: " + value);
+            }
+            String choice = choiceString.substring(7);
+            if (first.equals("FEAT") && !choice.startsWith("CATEGORY="))
+            {
+                /*
+                 * In the case of FEAT, need to provide the context (since
+                 * persistence assumes this CATEGORY= exists)
+                 */
+                choice = "CATEGORY=FEAT|" + choice;
+            }
+            /*
+             * TODO This is load order dependent, this really should be storing
+             * references into kitAbility, not a String - thpr Dec 8 2012
+             */
+            if (ptc.decodeChoice(context, choice) == null)
+            {
+                return new ParseResult.Fail(choiceString + " is not a valid selection for ADD:" + first);
+            }
+            kitAbility.addChoice(choice);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitLevelAbility kitAbility)
-	{
-		return new String[]{"PROMPT:"};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitLevelAbility kitAbility)
+    {
+        return new String[]{"PROMPT:"};
+    }
 }

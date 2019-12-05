@@ -32,57 +32,55 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * The Class {@code LangBonusToken} handles the LANGBONUS kit tag.
- * 
- * 
  */
 public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus> implements CDOMPrimaryToken<KitLangBonus>
 {
 
-	private static final Class<Language> LANGUAGE_CLASS = Language.class;
+    private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "LANGBONUS";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "LANGBONUS";
+    }
 
-	@Override
-	public Class<KitLangBonus> getTokenClass()
-	{
-		return KitLangBonus.class;
-	}
+    @Override
+    public Class<KitLangBonus> getTokenClass()
+    {
+        return KitLangBonus.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitLangBonus kitLangBonus, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitLangBonus kitLangBonus, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
-		while (tok.hasMoreTokens())
-		{
-			kitLangBonus.addLanguage(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS, tok.nextToken()));
-		}
-		return ParseResult.SUCCESS;
-	}
+        while (tok.hasMoreTokens())
+        {
+            kitLangBonus.addLanguage(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS, tok.nextToken()));
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitLangBonus kitLangBonus)
-	{
-		List<CDOMSingleRef<Language>> languages = kitLangBonus.getLanguages();
-		if (languages == null || languages.isEmpty())
-		{
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(languages, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitLangBonus kitLangBonus)
+    {
+        List<CDOMSingleRef<Language>> languages = kitLangBonus.getLanguages();
+        if (languages == null || languages.isEmpty())
+        {
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(languages, Constants.PIPE)};
+    }
 }

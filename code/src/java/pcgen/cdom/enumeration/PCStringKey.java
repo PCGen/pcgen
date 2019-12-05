@@ -19,7 +19,7 @@ package pcgen.cdom.enumeration;
 
 /**
  * This is a Typesafe enumeration of legal String Characteristics of a PC.
- * 
+ * <p>
  * These are distinct from StringKey items, in order to separate two different
  * types of function. These are related to the PlayerCharacter, and thus are
  * usually capturing items from the UI and then enabling them in FreeMarker
@@ -28,19 +28,19 @@ package pcgen.cdom.enumeration;
  */
 public enum PCStringKey
 {
-	/*
-	 * *WARNING* Renaming these items will impact FreeMarker output, rename with care!
-	 */
-	ASSETS, BIO, BIRTHPLACE, BIRTHDAY, CATCHPHRASE, CITY, COMPANIONS, DESCRIPTION, EYECOLOR, GMNOTES,
-	HAIRCOLOR, HAIRSTYLE, HANDED, INTERESTS, LOCATION, MAGIC, NAME, PERSONALITY1, PERSONALITY2,
-	PHOBIAS, PLAYERSNAME, RESIDENCE, SKINCOLOR, SPEECHTENDENCY, TABNAME,
-	/*
-	 * These are undocumented as far as output - no need to worry about names
-	 */
-	FILE_NAME, PORTRAIT_PATH, SPELLBOOK_AUTO_ADD_KNOWN, CURRENT_EQUIP_SET_NAME;
+    /*
+     * *WARNING* Renaming these items will impact FreeMarker output, rename with care!
+     */
+    ASSETS, BIO, BIRTHPLACE, BIRTHDAY, CATCHPHRASE, CITY, COMPANIONS, DESCRIPTION, EYECOLOR, GMNOTES,
+    HAIRCOLOR, HAIRSTYLE, HANDED, INTERESTS, LOCATION, MAGIC, NAME, PERSONALITY1, PERSONALITY2,
+    PHOBIAS, PLAYERSNAME, RESIDENCE, SKINCOLOR, SPEECHTENDENCY, TABNAME,
+    /*
+     * These are undocumented as far as output - no need to worry about names
+     */
+    FILE_NAME, PORTRAIT_PATH, SPELLBOOK_AUTO_ADD_KNOWN, CURRENT_EQUIP_SET_NAME;
 
-	public static PCStringKey getStringKey(String s)
-	{
-		return valueOf(s.toUpperCase());
-	}
+    public static PCStringKey getStringKey(String s)
+    {
+        return valueOf(s.toUpperCase());
+    }
 }

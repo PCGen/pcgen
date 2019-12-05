@@ -21,7 +21,6 @@ package pcgen.core;
 
 /**
  * {@code SubClass}.
- * 
  */
 public final class SubstitutionClass extends PCClass
 {

@@ -1,14 +1,14 @@
 /*
  * Copyright (c) Thomas Parker, 2019.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
  * either version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License along with
  * this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
  * Fifth Floor, Boston, MA 02110-1301, USA
@@ -27,50 +27,48 @@ import pcgen.cdom.formula.PCGenScoped;
  * to a Player Character.
  */
 public class ScopedDistributionFacet
-		implements DataFacetChangeListener<CharID, PCGenScoped>
+        implements DataFacetChangeListener<CharID, PCGenScoped>
 {
 
-	private CharacterConsolidationFacet characterConsolidationFacet;
+    private CharacterConsolidationFacet characterConsolidationFacet;
 
-	private VarScopedFacet varScopedFacet;
+    private VarScopedFacet varScopedFacet;
 
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
-	{
-		if (dfce.getCDOMObject() instanceof CDOMObject)
-		{
-			characterConsolidationFacet.dataAdded((DataFacetChangeEvent) dfce);
-		}
-		else
-		{
-			varScopedFacet.dataAdded(dfce);
-		}
-	}
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    @Override
+    public void dataAdded(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
+    {
+        if (dfce.getCDOMObject() instanceof CDOMObject)
+        {
+            characterConsolidationFacet.dataAdded((DataFacetChangeEvent) dfce);
+        } else
+        {
+            varScopedFacet.dataAdded(dfce);
+        }
+    }
 
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	@Override
-	public void dataRemoved(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
-	{
-		if (dfce.getCDOMObject() instanceof CDOMObject)
-		{
-			characterConsolidationFacet
-				.dataRemoved((DataFacetChangeEvent) dfce);
-		}
-		else
-		{
-			varScopedFacet.dataRemoved(dfce);
-		}
-	}
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    @Override
+    public void dataRemoved(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
+    {
+        if (dfce.getCDOMObject() instanceof CDOMObject)
+        {
+            characterConsolidationFacet
+                    .dataRemoved((DataFacetChangeEvent) dfce);
+        } else
+        {
+            varScopedFacet.dataRemoved(dfce);
+        }
+    }
 
-	public void setCharacterConsolidationFacet(
-		CharacterConsolidationFacet characterConsolidationFacet)
-	{
-		this.characterConsolidationFacet = characterConsolidationFacet;
-	}
+    public void setCharacterConsolidationFacet(
+            CharacterConsolidationFacet characterConsolidationFacet)
+    {
+        this.characterConsolidationFacet = characterConsolidationFacet;
+    }
 
-	public void setVarScopedFacet(VarScopedFacet varScopedFacet)
-	{
-		this.varScopedFacet = varScopedFacet;
-	}
+    public void setVarScopedFacet(VarScopedFacet varScopedFacet)
+    {
+        this.varScopedFacet = varScopedFacet;
+    }
 }

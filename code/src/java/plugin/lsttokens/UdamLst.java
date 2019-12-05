@@ -43,126 +43,123 @@ import pcgen.util.Logging;
 public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "UDAM";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "UDAM";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (obj instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
-		}
-		ParseResult pr = ParseResult.SUCCESS;
-		if (Constants.LST_DOT_CLEAR.equals(value))
-		{
-			/*
-			 * TODO This cross-polluting and certainly not "editor friendly",
-			 * thus will need to be changed after 5.16
-			 */
-			if (obj instanceof PCClassLevel || obj instanceof PCClass)
-			{
-				PCClass pcc;
-				if (obj instanceof PCClassLevel)
-				{
-					pcc = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);
-				}
-				else
-				{
-					pcc = (PCClass) obj;
-				}
-				context.getObjectContext().removeList(pcc, ListKey.UNARMED_DAMAGE);
-				for (PCClassLevel level : pcc.getOriginalClassLevelCollection())
-				{
-					context.getObjectContext().removeList(level, ListKey.UNARMED_DAMAGE);
-				}
-			}
-			else
-			{
-				context.getObjectContext().removeList(obj, ListKey.UNARMED_DAMAGE);
-			}
-		}
-		else
-		{
-			pr = checkForIllegalSeparator(',', value);
-			if (!pr.passed())
-			{
-				return pr;
-			}
-			final StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
-			if (context.getObjectContext().containsListFor(obj, ListKey.UNARMED_DAMAGE))
-			{
-				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addWarningMessage(obj.getDisplayName() + " already has " + getTokenName() + " set.");
-				cpr.addWarningMessage(
-					" It will be redefined, " + "but you should be using " + getTokenName() + ":.CLEAR");
-				pr = cpr;
-				context.getObjectContext().removeList(obj, ListKey.UNARMED_DAMAGE);
-			}
-			while (tok.hasMoreTokens())
-			{
-				context.getObjectContext().addToList(obj, ListKey.UNARMED_DAMAGE, tok.nextToken());
-			}
-		}
-		return pr;
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (obj instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
+        }
+        ParseResult pr = ParseResult.SUCCESS;
+        if (Constants.LST_DOT_CLEAR.equals(value))
+        {
+            /*
+             * TODO This cross-polluting and certainly not "editor friendly",
+             * thus will need to be changed after 5.16
+             */
+            if (obj instanceof PCClassLevel || obj instanceof PCClass)
+            {
+                PCClass pcc;
+                if (obj instanceof PCClassLevel)
+                {
+                    pcc = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);
+                } else
+                {
+                    pcc = (PCClass) obj;
+                }
+                context.getObjectContext().removeList(pcc, ListKey.UNARMED_DAMAGE);
+                for (PCClassLevel level : pcc.getOriginalClassLevelCollection())
+                {
+                    context.getObjectContext().removeList(level, ListKey.UNARMED_DAMAGE);
+                }
+            } else
+            {
+                context.getObjectContext().removeList(obj, ListKey.UNARMED_DAMAGE);
+            }
+        } else
+        {
+            pr = checkForIllegalSeparator(',', value);
+            if (!pr.passed())
+            {
+                return pr;
+            }
+            final StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
+            if (context.getObjectContext().containsListFor(obj, ListKey.UNARMED_DAMAGE))
+            {
+                ComplexParseResult cpr = new ComplexParseResult();
+                cpr.addWarningMessage(obj.getDisplayName() + " already has " + getTokenName() + " set.");
+                cpr.addWarningMessage(
+                        " It will be redefined, " + "but you should be using " + getTokenName() + ":.CLEAR");
+                pr = cpr;
+                context.getObjectContext().removeList(obj, ListKey.UNARMED_DAMAGE);
+            }
+            while (tok.hasMoreTokens())
+            {
+                context.getObjectContext().addToList(obj, ListKey.UNARMED_DAMAGE, tok.nextToken());
+            }
+        }
+        return pr;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Changes<String> changes = context.getObjectContext().getListChanges(obj, ListKey.UNARMED_DAMAGE);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		List<String> returnList = new ArrayList<>(2);
-		if (changes.includesGlobalClear())
-		{
-			returnList.add(Constants.LST_DOT_CLEAR);
-		}
-		Collection<String> list = changes.getAdded();
-		if (list != null)
-		{
-			returnList.add(StringUtil.join(list, Constants.COMMA));
-		}
-		if (returnList.isEmpty())
-		{
-			return null;
-		}
-		return returnList.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        Changes<String> changes = context.getObjectContext().getListChanges(obj, ListKey.UNARMED_DAMAGE);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        List<String> returnList = new ArrayList<>(2);
+        if (changes.includesGlobalClear())
+        {
+            returnList.add(Constants.LST_DOT_CLEAR);
+        }
+        Collection<String> list = changes.getAdded();
+        if (list != null)
+        {
+            returnList.add(StringUtil.join(list, Constants.COMMA));
+        }
+        if (returnList.isEmpty())
+        {
+            return null;
+        }
+        return returnList.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, CDOMObject obj)
-	{
-		List<String> changes = obj.getListFor(ListKey.UNARMED_DAMAGE);
-		if (changes == null)
-		{
-			return true;
-		}
-		int gameModeSizeCount = context.getReferenceContext().getConstructedObjectCount(SizeAdjustment.class);
-		if (changes.size() != gameModeSizeCount && changes.size() != 1)
-		{
-			Logging.log(Logging.LST_ERROR, "Unarmed Damage " + StringUtil.join(changes, ", ") + " had " + changes.size()
-				+ " entries, but must be 1 or " + gameModeSizeCount);
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean process(LoadContext context, CDOMObject obj)
+    {
+        List<String> changes = obj.getListFor(ListKey.UNARMED_DAMAGE);
+        if (changes == null)
+        {
+            return true;
+        }
+        int gameModeSizeCount = context.getReferenceContext().getConstructedObjectCount(SizeAdjustment.class);
+        if (changes.size() != gameModeSizeCount && changes.size() != 1)
+        {
+            Logging.log(Logging.LST_ERROR, "Unarmed Damage " + StringUtil.join(changes, ", ") + " had " + changes.size()
+                    + " entries, but must be 1 or " + gameModeSizeCount);
+            return false;
+        }
+        return true;
+    }
 
-	@Override
-	public Class<CDOMObject> getDeferredTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getDeferredTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

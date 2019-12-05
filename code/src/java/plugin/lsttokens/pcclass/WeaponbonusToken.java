@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -47,134 +47,133 @@ import pcgen.rules.persistence.token.ParseResult;
  * Class deals with WEAPONBONUS Token
  */
 public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>, DeferredToken<PCClass>, PersistentChoiceActor<WeaponProf>
+        implements CDOMPrimaryToken<PCClass>, DeferredToken<PCClass>, PersistentChoiceActor<WeaponProf>
 {
 
-	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+    private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "WEAPONBONUS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "WEAPONBONUS";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		boolean foundAny = false;
-		boolean foundOther = false;
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+        boolean foundAny = false;
+        boolean foundOther = false;
 
-		while (tok.hasMoreTokens())
-		{
-			String tokText = tok.nextToken();
-			if (Constants.LST_ALL.equals(tokText))
-			{
-				foundAny = true;
-				CDOMReference<WeaponProf> ref = context.getReferenceContext().getCDOMAllReference(WEAPONPROF_CLASS);
-				context.getObjectContext().addToList(pcc, ListKey.WEAPONBONUS, ref);
-			}
-			else
-			{
-				foundOther = true;
-				CDOMReference<WeaponProf> ref = TokenUtilities.getTypeOrPrimitive(context, WEAPONPROF_CLASS, tokText);
-				if (ref == null)
-				{
-					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
-				}
-				context.getObjectContext().addToList(pcc, ListKey.WEAPONBONUS, ref);
-			}
-		}
-		if (foundAny && foundOther)
-		{
-			return new ParseResult.Fail(
-				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
-		}
-		return ParseResult.SUCCESS;
-	}
+        while (tok.hasMoreTokens())
+        {
+            String tokText = tok.nextToken();
+            if (Constants.LST_ALL.equals(tokText))
+            {
+                foundAny = true;
+                CDOMReference<WeaponProf> ref = context.getReferenceContext().getCDOMAllReference(WEAPONPROF_CLASS);
+                context.getObjectContext().addToList(pcc, ListKey.WEAPONBONUS, ref);
+            } else
+            {
+                foundOther = true;
+                CDOMReference<WeaponProf> ref = TokenUtilities.getTypeOrPrimitive(context, WEAPONPROF_CLASS, tokText);
+                if (ref == null)
+                {
+                    return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
+                }
+                context.getObjectContext().addToList(pcc, ListKey.WEAPONBONUS, ref);
+            }
+        }
+        if (foundAny && foundOther)
+        {
+            return new ParseResult.Fail(
+                    "Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PCClass pcc)
-	{
-		Changes<CDOMReference<WeaponProf>> changes =
-				context.getObjectContext().getListChanges(pcc, ListKey.WEAPONBONUS);
-		Collection<CDOMReference<WeaponProf>> added = changes.getAdded();
-		if (added == null || added.isEmpty())
-		{
-			// Zero indicates no add
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(added, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, PCClass pcc)
+    {
+        Changes<CDOMReference<WeaponProf>> changes =
+                context.getObjectContext().getListChanges(pcc, ListKey.WEAPONBONUS);
+        Collection<CDOMReference<WeaponProf>> added = changes.getAdded();
+        if (added == null || added.isEmpty())
+        {
+            // Zero indicates no add
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(added, Constants.PIPE)};
+    }
 
-	@Override
-	public Class<PCClass> getTokenClass()
-	{
-		return PCClass.class;
-	}
+    @Override
+    public Class<PCClass> getTokenClass()
+    {
+        return PCClass.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, PCClass obj)
-	{
-		List<CDOMReference<WeaponProf>> weaponbonus = obj.getListFor(ListKey.WEAPONBONUS);
-		if (weaponbonus != null)
-		{
-			ReferenceChoiceSet<WeaponProf> rcs = new ReferenceChoiceSet<>(weaponbonus);
-			ChoiceSet<WeaponProf> cs = new ChoiceSet<>(getTokenName(), rcs);
-			cs.setTitle("Bonus WeaponProf Choice");
-			PersistentTransitionChoice<WeaponProf> tc =
-					new ConcretePersistentTransitionChoice<>(cs, FormulaFactory.ONE);
-			context.getObjectContext().addToList(obj, ListKey.ADD, tc);
-			tc.setChoiceActor(this);
-		}
-		return true;
-	}
+    @Override
+    public boolean process(LoadContext context, PCClass obj)
+    {
+        List<CDOMReference<WeaponProf>> weaponbonus = obj.getListFor(ListKey.WEAPONBONUS);
+        if (weaponbonus != null)
+        {
+            ReferenceChoiceSet<WeaponProf> rcs = new ReferenceChoiceSet<>(weaponbonus);
+            ChoiceSet<WeaponProf> cs = new ChoiceSet<>(getTokenName(), rcs);
+            cs.setTitle("Bonus WeaponProf Choice");
+            PersistentTransitionChoice<WeaponProf> tc =
+                    new ConcretePersistentTransitionChoice<>(cs, FormulaFactory.ONE);
+            context.getObjectContext().addToList(obj, ListKey.ADD, tc);
+            tc.setChoiceActor(this);
+        }
+        return true;
+    }
 
-	@Override
-	public Class<PCClass> getDeferredTokenClass()
-	{
-		return PCClass.class;
-	}
+    @Override
+    public Class<PCClass> getDeferredTokenClass()
+    {
+        return PCClass.class;
+    }
 
-	@Override
-	public void applyChoice(CDOMObject owner, WeaponProf choice, PlayerCharacter pc)
-	{
-		pc.addWeaponBonus(owner, choice);
-	}
+    @Override
+    public void applyChoice(CDOMObject owner, WeaponProf choice, PlayerCharacter pc)
+    {
+        pc.addWeaponBonus(owner, choice);
+    }
 
-	@Override
-	public boolean allow(WeaponProf item, PlayerCharacter pc, boolean allowStack)
-	{
-		return true;
-	}
+    @Override
+    public boolean allow(WeaponProf item, PlayerCharacter pc, boolean allowStack)
+    {
+        return true;
+    }
 
-	@Override
-	public String encodeChoice(WeaponProf choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(WeaponProf choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	public WeaponProf decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(WeaponProf.class, s);
-	}
+    @Override
+    public WeaponProf decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(WeaponProf.class, s);
+    }
 
-	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, WeaponProf choice)
-	{
-		pc.addWeaponBonus(owner, choice);
-	}
+    @Override
+    public void restoreChoice(PlayerCharacter pc, CDOMObject owner, WeaponProf choice)
+    {
+        pc.addWeaponBonus(owner, choice);
+    }
 
-	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, WeaponProf choice)
-	{
-		pc.removeWeaponBonus(owner, choice);
-	}
+    @Override
+    public void removeChoice(PlayerCharacter pc, CDOMObject owner, WeaponProf choice)
+    {
+        pc.removeWeaponBonus(owner, choice);
+    }
 }

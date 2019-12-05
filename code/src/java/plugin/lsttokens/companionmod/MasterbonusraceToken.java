@@ -38,59 +38,59 @@ import pcgen.rules.persistence.token.ParseResult;
  * Class deals with MASTERBONUSRACE Token
  */
 public class MasterbonusraceToken extends AbstractTokenWithSeparator<CompanionMod>
-		implements CDOMPrimaryToken<CompanionMod>
+        implements CDOMPrimaryToken<CompanionMod>
 {
-	public static final Class<Race> RACE_CLASS = Race.class;
+    public static final Class<Race> RACE_CLASS = Race.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "MASTERBONUSRACE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "MASTERBONUSRACE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CompanionMod cMod, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CompanionMod cMod, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
-		while (tok.hasMoreTokens())
-		{
-			String token = tok.nextToken();
+        while (tok.hasMoreTokens())
+        {
+            String token = tok.nextToken();
 
-			CDOMSingleRef<Race> ref = context.getReferenceContext().getCDOMReference(RACE_CLASS, token);
-			context.getObjectContext().addToList(cMod, ListKey.APPLIED_RACE, ref);
-		}
-		return ParseResult.SUCCESS;
-	}
+            CDOMSingleRef<Race> ref = context.getReferenceContext().getCDOMReference(RACE_CLASS, token);
+            context.getObjectContext().addToList(cMod, ListKey.APPLIED_RACE, ref);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CompanionMod cMod)
-	{
-		Changes<CDOMSingleRef<Race>> changes = context.getObjectContext().getListChanges(cMod, ListKey.APPLIED_RACE);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		SortedSet<String> set = new TreeSet<>();
-		Collection<CDOMSingleRef<Race>> added = changes.getAdded();
+    @Override
+    public String[] unparse(LoadContext context, CompanionMod cMod)
+    {
+        Changes<CDOMSingleRef<Race>> changes = context.getObjectContext().getListChanges(cMod, ListKey.APPLIED_RACE);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        SortedSet<String> set = new TreeSet<>();
+        Collection<CDOMSingleRef<Race>> added = changes.getAdded();
 
-		for (CDOMSingleRef<Race> ref : added)
-		{
-			set.add(ref.getLSTformat(false));
-		}
-		return new String[]{StringUtil.join(set, Constants.PIPE)};
-	}
+        for (CDOMSingleRef<Race> ref : added)
+        {
+            set.add(ref.getLSTformat(false));
+        }
+        return new String[]{StringUtil.join(set, Constants.PIPE)};
+    }
 
-	@Override
-	public Class<CompanionMod> getTokenClass()
-	{
-		return CompanionMod.class;
-	}
+    @Override
+    public Class<CompanionMod> getTokenClass()
+    {
+        return CompanionMod.class;
+    }
 
 }

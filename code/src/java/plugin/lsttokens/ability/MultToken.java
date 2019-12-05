@@ -30,74 +30,73 @@ import pcgen.util.Logging;
  * Deals with the MULT token
  */
 public class MultToken extends AbstractYesNoToken<Ability>
-		implements CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
+        implements CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "MULT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "MULT";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.MULTIPLE_ALLOWED;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.MULTIPLE_ALLOWED;
+    }
 
-	@Override
-	public Class<Ability> getTokenClass()
-	{
-		return Ability.class;
-	}
+    @Override
+    public Class<Ability> getTokenClass()
+    {
+        return Ability.class;
+    }
 
-	@Override
-	public Class<Ability> getDeferredTokenClass()
-	{
-		return Ability.class;
-	}
+    @Override
+    public Class<Ability> getDeferredTokenClass()
+    {
+        return Ability.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, Ability a)
-	{
-		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			if (a.get(ObjectKey.CHOOSE_INFO) == null)
-			{
-				Logging.errorPrint(
-					"Ability (" + a.getCategory() + ") " + a.getKeyName() + " had MULT:YES but no CHOOSE", context);
-				return false;
-			}
-			if (a.getKeyName().contains("("))
-			{
-				String base = AbilityUtilities.removeChoicesFromName(a.getKeyName());
-				Ability conflict =
-						context.getReferenceContext().getManufacturerId(a.getCDOMCategory()).getActiveObject(base);
-				if ((conflict != null) && conflict.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-				{
-					Logging.errorPrint("Ability (" + a.getCategory() + ") " + conflict.getKeyName()
-						+ " had MULT:YES which " + "prohibits Ability Key with same base "
-						+ "and parenthesis, but data included: " + a.getKeyName(), context);
-					return false;
-				}
-			}
-		}
-		else
-		{
-			if (a.get(ObjectKey.CHOOSE_INFO) != null)
-			{
-				Logging.errorPrint(
-					"Ability (" + a.getCategory() + ") " + a.getKeyName() + " had MULT:NO but did have CHOOSE",
-					context);
-				return false;
-			}
-		}
-		return false;
-	}
+    @Override
+    public boolean process(LoadContext context, Ability a)
+    {
+        if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+        {
+            if (a.get(ObjectKey.CHOOSE_INFO) == null)
+            {
+                Logging.errorPrint(
+                        "Ability (" + a.getCategory() + ") " + a.getKeyName() + " had MULT:YES but no CHOOSE", context);
+                return false;
+            }
+            if (a.getKeyName().contains("("))
+            {
+                String base = AbilityUtilities.removeChoicesFromName(a.getKeyName());
+                Ability conflict =
+                        context.getReferenceContext().getManufacturerId(a.getCDOMCategory()).getActiveObject(base);
+                if ((conflict != null) && conflict.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+                {
+                    Logging.errorPrint("Ability (" + a.getCategory() + ") " + conflict.getKeyName()
+                            + " had MULT:YES which " + "prohibits Ability Key with same base "
+                            + "and parenthesis, but data included: " + a.getKeyName(), context);
+                    return false;
+                }
+            }
+        } else
+        {
+            if (a.get(ObjectKey.CHOOSE_INFO) != null)
+            {
+                Logging.errorPrint(
+                        "Ability (" + a.getCategory() + ") " + a.getKeyName() + " had MULT:NO but did have CHOOSE",
+                        context);
+                return false;
+            }
+        }
+        return false;
+    }
 
-	@Override
-	public int getPriority()
-	{
-		return 1000;
-	}
+    @Override
+    public int getPriority()
+    {
+        return 1000;
+    }
 }

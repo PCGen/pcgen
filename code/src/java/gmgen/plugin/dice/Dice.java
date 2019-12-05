@@ -20,28 +20,33 @@
  */
 package gmgen.plugin.dice;
 
-/** A normal die
+/**
+ * A normal die
  */
 public class Dice extends Die
 {
-	/** Constructor for the Dice object
-	 * @param num Number of dice
-	 * @param sides Number of sides
-	 * @param bias Modifier to the die roll
-	 */
-	public Dice(final int num, final int sides, final int bias)
-	{
-		/* Holds the rolls of each die */
-		super(new NSidedModifiedDieConfig(num, sides, bias, Die.RAND));
-	}
+    /**
+     * Constructor for the Dice object
+     *
+     * @param num   Number of dice
+     * @param sides Number of sides
+     * @param bias  Modifier to the die roll
+     */
+    public Dice(final int num, final int sides, final int bias)
+    {
+        /* Holds the rolls of each die */
+        super(new NSidedModifiedDieConfig(num, sides, bias, Die.RAND));
+    }
 
-	/** Constructor for the Dice object
-	 * @param num Number of dice
-	 * @param sides Number of sides per die
-	 */
-	public Dice(final int num, final int sides)
-	{
-		this(num, sides, 0);
-	}
+    /**
+     * Constructor for the Dice object
+     *
+     * @param num   Number of dice
+     * @param sides Number of sides per die
+     */
+    public Dice(final int num, final int sides)
+    {
+        this(num, sides, 0);
+    }
 
 }

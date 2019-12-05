@@ -27,35 +27,35 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DisplayNameToken extends AbstractNonEmptyToken<SizeAdjustment> implements CDOMPrimaryToken<SizeAdjustment>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "DISPLAYNAME";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DISPLAYNAME";
+    }
 
-	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
-	{
-		//Have to be bad to an editor, sorry
-		size.setDisplayName(value);
-		context.getObjectContext().put(size, StringKey.DISPLAY_NAME, value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
+    {
+        //Have to be bad to an editor, sorry
+        size.setDisplayName(value);
+        context.getObjectContext().put(size, StringKey.DISPLAY_NAME, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, SizeAdjustment size)
-	{
-		String name = context.getObjectContext().getString(size, StringKey.DISPLAY_NAME);
-		if (name == null)
-		{
-			return null;
-		}
-		return new String[]{name};
-	}
+    @Override
+    public String[] unparse(LoadContext context, SizeAdjustment size)
+    {
+        String name = context.getObjectContext().getString(size, StringKey.DISPLAY_NAME);
+        if (name == null)
+        {
+            return null;
+        }
+        return new String[]{name};
+    }
 
-	@Override
-	public Class<SizeAdjustment> getTokenClass()
-	{
-		return SizeAdjustment.class;
-	}
+    @Override
+    public Class<SizeAdjustment> getTokenClass()
+    {
+        return SizeAdjustment.class;
+    }
 }

@@ -21,55 +21,54 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SkillComparator;
 
 /**
- * SkillsOutputOrder defines the possible orders of skill in output sheets. 
- * 
+ * SkillsOutputOrder defines the possible orders of skill in output sheets.
  */
 public enum SkillsOutputOrder
 {
-	NAME_ASC
-	{
-		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
-		{
-			return new SkillComparator(pc, SkillComparator.RESORT_NAME, SkillComparator.RESORT_ASCENDING);
-		}
-	},
+    NAME_ASC
+            {
+                @Override
+                public SkillComparator getComparator(PlayerCharacter pc)
+                {
+                    return new SkillComparator(pc, SkillComparator.RESORT_NAME, SkillComparator.RESORT_ASCENDING);
+                }
+            },
 
-	NAME_DSC
-	{
-		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
-		{
-			return new SkillComparator(pc, SkillComparator.RESORT_NAME, SkillComparator.RESORT_DESCENDING);
-		}
-	},
+    NAME_DSC
+            {
+                @Override
+                public SkillComparator getComparator(PlayerCharacter pc)
+                {
+                    return new SkillComparator(pc, SkillComparator.RESORT_NAME, SkillComparator.RESORT_DESCENDING);
+                }
+            },
 
-	TRAINED_ASC
-	{
-		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
-		{
-			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED, SkillComparator.RESORT_ASCENDING);
-		}
-	},
+    TRAINED_ASC
+            {
+                @Override
+                public SkillComparator getComparator(PlayerCharacter pc)
+                {
+                    return new SkillComparator(pc, SkillComparator.RESORT_TRAINED, SkillComparator.RESORT_ASCENDING);
+                }
+            },
 
-	TRAINED_DSC
-	{
-		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
-		{
-			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED, SkillComparator.RESORT_DESCENDING);
-		}
-	},
+    TRAINED_DSC
+            {
+                @Override
+                public SkillComparator getComparator(PlayerCharacter pc)
+                {
+                    return new SkillComparator(pc, SkillComparator.RESORT_TRAINED, SkillComparator.RESORT_DESCENDING);
+                }
+            },
 
-	MANUAL
-	{
-		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
-		{
-			return null;
-		}
-	};
+    MANUAL
+            {
+                @Override
+                public SkillComparator getComparator(PlayerCharacter pc)
+                {
+                    return null;
+                }
+            };
 
-	public abstract SkillComparator getComparator(PlayerCharacter pc);
+    public abstract SkillComparator getComparator(PlayerCharacter pc);
 }

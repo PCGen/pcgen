@@ -29,23 +29,23 @@ import pcgen.facade.util.ListFacade;
 @Deprecated()
 public final class RandomChooser
 {
-	public boolean makeChoice(ChooserFacade chooserFacade)
-	{
-		while ((chooserFacade.getRemainingSelections().get() > 0) && !chooserFacade.getAvailableList().isEmpty())
-		{
-			ListFacade<InfoFacade> availableList = chooserFacade.getAvailableList();
-			final InfoFacade addObj = availableList.getElementAt(RandomUtil.getRandomInt(availableList.getSize() - 1));
-			chooserFacade.addSelected(addObj);
-		}
+    public boolean makeChoice(ChooserFacade chooserFacade)
+    {
+        while ((chooserFacade.getRemainingSelections().get() > 0) && !chooserFacade.getAvailableList().isEmpty())
+        {
+            ListFacade<InfoFacade> availableList = chooserFacade.getAvailableList();
+            final InfoFacade addObj = availableList.getElementAt(RandomUtil.getRandomInt(availableList.getSize() - 1));
+            chooserFacade.addSelected(addObj);
+        }
 
-		if ((chooserFacade.getRemainingSelections().get() == 0) || !chooserFacade.isRequireCompleteSelection())
-		{
-			chooserFacade.commit();
-			return true;
-		}
+        if ((chooserFacade.getRemainingSelections().get() == 0) || !chooserFacade.isRequireCompleteSelection())
+        {
+            chooserFacade.commit();
+            return true;
+        }
 
-		chooserFacade.rollback();
-		return false;
-	}
+        chooserFacade.rollback();
+        return false;
+    }
 
 }

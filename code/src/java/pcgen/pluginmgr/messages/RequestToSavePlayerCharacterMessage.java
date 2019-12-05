@@ -25,29 +25,28 @@ import pcgen.pluginmgr.PCGenMessage;
 /**
  * The Class {@code RequestToSavePlayerCharacterMessage} encapsulates a
  * request that PCGen save the specified character.
- *
- * 
  */
 @SuppressWarnings("serial")
 public class RequestToSavePlayerCharacterMessage extends PCGenMessage
 {
 
-	private final PlayerCharacter pc;
+    private final PlayerCharacter pc;
 
-	/**
-	 * Create a new instance of RequestToSavePlayerCharacterMessage
-	 * @param source The source of the message.
-	 * @param pc The character to be saved.
-	 */
-	public RequestToSavePlayerCharacterMessage(Object source, PlayerCharacter pc)
-	{
-		super(source);
-		this.pc = pc;
-	}
+    /**
+     * Create a new instance of RequestToSavePlayerCharacterMessage
+     *
+     * @param source The source of the message.
+     * @param pc     The character to be saved.
+     */
+    public RequestToSavePlayerCharacterMessage(Object source, PlayerCharacter pc)
+    {
+        super(source);
+        this.pc = pc;
+    }
 
-	public PlayerCharacter getPc()
-	{
-		return pc;
-	}
+    public PlayerCharacter getPc()
+    {
+        return pc;
+    }
 
 }

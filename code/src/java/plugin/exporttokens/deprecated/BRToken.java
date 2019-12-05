@@ -24,20 +24,20 @@ import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * BRToken outputs a line break to the output file.
- * 
+ * <p>
  * Token syntax: BR
  */
 public class BRToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "BR";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BR";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return "[BR]";
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return "[BR]";
+    }
 }

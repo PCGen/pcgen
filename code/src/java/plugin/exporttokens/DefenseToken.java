@@ -28,7 +28,7 @@ import pcgen.io.exporttoken.Token;
 
 /**
  * Deal with tokens:
- *
+ * <p>
  * DEFENSE.TOTAL
  * DEFENSE.FLATFOOTED
  * DEFENSE.TOUCH
@@ -43,85 +43,76 @@ import pcgen.io.exporttoken.Token;
  */
 public class DefenseToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "DEFENSE";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "DEFENSE";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		if (aTok.hasMoreTokens())
-		{
-			String defenseType = aTok.nextToken();
-			CharacterDisplay display = pc.getDisplay();
+        if (aTok.hasMoreTokens())
+        {
+            String defenseType = aTok.nextToken();
+            CharacterDisplay display = pc.getDisplay();
 
-			String solverValue = pc.getControl("ACVAR" + defenseType);
-			if (solverValue != null)
-			{
-				Object val = pc.getGlobal(solverValue);
-				int intValue = ((Number) val).intValue();
-				if ("EQUIPMENT".equals(defenseType))
-				{
-					val = pc.getGlobal(pc.getControl(CControl.ACVARARMOR));
-					intValue += ((Number) val).intValue();
-				}
-				retString = Integer.toString(intValue);
-			}
-			else if (defenseType.equals("TOTAL"))
-			{
-				retString = Integer.toString(display.calcACOfType("Total"));
-			}
-			else if (defenseType.equals("FLATFOOTED"))
-			{
-				retString = Integer.toString(display.calcACOfType("Flatfooted"));
-			}
-			else if (defenseType.equals("TOUCH"))
-			{
-				retString = Integer.toString(display.calcACOfType("Touch"));
-			}
-			else if (defenseType.equals("BASE"))
-			{
-				retString = Integer.toString(display.calcACOfType("Base"));
-			}
-			else if (defenseType.equals("ABILITY"))
-			{
-				retString = Integer.toString(display.calcACOfType("Ability"));
-			}
-			else if (defenseType.equals("CLASS"))
-			{
-				retString = Integer.toString(display.calcACOfType("ClassDefense"));
-			}
-			else if (defenseType.equals("DODGE"))
-			{
-				retString = Integer.toString(display.calcACOfType("Dodge"));
-			}
-			else if (defenseType.equals("EQUIPMENT"))
-			{
-				retString = Integer.toString(display.calcACOfType("Equipment") + display.calcACOfType("Armor"));
-			}
-			else if (defenseType.equals("MISC"))
-			{
-				retString = Integer.toString(display.calcACOfType("Misc"));
-			}
-			else if (defenseType.equals("NATURAL"))
-			{
-				retString = Integer.toString(display.calcACOfType("NaturalArmor"));
-			}
-			else if (defenseType.equals("SIZE"))
-			{
-				retString = Integer.toString(display.calcACOfType("Size"));
-			}
-		}
+            String solverValue = pc.getControl("ACVAR" + defenseType);
+            if (solverValue != null)
+            {
+                Object val = pc.getGlobal(solverValue);
+                int intValue = ((Number) val).intValue();
+                if ("EQUIPMENT".equals(defenseType))
+                {
+                    val = pc.getGlobal(pc.getControl(CControl.ACVARARMOR));
+                    intValue += ((Number) val).intValue();
+                }
+                retString = Integer.toString(intValue);
+            } else if (defenseType.equals("TOTAL"))
+            {
+                retString = Integer.toString(display.calcACOfType("Total"));
+            } else if (defenseType.equals("FLATFOOTED"))
+            {
+                retString = Integer.toString(display.calcACOfType("Flatfooted"));
+            } else if (defenseType.equals("TOUCH"))
+            {
+                retString = Integer.toString(display.calcACOfType("Touch"));
+            } else if (defenseType.equals("BASE"))
+            {
+                retString = Integer.toString(display.calcACOfType("Base"));
+            } else if (defenseType.equals("ABILITY"))
+            {
+                retString = Integer.toString(display.calcACOfType("Ability"));
+            } else if (defenseType.equals("CLASS"))
+            {
+                retString = Integer.toString(display.calcACOfType("ClassDefense"));
+            } else if (defenseType.equals("DODGE"))
+            {
+                retString = Integer.toString(display.calcACOfType("Dodge"));
+            } else if (defenseType.equals("EQUIPMENT"))
+            {
+                retString = Integer.toString(display.calcACOfType("Equipment") + display.calcACOfType("Armor"));
+            } else if (defenseType.equals("MISC"))
+            {
+                retString = Integer.toString(display.calcACOfType("Misc"));
+            } else if (defenseType.equals("NATURAL"))
+            {
+                retString = Integer.toString(display.calcACOfType("NaturalArmor"));
+            } else if (defenseType.equals("SIZE"))
+            {
+                retString = Integer.toString(display.calcACOfType("Size"));
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 }

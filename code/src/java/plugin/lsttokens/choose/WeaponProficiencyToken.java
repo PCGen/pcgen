@@ -30,49 +30,49 @@ import pcgen.rules.persistence.token.ParseResult;
 public class WeaponProficiencyToken extends AbstractQualifiedChooseToken<WeaponProf>
 {
 
-	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+    private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "WEAPONPROFICIENCY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "WEAPONPROFICIENCY";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Weapon Proficiency choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Weapon Proficiency choice";
+    }
 
-	@Override
-	public WeaponProf decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, s);
-	}
+    @Override
+    public WeaponProf decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(WeaponProf choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(WeaponProf choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<WeaponProf> getListKey()
-	{
-		return AssociationListKey.getKeyFor(WEAPONPROF_CLASS, "CHOOSE*WEAPONPROF");
-	}
+    @Override
+    protected AssociationListKey<WeaponProf> getListKey()
+    {
+        return AssociationListKey.getKeyFor(WEAPONPROF_CLASS, "CHOOSE*WEAPONPROF");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(WEAPONPROF_CLASS),
-			obj, value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(WEAPONPROF_CLASS),
+                obj, value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "WEAPONPROF";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "WEAPONPROF";
+    }
 
 }

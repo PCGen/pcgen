@@ -37,57 +37,57 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
-	private static final Class<Skill> SKILL_CLASS = Skill.class;
+    private static final Class<Skill> SKILL_CLASS = Skill.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "SKILL";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "SKILL";
+    }
 
-	@Override
-	public Class<KitSkill> getTokenClass()
-	{
-		return KitSkill.class;
-	}
+    @Override
+    public Class<KitSkill> getTokenClass()
+    {
+        return KitSkill.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitSkill kitSkill, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitSkill kitSkill, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
-		while (tok.hasMoreTokens())
-		{
-			String tokText = tok.nextToken();
-			CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
-			if (ref == null)
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
-			kitSkill.addSkill(ref);
-		}
-		return ParseResult.SUCCESS;
-	}
+        while (tok.hasMoreTokens())
+        {
+            String tokText = tok.nextToken();
+            CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
+            if (ref == null)
+            {
+                return ParseResult.INTERNAL_ERROR;
+            }
+            kitSkill.addSkill(ref);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitSkill kitSkill)
-	{
-		Collection<CDOMReference<Skill>> ref = kitSkill.getSkills();
-		if (ref == null || ref.isEmpty())
-		{
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitSkill kitSkill)
+    {
+        Collection<CDOMReference<Skill>> ref = kitSkill.getSkills();
+        if (ref == null || ref.isEmpty())
+        {
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
+    }
 }

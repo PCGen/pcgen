@@ -27,17 +27,17 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class XPAwardToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "XPAWARD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "XPAWARD";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		int award = display.getXPAward();
-		String xpAward = String.format("%,d", award);
-		return xpAward;
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        int award = display.getXPAward();
+        String xpAward = String.format("%,d", award);
+        return xpAward;
+    }
 }

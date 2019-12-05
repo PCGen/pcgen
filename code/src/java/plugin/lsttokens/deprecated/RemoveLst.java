@@ -27,33 +27,33 @@ import pcgen.rules.persistence.token.ParseResult;
 public class RemoveLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "REMOVE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "REMOVE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail(getTokenName() + " requires a SubToken");
-		}
-		String key = value.substring(0, pipeLoc);
-		return context.processSubToken(obj, getTokenName(), key, value.substring(pipeLoc + 1));
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        int pipeLoc = value.indexOf(Constants.PIPE);
+        if (pipeLoc == -1)
+        {
+            return new ParseResult.Fail(getTokenName() + " requires a SubToken");
+        }
+        String key = value.substring(0, pipeLoc);
+        return context.processSubToken(obj, getTokenName(), key, value.substring(pipeLoc + 1));
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		return context.unparseSubtoken(obj, getTokenName());
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        return context.unparseSubtoken(obj, getTokenName());
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

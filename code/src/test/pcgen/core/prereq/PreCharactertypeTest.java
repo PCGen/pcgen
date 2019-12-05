@@ -33,30 +33,30 @@ import org.junit.jupiter.api.Test;
  */
 class PreCharactertypeTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Test to make sure it is not looking at deity domains.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	void testCharactertype() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		character.setCharacterType("PC");
+    /**
+     * Test to make sure it is not looking at deity domains.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    void testCharactertype() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        character.setCharacterType("PC");
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
+        final PreParserFactory factory = PreParserFactory.getInstance();
 
-		prereq = factory.parse("PRECHARACTERTYPE:1,PC");
+        prereq = factory.parse("PRECHARACTERTYPE:1,PC");
 
-		assertTrue(PrereqHandler.passes(
-			prereq, character, null), "Character has character type 'PC'");
+        assertTrue(PrereqHandler.passes(
+                prereq, character, null), "Character has character type 'PC'");
 
-		prereq = factory.parse("PRECHARACTERTYPE:1,NPC");
+        prereq = factory.parse("PRECHARACTERTYPE:1,NPC");
 
-		assertFalse(PrereqHandler.passes(
-			prereq, character, null), "Character doesn't have character type 'NPC'");
+        assertFalse(PrereqHandler.passes(
+                prereq, character, null), "Character doesn't have character type 'NPC'");
 
-	}
+    }
 }

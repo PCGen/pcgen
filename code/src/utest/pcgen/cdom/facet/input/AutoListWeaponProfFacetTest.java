@@ -23,25 +23,25 @@ import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.WeaponProf;
 
 public class AutoListWeaponProfFacetTest extends
-		AbstractSourcedListFacetTest<WeaponProf>
+        AbstractSourcedListFacetTest<WeaponProf>
 {
 
-	private AutoListWeaponProfFacet facet = new AutoListWeaponProfFacet();
+    private AutoListWeaponProfFacet facet = new AutoListWeaponProfFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, WeaponProf> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, WeaponProf> getFacet()
+    {
+        return facet;
+    }
 
-	public static int n = 0;
+    public static int n = 0;
 
-	@Override
-	protected WeaponProf getObject()
-	{
-		WeaponProf wp = new WeaponProf();
-		wp.setName("WP" + n++);
-		return wp;
-	}
+    @Override
+    protected WeaponProf getObject()
+    {
+        WeaponProf wp = new WeaponProf();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 
 }

@@ -40,43 +40,43 @@ import pcgen.util.enumeration.View;
 public class AbilityAllToken extends AbilityToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ABILITYALL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ABILITYALL";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		setView(View.ALL);
-		return super.getToken(tokenSource, pc, eh);
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        setView(View.ALL);
+        return super.getToken(tokenSource, pc, eh);
+    }
 
-	@Override
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
-	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
-		Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
-		return listOfAbilities;
-	}
+    @Override
+    protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
+    {
+        final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
+        Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
+        for (AbilityCategory aCat : allCats)
+        {
+            if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+            {
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+            }
+        }
+        return listOfAbilities;
+    }
 
 }

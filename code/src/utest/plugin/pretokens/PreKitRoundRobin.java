@@ -25,29 +25,28 @@ import org.junit.jupiter.api.BeforeEach;
 
 /**
  * PreKitRoundRobin test the parsing and unparsing of PREKIT tags.
- * 
  */
 public class PreKitRoundRobin extends AbstractBasicRoundRobin
 {
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		TokenRegistration.register(new PreKitParser());
-		TokenRegistration.register(new PreKitWriter());
-	}
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        TokenRegistration.register(new PreKitParser());
+        TokenRegistration.register(new PreKitWriter());
+    }
 
-	@Override
-	public String getBaseString()
-	{
-		return "KIT";
-	}
+    @Override
+    public String getBaseString()
+    {
+        return "KIT";
+    }
 
-	@Override
-	public boolean isTypeAllowed()
-	{
-		return false;
-	}
+    @Override
+    public boolean isTypeAllowed()
+    {
+        return false;
+    }
 
 }

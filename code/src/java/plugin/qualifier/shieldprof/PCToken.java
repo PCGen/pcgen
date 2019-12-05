@@ -28,39 +28,37 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 /**
  * The Class {@code PCToken} provides limiting a chooser selection
  * by those shield proficiencies held by the character.
- * e.g. CHOOSE:SHIELDPROFICIENCY|PC 
- *
- * 
+ * e.g. CHOOSE:SHIELDPROFICIENCY|PC
  */
 public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 {
 
-	@Override
-	protected Collection<ShieldProf> getPossessed(PlayerCharacter pc)
-	{
-		// Not used as we have overridden allow below, so return an empty set
-		return new ArrayList<>();
-	}
+    @Override
+    protected Collection<ShieldProf> getPossessed(PlayerCharacter pc)
+    {
+        // Not used as we have overridden allow below, so return an empty set
+        return new ArrayList<>();
+    }
 
-	@Override
-	public Class<? super ShieldProf> getReferenceClass()
-	{
-		return ShieldProf.class;
-	}
+    @Override
+    public Class<? super ShieldProf> getReferenceClass()
+    {
+        return ShieldProf.class;
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, ShieldProf po)
-	{
-		Collection<ProfProvider<ShieldProf>> providers = pc.getShieldProfList();
-		for (ProfProvider<ShieldProf> profProvider : providers)
-		{
-			if (profProvider.providesProficiency(po))
-			{
-				return true;
-			}
-		}
+    @Override
+    public boolean allow(PlayerCharacter pc, ShieldProf po)
+    {
+        Collection<ProfProvider<ShieldProf>> providers = pc.getShieldProfList();
+        for (ProfProvider<ShieldProf> profProvider : providers)
+        {
+            if (profProvider.providesProficiency(po))
+            {
+                return true;
+            }
+        }
 
-		return false;
-	}
+        return false;
+    }
 
 }

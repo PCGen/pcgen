@@ -30,78 +30,76 @@ import pcgen.rules.persistence.token.ParseResult;
  * Deals with NAMEOPT token
  */
 public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "NAMEOPT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "NAMEOPT";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
-	{
-		String optString = value;
-		if (optString.startsWith("TEXT"))
-		{
-			if (optString.length() < 6 || optString.charAt(4) != '=')
-			{
-				return new ParseResult.Fail(getTokenName() + " has invalid TEXT argument: " + value);
-			}
-			optString = "TEXT";
-			context.getObjectContext().put(mod, StringKey.NAME_TEXT, value.substring(5));
-		}
-		try
-		{
-			context.getObjectContext().put(mod, ObjectKey.NAME_OPT, EqModNameOpt.valueOfIgnoreCase(optString));
-			return ParseResult.SUCCESS;
-		}
-		catch (IllegalArgumentException iae)
-		{
-			return new ParseResult.Fail("Invalid Naming Option provided in " + getTokenName() + ": " + value);
-		}
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
+    {
+        String optString = value;
+        if (optString.startsWith("TEXT"))
+        {
+            if (optString.length() < 6 || optString.charAt(4) != '=')
+            {
+                return new ParseResult.Fail(getTokenName() + " has invalid TEXT argument: " + value);
+            }
+            optString = "TEXT";
+            context.getObjectContext().put(mod, StringKey.NAME_TEXT, value.substring(5));
+        }
+        try
+        {
+            context.getObjectContext().put(mod, ObjectKey.NAME_OPT, EqModNameOpt.valueOfIgnoreCase(optString));
+            return ParseResult.SUCCESS;
+        } catch (IllegalArgumentException iae)
+        {
+            return new ParseResult.Fail("Invalid Naming Option provided in " + getTokenName() + ": " + value);
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		EqModNameOpt opt = context.getObjectContext().getObject(mod, ObjectKey.NAME_OPT);
-		String text = context.getObjectContext().getString(mod, StringKey.NAME_TEXT);
-		if (opt == null)
-		{
-            if (text != null) {
+    @Override
+    public String[] unparse(LoadContext context, EquipmentModifier mod)
+    {
+        EqModNameOpt opt = context.getObjectContext().getObject(mod, ObjectKey.NAME_OPT);
+        String text = context.getObjectContext().getString(mod, StringKey.NAME_TEXT);
+        if (opt == null)
+        {
+            if (text != null)
+            {
                 context.addWriteMessage("Cannot have both NAME_TEXT without " + "NAME_OPT in EquipmentModifier");
             }
             return null;
         }
-		String retString;
-		if (opt.equals(EqModNameOpt.TEXT))
-		{
-			if (text == null)
-			{
-				context.addWriteMessage("Must have NAME_TEXT with " + "NAME_OPT TEXT in EquipmentModifier");
-				return null;
-			}
-			else
-			{
-				retString = "TEXT=" + text;
-			}
-		}
-		else
-		{
-			/*
-			 * Don't test text == null here because .MODS will leave TEXT around -
-			 * that's "okay"
-			 */
-			retString = opt.toString();
-		}
-		return new String[]{retString};
-	}
+        String retString;
+        if (opt.equals(EqModNameOpt.TEXT))
+        {
+            if (text == null)
+            {
+                context.addWriteMessage("Must have NAME_TEXT with " + "NAME_OPT TEXT in EquipmentModifier");
+                return null;
+            } else
+            {
+                retString = "TEXT=" + text;
+            }
+        } else
+        {
+            /*
+             * Don't test text == null here because .MODS will leave TEXT around -
+             * that's "okay"
+             */
+            retString = opt.toString();
+        }
+        return new String[]{retString};
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

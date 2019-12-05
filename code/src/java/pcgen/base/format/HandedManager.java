@@ -29,64 +29,63 @@ import pcgen.cdom.enumeration.Handed;
 public class HandedManager implements FormatManager<Handed>
 {
 
-	/**
-	 * Retrieve a Handed object to match the name ({@link #name()}) or localized name
-	 * (output by {@link #toString()}). The localized lookup is kept for legacy purpose
-	 * when the localized name was saved in the character files (instead of the
-	 * {@link #name()}).
-	 * 
-	 * Note: This will dump stack if there is not a matching Handed value, as the
-	 * Handed.valueOf(x) call for the existing Enumeration will fail. This is consistent
-	 * with the existing design (as it can't really go wrong) and isn't needed long term
-	 * because the load system ensures data is internally consistent.
-	 * 
-	 * @param inputStr
-	 *            The name (localized or not) of the Handed.
-	 * @return The matching Handed.
-	 */
-	@Override
-	public Handed convert(String inputStr)
-	{
-		return Arrays.stream(Handed.values())
-			.filter(hand -> hand.toString().equals(inputStr))
-			.findFirst()
-			.orElse(Handed.valueOf(inputStr));
-	}
+    /**
+     * Retrieve a Handed object to match the name ({@link #name()}) or localized name
+     * (output by {@link #toString()}). The localized lookup is kept for legacy purpose
+     * when the localized name was saved in the character files (instead of the
+     * {@link #name()}).
+     * <p>
+     * Note: This will dump stack if there is not a matching Handed value, as the
+     * Handed.valueOf(x) call for the existing Enumeration will fail. This is consistent
+     * with the existing design (as it can't really go wrong) and isn't needed long term
+     * because the load system ensures data is internally consistent.
+     *
+     * @param inputStr The name (localized or not) of the Handed.
+     * @return The matching Handed.
+     */
+    @Override
+    public Handed convert(String inputStr)
+    {
+        return Arrays.stream(Handed.values())
+                .filter(hand -> hand.toString().equals(inputStr))
+                .findFirst()
+                .orElse(Handed.valueOf(inputStr));
+    }
 
-	@Override
-	public Indirect<Handed> convertIndirect(String inputStr)
-	{
-		return new BasicIndirect<>(this, convert(inputStr));
-	}
+    @Override
+    public Indirect<Handed> convertIndirect(String inputStr)
+    {
+        return new BasicIndirect<>(this, convert(inputStr));
+    }
 
-	@Override
-	public boolean isDirect()
-	{
-		return true;
-	}
+    @Override
+    public boolean isDirect()
+    {
+        return true;
+    }
 
-	@Override
-	public String unconvert(Handed Handed)
-	{
-		return Handed.name();
-	}
+    @Override
+    public String unconvert(Handed Handed)
+    {
+        return Handed.name();
+    }
 
-	@Override
-	public Class<Handed> getManagedClass()
-	{
-		return Handed.class;
-	}
+    @Override
+    public Class<Handed> getManagedClass()
+    {
+        return Handed.class;
+    }
 
-	@Override
-	public String getIdentifierType()
-	{
-		return "Handed";
-	}
+    @Override
+    public String getIdentifierType()
+    {
+        return "Handed";
+    }
 
-	@Override
-	public Optional<FormatManager<?>> getComponentManager()
-	{
-		return Optional.empty();
-	}
+    @Override
+    public Optional<FormatManager<?>> getComponentManager()
+    {
+        return Optional.empty();
+    }
 
 }

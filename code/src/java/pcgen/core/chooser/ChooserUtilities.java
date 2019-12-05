@@ -33,123 +33,112 @@ import pcgen.core.Skill;
 
 /**
  * The guts of chooser moved from PObject
- * 
  */
 
 public final class ChooserUtilities
 {
-	private ChooserUtilities()
-	{
-	}
+    private ChooserUtilities()
+    {
+    }
 
-	/**
-	 * Deal with CHOOSE tags. The actual items the choice will be made from are
-	 * based on the choiceString, as applied to current character. Choices
-	 * already made (getAssociatedList) are indicated in the selectedList. This
-	 * method may also be used to build a list of choices available and choices
-	 * already made by passing false in the process parameter
-	 * 
-	 * @param availableList
-	 *            the list of things not already chosen
-	 * @param selectedList
-	 *            the list of things already chosen
-	 * @param aPC
-	 *            the PC that owns the Ability
-	 * @param addIt
-	 *            Whether to add or remove a choice from this Ability
-	 * @param category
-	 *            The AbilityCategory whose pool will be charged for the ability
-	 *            (if any). May be null.
-	 * 
-	 * @return true if we processed the list of choices, false if we used the
-	 *         routine to build the list of choices without processing them.
-	 */
-	public static boolean modChoices(final ChooseDriver aPObject, List availableList, final List selectedList,
-		final PlayerCharacter aPC, final boolean addIt, final AbilityCategory category)
-	{
-		availableList.clear();
-		selectedList.clear();
-		List reservedList = new ArrayList();
+    /**
+     * Deal with CHOOSE tags. The actual items the choice will be made from are
+     * based on the choiceString, as applied to current character. Choices
+     * already made (getAssociatedList) are indicated in the selectedList. This
+     * method may also be used to build a list of choices available and choices
+     * already made by passing false in the process parameter
+     *
+     * @param availableList the list of things not already chosen
+     * @param selectedList  the list of things already chosen
+     * @param aPC           the PC that owns the Ability
+     * @param addIt         Whether to add or remove a choice from this Ability
+     * @param category      The AbilityCategory whose pool will be charged for the ability
+     *                      (if any). May be null.
+     * @return true if we processed the list of choices, false if we used the
+     * routine to build the list of choices without processing them.
+     */
+    public static boolean modChoices(final ChooseDriver aPObject, List availableList, final List selectedList,
+            final PlayerCharacter aPC, final boolean addIt, final AbilityCategory category)
+    {
+        availableList.clear();
+        selectedList.clear();
+        List reservedList = new ArrayList();
 
-		ChoiceManagerList aMan = getConfiguredController(aPObject, aPC, category, reservedList);
-		if (aMan == null)
-		{
-			return false;
-		}
+        ChoiceManagerList aMan = getConfiguredController(aPObject, aPC, category, reservedList);
+        if (aMan == null)
+        {
+            return false;
+        }
 
-		aMan.getChoices(aPC, availableList, selectedList);
+        aMan.getChoices(aPC, availableList, selectedList);
 
-		if (!availableList.isEmpty() || !selectedList.isEmpty())
-		{
-			if (addIt)
-			{
-				final List newSelections = aMan.doChooser(aPC, availableList, selectedList, reservedList);
-				return aMan.applyChoices(aPC, newSelections);
-			}
-			else
-			{
-				aMan.doChooserRemove(aPC, availableList, selectedList, reservedList);
-			}
-			return true;
-		}
-		return false;
-	}
+        if (!availableList.isEmpty() || !selectedList.isEmpty())
+        {
+            if (addIt)
+            {
+                final List newSelections = aMan.doChooser(aPC, availableList, selectedList, reservedList);
+                return aMan.applyChoices(aPC, newSelections);
+            } else
+            {
+                aMan.doChooserRemove(aPC, availableList, selectedList, reservedList);
+            }
+            return true;
+        }
+        return false;
+    }
 
-	public static <T> ChoiceManagerList<T> getConfiguredController(final ChooseDriver aPObject,
-		final PlayerCharacter aPC, final AbilityCategory category, List<String> reservedList)
-	{
-		ChoiceManagerList aMan = getChoiceManager(aPObject, aPC);
-		if (aMan == null)
-		{
-			return null;
-		}
+    public static <T> ChoiceManagerList<T> getConfiguredController(final ChooseDriver aPObject,
+            final PlayerCharacter aPC, final AbilityCategory category, List<String> reservedList)
+    {
+        ChoiceManagerList aMan = getChoiceManager(aPObject, aPC);
+        if (aMan == null)
+        {
+            return null;
+        }
 
-		if (aPObject instanceof CNAbility)
-		{
-			CNAbility driver = (CNAbility) aPObject;
-			Ability a = driver.getAbility();
-			AbilityCategory cat;
-			if (category == null)
-			{
-				cat = SettingsHandler.getGame().getAbilityCategory(a.getCategory());
-			}
-			else
-			{
-				cat = category;
-			}
-			aMan.setController(new AbilityChooseController(a, cat, aPC, aMan));
-			List<CNAbility> abilities = aPC.getMatchingCNAbilities(a);
-			for (CNAbility cna : abilities)
-			{
-				reservedList.addAll(aPC.getAssociationList(cna));
-			}
-		}
-		else if (aPObject instanceof Skill)
-		{
-			Skill s = (Skill) aPObject;
-			aMan.setController(new SkillChooseController(s, aPC));
-		}
-		return aMan;
-	}
+        if (aPObject instanceof CNAbility)
+        {
+            CNAbility driver = (CNAbility) aPObject;
+            Ability a = driver.getAbility();
+            AbilityCategory cat;
+            if (category == null)
+            {
+                cat = SettingsHandler.getGame().getAbilityCategory(a.getCategory());
+            } else
+            {
+                cat = category;
+            }
+            aMan.setController(new AbilityChooseController(a, cat, aPC, aMan));
+            List<CNAbility> abilities = aPC.getMatchingCNAbilities(a);
+            for (CNAbility cna : abilities)
+            {
+                reservedList.addAll(aPC.getAssociationList(cna));
+            }
+        } else if (aPObject instanceof Skill)
+        {
+            Skill s = (Skill) aPObject;
+            aMan.setController(new SkillChooseController(s, aPC));
+        }
+        return aMan;
+    }
 
-	/**
-	 * Make a ChoiceManager Object for the chooser appropriate for
-	 * aPObject.getChoiceString();
-	 * 
-	 * @param aPObject
-	 * @param aPC
-	 * 
-	 * @return an initialized ChoiceManager
-	 */
-	public static ChoiceManagerList getChoiceManager(ChooseDriver aPObject, PlayerCharacter aPC)
-	{
-		ChooseInformation<?> chooseInfo = aPObject.getChooseInfo();
-		if (chooseInfo != null)
-		{
-			Formula selectionsPerUnitCost = aPObject.getSelectFormula();
-			int cost = selectionsPerUnitCost.resolve(aPC, "").intValue();
-			return chooseInfo.getChoiceManager(aPObject, cost);
-		}
-		return null;
-	}
+    /**
+     * Make a ChoiceManager Object for the chooser appropriate for
+     * aPObject.getChoiceString();
+     *
+     * @param aPObject
+     * @param aPC
+     * @return an initialized ChoiceManager
+     */
+    public static ChoiceManagerList getChoiceManager(ChooseDriver aPObject, PlayerCharacter aPC)
+    {
+        ChooseInformation<?> chooseInfo = aPObject.getChooseInfo();
+        if (chooseInfo != null)
+        {
+            Formula selectionsPerUnitCost = aPObject.getSelectFormula();
+            int cost = selectionsPerUnitCost.resolve(aPC, "").intValue();
+            return chooseInfo.getChoiceManager(aPObject, cost);
+        }
+        return null;
+    }
 }

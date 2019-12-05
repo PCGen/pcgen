@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -27,46 +27,46 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * DEITY token for KitDeity 
+ * DEITY token for KitDeity
  */
 public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements CDOMPrimaryToken<KitDeity>
 {
 
-	private static final Class<Deity> DEITY_CLASS = Deity.class;
+    private static final Class<Deity> DEITY_CLASS = Deity.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "DEITY";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "DEITY";
+    }
 
-	@Override
-	public Class<KitDeity> getTokenClass()
-	{
-		return KitDeity.class;
-	}
+    @Override
+    public Class<KitDeity> getTokenClass()
+    {
+        return KitDeity.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitDeity kitDeity, String value)
-	{
-		CDOMSingleRef<Deity> ref = context.getReferenceContext().getCDOMReference(DEITY_CLASS, value);
-		kitDeity.setDeity(ref);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitDeity kitDeity, String value)
+    {
+        CDOMSingleRef<Deity> ref = context.getReferenceContext().getCDOMReference(DEITY_CLASS, value);
+        kitDeity.setDeity(ref);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitDeity kitDeity)
-	{
-		CDOMSingleRef<Deity> deity = kitDeity.getDeityRef();
-		if (deity == null)
-		{
-			return null;
-		}
-		return new String[]{deity.getLSTformat(false)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitDeity kitDeity)
+    {
+        CDOMSingleRef<Deity> deity = kitDeity.getDeityRef();
+        if (deity == null)
+        {
+            return null;
+        }
+        return new String[]{deity.getLSTformat(false)};
+    }
 }

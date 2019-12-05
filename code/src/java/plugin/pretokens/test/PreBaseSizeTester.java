@@ -31,29 +31,31 @@ import pcgen.rules.context.AbstractReferenceContext;
 public class PreBaseSizeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source) {
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
+    {
+        int runningTotal = 0;
 
-		if ((pc.getRace() != null) && !pc.getRace().isUnselected())
-		{
-			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			SizeAdjustment sa = ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, prereq.getOperand());
-			int targetSize = sa.get(IntegerKey.SIZEORDER);
-			runningTotal = prereq.getOperator().compare(pc.racialSizeInt(), targetSize);
-		}
+        if ((pc.getRace() != null) && !pc.getRace().isUnselected())
+        {
+            AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+            SizeAdjustment sa = ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, prereq.getOperand());
+            int targetSize = sa.get(IntegerKey.SIZEORDER);
+            runningTotal = prereq.getOperator().compare(pc.racialSizeInt(), targetSize);
+        }
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "BASESIZE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "BASESIZE"; //$NON-NLS-1$
+    }
 
 }

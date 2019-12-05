@@ -32,95 +32,95 @@ import org.junit.jupiter.api.Test;
 public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 {
 
-	private final XPTableFacet facet = new XPTableFacet();
+    private final XPTableFacet facet = new XPTableFacet();
 
-	@Override
-	protected AbstractItemFacet<CharID, XPTable> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractItemFacet<CharID, XPTable> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected XPTable getItem()
-	{
-		XPTable xpt = new XPTable();
-		xpt.setName("XPTable" + n++);
-		return xpt;
-	}
-	
-	@Test
-	public void testGetLevelInfoNegLevel()
-	{
-		XPTable t1 = getItem();
-		CharID id = getCharID();
-		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, -1));
-	}
+    @Override
+    protected XPTable getItem()
+    {
+        XPTable xpt = new XPTable();
+        xpt.setName("XPTable" + n++);
+        return xpt;
+    }
 
-	@Test
-	public void testGetLevelInfoZeroLevel()
-	{
-		XPTable t1 = getItem();
-		CharID id = getCharID();
-		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, 0));
-	}
+    @Test
+    public void testGetLevelInfoNegLevel()
+    {
+        XPTable t1 = getItem();
+        CharID id = getCharID();
+        facet.set(id, t1);
+        assertNull(facet.getLevelInfo(id, -1));
+    }
 
-	@Test
-	public void testGetLevelInfoNoTable()
-	{
-		CharID id = getCharID();
-		assertNull(facet.getLevelInfo(id, 1));
-	}
-	
-	@Test
-	public void testGetLevelInfoEmptyTable()
-	{
-		XPTable t1 = getItem();
-		CharID id = getCharID();
-		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, 1));
-	}
+    @Test
+    public void testGetLevelInfoZeroLevel()
+    {
+        XPTable t1 = getItem();
+        CharID id = getCharID();
+        facet.set(id, t1);
+        assertNull(facet.getLevelInfo(id, 0));
+    }
 
-	@Test
-	public void testGetLevelInfo()
-	{
-		XPTable t1 = getItem();
-		LevelInfo li = new LevelInfo();
-		t1.addLevelInfo("1", li);
-		CharID id = getCharID();
-		facet.set(id, t1);
-		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNotNull(xpt);
-		assertSame(li, xpt);
-	}
+    @Test
+    public void testGetLevelInfoNoTable()
+    {
+        CharID id = getCharID();
+        assertNull(facet.getLevelInfo(id, 1));
+    }
 
-	@Test
-	public void testGetLevelInfoWrongLevel()
-	{
-		XPTable t1 = getItem();
-		LevelInfo li = new LevelInfo();
-		t1.addLevelInfo("2", li);
-		CharID id = getCharID();
-		facet.set(id, t1);
-		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNull(xpt);
-	}
-	
-	@Test
-	public void testGetLevelInfoLevel()
-	{
-		XPTable t1 = getItem();
-		LevelInfo li = new LevelInfo();
-		t1.addLevelInfo("LEVEL", li);
-		CharID id = getCharID();
-		facet.set(id, t1);
-		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNotNull(xpt);
-		assertSame(li, xpt);
-	}
-	
+    @Test
+    public void testGetLevelInfoEmptyTable()
+    {
+        XPTable t1 = getItem();
+        CharID id = getCharID();
+        facet.set(id, t1);
+        assertNull(facet.getLevelInfo(id, 1));
+    }
+
+    @Test
+    public void testGetLevelInfo()
+    {
+        XPTable t1 = getItem();
+        LevelInfo li = new LevelInfo();
+        t1.addLevelInfo("1", li);
+        CharID id = getCharID();
+        facet.set(id, t1);
+        LevelInfo xpt = facet.getLevelInfo(id, 1);
+        assertNotNull(xpt);
+        assertSame(li, xpt);
+    }
+
+    @Test
+    public void testGetLevelInfoWrongLevel()
+    {
+        XPTable t1 = getItem();
+        LevelInfo li = new LevelInfo();
+        t1.addLevelInfo("2", li);
+        CharID id = getCharID();
+        facet.set(id, t1);
+        LevelInfo xpt = facet.getLevelInfo(id, 1);
+        assertNull(xpt);
+    }
+
+    @Test
+    public void testGetLevelInfoLevel()
+    {
+        XPTable t1 = getItem();
+        LevelInfo li = new LevelInfo();
+        t1.addLevelInfo("LEVEL", li);
+        CharID id = getCharID();
+        facet.set(id, t1);
+        LevelInfo xpt = facet.getLevelInfo(id, 1);
+        assertNotNull(xpt);
+        assertSame(li, xpt);
+    }
+
 
 }

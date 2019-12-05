@@ -32,72 +32,71 @@ import pcgen.rules.persistence.token.ParseResult;
 public class UmultLst extends AbstractIntToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "UMULT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "UMULT";
+    }
 
-	@Override
-	protected IntegerKey integerKey()
-	{
-		return IntegerKey.UMULT;
-	}
+    @Override
+    protected IntegerKey integerKey()
+    {
+        return IntegerKey.UMULT;
+    }
 
-	@Override
-	protected int minValue()
-	{
-		return 1;
-	}
+    @Override
+    protected int minValue()
+    {
+        return 1;
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (obj instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
-		}
-		if (Constants.LST_DOT_CLEAR.equals(value))
-		{
-			context.getObjectContext().remove(obj, IntegerKey.UMULT);
-			return ParseResult.SUCCESS;
-		}
-		else
-		{
-			return super.parseToken(context, obj, value);
-		}
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (obj instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
+        }
+        if (Constants.LST_DOT_CLEAR.equals(value))
+        {
+            context.getObjectContext().remove(obj, IntegerKey.UMULT);
+            return ParseResult.SUCCESS;
+        } else
+        {
+            return super.parseToken(context, obj, value);
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Integer mult = context.getObjectContext().getInteger(obj, IntegerKey.UMULT);
-		boolean b = context.getObjectContext().wasRemoved(obj, IntegerKey.UMULT);
-		List<String> list = new ArrayList<>();
-		if (b)
-		{
-			list.add(Constants.LST_DOT_CLEAR);
-		}
-		if (mult != null)
-		{
-			if (mult <= 0)
-			{
-				context.addWriteMessage(getTokenName() + " must be an integer > 0");
-				return null;
-			}
-			list.add(mult.toString());
-		}
-		if (list.isEmpty())
-		{
-			return null;
-		}
-		return list.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        Integer mult = context.getObjectContext().getInteger(obj, IntegerKey.UMULT);
+        boolean b = context.getObjectContext().wasRemoved(obj, IntegerKey.UMULT);
+        List<String> list = new ArrayList<>();
+        if (b)
+        {
+            list.add(Constants.LST_DOT_CLEAR);
+        }
+        if (mult != null)
+        {
+            if (mult <= 0)
+            {
+                context.addWriteMessage(getTokenName() + " must be an integer > 0");
+                return null;
+            }
+            list.add(mult.toString());
+        }
+        if (list.isEmpty())
+        {
+            return null;
+        }
+        return list.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

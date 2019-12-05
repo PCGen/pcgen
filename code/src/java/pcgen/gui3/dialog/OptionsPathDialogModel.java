@@ -23,10 +23,10 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class OptionsPathDialogModel
 {
-	private final Property<String> directory = new SimpleStringProperty();
+    private final Property<String> directory = new SimpleStringProperty();
 
-	Property<String> directoryProperty()
-	{
-		return directory;
-	}
+    Property<String> directoryProperty()
+    {
+        return directory;
+    }
 }

@@ -34,33 +34,33 @@ import pcgen.facade.core.InfoFacade;
 @SuppressWarnings("serial")
 public final class Domain extends PObject implements InfoFacade, ChooseDriver
 {
-	@Override
-	public ChooseInformation<?> getChooseInfo()
-	{
-		return get(ObjectKey.CHOOSE_INFO);
-	}
+    @Override
+    public ChooseInformation<?> getChooseInfo()
+    {
+        return get(ObjectKey.CHOOSE_INFO);
+    }
 
-	@Override
-	public Formula getSelectFormula()
-	{
-		return getSafe(FormulaKey.SELECT);
-	}
+    @Override
+    public Formula getSelectFormula()
+    {
+        return getSafe(FormulaKey.SELECT);
+    }
 
-	@Override
-	public List<ChooseSelectionActor<?>> getActors()
-	{
-		return getListFor(ListKey.NEW_CHOOSE_ACTOR);
-	}
+    @Override
+    public List<ChooseSelectionActor<?>> getActors()
+    {
+        return getListFor(ListKey.NEW_CHOOSE_ACTOR);
+    }
 
-	@Override
-	public String getFormulaSource()
-	{
-		return getKeyName();
-	}
+    @Override
+    public String getFormulaSource()
+    {
+        return getKeyName();
+    }
 
-	@Override
-	public Formula getNumChoices()
-	{
-		return getSafe(FormulaKey.NUMCHOICES);
-	}
+    @Override
+    public Formula getNumChoices()
+    {
+        return getSafe(FormulaKey.NUMCHOICES);
+    }
 }

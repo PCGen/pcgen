@@ -29,38 +29,38 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class LocationToken extends AbstractNonEmptyToken<KitGear> implements CDOMPrimaryToken<KitGear>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "LOCATION";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "LOCATION";
+    }
 
-	@Override
-	public Class<KitGear> getTokenClass()
-	{
-		return KitGear.class;
-	}
+    @Override
+    public Class<KitGear> getTokenClass()
+    {
+        return KitGear.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
-	{
-		kitGear.setLocation(value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
+    {
+        kitGear.setLocation(value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitGear kitGear)
-	{
-		String bd = kitGear.getLocation();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitGear kitGear)
+    {
+        String bd = kitGear.getLocation();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd};
+    }
 }

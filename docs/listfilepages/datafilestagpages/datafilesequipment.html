@@ -1,2217 +1,2217 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
-                Chris Chandler - barakAThughesDOTnet
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Chris Chandler - barakAThughesDOTnet
 
-                Description:
-                Provides information on the content of PCGen Equipment Files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Equipment Files
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Equipment Files
-  </h1>
-  <p>
-   Equipment files are where all equipment is listed, given it's
-important information for the correct output.
-  </p>
-  <p>
-   This section consists of two major sections:
-   <a href="#equipmentbuilding">
-    Building Equipment
-   </a>
-   and the
-   <a href="#tagdictionary">
-    Equipment Tag Dictionary
-   </a>
-   .
-  </p>
-  <hr/>
-  <h2>
-   <a id="equipmentbuilding" name="equipmentbuilding">
-    Building a
-Piece of Equipment
-   </a>
-  </h2>
-  <p class="indent0">
-   The Equipment file consists of a number of lines
-with tab-delimited text entries with each line representing one
-piece of equipment.
-  </p>
-  <p>
-   The first entry on any line is the item's name and is required.
-This first list of tags is relevant to all equipment
-  </p>
-  <p class="indent2">
-   <code>Clothing Outfit (Business)</code>
-  </p>
-  <p class="indent3">
-   The item named "Clothing Outfit (Business)" is
-to be created.
-  </p>
-  <p class="indent2">
-   <code>Handbag.MOD</code>
-  </p>
-  <p class="indent3">
-   The item named "Handbag" is to be modified.
-  </p>
-  <p class="indent2">
-   <code>Light-Duty Vest.COPY=Vest
-(Concealable/w.Outershell)</code>
-  </p>
-  <p class="indent3">
-   Copy the equipment "Light-Duty Vest" and rename
-to "Vest (Concealable/w.Outershell)" in all aspects.
-  </p>
-  <hr/>
-  <h2>
-   <a id="tagdictionary" name="tagdictionary">
-    Equipment Tag
-Dictionary
-   </a>
-  </h2>
-  <p class="indent0">
-   The Equipment Tag Dictionary is broken into two
-sub-sections:
-   <a href="#generaltaglist">
-    The General Tag List
-   </a>
-   ,
-and the
-   <a href="#weaponarmortaglist">
-    Weapon/Armor Tag
-List
-   </a>
-   .
-  </p>
-  <hr/>
-  <h3>
-   <a id="generaltaglist" name="generaltaglist">
-    General Equipment
-Tags
-   </a>
-  </h3>
-  <p>
-   The following tags may be used in all equipment.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="baseitem" name="baseitem">
-     Tag
-Name:
+               Description:
+               Provides information on the content of PCGen Equipment Files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Equipment Files
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Equipment Files
+</h1>
+<p>
+    Equipment files are where all equipment is listed, given it's
+    important information for the correct output.
+</p>
+<p>
+    This section consists of two major sections:
+    <a href="#equipmentbuilding">
+        Building Equipment
     </a>
-   </strong>
-   BASEITEM:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (name
-of base item)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag allows the creation of a new specific item based upon
-an existing item.
-   </li>
-   <li>
-    <code>BASEITEM</code>
-    must be used in conjunction with the
-    <code>EQMOD</code>
-    tag.
-   </li>
-   <li>
-    Eqmods listed in the
-    <code>EQMOD</code>
-    tag are applied to the
-base item prior to the application of any other included tags.
-   </li>
-  </ul>
-  <p class="sidebar1">
-   NOTE: This tag will not copy any of the base
-item's existing tags so you will need to add them yourself. The
-   <code>.COPY</code>
-   tag will perform this same function but will
-copy all tags to the new item, verbatim, prior to adding any new
-tags. (See
-   <a href="../globalfilestagpages/globalfilesother.html#copy">
-    .COPY
-   </a>
-   docs)
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <blockquote class="indent2">
-   <p class="tagindent1">
-    <code>Davril's Longsword &lt;tab&gt;
-BONUS:COMBAT|DAMAGE,TOHIT|2 &lt;tab&gt; BASEITEM:Longsword
-&lt;tab&gt; EQMOD:BANE_M|Undead.HOLY_M.KEEN</code>
-   </p>
-  </blockquote>
-  <p class="indent3">
-   Creates a piece of equipment called "Davril's
-Longsword" that is a +2 weapon. The SPROPS and effects from the
-equipment modifiers "Bane Undead", "Holy" and "Keen" will appear in
-the attack numbers and special properties as appropriate.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="baseqty" name="baseqty">
-     Tag
-Name:
+    and the
+    <a href="#tagdictionary">
+        Equipment Tag Dictionary
     </a>
-   </strong>
-   BASEQTY:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(standard bundle quantity)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The numeric value supplied is the number of
-items in this bundle. ie. Arrows (20) should have.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BASEQTY:20</code>
-  </p>
-  <p class="indent3">
-   20 items in a bundle (e.g. Arrows).
-  </p>
-  <hr/>
-  <p class="status">
+    .
+</p>
+<hr/>
+<h2>
+    <a id="equipmentbuilding" name="equipmentbuilding">
+        Building a
+        Piece of Equipment
+    </a>
+</h2>
+<p class="indent0">
+    The Equipment file consists of a number of lines
+    with tab-delimited text entries with each line representing one
+    piece of equipment.
+</p>
+<p>
+    The first entry on any line is the item's name and is required.
+    This first list of tags is relevant to all equipment
+</p>
+<p class="indent2">
+    <code>Clothing Outfit (Business)</code>
+</p>
+<p class="indent3">
+    The item named "Clothing Outfit (Business)" is
+    to be created.
+</p>
+<p class="indent2">
+    <code>Handbag.MOD</code>
+</p>
+<p class="indent3">
+    The item named "Handbag" is to be modified.
+</p>
+<p class="indent2">
+    <code>Light-Duty Vest.COPY=Vest
+        (Concealable/w.Outershell)</code>
+</p>
+<p class="indent3">
+    Copy the equipment "Light-Duty Vest" and rename
+    to "Vest (Concealable/w.Outershell)" in all aspects.
+</p>
+<hr/>
+<h2>
+    <a id="tagdictionary" name="tagdictionary">
+        Equipment Tag
+        Dictionary
+    </a>
+</h2>
+<p class="indent0">
+    The Equipment Tag Dictionary is broken into two
+    sub-sections:
+    <a href="#generaltaglist">
+        The General Tag List
+    </a>
+    ,
+    and the
+    <a href="#weaponarmortaglist">
+        Weapon/Armor Tag
+        List
+    </a>
+    .
+</p>
+<hr/>
+<h3>
+    <a id="generaltaglist" name="generaltaglist">
+        General Equipment
+        Tags
+    </a>
+</h3>
+<p>
+    The following tags may be used in all equipment.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="baseitem" name="baseitem">
+            Tag
+            Name:
+        </a>
+    </strong>
+    BASEITEM:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (name
+    of base item)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag allows the creation of a new specific item based upon
+        an existing item.
+    </li>
+    <li>
+        <code>BASEITEM</code>
+        must be used in conjunction with the
+        <code>EQMOD</code>
+        tag.
+    </li>
+    <li>
+        Eqmods listed in the
+        <code>EQMOD</code>
+        tag are applied to the
+        base item prior to the application of any other included tags.
+    </li>
+</ul>
+<p class="sidebar1">
+    NOTE: This tag will not copy any of the base
+    item's existing tags so you will need to add them yourself. The
+    <code>.COPY</code>
+    tag will perform this same function but will
+    copy all tags to the new item, verbatim, prior to adding any new
+    tags. (See
+    <a href="../globalfilestagpages/globalfilesother.html#copy">
+        .COPY
+    </a>
+    docs)
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<blockquote class="indent2">
+    <p class="tagindent1">
+        <code>Davril's Longsword &lt;tab&gt;
+            BONUS:COMBAT|DAMAGE,TOHIT|2 &lt;tab&gt; BASEITEM:Longsword
+            &lt;tab&gt; EQMOD:BANE_M|Undead.HOLY_M.KEEN</code>
+    </p>
+</blockquote>
+<p class="indent3">
+    Creates a piece of equipment called "Davril's
+    Longsword" that is a +2 weapon. The SPROPS and effects from the
+    equipment modifiers "Bane Undead", "Holy" and "Keen" will appear in
+    the attack numbers and special properties as appropriate.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="baseqty" name="baseqty">
+            Tag
+            Name:
+        </a>
+    </strong>
+    BASEQTY:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (standard bundle quantity)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The numeric value supplied is the number of
+    items in this bundle. ie. Arrows (20) should have.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BASEQTY:20</code>
+</p>
+<p class="indent3">
+    20 items in a bundle (e.g. Arrows).
+</p>
+<hr/>
+<p class="status">
    <span class="status">
     <a id="contains" name="contains">
      *** Updated 5.14.0
     </a>
    </span>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   CONTAINS:x|y=z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Weight held)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Item
-type)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Total
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Number
-(Quantity allowed)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag is used to define how much, by weight and what type of
-object, a container can hold.
-   </li>
-   <li>
-    Any object with
-    <code>CONTAINS</code>
-    must also include a
-    <code>TYPE:Container</code>
-    tag for the
-    <code>CONTAINS</code>
-    tag
-to be activated.
-   </li>
-   <li>
-    The first parameter (x) is the maximum weight the container can
-hold.
-    <ul>
-     <li>
-      An asterisk (*) means that the weight added doesn't change the
-weight of the container (e.g. a Bag of Holding).
-     </li>
-     <li>
-      A number followed by a percentage (%) symbol before the
-quantity will reduce the total encumbrance weight of items in the
-container by the percentage specified.
-     </li>
-     <li>
-      The name of the weight unit is defined in the game mode system
-files in the
-      <span class="lstfile">
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    CONTAINS:x|y=z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Weight held)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Item
+    type)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Total
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Number
+    (Quantity allowed)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag is used to define how much, by weight and what type of
+        object, a container can hold.
+    </li>
+    <li>
+        Any object with
+        <code>CONTAINS</code>
+        must also include a
+        <code>TYPE:Container</code>
+        tag for the
+        <code>CONTAINS</code>
+        tag
+        to be activated.
+    </li>
+    <li>
+        The first parameter (x) is the maximum weight the container can
+        hold.
+        <ul>
+            <li>
+                An asterisk (*) means that the weight added doesn't change the
+                weight of the container (e.g. a Bag of Holding).
+            </li>
+            <li>
+                A number followed by a percentage (%) symbol before the
+                quantity will reduce the total encumbrance weight of items in the
+                container by the percentage specified.
+            </li>
+            <li>
+                The name of the weight unit is defined in the game mode system
+                files in the
+                <span class="lstfile">
        miscinfo.lst
       </span>
-      file with
-the tag
-      <code>WEIGHTUNITABBREV</code>
-      .
-     </li>
-    </ul>
-   </li>
-   <li>
-    The second parameter (y) identifies the type of items the
-container may hold.
-    <ul>
-     <li>
-      If there are no type's specified the container may hold
-anything
-     </li>
-     <li>
-      Specific tags (Potions, Rings, Armor, etc) can be specified
-with a limit to how many can be in the container (e.g. Scroll
-Case)
-     </li>
-     <li>
-      If specific tags are used the container may only hold the
-listed object types.
-     </li>
-     <li>
-      A limit to the total number of things contained can be
-specified by setting a Total=x tag.
-     </li>
-    </ul>
-   </li>
-   <li>
-    The third parameter (z) identifies the quantity allowed for the
-associated type of items.
-   </li>
-  </ul>
-  <p class="sidebar1">
-   <strong>
-    Note:
-   </strong>
-   <code>UNLIM</code>
-   may
-be used, in either (x) or (z), to indicate an unlimited weight
-allowance for the container or the item type quantity. If no value
-is provided for (z),
-   <code>UNLIM</code>
-   is assumed. PCGen's Data
-Converter will remove
-   <code>UNLIM</code>
-   when converting a data
-file.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:500</code>
-  </p>
-  <p class="indent3">
-   500 units of weight can fit in this
-container.
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:*500</code>
-  </p>
-  <p class="indent3">
-   500 units of weight can fit in this container
-and this is not added to the PCs carried weight.
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:50%50|Any=25</code>
-  </p>
-  <p class="indent3">
-   Holds up to 25 items of up to 50 units of
-weight, but the total weight contained is reduced 50%.
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:25%UNLIM|Any=100</code>
-  </p>
-  <p class="indent3">
-   Holds up to 100 items no matter the weight, but
-total weight contained is reduced 25%.
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:500|Potions=100</code>
-  </p>
-  <p class="indent3">
-   500 units of weight can fit in this container,
-but only 100 potions fit.
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:UNLIM</code>
-  </p>
-  <p class="indent3">
-   This container has an unlimited weight
-allowance.
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:UNLIM|Any=100</code>
-  </p>
-  <p class="indent3">
-   Holds 100 things, no matter what the weight.
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:UNLIM|Total=10|Paper=10|Scroll=10</code>
-  </p>
-  <p class="indent3">
-   Holds 10 papers or 10 scrolls, or any
-combination of these up to 10, no matter what the weight.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="cost" name="cost">
-     Tag
-Name:
-    </a>
-   </strong>
-   COST:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(gold coin cost)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The cost of the item.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>COST:5</code>
-  </p>
-  <p class="indent3">
-   Item costs 5 gold pieces.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="edr" name="edr">
-    *** Updated 5.14.0
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   EDR:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Integer greater than zero)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets the Effective Damage Resistance of an
-item.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EDR:5</code>
-  </p>
-  <p class="indent3">
-   Item takes 5 points to destroy.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eqmod" name="eqmod">
-     Tag
-Name:
-    </a>
-   </strong>
-   EQMOD:x|y|y.x|y|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Equipment modifier KEY)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Variable values)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Chooser responses)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Applies the included eqmods to an item.
-   </li>
-   <li>
-    The eqmods are a period-delimited (.) list of equipment
-modifier KEYs.
-   </li>
-   <li>
-    Eqmods (x) may include a pipe-delimited (|) list of variable
-values (y) or chooser responses (y) determined by the built-in
-variables or choosers of the eqmod itself. See
-    <em>
-     rsrd_equipmods_enhancing.lst
-    </em>
-    for examples of eqmods.
-   </li>
-   <li>
-    When used in conjunction with
-    <code>BASEITEM</code>
-    , the eqmod
-is automatically applied to the base item and is applied before
-looking at other tags.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQMOD:KEEN.BANE|Undead</code>
-  </p>
-  <p class="indent3">
-   Creates a sword that is keen and also has Bane
-Undead.
-  </p>
-  <p class="indent2">
-   <code>EQMOD:ABILITYPLUS|STR+2</code>
-  </p>
-  <p class="indent3">
-   Applies a +2 strength bonus to the character
-when using the item.
-  </p>
-  <p class="indent2">
-   <code>Leather Armor.MOD &lt;tab&gt;
-EQMOD:DR_CONVERSION_ARCHAIC|2</code>
-  </p>
-  <p class="indent3">
-   Applies a damage reduction bonus of 2 to the
-character when using the item.
-  </p>
-  <blockquote class="indent2">
-   <p class="tagindent1">
-    <code>Rod (Absorption) &lt;TAB&gt;
-OUTPUTNAME:Rod of [NAME] &lt;TAB&gt; TYPE:Magic.Rod &lt;TAB&gt;
-COST:50000 &lt;TAB&gt; WT:5 &lt;TAB&gt; BASEITEM:Rod &lt;TAB&gt;
-EQMOD:CHARGED_ITEM_50|CHARGES[50] &lt;TAB&gt;
-SOURCEPAGE:MagicItemsIII.rtf</code>
-   </p>
-  </blockquote>
-  <p class="indent3">
-   Creates a magical rod called "Rod of Absorption"
-with 50 charges.
-  </p>
-  <hr/>
-  <p class="lststatus">
-   <a id="icon" name="icon">
-    *** Added
-5.17.7
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ICON:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (file
-path)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This occurs on an equipment line and sets the
-path to the icon to be used for the equipment item. The path is
-relative to the pcgen install folder. The same @, &amp; and *
-shortcuts as are used in PCC files may be used in the path to
-specify where the path is relative to.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ICON:@/d20ogl/srd35/icons/backpack.png</code>
-  </p>
-  <p class="indent3">
-   The icon for this item will be
-d20ogl/srd35/icons/backpack.png relative to the data directory.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="mods" name="mods">
-     Tag
-Name:
-    </a>
-   </strong>
-   MODS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   YES
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   NO
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   REQUIRED
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Is either YES (default), which means it can have
-equipment modifiers added to it, NO, no equipment modifiers can be
-added, or REQUIRED, must have at least 1 equipment modifier in
-order to purchase the item.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MODS:YES</code>
-  </p>
-  <p class="indent3">
-   Item can have equipment modifiers added.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="numpages" name="numpages">
-    *** Added
-5.9.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   NUMPAGES:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of pages in spell book)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the number of pages in the spellbook.
-Any equipment item with TYPE:Spellbook will appear in the Spellbook
-sub-tab of the Spells Tab.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>NUMPAGES:100</code>
-  </p>
-  <p class="indent3">
-   Spell book with 100 pages.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="pageusage" name="pageusage">
-    *** Added
-5.9.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   PAGEUSAGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Formula
-(Number of pages each spell will use)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the how many pages of the spellbook each
-spell would use. The variable SPELLLEVEL can be used to make
-calculations based on the spell's level. Any equipment item with
-TYPE:Spellbook will appear in the Spellbook sub-tab of the Spells
-Tab.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PAGEUSAGE:max(SPELLLEVEL*2,1)</code>
-  </p>
-  <p class="indent3">
-   Each spell will use 2 pages per level (3.0
-standard spellbook).
-  </p>
-  <p class="indent2">
-   <code>PAGEUSAGE:1</code>
-  </p>
-  <p class="indent3">
-   Each spell will use a single page (Blessed
-Book).
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="pretype" name="pretype">
-     Tag
-Name:
-    </a>
-   </strong>
-   PRETYPE:x,y,y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-number of types that must match the specified requirements).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Equipment type).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   EQMODTYPE=Text (Equipment Modifier type).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   EQMOD=Text
-(Equipment Modifier KEY).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Make specific Types or Equipment Modifiers a prerequisite.
-   </li>
-   <li>
-    <code>EQMODTYPE</code>
-    checks for the
+                file with
+                the tag
+                <code>WEIGHTUNITABBREV</code>
+                .
+            </li>
+        </ul>
+    </li>
+    <li>
+        The second parameter (y) identifies the type of items the
+        container may hold.
+        <ul>
+            <li>
+                If there are no type's specified the container may hold
+                anything
+            </li>
+            <li>
+                Specific tags (Potions, Rings, Armor, etc) can be specified
+                with a limit to how many can be in the container (e.g. Scroll
+                Case)
+            </li>
+            <li>
+                If specific tags are used the container may only hold the
+                listed object types.
+            </li>
+            <li>
+                A limit to the total number of things contained can be
+                specified by setting a Total=x tag.
+            </li>
+        </ul>
+    </li>
+    <li>
+        The third parameter (z) identifies the quantity allowed for the
+        associated type of items.
+    </li>
+</ul>
+<p class="sidebar1">
     <strong>
-     TYPE
+        Note:
     </strong>
-    in
-the applied Equipment Modifiers, not Equipment type.
-   </li>
-   <li>
-    <code>EQMOD</code>
-    checks for the specified
+    <code>UNLIM</code>
+    may
+    be used, in either (x) or (z), to indicate an unlimited weight
+    allowance for the container or the item type quantity. If no value
+    is provided for (z),
+    <code>UNLIM</code>
+    is assumed. PCGen's Data
+    Converter will remove
+    <code>UNLIM</code>
+    when converting a data
+    file.
+</p>
+<p class="indent1">
     <strong>
-     EQMOD
+        Examples:
     </strong>
-    by name or key.
-   </li>
-   <li>
-    <code>EQMOD</code>
-    can take an optional parameter of the form
-    <code>EQMOD=&lt;key&gt;(&lt;choice&gt;)</code>
-    , where the "choice"
-represents an item previously selected by an internal chooser for
-the specified
+</p>
+<p class="indent2">
+    <code>CONTAINS:500</code>
+</p>
+<p class="indent3">
+    500 units of weight can fit in this
+    container.
+</p>
+<p class="indent2">
+    <code>CONTAINS:*500</code>
+</p>
+<p class="indent3">
+    500 units of weight can fit in this container
+    and this is not added to the PCs carried weight.
+</p>
+<p class="indent2">
+    <code>CONTAINS:50%50|Any=25</code>
+</p>
+<p class="indent3">
+    Holds up to 25 items of up to 50 units of
+    weight, but the total weight contained is reduced 50%.
+</p>
+<p class="indent2">
+    <code>CONTAINS:25%UNLIM|Any=100</code>
+</p>
+<p class="indent3">
+    Holds up to 100 items no matter the weight, but
+    total weight contained is reduced 25%.
+</p>
+<p class="indent2">
+    <code>CONTAINS:500|Potions=100</code>
+</p>
+<p class="indent3">
+    500 units of weight can fit in this container,
+    but only 100 potions fit.
+</p>
+<p class="indent2">
+    <code>CONTAINS:UNLIM</code>
+</p>
+<p class="indent3">
+    This container has an unlimited weight
+    allowance.
+</p>
+<p class="indent2">
+    <code>CONTAINS:UNLIM|Any=100</code>
+</p>
+<p class="indent3">
+    Holds 100 things, no matter what the weight.
+</p>
+<p class="indent2">
+    <code>CONTAINS:UNLIM|Total=10|Paper=10|Scroll=10</code>
+</p>
+<p class="indent3">
+    Holds 10 papers or 10 scrolls, or any
+    combination of these up to 10, no matter what the weight.
+</p>
+<hr/>
+<p class="indent0">
     <strong>
-     EQMOD
+        <a id="cost" name="cost">
+            Tag
+            Name:
+        </a>
     </strong>
-    .
-   </li>
-  </ul>
-  <p class="sidebar0">
+    COST:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (gold coin cost)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The cost of the item.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>COST:5</code>
+</p>
+<p class="indent3">
+    Item costs 5 gold pieces.
+</p>
+<hr/>
+<p class="status">
+    <a id="edr" name="edr">
+        *** Updated 5.14.0
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    EDR:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Integer greater than zero)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets the Effective Damage Resistance of an
+    item.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EDR:5</code>
+</p>
+<p class="indent3">
+    Item takes 5 points to destroy.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eqmod" name="eqmod">
+            Tag
+            Name:
+        </a>
+    </strong>
+    EQMOD:x|y|y.x|y|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Equipment modifier KEY)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Variable values)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Chooser responses)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Applies the included eqmods to an item.
+    </li>
+    <li>
+        The eqmods are a period-delimited (.) list of equipment
+        modifier KEYs.
+    </li>
+    <li>
+        Eqmods (x) may include a pipe-delimited (|) list of variable
+        values (y) or chooser responses (y) determined by the built-in
+        variables or choosers of the eqmod itself. See
+        <em>
+            rsrd_equipmods_enhancing.lst
+        </em>
+        for examples of eqmods.
+    </li>
+    <li>
+        When used in conjunction with
+        <code>BASEITEM</code>
+        , the eqmod
+        is automatically applied to the base item and is applied before
+        looking at other tags.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQMOD:KEEN.BANE|Undead</code>
+</p>
+<p class="indent3">
+    Creates a sword that is keen and also has Bane
+    Undead.
+</p>
+<p class="indent2">
+    <code>EQMOD:ABILITYPLUS|STR+2</code>
+</p>
+<p class="indent3">
+    Applies a +2 strength bonus to the character
+    when using the item.
+</p>
+<p class="indent2">
+    <code>Leather Armor.MOD &lt;tab&gt;
+        EQMOD:DR_CONVERSION_ARCHAIC|2</code>
+</p>
+<p class="indent3">
+    Applies a damage reduction bonus of 2 to the
+    character when using the item.
+</p>
+<blockquote class="indent2">
+    <p class="tagindent1">
+        <code>Rod (Absorption) &lt;TAB&gt;
+            OUTPUTNAME:Rod of [NAME] &lt;TAB&gt; TYPE:Magic.Rod &lt;TAB&gt;
+            COST:50000 &lt;TAB&gt; WT:5 &lt;TAB&gt; BASEITEM:Rod &lt;TAB&gt;
+            EQMOD:CHARGED_ITEM_50|CHARGES[50] &lt;TAB&gt;
+            SOURCEPAGE:MagicItemsIII.rtf</code>
+    </p>
+</blockquote>
+<p class="indent3">
+    Creates a magical rod called "Rod of Absorption"
+    with 50 charges.
+</p>
+<hr/>
+<p class="lststatus">
+    <a id="icon" name="icon">
+        *** Added
+        5.17.7
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ICON:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (file
+    path)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This occurs on an equipment line and sets the
+    path to the icon to be used for the equipment item. The path is
+    relative to the pcgen install folder. The same @, &amp; and *
+    shortcuts as are used in PCC files may be used in the path to
+    specify where the path is relative to.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ICON:@/d20ogl/srd35/icons/backpack.png</code>
+</p>
+<p class="indent3">
+    The icon for this item will be
+    d20ogl/srd35/icons/backpack.png relative to the data directory.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="mods" name="mods">
+            Tag
+            Name:
+        </a>
+    </strong>
+    MODS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    YES
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    NO
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    REQUIRED
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Is either YES (default), which means it can have
+    equipment modifiers added to it, NO, no equipment modifiers can be
+    added, or REQUIRED, must have at least 1 equipment modifier in
+    order to purchase the item.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MODS:YES</code>
+</p>
+<p class="indent3">
+    Item can have equipment modifiers added.
+</p>
+<hr/>
+<p class="status">
+    <a id="numpages" name="numpages">
+        *** Added
+        5.9.6
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    NUMPAGES:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of pages in spell book)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the number of pages in the spellbook.
+    Any equipment item with TYPE:Spellbook will appear in the Spellbook
+    sub-tab of the Spells Tab.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>NUMPAGES:100</code>
+</p>
+<p class="indent3">
+    Spell book with 100 pages.
+</p>
+<hr/>
+<p class="status">
+    <a id="pageusage" name="pageusage">
+        *** Added
+        5.9.6
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    PAGEUSAGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Formula
+    (Number of pages each spell will use)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the how many pages of the spellbook each
+    spell would use. The variable SPELLLEVEL can be used to make
+    calculations based on the spell's level. Any equipment item with
+    TYPE:Spellbook will appear in the Spellbook sub-tab of the Spells
+    Tab.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>PAGEUSAGE:max(SPELLLEVEL*2,1)</code>
+</p>
+<p class="indent3">
+    Each spell will use 2 pages per level (3.0
+    standard spellbook).
+</p>
+<p class="indent2">
+    <code>PAGEUSAGE:1</code>
+</p>
+<p class="indent3">
+    Each spell will use a single page (Blessed
+    Book).
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="pretype" name="pretype">
+            Tag
+            Name:
+        </a>
+    </strong>
+    PRETYPE:x,y,y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    number of types that must match the specified requirements).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Equipment type).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    EQMODTYPE=Text (Equipment Modifier type).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    EQMOD=Text
+    (Equipment Modifier KEY).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Make specific Types or Equipment Modifiers a prerequisite.
+    </li>
+    <li>
+        <code>EQMODTYPE</code>
+        checks for the
+        <strong>
+            TYPE
+        </strong>
+        in
+        the applied Equipment Modifiers, not Equipment type.
+    </li>
+    <li>
+        <code>EQMOD</code>
+        checks for the specified
+        <strong>
+            EQMOD
+        </strong>
+        by name or key.
+    </li>
+    <li>
+        <code>EQMOD</code>
+        can take an optional parameter of the form
+        <code>EQMOD=&lt;key&gt;(&lt;choice&gt;)</code>
+        , where the "choice"
+        represents an item previously selected by an internal chooser for
+        the specified
+        <strong>
+            EQMOD
+        </strong>
+        .
+    </li>
+</ul>
+<p class="sidebar0">
    <span class="alpha">
     Note
    </span>
-   :
-   <code>PRETYPE</code>
-   has a different use outside of Equipment and
-Equipment Modifier files, it checks for race types. See the
-   <a href="../globalfilestagpages/globalfilesprexxx.html#pretype">
-    Global
-PRETYPE
-   </a>
-   entry for usage outside of Equipment and Equipment
-Modifier files.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PRETYPE:1,Magic &lt;tab&gt;
-PRETYPE:1,Piercing,Slashing</code>
-  </p>
-  <p class="indent3">
-   Type must be magic and piercing or slashing
-  </p>
-  <p class="indent2">
-   <code>PREMULT:2,[PRETYPE:1,Magic],[PRETYPE:1,Piercing,Slashing]</code>
-  </p>
-  <p class="indent3">
-   This example, utilizing the PREMULT tag,
-accomplishes the same thing as the example above it but as it is
-one statement it can be attached to a BONUS statement.
-  </p>
-  <p class="indent2">
-   <code>!PRETYPE:1,Heavy</code>
-  </p>
-  <p class="indent3">
-   Type must NOT be Heavy
-  </p>
-  <p class="indent2">
-   <code>PRETYPE:1,EQMODTYPE=Mundane</code>
-  </p>
-  <p class="indent3">
-   Use to test for any modifier with "Mundane"
-type.
-  </p>
-  <p class="indent2">
-   <code>PRETYPE:1,EQMOD=IRONWOOD</code>
-  </p>
-  <p class="indent3">
-   Use to test for the "Ironwood" Equipment
-Modifier.
-  </p>
-  <p class="indent0">
-   <strong>
-    Secondary Syntax:
-   </strong>
-   PRETYPE:y,y|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Same as
-above.
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    PRETYPE has a second older syntax which is still in use in the
-release files.
-   </li>
-   <li>
-    The comma (,) represents a logical
+    :
+    <code>PRETYPE</code>
+    has a different use outside of Equipment and
+    Equipment Modifier files, it checks for race types. See the
+    <a href="../globalfilestagpages/globalfilesprexxx.html#pretype">
+        Global
+        PRETYPE
+    </a>
+    entry for usage outside of Equipment and Equipment
+    Modifier files.
+</p>
+<p class="indent1">
     <strong>
-     AND
+        Examples:
     </strong>
-    function, indicating that all types listed are required to
-pass.
-   </li>
-   <li>
-    The pipe (|) represents the logical
+</p>
+<p class="indent2">
+    <code>PRETYPE:1,Magic &lt;tab&gt;
+        PRETYPE:1,Piercing,Slashing</code>
+</p>
+<p class="indent3">
+    Type must be magic and piercing or slashing
+</p>
+<p class="indent2">
+    <code>PREMULT:2,[PRETYPE:1,Magic],[PRETYPE:1,Piercing,Slashing]</code>
+</p>
+<p class="indent3">
+    This example, utilizing the PREMULT tag,
+    accomplishes the same thing as the example above it but as it is
+    one statement it can be attached to a BONUS statement.
+</p>
+<p class="indent2">
+    <code>!PRETYPE:1,Heavy</code>
+</p>
+<p class="indent3">
+    Type must NOT be Heavy
+</p>
+<p class="indent2">
+    <code>PRETYPE:1,EQMODTYPE=Mundane</code>
+</p>
+<p class="indent3">
+    Use to test for any modifier with "Mundane"
+    type.
+</p>
+<p class="indent2">
+    <code>PRETYPE:1,EQMOD=IRONWOOD</code>
+</p>
+<p class="indent3">
+    Use to test for the "Ironwood" Equipment
+    Modifier.
+</p>
+<p class="indent0">
     <strong>
-     OR
+        Secondary Syntax:
     </strong>
-    function, indicating that only one of the types listed are required
-to pass.
-   </li>
-   <li>
-    Pipes (|) and commas (,) can be combined with the logical
+    PRETYPE:y,y|y
+</p>
+<p class="indent1">
     <strong>
-     OR
+        Variables Used (y):
     </strong>
-    being processed first and then the logical
+    Same as
+    above.
+</p>
+<p class="indent1">
     <strong>
-     AND
+        What it does:
     </strong>
-    . As an example,
-    <code>PRETYPE:Heavy,Armor|Shield</code>
-    translates to: Must have
-"Heavy" AND either "Armor" OR "Shield" types.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples of secondary
-syntax:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PRETYPE:Magic,Piercing,Slashing</code>
-  </p>
-  <p class="indent3">
-   Type must be Magic, Piercing and Slashing.
-  </p>
-  <p class="indent2">
-   <code>PRETYPE:Magic,Armor|Shield,Piercing,Slashing</code>
-  </p>
-  <p class="indent3">
-   Type must be Magic, Piercing, Slashing and
-(Armor OR Shield).
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="quality" name="quality">
-    *** Added
-5.9.7
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   QUALITY:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Name
-of the quality)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Text
-string value of the quality)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets the name and value of a quality which will
-be attached to the equipment. Qualities can be output by the
-   <code><a href="../../outputsheetpages/tokens/outputsheettokensequip.html#eq.quality">
-     EQ.0.QUALITY
+</p>
+<ul class="indent2">
+    <li>
+        PRETYPE has a second older syntax which is still in use in the
+        release files.
+    </li>
+    <li>
+        The comma (,) represents a logical
+        <strong>
+            AND
+        </strong>
+        function, indicating that all types listed are required to
+        pass.
+    </li>
+    <li>
+        The pipe (|) represents the logical
+        <strong>
+            OR
+        </strong>
+        function, indicating that only one of the types listed are required
+        to pass.
+    </li>
+    <li>
+        Pipes (|) and commas (,) can be combined with the logical
+        <strong>
+            OR
+        </strong>
+        being processed first and then the logical
+        <strong>
+            AND
+        </strong>
+        . As an example,
+        <code>PRETYPE:Heavy,Armor|Shield</code>
+        translates to: Must have
+        "Heavy" AND either "Armor" OR "Shield" types.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples of secondary
+        syntax:
+    </strong>
+</p>
+<p class="indent2">
+    <code>PRETYPE:Magic,Piercing,Slashing</code>
+</p>
+<p class="indent3">
+    Type must be Magic, Piercing and Slashing.
+</p>
+<p class="indent2">
+    <code>PRETYPE:Magic,Armor|Shield,Piercing,Slashing</code>
+</p>
+<p class="indent3">
+    Type must be Magic, Piercing, Slashing and
+    (Armor OR Shield).
+</p>
+<hr/>
+<p class="status">
+    <a id="quality" name="quality">
+        *** Added
+        5.9.7
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    QUALITY:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Name
+    of the quality)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Text
+    string value of the quality)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets the name and value of a quality which will
+    be attached to the equipment. Qualities can be output by the
+    <code><a href="../../outputsheetpages/tokens/outputsheettokensequip.html#eq.quality">
+        EQ.0.QUALITY
     </a></code>
-   tag
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>QUALITY:Restriction|Licensed</code>
-  </p>
-  <p class="indent3">
-   The equipment has the "Restriction" quality
-which has a value of "Licensed".
-  </p>
-  <p class="indent2">
-   <code>QUALITY:Black Market DC|(+1)</code>
-  </p>
-  <p class="indent3">
-   The equipment has the "Black Market DC" quality
-which has a value of "(+1)".
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="size" name="size">
-    *** Updated
-5.5.2
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SIZE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(F,D,T,S,M,L,H,G,C)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines the size of the Item. (F=Fine, D=Diminutive, T=Tiny,
-S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal.)
-   </li>
-   <li>
-    The size designations, including abbreviations, are dependant
-upon the gamemode used and may be redefined in the
-sizeadjustments.lst file.
-   </li>
-   <li>
-    In third edition rules size of weapons is used in determining
-Proficiency qualifications and wielding abilities for weapons.
-   </li>
-   <li>
-    In 3.5 edition rules weapon size no longer determines the
-actual size of the weapon but instead determines the size of the
-creature the weapon was made for.
-    <a href="#wield">
-     WIELD
-    </a>
-    tag is
-used in determining Proficiency qualifications and wielding
-abilities for weapons.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SIZE:M</code>
-  </p>
-  <p class="indent3">
-   Item is medium size.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="slots" name="slots">
-     Tag
-Name:
-    </a>
-   </strong>
-   SLOTS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of slots it takes to equip an item)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This tag is used in weapon lines to set the
-number of slots required to equip a character with the weapon. The
-default is one.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SLOTS:2</code>
-  </p>
-  <p class="indent3">
-   Weapon requires two hands to wield it.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="sprop" name="sprop">
-    *** Updated
-5.7.1
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SPROP:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Special property)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The special property is text that will appear on output sheets
-under the equipment it is assigned to.
-   </li>
-   <li>
-    Variable substitution can be used in the same manner as the
-    <a href="../globalfilestagpages/globalfilesother.html#sab">
-     SA
-    </a>
     tag
-   </li>
-   <li>
-    The "%" symbol will fill in a number from a variable listed
-after a "|" (pipe).
-   </li>
-   <li>
-    This can be done numerous times, with each successive "%"
-relating to the next variable listed after another "|" (pipe).
-   </li>
-   <li>
-    Each variable needs to be defined (via the global
-    <a href="../globalfilestagpages/globalfilesdefine.html">
-     DEFINE
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>QUALITY:Restriction|Licensed</code>
+</p>
+<p class="indent3">
+    The equipment has the "Restriction" quality
+    which has a value of "Licensed".
+</p>
+<p class="indent2">
+    <code>QUALITY:Black Market DC|(+1)</code>
+</p>
+<p class="indent3">
+    The equipment has the "Black Market DC" quality
+    which has a value of "(+1)".
+</p>
+<hr/>
+<p class="status">
+    <a id="size" name="size">
+        *** Updated
+        5.5.2
     </a>
-    tag.)
-   </li>
-   <li>
-    SPROP tags can be qualified with
-    <a href="../globalfilestagpages/globalfilesprexxx.html">
-     PRExxx
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SIZE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (F,D,T,S,M,L,H,G,C)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines the size of the Item. (F=Fine, D=Diminutive, T=Tiny,
+        S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal.)
+    </li>
+    <li>
+        The size designations, including abbreviations, are dependant
+        upon the gamemode used and may be redefined in the
+        sizeadjustments.lst file.
+    </li>
+    <li>
+        In third edition rules size of weapons is used in determining
+        Proficiency qualifications and wielding abilities for weapons.
+    </li>
+    <li>
+        In 3.5 edition rules weapon size no longer determines the
+        actual size of the weapon but instead determines the size of the
+        creature the weapon was made for.
+        <a href="#wield">
+            WIELD
+        </a>
+        tag is
+        used in determining Proficiency qualifications and wielding
+        abilities for weapons.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SIZE:M</code>
+</p>
+<p class="indent3">
+    Item is medium size.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="slots" name="slots">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SLOTS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of slots it takes to equip an item)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This tag is used in weapon lines to set the
+    number of slots required to equip a character with the weapon. The
+    default is one.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SLOTS:2</code>
+</p>
+<p class="indent3">
+    Weapon requires two hands to wield it.
+</p>
+<hr/>
+<p class="status">
+    <a id="sprop" name="sprop">
+        *** Updated
+        5.7.1
     </a>
-    tags.
-SPROP tags qualified with PRExxx tags will not display unless the
-character meets the prerequisites.
-   </li>
-   <li>
-    Variable substitution and PRExxx qualifying can be combined in
-one SPROP tag.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPROP:Shines with an inner
-light</code>
-  </p>
-  <p class="indent3">
-   Output sheet reads "Shines with an inner light"
-under the item.
-  </p>
-  <p class="indent2">
-   <code>SPROP:Squash code bugs % times per
-day|TL</code>
-  </p>
-  <p class="indent3">
-   For a 5th level character the output sheet would
-read "Squash code bugs 5 times per day" under the item.
-  </p>
-  <p class="indent2">
-   <code>SPROP:+2 against
-undead|PRECLASS:1,Paladin=1</code>
-  </p>
-  <p class="indent3">
-   Outputs the text if the character has at least 1
-level of Paladin.
-  </p>
-  <p class="indent2">
-   <code>SPROP:+% vs. code
-bugs|ColaIntake|PRESKILL:1,Programming=10</code>
-  </p>
-  <p class="indent3">
-   If the character has the Programming skill of at
-least 10 and the variable "ColaIntake" is defined as equal to 4
-then the output sheet reads "+4 vs. code bugs".
-  </p>
-  <p class="indent2">
-   <code>SPROP:+1 luck bonus to saves vs. %|%CHOICE
-&lt;tab&gt; CHOOSE:Abjuration|Conjuration|
-    <br/>
-    Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal</code>
-  </p>
-  <p class="indent3">
-   Allows for the selection of the type of luck
-bonus and inserts it in the %CHOICE.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="wt" name="wt">
-     Tag
-Name:
-    </a>
-   </strong>
-   WT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Item Weight)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Provides the weight of the item in question.
-   </li>
-   <li>
-    The
-    <code>WT</code>
-    tag will take a number greater than or
-equal to zero (0) for the weight.
-   </li>
-   <li>
-    The units for the weight is set with the
-    <code>WEIGHTUNIT</code>
-    tag in the gameMode
-    <span class="lstfile">
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SPROP:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Special property)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The special property is text that will appear on output sheets
+        under the equipment it is assigned to.
+    </li>
+    <li>
+        Variable substitution can be used in the same manner as the
+        <a href="../globalfilestagpages/globalfilesother.html#sab">
+            SA
+        </a>
+        tag
+    </li>
+    <li>
+        The "%" symbol will fill in a number from a variable listed
+        after a "|" (pipe).
+    </li>
+    <li>
+        This can be done numerous times, with each successive "%"
+        relating to the next variable listed after another "|" (pipe).
+    </li>
+    <li>
+        Each variable needs to be defined (via the global
+        <a href="../globalfilestagpages/globalfilesdefine.html">
+            DEFINE
+        </a>
+        tag.)
+    </li>
+    <li>
+        SPROP tags can be qualified with
+        <a href="../globalfilestagpages/globalfilesprexxx.html">
+            PRExxx
+        </a>
+        tags.
+        SPROP tags qualified with PRExxx tags will not display unless the
+        character meets the prerequisites.
+    </li>
+    <li>
+        Variable substitution and PRExxx qualifying can be combined in
+        one SPROP tag.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPROP:Shines with an inner
+        light</code>
+</p>
+<p class="indent3">
+    Output sheet reads "Shines with an inner light"
+    under the item.
+</p>
+<p class="indent2">
+    <code>SPROP:Squash code bugs % times per
+        day|TL</code>
+</p>
+<p class="indent3">
+    For a 5th level character the output sheet would
+    read "Squash code bugs 5 times per day" under the item.
+</p>
+<p class="indent2">
+    <code>SPROP:+2 against
+        undead|PRECLASS:1,Paladin=1</code>
+</p>
+<p class="indent3">
+    Outputs the text if the character has at least 1
+    level of Paladin.
+</p>
+<p class="indent2">
+    <code>SPROP:+% vs. code
+        bugs|ColaIntake|PRESKILL:1,Programming=10</code>
+</p>
+<p class="indent3">
+    If the character has the Programming skill of at
+    least 10 and the variable "ColaIntake" is defined as equal to 4
+    then the output sheet reads "+4 vs. code bugs".
+</p>
+<p class="indent2">
+    <code>SPROP:+1 luck bonus to saves vs. %|%CHOICE
+        &lt;tab&gt; CHOOSE:Abjuration|Conjuration|
+        <br/>
+        Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal</code>
+</p>
+<p class="indent3">
+    Allows for the selection of the type of luck
+    bonus and inserts it in the %CHOICE.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="wt" name="wt">
+            Tag
+            Name:
+        </a>
+    </strong>
+    WT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Item Weight)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Provides the weight of the item in question.
+    </li>
+    <li>
+        The
+        <code>WT</code>
+        tag will take a number greater than or
+        equal to zero (0) for the weight.
+    </li>
+    <li>
+        The units for the weight is set with the
+        <code>WEIGHTUNIT</code>
+        tag in the gameMode
+        <span class="lstfile">
      miscinfo.lst
     </span>
-    file.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WT:5</code>
-  </p>
-  <p class="indent3">
-   Item weighs 5 lbs.
-  </p>
-  <hr/>
-  <h3>
-   <a id="weaponarmortaglist" name="weaponarmortaglist">
-    Weapon/Armor Tags
-   </a>
-  </h3>
-  <p>
-   The following tags are for equipment with TYPE:Weapon,
-TYPE:Armor, or TYPE:Shield.
-  </p>
-  <p class="indent0">
-   <strong>
-    Notes:
-   </strong>
-  </p>
-  <ul class="indent1">
-   <li>
-    Every TYPE:Weapon item must be also have either TYPE:Melee or
-TYPE:Ranged.
-    <br/>
-   </li>
-   <li>
-    Armor items should also have the type of SLOTS it takes up.
-This is usually TYPE:Suit
-   </li>
-  </ul>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="accheck" name="accheck">
-     Tag
-Name:
+        file.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WT:5</code>
+</p>
+<p class="indent3">
+    Item weighs 5 lbs.
+</p>
+<hr/>
+<h3>
+    <a id="weaponarmortaglist" name="weaponarmortaglist">
+        Weapon/Armor Tags
     </a>
-   </strong>
-   ACCHECK:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Armor Check Penalty)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The numeric value supplied is the Armor Check
-penalty applied to certain skills that have an Armor Check.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ACCHECK:-6</code>
-  </p>
-  <p class="indent3">
-   Item has an armor check penalty of -6.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="altcritmult" name="altcritmult">
-    ***
-Updated 5.11.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ALTCRITMULT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Secondary attack's critical modifier)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The secondary attack's critical multiplier as outputted to the
-character sheet.
-   </li>
-   <li>
-    This is used for double weapons only.
-   </li>
-   <li>
-    The special character (-) is used to indicate no critical
-multiplier for the secondary attack.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALTCRITMULT:x3</code>
-  </p>
-  <p class="indent3">
-   2nd head has a critical modifier of x3.
-  </p>
-  <p class="indent2">
-   <code>ALTCRITMULT:-</code>
-  </p>
-  <p class="indent3">
-   2nd head has no critical modifier.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="altcritrange" name="altcritrange">
-     Tag Name:
+</h3>
+<p>
+    The following tags are for equipment with TYPE:Weapon,
+    TYPE:Armor, or TYPE:Shield.
+</p>
+<p class="indent0">
+    <strong>
+        Notes:
+    </strong>
+</p>
+<ul class="indent1">
+    <li>
+        Every TYPE:Weapon item must be also have either TYPE:Melee or
+        TYPE:Ranged.
+        <br/>
+    </li>
+    <li>
+        Armor items should also have the type of SLOTS it takes up.
+        This is usually TYPE:Suit
+    </li>
+</ul>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="accheck" name="accheck">
+            Tag
+            Name:
+        </a>
+    </strong>
+    ACCHECK:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Armor Check Penalty)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The numeric value supplied is the Armor Check
+    penalty applied to certain skills that have an Armor Check.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ACCHECK:-6</code>
+</p>
+<p class="indent3">
+    Item has an armor check penalty of -6.
+</p>
+<hr/>
+<p class="status">
+    <a id="altcritmult" name="altcritmult">
+        ***
+        Updated 5.11.4
     </a>
-   </strong>
-   ALTCRITRANGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Secondary attack's critical chance)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The secondary attack's critical chance.
-   </li>
-   <li>
-    This is used for double weapons only.
-   </li>
-   <li>
-    1 = 20, 2 = 19 &amp; 20, 3 = 18 - 20, etc
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALTCRITRANGE:2</code>
-  </p>
-  <p class="indent3">
-   2nd head criticals on roll of 19 or 20.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="altdamage" name="altdamage">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ALTCRITMULT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Secondary attack's critical modifier)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The secondary attack's critical multiplier as outputted to the
+        character sheet.
+    </li>
+    <li>
+        This is used for double weapons only.
+    </li>
+    <li>
+        The special character (-) is used to indicate no critical
+        multiplier for the secondary attack.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALTCRITMULT:x3</code>
+</p>
+<p class="indent3">
+    2nd head has a critical modifier of x3.
+</p>
+<p class="indent2">
+    <code>ALTCRITMULT:-</code>
+</p>
+<p class="indent3">
+    2nd head has no critical modifier.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="altcritrange" name="altcritrange">
+            Tag Name:
+        </a>
+    </strong>
+    ALTCRITRANGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Secondary attack's critical chance)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The secondary attack's critical chance.
+    </li>
+    <li>
+        This is used for double weapons only.
+    </li>
+    <li>
+        1 = 20, 2 = 19 &amp; 20, 3 = 18 - 20, etc
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALTCRITRANGE:2</code>
+</p>
+<p class="indent3">
+    2nd head criticals on roll of 19 or 20.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="altdamage" name="altdamage">
+            Tag
+            Name:
+        </a>
+    </strong>
+    ALTDAMAGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Secondary attack's damage)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The secondary attack's damage.
+    </li>
+    <li>
+        This is used for double weapons only.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALTDAMAGE:1d6-1</code>
+</p>
+<p class="indent3">
+    2nd head does 1d6-1 damage.
+</p>
+<hr/>
+<p class="status">
+    <a id="alteqmod" name="alteqmod">
+        *** Added
+        5.7.15
     </a>
-   </strong>
-   ALTDAMAGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Secondary attack's damage)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The secondary attack's damage.
-   </li>
-   <li>
-    This is used for double weapons only.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALTDAMAGE:1d6-1</code>
-  </p>
-  <p class="indent3">
-   2nd head does 1d6-1 damage.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="alteqmod" name="alteqmod">
-    *** Added
-5.7.15
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ALTEQMOD:x|y|y.x|y|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text,
-period delimited (Equipment modifier name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text, pipe
-delimited (Modifiers applied to the equipment modifier name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a period (.) delimited list of equipment modifiers
-applied to the secondary head of a double weapon.
-   </li>
-   <li>
-    With the exception that it is applied to the secondary head is
-functions in the same way as the
-    <a href="#eqmod">
-     EQMOD
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ALTEQMOD:x|y|y.x|y|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text,
+    period delimited (Equipment modifier name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text, pipe
+    delimited (Modifiers applied to the equipment modifier name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a period (.) delimited list of equipment modifiers
+        applied to the secondary head of a double weapon.
+    </li>
+    <li>
+        With the exception that it is applied to the secondary head is
+        functions in the same way as the
+        <a href="#eqmod">
+            EQMOD
+        </a>
+        tag.
+    </li>
+    <li>
+        This is utilized by other EQMODs which contain the ASSIGNTOALL
+        tag. For example the Darkwood EQMOD has ASSIGNTOALL:YES and it
+        replaces wood, for this to work correctly a double weapon needs to
+        have both the EQMOD:WOOD and ALTEQMOD:WOOD tags present. When they
+        are present the Darkwood EQMOD is applied to and replaces the WOOD
+        EQMOD on both heads.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALTEQMOD:WOOD</code>
+</p>
+<p class="indent3">
+    2nd head has the WOOD EQMOD applied to it.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="alttype" name="alttype">
+            Tag
+            Name:
+        </a>
+    </strong>
+    ALTTYPE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Secondary attack's type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The secondary attack's type.
+    </li>
+    <li>
+        This is used for double weapons only.
+    </li>
+    <li>
+        Since this is always in a weapon type, "weapon" should not be
+        included.
+    </li>
+    <li>
+        Melee or Ranged MUST be listed and may be different from the
+        1st head.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALTTYPE:Simple.Melee.Bludgeoning</code>
+</p>
+<p class="indent3">
+    2nd head is Simple Melee Bludgeoning.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="critmult" name="critmult">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CRITMULT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Critical Modifier)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is the weapon's critical multiplier as outputted to the
+        character sheet.
+    </li>
+    <li>
+        The special character (-) is used to indicate no critical
+        multiplier for the equipment.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CRITMULT:x2</code>
+</p>
+<p class="indent3">
+    Item has a critical modifier of x2.
+</p>
+<p class="indent2">
+    <code>CRITMULT:-</code>
+</p>
+<p class="indent3">
+    Item has no critical modifier.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="critrange" name="critrange">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CRITRANGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Attack's critical chance)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is the weapon's critical threat range.
+    </li>
+    <li>
+        1 = 20, 2 = 19 &amp; 20, 3 = 18 - 20, etc
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CRITRANGE:2</code>
+</p>
+<p class="indent3">
+    Item criticals on roll of 19 or 20.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="damage" name="damage">
+            Tag
+            Name:
+        </a>
+    </strong>
+    DAMAGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Item
+    Damage)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The damage that a weapon does, this is part of
+    the character sheet output.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DAMAGE:1d6</code>
+</p>
+<p class="indent3">
+    Item damage is 1d6.
+</p>
+<hr/>
+<p class="status">
+    <a id="fumblerange" name="fumblerange">
+        *** Added
+        5.7.15
     </a>
-    tag.
-   </li>
-   <li>
-    This is utilized by other EQMODs which contain the ASSIGNTOALL
-tag. For example the Darkwood EQMOD has ASSIGNTOALL:YES and it
-replaces wood, for this to work correctly a double weapon needs to
-have both the EQMOD:WOOD and ALTEQMOD:WOOD tags present. When they
-are present the Darkwood EQMOD is applied to and replaces the WOOD
-EQMOD on both heads.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALTEQMOD:WOOD</code>
-  </p>
-  <p class="indent3">
-   2nd head has the WOOD EQMOD applied to it.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="alttype" name="alttype">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    FUMBLERANGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Equipment fumble range)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is text which indicates the equipments
+    fumble or error range. This tag may also be used in EQMOD lines. If
+    an equipment item has EQMODs, the FUMBLERANGE text from the EQMOD
+    supersedes the text from the item itself (EQMODs applied to the
+    primary weapon head trumps text in EQMODs applied to the secondary
+    weapon head).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>FUMBLERANGE:1-3</code>
+</p>
+<p class="indent3">
+    Indicates and error range of 1-3.
+</p>
+<p class="indent2">
+    <code>FUMBLERANGE:Natural 1</code>
+</p>
+<p class="indent3">
+    Indicates and error range of a natural 1.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="maxdex" name="maxdex">
+            Tag
+            Name:
+        </a>
+    </strong>
+    MAXDEX:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Maximum Dexterity Bonus)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The numeric value supplied is used for armor to
+    determine the maximum dexterity bonus that can be had while wearing
+    the armor.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MAXDEX:3</code>
+</p>
+<p class="indent3">
+    Item allows a maximum dexterity bonus of three
+    when equipped.
+</p>
+<hr/>
+<p class="status">
+    <strong>
+        <a id="proficiency" name="proficiency">
+            *** Updated 5.13.8
+        </a>
+    </strong>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    PROFICIENCY:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (WEAPON, ARMOR, or SHIELD)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Proficiency Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This tells PCGen what Proficiency name to use
+    from the appropriate
+    <em>
+        profs.lst
+    </em>
+    file. (i.e.
+    <em>
+        weaponprofs.lst
+    </em>
+    ,
+    <em>
+        armorprofs.lst
+    </em>
+    , or
+    <em>
+        shieldprofs.lst
+    </em>
+    )
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>PROFICIENCY:WEAPON|Sword (Long)</code>
+</p>
+<p class="indent3">
+    Item uses the "Longsword" weapon
+    proficiency.
+</p>
+<p class="indent2">
+    <code>PROFICIENCY:ARMOR|Chainmail</code>
+</p>
+<p class="indent3">
+    Item uses the "Chainmail" armor proficiency.
+</p>
+<p class="indent2">
+    <code>PROFICIENCY:SHIELD|Buckler</code>
+</p>
+<p class="indent3">
+    Item uses the "Buckler" shield proficiency.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="range" name="range">
+            Tag
+            Name:
+        </a>
+    </strong>
+    RANGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Distance of one range increment)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets the distance of the weapon's range
+    increment.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>RANGE:50</code>
+</p>
+<p class="indent3">
+    One range increment for this weapon is 50
+    ft.
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="rateoffire" name="rateoffire">
+        ***
+        Deprecated 6.05.1 - use FACT
     </a>
-   </strong>
-   ALTTYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Secondary attack's type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The secondary attack's type.
-   </li>
-   <li>
-    This is used for double weapons only.
-   </li>
-   <li>
-    Since this is always in a weapon type, "weapon" should not be
-included.
-   </li>
-   <li>
-    Melee or Ranged MUST be listed and may be different from the
-1st head.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALTTYPE:Simple.Melee.Bludgeoning</code>
-  </p>
-  <p class="indent3">
-   2nd head is Simple Melee Bludgeoning.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="critmult" name="critmult">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    RATEOFFIRE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Rate
+    of Fire Text)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is the weapon's rate of fire (given as text
+    suitable for output). Most likely only useful in modern and
+    futuristic games.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>RATEOFFIRE:1</code>
+</p>
+<p class="indent3">
+    1 shot per round.
+</p>
+<p class="indent2">
+    <code>RATEOFFIRE:0/10/20</code>
+</p>
+<p class="indent3">
+    0 shots first round, 10 shots second round and
+    20 shots on the third.
+</p>
+<p class="indent2">
+    <code>RATEOFFIRE:S,A</code>
+</p>
+<p class="indent3">
+    Single or Automatic.
+</p>
+<p class="indent2">
+    <code>RATEOFFIRE:Single</code>
+</p>
+<p class="indent3">
+    Single shot only.
+</p>
+<hr/>
+<p class="status">
+    <a id="reach" name="reach">
+        *** Updated
+        5.11.6
     </a>
-   </strong>
-   CRITMULT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Critical Modifier)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is the weapon's critical multiplier as outputted to the
-character sheet.
-   </li>
-   <li>
-    The special character (-) is used to indicate no critical
-multiplier for the equipment.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CRITMULT:x2</code>
-  </p>
-  <p class="indent3">
-   Item has a critical modifier of x2.
-  </p>
-  <p class="indent2">
-   <code>CRITMULT:-</code>
-  </p>
-  <p class="indent3">
-   Item has no critical modifier.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="critrange" name="critrange">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    REACH:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Weapon Reach)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The numerical value supplied is used by the
+    <a href="../systemfilestagpages/gamemodemiscinfolist.html#weaponreach">
+        WEAPONREACH
     </a>
-   </strong>
-   CRITRANGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Attack's critical chance)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is the weapon's critical threat range.
-   </li>
-   <li>
-    1 = 20, 2 = 19 &amp; 20, 3 = 18 - 20, etc
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CRITRANGE:2</code>
-  </p>
-  <p class="indent3">
-   Item criticals on roll of 19 or 20.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="damage" name="damage">
-     Tag
-Name:
+    miscinfo.lst tag to calculate the reach the wielder gains with the
+    weapon. In general it adds to the weapon's Reach minus the first 5
+    feet of the character's natural reach, so a character with a
+    natural reach of 10 wielding a weapon with a REACH value of 10 will
+    have a reach of 15 with that weapon.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>REACH:10</code>
+</p>
+<p class="indent3">
+    Item reaches 10 feet.
+</p>
+<hr/>
+<p class="status">
+    <a id="reachmult" name="reachmult">
+        *** Added
+        5.11.6
     </a>
-   </strong>
-   DAMAGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Item
-Damage)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The damage that a weapon does, this is part of
-the character sheet output.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DAMAGE:1d6</code>
-  </p>
-  <p class="indent3">
-   Item damage is 1d6.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="fumblerange" name="fumblerange">
-    *** Added
-5.7.15
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   FUMBLERANGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Equipment fumble range)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is text which indicates the equipments
-fumble or error range. This tag may also be used in EQMOD lines. If
-an equipment item has EQMODs, the FUMBLERANGE text from the EQMOD
-supersedes the text from the item itself (EQMODs applied to the
-primary weapon head trumps text in EQMODs applied to the secondary
-weapon head).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>FUMBLERANGE:1-3</code>
-  </p>
-  <p class="indent3">
-   Indicates and error range of 1-3.
-  </p>
-  <p class="indent2">
-   <code>FUMBLERANGE:Natural 1</code>
-  </p>
-  <p class="indent3">
-   Indicates and error range of a natural 1.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="maxdex" name="maxdex">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    REACHMULT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Weapon Reach Multiplier)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The numerical value supplied is used by the
+    <a href="../systemfilestagpages/gamemodemiscinfolist.html#weaponreach">
+        WEAPONREACH
     </a>
-   </strong>
-   MAXDEX:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Maximum Dexterity Bonus)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The numeric value supplied is used for armor to
-determine the maximum dexterity bonus that can be had while wearing
-the armor.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MAXDEX:3</code>
-  </p>
-  <p class="indent3">
-   Item allows a maximum dexterity bonus of three
-when equipped.
-  </p>
-  <hr/>
-  <p class="status">
-   <strong>
-    <a id="proficiency" name="proficiency">
-     *** Updated 5.13.8
+    miscinfo.lst tag to calculate the reach the wielder gains with the
+    weapon. In general it multiplies the character's natural reach, so
+    a character with a natural reach of 10 wielding a weapon with a
+    WEAPONREACH value of 2 will have a reach of 20 with that
+    weapon.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>REACHMULT:2</code>
+</p>
+<p class="indent3">
+    Item reaches 2 times the character's normal
+    reach.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="spellfailure" name="spellfailure">
+            Tag Name:
+        </a>
+    </strong>
+    SPELLFAILURE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Spell Failure percentage)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The numeric value supplied is to show the
+    percentage chance of spell failure when casting a spell while
+    wearing/wielding this item (when item is equipped).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLFAILURE:5</code>
+</p>
+<p class="indent3">
+    Item causes 5% of arcane spells to fail.
+</p>
+<hr/>
+<p class="status">
+    <a id="wield" name="wield">
+        *** Added
+        5.5.2
     </a>
-   </strong>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   PROFICIENCY:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(WEAPON, ARMOR, or SHIELD)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Proficiency Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This tells PCGen what Proficiency name to use
-from the appropriate
-   <em>
-    profs.lst
-   </em>
-   file. (i.e.
-   <em>
-    weaponprofs.lst
-   </em>
-   ,
-   <em>
-    armorprofs.lst
-   </em>
-   , or
-   <em>
-    shieldprofs.lst
-   </em>
-   )
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PROFICIENCY:WEAPON|Sword (Long)</code>
-  </p>
-  <p class="indent3">
-   Item uses the "Longsword" weapon
-proficiency.
-  </p>
-  <p class="indent2">
-   <code>PROFICIENCY:ARMOR|Chainmail</code>
-  </p>
-  <p class="indent3">
-   Item uses the "Chainmail" armor proficiency.
-  </p>
-  <p class="indent2">
-   <code>PROFICIENCY:SHIELD|Buckler</code>
-  </p>
-  <p class="indent3">
-   Item uses the "Buckler" shield proficiency.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="range" name="range">
-     Tag
-Name:
-    </a>
-   </strong>
-   RANGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Distance of one range increment)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets the distance of the weapon's range
-increment.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>RANGE:50</code>
-  </p>
-  <p class="indent3">
-   One range increment for this weapon is 50
-ft.
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="rateoffire" name="rateoffire">
-    ***
-Deprecated 6.05.1 - use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   RATEOFFIRE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Rate
-of Fire Text)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is the weapon's rate of fire (given as text
-suitable for output). Most likely only useful in modern and
-futuristic games.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>RATEOFFIRE:1</code>
-  </p>
-  <p class="indent3">
-   1 shot per round.
-  </p>
-  <p class="indent2">
-   <code>RATEOFFIRE:0/10/20</code>
-  </p>
-  <p class="indent3">
-   0 shots first round, 10 shots second round and
-20 shots on the third.
-  </p>
-  <p class="indent2">
-   <code>RATEOFFIRE:S,A</code>
-  </p>
-  <p class="indent3">
-   Single or Automatic.
-  </p>
-  <p class="indent2">
-   <code>RATEOFFIRE:Single</code>
-  </p>
-  <p class="indent3">
-   Single shot only.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="reach" name="reach">
-    *** Updated
-5.11.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   REACH:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Weapon Reach)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The numerical value supplied is used by the
-   <a href="../systemfilestagpages/gamemodemiscinfolist.html#weaponreach">
-    WEAPONREACH
-   </a>
-   miscinfo.lst tag to calculate the reach the wielder gains with the
-weapon. In general it adds to the weapon's Reach minus the first 5
-feet of the character's natural reach, so a character with a
-natural reach of 10 wielding a weapon with a REACH value of 10 will
-have a reach of 15 with that weapon.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>REACH:10</code>
-  </p>
-  <p class="indent3">
-   Item reaches 10 feet.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="reachmult" name="reachmult">
-    *** Added
-5.11.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   REACHMULT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Weapon Reach Multiplier)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The numerical value supplied is used by the
-   <a href="../systemfilestagpages/gamemodemiscinfolist.html#weaponreach">
-    WEAPONREACH
-   </a>
-   miscinfo.lst tag to calculate the reach the wielder gains with the
-weapon. In general it multiplies the character's natural reach, so
-a character with a natural reach of 10 wielding a weapon with a
-WEAPONREACH value of 2 will have a reach of 20 with that
-weapon.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>REACHMULT:2</code>
-  </p>
-  <p class="indent3">
-   Item reaches 2 times the character's normal
-reach.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="spellfailure" name="spellfailure">
-     Tag Name:
-    </a>
-   </strong>
-   SPELLFAILURE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Spell Failure percentage)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The numeric value supplied is to show the
-percentage chance of spell failure when casting a spell while
-wearing/wielding this item (when item is equipped).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLFAILURE:5</code>
-  </p>
-  <p class="indent3">
-   Item causes 5% of arcane spells to fail.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="wield" name="wield">
-    *** Added
-5.5.2
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   WIELD:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Light
-(Weapon is Light)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   OneHanded
-(Weapon can be wielded in one hand)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TwoHanded
-(Weapon requires both hands to be wielded effectively)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets the wield category of a weapon.
-  </p>
-  <p class="indent2">
-   In 3.5 edition the rules for wielding a weapon
-are based on the size category of the weapon and the size category
-of the PC. Each size category difference between the weapon and PC
-changes the effective wield category by one step. Thus a Large
-sized Longsword, a 'OneHanded' weapon, is effectively wield
-category 'TwoHanded' for a Medium sized PC.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WIELD:TwoHanded</code>
-  </p>
-  <p class="indent3">
-   Weapon must be wielded with two hands.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Equipment files in melee weapon lines.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    WIELD:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Light
+    (Weapon is Light)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    OneHanded
+    (Weapon can be wielded in one hand)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TwoHanded
+    (Weapon requires both hands to be wielded effectively)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets the wield category of a weapon.
+</p>
+<p class="indent2">
+    In 3.5 edition the rules for wielding a weapon
+    are based on the size category of the weapon and the size category
+    of the PC. Each size category difference between the weapon and PC
+    changes the effective wield category by one step. Thus a Large
+    sized Longsword, a 'OneHanded' weapon, is effectively wield
+    category 'TwoHanded' for a Medium sized PC.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WIELD:TwoHanded</code>
+</p>
+<p class="indent3">
+    Weapon must be wielded with two hands.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Equipment files in melee weapon lines.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

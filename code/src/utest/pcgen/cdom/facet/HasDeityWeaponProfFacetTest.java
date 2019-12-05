@@ -22,26 +22,26 @@ import pcgen.cdom.testsupport.AbstractQualifiedListFacetTest;
 import pcgen.core.QualifiedObject;
 
 public class HasDeityWeaponProfFacetTest extends
-		AbstractQualifiedListFacetTest<QualifiedObject<Boolean>>
+        AbstractQualifiedListFacetTest<QualifiedObject<Boolean>>
 {
-	private final AbstractQualifiedListFacet<QualifiedObject<Boolean>> facet = new HasDeityWeaponProfFacet();
+    private final AbstractQualifiedListFacet<QualifiedObject<Boolean>> facet = new HasDeityWeaponProfFacet();
 
-	@Override
-	protected AbstractQualifiedListFacet<QualifiedObject<Boolean>> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractQualifiedListFacet<QualifiedObject<Boolean>> getFacet()
+    {
+        return facet;
+    }
 
-	@Override
-	protected QualifiedObject<Boolean> getObject()
-	{
-		return new QualifiedObject<>(Boolean.TRUE);
-	}
+    @Override
+    protected QualifiedObject<Boolean> getObject()
+    {
+        return new QualifiedObject<>(Boolean.TRUE);
+    }
 
-	@Override
-	protected QualifiedObject<Boolean> getAltObject()
-	{
-		return new QualifiedObject<>(Boolean.FALSE);
-	}
+    @Override
+    protected QualifiedObject<Boolean> getAltObject()
+    {
+        return new QualifiedObject<>(Boolean.FALSE);
+    }
 
 }

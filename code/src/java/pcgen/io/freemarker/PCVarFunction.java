@@ -26,37 +26,37 @@ import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 
 /**
- * PCVarFunction allows character variable values to be exported to a 
- * Freemarker template. It evaluates a variable for the current character and 
- * returns the value as a number. e.g. ${pcvar("CL=Fighter")} 
- * 
+ * PCVarFunction allows character variable values to be exported to a
+ * Freemarker template. It evaluates a variable for the current character and
+ * returns the value as a number. e.g. ${pcvar("CL=Fighter")}
  */
 public class PCVarFunction implements TemplateMethodModelEx
 {
-	private PlayerCharacter pc;
+    private PlayerCharacter pc;
 
-	/**
-	 * Create a new instance of PCVarFunction
-	 * @param pc The character being exported.
-	 */
-	public PCVarFunction(PlayerCharacter pc)
-	{
-		this.pc = pc;
-	}
+    /**
+     * Create a new instance of PCVarFunction
+     *
+     * @param pc The character being exported.
+     */
+    public PCVarFunction(PlayerCharacter pc)
+    {
+        this.pc = pc;
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Object exec(List arg0) throws TemplateModelException
-	{
-		if (arg0.size() != 1)
-		{
-			throw new TemplateModelException("Wrong arguments. formula required");
-		}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public Object exec(List arg0) throws TemplateModelException
+    {
+        if (arg0.size() != 1)
+        {
+            throw new TemplateModelException("Wrong arguments. formula required");
+        }
 
-		String formula = arg0.get(0).toString();
+        String formula = arg0.get(0).toString();
 
-		Float result = pc.getVariableValue(formula, "");
-		return result;
-	}
+        Float result = pc.getVariableValue(formula, "");
+        return result;
+    }
 
 }

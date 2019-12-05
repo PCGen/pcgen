@@ -37,79 +37,79 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 {
 
-	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
-	private static final Class<Deity> DEITY_CLASS = Deity.class;
-	private CDOMSingleRef<PCAlignment> alignment;
-	private CDOMReference<Deity> allDeities;
+    private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
+    private static final Class<Deity> DEITY_CLASS = Deity.class;
+    private CDOMSingleRef<PCAlignment> alignment;
+    private CDOMReference<Deity> allDeities;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Deity> cl, String value, String args)
-	{
-		if (args != null)
-		{
-			return false;
-		}
-		alignment = context.getReferenceContext().getCDOMReference(ALIGNMENT_CLASS, value);
-		allDeities = context.getReferenceContext().getCDOMAllReference(DEITY_CLASS);
-		return alignment != null;
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Deity> cl, String value, String args)
+    {
+        if (args != null)
+        {
+            return false;
+        }
+        alignment = context.getReferenceContext().getCDOMReference(ALIGNMENT_CLASS, value);
+        allDeities = context.getReferenceContext().getCDOMAllReference(DEITY_CLASS);
+        return alignment != null;
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "ALIGN";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ALIGN";
+    }
 
-	@Override
-	public Class<Deity> getReferenceClass()
-	{
-		return DEITY_CLASS;
-	}
+    @Override
+    public Class<Deity> getReferenceClass()
+    {
+        return DEITY_CLASS;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return getTokenName() + '=' + alignment.getLSTformat(false);
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return getTokenName() + '=' + alignment.getLSTformat(false);
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Deity deity)
-	{
-		CDOMSingleRef<PCAlignment> alignRef = deity.get(ObjectKey.ALIGNMENT);
-		return (alignRef != null) && alignment.get().equals(alignRef.get());
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Deity deity)
+    {
+        CDOMSingleRef<PCAlignment> alignRef = deity.get(ObjectKey.ALIGNMENT);
+        return (alignRef != null) && alignment.get().equals(alignRef.get());
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof AlignToken)
-		{
-			AlignToken other = (AlignToken) obj;
-			return alignment.equals(other.alignment);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof AlignToken)
+        {
+            AlignToken other = (AlignToken) obj;
+            return alignment.equals(other.alignment);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return alignment == null ? -5 : alignment.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return alignment == null ? -5 : alignment.hashCode();
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
-	{
-		return c.convert(allDeities, this);
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
+    {
+        return c.convert(allDeities, this);
+    }
 
 }

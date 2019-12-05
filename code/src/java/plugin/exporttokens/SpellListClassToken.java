@@ -41,68 +41,67 @@ import pcgen.util.Delta;
 public class SpellListClassToken extends SpellListToken
 {
 
-	/** Token name */
-	public static final String TOKENNAME = "SPELLLISTCLASS";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "SPELLLISTCLASS";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		int i;
-		StringBuilder retValue = new StringBuilder();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        int i;
+        StringBuilder retValue = new StringBuilder();
 
-		// Determine the tag type
-		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+        // Determine the tag type
+        final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		i = Integer.parseInt(aTok.nextToken());
+        i = Integer.parseInt(aTok.nextToken());
 
-		//
-		final CDOMObject aObject = pc.getSpellClassAtIndex(i);
+        //
+        final CDOMObject aObject = pc.getSpellClassAtIndex(i);
 
-		if (aObject != null)
-		{
-			PCClass aClass = null;
+        if (aObject != null)
+        {
+            PCClass aClass = null;
 
-			if (aObject instanceof PCClass)
-			{
-				aClass = (PCClass) aObject;
-			}
+            if (aObject instanceof PCClass)
+            {
+                aClass = (PCClass) aObject;
+            }
 
-			if ((aClass != null))
-			{
-				if (tokenSource.endsWith(".CASTERLEVEL"))
-				{
-					retValue.append(pc.getCasterLevelForClass(aClass));
-				}
-				else if (tokenSource.endsWith(".CONCENTRATION"))
-				{
-					if (SettingsHandler.getGame().getSpellBaseConcentration().length() > 0)
-					{
-						Spell sp = new Spell();
-						CharacterSpell cs = new CharacterSpell(aClass, sp);
-						int concentration = pc.getConcentration(sp, cs, aClass, 0, 0, aClass);
-						retValue.append(Delta.toString(concentration));
-					}
-				}
-				else if (tokenSource.endsWith(".LEVEL"))
-				{
-					retValue.append(String.valueOf(
-						pc.getDisplay().getLevel(aClass) + (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName())));
-				}
-				else
-				{
-					retValue.append(OutputNameFormatting.getOutputName(aObject));
-				}
-			}
-		}
+            if ((aClass != null))
+            {
+                if (tokenSource.endsWith(".CASTERLEVEL"))
+                {
+                    retValue.append(pc.getCasterLevelForClass(aClass));
+                } else if (tokenSource.endsWith(".CONCENTRATION"))
+                {
+                    if (SettingsHandler.getGame().getSpellBaseConcentration().length() > 0)
+                    {
+                        Spell sp = new Spell();
+                        CharacterSpell cs = new CharacterSpell(aClass, sp);
+                        int concentration = pc.getConcentration(sp, cs, aClass, 0, 0, aClass);
+                        retValue.append(Delta.toString(concentration));
+                    }
+                } else if (tokenSource.endsWith(".LEVEL"))
+                {
+                    retValue.append(String.valueOf(
+                            pc.getDisplay().getLevel(aClass) + (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName())));
+                } else
+                {
+                    retValue.append(OutputNameFormatting.getOutputName(aObject));
+                }
+            }
+        }
 
-		return retValue.toString();
-	}
+        return retValue.toString();
+    }
 
 }

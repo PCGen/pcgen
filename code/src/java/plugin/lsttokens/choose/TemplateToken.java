@@ -30,48 +30,48 @@ import pcgen.rules.persistence.token.ParseResult;
 public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 {
 
-	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
+    private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "TEMPLATE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TEMPLATE";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Template choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Template choice";
+    }
 
-	@Override
-	public PCTemplate decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, s);
-	}
+    @Override
+    public PCTemplate decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(PCTemplate choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(PCTemplate choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<PCTemplate> getListKey()
-	{
-		return AssociationListKey.getKeyFor(PCTEMPLATE_CLASS, "CHOOSE*TEMPLATE");
-	}
+    @Override
+    protected AssociationListKey<PCTemplate> getListKey()
+    {
+        return AssociationListKey.getKeyFor(PCTEMPLATE_CLASS, "CHOOSE*TEMPLATE");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(PCTEMPLATE_CLASS),
-			obj, value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(PCTEMPLATE_CLASS),
+                obj, value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "PCTEMPLATE";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "PCTEMPLATE";
+    }
 }

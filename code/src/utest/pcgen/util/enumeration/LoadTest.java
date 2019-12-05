@@ -25,29 +25,29 @@ import org.junit.jupiter.api.Test;
 class LoadTest
 {
 
-	private final Load light = Load.valueOf("LIGHT");
-	private final Load medium = Load.valueOf("MEDIUM");
-	private final Load heavy = Load.valueOf("HEAVY");
-	private final Load overload = Load.valueOf("OVERLOAD");
+    private final Load light = Load.valueOf("LIGHT");
+    private final Load medium = Load.valueOf("MEDIUM");
+    private final Load heavy = Load.valueOf("HEAVY");
+    private final Load overload = Load.valueOf("OVERLOAD");
 
-	@Test
-	public void testLoadOrder()
-	{
-		assertEquals(0, light.compareTo(light));
-		Assertions.assertTrue(light.compareTo(medium) < 0);
-		Assertions.assertTrue(light.compareTo(heavy) < 0);
-		Assertions.assertTrue(light.compareTo(overload) < 0);
-		Assertions.assertTrue(medium.compareTo(light) > 0);
-		assertEquals(0, medium.compareTo(medium));
-		Assertions.assertTrue(medium.compareTo(heavy) < 0);
-		Assertions.assertTrue(medium.compareTo(overload) < 0);
-		Assertions.assertTrue(heavy.compareTo(light) > 0);
-		Assertions.assertTrue(heavy.compareTo(medium) > 0);
-		assertEquals(0, heavy.compareTo(heavy));
-		Assertions.assertTrue(heavy.compareTo(overload) < 0);
-		Assertions.assertTrue(overload.compareTo(light) > 0);
-		Assertions.assertTrue(overload.compareTo(medium) > 0);
-		Assertions.assertTrue(overload.compareTo(heavy) > 0);
-		assertEquals(0, overload.compareTo(overload));
-	}
+    @Test
+    public void testLoadOrder()
+    {
+        assertEquals(0, light.compareTo(light));
+        Assertions.assertTrue(light.compareTo(medium) < 0);
+        Assertions.assertTrue(light.compareTo(heavy) < 0);
+        Assertions.assertTrue(light.compareTo(overload) < 0);
+        Assertions.assertTrue(medium.compareTo(light) > 0);
+        assertEquals(0, medium.compareTo(medium));
+        Assertions.assertTrue(medium.compareTo(heavy) < 0);
+        Assertions.assertTrue(medium.compareTo(overload) < 0);
+        Assertions.assertTrue(heavy.compareTo(light) > 0);
+        Assertions.assertTrue(heavy.compareTo(medium) > 0);
+        assertEquals(0, heavy.compareTo(heavy));
+        Assertions.assertTrue(heavy.compareTo(overload) < 0);
+        Assertions.assertTrue(overload.compareTo(light) > 0);
+        Assertions.assertTrue(overload.compareTo(medium) > 0);
+        Assertions.assertTrue(overload.compareTo(heavy) > 0);
+        assertEquals(0, overload.compareTo(overload));
+    }
 }

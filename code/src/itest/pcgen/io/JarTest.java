@@ -37,18 +37,20 @@ import org.junit.jupiter.api.Disabled;
 
 /**
  * Test that the jar is properly built.
- *
+ * <p>
  * It depends on task installToRoot to have placed things in it's place. This is
  * called on Travis.
  */
-public class JarTest {
+public class JarTest
+{
 
     private static final String pcgenJar = "pcgen.jar";
     private final File jar = new File(pcgenJar);
     private final File libs = new File("libs");
 
     @Disabled
-    void testJar() throws IOException, InterruptedException, ExecutionException {
+    void testJar() throws IOException, InterruptedException, ExecutionException
+    {
         // Make sure the jar is in root.
         assertThat(jar.exists(), is(true));
 
@@ -61,9 +63,11 @@ public class JarTest {
         ProcessBuilder pb = new ProcessBuilder("java", "-jar", pcgenJar);
         Process process = pb.start();
         final ExecutorService service = Executors.newSingleThreadExecutor();
-        try {
+        try
+        {
             final Future<?> future = service.submit(() -> {
-                try {
+                try
+                {
                     BufferedReader bri
                             = new BufferedReader(new InputStreamReader(process.getInputStream()));
                     BufferedReader bre
@@ -71,27 +75,33 @@ public class JarTest {
                     process.waitFor();
 
                     String line;
-                    while ((line = bri.readLine()) != null) {
+                    while ((line = bri.readLine()) != null)
+                    {
                         System.out.println(line);
                     }
 
                     boolean error = false;
-                    while ((line = bre.readLine()) != null) {
+                    while ((line = bre.readLine()) != null)
+                    {
                         System.out.println(line);
                         error = true;
                     }
-                    if (error) {
+                    if (error)
+                    {
                         fail();
                     }
-                } catch (InterruptedException | IOException e) {
+                } catch (InterruptedException | IOException e)
+                {
                     fail(e.getLocalizedMessage());
                 }
             });
             future.get(5, TimeUnit.SECONDS);
-        } catch (final TimeoutException e) {
+        } catch (final TimeoutException e)
+        {
             // The process may have crashed
             process.destroy();
-        } finally {
+        } finally
+        {
             service.shutdown();
         }
     }

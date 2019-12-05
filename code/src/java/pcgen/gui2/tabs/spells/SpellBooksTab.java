@@ -1,20 +1,20 @@
 /*
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  */
 package pcgen.gui2.tabs.spells;
 
@@ -65,351 +65,349 @@ import org.apache.commons.lang3.StringUtils;
 public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private final TabTitle tabTitle = new TabTitle(Tab.SPELLBOOKS);
-	private final FilteredTreeViewTable<CharacterFacade, SuperNode> availableTable;
-	private final JTreeViewTable<SuperNode> selectedTable;
-	private final QualifiedSpellTreeCellRenderer spellRenderer;
-	private final JButton addButton;
-	private final JButton removeButton;
-	private final FilterButton<CharacterFacade, SuperNode> qFilterButton;
-	private final InfoPane spellsPane;
-	private final InfoPane classPane;
-	private final JComboBox defaultBookCombo;
+    private final TabTitle tabTitle = new TabTitle(Tab.SPELLBOOKS);
+    private final FilteredTreeViewTable<CharacterFacade, SuperNode> availableTable;
+    private final JTreeViewTable<SuperNode> selectedTable;
+    private final QualifiedSpellTreeCellRenderer spellRenderer;
+    private final JButton addButton;
+    private final JButton removeButton;
+    private final FilterButton<CharacterFacade, SuperNode> qFilterButton;
+    private final InfoPane spellsPane;
+    private final InfoPane classPane;
+    private final JComboBox defaultBookCombo;
 
-	public SpellBooksTab()
-	{
-		this.availableTable = new FilteredTreeViewTable<>();
-		this.selectedTable = new JTreeViewTable<>()
-		{
+    public SpellBooksTab()
+    {
+        this.availableTable = new FilteredTreeViewTable<>();
+        this.selectedTable = new JTreeViewTable<>()
+        {
 
-			@Override
-			public void setTreeViewModel(TreeViewModel<SuperNode> viewModel)
-			{
-				super.setTreeViewModel(viewModel);
-				sortModel();
-			}
+            @Override
+            public void setTreeViewModel(TreeViewModel<SuperNode> viewModel)
+            {
+                super.setTreeViewModel(viewModel);
+                sortModel();
+            }
 
-		};
-		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
-		this.addButton = new JButton();
-		this.removeButton = new JButton();
-		this.qFilterButton = new FilterButton<>("SpellBooksQualified");
-		this.spellsPane = new InfoPane(LanguageBundle.getString("InfoSpells.spell.info"));
-		this.classPane = new InfoPane(LanguageBundle.getString("InfoSpells.class.info"));
-		this.defaultBookCombo = new JComboBox();
-		initComponents();
-	}
+        };
+        this.spellRenderer = new QualifiedSpellTreeCellRenderer();
+        this.addButton = new JButton();
+        this.removeButton = new JButton();
+        this.qFilterButton = new FilterButton<>("SpellBooksQualified");
+        this.spellsPane = new InfoPane(LanguageBundle.getString("InfoSpells.spell.info"));
+        this.classPane = new InfoPane(LanguageBundle.getString("InfoSpells.class.info"));
+        this.defaultBookCombo = new JComboBox();
+        initComponents();
+    }
 
-	private void initComponents()
-	{
-		availableTable.setTreeCellRenderer(spellRenderer);
-		selectedTable.setTreeCellRenderer(spellRenderer);
-		selectedTable.setRowSorter(new SortableTableRowSorter()
-		{
+    private void initComponents()
+    {
+        availableTable.setTreeCellRenderer(spellRenderer);
+        selectedTable.setTreeCellRenderer(spellRenderer);
+        selectedTable.setRowSorter(new SortableTableRowSorter()
+        {
 
-			@Override
-			public SortableTableModel getModel()
-			{
-				return (SortableTableModel) selectedTable.getModel();
-			}
+            @Override
+            public SortableTableModel getModel()
+            {
+                return (SortableTableModel) selectedTable.getModel();
+            }
 
-		});
-		selectedTable.getRowSorter().toggleSortOrder(0);
-		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<>();
-		filterBar.addDisplayableFilter(new SearchFilterPanel());
-		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
-		filterBar.addDisplayableFilter(qFilterButton);
+        });
+        selectedTable.getRowSorter().toggleSortOrder(0);
+        FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<>();
+        filterBar.addDisplayableFilter(new SearchFilterPanel());
+        qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+        filterBar.addDisplayableFilter(qFilterButton);
 
-		FlippingSplitPane upperPane = new FlippingSplitPane();
-		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
-		Box box = Box.createVerticalBox();
-		box.add(Box.createVerticalStrut(5));
-		{
-			Box hbox = Box.createHorizontalBox();
-			hbox.add(Box.createHorizontalStrut(5));
-			hbox.add(new JLabel(LanguageBundle.getString("InfoSpells.set.auto.book")));
-			hbox.add(Box.createHorizontalGlue());
-			box.add(hbox);
-		}
-		box.add(Box.createVerticalStrut(5));
-		{
-			Box hbox = Box.createHorizontalBox();
-			hbox.add(Box.createHorizontalStrut(5));
-			hbox.add(defaultBookCombo);
-			hbox.add(Box.createHorizontalGlue());
-			hbox.add(Box.createHorizontalStrut(5));
-			hbox.add(addButton);
-			hbox.add(Box.createHorizontalStrut(5));
-			box.add(hbox);
-		}
-		box.add(Box.createVerticalStrut(5));
-		availPanel.add(box, BorderLayout.SOUTH);
-		upperPane.setLeftComponent(availPanel);
+        FlippingSplitPane upperPane = new FlippingSplitPane();
+        JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
+        Box box = Box.createVerticalBox();
+        box.add(Box.createVerticalStrut(5));
+        {
+            Box hbox = Box.createHorizontalBox();
+            hbox.add(Box.createHorizontalStrut(5));
+            hbox.add(new JLabel(LanguageBundle.getString("InfoSpells.set.auto.book")));
+            hbox.add(Box.createHorizontalGlue());
+            box.add(hbox);
+        }
+        box.add(Box.createVerticalStrut(5));
+        {
+            Box hbox = Box.createHorizontalBox();
+            hbox.add(Box.createHorizontalStrut(5));
+            hbox.add(defaultBookCombo);
+            hbox.add(Box.createHorizontalGlue());
+            hbox.add(Box.createHorizontalStrut(5));
+            hbox.add(addButton);
+            hbox.add(Box.createHorizontalStrut(5));
+            box.add(hbox);
+        }
+        box.add(Box.createVerticalStrut(5));
+        availPanel.add(box, BorderLayout.SOUTH);
+        upperPane.setLeftComponent(availPanel);
 
-		box = Box.createVerticalBox();
-		box.add(new JScrollPane(selectedTable));
-		box.add(Box.createVerticalStrut(5));
-		{
-			Box hbox = Box.createHorizontalBox();
-			hbox.add(Box.createHorizontalStrut(5));
-			hbox.add(removeButton);
-			hbox.add(Box.createHorizontalGlue());
-			box.add(hbox);
-		}
-		box.add(Box.createVerticalStrut(5));
-		upperPane.setRightComponent(box);
-		upperPane.setResizeWeight(0);
-		setTopComponent(upperPane);
+        box = Box.createVerticalBox();
+        box.add(new JScrollPane(selectedTable));
+        box.add(Box.createVerticalStrut(5));
+        {
+            Box hbox = Box.createHorizontalBox();
+            hbox.add(Box.createHorizontalStrut(5));
+            hbox.add(removeButton);
+            hbox.add(Box.createHorizontalGlue());
+            box.add(hbox);
+        }
+        box.add(Box.createVerticalStrut(5));
+        upperPane.setRightComponent(box);
+        upperPane.setResizeWeight(0);
+        setTopComponent(upperPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane();
-		bottomPane.setLeftComponent(spellsPane);
-		bottomPane.setRightComponent(classPane);
-		setBottomComponent(bottomPane);
-		setOrientation(VERTICAL_SPLIT);
-	}
+        FlippingSplitPane bottomPane = new FlippingSplitPane();
+        bottomPane.setLeftComponent(spellsPane);
+        bottomPane.setRightComponent(classPane);
+        setBottomComponent(bottomPane);
+        setOrientation(VERTICAL_SPLIT);
+    }
 
-	@Override
-	public ModelMap createModels(final CharacterFacade character)
-	{
-		ModelMap models = new ModelMap();
-		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
-		models.put(AddSpellAction.class, new AddSpellAction(character));
-		models.put(RemoveSpellAction.class, new RemoveSpellAction(character));
-		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable, selectedTable, spellsPane));
-		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable, selectedTable, classPane));
-		models.put(SpellBookModel.class, new SpellBookModel(character));
-		models.put(SpellFilterHandler.class, new SpellFilterHandler(character));
-		return models;
-	}
+    @Override
+    public ModelMap createModels(final CharacterFacade character)
+    {
+        ModelMap models = new ModelMap();
+        models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
+        models.put(AddSpellAction.class, new AddSpellAction(character));
+        models.put(RemoveSpellAction.class, new RemoveSpellAction(character));
+        models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable, selectedTable, spellsPane));
+        models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable, selectedTable, classPane));
+        models.put(SpellBookModel.class, new SpellBookModel(character));
+        models.put(SpellFilterHandler.class, new SpellFilterHandler(character));
+        return models;
+    }
 
-	@Override
-	public void restoreModels(ModelMap models)
-	{
-		models.get(SpellFilterHandler.class).install();
-		models.get(TreeViewModelHandler.class).install();
-		models.get(SpellInfoHandler.class).install();
-		models.get(ClassInfoHandler.class).install();
-		models.get(AddSpellAction.class).install();
-		models.get(RemoveSpellAction.class).install();
-		defaultBookCombo.setModel(models.get(SpellBookModel.class));
-	}
+    @Override
+    public void restoreModels(ModelMap models)
+    {
+        models.get(SpellFilterHandler.class).install();
+        models.get(TreeViewModelHandler.class).install();
+        models.get(SpellInfoHandler.class).install();
+        models.get(ClassInfoHandler.class).install();
+        models.get(AddSpellAction.class).install();
+        models.get(RemoveSpellAction.class).install();
+        defaultBookCombo.setModel(models.get(SpellBookModel.class));
+    }
 
-	@Override
-	public void storeModels(ModelMap models)
-	{
-		models.get(SpellInfoHandler.class).uninstall();
-		models.get(ClassInfoHandler.class).uninstall();
-		models.get(AddSpellAction.class).uninstall();
-		models.get(RemoveSpellAction.class).uninstall();
-		models.get(TreeViewModelHandler.class).uninstall();
-	}
+    @Override
+    public void storeModels(ModelMap models)
+    {
+        models.get(SpellInfoHandler.class).uninstall();
+        models.get(ClassInfoHandler.class).uninstall();
+        models.get(AddSpellAction.class).uninstall();
+        models.get(RemoveSpellAction.class).uninstall();
+        models.get(TreeViewModelHandler.class).uninstall();
+    }
 
-	@Override
-	public TabTitle getTabTitle()
-	{
-		return tabTitle;
-	}
+    @Override
+    public TabTitle getTabTitle()
+    {
+        return tabTitle;
+    }
 
-	/**
-	 * Identify the current spell book, being the spell book that spells should
-	 * be added to. If no books exist then return an empty string.
-	 *
-	 * @return The name of the 'current' spell book, or empty string if none
-	 *         exist.
-	 */
-	String getCurrentSpellBookName()
-	{
-		String spellList = "";
-		Object selectedObject = selectedTable.getSelectedObject();
-		if (selectedObject != null)
-		{
-			if (selectedObject instanceof SpellNode)
-			{
-				spellList = ((SpellNode) selectedObject).getRootNode().getName();
-			}
-			else if (selectedObject instanceof RootNode)
-			{
-				spellList = ((RootNode) selectedObject).getName();
-			}
-			else
-			{
-				JTree tree = selectedTable.getTree();
-				TreePath path = tree.getSelectionPath();
-				while (path.getParentPath() != null && (path.getParentPath().getParentPath() != null))
-				{
-					path = path.getParentPath();
-				}
-				spellList = path.getLastPathComponent().toString();
-			}
-		}
-		if (StringUtils.isEmpty(spellList))
-		{
-			ListFacade<?> data = selectedTable.getTreeViewModel().getDataModel();
-			if (!data.isEmpty())
-			{
-				Object firstElem = data.getElementAt(0);
-				if (firstElem instanceof SpellNode)
-				{
-					spellList = ((SpellNode) firstElem).getRootNode().getName();
-				}
-			}
-		}
-		return spellList;
-	}
+    /**
+     * Identify the current spell book, being the spell book that spells should
+     * be added to. If no books exist then return an empty string.
+     *
+     * @return The name of the 'current' spell book, or empty string if none
+     * exist.
+     */
+    String getCurrentSpellBookName()
+    {
+        String spellList = "";
+        Object selectedObject = selectedTable.getSelectedObject();
+        if (selectedObject != null)
+        {
+            if (selectedObject instanceof SpellNode)
+            {
+                spellList = ((SpellNode) selectedObject).getRootNode().getName();
+            } else if (selectedObject instanceof RootNode)
+            {
+                spellList = ((RootNode) selectedObject).getName();
+            } else
+            {
+                JTree tree = selectedTable.getTree();
+                TreePath path = tree.getSelectionPath();
+                while (path.getParentPath() != null && (path.getParentPath().getParentPath() != null))
+                {
+                    path = path.getParentPath();
+                }
+                spellList = path.getLastPathComponent().toString();
+            }
+        }
+        if (StringUtils.isEmpty(spellList))
+        {
+            ListFacade<?> data = selectedTable.getTreeViewModel().getDataModel();
+            if (!data.isEmpty())
+            {
+                Object firstElem = data.getElementAt(0);
+                if (firstElem instanceof SpellNode)
+                {
+                    spellList = ((SpellNode) firstElem).getRootNode().getName();
+                }
+            }
+        }
+        return spellList;
+    }
 
-	private static class SpellBookModel extends CharacterComboBoxModel<String>
-	{
+    private static class SpellBookModel extends CharacterComboBoxModel<String>
+    {
 
-		private final SpellSupportFacade spellSupport;
+        private final SpellSupportFacade spellSupport;
 
-		public SpellBookModel(CharacterFacade character)
-		{
-			this.spellSupport = character.getSpellSupport();
-			setListFacade(spellSupport.getSpellbooks());
-			setReference(spellSupport.getDefaultSpellBookRef());
-		}
+        public SpellBookModel(CharacterFacade character)
+        {
+            this.spellSupport = character.getSpellSupport();
+            setListFacade(spellSupport.getSpellbooks());
+            setReference(spellSupport.getDefaultSpellBookRef());
+        }
 
-		@Override
-		public void setSelectedItem(Object anItem)
-		{
-			spellSupport.setDefaultSpellBook((String) anItem);
-		}
-	}
+        @Override
+        public void setSelectedItem(Object anItem)
+        {
+            spellSupport.setDefaultSpellBook((String) anItem);
+        }
+    }
 
-	private class AddSpellAction extends AbstractAction
-	{
+    private class AddSpellAction extends AbstractAction
+    {
 
-		private final CharacterFacade character;
+        private final CharacterFacade character;
 
-		public AddSpellAction(CharacterFacade character)
-		{
-			this.character = character;
-			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
-		}
+        public AddSpellAction(CharacterFacade character)
+        {
+            this.character = character;
+            putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
+        }
 
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			List<?> data = availableTable.getSelectedData();
-			String bookname = getCurrentSpellBookName();
-			for (Object object : data)
-			{
-				if (object instanceof SpellNode)
-				{
-					character.getSpellSupport().addToSpellBook((SpellNode) object, bookname);
-				}
-			}
-		}
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            List<?> data = availableTable.getSelectedData();
+            String bookname = getCurrentSpellBookName();
+            for (Object object : data)
+            {
+                if (object instanceof SpellNode)
+                {
+                    character.getSpellSupport().addToSpellBook((SpellNode) object, bookname);
+                }
+            }
+        }
 
-		public void install()
-		{
-			availableTable.addActionListener(this);
-			addButton.setAction(this);
-		}
+        public void install()
+        {
+            availableTable.addActionListener(this);
+            addButton.setAction(this);
+        }
 
-		public void uninstall()
-		{
-			availableTable.removeActionListener(this);
-		}
+        public void uninstall()
+        {
+            availableTable.removeActionListener(this);
+        }
 
-	}
+    }
 
-	private class RemoveSpellAction extends AbstractAction
-	{
+    private class RemoveSpellAction extends AbstractAction
+    {
 
-		private final CharacterFacade character;
+        private final CharacterFacade character;
 
-		public RemoveSpellAction(CharacterFacade character)
-		{
-			this.character = character;
-			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
-		}
+        public RemoveSpellAction(CharacterFacade character)
+        {
+            this.character = character;
+            putValue(SMALL_ICON, Icons.Back16.getImageIcon());
+        }
 
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			List<?> data = selectedTable.getSelectedData();
-			for (Object object : data)
-			{
-				if (object instanceof SpellNode)
-				{
-					SpellNode node = (SpellNode) object;
-					character.getSpellSupport().removeFromSpellBook(node, node.getRootNode().getName());
-				}
-			}
-		}
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            List<?> data = selectedTable.getSelectedData();
+            for (Object object : data)
+            {
+                if (object instanceof SpellNode)
+                {
+                    SpellNode node = (SpellNode) object;
+                    character.getSpellSupport().removeFromSpellBook(node, node.getRootNode().getName());
+                }
+            }
+        }
 
-		public void install()
-		{
-			selectedTable.addActionListener(this);
-			removeButton.setAction(this);
-		}
+        public void install()
+        {
+            selectedTable.addActionListener(this);
+            removeButton.setAction(this);
+        }
 
-		public void uninstall()
-		{
-			selectedTable.removeActionListener(this);
-		}
+        public void uninstall()
+        {
+            selectedTable.removeActionListener(this);
+        }
 
-	}
+    }
 
-	private class TreeViewModelHandler
-	{
+    private class TreeViewModelHandler
+    {
 
-		private final SpellTreeViewModel availableModel;
-		private final SpellTreeViewModel selectedModel;
-		private final CharacterFacade character;
+        private final SpellTreeViewModel availableModel;
+        private final SpellTreeViewModel selectedModel;
+        private final CharacterFacade character;
 
-		public TreeViewModelHandler(CharacterFacade character)
-		{
-			this.character = character;
-			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false,
-				"SpellBooksAva", character.getInfoFactory());
-			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true,
-				"SpellBooksSel", character.getInfoFactory());
-		}
+        public TreeViewModelHandler(CharacterFacade character)
+        {
+            this.character = character;
+            availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false,
+                    "SpellBooksAva", character.getInfoFactory());
+            selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true,
+                    "SpellBooksSel", character.getInfoFactory());
+        }
 
-		public void install()
-		{
-			spellRenderer.setCharacter(character);
-			availableTable.setTreeViewModel(availableModel);
-			selectedTable.setTreeViewModel(selectedModel);
-		}
+        public void install()
+        {
+            spellRenderer.setCharacter(character);
+            availableTable.setTreeViewModel(availableModel);
+            selectedTable.setTreeViewModel(selectedModel);
+        }
 
-		public void uninstall()
-		{
-			spellRenderer.setCharacter(null);
-		}
+        public void uninstall()
+        {
+            spellRenderer.setCharacter(null);
+        }
 
-	}
+    }
 
-	private class SpellFilterHandler implements Filter<CharacterFacade, SuperNode>
-	{
+    private class SpellFilterHandler implements Filter<CharacterFacade, SuperNode>
+    {
 
-		private final CharacterFacade character;
+        private final CharacterFacade character;
 
-		public SpellFilterHandler(CharacterFacade character)
-		{
-			this.character = character;
-		}
+        public SpellFilterHandler(CharacterFacade character)
+        {
+            this.character = character;
+        }
 
-		public void install()
-		{
-			qFilterButton.setFilter(this);
-		}
+        public void install()
+        {
+            qFilterButton.setFilter(this);
+        }
 
-		@Override
-		public boolean accept(CharacterFacade context, SuperNode element)
-		{
-			if (element instanceof SpellNode)
-			{
-				SpellNode spellNode = (SpellNode) element;
-				SpellFacade spell = spellNode.getSpell();
-				PCClass pcClass = spellNode.getSpellcastingClass();
-				return character.isQualifiedFor(spell, pcClass);
-			}
-			return true;
-		}
+        @Override
+        public boolean accept(CharacterFacade context, SuperNode element)
+        {
+            if (element instanceof SpellNode)
+            {
+                SpellNode spellNode = (SpellNode) element;
+                SpellFacade spell = spellNode.getSpell();
+                PCClass pcClass = spellNode.getSpellcastingClass();
+                return character.isQualifiedFor(spell, pcClass);
+            }
+            return true;
+        }
 
-	}
+    }
 
 }

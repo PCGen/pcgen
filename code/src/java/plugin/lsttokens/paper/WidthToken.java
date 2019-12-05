@@ -26,44 +26,43 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * {@code WidthToken}
- * 
  */
 public class WidthToken extends AbstractNonEmptyToken<PaperInfo> implements CDOMPrimaryToken<PaperInfo>
 {
 
-	/**
-	 * Get token name
-	 * 
-	 * @return token name
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "WIDTH";
-	}
+    /**
+     * Get token name
+     *
+     * @return token name
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "WIDTH";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
-	{
-		pi.setPaperInfo(PaperInfo.WIDTH, value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
+    {
+        pi.setPaperInfo(PaperInfo.WIDTH, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PaperInfo pi)
-	{
-		String info = pi.getPaperInfo(PaperInfo.WIDTH);
-		if (info == null)
-		{
-			// Probably an error
-			return null;
-		}
-		return new String[]{info};
-	}
+    @Override
+    public String[] unparse(LoadContext context, PaperInfo pi)
+    {
+        String info = pi.getPaperInfo(PaperInfo.WIDTH);
+        if (info == null)
+        {
+            // Probably an error
+            return null;
+        }
+        return new String[]{info};
+    }
 
-	@Override
-	public Class<PaperInfo> getTokenClass()
-	{
-		return PaperInfo.class;
-	}
+    @Override
+    public Class<PaperInfo> getTokenClass()
+    {
+        return PaperInfo.class;
+    }
 }

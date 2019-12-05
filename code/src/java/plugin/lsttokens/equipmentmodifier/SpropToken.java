@@ -35,80 +35,80 @@ import pcgen.rules.persistence.token.ParseResult;
  * Deals with SPROP token
  */
 public class SpropToken extends AbstractTokenWithSeparator<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SPROP";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPROP";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, EquipmentModifier mod, String value)
-	{
-		if (Constants.LST_DOT_CLEAR.equals(value))
-		{
-			context.getObjectContext().removeList(mod, ListKey.SPECIAL_PROPERTIES);
-			return ParseResult.SUCCESS;
-		}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, EquipmentModifier mod, String value)
+    {
+        if (Constants.LST_DOT_CLEAR.equals(value))
+        {
+            context.getObjectContext().removeList(mod, ListKey.SPECIAL_PROPERTIES);
+            return ParseResult.SUCCESS;
+        }
 
-		SpecialProperty sa = SpecialProperty.createFromLst(value);
-		if (sa == null)
-		{
-			return ParseResult.INTERNAL_ERROR;
-		}
-		context.getObjectContext().addToList(mod, ListKey.SPECIAL_PROPERTIES, sa);
-		return ParseResult.SUCCESS;
-	}
+        SpecialProperty sa = SpecialProperty.createFromLst(value);
+        if (sa == null)
+        {
+            return ParseResult.INTERNAL_ERROR;
+        }
+        context.getObjectContext().addToList(mod, ListKey.SPECIAL_PROPERTIES, sa);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		Changes<SpecialProperty> changes = context.getObjectContext().getListChanges(mod, ListKey.SPECIAL_PROPERTIES);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		List<String> list = new ArrayList<>();
-		Collection<SpecialProperty> added = changes.getAdded();
-		boolean globalClear = changes.includesGlobalClear();
-		if (globalClear)
-		{
-			list.add(Constants.LST_DOT_CLEAR);
-		}
-		if (added != null && !added.isEmpty())
-		{
-			for (SpecialProperty sp : added)
-			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(sp.getDisplayName());
-				if (sp.hasPrerequisites())
-				{
-					sb.append(Constants.PIPE);
-					sb.append(getPrerequisiteString(context, sp.getPrerequisiteList()));
-				}
-				list.add(sb.toString());
-			}
-		}
-		if (list.isEmpty())
-		{
-			context.addWriteMessage(
-				getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
-			return null;
-		}
-		return list.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, EquipmentModifier mod)
+    {
+        Changes<SpecialProperty> changes = context.getObjectContext().getListChanges(mod, ListKey.SPECIAL_PROPERTIES);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        List<String> list = new ArrayList<>();
+        Collection<SpecialProperty> added = changes.getAdded();
+        boolean globalClear = changes.includesGlobalClear();
+        if (globalClear)
+        {
+            list.add(Constants.LST_DOT_CLEAR);
+        }
+        if (added != null && !added.isEmpty())
+        {
+            for (SpecialProperty sp : added)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.append(sp.getDisplayName());
+                if (sp.hasPrerequisites())
+                {
+                    sb.append(Constants.PIPE);
+                    sb.append(getPrerequisiteString(context, sp.getPrerequisiteList()));
+                }
+                list.add(sb.toString());
+            }
+        }
+        if (list.isEmpty())
+        {
+            context.addWriteMessage(
+                    getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
+            return null;
+        }
+        return list.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

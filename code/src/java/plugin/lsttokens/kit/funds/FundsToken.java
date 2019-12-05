@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -30,38 +30,38 @@ import pcgen.rules.persistence.token.ParseResult;
 public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements CDOMPrimaryToken<KitFunds>
 {
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "FUNDS";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "FUNDS";
+    }
 
-	@Override
-	public Class<KitFunds> getTokenClass()
-	{
-		return KitFunds.class;
-	}
+    @Override
+    public Class<KitFunds> getTokenClass()
+    {
+        return KitFunds.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds, String value)
-	{
-		kitFunds.setName(value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds, String value)
+    {
+        kitFunds.setName(value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitFunds kitFunds)
-	{
-		String bd = kitFunds.getName();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitFunds kitFunds)
+    {
+        String bd = kitFunds.getName();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd};
+    }
 }

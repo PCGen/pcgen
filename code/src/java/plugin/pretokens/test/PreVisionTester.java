@@ -27,56 +27,53 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.enumeration.VisionType;
 
 /**
- *
  * Checks a characters vision..
  */
 public class PreVisionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		String range = prereq.getOperand();
-		VisionType requiredVisionType = VisionType.getVisionType(prereq.getKey());
-		int runningTotal = 0;
-		if (range.equals("ANY"))
-		{
-			Vision v = display.getVision(requiredVisionType);
-			if (v == null)
-			{
-				runningTotal += prereq.getOperator().compare(0, 1);
-			}
-			else
-			{
-				runningTotal += prereq.getOperator().compare(1, 0);
-			}
-		}
-		else
-		{
-			int requiredRange = Integer.parseInt(range);
-			Vision v = display.getVision(requiredVisionType);
-			if (v == null)
-			{
-				runningTotal += prereq.getOperator().compare(0, requiredRange);
-			}
-			else
-			{
-				int visionRange = Integer.parseInt(v.getDistance().toString());
-				runningTotal += prereq.getOperator().compare(visionRange, requiredRange);
-			}
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        String range = prereq.getOperand();
+        VisionType requiredVisionType = VisionType.getVisionType(prereq.getKey());
+        int runningTotal = 0;
+        if (range.equals("ANY"))
+        {
+            Vision v = display.getVision(requiredVisionType);
+            if (v == null)
+            {
+                runningTotal += prereq.getOperator().compare(0, 1);
+            } else
+            {
+                runningTotal += prereq.getOperator().compare(1, 0);
+            }
+        } else
+        {
+            int requiredRange = Integer.parseInt(range);
+            Vision v = display.getVision(requiredVisionType);
+            if (v == null)
+            {
+                runningTotal += prereq.getOperator().compare(0, requiredRange);
+            } else
+            {
+                int visionRange = Integer.parseInt(v.getDistance().toString());
+                runningTotal += prereq.getOperator().compare(visionRange, requiredRange);
+            }
+        }
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "VISION"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "VISION"; //$NON-NLS-1$
+    }
 
 }

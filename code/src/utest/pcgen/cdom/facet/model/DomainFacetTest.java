@@ -24,30 +24,30 @@ import pcgen.core.Domain;
 import pcgen.core.PCClass;
 
 public class DomainFacetTest extends
-		AbstractSingleSourceListFacetTest<Domain, ClassSource>
+        AbstractSingleSourceListFacetTest<Domain, ClassSource>
 {
-	private static int n = 0;
-	private DomainFacet facet = new DomainFacet();
+    private static int n = 0;
+    private DomainFacet facet = new DomainFacet();
 
-	@Override
-	protected ClassSource developSource()
-	{
-		PCClass cl = new PCClass();
-		cl.setName("Class" + n++);
-		return new ClassSource(cl);
-	}
+    @Override
+    protected ClassSource developSource()
+    {
+        PCClass cl = new PCClass();
+        cl.setName("Class" + n++);
+        return new ClassSource(cl);
+    }
 
-	@Override
-	protected AbstractSingleSourceListFacet<Domain, ClassSource> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSingleSourceListFacet<Domain, ClassSource> getFacet()
+    {
+        return facet;
+    }
 
-	@Override
-	protected Domain getTypeObj()
-	{
-		Domain d = new Domain();
-		d.setName("Domain" + n++);
-		return d;
-	}
+    @Override
+    protected Domain getTypeObj()
+    {
+        Domain d = new Domain();
+        d.setName("Domain" + n++);
+        return d;
+    }
 }

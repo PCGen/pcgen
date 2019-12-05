@@ -27,16 +27,17 @@ import javafx.scene.web.WebView;
  */
 public final class SimpleHtmlPanelController
 {
-	@FXML
-	private WebView browser;
+    @FXML
+    private WebView browser;
 
-	/**
-	 * Sets the "model" for for the SimpleHtmlPanel.
-	 * @param html the HTML content to load
-	 */
-	public void setHtml(String html)
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() -> browser.getEngine().loadContent(html));
-	}
+    /**
+     * Sets the "model" for for the SimpleHtmlPanel.
+     *
+     * @param html the HTML content to load
+     */
+    public void setHtml(String html)
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        Platform.runLater(() -> browser.getEngine().loadContent(html));
+    }
 }

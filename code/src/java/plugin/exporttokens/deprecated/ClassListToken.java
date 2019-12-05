@@ -30,50 +30,50 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class ClassListToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "CLASSLIST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CLASSLIST";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return getClassListToken(display);
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return getClassListToken(display);
+    }
 
-	/**
-	 * Get the class list token value for the PC
-	 * @param display
-	 * @return token value
-	 */
-	public static String getClassListToken(CharacterDisplay display)
-	{
-		StringBuilder returnString = new StringBuilder();
-		boolean firstLine = true;
+    /**
+     * Get the class list token value for the PC
+     *
+     * @param display
+     * @return token value
+     */
+    public static String getClassListToken(CharacterDisplay display)
+    {
+        StringBuilder returnString = new StringBuilder();
+        boolean firstLine = true;
 
-		for (PCClass pcClass : display.getClassSet())
-		{
-			if (!firstLine)
-			{
-				returnString.append(' ');
-			}
+        for (PCClass pcClass : display.getClassSet())
+        {
+            if (!firstLine)
+            {
+                returnString.append(' ');
+            }
 
-			firstLine = false;
+            firstLine = false;
 
-			String subClassKey = display.getSubClassName(pcClass);
-			if (subClassKey == null || Constants.NONE.equals(subClassKey) || "".equals(subClassKey))
-			{
-				returnString.append(OutputNameFormatting.getOutputName(pcClass));
-			}
-			else
-			{
-				returnString.append(pcClass.getSubClassKeyed(subClassKey).getDisplayName());
-			}
+            String subClassKey = display.getSubClassName(pcClass);
+            if (subClassKey == null || Constants.NONE.equals(subClassKey) || "".equals(subClassKey))
+            {
+                returnString.append(OutputNameFormatting.getOutputName(pcClass));
+            } else
+            {
+                returnString.append(pcClass.getSubClassKeyed(subClassKey).getDisplayName());
+            }
 
-			returnString.append(display.getLevel(pcClass));
-		}
+            returnString.append(display.getLevel(pcClass));
+        }
 
-		return returnString.toString();
-	}
+        return returnString.toString();
+    }
 }

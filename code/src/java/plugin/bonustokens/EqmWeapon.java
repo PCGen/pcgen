@@ -28,73 +28,76 @@ import pcgen.util.Logging;
  */
 public final class EqmWeapon extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGESIZE", "RANGEADD", "RANGEMULT"};
+    private static final String[] BONUS_TAGS =
+            {"CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGESIZE", "RANGEADD", "RANGEMULT"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "EQMWEAPON";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "EQMWEAPON";
+    }
 
-	/**
-	 * Get by index, an individual weapon equipment attribute that may be bonused.
-	 * @param tagNumber the index of the equipment attribute.
-	 * @return The equipment attribute.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual weapon equipment attribute that may be bonused.
+     *
+     * @param tagNumber the index of the equipment attribute.
+     * @return The equipment attribute.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of weapon equipment attributes that may be bonused.
-	 * @return The number of equipment attributes.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of weapon equipment attributes that may be bonused.
+     *
+     * @return The number of equipment attributes.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 
-	@Override
-	protected boolean parseToken(LoadContext context, String token)
-	{
-		if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
-		{
-			if ("CRITRANGEADD".equals(token))
-			{
-				Logging.errorPrint("BONUS:EQMWEAPON|CRITRANGEADD is disabled when CRITRANGE control is used: " + token,
-					context);
-				return false;
-			}
-			if ("CRITRANGEDOUBLE".equals(token))
-			{
-				Logging.errorPrint(
-					"BONUS:EQMWEAPON|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: " + token, context);
-				return false;
-			}
-		}
-		if (ControlUtilities.hasControlToken(context, CControl.EQRANGE))
-		{
-			if ("RANGEADD".equals(token))
-			{
-				Logging.errorPrint("BONUS:EQMWEAPON|RANGEADD is disabled when EQRANGE control is used: " + token,
-					context);
-				return false;
-			}
-			if ("RANGEMULT".equals(token))
-			{
-				Logging.errorPrint("BONUS:EQMWEAPON|RANGEMULT is disabled when EQRANGE control is used: " + token,
-					context);
-				return false;
-			}
-		}
-		return super.parseToken(context, token);
-	}
+    @Override
+    protected boolean parseToken(LoadContext context, String token)
+    {
+        if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
+        {
+            if ("CRITRANGEADD".equals(token))
+            {
+                Logging.errorPrint("BONUS:EQMWEAPON|CRITRANGEADD is disabled when CRITRANGE control is used: " + token,
+                        context);
+                return false;
+            }
+            if ("CRITRANGEDOUBLE".equals(token))
+            {
+                Logging.errorPrint(
+                        "BONUS:EQMWEAPON|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: " + token, context);
+                return false;
+            }
+        }
+        if (ControlUtilities.hasControlToken(context, CControl.EQRANGE))
+        {
+            if ("RANGEADD".equals(token))
+            {
+                Logging.errorPrint("BONUS:EQMWEAPON|RANGEADD is disabled when EQRANGE control is used: " + token,
+                        context);
+                return false;
+            }
+            if ("RANGEMULT".equals(token))
+            {
+                Logging.errorPrint("BONUS:EQMWEAPON|RANGEMULT is disabled when EQRANGE control is used: " + token,
+                        context);
+                return false;
+            }
+        }
+        return super.parseToken(context, token);
+    }
 }

@@ -33,117 +33,115 @@ import pcgen.core.chooser.ChooserUtilities;
 
 /**
  * Deals with applying a bonus language via a Kit
- * 
- * 
  */
 public class KitLangBonus extends BaseKit
 {
-	/** The list of language names. */
-	private List<CDOMSingleRef<Language>> langList = new ArrayList<>();
+    /**
+     * The list of language names.
+     */
+    private List<CDOMSingleRef<Language>> langList = new ArrayList<>();
 
-	// These members store the state of an instance of this class.  They are
-	// not cloned.
-	private List<Language> theLanguages = new ArrayList<>();
+    // These members store the state of an instance of this class.  They are
+    // not cloned.
+    private List<Language> theLanguages = new ArrayList<>();
 
-	/**
-	 * Actually applies the bonus languages to this PC.
-	 * 
-	 * @param aPC The PlayerCharacter the languages are to be applied to
-	 */
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		CNAbility cna = aPC.getBonusLanguageAbility();
-		for (Language l : theLanguages)
-		{
-			aPC.addAbility(new CNAbilitySelection(cna, l.getKeyName()), UserSelection.getInstance(),
-				UserSelection.getInstance());
-		}
-	}
+    /**
+     * Actually applies the bonus languages to this PC.
+     *
+     * @param aPC The PlayerCharacter the languages are to be applied to
+     */
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        CNAbility cna = aPC.getBonusLanguageAbility();
+        for (Language l : theLanguages)
+        {
+            aPC.addAbility(new CNAbilitySelection(cna, l.getKeyName()), UserSelection.getInstance(),
+                    UserSelection.getInstance());
+        }
+    }
 
-	/**
-	 * Prepare the languages to be added and test their application.
-	 * 
-	 * @param aPC The character to be processed.
-	 * @param aKit The kit being processed
-	 * @param warnings List of warnigns.
-	 * 
-	 * @return true, if the languages could be added
-	 */
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		theLanguages = new ArrayList<>();
+    /**
+     * Prepare the languages to be added and test their application.
+     *
+     * @param aPC      The character to be processed.
+     * @param aKit     The kit being processed
+     * @param warnings List of warnigns.
+     * @return true, if the languages could be added
+     */
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        theLanguages = new ArrayList<>();
 
-		CNAbility cna = aPC.getBonusLanguageAbility();
+        CNAbility cna = aPC.getBonusLanguageAbility();
 
-		List<String> reservedList = new ArrayList<>();
+        List<String> reservedList = new ArrayList<>();
 
-		/*
-		 * While this direct use of the controller seems strange, the use of
-		 * conditionallyApply in the controller is reasonable (there is no need
-		 * to actually try to apply the langbonus ability in this case)
-		 */
-		ChoiceManagerList<Language> controller =
-				ChooserUtilities.getConfiguredController(cna, aPC, AbilityCategory.LANGBONUS, reservedList);
-		if (controller == null)
-		{
-			return false;
-		}
+        /*
+         * While this direct use of the controller seems strange, the use of
+         * conditionallyApply in the controller is reasonable (there is no need
+         * to actually try to apply the langbonus ability in this case)
+         */
+        ChoiceManagerList<Language> controller =
+                ChooserUtilities.getConfiguredController(cna, aPC, AbilityCategory.LANGBONUS, reservedList);
+        if (controller == null)
+        {
+            return false;
+        }
 
-		int allowedCount = aPC.getAvailableAbilityPool(AbilityCategory.LANGBONUS).intValue();
-		int remaining = allowedCount;
-		for (CDOMSingleRef<Language> ref : langList)
-		{
-			Language lang = ref.get();
-			if (remaining > 0 && controller.conditionallyApply(aPC, lang))
-			{
-				theLanguages.add(lang);
-				remaining--;
-			}
-			else
-			{
-				warnings.add("LANGUAGE: Could not add bonus language \"" + lang.getKeyName() + "\"");
-			}
-		}
+        int allowedCount = aPC.getAvailableAbilityPool(AbilityCategory.LANGBONUS).intValue();
+        int remaining = allowedCount;
+        for (CDOMSingleRef<Language> ref : langList)
+        {
+            Language lang = ref.get();
+            if (remaining > 0 && controller.conditionallyApply(aPC, lang))
+            {
+                theLanguages.add(lang);
+                remaining--;
+            } else
+            {
+                warnings.add("LANGUAGE: Could not add bonus language \"" + lang.getKeyName() + "\"");
+            }
+        }
 
-		if (langList.size() > allowedCount)
-		{
-			warnings.add("LANGUAGE: Too many bonus languages specified. " + (langList.size() - allowedCount)
-				+ " had to be ignored.");
-		}
+        if (langList.size() > allowedCount)
+        {
+            warnings.add("LANGUAGE: Too many bonus languages specified. " + (langList.size() - allowedCount)
+                    + " had to be ignored.");
+        }
 
-		return !theLanguages.isEmpty();
-	}
+        return !theLanguages.isEmpty();
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Languages";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Languages";
+    }
 
-	@Override
-	public String toString()
-	{
-		StringBuilder result = new StringBuilder();
-		for (CDOMSingleRef<Language> lang : langList)
-		{
-			if (result.length() > 0)
-			{
-				result.append(", ");
-			}
-			result.append(lang.getLSTformat(false));
-		}
-		return result.toString();
-	}
+    @Override
+    public String toString()
+    {
+        StringBuilder result = new StringBuilder();
+        for (CDOMSingleRef<Language> lang : langList)
+        {
+            if (result.length() > 0)
+            {
+                result.append(", ");
+            }
+            result.append(lang.getLSTformat(false));
+        }
+        return result.toString();
+    }
 
-	public void addLanguage(CDOMSingleRef<Language> reference)
-	{
-		langList.add(reference);
-	}
+    public void addLanguage(CDOMSingleRef<Language> reference)
+    {
+        langList.add(reference);
+    }
 
-	public List<CDOMSingleRef<Language>> getLanguages()
-	{
-		return langList;
-	}
+    public List<CDOMSingleRef<Language>> getLanguages()
+    {
+        return langList;
+    }
 }

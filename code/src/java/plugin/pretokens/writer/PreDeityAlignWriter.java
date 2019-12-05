@@ -31,94 +31,92 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "deityalign";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "deityalign";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
 
-		try
-		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
-			{
-				writer.write('!');
-			}
+        try
+        {
+            if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+            {
+                writer.write('!');
+            }
 
-			writer.write("PREDEITYALIGN:" + (prereq.isOverrideQualify() ? "Q:" : ""));
-			writer.write(prereq.getOperand());
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+            writer.write("PREDEITYALIGN:" + (prereq.isOverrideQualify() ? "Q:" : ""));
+            writer.write(prereq.getOperand());
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
-	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
-	{
-		//
-		// If this is a PREMULT...
-		//
-		if (prereq.getKind() == null)
-		{
-			PrerequisiteOperator oper = null;
-			for (Prerequisite p : prereq.getPrerequisites())
-			{
-				//
-				// ...with all PREARMORTYPE entries...
-				//
-				if (!kindHandled().equalsIgnoreCase(p.getKind()))
-				{
-					return false;
-				}
-				//
-				// ...and the same operator...
-				//
-				if (oper == null)
-				{
-					oper = p.getOperator();
-				}
-				else
-				{
-					if (!oper.equals(p.getOperator()))
-					{
-						return false;
-					}
-				}
-			}
-			if (oper.equals(PrerequisiteOperator.EQ) && !"1".equals(prereq.getOperand()))
-			{
-				return false;
-			}
-			if (PrerequisiteOperator.LT.equals(prereq.getOperator()))
-			{
-				writer.write('!');
-			}
+    @Override
+    public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+    {
+        //
+        // If this is a PREMULT...
+        //
+        if (prereq.getKind() == null)
+        {
+            PrerequisiteOperator oper = null;
+            for (Prerequisite p : prereq.getPrerequisites())
+            {
+                //
+                // ...with all PREARMORTYPE entries...
+                //
+                if (!kindHandled().equalsIgnoreCase(p.getKind()))
+                {
+                    return false;
+                }
+                //
+                // ...and the same operator...
+                //
+                if (oper == null)
+                {
+                    oper = p.getOperator();
+                } else
+                {
+                    if (!oper.equals(p.getOperator()))
+                    {
+                        return false;
+                    }
+                }
+            }
+            if (oper.equals(PrerequisiteOperator.EQ) && !"1".equals(prereq.getOperand()))
+            {
+                return false;
+            }
+            if (PrerequisiteOperator.LT.equals(prereq.getOperator()))
+            {
+                writer.write('!');
+            }
 
-			writer.write("PRE" + kindHandled().toUpperCase(Locale.ENGLISH) + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
-			boolean first = true;
-			for (Prerequisite p : prereq.getPrerequisites())
-			{
-				if (!first)
-				{
-					writer.write(',');
-				}
-				writer.write(p.getOperand());
-				first = false;
-			}
-			return true;
-		}
-		return false;
-	}
+            writer.write("PRE" + kindHandled().toUpperCase(Locale.ENGLISH) + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+            boolean first = true;
+            for (Prerequisite p : prereq.getPrerequisites())
+            {
+                if (!first)
+                {
+                    writer.write(',');
+                }
+                writer.write(p.getOperand());
+                first = false;
+            }
+            return true;
+        }
+        return false;
+    }
 }

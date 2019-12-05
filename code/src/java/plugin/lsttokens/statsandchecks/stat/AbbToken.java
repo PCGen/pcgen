@@ -30,42 +30,42 @@ import pcgen.rules.persistence.token.ParseResult;
 public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
-	/**
-	 * Return token name
-	 *
-	 * @return token name
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "ABB";
-	}
+    /**
+     * Return token name
+     *
+     * @return token name
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "ABB";
+    }
 
-	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, PCStat stat, String value)
-	{
-		if (!context.processToken(stat, "KEY", value))
-		{
-			return new ParseResult.Fail("Internal Error");
-		}
-		context.getObjectContext().put(stat, StringKey.ABB_KR, value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    public ParseResult parseNonEmptyToken(LoadContext context, PCStat stat, String value)
+    {
+        if (!context.processToken(stat, "KEY", value))
+        {
+            return new ParseResult.Fail("Internal Error");
+        }
+        context.getObjectContext().put(stat, StringKey.ABB_KR, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PCStat stat)
-	{
-		String abb = context.getObjectContext().getString(stat, StringKey.ABB_KR);
-		if (abb == null)
-		{
-			return null;
-		}
-		return new String[]{abb};
-	}
+    @Override
+    public String[] unparse(LoadContext context, PCStat stat)
+    {
+        String abb = context.getObjectContext().getString(stat, StringKey.ABB_KR);
+        if (abb == null)
+        {
+            return null;
+        }
+        return new String[]{abb};
+    }
 
-	@Override
-	public Class<PCStat> getTokenClass()
-	{
-		return PCStat.class;
-	}
+    @Override
+    public Class<PCStat> getTokenClass()
+    {
+        return PCStat.class;
+    }
 }

@@ -27,59 +27,57 @@ import pcgen.rules.context.LoadContext;
 /**
  * This is the class that implements the LockedStat bonuses.
  * BONUS:LOCKEDSTAT|x|y
- * 
- * 
  */
 public final class LockedStat extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		PCStat stat = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, token);
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        PCStat stat = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, token);
 
-		if (stat != null)
-		{
-			addBonusInfo(stat);
-		}
-		else
-		{
-			addBonusInfo(new MissingObject(token));
-		}
+        if (stat != null)
+        {
+            addBonusInfo(stat);
+        } else
+        {
+            addBonusInfo(new MissingObject(token));
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		if (obj instanceof MissingObject)
-		{
-			return ((MissingObject) obj).getObjectName();
-		}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        if (obj instanceof MissingObject)
+        {
+            return ((MissingObject) obj).getObjectName();
+        }
 
-		return ((PCStat) obj).getKeyName();
-	}
+        return ((PCStat) obj).getKeyName();
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "LOCKEDSTAT";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "LOCKEDSTAT";
+    }
 
-	@Override
-	public String getDescription()
-	{
-		AbstractReferenceContext rc = Globals.getContext().getReferenceContext();
-		final PCStat pcstat = rc.silentlyGetConstructedCDOMObject(PCStat.class, getBonusInfo());
-		if (pcstat != null)
-		{
-			return pcstat.getDisplayName() + " (locked)";
-		}
-		return super.getDescription();
-	}
+    @Override
+    public String getDescription()
+    {
+        AbstractReferenceContext rc = Globals.getContext().getReferenceContext();
+        final PCStat pcstat = rc.silentlyGetConstructedCDOMObject(PCStat.class, getBonusInfo());
+        if (pcstat != null)
+        {
+            return pcstat.getDisplayName() + " (locked)";
+        }
+        return super.getDescription();
+    }
 
 }

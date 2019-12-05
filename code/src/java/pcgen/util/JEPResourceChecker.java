@@ -21,40 +21,40 @@ package pcgen.util;
 
 /**
  * {@code JEPResourceChecker}
- *
  */
 public final class JEPResourceChecker
 {
-	private static int missingResourceCount;
-	private static StringBuilder resourceBuffer;
+    private static int missingResourceCount;
+    private static StringBuilder resourceBuffer;
 
-	static
-	{
-		missingResourceCount = 0;
+    static
+    {
+        missingResourceCount = 0;
 
-		//optimize StringBuilder initial size (0 should be right length. Hopefully we don't get an error. :)
-		resourceBuffer = new StringBuilder(0);
-		checkResource();
-	}
+        //optimize StringBuilder initial size (0 should be right length. Hopefully we don't get an error. :)
+        resourceBuffer = new StringBuilder(0);
+        checkResource();
+    }
 
-	private JEPResourceChecker()
-	{
-	}
+    private JEPResourceChecker()
+    {
+    }
 
-	/**
-	 * Get the number of missing resources
-	 * @return the number of missing resources
-	 */
-	public static int getMissingResourceCount()
-	{
-		return missingResourceCount;
-	}
+    /**
+     * Get the number of missing resources
+     *
+     * @return the number of missing resources
+     */
+    public static int getMissingResourceCount()
+    {
+        return missingResourceCount;
+    }
 
-	private static void checkResource()
-	{
-		if (!ResourceChecker.hasResource("org.nfunk.jep.JEP", "jep-2.3.1.jar", resourceBuffer))
-		{
-			++missingResourceCount;
-		}
-	}
+    private static void checkResource()
+    {
+        if (!ResourceChecker.hasResource("org.nfunk.jep.JEP", "jep-2.3.1.jar", resourceBuffer))
+        {
+            ++missingResourceCount;
+        }
+    }
 }

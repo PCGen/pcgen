@@ -27,24 +27,23 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 public class PCToken extends AbstractPCQualifierToken<Race>
 {
 
-	@Override
-	protected Collection<Race> getPossessed(PlayerCharacter pc)
-	{
-		Race race = pc.getDisplay().getRace();
-		if (race == null)
-		{
-			return Collections.emptyList();
-		}
-		else
-		{
-			return Collections.singletonList(race);
-		}
-	}
+    @Override
+    protected Collection<Race> getPossessed(PlayerCharacter pc)
+    {
+        Race race = pc.getDisplay().getRace();
+        if (race == null)
+        {
+            return Collections.emptyList();
+        } else
+        {
+            return Collections.singletonList(race);
+        }
+    }
 
-	@Override
-	public Class<? super Race> getReferenceClass()
-	{
-		return Race.class;
-	}
+    @Override
+    public Class<? super Race> getReferenceClass()
+    {
+        return Race.class;
+    }
 
 }

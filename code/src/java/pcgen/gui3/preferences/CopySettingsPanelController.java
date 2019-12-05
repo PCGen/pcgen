@@ -44,95 +44,95 @@ import javafx.scene.control.Label;
 
 public final class CopySettingsPanelController implements ResettableController
 {
-	@FXML
-	private ComboBox<GameMode> gameModeSelect;
-	@FXML
-	private Label copyButtonLabel;
-	@FXML
-	private Button copyButton;
+    @FXML
+    private ComboBox<GameMode> gameModeSelect;
+    @FXML
+    private Label copyButtonLabel;
+    @FXML
+    private Button copyButton;
 
 
-	/**
-	 * These items are part of the model.
-	 */
-	private ObservableList<GameMode> gameModeItems;
-	private final List<PCGenPrefsPanel> affectedPanels;
+    /**
+     * These items are part of the model.
+     */
+    private ObservableList<GameMode> gameModeItems;
+    private final List<PCGenPrefsPanel> affectedPanels;
 
-	public CopySettingsPanelController()
-	{
-		affectedPanels = new ArrayList<>();
-	}
+    public CopySettingsPanelController()
+    {
+        affectedPanels = new ArrayList<>();
+    }
 
-	@FXML
-	void initialize()
-	{
-		SettingsHandler.getGameAsProperty().addListener((observable, oldValue, newValue) -> {
-			GuiAssertions.assertIsNotJavaFXThread();
-			Platform.runLater(() -> copyButtonLabel.setText(LanguageBundle.getFormattedString(
+    @FXML
+    void initialize()
+    {
+        SettingsHandler.getGameAsProperty().addListener((observable, oldValue, newValue) -> {
+            GuiAssertions.assertIsNotJavaFXThread();
+            Platform.runLater(() -> copyButtonLabel.setText(LanguageBundle.getFormattedString(
                     "in_Prefs_copyTo",
                     newValue.getName()
             )));
-		});
+        });
 
-		GameMode[] unmodifiableGameModeList = SystemCollections.getUnmodifiableGameModeList().toArray(new GameMode[0]);
-		gameModeItems = FXCollections.observableArrayList(unmodifiableGameModeList);
-		gameModeSelect.setItems(gameModeItems);
-		gameModeSelect.getSelectionModel().select(0);
-	}
+        GameMode[] unmodifiableGameModeList = SystemCollections.getUnmodifiableGameModeList().toArray(new GameMode[0]);
+        gameModeItems = FXCollections.observableArrayList(unmodifiableGameModeList);
+        gameModeSelect.setItems(gameModeItems);
+        gameModeSelect.getSelectionModel().select(0);
+    }
 
-	@FXML
-	private void onCopy(final ActionEvent actionEvent)
-	{
-		GameMode gmFrom = gameModeSelect.getSelectionModel().getSelectedItem();
-		GameMode gmTo = SettingsHandler.getGameAsProperty().get();
+    @FXML
+    private void onCopy(final ActionEvent actionEvent)
+    {
+        GameMode gmFrom = gameModeSelect.getSelectionModel().getSelectedItem();
+        GameMode gmTo = SettingsHandler.getGameAsProperty().get();
 
-		// Copy the settings from one mode to the other
-		gmTo.setAllStatsValue(Objects.requireNonNull(gmFrom).getAllStatsValue());
-		gmTo.setRollMethodExpressionByName(gmFrom.getRollMethodExpressionName());
-		if (gmTo.getPurchaseMethodByName(gmFrom.getPurchaseModeMethodName()) != null)
-		{
-			gmTo.setPurchaseMethodName(Objects.requireNonNull(gmFrom.getPurchaseModeMethodName()));
-		}
-		gmTo.setRollMethod(gmFrom.getRollMethod());
-		gmTo.selectUnitSet(gmFrom.getUnitSet().getKeyName());
-		if (gmTo.getXPTableNames().contains(gmFrom.getDefaultXPTableName()))
-		{
-			gmTo.setDefaultXPTableName(gmFrom.getDefaultXPTableName());
-		}
-		String currentICS =
-				SettingsHandler.getPCGenOption("InfoCharacterSheet." + gmTo.getName() + ".CurrentSheet", "");
-		String fromGmICS = SettingsHandler
-				.getPCGenOption("InfoCharacterSheet." + gmFrom.getName() + ".CurrentSheet", currentICS);
-		SettingsHandler.setPCGenOption("InfoCharacterSheet." + gmTo.getName() + ".CurrentSheet", fromGmICS);
+        // Copy the settings from one mode to the other
+        gmTo.setAllStatsValue(Objects.requireNonNull(gmFrom).getAllStatsValue());
+        gmTo.setRollMethodExpressionByName(gmFrom.getRollMethodExpressionName());
+        if (gmTo.getPurchaseMethodByName(gmFrom.getPurchaseModeMethodName()) != null)
+        {
+            gmTo.setPurchaseMethodName(Objects.requireNonNull(gmFrom.getPurchaseModeMethodName()));
+        }
+        gmTo.setRollMethod(gmFrom.getRollMethod());
+        gmTo.selectUnitSet(gmFrom.getUnitSet().getKeyName());
+        if (gmTo.getXPTableNames().contains(gmFrom.getDefaultXPTableName()))
+        {
+            gmTo.setDefaultXPTableName(gmFrom.getDefaultXPTableName());
+        }
+        String currentICS =
+                SettingsHandler.getPCGenOption("InfoCharacterSheet." + gmTo.getName() + ".CurrentSheet", "");
+        String fromGmICS = SettingsHandler
+                .getPCGenOption("InfoCharacterSheet." + gmFrom.getName() + ".CurrentSheet", currentICS);
+        SettingsHandler.setPCGenOption("InfoCharacterSheet." + gmTo.getName() + ".CurrentSheet", fromGmICS);
 
-		GuiAssertions.assertIsNotJavaFXThread();
-		affectedPanels.forEach(PCGenPrefsPanel::applyOptionValuesToControls);
+        GuiAssertions.assertIsNotJavaFXThread();
+        affectedPanels.forEach(PCGenPrefsPanel::applyOptionValuesToControls);
 
-		// Let the user know it is done
-		ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_Prefs_copyDone"),
-				Constants.APPLICATION_NAME, MessageType.INFORMATION);
-	}
+        // Let the user know it is done
+        ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_Prefs_copyDone"),
+                Constants.APPLICATION_NAME, MessageType.INFORMATION);
+    }
 
-	/**
-	 * Register the other settings panels that can be affected by this
-	 * class.
-	 *
-	 * @param panel The ExperiencePanel instance
-	 */
-	public void registerAffectedPanel(PCGenPrefsPanel panel)
-	{
-		affectedPanels.add(panel);
-	}
+    /**
+     * Register the other settings panels that can be affected by this
+     * class.
+     *
+     * @param panel The ExperiencePanel instance
+     */
+    public void registerAffectedPanel(PCGenPrefsPanel panel)
+    {
+        affectedPanels.add(panel);
+    }
 
-	@Override
-	public void reset()
-	{
-		// we don't need to do anything
-	}
+    @Override
+    public void reset()
+    {
+        // we don't need to do anything
+    }
 
-	@Override
-	public void apply()
-	{
-		// we don't need to do anything
-	}
+    @Override
+    public void apply()
+    {
+        // we don't need to do anything
+    }
 }

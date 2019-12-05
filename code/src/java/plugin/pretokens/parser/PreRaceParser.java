@@ -27,84 +27,82 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreRaceParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"RACE"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"RACE"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		final Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        final Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		//
-		// Negate the race names wrapped in []'s. Then need to bump up the required number of matches
-		//
-		if (formula.indexOf('[') >= 0)
-		{
-			NegateRaceChoice(prereq);
-		}
+        //
+        // Negate the race names wrapped in []'s. Then need to bump up the required number of matches
+        //
+        if (formula.indexOf('[') >= 0)
+        {
+            NegateRaceChoice(prereq);
+        }
 
-		return prereq;
-	}
+        return prereq;
+    }
 
-	private static void NegateRaceChoice(Prerequisite prereq)
-	{
-		int modified = 0;
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			if (p.getKind() == null) // PREMULT
-			{
-				NegateRaceChoice(p);
-			}
-			else
-			{
-				String preKey = p.getKey();
-				if (preKey.startsWith("[") && preKey.endsWith("]"))
-				{
-					preKey = preKey.substring(1, preKey.length() - 1);
-					p.setKey(preKey);
-					p.setOperator(p.getOperator().invert());
-					++modified;
-				}
-			}
-		}
-		if (modified > 0)
-		{
-			String oper = prereq.getOperand();
-			try
-			{
-				oper = Integer.toString(Integer.parseInt(oper) + modified);
-			}
-			catch (NumberFormatException nfe)
-			{
-				oper = '(' + oper + ")+" + Integer.toString(modified);
-			}
-			prereq.setOperand(oper);
-		}
-	}
+    private static void NegateRaceChoice(Prerequisite prereq)
+    {
+        int modified = 0;
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            if (p.getKind() == null) // PREMULT
+            {
+                NegateRaceChoice(p);
+            } else
+            {
+                String preKey = p.getKey();
+                if (preKey.startsWith("[") && preKey.endsWith("]"))
+                {
+                    preKey = preKey.substring(1, preKey.length() - 1);
+                    p.setKey(preKey);
+                    p.setOperator(p.getOperator().invert());
+                    ++modified;
+                }
+            }
+        }
+        if (modified > 0)
+        {
+            String oper = prereq.getOperand();
+            try
+            {
+                oper = Integer.toString(Integer.parseInt(oper) + modified);
+            } catch (NumberFormatException nfe)
+            {
+                oper = '(' + oper + ")+" + Integer.toString(modified);
+            }
+            prereq.setOperand(oper);
+        }
+    }
 
-	@Override
-	protected boolean allowsNegate()
-	{
-		return true;
-	}
+    @Override
+    protected boolean allowsNegate()
+    {
+        return true;
+    }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
+        "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <!--
                 PCGen Documentation Project
@@ -19,1496 +19,1580 @@
                 Provides information on the content of PCGen Starting Kit Files.
         -->
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
-<title>Starting Kit Files</title>
-<link href="../../pcgen.css" rel="stylesheet" type="text/css" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="generator"
+          content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39"/>
+    <title>Starting Kit Files</title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 </head>
 <body>
 <h1>Starting Kit Files</h1>
-<p class="indent0">The &quot;Starting Kit&quot; file defines the &quot;Starting Kits&quot;, or kits for short, that are used to simplify the creation of NPCs and monsters as well as the random generation of treasure. The page is divided into two sections. The first section talks about 
-<a href="#howto">Building a Starting Kit</a> while the second contains the 
-<a href="#dictionary">Starting Kit Tag Dictionary</a> . The tag dictionary is further broken down into three sub-sections, one each for 
-<a href="#regiontags">The Region Tag</a> , 
-<a href="#linehdrtags">Line Header Tags</a> and 
-<a href="#misctags">Miscellaneous Tags</a> .</p>
-<p class="indent0">For more information about creating kits, check out the 
-<a href="../lstfileclass/lfc_lesson11_kits_default_monster.html">Default Monster Kit</a> LST File Class.</p>
-<hr />
+<p class="indent0">The &quot;Starting Kit&quot; file defines the &quot;Starting Kits&quot;, or kits for short, that are
+    used to simplify the creation of NPCs and monsters as well as the random generation of treasure. The page is divided
+    into two sections. The first section talks about
+    <a href="#howto">Building a Starting Kit</a> while the second contains the
+    <a href="#dictionary">Starting Kit Tag Dictionary</a> . The tag dictionary is further broken down into three
+    sub-sections, one each for
+    <a href="#regiontags">The Region Tag</a> ,
+    <a href="#linehdrtags">Line Header Tags</a> and
+    <a href="#misctags">Miscellaneous Tags</a> .</p>
+<p class="indent0">For more information about creating kits, check out the
+    <a href="../lstfileclass/lfc_lesson11_kits_default_monster.html">Default Monster Kit</a> LST File Class.</p>
+<hr/>
 <h2>
-<a name="howto" id="howto">Building a Starting Kit</a>
+    <a name="howto" id="howto">Building a Starting Kit</a>
 </h2>
-<p class="indent0">Unlike most LST file objects, which are implemented on a single line for each object, starting kits are defined as a block of lines with specific information contained on each line. The general block structure is as follows:</p>
+<p class="indent0">Unlike most LST file objects, which are implemented on a single line for each object, starting kits
+    are defined as a block of lines with specific information contained on each line. The general block structure is as
+    follows:</p>
 <h4>The Basic Starting Kit Block</h4>
 <p class="indent1">Region Block (Optional)</p>
-<p class="indent2">Region line using the 
-<a href="#region">
-<code>REGION</code>
-</a> tag.</p>
+<p class="indent2">Region line using the
+    <a href="#region">
+        <code>REGION</code>
+    </a> tag.</p>
 <p class="indent2">Starting Kit Block</p>
-<p class="indent3">STARTPACK line using the 
-<a href="#startpack">
-<code>STARTPACK</code>
-</a> , 
-<a href="#apply">
-<code>APPLY</code>
-</a> , 
-<a href="#equipbuy">
-<code>EQUIPBUY</code>
-</a> , 
-<a href="#totalcost">
-<code>TOTALCOST</code>
-</a> and 
-<a href="#visible">
-<code>VISIBLE</code>
-</a> tags.</p>
-<p class="indent3">RACE line using the 
-<a href="#race">
-<code>RACE</code>
-</a> and TBD tags.</p>
-<p class="indent3">NAME line using the 
-<a href="#name">
-<code>NAME</code>
-</a> tag.</p>
-<p class="indent3">GENDER line using the 
-<a href="#gender">
-<code>GENDER</code>
-</a> tag.</p>
-<p class="indent3">AGE line using the 
-<a href="#age">
-<code>AGE</code>
-</a> tag.</p>
-<p class="indent3">ALIGN line using the 
-<a href="#align">
-<code>ALIGN</code>
-</a> and TBD tags.</p>
-<p class="indent3">STAT line using the 
-<a href="#stat">
-<code>STAT</code>
-</a> and TBD tags.</p>
-<p class="indent3">CLASS line using the 
-<a href="#class">
-<code>CLASS</code>
-</a> and 
-<a href="#level">
-<code>LEVEL</code>
-</a> tags.</p>
-<p class="indent3">SKILL line for Class using the 
-<a href="#skill">
-<code>SKILL</code>
-</a> and 
-<a href="#free">
-<code>FREE</code>
-</a> , 
-<a href="#rank">
-<code>RANK</code>
-</a> and 
-<a href="#selection">
-<code>SELECTION</code>
-</a> tags.</p>
-<p class="indent3">DEITY line using the 
-<a href="#deity">
-<code>DEITY</code>
-</a> and TBD tags.</p>
-<p class="indent3">DOMAIN line using the 
-<a href="#domain">
-<code>DOMAIN</code>
-</a> and 
-<a href="#count">
-<code>COUNT</code>
-</a> tags.</p>
-<p class="indent3">PROF line using the 
-<a href="#prof">
-<code>PROF</code>
-</a> , 
-<a href="#count">
-<code>COUNT</code>
-</a> and 
-<a href="#racial">
-<code>RACIAL</code>
-</a> tags.</p>
-<p class="indent3">FEAT line using the 
-<a href="#feat">
-<code>FEAT</code>
-</a> , 
-<a href="#free">
-<code>FREE</code>
-</a> and 
-<a href="#count">
-<code>COUNT</code>
-</a> tags.</p>
-<p class="indent3">ABILITY line using the 
-<a href="#category">
-<code>ABILITY:CATEGORY</code>
-</a> and TBD tags.</p>
-<p class="indent3">LEVELABILITY line using the 
-<a href="#levelability">
-<code>LEVELABILITY</code>
-</a> and 
-<a href="#ability">
-<code>ABILITY:PROMPT</code>
-</a> tags.</p>
-<p class="indent3">TEMPLATE line using the 
-<a href="#template">
-<code>TEMPLATE</code>
-</a> and TBD tags.</p>
-<p class="indent3">FUNDS line using the 
-<a href="#funds">
-<code>FUNDS</code>
-</a> and TBD tags.</p>
-<p class="indent3">GEAR line using the 
-<a href="#gear">
-<code>GEAR</code>
-</a> , 
-<a href="#eqmod">
-<code>EQMOD</code>
-</a> , 
-<a href="#location">
-<code>LOCATION</code>
-</a> , 
-<a href="#lookup">
-<code>LOOKUP</code>
-</a> , 
-<a href="#maxcost">
-<code>MAXCOST</code>
-</a> and 
-<a href="#qty">
-<code>QTY</code>
-</a> tags.</p>
-<p class="indent3">TABLE line using the 
-<a href="#table">
-<code>TABLE</code>
-</a> , 
-<a href="#lookup">
-<code>LOOKUP</code>
-</a> and 
-<a href="#values">
-<code>VALUES</code>
-</a> tags.</p>
-<p class="indent3">SPELLS line using the 
-<a href="#spells">
-<code>SPELLS</code>
-</a> and 
-<a href="#count">
-<code>COUNT</code>
-</a> tags.</p>
+<p class="indent3">STARTPACK line using the
+    <a href="#startpack">
+        <code>STARTPACK</code>
+    </a> ,
+    <a href="#apply">
+        <code>APPLY</code>
+    </a> ,
+    <a href="#equipbuy">
+        <code>EQUIPBUY</code>
+    </a> ,
+    <a href="#totalcost">
+        <code>TOTALCOST</code>
+    </a> and
+    <a href="#visible">
+        <code>VISIBLE</code>
+    </a> tags.</p>
+<p class="indent3">RACE line using the
+    <a href="#race">
+        <code>RACE</code>
+    </a> and TBD tags.</p>
+<p class="indent3">NAME line using the
+    <a href="#name">
+        <code>NAME</code>
+    </a> tag.</p>
+<p class="indent3">GENDER line using the
+    <a href="#gender">
+        <code>GENDER</code>
+    </a> tag.</p>
+<p class="indent3">AGE line using the
+    <a href="#age">
+        <code>AGE</code>
+    </a> tag.</p>
+<p class="indent3">ALIGN line using the
+    <a href="#align">
+        <code>ALIGN</code>
+    </a> and TBD tags.</p>
+<p class="indent3">STAT line using the
+    <a href="#stat">
+        <code>STAT</code>
+    </a> and TBD tags.</p>
+<p class="indent3">CLASS line using the
+    <a href="#class">
+        <code>CLASS</code>
+    </a> and
+    <a href="#level">
+        <code>LEVEL</code>
+    </a> tags.</p>
+<p class="indent3">SKILL line for Class using the
+    <a href="#skill">
+        <code>SKILL</code>
+    </a> and
+    <a href="#free">
+        <code>FREE</code>
+    </a> ,
+    <a href="#rank">
+        <code>RANK</code>
+    </a> and
+    <a href="#selection">
+        <code>SELECTION</code>
+    </a> tags.</p>
+<p class="indent3">DEITY line using the
+    <a href="#deity">
+        <code>DEITY</code>
+    </a> and TBD tags.</p>
+<p class="indent3">DOMAIN line using the
+    <a href="#domain">
+        <code>DOMAIN</code>
+    </a> and
+    <a href="#count">
+        <code>COUNT</code>
+    </a> tags.</p>
+<p class="indent3">PROF line using the
+    <a href="#prof">
+        <code>PROF</code>
+    </a> ,
+    <a href="#count">
+        <code>COUNT</code>
+    </a> and
+    <a href="#racial">
+        <code>RACIAL</code>
+    </a> tags.</p>
+<p class="indent3">FEAT line using the
+    <a href="#feat">
+        <code>FEAT</code>
+    </a> ,
+    <a href="#free">
+        <code>FREE</code>
+    </a> and
+    <a href="#count">
+        <code>COUNT</code>
+    </a> tags.</p>
+<p class="indent3">ABILITY line using the
+    <a href="#category">
+        <code>ABILITY:CATEGORY</code>
+    </a> and TBD tags.</p>
+<p class="indent3">LEVELABILITY line using the
+    <a href="#levelability">
+        <code>LEVELABILITY</code>
+    </a> and
+    <a href="#ability">
+        <code>ABILITY:PROMPT</code>
+    </a> tags.</p>
+<p class="indent3">TEMPLATE line using the
+    <a href="#template">
+        <code>TEMPLATE</code>
+    </a> and TBD tags.</p>
+<p class="indent3">FUNDS line using the
+    <a href="#funds">
+        <code>FUNDS</code>
+    </a> and TBD tags.</p>
+<p class="indent3">GEAR line using the
+    <a href="#gear">
+        <code>GEAR</code>
+    </a> ,
+    <a href="#eqmod">
+        <code>EQMOD</code>
+    </a> ,
+    <a href="#location">
+        <code>LOCATION</code>
+    </a> ,
+    <a href="#lookup">
+        <code>LOOKUP</code>
+    </a> ,
+    <a href="#maxcost">
+        <code>MAXCOST</code>
+    </a> and
+    <a href="#qty">
+        <code>QTY</code>
+    </a> tags.</p>
+<p class="indent3">TABLE line using the
+    <a href="#table">
+        <code>TABLE</code>
+    </a> ,
+    <a href="#lookup">
+        <code>LOOKUP</code>
+    </a> and
+    <a href="#values">
+        <code>VALUES</code>
+    </a> tags.</p>
+<p class="indent3">SPELLS line using the
+    <a href="#spells">
+        <code>SPELLS</code>
+    </a> and
+    <a href="#count">
+        <code>COUNT</code>
+    </a> tags.</p>
 <p class="indent2">Special Kit Block</p>
-<p class="indent3">SELECT line using the 
-<a href="#select">
-<code>SELECT</code>
-</a> tag in conjunction with any line listed above containing the 
-<a href="#option">
-<code>OPTION</code>
-</a> tag.</p>
+<p class="indent3">SELECT line using the
+    <a href="#select">
+        <code>SELECT</code>
+    </a> tag in conjunction with any line listed above containing the
+    <a href="#option">
+        <code>OPTION</code>
+    </a> tag.</p>
 <h4>A Note on Prerequisites</h4>
-<p class="indent0">All Starting Kit Lines are fully capable of being limited by the use of PRExxx tags. Many of these tags grant things to the character only if they can obtain it legally. This means that if you cannot afford all the gear in the list, the kit will purchase as much as possible until you run out of money. If you have previously gone to the inventory screen and set the program to make all purchases cost zero, the kit will purchase everything for zero. Or if the kit is set to try to give you a feat which would normally be unavailable to you, but you have set the program options to ignore requirements, then that is fine, the kit will give you the feat.</p>
+<p class="indent0">All Starting Kit Lines are fully capable of being limited by the use of PRExxx tags. Many of these
+    tags grant things to the character only if they can obtain it legally. This means that if you cannot afford all the
+    gear in the list, the kit will purchase as much as possible until you run out of money. If you have previously gone
+    to the inventory screen and set the program to make all purchases cost zero, the kit will purchase everything for
+    zero. Or if the kit is set to try to give you a feat which would normally be unavailable to you, but you have set
+    the program options to ignore requirements, then that is fine, the kit will give you the feat.</p>
 <h4>A Note on Kit/Race Interactions</h4>
-<p class="indent0">Use of a KIT tag, calling out a racial kit, in a Race object will cause PCGen to crash if the following two conditions are met:</p>
+<p class="indent0">Use of a KIT tag, calling out a racial kit, in a Race object will cause PCGen to crash if the
+    following two conditions are met:</p>
 <ol class="indent1">
-<li>The racial kit x contains a RACE:x tag, e.g. 
-<code>RACE:Goblin</code></li>
-<li>The race x object contains a KIT:x tag, e.g. 
-<code>KIT:Goblin</code></li>
+    <li>The racial kit x contains a RACE:x tag, e.g.
+        <code>RACE:Goblin</code></li>
+    <li>The race x object contains a KIT:x tag, e.g.
+        <code>KIT:Goblin</code></li>
 </ol>
-<p class="indent0">This combination of objects/tags will cause an infinite loop which in turn will cause PCGen to crash. To prevent this you must use the 
-<code>!PRERACE:1,x</code> tag. For the example used above that would mean 
-<code>!PRERACE:1,Goblin</code> .</p>
-<hr />
+<p class="indent0">This combination of objects/tags will cause an infinite loop which in turn will cause PCGen to crash.
+    To prevent this you must use the
+    <code>!PRERACE:1,x</code> tag. For the example used above that would mean
+    <code>!PRERACE:1,Goblin</code> .</p>
+<hr/>
 <h2>
-<a name="dictionary" id="dictionary">Starting Kit Tag Dictionary</a>
+    <a name="dictionary" id="dictionary">Starting Kit Tag Dictionary</a>
 </h2>
-<hr />
+<hr/>
 <h3>
-<a name="regiontags" id="regiontags">The Region Tag</a>
+    <a name="regiontags" id="regiontags">The Region Tag</a>
 </h3>
 <p class="lststatus">
-<a name="region" id="region">*** Updated 5.9.3</a>
+    <a name="region" id="region">*** Updated 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> REGION:x</p>
+    <strong>Tag Name:</strong> REGION:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Region Name or None)</p>
+    <strong>Variables Used (x):</strong> Text (Region Name or None)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>This sets a prerequisite region for all kits below the tag.</li>
-<li>You can use multiple REGION tags in a kit file. Each time it is used it will apply to the kits listed below it.</li>
-<li>A character&#39;s Region may be set using the REGION global tag or with a REGION tag found within a template.</li>
-<li>This tag is now optional in kit files.</li>
+    <li>This sets a prerequisite region for all kits below the tag.</li>
+    <li>You can use multiple REGION tags in a kit file. Each time it is used it will apply to the kits listed below
+        it.
+    </li>
+    <li>A character&#39;s Region may be set using the REGION global tag or with a REGION tag found within a template.
+    </li>
+    <li>This tag is now optional in kit files.</li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>REGION:Europa</code>
+    <code>REGION:Europa</code>
 </p>
 <p class="indent3">Character must be from region Europa to apply any kits in the file.</p>
 <p class="indent2">
-<code>REGION:None</code>
+    <code>REGION:None</code>
 </p>
 <p class="indent3">There is no region prerequisite for these kits.</p>
-<hr />
+<hr/>
 <h3>
-<a name="linehdrtags" id="linehdrtags">Line Header Tags</a>
+    <a name="linehdrtags" id="linehdrtags">Line Header Tags</a>
 </h3>
 <p class="indent0">Each of the tags in this section will be the first tag on their respective line.</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="startpack" id="startpack">Tag Name:</a>
-</strong> STARTPACK:x</p>
+    <strong>
+        <a name="startpack" id="startpack">Tag Name:</a>
+    </strong> STARTPACK:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Kit name)</p>
+    <strong>Variables Used (x):</strong> Text (Kit name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>This MUST be the FIRST line of a new kit definition.</li>
-<li>Starts creation of a new kit.</li>
-<li>All lines following this one are considered part of this kit until a new STARTPACK tag, or the end of the file, is encountered.</li>
+    <li>This MUST be the FIRST line of a new kit definition.</li>
+    <li>Starts creation of a new kit.</li>
+    <li>All lines following this one are considered part of this kit until a new STARTPACK tag, or the end of the file,
+        is encountered.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>STARTPACK:Bar1</code>
+    <code>STARTPACK:Bar1</code>
 </p>
 <p class="indent3">Would create a new available kit called &quot;Bar1&quot;.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="category" id="category">*** New 5.11.11</a>
+    <a name="category" id="category">*** New 5.11.11</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> ABILITY:CATEGORY=x|y|y</p>
+    <strong>Tag Name:</strong> ABILITY:CATEGORY=x|y|y</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Ability Category Pool)</p>
+    <strong>Variables Used (x):</strong> Text (Ability Category Pool)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> Text (Ability name)</p>
+    <strong>Variables Used (y):</strong> Text (Ability name)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> TYPE=Text (Ability TYPE)</p>
+    <strong>Variables Used (y):</strong> TYPE=Text (Ability TYPE)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Presents a pipe (|) delimited list of abilities from which the user selects one to be granted.</li>
-<li>The ability granted will be assigned to the ability category pool specified.</li>
+    <li>Presents a pipe (|) delimited list of abilities from which the user selects one to be granted.</li>
+    <li>The ability granted will be assigned to the ability category pool specified.</li>
 </ul>
-<p class="sidebar1">NOTE: While multiple categories can be defined currently, this syntax is strongly discouraged as the results may be unpredictable.</p>
+<p class="sidebar1">NOTE: While multiple categories can be defined currently, this syntax is strongly discouraged as the
+    results may be unpredictable.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>ABILITY:CATEGORY=FEAT|Weapon Focus (Greataxe)</code>
+    <code>ABILITY:CATEGORY=FEAT|Weapon Focus (Greataxe)</code>
 </p>
 <p class="indent3">Would grant the &quot;Greataxe Weapon Focus&quot; feat.</p>
 <p class="indent2">
-<code>ABILITY:CATEGORY=Fighter Feat|Dodge PRESTAT:1,DEX=13</code>
+    <code>ABILITY:CATEGORY=Fighter Feat|Dodge PRESTAT:1,DEX=13</code>
 </p>
 <p class="indent3">Would grant &quot;Dodge&quot; if the character has a Dexterity of at least 13.</p>
 <p class="indent2">
-<code>ABILITY:CATEGORY=Fighter Feat|Dodge|Improved Initiative</code>
+    <code>ABILITY:CATEGORY=Fighter Feat|Dodge|Improved Initiative</code>
 </p>
 <p class="indent3">Would grant the choice of Dodge or Improved Initiative.</p>
 <p class="indent2">
-<code>ABILITY:CATEGORY=Wizard Feat|TYPE=ItemCreation</code>
+    <code>ABILITY:CATEGORY=Wizard Feat|TYPE=ItemCreation</code>
 </p>
 <p class="indent3">Would grant the choice of an ItemCreation type feat.</p>
 <p class="indent2">
-<code>ABILITY:CATEGORY=Salient Divine Ability|Alter Size</code>
+    <code>ABILITY:CATEGORY=Salient Divine Ability|Alter Size</code>
 </p>
 <p class="indent3">Would grant the Alter Size salient divine ability.</p>
 <p class="indent2">
-<code>ABILITY:CATEGORY=Salient Divine Ability|Alter Size|Divine Blessing</code>
+    <code>ABILITY:CATEGORY=Salient Divine Ability|Alter Size|Divine Blessing</code>
 </p>
 <p class="indent3">Would grant a choice of the Alter Size and Divine Blessing salient divine abilities.</p>
 <p class="indent2">
-<code>ABILITY:CATEGORY=Salient Divine Ability|Alter Form&lt;tab&gt;FREE:YES</code>
+    <code>ABILITY:CATEGORY=Salient Divine Ability|Alter Form&lt;tab&gt;FREE:YES</code>
 </p>
-<p class="indent3">Would grant the Alter Form salient divine ability without charging the salient divine ability pool.</p>
-<hr />
+<p class="indent3">Would grant the Alter Form salient divine ability without charging the salient divine ability
+    pool.</p>
+<hr/>
 <p class="lstnew">
-<a name="age" id="age">*** New 6.1.3</a>
+    <a name="age" id="age">*** New 6.1.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> AGE:x</p>
+    <strong>Tag Name:</strong> AGE:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Number (The character&#39;s age)</p>
+    <strong>Variables Used (x):</strong> Number (The character&#39;s age)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Sets the age of the kit recipient.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>AGE:46</code>
+    <code>AGE:46</code>
 </p>
 <p class="indent3">Sets the character&#39;s age to 46.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="align" id="align">*** New 5.9.3</a>
+    <a name="align" id="align">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> ALIGN:x|x</p>
+    <strong>Tag Name:</strong> ALIGN:x|x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Alignment abbreviation)</p>
+    <strong>Variables Used (x):</strong> Text (Alignment abbreviation)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">Sets the Alignment of the PC. If the tag specifies multiple options a pop up window allows the user to select one.</p>
+<p class="indent2">Sets the Alignment of the PC. If the tag specifies multiple options a pop up window allows the user
+    to select one.</p>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>ALIGN:LG|NG|CG</code>
+    <code>ALIGN:LG|NG|CG</code>
 </p>
 <p class="indent3">Grants a choice of any good alignment.</p>
 <p class="indent2">
-<code>ALIGN:CE</code>
+    <code>ALIGN:CE</code>
 </p>
 <p class="indent3">Sets the alignment to Chaotic Evil.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="class" id="class">*** New 5.9.3</a>
+    <a name="class" id="class">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> CLASS:x</p>
+    <strong>Tag Name:</strong> CLASS:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Class name)</p>
+    <strong>Variables Used (x):</strong> Text (Class name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Grants the character the specified class.</li>
-<li>Used in conjunction with the 
-<code>LEVEL</code> tag.</li>
+    <li>Grants the character the specified class.</li>
+    <li>Used in conjunction with the
+        <code>LEVEL</code> tag.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>CLASS:Warrior &lt;tab&gt; LEVEL:2</code>
+    <code>CLASS:Warrior &lt;tab&gt; LEVEL:2</code>
 </p>
 <p class="indent3">Would grant the character two levels of the Warrior class.</p>
 <p class="indent2">
-<code>CLASS:Fighter &lt;tab&gt; LEVEL:4 &lt;tab&gt; PRECLASS:1,Fighter=1</code>
+    <code>CLASS:Fighter &lt;tab&gt; LEVEL:4 &lt;tab&gt; PRECLASS:1,Fighter=1</code>
 </p>
 <p class="indent3">Would grant four levels of Fighter if the character has at least one level in Fighter already.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="deity" id="deity">*** New 5.9.3</a>
+    <a name="deity" id="deity">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> DEITY:x</p>
+    <strong>Tag Name:</strong> DEITY:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Name of Deity)</p>
+    <strong>Variables Used (x):</strong> Text (Name of Deity)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Sets character&#39;s Deity if qualified.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>DEITY:Kong</code>
+    <code>DEITY:Kong</code>
 </p>
 <p class="indent3">Sets character&#39;s Deity to &quot;Kong&quot;.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="domain" id="domain">*** New 5.9.3</a>
+    <a name="domain" id="domain">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> DOMAIN:x|x</p>
+    <strong>Tag Name:</strong> DOMAIN:x|x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Domain Name)</p>
+    <strong>Variables Used (x):</strong> Text (Domain Name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">Sets character&#39;s Domains if qualified. COUNT can be used to limit the number of choices granted by the kit. If not present the character can take as many as he is normally allowed.</p>
+<p class="indent2">Sets character&#39;s Domains if qualified. COUNT can be used to limit the number of choices granted
+    by the kit. If not present the character can take as many as he is normally allowed.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">DOMAIN must be used in lines that start with DEITY.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>DOMAIN:Animal</code>
+    <code>DOMAIN:Animal</code>
 </p>
 <p class="indent3">Sets the character&#39;s Domain to &quot;Animal&quot; if qualified.</p>
-<hr />
+<hr/>
 <h3 id="feat">FEAT</h3>
 <ul>
-<li>6.05.04 (July 2015): JIRA 
-<a href="http://jira.pcgen.org/browse/NEWTAG-477">NEWTAG-477</a> / Github 
-<a href="https://github.com/PCGen/pcgen/pull/380">PR #380</a></li>
-<li style="list-style: none; display: inline;">
-<ul class="incremental">
-<li>The 
-<code>FEAT</code> tag is deprecated. Use 
-<a href="#category">
-<code>ABILITY</code>
-</a> instead.</li>
-<li>All 
-<code>FEAT</code> tags have been 
-<strong>deprecated</strong> and replaced by the 
-<code>ABILITY</code> system, which is more general. The 
-<code>ABILITY</code> system can model feats, racial features, class features, traits, flaws, temporary bonuses, and so on, all using a common format.</li>
-</ul>
-</li>
+    <li>6.05.04 (July 2015): JIRA
+        <a href="http://jira.pcgen.org/browse/NEWTAG-477">NEWTAG-477</a> / Github
+        <a href="https://github.com/PCGen/pcgen/pull/380">PR #380</a></li>
+    <li style="list-style: none; display: inline;">
+        <ul class="incremental">
+            <li>The
+                <code>FEAT</code> tag is deprecated. Use
+                <a href="#category">
+                    <code>ABILITY</code>
+                </a> instead.
+            </li>
+            <li>All
+                <code>FEAT</code> tags have been
+                <strong>deprecated</strong> and replaced by the
+                <code>ABILITY</code> system, which is more general. The
+                <code>ABILITY</code> system can model feats, racial features, class features, traits, flaws, temporary
+                bonuses, and so on, all using a common format.
+            </li>
+        </ul>
+    </li>
 </ul>
 <div class="deprecated">** Updated 5.9.7
-<p class="indent0">
-<strong>Tag Name:</strong> FEAT:x|x</p>
-<p class="indent1">
-<strong>Variables Used (x):</strong> Text (Feat name)</p>
-<p class="indent1">
-<strong>Variables Used (x):</strong> TYPE=Text (Feat TYPE)</p>
-<p class="indent1">
-<strong>What it does:</strong>
-</p>
-<ul class="indent2">
-<li>A pipe (|) delimited list of feats.</li>
-<li>Presents the list as a choice to the user.</li>
-<li>Grants the chosen feats.</li>
-</ul>
-<p class="indent1">
-<strong>Examples:</strong>
-</p>
-<p class="indent2">
-<code>FEAT:Weapon Focus (Greataxe)</code>
-</p>
-<p class="indent3">Would grant the &quot;Greataxe Weapon Focus&quot; feat.</p>
-<p class="indent2">
-<code>FEAT:Dodge PRESTAT:1,DEX=13</code>
-</p>
-<p class="indent3">Would grant &quot;Dodge&quot; if the character has a Dexterity of at least 13.</p>
-<p class="indent2">
-<code>FEAT:Dodge|Improved Initiative</code>
-</p>
-<p class="indent3">Would grant the choice of Dodge or Improved Initiative.</p>
-<p class="indent2">
-<code>FEAT:TYPE=ItemCreation</code>
-</p>
-<p class="indent3">Would grant the choice of an ItemCreation type feat.</p></div>
-<hr />
+    <p class="indent0">
+        <strong>Tag Name:</strong> FEAT:x|x</p>
+    <p class="indent1">
+        <strong>Variables Used (x):</strong> Text (Feat name)</p>
+    <p class="indent1">
+        <strong>Variables Used (x):</strong> TYPE=Text (Feat TYPE)</p>
+    <p class="indent1">
+        <strong>What it does:</strong>
+    </p>
+    <ul class="indent2">
+        <li>A pipe (|) delimited list of feats.</li>
+        <li>Presents the list as a choice to the user.</li>
+        <li>Grants the chosen feats.</li>
+    </ul>
+    <p class="indent1">
+        <strong>Examples:</strong>
+    </p>
+    <p class="indent2">
+        <code>FEAT:Weapon Focus (Greataxe)</code>
+    </p>
+    <p class="indent3">Would grant the &quot;Greataxe Weapon Focus&quot; feat.</p>
+    <p class="indent2">
+        <code>FEAT:Dodge PRESTAT:1,DEX=13</code>
+    </p>
+    <p class="indent3">Would grant &quot;Dodge&quot; if the character has a Dexterity of at least 13.</p>
+    <p class="indent2">
+        <code>FEAT:Dodge|Improved Initiative</code>
+    </p>
+    <p class="indent3">Would grant the choice of Dodge or Improved Initiative.</p>
+    <p class="indent2">
+        <code>FEAT:TYPE=ItemCreation</code>
+    </p>
+    <p class="indent3">Would grant the choice of an ItemCreation type feat.</p></div>
+<hr/>
 <p class="lststatus">
-<a name="funds" id="funds">*** New 5.8</a>
+    <a name="funds" id="funds">*** New 5.8</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> FUNDS:x</p>
+    <strong>Tag Name:</strong> FUNDS:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Currency Abbreviation found in miscinfo file (i.e. gp, euro, dollars, etc)</p>
+    <strong>Variables Used (x):</strong> Currency Abbreviation found in miscinfo file (i.e. gp, euro, dollars, etc)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">Adds a specified amount of currency to the character&#39;s cash pool in the Gear Sub-tab of the Inventory Tab. The FUNDS tag is paired with a QTY tag which is used to set the amount granted. When used in a FUNDS line QTY will take a number or formula with variables. It is possible to generate a random number with the 
-<a href="../globalfilestagpages/globalfilesformulas.html#randomnumbers">roll() JEP operator</a> , for example 
-<code>roll(&quot;1d6&quot;)</code> simulates a 1d6.</p>
+<p class="indent2">Adds a specified amount of currency to the character&#39;s cash pool in the Gear Sub-tab of the
+    Inventory Tab. The FUNDS tag is paired with a QTY tag which is used to set the amount granted. When used in a FUNDS
+    line QTY will take a number or formula with variables. It is possible to generate a random number with the
+    <a href="../globalfilestagpages/globalfilesformulas.html#randomnumbers">roll() JEP operator</a> , for example
+    <code>roll(&quot;1d6&quot;)</code> simulates a 1d6.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>FUNDS:gp &lt;tab&gt; QTY:100</code>
+    <code>FUNDS:gp &lt;tab&gt; QTY:100</code>
 </p>
 <p class="indent3">Adds 100 gp to the Gold pool which the character may now spend on equipment.</p>
 <p class="indent2">
-<code>FUNDS:gp &lt;tab&gt; QTY:10*TL</code>
+    <code>FUNDS:gp &lt;tab&gt; QTY:10*TL</code>
 </p>
 <p class="indent3">Adds 10 times the character&#39;s total level of gp to the Gold pool.</p>
 <p class="indent2">
-<code>FUNDS:gp &lt;tab&gt; QTY:10*roll(&quot;2d4&quot;)</code>
+    <code>FUNDS:gp &lt;tab&gt; QTY:10*roll(&quot;2d4&quot;)</code>
 </p>
 <p class="indent3">Adds 2d4 times 10 gp to the Gold pool.</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="gear" id="gear">Tag Name:</a>
-</strong> GEAR:x</p>
+    <strong>
+        <a name="gear" id="gear">Tag Name:</a>
+    </strong> GEAR:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Item name)</p>
+    <strong>Variables Used (x):</strong> Text (Item name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Grants the gear indicated to the character if they can afford to purchase it.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>GEAR:Sack</code>
+    <code>GEAR:Sack</code>
 </p>
 <p class="indent3">Would put a &quot;Sack&quot; into the PC&#39;s equipment if they can afford it.</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="gender" id="gender">Tag Name:</a>
-</strong> GENDER:x</p>
+    <strong>
+        <a name="gender" id="gender">Tag Name:</a>
+    </strong> GENDER:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Gender designation)</p>
+    <strong>Variables Used (x):</strong> Text (Gender designation)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Establishes the character&#39;s/creature&#39;s gender</li>
-<li>Valid gender designations (Male, Female, Neuter) are in defined in GameMode 
-<em>biosettings.lst</em> file, 
-<a href="../../listfilepages/systemfilestagpages/systemfilesbiosettingslist.html#sex">SEX</a> tag.</li>
+    <li>Establishes the character&#39;s/creature&#39;s gender</li>
+    <li>Valid gender designations (Male, Female, Neuter) are in defined in GameMode
+        <em>biosettings.lst</em> file,
+        <a href="../../listfilepages/systemfilestagpages/systemfilesbiosettingslist.html#sex">SEX</a> tag.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>GENDER:Male</code>
+    <code>GENDER:Male</code>
 </p>
 <p class="indent3">The character&#39;s/creature&#39;s gender is &quot;Male&quot;.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="langbonus" id="langbonus">*** New 5.15.4</a>
+    <a name="langbonus" id="langbonus">*** New 5.15.4</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> LANGBONUS:x|x</p>
+    <strong>Tag Name:</strong> LANGBONUS:x|x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Language)</p>
+    <strong>Variables Used (x):</strong> Text (Language)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>
-<code>LANGBONUS</code> chooses from the Bonus Language Selections if there are enough language bonuses to be spent.</li>
-<li>This tag requires that a 
-<code>LANGBONUS</code> tag be included in the 
-<span class="lstfile">race.lst</span> file in which the character upon which the kit is being applied to is defined.</li>
+    <li>
+        <code>LANGBONUS</code> chooses from the Bonus Language Selections if there are enough language bonuses to be
+        spent.
+    </li>
+    <li>This tag requires that a
+        <code>LANGBONUS</code> tag be included in the
+        <span class="lstfile">race.lst</span> file in which the character upon which the kit is being applied to is
+        defined.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">LANGBONUS is used in kit lines.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>LANGBONUS:Dwarven|Elvish</code>
+    <code>LANGBONUS:Dwarven|Elvish</code>
 </p>
 <p class="indent3">Selects Dwarven and Elvish langauges.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="levelability" id="levelability">*** New 5.9.7</a>
+    <a name="levelability" id="levelability">*** New 5.9.7</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> LEVELABILITY:x=y</p>
+    <strong>Tag Name:</strong> LEVELABILITY:x=y</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Class name)</p>
+    <strong>Variables Used (x):</strong> Text (Class name)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> Number (Level ability is granted at)</p>
+    <strong>Variables Used (y):</strong> Number (Level ability is granted at)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">LEVELABILITY signifies what class and level the following ABILITY tag is specifying the choice for.</p>
+<p class="indent2">LEVELABILITY signifies what class and level the following ABILITY tag is specifying the choice
+    for.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">LEVELABILITY is used in kit lines.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>LEVELABILITY:Ranger=1 &lt;tab&gt; ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid (Elf))</code>
+    <code>LEVELABILITY:Ranger=1 &lt;tab&gt; ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid
+        (Elf))</code>
 </p>
 <p class="indent3">Selects Humanoid (Elf) as a ranger&#39;s first favored enemy selection.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="name" id="name">*** New 5.9.3</a>
+    <a name="name" id="name">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> NAME:x</p>
+    <strong>Tag Name:</strong> NAME:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (The character&#39;s new name)</p>
+    <strong>Variables Used (x):</strong> Text (The character&#39;s new name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Sets a name to the kit recipient.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>NAME:Code Monkey</code>
+    <code>NAME:Code Monkey</code>
 </p>
 <p class="indent3">Sets the character&#39;s name to &quot;Code Monkey&quot;.</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="prof" id="prof">Tag Name:</a>
-</strong> PROF:x</p>
+    <strong>
+        <a name="prof" id="prof">Tag Name:</a>
+    </strong> PROF:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Proficiency name)</p>
+    <strong>Variables Used (x):</strong> Text (Proficiency name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Presents a pipe-delimited (|) list of weapon proficiencies for the character to choose from.</li>
-<li>If the 
-<code>RACIAL:YES</code> tag is included on the line, PCGen will fill any racial bonus proficiency choices first, otherwise it will try to fill any class bonus proficiency choices. If there are any choices left they will be granted as bonus proficiencies.</li>
+    <li>Presents a pipe-delimited (|) list of weapon proficiencies for the character to choose from.</li>
+    <li>If the
+        <code>RACIAL:YES</code> tag is included on the line, PCGen will fill any racial bonus proficiency choices first,
+        otherwise it will try to fill any class bonus proficiency choices. If there are any choices left they will be
+        granted as bonus proficiencies.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>PROF:Greataxe</code>
+    <code>PROF:Greataxe</code>
 </p>
 <p class="indent3">Would give a proficiency in the use of &quot;Greataxe&quot; if the PC can afford it.</p>
 <p class="indent2">
-<code>PROF:Longsword &lt;tab&gt; RACIAL:YES</code>
+    <code>PROF:Longsword &lt;tab&gt; RACIAL:YES</code>
 </p>
-<p class="indent3">Would select Longsword as the bonus proficiency choice if the character can legally select that choice.</p>
+<p class="indent3">Would select Longsword as the bonus proficiency choice if the character can legally select that
+    choice.</p>
 <p class="indent2">
-<code>PROF:Longbow|Shortbow</code>
+    <code>PROF:Longbow|Shortbow</code>
 </p>
 <p class="indent3">Would grant the choice of Longbow or Shortbow as a bonus proficiency.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="race" id="race">*** New 5.9.3</a>
+    <a name="race" id="race">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> RACE:x</p>
+    <strong>Tag Name:</strong> RACE:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Race Name)</p>
+    <strong>Variables Used (x):</strong> Text (Race Name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Sets the character&#39;s race.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>RACE:Bugbear</code>
+    <code>RACE:Bugbear</code>
 </p>
 <p class="indent3">Sets the character&#39;s race to Bugbear.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="select" id="select">*** New 5.9.5</a>
+    <a name="select" id="select">*** New 5.9.5</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> SELECT:x</p>
+    <strong>Tag Name:</strong> SELECT:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> JEP formula or VAR</p>
+    <strong>Variables Used (x):</strong> JEP formula or VAR</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Sets a value that can be checked at any point after this tag appears in a kit using the 
-<a href="#option">OPTION</a> tag.</li>
-<li>This tag is used, in conjunction with the 
-<code>OPTION</code> tag, to randomly determine if an item will be granted by the kit.</li>
-<li>The 
-<code>OPTION</code> tag can be added to any kit line and the object will only be granted if the range specified by the OPTION tag matches the number generated by the 
-<code>SELECT</code> tag.</li>
-<li>If more than one 
-<code>SELECT</code> tag is used in a kit, each use of it will reset the value for the OPTION tags below it.</li>
+    <li>Sets a value that can be checked at any point after this tag appears in a kit using the
+        <a href="#option">OPTION</a> tag.
+    </li>
+    <li>This tag is used, in conjunction with the
+        <code>OPTION</code> tag, to randomly determine if an item will be granted by the kit.
+    </li>
+    <li>The
+        <code>OPTION</code> tag can be added to any kit line and the object will only be granted if the range specified
+        by the OPTION tag matches the number generated by the
+        <code>SELECT</code> tag.
+    </li>
+    <li>If more than one
+        <code>SELECT</code> tag is used in a kit, each use of it will reset the value for the OPTION tags below it.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>SELECT:roll(&quot;1d100&quot;)</code>
+    <code>SELECT:roll(&quot;1d100&quot;)</code>
 </p>
 <p class="indent3">Selects a number from 1 to 100 which can be checked by the OPTION tag.</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="skill" id="skill">Tag Name:</a>
-</strong> SKILL:x</p>
+    <strong>
+        <a name="skill" id="skill">Tag Name:</a>
+    </strong> SKILL:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Skill name)</p>
+    <strong>Variables Used (x):</strong> Text (Skill name)</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
+    <strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Grants the skill indicated to the character if they can legally have that many additional ranks of that skill.</li>
-<li>The number of ranks granted are determined by the 
-<code>RANK</code> tag immediately following the 
-<code>SKILL</code> tag.</li>
-<li>
-<code>RANK</code> tag MUST be used on all SKILL lines.</li>
-<li>If indicated skill is a class skill then ranks will be purchased as such, and likewise for cross-class skills.</li>
+    <li>Grants the skill indicated to the character if they can legally have that many additional ranks of that skill.
+    </li>
+    <li>The number of ranks granted are determined by the
+        <code>RANK</code> tag immediately following the
+        <code>SKILL</code> tag.
+    </li>
+    <li>
+        <code>RANK</code> tag MUST be used on all SKILL lines.
+    </li>
+    <li>If indicated skill is a class skill then ranks will be purchased as such, and likewise for cross-class skills.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>SKILL:Climb RANK:4</code>
+    <code>SKILL:Climb RANK:4</code>
 </p>
 <p class="indent3">Gives four ranks of &quot;Climb&quot; skill if they can afford it.</p>
 <p class="indent2">
-<code>SKILL:TYPE=Knowledge RANK:4</code>
+    <code>SKILL:TYPE=Knowledge RANK:4</code>
 </p>
 <p class="indent3">Gives four ranks of &quot;Knowledge&quot; type skills if they can afford it.</p>
 <p class="indent2">
-<code>SKILL:Bluff|Concentration|Hide RANK:18 COUNT:2</code>
+    <code>SKILL:Bluff|Concentration|Hide RANK:18 COUNT:2</code>
 </p>
-<p class="indent3">This would offer a chooser and allow you to pick 2 of the three listed skills and grant 18 ranks to the chosen skills.</p>
-<hr />
+<p class="indent3">This would offer a chooser and allow you to pick 2 of the three listed skills and grant 18 ranks to
+    the chosen skills.</p>
+<hr/>
 <p class="indent0">
-<strong>
-<a name="spells" id="spells">Tag Name:</a>
-</strong> SPELLS:x|x</p>
+    <strong>
+        <a name="spells" id="spells">Tag Name:</a>
+    </strong> SPELLS:x|x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Spell name)</p>
+    <strong>Variables Used (x):</strong> Text (Spell name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Grants the character the indicated spells if they are legally available.</li>
-<li>You can specify spells by using a pipe-delimited (|) list.</li>
+    <li>Grants the character the indicated spells if they are legally available.</li>
+    <li>You can specify spells by using a pipe-delimited (|) list.</li>
 </ul>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>SPELLS:Detect Magic|Ghost Sound|Light|Read Magic</code>
+    <code>SPELLS:Detect Magic|Ghost Sound|Light|Read Magic</code>
 </p>
-<p class="indent3">Would give the 
-<span class="lstobj">Detect Magic</span> , 
-<span class="lstobj">Ghost Sound</span> , 
-<span class="lstobj">Light</span> and 
-<span class="lstobj">Read Magic</span> spells if the PC has free spells.</p>
+<p class="indent3">Would give the
+    <span class="lstobj">Detect Magic</span> ,
+    <span class="lstobj">Ghost Sound</span> ,
+    <span class="lstobj">Light</span> and
+    <span class="lstobj">Read Magic</span> spells if the PC has free spells.</p>
 <p class="indent2">
-<code>SPELLS:LEVEL=0</code>
+    <code>SPELLS:LEVEL=0</code>
 </p>
 <p class="indent3">Grants ALL 0-level spells.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="spellsspellbook" id="spellsspellbook">*** New 5.9.3</a>
+    <a name="spellsspellbook" id="spellsspellbook">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> SPELLS:SPELLBOOK=v|CLASS=w|x|x[y]=z</p>
+    <strong>Tag Name:</strong> SPELLS:SPELLBOOK=v|CLASS=w|x|x[y]=z</p>
 <p class="indent1">
-<strong>Variables Used (v):</strong> Text (Spellbook name)</p>
+    <strong>Variables Used (v):</strong> Text (Spellbook name)</p>
 <p class="indent1">
-<strong>Variables Used (w):</strong> Text (Spellcasting class name)</p>
+    <strong>Variables Used (w):</strong> Text (Spellcasting class name)</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Spell name)</p>
+    <strong>Variables Used (x):</strong> Text (Spell name)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> Text (Metamagic Feat name, optional)</p>
+    <strong>Variables Used (y):</strong> Text (Metamagic Feat name, optional)</p>
 <p class="indent1">
-<strong>Variables Used (z):</strong> Number (Number of time the spell appears in the book)</p>
+    <strong>Variables Used (z):</strong> Number (Number of time the spell appears in the book)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Adds the named spell (x) to the spellbook (v) for the class (w).</li>
-<li>[y] is any metamagic feat known to the character.</li>
+    <li>Adds the named spell (x) to the spellbook (v) for the class (w).</li>
+    <li>[y] is any metamagic feat known to the character.</li>
 </ul>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid=3|Align Weapon|Banishment</code>
+    <code>SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid=3|Align Weapon|Banishment</code>
 </p>
-<p class="indent3">Would add Aid, Align Weapon and Banishment to the Prepared Spells spellbook, Aid appears three times.</p>
+<p class="indent3">Would add Aid, Align Weapon and Banishment to the Prepared Spells spellbook, Aid appears three
+    times.</p>
 <p class="indent2">
-<code>SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Ghost Sound</code>
+    <code>SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Ghost Sound</code>
 </p>
 <p class="indent3">Adds Daze, Detect Magic and Ghost Sound to the Sorcerer&#39;s Known Spells spellbook.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="stat" id="stat">*** New 5.9.3</a>
+    <a name="stat" id="stat">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> STAT:x=y|x=y</p>
+    <strong>Tag Name:</strong> STAT:x=y|x=y</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Stat abbreviation)</p>
+    <strong>Variables Used (x):</strong> Text (Stat abbreviation)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> Number, Variable or Formula (Stat value)</p>
+    <strong>Variables Used (y):</strong> Number, Variable or Formula (Stat value)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">This sets the ability scores for the character. This is done as if the user had set them in the GUI, setting the editable scores before racial and other bonuses are added in. Specifying all the Stats is not required, a single Stat or more can be set and any which are not specified are left alone.</p>
+<p class="indent2">This sets the ability scores for the character. This is done as if the user had set them in the GUI,
+    setting the editable scores before racial and other bonuses are added in. Specifying all the Stats is not required,
+    a single Stat or more can be set and any which are not specified are left alone.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18</code>
+    <code>STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18</code>
 </p>
 <p class="indent3">Sets the editable scores to those specified.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="subclass" id="subclass">*** New 5.9.3</a>
+    <a name="subclass" id="subclass">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> SUBCLASS:x</p>
+    <strong>Tag Name:</strong> SUBCLASS:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Subclass name)</p>
+    <strong>Variables Used (x):</strong> Text (Subclass name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Sets a subclass choice. Will avoid the subclass chooser.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>SUBCLASS:Fast Hero</code>
+    <code>SUBCLASS:Fast Hero</code>
 </p>
 <p class="indent3">Sets a subclass choice to &quot;Fast Hero&quot;.</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="table" id="table">Tag Name:</a>
-</strong> TABLE:x</p>
+    <strong>
+        <a name="table" id="table">Tag Name:</a>
+    </strong> TABLE:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Table name)</p>
+    <strong>Variables Used (x):</strong> Text (Table name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">Identifies a table of values to be used in conjunction with the 
-<code>VALUES</code> tag and called by a 
-<code>LOOKUP</code> tag.</p>
+<p class="indent2">Identifies a table of values to be used in conjunction with the
+    <code>VALUES</code> tag and called by a
+    <code>LOOKUP</code> tag.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>TABLE:Minor Special Ability (P/S)</code>
+    <code>TABLE:Minor Special Ability (P/S)</code>
 </p>
 <p class="indent3">Would create a table called &quot;Minor Special Ability (P/S)&quot;.</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="template" id="template">*** New 5.9.2</a>
+    <a name="template" id="template">*** New 5.9.2</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> TEMPLATE:x|x</p>
+    <strong>Tag Name:</strong> TEMPLATE:x|x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Template Name)</p>
+    <strong>Variables Used (x):</strong> Text (Template Name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">This is a pipe (|) delimited list of templates that are granted by the starting kit.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>TEMPLATE:Celestial</code>
+    <code>TEMPLATE:Celestial</code>
 </p>
 <p class="indent3">Adds the &quot;Celestial&quot; template to the character.</p>
-<hr />
+<hr/>
 <h3>
-<a name="misctags" id="misctags">Miscellaneous Tags</a>
+    <a name="misctags" id="misctags">Miscellaneous Tags</a>
 </h3>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="ability" id="ability">*** New 5.9.7</a>
+    <a name="ability" id="ability">*** New 5.9.7</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> ABILITY:PROMPT:FEAT(x)|CHOICE:y</p>
+    <strong>Tag Name:</strong> ABILITY:PROMPT:FEAT(x)|CHOICE:y</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Feat choices)</p>
+    <strong>Variables Used (x):</strong> Text (Feat choices)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> Text (Feat to select)</p>
+    <strong>Variables Used (y):</strong> Text (Feat to select)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">The 
-<code>ABILITY</code> tag is used to select the choice presented by an 
-<code>ADD:FEAT</code> chooser in a class level line.  The Feat choices parameter must match the choices used in the 
-<code>ADD:FEAT</code> this 
-<code>ABILITY</code> is selecting for.  The Feat to select should be a valid selection but this is not checked by the kit.</p>
+<p class="indent2">The
+    <code>ABILITY</code> tag is used to select the choice presented by an
+    <code>ADD:FEAT</code> chooser in a class level line.  The Feat choices parameter must match the choices used in the
+    <code>ADD:FEAT</code> this
+    <code>ABILITY</code> is selecting for.  The Feat to select should be a valid selection but this is not checked by
+    the kit.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>LEVELABILITY:Ranger=1 &lt;tab&gt; ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid (Elf))</code>
+    <code>LEVELABILITY:Ranger=1 &lt;tab&gt; ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid
+        (Elf))</code>
 </p>
 <p class="indent3">Selects Humanoid (Elf) as a ranger&#39;s first favored enemy selection.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">LEVELABILITY line</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="apply" id="apply">*** New 5.9.6</a>
+    <a name="apply" id="apply">*** New 5.9.6</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> APPLY:x</p>
+    <strong>Tag Name:</strong> APPLY:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (INSTANT or PERMANENT)</p>
+    <strong>Variables Used (x):</strong> Text (INSTANT or PERMANENT)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Selects if the selection of this kit is stored with the character or not.</p>
 <ul class="indent2">
-<li>PERMANENT - means the kit will be stored with the character that selects it and will not be available to be selected again. (This is the default setting.)</li>
-<li>INSTANT - means the kit will not be stored and can be selected any number of times.</li>
+    <li>PERMANENT - means the kit will be stored with the character that selects it and will not be available to be
+        selected again. (This is the default setting.)
+    </li>
+    <li>INSTANT - means the kit will not be stored and can be selected any number of times.</li>
 </ul>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>APPLY:INSTANT</code>
+    <code>APPLY:INSTANT</code>
 </p>
 <p class="indent3">Sets this kit to be usable multiple times.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">STARTPACK line</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="count" id="count">*** New 5.8</a>
+    <a name="count" id="count">*** New 5.8</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> COUNT:x</p>
+    <strong>Tag Name:</strong> COUNT:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Number (Maximum number of choices to allow)</p>
+    <strong>Variables Used (x):</strong> Number (Maximum number of choices to allow)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Sets the maximum number of choices that can be made from the list.</li>
-<li>This tag is optional; if not present it defaults to one.</li>
-<li>This tag will have no effect unless the primary tag contains a list.</li>
+    <li>Sets the maximum number of choices that can be made from the list.</li>
+    <li>This tag is optional; if not present it defaults to one.</li>
+    <li>This tag will have no effect unless the primary tag contains a list.</li>
 </ul>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>FEAT:Dodge|Improved Initiative|Alertness &lt;tab&gt; COUNT:2</code>
+    <code>FEAT:Dodge|Improved Initiative|Alertness &lt;tab&gt; COUNT:2</code>
 </p>
 <p class="indent3">Would allow the choice of two of Dodge, Improved Initiative, and Alertness.</p>
 <p class="indent2">
-<code>PROF:Longsword|Rapier|Longbow|Shortbow &lt;tab&gt; COUNT:2</code>
+    <code>PROF:Longsword|Rapier|Longbow|Shortbow &lt;tab&gt; COUNT:2</code>
 </p>
 <p class="indent3">Would allow the choice of two of Longsword, Rapier, Longbow, and Shortbow.</p>
 <p class="indent2">
-<code>SPELLS:LEVEL=1 &lt;tab&gt; COUNT:2</code>
+    <code>SPELLS:LEVEL=1 &lt;tab&gt; COUNT:2</code>
 </p>
 <p class="indent3">Would allow the choice of two first level spells.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">SKILL, DOMAIN, FEAT, PROF, or SPELLS lines</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="eqmod" id="eqmod">*** New 5.9.2</a>
+    <a name="eqmod" id="eqmod">*** New 5.9.2</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> EQMOD:x|y|y.x|y|y</p>
+    <strong>Tag Name:</strong> EQMOD:x|y|y.x|y|y</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text, period delimited (Equipment modifier name)</p>
+    <strong>Variables Used (x):</strong> Text, period delimited (Equipment modifier name)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> Text, pipe delimited (Modifiers applied to the equipment modifier name)</p>
+    <strong>Variables Used (y):</strong> Text, pipe delimited (Modifiers applied to the equipment modifier name)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>A period (.) delimited list of equipment modifiers.</li>
-<li>Each element is a pipe (|) delimited list of strings.</li>
-<li>It calls an equipment mod to be applied to the base item.</li>
-<li>It will take the base item, and automatically apply the equipmod.</li>
+    <li>A period (.) delimited list of equipment modifiers.</li>
+    <li>Each element is a pipe (|) delimited list of strings.</li>
+    <li>It calls an equipment mod to be applied to the base item.</li>
+    <li>It will take the base item, and automatically apply the equipmod.</li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>EQMOD:Bane.Holy.Keen</code>
+    <code>EQMOD:Bane.Holy.Keen</code>
 </p>
-<p class="indent3">The equipment modifiers &quot;Bane&quot;, &quot;Holy&quot; and &quot;Keen&quot; (as seen in the item customizer in PCGen) are added to the granted equipment item.</p>
+<p class="indent3">The equipment modifiers &quot;Bane&quot;, &quot;Holy&quot; and &quot;Keen&quot; (as seen in the item
+    customizer in PCGen) are added to the granted equipment item.</p>
 <p class="indent2">
-<code>EQMOD:KEEN.BANE|Undead</code> or 
-<code>EQMOD:BANE|Undead.KEEN</code></p>
+    <code>EQMOD:KEEN.BANE|Undead</code> or
+    <code>EQMOD:BANE|Undead.KEEN</code></p>
 <p class="indent3">Bane Undead is added to the item.</p>
 <p class="indent2">
-<code>EQMOD:ABILITYPLUS|STR+2</code>
+    <code>EQMOD:ABILITYPLUS|STR+2</code>
 </p>
 <p class="indent3">Applies a +2 STR bonus to the character when using the item.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">GEAR line</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="equipbuy" id="equipbuy">*** New 5.8</a>
+    <a name="equipbuy" id="equipbuy">*** New 5.8</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> EQUIPBUY:x</p>
+    <strong>Tag Name:</strong> EQUIPBUY:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Number (Percentage)</p>
+    <strong>Variables Used (x):</strong> Number (Percentage)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">This sets the percentage that the total cost of all the gear in the kit is discounted (or inflated by). If set to 0 the gear is granted for free.</p>
+<p class="indent2">This sets the percentage that the total cost of all the gear in the kit is discounted (or inflated
+    by). If set to 0 the gear is granted for free.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>EQUIPBUY:0</code>
+    <code>EQUIPBUY:0</code>
 </p>
 <p class="indent3">The gear granted by the KIT is free.</p>
 <p class="indent2">
-<code>EQUIPBUY:50</code>
+    <code>EQUIPBUY:50</code>
 </p>
 <p class="indent3">The gear granted by the KIT is granted for half the normal cost.</p>
 <p class="indent2">
-<code>EQUIPBUY:200</code>
+    <code>EQUIPBUY:200</code>
 </p>
 <p class="indent3">The gear granted by the KIT is granted for twice the normal cost.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">STARTPACK lines</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="free" id="free">*** New 5.8</a>
+    <a name="free" id="free">*** New 5.8</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> FREE:x</p>
+    <strong>Tag Name:</strong> FREE:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Property (YES or NO)</p>
+    <strong>Variables Used (x):</strong> Property (YES or NO)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Grants this item for free.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>FREE:YES</code>
+    <code>FREE:YES</code>
 </p>
-<p class="indent3">The item that appears on this line will be granted to the character without subtracting from the character&#39;s available pool.</p>
+<p class="indent3">The item that appears on this line will be granted to the character without subtracting from the
+    character&#39;s available pool.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">FEAT or SKILL line</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="level" id="level">*** New 5.9.3</a>
+    <a name="level" id="level">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> LEVEL:x</p>
+    <strong>Tag Name:</strong> LEVEL:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Number (Levels to add)</p>
+    <strong>Variables Used (x):</strong> Number (Levels to add)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Grants the character the number of class levels indicated if they can legally attain them.</li>
-<li>Must be used with the 
-<code>CLASS</code> tag.</li>
+    <li>Grants the character the number of class levels indicated if they can legally attain them.</li>
+    <li>Must be used with the
+        <code>CLASS</code> tag.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>CLASS:Warrior &lt;tab&gt; LEVEL:2</code>
+    <code>CLASS:Warrior &lt;tab&gt; LEVEL:2</code>
 </p>
 <p class="indent3">Would grant the character two levels of the Warrior class.</p>
 <p class="indent2">
-<code>CLASS:Fighter &lt;tab&gt; LEVEL:4 &lt;tab&gt; PRECLASS:1,Fighter=1</code>
+    <code>CLASS:Fighter &lt;tab&gt; LEVEL:4 &lt;tab&gt; PRECLASS:1,Fighter=1</code>
 </p>
 <p class="indent3">Would grant four levels of Fighter if the character has at least one level in Fighter already.</p>
 <p class="indent1">
-<strong>Where it is Used:</strong>
+    <strong>Where it is Used:</strong>
 </p>
 <p class="indent2">CLASS line</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="location" id="location">*** New 5.9.3</a>
+    <a name="location" id="location">*** New 5.9.3</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> LOCATION:x,x</p>
+    <strong>Tag Name:</strong> LOCATION:x,x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Location to be equipped)</p>
+    <strong>Variables Used (x):</strong> Text (Location to be equipped)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>LOCATION is used in GEAR lines to specify the location the item will be equipped to. If an item is of a TYPE with a specific slot then setting it to Equipped will equip it there. Only weapons need more specific settings.</li>
-<li>The following are valid &quot;Locations&quot;:
-<ul>
-<li>Both Hands</li>
-<li>Carried</li>
-<li>Double Weapon</li>
-<li>Equipped</li>
-<li>Natural-Primary</li>
-<li>Natural-Secondary</li>
-<li>Not Carried</li>
-<li>Primary Hand</li>
-<li>Secondary Hand</li>
-<li>Shield</li>
-<li>Two Weapons</li>
-</ul></li>
+    <li>LOCATION is used in GEAR lines to specify the location the item will be equipped to. If an item is of a TYPE
+        with a specific slot then setting it to Equipped will equip it there. Only weapons need more specific settings.
+    </li>
+    <li>The following are valid &quot;Locations&quot;:
+        <ul>
+            <li>Both Hands</li>
+            <li>Carried</li>
+            <li>Double Weapon</li>
+            <li>Equipped</li>
+            <li>Natural-Primary</li>
+            <li>Natural-Secondary</li>
+            <li>Not Carried</li>
+            <li>Primary Hand</li>
+            <li>Secondary Hand</li>
+            <li>Shield</li>
+            <li>Two Weapons</li>
+        </ul>
+    </li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>GEAR:Morningstar &lt;tab&gt; LOCATION:Primary Hand</code>
+    <code>GEAR:Morningstar &lt;tab&gt; LOCATION:Primary Hand</code>
 </p>
 <p class="indent3">Equips the Morningstar to the Primary Hand slot.</p>
 <p class="indent2">
-<code>GEAR:Leather &lt;tab&gt; LOCATION:Equipped</code>
+    <code>GEAR:Leather &lt;tab&gt; LOCATION:Equipped</code>
 </p>
 <p class="indent3">Equips the Leather armor to the Armor slot.</p>
 <p class="indent2">
-<code>GEAR:Shield (Light/Wood) &lt;tab&gt; LOCATION:Equipped</code>
+    <code>GEAR:Shield (Light/Wood) &lt;tab&gt; LOCATION:Equipped</code>
 </p>
 <p class="indent3">Equips the Shield to the Shield slot.</p>
 <p class="indent2">
-<code>GEAR:Javelin &lt;tab&gt; LOCATION:Carried</code>
+    <code>GEAR:Javelin &lt;tab&gt; LOCATION:Carried</code>
 </p>
 <p class="indent3">Equips the Javelin to Carried.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">GEAR lines</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="lookup" id="lookup">Tag Name:</a>
-</strong> LOOKUP:x,y</p>
+    <strong>
+        <a name="lookup" id="lookup">Tag Name:</a>
+    </strong> LOOKUP:x,y</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Table name)</p>
+    <strong>Variables Used (x):</strong> Text (Table name)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> JEP formula or VAR</p>
+    <strong>Variables Used (y):</strong> JEP formula or VAR</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">Matches the value of the JEP formula or VAR (y variable) with the associated table&#39;s (x variable) 
-<code>VALUES</code> tag&#39;s upper and lower selection range and returns the relevant &quot;value&quot;.</p>
+<p class="indent2">Matches the value of the JEP formula or VAR (y variable) with the associated table&#39;s (x variable)
+    <code>VALUES</code> tag&#39;s upper and lower selection range and returns the relevant &quot;value&quot;.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>LOOKUP:Minor Special Ability (P/S),roll(&quot;1d100&quot;)</code>
+    <code>LOOKUP:Minor Special Ability (P/S),roll(&quot;1d100&quot;)</code>
 </p>
-<p class="indent3">A random number is generated between 1 and 100 and the item corresponding to that number will be selected from the &quot;Minor Special Ability (P/S)&quot; table.</p>
+<p class="indent3">A random number is generated between 1 and 100 and the item corresponding to that number will be
+    selected from the &quot;Minor Special Ability (P/S)&quot; table.</p>
 <p class="indent1">
-<strong>Where it is Used:</strong>
+    <strong>Where it is Used:</strong>
 </p>
 <p class="indent2">GEAR and TABLE lines</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="maxcost" id="maxcost">*** New 5.8</a>
+    <a name="maxcost" id="maxcost">*** New 5.8</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> MAXCOST:x</p>
+    <strong>Tag Name:</strong> MAXCOST:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Number (maximum cost of equipment item)</p>
+    <strong>Variables Used (x):</strong> Number (maximum cost of equipment item)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">Sets the maximum cost a given piece of equipment will be purchased for. If the equipment would cost more than this number it will not be purchased.</p>
+<p class="indent2">Sets the maximum cost a given piece of equipment will be purchased for. If the equipment would cost
+    more than this number it will not be purchased.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>MAXCOST:10</code>
+    <code>MAXCOST:10</code>
 </p>
 <p class="indent3">This equipment will only be purchased if it costs less than 10.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">GEAR lines</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="option" id="option">*** New 5.9.5</a>
+    <a name="option" id="option">*** New 5.9.5</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> OPTION:x,y|x,y</p>
+    <strong>Tag Name:</strong> OPTION:x,y|x,y</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Number, JEP formula or VAR (Low range)</p>
+    <strong>Variables Used (x):</strong> Number, JEP formula or VAR (Low range)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> Number, JEP formula or VAR (High range, Optional)</p>
+    <strong>Variables Used (y):</strong> Number, JEP formula or VAR (High range, Optional)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>This tag is used on a line to determine randomly if the line will be granted to the character.</li>
-<li>
-<code>OPTION</code> specifies a number range in which the line will be granted if it matches the number generated by the last preceding 
-<a href="#select">SELECT</a> tag.</li>
+    <li>This tag is used on a line to determine randomly if the line will be granted to the character.</li>
+    <li>
+        <code>OPTION</code> specifies a number range in which the line will be granted if it matches the number
+        generated by the last preceding
+        <a href="#select">SELECT</a> tag.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>SELECT:roll(&quot;1d100&quot;)</code>
+    <code>SELECT:roll(&quot;1d100&quot;)</code>
 </p>
 <p class="indent2">
-<code>GEAR:Scimitar &lt;tab&gt; OPTION:1,50</code>
+    <code>GEAR:Scimitar &lt;tab&gt; OPTION:1,50</code>
 </p>
 <p class="indent2">
-<code>GEAR:Falchion &lt;tab&gt; OPTION:51,100</code>
+    <code>GEAR:Falchion &lt;tab&gt; OPTION:51,100</code>
 </p>
 <p class="indent2">
-<code>GEAR:Full Plate &lt;tab&gt; OPTION:1,STR*5</code>
+    <code>GEAR:Full Plate &lt;tab&gt; OPTION:1,STR*5</code>
 </p>
 <p class="indent2">
-<code>GEAR:Shield&lt;tab&gt; OPTION:1,10|75,100</code>
+    <code>GEAR:Shield&lt;tab&gt; OPTION:1,10|75,100</code>
 </p>
 <p class="indent2">
-<code>GEAR:The One Ring &lt;tab&gt; OPTION:100</code>
+    <code>GEAR:The One Ring &lt;tab&gt; OPTION:100</code>
 </p>
-<p class="indent3">The SELECT tag sets a value between 1 and 100. If that value falls within 1-50 the Scimitar is granted, if the value is between 51 and 100 the Falchion is granted, if the value is between 1 and the character&#39;s Strength bonus times 5 the Full Plate is granted, if the value is between 1 and 10 or 75 and 100 the Shield is granted. If the SELECT value is exactly 100 The One Ring is granted and you had better start packing.</p>
+<p class="indent3">The SELECT tag sets a value between 1 and 100. If that value falls within 1-50 the Scimitar is
+    granted, if the value is between 51 and 100 the Falchion is granted, if the value is between 1 and the character&#39;s
+    Strength bonus times 5 the Full Plate is granted, if the value is between 1 and 10 or 75 and 100 the Shield is
+    granted. If the SELECT value is exactly 100 The One Ring is granted and you had better start packing.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">GEAR, SKILL, CLASS, RACE, FEAT, etc. lines.</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="qty" id="qty">Tag Name:</a>
-</strong> QTY:x</p>
+    <strong>
+        <a name="qty" id="qty">Tag Name:</a>
+    </strong> QTY:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Number (Number of items)</p>
+    <strong>Variables Used (x):</strong> Number (Number of items)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Used to indicate the quantity of the indicated item.</li>
-<li>Used on GEAR lines to indicate the quantity of the indicated item to be purchased.</li>
-<li>This tag is optional and all GEAR tags default to QTY:1 if not this tag is not present.</li>
+    <li>Used to indicate the quantity of the indicated item.</li>
+    <li>Used on GEAR lines to indicate the quantity of the indicated item to be purchased.</li>
+    <li>This tag is optional and all GEAR tags default to QTY:1 if not this tag is not present.</li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>QTY:3</code>
+    <code>QTY:3</code>
 </p>
 <p class="indent3">Three items are given.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">GEAR line</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="racial" id="racial">Tag Name:</a>
-</strong> RACIAL:x</p>
+    <strong>
+        <a name="racial" id="racial">Tag Name:</a>
+    </strong> RACIAL:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
+    <strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Grants or denies a character&#39;s natural racial ability to choose weapon proficiencies.</li>
-<li>Creating a kit with a RACIAL tag supplementing a PROF tag allows you to permit or deny this natural ability.</li>
-<li>If allowed the kit will pick one of the available choices of weapon proficiencies.</li>
-<li>If not allowed the character will receive none of the available racial weapon proficiencies.</li>
+    <li>Grants or denies a character&#39;s natural racial ability to choose weapon proficiencies.</li>
+    <li>Creating a kit with a RACIAL tag supplementing a PROF tag allows you to permit or deny this natural ability.
+    </li>
+    <li>If allowed the kit will pick one of the available choices of weapon proficiencies.</li>
+    <li>If not allowed the character will receive none of the available racial weapon proficiencies.</li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>RACIAL:YES</code>
+    <code>RACIAL:YES</code>
 </p>
-<p class="indent3">Elves naturally have the ability, during creation, to have a weapon proficiency with either the Longsword OR the rapier.</p>
+<p class="indent3">Elves naturally have the ability, during creation, to have a weapon proficiency with either the
+    Longsword OR the rapier.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">PROF line</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="rank" id="rank">Tag Name:</a>
-</strong> RANK:x</p>
+    <strong>
+        <a name="rank" id="rank">Tag Name:</a>
+    </strong> RANK:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Number (Skill rank)</p>
+    <strong>Variables Used (x):</strong> Number (Skill rank)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Grants the number of ranks to the skill indicated, in the immediately preceeding 
-<code>SKILL</code> tag, to the character if they can legally have that many additional ranks of that skill.</li>
-<li>
-<code>RANK</code> tag MUST be used on all SKILL lines.</li>
-<li>If the indicated skill is a class skill then ranks will be purchased as such, and likewise for cross-class skills.</li>
+    <li>Grants the number of ranks to the skill indicated, in the immediately preceeding
+        <code>SKILL</code> tag, to the character if they can legally have that many additional ranks of that skill.
+    </li>
+    <li>
+        <code>RANK</code> tag MUST be used on all SKILL lines.
+    </li>
+    <li>If the indicated skill is a class skill then ranks will be purchased as such, and likewise for cross-class
+        skills.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Examples:</strong>
+    <strong>Examples:</strong>
 </p>
 <p class="indent2">
-<code>SKILL:Climb RANK:4</code>
+    <code>SKILL:Climb RANK:4</code>
 </p>
 <p class="indent3">Gives four ranks of &quot;Climb&quot; skill if they can afford it.</p>
 <p class="indent2">
-<code>SKILL:TYPE=Knowledge RANK:4</code>
+    <code>SKILL:TYPE=Knowledge RANK:4</code>
 </p>
 <p class="indent3">Gives four ranks of &quot;Knowledge&quot; type skills if they can afford it.</p>
 <p class="indent1">
-<strong>Where it is Used:</strong>
+    <strong>Where it is Used:</strong>
 </p>
 <p class="indent2">SKILL line</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="selection" id="selection">*** New 5.15.4</a>
+    <a name="selection" id="selection">*** New 5.15.4</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> SELECTION:x,x</p>
+    <strong>Tag Name:</strong> SELECTION:x,x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Text (Language)</p>
+    <strong>Variables Used (x):</strong> Text (Language)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>Makes selection of languages for ranks of the Speak Language skill.</li>
-<li>This tag is used, in conjunction with the 
-<code>SKILL</code> and 
-<code>RANK</code> tags, to select languages.</li>
+    <li>Makes selection of languages for ranks of the Speak Language skill.</li>
+    <li>This tag is used, in conjunction with the
+        <code>SKILL</code> and
+        <code>RANK</code> tags, to select languages.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>SKILL:Speak Language &lt;tab&gt; RANK:2 &lt;tab&gt; SELECTION:Dwarven,Elven</code>
+    <code>SKILL:Speak Language &lt;tab&gt; RANK:2 &lt;tab&gt; SELECTION:Dwarven,Elven</code>
 </p>
 <p class="indent3">Selects Dwarven and Elven languages with the ranks bought.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">SKILL lines</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="size" id="size">*** New 5.9.2</a>
+    <a name="size" id="size">*** New 5.9.2</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> SIZE:x</p>
+    <strong>Tag Name:</strong> SIZE:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Size category (F,D,T,S,M,L,H,G,C)</p>
+    <strong>Variables Used (x):</strong> Size category (F,D,T,S,M,L,H,G,C)</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> PC (matches the equipment to the character&#39;s size)</p>
+    <strong>Variables Used (x):</strong> PC (matches the equipment to the character&#39;s size)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <p class="indent2">Enlarges or reduces the GEAR item to the size specified.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>SIZE:S</code>
+    <code>SIZE:S</code>
 </p>
 <p class="indent3">The item is set to size small.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">GEAR lines</p>
-<hr />
+<hr/>
 <p class="lstnew">
-<a name="totalcost" id="totalcost">*** New 6.01.06</a>
+    <a name="totalcost" id="totalcost">*** New 6.01.06</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> TOTALCOST:x</p>
+    <strong>Tag Name:</strong> TOTALCOST:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> Formula (Cost)</p>
+    <strong>Variables Used (x):</strong> Formula (Cost)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">This sets a total monetary cost for kit. It overrides EQUIPBUY and individual item costs but is affected by the buy rate selected on the purchase tab. If a character cannot afford the TOTALCOST the kit will be regarded as not qualified. It is used where a source provides a kit at a specific cost.</p>
+<p class="indent2">This sets a total monetary cost for kit. It overrides EQUIPBUY and individual item costs but is
+    affected by the buy rate selected on the purchase tab. If a character cannot afford the TOTALCOST the kit will be
+    regarded as not qualified. It is used where a source provides a kit at a specific cost.</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>TOTALCOST:170</code>
+    <code>TOTALCOST:170</code>
 </p>
 <p class="indent3">The KIT costs 170gp for all gear.</p>
 <p class="indent2">
-<code>TOTALCOST:if(var(&quot;SIZE==3||SIZE==4&quot;),5,10)</code>
+    <code>TOTALCOST:if(var(&quot;SIZE==3||SIZE==4&quot;),5,10)</code>
 </p>
 <p class="indent3">The kit will cost 5 gp if the SIZE variable is 3 or 4, otherwise it will cost 10 gp.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">STARTPACK lines</p>
-<hr />
+<hr/>
 <p class="indent0">
-<strong>
-<a name="values" id="values">Tag Name:</a>
-</strong> VALUES:x|y,z|x|y.z</p>
+    <strong>
+        <a name="values" id="values">Tag Name:</a>
+    </strong> VALUES:x|y,z|x|y.z</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> EQMOD:Text (Eqmod key)</p>
+    <strong>Variables Used (x):</strong> EQMOD:Text (Eqmod key)</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> LOOKUP Tag (See 
-<a href="#lookup">LOOKUP Tag</a> docs)</p>
+    <strong>Variables Used (x):</strong> LOOKUP Tag (See
+    <a href="#lookup">LOOKUP Tag</a> docs)</p>
 <p class="indent1">
-<strong>Variables Used (y):</strong> Number (Lower selection range)</p>
+    <strong>Variables Used (y):</strong> Number (Lower selection range)</p>
 <p class="indent1">
-<strong>Variables Used (z):</strong> Number (Upper selection range)</p>
+    <strong>Variables Used (z):</strong> Number (Upper selection range)</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
-<p class="indent2">Defines the {&quot;value&quot;,selection range} pairs for the associated 
-<a href="#table">TABLE</a> .</p>
+<p class="indent2">Defines the {&quot;value&quot;,selection range} pairs for the associated
+    <a href="#table">TABLE</a> .</p>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <blockquote class="indent2">
-<p class="tagindent1">
-<code>VALUES:EQMOD:BANE_M|1,10|EQMOD:DEFEND|11,17|EQMOD:FLM_M|18,27|EQMOD:FROST_M|28,37| EQMOD:SHOCK_M|38,47|EQMOD:GHOST_M|48,67|EQMOD:KIFOC|68,71|EQMOD:MERC_M|72,75| EQMOD:MI_CLE|76,82|EQMOD:SPL_STR|83,87|EQMOD:THROW|88,91|EQMOD:THNDR_M|92,95| EQMOD:VICIOU|96,100</code>
-</p>
+    <p class="tagindent1">
+        <code>VALUES:EQMOD:BANE_M|1,10|EQMOD:DEFEND|11,17|EQMOD:FLM_M|18,27|EQMOD:FROST_M|28,37|
+            EQMOD:SHOCK_M|38,47|EQMOD:GHOST_M|48,67|EQMOD:KIFOC|68,71|EQMOD:MERC_M|72,75|
+            EQMOD:MI_CLE|76,82|EQMOD:SPL_STR|83,87|EQMOD:THROW|88,91|EQMOD:THNDR_M|92,95| EQMOD:VICIOU|96,100</code>
+    </p>
 </blockquote>
-<p class="indent3">This table consists of the following eqmods, granted by random determination of 1d100, 
-<span class="lstobj">BANE_M</span> on a 1-10, 
-<span class="lstobj">DEFEND</span> on an 11-17, 
-<span class="lstobj">FLM_M</span> on a 18-27, 
-<span class="lstobj">FROST_M</span> on a 28-37, 
-<span class="lstobj">SHOCK_M</span> on a 38-47, 
-<span class="lstobj">GHOST_M</span> on a 48-67, 
-<span class="lstobj">KIFOC</span> on a 68-71, 
-<span class="lstobj">MERC_M</span> on a 72-75, 
-<span class="lstobj">MI_CLE</span> on a76-82 
-<span class="lstobj">SPL_STR</span> on a 83-87, 
-<span class="lstobj">THROW</span> on a 88-91, 
-<span class="lstobj">THNDR_M</span> on a 92-95, or 
-<span class="lstobj">VICIOU</span> on a 96-100.</p>
+<p class="indent3">This table consists of the following eqmods, granted by random determination of 1d100,
+    <span class="lstobj">BANE_M</span> on a 1-10,
+    <span class="lstobj">DEFEND</span> on an 11-17,
+    <span class="lstobj">FLM_M</span> on a 18-27,
+    <span class="lstobj">FROST_M</span> on a 28-37,
+    <span class="lstobj">SHOCK_M</span> on a 38-47,
+    <span class="lstobj">GHOST_M</span> on a 48-67,
+    <span class="lstobj">KIFOC</span> on a 68-71,
+    <span class="lstobj">MERC_M</span> on a 72-75,
+    <span class="lstobj">MI_CLE</span> on a76-82
+    <span class="lstobj">SPL_STR</span> on a 83-87,
+    <span class="lstobj">THROW</span> on a 88-91,
+    <span class="lstobj">THNDR_M</span> on a 92-95, or
+    <span class="lstobj">VICIOU</span> on a 96-100.</p>
 <p class="indent1">
-<strong>Where it is Used:</strong>
+    <strong>Where it is Used:</strong>
 </p>
 <p class="indent2">TABLE lines</p>
-<hr />
+<hr/>
 <p class="lststatus">
-<a name="visible" id="visible">*** Updated 5.9.2</a>
+    <a name="visible" id="visible">*** Updated 5.9.2</a>
 </p>
 <p class="indent0">
-<strong>Tag Name:</strong> VISIBLE:x</p>
+    <strong>Tag Name:</strong> VISIBLE:x</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> YES (Default)</p>
+    <strong>Variables Used (x):</strong> YES (Default)</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> NO</p>
+    <strong>Variables Used (x):</strong> NO</p>
 <p class="indent1">
-<strong>Variables Used (x):</strong> QUALIFY</p>
+    <strong>Variables Used (x):</strong> QUALIFY</p>
 <p class="indent1">
-<strong>What it does:</strong>
+    <strong>What it does:</strong>
 </p>
 <ul class="indent2">
-<li>This is an optional tag that determins whether the KIT appears in the KIT Selection window.</li>
-<li>
-<code>YES</code> - Displays the name of the KIT in the KIT selection window.</li>
-<li>
-<code>NO</code> - Hides the name of the KIT in the KIT selection window.</li>
-<li>
-<code>QUALIFY</code> - Displays the name of the KIT only if the character passes the prerequisites.</li>
+    <li>This is an optional tag that determins whether the KIT appears in the KIT Selection window.</li>
+    <li>
+        <code>YES</code> - Displays the name of the KIT in the KIT selection window.
+    </li>
+    <li>
+        <code>NO</code> - Hides the name of the KIT in the KIT selection window.
+    </li>
+    <li>
+        <code>QUALIFY</code> - Displays the name of the KIT only if the character passes the prerequisites.
+    </li>
 </ul>
 <p class="indent1">
-<strong>Example:</strong>
+    <strong>Example:</strong>
 </p>
 <p class="indent2">
-<code>VISIBLE:YES</code>
+    <code>VISIBLE:YES</code>
 </p>
 <p class="indent3">Shows the KIT name in PCGen.</p>
 <p class="indent2">
-<code>VISIBLE:NO</code>
+    <code>VISIBLE:NO</code>
 </p>
 <p class="indent3">Hides the KIT name in PCGen.</p>
 <p class="indent2">
-<code>VISIBLE:QUALIFY</code>
+    <code>VISIBLE:QUALIFY</code>
 </p>
 <p class="indent3">The KIT name will be displayed in PCGen if the character meets all prerequisites.</p>
 <p class="indent1">
-<strong>Where it is used:</strong>
+    <strong>Where it is used:</strong>
 </p>
 <p class="indent2">STARTPACK lines</p>
-<hr />
+<hr/>
 </body>
 </html>

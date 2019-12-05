@@ -24,24 +24,24 @@ import pcgen.core.prereq.Prerequisite;
 public final class RaceAlignment
 {
 
-	private RaceAlignment()
-	{
-	}
+    private RaceAlignment()
+    {
+    }
 
-	public static boolean canBeAlignment(CDOMObject r, PCAlignment align)
-	{
-		if (r.hasPrerequisites())
-		{
-			for (Prerequisite prereq : r.getPrerequisiteList())
-			{
-				if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
-				{
-					return align.equals(AlignmentConverter.getPCAlignment(prereq.getKey()));
-				}
-			}
-		}
+    public static boolean canBeAlignment(CDOMObject r, PCAlignment align)
+    {
+        if (r.hasPrerequisites())
+        {
+            for (Prerequisite prereq : r.getPrerequisiteList())
+            {
+                if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
+                {
+                    return align.equals(AlignmentConverter.getPCAlignment(prereq.getKey()));
+                }
+            }
+        }
 
-		return true;
-	}
+        return true;
+    }
 
 }

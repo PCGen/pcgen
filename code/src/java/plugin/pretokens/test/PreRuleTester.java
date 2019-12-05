@@ -30,82 +30,81 @@ import pcgen.core.prereq.PrerequisiteTestFactory;
 public class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "RULE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "RULE"; //$NON-NLS-1$
+    }
 
-	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
-		int targetNumber;
+    @Override
+    public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
+        int targetNumber;
 
-		try
-		{
-			targetNumber = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException ne)
-		{
-			// Not an error, just a string
-			targetNumber = 1;
-		}
+        try
+        {
+            targetNumber = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException ne)
+        {
+            // Not an error, just a string
+            targetNumber = 1;
+        }
 
-		if (Globals.checkRule(prereq.getKey()))
-		{
-			runningTotal = 1;
-		}
+        if (Globals.checkRule(prereq.getKey()))
+        {
+            runningTotal = 1;
+        }
 
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-			final PrerequisiteTest test = factory.getTest(element.getKind());
-			if (test != null)
-			{
-				runningTotal += test.passes(element, equipment, aPC);
-			}
-		}
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
-	}
+        for (Prerequisite element : prereq.getPrerequisites())
+        {
+            final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+            final PrerequisiteTest test = factory.getTest(element.getKind());
+            if (test != null)
+            {
+                runningTotal += test.passes(element, equipment, aPC);
+            }
+        }
+        return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
+    }
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
-		int targetNumber;
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
+        int targetNumber;
 
-		try
-		{
-			targetNumber = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException ne)
-		{
-			// Not an error, just a string
-			targetNumber = 1;
-		}
+        try
+        {
+            targetNumber = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException ne)
+        {
+            // Not an error, just a string
+            targetNumber = 1;
+        }
 
-		if (Globals.checkRule(prereq.getKey()))
-		{
-			runningTotal = 1;
-		}
+        if (Globals.checkRule(prereq.getKey()))
+        {
+            runningTotal = 1;
+        }
 
-		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			final PrerequisiteTest test = factory.getTest(element.getKind());
-			if (test != null)
-			{
-				runningTotal += test.passes(element, character, source);
-			}
-		}
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
-	}
+        final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+        for (Prerequisite element : prereq.getPrerequisites())
+        {
+            final PrerequisiteTest test = factory.getTest(element.getKind());
+            if (test != null)
+            {
+                runningTotal += test.passes(element, character, source);
+            }
+        }
+        return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
+    }
 
 }

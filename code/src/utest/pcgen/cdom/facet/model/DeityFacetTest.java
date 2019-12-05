@@ -25,21 +25,21 @@ import pcgen.core.Deity;
 public class DeityFacetTest extends AbstractItemFacetTest<Deity>
 {
 
-	private final DeityFacet facet = new DeityFacet();
+    private final DeityFacet facet = new DeityFacet();
 
-	@Override
-	protected AbstractItemFacet<CharID, Deity> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractItemFacet<CharID, Deity> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected Deity getItem()
-	{
-		Deity d = new Deity();
-		d.setName("Deity" + n++);
-		return d;
-	}
+    @Override
+    protected Deity getItem()
+    {
+        Deity d = new Deity();
+        d.setName("Deity" + n++);
+        return d;
+    }
 }

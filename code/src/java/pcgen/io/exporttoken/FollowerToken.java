@@ -36,95 +36,93 @@ import pcgen.util.Logging;
 
 /**
  * Deal with FOLLOWER Token
- *
- *
  */
 public class FollowerToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "FOLLOWER";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "FOLLOWER";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		/* FOLLOWER%.subtag stuff handled in here*/
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        /* FOLLOWER%.subtag stuff handled in here*/
 
-		// New token syntax FOLLOWER.x instead of FOLLOWERx
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		String fString = aTok.nextToken(); // FOLLOWER
-		final int i;
+        // New token syntax FOLLOWER.x instead of FOLLOWERx
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        String fString = aTok.nextToken(); // FOLLOWER
+        final int i;
 
-		if ("FOLLOWER".equals(fString))
-		{
-			i = Integer.parseInt(aTok.nextToken());
-		}
-		else
-		{
-			Logging.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
+        if ("FOLLOWER".equals(fString))
+        {
+            i = Integer.parseInt(aTok.nextToken());
+        } else
+        {
+            Logging.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
 
-			i = Integer.parseInt(tokenSource.substring(8, tokenSource.indexOf('.')));
-		}
+            i = Integer.parseInt(tokenSource.substring(8, tokenSource.indexOf('.')));
+        }
 
-		StringBuilder restString = new StringBuilder();
-		while (aTok.hasMoreTokens())
-		{
-			restString.append(".").append(aTok.nextToken());
-		}
-		if (restString.indexOf(".") == 0)
-		{
-			restString = restString.deleteCharAt(0);
-		}
+        StringBuilder restString = new StringBuilder();
+        while (aTok.hasMoreTokens())
+        {
+            restString.append(".").append(aTok.nextToken());
+        }
+        if (restString.indexOf(".") == 0)
+        {
+            restString = restString.deleteCharAt(0);
+        }
 
-		String result = "";
-		final List<Follower> followers = new ArrayList<>(pc.getDisplay().getFollowerList());
-		if (i < followers.size())
-		{
-			result = FollowerToken.getFollowerOutput(eh, restString.toString(), followers.get(i));
-		}
+        String result = "";
+        final List<Follower> followers = new ArrayList<>(pc.getDisplay().getFollowerList());
+        if (i < followers.size())
+        {
+            result = FollowerToken.getFollowerOutput(eh, restString.toString(), followers.get(i));
+        }
 
-		return result;
-	}
+        return result;
+    }
 
-	/**
-	 * Process a token for a follower (must already be loaded) and return the output.
-	 *  
-	 * @param eh The ExportHandler being used for output.
-	 * @param followerToken The token to be processed.
-	 * @param follower The follower to be reported upon.
-	 * @return The follower's token output
-	 */
-	public static String getFollowerOutput(ExportHandler eh, String followerToken, final Follower follower)
-	{
-		StringWriter writer = new StringWriter();
-		BufferedWriter bw = new BufferedWriter(writer);
+    /**
+     * Process a token for a follower (must already be loaded) and return the output.
+     *
+     * @param eh            The ExportHandler being used for output.
+     * @param followerToken The token to be processed.
+     * @param follower      The follower to be reported upon.
+     * @return The follower's token output
+     */
+    public static String getFollowerOutput(ExportHandler eh, String followerToken, final Follower follower)
+    {
+        StringWriter writer = new StringWriter();
+        BufferedWriter bw = new BufferedWriter(writer);
 
-		String token = followerToken != null && followerToken.isEmpty() ? "NAME" : followerToken;
+        String token = followerToken != null && followerToken.isEmpty() ? "NAME" : followerToken;
 
-		for (PlayerCharacter eachPC : Globals.getPCList())
-		{
-			CharacterDisplay eachDisplay = eachPC.getDisplay();
-			if (follower.getFileName().equals(eachDisplay.getFileName())
-				&& follower.getName().equals(eachDisplay.getName()))
-			{
-				PlayerCharacter newPC = eachPC;
-				eh.replaceToken(token, bw, newPC);
-			}
-		}
-		try
-		{
-			bw.flush();
-		}
-		catch (IOException e)
-		{
-			Logging.errorPrint("Ignoring error while processing FOLLOWER or FOLLOWERTYPE token", e);
-		}
-		return writer.toString();
-	}
+        for (PlayerCharacter eachPC : Globals.getPCList())
+        {
+            CharacterDisplay eachDisplay = eachPC.getDisplay();
+            if (follower.getFileName().equals(eachDisplay.getFileName())
+                    && follower.getName().equals(eachDisplay.getName()))
+            {
+                PlayerCharacter newPC = eachPC;
+                eh.replaceToken(token, bw, newPC);
+            }
+        }
+        try
+        {
+            bw.flush();
+        } catch (IOException e)
+        {
+            Logging.errorPrint("Ignoring error while processing FOLLOWER or FOLLOWERTYPE token", e);
+        }
+        return writer.toString();
+    }
 
 }

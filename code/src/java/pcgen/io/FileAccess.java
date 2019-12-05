@@ -31,127 +31,128 @@ import pcgen.io.filters.PatternFilter;
 
 /**
  * {@code FileAccess}.
- *
  */
 public final class FileAccess
 {
-	private static OutputFilter outputFilter = null;
-	private static int maxLength = -1;
+    private static OutputFilter outputFilter = null;
+    private static int maxLength = -1;
 
-	private FileAccess()
-	{
-	}
+    private FileAccess()
+    {
+    }
 
-	/**
-	 * Filter the supplied string according to the current output filter. This
-	 * can do things such as escaping HTML entities.
-	 *
-	 * @param aString The string to be filtered
-	 * @return The filtered string.
-	 */
-	public static String filterString(String aString)
-	{
-		String outputString = aString;
-		if (outputFilter != null)
-		{
-			outputString = outputFilter.filterString(aString);
-		}
-		return outputString;
-	}
+    /**
+     * Filter the supplied string according to the current output filter. This
+     * can do things such as escaping HTML entities.
+     *
+     * @param aString The string to be filtered
+     * @return The filtered string.
+     */
+    public static String filterString(String aString)
+    {
+        String outputString = aString;
+        if (outputFilter != null)
+        {
+            outputString = outputFilter.filterString(aString);
+        }
+        return outputString;
+    }
 
-	/**
-	 * Set the current output filter. The current output filter will be 
-	 * chosen based on the extension of the passed in template file name. 
-	 * 
-	 * @param templateFilename (used to create instance of CharacterFilter)
-	 */
-	public static void setCurrentOutputFilter(String templateFilename)
-	{
-		try
-		{
-			outputFilter = new PatternFilter(templateFilename);
-		}
-		catch (IOException e)
-		{
-			outputFilter = new CharacterFilter(templateFilename);
-		}
-	}
+    /**
+     * Set the current output filter. The current output filter will be
+     * chosen based on the extension of the passed in template file name.
+     *
+     * @param templateFilename (used to create instance of CharacterFilter)
+     */
+    public static void setCurrentOutputFilter(String templateFilename)
+    {
+        try
+        {
+            outputFilter = new PatternFilter(templateFilename);
+        } catch (IOException e)
+        {
+            outputFilter = new CharacterFilter(templateFilename);
+        }
+    }
 
-	/**
-	 * Set the current output filter
-	 * @param filter
-	 */
-	public static void setCurrentOutputFilter(OutputFilter filter)
-	{
-		outputFilter = filter;
-	}
+    /**
+     * Set the current output filter
+     *
+     * @param filter
+     */
+    public static void setCurrentOutputFilter(OutputFilter filter)
+    {
+        outputFilter = filter;
+    }
 
-	/**
-	 * Write, but with encoding
-	 * @param output
-	 * @param aString
-	 */
-	public static void encodeWrite(Writer output, String aString)
-	{
-		write(output, filterString(aString));
-	}
+    /**
+     * Write, but with encoding
+     *
+     * @param output
+     * @param aString
+     */
+    public static void encodeWrite(Writer output, String aString)
+    {
+        write(output, filterString(aString));
+    }
 
-	/**
-	 * Set the max length
-	 * @param anInt
-	 */
-	public static void maxLength(int anInt)
-	{
-		maxLength = anInt;
-	}
+    /**
+     * Set the max length
+     *
+     * @param anInt
+     */
+    public static void maxLength(int anInt)
+    {
+        maxLength = anInt;
+    }
 
-	/**
-	 * Write a newline
-	 * @param output
-	 */
-	public static void newLine(BufferedWriter output)
-	{
-		try
-		{
-			output.newLine();
-		}
-		catch (IOException exception)
-		{
-			ShowMessageDelegate.showMessageDialog(exception.getMessage(), Constants.APPLICATION_NAME,
-				MessageType.ERROR);
-		}
-	}
+    /**
+     * Write a newline
+     *
+     * @param output
+     */
+    public static void newLine(BufferedWriter output)
+    {
+        try
+        {
+            output.newLine();
+        } catch (IOException exception)
+        {
+            ShowMessageDelegate.showMessageDialog(exception.getMessage(), Constants.APPLICATION_NAME,
+                    MessageType.ERROR);
+        }
+    }
 
-	/**
-	 * Write to the output
-	 * @param output
-	 * @param aString
-	 */
-	public static void write(Writer output, String aString)
-	{
+    /**
+     * Write to the output
+     *
+     * @param output
+     * @param aString
+     */
+    public static void write(Writer output, String aString)
+    {
 
-		String outputString = aString;
+        String outputString = aString;
 
-		// If there is nothing to write, then return gracefully
-		if (aString == null)
-		{
-			return;
-		}
+        // If there is nothing to write, then return gracefully
+        if (aString == null)
+        {
+            return;
+        }
 
-		// Trim the string to the length of maxLength
-		if ((maxLength > 0) && (aString.length() > maxLength))
-		{
-			outputString = aString.substring(0, maxLength);
-		}
+        // Trim the string to the length of maxLength
+        if ((maxLength > 0) && (aString.length() > maxLength))
+        {
+            outputString = aString.substring(0, maxLength);
+        }
 
-		try
-		{
-			output.write(outputString);
-		}
-		catch (IOException exception)
-		{
-			ShowMessageDelegate.showMessageDialog(exception.getMessage(), Constants.APPLICATION_NAME,
-				MessageType.ERROR);
-		}
-	}
+        try
+        {
+            output.write(outputString);
+        } catch (IOException exception)
+        {
+            ShowMessageDelegate.showMessageDialog(exception.getMessage(), Constants.APPLICATION_NAME,
+                    MessageType.ERROR);
+        }
+    }
 }

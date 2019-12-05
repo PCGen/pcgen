@@ -35,50 +35,51 @@ import javafx.scene.control.Button;
 
 /**
  * The Class {@code KitSelectionDialog} provides a pop-up dialog that allows
- * the user to add kits to a character. Kits are prepared groups of equipment and 
- * other rules items.  
+ * the user to add kits to a character. Kits are prepared groups of equipment and
+ * other rules items.
  */
 public final class KitSelectionDialog extends JDialog
 {
-	private final KitPanel kitPanel;
+    private final KitPanel kitPanel;
 
-	/**
-	 * Create a new instance of KitSelectionDialog
-	 * @param frame The parent frame we are displaying over.
-	 * @param character The character being displayed.
-	 */
-	public KitSelectionDialog(JFrame frame, CharacterFacade character)
-	{
-		super(frame, true);
-		setTitle(LanguageBundle.getString("in_mnuEditAddKit")); //$NON-NLS-1$
-		this.kitPanel = new KitPanel(character);
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		initComponents();
-		pack();
-	}
+    /**
+     * Create a new instance of KitSelectionDialog
+     *
+     * @param frame     The parent frame we are displaying over.
+     * @param character The character being displayed.
+     */
+    public KitSelectionDialog(JFrame frame, CharacterFacade character)
+    {
+        super(frame, true);
+        setTitle(LanguageBundle.getString("in_mnuEditAddKit")); //$NON-NLS-1$
+        this.kitPanel = new KitPanel(character);
+        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        initComponents();
+        pack();
+    }
 
-	private void initComponents()
-	{
-		Container pane = getContentPane();
-		pane.setLayout(new BorderLayout());
+    private void initComponents()
+    {
+        Container pane = getContentPane();
+        pane.setLayout(new BorderLayout());
 
-		pane.add(kitPanel, BorderLayout.CENTER);
+        pane.add(kitPanel, BorderLayout.CENTER);
 
-		Button closeButton = new Button(LanguageBundle.getString("in_close"));
-		closeButton.setOnAction(this::onClose);
+        Button closeButton = new Button(LanguageBundle.getString("in_close"));
+        closeButton.setOnAction(this::onClose);
 
-		Box buttons = Box.createHorizontalBox();
-		buttons.add(GuiUtility.wrapParentAsJFXPanel(closeButton));
-		pane.add(buttons, BorderLayout.PAGE_END);
+        Box buttons = Box.createHorizontalBox();
+        buttons.add(GuiUtility.wrapParentAsJFXPanel(closeButton));
+        pane.add(buttons, BorderLayout.PAGE_END);
 
-		Utility.installEscapeCloseOperation(this);
-	}
+        Utility.installEscapeCloseOperation(this);
+    }
 
-	private void onClose(final javafx.event.ActionEvent actionEvent)
-	{
-		setVisible(true);
-		dispose();
-	}
+    private void onClose(final javafx.event.ActionEvent actionEvent)
+    {
+        setVisible(true);
+        dispose();
+    }
 
 
 }

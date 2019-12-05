@@ -1,2703 +1,2703 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Sigurdur H. Olafsson - shoATtnDOTis
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
-                Eric C Smith - mareduddATblackrootDOTorg
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Sigurdur H. Olafsson - shoATtnDOTis
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Eric C Smith - mareduddATblackrootDOTorg
 
-                Description:
-                Provides information on the use of Output Sheet Tokens: Miscellaneous.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Miscellaneous Output Sheet Tokens
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Miscellaneous Output Sheet Tokens
-  </h1>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="math" name="math">
-     Token
-Name:
+               Description:
+               Provides information on the use of Output Sheet Tokens: Miscellaneous.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Miscellaneous Output Sheet Tokens
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Miscellaneous Output Sheet Tokens
+</h1>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="math" name="math">
+            Token
+            Name:
+        </a>
+    </strong>
+    x&lt;Mathematical Operator&gt;x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number or
+    Numeric Token (Operand).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Mathematical Operator
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Simple mathematical operations are supported in the output
+        sheets.
+    </li>
+    <li>
+        Valid operators include the following:
+        <ul>
+            <li>
+                + (Addition operator).
+            </li>
+            <li>
+                - (Subtraction operator).
+            </li>
+            <li>
+                * (Multiplication operator).
+            </li>
+            <li>
+                / (Divisor operator).
+            </li>
+            <li>
+                @ (Divisor operator that returns an integer).
+            </li>
+            <li>
+                ^ (Exponentiation operator).
+            </li>
+            <li>
+                INTVAL (Displays just the integer portion of the result).
+            </li>
+            <li>
+                NOZERO (Displays blank if the result is zero, otherwise
+                displays the result with the appropriate sign).
+            </li>
+            <li>
+                SIGN (Pre-pends a sign (+ or -) to the result. This is ignored
+                if it already has a sign).
+            </li>
+            <li>
+                TRUNC (Displays the integer and the first decimal place of the
+                result).
+            </li>
+        </ul>
+    </li>
+    <li>
+        Do not use spaces in between the operands and the
+        operator.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TOTALLEVELS+15</code>
+</p>
+<p class="indent3">
+    Displays the total number of levels plus 15.
+</p>
+<p class="indent2">
+    <code>(COMBAT.AC.TOTAL-3).INTVAL</code>
+</p>
+<p class="indent3">
+    Displays the integer portion of the Combat Armor
+    Class minus 3.
+</p>
+<p class="indent2">
+    <code>SKILL.Spot.RANKS*SKILL.Listen.RANKS</code>
+</p>
+<p class="indent3">
+    Displays the number of spot ranks multiplied by
+    the number of listen ranks.
+</p>
+<p class="indent2">
+    <code>(SKILLPOINTS.UNUSED/2).TRUNC</code>
+</p>
+<p class="indent3">
+    Displays the integer and fist decimal place of
+    the unused skill points divided by 2.
+</p>
+<p class="indent2">
+    <code>(VAR.RangeMod-2).INTVAL.SIGN</code>
+</p>
+<p class="indent3">
+    Displays the integer portion preceded with a
+    sign (+ or -) for the result of the Range Modifier minus 2.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a name="%">
+            Token Name:
+        </a>
+    </strong>
+    |%x|
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Filter Option).
+</p>
+<ul class="indent2">
+    <li>
+        ARMOR.x - Will stop all output unless the character has at
+        least x pieces of Armor.
+    </li>
+    <li>
+        ARMOR.ITEM.x - Will stop all output unless the character has at
+        least x items that confer armor bonuses.
+    </li>
+    <li>
+        ARMOR.SHIELD.x - Will stop all output unless the character has
+        at least x Shields.
+    </li>
+    <li>
+        BIO - Will stop all output unless the character has a Biography
+        entered.
+    </li>
+    <li>
+        CATCHPHRASE - Will stop all output unless the character has a
+        Catch Phrase entered.
+    </li>
+    <li>
+        COUNT.x - Will stop all output unless the character has more
+        than zero of the counted entity.
+    </li>
+    <li>
+        DESC - Will stop all output unless the character has a
+        Description entered.
+    </li>
+    <li>
+        DOMAIN.x - Will stop all output unless the character has at
+        least x Domains.
+    </li>
+    <li>
+        GAMEMODE.x - Will stop all output unless Gamemode x is
+        used.
+    </li>
+    <li>
+        INTERESTS - Will stop all output unless the character has an
+        Interest entered.
+    </li>
+    <li>
+        LOCATION - Will stop all output unless the character has a
+        Location entered.
+    </li>
+    <li>
+        MISC.COMPANIONS - Will stop all output unless the character has
+        Companions entered.
+    </li>
+    <li>
+        MISC.FUNDS - Will stop all output unless the character has
+        Funds entered.
+    </li>
+    <li>
+        MISC.MAGIC - Will stop all output unless the character has
+        Magic entered.
+    </li>
+    <li>
+        NOTES - Will stop all output unless the character has Notes
+        entered.
+    </li>
+    <li>
+        PERSONALITY.x - Will stop all output unless the character has
+        personality x entered.
+    </li>
+    <li>
+        PHOBIAS - Will stop all output unless the character has a
+        Phobia entered.
+    </li>
+    <li>
+        PROHIBITEDLIST - Will stop all output unless the character has
+        a Prohibited Spell List entered.
+    </li>
+    <li>
+        REGION - Will stop all output unless the character has a Region
+        entered.
+    </li>
+    <li>
+        RESIDENCE - Will stop all output unless the character has a
+        Residence entered.
+    </li>
+    <li>
+        SKILLPOINTS - Will stop all output unless the character has the
+        total skill points specified.
+    </li>
+    <li>
+        SPEECHTENDENCY - Will stop all output unless the character has
+        a Speech Tendency entered.
+    </li>
+    <li>
+        SPELLLISTBOOK.class.level.sbook - Will stop all output unless
+        the character has the specified spell in their spell book.
+    </li>
+    <li>
+        SPELLLISTCLASS.x - Will stop all output unless the character
+        has at least x Class Spell Lists.
+    </li>
+    <li>
+        SUBREGION - Will stop all output unless the character has a
+        Sub-region entered.
+    </li>
+    <li>
+        FOLLOWERTYPE.type - Will stop all output unless the character
+        has a follower of the type specified.
+    </li>
+    <li>
+        TEMPLATE - Will stop all output unless the character has a
+        Template.
+    </li>
+    <li>
+        TEMPLATE.x - Will stop all output unless the character has at
+        least x Templates.
+    </li>
+    <li>
+        WEAPON.x - Will stop all output unless the character has at
+        least x Weapons.
+    </li>
+    <li>
+        WEAPONPROFS - The WEAPONPROFS filter is special in that it
+        doesn't rely on the count, but on a setting in the preferences. If
+        you choose to display WEPONPROFS on your sheet, the filter is
+        ignored. If you choose not to, it filters even if you have
+        WEAPONPROFS.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Used for filtering.
+    </li>
+    <li>
+        Where x is the number of appropriate items the character must
+        have or the filter will filter out all output until the next filter
+        is reached or the filter is ended via the |%| token.
+    </li>
+    <li>
+        Filter can also be a
+        <strong>
+            comma delimited list of
+            Classname=level
+        </strong>
+        pairs (where Classname is a valid Class
+        name and level is the minimum level of the class for the
+        filter).
+    </li>
+    <li>
+        Classname could also be
+        <strong>
+            SPELLLISTCLASS.x=level
+        </strong>
+        where x is the xth spellcasting class of the character.
+    </li>
+    <li>
+        Filter can also be in the form
+        <strong>
+            VAR.name.label.value
+        </strong>
+        where name is the name of a
+        defined variable, label is one of EQ (equals), NEQ (not equals), LT
+        (less than) LTEQ, (less than equal to), GT (greater than), GTEQ
+        (greater than equal to), and value is some value to which the named
+        variable is compared. Only 1 filter is active at a time (they can't
+        be nested).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>|%WEAPON.3|</code>
+</p>
+<p class="indent3">
+    The filter will stop all output (until this
+    filter is ended or the next filter started) unless the character
+    has at least 3 weapons.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="bonuslist" name="bonuslist">
+            Token
+            Name:
+        </a>
+    </strong>
+    BONUSLIST.w,x,y,z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text (The
+    type of bonus to be displayed).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    subtype of bonus to be displayed).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Optional Bonus Value Seperator - Defaults to a space " ").
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text
+    (Optional Bonus Delimiter - Defaults to a comma-space ", ").
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays the list of bonuses by type and value
+    associated with the tags involved.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUSLIST.COMBAT.AC</code>
+</p>
+<p class="indent3">
+    Would list all COMBAT.AC bonuses as a
+    comma-space delimited list.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="br" name="br">
+            Token
+            Name:
+        </a>
+    </strong>
+    BR
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Adds a carriage return to the output. Normally
+    only used on text output sheets and inside manualwhitespace
+    sections.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>2|BR|3</code>
+</p>
+<p class="indent3">
+    Then the output would look like:
+    <br/>
+    <code>2
+        <br/>
+        3</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="count" name="count">
+            Token
+            Name:
+        </a>
+    </strong>
+    COUNT[x]
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Count
+    Type).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Used to count objects and insert the result in other
+        places.
+    </li>
+    <li>
+        Can be used in any of the FOR loops in place of max.
+    </li>
+    <li>
+        If you are having problems, try remembering this is a base 0
+        list. The first item is number Zero, not One.
+    </li>
+    <li>
+        Also if you are still having problems, then you might have a
+        Base 1 list, where the start is at One not Zero. Different
+        programmers, different styles.
+    </li>
+    <li>
+        The following are the tags that can be used as the &lt;Count
+        Type&gt;:
+        <ul>
+            <li>
+                CHECKS - The number of checks defined in the gameMode.
+            </li>
+            <li>
+                CLASSES - The number of classes a character has.
+            </li>
+            <li>
+                CONTAINERS - The number of containers a character has.
+            </li>
+            <li>
+                DOMAINS - The number of domains a character has.
+            </li>
+            <li>
+                EQTYPE.&lt;type1&gt;.ADD.&lt;type2&gt;.ADD.&lt;typen&gt; - The
+                number of items of the type specified a character has. (All types
+                present in equipment .lst files can be used here).
+            </li>
+            <li>
+                EQTYPE.WEAPON - The number of weapons a character has.
+            </li>
+            <li>
+                EQTYPE.ACITEM - The number of armor a character has.
+            </li>
+            <li>
+                EQUIPMENT - The number of items a character has (one arrow in
+                bow, 19 carried and 40 in backpack will return 1).
+            </li>
+            <li>
+                EQUIPMENT.MERGELOC - The number of items a character has,
+                including items split between locations (one arrow in bow, 19
+                carried and 40 in backpack will return 3).
+            </li>
+            <li>
+                FEATNAME=&lt;featname&gt; - Some feats can be taken more than
+                once. This will tell you how many times a particular feat has been
+                taken. (If &lt;featname&gt; is VISIBLE:YES)
+            </li>
+            <li>
+                FEATNAME=&lt;featname&gt;.ALL - Some feats can be taken more
+                than once. This will tell you how many times a particular feat has
+                been taken. (If &lt;featname&gt; is VISIBLE:NO)
+            </li>
+            <li>
+                FEATS - This has been deprecated, use FEATS.VISIBLE
+                instead.
+            </li>
+            <li>
+                FEATS.ALL - The total number of visible and hidden feats a
+                character has excluding automatic feats.
+            </li>
+            <li>
+                FEATS.HIDDEN - The number of hidden feats a character has
+                excluding automatic feats.
+            </li>
+            <li>
+                FEATS.VISIBLE - The number of visible feats a character has
+                excluding automatic feats.
+            </li>
+            <li>
+                FEATSALL - This has been deprecated, use FEATSALL.VISIBLE
+                instead.
+            </li>
+            <li>
+                FEATSALL.ALL - The number of both visible and hidden feats a
+                character has including automatic feats.
+            </li>
+            <li>
+                FEATSALL.HIDDEN - The number of hidden feats a character has
+                including automatic feats.
+            </li>
+            <li>
+                FEATSALL.VISIBLE - The number of visible feats a character has
+                including automatic feats.
+            </li>
+            <li>
+                FEATSAUTO - This has been deprecated, use FEATAUTO.VISIBLE
+                instead.
+            </li>
+            <li>
+                FEATSAUTO.ALL - The number of both visible and hidden automatic
+                feats a character has.
+            </li>
+            <li>
+                FEATSAUTO.HIDDEN - The number of hidden automatic feats a
+                character has.
+            </li>
+            <li>
+                FEATSAUTO.VISIBLE - The number of visible automatic feats a
+                character has.
+            </li>
+            <li>
+                FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt; - This has
+                been deprecated, use
+                FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE
+                instead.
+            </li>
+            <li>
+                FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.ALL - The
+                number of both visible and hidden feats of the type specified a
+                character has.
+            </li>
+            <li>
+                FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.HIDDEN - The
+                number of hidden feats of the type specified a character has.
+            </li>
+            <li>
+                FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE -
+                The number of visible feats of the type specified a character
+                has.
+            </li>
+            <li>
+                FOLLOWERTYPE.&lt;followertype&gt; - The number of followers of
+                the type specified a character has.
+            </li>
+            <li>
+                LANGUAGES - The number of languages the character knows.
+            </li>
+            <li>
+                MOVE - The number of movement types the character has.
+            </li>
+            <li>
+                NOTES - The items notes entered when creating a custom
+                item.
+            </li>
+            <li>
+                RACESUBTYPES - The number of racial subtypes the character
+                has.
+            </li>
+            <li>
+                SA - The number of special abilities a character has.
+            </li>
+            <li>
+                SKILLS - The number of skills the character knows.
+            </li>
+            <li>
+                SPELLBOOKS - The number of spellbooks a character has.
+            </li>
+            <li>
+                SPELLRACE - Returns 1 if the character has any innate spells, 0
+                if the character has no innate spells.
+            </li>
+            <li>
+                SPELLSKNOWN - The number of spells the character knows.
+            </li>
+            <li>
+                SPELLSINBOOK%class.%book.%level - The number of spells of a
+                particular class, in a particular spell book and of a particular
+                level that the character has (Note: The Known Spellbook is number
+                0, The Innate Spellbook is number 1 and the -1 Spellbook should not
+                be used anymore).
+            </li>
+            <li>
+                SPELLTIMES%class.%book.%level.%spell - The number of times the
+                referenced spell has been memorized.
+            </li>
+            <li>
+                STATS - The number of stats a character has.
+            </li>
+            <li>
+                TEMPBONUSNAMES - The number of Temporary Bonus Tab items a
+                character has.
+            </li>
+            <li>
+                TEMPLATES - The number of templates a character has.
+            </li>
+            <li>
+                VFEATS - This has been deprecated, use VFEATS.VISIBLE
+                instead.
+            </li>
+            <li>
+                VFEATS.ALL - The number of both visible and hidden virtual
+                feats a character has.
+            </li>
+            <li>
+                VFEATS.HIDDEN - The number of hidden virtual feats a character
+                has.
+            </li>
+            <li>
+                VFEATS.VISIBLE - The number of visible virtual feats a
+                character has.
+            </li>
+            <li>
+                VISION - The number of vision types a character has.
+            </li>
+        </ul>
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS:HP|CURRENTMAX|3*COUNT[FEATNAME=Toughness]</code>
+</p>
+<p class="indent3">
+    The count token is used in this example to
+    calculate the total bonus.
+</p>
+<p class="indent2">
+    <code>FOR,%num,0,COUNT[SKILLS],1,1
+        <br/>
+        {Statements}
+        <br/>
+        ENDFOR</code>
+</p>
+<p class="indent3">
+    The {statements} would be processed for each of
+    the skills the character has.
+</p>
+<p class="indent2">
+    <code>FOR,%spell,0,COUNT[SPELLSINBOOK0.0.0],1,1
+        <br/>
+        {Statements}
+        <br/>
+        ENDFOR</code>
+</p>
+<p class="indent3">
+    The {statements} would be processed for each of
+    the 0
+    <sup>
+        th
+    </sup>
+    level spells in the 1
+    <sup>
+        st
+    </sup>
+    classes
+    1
+    <sup>
+        st
+    </sup>
+    spellbook (known) that the character has.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="count" name="count">
+            Token
+            Name:
+        </a>
+    </strong>
+    count(x,y) - See
+    <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">
+        jep count ()
     </a>
-   </strong>
-   x&lt;Mathematical Operator&gt;x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number or
-Numeric Token (Operand).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Mathematical Operator
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Simple mathematical operations are supported in the output
-sheets.
-   </li>
-   <li>
-    Valid operators include the following:
-    <ul>
-     <li>
-      + (Addition operator).
-     </li>
-     <li>
-      - (Subtraction operator).
-     </li>
-     <li>
-      * (Multiplication operator).
-     </li>
-     <li>
-      / (Divisor operator).
-     </li>
-     <li>
-      @ (Divisor operator that returns an integer).
-     </li>
-     <li>
-      ^ (Exponentiation operator).
-     </li>
-     <li>
-      INTVAL (Displays just the integer portion of the result).
-     </li>
-     <li>
-      NOZERO (Displays blank if the result is zero, otherwise
-displays the result with the appropriate sign).
-     </li>
-     <li>
-      SIGN (Pre-pends a sign (+ or -) to the result. This is ignored
-if it already has a sign).
-     </li>
-     <li>
-      TRUNC (Displays the integer and the first decimal place of the
-result).
-     </li>
-    </ul>
-   </li>
-   <li>
-    Do not use spaces in between the operands and the
-operator.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TOTALLEVELS+15</code>
-  </p>
-  <p class="indent3">
-   Displays the total number of levels plus 15.
-  </p>
-  <p class="indent2">
-   <code>(COMBAT.AC.TOTAL-3).INTVAL</code>
-  </p>
-  <p class="indent3">
-   Displays the integer portion of the Combat Armor
-Class minus 3.
-  </p>
-  <p class="indent2">
-   <code>SKILL.Spot.RANKS*SKILL.Listen.RANKS</code>
-  </p>
-  <p class="indent3">
-   Displays the number of spot ranks multiplied by
-the number of listen ranks.
-  </p>
-  <p class="indent2">
-   <code>(SKILLPOINTS.UNUSED/2).TRUNC</code>
-  </p>
-  <p class="indent3">
-   Displays the integer and fist decimal place of
-the unused skill points divided by 2.
-  </p>
-  <p class="indent2">
-   <code>(VAR.RangeMod-2).INTVAL.SIGN</code>
-  </p>
-  <p class="indent3">
-   Displays the integer portion preceded with a
-sign (+ or -) for the result of the Range Modifier minus 2.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a name="%">
-     Token Name:
-    </a>
-   </strong>
-   |%x|
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Filter Option).
-  </p>
-  <ul class="indent2">
-   <li>
-    ARMOR.x - Will stop all output unless the character has at
-least x pieces of Armor.
-   </li>
-   <li>
-    ARMOR.ITEM.x - Will stop all output unless the character has at
-least x items that confer armor bonuses.
-   </li>
-   <li>
-    ARMOR.SHIELD.x - Will stop all output unless the character has
-at least x Shields.
-   </li>
-   <li>
-    BIO - Will stop all output unless the character has a Biography
-entered.
-   </li>
-   <li>
-    CATCHPHRASE - Will stop all output unless the character has a
-Catch Phrase entered.
-   </li>
-   <li>
-    COUNT.x - Will stop all output unless the character has more
-than zero of the counted entity.
-   </li>
-   <li>
-    DESC - Will stop all output unless the character has a
-Description entered.
-   </li>
-   <li>
-    DOMAIN.x - Will stop all output unless the character has at
-least x Domains.
-   </li>
-   <li>
-    GAMEMODE.x - Will stop all output unless Gamemode x is
-used.
-   </li>
-   <li>
-    INTERESTS - Will stop all output unless the character has an
-Interest entered.
-   </li>
-   <li>
-    LOCATION - Will stop all output unless the character has a
-Location entered.
-   </li>
-   <li>
-    MISC.COMPANIONS - Will stop all output unless the character has
-Companions entered.
-   </li>
-   <li>
-    MISC.FUNDS - Will stop all output unless the character has
-Funds entered.
-   </li>
-   <li>
-    MISC.MAGIC - Will stop all output unless the character has
-Magic entered.
-   </li>
-   <li>
-    NOTES - Will stop all output unless the character has Notes
-entered.
-   </li>
-   <li>
-    PERSONALITY.x - Will stop all output unless the character has
-personality x entered.
-   </li>
-   <li>
-    PHOBIAS - Will stop all output unless the character has a
-Phobia entered.
-   </li>
-   <li>
-    PROHIBITEDLIST - Will stop all output unless the character has
-a Prohibited Spell List entered.
-   </li>
-   <li>
-    REGION - Will stop all output unless the character has a Region
-entered.
-   </li>
-   <li>
-    RESIDENCE - Will stop all output unless the character has a
-Residence entered.
-   </li>
-   <li>
-    SKILLPOINTS - Will stop all output unless the character has the
-total skill points specified.
-   </li>
-   <li>
-    SPEECHTENDENCY - Will stop all output unless the character has
-a Speech Tendency entered.
-   </li>
-   <li>
-    SPELLLISTBOOK.class.level.sbook - Will stop all output unless
-the character has the specified spell in their spell book.
-   </li>
-   <li>
-    SPELLLISTCLASS.x - Will stop all output unless the character
-has at least x Class Spell Lists.
-   </li>
-   <li>
-    SUBREGION - Will stop all output unless the character has a
-Sub-region entered.
-   </li>
-   <li>
-    FOLLOWERTYPE.type - Will stop all output unless the character
-has a follower of the type specified.
-   </li>
-   <li>
-    TEMPLATE - Will stop all output unless the character has a
-Template.
-   </li>
-   <li>
-    TEMPLATE.x - Will stop all output unless the character has at
-least x Templates.
-   </li>
-   <li>
-    WEAPON.x - Will stop all output unless the character has at
-least x Weapons.
-   </li>
-   <li>
-    WEAPONPROFS - The WEAPONPROFS filter is special in that it
-doesn't rely on the count, but on a setting in the preferences. If
-you choose to display WEPONPROFS on your sheet, the filter is
-ignored. If you choose not to, it filters even if you have
-WEAPONPROFS.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Used for filtering.
-   </li>
-   <li>
-    Where x is the number of appropriate items the character must
-have or the filter will filter out all output until the next filter
-is reached or the filter is ended via the |%| token.
-   </li>
-   <li>
-    Filter can also be a
+    function in the Global Formulas page.
+</p>
+<hr/>
+<p class="indent0">
     <strong>
-     comma delimited list of
-Classname=level
+        <a id="csheettag2" name="csheettag2">
+            Token Name:
+        </a>
     </strong>
-    pairs (where Classname is a valid Class
-name and level is the minimum level of the class for the
-filter).
-   </li>
-   <li>
-    Classname could also be
+    CSHEETTAG2.x
+</p>
+<p class="indent1">
     <strong>
-     SPELLLISTCLASS.x=level
+        Variables Used (x):
     </strong>
-    where x is the xth spellcasting class of the character.
-   </li>
-   <li>
-    Filter can also be in the form
+    Symbol
+    (Replacement symbol for the default "\").
+</p>
+<p class="indent1">
     <strong>
-     VAR.name.label.value
+        What it does:
     </strong>
-    where name is the name of a
-defined variable, label is one of EQ (equals), NEQ (not equals), LT
-(less than) LTEQ, (less than equal to), GT (greater than), GTEQ
-(greater than equal to), and value is some value to which the named
-variable is compared. Only 1 filter is active at a time (they can't
-be nested).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>|%WEAPON.3|</code>
-  </p>
-  <p class="indent3">
-   The filter will stop all output (until this
-filter is ended or the next filter started) unless the character
-has at least 3 weapons.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="bonuslist" name="bonuslist">
-     Token
-Name:
-    </a>
-   </strong>
-   BONUSLIST.w,x,y,z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text (The
-type of bonus to be displayed).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-subtype of bonus to be displayed).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Optional Bonus Value Seperator - Defaults to a space " ").
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text
-(Optional Bonus Delimiter - Defaults to a comma-space ", ").
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays the list of bonuses by type and value
-associated with the tags involved.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUSLIST.COMBAT.AC</code>
-  </p>
-  <p class="indent3">
-   Would list all COMBAT.AC bonuses as a
-comma-space delimited list.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="br" name="br">
-     Token
-Name:
-    </a>
-   </strong>
-   BR
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Adds a carriage return to the output. Normally
-only used on text output sheets and inside manualwhitespace
-sections.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>2|BR|3</code>
-  </p>
-  <p class="indent3">
-   Then the output would look like:
-   <br/>
-   <code>2
-    <br/>
-    3</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="count" name="count">
-     Token
-Name:
-    </a>
-   </strong>
-   COUNT[x]
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Count
-Type).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Used to count objects and insert the result in other
-places.
-   </li>
-   <li>
-    Can be used in any of the FOR loops in place of max.
-   </li>
-   <li>
-    If you are having problems, try remembering this is a base 0
-list. The first item is number Zero, not One.
-   </li>
-   <li>
-    Also if you are still having problems, then you might have a
-Base 1 list, where the start is at One not Zero. Different
-programmers, different styles.
-   </li>
-   <li>
-    The following are the tags that can be used as the &lt;Count
-Type&gt;:
-    <ul>
-     <li>
-      CHECKS - The number of checks defined in the gameMode.
-     </li>
-     <li>
-      CLASSES - The number of classes a character has.
-     </li>
-     <li>
-      CONTAINERS - The number of containers a character has.
-     </li>
-     <li>
-      DOMAINS - The number of domains a character has.
-     </li>
-     <li>
-      EQTYPE.&lt;type1&gt;.ADD.&lt;type2&gt;.ADD.&lt;typen&gt; - The
-number of items of the type specified a character has. (All types
-present in equipment .lst files can be used here).
-     </li>
-     <li>
-      EQTYPE.WEAPON - The number of weapons a character has.
-     </li>
-     <li>
-      EQTYPE.ACITEM - The number of armor a character has.
-     </li>
-     <li>
-      EQUIPMENT - The number of items a character has (one arrow in
-bow, 19 carried and 40 in backpack will return 1).
-     </li>
-     <li>
-      EQUIPMENT.MERGELOC - The number of items a character has,
-including items split between locations (one arrow in bow, 19
-carried and 40 in backpack will return 3).
-     </li>
-     <li>
-      FEATNAME=&lt;featname&gt; - Some feats can be taken more than
-once. This will tell you how many times a particular feat has been
-taken. (If &lt;featname&gt; is VISIBLE:YES)
-     </li>
-     <li>
-      FEATNAME=&lt;featname&gt;.ALL - Some feats can be taken more
-than once. This will tell you how many times a particular feat has
-been taken. (If &lt;featname&gt; is VISIBLE:NO)
-     </li>
-     <li>
-      FEATS - This has been deprecated, use FEATS.VISIBLE
-instead.
-     </li>
-     <li>
-      FEATS.ALL - The total number of visible and hidden feats a
-character has excluding automatic feats.
-     </li>
-     <li>
-      FEATS.HIDDEN - The number of hidden feats a character has
-excluding automatic feats.
-     </li>
-     <li>
-      FEATS.VISIBLE - The number of visible feats a character has
-excluding automatic feats.
-     </li>
-     <li>
-      FEATSALL - This has been deprecated, use FEATSALL.VISIBLE
-instead.
-     </li>
-     <li>
-      FEATSALL.ALL - The number of both visible and hidden feats a
-character has including automatic feats.
-     </li>
-     <li>
-      FEATSALL.HIDDEN - The number of hidden feats a character has
-including automatic feats.
-     </li>
-     <li>
-      FEATSALL.VISIBLE - The number of visible feats a character has
-including automatic feats.
-     </li>
-     <li>
-      FEATSAUTO - This has been deprecated, use FEATAUTO.VISIBLE
-instead.
-     </li>
-     <li>
-      FEATSAUTO.ALL - The number of both visible and hidden automatic
-feats a character has.
-     </li>
-     <li>
-      FEATSAUTO.HIDDEN - The number of hidden automatic feats a
-character has.
-     </li>
-     <li>
-      FEATSAUTO.VISIBLE - The number of visible automatic feats a
-character has.
-     </li>
-     <li>
-      FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt; - This has
-been deprecated, use
-FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE
-instead.
-     </li>
-     <li>
-      FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.ALL - The
-number of both visible and hidden feats of the type specified a
-character has.
-     </li>
-     <li>
-      FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.HIDDEN - The
-number of hidden feats of the type specified a character has.
-     </li>
-     <li>
-      FEATTYPE.&lt;type1&gt;.&lt;type2&gt;.&lt;typen&gt;.VISIBLE -
-The number of visible feats of the type specified a character
-has.
-     </li>
-     <li>
-      FOLLOWERTYPE.&lt;followertype&gt; - The number of followers of
-the type specified a character has.
-     </li>
-     <li>
-      LANGUAGES - The number of languages the character knows.
-     </li>
-     <li>
-      MOVE - The number of movement types the character has.
-     </li>
-     <li>
-      NOTES - The items notes entered when creating a custom
-item.
-     </li>
-     <li>
-      RACESUBTYPES - The number of racial subtypes the character
-has.
-     </li>
-     <li>
-      SA - The number of special abilities a character has.
-     </li>
-     <li>
-      SKILLS - The number of skills the character knows.
-     </li>
-     <li>
-      SPELLBOOKS - The number of spellbooks a character has.
-     </li>
-     <li>
-      SPELLRACE - Returns 1 if the character has any innate spells, 0
-if the character has no innate spells.
-     </li>
-     <li>
-      SPELLSKNOWN - The number of spells the character knows.
-     </li>
-     <li>
-      SPELLSINBOOK%class.%book.%level - The number of spells of a
-particular class, in a particular spell book and of a particular
-level that the character has (Note: The Known Spellbook is number
-0, The Innate Spellbook is number 1 and the -1 Spellbook should not
-be used anymore).
-     </li>
-     <li>
-      SPELLTIMES%class.%book.%level.%spell - The number of times the
-referenced spell has been memorized.
-     </li>
-     <li>
-      STATS - The number of stats a character has.
-     </li>
-     <li>
-      TEMPBONUSNAMES - The number of Temporary Bonus Tab items a
-character has.
-     </li>
-     <li>
-      TEMPLATES - The number of templates a character has.
-     </li>
-     <li>
-      VFEATS - This has been deprecated, use VFEATS.VISIBLE
-instead.
-     </li>
-     <li>
-      VFEATS.ALL - The number of both visible and hidden virtual
-feats a character has.
-     </li>
-     <li>
-      VFEATS.HIDDEN - The number of hidden virtual feats a character
-has.
-     </li>
-     <li>
-      VFEATS.VISIBLE - The number of visible virtual feats a
-character has.
-     </li>
-     <li>
-      VISION - The number of vision types a character has.
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS:HP|CURRENTMAX|3*COUNT[FEATNAME=Toughness]</code>
-  </p>
-  <p class="indent3">
-   The count token is used in this example to
-calculate the total bonus.
-  </p>
-  <p class="indent2">
-   <code>FOR,%num,0,COUNT[SKILLS],1,1
-    <br/>
-    {Statements}
-    <br/>
-    ENDFOR</code>
-  </p>
-  <p class="indent3">
-   The {statements} would be processed for each of
-the skills the character has.
-  </p>
-  <p class="indent2">
-   <code>FOR,%spell,0,COUNT[SPELLSINBOOK0.0.0],1,1
-    <br/>
-    {Statements}
-    <br/>
-    ENDFOR</code>
-  </p>
-  <p class="indent3">
-   The {statements} would be processed for each of
-the 0
-   <sup>
-    th
-   </sup>
-   level spells in the 1
-   <sup>
-    st
-   </sup>
-   classes
-1
-   <sup>
-    st
-   </sup>
-   spellbook (known) that the character has.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="count" name="count">
-     Token
-Name:
-    </a>
-   </strong>
-   count(x,y) - See
-   <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#count">
-    jep count ()
-   </a>
-   function in the Global Formulas page.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="csheettag2" name="csheettag2">
-     Token Name:
-    </a>
-   </strong>
-   CSHEETTAG2.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Symbol
-(Replacement symbol for the default "\").
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Changes the delimiter used by embedded DFOR/FOR
-loops to the character specified.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CSHEETTAG2.~
-    <br/>
-    DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],(COUNT[SKILLS]+1)/2,&lt;td&gt;~SKILL%~&lt;/td&gt;
-&lt;td&gt;~SKILL%.TOTAL~&lt;/td&gt;&lt;td&gt;~SKILL%.RANK~&lt;/td&gt;
-    <br/>
-    &lt;td&gt;~SKILL%.ABILITY~&lt;/td&gt;&lt;td&gt;~SKILL%.MOD~,&lt;tr
-align="center"&gt;,&lt;/tr&gt;,0</code>
-  </p>
-  <p class="indent3">
-   This would change the field delimiter from the
-default "\" character for "~". This allows the FOR/DFOR loop to be
-used in RTF output which does not allow the "\" character to be
-used
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="dfor" name="dfor">
-     Token
-Name:
-    </a>
-   </strong>
-   DFOR.r,s,t,u,v,w,x,y,z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (r):
-   </strong>
-   Number (The
-initial value).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (s):
-   </strong>
-   Number
-(Limit for new line progression).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (t):
-   </strong>
-   Number
-(Value added once per line).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (u):
-   </strong>
-   Number
-(Limit for in line progression).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Number
-(Value added in line until totalMax is passed).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text (The
-phrase is the code that is parsed for tokens - use \'s instead of
-|'s, and the % within the tokens will be replaced with the actual
-value of the index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-text that will be printed at the beginning of the for loop and
-after the Variable "y").
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (The
-text that will be printed every time through the loop).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Number (The
-loop will break when no more items are found before the natural end
-of the loop (max) if exists is 1. If exists is 2 and the
-charactersheet is currently within a filter, PCGen will not print
-anything else until the end of the filter |%| is reached or another
-filter is begun. 0 means it will always loop to the natural end of
-the loop.).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Creates loop processing of statements. This is very similar to
-the FOR loop, except this allows for stepping across the table (in
-the same line) independent of stepping down.
-   </li>
-   <li>
-    The initial value is
+</p>
+<p class="indent2">
+    Changes the delimiter used by embedded DFOR/FOR
+    loops to the character specified.
+</p>
+<p class="indent1">
     <strong>
-     r
+        Example:
     </strong>
-    , the values going down
-are found by adding
+</p>
+<p class="indent2">
+    <code>CSHEETTAG2.~
+        <br/>
+        DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],(COUNT[SKILLS]+1)/2,&lt;td&gt;~SKILL%~&lt;/td&gt;
+        &lt;td&gt;~SKILL%.TOTAL~&lt;/td&gt;&lt;td&gt;~SKILL%.RANK~&lt;/td&gt;
+        <br/>
+        &lt;td&gt;~SKILL%.ABILITY~&lt;/td&gt;&lt;td&gt;~SKILL%.MOD~,&lt;tr
+        align="center"&gt;,&lt;/tr&gt;,0</code>
+</p>
+<p class="indent3">
+    This would change the field delimiter from the
+    default "\" character for "~". This allows the FOR/DFOR loop to be
+    used in RTF output which does not allow the "\" character to be
+    used
+</p>
+<hr/>
+<p class="indent0">
     <strong>
-     t
+        <a id="dfor" name="dfor">
+            Token
+            Name:
+        </a>
     </strong>
-    to
+    DFOR.r,s,t,u,v,w,x,y,z
+</p>
+<p class="indent1">
     <strong>
-     r
+        Variables Used (r):
     </strong>
-    once
-for each line.
-   </li>
-   <li>
-    To find the value within the same line, this starting value
-(
+    Number (The
+    initial value).
+</p>
+<p class="indent1">
     <strong>
-     r
+        Variables Used (s):
     </strong>
-    for the first line,
+    Number
+    (Limit for new line progression).
+</p>
+<p class="indent1">
     <strong>
-     r
+        Variables Used (t):
     </strong>
-    +
+    Number
+    (Value added once per line).
+</p>
+<p class="indent1">
     <strong>
-     t
+        Variables Used (u):
     </strong>
-    for the next, etc.) has
+    Number
+    (Limit for in line progression).
+</p>
+<p class="indent1">
     <strong>
-     v
+        Variables Used (v):
     </strong>
-    added
-to it, this is done as may times until
+    Number
+    (Value added in line until totalMax is passed).
+</p>
+<p class="indent1">
     <strong>
-     u
+        Variables Used (w):
     </strong>
-    is
-passed.
-   </li>
-   <li>
-    Likewise,
+    Text (The
+    phrase is the code that is parsed for tokens - use \'s instead of
+    |'s, and the % within the tokens will be replaced with the actual
+    value of the index).
+</p>
+<p class="indent1">
     <strong>
-     t
+        Variables Used (x):
     </strong>
-    is added to
+    Text (The
+    text that will be printed at the beginning of the for loop and
+    after the Variable "y").
+</p>
+<p class="indent1">
     <strong>
-     r
+        Variables Used (y):
     </strong>
-    each line until
+    Text (The
+    text that will be printed every time through the loop).
+</p>
+<p class="indent1">
     <strong>
-     s
+        Variables Used (z):
     </strong>
-    is passed.
-   </li>
-   <li>
-    The same logic that handles the FOR loop handles the DFOR
-loop.
-   </li>
-   <li>
-    The display of the output can be controlled via the COMMA and
-CRLF iteration terminators.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],
-(COUNT[SKILLS]+1)/2,&lt;td&gt;\SKILL%\&lt;/td&gt;
-    <br/>
-    &lt;td&gt;\SKILL%.TOTAL\&lt;/td&gt;&lt;td&gt;\SKILL%.RANK\&lt;/td&gt;
-    <br/>
-    &lt;td&gt;\SKILL%.ABILITY\&lt;/td&gt;&lt;td&gt;\SKILL%.MOD\,&lt;tr
-align="center"&gt;,&lt;/tr&gt;,0</code>
-  </p>
-  <p class="indent3">
-   Produces a 2 column row table of all skills.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="dir" name="dir">
-     Token
-Name:
-    </a>
-   </strong>
-   DIR.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Directory Option).
-  </p>
-  <ul class="indent2">
-   <li>
-    PCG - Displays the PCGen Character file (.PCG) directory.
-   </li>
-   <li>
-    PCGen - Displays the PCGen System Directory.
-   </li>
-   <li>
-    HTML - Displays the PCGen Character Output HTML directory.
-   </li>
-   <li>
-    TEMP - Displays the system TEMP directory.
-   </li>
-   <li>
-    TEMPLATES - Displays the PCGen Character Output Template
-directory.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays File output paths.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DIR.PCGen</code>
-  </p>
-  <p class="indent3">
-   Would display "
-   <code>D:\RPG\PCGen\system</code>
-   "
-if PCGen was installed in "
-   <code>D:\RPG\PCGen</code>
-   ".
-  </p>
-  <p class="indent2">
-   <code>DIR.TEMPLATES</code>
-  </p>
-  <p class="indent3">
-   Would display
-"
-   <code>D:\RPG\PCGen\outputsheets\d20\fantasy</code>
-   " if PCGen was
-installed in "
-   <code>D:\RPG\PCGen</code>
-   ".
-  </p>
-  <p class="indent2">
-   <code>DIR.PCG</code>
-  </p>
-  <p class="indent3">
-   Would display
-"
-   <code>D:\RPG\PCGen\characters</code>
-   " if PCGen was installed in
-"
-   <code>D:\RPG\PCGen</code>
-   ".
-  </p>
-  <p class="indent2">
-   <code>DIR.html</code>
-  </p>
-  <p class="indent3">
-   Would display
-"
-   <code>D:\RPG\PCGen\outputsheets\d20\fantasy\htmlxml</code>
-   " if
-PCGen was installed in "
-   <code>D:\RPG\PCGen</code>
-   ".
-  </p>
-  <p class="indent2">
-   <code>DIR.TEMP</code>
-  </p>
-  <p class="indent3">
-   Would display "
-   <code>C:\Temp</code>
-   " if that was
-the Operating System's temp directory.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="export" name="export">
-     Token
-Name:
-    </a>
-   </strong>
-   EXPORT.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Export Option).
-  </p>
-  <ul class="indent2">
-   <li>
-    DATE - Displays the date of export.
-   </li>
-   <li>
-    TIME - Displays the time of export.
-   </li>
-   <li>
-    VERSION - Displays the version of PCGen used to export the
-character.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays character export details.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EXPORT.DATE</code>
-  </p>
-  <p class="indent3">
-   Displays the date of export.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="for" name="for">
-     Token
-Name:
-    </a>
-   </strong>
-   FOR,%v,w,x,y,z
-  </p>
-  <p class="indent1">
-   <code>FOR,%v,w,x,y,z
-    <br/>
-    {Statements}
-    <br/>
-    ENDFOR</code>
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Text
-(Variable Name).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Number (The
-initial value).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Limit for new line progression - You may use a number, COUNT
-token, STRLEN token or any valid csheet token).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Value added once per line).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Number (The
-loop will break when no more items are found before the natural end
-of the loop (max) if exists is 1. If exists is 2 and the
-charactersheet is currently within a filter, PCGen will not print
-anything else until the end of the filter |%| is reached or another
-filter is begun).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Creates loop processing of statements.
-   </li>
-   <li>
-    Nested FOR loops are supported.
-   </li>
-   <li>
-    The FOR and ENDFOR tokens must be at the start of the line or
-they will not function properly.
-   </li>
-   <li>
-    STRLEN takes the form of STRLEN[stringtobecounted] and returns
-the number of characters in the string.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>FOR,%test,0,20-STRLEN[SKILL.%skill],1,0
-    <br/>
-    {Statements}
-    <br/>
-    ENDFOR</code>
-  </p>
-  <p class="indent3">
-   Counts from 0 to 20 minus the sting length of
-the skill name.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   FOR.t,u,v,w,x,y,z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (t):
-   </strong>
-   Number
-(Loop control variable initial value)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (u):
-   </strong>
-   Number
-(Loop control variable max limit)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Number
-(Loop control variable increment value)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text (Code
-phrase to be parsed for tokens)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Text
-output at the beginning of the loop)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Text
-output at the end of each loop)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Number
-(Loop break switch, 1 or 2)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Creates loops for processing of statements and is the only FOR
-loop type that can be used for a party sheet.
-   </li>
-   <li>
-    This style of FOR loop does not support nesting without the
-double-backslash (\\).
-   </li>
-   <li>
-    The code phrase to be parsed must use backslashes's (\) instead
-of pipe's (|), and the percent sign (%) within the tokens will be
-replaced with the actual value of the index.
-   </li>
-   <li>
-    If you have a
-    <code>FOR.</code>
-    loop involving the characters
-within the party for-loop, you must enclose the character for-loop
-in double-backslash (\\) token markers.
-   </li>
-   <li>
-    <code>FOR.</code>
-    loop on party sheets (
-    <span class="lstfile">
+    Number (The
+    loop will break when no more items are found before the natural end
+    of the loop (max) if exists is 1. If exists is 2 and the
+    charactersheet is currently within a filter, PCGen will not print
+    anything else until the end of the filter |%| is reached or another
+    filter is begun. 0 means it will always loop to the natural end of
+    the loop.).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Creates loop processing of statements. This is very similar to
+        the FOR loop, except this allows for stepping across the table (in
+        the same line) independent of stepping down.
+    </li>
+    <li>
+        The initial value is
+        <strong>
+            r
+        </strong>
+        , the values going down
+        are found by adding
+        <strong>
+            t
+        </strong>
+        to
+        <strong>
+            r
+        </strong>
+        once
+        for each line.
+    </li>
+    <li>
+        To find the value within the same line, this starting value
+        (
+        <strong>
+            r
+        </strong>
+        for the first line,
+        <strong>
+            r
+        </strong>
+        +
+        <strong>
+            t
+        </strong>
+        for the next, etc.) has
+        <strong>
+            v
+        </strong>
+        added
+        to it, this is done as may times until
+        <strong>
+            u
+        </strong>
+        is
+        passed.
+    </li>
+    <li>
+        Likewise,
+        <strong>
+            t
+        </strong>
+        is added to
+        <strong>
+            r
+        </strong>
+        each line until
+        <strong>
+            s
+        </strong>
+        is passed.
+    </li>
+    <li>
+        The same logic that handles the FOR loop handles the DFOR
+        loop.
+    </li>
+    <li>
+        The display of the output can be controlled via the COMMA and
+        CRLF iteration terminators.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],
+        (COUNT[SKILLS]+1)/2,&lt;td&gt;\SKILL%\&lt;/td&gt;
+        <br/>
+        &lt;td&gt;\SKILL%.TOTAL\&lt;/td&gt;&lt;td&gt;\SKILL%.RANK\&lt;/td&gt;
+        <br/>
+        &lt;td&gt;\SKILL%.ABILITY\&lt;/td&gt;&lt;td&gt;\SKILL%.MOD\,&lt;tr
+        align="center"&gt;,&lt;/tr&gt;,0</code>
+</p>
+<p class="indent3">
+    Produces a 2 column row table of all skills.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="dir" name="dir">
+            Token
+            Name:
+        </a>
+    </strong>
+    DIR.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Directory Option).
+</p>
+<ul class="indent2">
+    <li>
+        PCG - Displays the PCGen Character file (.PCG) directory.
+    </li>
+    <li>
+        PCGen - Displays the PCGen System Directory.
+    </li>
+    <li>
+        HTML - Displays the PCGen Character Output HTML directory.
+    </li>
+    <li>
+        TEMP - Displays the system TEMP directory.
+    </li>
+    <li>
+        TEMPLATES - Displays the PCGen Character Output Template
+        directory.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays File output paths.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DIR.PCGen</code>
+</p>
+<p class="indent3">
+    Would display "
+    <code>D:\RPG\PCGen\system</code>
+    "
+    if PCGen was installed in "
+    <code>D:\RPG\PCGen</code>
+    ".
+</p>
+<p class="indent2">
+    <code>DIR.TEMPLATES</code>
+</p>
+<p class="indent3">
+    Would display
+    "
+    <code>D:\RPG\PCGen\outputsheets\d20\fantasy</code>
+    " if PCGen was
+    installed in "
+    <code>D:\RPG\PCGen</code>
+    ".
+</p>
+<p class="indent2">
+    <code>DIR.PCG</code>
+</p>
+<p class="indent3">
+    Would display
+    "
+    <code>D:\RPG\PCGen\characters</code>
+    " if PCGen was installed in
+    "
+    <code>D:\RPG\PCGen</code>
+    ".
+</p>
+<p class="indent2">
+    <code>DIR.html</code>
+</p>
+<p class="indent3">
+    Would display
+    "
+    <code>D:\RPG\PCGen\outputsheets\d20\fantasy\htmlxml</code>
+    " if
+    PCGen was installed in "
+    <code>D:\RPG\PCGen</code>
+    ".
+</p>
+<p class="indent2">
+    <code>DIR.TEMP</code>
+</p>
+<p class="indent3">
+    Would display "
+    <code>C:\Temp</code>
+    " if that was
+    the Operating System's temp directory.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="export" name="export">
+            Token
+            Name:
+        </a>
+    </strong>
+    EXPORT.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Export Option).
+</p>
+<ul class="indent2">
+    <li>
+        DATE - Displays the date of export.
+    </li>
+    <li>
+        TIME - Displays the time of export.
+    </li>
+    <li>
+        VERSION - Displays the version of PCGen used to export the
+        character.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays character export details.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EXPORT.DATE</code>
+</p>
+<p class="indent3">
+    Displays the date of export.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="for" name="for">
+            Token
+            Name:
+        </a>
+    </strong>
+    FOR,%v,w,x,y,z
+</p>
+<p class="indent1">
+    <code>FOR,%v,w,x,y,z
+        <br/>
+        {Statements}
+        <br/>
+        ENDFOR</code>
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (v):
+    </strong>
+    Text
+    (Variable Name).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Number (The
+    initial value).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Limit for new line progression - You may use a number, COUNT
+    token, STRLEN token or any valid csheet token).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Value added once per line).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Number (The
+    loop will break when no more items are found before the natural end
+    of the loop (max) if exists is 1. If exists is 2 and the
+    charactersheet is currently within a filter, PCGen will not print
+    anything else until the end of the filter |%| is reached or another
+    filter is begun).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Creates loop processing of statements.
+    </li>
+    <li>
+        Nested FOR loops are supported.
+    </li>
+    <li>
+        The FOR and ENDFOR tokens must be at the start of the line or
+        they will not function properly.
+    </li>
+    <li>
+        STRLEN takes the form of STRLEN[stringtobecounted] and returns
+        the number of characters in the string.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>FOR,%test,0,20-STRLEN[SKILL.%skill],1,0
+        <br/>
+        {Statements}
+        <br/>
+        ENDFOR</code>
+</p>
+<p class="indent3">
+    Counts from 0 to 20 minus the sting length of
+    the skill name.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    FOR.t,u,v,w,x,y,z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (t):
+    </strong>
+    Number
+    (Loop control variable initial value)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (u):
+    </strong>
+    Number
+    (Loop control variable max limit)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (v):
+    </strong>
+    Number
+    (Loop control variable increment value)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text (Code
+    phrase to be parsed for tokens)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Text
+    output at the beginning of the loop)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Text
+    output at the end of each loop)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Number
+    (Loop break switch, 1 or 2)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Creates loops for processing of statements and is the only FOR
+        loop type that can be used for a party sheet.
+    </li>
+    <li>
+        This style of FOR loop does not support nesting without the
+        double-backslash (\\).
+    </li>
+    <li>
+        The code phrase to be parsed must use backslashes's (\) instead
+        of pipe's (|), and the percent sign (%) within the tokens will be
+        replaced with the actual value of the index.
+    </li>
+    <li>
+        If you have a
+        <code>FOR.</code>
+        loop involving the characters
+        within the party for-loop, you must enclose the character for-loop
+        in double-backslash (\\) token markers.
+    </li>
+    <li>
+        <code>FOR.</code>
+        loop on party sheets (
+        <span class="lstfile">
      psheet*.*
     </span>
-    ) can only loop on character numbers, so
+        ) can only loop on character numbers, so
+        <code>\\%.NAME\\</code>
+        is valid.
+    </li>
+    <li>
+        You may use the special keywords
+        <strong>
+            COMMA
+        </strong>
+        or
+        <strong>
+            NONE
+        </strong>
+        for either
+        <strong>
+            x
+        </strong>
+        or
+        <strong>
+            y
+        </strong>
+        (COMMA prints out a comma and NONE prints out
+        nothing)
+    </li>
+    <li>
+        <strong>
+            STRLEN
+        </strong>
+        takes the form of
+        <code>STRLEN[stringtobecounted]</code>
+        and returns the number of
+        characters in the string.
+    </li>
+    <li>
+        The loop break switch, parameter (z), determines when the loop
+        breaks:
+        <ul>
+            <li>
+                With z=1, the loop will break at the natural end of the loop,
+                i.e. the loop continues until the control variable reaches the max
+                limit per parameter (u).
+            </li>
+            <li>
+                With z=2, and with a character sheet currently within a filter,
+                PCGen will not print anything else until the end of the filtering
+                loop is reached, or another filter is begun.
+            </li>
+        </ul>
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>&lt;table&gt;</code>
+</p>
+<p class="indent2">
+    <code>|FOR.0,10,1,[td]</code>
+</p>
+<p class="indent2">
+    <code>\\%.FOR.0,100,1,\SKILL%\,(,),2\\</code>
+</p>
+<p class="indent2">
+    <code>,&lt;tr&gt;,&lt;/tr&gt;,1|</code>
+</p>
+<p class="indent2">
+    <code>&lt;/table&gt;</code>
+</p>
+<p class="indent3">
+    Produces a list of all the party member's
+    skills.
+</p>
+<p class="indent2">
+    <code>&lt;table&gt;</code>
+</p>
+<p class="indent2">
+    <code>|FOR.0,100,1,</code>
+</p>
+<p class="indent2">
     <code>\\%.NAME\\</code>
-    is valid.
-   </li>
-   <li>
-    You may use the special keywords
+</p>
+<p class="indent2">
+    <code>,[ , ],1|</code>
+</p>
+<p class="indent2">
+    <code>&lt;table&gt;</code>
+</p>
+<p class="indent3">
+    Produces a list of all the party member's
+    names.
+</p>
+<hr/>
+<p class="indent0">
     <strong>
-     COMMA
-    </strong>
-    or
-    <strong>
-     NONE
-    </strong>
-    for either
-    <strong>
-     x
-    </strong>
-    or
-    <strong>
-     y
-    </strong>
-    (COMMA prints out a comma and NONE prints out
-nothing)
-   </li>
-   <li>
-    <strong>
-     STRLEN
-    </strong>
-    takes the form of
-    <code>STRLEN[stringtobecounted]</code>
-    and returns the number of
-characters in the string.
-   </li>
-   <li>
-    The loop break switch, parameter (z), determines when the loop
-breaks:
-    <ul>
-     <li>
-      With z=1, the loop will break at the natural end of the loop,
-i.e. the loop continues until the control variable reaches the max
-limit per parameter (u).
-     </li>
-     <li>
-      With z=2, and with a character sheet currently within a filter,
-PCGen will not print anything else until the end of the filtering
-loop is reached, or another filter is begun.
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>&lt;table&gt;</code>
-  </p>
-  <p class="indent2">
-   <code>|FOR.0,10,1,[td]</code>
-  </p>
-  <p class="indent2">
-   <code>\\%.FOR.0,100,1,\SKILL%\,(,),2\\</code>
-  </p>
-  <p class="indent2">
-   <code>,&lt;tr&gt;,&lt;/tr&gt;,1|</code>
-  </p>
-  <p class="indent2">
-   <code>&lt;/table&gt;</code>
-  </p>
-  <p class="indent3">
-   Produces a list of all the party member's
-skills.
-  </p>
-  <p class="indent2">
-   <code>&lt;table&gt;</code>
-  </p>
-  <p class="indent2">
-   <code>|FOR.0,100,1,</code>
-  </p>
-  <p class="indent2">
-   <code>\\%.NAME\\</code>
-  </p>
-  <p class="indent2">
-   <code>,[ , ],1|</code>
-  </p>
-  <p class="indent2">
-   <code>&lt;table&gt;</code>
-  </p>
-  <p class="indent3">
-   Produces a list of all the party member's
-names.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="iif" name="iif">
-     Token
-Name:
-    </a>
-   </strong>
-   IIF
-  </p>
-  <p class="indent1">
-   <strong>
-    General Usage:
-   </strong>
-  </p>
-  <p class="indent4">
-   IIF(x)
-  </p>
-  <p class="indent4">
-   {y}
-  </p>
-  <p class="indent4">
-   ELSE
-  </p>
-  <p class="indent4">
-   {z}
-  </p>
-  <p class="indent4">
-   ENDIF
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Conditional statement. To be evaluated)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (True
-statement)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text (False
-statement)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Evalutes the Conditional Statement and processes the relevant
-statements.
-   </li>
-   <li>
-    The true statements will be evaluated if the condtional
-statement is true.
-   </li>
-   <li>
-    The false statements will be evaluated if the conditional
-statement is false.
-   </li>
-   <li>
-    ELSE and the second set of statements are optional.
-   </li>
-   <li>
-    Nested IIFs are supported.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(CL&gt;3)
-    <br/>
-    {True Statement}
-    <br/>
-    ELSE
-    <br/>
-    {False Statement}
-    <br/>
-    ENDIF</code>
-  </p>
-  <p class="indent3">
-   Returns the results of the evaluation of the
-true statement if Class Level is greater then 3. Otherwise, the
-results of the evaluation of the false statement is returned.
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="iif" name="iif">
-     Token
-Name:
-    </a>
-   </strong>
-   IIF(x.y.x)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Condition to be evaluated).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Operator, i.e. AND, OR).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Evalutes the condition and processes the relevant
-statements.
-   </li>
-   <li>
-    The logical operator and second expression are optional.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(CL&gt;3.AND.TL&lt;10)</code>
-  </p>
-  <p class="indent3">
-   Returns TRUE is Class Level was greater then 3
-and the Total Level was less than 10.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(&lt;JEP boolean
-expression&gt;)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Evaluates the
-   <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#boolean">
-    JEP boolean expression
-   </a>
-   .
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF((CL&gt;5)||(TL&gt;5))</code>
-  </p>
-  <p class="indent3">
-   Returns TRUE if Class Level or Total Level are
-greater-then 5.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(EVEN)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if the variable is an even number
-(frequently used to control grey/white shading by line).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(EVEN:%spell)</code>
-  </p>
-  <p class="indent3">
-   Would be true if the spell line was even.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(UNEVEN)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if the variable is an uneven number.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(VAR.IF(VAR("COUNT[SKILLTYPE=Strength]")&gt;0;1;0):1)</code>
-  </p>
-  <p class="indent3">
-   Evaluates to true if number of skills with type
-of Strength are greater than 0 Notice the use of semi-colon where a
-comma should normally be used. This is because the comma is a
-delimeter at a higher level. Byngl
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(HASEQUIP)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if the character has the listed
-equipment.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(HASEQUIP:Dagger)</code>
-  </p>
-  <p class="indent3">
-   Would be true if character had a dagger.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(HASFEAT)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if the character has the listed feat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(HASFEAT:Sneak Attack)</code>
-  </p>
-  <p class="indent3">
-   Would be true if character has the Sneak Attack
-Feat.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(HASSA)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if the character has the listed Special
-Ability.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(HASSA:Greater Rage)</code>
-  </p>
-  <p class="indent3">
-   Would be true if character has the Greater Rage
-Special Ability.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(HASVAR)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if the user has taken a class that defined
-the named (often used to determine whether or not to display
-special abilities).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(HASVAR:BasePowerPoints)</code>
-  </p>
-  <p class="indent3">
-   Would be true if character has a class with Base
-Power Points.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(SKILL.x.UNTRAINED)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-array number of the skill).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if Skill x is usable untrained.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(SKILL.%skill.UNTRAINED)</code>
-  </p>
-  <p class="indent3">
-   Would be true if the current skill is usable
-untrained.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(SKILL.UNTRAINED,x,y)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Result if usable untrained).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Result if usable trained).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Prints out
-    <strong>
-     x
-    </strong>
-    if the skill is usable untrained
-or
-    <strong>
-     y
-    </strong>
-    if not usable untrained.
-   </li>
-   <li>
-    If
-    <strong>
-     y
-    </strong>
-    is not supplied, nothing is printed if
-trained only, and
-    <strong>
-     x
-    </strong>
-    is printed if usable
-untrained.
-   </li>
-   <li>
-    If neither
-    <strong>
-     x
-    </strong>
-    nor
-    <strong>
-     y
-    </strong>
-    are
-supplied, nothing is output and the output sheet wastes processor
-cycles.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(SKILL%.UNTRAINED,YES,NO)</code>
-  </p>
-  <p class="indent3">
-   Prints out "YES" if the skill is usable
-untrained or "NO" if not usable untrained.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(SKILL.ACP,w,x,y,z)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text
-(Result if the skill is not affected by ACP).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Result if the skill is affected by ACP).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Result if the skill is only affected by ACP if the user is
-untrained).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text
-(Result if the skill has the special weight penalty like Swim).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Tests for armor check penalty (ACP) interaction
-with this skill.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(SKILL%.ACP,NOT,IS,UNTRAINED,SWIM)</code>
-  </p>
-  <p class="indent3">
-   Prints out "YES" if the skill is not effected by
-ACP, "NO" if the skill is effected by ACP, "UNTRAINED" if the skill
-is effected by ACP only if the character is untrained , "SWIM" if
-the skill is effected by ACP only if it has a special weight
-penalty.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(SPELLCASTER:x)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Caster Type - Possible values include Wizard or Arcane).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if character is a spell caster of type
-specified.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(SPELLCASTER:Wizard)</code>
-  </p>
-  <p class="indent3">
-   Would be true if the character is a Wizard.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(SPELLCASTER:x=PREPARE)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-array number of the spellcaster class).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if the characters spellcaster class
-   <strong>
-    x
-   </strong>
-   has to prepare spells.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(SPELLCASTER:0=PREPARE)</code>
-  </p>
-  <p class="indent3">
-   Would be true if the character's 1st class
-prepares spells.
-  </p>
-  <p class="indent2">
-   <code>IIF(SPELLCASTER:0=!PREPARE)</code>
-  </p>
-  <p class="indent3">
-   Would be true if the character's 1st class does
-not prepare spells.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(WEAPON.x.CATEGORY:y)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-array number of the weapon).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Weapon Type - Possible values include: Melee, Ranged, Exotic,
-Non-Standard-Melee).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if the weapon
-   <strong>
-    x
-   </strong>
-   is part of
-the category
-   <strong>
-    y
-   </strong>
-   .
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(WEAPON.%weap.CATEGORY:Ranged)</code>
-  </p>
-  <p class="indent3">
-   True if the current weapon is part of the Ranged
-category.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(x:=y)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Any
-valid token or value).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Any
-valid token or value).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if both tokens or values evaluate to the
-same value.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(COMBAT.AC.TOTAL:20)</code>
-  </p>
-  <p class="indent3">
-   Would be true if the combat AC total was 20.
-  </p>
-  <p class="indent2">
-   <code>IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)</code>
-  </p>
-  <p class="indent3">
-   This could occur inside a double loop, and would
-be true if the value of the ChildAbility ASPECT of the ability
-represented by %subability is equal to the value of the
-MasterAbility ASPECT of the ability represented by %ability.
-  </p>
-  <p class="indent0">
-   <strong>
-    Token Name:
-   </strong>
-   IIF(x:y)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Any
-valid token or value).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Any
-valid token or value).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   True if token
-   <strong>
-    y
-   </strong>
-   evaluates to
-the same value or a substring of the evaluation result of token
-   <strong>
-    x
-   </strong>
-   .
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>IIF(COMBAT.AC.TOTAL:20)</code>
-  </p>
-  <p class="indent3">
-   Would be true if the combat AC total was 20.
-  </p>
-  <p class="indent2">
-   <code>IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)</code>
-  </p>
-  <p class="indent3">
-   This could occur inside a double loop, and would
-be true if the value of the ChildAbility ASPECT of the ability
-represented by %subability is equal to the value of the
-MasterAbility ASPECT of the ability represented by %ability.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="manualwhitespace" name="manualwhitespace">
-     Token Name:
-    </a>
-   </strong>
-   MANUALWHITESPACE
-  </p>
-  <p class="indent1">
-   <code>MANUALWHITESPACE
-    <br/>
-    {Statements}
-    <br/>
-    ENDMANUALWHITESPACE
-    <br/></code>
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Marks a section where the author does not want
-white space added to the output sheet. If white space is desired
-the |BR| tag can be used, or a sheet format specific entry such as
-&amp;nbsp; can be used in the sheet definition.
-  </p>
-  <p class="indent2">
-   Within a manual whitespace section, all
-whitespace in the output sheet i.e. all newlines, spaces, tabs,
-etc. disappears. Whitespace inside the text of returned from a OS
-token is preserved however. All leading and trailing whitespace is
-trimmed, as is normally done.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>|MANUALWHITESPACE| 1&amp;nbsp;
-    <br/>
-    |PLAYERNAME|
-    <br/>
-    2 3&lt;br&gt;
-    <br/>
-    4
-    <br/>
-    |ENDMANUALWHITESPACE|</code>
-  </p>
-  <p class="indent3">
-   Where |PLAYERNAME| in this case is "Chuck Pint".
-Then the output would look like:
-   <br/>
-   <code>1&amp;nbsp;Chuck Pint23&lt;br&gt;4</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="oif" name="oif">
-     Token
-Name:
-    </a>
-   </strong>
-   OIF(x,y,z)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Condition to be evaluated).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Value
-returned if True).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text (Value
-returned if False).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Provides conditional processing of expressions.
-   </li>
-   <li>
-    Will take
-    <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#boolean">
-     JEP boolean expressions
-    </a>
-    as the conditional statement.
-   </li>
-   <li>
-    Only the expressions mentioned above for IIF are currently
-supported.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>OIF(HASFEAT:Armor Proficiency
-(Light),YES,NO)</code>
-  </p>
-  <p class="indent3">
-   If the character has the Light Armor
-proficiency, then returns "YES". Otherwise it returns "NO".
-  </p>
-  <p class="indent2">
-   <code>OIF((CL&gt;5)||(TL&gt;5),YES,NO)</code>
-  </p>
-  <p class="indent3">
-   Returns "YES" if Class Level or Total Level ar
-greater then 5. Oterwise it returns "NO"
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="pipe" name="pipe">
-     Token
-Name:
-    </a>
-   </strong>
-   PIPE
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Inserts a pipe ("|") character.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Pipe|PIPE|Example</code>
-  </p>
-  <p class="indent3">
-   Would display "Pipe|Example".
-  </p>
-  <hr/>
-  <p class="new">
-   *** New 5.15.7
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="space" name="space">
-     Token
-Name:
-    </a>
-   </strong>
-   SPACE
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Inserts a Space (" ") character. Normally only
-used on text output sheets and inside manualwhitespace
-sections.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Space|SPACE|Example</code>
-  </p>
-  <p class="indent3">
-   Would display "Space Example".
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="sub" name="sub">
-     Token
-Name:
-    </a>
-   </strong>
-   SUBx.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of Text Characters)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Subtoken
-(OS Token)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Limits the length of the string written to the output sheet to
-no more than x characters.
-   </li>
-   <li>
-    Must be the first subtoken.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SUB10.SPELLMEM.0.0.0.0.COMPONENTS</code>
-  </p>
-  <p class="indent3">
-   Would limit the output from the above tag to no
-more than 10 characters.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="tempbonus" name="tempbonus">
-     Token
-Name:
-    </a>
-   </strong>
-   TEMPBONUS.x.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Bonus index)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   NAME (Name
-of the temporary bonus. Optional. Default)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   DESC
-(Description of the temporary bonus.)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Outputs the designated temporary bonus
-information.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|</code>
-  </p>
-  <p class="indent2">
-   <code>|TEMPBONUS.%temp|</code>
-  </p>
-  <p class="indent2">
-   <code>|ENDFOR|</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="text" name="text">
-     Token
-Name:
-    </a>
-   </strong>
-   TEXT.x.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   LOWER
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   LOWERCASE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   REPLACEALL
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   REPLACEFIRST
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SENTENCE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SENTENCECASE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TITLE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TITLECASE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   UPPER
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   UPPERCASE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   NUMSUFFIX
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Subtoken
-(OS Token)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Alters the output of the following OS token. For
-it to work it has to be the first subtoken. The following are the
-subrags allowed and their effect.
-  </p>
-  <ul class="indent2">
-   <li>
-    <code>LENGTH</code>
-    - Returns the length of the string the
-specified token produces. (Mostly useful to test for 0 length
-strings)
-   </li>
-   <li>
-    <code>LOWER</code>
-    ,
-    <code>LOWERCASE</code>
-    - Output the tag
-result in lower case. e.g. the vitamins are in my fresh brussels
-sprouts
-   </li>
-   <li>
-    <code>NUMSUFFIX</code>
-    - Output a numeric suffix appropriate
-for the tag result. e.g "th" or "rd"
-   </li>
-   <li>
-    <code>REPLACEALL</code>
-    and
-    <code>REPLACEFIRST</code>
-    -
-Performs a regular expression based search and replace on the
-string produced by the associated token. Multiple replacements can
-be specified and are processed right to left. The proper syntax for
-these tags are as follows:
-    <ul>
-     <li>
-      <code>REPLACEALL{regexp,newtest}</code>
-     </li>
-     <li>
-      <code>REPLACEFIRST{regexp,newtest}</code>
-     </li>
-     <li>
-      When writing regular expressions you may need to use character
-substitution to get the results you are looking for. Examples:
-      <ul>
-       <li>
-        "__LP__" as the substitute for "{"
-       </li>
-       <li>
-        "__RP__" as the substitute for "}"
-       </li>
-       <li>
-        "__PLUS__" as the substitute for "+"
-       </li>
-       <li>
-        Note: Help on regular expressions can be found at the
-        <a href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html">
-         Java Platform SE6 Pattern
+        <a id="iif" name="iif">
+            Token
+            Name:
         </a>
-        page.
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li>
-    <code>SENTENCE</code>
-    ,
-    <code>SENTENCECASE</code>
-    - Output the
-tag result in sentence case. e.g. The vitamins are in my fresh
-brussels sprouts
-   </li>
-   <li>
-    <code>TITLE</code>
-    ,
-    <code>TITLECASE</code>
-    - Output the tag
-result in title case. e.g. The Vitamins Are In My Fresh Brussels
-Sprouts
-   </li>
-   <li>
-    <code>UPPER</code>
-    ,
-    <code>UPPERCASE</code>
-    - Output the tag
-result in upper case. e.g. THE VITAMINS ARE IN MY FRESH BRUSSELS
-SPROUTS
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME</code>
-  </p>
-  <p class="indent3">
-   Would output the name for the spell in lower
-case.
-  </p>
-  <p class="indent2">
-   <code>TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK</code>
-  </p>
-  <p class="indent3">
-   Would output "5" instead of "5.0" but would
-leave "5.5" as is.
-  </p>
-  <p class="indent2">
-   <code>TEXT.NUMSUFFIX.22</code>
-  </p>
-  <p class="indent3">
-   Would output a suffix of "nd" rather than the
-value 22.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="var" name="var">
-     Token
-Name:
+    </strong>
+    IIF
+</p>
+<p class="indent1">
+    <strong>
+        General Usage:
+    </strong>
+</p>
+<p class="indent4">
+    IIF(x)
+</p>
+<p class="indent4">
+    {y}
+</p>
+<p class="indent4">
+    ELSE
+</p>
+<p class="indent4">
+    {z}
+</p>
+<p class="indent4">
+    ENDIF
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Conditional statement. To be evaluated)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (True
+    statement)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text (False
+    statement)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Evalutes the Conditional Statement and processes the relevant
+        statements.
+    </li>
+    <li>
+        The true statements will be evaluated if the condtional
+        statement is true.
+    </li>
+    <li>
+        The false statements will be evaluated if the conditional
+        statement is false.
+    </li>
+    <li>
+        ELSE and the second set of statements are optional.
+    </li>
+    <li>
+        Nested IIFs are supported.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(CL&gt;3)
+        <br/>
+        {True Statement}
+        <br/>
+        ELSE
+        <br/>
+        {False Statement}
+        <br/>
+        ENDIF</code>
+</p>
+<p class="indent3">
+    Returns the results of the evaluation of the
+    true statement if Class Level is greater then 3. Otherwise, the
+    results of the evaluation of the false statement is returned.
+</p>
+<p class="indent0">
+    <strong>
+        <a id="iif" name="iif">
+            Token
+            Name:
+        </a>
+    </strong>
+    IIF(x.y.x)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Condition to be evaluated).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Operator, i.e. AND, OR).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Evalutes the condition and processes the relevant
+        statements.
+    </li>
+    <li>
+        The logical operator and second expression are optional.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(CL&gt;3.AND.TL&lt;10)</code>
+</p>
+<p class="indent3">
+    Returns TRUE is Class Level was greater then 3
+    and the Total Level was less than 10.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(&lt;JEP boolean
+    expression&gt;)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Evaluates the
+    <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#boolean">
+        JEP boolean expression
     </a>
-   </strong>
-   VAR.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Any
-defined variable name).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays the value of a defined variable.
-   </li>
-   <li>
-    The default is with one decimal place of precision (i.e.
-x.x).
-   </li>
-   <li>
-    You can also append .INTVAL as an optional argument which
-displays the result with no decimal points (as an integer).
-   </li>
-   <li>
-    It is possible to define the Turn Undead variable more than
-once. The program keeps track of this. (say one instance is 2 and
-the other 4).
-   </li>
-   <li>
-    Also
-    <code>.MINVAL</code>
-    should be included if instead of the
-default maximum of multiple defines, you want the minimum.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>VAR.Turn Undead.MINVAL.INTVAL</code>
-  </p>
-  <p class="indent3">
-   Would return 2.
-  </p>
-  <p class="indent2">
-   <code>VAR.Turn Undead.INTVAL</code>
-  </p>
-  <p class="indent3">
-   Would return 4.
-  </p>
-  <p class="indent2">
-   <code>VAR.Turn Undead.MINVAL</code>
-  </p>
-  <p class="indent3">
-   Would return 2.0.
-  </p>
-  <p class="indent2">
-   <code>VAR.Turn Undead</code>
-  </p>
-  <p class="indent3">
-   Would return 4.0.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    .
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF((CL&gt;5)||(TL&gt;5))</code>
+</p>
+<p class="indent3">
+    Returns TRUE if Class Level or Total Level are
+    greater-then 5.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(EVEN)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if the variable is an even number
+    (frequently used to control grey/white shading by line).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(EVEN:%spell)</code>
+</p>
+<p class="indent3">
+    Would be true if the spell line was even.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(UNEVEN)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if the variable is an uneven number.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(VAR.IF(VAR("COUNT[SKILLTYPE=Strength]")&gt;0;1;0):1)</code>
+</p>
+<p class="indent3">
+    Evaluates to true if number of skills with type
+    of Strength are greater than 0 Notice the use of semi-colon where a
+    comma should normally be used. This is because the comma is a
+    delimeter at a higher level. Byngl
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(HASEQUIP)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if the character has the listed
+    equipment.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(HASEQUIP:Dagger)</code>
+</p>
+<p class="indent3">
+    Would be true if character had a dagger.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(HASFEAT)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if the character has the listed feat.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(HASFEAT:Sneak Attack)</code>
+</p>
+<p class="indent3">
+    Would be true if character has the Sneak Attack
+    Feat.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(HASSA)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if the character has the listed Special
+    Ability.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(HASSA:Greater Rage)</code>
+</p>
+<p class="indent3">
+    Would be true if character has the Greater Rage
+    Special Ability.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(HASVAR)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if the user has taken a class that defined
+    the named (often used to determine whether or not to display
+    special abilities).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(HASVAR:BasePowerPoints)</code>
+</p>
+<p class="indent3">
+    Would be true if character has a class with Base
+    Power Points.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(SKILL.x.UNTRAINED)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    array number of the skill).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if Skill x is usable untrained.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(SKILL.%skill.UNTRAINED)</code>
+</p>
+<p class="indent3">
+    Would be true if the current skill is usable
+    untrained.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(SKILL.UNTRAINED,x,y)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Result if usable untrained).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Result if usable trained).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Prints out
+        <strong>
+            x
+        </strong>
+        if the skill is usable untrained
+        or
+        <strong>
+            y
+        </strong>
+        if not usable untrained.
+    </li>
+    <li>
+        If
+        <strong>
+            y
+        </strong>
+        is not supplied, nothing is printed if
+        trained only, and
+        <strong>
+            x
+        </strong>
+        is printed if usable
+        untrained.
+    </li>
+    <li>
+        If neither
+        <strong>
+            x
+        </strong>
+        nor
+        <strong>
+            y
+        </strong>
+        are
+        supplied, nothing is output and the output sheet wastes processor
+        cycles.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(SKILL%.UNTRAINED,YES,NO)</code>
+</p>
+<p class="indent3">
+    Prints out "YES" if the skill is usable
+    untrained or "NO" if not usable untrained.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(SKILL.ACP,w,x,y,z)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text
+    (Result if the skill is not affected by ACP).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Result if the skill is affected by ACP).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Result if the skill is only affected by ACP if the user is
+    untrained).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text
+    (Result if the skill has the special weight penalty like Swim).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Tests for armor check penalty (ACP) interaction
+    with this skill.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(SKILL%.ACP,NOT,IS,UNTRAINED,SWIM)</code>
+</p>
+<p class="indent3">
+    Prints out "YES" if the skill is not effected by
+    ACP, "NO" if the skill is effected by ACP, "UNTRAINED" if the skill
+    is effected by ACP only if the character is untrained , "SWIM" if
+    the skill is effected by ACP only if it has a special weight
+    penalty.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(SPELLCASTER:x)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Caster Type - Possible values include Wizard or Arcane).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if character is a spell caster of type
+    specified.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(SPELLCASTER:Wizard)</code>
+</p>
+<p class="indent3">
+    Would be true if the character is a Wizard.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(SPELLCASTER:x=PREPARE)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    array number of the spellcaster class).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if the characters spellcaster class
+    <strong>
+        x
+    </strong>
+    has to prepare spells.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(SPELLCASTER:0=PREPARE)</code>
+</p>
+<p class="indent3">
+    Would be true if the character's 1st class
+    prepares spells.
+</p>
+<p class="indent2">
+    <code>IIF(SPELLCASTER:0=!PREPARE)</code>
+</p>
+<p class="indent3">
+    Would be true if the character's 1st class does
+    not prepare spells.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(WEAPON.x.CATEGORY:y)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    array number of the weapon).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Weapon Type - Possible values include: Melee, Ranged, Exotic,
+    Non-Standard-Melee).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if the weapon
+    <strong>
+        x
+    </strong>
+    is part of
+    the category
+    <strong>
+        y
+    </strong>
+    .
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(WEAPON.%weap.CATEGORY:Ranged)</code>
+</p>
+<p class="indent3">
+    True if the current weapon is part of the Ranged
+    category.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(x:=y)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Any
+    valid token or value).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Any
+    valid token or value).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if both tokens or values evaluate to the
+    same value.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(COMBAT.AC.TOTAL:20)</code>
+</p>
+<p class="indent3">
+    Would be true if the combat AC total was 20.
+</p>
+<p class="indent2">
+    <code>IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)</code>
+</p>
+<p class="indent3">
+    This could occur inside a double loop, and would
+    be true if the value of the ChildAbility ASPECT of the ability
+    represented by %subability is equal to the value of the
+    MasterAbility ASPECT of the ability represented by %ability.
+</p>
+<p class="indent0">
+    <strong>
+        Token Name:
+    </strong>
+    IIF(x:y)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Any
+    valid token or value).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Any
+    valid token or value).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    True if token
+    <strong>
+        y
+    </strong>
+    evaluates to
+    the same value or a substring of the evaluation result of token
+    <strong>
+        x
+    </strong>
+    .
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>IIF(COMBAT.AC.TOTAL:20)</code>
+</p>
+<p class="indent3">
+    Would be true if the combat AC total was 20.
+</p>
+<p class="indent2">
+    <code>IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)</code>
+</p>
+<p class="indent3">
+    This could occur inside a double loop, and would
+    be true if the value of the ChildAbility ASPECT of the ability
+    represented by %subability is equal to the value of the
+    MasterAbility ASPECT of the ability represented by %ability.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="manualwhitespace" name="manualwhitespace">
+            Token Name:
+        </a>
+    </strong>
+    MANUALWHITESPACE
+</p>
+<p class="indent1">
+    <code>MANUALWHITESPACE
+        <br/>
+        {Statements}
+        <br/>
+        ENDMANUALWHITESPACE
+        <br/></code>
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Marks a section where the author does not want
+    white space added to the output sheet. If white space is desired
+    the |BR| tag can be used, or a sheet format specific entry such as
+    &amp;nbsp; can be used in the sheet definition.
+</p>
+<p class="indent2">
+    Within a manual whitespace section, all
+    whitespace in the output sheet i.e. all newlines, spaces, tabs,
+    etc. disappears. Whitespace inside the text of returned from a OS
+    token is preserved however. All leading and trailing whitespace is
+    trimmed, as is normally done.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>|MANUALWHITESPACE| 1&amp;nbsp;
+        <br/>
+        |PLAYERNAME|
+        <br/>
+        2 3&lt;br&gt;
+        <br/>
+        4
+        <br/>
+        |ENDMANUALWHITESPACE|</code>
+</p>
+<p class="indent3">
+    Where |PLAYERNAME| in this case is "Chuck Pint".
+    Then the output would look like:
+    <br/>
+    <code>1&amp;nbsp;Chuck Pint23&lt;br&gt;4</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="oif" name="oif">
+            Token
+            Name:
+        </a>
+    </strong>
+    OIF(x,y,z)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Condition to be evaluated).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Value
+    returned if True).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text (Value
+    returned if False).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Provides conditional processing of expressions.
+    </li>
+    <li>
+        Will take
+        <a href="../../listfilepages/globalfilestagpages/globalfilesformulas.html#boolean">
+            JEP boolean expressions
+        </a>
+        as the conditional statement.
+    </li>
+    <li>
+        Only the expressions mentioned above for IIF are currently
+        supported.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>OIF(HASFEAT:Armor Proficiency
+        (Light),YES,NO)</code>
+</p>
+<p class="indent3">
+    If the character has the Light Armor
+    proficiency, then returns "YES". Otherwise it returns "NO".
+</p>
+<p class="indent2">
+    <code>OIF((CL&gt;5)||(TL&gt;5),YES,NO)</code>
+</p>
+<p class="indent3">
+    Returns "YES" if Class Level or Total Level ar
+    greater then 5. Oterwise it returns "NO"
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="pipe" name="pipe">
+            Token
+            Name:
+        </a>
+    </strong>
+    PIPE
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Inserts a pipe ("|") character.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Pipe|PIPE|Example</code>
+</p>
+<p class="indent3">
+    Would display "Pipe|Example".
+</p>
+<hr/>
+<p class="new">
+    *** New 5.15.7
+</p>
+<p class="indent0">
+    <strong>
+        <a id="space" name="space">
+            Token
+            Name:
+        </a>
+    </strong>
+    SPACE
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Inserts a Space (" ") character. Normally only
+    used on text output sheets and inside manualwhitespace
+    sections.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Space|SPACE|Example</code>
+</p>
+<p class="indent3">
+    Would display "Space Example".
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="sub" name="sub">
+            Token
+            Name:
+        </a>
+    </strong>
+    SUBx.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of Text Characters)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Subtoken
+    (OS Token)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Limits the length of the string written to the output sheet to
+        no more than x characters.
+    </li>
+    <li>
+        Must be the first subtoken.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SUB10.SPELLMEM.0.0.0.0.COMPONENTS</code>
+</p>
+<p class="indent3">
+    Would limit the output from the above tag to no
+    more than 10 characters.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="tempbonus" name="tempbonus">
+            Token
+            Name:
+        </a>
+    </strong>
+    TEMPBONUS.x.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Bonus index)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    NAME (Name
+    of the temporary bonus. Optional. Default)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    DESC
+    (Description of the temporary bonus.)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Outputs the designated temporary bonus
+    information.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|</code>
+</p>
+<p class="indent2">
+    <code>|TEMPBONUS.%temp|</code>
+</p>
+<p class="indent2">
+    <code>|ENDFOR|</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="text" name="text">
+            Token
+            Name:
+        </a>
+    </strong>
+    TEXT.x.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    LOWER
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    LOWERCASE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    REPLACEALL
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    REPLACEFIRST
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SENTENCE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SENTENCECASE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TITLE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TITLECASE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    UPPER
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    UPPERCASE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    NUMSUFFIX
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Subtoken
+    (OS Token)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Alters the output of the following OS token. For
+    it to work it has to be the first subtoken. The following are the
+    subrags allowed and their effect.
+</p>
+<ul class="indent2">
+    <li>
+        <code>LENGTH</code>
+        - Returns the length of the string the
+        specified token produces. (Mostly useful to test for 0 length
+        strings)
+    </li>
+    <li>
+        <code>LOWER</code>
+        ,
+        <code>LOWERCASE</code>
+        - Output the tag
+        result in lower case. e.g. the vitamins are in my fresh brussels
+        sprouts
+    </li>
+    <li>
+        <code>NUMSUFFIX</code>
+        - Output a numeric suffix appropriate
+        for the tag result. e.g "th" or "rd"
+    </li>
+    <li>
+        <code>REPLACEALL</code>
+        and
+        <code>REPLACEFIRST</code>
+        -
+        Performs a regular expression based search and replace on the
+        string produced by the associated token. Multiple replacements can
+        be specified and are processed right to left. The proper syntax for
+        these tags are as follows:
+        <ul>
+            <li>
+                <code>REPLACEALL{regexp,newtest}</code>
+            </li>
+            <li>
+                <code>REPLACEFIRST{regexp,newtest}</code>
+            </li>
+            <li>
+                When writing regular expressions you may need to use character
+                substitution to get the results you are looking for. Examples:
+                <ul>
+                    <li>
+                        "__LP__" as the substitute for "{"
+                    </li>
+                    <li>
+                        "__RP__" as the substitute for "}"
+                    </li>
+                    <li>
+                        "__PLUS__" as the substitute for "+"
+                    </li>
+                    <li>
+                        Note: Help on regular expressions can be found at the
+                        <a href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html">
+                            Java Platform SE6 Pattern
+                        </a>
+                        page.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <code>SENTENCE</code>
+        ,
+        <code>SENTENCECASE</code>
+        - Output the
+        tag result in sentence case. e.g. The vitamins are in my fresh
+        brussels sprouts
+    </li>
+    <li>
+        <code>TITLE</code>
+        ,
+        <code>TITLECASE</code>
+        - Output the tag
+        result in title case. e.g. The Vitamins Are In My Fresh Brussels
+        Sprouts
+    </li>
+    <li>
+        <code>UPPER</code>
+        ,
+        <code>UPPERCASE</code>
+        - Output the tag
+        result in upper case. e.g. THE VITAMINS ARE IN MY FRESH BRUSSELS
+        SPROUTS
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME</code>
+</p>
+<p class="indent3">
+    Would output the name for the spell in lower
+    case.
+</p>
+<p class="indent2">
+    <code>TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK</code>
+</p>
+<p class="indent3">
+    Would output "5" instead of "5.0" but would
+    leave "5.5" as is.
+</p>
+<p class="indent2">
+    <code>TEXT.NUMSUFFIX.22</code>
+</p>
+<p class="indent3">
+    Would output a suffix of "nd" rather than the
+    value 22.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="var" name="var">
+            Token
+            Name:
+        </a>
+    </strong>
+    VAR.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Any
+    defined variable name).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays the value of a defined variable.
+    </li>
+    <li>
+        The default is with one decimal place of precision (i.e.
+        x.x).
+    </li>
+    <li>
+        You can also append .INTVAL as an optional argument which
+        displays the result with no decimal points (as an integer).
+    </li>
+    <li>
+        It is possible to define the Turn Undead variable more than
+        once. The program keeps track of this. (say one instance is 2 and
+        the other 4).
+    </li>
+    <li>
+        Also
+        <code>.MINVAL</code>
+        should be included if instead of the
+        default maximum of multiple defines, you want the minimum.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>VAR.Turn Undead.MINVAL.INTVAL</code>
+</p>
+<p class="indent3">
+    Would return 2.
+</p>
+<p class="indent2">
+    <code>VAR.Turn Undead.INTVAL</code>
+</p>
+<p class="indent3">
+    Would return 4.
+</p>
+<p class="indent2">
+    <code>VAR.Turn Undead.MINVAL</code>
+</p>
+<p class="indent3">
+    Would return 2.0.
+</p>
+<p class="indent2">
+    <code>VAR.Turn Undead</code>
+</p>
+<p class="indent3">
+    Would return 4.0.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

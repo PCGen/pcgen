@@ -36,148 +36,144 @@ import pcgen.util.Logging;
 public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 {
 
-	private static final String MAXRANK = "MAXRANK";
+    private static final String MAXRANK = "MAXRANK";
 
-	private PrimitiveCollection<Skill> pcs = null;
+    private PrimitiveCollection<Skill> pcs = null;
 
-	private boolean wasRestricted = false;
+    private boolean wasRestricted = false;
 
-	private boolean negated = false;
+    private boolean negated = false;
 
-	private int ranks;
+    private int ranks;
 
-	private boolean maxRank = false;
+    private boolean maxRank = false;
 
-	@Override
-	public String getTokenName()
-	{
-		return "RANKS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "RANKS";
+    }
 
-	@Override
-	public Class<Skill> getReferenceClass()
-	{
-		return Skill.class;
-	}
+    @Override
+    public Class<Skill> getReferenceClass()
+    {
+        return Skill.class;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		StringBuilder sb = new StringBuilder();
-		if (negated)
-		{
-			sb.append('!');
-		}
-		sb.append(getTokenName());
-		sb.append('=');
-		if (maxRank)
-		{
-			sb.append(MAXRANK);
-		}
-		else
-		{
-			sb.append(ranks);
-		}
-		if (wasRestricted)
-		{
-			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
-		}
-		return sb.toString();
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        StringBuilder sb = new StringBuilder();
+        if (negated)
+        {
+            sb.append('!');
+        }
+        sb.append(getTokenName());
+        sb.append('=');
+        if (maxRank)
+        {
+            sb.append(MAXRANK);
+        } else
+        {
+            sb.append(ranks);
+        }
+        if (wasRestricted)
+        {
+            sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
+        }
+        return sb.toString();
+    }
 
-	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc, String condition, String value,
-		boolean negate)
-	{
-		if (condition == null)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				getTokenName() + " Must be a conditional Qualifier, e.g. " + getTokenName() + "=10");
-			return false;
-		}
-		try
-		{
-			ranks = Integer.parseInt(condition);
-		}
-		catch (NumberFormatException e)
-		{
-			if (MAXRANK.equalsIgnoreCase(condition))
-			{
-				maxRank = true;
-			}
-			else
-			{
-				Logging.addParseMessage(Level.SEVERE,
-					getTokenName() + " Must be a numerical conditional Qualifier, e.g. " + getTokenName()
-						+ "=10 ... Offending value: " + condition);
-				return false;
-			}
-		}
-		negated = negate;
-		if (value == null)
-		{
-			pcs = sc.getAllReference();
-		}
-		else
-		{
-			pcs = context.getPrimitiveChoiceFilter(sc, value);
-			wasRestricted = true;
-		}
-		return pcs != null;
-	}
+    @Override
+    public boolean initialize(LoadContext context, SelectionCreator<Skill> sc, String condition, String value,
+            boolean negate)
+    {
+        if (condition == null)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    getTokenName() + " Must be a conditional Qualifier, e.g. " + getTokenName() + "=10");
+            return false;
+        }
+        try
+        {
+            ranks = Integer.parseInt(condition);
+        } catch (NumberFormatException e)
+        {
+            if (MAXRANK.equalsIgnoreCase(condition))
+            {
+                maxRank = true;
+            } else
+            {
+                Logging.addParseMessage(Level.SEVERE,
+                        getTokenName() + " Must be a numerical conditional Qualifier, e.g. " + getTokenName()
+                                + "=10 ... Offending value: " + condition);
+                return false;
+            }
+        }
+        negated = negate;
+        if (value == null)
+        {
+            pcs = sc.getAllReference();
+        } else
+        {
+            pcs = context.getPrimitiveChoiceFilter(sc, value);
+            wasRestricted = true;
+        }
+        return pcs != null;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
-		return negated ? gs.negate() : gs;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
+        return negated ? gs.negate() : gs;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return pcs == null ? 0 : pcs.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return pcs == null ? 0 : pcs.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o instanceof RanksToken)
-		{
-			RanksToken other = (RanksToken) o;
-			if (negated == other.negated && ranks == other.ranks && maxRank == other.maxRank)
-			{
-				if (pcs == null)
-				{
-					return other.pcs == null;
-				}
-				return pcs.equals(other.pcs);
-			}
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o instanceof RanksToken)
+        {
+            RanksToken other = (RanksToken) o;
+            if (negated == other.negated && ranks == other.ranks && maxRank == other.maxRank)
+            {
+                if (pcs == null)
+                {
+                    return other.pcs == null;
+                }
+                return pcs.equals(other.pcs);
+            }
+        }
+        return false;
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
-	{
-		Converter<Skill, R> conv = new AddFilterConverter<>(c, this);
-		conv = negated ? new NegateFilterConverter<>(conv) : conv;
-		return pcs.getCollection(pc, conv);
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
+    {
+        Converter<Skill, R> conv = new AddFilterConverter<>(c, this);
+        conv = negated ? new NegateFilterConverter<>(conv) : conv;
+        return pcs.getCollection(pc, conv);
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Skill sk)
-	{
-		float pcRanks = pc.getDisplay().getRank(sk);
-		if (maxRank)
-		{
-			/*
-			 * According to SkillRankControl any class can be used here
-			 * (confusing!)
-			 */
-			double maxRanks = pc.getMaxRank(sk, pc.getClassList().get(0)).doubleValue();
-			return maxRanks <= pcRanks;
-		}
-		return ranks <= pcRanks;
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Skill sk)
+    {
+        float pcRanks = pc.getDisplay().getRank(sk);
+        if (maxRank)
+        {
+            /*
+             * According to SkillRankControl any class can be used here
+             * (confusing!)
+             */
+            double maxRanks = pc.getMaxRank(sk, pc.getClassList().get(0)).doubleValue();
+            return maxRanks <= pcRanks;
+        }
+        return ranks <= pcRanks;
+    }
 }

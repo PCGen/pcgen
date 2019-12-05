@@ -22,37 +22,35 @@ import pcgen.core.PlayerCharacter;
 /**
  * The Class {@code PCHPTermEvaluator} is responsible for
  * providing the internal variable HP, which has the value of
- * the character's maximum total hit points. 
- * 
- * 
+ * the character's maximum total hit points.
  */
 public class PCHPTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	/**
-	 * Instantiates a new pCHP term evaluator.
-	 * 
-	 * @param originalText the original text
-	 */
-	public PCHPTermEvaluator(String originalText)
-	{
-		this.originalText = originalText;
-	}
+    /**
+     * Instantiates a new pCHP term evaluator.
+     *
+     * @param originalText the original text
+     */
+    public PCHPTermEvaluator(String originalText)
+    {
+        this.originalText = originalText;
+    }
 
-	@Override
-	public Float resolve(PlayerCharacter pc)
-	{
-		return (float) pc.hitPoints();
-	}
+    @Override
+    public Float resolve(PlayerCharacter pc)
+    {
+        return (float) pc.hitPoints();
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return false;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return false;
+    }
 
-	public boolean isStatic()
-	{
-		return false;
-	}
+    public boolean isStatic()
+    {
+        return false;
+    }
 }

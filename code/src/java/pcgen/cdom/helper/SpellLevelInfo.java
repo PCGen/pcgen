@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -34,53 +34,53 @@ import pcgen.util.Logging;
 public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 {
 
-	private final PrimitiveCollection<PCClass> filter;
-	private final Formula minimumLevel;
-	private final Formula maximumLevel;
+    private final PrimitiveCollection<PCClass> filter;
+    private final Formula minimumLevel;
+    private final Formula maximumLevel;
 
-	public SpellLevelInfo(PrimitiveCollection<PCClass> classFilter, Formula minLevel, Formula maxLevel)
-	{
-		filter = classFilter;
-		minimumLevel = minLevel;
-		maximumLevel = maxLevel;
-	}
+    public SpellLevelInfo(PrimitiveCollection<PCClass> classFilter, Formula minLevel, Formula maxLevel)
+    {
+        filter = classFilter;
+        minimumLevel = minLevel;
+        maximumLevel = maxLevel;
+    }
 
-	@Override
-	public String toString()
-	{
-		String sb = filter.getLSTformat(false)
-				+ Constants.PIPE
-				+ minimumLevel
-				+ Constants.PIPE
-				+ maximumLevel;
-		return sb;
-	}
+    @Override
+    public String toString()
+    {
+        String sb = filter.getLSTformat(false)
+                + Constants.PIPE
+                + minimumLevel
+                + Constants.PIPE
+                + maximumLevel;
+        return sb;
+    }
 
-	public Collection<SpellLevel> getLevels(PlayerCharacter pc)
-	{
-		List<SpellLevel> list = new ArrayList<>();
-		Converter<PCClass, PCClass> conv = new AddFilterConverter<>(new DereferencingConverter<>(pc), this);
-		for (PCClass cl : filter.getCollection(pc, conv))
-		{
-			int min = minimumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
-			int max = maximumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
-			if (min > max)
-			{
-				Logging.errorPrint("Resolved Minimum: " + min + " (from " + minimumLevel
-					+ ") was greater than resolved Maximum: " + max + " (from " + maximumLevel + ")");
-			}
-			for (int i = min; i <= max; ++i)
-			{
-				list.add(new SpellLevel(cl, i));
-			}
-		}
-		return list;
-	}
+    public Collection<SpellLevel> getLevels(PlayerCharacter pc)
+    {
+        List<SpellLevel> list = new ArrayList<>();
+        Converter<PCClass, PCClass> conv = new AddFilterConverter<>(new DereferencingConverter<>(pc), this);
+        for (PCClass cl : filter.getCollection(pc, conv))
+        {
+            int min = minimumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
+            int max = maximumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
+            if (min > max)
+            {
+                Logging.errorPrint("Resolved Minimum: " + min + " (from " + minimumLevel
+                        + ") was greater than resolved Maximum: " + max + " (from " + maximumLevel + ")");
+            }
+            for (int i = min;i <= max;++i)
+            {
+                list.add(new SpellLevel(cl, i));
+            }
+        }
+        return list;
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, PCClass cl)
-	{
-		return pc.getClassKeyed(cl.getKeyName()) != null;
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, PCClass cl)
+    {
+        return pc.getClassKeyed(cl.getKeyName()) != null;
+    }
 
 }

@@ -29,35 +29,38 @@ import pcgen.io.exporttoken.Token;
  */
 public class DamageToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "DAMAGE";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "DAMAGE";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("DAMAGE.UNARMED".equals(tokenSource))
-		{
-			retString = getUnarmedToken(pc);
-		}
+        if ("DAMAGE.UNARMED".equals(tokenSource))
+        {
+            retString = getUnarmedToken(pc);
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the unarmed sub token
-	 * @param pc
-	 * @return unarmed sub token
-	 */
-	public static String getUnarmedToken(PlayerCharacter pc)
-	{
-		return UnarmedDamageDisplay.getUnarmedDamageString(pc, true, true);
-	}
+    /**
+     * Get the unarmed sub token
+     *
+     * @param pc
+     * @return unarmed sub token
+     */
+    public static String getUnarmedToken(PlayerCharacter pc)
+    {
+        return UnarmedDamageDisplay.getUnarmedDamageString(pc, true, true);
+    }
 }

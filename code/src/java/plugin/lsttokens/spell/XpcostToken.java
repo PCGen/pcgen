@@ -28,32 +28,32 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class XpcostToken extends AbstractIntToken<Spell> implements CDOMPrimaryToken<Spell>
 {
 
-	/**
-	 * Get the token name
-	 *
-	 * @return token name
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "XPCOST";
-	}
+    /**
+     * Get the token name
+     *
+     * @return token name
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "XPCOST";
+    }
 
-	@Override
-	protected IntegerKey integerKey()
-	{
-		return IntegerKey.XP_COST;
-	}
+    @Override
+    protected IntegerKey integerKey()
+    {
+        return IntegerKey.XP_COST;
+    }
 
-	@Override
-	protected int minValue()
-	{
-		return 0;
-	}
+    @Override
+    protected int minValue()
+    {
+        return 0;
+    }
 
-	@Override
-	public Class<Spell> getTokenClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTokenClass()
+    {
+        return Spell.class;
+    }
 }

@@ -28,21 +28,21 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class StackToken extends AbstractYesNoToken<Ability> implements CDOMPrimaryToken<Ability>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "STACK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "STACK";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.STACKS;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.STACKS;
+    }
 
-	@Override
-	public Class<Ability> getTokenClass()
-	{
-		return Ability.class;
-	}
+    @Override
+    public Class<Ability> getTokenClass()
+    {
+        return Ability.class;
+    }
 }

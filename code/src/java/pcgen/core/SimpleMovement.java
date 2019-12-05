@@ -25,56 +25,54 @@ import pcgen.cdom.enumeration.MovementType;
 public class SimpleMovement
 {
 
-	/**
-	 * Contains the MovementType for this SimpleMovement (e.g. "Walk", "Fly")
-	 */
-	private final MovementType movementType;
+    /**
+     * Contains the MovementType for this SimpleMovement (e.g. "Walk", "Fly")
+     */
+    private final MovementType movementType;
 
-	/**
-	 * Contains the associated movement rate (in feet) for the movement type. A movement
-	 * rate must be greater than or equal to zero.
-	 */
-	private final int movement;
+    /**
+     * Contains the associated movement rate (in feet) for the movement type. A movement
+     * rate must be greater than or equal to zero.
+     */
+    private final int movement;
 
-	/**
-	 * Creates a SimpleMovement object with the given parameters.
-	 * 
-	 * @param movementType
-	 *            The MovementType for this MoveClone (e.g. "Walk").
-	 * @param movement
-	 *            The movement (in feet) for the given MovementType.
-	 */
-	public SimpleMovement(MovementType movementType, int movement)
-	{
-		this.movementType = Objects.requireNonNull(movementType);
-		this.movement = Objects.requireNonNull(movement);
-		if (movement < 0)
-		{
-			throw new IllegalArgumentException("Movement for type "
-				+ movementType + " must be >=0: " + movement);
-		}
-	}
+    /**
+     * Creates a SimpleMovement object with the given parameters.
+     *
+     * @param movementType The MovementType for this MoveClone (e.g. "Walk").
+     * @param movement     The movement (in feet) for the given MovementType.
+     */
+    public SimpleMovement(MovementType movementType, int movement)
+    {
+        this.movementType = Objects.requireNonNull(movementType);
+        this.movement = Objects.requireNonNull(movement);
+        if (movement < 0)
+        {
+            throw new IllegalArgumentException("Movement for type "
+                    + movementType + " must be >=0: " + movement);
+        }
+    }
 
-	/**
-	 * Return the creature's movement type in this SimpleMovement.
-	 * 
-	 * @return The creature's movement type in this SimpleMovement
-	 */
-	public MovementType getMovementType()
-	{
-		return movementType;
-	}
+    /**
+     * Return the creature's movement type in this SimpleMovement.
+     *
+     * @return The creature's movement type in this SimpleMovement
+     */
+    public MovementType getMovementType()
+    {
+        return movementType;
+    }
 
-	/**
-	 * Return the creature's movement rate (in feet) for the movement type in this
-	 * SimpleMovement.
-	 * 
-	 * @return The creature's movement rate (in feet) for the movement type in this
-	 *         SimpleMovement
-	 */
-	public int getMovement()
-	{
-		return movement;
-	}
+    /**
+     * Return the creature's movement rate (in feet) for the movement type in this
+     * SimpleMovement.
+     *
+     * @return The creature's movement rate (in feet) for the movement type in this
+     * SimpleMovement
+     */
+    public int getMovement()
+    {
+        return movement;
+    }
 
 }

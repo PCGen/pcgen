@@ -24,39 +24,39 @@ import org.junit.jupiter.api.Test;
 
 class GroupingStateTest
 {
-	@Test
-	public void testAddConsistent()
-	{
-		for (GroupingState gs1 : GroupingState.values())
-		{
-			for (GroupingState gs2 : GroupingState.values())
-			{
-				assertEquals(gs1.add(gs2), gs2.add(gs1));
-			}
-		}
-	}
+    @Test
+    public void testAddConsistent()
+    {
+        for (GroupingState gs1 : GroupingState.values())
+        {
+            for (GroupingState gs2 : GroupingState.values())
+            {
+                assertEquals(gs1.add(gs2), gs2.add(gs1));
+            }
+        }
+    }
 
-	@Test
-	public void testInvalidImmutable()
-	{
-		GroupingState invalid = GroupingState.INVALID;
-		for (GroupingState gs2 : GroupingState.values())
-		{
-			assertEquals(invalid.add(gs2), invalid);
-			assertEquals(gs2.add(invalid), invalid);
-		}
-		assertEquals(invalid, invalid.negate());
-		assertEquals(invalid, invalid.reduce());
-	}
+    @Test
+    public void testInvalidImmutable()
+    {
+        GroupingState invalid = GroupingState.INVALID;
+        for (GroupingState gs2 : GroupingState.values())
+        {
+            assertEquals(invalid.add(gs2), invalid);
+            assertEquals(gs2.add(invalid), invalid);
+        }
+        assertEquals(invalid, invalid.negate());
+        assertEquals(invalid, invalid.reduce());
+    }
 
-	@Test
-	public void testEmptyWeak()
-	{
-		GroupingState empty = GroupingState.EMPTY;
-		for (GroupingState gs2 : GroupingState.values())
-		{
-			assertEquals(empty.add(gs2), gs2);
-			assertEquals(gs2.add(empty), gs2);
-		}
-	}
+    @Test
+    public void testEmptyWeak()
+    {
+        GroupingState empty = GroupingState.EMPTY;
+        for (GroupingState gs2 : GroupingState.values())
+        {
+            assertEquals(empty.add(gs2), gs2);
+            assertEquals(gs2.add(empty), gs2);
+        }
+    }
 }

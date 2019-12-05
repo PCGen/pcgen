@@ -32,94 +32,94 @@ import pcgen.util.Logging;
  */
 public class ComplexParseResult implements ParseResult
 {
-	private final List<QueuedMessage> queuedMessages = new LinkedList<>();
+    private final List<QueuedMessage> queuedMessages = new LinkedList<>();
 
-	public ComplexParseResult()
-	{
-		//Start an empty result
-	}
+    public ComplexParseResult()
+    {
+        //Start an empty result
+    }
 
-	public ComplexParseResult(String error)
-	{
-		addErrorMessage(error);
-	}
+    public ComplexParseResult(String error)
+    {
+        addErrorMessage(error);
+    }
 
-	public ComplexParseResult(ComplexParseResult toCopy)
-	{
-		addMessages(toCopy);
-	}
+    public ComplexParseResult(ComplexParseResult toCopy)
+    {
+        addMessages(toCopy);
+    }
 
-	public void addErrorMessage(String msg)
-	{
-		addParseMessage(Logging.LST_ERROR, msg);
-	}
+    public void addErrorMessage(String msg)
+    {
+        addParseMessage(Logging.LST_ERROR, msg);
+    }
 
-	public void addWarningMessage(String msg)
-	{
-		addParseMessage(Logging.LST_WARNING, msg);
-	}
+    public void addWarningMessage(String msg)
+    {
+        addParseMessage(Logging.LST_WARNING, msg);
+    }
 
-	public void addInfoMessage(String msg)
-	{
-		addParseMessage(Logging.LST_INFO, msg);
-	}
+    public void addInfoMessage(String msg)
+    {
+        addParseMessage(Logging.LST_INFO, msg);
+    }
 
-	protected void addParseMessage(Level lvl, String msg)
-	{
-		queuedMessages.add(new QueuedMessage(lvl, msg));
-	}
+    protected void addParseMessage(Level lvl, String msg)
+    {
+        queuedMessages.add(new QueuedMessage(lvl, msg));
+    }
 
-	public void addMessages(ComplexParseResult pr)
-	{
-		queuedMessages.addAll(pr.queuedMessages);
-	}
+    public void addMessages(ComplexParseResult pr)
+    {
+        queuedMessages.addAll(pr.queuedMessages);
+    }
 
-	@Override
-	public void printMessages(URI uri)
-	{
-		for (QueuedMessage msg : queuedMessages)
-		{
-			Logging.log(msg.level, generateText(msg, uri), msg.stackTrace);
-		}
-	}
+    @Override
+    public void printMessages(URI uri)
+    {
+        for (QueuedMessage msg : queuedMessages)
+        {
+            Logging.log(msg.level, generateText(msg, uri), msg.stackTrace);
+        }
+    }
 
-	@Override
-	public void addMessagesToLog(URI uri)
-	{
-		for (QueuedMessage msg : queuedMessages)
-		{
-			Logging.addParseMessage(msg.level, generateText(msg, uri), msg.stackTrace);
-		}
-	}
+    @Override
+    public void addMessagesToLog(URI uri)
+    {
+        for (QueuedMessage msg : queuedMessages)
+        {
+            Logging.addParseMessage(msg.level, generateText(msg, uri), msg.stackTrace);
+        }
+    }
 
-	@Override
-	public boolean passed()
-	{
-		for (QueuedMessage msg : queuedMessages)
-		{
-			if (msg.level == Logging.LST_ERROR)
-			{
-				return false;
-			}
-		}
-		return true;
-	}
+    @Override
+    public boolean passed()
+    {
+        for (QueuedMessage msg : queuedMessages)
+        {
+            if (msg.level == Logging.LST_ERROR)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
-	/**
-	 * Copy messages from another ParseResult object.
-	 * @param pr The object to copy from.
-	 */
-	public void copyMessages(ParseResult pr)
-	{
-		if (pr instanceof ComplexParseResult)
-		{
-			ComplexParseResult cpr = (ComplexParseResult) pr;
-			queuedMessages.addAll(cpr.queuedMessages);
-		}
-		else if (pr instanceof ParseResult.Fail)
-		{
-			ParseResult.Fail fail = (ParseResult.Fail) pr;
-			queuedMessages.add(fail.getError());
-		}
-	}
+    /**
+     * Copy messages from another ParseResult object.
+     *
+     * @param pr The object to copy from.
+     */
+    public void copyMessages(ParseResult pr)
+    {
+        if (pr instanceof ComplexParseResult)
+        {
+            ComplexParseResult cpr = (ComplexParseResult) pr;
+            queuedMessages.addAll(cpr.queuedMessages);
+        } else if (pr instanceof ParseResult.Fail)
+        {
+            ParseResult.Fail fail = (ParseResult.Fail) pr;
+            queuedMessages.add(fail.getError());
+        }
+    }
 }

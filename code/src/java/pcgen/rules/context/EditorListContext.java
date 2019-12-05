@@ -24,17 +24,17 @@ import pcgen.cdom.base.CDOMObject;
 class EditorListContext extends AbstractListContext
 {
 
-	private final TrackingListCommitStrategy commit = new TrackingListCommitStrategy();
+    private final TrackingListCommitStrategy commit = new TrackingListCommitStrategy();
 
-	@Override
-	protected ListCommitStrategy getCommitStrategy()
-	{
-		return commit;
-	}
+    @Override
+    protected ListCommitStrategy getCommitStrategy()
+    {
+        return commit;
+    }
 
-	void purge(CDOMObject cdo)
-	{
-		commit.purge(cdo);
-	}
+    void purge(CDOMObject cdo)
+    {
+        commit.purge(cdo);
+    }
 
 }

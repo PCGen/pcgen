@@ -32,26 +32,28 @@ import org.junit.jupiter.api.Test;
  */
 public class SpaceTokenTest extends AbstractCharacterTestCase
 {
-	@BeforeEach
-	@Override
-	public void setUp() {
-		// Do Nothing
-	}
+    @BeforeEach
+    @Override
+    public void setUp()
+    {
+        // Do Nothing
+    }
 
-	@AfterEach
-	@Override
-	public void tearDown() {
-		// Do Nothing
-	}
+    @AfterEach
+    @Override
+    public void tearDown()
+    {
+        // Do Nothing
+    }
 
-	/**
-	 * Test the SPACE token.
-	 */
-	@Test
-	public void testSpaceToken()
-	{
-		SpaceToken token = new SpaceToken();
-		assertEquals(" ", token.getToken("SPACE", (CharacterDisplay) null, null));
-	}
+    /**
+     * Test the SPACE token.
+     */
+    @Test
+    public void testSpaceToken()
+    {
+        SpaceToken token = new SpaceToken();
+        assertEquals(" ", token.getToken("SPACE", (CharacterDisplay) null, null));
+    }
 
 }

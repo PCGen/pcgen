@@ -1,824 +1,824 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
-                Eric C. Smith - mareduddATblackrootDOTorg
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Eric C. Smith - mareduddATblackrootDOTorg
 
-                Description:
-                Provides information on the content of PCGen Skill Files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Skill Files
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Skill Files
-  </h1>
-  <p>
-   The "Name" of the skill must be the first field on each line,
-the remaining tags may be of any order.
-  </p>
-  <p class="indent2">
-   <code>Craft (Structural)</code>
-  </p>
-  <p class="indent3">
-   The skill named "Craft (Structural)" is to be
-created.
-  </p>
-  <p class="indent2">
-   <code>Forgery.MOD</code>
-  </p>
-  <p class="indent3">
-   The skill named "Forgery" is to be modified.
-  </p>
-  <p class="indent2">
-   <code>Computer Use.FORGET</code>
-  </p>
-  <p class="indent3">
-   The skill named "Computer Use" is to be
-forgotten.
-  </p>
-  <p class="indent1">
-   When POINTPOOLNAME trigger tag is present in
-miscinfo file Summary Tab Will display total points/points
-remaining (i.e. Development Points 160/135) on the same line as the
-stat total and stat mod total
-  </p>
-  <p class="indent1">
-   Skills Tab - Instead of skill points by
-class/level requirement to spend skill points, it's just a pool
-this is also populated by the classes STARTSKILLPTS and miscinfo
-SKILLMULTIPLIER
-  </p>
-  <p class="indent1">
-   Feats Tab - Will show total point pool as
-reported on the skills tab
-  </p>
-  <p>
-   The name of the skill must be the first entry on each line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="acheck" name="acheck">
+               Description:
+               Provides information on the content of PCGen Skill Files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Skill Files
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Skill Files
+</h1>
+<p>
+    The "Name" of the skill must be the first field on each line,
+    the remaining tags may be of any order.
+</p>
+<p class="indent2">
+    <code>Craft (Structural)</code>
+</p>
+<p class="indent3">
+    The skill named "Craft (Structural)" is to be
+    created.
+</p>
+<p class="indent2">
+    <code>Forgery.MOD</code>
+</p>
+<p class="indent3">
+    The skill named "Forgery" is to be modified.
+</p>
+<p class="indent2">
+    <code>Computer Use.FORGET</code>
+</p>
+<p class="indent3">
+    The skill named "Computer Use" is to be
+    forgotten.
+</p>
+<p class="indent1">
+    When POINTPOOLNAME trigger tag is present in
+    miscinfo file Summary Tab Will display total points/points
+    remaining (i.e. Development Points 160/135) on the same line as the
+    stat total and stat mod total
+</p>
+<p class="indent1">
+    Skills Tab - Instead of skill points by
+    class/level requirement to spend skill points, it's just a pool
+    this is also populated by the classes STARTSKILLPTS and miscinfo
+    SKILLMULTIPLIER
+</p>
+<p class="indent1">
+    Feats Tab - Will show total point pool as
+    reported on the skills tab
+</p>
+<p>
+    The name of the skill must be the first entry on each line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="acheck" name="acheck">
+        </a>
+        Tag
+        Name:
+    </strong>
+    ACHECK:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    DOUBLE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    NO
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    NONPROF
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    PROFICIENT
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    WEIGHT
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    YES
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tells PCGen whether any penalties from equipped armor are
+        applied.
+    </li>
+    <li>
+        NO - Armor check penalty does not apply (Default).
+    </li>
+    <li>
+        YES - Armor check penalty applies to this skill.
+    </li>
+    <li>
+        PROFICIENT - Armor check penalty applies if the character is
+        not proficient in it.
+    </li>
+    <li>
+        DOUBLE - Armor check penalty of double normal applies to this
+        skill.
+    </li>
+    <li>
+        WEIGHT - Weight carried penalty applies to the skill
+        check.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a skill with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>ACHECK</code>
+        tag,
+        the data included in a new
+        <code>ACHECK</code>
+        tag will overwrite
+        the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ACHECK:YES</code>
+</p>
+<p class="indent3">
+    Armor check penalty applies to this skill.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Skill:
+    <code>Brachiation &lt;tab&gt;
+        ACHECK:YES</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Brachiation.MOD &lt;tab&gt;
+        ACHECK:DOUBLE</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Brachiation &lt;tab&gt;
+        ACHECK:DOUBLE</code>
+</p>
+<p class="indent3">
+    The skill "Brachiation" receives a double
+    penalty from equipped armor.
+</p>
+<hr/>
+<p class="status">
+    <a id="classes" name="classes">
+        *** New
+        5.3.3
     </a>
-    Tag
-Name:
-   </strong>
-   ACHECK:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   DOUBLE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   NO
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   NONPROF
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   PROFICIENT
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   WEIGHT
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   YES
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tells PCGen whether any penalties from equipped armor are
-applied.
-   </li>
-   <li>
-    NO - Armor check penalty does not apply (Default).
-   </li>
-   <li>
-    YES - Armor check penalty applies to this skill.
-   </li>
-   <li>
-    PROFICIENT - Armor check penalty applies if the character is
-not proficient in it.
-   </li>
-   <li>
-    DOUBLE - Armor check penalty of double normal applies to this
-skill.
-   </li>
-   <li>
-    WEIGHT - Weight carried penalty applies to the skill
-check.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        Tag Name:
     </strong>
-    When modifying a skill with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>ACHECK</code>
-    tag,
-the data included in a new
-    <code>ACHECK</code>
-    tag will overwrite
-the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ACHECK:YES</code>
-  </p>
-  <p class="indent3">
-   Armor check penalty applies to this skill.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Skill:
-   <code>Brachiation &lt;tab&gt;
-ACHECK:YES</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Brachiation.MOD &lt;tab&gt;
-ACHECK:DOUBLE</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Brachiation &lt;tab&gt;
-ACHECK:DOUBLE</code>
-  </p>
-  <p class="indent3">
-   The skill "Brachiation" receives a double
-penalty from equipped armor.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="classes" name="classes">
-    *** New
-5.3.3
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   CLASSES:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Class
-Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   ALL
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Makes the given skill a class skill for the listed
-classes.
-   </li>
-   <li>
+    CLASSES:x
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        Variables Used (x):
     </strong>
-    When modifying a skill with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>CLASSES</code>
-    tag,
-the data included in a new
-    <code>CLASSES</code>
-    tag will be
-appended to the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CLASSES:Cleric|Paladin</code>
-  </p>
-  <p class="indent3">
-   The listed skill is class skill for "Cleric" or
-"Paladin" characters.
-  </p>
-  <p class="indent2">
-   <code>CLASSES:ALL</code>
-  </p>
-  <p class="indent3">
-   The listed skill is class skill for all
-classes.
-  </p>
-  <p class="indent2">
-   <code>CLASSES:ALL|!Wizard</code>
-  </p>
-  <p class="indent3">
-   The listed skill is a class skill for all
-classes except for "Wizard" characters.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Appending):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Skill:
-   <code>Brachiation &lt;tab&gt;
-CLASSES:Acrobat</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Brachiation.MOD &lt;tab&gt;
-CLASSES:Ranger</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Brachiation &lt;tab&gt;
-CLASSES:Acrobat|Ranger</code>
-   .
-  </p>
-  <p class="indent3">
-   The skill "Brachiation" is a class skill for
-both the "Acrobat" and the "Ranger" classes.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="exclusive" name="exclusive">
-     Tag
-Name:
-    </a>
-   </strong>
-   EXCLUSIVE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Boolean
-(YES or NO)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tells PCGen whether a skill is an exclusive skill or
-not.
-   </li>
-   <li>
-    If this is set to YES then ONLY classes that have this listed
-as a class skill can take it.
-   </li>
-   <li>
-    The Default is NO.
-   </li>
-   <li>
+    Text (Class
+    Name)
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        Variables Used (x):
     </strong>
-    When modifying a skill with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>EXCLUSIVE</code>
-    tag, the data included in a new
-    <code>EXCLUSIVE</code>
-    tag will
-overwrite the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EXCLUSIVE:YES</code>
-  </p>
-  <p class="indent3">
-   This skill may only be taken if it is a class
-skill.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Skill:
-   <code>Brachiation &lt;tab&gt;
-EXCLUSIVE:YES</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Brachiation.MOD &lt;tab&gt;
-EXCLUSIVE:NO</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Brachiation &lt;tab&gt;
-EXCLUSIVE:NO</code>
-  </p>
-  <p class="indent3">
-   The exclusive skill "Brachiation" is no longer
-exclusive.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="keystat" name="keystat">
-     Tag
-Name:
-    </a>
-   </strong>
-   KEYSTAT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Abbreviated name of stat from statsandchecks.lst)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is to set what stat (as defined by the Game Mode List
-File) the skill draws bonuses from.
-   </li>
-   <li>
-    If the tag is not included no Stat bonus will be applied.
-   </li>
-   <li>
+    ALL
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        What it does:
     </strong>
-    When modifying a skill with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>KEYSTAT</code>
-    tag,
-the data included in a new
-    <code>KEYSTAT</code>
-    tag will overwrite
-the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>KEYSTAT:INT</code>
-  </p>
-  <p class="indent3">
-   Sets the Key stat for the skill to
-Intelligence.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Skill:
-   <code>Brachiation &lt;tab&gt;
-KEYSTAT:DEX</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Brachiation.MOD &lt;tab&gt;
-KEYSTAT:STR</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Brachiation &lt;tab&gt;
-KEYSTAT:STR</code>
-  </p>
-  <p class="indent3">
-   The keystat for the skill "Brachiation" is no
-"Strength".
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="situation" name="situation">
-    *** New
-6.03.0
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SITUATION:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Skill
-situation)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is used to set situational skills.
-   </li>
-   <li>
+</p>
+<ul class="indent2">
+    <li>
+        Makes the given skill a class skill for the listed
+        classes.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a skill with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>CLASSES</code>
+        tag,
+        the data included in a new
+        <code>CLASSES</code>
+        tag will be
+        appended to the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        Example:
     </strong>
-    When modifying a skill with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>SITUATION</code>
-    tag, the data included in a new
-    <code>SITUATION</code>
-    tag will
-appended to the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Stealth &lt;tab&gt; SITUATION:In
-Darkness</code>
-  </p>
-  <p class="indent3">
-   Sets the situational skill "Stealth (In
-Darkness)".
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Skill:
-   <code>Stealth &lt;tab&gt;
-SITUATION:In Darkness</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Stealth.MOD &lt;tab&gt;
-SITUATION:In Caverns</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Stealth &lt;tab&gt;
-SITUATION:In Darkness|In Caverns</code>
-  </p>
-  <p class="indent3">
-   Creates the situational skills "Stealth (In
-Darkness)" and "Stealth (In Caverns)".
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="useuntrained" name="useuntrained">
-     Tag Name:
-    </a>
-   </strong>
-   USEUNTRAINED:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Boolean
-(efault is YES)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    <code>YES</code>
-    or
-    <code>NO</code>
-    are used to indicate if
-this skill can be used untrained by the character.
-   </li>
-   <li>
+</p>
+<p class="indent2">
+    <code>CLASSES:Cleric|Paladin</code>
+</p>
+<p class="indent3">
+    The listed skill is class skill for "Cleric" or
+    "Paladin" characters.
+</p>
+<p class="indent2">
+    <code>CLASSES:ALL</code>
+</p>
+<p class="indent3">
+    The listed skill is class skill for all
+    classes.
+</p>
+<p class="indent2">
+    <code>CLASSES:ALL|!Wizard</code>
+</p>
+<p class="indent3">
+    The listed skill is a class skill for all
+    classes except for "Wizard" characters.
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        .MOD Example (Appending):
     </strong>
-    When modifying a skill with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>USEUNTRAINED</code>
-    tag, the data included in a new
-    <code>USEUNTRAINED</code>
-    tag will
-overwrite the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>USEUNTRAINED:NO</code>
-  </p>
-  <p class="indent3">
-   This skill may not be used if untrained.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Skill:
-   <code>Brachiation &lt;tab&gt;
-USEUNTRAINED:NO</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Brachiation.MOD &lt;tab&gt;
-USEUNTRAINED:YES</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Brachiation &lt;tab&gt;
-USEUNTRAINED:YES</code>
-  </p>
-  <p class="indent3">
-   The modified "Brachiation" skill can be used
-untrained.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="visible" name="visible">
-    *** New
-5.7.7
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   VISIBLE:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   YES
-(Default)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   ALWAYS
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   NO
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   DISPLAY
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   GUI
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   EXPORT
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   CSHEET
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   READONLY
-(Optional)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    <code>YES</code>
-    ,
-    <code>ALWAYS</code>
-    - Shows the skill name in
-PCGen and on export to a character sheet.
-   </li>
-   <li>
-    <code>NO</code>
-    - Hides the skill completely.
-   </li>
-   <li>
-    <code>DISPLAY</code>
-    ,
-    <code>GUI</code>
-    - Displays the skill
-name in PCGen but not on the character sheet.
-   </li>
-   <li>
-    <code>EXPORT</code>
-    ,
-    <code>CSHEET</code>
-    - Hides the skill name
-from PCGen but displays it on the character sheet.
-   </li>
-   <li>
-    <code>READONLY</code>
-    - This will block the user from adding
-Ranks to the skill in the Skill Tab.
-   </li>
-   <li>
-    <code>READONLY</code>
-    is not valid when
-    <code>VISIBLE</code>
-    is
-set to
-    <code>EXPORT</code>
-    or
-    <code>CSHEET</code>
+</p>
+<p class="indent2">
+    Initial Skill:
+    <code>Brachiation &lt;tab&gt;
+        CLASSES:Acrobat</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Brachiation.MOD &lt;tab&gt;
+        CLASSES:Ranger</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Brachiation &lt;tab&gt;
+        CLASSES:Acrobat|Ranger</code>
     .
-   </li>
-   <li>
+</p>
+<p class="indent3">
+    The skill "Brachiation" is a class skill for
+    both the "Acrobat" and the "Ranger" classes.
+</p>
+<hr/>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        <a id="exclusive" name="exclusive">
+            Tag
+            Name:
+        </a>
     </strong>
-    When modifying a skill with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>VISIBLE</code>
-    tag,
-the data included in a new
-    <code>VISIBLE</code>
-    tag will overwrite
-the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:YES</code>
-  </p>
-  <p class="indent3">
-   Shows the skill name in PCGen and on the Output
-sheet.
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:ALWAYS</code>
-  </p>
-  <p class="indent3">
-   Shows the skill name in PCGen and on the Output
-sheet.
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:DISPLAY</code>
-  </p>
-  <p class="indent3">
-   Shows the skill name in PCGen but not on the
-Output sheet.
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:GUI</code>
-  </p>
-  <p class="indent3">
-   Shows the skill name in PCGen but not on the
-Output sheet.
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:CSHEET</code>
-  </p>
-  <p class="indent3">
-   Shows the skill name on the Output sheet but not
-in PCGen.
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:ALWAYS|READONLY</code>
-  </p>
-  <p class="indent3">
-   Shows the skill name in PCGen and on the Output
-sheet but prohibits the user from adding ranks to it.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Skill:
-   <code>Brachiation &lt;tab&gt;
-VISIBLE:EXPORT</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Brachiation.MOD &lt;tab&gt;
-VISIBLE:YES</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Brachiation &lt;tab&gt;
-VISIBLE:YES</code>
-  </p>
-  <p class="indent3">
-   The modified "Brachiation" skill can be seen
-throughout the PCGen experience.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    EXCLUSIVE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Boolean
+    (YES or NO)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tells PCGen whether a skill is an exclusive skill or
+        not.
+    </li>
+    <li>
+        If this is set to YES then ONLY classes that have this listed
+        as a class skill can take it.
+    </li>
+    <li>
+        The Default is NO.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a skill with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>EXCLUSIVE</code>
+        tag, the data included in a new
+        <code>EXCLUSIVE</code>
+        tag will
+        overwrite the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EXCLUSIVE:YES</code>
+</p>
+<p class="indent3">
+    This skill may only be taken if it is a class
+    skill.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Skill:
+    <code>Brachiation &lt;tab&gt;
+        EXCLUSIVE:YES</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Brachiation.MOD &lt;tab&gt;
+        EXCLUSIVE:NO</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Brachiation &lt;tab&gt;
+        EXCLUSIVE:NO</code>
+</p>
+<p class="indent3">
+    The exclusive skill "Brachiation" is no longer
+    exclusive.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="keystat" name="keystat">
+            Tag
+            Name:
+        </a>
+    </strong>
+    KEYSTAT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Abbreviated name of stat from statsandchecks.lst)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is to set what stat (as defined by the Game Mode List
+        File) the skill draws bonuses from.
+    </li>
+    <li>
+        If the tag is not included no Stat bonus will be applied.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a skill with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>KEYSTAT</code>
+        tag,
+        the data included in a new
+        <code>KEYSTAT</code>
+        tag will overwrite
+        the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>KEYSTAT:INT</code>
+</p>
+<p class="indent3">
+    Sets the Key stat for the skill to
+    Intelligence.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Skill:
+    <code>Brachiation &lt;tab&gt;
+        KEYSTAT:DEX</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Brachiation.MOD &lt;tab&gt;
+        KEYSTAT:STR</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Brachiation &lt;tab&gt;
+        KEYSTAT:STR</code>
+</p>
+<p class="indent3">
+    The keystat for the skill "Brachiation" is no
+    "Strength".
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="situation" name="situation">
+        *** New
+        6.03.0
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SITUATION:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Skill
+    situation)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is used to set situational skills.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a skill with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>SITUATION</code>
+        tag, the data included in a new
+        <code>SITUATION</code>
+        tag will
+        appended to the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Stealth &lt;tab&gt; SITUATION:In
+        Darkness</code>
+</p>
+<p class="indent3">
+    Sets the situational skill "Stealth (In
+    Darkness)".
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Skill:
+    <code>Stealth &lt;tab&gt;
+        SITUATION:In Darkness</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Stealth.MOD &lt;tab&gt;
+        SITUATION:In Caverns</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Stealth &lt;tab&gt;
+        SITUATION:In Darkness|In Caverns</code>
+</p>
+<p class="indent3">
+    Creates the situational skills "Stealth (In
+    Darkness)" and "Stealth (In Caverns)".
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="useuntrained" name="useuntrained">
+            Tag Name:
+        </a>
+    </strong>
+    USEUNTRAINED:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Boolean
+    (efault is YES)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        <code>YES</code>
+        or
+        <code>NO</code>
+        are used to indicate if
+        this skill can be used untrained by the character.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a skill with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>USEUNTRAINED</code>
+        tag, the data included in a new
+        <code>USEUNTRAINED</code>
+        tag will
+        overwrite the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>USEUNTRAINED:NO</code>
+</p>
+<p class="indent3">
+    This skill may not be used if untrained.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Skill:
+    <code>Brachiation &lt;tab&gt;
+        USEUNTRAINED:NO</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Brachiation.MOD &lt;tab&gt;
+        USEUNTRAINED:YES</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Brachiation &lt;tab&gt;
+        USEUNTRAINED:YES</code>
+</p>
+<p class="indent3">
+    The modified "Brachiation" skill can be used
+    untrained.
+</p>
+<hr/>
+<p class="status">
+    <a id="visible" name="visible">
+        *** New
+        5.7.7
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    VISIBLE:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    YES
+    (Default)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    ALWAYS
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    NO
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    DISPLAY
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    GUI
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    EXPORT
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    CSHEET
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    READONLY
+    (Optional)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        <code>YES</code>
+        ,
+        <code>ALWAYS</code>
+        - Shows the skill name in
+        PCGen and on export to a character sheet.
+    </li>
+    <li>
+        <code>NO</code>
+        - Hides the skill completely.
+    </li>
+    <li>
+        <code>DISPLAY</code>
+        ,
+        <code>GUI</code>
+        - Displays the skill
+        name in PCGen but not on the character sheet.
+    </li>
+    <li>
+        <code>EXPORT</code>
+        ,
+        <code>CSHEET</code>
+        - Hides the skill name
+        from PCGen but displays it on the character sheet.
+    </li>
+    <li>
+        <code>READONLY</code>
+        - This will block the user from adding
+        Ranks to the skill in the Skill Tab.
+    </li>
+    <li>
+        <code>READONLY</code>
+        is not valid when
+        <code>VISIBLE</code>
+        is
+        set to
+        <code>EXPORT</code>
+        or
+        <code>CSHEET</code>
+        .
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a skill with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>VISIBLE</code>
+        tag,
+        the data included in a new
+        <code>VISIBLE</code>
+        tag will overwrite
+        the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>VISIBLE:YES</code>
+</p>
+<p class="indent3">
+    Shows the skill name in PCGen and on the Output
+    sheet.
+</p>
+<p class="indent2">
+    <code>VISIBLE:ALWAYS</code>
+</p>
+<p class="indent3">
+    Shows the skill name in PCGen and on the Output
+    sheet.
+</p>
+<p class="indent2">
+    <code>VISIBLE:DISPLAY</code>
+</p>
+<p class="indent3">
+    Shows the skill name in PCGen but not on the
+    Output sheet.
+</p>
+<p class="indent2">
+    <code>VISIBLE:GUI</code>
+</p>
+<p class="indent3">
+    Shows the skill name in PCGen but not on the
+    Output sheet.
+</p>
+<p class="indent2">
+    <code>VISIBLE:CSHEET</code>
+</p>
+<p class="indent3">
+    Shows the skill name on the Output sheet but not
+    in PCGen.
+</p>
+<p class="indent2">
+    <code>VISIBLE:ALWAYS|READONLY</code>
+</p>
+<p class="indent3">
+    Shows the skill name in PCGen and on the Output
+    sheet but prohibits the user from adding ranks to it.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Skill:
+    <code>Brachiation &lt;tab&gt;
+        VISIBLE:EXPORT</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Brachiation.MOD &lt;tab&gt;
+        VISIBLE:YES</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Brachiation &lt;tab&gt;
+        VISIBLE:YES</code>
+</p>
+<p class="indent3">
+    The modified "Brachiation" skill can be seen
+    throughout the PCGen experience.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

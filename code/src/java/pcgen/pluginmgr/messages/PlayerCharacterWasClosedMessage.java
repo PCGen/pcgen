@@ -25,32 +25,31 @@ import pcgen.pluginmgr.PCGenMessage;
 /**
  * The Class {@code PlayerCharacterWasClosedMessage} encapsulates an
  * advisory message that a character was closed in the user interface of PCGen.
- *
- * 
  */
 @SuppressWarnings("serial")
 public class PlayerCharacterWasClosedMessage extends PCGenMessage
 {
 
-	private final PlayerCharacter pc;
+    private final PlayerCharacter pc;
 
-	/**
-	 * Create a new instance of PlayerCharacterWasClosedMessage
-	 * @param source The object advising of the event.
-	 * @param pc The character that was closed.
-	 */
-	public PlayerCharacterWasClosedMessage(Object source, PlayerCharacter pc)
-	{
-		super(source);
-		this.pc = pc;
-	}
+    /**
+     * Create a new instance of PlayerCharacterWasClosedMessage
+     *
+     * @param source The object advising of the event.
+     * @param pc     The character that was closed.
+     */
+    public PlayerCharacterWasClosedMessage(Object source, PlayerCharacter pc)
+    {
+        super(source);
+        this.pc = pc;
+    }
 
-	/**
-	 * @return the character that was closed.
-	 */
-	public PlayerCharacter getPC()
-	{
-		return pc;
-	}
+    /**
+     * @return the character that was closed.
+     */
+    public PlayerCharacter getPC()
+    {
+        return pc;
+    }
 
 }

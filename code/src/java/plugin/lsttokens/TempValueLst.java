@@ -34,62 +34,62 @@ import pcgen.rules.persistence.token.ParseResult;
 public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "TEMPVALUE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TEMPVALUE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail(getTokenName() + " must have three | delimited arguments : " + value);
-		}
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		if (tok.countTokens() != 3)
-		{
-			return new ParseResult.Fail(getTokenName() + " requires three arguments, MIN=, MAX= and TITLE= : " + value);
-		}
-		if (!tok.nextToken().startsWith("MIN="))
-		{
-			return new ParseResult.Fail(getTokenName() + " first argument was not MIN=");
-		}
-		if (!tok.nextToken().startsWith("MAX="))
-		{
-			return new ParseResult.Fail(getTokenName() + " second argument was not MAX=");
-		}
-		if (!tok.nextToken().startsWith("TITLE="))
-		{
-			return new ParseResult.Fail(getTokenName() + " third argument was not TITLE=");
-		}
-		context.getObjectContext().put(obj, StringKey.TEMPVALUE, value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        int pipeLoc = value.indexOf(Constants.PIPE);
+        if (pipeLoc == -1)
+        {
+            return new ParseResult.Fail(getTokenName() + " must have three | delimited arguments : " + value);
+        }
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+        if (tok.countTokens() != 3)
+        {
+            return new ParseResult.Fail(getTokenName() + " requires three arguments, MIN=, MAX= and TITLE= : " + value);
+        }
+        if (!tok.nextToken().startsWith("MIN="))
+        {
+            return new ParseResult.Fail(getTokenName() + " first argument was not MIN=");
+        }
+        if (!tok.nextToken().startsWith("MAX="))
+        {
+            return new ParseResult.Fail(getTokenName() + " second argument was not MAX=");
+        }
+        if (!tok.nextToken().startsWith("TITLE="))
+        {
+            return new ParseResult.Fail(getTokenName() + " third argument was not TITLE=");
+        }
+        context.getObjectContext().put(obj, StringKey.TEMPVALUE, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		String tv = context.getObjectContext().getString(cdo, StringKey.TEMPVALUE);
-		if (tv == null)
-		{
-			return null;
-		}
-		return new String[]{tv};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject cdo)
+    {
+        String tv = context.getObjectContext().getString(cdo, StringKey.TEMPVALUE);
+        if (tv == null)
+        {
+            return null;
+        }
+        return new String[]{tv};
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
 }

@@ -1,20 +1,20 @@
 /*
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  */
 package pcgen.gui2.filter;
 
@@ -38,57 +38,57 @@ import org.apache.commons.lang3.StringUtils;
 public class FilterButton<C, E> extends JToggleButton implements DisplayableFilter<C, E>, ActionListener
 {
 
-	private FilterHandler filterHandler;
-	private Filter<C, E> filter;
-	private final PropertyContext filterContext;
+    private FilterHandler filterHandler;
+    private Filter<C, E> filter;
+    private final PropertyContext filterContext;
 
-	public FilterButton(String prefKey)
-	{
-		this(prefKey, false);
-	}
+    public FilterButton(String prefKey)
+    {
+        this(prefKey, false);
+    }
 
-	public FilterButton(String prefKey, boolean defaultSelectedState)
-	{
-		if (StringUtils.isEmpty(prefKey))
-		{
-			throw new NullPointerException("prefKey cannot be null");
-		}
-		addActionListener(this);
-		PropertyContext baseContext = UIPropertyContext.createContext("filterPrefs");
-		filterContext = baseContext.createChildContext(prefKey);
-		setSelected(filterContext.initBoolean("active", defaultSelectedState));
-	}
+    public FilterButton(String prefKey, boolean defaultSelectedState)
+    {
+        if (StringUtils.isEmpty(prefKey))
+        {
+            throw new NullPointerException("prefKey cannot be null");
+        }
+        addActionListener(this);
+        PropertyContext baseContext = UIPropertyContext.createContext("filterPrefs");
+        filterContext = baseContext.createChildContext(prefKey);
+        setSelected(filterContext.initBoolean("active", defaultSelectedState));
+    }
 
-	@Override
-	public Component getFilterComponent()
-	{
-		return this;
-	}
+    @Override
+    public Component getFilterComponent()
+    {
+        return this;
+    }
 
-	@Override
-	public void setFilterHandler(FilterHandler handler)
-	{
-		this.filterHandler = handler;
-	}
+    @Override
+    public void setFilterHandler(FilterHandler handler)
+    {
+        this.filterHandler = handler;
+    }
 
-	public void setFilter(Filter<C, E> filter)
-	{
-		this.filter = filter;
-	}
+    public void setFilter(Filter<C, E> filter)
+    {
+        this.filter = filter;
+    }
 
-	@Override
-	public boolean accept(C context, E element)
-	{
-		//if this button is not selected treat it as if
-		//this filter always accepts
-		return !isEnabled() || !isSelected() || filter.accept(context, element);
-	}
+    @Override
+    public boolean accept(C context, E element)
+    {
+        //if this button is not selected treat it as if
+        //this filter always accepts
+        return !isEnabled() || !isSelected() || filter.accept(context, element);
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		filterHandler.refilter();
-		filterContext.setBoolean("active", isSelected());
-	}
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        filterHandler.refilter();
+        filterContext.setBoolean("active", isSelected());
+    }
 
 }

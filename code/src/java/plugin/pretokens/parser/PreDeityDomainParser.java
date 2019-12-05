@@ -26,13 +26,14 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreDeityDomainParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"DEITYDOMAIN"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"DEITYDOMAIN"};
+    }
 }

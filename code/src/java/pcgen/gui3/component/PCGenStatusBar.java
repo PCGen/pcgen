@@ -36,54 +36,53 @@ import javafx.scene.text.Text;
  */
 public final class PCGenStatusBar extends HBox
 {
-	private final PCGenStatusBarModel model = new PCGenStatusBarModel();
+    private final PCGenStatusBarModel model = new PCGenStatusBarModel();
 
-	@FXML
-	private Text loadingLabel;
+    @FXML
+    private Text loadingLabel;
 
-	@FXML
-	private ProgressBar loadProgress;
+    @FXML
+    private ProgressBar loadProgress;
 
-	@FXML
-	private Label progressText;
+    @FXML
+    private Label progressText;
 
-	public PCGenStatusBar()
-	{
-		try
-		{
-			FXMLLoader loader = new FXMLLoader();
-			loader.setResources(LanguageBundle.getBundle());
-			loader.setController(this);
-			loader.setRoot(this);
-			loader.setLocation(getClass().getResource("PCGenStatusBar.fxml"));
-			loader.load();
-		}
-		catch (IOException e)
-		{
-			throw new IORuntimeException(e);
-		}
-	}
+    public PCGenStatusBar()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setResources(LanguageBundle.getBundle());
+            loader.setController(this);
+            loader.setRoot(this);
+            loader.setLocation(getClass().getResource("PCGenStatusBar.fxml"));
+            loader.load();
+        } catch (IOException e)
+        {
+            throw new IORuntimeException(e);
+        }
+    }
 
-	@FXML
-	void initialize()
-	{
-		loadingLabel.textProperty().bind(model.messageProperty());
-		loadProgress.progressProperty().bind(model.percentDoneProperty());
-		progressText.textProperty().bind(model.progressText());
-	}
+    @FXML
+    void initialize()
+    {
+        loadingLabel.textProperty().bind(model.messageProperty());
+        loadProgress.progressProperty().bind(model.percentDoneProperty());
+        progressText.textProperty().bind(model.progressText());
+    }
 
-	public void setProgress(String message, double progress)
-	{
-		setProgress(message, progress, String.format("%.0f%%", progress * 100));
-	}
+    public void setProgress(String message, double progress)
+    {
+        setProgress(message, progress, String.format("%.0f%%", progress * 100));
+    }
 
-	public void setProgress(String message, double progress, String progressText)
-	{
-		Platform.runLater(() -> {
-			model.messageProperty().setValue(message);
-			model.percentDoneProperty().setValue(progress);
-			model.progressText().setValue(progressText);
-		});
-	}
+    public void setProgress(String message, double progress, String progressText)
+    {
+        Platform.runLater(() -> {
+            model.messageProperty().setValue(message);
+            model.percentDoneProperty().setValue(progress);
+            model.progressText().setValue(progressText);
+        });
+    }
 
 }

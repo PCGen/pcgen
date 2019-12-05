@@ -17,8 +17,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *
- * 
- * 
+ *
+ *
  */
 package pcgen.persistence.lst.prereq;
 
@@ -33,24 +33,24 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class PreEquipTest extends EnUsLocaleDependentTestCase
 {
-	@Test
-	public void test1() throws Exception
-	{
-		PreEquipParser parser = new PreEquipParser();
-		// "|!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy";
+    @Test
+    public void test1() throws Exception
+    {
+        PreEquipParser parser = new PreEquipParser();
+        // "|!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy";
 
-		Prerequisite prereq =
-				parser.parse("EQUIP", "1,TYPE=Armor.Medium,TYPE=Armor.Heavy",
-					true, false);
+        Prerequisite prereq =
+                parser.parse("EQUIP", "1,TYPE=Armor.Medium,TYPE=Armor.Heavy",
+                        true, false);
 
-		assertEquals(
-			"<prereq operator=\"LT\" operand=\"1\" >\n"
-				+ "<prereq kind=\"equip\" count-multiples=\"true\" "
-					+ "key=\"TYPE=Armor.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"equip\" count-multiples=\"true\" "
-					+ "key=\"TYPE=Armor.Heavy\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq operator=\"LT\" operand=\"1\" >\n"
+                        + "<prereq kind=\"equip\" count-multiples=\"true\" "
+                        + "key=\"TYPE=Armor.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"equip\" count-multiples=\"true\" "
+                        + "key=\"TYPE=Armor.Heavy\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
 }

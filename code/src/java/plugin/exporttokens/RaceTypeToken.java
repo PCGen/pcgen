@@ -25,23 +25,23 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //RACETYPE
 public class RaceTypeToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "RACETYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "RACETYPE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("RACETYPE".equals(tokenSource))
-		{
-			retString = display.getRaceType();
-		}
+        if ("RACETYPE".equals(tokenSource))
+        {
+            retString = display.getRaceType();
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
 }

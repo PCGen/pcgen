@@ -36,110 +36,110 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Equipment Modifer Test 
+ * Equipment Modifer Test
  */
 class EquipmentModifierTest
 {
-	/**
-	 * Starts the system plugins.
-	 */
-	@BeforeEach
-	void setUp()
-	{
-		TestHelper.loadPlugins();
-	}
+    /**
+     * Starts the system plugins.
+     */
+    @BeforeEach
+    void setUp()
+    {
+        TestHelper.loadPlugins();
+    }
 
-	@AfterEach
-	void tearDown()
-	{
-		TokenRegistration.clearTokens();
-	}
+    @AfterEach
+    void tearDown()
+    {
+        TokenRegistration.clearTokens();
+    }
 
-	/**
-	 * Test +13
-	 */
-	@Test
-	void test885958A()
-	{
-		LoadContext context = Globals.getContext();
+    /**
+     * Test +13
+     */
+    @Test
+    void test885958A()
+    {
+        LoadContext context = Globals.getContext();
 
-		final CDOMObject eqMod = new EquipmentModifier();
-		final BonusObj aBonus =
-				Bonus.newBonus(context, "WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
-		eqMod.addToListFor(ListKey.BONUS, aBonus);
+        final CDOMObject eqMod = new EquipmentModifier();
+        final BonusObj aBonus =
+                Bonus.newBonus(context, "WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
+        eqMod.addToListFor(ListKey.BONUS, aBonus);
 
-		final Equipment e = new Equipment();
-		e.addAssociation(eqMod, "+13");
-		
-		for (BonusObj bonusObj : eqMod.getBonusList(e))
-		{
-			assertEquals("((+13)MIN(STR))", bonusObj.getValue());
-		}
-		assertEquals("((%CHOICE)MIN(STR))", aBonus.getValue());
-	}
+        final Equipment e = new Equipment();
+        e.addAssociation(eqMod, "+13");
 
-	/**
-	 * Test -2 and +13
-	 */
-	@Test
-	void test885958B()
-	{
-		LoadContext context = Globals.getContext();
+        for (BonusObj bonusObj : eqMod.getBonusList(e))
+        {
+            assertEquals("((+13)MIN(STR))", bonusObj.getValue());
+        }
+        assertEquals("((%CHOICE)MIN(STR))", aBonus.getValue());
+    }
 
-		final CDOMObject eqMod = new EquipmentModifier();
-		final BonusObj aBonus =
-				Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
+    /**
+     * Test -2 and +13
+     */
+    @Test
+    void test885958B()
+    {
+        LoadContext context = Globals.getContext();
 
-		final Equipment e = new Equipment();
-		
-		e.addAssociation(eqMod, "+13");
-		eqMod.addToListFor(ListKey.BONUS, aBonus);
+        final CDOMObject eqMod = new EquipmentModifier();
+        final BonusObj aBonus =
+                Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
 
-		for (BonusObj bonusObj : eqMod.getBonusList(e))
-		{
-			assertEquals("-2", bonusObj.getValue());
+        final Equipment e = new Equipment();
 
-			final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
-			assertEquals("+13", prereq.getKey());
-			assertEquals("STR", prereq.getOperand());
-		}
-		assertEquals("-2", aBonus.getValue());
-		final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);
-		assertEquals("%CHOICE", prereq.getKey());
-	}
+        e.addAssociation(eqMod, "+13");
+        eqMod.addToListFor(ListKey.BONUS, aBonus);
 
-	/**
-	 * Test the expansion of the %CHOICE in a prereq for a bonus. Note as the
-	 * options for the choice are processed in reverse order, we have to check the
-	 * values in reverse order.
-	 */
-	@Test
-	void testChoice()
-	{
-		LoadContext context = Globals.getContext();
+        for (BonusObj bonusObj : eqMod.getBonusList(e))
+        {
+            assertEquals("-2", bonusObj.getValue());
 
-		final CDOMObject eqMod = new EquipmentModifier();
-		final BonusObj aBonus =
-				Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
+            final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
+            assertEquals("+13", prereq.getKey());
+            assertEquals("STR", prereq.getOperand());
+        }
+        assertEquals("-2", aBonus.getValue());
+        final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);
+        assertEquals("%CHOICE", prereq.getKey());
+    }
 
-		final Equipment e = new Equipment();
+    /**
+     * Test the expansion of the %CHOICE in a prereq for a bonus. Note as the
+     * options for the choice are processed in reverse order, we have to check the
+     * values in reverse order.
+     */
+    @Test
+    void testChoice()
+    {
+        LoadContext context = Globals.getContext();
 
-		e.addAssociation(eqMod, "+1");
-		e.addAssociation(eqMod, "+2");
-		eqMod.addToListFor(ListKey.BONUS, aBonus);
+        final CDOMObject eqMod = new EquipmentModifier();
+        final BonusObj aBonus =
+                Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
 
-		final List<BonusObj> list = eqMod.getBonusList(e);
-		for (int j = list.size() - 1; j > 0; j--)
-		{
-			final BonusObj bonusObj = list.get(j);
-			assertEquals("-2", bonusObj.getValue());
+        final Equipment e = new Equipment();
 
-			final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
-			assertEquals("+" + (j + 1), prereq.getKey());
-			assertEquals("STR", prereq.getOperand());
-		}
-		assertEquals("-2", aBonus.getValue());
-		final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);
-		assertEquals("%CHOICE", prereq.getKey());
-	}
+        e.addAssociation(eqMod, "+1");
+        e.addAssociation(eqMod, "+2");
+        eqMod.addToListFor(ListKey.BONUS, aBonus);
+
+        final List<BonusObj> list = eqMod.getBonusList(e);
+        for (int j = list.size() - 1;j > 0;j--)
+        {
+            final BonusObj bonusObj = list.get(j);
+            assertEquals("-2", bonusObj.getValue());
+
+            final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
+            assertEquals("+" + (j + 1), prereq.getKey());
+            assertEquals("STR", prereq.getOperand());
+        }
+        assertEquals("-2", aBonus.getValue());
+        final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);
+        assertEquals("%CHOICE", prereq.getKey());
+    }
 }

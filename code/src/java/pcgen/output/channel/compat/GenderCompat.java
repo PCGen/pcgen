@@ -14,85 +14,83 @@ import pcgen.rules.context.LoadContext;
  */
 public final class GenderCompat
 {
-	
-	private GenderCompat()
-	{
-		//Do not instantiate utility class
-	}
 
-	private static final FormatManager<Gender> GENDER_MANAGER = new GenderManager();
+    private GenderCompat()
+    {
+        //Do not instantiate utility class
+    }
 
-	/**
-	 * Returns an array of the available Gender objects.
-	 * 
-	 * @return An array of the available Gender objects
-	 */
-	public static Gender[] getAvailableGenders()
-	{
-		return Gender.values();
-	}
+    private static final FormatManager<Gender> GENDER_MANAGER = new GenderManager();
 
-	/**
-	 * Returns an Indirect containing the Gender of the specified name.
-	 * 
-	 * @param context
-	 *            The LoadContext in which the Gender should be resolved
-	 * @param name
-	 *            The name of the Gender
-	 * @return An Indirect containing the Gender of the specified name
-	 */
-	public static Indirect<Gender> getGenderReference(LoadContext context, String name)
-	{
-		return GENDER_MANAGER.convertIndirect(name);
-	}
-	
-	/**
-	 * A (temporary) FormatManager for Gender to help with compatibility.
-	 */
-	private static class GenderManager implements FormatManager<Gender>
-	{
+    /**
+     * Returns an array of the available Gender objects.
+     *
+     * @return An array of the available Gender objects
+     */
+    public static Gender[] getAvailableGenders()
+    {
+        return Gender.values();
+    }
 
-		@Override
-		public Gender convert(String inputStr)
-		{
-			return Gender.getGenderByName(inputStr);
-		}
+    /**
+     * Returns an Indirect containing the Gender of the specified name.
+     *
+     * @param context The LoadContext in which the Gender should be resolved
+     * @param name    The name of the Gender
+     * @return An Indirect containing the Gender of the specified name
+     */
+    public static Indirect<Gender> getGenderReference(LoadContext context, String name)
+    {
+        return GENDER_MANAGER.convertIndirect(name);
+    }
 
-		@Override
-		public Indirect<Gender> convertIndirect(String inputStr)
-		{
-			return new BasicIndirect<>(GENDER_MANAGER, convert(inputStr));
-		}
+    /**
+     * A (temporary) FormatManager for Gender to help with compatibility.
+     */
+    private static class GenderManager implements FormatManager<Gender>
+    {
 
-		@Override
-		public boolean isDirect()
-		{
-			return true;
-		}
+        @Override
+        public Gender convert(String inputStr)
+        {
+            return Gender.getGenderByName(inputStr);
+        }
 
-		@Override
-		public String unconvert(Gender gender)
-		{
-			return gender.name();
-		}
+        @Override
+        public Indirect<Gender> convertIndirect(String inputStr)
+        {
+            return new BasicIndirect<>(GENDER_MANAGER, convert(inputStr));
+        }
 
-		@Override
-		public Class<Gender> getManagedClass()
-		{
-			return Gender.class;
-		}
+        @Override
+        public boolean isDirect()
+        {
+            return true;
+        }
 
-		@Override
-		public String getIdentifierType()
-		{
-			return "GENDER";
-		}
+        @Override
+        public String unconvert(Gender gender)
+        {
+            return gender.name();
+        }
 
-		@Override
-		public Optional<FormatManager<?>> getComponentManager()
-		{
-			return Optional.empty();
-		}
-		
-	}
+        @Override
+        public Class<Gender> getManagedClass()
+        {
+            return Gender.class;
+        }
+
+        @Override
+        public String getIdentifierType()
+        {
+            return "GENDER";
+        }
+
+        @Override
+        public Optional<FormatManager<?>> getComponentManager()
+        {
+            return Optional.empty();
+        }
+
+    }
 }

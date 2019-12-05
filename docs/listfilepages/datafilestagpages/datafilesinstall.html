@@ -1,634 +1,634 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-        PCGen Documentation Project
+<!--
+       PCGen Documentation Project
 
-        $Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilespcc.html,v 1.16 2006/02/18 15:02:00 eddyanthony Exp $
-        $Author: maredudd800 $
-        $Date: 2007-12-21 23:56:40 -0500 (Fri, 21 Dec 2007) $
-        $Revision: 4765 $
+       $Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilespcc.html,v 1.16 2006/02/18 15:02:00 eddyanthony Exp $
+       $Author: maredudd800 $
+       $Date: 2007-12-21 23:56:40 -0500 (Fri, 21 Dec 2007) $
+       $Revision: 4765 $
 
-        Contributors:
-        Eric C. Smith - mareduddATblackrootDOTorg
+       Contributors:
+       Eric C. Smith - mareduddATblackrootDOTorg
 
-        Description:
-        Provides information on the content of Out-of-Cycle Data Set files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   OOC Install Files
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Out-of-Cycle (OOC) Data Set Install Files
-  </h1>
-  <p class="indent0">
-   The OOC data set installation capability has
-been added to PCGen to allow for the distribution of those data
-sets released between stable releases. This page presents
-instructions for the creation of the OOC data set installation
-archive. You will also find the explanation of the tags required to
-create the
-   <em>
-    install.lst
-   </em>
-   file as well as an example install
-file. To accomplish this, this page is divided into three
-sections:
-  </p>
-  <p class="indent1">
-   <a href="#preparation">
-    OOC Data Set
-Preparation
-   </a>
-  </p>
-  <p class="indent1">
-   <a href="#installfiletags">
-    Data Set Installation
-Tags
-   </a>
-  </p>
-  <p class="indent1">
-   <a href="#example">
-    Example
+       Description:
+       Provides information on the content of Out-of-Cycle Data Set files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        OOC Install Files
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Out-of-Cycle (OOC) Data Set Install Files
+</h1>
+<p class="indent0">
+    The OOC data set installation capability has
+    been added to PCGen to allow for the distribution of those data
+    sets released between stable releases. This page presents
+    instructions for the creation of the OOC data set installation
+    archive. You will also find the explanation of the tags required to
+    create the
     <em>
-     install.lst
+        install.lst
     </em>
-    File
-   </a>
-  </p>
-  <p class="indent0">
-   For information on installing OOC data sets in
-PCGen go to the
-   <a href="../../menupages/tools/toolsinstalldataset.html">
-    Install Data Set
-Tool
-   </a>
-   page.
-  </p>
-  <hr/>
-  <a id="preparation" name="preparation">
-  </a>
-  <h2>
-   Data Set Preparation
-  </h2>
-  <p class="indent0">
-   The following are the steps required to prepare
-a data set for OOC release:
-  </p>
-  <ol class="indent1">
-   <li>
-    Create a data set as per PCGen's standard process, including
-all required reviews. (e.g. OGL, QC, and publisher.)
-   </li>
-   <li>
-    Create the
-    <em>
-     install.lst
-    </em>
-    file. (See
-    <a href="#example">
-     example
+    file as well as an example install
+    file. To accomplish this, this page is divided into three
+    sections:
+</p>
+<p class="indent1">
+    <a href="#preparation">
+        OOC Data Set
+        Preparation
     </a>
-    and
+</p>
+<p class="indent1">
     <a href="#installfiletags">
-     Tag
-Descriptions
+        Data Set Installation
+        Tags
     </a>
-    below.)
-   </li>
-   <li>
-    Create an installation folder, recreating a nested folder
-structure identical to that of the final PCGen installation
-location. The following are a few examples:
-    <ul>
-     <li>
-      TestDataSet/data/d20ogl/pcgen/testooc/
-     </li>
-     <li>
-      FooDataSet/data/alpha/foopublishing/foosetting/
-     </li>
-     <li>
-      BarDataSet/data/permissioned/bargames/barsupplement/
-     </li>
-     <li>
-      MyCampaignDataSet/data/homebrew/mycampaign/
-     </li>
-    </ul>
-   </li>
-   <li>
-    Place the OOC data set at the lowest folder level in the
-installation folder. (ie. in the
+</p>
+<p class="indent1">
+    <a href="#example">
+        Example
+        <em>
+            install.lst
+        </em>
+        File
+    </a>
+</p>
+<p class="indent0">
+    For information on installing OOC data sets in
+    PCGen go to the
+    <a href="../../menupages/tools/toolsinstalldataset.html">
+        Install Data Set
+        Tool
+    </a>
+    page.
+</p>
+<hr/>
+<a id="preparation" name="preparation">
+</a>
+<h2>
+    Data Set Preparation
+</h2>
+<p class="indent0">
+    The following are the steps required to prepare
+    a data set for OOC release:
+</p>
+<ol class="indent1">
+    <li>
+        Create a data set as per PCGen's standard process, including
+        all required reviews. (e.g. OGL, QC, and publisher.)
+    </li>
+    <li>
+        Create the
+        <em>
+            install.lst
+        </em>
+        file. (See
+        <a href="#example">
+            example
+        </a>
+        and
+        <a href="#installfiletags">
+            Tag
+            Descriptions
+        </a>
+        below.)
+    </li>
+    <li>
+        Create an installation folder, recreating a nested folder
+        structure identical to that of the final PCGen installation
+        location. The following are a few examples:
+        <ul>
+            <li>
+                TestDataSet/data/d20ogl/pcgen/testooc/
+            </li>
+            <li>
+                FooDataSet/data/alpha/foopublishing/foosetting/
+            </li>
+            <li>
+                BarDataSet/data/permissioned/bargames/barsupplement/
+            </li>
+            <li>
+                MyCampaignDataSet/data/homebrew/mycampaign/
+            </li>
+        </ul>
+    </li>
+    <li>
+        Place the OOC data set at the lowest folder level in the
+        installation folder. (ie. in the
+        <em>
+            testdoc
+        </em>
+        folder for the
+        first example above.)
+    </li>
+    <li>
+        Place the
+        <em>
+            install.lst
+        </em>
+        file in the top level folder.
+        (i.e. in the
+        <em>
+            TestDataSet
+        </em>
+        folder in the first example
+        above.)
+    </li>
+    <li>
+        Create a "ZIP" archive of the installation folder.
+    </li>
+    <li>
+        Change the name of the zip-file from
+        <em>
+            *.zip
+        </em>
+        to
+        <em>
+            *.pcz
+        </em>
+        .
+    </li>
+</ol>
+<p class="indent1">
+    The OOC data set is now ready for release.
+</p>
+<hr/>
+<a id="installfiletags" name="installfiletags">
+</a>
+<h2>
+    Data Set Installation Tags
+</h2>
+<p class="indent0">
+    The tags used in the
     <em>
-     testdoc
+        install.lst
     </em>
-    folder for the
-first example above.)
-   </li>
-   <li>
-    Place the
-    <em>
-     install.lst
-    </em>
-    file in the top level folder.
-(i.e. in the
-    <em>
-     TestDataSet
-    </em>
-    folder in the first example
-above.)
-   </li>
-   <li>
-    Create a "ZIP" archive of the installation folder.
-   </li>
-   <li>
-    Change the name of the zip-file from
-    <em>
-     *.zip
-    </em>
-    to
-    <em>
-     *.pcz
-    </em>
+    file
+    consist of three
+    <a href="#exclusivetags">
+        Exclusive
+    </a>
+    tags and a
+    handful of
+    <a href="#pcctags">
+        PCC tags
+    </a>
     .
-   </li>
-  </ol>
-  <p class="indent1">
-   The OOC data set is now ready for release.
-  </p>
-  <hr/>
-  <a id="installfiletags" name="installfiletags">
-  </a>
-  <h2>
-   Data Set Installation Tags
-  </h2>
-  <p class="indent0">
-   The tags used in the
-   <em>
-    install.lst
-   </em>
-   file
-consist of three
-   <a href="#exclusivetags">
-    Exclusive
-   </a>
-   tags and a
-handful of
-   <a href="#pcctags">
-    PCC tags
-   </a>
-   .
-  </p>
-  <hr/>
-  <a id="exclusivetags" name="exclusivetags">
-  </a>
-  <h3>
-   Exclusive Data Set Installation Tags
-  </h3>
-  <p class="indento">
-   The following three tags are used exclusively in
-the
-   <em>
-    install.lst
-   </em>
-   file.
-  </p>
-  <hr/>
-  <a id="minver" name="minver">
-  </a>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MINVER:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Version number)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Mandatory tag specifying the minimum version of PCGen that will
-support his dataset.
-   </li>
-   <li>
-    Normally this will be based on tags supported in the version of
-PCGen.
-   </li>
-   <li>
-    For the source to be installed by PCGen, the version of PCGen
-in use must be equal to or greater than this version.
-   </li>
-   <li>
-    e.g. a MINVER:5.14.1 value would mean that the source could not
-be installed by 5.14.0, but could be installed by 5.14.1 or
-5.16.0
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MINVER:5.14.1</code>
-  </p>
-  <p class="indent3">
-   This dataset requires PCGen prodiction version
-5.14.1 or later.
-  </p>
-  <hr/>
-  <a id="mindevver" name="mindevver">
-  </a>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MINDEVVER:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Version number)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Optional tag specifying the minimum development version of
-PCGen that will support this dataset, where this is later than the
-production version.
-   </li>
-   <li>
-    This would be used where a tag was added partway through a dev
-cycle and then retrofitted to the next patch release of PCGen.
-   </li>
-   <li>
-    For the source to be installed by PCGen, the version of PCGen
-must either:
-    <ul class="tagindent0">
-     <li>
-      Have an even minor version (as in 5.x.y, where x is even
-indicating a production release) and be greater than or equal to
-the MINVER value; or
-     </li>
-     <li>
-      Have an odd minor version (as in 5.x.y, where x is odd
-indicating a development release) and be greater than or equal to
-the MINDEVVER value.
-     </li>
-     <li>
-      e.g. Given
-      <code>MINVER:5.14.1</code>
-      and
-      <code>MINDEVVER:5.15.3</code>
-      , the source could not be installed by
-5.15.2, but could be installed by 5.14.1 or 5.15.3
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MINDEVVER:5.15.2</code>
-  </p>
-  <p class="indent3">
-   This dataset requires PCGen developer version
-5.15.2 or later.
-  </p>
-  <hr/>
-  <a id="dest" name="dest">
-  </a>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   DEST:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (DATA
-or VENDORDATA)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The recommended install path for the source.
-   </li>
-   <li>
-    Sources installed in the Data folder will be replaced in the
-next release of PCGen.
-   </li>
-   <li>
-    Sources installed in Vendor Data will be retained through an
-upgrade process.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DEST:DATA</code>
-  </p>
-  <p class="indent3">
-   The dataset will be installed within the DATA
-folder in PCGen.
-  </p>
-  <hr/>
-  <a id="pcctags" name="pcctags">
-  </a>
-  <h3>
-   Additional Source and Header Information Tags
-  </h3>
-  <p class="indent0">
-   The following tags are used in the
-   <em>
-    *.pcc
-   </em>
-   file and are therefore documented as part of the PCC
-file documentation.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#campaign">
-    CAMPAIGN:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CAMPAIGN:FGI - FooB Core Rulebook I -
-FHB</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#copyright">
-    COPYRIGHT:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>COPYRIGHT:PCGen OGC dataset Copyright
-2006, PCGen Data team (Including, but not limited to Eddy Anthony
-(MoSaT), Andrew McDougall (Tir Gwaith)).</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#infotext">
-    INFOTEXT:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>INFOTEXT:PCGen Open Gaming Content objects
-are detailed in the PCGen documentation under the Source Help
-section</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#pubnamelong">
-    PUBNAMELONG:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PUBNAMELONG:PCGen Open Source
-Team</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#pubnameshort">
-    PUBNAMESHORT:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PUBNAMESHORT:PCGen</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#pubnameweb">
-    PUBNAMEWEB:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PUBNAMEWEB:http://pcgen.org/</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#sourcelong">
-    SOURCELONG:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SOURCELONG:PCGen Test Out of Cycle
-Releases</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#sourceshort">
-    SOURCESHORT:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SOURCESHORT:PCGen TOCC</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#sourceweb">
-    SOURCEWEB:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SOURCEWEB:http://pcgen.org/</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   <a href="datafilespcc.html#sourcedate">
-    SOURCEDATE:x
-   </a>
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SOURCEDATE:2007-12</code>
-  </p>
-  <hr/>
-  <a id="example" name="example">
-  </a>
-  <h2>
-   Example Install File
-  </h2>
-  <p class="indent0">
-   The following is an example of an
-   <em>
-    install.lst
-   </em>
-   file.
-  </p>
-  <blockquote class="indent2">
-   <p class="tagindent1">
-    <code>CAMPAIGN:PCGen Test OCC</code>
-   </p>
-   <p class="tagindent1">
+</p>
+<hr/>
+<a id="exclusivetags" name="exclusivetags">
+</a>
+<h3>
+    Exclusive Data Set Installation Tags
+</h3>
+<p class="indento">
+    The following three tags are used exclusively in
+    the
+    <em>
+        install.lst
+    </em>
+    file.
+</p>
+<hr/>
+<a id="minver" name="minver">
+</a>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MINVER:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Version number)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Mandatory tag specifying the minimum version of PCGen that will
+        support his dataset.
+    </li>
+    <li>
+        Normally this will be based on tags supported in the version of
+        PCGen.
+    </li>
+    <li>
+        For the source to be installed by PCGen, the version of PCGen
+        in use must be equal to or greater than this version.
+    </li>
+    <li>
+        e.g. a MINVER:5.14.1 value would mean that the source could not
+        be installed by 5.14.0, but could be installed by 5.14.1 or
+        5.16.0
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
     <code>MINVER:5.14.1</code>
-   </p>
-   <p class="tagindent1">
-    <code>MINDEVVER: 5.15.2</code>
-   </p>
-   <p class="tagindent1">
-    <code>DEST:VENDORDATA</code>
-   </p>
-   <p class="tagindent1">
-    <code>COPYRIGHT:Open Game License v 1.0a
-Copyright 2000, Wizards of the Coast, Inc.</code>
-   </p>
-   <p class="tagindent1">
-    <code>COPYRIGHT:System Reference Document
-Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan
-Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David
-Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas
-Reid, James Wyatt, based on original material by E. Gary Gygax and
-Dave Arneson.</code>
-   </p>
-   <p class="tagindent1">
+</p>
+<p class="indent3">
+    This dataset requires PCGen prodiction version
+    5.14.1 or later.
+</p>
+<hr/>
+<a id="mindevver" name="mindevver">
+</a>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MINDEVVER:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Version number)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Optional tag specifying the minimum development version of
+        PCGen that will support this dataset, where this is later than the
+        production version.
+    </li>
+    <li>
+        This would be used where a tag was added partway through a dev
+        cycle and then retrofitted to the next patch release of PCGen.
+    </li>
+    <li>
+        For the source to be installed by PCGen, the version of PCGen
+        must either:
+        <ul class="tagindent0">
+            <li>
+                Have an even minor version (as in 5.x.y, where x is even
+                indicating a production release) and be greater than or equal to
+                the MINVER value; or
+            </li>
+            <li>
+                Have an odd minor version (as in 5.x.y, where x is odd
+                indicating a development release) and be greater than or equal to
+                the MINDEVVER value.
+            </li>
+            <li>
+                e.g. Given
+                <code>MINVER:5.14.1</code>
+                and
+                <code>MINDEVVER:5.15.3</code>
+                , the source could not be installed by
+                5.15.2, but could be installed by 5.14.1 or 5.15.3
+            </li>
+        </ul>
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MINDEVVER:5.15.2</code>
+</p>
+<p class="indent3">
+    This dataset requires PCGen developer version
+    5.15.2 or later.
+</p>
+<hr/>
+<a id="dest" name="dest">
+</a>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    DEST:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (DATA
+    or VENDORDATA)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The recommended install path for the source.
+    </li>
+    <li>
+        Sources installed in the Data folder will be replaced in the
+        next release of PCGen.
+    </li>
+    <li>
+        Sources installed in Vendor Data will be retained through an
+        upgrade process.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DEST:DATA</code>
+</p>
+<p class="indent3">
+    The dataset will be installed within the DATA
+    folder in PCGen.
+</p>
+<hr/>
+<a id="pcctags" name="pcctags">
+</a>
+<h3>
+    Additional Source and Header Information Tags
+</h3>
+<p class="indent0">
+    The following tags are used in the
+    <em>
+        *.pcc
+    </em>
+    file and are therefore documented as part of the PCC
+    file documentation.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#campaign">
+        CAMPAIGN:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CAMPAIGN:FGI - FooB Core Rulebook I -
+        FHB</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#copyright">
+        COPYRIGHT:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
     <code>COPYRIGHT:PCGen OGC dataset Copyright
-2006, PCGen Data team (Including, but not limited to Eddy Anthony
-(MoSaT), Andrew McDougall (Tir Gwaith)).</code>
-   </p>
-   <p class="tagindent1">
-    <code>INFOTEXT:PCGen Open Gaming Content
-objects are detailed in the PCGen documentation under the Source
-Help section</code>
-   </p>
-   <p class="tagindent1">
-    <code>SOURCELONG:PCGen Test Out of Cycle
-Releases</code>
-   </p>
-   <p class="tagindent1">
-    <code>SOURCESHORT:PCGen TOCC</code>
-   </p>
-   <p class="tagindent1">
-    <code>SOURCEWEB:http://pcgen.org/</code>
-   </p>
-   <p class="tagindent1">
-    <code>SOURCEDATE:2007-12</code>
-   </p>
-   <p class="tagindent1">
+        2006, PCGen Data team (Including, but not limited to Eddy Anthony
+        (MoSaT), Andrew McDougall (Tir Gwaith)).</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#infotext">
+        INFOTEXT:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>INFOTEXT:PCGen Open Gaming Content objects
+        are detailed in the PCGen documentation under the Source Help
+        section</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#pubnamelong">
+        PUBNAMELONG:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
     <code>PUBNAMELONG:PCGen Open Source
-Team</code>
-   </p>
-   <p class="tagindent1">
+        Team</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#pubnameshort">
+        PUBNAMESHORT:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
     <code>PUBNAMESHORT:PCGen</code>
-   </p>
-   <p class="tagindent1">
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#pubnameweb">
+        PUBNAMEWEB:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
     <code>PUBNAMEWEB:http://pcgen.org/</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-  </p>
- </body>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#sourcelong">
+        SOURCELONG:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SOURCELONG:PCGen Test Out of Cycle
+        Releases</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#sourceshort">
+        SOURCESHORT:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SOURCESHORT:PCGen TOCC</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#sourceweb">
+        SOURCEWEB:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SOURCEWEB:http://pcgen.org/</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    <a href="datafilespcc.html#sourcedate">
+        SOURCEDATE:x
+    </a>
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SOURCEDATE:2007-12</code>
+</p>
+<hr/>
+<a id="example" name="example">
+</a>
+<h2>
+    Example Install File
+</h2>
+<p class="indent0">
+    The following is an example of an
+    <em>
+        install.lst
+    </em>
+    file.
+</p>
+<blockquote class="indent2">
+    <p class="tagindent1">
+        <code>CAMPAIGN:PCGen Test OCC</code>
+    </p>
+    <p class="tagindent1">
+        <code>MINVER:5.14.1</code>
+    </p>
+    <p class="tagindent1">
+        <code>MINDEVVER: 5.15.2</code>
+    </p>
+    <p class="tagindent1">
+        <code>DEST:VENDORDATA</code>
+    </p>
+    <p class="tagindent1">
+        <code>COPYRIGHT:Open Game License v 1.0a
+            Copyright 2000, Wizards of the Coast, Inc.</code>
+    </p>
+    <p class="tagindent1">
+        <code>COPYRIGHT:System Reference Document
+            Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan
+            Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David
+            Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas
+            Reid, James Wyatt, based on original material by E. Gary Gygax and
+            Dave Arneson.</code>
+    </p>
+    <p class="tagindent1">
+        <code>COPYRIGHT:PCGen OGC dataset Copyright
+            2006, PCGen Data team (Including, but not limited to Eddy Anthony
+            (MoSaT), Andrew McDougall (Tir Gwaith)).</code>
+    </p>
+    <p class="tagindent1">
+        <code>INFOTEXT:PCGen Open Gaming Content
+            objects are detailed in the PCGen documentation under the Source
+            Help section</code>
+    </p>
+    <p class="tagindent1">
+        <code>SOURCELONG:PCGen Test Out of Cycle
+            Releases</code>
+    </p>
+    <p class="tagindent1">
+        <code>SOURCESHORT:PCGen TOCC</code>
+    </p>
+    <p class="tagindent1">
+        <code>SOURCEWEB:http://pcgen.org/</code>
+    </p>
+    <p class="tagindent1">
+        <code>SOURCEDATE:2007-12</code>
+    </p>
+    <p class="tagindent1">
+        <code>PUBNAMELONG:PCGen Open Source
+            Team</code>
+    </p>
+    <p class="tagindent1">
+        <code>PUBNAMESHORT:PCGen</code>
+    </p>
+    <p class="tagindent1">
+        <code>PUBNAMEWEB:http://pcgen.org/</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+</p>
+</body>
 </html>

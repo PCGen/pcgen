@@ -29,33 +29,33 @@ import pcgen.system.LanguageBundle;
 public class PreLegsTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal;
-		try
-		{
-			final int targetLegs = Integer.parseInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal;
+        try
+        {
+            final int targetLegs = Integer.parseInt(prereq.getOperand());
 
-			runningTotal = prereq.getOperator().compare(display.getPreFormulaLegs(), targetLegs);
-		}
-		catch (NumberFormatException nfe)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreLegs.error.bad_operand", prereq.getOperand()), nfe); //$NON-NLS-1$
-		}
-		return countedTotal(prereq, runningTotal);
-	}
+            runningTotal = prereq.getOperator().compare(display.getPreFormulaLegs(), targetLegs);
+        } catch (NumberFormatException nfe)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreLegs.error.bad_operand", prereq.getOperand()), nfe); //$NON-NLS-1$
+        }
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "LEGS"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "LEGS"; //$NON-NLS-1$
+    }
 
 }

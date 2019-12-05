@@ -28,15 +28,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class BirthdayToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "BIRTHDAY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BIRTHDAY";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getSafeStringFor(PCStringKey.BIRTHDAY);
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getSafeStringFor(PCStringKey.BIRTHDAY);
+    }
 }

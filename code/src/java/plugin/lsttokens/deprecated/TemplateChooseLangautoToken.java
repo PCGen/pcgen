@@ -25,68 +25,68 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class TemplateChooseLangautoToken extends AbstractTokenWithSeparator<PCTemplate>
-		implements CDOMCompatibilityToken<PCTemplate>
+        implements CDOMCompatibilityToken<PCTemplate>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "CHOOSE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CHOOSE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate template, String value)
-	{
-		if (!value.startsWith("LANGAUTO|"))
-		{
-			return new ParseResult.Fail("Incompatible with CHOOSE:LANGAUTO replacement in Template");
-		}
-		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, " + "please use CHOOSE:LANG and AUTO:LANG|%LIST");
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate template, String value)
+    {
+        if (!value.startsWith("LANGAUTO|"))
+        {
+            return new ParseResult.Fail("Incompatible with CHOOSE:LANGAUTO replacement in Template");
+        }
+        Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, " + "please use CHOOSE:LANG and AUTO:LANG|%LIST");
 
-			if (!context.processToken(template, "CHOOSE", "LANG|" + value.substring(9)))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG");
-			}
+        if (!context.processToken(template, "CHOOSE", "LANG|" + value.substring(9)))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG");
+        }
 
 
-			if (!context.processToken(template, "AUTO", "LANG|%LIST"))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
-			}
+        if (!context.processToken(template, "AUTO", "LANG|%LIST"))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public Class<PCTemplate> getTokenClass()
-	{
-		return PCTemplate.class;
-	}
+    @Override
+    public Class<PCTemplate> getTokenClass()
+    {
+        return PCTemplate.class;
+    }
 
-	@Override
-	public int compatibilityLevel()
-	{
-		return 6;
-	}
+    @Override
+    public int compatibilityLevel()
+    {
+        return 6;
+    }
 
-	@Override
-	public int compatibilitySubLevel()
-	{
-		return 4;
-	}
+    @Override
+    public int compatibilitySubLevel()
+    {
+        return 4;
+    }
 
-	@Override
-	public int compatibilityPriority()
-	{
-		return 14;
-	}
+    @Override
+    public int compatibilityPriority()
+    {
+        return 14;
+    }
 
 }

@@ -31,39 +31,40 @@ import pcgen.system.LanguageBundle;
 public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        int runningTotal = 0;
 
-		Deity deity = display.getDeity();
-		if (deity != null)
-		{
-			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
-			{
-				runningTotal++;
-			}
-		}
-		return countedTotal(prereq, runningTotal);
-	}
+        Deity deity = display.getDeity();
+        if (deity != null)
+        {
+            if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().getReferenceContext()
+                    .silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
+            {
+                runningTotal++;
+            }
+        }
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "DEITYDOMAIN"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "DEITYDOMAIN"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString(
-			"PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
-			prereq.getKey());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString(
+                "PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+                prereq.getKey());
+    }
 
 }

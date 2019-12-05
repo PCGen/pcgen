@@ -14,25 +14,24 @@ import pcgen.util.Logging;
 public class ClasstypeToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "CLASSTYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CLASSTYPE";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
-			methodLoader.parseLine(gameMode.getModeContext(), value, source);
-			return true;
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getMessage());
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
+            methodLoader.parseLine(gameMode.getModeContext(), value, source);
+            return true;
+        } catch (Exception e)
+        {
+            Logging.errorPrint(e.getMessage());
+            return false;
+        }
+    }
 }

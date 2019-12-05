@@ -29,71 +29,72 @@ import pcgen.io.exporttoken.Token;
  */
 public class TempBonusToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "TEMPBONUS";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "TEMPBONUS";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		if (aTok.hasMoreTokens())
-		{
-			int tempIndex = 0;
+        if (aTok.hasMoreTokens())
+        {
+            int tempIndex = 0;
 
-			try
-			{
-				tempIndex = Integer.parseInt(aTok.nextToken());
-			}
-			catch (NumberFormatException ne)
-			{
-				// Weird
-			}
+            try
+            {
+                tempIndex = Integer.parseInt(aTok.nextToken());
+            } catch (NumberFormatException ne)
+            {
+                // Weird
+            }
 
-			String subToken = (aTok.hasMoreTokens()) ? aTok.nextToken() : "NAME";
+            String subToken = (aTok.hasMoreTokens()) ? aTok.nextToken() : "NAME";
 
-			if ("NAME".equals(subToken))
-			{
-				retString = getNameToken(pc, tempIndex);
-			}
-			else if ("DESC".equals(subToken))
-			{
-				retString = getDescToken(pc, tempIndex);
-			}
-		}
+            if ("NAME".equals(subToken))
+            {
+                retString = getNameToken(pc, tempIndex);
+            } else if ("DESC".equals(subToken))
+            {
+                retString = getDescToken(pc, tempIndex);
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the indicated TEMPBONUS value if present.
-	 * @param pc
-	 * @param tempIndex
-	 * @return the TEMPBONUS value or empty string
-	 */
-	public static String getNameToken(PlayerCharacter pc, int tempIndex)
-	{
-		if (tempIndex >= pc.getNamedTempBonusList().size())
-		{
-			return "";
-		}
-		return pc.getNamedTempBonusList().get(tempIndex);
-	}
+    /**
+     * Get the indicated TEMPBONUS value if present.
+     *
+     * @param pc
+     * @param tempIndex
+     * @return the TEMPBONUS value or empty string
+     */
+    public static String getNameToken(PlayerCharacter pc, int tempIndex)
+    {
+        if (tempIndex >= pc.getNamedTempBonusList().size())
+        {
+            return "";
+        }
+        return pc.getNamedTempBonusList().get(tempIndex);
+    }
 
-	public static String getDescToken(PlayerCharacter pc, int tempIndex)
-	{
-		if (tempIndex >= pc.getNamedTempBonusDescList().size())
-		{
-			return "";
-		}
-		return pc.getNamedTempBonusDescList().get(tempIndex);
-	}
+    public static String getDescToken(PlayerCharacter pc, int tempIndex)
+    {
+        if (tempIndex >= pc.getNamedTempBonusDescList().size())
+        {
+            return "";
+        }
+        return pc.getNamedTempBonusDescList().get(tempIndex);
+    }
 }

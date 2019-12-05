@@ -26,33 +26,33 @@ import pcgen.core.PCStat;
  */
 public final class PCLevelInfoStat implements Serializable
 {
-	private final PCStat stat;
-	private int mod = 0;
+    private final PCStat stat;
+    private int mod = 0;
 
-	PCLevelInfoStat(final PCStat pcstat, final int argMod)
-	{
-		stat = pcstat;
-		mod = argMod;
-	}
+    PCLevelInfoStat(final PCStat pcstat, final int argMod)
+    {
+        stat = pcstat;
+        mod = argMod;
+    }
 
-	@Override
-	public String toString()
-	{
-		return stat.getKeyName() + "=" + Integer.toString(mod);
-	}
+    @Override
+    public String toString()
+    {
+        return stat.getKeyName() + "=" + Integer.toString(mod);
+    }
 
-	public PCStat getStat()
-	{
-		return stat;
-	}
+    public PCStat getStat()
+    {
+        return stat;
+    }
 
-	public int getStatMod()
-	{
-		return mod;
-	}
+    public int getStatMod()
+    {
+        return mod;
+    }
 
-	void modifyStat(final int argMod)
-	{
-		mod += argMod;
-	}
+    void modifyStat(final int argMod)
+    {
+        mod += argMod;
+    }
 }

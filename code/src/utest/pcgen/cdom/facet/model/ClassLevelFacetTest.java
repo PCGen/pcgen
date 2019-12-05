@@ -23,25 +23,25 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 
 public class ClassLevelFacetTest extends
-		AbstractSourcedListFacetTest<PCClassLevel>
+        AbstractSourcedListFacetTest<PCClassLevel>
 {
 
-	private ClassLevelFacet facet = new ClassLevelFacet();
+    private ClassLevelFacet facet = new ClassLevelFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, PCClassLevel> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, PCClassLevel> getFacet()
+    {
+        return facet;
+    }
 
-	public static int n = 0;
+    public static int n = 0;
 
-	@Override
-	protected PCClassLevel getObject()
-	{
-		PCClassLevel wp = new PCClassLevel();
-		wp.setName("WP" + n++);
-		return wp;
-	}
+    @Override
+    protected PCClassLevel getObject()
+    {
+        PCClassLevel wp = new PCClassLevel();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 
 }

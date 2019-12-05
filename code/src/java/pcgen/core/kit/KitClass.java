@@ -37,138 +37,138 @@ import pcgen.gui2.UIPropertyContext;
  */
 public class KitClass extends BaseKit
 {
-	private CDOMSingleRef<PCClass> pcClass;
-	private Formula levelFormula;
-	private CDOMReference<SubClass> subClass;
+    private CDOMSingleRef<PCClass> pcClass;
+    private Formula levelFormula;
+    private CDOMReference<SubClass> subClass;
 
-	// These members store the state of an instance of this class.  They are
-	// not cloned.
-	private PCClass theClass = null;
-	private String theOrigSubClass = null;
-	private int theLevel = -1;
-	private boolean doLevelAbilities = true;
+    // These members store the state of an instance of this class.  They are
+    // not cloned.
+    private PCClass theClass = null;
+    private String theOrigSubClass = null;
+    private int theLevel = -1;
+    private boolean doLevelAbilities = true;
 
-	@Override
-	public String toString()
-	{
-		StringBuilder ret = new StringBuilder(100);
-		ret.append(pcClass.getLSTformat(false));
-		if (subClass != null)
-		{
-			ret.append("(").append(subClass.getLSTformat(false)).append(")");
-		}
-		ret.append(levelFormula);
-		return ret.toString();
-	}
+    @Override
+    public String toString()
+    {
+        StringBuilder ret = new StringBuilder(100);
+        ret.append(pcClass.getLSTformat(false));
+        if (subClass != null)
+        {
+            ret.append("(").append(subClass.getLSTformat(false)).append(")");
+        }
+        ret.append(levelFormula);
+        return ret.toString();
+    }
 
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		theLevel = -1;
-		doLevelAbilities = true;
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        theLevel = -1;
+        doLevelAbilities = true;
 
-		theClass = pcClass.get();
+        theClass = pcClass.get();
 
-		theOrigSubClass = aPC.getSubClassName(theClass);
-		applySubClass(aPC);
+        theOrigSubClass = aPC.getSubClassName(theClass);
+        applySubClass(aPC);
 
-		if (!PrereqHandler.passesAll(theClass, aPC, aKit))
-		{
-			PrereqHandler.toHtmlString(theClass.getPrerequisiteList());
-			warnings.add("CLASS: Not qualified for class \"" + theClass.getKeyName() + "\".");
-			return false;
-		}
+        if (!PrereqHandler.passesAll(theClass, aPC, aKit))
+        {
+            PrereqHandler.toHtmlString(theClass.getPrerequisiteList());
+            warnings.add("CLASS: Not qualified for class \"" + theClass.getKeyName() + "\".");
+            return false;
+        }
 
-		doLevelAbilities = aKit.doLevelAbilities();
+        doLevelAbilities = aKit.doLevelAbilities();
 
-		// Temporarily increase the PCs level.
-		theLevel = levelFormula.resolve(aPC, "").intValue();
-		addLevel(aPC, theLevel, theClass, doLevelAbilities);
+        // Temporarily increase the PCs level.
+        theLevel = levelFormula.resolve(aPC, "").intValue();
+        addLevel(aPC, theLevel, theClass, doLevelAbilities);
 
-		return true;
-	}
+        return true;
+    }
 
-	private void applySubClass(PlayerCharacter aPC)
-	{
-		if (subClass != null)
-		{
-			// Ensure the character has the class
-			PCClass heldClass = aPC.getClassKeyed(theClass.getKeyName());
-			if (heldClass == null)
-			{
-				aPC.incrementClassLevel(0, theClass);
-				heldClass = aPC.getClassKeyed(theClass.getKeyName());
-			}
+    private void applySubClass(PlayerCharacter aPC)
+    {
+        if (subClass != null)
+        {
+            // Ensure the character has the class
+            PCClass heldClass = aPC.getClassKeyed(theClass.getKeyName());
+            if (heldClass == null)
+            {
+                aPC.incrementClassLevel(0, theClass);
+                heldClass = aPC.getClassKeyed(theClass.getKeyName());
+            }
 
-			// try and set a subclass too.
-			SubClassApplication.setSubClassKey(aPC, heldClass, getSubClass().getLSTformat(false));
-		}
-	}
+            // try and set a subclass too.
+            SubClassApplication.setSubClassKey(aPC, heldClass, getSubClass().getLSTformat(false));
+        }
+    }
 
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		applySubClass(aPC);
-		addLevel(aPC, theLevel, theClass, doLevelAbilities);
-		if (theOrigSubClass != null)
-		{
-			SubClassApplication.setSubClassKey(aPC, theClass, theOrigSubClass);
-		}
-		theClass = null;
-	}
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        applySubClass(aPC);
+        addLevel(aPC, theLevel, theClass, doLevelAbilities);
+        if (theOrigSubClass != null)
+        {
+            SubClassApplication.setSubClassKey(aPC, theClass, theOrigSubClass);
+        }
+        theClass = null;
+    }
 
-	private void addLevel(final PlayerCharacter pc, final int numLevels, final PCClass aClass,
-		final boolean doLevelAbilitiesIn)
-	{
-		// We want to level up as quietly as possible for kits.
-		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
-		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		//		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-		int tempChoicePref = UIPropertyContext.getSingleChoiceAction();
-		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
+    private void addLevel(final PlayerCharacter pc, final int numLevels, final PCClass aClass,
+            final boolean doLevelAbilitiesIn)
+    {
+        // We want to level up as quietly as possible for kits.
+        boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+        SettingsHandler.setShowHPDialogAtLevelUp(false);
+        //		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
+        int tempChoicePref = UIPropertyContext.getSingleChoiceAction();
+        UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
-		boolean tempDoLevelAbilities = pc.doLevelAbilities();
-		pc.setDoLevelAbilities(doLevelAbilitiesIn);
-		pc.incrementClassLevel(numLevels, aClass, true);
-		pc.setDoLevelAbilities(tempDoLevelAbilities);
+        boolean tempDoLevelAbilities = pc.doLevelAbilities();
+        pc.setDoLevelAbilities(doLevelAbilitiesIn);
+        pc.incrementClassLevel(numLevels, aClass, true);
+        pc.setDoLevelAbilities(tempDoLevelAbilities);
 
-		UIPropertyContext.setSingleChoiceAction(tempChoicePref);
-		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
-	}
+        UIPropertyContext.setSingleChoiceAction(tempChoicePref);
+        SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Classes";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Classes";
+    }
 
-	public void setPcclass(CDOMSingleRef<PCClass> ref)
-	{
-		pcClass = ref;
-	}
+    public void setPcclass(CDOMSingleRef<PCClass> ref)
+    {
+        pcClass = ref;
+    }
 
-	public CDOMReference<PCClass> getPcclass()
-	{
-		return pcClass;
-	}
+    public CDOMReference<PCClass> getPcclass()
+    {
+        return pcClass;
+    }
 
-	public void setLevel(Formula formula)
-	{
-		levelFormula = formula;
-	}
+    public void setLevel(Formula formula)
+    {
+        levelFormula = formula;
+    }
 
-	public Formula getLevel()
-	{
-		return levelFormula;
-	}
+    public Formula getLevel()
+    {
+        return levelFormula;
+    }
 
-	public void setSubClass(CDOMReference<SubClass> sc)
-	{
-		subClass = sc;
-	}
+    public void setSubClass(CDOMReference<SubClass> sc)
+    {
+        subClass = sc;
+    }
 
-	public CDOMReference<SubClass> getSubClass()
-	{
-		return subClass;
-	}
+    public CDOMReference<SubClass> getSubClass()
+    {
+        return subClass;
+    }
 }

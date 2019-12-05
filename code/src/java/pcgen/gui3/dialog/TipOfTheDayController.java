@@ -38,76 +38,76 @@ import javafx.scene.web.WebView;
 public class TipOfTheDayController
 {
 
-	private static final PropertyContext PROPERTY_CONTEXT = UIPropertyContext.createContext("TipOfTheDay");
+    private static final PropertyContext PROPERTY_CONTEXT = UIPropertyContext.createContext("TipOfTheDay");
 
-	@FXML
-	private CheckBox showTips;
+    @FXML
+    private CheckBox showTips;
 
-	private static final String HTML_START =
-			"<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
-	private static final String HTML_END = "</body></html>";
-	private final TipOfTheDayHandler tipHandler = TipOfTheDayHandler.getInstance();
-	@FXML
-	private WebView browser;
+    private static final String HTML_START =
+            "<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
+    private static final String HTML_END = "</body></html>";
+    private final TipOfTheDayHandler tipHandler = TipOfTheDayHandler.getInstance();
+    @FXML
+    private WebView browser;
 
-	@FXML
-	void initialize()
-	{
-		// ideally, this should be become a bindable "BeanProperty" rather than
-		// a changeListener based construct.
-		showTips.setSelected(
-			PROPERTY_CONTEXT.initBoolean("showTipOfTheDay", true)
-		);
-		showTips.selectedProperty().addListener((ov, old_val, new_val) -> PROPERTY_CONTEXT.setBoolean("showTipOfTheDay", showTips.isSelected()));
-		showNextTip();
-	}
+    @FXML
+    void initialize()
+    {
+        // ideally, this should be become a bindable "BeanProperty" rather than
+        // a changeListener based construct.
+        showTips.setSelected(
+                PROPERTY_CONTEXT.initBoolean("showTipOfTheDay", true)
+        );
+        showTips.selectedProperty().addListener((ov, old_val, new_val) -> PROPERTY_CONTEXT.setBoolean("showTipOfTheDay", showTips.isSelected()));
+        showNextTip();
+    }
 
-	@FXML
-	private void onClose(final ActionEvent actionEvent)
-	{
-		var button = (Button)actionEvent.getSource();
-		button.getScene().getWindow().hide();
-	}
+    @FXML
+    private void onClose(final ActionEvent actionEvent)
+    {
+        var button = (Button) actionEvent.getSource();
+        button.getScene().getWindow().hide();
+    }
 
-	@FXML
-	private void onNextTip(final ActionEvent actionEvent)
-	{
-		showNextTip();
-	}
+    @FXML
+    private void onNextTip(final ActionEvent actionEvent)
+    {
+        showNextTip();
+    }
 
-	@FXML
-	private void onPrevTip(final ActionEvent actionEvent)
-	{
-		showPrevTip();
-	}
+    @FXML
+    private void onPrevTip(final ActionEvent actionEvent)
+    {
+        showPrevTip();
+    }
 
-	private void showNextTip()
-	{
-		if (tipHandler.hasTips())
-		{
-			showTip(tipHandler.getNextTip());
-		}
-	}
+    private void showNextTip()
+    {
+        if (tipHandler.hasTips())
+        {
+            showTip(tipHandler.getNextTip());
+        }
+    }
 
-	private void showPrevTip()
-	{
-		if (tipHandler.hasTips())
-		{
-			showTip(tipHandler.getPrevTip());
-		}
-	}
+    private void showPrevTip()
+    {
+        if (tipHandler.hasTips())
+        {
+            showTip(tipHandler.getPrevTip());
+        }
+    }
 
-	private void showTip(final String tip)
-	{
-		GuiAssertions.assertIsJavaFXThread();
-		browser.getEngine().loadContent(buildTipText(tip));
-	}
+    private void showTip(final String tip)
+    {
+        GuiAssertions.assertIsJavaFXThread();
+        browser.getEngine().loadContent(buildTipText(tip));
+    }
 
-	private String buildTipText(String tip)
-	{
-		return String.format("%s%s%s", HTML_START,
-				LanguageBundle.getFormattedString("in_tod_tipDisplay",
-						Integer.toString(tipHandler.getLastNumber() + 1), tip),
-				HTML_END);
-	}
+    private String buildTipText(String tip)
+    {
+        return String.format("%s%s%s", HTML_START,
+                LanguageBundle.getFormattedString("in_tod_tipDisplay",
+                        Integer.toString(tipHandler.getLastNumber() + 1), tip),
+                HTML_END);
+    }
 }

@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -34,58 +34,58 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 
 public class SpellcasterTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, PCClass>
+        AbstractPrimitiveTokenTestCase<CDOMObject, PCClass>
 {
 
-	static ChooseLst token = new ChooseLst();
-	static ClassToken subtoken = new ClassToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+    static ChooseLst token = new ChooseLst();
+    static ClassToken subtoken = new ClassToken();
+    static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
-	private static final SpellcasterToken SPELLCASTER_PRIMITIVE = new SpellcasterToken();
+    private static final SpellcasterToken SPELLCASTER_PRIMITIVE = new SpellcasterToken();
 
-	public SpellcasterTokenTest()
-	{
-		super("SPELLCASTER", null);
-	}
+    public SpellcasterTokenTest()
+    {
+        super("SPELLCASTER", null);
+    }
 
-	@BeforeEach
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(SPELLCASTER_PRIMITIVE);
-		primaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
-		secondaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws PersistenceLayerException, URISyntaxException
+    {
+        super.setUp();
+        TokenRegistration.register(SPELLCASTER_PRIMITIVE);
+        primaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
+        secondaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
+    }
 
-	@Override
-	public CDOMSecondaryToken<?> getSubToken()
-	{
-		return subtoken;
-	}
+    @Override
+    public CDOMSecondaryToken<?> getSubToken()
+    {
+        return subtoken;
+    }
 
-	@Override
-	public Class<PCClass> getTargetClass()
-	{
-		return PCClass.class;
-	}
+    @Override
+    public Class<PCClass> getTargetClass()
+    {
+        return PCClass.class;
+    }
 
-	@Override
-	public Class<Race> getCDOMClass()
-	{
-		return Race.class;
-	}
+    @Override
+    public Class<Race> getCDOMClass()
+    {
+        return Race.class;
+    }
 
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
+    @Override
+    public CDOMLoader<CDOMObject> getLoader()
+    {
+        return loader;
+    }
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getToken()
+    {
+        return token;
+    }
 
 }

@@ -43,102 +43,102 @@ import org.junit.jupiter.api.Test;
  */
 public class PreCheckTest extends AbstractCharacterTestCase
 {
-	PCClass myClass = new PCClass();
+    PCClass myClass = new PCClass();
 
-	/**
-	 * Test that Base Checks work.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testBase() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(1, myClass, true);
+    /**
+     * Test that Base Checks work.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testBase() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(1, myClass, true);
 
-		character.calcActiveBonuses();
+        character.calcActiveBonuses();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRECHECK:1,Fortitude=0");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PRECHECK:1,Fortitude=0");
 
-		assertTrue("Character's Fort save should be 0", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character's Fort save should be 0", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PRECHECK:1,Will=2");
+        prereq = factory.parse("PRECHECK:1,Will=2");
 
-		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PRECHECK:1,Fortitude=1,Will=2");
-		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
-			prereq, character, null));
-		prereq = factory.parse("PRECHECK:2,Fortitude=1,Will=2");
-		assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        prereq = factory.parse("PRECHECK:1,Fortitude=1,Will=2");
+        assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+                prereq, character, null));
+        prereq = factory.parse("PRECHECK:2,Fortitude=1,Will=2");
+        assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
+                character, null));
+    }
 
-	@Test
-	public void testBonus() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
-		LoadContext context = Globals.getContext();
+    @Test
+    public void testBonus() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
+        LoadContext context = Globals.getContext();
 
-		final BonusObj fortBonus = Bonus.newBonus(context, "SAVE|Fortitude|1");
-		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortBonus);
+        final BonusObj fortBonus = Bonus.newBonus(context, "SAVE|Fortitude|1");
+        myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortBonus);
 
-		character.incrementClassLevel(1, myClass, true);
+        character.incrementClassLevel(1, myClass, true);
 
-		character.calcActiveBonuses();
+        character.calcActiveBonuses();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRECHECK:1,Fortitude=1");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PRECHECK:1,Fortitude=1");
 
-		assertTrue("Character's Fort save should be 1", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character's Fort save should be 1", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PRECHECK:1,Will=2");
+        prereq = factory.parse("PRECHECK:1,Will=2");
 
-		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PRECHECK:1,Fortitude=1,Will=3");
-		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
-			prereq, character, null));
-		prereq = factory.parse("PRECHECK:2,Fortitude=2,Will=2");
-		assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        prereq = factory.parse("PRECHECK:1,Fortitude=1,Will=3");
+        assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+                prereq, character, null));
+        prereq = factory.parse("PRECHECK:2,Fortitude=2,Will=2");
+        assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
+                character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		LoadContext context = Globals.getContext();
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        LoadContext context = Globals.getContext();
 
-		PCCheck obj = new PCCheck();
-		obj.setName("Fortitude");
-		Globals.getContext().getReferenceContext().importObject(obj);
+        PCCheck obj = new PCCheck();
+        obj.setName("Fortitude");
+        Globals.getContext().getReferenceContext().importObject(obj);
 
-		obj = new PCCheck();
-		obj.setName("Reflex");
-		Globals.getContext().getReferenceContext().importObject(obj);
+        obj = new PCCheck();
+        obj.setName("Reflex");
+        Globals.getContext().getReferenceContext().importObject(obj);
 
-		obj = new PCCheck();
-		obj.setName("Will");
-		Globals.getContext().getReferenceContext().importObject(obj);
+        obj = new PCCheck();
+        obj.setName("Will");
+        Globals.getContext().getReferenceContext().importObject(obj);
 
-		myClass.setName("My Class");
-		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj fortRefBonus =
-				Bonus.newBonus(context, "SAVE|BASE.Fortitude,BASE.Reflex|CL/3");
-		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortRefBonus);
-		final BonusObj willBonus = Bonus.newBonus(context, "SAVE|BASE.Will|CL/2+2");
-		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, willBonus);
-		Globals.getContext().getReferenceContext().importObject(myClass);
-	}
+        myClass.setName("My Class");
+        myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
+        final BonusObj fortRefBonus =
+                Bonus.newBonus(context, "SAVE|BASE.Fortitude,BASE.Reflex|CL/3");
+        myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortRefBonus);
+        final BonusObj willBonus = Bonus.newBonus(context, "SAVE|BASE.Will|CL/2+2");
+        myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, willBonus);
+        Globals.getContext().getReferenceContext().importObject(myClass);
+    }
 }

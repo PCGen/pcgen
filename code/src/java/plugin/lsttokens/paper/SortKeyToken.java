@@ -32,77 +32,76 @@ import pcgen.util.Logging;
 /**
  * Processes the SORTKEY token for PaperInfo objects (Game Mode), loading it
  * into the SortKey field of the PaperInfo.
- * 
+ * <p>
  * Note: While the intent is the same, this is necessary as a separate token
  * from the "Global" SortKey since PaperInfo does not extend CDOMObject.
  */
 public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo>
-		implements CDOMPrimaryToken<PaperInfo>, PostValidationToken<PaperInfo>
+        implements CDOMPrimaryToken<PaperInfo>, PostValidationToken<PaperInfo>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SORTKEY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SORTKEY";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
-	{
-		pi.setSortKey(value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
+    {
+        pi.setSortKey(value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PaperInfo pi)
-	{
-		String info = pi.getSortKey();
-		if (info == null)
-		{
-			// Probably an error
-			return null;
-		}
-		return new String[]{info};
-	}
+    @Override
+    public String[] unparse(LoadContext context, PaperInfo pi)
+    {
+        String info = pi.getSortKey();
+        if (info == null)
+        {
+            // Probably an error
+            return null;
+        }
+        return new String[]{info};
+    }
 
-	@Override
-	public Class<PaperInfo> getTokenClass()
-	{
-		return PaperInfo.class;
-	}
+    @Override
+    public Class<PaperInfo> getTokenClass()
+    {
+        return PaperInfo.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, Collection<? extends PaperInfo> c)
-	{
-		boolean returnValue = true;
-		Map<String, PaperInfo> keys = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-		for (PaperInfo pi : c)
-		{
-			String keyName = pi.getKeyName();
-			if (keyName == null)
-			{
-				Logging.errorPrint("PaperInfo: " + pi.getDisplayName() + " requires a SortKey, but was null", context);
-				returnValue = false;
-			}
-			else if (keys.put(keyName, pi) != null)
-			{
-				Logging.errorPrint("Found more than one PaperInfo with (case insensitive) Sort Key: " + keyName,
-					context);
-				returnValue = false;
-			}
-		}
-		return returnValue;
-	}
+    @Override
+    public boolean process(LoadContext context, Collection<? extends PaperInfo> c)
+    {
+        boolean returnValue = true;
+        Map<String, PaperInfo> keys = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        for (PaperInfo pi : c)
+        {
+            String keyName = pi.getKeyName();
+            if (keyName == null)
+            {
+                Logging.errorPrint("PaperInfo: " + pi.getDisplayName() + " requires a SortKey, but was null", context);
+                returnValue = false;
+            } else if (keys.put(keyName, pi) != null)
+            {
+                Logging.errorPrint("Found more than one PaperInfo with (case insensitive) Sort Key: " + keyName,
+                        context);
+                returnValue = false;
+            }
+        }
+        return returnValue;
+    }
 
-	@Override
-	public Class<PaperInfo> getValidationTokenClass()
-	{
-		return PaperInfo.class;
-	}
+    @Override
+    public Class<PaperInfo> getValidationTokenClass()
+    {
+        return PaperInfo.class;
+    }
 
-	@Override
-	public int getPriority()
-	{
-		return 0;
-	}
+    @Override
+    public int getPriority()
+    {
+        return 0;
+    }
 }

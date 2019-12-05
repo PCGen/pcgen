@@ -29,57 +29,55 @@ import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.util.Logging;
 
 /**
- * This class handles the INFOSHEET game mode token. The token allows a 
- * game mode specific information output sheet to be specified that will be 
- * displayed on the summary tab when editing a character. 
- *
- * 
+ * This class handles the INFOSHEET game mode token. The token allows a
+ * game mode specific information output sheet to be specified that will be
+ * displayed on the summary tab when editing a character.
  */
 public class OutputSheetToken implements GameModeLstToken
 {
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		String[] tokens = value.split("\\|");
-		List<String> validTags = new ArrayList<>(Arrays.asList("HTM", "PDF", "TXT"));
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        String[] tokens = value.split("\\|");
+        List<String> validTags = new ArrayList<>(Arrays.asList("HTM", "PDF", "TXT"));
 
-		if (tokens.length == 2)
-		{
-			if (tokens[0].equals("DIRECTORY"))
-			{
-				gameMode.setOutputSheetDirectory(tokens[1]);
-				return true;
-			}
-			if (tokens[0].startsWith("DEFAULT."))
-			{
-				String[] subtokens = tokens[0].split("\\.");
-				if (subtokens.length == 2)
-				{
-					if (validTags.contains(subtokens[1]))
-					{
-						gameMode.setOutputSheetDefault(subtokens[1], tokens[1]);
-						return true;
-					}
-					Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName() + Constants.COLON + value
-						+ ". Invalid DEFAULT.x subtoken" + " in " + source.toString());
-					return false;
-				}
-			}
-		}
-		Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName() + Constants.COLON + value
-			+ ". Expected OUTPUTSHEET:DIRECTORY|x or OUTPUTSHEET:DEFAULT.x|y " + " in " + source.toString());
-		return false;
+        if (tokens.length == 2)
+        {
+            if (tokens[0].equals("DIRECTORY"))
+            {
+                gameMode.setOutputSheetDirectory(tokens[1]);
+                return true;
+            }
+            if (tokens[0].startsWith("DEFAULT."))
+            {
+                String[] subtokens = tokens[0].split("\\.");
+                if (subtokens.length == 2)
+                {
+                    if (validTags.contains(subtokens[1]))
+                    {
+                        gameMode.setOutputSheetDefault(subtokens[1], tokens[1]);
+                        return true;
+                    }
+                    Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName() + Constants.COLON + value
+                            + ". Invalid DEFAULT.x subtoken" + " in " + source.toString());
+                    return false;
+                }
+            }
+        }
+        Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName() + Constants.COLON + value
+                + ". Expected OUTPUTSHEET:DIRECTORY|x or OUTPUTSHEET:DEFAULT.x|y " + " in " + source.toString());
+        return false;
 
-	}
+    }
 
-	/**
-	 * Returns the name of the token this class handles.
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "OUTPUTSHEET"; //$NON-NLS-1$
-	}
+    /**
+     * Returns the name of the token this class handles.
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "OUTPUTSHEET"; //$NON-NLS-1$
+    }
 
 }

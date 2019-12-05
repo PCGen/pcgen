@@ -33,44 +33,42 @@ import pcgen.facade.core.UIDelegate;
 
 public class ShowMessageGuiObserver implements Observer
 {
-	private final UIDelegate uiDelegate;
+    private final UIDelegate uiDelegate;
 
-	public ShowMessageGuiObserver(UIDelegate uiDelegate)
-	{
-		this.uiDelegate = uiDelegate;
-	}
+    public ShowMessageGuiObserver(UIDelegate uiDelegate)
+    {
+        this.uiDelegate = uiDelegate;
+    }
 
-	@Override
-	public void update(Observable o, Object arg)
-	{
-		if (arg instanceof MessageWrapper)
-		{
-			showMessageDialog((MessageWrapper) arg);
-		}
-	}
+    @Override
+    public void update(Observable o, Object arg)
+    {
+        if (arg instanceof MessageWrapper)
+        {
+            showMessageDialog((MessageWrapper) arg);
+        }
+    }
 
-	public void showMessageDialog(MessageWrapper messageWrapper)
-	{
-		MessageType mt = messageWrapper.getMessageType();
-		String title = messageWrapper.getTitle();
-		if (title == null)
-		{
-			title = Constants.APPLICATION_NAME;
-		}
+    public void showMessageDialog(MessageWrapper messageWrapper)
+    {
+        MessageType mt = messageWrapper.getMessageType();
+        String title = messageWrapper.getTitle();
+        if (title == null)
+        {
+            title = Constants.APPLICATION_NAME;
+        }
 
-		String message = String.valueOf(messageWrapper.getMessage());
-		if (mt.equals(MessageType.WARNING))
-		{
-			uiDelegate.showWarningMessage(title, message);
-		}
-		else if (mt.equals(MessageType.ERROR))
-		{
-			uiDelegate.showErrorMessage(title, message);
-		}
-		else
-		{
-			uiDelegate.showInfoMessage(title, message);
-		}
-	}
+        String message = String.valueOf(messageWrapper.getMessage());
+        if (mt.equals(MessageType.WARNING))
+        {
+            uiDelegate.showWarningMessage(title, message);
+        } else if (mt.equals(MessageType.ERROR))
+        {
+            uiDelegate.showErrorMessage(title, message);
+        } else
+        {
+            uiDelegate.showInfoMessage(title, message);
+        }
+    }
 
 }

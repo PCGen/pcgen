@@ -1,18 +1,18 @@
 <assembly>
-  <id>docs</id>
-  <formats>
-      <format>zip</format>
-  </formats>
-  <includeBaseDirectory>false</includeBaseDirectory>
-  <includeSiteDirectory>false</includeSiteDirectory>
-  <fileSets>
-    <fileSet>
-      <directory></directory>
-      <filtered>false</filtered>
-      <outputDirectory>/</outputDirectory>
-      <includes>
-        <include>docs/**</include>
-      </includes>
-    </fileSet>
-  </fileSets>
+    <id>docs</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <includeSiteDirectory>false</includeSiteDirectory>
+    <fileSets>
+        <fileSet>
+            <directory></directory>
+            <filtered>false</filtered>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>docs/**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
 </assembly>

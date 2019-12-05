@@ -29,50 +29,53 @@ import pcgen.util.Logging;
  */
 public final class HP extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"BONUS", "CURRENTMAX", "CURRENTMAXPERLEVEL", "ALTHP"};
+    private static final String[] BONUS_TAGS = {"BONUS", "CURRENTMAX", "CURRENTMAXPERLEVEL", "ALTHP"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "HP";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "HP";
+    }
 
-	/**
-	 * Get by index, an individual hit point attribute that may be bonused.
-	 * @param tagNumber the index of the hit point attribute.
-	 * @return The hit point attribute.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual hit point attribute that may be bonused.
+     *
+     * @param tagNumber the index of the hit point attribute.
+     * @return The hit point attribute.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of hit point attributes that may be bonused.
-	 * @return The number of hit point attributes.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of hit point attributes that may be bonused.
+     *
+     * @return The number of hit point attributes.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 
-	@Override
-	protected boolean parseToken(LoadContext context, String token)
-	{
-		if (ControlUtilities.hasControlToken(context, CControl.ALTHP))
-		{
-			if ("ALTHP".equals(token))
-			{
-				Logging.errorPrint("BONUS:HP|ALTHP is disabled when ALTHP control is used: " + token, context);
-				return false;
-			}
-		}
-		return super.parseToken(context, token);
-	}
+    @Override
+    protected boolean parseToken(LoadContext context, String token)
+    {
+        if (ControlUtilities.hasControlToken(context, CControl.ALTHP))
+        {
+            if ("ALTHP".equals(token))
+            {
+                Logging.errorPrint("BONUS:HP|ALTHP is disabled when ALTHP control is used: " + token, context);
+                return false;
+            }
+        }
+        return super.parseToken(context, token);
+    }
 }

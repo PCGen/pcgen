@@ -31,160 +31,160 @@ import org.junit.jupiter.api.Test;
 class PCGVer2ParserTest
 {
 
-	@Test
-	public void test_1045596_1() throws PCGParseException
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
+    @Test
+    public void test_1045596_1() throws PCGParseException
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
 
-		parser.parseVersionLine("VERSION:5.7.1");
+        parser.parseVersionLine("VERSION:5.7.1");
 
-		int[] version = parser.getPcgenVersion();
-		String suffix = parser.getPcgenVersionSuffix();
+        int[] version = parser.getPcgenVersion();
+        String suffix = parser.getPcgenVersionSuffix();
 
-		assertEquals(3, version.length);
-		assertEquals(5, version[0]);
-		assertEquals(7, version[1]);
-		assertEquals(1, version[2]);
-		assertNull(suffix);
-	}
+        assertEquals(3, version.length);
+        assertEquals(5, version[0]);
+        assertEquals(7, version[1]);
+        assertEquals(1, version[2]);
+        assertNull(suffix);
+    }
 
-	@Test
-	public void test_1045596_2() throws PCGParseException
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
+    @Test
+    public void test_1045596_2() throws PCGParseException
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
 
-		parser.parseVersionLine("VERSION:5-7-1");
+        parser.parseVersionLine("VERSION:5-7-1");
 
-		int[] version = parser.getPcgenVersion();
-		String suffix = parser.getPcgenVersionSuffix();
+        int[] version = parser.getPcgenVersion();
+        String suffix = parser.getPcgenVersionSuffix();
 
-		assertEquals(3, version.length);
-		assertEquals(5, version[0]);
-		assertEquals(7, version[1]);
-		assertEquals(1, version[2]);
-		assertNull(suffix);
-	}
+        assertEquals(3, version.length);
+        assertEquals(5, version[0]);
+        assertEquals(7, version[1]);
+        assertEquals(1, version[2]);
+        assertNull(suffix);
+    }
 
-	@Test
-	public void test_1045596_3() throws PCGParseException
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
+    @Test
+    public void test_1045596_3() throws PCGParseException
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
 
-		parser.parseVersionLine("VERSION:5 7 1");
+        parser.parseVersionLine("VERSION:5 7 1");
 
-		int[] version = parser.getPcgenVersion();
-		String suffix = parser.getPcgenVersionSuffix();
+        int[] version = parser.getPcgenVersion();
+        String suffix = parser.getPcgenVersionSuffix();
 
-		assertEquals(3, version.length);
-		assertEquals(5, version[0]);
-		assertEquals(7, version[1]);
-		assertEquals(1, version[2]);
-		assertNull(suffix);
-	}
+        assertEquals(3, version.length);
+        assertEquals(5, version[0]);
+        assertEquals(7, version[1]);
+        assertEquals(1, version[2]);
+        assertNull(suffix);
+    }
 
-	@Test
-	public void test_1045596_4() throws PCGParseException
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
+    @Test
+    public void test_1045596_4() throws PCGParseException
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
 
-		parser.parseVersionLine("VERSION:5.7.1 RC1");
+        parser.parseVersionLine("VERSION:5.7.1 RC1");
 
-		int[] version = parser.getPcgenVersion();
-		String suffix = parser.getPcgenVersionSuffix();
+        int[] version = parser.getPcgenVersion();
+        String suffix = parser.getPcgenVersionSuffix();
 
-		assertEquals(3, version.length);
-		assertEquals(5, version[0]);
-		assertEquals(7, version[1]);
-		assertEquals(1, version[2]);
-		assertEquals("RC1", suffix);
-	}
+        assertEquals(3, version.length);
+        assertEquals(5, version[0]);
+        assertEquals(7, version[1]);
+        assertEquals(1, version[2]);
+        assertEquals("RC1", suffix);
+    }
 
-	@Test
-	public void test_1045596_5() throws PCGParseException
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
+    @Test
+    public void test_1045596_5() throws PCGParseException
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
 
-		parser.parseVersionLine("VERSION:5.7.1.autobuild.20041119-18:00");
+        parser.parseVersionLine("VERSION:5.7.1.autobuild.20041119-18:00");
 
-		int[] version = parser.getPcgenVersion();
-		String suffix = parser.getPcgenVersionSuffix();
+        int[] version = parser.getPcgenVersion();
+        String suffix = parser.getPcgenVersionSuffix();
 
-		assertEquals(3, version.length);
-		assertEquals(5, version[0]);
-		assertEquals(7, version[1]);
-		assertEquals(1, version[2]);
-		assertEquals("autobuild.20041119-18:00", suffix);
-	}
+        assertEquals(3, version.length);
+        assertEquals(5, version[0]);
+        assertEquals(7, version[1]);
+        assertEquals(1, version[2]);
+        assertEquals("autobuild.20041119-18:00", suffix);
+    }
 
-	@Test
-	public void test_1045596_6()
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
-		PCGParseException pcgParseException =
-				assertThrows(PCGParseException.class, () -> parser.parseVersionLine("5.7.1"));
-		assertEquals("Not a Version Line.", pcgParseException.getMessage());
-	}
+    @Test
+    public void test_1045596_6()
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
+        PCGParseException pcgParseException =
+                assertThrows(PCGParseException.class, () -> parser.parseVersionLine("5.7.1"));
+        assertEquals("Not a Version Line.", pcgParseException.getMessage());
+    }
 
-	@Test
-	public void test_1045596_7()
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
-		PCGParseException pcgParseException =
-				assertThrows(PCGParseException.class, () -> parser.parseVersionLine("VERSION:5.7.1RC1"));
-		assertEquals("Invalid PCGen version.", pcgParseException.getMessage());
-	}
+    @Test
+    public void test_1045596_7()
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
+        PCGParseException pcgParseException =
+                assertThrows(PCGParseException.class, () -> parser.parseVersionLine("VERSION:5.7.1RC1"));
+        assertEquals("Invalid PCGen version.", pcgParseException.getMessage());
+    }
 
-	/**
-	 * Test parsing of version line for broken 5.12RC1 version number.
-	 *
-	 * @throws PCGParseException the PCG parse exception
-	 */
-	@Test
-	public void test_1045596_8() throws PCGParseException
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
+    /**
+     * Test parsing of version line for broken 5.12RC1 version number.
+     *
+     * @throws PCGParseException the PCG parse exception
+     */
+    @Test
+    public void test_1045596_8() throws PCGParseException
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
 
-		parser.parseVersionLine("VERSION:5.12 RC1");
-		
-		int[] version = parser.getPcgenVersion();
-		String suffix = parser.getPcgenVersionSuffix();
+        parser.parseVersionLine("VERSION:5.12 RC1");
 
-		assertEquals(3, version.length);
-		assertEquals(5, version[0]);
-		assertEquals(12, version[1]);
-		assertEquals(0, version[2]);
-		assertEquals("RC1", suffix);
-	}
+        int[] version = parser.getPcgenVersion();
+        String suffix = parser.getPcgenVersionSuffix();
+
+        assertEquals(3, version.length);
+        assertEquals(5, version[0]);
+        assertEquals(12, version[1]);
+        assertEquals(0, version[2]);
+        assertEquals("RC1", suffix);
+    }
 
 
-	/**
-	 * Test that the currently specified version can be parsed.
-	 *
-	 * @throws PCGParseException the PCG parse exception
-	 */
-	@Test
-	public void testCurrVersion() throws PCGParseException
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
+    /**
+     * Test that the currently specified version can be parsed.
+     *
+     * @throws PCGParseException the PCG parse exception
+     */
+    @Test
+    public void testCurrVersion() throws PCGParseException
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
 
-		parser.parseVersionLine("VERSION:" + PCGenPropBundle.getVersionNumber());
+        parser.parseVersionLine("VERSION:" + PCGenPropBundle.getVersionNumber());
 
-		int[] version = parser.getPcgenVersion();
+        int[] version = parser.getPcgenVersion();
 
-		MatcherAssert.assertThat("version length is correct", version.length, is(3));
-	}
-	
-	@Test
-	public void testCompareVersionTo() throws PCGParseException
-	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
+        MatcherAssert.assertThat("version length is correct", version.length, is(3));
+    }
 
-		parser.parseVersionLine("VERSION:5.13.6");
-		assertEquals(0, parser
-			.compareVersionTo(new int[]{5, 13, 6}), "Check of a matching version");
-		assertEquals(-1, parser
-			.compareVersionTo(new int[]{5, 13, 7}), "Check of an earlier version");
-		assertEquals(1, parser
-			.compareVersionTo(new int[]{5, 13, 5}), "Check of a later version");
-	}
+    @Test
+    public void testCompareVersionTo() throws PCGParseException
+    {
+        PCGVer2Parser parser = new PCGVer2Parser(null);
+
+        parser.parseVersionLine("VERSION:5.13.6");
+        assertEquals(0, parser
+                .compareVersionTo(new int[]{5, 13, 6}), "Check of a matching version");
+        assertEquals(-1, parser
+                .compareVersionTo(new int[]{5, 13, 7}), "Check of an earlier version");
+        assertEquals(1, parser
+                .compareVersionTo(new int[]{5, 13, 5}), "Check of a later version");
+    }
 }

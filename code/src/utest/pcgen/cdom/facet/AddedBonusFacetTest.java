@@ -33,31 +33,31 @@ import org.junit.jupiter.api.BeforeEach;
 public class AddedBonusFacetTest extends AbstractSourcedListFacetTest<BonusObj>
 {
 
-	private AddedBonusFacet facet = new AddedBonusFacet();
+    private AddedBonusFacet facet = new AddedBonusFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, BonusObj> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, BonusObj> getFacet()
+    {
+        return facet;
+    }
 
-	private LoadContext context;
+    private LoadContext context;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		context =
-				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
-					new ConsolidatedListCommitStrategy());
-		addBonus(Combat.class);
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        context =
+                new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+                        new ConsolidatedListCommitStrategy());
+        addBonus(Combat.class);
 
-	}
+    }
 
-	@Override
-	protected BonusObj getObject()
-	{
-		return Bonus.newBonus(context, "COMBAT|AC|2");
-	}
+    @Override
+    protected BonusObj getObject()
+    {
+        return Bonus.newBonus(context, "COMBAT|AC|2");
+    }
 }

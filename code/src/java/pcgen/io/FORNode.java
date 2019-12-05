@@ -23,96 +23,102 @@ import java.util.List;
 
 /**
  * {@code FORNode}.
- *
  */
 final class FORNode
 {
-	private List<Object> children;
-	private String max;
-	private String min;
-	private String step;
-	private String var;
-	private boolean exists;
+    private List<Object> children;
+    private String max;
+    private String min;
+    private String step;
+    private String var;
+    private boolean exists;
 
-	/**
-	 * Constructor
-	 * 
-	 * @param _var
-	 * @param _min
-	 * @param _max
-	 * @param _step
-	 * @param _exists
-	 */
-	FORNode(String _var, String _min, String _max, String _step, boolean _exists)
-	{
-		children = new ArrayList<>();
-		var = _var;
-		min = _min;
-		max = _max;
-		step = _step;
-		exists = _exists;
-	}
+    /**
+     * Constructor
+     *
+     * @param _var
+     * @param _min
+     * @param _max
+     * @param _step
+     * @param _exists
+     */
+    FORNode(String _var, String _min, String _max, String _step, boolean _exists)
+    {
+        children = new ArrayList<>();
+        var = _var;
+        min = _min;
+        max = _max;
+        step = _step;
+        exists = _exists;
+    }
 
-	/**
-	 * Add a child
-	 * @param child
-	 */
-	public void addChild(Object child)
-	{
-		children.add(child);
-	}
+    /**
+     * Add a child
+     *
+     * @param child
+     */
+    public void addChild(Object child)
+    {
+        children.add(child);
+    }
 
-	/**
-	 * Return the children of this node
-	 * @return the children of this node
-	 */
-	public List<?> children()
-	{
-		return children;
-	}
+    /**
+     * Return the children of this node
+     *
+     * @return the children of this node
+     */
+    public List<?> children()
+    {
+        return children;
+    }
 
-	/**
-	 * Return TRUE if exists
-	 * @return TRUE if exists
-	 */
-	public boolean exists()
-	{
-		return exists;
-	}
+    /**
+     * Return TRUE if exists
+     *
+     * @return TRUE if exists
+     */
+    public boolean exists()
+    {
+        return exists;
+    }
 
-	/**
-	 * Return max
-	 * @return max
-	 */
-	public String max()
-	{
-		return max;
-	}
+    /**
+     * Return max
+     *
+     * @return max
+     */
+    public String max()
+    {
+        return max;
+    }
 
-	/**
-	 * Return min
-	 * @return min
-	 */
-	public String min()
-	{
-		return min;
-	}
+    /**
+     * Return min
+     *
+     * @return min
+     */
+    public String min()
+    {
+        return min;
+    }
 
-	/**
-	 * Return step
-	 * @return step
-	 */
-	public String step()
-	{
-		return step;
-	}
+    /**
+     * Return step
+     *
+     * @return step
+     */
+    public String step()
+    {
+        return step;
+    }
 
-	/**
-	 * Return var
-	 * @return var
-	 */
-	public String var()
-	{
-		return var;
-	}
+    /**
+     * Return var
+     *
+     * @return var
+     */
+    public String var()
+    {
+        return var;
+    }
 }

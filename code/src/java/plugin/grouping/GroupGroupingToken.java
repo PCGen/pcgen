@@ -31,111 +31,107 @@ import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 /**
  * GroupGroupingToken parses the "GROUP=x" Grouping to be able to create an appropriate
  * GroupingCollection.
- * 
- * @param <T>
- *            The Format of the object type returned during processing by this
+ *
+ * @param <T> The Format of the object type returned during processing by this
  *            GroupGroupingToken
  */
 public class GroupGroupingToken<T extends Loadable> implements GroupingDefinition<T>
 {
 
-	@Override
-	public String getIdentification()
-	{
-		return "GROUP";
-	}
+    @Override
+    public String getIdentification()
+    {
+        return "GROUP";
+    }
 
-	@Override
-	public Class<Object> getUsableLocation()
-	{
-		return Object.class;
-	}
+    @Override
+    public Class<Object> getUsableLocation()
+    {
+        return Object.class;
+    }
 
-	@Override
-	public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info)
-	{
-		GroupGrouping<T> groupGrouping = new GroupGrouping<>(info);
-		if (info.hasChild())
-		{
-			GroupingCollection<?> childCollection =
-					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
-			groupGrouping.setChild(childCollection);
-		}
-		return groupGrouping;
-	}
+    @Override
+    public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info)
+    {
+        GroupGrouping<T> groupGrouping = new GroupGrouping<>(info);
+        if (info.hasChild())
+        {
+            GroupingCollection<?> childCollection =
+                    ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
+            groupGrouping.setChild(childCollection);
+        }
+        return groupGrouping;
+    }
 
-	@Override
-	public boolean requiresDirect()
-	{
-		return false;
-	}
+    @Override
+    public boolean requiresDirect()
+    {
+        return false;
+    }
 
-	/**
-	 * GroupGrouping serves as the GroupingCollection for the "GROUP=x" Grouping.
-	 * 
-	 * @param <T>
-	 *            The Format of the object type contained by this GroupGrouping
-	 */
-	private static class GroupGrouping<T extends Loadable> implements GroupingCollection<T>
-	{
+    /**
+     * GroupGrouping serves as the GroupingCollection for the "GROUP=x" Grouping.
+     *
+     * @param <T> The Format of the object type contained by this GroupGrouping
+     */
+    private static class GroupGrouping<T extends Loadable> implements GroupingCollection<T>
+    {
 
-		/**
-		 * The GroupingInfo used to determine the format and GROUP: of objects contained
-		 * by this GroupGrouping.
-		 */
-		private GroupingInfo<T> groupingInfo;
+        /**
+         * The GroupingInfo used to determine the format and GROUP: of objects contained
+         * by this GroupGrouping.
+         */
+        private GroupingInfo<T> groupingInfo;
 
-		/**
-		 * The child GroupingCollection providing additional grouping information.
-		 */
-		private GroupingCollection<?> childGrouping;
+        /**
+         * The child GroupingCollection providing additional grouping information.
+         */
+        private GroupingCollection<?> childGrouping;
 
-		/**
-		 * Constructs a new GroupGrouping from the given GroupingInfo.
-		 * 
-		 * @param info
-		 *            The GroupingInfo used to determine the format and GROUP: of objects
-		 *            contained by this GroupGrouping
-		 */
-		public GroupGrouping(GroupingInfo<T> info)
-		{
-			this.groupingInfo = Objects.requireNonNull(info);
-			String value = info.getValue();
-			if ((value == null) || value.isEmpty())
-			{
-				throw new IllegalArgumentException("GROUP must have value following =");
-			}
-		}
+        /**
+         * Constructs a new GroupGrouping from the given GroupingInfo.
+         *
+         * @param info The GroupingInfo used to determine the format and GROUP: of objects
+         *             contained by this GroupGrouping
+         */
+        public GroupGrouping(GroupingInfo<T> info)
+        {
+            this.groupingInfo = Objects.requireNonNull(info);
+            String value = info.getValue();
+            if ((value == null) || value.isEmpty())
+            {
+                throw new IllegalArgumentException("GROUP must have value following =");
+            }
+        }
 
-		public void setChild(GroupingCollection<?> childCollection)
-		{
-			childGrouping = childCollection;
-		}
+        public void setChild(GroupingCollection<?> childCollection)
+        {
+            childGrouping = childCollection;
+        }
 
-		@Override
-		public String getInstructions()
-		{
-			return groupingInfo.getInstructions();
-		}
+        @Override
+        public String getInstructions()
+        {
+            return groupingInfo.getInstructions();
+        }
 
-		@Override
-		public void process(PCGenScoped o, Consumer<PCGenScoped> consumer)
-		{
-			if ((o instanceof CDOMObject) && ((CDOMObject) o).containsInList(ListKey.GROUP, groupingInfo.getValue()))
-			{
-				if (childGrouping == null)
-				{
-					consumer.accept(o);
-				}
-				else
-				{
-					GroupingInfo<?> childInfo = groupingInfo.getChild();
-					for (PCGenScoped childObject : o.getChildren(childInfo.getObjectType()))
-					{
-						childGrouping.process(childObject, consumer);
-					}
-				}
-			}
-		}
-	}
+        @Override
+        public void process(PCGenScoped o, Consumer<PCGenScoped> consumer)
+        {
+            if ((o instanceof CDOMObject) && ((CDOMObject) o).containsInList(ListKey.GROUP, groupingInfo.getValue()))
+            {
+                if (childGrouping == null)
+                {
+                    consumer.accept(o);
+                } else
+                {
+                    GroupingInfo<?> childInfo = groupingInfo.getChild();
+                    for (PCGenScoped childObject : o.getChildren(childInfo.getObjectType()))
+                    {
+                        childGrouping.process(childObject, consumer);
+                    }
+                }
+            }
+        }
+    }
 }

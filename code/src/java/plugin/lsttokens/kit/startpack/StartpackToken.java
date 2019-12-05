@@ -29,33 +29,33 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class StartpackToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "STARTPACK";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "STARTPACK";
+    }
 
-	@Override
-	public Class<Kit> getTokenClass()
-	{
-		return Kit.class;
-	}
+    @Override
+    public Class<Kit> getTokenClass()
+    {
+        return Kit.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Kit obj, String value)
-	{
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Kit obj, String value)
+    {
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Kit obj)
-	{
-		return new String[]{obj.getDisplayName()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Kit obj)
+    {
+        return new String[]{obj.getDisplayName()};
+    }
 
 }

@@ -32,95 +32,95 @@ import pcgen.io.exporttoken.Token;
 
 /**
  * Deals with tokens:
- * 
+ * <p>
  * DOMAIN.x
  * DOMAIN.x.POWER
  */
 public class DomainToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "DOMAIN";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "DOMAIN";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		if (aTok.hasMoreTokens())
-		{
-			int domainIndex = 0;
+        if (aTok.hasMoreTokens())
+        {
+            int domainIndex = 0;
 
-			try
-			{
-				domainIndex = Math.max(0, Integer.parseInt(aTok.nextToken()) - 1);
-			}
-			catch (Exception e)
-			{
-				// TODO - This exception needs to be handled
-			}
+            try
+            {
+                domainIndex = Math.max(0, Integer.parseInt(aTok.nextToken()) - 1);
+            } catch (Exception e)
+            {
+                // TODO - This exception needs to be handled
+            }
 
-			if (aTok.hasMoreTokens())
-			{
-				String subToken = aTok.nextToken();
+            if (aTok.hasMoreTokens())
+            {
+                String subToken = aTok.nextToken();
 
-				if ("POWER".equals(subToken))
-				{
-					retString = getPowerToken(pc, domainIndex);
-				}
-			}
-			else
-			{
-				retString = getDomainToken(pc.getDisplay(), domainIndex);
-			}
-		}
+                if ("POWER".equals(subToken))
+                {
+                    retString = getPowerToken(pc, domainIndex);
+                }
+            } else
+            {
+                retString = getDomainToken(pc.getDisplay(), domainIndex);
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the DOMAIN token
-	 * @param domainIndex
-	 * @return token
-	 */
-	public String getDomainToken(CharacterDisplay display, int domainIndex)
-	{
-		try
-		{
-			Domain domain = new ArrayList<>(display.getSortedDomainSet()).get(domainIndex);
+    /**
+     * Get the DOMAIN token
+     *
+     * @param domainIndex
+     * @return token
+     */
+    public String getDomainToken(CharacterDisplay display, int domainIndex)
+    {
+        try
+        {
+            Domain domain = new ArrayList<>(display.getSortedDomainSet()).get(domainIndex);
 
-			return OutputNameFormatting.getOutputName(domain);
-		}
-		catch (Exception e)
-		{
-			return Constants.EMPTY_STRING;
-		}
-	}
+            return OutputNameFormatting.getOutputName(domain);
+        } catch (Exception e)
+        {
+            return Constants.EMPTY_STRING;
+        }
+    }
 
-	/**
-	 * Get the POWER sub token
-	 * @param pc
-	 * @param domainIndex
-	 * @return POWER sub token
-	 */
-	public static String getPowerToken(PlayerCharacter pc, int domainIndex)
-	{
-		try
-		{
-			Domain domain = new ArrayList<>(pc.getDisplay().getSortedDomainSet()).get(domainIndex);
+    /**
+     * Get the POWER sub token
+     *
+     * @param pc
+     * @param domainIndex
+     * @return POWER sub token
+     */
+    public static String getPowerToken(PlayerCharacter pc, int domainIndex)
+    {
+        try
+        {
+            Domain domain = new ArrayList<>(pc.getDisplay().getSortedDomainSet()).get(domainIndex);
 
-			return DescriptionFormatting.piWrapDesc(domain, pc.getDescription(domain), true);
-		}
-		catch (Exception e)
-		{
-			return Constants.EMPTY_STRING;
-		}
-	}
+            return DescriptionFormatting.piWrapDesc(domain, pc.getDescription(domain), true);
+        } catch (Exception e)
+        {
+            return Constants.EMPTY_STRING;
+        }
+    }
 }

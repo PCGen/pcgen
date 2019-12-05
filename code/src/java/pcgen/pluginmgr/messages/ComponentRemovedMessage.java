@@ -24,27 +24,26 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 
 /**
  * The Class {@code ComponentRemovedMessage} indicates that a plugin has
- * been removed from the system. 
- *
- * 
+ * been removed from the system.
  */
 public class ComponentRemovedMessage extends PCGenMessage
 {
-	private final PCGenMessageHandler plugin;
+    private final PCGenMessageHandler plugin;
 
-	/**
-	 * Create a new instance of ComponentRemovedMessage
-	 * @param source The source of the message.
-	 * @param plugin The plugin that was removed.
-	 */
-	public ComponentRemovedMessage(Object source, PCGenMessageHandler plugin)
-	{
-		super(source);
-		this.plugin = plugin;
-	}
+    /**
+     * Create a new instance of ComponentRemovedMessage
+     *
+     * @param source The source of the message.
+     * @param plugin The plugin that was removed.
+     */
+    public ComponentRemovedMessage(Object source, PCGenMessageHandler plugin)
+    {
+        super(source);
+        this.plugin = plugin;
+    }
 
-	public PCGenMessageHandler getPlugin()
-	{
-		return plugin;
-	}
+    public PCGenMessageHandler getPlugin()
+    {
+        return plugin;
+    }
 }

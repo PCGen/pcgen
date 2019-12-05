@@ -23,39 +23,39 @@
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.HitPointsPreferencesController">
     <fx:define>
-        <ToggleGroup fx:id="hpModeGroup" />
+        <ToggleGroup fx:id="hpModeGroup"/>
     </fx:define>
     <VBox>
-        <Text text="%in_Prefs_hpGenLabel" />
+        <Text text="%in_Prefs_hpGenLabel"/>
         <RadioButton text="%in_Prefs_hpAutoMax" toggleGroup="$hpModeGroup">
             <userData>
-                <pcgen.cdom.base.Constants fx:constant="HP_AUTO_MAX" />
+                <pcgen.cdom.base.Constants fx:constant="HP_AUTO_MAX"/>
             </userData>
         </RadioButton>
         <RadioButton text="%in_Prefs_hpAverage" toggleGroup="$hpModeGroup">
             <userData>
-                <pcgen.cdom.base.Constants fx:constant="HP_AVERAGE" />
+                <pcgen.cdom.base.Constants fx:constant="HP_AVERAGE"/>
             </userData>
         </RadioButton>
         <RadioButton text="%in_Prefs_hpPercentage" toggleGroup="$hpModeGroup">
             <userData>
-                <pcgen.cdom.base.Constants fx:constant="HP_PERCENTAGE" />
+                <pcgen.cdom.base.Constants fx:constant="HP_PERCENTAGE"/>
             </userData>
         </RadioButton>
         <Spinner fx:id="hpPercentSpinner" min="1" max="100" initialValue="1" amountToStepBy="1"/>
         <RadioButton text="%in_Prefs_hpStandard" toggleGroup="$hpModeGroup">
             <userData>
-                <pcgen.cdom.base.Constants fx:constant="HP_STANDARD" />
+                <pcgen.cdom.base.Constants fx:constant="HP_STANDARD"/>
             </userData>
         </RadioButton>
         <RadioButton text="%in_Prefs_hpUserRolled" toggleGroup="$hpModeGroup">
             <userData>
-                <pcgen.cdom.base.Constants fx:constant="HP_USER_ROLLED" />
+                <pcgen.cdom.base.Constants fx:constant="HP_USER_ROLLED"/>
             </userData>
         </RadioButton>
         <RadioButton text="%in_Prefs_hpAverageRoundedUp" toggleGroup="$hpModeGroup">
             <userData>
-                <pcgen.cdom.base.Constants fx:constant="HP_AVERAGE_ROUNDED_UP" />
+                <pcgen.cdom.base.Constants fx:constant="HP_AVERAGE_ROUNDED_UP"/>
             </userData>
         </RadioButton>
         <CheckBox fx:id="maxHpAtFirstLevel" text="%in_Prefs_hpMaxAtFirst"/>

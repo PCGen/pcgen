@@ -41,92 +41,92 @@ import pcgen.rules.persistence.token.ParseResult;
 public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "FORWARDREF";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FORWARDREF";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign obj, String value)
-	{
-		int pipeLoc = value.indexOf('|');
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " requires at least two arguments, " + "ReferenceType and Key: " + value);
-		}
-		if (value.lastIndexOf('|') != pipeLoc)
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage(getTokenName() + " requires at only two pipe separated arguments, "
-				+ "ReferenceType and Keys: " + value);
-			cpr.addErrorMessage("  keys are comma separated");
-			return cpr;
-		}
-		String firstToken = value.substring(0, pipeLoc);
-		if ("FEAT".equals(firstToken))
-		{
-			firstToken = "ABILITY=FEAT";
-		}
-		ReferenceManufacturer<? extends Loadable> rm = context.getManufacturer(firstToken);
-		if (rm == null)
-		{
-			return new ParseResult.Fail(getTokenName() + " unable to generate manufacturer for type: " + firstToken);
-		}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign obj, String value)
+    {
+        int pipeLoc = value.indexOf('|');
+        if (pipeLoc == -1)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " requires at least two arguments, " + "ReferenceType and Key: " + value);
+        }
+        if (value.lastIndexOf('|') != pipeLoc)
+        {
+            ComplexParseResult cpr = new ComplexParseResult();
+            cpr.addErrorMessage(getTokenName() + " requires at only two pipe separated arguments, "
+                    + "ReferenceType and Keys: " + value);
+            cpr.addErrorMessage("  keys are comma separated");
+            return cpr;
+        }
+        String firstToken = value.substring(0, pipeLoc);
+        if ("FEAT".equals(firstToken))
+        {
+            firstToken = "ABILITY=FEAT";
+        }
+        ReferenceManufacturer<? extends Loadable> rm = context.getManufacturer(firstToken);
+        if (rm == null)
+        {
+            return new ParseResult.Fail(getTokenName() + " unable to generate manufacturer for type: " + firstToken);
+        }
 
-		String rest = value.substring(pipeLoc + 1);
-		ParseResult pr = checkForIllegalSeparator(',', rest);
-		if (!pr.passed())
-		{
-			return pr;
-		}
-		StringTokenizer st = new StringTokenizer(rest, Constants.COMMA);
-		while (st.hasMoreTokens())
-		{
-			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st.nextToken());
-			context.getObjectContext().addToList(obj, ListKey.FORWARDREF, new Qualifier(ref));
-		}
+        String rest = value.substring(pipeLoc + 1);
+        ParseResult pr = checkForIllegalSeparator(',', rest);
+        if (!pr.passed())
+        {
+            return pr;
+        }
+        StringTokenizer st = new StringTokenizer(rest, Constants.COMMA);
+        while (st.hasMoreTokens())
+        {
+            CDOMSingleRef<? extends Loadable> ref = rm.getReference(st.nextToken());
+            context.getObjectContext().addToList(obj, ListKey.FORWARDREF, new Qualifier(ref));
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign obj)
-	{
-		Changes<Qualifier> changes = context.getObjectContext().getListChanges(obj, ListKey.FORWARDREF);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		Collection<Qualifier> quals = changes.getAdded();
-		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
-		for (Qualifier qual : quals)
-		{
-			CDOMSingleRef<?> ref = qual.getQualifiedReference();
-			String key = ref.getPersistentFormat();
-			map.addToListFor(key, ref);
-		}
-		Set<CDOMSingleRef<?>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
-		Set<String> returnSet = new TreeSet<>();
-		for (String key : map.getKeySet())
-		{
-			set.clear();
-			set.addAll(map.getListFor(key));
-			returnSet.add(key + Constants.PIPE + ReferenceUtilities.joinLstFormat(set, Constants.COMMA));
-		}
-		return returnSet.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign obj)
+    {
+        Changes<Qualifier> changes = context.getObjectContext().getListChanges(obj, ListKey.FORWARDREF);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        Collection<Qualifier> quals = changes.getAdded();
+        HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
+        for (Qualifier qual : quals)
+        {
+            CDOMSingleRef<?> ref = qual.getQualifiedReference();
+            String key = ref.getPersistentFormat();
+            map.addToListFor(key, ref);
+        }
+        Set<CDOMSingleRef<?>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
+        Set<String> returnSet = new TreeSet<>();
+        for (String key : map.getKeySet())
+        {
+            set.clear();
+            set.addAll(map.getListFor(key));
+            returnSet.add(key + Constants.PIPE + ReferenceUtilities.joinLstFormat(set, Constants.COMMA));
+        }
+        return returnSet.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

@@ -24,18 +24,17 @@ import pcgen.core.system.MigrationRule;
 /**
  * The Interface {@code MigrationLstToken} defines a token
  * as being callable by the MigrationLoader.
- *
- * 
  */
 public interface MigrationLstToken extends LstToken
 {
-	/**
-	 * Parse the token value
-	 * @param migrationRule The migration rule we are building up.
-	 * @param value The value of the token (not including the token string)
-	 * @param gameModeName The name of the game mode the rule is for. 
-	 * @return true if successful
-	 */
+    /**
+     * Parse the token value
+     *
+     * @param migrationRule The migration rule we are building up.
+     * @param value         The value of the token (not including the token string)
+     * @param gameModeName  The name of the game mode the rule is for.
+     * @return true if successful
+     */
     boolean parse(MigrationRule migrationRule, String value, String gameModeName);
 
 }

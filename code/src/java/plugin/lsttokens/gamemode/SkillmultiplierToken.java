@@ -13,20 +13,20 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class SkillmultiplierToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SKILLMULTIPLIER";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SKILLMULTIPLIER";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
-		while (aTok.hasMoreTokens())
-		{
-			gameMode.addSkillMultiplierLevel(aTok.nextToken());
-		}
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
+        while (aTok.hasMoreTokens())
+        {
+            gameMode.addSkillMultiplierLevel(aTok.nextToken());
+        }
+        return true;
+    }
 }

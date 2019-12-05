@@ -27,42 +27,42 @@ import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
  */
 public class PCStatToken extends AbstractSimpleChooseToken<PCStat>
 {
-	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
+    private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "PCSTAT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "PCSTAT";
+    }
 
-	@Override
-	protected Class<PCStat> getChooseClass()
-	{
-		return PCSTAT_CLASS;
-	}
+    @Override
+    protected Class<PCStat> getChooseClass()
+    {
+        return PCSTAT_CLASS;
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Stat choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Stat choice";
+    }
 
-	@Override
-	public PCStat decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCSTAT_CLASS, s);
-	}
+    @Override
+    public PCStat decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCSTAT_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(PCStat choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(PCStat choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<PCStat> getListKey()
-	{
-		return AssociationListKey.getKeyFor(PCSTAT_CLASS, "CHOOSE*PCSTAT");
-	}
+    @Override
+    protected AssociationListKey<PCStat> getListKey()
+    {
+        return AssociationListKey.getKeyFor(PCSTAT_CLASS, "CHOOSE*PCSTAT");
+    }
 
 }

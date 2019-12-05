@@ -24,41 +24,41 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Language;
 
 public class LanguageFacetTest extends
-		AbstractConsolidatingFacetTest<Language, Language>
+        AbstractConsolidatingFacetTest<Language, Language>
 {
 
-	private static int n = 0;
-	private LanguageFacet facet = new LanguageFacet();
+    private static int n = 0;
+    private LanguageFacet facet = new LanguageFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, Language> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, Language> getFacet()
+    {
+        return facet;
+    }
 
-	@Override
-	protected Language getObject()
-	{
-		Language wp = new Language();
-		wp.setName("WP" + n++);
-		return wp;
-	}
+    @Override
+    protected Language getObject()
+    {
+        Language wp = new Language();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, Language> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, Language> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected Language getSourceObject()
-	{
-		return getObject();
-	}
+    @Override
+    protected Language getSourceObject()
+    {
+        return getObject();
+    }
 
-	@Override
-	protected Language getConverted(Language lang)
-	{
-		return lang;
-	}
+    @Override
+    protected Language getConverted(Language lang)
+    {
+        return lang;
+    }
 }

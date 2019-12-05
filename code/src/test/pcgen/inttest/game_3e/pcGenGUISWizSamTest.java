@@ -25,15 +25,15 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 1st level Halfling Wizard(Transmuter).
- * 
+ * <p>
  * See PCG file for details.
  */
 
 public class pcGenGUISWizSamTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testSWizSam() throws IOException
-	{
-		runTest("3e_SWizSam", "3e");
-	}
+    @Test
+    public void testSWizSam() throws IOException
+    {
+        runTest("3e_SWizSam", "3e");
+    }
 }

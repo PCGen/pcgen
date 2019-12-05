@@ -26,14 +26,13 @@ package pcgen.core;
  */
 public interface VariableContainer
 {
-	/**
-	 * Get the value of a variable passed as aString.
-	 *
-	 * @param varName The name of the variable to look up
-	 * @param src The context in which to look up the variable
-	 * @param aPC The current PC
-	 *
-	 * @return the value of the variable
-	 */
+    /**
+     * Get the value of a variable passed as aString.
+     *
+     * @param varName The name of the variable to look up
+     * @param src     The context in which to look up the variable
+     * @param aPC     The current PC
+     * @return the value of the variable
+     */
     Float getVariableValue(final String varName, final String src, final PlayerCharacter aPC);
 }

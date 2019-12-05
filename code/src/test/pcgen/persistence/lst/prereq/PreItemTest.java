@@ -31,32 +31,32 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class PreItemTest extends EnUsLocaleDependentTestCase
 {
-	@Test
-	public void testItemPresent() throws Exception
-	{
-		PreItemParser parser = new PreItemParser();
-		// Test of |PREITEM:1,TYPE.Saddle";
+    @Test
+    public void testItemPresent() throws Exception
+    {
+        PreItemParser parser = new PreItemParser();
+        // Test of |PREITEM:1,TYPE.Saddle";
 
-		Prerequisite prereq =
-				parser.parse("ITEM", "1,TYPE.Saddle", false, false);
+        Prerequisite prereq =
+                parser.parse("ITEM", "1,TYPE.Saddle", false, false);
 
-		assertEquals(
-			"<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n", prereq.toString());
+    }
 
-	@Test
-	public void testItemNotPresent() throws Exception
-	{
-		PreItemParser parser = new PreItemParser();
-		// Test of |!PREITEM:1,TYPE.Saddle";
+    @Test
+    public void testItemNotPresent() throws Exception
+    {
+        PreItemParser parser = new PreItemParser();
+        // Test of |!PREITEM:1,TYPE.Saddle";
 
-		Prerequisite prereq =
-				parser.parse("ITEM", "1,TYPE.Saddle", true, false);
+        Prerequisite prereq =
+                parser.parse("ITEM", "1,TYPE.Saddle", true, false);
 
-		assertEquals(
-			"<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"LT\" operand=\"1\" >\n"
-				+ "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"LT\" operand=\"1\" >\n"
+                        + "</prereq>\n", prereq.toString());
+    }
 
 }

@@ -23,20 +23,20 @@ import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.SpellProhibitor;
 
 public class ProhibitedSchoolFacetTest extends
-		AbstractSourcedListFacetTest<SpellProhibitor>
+        AbstractSourcedListFacetTest<SpellProhibitor>
 {
 
-	private ProhibitedSchoolFacet facet = new ProhibitedSchoolFacet();
+    private ProhibitedSchoolFacet facet = new ProhibitedSchoolFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, SpellProhibitor> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, SpellProhibitor> getFacet()
+    {
+        return facet;
+    }
 
-	@Override
-	protected SpellProhibitor getObject()
-	{
-		return new SpellProhibitor();
-	}
+    @Override
+    protected SpellProhibitor getObject()
+    {
+        return new SpellProhibitor();
+    }
 }

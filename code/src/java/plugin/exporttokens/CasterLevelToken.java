@@ -35,66 +35,68 @@ import pcgen.util.Logging;
  */
 public class CasterLevelToken extends Token
 {
-	/** The token name */
-	public static final String TOKENNAME = "CASTERLEVEL";
+    /**
+     * The token name
+     */
+    public static final String TOKENNAME = "CASTERLEVEL";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		String tag = aTok.nextToken(); // burn off CASTERLEVEL
-		if (!"CASTERLEVEL".equals(tag))
-		{
-			Logging.errorPrint("Invalid CASTERLEVEL token:" + tokenSource, new Throwable());
-			return "";
-		}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        String tag = aTok.nextToken(); // burn off CASTERLEVEL
+        if (!"CASTERLEVEL".equals(tag))
+        {
+            Logging.errorPrint("Invalid CASTERLEVEL token:" + tokenSource, new Throwable());
+            return "";
+        }
 
-		String varName = "";
-		int i = 0;
+        String varName = "";
+        int i = 0;
 
-		if (aTok.hasMoreTokens())
-		{
-			varName = aTok.nextToken();
-			try
-			{
-				i = Integer.parseInt(varName);
-			}
-			catch (NumberFormatException nfe)
-			{
-				// Must be TOTAL
-			}
-		}
+        if (aTok.hasMoreTokens())
+        {
+            varName = aTok.nextToken();
+            try
+            {
+                i = Integer.parseInt(varName);
+            } catch (NumberFormatException nfe)
+            {
+                // Must be TOTAL
+            }
+        }
 
-		if (varName.equals("TOTAL") || varName.equals(""))
-		{
-			return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL").intValue());
-		}
-		return getClassToken(pc, i);
-	}
+        if (varName.equals("TOTAL") || varName.equals(""))
+        {
+            return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL").intValue());
+        }
+        return getClassToken(pc, i);
+    }
 
-	/**
-	 * Get the class token
-	 * @param pc
-	 * @param classNumber
-	 * @return token
-	 */
-	public String getClassToken(PlayerCharacter pc, int classNumber)
-	{
-		String cString = "";
+    /**
+     * Get the class token
+     *
+     * @param pc
+     * @param classNumber
+     * @return token
+     */
+    public String getClassToken(PlayerCharacter pc, int classNumber)
+    {
+        String cString = "";
 
-		CharacterDisplay display = pc.getDisplay();
-		if (display.getClassCount() > classNumber)
-		{
-			PCClass pcClass = display.getClassList().get(classNumber);
-			cString = "CLASS:" + pcClass.getKeyName();
-		}
-		return Float.toString(pc.getVariableValue(TOKENNAME, cString).intValue());
-	}
+        CharacterDisplay display = pc.getDisplay();
+        if (display.getClassCount() > classNumber)
+        {
+            PCClass pcClass = display.getClassList().get(classNumber);
+            cString = "CLASS:" + pcClass.getKeyName();
+        }
+        return Float.toString(pc.getVariableValue(TOKENNAME, cString).intValue());
+    }
 
 }

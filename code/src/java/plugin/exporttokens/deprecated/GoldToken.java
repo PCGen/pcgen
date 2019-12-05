@@ -34,27 +34,28 @@ import pcgen.io.exporttoken.Token;
  */
 public class GoldToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "GOLD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "GOLD";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
-		NumberFormat decimalFormat = new DecimalFormat("#,##0.##", decimalFormatSymbols);
-		return decimalFormat.format(getGoldToken(pc));
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
+        NumberFormat decimalFormat = new DecimalFormat("#,##0.##", decimalFormatSymbols);
+        return decimalFormat.format(getGoldToken(pc));
+    }
 
-	/**
-	 * Retrieve the amount of money that the character has.
-	 * @param pc The character to be queried.
-	 * @return The amount of gold
-	 */
-	public static BigDecimal getGoldToken(PlayerCharacter pc)
-	{
-		return pc.getGold();
-	}
+    /**
+     * Retrieve the amount of money that the character has.
+     *
+     * @param pc The character to be queried.
+     * @return The amount of gold
+     */
+    public static BigDecimal getGoldToken(PlayerCharacter pc)
+    {
+        return pc.getGold();
+    }
 }

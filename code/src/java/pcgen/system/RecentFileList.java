@@ -29,85 +29,85 @@ import org.apache.commons.lang3.ArrayUtils;
 class RecentFileList extends AbstractListFacade<File>
 {
 
-	private static final int MAX_RECENT_FILES = 8;
-	private final LinkedList<File> fileList = new LinkedList<>();
-	private final String contextProp;
+    private static final int MAX_RECENT_FILES = 8;
+    private final LinkedList<File> fileList = new LinkedList<>();
+    private final String contextProp;
 
-	RecentFileList(String contextProp)
-	{
-		this.contextProp = contextProp;
-		String[] recentFiles = PCGenSettings.getInstance().getStringArray(contextProp);
-		if (!ArrayUtils.isEmpty(recentFiles))
-		{
-			URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
-			for (int i = recentFiles.length - 1; i >= 0; i--)
-			{
-				addRecentFile(new File(userdir.resolve(recentFiles[i])));
-			}
-		}
-	}
+    RecentFileList(String contextProp)
+    {
+        this.contextProp = contextProp;
+        String[] recentFiles = PCGenSettings.getInstance().getStringArray(contextProp);
+        if (!ArrayUtils.isEmpty(recentFiles))
+        {
+            URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
+            for (int i = recentFiles.length - 1;i >= 0;i--)
+            {
+                addRecentFile(new File(userdir.resolve(recentFiles[i])));
+            }
+        }
+    }
 
-	private void updateRecentFileProp()
-	{
-		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
+    private void updateRecentFileProp()
+    {
+        URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
 
-		List<String> uris = new ArrayList<>(fileList.size());
-		fileList.stream().map(file -> userdir.relativize(file.toURI()).toString()).forEach(uris::add);
-		PCGenSettings.getInstance().setStringArray(contextProp, uris);
-	}
+        List<String> uris = new ArrayList<>(fileList.size());
+        fileList.stream().map(file -> userdir.relativize(file.toURI()).toString()).forEach(uris::add);
+        PCGenSettings.getInstance().setStringArray(contextProp, uris);
+    }
 
-	void addRecentFile(File file)
-	{
-		if ((file == null) || !file.isFile())
-		{
-			return;
-		}
-		//Remove the file if it already exists, that way it gets moved to the top
-		int index = indexOf(file);
-		if (index != -1)
-		{
-			File oldFile = fileList.remove(index);
-			fireElementRemoved(this, oldFile, index);
-		}
-		//add it to the front
-		fileList.addFirst(file);
-		fireElementAdded(this, file, 0);
-		//then remove any overflowing files
-		if (fileList.size() > MAX_RECENT_FILES)
-		{
-			File oldFile = fileList.removeLast();
-			fireElementRemoved(this, oldFile, MAX_RECENT_FILES);
-		}
-		updateRecentFileProp();
-	}
+    void addRecentFile(File file)
+    {
+        if ((file == null) || !file.isFile())
+        {
+            return;
+        }
+        //Remove the file if it already exists, that way it gets moved to the top
+        int index = indexOf(file);
+        if (index != -1)
+        {
+            File oldFile = fileList.remove(index);
+            fireElementRemoved(this, oldFile, index);
+        }
+        //add it to the front
+        fileList.addFirst(file);
+        fireElementAdded(this, file, 0);
+        //then remove any overflowing files
+        if (fileList.size() > MAX_RECENT_FILES)
+        {
+            File oldFile = fileList.removeLast();
+            fireElementRemoved(this, oldFile, MAX_RECENT_FILES);
+        }
+        updateRecentFileProp();
+    }
 
-	@Override
-	public File getElementAt(int index)
-	{
-		return fileList.get(index);
-	}
+    @Override
+    public File getElementAt(int index)
+    {
+        return fileList.get(index);
+    }
 
-	@Override
-	public int getSize()
-	{
-		return fileList.size();
-	}
+    @Override
+    public int getSize()
+    {
+        return fileList.size();
+    }
 
-	@Override
-	public boolean containsElement(File element)
-	{
-		return indexOf(element) != -1;
-	}
+    @Override
+    public boolean containsElement(File element)
+    {
+        return indexOf(element) != -1;
+    }
 
-	private int indexOf(File element)
-	{
-		if (element != null)
-		{
-			return IntStream.range(0, fileList.size())
-				.filter(i -> fileList.get(i).getAbsolutePath().equals(element.getAbsolutePath())).findFirst()
-				.orElse(-1);
-		}
-		return -1;
-	}
+    private int indexOf(File element)
+    {
+        if (element != null)
+        {
+            return IntStream.range(0, fileList.size())
+                    .filter(i -> fileList.get(i).getAbsolutePath().equals(element.getAbsolutePath())).findFirst()
+                    .orElse(-1);
+        }
+        return -1;
+    }
 
 }

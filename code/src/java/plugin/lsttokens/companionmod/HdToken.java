@@ -27,27 +27,27 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  */
 public class HdToken extends AbstractIntToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "HD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "HD";
+    }
 
-	@Override
-	protected IntegerKey integerKey()
-	{
-		return IntegerKey.HIT_DIE;
-	}
+    @Override
+    protected IntegerKey integerKey()
+    {
+        return IntegerKey.HIT_DIE;
+    }
 
-	@Override
-	protected int minValue()
-	{
-		return 1;
-	}
+    @Override
+    protected int minValue()
+    {
+        return 1;
+    }
 
-	@Override
-	public Class<CompanionMod> getTokenClass()
-	{
-		return CompanionMod.class;
-	}
+    @Override
+    public Class<CompanionMod> getTokenClass()
+    {
+        return CompanionMod.class;
+    }
 }

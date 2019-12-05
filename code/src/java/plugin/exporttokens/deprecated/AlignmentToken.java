@@ -31,55 +31,55 @@ import pcgen.output.channel.compat.AlignmentCompat;
  */
 public class AlignmentToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "ALIGNMENT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ALIGNMENT";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
 
-		if (!pc.getDisplay().getSuppressBioField(BiographyField.ALIGNMENT))
-		{
-			if ("ALIGNMENT".equals(tokenSource))
-			{
-				retString = getAlignmentDisplay(pc);
-			}
-			else if ("ALIGNMENT.SHORT".equals(tokenSource))
-			{
-				retString = getShortToken(pc);
-			}
-		}
+        if (!pc.getDisplay().getSuppressBioField(BiographyField.ALIGNMENT))
+        {
+            if ("ALIGNMENT".equals(tokenSource))
+            {
+                retString = getAlignmentDisplay(pc);
+            } else if ("ALIGNMENT.SHORT".equals(tokenSource))
+            {
+                retString = getShortToken(pc);
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	private String getAlignmentDisplay(PlayerCharacter pc)
-	{
-		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
-		{
-			return "";
-		}
-		final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
-		return alignment == null ? "None" : alignment.getDisplayName();
-	}
+    private String getAlignmentDisplay(PlayerCharacter pc)
+    {
+        if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
+        {
+            return "";
+        }
+        final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
+        return alignment == null ? "None" : alignment.getDisplayName();
+    }
 
-	/**
-	 * Get Alignment Short Token
-	 * @param display
-	 * @return Alignment Short Token
-	 */
-	public static String getShortToken(PlayerCharacter pc)
-	{
-		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
-		{
-			return "";
-		}
+    /**
+     * Get Alignment Short Token
+     *
+     * @param display
+     * @return Alignment Short Token
+     */
+    public static String getShortToken(PlayerCharacter pc)
+    {
+        if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
+        {
+            return "";
+        }
 
-		final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
-		return alignment == null ? "None" : alignment.getKeyName();
-	}
+        final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
+        return alignment == null ? "None" : alignment.getKeyName();
+    }
 }

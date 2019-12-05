@@ -40,115 +40,112 @@ import pcgen.util.Logging;
 public class PreTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "TYPE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "TYPE"; //$NON-NLS-1$
+    }
 
-	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
-		throws PrerequisiteException
-	{
+    @Override
+    public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
+            throws PrerequisiteException
+    {
 
-		final String requiredType = prereq.getKey();
-		int runningTotal = 0;
+        final String requiredType = prereq.getKey();
+        int runningTotal = 0;
 
-		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
-		{
-			if (equipment.isPreType(requiredType))
-			{
-				runningTotal++;
-			}
-		}
-		else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
-		{
-			if (!equipment.isPreType(requiredType))
-			{
-				runningTotal++;
-			}
-		}
-		else
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreType.error.invalidComparison", //$NON-NLS-1$
-				prereq.getOperator().toString(), prereq.toString()));
-		}
+        if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
+        {
+            if (equipment.isPreType(requiredType))
+            {
+                runningTotal++;
+            }
+        } else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+        {
+            if (!equipment.isPreType(requiredType))
+            {
+                runningTotal++;
+            }
+        } else
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreType.error.invalidComparison", //$NON-NLS-1$
+                            prereq.getOperator().toString(), prereq.toString()));
+        }
 
-		runningTotal = countedTotal(prereq, runningTotal);
-		return runningTotal;
-	}
+        runningTotal = countedTotal(prereq, runningTotal);
+        return runningTotal;
+    }
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		Logging.errorPrint("PRETYPE has been deprecated for non-Equipment Prerequisites."
-			+ "\n  Please use PRERACE as an alternative");
-		if (display == null)
-		{
-			return 0;
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        Logging.errorPrint("PRETYPE has been deprecated for non-Equipment Prerequisites."
+                + "\n  Please use PRERACE as an alternative");
+        if (display == null)
+        {
+            return 0;
+        }
 
-		final String requiredType = prereq.getKey();
+        final String requiredType = prereq.getKey();
 
-		Logging.errorPrint("  PRETYPE value was: " + requiredType + '\n');
+        Logging.errorPrint("  PRETYPE value was: " + requiredType + '\n');
 
-		final int numRequired = Integer.parseInt(prereq.getOperand());
-		int runningTotal = 0;
+        final int numRequired = Integer.parseInt(prereq.getOperand());
+        int runningTotal = 0;
 
-		for (String element : getTypes(display))
-		{
-			if (element.equalsIgnoreCase(requiredType))
-			{
-				runningTotal++;
-			}
-		}
+        for (String element : getTypes(display))
+        {
+            if (element.equalsIgnoreCase(requiredType))
+            {
+                runningTotal++;
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, numRequired);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, numRequired);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString("PreType.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
-			prereq.getKey());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString("PreType.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+                prereq.getKey());
+    }
 
-	/**
-	 * Get a list of types that apply to this character.
-	 * 
-	 * @return a List of Strings where each String is a type that the character
-	 *         has. The list returned will never be null
-	 * 
-	 * @deprecated Use getRaceType() and getRacialSubTypes() instead
-	 */
-	@Deprecated
-	private static List<String> getTypes(CharacterDisplay display)
-	{
-		final List<String> list = new ArrayList<>();
+    /**
+     * Get a list of types that apply to this character.
+     *
+     * @return a List of Strings where each String is a type that the character
+     * has. The list returned will never be null
+     * @deprecated Use getRaceType() and getRacialSubTypes() instead
+     */
+    @Deprecated
+    private static List<String> getTypes(CharacterDisplay display)
+    {
+        final List<String> list = new ArrayList<>();
 
-		Race race = display.getRace();
-		if (race != null)
-		{
-			list.add(race.getType());
-		}
-		else
-		{
-			list.add("Humanoid");
-		}
+        Race race = display.getRace();
+        if (race != null)
+        {
+            list.add(race.getType());
+        } else
+        {
+            list.add("Humanoid");
+        }
 
-		for (PCTemplate t : display.getTemplateSet())
-		{
-			list.add(t.getType());
-		}
+        for (PCTemplate t : display.getTemplateSet())
+        {
+            list.add(t.getType());
+        }
 
-		return list;
+        return list;
 
-	}
+    }
 
 }

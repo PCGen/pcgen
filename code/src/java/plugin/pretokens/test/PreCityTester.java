@@ -28,23 +28,24 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreCityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		if (display.getSafeStringFor(PCStringKey.CITY).equalsIgnoreCase(prereq.getKey()))
-		{
-			return countedTotal(prereq, 1);
-		}
-		return countedTotal(prereq, 0);
-	}
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        if (display.getSafeStringFor(PCStringKey.CITY).equalsIgnoreCase(prereq.getKey()))
+        {
+            return countedTotal(prereq, 1);
+        }
+        return countedTotal(prereq, 0);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "CITY"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "CITY"; //$NON-NLS-1$
+    }
 }

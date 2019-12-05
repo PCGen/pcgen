@@ -16,6 +16,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core.prereq;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -31,95 +32,95 @@ import org.junit.jupiter.api.Test;
 
 public class PreTypeTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Ensure a character with a template correctly passes
-	 * PRETEMPLATE
-	 */
-	@Test
-	public void test996803_1()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a character with a template correctly passes
+     * PRETEMPLATE
+     */
+    @Test
+    public void test996803_1()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final PCTemplate template = new PCTemplate();
-		template.setName("Half-Celestial");
-		template.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
-		character.addTemplate(template);
+        final PCTemplate template = new PCTemplate();
+        template.setName("Half-Celestial");
+        template.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
+        character.addTemplate(template);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("type");
-		prereq.setKey("Outsider");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("type");
+        prereq.setKey("Outsider");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-	/**
-	 * Ensure a character with a template correctly passes
-	 * PRETEMPLATE
-	 */
-	@Test
-	public void test996803_2()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a character with a template correctly passes
+     * PRETEMPLATE
+     */
+    @Test
+    public void test996803_2()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final PCTemplate template = new PCTemplate();
-		template.setName("Half-Celestial");
-		template.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
-		character.addTemplate(template);
+        final PCTemplate template = new PCTemplate();
+        template.setName("Half-Celestial");
+        template.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
+        character.addTemplate(template);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("type");
-		prereq.setKey("Outsider");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.NEQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("type");
+        prereq.setKey("Outsider");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.NEQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+    }
 
-	@Test
-	public void test996803_3()
-	{
-		final PlayerCharacter character = getCharacter();
+    @Test
+    public void test996803_3()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("type");
-		prereq.setKey("Outsider");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("type");
+        prereq.setKey("Outsider");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+    }
 
-	@Test
-	public void test996803_4()
-	{
-		final PlayerCharacter character = getCharacter();
+    @Test
+    public void test996803_4()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final PCTemplate template = new PCTemplate();
-		template.setName("Fiendish");
-		template.addToListFor(ListKey.TYPE, Type.getConstant("Magical-Beast"));
-		character.addTemplate(template);
+        final PCTemplate template = new PCTemplate();
+        template.setName("Fiendish");
+        template.addToListFor(ListKey.TYPE, Type.getConstant("Magical-Beast"));
+        character.addTemplate(template);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("type");
-		prereq.setKey("Outsider");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.NEQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("type");
+        prereq.setKey("Outsider");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.NEQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-	@Test
-	public void testKindHandled()
-	{
-		final PreTypeTester preType = new PreTypeTester();
+    @Test
+    public void testKindHandled()
+    {
+        final PreTypeTester preType = new PreTypeTester();
 
-		assertEquals("TYPE", preType.kindHandled());
-	}
+        assertEquals("TYPE", preType.kindHandled());
+    }
 
 }

@@ -29,33 +29,34 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreSpellBookTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		final boolean prereqUsesBook = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
-		int runningTotal = 0;
-		final int requiredNumber = Integer.parseInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        final boolean prereqUsesBook = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+        int runningTotal = 0;
+        final int requiredNumber = Integer.parseInt(prereq.getOperand());
 
-		for (PCClass spellClass : display.getClassSet())
-		{
-			if (spellClass.getSafe(ObjectKey.SPELLBOOK) == prereqUsesBook)
-			{
-				runningTotal++;
-			}
-		}
+        for (PCClass spellClass : display.getClassSet())
+        {
+            if (spellClass.getSafe(ObjectKey.SPELLBOOK) == prereqUsesBook)
+            {
+                runningTotal++;
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "SPELLBOOK"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "SPELLBOOK"; //$NON-NLS-1$
+    }
 
 }

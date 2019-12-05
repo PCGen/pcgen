@@ -27,83 +27,84 @@ import pcgen.core.PlayerCharacter;
 
 public class KitTable extends BaseKit
 {
-	private String tableName;
-	private final List<TableEntry> list = new ArrayList<>();
+    private String tableName;
+    private final List<TableEntry> list = new ArrayList<>();
 
-	public String getTableName()
-	{
-		return tableName;
-	}
+    public String getTableName()
+    {
+        return tableName;
+    }
 
-	public void setTableName(String tableName)
-	{
-		this.tableName = tableName;
-	}
+    public void setTableName(String tableName)
+    {
+        this.tableName = tableName;
+    }
 
-	public void addGear(KitGear optionInfo, Formula min, Formula max)
-	{
-		list.add(new TableEntry(optionInfo, min, max));
-	}
+    public void addGear(KitGear optionInfo, Formula min, Formula max)
+    {
+        list.add(new TableEntry(optionInfo, min, max));
+    }
 
-	public static class TableEntry
-	{
-		public final KitGear gear;
-		public final Formula lowRange;
-		public final Formula highRange;
+    public static class TableEntry
+    {
+        public final KitGear gear;
+        public final Formula lowRange;
+        public final Formula highRange;
 
-		public TableEntry(KitGear optionInfo, Formula min, Formula max)
-		{
-			gear = optionInfo;
-			lowRange = min;
-			highRange = max;
-		}
+        public TableEntry(KitGear optionInfo, Formula min, Formula max)
+        {
+            gear = optionInfo;
+            lowRange = min;
+            highRange = max;
+        }
 
-		/**
-		 * True if value falls within a range
-		 * @param pc the PC this Kit is being applied to
-		 * @param inValue the value to test.
-		 * @return True if value falls within a range
-		 */
-		public boolean isIn(PlayerCharacter pc, int inValue)
-		{
-			int lv = lowRange.resolve(pc, "").intValue();
-			int hv = highRange.resolve(pc, "").intValue();
-			return inValue >= lv && inValue <= hv;
-		}
-	}
+        /**
+         * True if value falls within a range
+         *
+         * @param pc      the PC this Kit is being applied to
+         * @param inValue the value to test.
+         * @return True if value falls within a range
+         */
+        public boolean isIn(PlayerCharacter pc, int inValue)
+        {
+            int lv = lowRange.resolve(pc, "").intValue();
+            int hv = highRange.resolve(pc, "").intValue();
+            return inValue >= lv && inValue <= hv;
+        }
+    }
 
-	public List<TableEntry> getList()
-	{
-		return Collections.unmodifiableList(list);
-	}
+    public List<TableEntry> getList()
+    {
+        return Collections.unmodifiableList(list);
+    }
 
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        throw new UnsupportedOperationException();
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Table";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Table";
+    }
 
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        throw new UnsupportedOperationException();
+    }
 
-	public KitGear getEntry(PlayerCharacter pc, int value)
-	{
-		for (TableEntry entry : list)
-		{
-			if (entry.isIn(pc, value))
-			{
-				return entry.gear;
-			}
-		}
-		return null;
-	}
+    public KitGear getEntry(PlayerCharacter pc, int value)
+    {
+        for (TableEntry entry : list)
+        {
+            if (entry.isIn(pc, value))
+            {
+                return entry.gear;
+            }
+        }
+        return null;
+    }
 }

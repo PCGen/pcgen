@@ -26,59 +26,60 @@ import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
 
 /**
- * Handle the MaxSpellLevel token which outputs the maximum level spell 
- * castable by the character for the specified class. 
+ * Handle the MaxSpellLevel token which outputs the maximum level spell
+ * castable by the character for the specified class.
  */
 public class MaxSpellLevelToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "MAXSPELLLEVEL";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "MAXSPELLLEVEL";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringBuilder retValue = new StringBuilder();
-		String[] tokens = tokenSource.split("\\.");
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringBuilder retValue = new StringBuilder();
+        String[] tokens = tokenSource.split("\\.");
 
-		if (tokens.length != 2)
-		{
-			Logging.errorPrint("MAXSPELLLEVEL token must be of the format 'MAXSPELLLEVEL.x' where 'x' is an integer. '"
-				+ tokenSource + "' is not valid");
-			return "";
-		}
-		int classNumber = -1;
-		try
-		{
-			classNumber = Integer.parseInt(tokens[1]);
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.errorPrint("Unknown class number in token: " + tokenSource);
-		}
+        if (tokens.length != 2)
+        {
+            Logging.errorPrint("MAXSPELLLEVEL token must be of the format 'MAXSPELLLEVEL.x' where 'x' is an integer. '"
+                    + tokenSource + "' is not valid");
+            return "";
+        }
+        int classNumber = -1;
+        try
+        {
+            classNumber = Integer.parseInt(tokens[1]);
+        } catch (NumberFormatException nfe)
+        {
+            Logging.errorPrint("Unknown class number in token: " + tokenSource);
+        }
 
-		final CDOMObject aObject = pc.getSpellClassAtIndex(classNumber);
-		if (aObject != null)
-		{
-			PCClass aClass = null;
+        final CDOMObject aObject = pc.getSpellClassAtIndex(classNumber);
+        if (aObject != null)
+        {
+            PCClass aClass = null;
 
-			if (aObject instanceof PCClass)
-			{
-				aClass = (PCClass) aObject;
-			}
+            if (aObject instanceof PCClass)
+            {
+                aClass = (PCClass) aObject;
+            }
 
-			if (aClass != null)
-			{
-				retValue.append(pc.getSpellSupport(aClass).getHighestLevelSpell(pc));
-			}
-		}
+            if (aClass != null)
+            {
+                retValue.append(pc.getSpellSupport(aClass).getHighestLevelSpell(pc));
+            }
+        }
 
-		return retValue.toString();
-	}
+        return retValue.toString();
+    }
 
 }

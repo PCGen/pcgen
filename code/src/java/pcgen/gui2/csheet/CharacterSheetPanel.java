@@ -51,86 +51,83 @@ import javafx.scene.web.WebView;
  */
 public final class CharacterSheetPanel extends JFXPanel implements CharacterSelectionListener
 {
-	private WebView browser;
-	private CharacterFacade character;
-	private ExportHandler handler;
+    private WebView browser;
+    private CharacterFacade character;
+    private ExportHandler handler;
 
-	private final Executor executor = Executors.newSingleThreadExecutor();
+    private final Executor executor = Executors.newSingleThreadExecutor();
 
-	public CharacterSheetPanel()
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() -> {
-			browser = new WebView();
-			browser.setContextMenuEnabled(true);
-			browser.getEngine().setJavaScriptEnabled(true);
-			this.setScene(new Scene(browser));
-		});
-	}
+    public CharacterSheetPanel()
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        Platform.runLater(() -> {
+            browser = new WebView();
+            browser.setContextMenuEnabled(true);
+            browser.getEngine().setJavaScriptEnabled(true);
+            this.setScene(new Scene(browser));
+        });
+    }
 
-	public void setCharacterSheet(File sheet)
-	{
-		handler = (sheet == null) ? null : ExportHandler.createExportHandler(sheet);
-	}
+    public void setCharacterSheet(File sheet)
+    {
+        handler = (sheet == null) ? null : ExportHandler.createExportHandler(sheet);
+    }
 
-	/**
-	 * TODO: This is pseudo-async and can be strucutured much better.
-	 * TODO: handle progress reporting from the webview
-	 */
-	public void refresh()
-	{
-		executor.execute(() -> {
-			// loading of the output sheet is much faster than in the past (lobo-browser).
-			// do we still really need a statusbar/progress bar?
-			final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
-			SwingUtilities.invokeLater(() ->
-					statusBar.startShowingProgress(LanguageBundle.getString("in_loadingCharacterPreview"), true)
-			);
+    /**
+     * TODO: This is pseudo-async and can be strucutured much better.
+     * TODO: handle progress reporting from the webview
+     */
+    public void refresh()
+    {
+        executor.execute(() -> {
+            // loading of the output sheet is much faster than in the past (lobo-browser).
+            // do we still really need a statusbar/progress bar?
+            final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
+            SwingUtilities.invokeLater(() ->
+                    statusBar.startShowingProgress(LanguageBundle.getString("in_loadingCharacterPreview"), true)
+            );
 
-			String content;
-			if (handler == null || character == null)
-			{
-				Logging.debugPrint("no character found");
-				content = "<html><body>No Character Found.</body></html>";
-			}
-			else
-			{
-				try
-				{
-					StringWriter out = new StringWriter();
-					BufferedWriter buf = new BufferedWriter(out);
-					Logging.debugPrint("ready to export");
-					character.export(handler, buf);
-					Logging.debugPrint("export complete");
-					content = out.toString();
-				}
-				catch (ExportException e)
-				{
-					content = "<html><body>Exception when exporting</body></html>";
-					Logging.errorPrint("failed to export", e);
-				}
-			}
+            String content;
+            if (handler == null || character == null)
+            {
+                Logging.debugPrint("no character found");
+                content = "<html><body>No Character Found.</body></html>";
+            } else
+            {
+                try
+                {
+                    StringWriter out = new StringWriter();
+                    BufferedWriter buf = new BufferedWriter(out);
+                    Logging.debugPrint("ready to export");
+                    character.export(handler, buf);
+                    Logging.debugPrint("export complete");
+                    content = out.toString();
+                } catch (ExportException e)
+                {
+                    content = "<html><body>Exception when exporting</body></html>";
+                    Logging.errorPrint("failed to export", e);
+                }
+            }
 
-			final String finalContent = content;
-			Platform.runLater(() -> {
-				try
-				{
-					Logging.debugPrint("loading character content");
-					browser.getEngine().loadContent(finalContent);
-				}
-				catch (Throwable e)
-				{
-					Logging.errorPrint("Exception in GUI update", e);
-				}
-				SwingUtilities.invokeLater(statusBar::endShowingProgress);
-			});
-		});
-	}
+            final String finalContent = content;
+            Platform.runLater(() -> {
+                try
+                {
+                    Logging.debugPrint("loading character content");
+                    browser.getEngine().loadContent(finalContent);
+                } catch (Throwable e)
+                {
+                    Logging.errorPrint("Exception in GUI update", e);
+                }
+                SwingUtilities.invokeLater(statusBar::endShowingProgress);
+            });
+        });
+    }
 
-	@Override
-	public void setCharacter(CharacterFacade character)
-	{
-		this.character = character;
-		refresh();
-	}
+    @Override
+    public void setCharacter(CharacterFacade character)
+    {
+        this.character = character;
+        refresh();
+    }
 }

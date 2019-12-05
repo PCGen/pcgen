@@ -32,42 +32,42 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class RaceToken extends AbstractNonEmptyToken<KitRace> implements CDOMPrimaryToken<KitRace>
 {
-	private static final Class<Race> RACE_CLASS = Race.class;
+    private static final Class<Race> RACE_CLASS = Race.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "RACE";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "RACE";
+    }
 
-	@Override
-	public Class<KitRace> getTokenClass()
-	{
-		return KitRace.class;
-	}
+    @Override
+    public Class<KitRace> getTokenClass()
+    {
+        return KitRace.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitRace kitRace, String value)
-	{
-		CDOMSingleRef<Race> ref = context.getReferenceContext().getCDOMReference(RACE_CLASS, value);
-		kitRace.setRace(ref);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitRace kitRace, String value)
+    {
+        CDOMSingleRef<Race> ref = context.getReferenceContext().getCDOMReference(RACE_CLASS, value);
+        kitRace.setRace(ref);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitRace kitRace)
-	{
-		CDOMReference<Race> race = kitRace.getRace();
-		if (race == null)
-		{
-			return null;
-		}
-		return new String[]{race.getLSTformat(false)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitRace kitRace)
+    {
+        CDOMReference<Race> race = kitRace.getRace();
+        if (race == null)
+        {
+            return null;
+        }
+        return new String[]{race.getLSTformat(false)};
+    }
 
 }

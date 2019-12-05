@@ -32,74 +32,74 @@ import pcgen.core.prereq.Prerequisite;
 public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		final int reqnumber = Integer.parseInt(prereq.getOperand());
-		final String requiredRaceType = prereq.getKey();
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        final int reqnumber = Integer.parseInt(prereq.getOperand());
+        final String requiredRaceType = prereq.getKey();
+        int runningTotal = 0;
 
-		try
-		{
-			if (requiredRaceType.equalsIgnoreCase(display.getRaceType()))
-			{
-				runningTotal++;
-			}
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Can't match
-		}
-		if (getCritterTypes(display).contains(requiredRaceType))
-		{
-			runningTotal++;
-		}
-		runningTotal = prereq.getOperator().compare(runningTotal, reqnumber);
-		return countedTotal(prereq, runningTotal);
-	}
+        try
+        {
+            if (requiredRaceType.equalsIgnoreCase(display.getRaceType()))
+            {
+                runningTotal++;
+            }
+        } catch (IllegalArgumentException e)
+        {
+            //Can't match
+        }
+        if (getCritterTypes(display).contains(requiredRaceType))
+        {
+            runningTotal++;
+        }
+        runningTotal = prereq.getOperator().compare(runningTotal, reqnumber);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "RACETYPE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "RACETYPE"; //$NON-NLS-1$
+    }
 
-	/**
-	 * Get ArrayList populated with creature types for this PC (defaults to humanoid).
-	 * @return the list of types
-	 */
-	@Deprecated
-	public static List<String> getCritterTypes(CharacterDisplay display)
-	{
-		ArrayList<String> critterTypes = new ArrayList<>();
+    /**
+     * Get ArrayList populated with creature types for this PC (defaults to humanoid).
+     *
+     * @return the list of types
+     */
+    @Deprecated
+    public static List<String> getCritterTypes(CharacterDisplay display)
+    {
+        ArrayList<String> critterTypes = new ArrayList<>();
 
-		// Not too sure about this if, but that's what the previous code
-		// implied...
-		Race race = display.getRace();
-		if (race != null)
-		{
-			critterTypes.add(race.getType());
-		}
-		else
-		{
-			critterTypes.add("Humanoid");
-		}
+        // Not too sure about this if, but that's what the previous code
+        // implied...
+        Race race = display.getRace();
+        if (race != null)
+        {
+            critterTypes.add(race.getType());
+        } else
+        {
+            critterTypes.add("Humanoid");
+        }
 
-		for (PCTemplate t : display.getTemplateSet())
-		{
-			final String aType = t.getType();
+        for (PCTemplate t : display.getTemplateSet())
+        {
+            final String aType = t.getType();
 
-			if (aType != null && !aType.isEmpty())
-			{
-				critterTypes.add(aType);
-			}
-		}
+            if (aType != null && !aType.isEmpty())
+            {
+                critterTypes.add(aType);
+            }
+        }
 
-		return critterTypes;
-	}
+        return critterTypes;
+    }
 
 }

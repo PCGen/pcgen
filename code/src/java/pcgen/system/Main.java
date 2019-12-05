@@ -71,381 +71,376 @@ import org.apache.commons.lang3.SystemUtils;
 public final class Main
 {
 
-	private static PropertyContextFactory configFactory;
+    private static PropertyContextFactory configFactory;
 
-	private static boolean startNameGen;
-	private static String settingsDir;
-	private static String campaignMode;
-	private static String characterSheet;
-	private static String exportSheet;
-	private static String partyFile;
-	private static String characterFile;
-	private static String outputFile;
+    private static boolean startNameGen;
+    private static String settingsDir;
+    private static String campaignMode;
+    private static String characterSheet;
+    private static String exportSheet;
+    private static String partyFile;
+    private static String characterFile;
+    private static String outputFile;
 
-	private Main()
-	{
-	}
+    private Main()
+    {
+    }
 
-	public static boolean shouldStartInCharacterSheet()
-	{
-		return characterSheet != null;
-	}
+    public static boolean shouldStartInCharacterSheet()
+    {
+        return characterSheet != null;
+    }
 
-	public static String getStartupCampaign()
-	{
-		return campaignMode;
-	}
+    public static String getStartupCampaign()
+    {
+        return campaignMode;
+    }
 
-	public static String getStartupCharacterFile()
-	{
-		return characterFile;
-	}
+    public static String getStartupCharacterFile()
+    {
+        return characterFile;
+    }
 
-	private static void logSystemProps()
-	{
-		StringBuilder builder = new StringBuilder(System.lineSeparator() + "-- listing properties --");
-		System.getProperties().forEach((key, value) -> builder.append(System.lineSeparator()).append(key).append("=").append(value));
-		Logging.log(Level.CONFIG, builder.toString());
-	}
+    private static void logSystemProps()
+    {
+        StringBuilder builder = new StringBuilder(System.lineSeparator() + "-- listing properties --");
+        System.getProperties().forEach((key, value) -> builder.append(System.lineSeparator()).append(key).append("=").append(value));
+        Logging.log(Level.CONFIG, builder.toString());
+    }
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
-			+ PCGenPropBundle.getAutobuildString());
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)
+    {
+        Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
+                + PCGenPropBundle.getAutobuildString());
 
-		Thread.setDefaultUncaughtExceptionHandler(new LoggingUncaughtExceptionHandler());
-		DeadlockDetectorTask deadlockDetectorTask = new DeadlockDetectorTask(new PCGenLoggingDeadlockHandler());
-		deadlockDetectorTask.initialize();
+        Thread.setDefaultUncaughtExceptionHandler(new LoggingUncaughtExceptionHandler());
+        DeadlockDetectorTask deadlockDetectorTask = new DeadlockDetectorTask(new PCGenLoggingDeadlockHandler());
+        deadlockDetectorTask.initialize();
 
-		logSystemProps();
-		configFactory = new PropertyContextFactory(getConfigPath());
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
+        logSystemProps();
+        configFactory = new PropertyContextFactory(getConfigPath());
+        configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
 
-		parseCommands(args);
+        parseCommands(args);
 
-		if (startNameGen)
-		{
-			Component dialog = new RandomNameDialog(null, null);
-			dialog.setVisible(true);
-			System.exit(0);
-		}
+        if (startNameGen)
+        {
+            Component dialog = new RandomNameDialog(null, null);
+            dialog.setVisible(true);
+            System.exit(0);
+        }
 
-		if (exportSheet == null)
-		{
-			startupWithGUI();
-		}
-		else
-		{
-			startupWithoutGUI();
-			shutdown();
-		}
-	}
+        if (exportSheet == null)
+        {
+            startupWithGUI();
+        } else
+        {
+            startupWithoutGUI();
+            shutdown();
+        }
+    }
 
-	private static String getConfigPath()
-	{
-		//TODO: convert to a proper command line argument instead of a -D java property
-		// First see if it was specified on the command line
-		String aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
-		if (aPath != null)
-		{
-			File testPath = new File(aPath);
-			// Then make sure it's an existing folder
-			if (testPath.exists() && testPath.isDirectory())
-			{
-				return aPath;
-			}
-		}
-		// Otherwise return user dir
-		return SystemUtils.USER_DIR;
-	}
+    private static String getConfigPath()
+    {
+        //TODO: convert to a proper command line argument instead of a -D java property
+        // First see if it was specified on the command line
+        String aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
+        if (aPath != null)
+        {
+            File testPath = new File(aPath);
+            // Then make sure it's an existing folder
+            if (testPath.exists() && testPath.isDirectory())
+            {
+                return aPath;
+            }
+        }
+        // Otherwise return user dir
+        return SystemUtils.USER_DIR;
+    }
 
-	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile,
-		String configFile)
-	{
-		Main.characterFile = characterFile;
-		Main.exportSheet = exportSheet;
-		Main.outputFile = outputFile;
+    public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile,
+            String configFile)
+    {
+        Main.characterFile = characterFile;
+        Main.exportSheet = exportSheet;
+        Main.outputFile = outputFile;
 
-		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(configFile));
-		return startupWithoutGUI();
-	}
+        configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
+        configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(configFile));
+        return startupWithoutGUI();
+    }
 
-	/**
-	 * Initialize Main - must be called before any other getter can be used.
-	 *
-	 * @param argv the command line arguments to be parsed
-	 */
-	private static Namespace parseCommands(String[] argv)
-	{
-		Namespace args = getParser().parseArgsOrFail(argv);
+    /**
+     * Initialize Main - must be called before any other getter can be used.
+     *
+     * @param argv the command line arguments to be parsed
+     */
+    private static Namespace parseCommands(String[] argv)
+    {
+        Namespace args = getParser().parseArgsOrFail(argv);
 
-		if (args.getInt("verbose") > 0)
-		{
+        if (args.getInt("verbose") > 0)
+        {
 
-			Logging.setCurrentLoggingLevel(Logging.DEBUG);
-		}
+            Logging.setCurrentLoggingLevel(Logging.DEBUG);
+        }
 
-		settingsDir = args.getString("settingsdir");
-		campaignMode = args.getString("campaignmode");
-		characterSheet = args.get("D");
-		exportSheet = args.get("E");
-		partyFile = args.get("p");
-		characterFile = args.get("c");
-		outputFile = args.get("o");
-		startNameGen = args.get("name_generator");
+        settingsDir = args.getString("settingsdir");
+        campaignMode = args.getString("campaignmode");
+        characterSheet = args.get("D");
+        exportSheet = args.get("E");
+        partyFile = args.get("p");
+        characterFile = args.get("c");
+        outputFile = args.get("o");
+        startNameGen = args.get("name_generator");
 
-		return args;
-	}
+        return args;
+    }
 
-	private static void startupWithGUI()
-	{
-		// configure the UI before any type of user prompting may take place
-		configureUI();
-		validateEnvironment(true);
-		loadProperties(true);
-		initPrintPreviewFonts();
+    private static void startupWithGUI()
+    {
+        // configure the UI before any type of user prompting may take place
+        configureUI();
+        validateEnvironment(true);
+        loadProperties(true);
+        initPrintPreviewFonts();
 
-		new JFXPanel();
+        new JFXPanel();
 
-		PCGenPreloader splash = new PCGenPreloader();
-		PCGenTaskExecutor executor = new PCGenTaskExecutor();
-		executor.addPCGenTask(createLoadPluginTask());
-		executor.addPCGenTask(new GameModeFileLoader());
-		executor.addPCGenTask(new CampaignFileLoader());
-		executor.addPCGenTaskListener(splash);
-		executor.run();
-		splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 1.0d);
-		FacadeFactory.initialize();
-		PCGenUIManager.initializeGUI();
-		splash.done();
-		PCGenUIManager.startGUI();
-	}
+        PCGenPreloader splash = new PCGenPreloader();
+        PCGenTaskExecutor executor = new PCGenTaskExecutor();
+        executor.addPCGenTask(createLoadPluginTask());
+        executor.addPCGenTask(new GameModeFileLoader());
+        executor.addPCGenTask(new CampaignFileLoader());
+        executor.addPCGenTaskListener(splash);
+        executor.run();
+        splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 1.0d);
+        FacadeFactory.initialize();
+        PCGenUIManager.initializeGUI();
+        splash.done();
+        PCGenUIManager.startGUI();
+    }
 
-	private static void configureUI()
-	{
-		String language = ConfigurationSettings.getLanguage();
-		String country = ConfigurationSettings.getCountry();
-		if (StringUtils.isNotEmpty(language) && StringUtils.isNotEmpty(country))
-		{
-			Locale.setDefault(new Locale(language, country));
-		}
-		LanguageBundle.init();
-	}
+    private static void configureUI()
+    {
+        String language = ConfigurationSettings.getLanguage();
+        String country = ConfigurationSettings.getCountry();
+        if (StringUtils.isNotEmpty(language) && StringUtils.isNotEmpty(country))
+        {
+            Locale.setDefault(new Locale(language, country));
+        }
+        LanguageBundle.init();
+    }
 
-	/**
-	 * Check that the runtime environment is suitable for PCGen to run.
-	 */
-	private static void validateEnvironment(boolean useGui)
-	{
-		// Check our main folders are present
-		String[] neededDirs = {ConfigurationSettings.getSystemsDir(), ConfigurationSettings.getPccFilesDir(),
-			ConfigurationSettings.getPluginsDir(), ConfigurationSettings.getPreviewDir(),
-			ConfigurationSettings.getOutputSheetsDir()};
-		StringBuilder missingDirs = new StringBuilder();
-		for (final String dirPath : neededDirs)
-		{
-			File dir = new File(dirPath);
-			if (!dir.exists())
-			{
-				String path = dirPath;
-				try
-				{
-					path = dir.getCanonicalPath();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Unable to find canonical path for " + dir);
-				}
-				missingDirs.append("  ").append(path).append('\n');
-			}
-		}
-		if (missingDirs.length() > 0)
-		{
-			String message;
-			message = "This installation of PCGen is missing the following required folders:\n" + missingDirs;
-			Logging.errorPrint(message);
-			if (useGui)
-			{
-				JOptionPane.showMessageDialog(null, message + "\nPlease reinstall PCGen.", Constants.APPLICATION_NAME,
-					JOptionPane.ERROR_MESSAGE);
-			}
-			System.exit(1);
-		}
-	}
+    /**
+     * Check that the runtime environment is suitable for PCGen to run.
+     */
+    private static void validateEnvironment(boolean useGui)
+    {
+        // Check our main folders are present
+        String[] neededDirs = {ConfigurationSettings.getSystemsDir(), ConfigurationSettings.getPccFilesDir(),
+                ConfigurationSettings.getPluginsDir(), ConfigurationSettings.getPreviewDir(),
+                ConfigurationSettings.getOutputSheetsDir()};
+        StringBuilder missingDirs = new StringBuilder();
+        for (final String dirPath : neededDirs)
+        {
+            File dir = new File(dirPath);
+            if (!dir.exists())
+            {
+                String path = dirPath;
+                try
+                {
+                    path = dir.getCanonicalPath();
+                } catch (IOException e)
+                {
+                    Logging.errorPrint("Unable to find canonical path for " + dir);
+                }
+                missingDirs.append("  ").append(path).append('\n');
+            }
+        }
+        if (missingDirs.length() > 0)
+        {
+            String message;
+            message = "This installation of PCGen is missing the following required folders:\n" + missingDirs;
+            Logging.errorPrint(message);
+            if (useGui)
+            {
+                JOptionPane.showMessageDialog(null, message + "\nPlease reinstall PCGen.", Constants.APPLICATION_NAME,
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            System.exit(1);
+        }
+    }
 
-	public static void loadProperties(boolean useGui)
-	{
-		if ((settingsDir == null)
-				&& (ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null))
-		{
-			if (!useGui)
-			{
-				Logging.errorPrint("No settingsDir specified via -s in batch mode and no default exists.");
-				System.exit(1);
-			}
-			var panel = new JFXPanelFromResource<>(
-					OptionsPathDialogController.class,
-					"OptionsPathDialog.fxml"
-			);
-			panel.showAndBlock("Directory for options.ini location");
-		}
-		PropertyContextFactory.setDefaultFactory(settingsDir);
+    public static void loadProperties(boolean useGui)
+    {
+        if ((settingsDir == null)
+                && (ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null))
+        {
+            if (!useGui)
+            {
+                Logging.errorPrint("No settingsDir specified via -s in batch mode and no default exists.");
+                System.exit(1);
+            }
+            var panel = new JFXPanelFromResource<>(
+                    OptionsPathDialogController.class,
+                    "OptionsPathDialog.fxml"
+            );
+            panel.showAndBlock("Directory for options.ini location");
+        }
+        PropertyContextFactory.setDefaultFactory(settingsDir);
 
-		//Existing PropertyContexts are registered here
-		PropertyContextFactory defaultFactory = PropertyContextFactory.getDefaultFactory();
-		PropertyContext settingscontext = PCGenSettings.getInstance();
-		defaultFactory.registerPropertyContext(settingscontext);
-		defaultFactory.registerPropertyContext(UIPropertyContext.getInstance());
-		defaultFactory.registerPropertyContext(LegacySettings.getInstance());
-		defaultFactory.loadPropertyContexts();
-		//Make savepath directory if it doesn't exist
-		String savepath = settingscontext.getProperty(PCGenSettings.PCG_SAVE_PATH);
-		File savepath_dir = new File(savepath);
-		if (!savepath_dir.exists() && !savepath_dir.isDirectory())
-		{
-			try
-			{
-				Logging.log(Level.INFO, "Making directory " + savepath_dir);
-				savepath_dir.mkdir();
-			}
-			catch (Exception e)
-			{
-				Logging.log(Level.SEVERE, "Unable to create PCG_SAVE_PATH " + savepath_dir + ": " + e );
-			}
-		}
-	}
+        //Existing PropertyContexts are registered here
+        PropertyContextFactory defaultFactory = PropertyContextFactory.getDefaultFactory();
+        PropertyContext settingscontext = PCGenSettings.getInstance();
+        defaultFactory.registerPropertyContext(settingscontext);
+        defaultFactory.registerPropertyContext(UIPropertyContext.getInstance());
+        defaultFactory.registerPropertyContext(LegacySettings.getInstance());
+        defaultFactory.loadPropertyContexts();
+        //Make savepath directory if it doesn't exist
+        String savepath = settingscontext.getProperty(PCGenSettings.PCG_SAVE_PATH);
+        File savepath_dir = new File(savepath);
+        if (!savepath_dir.exists() && !savepath_dir.isDirectory())
+        {
+            try
+            {
+                Logging.log(Level.INFO, "Making directory " + savepath_dir);
+                savepath_dir.mkdir();
+            } catch (Exception e)
+            {
+                Logging.log(Level.SEVERE, "Unable to create PCG_SAVE_PATH " + savepath_dir + ": " + e);
+            }
+        }
+    }
 
-	/**
-	 * Create a task to load all system plugins.
-	 *
-	 * @return The task to load plugins.
-	 */
-	public static PCGenTask createLoadPluginTask()
-	{
-		String pluginsDir = ConfigurationSettings.getPluginsDir();
-		PluginClassLoader loader = new PluginClassLoader(new File(pluginsDir));
-		loader.addPluginLoader(TokenLibrary.getInstance());
-		loader.addPluginLoader(TokenStore.inst());
-		try
-		{
-			loader.addPluginLoader(PreParserFactory.getInstance());
-		}
-		catch (PersistenceLayerException ex)
-		{
-			Logging.errorPrint("createLoadPluginTask failed", ex);
-		}
-		loader.addPluginLoader(PrerequisiteTestFactory.getInstance());
-		loader.addPluginLoader(PrerequisiteWriterFactory.getInstance());
-		loader.addPluginLoader(PJEP.getJepPluginLoader());
-		loader.addPluginLoader(ExportHandler.getPluginLoader());
-		loader.addPluginLoader(TokenConverter.getPluginLoader());
-		loader.addPluginLoader(PluginManager.getInstance());
-		loader.addPluginLoader(PluginFunctionLibrary.getInstance());
-		return loader;
-	}
+    /**
+     * Create a task to load all system plugins.
+     *
+     * @return The task to load plugins.
+     */
+    public static PCGenTask createLoadPluginTask()
+    {
+        String pluginsDir = ConfigurationSettings.getPluginsDir();
+        PluginClassLoader loader = new PluginClassLoader(new File(pluginsDir));
+        loader.addPluginLoader(TokenLibrary.getInstance());
+        loader.addPluginLoader(TokenStore.inst());
+        try
+        {
+            loader.addPluginLoader(PreParserFactory.getInstance());
+        } catch (PersistenceLayerException ex)
+        {
+            Logging.errorPrint("createLoadPluginTask failed", ex);
+        }
+        loader.addPluginLoader(PrerequisiteTestFactory.getInstance());
+        loader.addPluginLoader(PrerequisiteWriterFactory.getInstance());
+        loader.addPluginLoader(PJEP.getJepPluginLoader());
+        loader.addPluginLoader(ExportHandler.getPluginLoader());
+        loader.addPluginLoader(TokenConverter.getPluginLoader());
+        loader.addPluginLoader(PluginManager.getInstance());
+        loader.addPluginLoader(PluginFunctionLibrary.getInstance());
+        return loader;
+    }
 
-	private static boolean startupWithoutGUI()
-	{
-		loadProperties(false);
-		validateEnvironment(false);
+    private static boolean startupWithoutGUI()
+    {
+        loadProperties(false);
+        validateEnvironment(false);
 
-		PCGenTaskExecutor executor = new PCGenTaskExecutor();
-		executor.addPCGenTask(createLoadPluginTask());
-		executor.addPCGenTask(new GameModeFileLoader());
-		executor.addPCGenTask(new CampaignFileLoader());
-		executor.run();
+        PCGenTaskExecutor executor = new PCGenTaskExecutor();
+        executor.addPCGenTask(createLoadPluginTask());
+        executor.addPCGenTask(new GameModeFileLoader());
+        executor.addPCGenTask(new CampaignFileLoader());
+        executor.run();
 
-		UIDelegate uiDelegate = new ConsoleUIDelegate();
+        UIDelegate uiDelegate = new ConsoleUIDelegate();
 
-		BatchExporter exporter = new BatchExporter(exportSheet, uiDelegate);
+        BatchExporter exporter = new BatchExporter(exportSheet, uiDelegate);
 
-		boolean result = true;
-		if (partyFile != null)
-		{
-			result = exporter.exportParty(partyFile, outputFile);
-		}
+        boolean result = true;
+        if (partyFile != null)
+        {
+            result = exporter.exportParty(partyFile, outputFile);
+        }
 
-		if (characterFile != null)
-		{
-			result = exporter.exportCharacter(characterFile, outputFile);
-		}
+        if (characterFile != null)
+        {
+            result = exporter.exportCharacter(characterFile, outputFile);
+        }
 
-		return result;
-	}
+        return result;
+    }
 
-	public static void shutdown()
-	{
-		configFactory.savePropertyContexts();
-		BatchExporter.removeTemporaryFiles();
-		PropertyContextFactory.getDefaultFactory().savePropertyContexts();
+    public static void shutdown()
+    {
+        configFactory.savePropertyContexts();
+        BatchExporter.removeTemporaryFiles();
+        PropertyContextFactory.getDefaultFactory().savePropertyContexts();
 
-		// Need to (possibly) write customEquipment.lst
-		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
-		{
-			CustomData.writeCustomItems();
-		}
+        // Need to (possibly) write customEquipment.lst
+        if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
+        {
+            CustomData.writeCustomItems();
+        }
 
-		System.exit(0);
-	}
+        System.exit(0);
+    }
 
-	private static void initPrintPreviewFonts()
-	{
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fonts" + File.separator
-			+ "NotoSans" + File.separator;
-		try
-		{
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Regular.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Bold.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Italic.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-BoldItalic.ttf")));
-		}
-		catch (IOException | FontFormatException ex)
-		{
-			Logging.errorPrint("Unexpected exception loading fonts fo print p", ex);
-		}
-	}
+    private static void initPrintPreviewFonts()
+    {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fonts" + File.separator
+                + "NotoSans" + File.separator;
+        try
+        {
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Regular.ttf")));
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Bold.ttf")));
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Italic.ttf")));
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-BoldItalic.ttf")));
+        } catch (IOException | FontFormatException ex)
+        {
+            Logging.errorPrint("Unexpected exception loading fonts fo print p", ex);
+        }
+    }
 
-	/**
-	 * @return an ArgumentParser used to perform argument parsing
-	 */
-	private static ArgumentParser getParser()
-	{
-		ArgumentParser parser = ArgumentParsers.newFor(Constants.APPLICATION_NAME).build().defaultHelp(false)
-			.description("RPG Character Generator").version(PCGenPropBundle.getVersionNumber());
+    /**
+     * @return an ArgumentParser used to perform argument parsing
+     */
+    private static ArgumentParser getParser()
+    {
+        ArgumentParser parser = ArgumentParsers.newFor(Constants.APPLICATION_NAME).build().defaultHelp(false)
+                .description("RPG Character Generator").version(PCGenPropBundle.getVersionNumber());
 
-		parser.addArgument("-v", "--verbose").help("verbose logging").type(Boolean.class).action(Arguments.count());
+        parser.addArgument("-v", "--verbose").help("verbose logging").type(Boolean.class).action(Arguments.count());
 
-		parser.addArgument("-V", "--version").action(Arguments.version());
+        parser.addArgument("-V", "--version").action(Arguments.version());
 
-		MutuallyExclusiveGroup startupMode =
-				parser.addMutuallyExclusiveGroup().description("start up on a specific mode");
+        MutuallyExclusiveGroup startupMode =
+                parser.addMutuallyExclusiveGroup().description("start up on a specific mode");
 
-		startupMode.addArgument("--name-generator").help("run the name generator").type(Boolean.class)
-			.action(Arguments.storeTrue());
+        startupMode.addArgument("--name-generator").help("run the name generator").type(Boolean.class)
+                .action(Arguments.storeTrue());
 
-		startupMode.addArgument("-D", "--tab").nargs(1);
+        startupMode.addArgument("-D", "--tab").nargs(1);
 
-		parser.addArgument("-s", "--settingsdir").nargs(1)
-			.type(Arguments.fileType().verifyIsDirectory().verifyCanRead().verifyExists());
-		parser.addArgument("-m", "--campaignmode").nargs(1).type(String.class);
-		parser.addArgument("-E", "--exportsheet").nargs(1)
-			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
+        parser.addArgument("-s", "--settingsdir").nargs(1)
+                .type(Arguments.fileType().verifyIsDirectory().verifyCanRead().verifyExists());
+        parser.addArgument("-m", "--campaignmode").nargs(1).type(String.class);
+        parser.addArgument("-E", "--exportsheet").nargs(1)
+                .type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
 
-		parser.addArgument("-o", "--outputfile").nargs(1)
-			.type(Arguments.fileType().verifyCanCreate().verifyCanWrite().verifyNotExists());
+        parser.addArgument("-o", "--outputfile").nargs(1)
+                .type(Arguments.fileType().verifyCanCreate().verifyCanWrite().verifyNotExists());
 
-		parser.addArgument("-c", "--character").nargs(1)
-			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
+        parser.addArgument("-c", "--character").nargs(1)
+                .type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
 
-		parser.addArgument("-p", "--party").nargs(1)
-			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
+        parser.addArgument("-p", "--party").nargs(1)
+                .type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
 
-		return parser;
-	}
+        return parser;
+    }
 
 }

@@ -33,7 +33,7 @@ task copySite(type: Copy) {
     from "${projectDir}/code/gradle/site"
     into "${destAutobuildDir}"
     expand(copyright: Calendar.instance.get(Calendar.YEAR), version: version, timestamp: buildTimestamp,
-        simpleVersion: version.replaceAll('-SNAPSHOT', '').replaceAll(/\./, ''))
+            simpleVersion: version.replaceAll('-SNAPSHOT', '').replaceAll(/\./, ''))
 }
 
 task copyInstaller(type: Copy) {
@@ -43,6 +43,6 @@ task copyInstaller(type: Copy) {
     into "${destAutobuildDir}/downloads/"
 }
 
-task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', \
-'copyInstaller']) {
+task deployAutobuild(dependsOn: ['copyDocs', 'copyDist', 'copySite',   \
+  'copyInstaller']) {
 }

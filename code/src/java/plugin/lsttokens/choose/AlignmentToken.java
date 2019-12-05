@@ -27,41 +27,41 @@ import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
  */
 public class AlignmentToken extends AbstractSimpleChooseToken<PCAlignment>
 {
-	private static final Class<PCAlignment> PCALIGNMENT_CLASS = PCAlignment.class;
+    private static final Class<PCAlignment> PCALIGNMENT_CLASS = PCAlignment.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "ALIGNMENT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ALIGNMENT";
+    }
 
-	@Override
-	protected Class<PCAlignment> getChooseClass()
-	{
-		return PCALIGNMENT_CLASS;
-	}
+    @Override
+    protected Class<PCAlignment> getChooseClass()
+    {
+        return PCALIGNMENT_CLASS;
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Alignment choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Alignment choice";
+    }
 
-	@Override
-	public PCAlignment decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCALIGNMENT_CLASS, s);
-	}
+    @Override
+    public PCAlignment decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCALIGNMENT_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(PCAlignment choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(PCAlignment choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<PCAlignment> getListKey()
-	{
-		return AssociationListKey.getKeyFor(PCALIGNMENT_CLASS, "CHOOSE*ALIGNMENT");
-	}
+    @Override
+    protected AssociationListKey<PCAlignment> getListKey()
+    {
+        return AssociationListKey.getKeyFor(PCALIGNMENT_CLASS, "CHOOSE*ALIGNMENT");
+    }
 }

@@ -29,9 +29,9 @@ import org.junit.jupiter.api.Test;
  */
 public class pcGenGUIIlyanaTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testIlyana() throws Exception
-	{
-		runTest("msrd_Ilyana", "Modern");
-	}
+    @Test
+    public void testIlyana() throws Exception
+    {
+        runTest("msrd_Ilyana", "Modern");
+    }
 }

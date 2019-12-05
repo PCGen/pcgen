@@ -25,12 +25,12 @@
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.CopySettingsPanelController">
     <VBox>
-        <Label labelFor="$gameModeSelect" text="%in_Prefs_copyFrom" />
-        <ComboBox fx:id="gameModeSelect" />
+        <Label labelFor="$gameModeSelect" text="%in_Prefs_copyFrom"/>
+        <ComboBox fx:id="gameModeSelect"/>
 
         <Label fx:id="copyButtonLabel" labelFor="$copyButton"/>
-        <Button fx:id="copyButton" text="%in_copy" onAction="#onCopy" />
+        <Button fx:id="copyButton" text="%in_copy" onAction="#onCopy"/>
 
-        <Text text="%in_Prefs_copyDesc" />
+        <Text text="%in_Prefs_copyDesc"/>
     </VBox>
 </Scene>

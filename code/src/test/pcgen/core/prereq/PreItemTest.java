@@ -35,87 +35,87 @@ import org.junit.jupiter.api.Test;
  */
 public class PreItemTest extends AbstractCharacterTestCase
 {
-	/*
-	 * Class under test for int passes(Prerequisite, PlayerCharacter)
-	 */
-	@Test
-	public void testPassesPrerequisitePlayerCharacter()
-	{
-		final PlayerCharacter character = getCharacter();
+    /*
+     * Class under test for int passes(Prerequisite, PlayerCharacter)
+     */
+    @Test
+    public void testPassesPrerequisitePlayerCharacter()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Equipment longsword = new Equipment();
-		longsword.setName("Longsword");
+        final Equipment longsword = new Equipment();
+        longsword.setName("Longsword");
 
-		character.addEquipment(longsword);
+        character.addEquipment(longsword);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("item");
-		prereq.setKey("LONGSWORD");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("item");
+        prereq.setKey("LONGSWORD");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
 
-		longsword.setName("Longsword (Masterwork)");
+        longsword.setName("Longsword (Masterwork)");
 
-		assertFalse("Should be an exact match only", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Should be an exact match only", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq.setKey("LONGSWORD%");
+        prereq.setKey("LONGSWORD%");
 
-		assertTrue("Should be allow wildcard match", PrereqHandler.passes(
-			prereq, character, null));
-	}
+        assertTrue("Should be allow wildcard match", PrereqHandler.passes(
+                prereq, character, null));
+    }
 
-	/**
-	 * Test equipment type tests.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testType() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test equipment type tests.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testType() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Equipment longsword = new Equipment();
-		longsword.setName("Longsword");
+        final Equipment longsword = new Equipment();
+        longsword.setName("Longsword");
 
-		character.addEquipment(longsword);
+        character.addEquipment(longsword);
 
-		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("item");
-		prereq.setKey("TYPE=Weapon");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        Prerequisite prereq = new Prerequisite();
+        prereq.setKind("item");
+        prereq.setKey("TYPE=Weapon");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
+                character, null));
 
-		longsword.addType(Type.WEAPON);
+        longsword.addType(Type.WEAPON);
 
-		assertTrue("Equipment is weapon", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Equipment is weapon", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq.setKey("TYPE.Armor");
+        prereq.setKey("TYPE.Armor");
 
-		assertFalse("Equipment is not armor", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Equipment is not armor", PrereqHandler.passes(prereq,
+                character, null));
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREITEM:2,TYPE=Armor,Longsword%");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREITEM:2,TYPE=Armor,Longsword%");
 
-		assertFalse("Doesn't have armor", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Doesn't have armor", PrereqHandler.passes(prereq,
+                character, null));
 
-		final Equipment leather = new Equipment();
-		leather.setName("Leather");
-		leather.addType(Type.getConstant("ARMOR"));
+        final Equipment leather = new Equipment();
+        leather.setName("Leather");
+        leather.addType(Type.getConstant("ARMOR"));
 
-		character.addEquipment(leather);
+        character.addEquipment(leather);
 
-		assertTrue("Armor and sword present", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        assertTrue("Armor and sword present", PrereqHandler.passes(prereq,
+                character, null));
+    }
 
 }

@@ -24,36 +24,39 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class MonSkillPts extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"NUMBER", "LOCKNUMBER"};
+    private static final String[] BONUS_TAGS = {"NUMBER", "LOCKNUMBER"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "MONSKILLPTS";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "MONSKILLPTS";
+    }
 
-	/**
-	 * Get by index, an individual monster skill point attribute that may be bonused.
-	 * @param tagNumber the index of the monster skill point attribute type.
-	 * @return The type of monster skill point attribute .
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual monster skill point attribute that may be bonused.
+     *
+     * @param tagNumber the index of the monster skill point attribute type.
+     * @return The type of monster skill point attribute .
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of types of monster skill point attributes that may be bonused.
-	 * @return The number of monster skill point attributes.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of types of monster skill point attributes that may be bonused.
+     *
+     * @return The number of monster skill point attributes.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 }

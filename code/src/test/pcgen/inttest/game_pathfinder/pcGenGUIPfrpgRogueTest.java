@@ -27,9 +27,9 @@ import org.junit.jupiter.api.Test;
  */
 public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testCode() throws Exception
-	{
-		runTest("pf_Rogue", "Pathfinder_RPG");
-	}
+    @Test
+    public void testCode() throws Exception
+    {
+        runTest("pf_Rogue", "Pathfinder_RPG");
+    }
 }

@@ -29,77 +29,80 @@ import pcgen.util.Logging;
  */
 public final class WeaponProf extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE", "DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE",
-				"REACH", "TOHIT", "TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB", "WIELDCATEGORY", "STATDAMAGE"};
+    private static final String[] BONUS_TAGS =
+            {"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE", "DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE",
+                    "REACH", "TOHIT", "TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB", "WIELDCATEGORY", "STATDAMAGE"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "WEAPONPROF=";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "WEAPONPROF=";
+    }
 
-	/**
-	 * Get by index, an individual weapon proficiency attribute that may be bonused.
-	 * @param tagNumber the index of the weapon proficiency attribute.
-	 * @return The weapon proficiency attribute.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual weapon proficiency attribute that may be bonused.
+     *
+     * @param tagNumber the index of the weapon proficiency attribute.
+     * @return The weapon proficiency attribute.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of weapon proficiency attributes that may be bonused.
-	 * @return The number of weapon proficiency attributes.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of weapon proficiency attributes that may be bonused.
+     *
+     * @return The number of weapon proficiency attributes.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 
-	@Override
-	protected boolean parseToken(LoadContext context, String token)
-	{
-		if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
-		{
-			if ("CRITRANGEADD".equals(token))
-			{
-				Logging.errorPrint("BONUS:WEAPONPROF|CRITRANGEADD is disabled when CRITRANGE control is used: " + token,
-					context);
-				return false;
-			}
-			if ("CRITRANGEDOUBLE".equals(token))
-			{
-				Logging.errorPrint(
-					"BONUS:WEAPONPROF|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: " + token, context);
-				return false;
-			}
-		}
-		if (ControlUtilities.hasControlToken(context, CControl.CRITMULT))
-		{
-			if ("CRITMULTADD".equals(token))
-			{
-				Logging.errorPrint("BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: " + token,
-					context);
-				return false;
-			}
-		}
-		if (ControlUtilities.hasControlToken(context, CControl.EQREACH))
-		{
-			if ("REACH".equals(token))
-			{
-				Logging.errorPrint("BONUS:WEAPONPROF|REACH is disabled when EQREACH control is used: " + token,
-					context);
-				return false;
-			}
-		}
-		return super.parseToken(context, token);
-	}
+    @Override
+    protected boolean parseToken(LoadContext context, String token)
+    {
+        if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
+        {
+            if ("CRITRANGEADD".equals(token))
+            {
+                Logging.errorPrint("BONUS:WEAPONPROF|CRITRANGEADD is disabled when CRITRANGE control is used: " + token,
+                        context);
+                return false;
+            }
+            if ("CRITRANGEDOUBLE".equals(token))
+            {
+                Logging.errorPrint(
+                        "BONUS:WEAPONPROF|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: " + token, context);
+                return false;
+            }
+        }
+        if (ControlUtilities.hasControlToken(context, CControl.CRITMULT))
+        {
+            if ("CRITMULTADD".equals(token))
+            {
+                Logging.errorPrint("BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: " + token,
+                        context);
+                return false;
+            }
+        }
+        if (ControlUtilities.hasControlToken(context, CControl.EQREACH))
+        {
+            if ("REACH".equals(token))
+            {
+                Logging.errorPrint("BONUS:WEAPONPROF|REACH is disabled when EQREACH control is used: " + token,
+                        context);
+                return false;
+            }
+        }
+        return super.parseToken(context, token);
+    }
 }

@@ -26,15 +26,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //PHOBIAS
 public class PhobiasToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "PHOBIAS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "PHOBIAS";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getSafeStringFor(PCStringKey.PHOBIAS);
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getSafeStringFor(PCStringKey.PHOBIAS);
+    }
 }

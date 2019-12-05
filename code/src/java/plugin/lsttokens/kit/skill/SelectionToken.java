@@ -33,61 +33,59 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * SELECTION token for KitSkill
- * 
- * 
  */
 public class SelectionToken extends AbstractTokenWithSeparator<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
 
-	private static final Class<Language> LANGUAGE_CLASS = Language.class;
+    private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "SELECTION";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "SELECTION";
+    }
 
-	@Override
-	public Class<KitSkill> getTokenClass()
-	{
-		return KitSkill.class;
-	}
+    @Override
+    public Class<KitSkill> getTokenClass()
+    {
+        return KitSkill.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return ',';
-	}
+    @Override
+    protected char separator()
+    {
+        return ',';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitSkill kitSkill, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitSkill kitSkill, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
 
-		while (tok.hasMoreTokens())
-		{
-			kitSkill.addSelection(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS, tok.nextToken()));
-		}
-		return ParseResult.SUCCESS;
-	}
+        while (tok.hasMoreTokens())
+        {
+            kitSkill.addSelection(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS, tok.nextToken()));
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitSkill kitSkill)
-	{
-		List<CDOMSingleRef<Language>> ref = kitSkill.getSelections();
-		if (ref == null || ref.isEmpty())
-		{
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.COMMA)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitSkill kitSkill)
+    {
+        List<CDOMSingleRef<Language>> ref = kitSkill.getSelections();
+        if (ref == null || ref.isEmpty())
+        {
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.COMMA)};
+    }
 
-	//TODO DeferredToken - check this?
+    //TODO DeferredToken - check this?
 	/*
 	 if (SkillLanguage.isLanguage(aSkill) && !selection.isEmpty())
 	 */

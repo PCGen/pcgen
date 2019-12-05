@@ -32,55 +32,58 @@ import pcgen.util.Delta;
  */
 public class MaxDexToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "MAXDEX";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "MAXDEX";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		int mod = process(pc);
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        int mod = process(pc);
 
-		if (mod != Constants.MAX_MAXDEX)
-		{
-			retString = Delta.toString(mod);
-		}
+        if (mod != Constants.MAX_MAXDEX)
+        {
+            retString = Delta.toString(mod);
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the value for the MAXDEX token
-	 * @param tokenSource
-	 * @param pc
-	 * @return the value for the MAXDEX token
-	 */
-	public static String getMaxDexToken(String tokenSource, PlayerCharacter pc)
-	{
-		String retString = "";
-		int mod = process(pc);
+    /**
+     * Get the value for the MAXDEX token
+     *
+     * @param tokenSource
+     * @param pc
+     * @return the value for the MAXDEX token
+     */
+    public static String getMaxDexToken(String tokenSource, PlayerCharacter pc)
+    {
+        String retString = "";
+        int mod = process(pc);
 
-		if (mod != Constants.MAX_MAXDEX)
-		{
-			retString = Delta.toString(mod);
-		}
+        if (mod != Constants.MAX_MAXDEX)
+        {
+            retString = Delta.toString(mod);
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	private static int process(PlayerCharacter pc)
-	{
-		String maxDexVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCMAXDEX);
-		if (maxDexVar == null)
-		{
-			return pc.processOldMaxDex();
-		}
-		return ((Number) pc.getGlobal(maxDexVar)).intValue();
-	}
+    private static int process(PlayerCharacter pc)
+    {
+        String maxDexVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCMAXDEX);
+        if (maxDexVar == null)
+        {
+            return pc.processOldMaxDex();
+        }
+        return ((Number) pc.getGlobal(maxDexVar)).intValue();
+    }
 }

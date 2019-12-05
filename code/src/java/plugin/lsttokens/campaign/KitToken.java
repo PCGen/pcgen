@@ -28,15 +28,15 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  */
 public class KitToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "KIT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "KIT";
+    }
 
-	@Override
-	protected ListKey<CampaignSourceEntry> getListKey()
-	{
-		return ListKey.FILE_KIT;
-	}
+    @Override
+    protected ListKey<CampaignSourceEntry> getListKey()
+    {
+        return ListKey.FILE_KIT;
+    }
 }

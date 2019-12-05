@@ -44,106 +44,106 @@ import org.junit.jupiter.api.Test;
  */
 public class PreLevelMaxTest extends AbstractCharacterTestCase
 {
-	private PCClass myClass = new PCClass();
-	private Race race = new Race();
+    private PCClass myClass = new PCClass();
+    private Race race = new Race();
 
-	/**
-	 * Test that Level works.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testLevel() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(1, myClass, true);
+    /**
+     * Test that Level works.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testLevel() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(1, myClass, true);
 
-		myClass = character.getClassKeyed("MY_CLASS");
+        myClass = character.getClassKeyed("MY_CLASS");
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRELEVELMAX:1");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PRELEVELMAX:1");
 
-		assertTrue("Character is not 2nd level", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character is not 2nd level", PrereqHandler.passes(prereq,
+                character, null));
 
-		character.incrementClassLevel(1, myClass, true);
+        character.incrementClassLevel(1, myClass, true);
 
-		assertFalse("Character has 2 levels", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        assertFalse("Character has 2 levels", PrereqHandler.passes(prereq,
+                character, null));
+    }
 
-	/**
-	 * Test that HD are counted.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testHD() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(2, myClass, true);
+    /**
+     * Test that HD are counted.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testHD() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(2, myClass, true);
 
-		myClass = character.getClassKeyed("MY_CLASS");
+        myClass = character.getClassKeyed("MY_CLASS");
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
+        final PreParserFactory factory = PreParserFactory.getInstance();
 
-		prereq = factory.parse("PRELEVELMAX:3");
+        prereq = factory.parse("PRELEVELMAX:3");
 
-		assertTrue("Character doesn't have 4 levels", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character doesn't have 4 levels", PrereqHandler.passes(
+                prereq, character, null));
 
-		character.setRace(race);
+        character.setRace(race);
 
-		assertTrue("Character has 4 levels", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        assertTrue("Character has 4 levels", PrereqHandler.passes(prereq,
+                character, null));
+    }
 
-	/**
-	 * Make sure BONUS:PCLEVEL is not counted.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testPCLevel() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		LoadContext context = Globals.getContext();
+    /**
+     * Make sure BONUS:PCLEVEL is not counted.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testPCLevel() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        LoadContext context = Globals.getContext();
 
-		character.incrementClassLevel(2, myClass, true);
+        character.incrementClassLevel(2, myClass, true);
 
-		myClass = character.getClassKeyed("MY_CLASS");
+        myClass = character.getClassKeyed("MY_CLASS");
 
-		character.setRace(race);
+        character.setRace(race);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
+        final PreParserFactory factory = PreParserFactory.getInstance();
 
-		prereq = factory.parse("PRELEVELMAX:5");
+        prereq = factory.parse("PRELEVELMAX:5");
 
-		final BonusObj levelBonus = Bonus.newBonus(context, "PCLEVEL|MY_CLASS|2");
-		myClass.addToListFor(ListKey.BONUS, levelBonus);
-		character.calcActiveBonuses();
+        final BonusObj levelBonus = Bonus.newBonus(context, "PCLEVEL|MY_CLASS|2");
+        myClass.addToListFor(ListKey.BONUS, levelBonus);
+        character.calcActiveBonuses();
 
-		assertTrue("Character has only 4 levels", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        assertTrue("Character has only 4 levels", PrereqHandler.passes(prereq,
+                character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
+    protected void setUp() throws Exception
+    {
+        super.setUp();
 
-		race.setName("Gnoll");
+        race.setName("Gnoll");
 
-		myClass.setName("My Class");
-		myClass.put(StringKey.KEY_NAME, "MY_CLASS");
-		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		Globals.getContext().getReferenceContext().importObject(myClass);
-	}
+        myClass.setName("My Class");
+        myClass.put(StringKey.KEY_NAME, "MY_CLASS");
+        myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
+        Globals.getContext().getReferenceContext().importObject(myClass);
+    }
 }

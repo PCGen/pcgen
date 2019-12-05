@@ -26,15 +26,15 @@ import pcgen.core.GameMode;
 
 /**
  * {@code GameModeLstToken}
- *
  */
 public interface GameModeLstToken extends LstToken
 {
-	/**
-	 * Parse the token
-	 * @param gameMode
-	 * @param value
-	 * @return true if successful
-	 */
-	boolean parse(GameMode gameMode, String value, URI source);
+    /**
+     * Parse the token
+     *
+     * @param gameMode
+     * @param value
+     * @return true if successful
+     */
+    boolean parse(GameMode gameMode, String value, URI source);
 }

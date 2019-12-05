@@ -25,23 +25,22 @@ import org.junit.jupiter.api.BeforeEach;
 /**
  * Abstract TestCase framework for tests that are US Locale dependent. Before the tests this automatically switch the
  * locale, and also does at the end. Manually calling the methods, or the super classes', especially {@link #before},
- * will break the locale for further tests. 
- * 
+ * will break the locale for further tests.
  */
 public abstract class EnUsLocaleDependentTestCase extends
-		LocaleDependentTestCase
+        LocaleDependentTestCase
 {
 
-	@BeforeEach
-	public void changeLocale()
-	{
-		before(Locale.US);
-	}
+    @BeforeEach
+    public void changeLocale()
+    {
+        before(Locale.US);
+    }
 
-	@AfterEach
-	public void restoreLocale()
-	{
-		LocaleDependentTestCase.after();
-	}
+    @AfterEach
+    public void restoreLocale()
+    {
+        LocaleDependentTestCase.after();
+    }
 
 }

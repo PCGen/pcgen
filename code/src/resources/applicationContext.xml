@@ -1,718 +1,718 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-init-method="init"
-	default-lazy-init="false">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init"
+       default-lazy-init="false">
 
-	<!--  Facet Definitions -->
-	<!-- A -->
-	<bean id="abilitySelectionApplication" class="pcgen.cdom.facet.AbilitySelectionApplication" />
-	<bean id="activeEqModFacet" class="pcgen.cdom.facet.model.ActiveEqModFacet" />
-	<bean id="activeEqHeadFacet" class="pcgen.cdom.facet.model.ActiveEqHeadFacet" />
-	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="spellsFacet" ref="spellsFacet"/>
-	</bean>
-	<bean id="addedBonusFacet" class="pcgen.cdom.facet.AddedBonusFacet" />
-	<bean id="addedTemplateFacet" class="pcgen.cdom.facet.AddedTemplateFacet">
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="addFacet" class="pcgen.cdom.facet.AddFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="domainFacet" ref="domainFacet"/>
-		<property name="classLevelFacet" ref="classLevelFacet"/>
-	</bean>
-	<bean id="addLanguageFacet" class="pcgen.cdom.facet.input.AddLanguageFacet">
-		<property name="languageFacet" ref="languageFacet"/>
-	</bean>
-	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="ageFacet" class="pcgen.cdom.facet.fact.AgeFacet" />
-	<bean id="ageSetFacet" class="pcgen.cdom.facet.analysis.AgeSetFacet">
-		<property name="ageFacet" ref="ageFacet"/>
-		<property name="regionFacet" ref="regionFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="bioSetFacet" ref="bioSetFacet"/>
-	</bean>
-	<bean id="ageSetKitFacet" class="pcgen.cdom.facet.AgeSetKitFacet">
-		<property name="ageFacet" ref="ageFacet"/>
-		<property name="ageSetFacet" ref="ageSetFacet"/>
-		<property name="bioSetFacet" ref="bioSetFacet"/>
-	</bean>
-	<bean id="allowDebtFacet" class="pcgen.cdom.facet.fact.AllowDebtFacet"/>
-	<bean id="appliedBonusFacet" class="pcgen.cdom.facet.AppliedBonusFacet">
-		<property name="addedBonusFacet" ref="addedBonusFacet"/>
-		<property name="saveableBonusFacet" ref="saveableBonusFacet"/>
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="armorClassFacet" class="pcgen.cdom.facet.analysis.ArmorClassFacet">
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-	</bean>
-	<bean id="armorProfFacet" class="pcgen.cdom.facet.ArmorProfFacet">
-		<property name="armorProfProviderFacet" ref="armorProfProviderFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="armorProfProviderFacet" class="pcgen.cdom.facet.model.ArmorProfProviderFacet" />
-	<bean id="autoEquipmentFacet" class="pcgen.cdom.facet.AutoEquipmentFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="autoEquipmentListFacet" class="pcgen.cdom.facet.input.AutoEquipmentListFacet" />
-	<bean id="autoLanguageFacet" class="pcgen.cdom.facet.AutoLanguageFacet">
-		<property name="autoLanguageUnconditionalFacet" ref="autoLanguageUnconditionalFacet"/>
-	</bean>
-	<bean id="autoLanguageGrantedFacet" class="pcgen.cdom.facet.AutoLanguageGrantedFacet">
-		<property name="languageFacet" ref="languageFacet"/>
-		<property name="autoLanguageFacet" ref="autoLanguageFacet"/>
-	</bean>
-	<bean id="autoLanguageListFacet" class="pcgen.cdom.facet.input.AutoLanguageListFacet">
-		<property name="languageFacet" ref="languageFacet"/>
-	</bean>
-	<bean id="autoLanguageUnconditionalFacet" class="pcgen.cdom.facet.AutoLanguageUnconditionalFacet">
-		<property name="languageFacet" ref="languageFacet"/>
-	</bean>
-	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.input.AutoListArmorProfFacet">
-		<property name="armorProfProviderFacet" ref="armorProfProviderFacet"/>
-	</bean>
-	<bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.input.AutoListShieldProfFacet">
-		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
-	</bean>
-	<bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.input.AutoListWeaponProfFacet">
-		<property name="weaponProfFacet" ref="weaponProfFacet"/>
-	</bean>
-	<bean id="autoWeaponProfFacet" class="pcgen.cdom.facet.AutoWeaponProfFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="availableSpellFacet" class="pcgen.cdom.facet.AvailableSpellFacet"/>
-	<bean id="availableSpellInputFacet" class="pcgen.cdom.facet.AvailableSpellInputFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-		<property name="availableSpellFacet" ref="availableSpellFacet"/>
-		<property name="conditionallyAvailableSpellFacet" ref="conditionallyAvailableSpellFacet"/>
-	</bean>
-	<!-- B -->
-	<bean id="baseMovementFacet" class="pcgen.cdom.facet.analysis.BaseMovementFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="bioSetFacet" class="pcgen.cdom.facet.model.BioSetFacet" />
-	<bean id="bioSetTrackingFacet" class="pcgen.cdom.facet.BioSetTrackingFacet">
-		<property name="bioSetFacet" ref="bioSetFacet"/>
-	</bean>
-	<bean id="bonusActiviationFacet" class="pcgen.cdom.facet.BonusActiviationFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="companionModFacet" ref="companionModFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
-		<property name="domainFacet" ref="domainFacet"/>
-		<property name="skillFacet" ref="skillFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="bonusChangeFacet" class="pcgen.cdom.facet.BonusChangeFacet">
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-	</bean>
-	<bean id="bonusCheckingFacet" class="pcgen.cdom.facet.BonusCheckingFacet" />
-	<bean id="bonusSkillRankChangeFacet" class="pcgen.cdom.facet.BonusSkillRankChangeFacet">
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-	</bean>
-	<bean id="bonusWeaponProfFacet" class="pcgen.cdom.facet.input.BonusWeaponProfFacet">
-		<property name="weaponProfFacet" ref="weaponProfFacet"/>
-	</bean>
-	<!-- C -->
-	<bean id="calcBonusFacet" class="pcgen.cdom.facet.CalcBonusFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="campaignFacet" class="pcgen.cdom.facet.input.CampaignFacet">
-		<property name="expandedCampaignFacet" ref="expandedCampaignFacet"/>
-	</bean>
-	<bean id="categorizedAbilityFacet" class="pcgen.cdom.facet.CategorizedAbilityFacet" />
-	<bean id="bridgeFacet" class="pcgen.cdom.facet.CDOMObjectBridge"/>
-	<bean id="consolidationFacet" class="pcgen.cdom.facet.CDOMObjectConsolidationFacet">
-		<property name="bridgeFacet" ref="bridgeFacet"/>
-	</bean>
-	<bean id="cdomSourceFacet" class="pcgen.cdom.facet.CDOMObjectSourceFacet">
-		<property name="bridgeFacet" ref="bridgeFacet"/>
-	</bean>
-	<bean id="cdomWrapperInfoFacet" class="pcgen.cdom.facet.CDOMWrapperInfoFacet">
-		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
-	</bean>
-	<bean id="challengeRatingFacet" class="pcgen.cdom.facet.analysis.ChallengeRatingFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="classFacet" ref="classFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="levelFacet" ref="levelFacet"/>
-	</bean>
-	<bean id="changeProfFacet" class="pcgen.cdom.facet.analysis.ChangeProfFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="characterConsolidationFacet" class="pcgen.cdom.facet.CharacterConsolidationFacet" />
-	<bean id="characterSpellResistanceFacet" class="pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="characterTypeFacet" class="pcgen.cdom.facet.fact.CharacterTypeFacet"/>
-	<bean id="checkFacet" class="pcgen.cdom.facet.model.CheckFacet" />
-	<bean id="checkBonusFacet" class="pcgen.cdom.facet.CheckBonusFacet">
-		<property name="checkFacet" ref="checkFacet"/>
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-	</bean>
-	<bean id="chooseDriverFacet" class="pcgen.cdom.facet.ChooseDriverFacet">
-		<property name="domainSelectionFacet" ref="domainSelectionFacet"/>
-		<property name="raceSelectionFacet" ref="raceSelectionFacet"/>
-		<property name="templateSelectionFacet" ref="templateSelectionFacet"/>
-	</bean>
-	<bean id="chronicleEntryFacet" class="pcgen.cdom.facet.fact.ChronicleEntryFacet" />
-	<bean id="classFacet" class="pcgen.cdom.facet.model.ClassFacet" />
-	<bean id="classLevelFacet" class="pcgen.cdom.facet.model.ClassLevelFacet" />
-	<bean id="classLevelChangeFacet" class="pcgen.cdom.facet.ClassLevelChangeFacet">
-		<property name="classFacet" ref="classFacet"/>
-		<property name="classLevelFacet" ref="classLevelFacet"/>
-	</bean>
-	<bean id="classSkillListFacet" class="pcgen.cdom.facet.input.ClassSkillListFacet">
-		<property name="classFacet" ref="classFacet"/>
-		<property name="subClassFacet" ref="subClassFacet"/>
-		<property name="defaultClassSkillListFacet" ref="defaultClassSkillListFacet"/>
-		<property name="skillListFacet" ref="skillListFacet"/>
-	</bean>
-	<bean id="classSpellListFacet" class="pcgen.cdom.facet.ClassSpellListFacet">
-		<property name="spellListFacet" ref="spellListFacet"/>
-	</bean>
-	<bean id="companionModFacet" class="pcgen.cdom.facet.model.CompanionModFacet" />
-	<bean id="conditionalAbilityFacet" class="pcgen.cdom.facet.ConditionalAbilityFacet">
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-	</bean>
-	<bean id="conditionallyAvailableSpellFacet" class="pcgen.cdom.facet.ConditionallyAvailableSpellFacet"/>
-	<bean id="conditionallyGrantedAbilityFacet" class="pcgen.cdom.facet.ConditionallyGrantedAbilityFacet">
-		<property name="conditionalAbilityFacet" ref="conditionalAbilityFacet"/>
-	</bean>
-	<bean id="conditionallyGrantedAvailableSpellFacet" class="pcgen.cdom.facet.ConditionallyGrantedAvailableSpellFacet">
-		<property name="conditionallyAvailableSpellFacet" ref="conditionallyAvailableSpellFacet"/>
-		<property name="availableSpellFacet" ref="availableSpellFacet"/>
-	</bean>
-	<bean id="conditionallyGrantedKnownSpellFacet" class="pcgen.cdom.facet.ConditionallyGrantedKnownSpellFacet">
-		<property name="conditionallyKnownSpellFacet" ref="conditionallyKnownSpellFacet"/>
-		<property name="knownSpellFacet" ref="knownSpellFacet"/>
-	</bean>
-	<bean id="conditionallyKnownSpellFacet" class="pcgen.cdom.facet.ConditionallyKnownSpellFacet"/>
-	<bean id="conditionalTemplateFacet" class="pcgen.cdom.facet.ConditionalTemplateFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="levelFacet" ref="levelFacet"/>
-	</bean>
-	<!-- D -->
-	<bean id="damageReductionFacet" class="pcgen.cdom.facet.DamageReductionFacet">
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="dataSetInitializationFacet" class="pcgen.cdom.facet.DataSetInitializationFacet" />
-	<bean id="defaultClassSkillListFacet" class="pcgen.cdom.facet.DefaultClassSkillListFacet">
-		<property name="skillListFacet" ref="skillListFacet"/>
-	</bean>
-	<bean id="deityFacet" class="pcgen.cdom.facet.model.DeityFacet" />
-	<bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet">
-		<property name="deityFacet" ref="deityFacet"/>
-	</bean>
-	<bean id="directAbilityFacet" class="pcgen.cdom.facet.DirectAbilityFacet" />
-	<bean id="directAbilityInputFacet" class="pcgen.cdom.facet.DirectAbilityInputFacet" />
-	<bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet"/>
-	<bean id="domainInputFacet" class="pcgen.cdom.facet.input.DomainInputFacet">
-		<property name="domainSelectionFacet" ref="domainSelectionFacet"/>
-		<property name="domainFacet" ref="domainFacet"/>
-	</bean>
-	<bean id="domainSelectionFacet" class="pcgen.cdom.facet.DomainSelectionFacet"/>
-	<bean id="domainSpellCountFacet" class="pcgen.cdom.facet.DomainSpellCountFacet" />
-	<bean id="domainSpellListFacet" class="pcgen.cdom.facet.DomainSpellListFacet">
-		<property name="spellListFacet" ref="spellListFacet"/>
-		<property name="domainFacet" ref="domainFacet"/>
-	</bean>
-	<bean id="domainSpellsFacet" class="pcgen.cdom.facet.DomainSpellsFacet">
-		<property name="domainFacet" ref="domainFacet"/>
-		<property name="classFacet" ref="classFacet"/>
-	</bean>
-	<bean id="dynamicFacet" class="pcgen.cdom.facet.input.DynamicFacet" />
-	<bean id="dynamicWatchingFacet" class="pcgen.cdom.facet.input.DynamicWatchingFacet" />
-	<bean id="dynamicConsolidationFacet" class="pcgen.cdom.facet.model.DynamicConsolidationFacet" />
-	<!-- E -->
-	<bean id="equipmentConsolidationFacet" class="pcgen.cdom.facet.EquipmentConsolidationFacet" />
-	<bean id="equipmentFacet" class="pcgen.cdom.facet.EquipmentFacet" />
-	<bean id="equipmentTypeFacet" class="pcgen.cdom.facet.EquipmentTypeFacet">
-		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
-	</bean>
-	<bean id="equippedEquipmentFacet" class="pcgen.cdom.facet.EquippedEquipmentFacet">
-		<property name="equipmentFacet" ref="equipmentFacet"/>
-	</bean>
-	<bean id="equipSetFacet" class="pcgen.cdom.facet.EquipSetFacet" />
-	<bean id="expandedCampaignFacet" class="pcgen.cdom.facet.model.ExpandedCampaignFacet" />
-	<!-- F -->
-	<bean id="factFacet" class="pcgen.cdom.facet.fact.FactFacet" />
-	<bean id="favoredClassFacet" class="pcgen.cdom.facet.analysis.FavoredClassFacet">
-		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
-		<property name="classFacet" ref="classFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="followerFacet" class="pcgen.cdom.facet.fact.FollowerFacet" />
-	<bean id="followerLimitFacet" class="pcgen.cdom.facet.analysis.FollowerLimitFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="followerOptionFacet" class="pcgen.cdom.facet.analysis.FollowerOptionFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
-	<bean id="freeLanguageFacet" class="pcgen.cdom.facet.input.FreeLanguageFacet">
-		<property name="languageFacet" ref="languageFacet"/>
-	</bean>
-	<!-- G -->
-	<bean id="genderFacet" class="pcgen.cdom.facet.fact.GenderFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="globalAddedSkillCostFacet" class="pcgen.cdom.facet.input.GlobalAddedSkillCostFacet"/>
-	<bean id="globalModifier" class="pcgen.cdom.facet.GlobalModifierFacet"/>
-	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalSkillCostFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="globalToSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalToSkillCostFacet">
-		<property name="classFacet" ref="classFacet"/>
-		<property name="globalSkillCostFacet" ref="globalSkillCostFacet"/>
-		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
-		<property name="masterUsableSkillFacet" ref="masterUsableSkillFacet"/>
-	</bean>
-	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
-	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
-	<bean id="grantedVarFacet" class="pcgen.cdom.facet.GrantedVarFacet">
-		<property name="varScopedFacet" ref="varScopedFacet"/>
-		<property name="variableStoreFacet" ref="variableStoreFacet"/>
-	</bean>
-	<!-- H -->
-	<bean id="handsFacet" class="pcgen.cdom.facet.analysis.HandsFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="hasAnyFavoredClassFacet" class="pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="heightFacet" class="pcgen.cdom.facet.fact.HeightFacet"/>
-	<bean id="hiddenTypeFacet" class="pcgen.cdom.facet.HiddenTypeFacet">
-		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
-	</bean>
-	<bean id="hitPointFacet" class="pcgen.cdom.facet.HitPointFacet">
-		<property name="classFacet" ref="classFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="levelFacet" ref="levelFacet"/>
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-	</bean>
-	<!-- I -->
-	<bean id="ignoreCostFacet" class="pcgen.cdom.facet.fact.IgnoreCostFacet"/>
-	<bean id="initiativeFacet" class="pcgen.cdom.facet.analysis.InitiativeFacet">
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-	</bean>
-	<!-- J -->
-	<!-- K -->
-	<bean id="kitChoiceFacet" class="pcgen.cdom.facet.KitChoiceFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
-		<property name="domainFacet" ref="domainFacet"/>
-		<property name="skillFacet" ref="skillFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="kitFacet" class="pcgen.cdom.facet.KitFacet"/>
-	<bean id="knownSpellFacet" class="pcgen.cdom.facet.KnownSpellFacet"/>
-	<bean id="knownSpellInputFacet" class="pcgen.cdom.facet.KnownSpellInputFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-		<property name="knownSpellFacet" ref="knownSpellFacet"/>
-		<property name="conditionallyKnownSpellFacet" ref="conditionallyKnownSpellFacet"/>
-	</bean>
-	<!-- L -->
-	<bean id="languageFacet" class="pcgen.cdom.facet.model.LanguageFacet"/>
-	<bean id="legalDeityFacet" class="pcgen.cdom.facet.analysis.LegalDeityFacet">
-		<property name="classFacet" ref="classFacet"/>
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-	</bean>
-	<bean id="legsFacet" class="pcgen.cdom.facet.analysis.LegsFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="levelFacet" class="pcgen.cdom.facet.analysis.LevelFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-	</bean>
-	<bean id="levelInfoFacet" class="pcgen.cdom.facet.LevelInfoFacet"/>
-	<bean id="levelTableFacet" class="pcgen.cdom.facet.analysis.LevelTableFacet">
-		<property name="resolveFacet" ref="formulaResolvingFacet"/>
-		<property name="xpTableFacet" ref="xpTableFacet"/>
-	</bean>
-	<bean id="listToSkillCostFacet" class="pcgen.cdom.facet.analysis.ListToSkillCostFacet">
-		<property name="skillListFacet" ref="skillListFacet"/>
-		<property name="listSkillCostFacet" ref="listSkillCostFacet"/>
-	</bean>
-	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.analysis.ListSkillCostFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="loadContextFacet" class="pcgen.cdom.facet.LoadContextFacet">
-		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
-	</bean>
-	<bean id="loadFacet" class="pcgen.cdom.facet.analysis.LoadFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="totalWeightFacet" ref="totalWeightFacet"/>
-		<property name="playerCharacterTrackingFacet" ref="playerCharacterTrackingFacet"/>
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-	</bean>
-	<bean id="localAddedSkillCostFacet" class="pcgen.cdom.facet.input.LocalAddedSkillCostFacet"/>
-	<bean id="localSkillCostFacet" class="pcgen.cdom.facet.analysis.LocalSkillCostFacet">
-		<property name="domainFacet" ref="domainFacet"/>
-		<property name="classFacet" ref="classFacet"/>
-		<property name="classLevelFacet" ref="classLevelFacet"/>
-	</bean>
-	<!-- M -->
-	<bean id="masterAvailableSpellFacet" class="pcgen.cdom.facet.MasterAvailableSpellFacet">
-		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
-	</bean>
-	<bean id="masterFacet" class="pcgen.cdom.facet.MasterFacet">
-		<property name="companionModFacet" ref="companionModFacet"/>
-	</bean>
-	<bean id="masterSkillFacet" class="pcgen.cdom.facet.MasterSkillFacet">
-		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
-	</bean>
-	<bean id="masterUsableSkillFacet" class="pcgen.cdom.facet.input.MasterUsableSkillFacet">
-		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
-	</bean>
-	<bean id="modifierFacet" class="pcgen.cdom.facet.ModifierFacet">
-		<property name="scopeFacet" ref="scopeFacet"/>
-		<property name="varScopedFacet" ref="varScopedFacet"/>
-		<property name="solverManagerFacet" ref="solverManagerFacet"/>
-	</bean>
-	<bean id="monsterClassFacet" class="pcgen.cdom.facet.MonsterClassFacet">
-		<property name="levelFacet" ref="levelFacet"/>
-		<property name="classFacet" ref="classFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="levelInfoFacet" ref="levelInfoFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="monsterCSkillFacet" class="pcgen.cdom.facet.input.MonsterCSkillFacet"/>
-	<bean id="monCSkillToSkillCostFacet" class="pcgen.cdom.facet.analysis.MonCSkillToSkillCostFacet">
-		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
-		<property name="classFacet" ref="classFacet"/>
-	</bean>
-	<bean id="moveCloneFacet" class="pcgen.cdom.facet.analysis.MoveCloneFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="movementFacet" class="pcgen.cdom.facet.analysis.MovementFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="movementResultFacet" class="pcgen.cdom.facet.analysis.MovementResultFacet">
-		<property name="movementFacet" ref="movementFacet"/>
-		<property name="moveCloneFacet" ref="moveCloneFacet"/>
-		<property name="baseMovementFacet" ref="baseMovementFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="equipmentFacet" ref="equipmentFacet"/>
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="unencumberedArmorFacet" ref="unencumberedArmorFacet"/>
-		<property name="unencumberedLoadFacet" ref="unencumberedLoadFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="loadFacet" ref="loadFacet"/>
-	</bean>
-	<bean id="multiClassFacet" class="pcgen.cdom.facet.analysis.MultiClassFacet">
-		<property name="favoredClassFacet" ref="favoredClassFacet"/>
-		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
-		<property name="classFacet" ref="classFacet"/>
-		<property name="subClassFacet" ref="subClassFacet"/>
-	</bean>
-	<!-- N -->
-	<bean id="naturalEquipmentFacet" class="pcgen.cdom.facet.NaturalEquipmentFacet"/>
-	<bean id="naturalEquipSetFacet" class="pcgen.cdom.facet.NaturalEquipSetFacet">
-		<property name="naturalWeaponFacet" ref="naturalWeaponFacet"/>
-	</bean>
-	<bean id="naturalWeaponFacet" class="pcgen.cdom.facet.NaturalWeaponFacet"/>
-	<bean id="naturalWeaponProfFacet" class="pcgen.cdom.facet.NaturalWeaponProfFacet"/>
-	<bean id="nonAbilityFacet" class="pcgen.cdom.facet.analysis.NonAbilityFacet">
-		<property name="nonStatStatFacet" ref="nonStatStatFacet"/>
-		<property name="nonStatToStatFacet" ref="nonStatToStatFacet"/>
-	</bean>
-	<bean id="nonProficiencyPenaltyFacet" class="pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="nonStatStatFacet" class="pcgen.cdom.facet.analysis.NonStatStatFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="nonStatToStatFacet" class="pcgen.cdom.facet.analysis.NonStatToStatFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="noteItemFacet" class="pcgen.cdom.facet.NoteItemFacet"/>
-	<!-- O -->
-	<bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="objectWrapperFacet" class="pcgen.cdom.facet.ObjectWrapperFacet">
-		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
-	</bean>
-	<!-- P -->
-	<bean id="playerCharacterTrackingFacet" class="pcgen.cdom.facet.PlayerCharacterTrackingFacet"/>
-	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
-	<bean id="previewSheetFacet" class="pcgen.cdom.facet.fact.PreviewSheetFacet"/>
-	<bean id="primaryWeaponFacet" class="pcgen.cdom.facet.PrimaryWeaponFacet"/>
-	<bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.input.ProhibitedSchoolFacet"/>
-	<bean id="portraitThumbnailRectFacet" class="pcgen.cdom.facet.fact.PortraitThumbnailRectFacet"/>
+    <!--  Facet Definitions -->
+    <!-- A -->
+    <bean id="abilitySelectionApplication" class="pcgen.cdom.facet.AbilitySelectionApplication"/>
+    <bean id="activeEqModFacet" class="pcgen.cdom.facet.model.ActiveEqModFacet"/>
+    <bean id="activeEqHeadFacet" class="pcgen.cdom.facet.model.ActiveEqHeadFacet"/>
+    <bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="deityFacet" ref="deityFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="spellsFacet" ref="spellsFacet"/>
+    </bean>
+    <bean id="addedBonusFacet" class="pcgen.cdom.facet.AddedBonusFacet"/>
+    <bean id="addedTemplateFacet" class="pcgen.cdom.facet.AddedTemplateFacet">
+        <property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="addFacet" class="pcgen.cdom.facet.AddFacet">
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="deityFacet" ref="deityFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="domainFacet" ref="domainFacet"/>
+        <property name="classLevelFacet" ref="classLevelFacet"/>
+    </bean>
+    <bean id="addLanguageFacet" class="pcgen.cdom.facet.input.AddLanguageFacet">
+        <property name="languageFacet" ref="languageFacet"/>
+    </bean>
+    <bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="ageFacet" class="pcgen.cdom.facet.fact.AgeFacet"/>
+    <bean id="ageSetFacet" class="pcgen.cdom.facet.analysis.AgeSetFacet">
+        <property name="ageFacet" ref="ageFacet"/>
+        <property name="regionFacet" ref="regionFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="bioSetFacet" ref="bioSetFacet"/>
+    </bean>
+    <bean id="ageSetKitFacet" class="pcgen.cdom.facet.AgeSetKitFacet">
+        <property name="ageFacet" ref="ageFacet"/>
+        <property name="ageSetFacet" ref="ageSetFacet"/>
+        <property name="bioSetFacet" ref="bioSetFacet"/>
+    </bean>
+    <bean id="allowDebtFacet" class="pcgen.cdom.facet.fact.AllowDebtFacet"/>
+    <bean id="appliedBonusFacet" class="pcgen.cdom.facet.AppliedBonusFacet">
+        <property name="addedBonusFacet" ref="addedBonusFacet"/>
+        <property name="saveableBonusFacet" ref="saveableBonusFacet"/>
+        <property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="armorClassFacet" class="pcgen.cdom.facet.analysis.ArmorClassFacet">
+        <property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+    </bean>
+    <bean id="armorProfFacet" class="pcgen.cdom.facet.ArmorProfFacet">
+        <property name="armorProfProviderFacet" ref="armorProfProviderFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="armorProfProviderFacet" class="pcgen.cdom.facet.model.ArmorProfProviderFacet"/>
+    <bean id="autoEquipmentFacet" class="pcgen.cdom.facet.AutoEquipmentFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="autoEquipmentListFacet" class="pcgen.cdom.facet.input.AutoEquipmentListFacet"/>
+    <bean id="autoLanguageFacet" class="pcgen.cdom.facet.AutoLanguageFacet">
+        <property name="autoLanguageUnconditionalFacet" ref="autoLanguageUnconditionalFacet"/>
+    </bean>
+    <bean id="autoLanguageGrantedFacet" class="pcgen.cdom.facet.AutoLanguageGrantedFacet">
+        <property name="languageFacet" ref="languageFacet"/>
+        <property name="autoLanguageFacet" ref="autoLanguageFacet"/>
+    </bean>
+    <bean id="autoLanguageListFacet" class="pcgen.cdom.facet.input.AutoLanguageListFacet">
+        <property name="languageFacet" ref="languageFacet"/>
+    </bean>
+    <bean id="autoLanguageUnconditionalFacet" class="pcgen.cdom.facet.AutoLanguageUnconditionalFacet">
+        <property name="languageFacet" ref="languageFacet"/>
+    </bean>
+    <bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.input.AutoListArmorProfFacet">
+        <property name="armorProfProviderFacet" ref="armorProfProviderFacet"/>
+    </bean>
+    <bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.input.AutoListShieldProfFacet">
+        <property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
+    </bean>
+    <bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.input.AutoListWeaponProfFacet">
+        <property name="weaponProfFacet" ref="weaponProfFacet"/>
+    </bean>
+    <bean id="autoWeaponProfFacet" class="pcgen.cdom.facet.AutoWeaponProfFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="availableSpellFacet" class="pcgen.cdom.facet.AvailableSpellFacet"/>
+    <bean id="availableSpellInputFacet" class="pcgen.cdom.facet.AvailableSpellInputFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+        <property name="availableSpellFacet" ref="availableSpellFacet"/>
+        <property name="conditionallyAvailableSpellFacet" ref="conditionallyAvailableSpellFacet"/>
+    </bean>
+    <!-- B -->
+    <bean id="baseMovementFacet" class="pcgen.cdom.facet.analysis.BaseMovementFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="bioSetFacet" class="pcgen.cdom.facet.model.BioSetFacet"/>
+    <bean id="bioSetTrackingFacet" class="pcgen.cdom.facet.BioSetTrackingFacet">
+        <property name="bioSetFacet" ref="bioSetFacet"/>
+    </bean>
+    <bean id="bonusActiviationFacet" class="pcgen.cdom.facet.BonusActiviationFacet">
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="companionModFacet" ref="companionModFacet"/>
+        <property name="deityFacet" ref="deityFacet"/>
+        <property name="domainFacet" ref="domainFacet"/>
+        <property name="skillFacet" ref="skillFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="bonusChangeFacet" class="pcgen.cdom.facet.BonusChangeFacet">
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+    </bean>
+    <bean id="bonusCheckingFacet" class="pcgen.cdom.facet.BonusCheckingFacet"/>
+    <bean id="bonusSkillRankChangeFacet" class="pcgen.cdom.facet.BonusSkillRankChangeFacet">
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+    </bean>
+    <bean id="bonusWeaponProfFacet" class="pcgen.cdom.facet.input.BonusWeaponProfFacet">
+        <property name="weaponProfFacet" ref="weaponProfFacet"/>
+    </bean>
+    <!-- C -->
+    <bean id="calcBonusFacet" class="pcgen.cdom.facet.CalcBonusFacet">
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="deityFacet" ref="deityFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="campaignFacet" class="pcgen.cdom.facet.input.CampaignFacet">
+        <property name="expandedCampaignFacet" ref="expandedCampaignFacet"/>
+    </bean>
+    <bean id="categorizedAbilityFacet" class="pcgen.cdom.facet.CategorizedAbilityFacet"/>
+    <bean id="bridgeFacet" class="pcgen.cdom.facet.CDOMObjectBridge"/>
+    <bean id="consolidationFacet" class="pcgen.cdom.facet.CDOMObjectConsolidationFacet">
+        <property name="bridgeFacet" ref="bridgeFacet"/>
+    </bean>
+    <bean id="cdomSourceFacet" class="pcgen.cdom.facet.CDOMObjectSourceFacet">
+        <property name="bridgeFacet" ref="bridgeFacet"/>
+    </bean>
+    <bean id="cdomWrapperInfoFacet" class="pcgen.cdom.facet.CDOMWrapperInfoFacet">
+        <property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+    </bean>
+    <bean id="challengeRatingFacet" class="pcgen.cdom.facet.analysis.ChallengeRatingFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="classFacet" ref="classFacet"/>
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="levelFacet" ref="levelFacet"/>
+    </bean>
+    <bean id="changeProfFacet" class="pcgen.cdom.facet.analysis.ChangeProfFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="characterConsolidationFacet" class="pcgen.cdom.facet.CharacterConsolidationFacet"/>
+    <bean id="characterSpellResistanceFacet" class="pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="characterTypeFacet" class="pcgen.cdom.facet.fact.CharacterTypeFacet"/>
+    <bean id="checkFacet" class="pcgen.cdom.facet.model.CheckFacet"/>
+    <bean id="checkBonusFacet" class="pcgen.cdom.facet.CheckBonusFacet">
+        <property name="checkFacet" ref="checkFacet"/>
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+    </bean>
+    <bean id="chooseDriverFacet" class="pcgen.cdom.facet.ChooseDriverFacet">
+        <property name="domainSelectionFacet" ref="domainSelectionFacet"/>
+        <property name="raceSelectionFacet" ref="raceSelectionFacet"/>
+        <property name="templateSelectionFacet" ref="templateSelectionFacet"/>
+    </bean>
+    <bean id="chronicleEntryFacet" class="pcgen.cdom.facet.fact.ChronicleEntryFacet"/>
+    <bean id="classFacet" class="pcgen.cdom.facet.model.ClassFacet"/>
+    <bean id="classLevelFacet" class="pcgen.cdom.facet.model.ClassLevelFacet"/>
+    <bean id="classLevelChangeFacet" class="pcgen.cdom.facet.ClassLevelChangeFacet">
+        <property name="classFacet" ref="classFacet"/>
+        <property name="classLevelFacet" ref="classLevelFacet"/>
+    </bean>
+    <bean id="classSkillListFacet" class="pcgen.cdom.facet.input.ClassSkillListFacet">
+        <property name="classFacet" ref="classFacet"/>
+        <property name="subClassFacet" ref="subClassFacet"/>
+        <property name="defaultClassSkillListFacet" ref="defaultClassSkillListFacet"/>
+        <property name="skillListFacet" ref="skillListFacet"/>
+    </bean>
+    <bean id="classSpellListFacet" class="pcgen.cdom.facet.ClassSpellListFacet">
+        <property name="spellListFacet" ref="spellListFacet"/>
+    </bean>
+    <bean id="companionModFacet" class="pcgen.cdom.facet.model.CompanionModFacet"/>
+    <bean id="conditionalAbilityFacet" class="pcgen.cdom.facet.ConditionalAbilityFacet">
+        <property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+    </bean>
+    <bean id="conditionallyAvailableSpellFacet" class="pcgen.cdom.facet.ConditionallyAvailableSpellFacet"/>
+    <bean id="conditionallyGrantedAbilityFacet" class="pcgen.cdom.facet.ConditionallyGrantedAbilityFacet">
+        <property name="conditionalAbilityFacet" ref="conditionalAbilityFacet"/>
+    </bean>
+    <bean id="conditionallyGrantedAvailableSpellFacet" class="pcgen.cdom.facet.ConditionallyGrantedAvailableSpellFacet">
+        <property name="conditionallyAvailableSpellFacet" ref="conditionallyAvailableSpellFacet"/>
+        <property name="availableSpellFacet" ref="availableSpellFacet"/>
+    </bean>
+    <bean id="conditionallyGrantedKnownSpellFacet" class="pcgen.cdom.facet.ConditionallyGrantedKnownSpellFacet">
+        <property name="conditionallyKnownSpellFacet" ref="conditionallyKnownSpellFacet"/>
+        <property name="knownSpellFacet" ref="knownSpellFacet"/>
+    </bean>
+    <bean id="conditionallyKnownSpellFacet" class="pcgen.cdom.facet.ConditionallyKnownSpellFacet"/>
+    <bean id="conditionalTemplateFacet" class="pcgen.cdom.facet.ConditionalTemplateFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="levelFacet" ref="levelFacet"/>
+    </bean>
+    <!-- D -->
+    <bean id="damageReductionFacet" class="pcgen.cdom.facet.DamageReductionFacet">
+        <property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="dataSetInitializationFacet" class="pcgen.cdom.facet.DataSetInitializationFacet"/>
+    <bean id="defaultClassSkillListFacet" class="pcgen.cdom.facet.DefaultClassSkillListFacet">
+        <property name="skillListFacet" ref="skillListFacet"/>
+    </bean>
+    <bean id="deityFacet" class="pcgen.cdom.facet.model.DeityFacet"/>
+    <bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet">
+        <property name="deityFacet" ref="deityFacet"/>
+    </bean>
+    <bean id="directAbilityFacet" class="pcgen.cdom.facet.DirectAbilityFacet"/>
+    <bean id="directAbilityInputFacet" class="pcgen.cdom.facet.DirectAbilityInputFacet"/>
+    <bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet"/>
+    <bean id="domainInputFacet" class="pcgen.cdom.facet.input.DomainInputFacet">
+        <property name="domainSelectionFacet" ref="domainSelectionFacet"/>
+        <property name="domainFacet" ref="domainFacet"/>
+    </bean>
+    <bean id="domainSelectionFacet" class="pcgen.cdom.facet.DomainSelectionFacet"/>
+    <bean id="domainSpellCountFacet" class="pcgen.cdom.facet.DomainSpellCountFacet"/>
+    <bean id="domainSpellListFacet" class="pcgen.cdom.facet.DomainSpellListFacet">
+        <property name="spellListFacet" ref="spellListFacet"/>
+        <property name="domainFacet" ref="domainFacet"/>
+    </bean>
+    <bean id="domainSpellsFacet" class="pcgen.cdom.facet.DomainSpellsFacet">
+        <property name="domainFacet" ref="domainFacet"/>
+        <property name="classFacet" ref="classFacet"/>
+    </bean>
+    <bean id="dynamicFacet" class="pcgen.cdom.facet.input.DynamicFacet"/>
+    <bean id="dynamicWatchingFacet" class="pcgen.cdom.facet.input.DynamicWatchingFacet"/>
+    <bean id="dynamicConsolidationFacet" class="pcgen.cdom.facet.model.DynamicConsolidationFacet"/>
+    <!-- E -->
+    <bean id="equipmentConsolidationFacet" class="pcgen.cdom.facet.EquipmentConsolidationFacet"/>
+    <bean id="equipmentFacet" class="pcgen.cdom.facet.EquipmentFacet"/>
+    <bean id="equipmentTypeFacet" class="pcgen.cdom.facet.EquipmentTypeFacet">
+        <property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+    </bean>
+    <bean id="equippedEquipmentFacet" class="pcgen.cdom.facet.EquippedEquipmentFacet">
+        <property name="equipmentFacet" ref="equipmentFacet"/>
+    </bean>
+    <bean id="equipSetFacet" class="pcgen.cdom.facet.EquipSetFacet"/>
+    <bean id="expandedCampaignFacet" class="pcgen.cdom.facet.model.ExpandedCampaignFacet"/>
+    <!-- F -->
+    <bean id="factFacet" class="pcgen.cdom.facet.fact.FactFacet"/>
+    <bean id="favoredClassFacet" class="pcgen.cdom.facet.analysis.FavoredClassFacet">
+        <property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
+        <property name="classFacet" ref="classFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="followerFacet" class="pcgen.cdom.facet.fact.FollowerFacet"/>
+    <bean id="followerLimitFacet" class="pcgen.cdom.facet.analysis.FollowerLimitFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="followerOptionFacet" class="pcgen.cdom.facet.analysis.FollowerOptionFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet"/>
+    <bean id="freeLanguageFacet" class="pcgen.cdom.facet.input.FreeLanguageFacet">
+        <property name="languageFacet" ref="languageFacet"/>
+    </bean>
+    <!-- G -->
+    <bean id="genderFacet" class="pcgen.cdom.facet.fact.GenderFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="globalAddedSkillCostFacet" class="pcgen.cdom.facet.input.GlobalAddedSkillCostFacet"/>
+    <bean id="globalModifier" class="pcgen.cdom.facet.GlobalModifierFacet"/>
+    <bean id="globalSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalSkillCostFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="globalToSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalToSkillCostFacet">
+        <property name="classFacet" ref="classFacet"/>
+        <property name="globalSkillCostFacet" ref="globalSkillCostFacet"/>
+        <property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
+        <property name="masterUsableSkillFacet" ref="masterUsableSkillFacet"/>
+    </bean>
+    <bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
+    <bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
+    <bean id="grantedVarFacet" class="pcgen.cdom.facet.GrantedVarFacet">
+        <property name="varScopedFacet" ref="varScopedFacet"/>
+        <property name="variableStoreFacet" ref="variableStoreFacet"/>
+    </bean>
+    <!-- H -->
+    <bean id="handsFacet" class="pcgen.cdom.facet.analysis.HandsFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="hasAnyFavoredClassFacet" class="pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet">
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="heightFacet" class="pcgen.cdom.facet.fact.HeightFacet"/>
+    <bean id="hiddenTypeFacet" class="pcgen.cdom.facet.HiddenTypeFacet">
+        <property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+    </bean>
+    <bean id="hitPointFacet" class="pcgen.cdom.facet.HitPointFacet">
+        <property name="classFacet" ref="classFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="levelFacet" ref="levelFacet"/>
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+    </bean>
+    <!-- I -->
+    <bean id="ignoreCostFacet" class="pcgen.cdom.facet.fact.IgnoreCostFacet"/>
+    <bean id="initiativeFacet" class="pcgen.cdom.facet.analysis.InitiativeFacet">
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+    </bean>
+    <!-- J -->
+    <!-- K -->
+    <bean id="kitChoiceFacet" class="pcgen.cdom.facet.KitChoiceFacet">
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="deityFacet" ref="deityFacet"/>
+        <property name="domainFacet" ref="domainFacet"/>
+        <property name="skillFacet" ref="skillFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="kitFacet" class="pcgen.cdom.facet.KitFacet"/>
+    <bean id="knownSpellFacet" class="pcgen.cdom.facet.KnownSpellFacet"/>
+    <bean id="knownSpellInputFacet" class="pcgen.cdom.facet.KnownSpellInputFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+        <property name="knownSpellFacet" ref="knownSpellFacet"/>
+        <property name="conditionallyKnownSpellFacet" ref="conditionallyKnownSpellFacet"/>
+    </bean>
+    <!-- L -->
+    <bean id="languageFacet" class="pcgen.cdom.facet.model.LanguageFacet"/>
+    <bean id="legalDeityFacet" class="pcgen.cdom.facet.analysis.LegalDeityFacet">
+        <property name="classFacet" ref="classFacet"/>
+        <property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+    </bean>
+    <bean id="legsFacet" class="pcgen.cdom.facet.analysis.LegsFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="levelFacet" class="pcgen.cdom.facet.analysis.LevelFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+    </bean>
+    <bean id="levelInfoFacet" class="pcgen.cdom.facet.LevelInfoFacet"/>
+    <bean id="levelTableFacet" class="pcgen.cdom.facet.analysis.LevelTableFacet">
+        <property name="resolveFacet" ref="formulaResolvingFacet"/>
+        <property name="xpTableFacet" ref="xpTableFacet"/>
+    </bean>
+    <bean id="listToSkillCostFacet" class="pcgen.cdom.facet.analysis.ListToSkillCostFacet">
+        <property name="skillListFacet" ref="skillListFacet"/>
+        <property name="listSkillCostFacet" ref="listSkillCostFacet"/>
+    </bean>
+    <bean id="listSkillCostFacet" class="pcgen.cdom.facet.analysis.ListSkillCostFacet">
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="loadContextFacet" class="pcgen.cdom.facet.LoadContextFacet">
+        <property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+    </bean>
+    <bean id="loadFacet" class="pcgen.cdom.facet.analysis.LoadFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="totalWeightFacet" ref="totalWeightFacet"/>
+        <property name="playerCharacterTrackingFacet" ref="playerCharacterTrackingFacet"/>
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+    </bean>
+    <bean id="localAddedSkillCostFacet" class="pcgen.cdom.facet.input.LocalAddedSkillCostFacet"/>
+    <bean id="localSkillCostFacet" class="pcgen.cdom.facet.analysis.LocalSkillCostFacet">
+        <property name="domainFacet" ref="domainFacet"/>
+        <property name="classFacet" ref="classFacet"/>
+        <property name="classLevelFacet" ref="classLevelFacet"/>
+    </bean>
+    <!-- M -->
+    <bean id="masterAvailableSpellFacet" class="pcgen.cdom.facet.MasterAvailableSpellFacet">
+        <property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+    </bean>
+    <bean id="masterFacet" class="pcgen.cdom.facet.MasterFacet">
+        <property name="companionModFacet" ref="companionModFacet"/>
+    </bean>
+    <bean id="masterSkillFacet" class="pcgen.cdom.facet.MasterSkillFacet">
+        <property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+    </bean>
+    <bean id="masterUsableSkillFacet" class="pcgen.cdom.facet.input.MasterUsableSkillFacet">
+        <property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+    </bean>
+    <bean id="modifierFacet" class="pcgen.cdom.facet.ModifierFacet">
+        <property name="scopeFacet" ref="scopeFacet"/>
+        <property name="varScopedFacet" ref="varScopedFacet"/>
+        <property name="solverManagerFacet" ref="solverManagerFacet"/>
+    </bean>
+    <bean id="monsterClassFacet" class="pcgen.cdom.facet.MonsterClassFacet">
+        <property name="levelFacet" ref="levelFacet"/>
+        <property name="classFacet" ref="classFacet"/>
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="levelInfoFacet" ref="levelInfoFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="monsterCSkillFacet" class="pcgen.cdom.facet.input.MonsterCSkillFacet"/>
+    <bean id="monCSkillToSkillCostFacet" class="pcgen.cdom.facet.analysis.MonCSkillToSkillCostFacet">
+        <property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
+        <property name="classFacet" ref="classFacet"/>
+    </bean>
+    <bean id="moveCloneFacet" class="pcgen.cdom.facet.analysis.MoveCloneFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="movementFacet" class="pcgen.cdom.facet.analysis.MovementFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="movementResultFacet" class="pcgen.cdom.facet.analysis.MovementResultFacet">
+        <property name="movementFacet" ref="movementFacet"/>
+        <property name="moveCloneFacet" ref="moveCloneFacet"/>
+        <property name="baseMovementFacet" ref="baseMovementFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="deityFacet" ref="deityFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="equipmentFacet" ref="equipmentFacet"/>
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="unencumberedArmorFacet" ref="unencumberedArmorFacet"/>
+        <property name="unencumberedLoadFacet" ref="unencumberedLoadFacet"/>
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="loadFacet" ref="loadFacet"/>
+    </bean>
+    <bean id="multiClassFacet" class="pcgen.cdom.facet.analysis.MultiClassFacet">
+        <property name="favoredClassFacet" ref="favoredClassFacet"/>
+        <property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
+        <property name="classFacet" ref="classFacet"/>
+        <property name="subClassFacet" ref="subClassFacet"/>
+    </bean>
+    <!-- N -->
+    <bean id="naturalEquipmentFacet" class="pcgen.cdom.facet.NaturalEquipmentFacet"/>
+    <bean id="naturalEquipSetFacet" class="pcgen.cdom.facet.NaturalEquipSetFacet">
+        <property name="naturalWeaponFacet" ref="naturalWeaponFacet"/>
+    </bean>
+    <bean id="naturalWeaponFacet" class="pcgen.cdom.facet.NaturalWeaponFacet"/>
+    <bean id="naturalWeaponProfFacet" class="pcgen.cdom.facet.NaturalWeaponProfFacet"/>
+    <bean id="nonAbilityFacet" class="pcgen.cdom.facet.analysis.NonAbilityFacet">
+        <property name="nonStatStatFacet" ref="nonStatStatFacet"/>
+        <property name="nonStatToStatFacet" ref="nonStatToStatFacet"/>
+    </bean>
+    <bean id="nonProficiencyPenaltyFacet" class="pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="nonStatStatFacet" class="pcgen.cdom.facet.analysis.NonStatStatFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="nonStatToStatFacet" class="pcgen.cdom.facet.analysis.NonStatToStatFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="noteItemFacet" class="pcgen.cdom.facet.NoteItemFacet"/>
+    <!-- O -->
+    <bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="objectWrapperFacet" class="pcgen.cdom.facet.ObjectWrapperFacet">
+        <property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+    </bean>
+    <!-- P -->
+    <bean id="playerCharacterTrackingFacet" class="pcgen.cdom.facet.PlayerCharacterTrackingFacet"/>
+    <bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
+    <bean id="previewSheetFacet" class="pcgen.cdom.facet.fact.PreviewSheetFacet"/>
+    <bean id="primaryWeaponFacet" class="pcgen.cdom.facet.PrimaryWeaponFacet"/>
+    <bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.input.ProhibitedSchoolFacet"/>
+    <bean id="portraitThumbnailRectFacet" class="pcgen.cdom.facet.fact.PortraitThumbnailRectFacet"/>
 
-	<!-- Q -->
-	<bean id="qualifyFacet" class="pcgen.cdom.facet.analysis.QualifyFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<!-- R -->
-	<bean id="raceFacet" class="pcgen.cdom.facet.model.RaceFacet"/>
-	<bean id="raceInputFacet" class="pcgen.cdom.facet.input.RaceInputFacet">
-		<property name="raceSelectionFacet" ref="raceSelectionFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="raceSelectionFacet" class="pcgen.cdom.facet.RaceSelectionFacet"/>
-	<bean id="raceTypeFacet" class="pcgen.cdom.facet.analysis.RaceTypeFacet">
-		<property name="companionModFacet" ref="companionModFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="racialSubTypesFacet" class="pcgen.cdom.facet.analysis.RacialSubTypesFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="reachFacet" class="pcgen.cdom.facet.analysis.ReachFacet">
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
-	<bean id="regionFacet" class="pcgen.cdom.facet.fact.RegionFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="remoteModifierFacet" class="pcgen.cdom.facet.RemoteModifierFacet">
-		<property name="scopeFacet" ref="scopeFacet"/>
-		<property name="varScopedFacet" ref="varScopedFacet"/>
-		<property name="solverManagerFacet" ref="solverManagerFacet"/>
-	</bean>
-	<bean id="removeFacet" class="pcgen.cdom.facet.RemoveFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="domainFacet" ref="domainFacet"/>
-		<property name="classLevelFacet" ref="classLevelFacet"/>
-	</bean>
-	<bean id="resultFacet" class="pcgen.cdom.facet.analysis.ResultFacet">
-		<property name="variableStoreFacet" ref="variableStoreFacet"/>
-		<property name="scopeFacet" ref="scopeFacet"/>
-	</bean>
-	<!-- S -->
-	<bean id="saveableBonusFacet" class="pcgen.cdom.facet.SaveableBonusFacet" />
-	<bean id="savedAbilitiesFacet" class="pcgen.cdom.facet.SavedAbilitiesFacet" />
-	<bean id="scopeFacet" class="pcgen.cdom.facet.ScopeFacet"/>
-	<bean id="scopedDistributionFacet" class="pcgen.cdom.facet.ScopedDistributionFacet">
-		<property name="characterConsolidationFacet" ref="characterConsolidationFacet"/>
-		<property name="varScopedFacet" ref="varScopedFacet"/>
-	</bean>
-	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
-	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
-		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="shieldProfProviderFacet" class="pcgen.cdom.facet.model.ShieldProfProviderFacet"/>
-	<bean id="simpleAbilityFacet" class="pcgen.cdom.facet.model.SimpleAbilityFacet"/>
-	<bean id="sizeFacet" class="pcgen.cdom.facet.model.SizeFacet">
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="levelFacet" ref="levelFacet"/>
-		<property name="resultFacet" ref="resultFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet" />
-	</bean>
-	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet">
-		<property name="usableSkillsFacet" ref="usableSkillsFacet"/>
-		<property name="totalSkillRankFacet" ref="totalSkillRankFacet"/>
-	</bean>
-	<bean id="skillFilterFacet" class="pcgen.cdom.facet.fact.SkillFilterFacet"/>
-	<bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
-		<property name="globalToSkillCostFacet" ref="globalToSkillCostFacet"/>
-		<property name="listToSkillCostFacet" ref="listToSkillCostFacet"/>
-		<property name="localAddedSkillCostFacet" ref="localAddedSkillCostFacet"/>
-		<property name="localSkillCostFacet" ref="localSkillCostFacet"/>
-		<property name="skillListToCostFacet" ref="skillListToCostFacet"/>
-		<property name="monCSkillToSkillCostFacet" ref="monCSkillToSkillCostFacet"/>
-	</bean>
-	<bean id="skillListToCostFacet" class="pcgen.cdom.facet.SkillListToCostFacet">
-		<property name="skillListFacet" ref="skillListFacet"/>
-		<property name="masterSkillFacet" ref="masterSkillFacet"/>
-	</bean>
-	<bean id="skillListFacet" class="pcgen.cdom.facet.model.SkillListFacet" />
-	<bean id="skillOutputOrderFacet" class="pcgen.cdom.facet.SkillOutputOrderFacet"/>
-	<bean id="skillPoolFacet" class="pcgen.cdom.facet.SkillPoolFacet"/>
-	<bean id="skillRankFacet" class="pcgen.cdom.facet.SkillRankFacet"/>
-	<bean id="solverManagerFacet" class="pcgen.cdom.facet.SolverManagerFacet">
-		<property name="scopeFacet" ref="scopeFacet"/>
-	</bean>
-	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
-	<bean id="specialAbilityFacet" class="pcgen.cdom.facet.analysis.SpecialAbilityFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="spellBookFacet" class="pcgen.cdom.facet.SpellBookFacet">
-		<property name="equipmentFacet" ref="equipmentFacet"/>
-	</bean>
-	<bean id="spellListFacet" class="pcgen.cdom.facet.SpellListFacet"/>
-	<bean id="spellListToAvailableSpellFacet" class="pcgen.cdom.facet.SpellListToAvailableSpellFacet">
-		<property name="masterAvailableSpellFacet" ref="masterAvailableSpellFacet"/>
-		<property name="spellListFacet" ref="spellListFacet"/>
-		<property name="conditionallyAvailableSpellFacet" ref="conditionallyAvailableSpellFacet"/>
-		<property name="availableSpellFacet" ref="availableSpellFacet"/>
-	</bean>
-	<bean id="spellProhibitorFacet" class="pcgen.cdom.facet.SpellProhibitorFacet">
-		<property name="classFacet" ref="classFacet"/>
-	</bean>
-	<bean id="spellsFacet" class="pcgen.cdom.facet.SpellsFacet">
-		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
-	</bean>
-	<bean id="spellSupportFacet" class="pcgen.cdom.facet.SpellSupportFacet"/>
-	<bean id="startingLanguageFacet" class="pcgen.cdom.facet.StartingLanguageFacet">
-		<property name="classFacet" ref="classFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="statCalcFacet" class="pcgen.cdom.facet.StatCalcFacet"/>
-	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet" />
-	<bean id="statBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-		<property name="statFacet" ref="statFacet"/>
-	</bean>
-	<bean id="statLockFacet" class="pcgen.cdom.facet.analysis.StatLockFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="statMaxValueFacet" class="pcgen.cdom.facet.analysis.StatMaxValueFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="statMinValueFacet" class="pcgen.cdom.facet.analysis.StatMinValueFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="statValueFacet" class="pcgen.cdom.facet.StatValueFacet" />
-	<bean id="subClassFacet" class="pcgen.cdom.facet.SubClassFacet"/>
-	<bean id="substitutionClassFacet" class="pcgen.cdom.facet.SubstitutionClassFacet"/>
-	<bean id="subRaceFacet" class="pcgen.cdom.facet.analysis.SubRaceFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="suppressBioFieldFacet" class="pcgen.cdom.facet.fact.SuppressBioFieldFacet" />
-	<!-- T -->
-	<bean id="targetTrackingFacet" class="pcgen.cdom.facet.TargetTrackingFacet"/>
-	<bean id="templateFacet" class="pcgen.cdom.facet.model.TemplateFacet"/>
-	<bean id="templateFeatFacet" class="pcgen.cdom.facet.TemplateFeatFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="templateInputFacet" class="pcgen.cdom.facet.input.TemplateInputFacet">
-		<property name="templateSelectionFacet" ref="templateSelectionFacet"/>
-		<property name="unconditionalTemplateFacet" ref="unconditionalTemplateFacet"/>
-	</bean>
-	<bean id="templateSelectionFacet" class="pcgen.cdom.facet.TemplateSelectionFacet"/>
-	<bean id="totalSkillRankFacet" class="pcgen.cdom.facet.TotalSkillRankFacet">
-		<property name="skillRankFacet" ref="skillRankFacet"/>
-		<property name="bonusSkillRankChangeFacet" ref="bonusSkillRankChangeFacet"/>
-	</bean>
-	<bean id="totalWeightFacet" class="pcgen.cdom.facet.analysis.TotalWeightFacet">
-		<property name="equipmentFacet" ref="equipmentFacet"/>
-	</bean>
-	<!-- U -->
-	<bean id="unarmedDamageFacet" class="pcgen.cdom.facet.analysis.UnarmedDamageFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="unconditionalTemplateFacet" class="pcgen.cdom.facet.UnconditionalTemplateFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
-	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.analysis.UnencumberedArmorFacet">
-		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
-	</bean>
-	<bean id="unencumberedLoadFacet" class="pcgen.cdom.facet.analysis.UnencumberedLoadFacet">
-		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
-	</bean>
-	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.analysis.UnlockedStatFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="usableSkillsFacet" class="pcgen.cdom.facet.UsableSkillsFacet">
-		<property name="skillCostFacet" ref="skillCostFacet"/>
-	</bean>
-	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
-	<bean id="userSpecialAbilityFacet" class="pcgen.cdom.facet.input.UserSpecialAbilityFacet"/>
-	<!-- V -->
-	<bean id="variableCheckingFacet" class="pcgen.cdom.facet.VariableCheckingFacet"/>
-	<bean id="variableFacet" class="pcgen.cdom.facet.analysis.VariableFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<bean id="variableStoreFacet" class="pcgen.cdom.facet.VariableStoreFacet"/>
-	<bean id="varScopedFacet" class="pcgen.cdom.facet.model.VarScopedFacet"/>
-	<bean id="visionFacet" class="pcgen.cdom.facet.analysis.VisionFacet">
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
-	</bean>
-	<!-- W -->
-	<bean id="weaponProfFacet" class="pcgen.cdom.facet.WeaponProfFacet"/>
-	<bean id="weaponProfModelFacet" class="pcgen.cdom.facet.model.WeaponProfModelFacet">
-		<property name="weaponProfFacet" ref="weaponProfFacet"/>
-		<property name="autoWeaponProfFacet" ref="autoWeaponProfFacet"/>
-		<property name="hasDeityWeaponProfFacet" ref="hasDeityWeaponProfFacet"/>
-		<property name="deityWeaponProfFacet" ref="deityWeaponProfFacet"/>
-	</bean>
-	<bean id="weightFacet" class="pcgen.cdom.facet.fact.WeightFacet"/>
-	<!-- X -->
-	<bean id="xpFacet" class="pcgen.cdom.facet.fact.XPFacet"/>
-	<bean id="xpTableFacet" class="pcgen.cdom.facet.XPTableFacet"/>
-	<!-- Y -->
-	<!-- Z -->
-	<!-- END Facet Definitions -->
+    <!-- Q -->
+    <bean id="qualifyFacet" class="pcgen.cdom.facet.analysis.QualifyFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <!-- R -->
+    <bean id="raceFacet" class="pcgen.cdom.facet.model.RaceFacet"/>
+    <bean id="raceInputFacet" class="pcgen.cdom.facet.input.RaceInputFacet">
+        <property name="raceSelectionFacet" ref="raceSelectionFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="raceSelectionFacet" class="pcgen.cdom.facet.RaceSelectionFacet"/>
+    <bean id="raceTypeFacet" class="pcgen.cdom.facet.analysis.RaceTypeFacet">
+        <property name="companionModFacet" ref="companionModFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="racialSubTypesFacet" class="pcgen.cdom.facet.analysis.RacialSubTypesFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="reachFacet" class="pcgen.cdom.facet.analysis.ReachFacet">
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+    </bean>
+    <bean id="regionFacet" class="pcgen.cdom.facet.fact.RegionFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="remoteModifierFacet" class="pcgen.cdom.facet.RemoteModifierFacet">
+        <property name="scopeFacet" ref="scopeFacet"/>
+        <property name="varScopedFacet" ref="varScopedFacet"/>
+        <property name="solverManagerFacet" ref="solverManagerFacet"/>
+    </bean>
+    <bean id="removeFacet" class="pcgen.cdom.facet.RemoveFacet">
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="deityFacet" ref="deityFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="domainFacet" ref="domainFacet"/>
+        <property name="classLevelFacet" ref="classLevelFacet"/>
+    </bean>
+    <bean id="resultFacet" class="pcgen.cdom.facet.analysis.ResultFacet">
+        <property name="variableStoreFacet" ref="variableStoreFacet"/>
+        <property name="scopeFacet" ref="scopeFacet"/>
+    </bean>
+    <!-- S -->
+    <bean id="saveableBonusFacet" class="pcgen.cdom.facet.SaveableBonusFacet"/>
+    <bean id="savedAbilitiesFacet" class="pcgen.cdom.facet.SavedAbilitiesFacet"/>
+    <bean id="scopeFacet" class="pcgen.cdom.facet.ScopeFacet"/>
+    <bean id="scopedDistributionFacet" class="pcgen.cdom.facet.ScopedDistributionFacet">
+        <property name="characterConsolidationFacet" ref="characterConsolidationFacet"/>
+        <property name="varScopedFacet" ref="varScopedFacet"/>
+    </bean>
+    <bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
+    <bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
+        <property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="shieldProfProviderFacet" class="pcgen.cdom.facet.model.ShieldProfProviderFacet"/>
+    <bean id="simpleAbilityFacet" class="pcgen.cdom.facet.model.SimpleAbilityFacet"/>
+    <bean id="sizeFacet" class="pcgen.cdom.facet.model.SizeFacet">
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="levelFacet" ref="levelFacet"/>
+        <property name="resultFacet" ref="resultFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet">
+        <property name="usableSkillsFacet" ref="usableSkillsFacet"/>
+        <property name="totalSkillRankFacet" ref="totalSkillRankFacet"/>
+    </bean>
+    <bean id="skillFilterFacet" class="pcgen.cdom.facet.fact.SkillFilterFacet"/>
+    <bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
+        <property name="globalToSkillCostFacet" ref="globalToSkillCostFacet"/>
+        <property name="listToSkillCostFacet" ref="listToSkillCostFacet"/>
+        <property name="localAddedSkillCostFacet" ref="localAddedSkillCostFacet"/>
+        <property name="localSkillCostFacet" ref="localSkillCostFacet"/>
+        <property name="skillListToCostFacet" ref="skillListToCostFacet"/>
+        <property name="monCSkillToSkillCostFacet" ref="monCSkillToSkillCostFacet"/>
+    </bean>
+    <bean id="skillListToCostFacet" class="pcgen.cdom.facet.SkillListToCostFacet">
+        <property name="skillListFacet" ref="skillListFacet"/>
+        <property name="masterSkillFacet" ref="masterSkillFacet"/>
+    </bean>
+    <bean id="skillListFacet" class="pcgen.cdom.facet.model.SkillListFacet"/>
+    <bean id="skillOutputOrderFacet" class="pcgen.cdom.facet.SkillOutputOrderFacet"/>
+    <bean id="skillPoolFacet" class="pcgen.cdom.facet.SkillPoolFacet"/>
+    <bean id="skillRankFacet" class="pcgen.cdom.facet.SkillRankFacet"/>
+    <bean id="solverManagerFacet" class="pcgen.cdom.facet.SolverManagerFacet">
+        <property name="scopeFacet" ref="scopeFacet"/>
+    </bean>
+    <bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
+    <bean id="specialAbilityFacet" class="pcgen.cdom.facet.analysis.SpecialAbilityFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="spellBookFacet" class="pcgen.cdom.facet.SpellBookFacet">
+        <property name="equipmentFacet" ref="equipmentFacet"/>
+    </bean>
+    <bean id="spellListFacet" class="pcgen.cdom.facet.SpellListFacet"/>
+    <bean id="spellListToAvailableSpellFacet" class="pcgen.cdom.facet.SpellListToAvailableSpellFacet">
+        <property name="masterAvailableSpellFacet" ref="masterAvailableSpellFacet"/>
+        <property name="spellListFacet" ref="spellListFacet"/>
+        <property name="conditionallyAvailableSpellFacet" ref="conditionallyAvailableSpellFacet"/>
+        <property name="availableSpellFacet" ref="availableSpellFacet"/>
+    </bean>
+    <bean id="spellProhibitorFacet" class="pcgen.cdom.facet.SpellProhibitorFacet">
+        <property name="classFacet" ref="classFacet"/>
+    </bean>
+    <bean id="spellsFacet" class="pcgen.cdom.facet.SpellsFacet">
+        <property name="cdomSourceFacet" ref="cdomSourceFacet"/>
+    </bean>
+    <bean id="spellSupportFacet" class="pcgen.cdom.facet.SpellSupportFacet"/>
+    <bean id="startingLanguageFacet" class="pcgen.cdom.facet.StartingLanguageFacet">
+        <property name="classFacet" ref="classFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="statCalcFacet" class="pcgen.cdom.facet.StatCalcFacet"/>
+    <bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet"/>
+    <bean id="statBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+        <property name="statFacet" ref="statFacet"/>
+    </bean>
+    <bean id="statLockFacet" class="pcgen.cdom.facet.analysis.StatLockFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="statMaxValueFacet" class="pcgen.cdom.facet.analysis.StatMaxValueFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="statMinValueFacet" class="pcgen.cdom.facet.analysis.StatMinValueFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="statValueFacet" class="pcgen.cdom.facet.StatValueFacet"/>
+    <bean id="subClassFacet" class="pcgen.cdom.facet.SubClassFacet"/>
+    <bean id="substitutionClassFacet" class="pcgen.cdom.facet.SubstitutionClassFacet"/>
+    <bean id="subRaceFacet" class="pcgen.cdom.facet.analysis.SubRaceFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="suppressBioFieldFacet" class="pcgen.cdom.facet.fact.SuppressBioFieldFacet"/>
+    <!-- T -->
+    <bean id="targetTrackingFacet" class="pcgen.cdom.facet.TargetTrackingFacet"/>
+    <bean id="templateFacet" class="pcgen.cdom.facet.model.TemplateFacet"/>
+    <bean id="templateFeatFacet" class="pcgen.cdom.facet.TemplateFeatFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="templateInputFacet" class="pcgen.cdom.facet.input.TemplateInputFacet">
+        <property name="templateSelectionFacet" ref="templateSelectionFacet"/>
+        <property name="unconditionalTemplateFacet" ref="unconditionalTemplateFacet"/>
+    </bean>
+    <bean id="templateSelectionFacet" class="pcgen.cdom.facet.TemplateSelectionFacet"/>
+    <bean id="totalSkillRankFacet" class="pcgen.cdom.facet.TotalSkillRankFacet">
+        <property name="skillRankFacet" ref="skillRankFacet"/>
+        <property name="bonusSkillRankChangeFacet" ref="bonusSkillRankChangeFacet"/>
+    </bean>
+    <bean id="totalWeightFacet" class="pcgen.cdom.facet.analysis.TotalWeightFacet">
+        <property name="equipmentFacet" ref="equipmentFacet"/>
+    </bean>
+    <!-- U -->
+    <bean id="unarmedDamageFacet" class="pcgen.cdom.facet.analysis.UnarmedDamageFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="raceFacet" ref="raceFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="unconditionalTemplateFacet" class="pcgen.cdom.facet.UnconditionalTemplateFacet">
+        <property name="templateFacet" ref="templateFacet"/>
+    </bean>
+    <bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.analysis.UnencumberedArmorFacet">
+        <property name="cdomSourceFacet" ref="cdomSourceFacet"/>
+    </bean>
+    <bean id="unencumberedLoadFacet" class="pcgen.cdom.facet.analysis.UnencumberedLoadFacet">
+        <property name="cdomSourceFacet" ref="cdomSourceFacet"/>
+    </bean>
+    <bean id="unlockedStatFacet" class="pcgen.cdom.facet.analysis.UnlockedStatFacet">
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="usableSkillsFacet" class="pcgen.cdom.facet.UsableSkillsFacet">
+        <property name="skillCostFacet" ref="skillCostFacet"/>
+    </bean>
+    <bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
+    <bean id="userSpecialAbilityFacet" class="pcgen.cdom.facet.input.UserSpecialAbilityFacet"/>
+    <!-- V -->
+    <bean id="variableCheckingFacet" class="pcgen.cdom.facet.VariableCheckingFacet"/>
+    <bean id="variableFacet" class="pcgen.cdom.facet.analysis.VariableFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <bean id="variableStoreFacet" class="pcgen.cdom.facet.VariableStoreFacet"/>
+    <bean id="varScopedFacet" class="pcgen.cdom.facet.model.VarScopedFacet"/>
+    <bean id="visionFacet" class="pcgen.cdom.facet.analysis.VisionFacet">
+        <property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+        <property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+        <property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+        <property name="consolidationFacet" ref="consolidationFacet"/>
+    </bean>
+    <!-- W -->
+    <bean id="weaponProfFacet" class="pcgen.cdom.facet.WeaponProfFacet"/>
+    <bean id="weaponProfModelFacet" class="pcgen.cdom.facet.model.WeaponProfModelFacet">
+        <property name="weaponProfFacet" ref="weaponProfFacet"/>
+        <property name="autoWeaponProfFacet" ref="autoWeaponProfFacet"/>
+        <property name="hasDeityWeaponProfFacet" ref="hasDeityWeaponProfFacet"/>
+        <property name="deityWeaponProfFacet" ref="deityWeaponProfFacet"/>
+    </bean>
+    <bean id="weightFacet" class="pcgen.cdom.facet.fact.WeightFacet"/>
+    <!-- X -->
+    <bean id="xpFacet" class="pcgen.cdom.facet.fact.XPFacet"/>
+    <bean id="xpTableFacet" class="pcgen.cdom.facet.XPTableFacet"/>
+    <!-- Y -->
+    <!-- Z -->
+    <!-- END Facet Definitions -->
 
-	<!--  Scope Definitions -->
-	<bean id="globalEQScope" class="pcgen.cdom.formula.scope.GlobalEQScope"/>
-	<bean id="globalPCScope" class="pcgen.cdom.formula.scope.GlobalPCScope"/>
-	<bean id="saveLegalScope" class="pcgen.cdom.formula.scope.SaveScope">
-		<property name="parent" ref="globalPCScope"/>
-	</bean>
-	<bean id="sizeLegalScope" class="pcgen.cdom.formula.scope.SizeScope">
-		<property name="parent" ref="globalPCScope"/>
-	</bean>
-	<bean id="skillLegalScope" class="pcgen.cdom.formula.scope.SkillScope">
-		<property name="parent" ref="globalPCScope"/>
-	</bean>
-	<bean id="statLegalScope" class="pcgen.cdom.formula.scope.StatScope">
-		<property name="parent" ref="globalPCScope"/>
-	</bean>
-	<bean id="raceLegalScope" class="pcgen.cdom.formula.scope.RaceScope">
-		<property name="parent" ref="globalPCScope"/>
-	</bean>
-	<bean id="equipLegalScope" class="pcgen.cdom.formula.scope.EquipmentScope">
-		<property name="parent" ref="globalPCScope"/>
-	</bean>
-	<bean id="equipPartLegalScope" class="pcgen.cdom.formula.scope.EquipmentPartScope">
-		<property name="parent" ref="equipLegalScope"/>
-	</bean>
+    <!--  Scope Definitions -->
+    <bean id="globalEQScope" class="pcgen.cdom.formula.scope.GlobalEQScope"/>
+    <bean id="globalPCScope" class="pcgen.cdom.formula.scope.GlobalPCScope"/>
+    <bean id="saveLegalScope" class="pcgen.cdom.formula.scope.SaveScope">
+        <property name="parent" ref="globalPCScope"/>
+    </bean>
+    <bean id="sizeLegalScope" class="pcgen.cdom.formula.scope.SizeScope">
+        <property name="parent" ref="globalPCScope"/>
+    </bean>
+    <bean id="skillLegalScope" class="pcgen.cdom.formula.scope.SkillScope">
+        <property name="parent" ref="globalPCScope"/>
+    </bean>
+    <bean id="statLegalScope" class="pcgen.cdom.formula.scope.StatScope">
+        <property name="parent" ref="globalPCScope"/>
+    </bean>
+    <bean id="raceLegalScope" class="pcgen.cdom.formula.scope.RaceScope">
+        <property name="parent" ref="globalPCScope"/>
+    </bean>
+    <bean id="equipLegalScope" class="pcgen.cdom.formula.scope.EquipmentScope">
+        <property name="parent" ref="globalPCScope"/>
+    </bean>
+    <bean id="equipPartLegalScope" class="pcgen.cdom.formula.scope.EquipmentPartScope">
+        <property name="parent" ref="equipLegalScope"/>
+    </bean>
 
 
 </beans>

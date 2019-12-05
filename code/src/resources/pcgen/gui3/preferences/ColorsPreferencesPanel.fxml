@@ -24,13 +24,21 @@
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.ColorsPreferencesPanelController">
     <VBox>
-        <Label text="%in_Prefs_colorPrereqQualify" labelFor="$prereqQualifyColor" /><ColorPicker fx:id="prereqQualifyColor" />
-        <Label text="%in_Prefs_colorPrereqQualify" labelFor="$prereqFailColor" /><ColorPicker fx:id="prereqFailColor" />
-        <Label text="%in_Prefs_colorAutoFeat" labelFor="$featAutoColor" /><ColorPicker fx:id="featAutoColor" />
-        <Label text="%in_Prefs_colorVirtFeat" labelFor="$featVirtualColor" /><ColorPicker fx:id="featVirtualColor" />
-        <Label text="%in_Prefs_colorStatusRelease" labelFor="$sourceStatusRelease" /><ColorPicker fx:id="sourceStatusRelease" />
-        <Label text="%in_Prefs_colorStatusAlpha" labelFor="$sourceStatusAlpha" /><ColorPicker fx:id="sourceStatusAlpha" />
-        <Label text="%in_Prefs_colorStatusBeta" labelFor="$sourceStatusBeta" /><ColorPicker fx:id="sourceStatusBeta" />
-        <Label text="%in_Prefs_colorStatusTest" labelFor="$sourceStatusTest" /><ColorPicker fx:id="sourceStatusTest" />
+        <Label text="%in_Prefs_colorPrereqQualify" labelFor="$prereqQualifyColor"/>
+        <ColorPicker fx:id="prereqQualifyColor"/>
+        <Label text="%in_Prefs_colorPrereqQualify" labelFor="$prereqFailColor"/>
+        <ColorPicker fx:id="prereqFailColor"/>
+        <Label text="%in_Prefs_colorAutoFeat" labelFor="$featAutoColor"/>
+        <ColorPicker fx:id="featAutoColor"/>
+        <Label text="%in_Prefs_colorVirtFeat" labelFor="$featVirtualColor"/>
+        <ColorPicker fx:id="featVirtualColor"/>
+        <Label text="%in_Prefs_colorStatusRelease" labelFor="$sourceStatusRelease"/>
+        <ColorPicker fx:id="sourceStatusRelease"/>
+        <Label text="%in_Prefs_colorStatusAlpha" labelFor="$sourceStatusAlpha"/>
+        <ColorPicker fx:id="sourceStatusAlpha"/>
+        <Label text="%in_Prefs_colorStatusBeta" labelFor="$sourceStatusBeta"/>
+        <ColorPicker fx:id="sourceStatusBeta"/>
+        <Label text="%in_Prefs_colorStatusTest" labelFor="$sourceStatusTest"/>
+        <ColorPicker fx:id="sourceStatusTest"/>
     </VBox>
 </Scene>

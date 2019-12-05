@@ -24,15 +24,14 @@ import pcgen.core.character.EquipSlot;
 
 /**
  * {@code EquipSlotLstToken}
- *
  */
 public interface EquipSlotLstToken extends LstToken
 {
-	/**
-	 * @param eqSlot
-	 * @param value
-	 * @param gameMode The name of the game mode currently being processed. 
-	 * @return true if parse OK
-	 */
-	boolean parse(EquipSlot eqSlot, String value, String gameMode);
+    /**
+     * @param eqSlot
+     * @param value
+     * @param gameMode The name of the game mode currently being processed.
+     * @return true if parse OK
+     */
+    boolean parse(EquipSlot eqSlot, String value, String gameMode);
 }

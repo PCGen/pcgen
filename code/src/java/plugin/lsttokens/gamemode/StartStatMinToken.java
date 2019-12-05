@@ -28,23 +28,22 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class StartStatMinToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "STARTSTATMIN";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "STARTSTATMIN";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			gameMode.setStatMin(Integer.parseInt(value));
-			return true;
-		}
-		catch (NumberFormatException exc)
-		{
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            gameMode.setStatMin(Integer.parseInt(value));
+            return true;
+        } catch (NumberFormatException exc)
+        {
+            return false;
+        }
+    }
 }

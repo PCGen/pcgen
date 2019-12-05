@@ -1,16 +1,16 @@
 /**
  * Copyright (c) 2010 Thomas Parker <thpr@users.sourceforge.net>.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- *
+ * <p>
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -23,40 +23,40 @@ import pcgen.core.PlayerCharacter;
 
 public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
-	private final String classKey;
+    private final String classKey;
 
-	public PCMaxLevelTermEvaluator(String originalText, String sourceInfo)
-	{
-		this.originalText = originalText;
-		this.classKey = sourceInfo;
-	}
+    public PCMaxLevelTermEvaluator(String originalText, String sourceInfo)
+    {
+        this.originalText = originalText;
+        this.classKey = sourceInfo;
+    }
 
-	@Override
-	public Float resolve(PlayerCharacter pc)
-	{
-		if (classKey.isEmpty())
-		{
-			return 0.0f;
-		}
-		PCClass aClass = pc.getClassKeyed(classKey);
-		if (aClass == null)
-		{
-			//PC Doesn't have class
-			return 0.0f;
-		}
-		int level = pc.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(pc.getDisplay().getLevel(aClass));
+    @Override
+    public Float resolve(PlayerCharacter pc)
+    {
+        if (classKey.isEmpty())
+        {
+            return 0.0f;
+        }
+        PCClass aClass = pc.getClassKeyed(classKey);
+        if (aClass == null)
+        {
+            //PC Doesn't have class
+            return 0.0f;
+        }
+        int level = pc.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(pc.getDisplay().getLevel(aClass));
 
-		return (float) level;
-	}
+        return (float) level;
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return true;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return true;
+    }
 
-	public boolean isStatic()
-	{
-		return false;
-	}
+    public boolean isStatic()
+    {
+        return false;
+    }
 }

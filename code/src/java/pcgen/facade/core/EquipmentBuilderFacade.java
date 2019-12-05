@@ -25,88 +25,87 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 
 /**
- * EquipmentBuilderFacade defines the methods that can be used to build up a 
+ * EquipmentBuilderFacade defines the methods that can be used to build up a
  * piece of custom equipment.
- * 
- * 
  */
 public interface EquipmentBuilderFacade
 {
-	/**
-	 * EquipmentHead marks the ends of a weapon that may be customized. Most 
-	 * weapons only have one head but quarterstaves or the like have two.
-	 */
+    /**
+     * EquipmentHead marks the ends of a weapon that may be customized. Most
+     * weapons only have one head but quarterstaves or the like have two.
+     */
     enum EquipmentHead
-	{
-		PRIMARY, SECONDARY;
+    {
+        PRIMARY, SECONDARY;
 
-		/**
-		 * @return boolean {@code true} is Primary
-		 */
-		public boolean isPrimary()
-		{
-			return this == PRIMARY;
-		}
-	}
+        /**
+         * @return boolean {@code true} is Primary
+         */
+        public boolean isPrimary()
+        {
+            return this == PRIMARY;
+        }
+    }
 
-	boolean addModToEquipment(EquipmentModifier modifier, EquipmentHead head);
+    boolean addModToEquipment(EquipmentModifier modifier, EquipmentHead head);
 
-	boolean removeModFromEquipment(EquipmentModifier modifier, EquipmentHead head);
+    boolean removeModFromEquipment(EquipmentModifier modifier, EquipmentHead head);
 
-	boolean setName(String name);
+    boolean setName(String name);
 
-	boolean setSProp(String sprop);
+    boolean setSProp(String sprop);
 
-	boolean setCost(String newCost);
+    boolean setCost(String newCost);
 
-	boolean setWeight(String newWeight);
+    boolean setWeight(String newWeight);
 
-	ListFacade<EquipmentModifier> getAvailList(EquipmentHead head);
+    ListFacade<EquipmentModifier> getAvailList(EquipmentHead head);
 
-	ListFacade<EquipmentModifier> getSelectedList(EquipmentHead head);
+    ListFacade<EquipmentModifier> getSelectedList(EquipmentHead head);
 
-	EquipmentFacade getEquipment();
+    EquipmentFacade getEquipment();
 
-	/**
-	 * Can this item of equipment be resized?
-	 * @return true if the item can be resized
-	 */
+    /**
+     * Can this item of equipment be resized?
+     *
+     * @return true if the item can be resized
+     */
     boolean isResizable();
 
-	/**
-	 * @param newSize The new size for the equipment.
-	 */
+    /**
+     * @param newSize The new size for the equipment.
+     */
     void setSize(SizeAdjustment newSize);
 
-	/**
-	 * @return A reference to the equipment's current size.
-	 */
+    /**
+     * @return A reference to the equipment's current size.
+     */
     ReferenceFacade<SizeAdjustment> getSizeRef();
 
-	/**
-	 * @return The equipment heads which can be customized on this item of equipment.
-	 */
+    /**
+     * @return The equipment heads which can be customized on this item of equipment.
+     */
     EnumSet<EquipmentHead> getEquipmentHeads();
 
-	/**
-	 * @param newValue
-	 * @return boolean
-	 */
-	boolean setDamage(String newValue);
+    /**
+     * @param newValue
+     * @return boolean
+     */
+    boolean setDamage(String newValue);
 
-	/**
-	 * @return String Base Item Name
-	 */
+    /**
+     * @return String Base Item Name
+     */
     String getBaseItemName();
 
-	/**
-	 * @return boolean
-	 */
+    /**
+     * @return boolean
+     */
     boolean isWeapon();
 
-	/**
-	 * @return String Damage
-	 */
+    /**
+     * @return String Damage
+     */
     String getDamage();
 
 }

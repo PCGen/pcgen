@@ -32,42 +32,42 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class GearToken extends AbstractNonEmptyToken<KitGear> implements CDOMPrimaryToken<KitGear>
 {
-	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
+    private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "GEAR";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "GEAR";
+    }
 
-	@Override
-	public Class<KitGear> getTokenClass()
-	{
-		return KitGear.class;
-	}
+    @Override
+    public Class<KitGear> getTokenClass()
+    {
+        return KitGear.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
-	{
-		CDOMReference<Equipment> ref = TokenUtilities.getTypeOrPrimitive(context, EQUIPMENT_CLASS, value);
-		kitGear.setEquipment(ref);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
+    {
+        CDOMReference<Equipment> ref = TokenUtilities.getTypeOrPrimitive(context, EQUIPMENT_CLASS, value);
+        kitGear.setEquipment(ref);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitGear kitGear)
-	{
-		CDOMReference<Equipment> ref = kitGear.getEquipment();
-		if (ref == null)
-		{
-			return null;
-		}
-		return new String[]{ref.getLSTformat(false)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitGear kitGear)
+    {
+        CDOMReference<Equipment> ref = kitGear.getEquipment();
+        if (ref == null)
+        {
+            return null;
+        }
+        return new String[]{ref.getLSTformat(false)};
+    }
 
 }

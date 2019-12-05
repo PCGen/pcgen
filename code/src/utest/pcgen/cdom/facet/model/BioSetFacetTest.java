@@ -25,21 +25,21 @@ import pcgen.core.BioSet;
 public class BioSetFacetTest extends AbstractItemFacetTest<BioSet>
 {
 
-	private final BioSetFacet facet = new BioSetFacet();
+    private final BioSetFacet facet = new BioSetFacet();
 
-	@Override
-	protected AbstractItemFacet<CharID, BioSet> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractItemFacet<CharID, BioSet> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected BioSet getItem()
-	{
-		BioSet b = new BioSet();
-		b.setName("BioSet" + n++);
-		return b;
-	}
+    @Override
+    protected BioSet getItem()
+    {
+        BioSet b = new BioSet();
+        b.setName("BioSet" + n++);
+        return b;
+    }
 }

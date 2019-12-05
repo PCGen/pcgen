@@ -26,9 +26,9 @@ import pcgen.cdom.enumeration.StringKey;
  */
 public final class PCAlignment extends PObject implements NonInteractive, SortKeyRequired
 {
-	@Override
-	public String getSortKey()
-	{
-		return get(StringKey.SORT_KEY);
-	}
+    @Override
+    public String getSortKey()
+    {
+        return get(StringKey.SORT_KEY);
+    }
 }

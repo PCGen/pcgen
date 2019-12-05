@@ -26,18 +26,18 @@ import javafx.scene.control.CheckBox;
 
 public class MonsterPreferencesPanelController implements ResettableController
 {
-	@FXML
-	private CheckBox ignoreMonsterHDCap;
+    @FXML
+    private CheckBox ignoreMonsterHDCap;
 
-	@Override
-	public void apply()
-	{
-		SettingsHandler.setIgnoreMonsterHDCap(ignoreMonsterHDCap.isSelected());
-	}
+    @Override
+    public void apply()
+    {
+        SettingsHandler.setIgnoreMonsterHDCap(ignoreMonsterHDCap.isSelected());
+    }
 
-	@Override
-	public void reset()
-	{
-		ignoreMonsterHDCap.setSelected(SettingsHandler.isIgnoreMonsterHDCap());
-	}
+    @Override
+    public void reset()
+    {
+        ignoreMonsterHDCap.setSelected(SettingsHandler.isIgnoreMonsterHDCap());
+    }
 }

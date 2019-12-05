@@ -37,69 +37,67 @@ import pcgen.util.Logging;
 
 public class PrerequisiteWriter
 {
-	public void write(Writer stringWriter, Prerequisite prereq) throws PersistenceLayerException
-	{
-		PrerequisiteWriterFactory factory = PrerequisiteWriterFactory.getInstance();
-		PrerequisiteWriterInterface writer = factory.getWriter(prereq.getKind());
-		if (writer == null)
-		{
-			throw new PersistenceLayerException("Can not find a Writer for prerequisites fo kind: " + prereq.getKind());
-		}
-		writer.write(stringWriter, prereq);
-	}
+    public void write(Writer stringWriter, Prerequisite prereq) throws PersistenceLayerException
+    {
+        PrerequisiteWriterFactory factory = PrerequisiteWriterFactory.getInstance();
+        PrerequisiteWriterInterface writer = factory.getWriter(prereq.getKind());
+        if (writer == null)
+        {
+            throw new PersistenceLayerException("Can not find a Writer for prerequisites fo kind: " + prereq.getKind());
+        }
+        writer.write(stringWriter, prereq);
+    }
 
-	/**
-	 * Convert the prerequisites of a PObject to a String in .lst-compatible
-	 * form
-	 * 
-	 * @param pObj
-	 *            A PObject object.
-	 * @return The .lst-compatible string representation of the prerequisite
-	 *         list.
-	 */
-	public static String prereqsToString(final PrereqObject pObj)
-	{
-		if (pObj.hasPrerequisites())
-		{
-			final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-			return prereqWriter.getPrerequisiteString(pObj.getPrerequisiteList(), Constants.TAB);
-		}
-		return "";
-	}
+    /**
+     * Convert the prerequisites of a PObject to a String in .lst-compatible
+     * form
+     *
+     * @param pObj A PObject object.
+     * @return The .lst-compatible string representation of the prerequisite
+     * list.
+     */
+    public static String prereqsToString(final PrereqObject pObj)
+    {
+        if (pObj.hasPrerequisites())
+        {
+            final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+            return prereqWriter.getPrerequisiteString(pObj.getPrerequisiteList(), Constants.TAB);
+        }
+        return "";
+    }
 
-	public String getPrerequisiteString(Collection<Prerequisite> prereqs) throws PersistenceLayerException
-	{
-		return getPrereqString(prereqs, Constants.PIPE);
-	}
+    public String getPrerequisiteString(Collection<Prerequisite> prereqs) throws PersistenceLayerException
+    {
+        return getPrereqString(prereqs, Constants.PIPE);
+    }
 
-	private String getPrereqString(Collection<Prerequisite> prereqs, String separator) throws PersistenceLayerException
-	{
-		String prereqString = null;
-		if (prereqs != null && !prereqs.isEmpty())
-		{
-			TreeSet<String> list = new TreeSet<>();
-			for (Prerequisite p : prereqs)
-			{
-				StringWriter swriter = new StringWriter();
-				write(swriter, p);
-				list.add(swriter.toString());
-			}
-			prereqString = StringUtil.join(list, separator);
-		}
-		return prereqString;
-	}
+    private String getPrereqString(Collection<Prerequisite> prereqs, String separator) throws PersistenceLayerException
+    {
+        String prereqString = null;
+        if (prereqs != null && !prereqs.isEmpty())
+        {
+            TreeSet<String> list = new TreeSet<>();
+            for (Prerequisite p : prereqs)
+            {
+                StringWriter swriter = new StringWriter();
+                write(swriter, p);
+                list.add(swriter.toString());
+            }
+            prereqString = StringUtil.join(list, separator);
+        }
+        return prereqString;
+    }
 
-	public String getPrerequisiteString(Collection<Prerequisite> prereqs, String separator)
-	{
-		try
-		{
-			return getPrereqString(prereqs, separator);
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Error writing Prerequisites: " + prereqs);
-		}
-		return "";
-	}
+    public String getPrerequisiteString(Collection<Prerequisite> prereqs, String separator)
+    {
+        try
+        {
+            return getPrereqString(prereqs, separator);
+        } catch (PersistenceLayerException e)
+        {
+            Logging.errorPrint("Error writing Prerequisites: " + prereqs);
+        }
+        return "";
+    }
 
 }

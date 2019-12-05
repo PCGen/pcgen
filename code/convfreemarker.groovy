@@ -23,19 +23,20 @@
  * Usage: groovy convfreemarker.groovy sheetname [outputtemplatename]
  */
 import java.util.regex.Matcher
+
 // Check parameters
 def usage = "Usage: groovy convfreemarker.groovy sheetname [outputtemplatename]"
 if (args.length != 1) {
-	println "Provide exactly one argument"
-	println usage
-	System.exit(1)
+    println "Provide exactly one argument"
+    println usage
+    System.exit(1)
 }
 
 // Set up our file names, default output name is inputname with .ftl appended.
 def source = args[0]
-def target = source+'.ftl'
+def target = source + '.ftl'
 if (args.length > 1) {
-	target = args[1]
+    target = args[1]
 }
 
 def pcgenExportFile = new File(source)
@@ -49,12 +50,12 @@ int numChanged = 0;
 int numSkipped = 0;
 int numWarn = 0
 pcgenExportFile.eachLine {
-	linenum++
+    linenum++
 
     def line = it
     def origLine = it
 
-    		
+
     // FOR loops - static values
     // |FOR,%range,0,5,1,0|
     // becomes <@loop from=0 to=5 ; range , range_has_next >
@@ -73,29 +74,29 @@ pcgenExportFile.eachLine {
     line = line.replaceAll('\\|FOR,\\%([a-zA-Z0-9]+),([-_+=.% A-Za-z0-9"()\\[\\]]+),([-_+=.,% A-Za-z0-9"()\\[\\]]+),1,0\\|', /<@loop from=pcvar('$2') to=pcvar('$3') ; $1 , $1_has_next>/)
     line = line.replaceAll('\\|FOR,\\%([a-zA-Z0-9]+),([-_+=.% A-Za-z0-9"()\\[\\]]+),([-_+=.,% A-Za-z0-9"()\\[\\]]+),1,([12])\\|', /<@loop from=pcvar('$2') to=pcvar('$3') ; $1 , $1_has_next> <#-- TODO: Loop was of early exit type $4 -->/)
     line = line.replaceAll("\\|ENDFOR\\|", '</@loop>')
-    
+
     // If tests
     def lhsIdenitfierChars = 'A-Za-z0-9%.;=_ "\\[\\]\\(\\)-'
     // |IIF(%spelllevelcount:0)|
     line = line.replaceAll("\\|IIF\\(%([A-Za-z0-9]+):([0-9]+)\\)\\|", '<#if ($1 = $2)>')
     // |IIF(WEAPON.%weap.CATEGORY:BOTH)|
-    line = line.replaceAll("\\|IIF\\((["+lhsIdenitfierChars+"]+):([A-Za-z0-9 -]+)\\)\\|", '<#if (pcstring("$1") = "$2")>')
+    line = line.replaceAll("\\|IIF\\(([" + lhsIdenitfierChars + "]+):([A-Za-z0-9 -]+)\\)\\|", '<#if (pcstring("$1") = "$2")>')
     // |IIF(countdistinct("ABILITIES";"NAME=Turn Undead")>0)|
-    line = line.replaceAll('\\|IIF\\((['+lhsIdenitfierChars+']+)>([0-9]+)\\)\\|', /<#if (pcvar('$1') > $2)>/)
+    line = line.replaceAll('\\|IIF\\(([' + lhsIdenitfierChars + ']+)>([0-9]+)\\)\\|', /<#if (pcvar('$1') > $2)>/)
     // |IIF(countdistinct("ABILITIES";"NAME=Turn Undead")==0)|
-    line = line.replaceAll('\\|IIF\\((['+lhsIdenitfierChars+']+)==([0-9]+)\\)\\|', /<#if (pcvar('$1') = $2)>/)
+    line = line.replaceAll('\\|IIF\\(([' + lhsIdenitfierChars + ']+)==([0-9]+)\\)\\|', /<#if (pcvar('$1') = $2)>/)
     line = line.replaceAll("\\|ELSE\\|", "<#else>")
     line = line.replaceAll("\\|ENDIF\\|", '</#if>')
-    
+
     // |OIF(EVEN:%spell,<tr class="nobrkg">,<tr class="nobrkw">)|
     line = line.replaceAll('\\|OIF\\(EVEN:(%[A-Za-z0-9]+),([^,]+),([^,]+)\\)\\|', '<#if ($1 % 2 = 0)>$2<#else>$3</#if>')
-    
+
     // Equipsets
     // |EQSET.START|
     line = line.replaceAll("^\\|EQSET\\.START\\|", '<@equipsetloop>')
     // |EQSET.START|
     line = line.replaceAll("^\\|EQSET\\.END\\|", '</@equipsetloop>')
-    
+
     // Filter tags - uggh
     // |%VAR.RageTimes.GTEQ.1|
     line = line.replaceAll("^\\|%([^\\|]+)\\.GTEQ\\.([0-9]+)\\|", '<#if (pcvar("$1") >= $2) >')
@@ -104,11 +105,11 @@ pcgenExportFile.eachLine {
     // |%COUNT[SA]|
     line = line.replaceAll("^\\|%([^\\|]+)\\|", '<#if (pcvar("$1") > 0) >')
     line = line.replaceAll("^\\|%\\|", '</#if>')
-    
+
     // Raw variables
     // |%level|
     replaceStr = Matcher.quoteReplacement('${') + "\$1}";
-	line = line.replaceAll("\\|%([A-Za-z0-9]+)\\|", replaceStr)
+    line = line.replaceAll("\\|%([A-Za-z0-9]+)\\|", replaceStr)
 
     // Formatting tags
     line = line.replaceAll("\\|MANUALWHITESPACE\\|", '<@compress single_line=true><#-- TODO: Add <#t> at the end of each following line with output to ensure no extra spaces are output. -->')
@@ -119,32 +120,32 @@ pcgenExportFile.eachLine {
     // |IIF(%class<%class!MAX)|
     line = line.replaceAll("\\|IIF\\(%([a-zA-Z0-9+-]+)<%([a-zA-Z0-9+-]+)\\!MAX\\)\\|", "<#if (\$1_has_next)>")
     line = line.replaceAll("\\|IIF\\(%([a-zA-Z0-9+-]+):%([a-zA-Z0-9+-]+)\\!MAX\\)\\|", "<#if (\$1_has_next)>")
-	
+
     // General tags
-    def replaceStr = Matcher.quoteReplacement('${pcstring(') + "'\$1')}"; 
+    def replaceStr = Matcher.quoteReplacement('${pcstring(') + "'\$1')}";
     line = line.replaceAll('\\|(?!FOR)(?!IIF)([_ A-Za-z0-9.=%/*\\(\\)",-]+)\\|', replaceStr)
-    replaceStr = Matcher.quoteReplacement('${pcvar(') + "'\$1')}"; 
+    replaceStr = Matcher.quoteReplacement('${pcvar(') + "'\$1')}";
     line = line.replaceAll('\\|(?!FOR)(?!IIF)([_ A-Za-z0-9.=%/*\\(\\)",+-]+)\\|', replaceStr)
-   
+
     // Loop variables
-    replaceStr = Matcher.quoteReplacement('${') + "\$1}"; 
+    replaceStr = Matcher.quoteReplacement('${') + "\$1}";
     line = line.replaceAll("%([a-zA-Z0-9+-]+)", replaceStr)
 
     if (line ==~ ".*\\|.*") {
-    	// If we couldn't conert everything report the line and revert back to the original content
-    	println "Unable to convert line ${linenum}: ${origLine} got to ${line}"
-    	line = origLine
-    	numSkipped++
+        // If we couldn't conert everything report the line and revert back to the original content
+        println "Unable to convert line ${linenum}: ${origLine} got to ${line}"
+        line = origLine
+        numSkipped++
     }
     if (line ==~ ".*<#-- TODO.*") {
-    	numWarn++
-    }    
-    if (line != origLine) {
-    	numChanged++
+        numWarn++
     }
-    	
-	// Output the revised file
-	freemarkerFile.append(line+"\r\n")
+    if (line != origLine) {
+        numChanged++
+    }
+
+    // Output the revised file
+    freemarkerFile.append(line + "\r\n")
 }
 
 println ""

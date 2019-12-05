@@ -33,52 +33,53 @@ import org.junit.jupiter.api.Test;
 class TipsTest
 {
 
-	private static final String tip = "For each method, write a test method";
+    private static final String tip = "For each method, write a test method";
 
-	/**
-	 * Test method for {@link translation.util.Tips#addTip(Collection, String)}.
-	 */
-	@Test
-	public void testAddTip()
-	{
-		Set<String> t = new HashSet<>();
-		assertEquals(0, t.size());
-		Tips.addTip(t, tip);
-		assertTrue(t.contains(tip));
-		assertEquals(1, t.size());
-		Tips.addTip(t, tip);
-		assertTrue(t.contains(tip));
-		assertEquals(1, t.size());
-	}
+    /**
+     * Test method for {@link translation.util.Tips#addTip(Collection, String)}.
+     */
+    @Test
+    public void testAddTip()
+    {
+        Set<String> t = new HashSet<>();
+        assertEquals(0, t.size());
+        Tips.addTip(t, tip);
+        assertTrue(t.contains(tip));
+        assertEquals(1, t.size());
+        Tips.addTip(t, tip);
+        assertTrue(t.contains(tip));
+        assertEquals(1, t.size());
+    }
 
-	@Test
-	public void isTip() {
-		String emptyLine = "";
-		assertFalse(Tips.isTip(emptyLine));
-		String comment = "# This is a comment in the tips file";
-		assertFalse(Tips.isTip(comment));
-		assertTrue(Tips.isTip(tip));
-		String tip2 = "Another tip for you";
-		assertTrue(Tips.isTip(tip2));
-	}
+    @Test
+    public void isTip()
+    {
+        String emptyLine = "";
+        assertFalse(Tips.isTip(emptyLine));
+        String comment = "# This is a comment in the tips file";
+        assertFalse(Tips.isTip(comment));
+        assertTrue(Tips.isTip(tip));
+        String tip2 = "Another tip for you";
+        assertTrue(Tips.isTip(tip2));
+    }
 
-	@Test
-	public void removeEscapeTest()
-	{
-		assertEquals("", Tips.removeEscaped(""));
-		assertEquals("a", Tips.removeEscaped("a"));
-		assertEquals("l'eau", Tips.removeEscaped("l\\'eau"));
-		assertEquals("\"quoted\"", Tips.removeEscaped("\\\"quoted\\\""));
-		assertEquals("\\", Tips.removeEscaped("\\\\"));
-	}
+    @Test
+    public void removeEscapeTest()
+    {
+        assertEquals("", Tips.removeEscaped(""));
+        assertEquals("a", Tips.removeEscaped("a"));
+        assertEquals("l'eau", Tips.removeEscaped("l\\'eau"));
+        assertEquals("\"quoted\"", Tips.removeEscaped("\\\"quoted\\\""));
+        assertEquals("\\", Tips.removeEscaped("\\\\"));
+    }
 
-	@Test
-	public void escapeTest()
-	{
-		assertEquals("", Tips.escape(""));
-		assertEquals("a", Tips.escape("a"));
-		assertEquals("l\\'eau", Tips.escape("l'eau"));
-		assertEquals("\\\"quoted\\\"", Tips.escape("\"quoted\""));
-		assertEquals("\\\\", Tips.escape("\\"));
-	}
+    @Test
+    public void escapeTest()
+    {
+        assertEquals("", Tips.escape(""));
+        assertEquals("a", Tips.escape("a"));
+        assertEquals("l\\'eau", Tips.escape("l'eau"));
+        assertEquals("\\\"quoted\\\"", Tips.escape("\"quoted\""));
+        assertEquals("\\\\", Tips.escape("\\"));
+    }
 }

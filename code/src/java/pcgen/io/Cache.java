@@ -27,59 +27,59 @@ import java.util.Map;
  * {@code Cache}<br>
  * Convenience wrapper class for a HashMap containing
  * only List intances filled with String instances.
- *
  */
 final class Cache
 {
-	private final Map<String, List<String>> map;
+    private final Map<String, List<String>> map;
 
-	Cache()
-	{
-		//should define some default
-		//or make the default constructor private making users of the cache to define its initial size
-		map = new HashMap<>();
-	}
+    Cache()
+    {
+        //should define some default
+        //or make the default constructor private making users of the cache to define its initial size
+        map = new HashMap<>();
+    }
 
-	Cache(int initialCapacity)
-	{
-		map = new HashMap<>(initialCapacity);
-	}
+    Cache(int initialCapacity)
+    {
+        map = new HashMap<>(initialCapacity);
+    }
 
-	/**
-	 * @param key
-	 * @return True if the map contains the key
-	 */
-	public boolean containsKey(final String key)
-	{
-		return map.containsKey(key);
-	}
+    /**
+     * @param key
+     * @return True if the map contains the key
+     */
+    public boolean containsKey(final String key)
+    {
+        return map.containsKey(key);
+    }
 
-	/**
-	 * Get List from map given key
-	 * @param key
-	 * @return List
-	 */
-	public List<String> get(String key)
-	{
-		return map.get(key);
-	}
+    /**
+     * Get List from map given key
+     *
+     * @param key
+     * @return List
+     */
+    public List<String> get(String key)
+    {
+        return map.get(key);
+    }
 
-	/**
-	 * Put into the map
-	 * @param key
-	 * @param value
-	 */
-	public void put(String key, String value)
-	{
-		if (map.containsKey(key))
-		{
-			map.get(key).add(value);
-		}
-		else
-		{
-			final List<String> values = new ArrayList<>();
-			values.add(value);
-			map.put(key, values);
-		}
-	}
+    /**
+     * Put into the map
+     *
+     * @param key
+     * @param value
+     */
+    public void put(String key, String value)
+    {
+        if (map.containsKey(key))
+        {
+            map.get(key).add(value);
+        } else
+        {
+            final List<String> values = new ArrayList<>();
+            values.add(value);
+            map.put(key, values);
+        }
+    }
 }

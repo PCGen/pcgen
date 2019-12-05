@@ -35,111 +35,108 @@ import pcgen.util.Logging;
 
 public class CharacterFilter implements OutputFilter
 {
-	private String outputFilterName = "";
-	private Map<Integer, String> outputFilter = null;
+    private String outputFilterName = "";
+    private Map<Integer, String> outputFilter = null;
 
-	/**
-	 * Create a new CharacterFilter instance suitable for processing output to 
-	 * files produced using the supplied template.
-	 *  
-	 * @param templateFileName The file name of the output template file.
-	 */
-	public CharacterFilter(String templateFileName)
-	{
+    /**
+     * Create a new CharacterFilter instance suitable for processing output to
+     * files produced using the supplied template.
+     *
+     * @param templateFileName The file name of the output template file.
+     */
+    public CharacterFilter(String templateFileName)
+    {
 
-		final int idx = templateFileName.lastIndexOf('.');
+        final int idx = templateFileName.lastIndexOf('.');
 
-		String filterName = templateFileName;
-		if (idx >= 0)
-		{
-			filterName = filterName.substring(idx + 1);
-		}
+        String filterName = templateFileName;
+        if (idx >= 0)
+        {
+            filterName = filterName.substring(idx + 1);
+        }
 
-		filterName = filterName.toLowerCase();
+        filterName = filterName.toLowerCase();
 
-		if (filterName.equals(outputFilterName))
-		{
-			return;
-		}
+        if (filterName.equals(outputFilterName))
+        {
+            return;
+        }
 
-		outputFilter = null;
+        outputFilter = null;
 
-		filterName = new File(ConfigurationSettings.getSystemsDir()) + File.separator + "outputFilters" + File.separator
-			+ filterName + Constants.EXTENSION_LIST_FILE;
+        filterName = new File(ConfigurationSettings.getSystemsDir()) + File.separator + "outputFilters" + File.separator
+                + filterName + Constants.EXTENSION_LIST_FILE;
 
-		final File filterFile = new File(filterName);
+        final File filterFile = new File(filterName);
 
-		try
-		{
-			if (filterFile.canRead() && filterFile.isFile())
-			{
-				final BufferedReader br =
-						new BufferedReader(new InputStreamReader(new FileInputStream(filterFile),
-								StandardCharsets.UTF_8
-						));
+        try
+        {
+            if (filterFile.canRead() && filterFile.isFile())
+            {
+                final BufferedReader br =
+                        new BufferedReader(new InputStreamReader(new FileInputStream(filterFile),
+                                StandardCharsets.UTF_8
+                        ));
 
-				outputFilterName = filterName;
-				outputFilter = new HashMap<>();
+                outputFilterName = filterName;
+                outputFilter = new HashMap<>();
 
-				while (true)
-				{
-					final String aLine = br.readLine();
+                while (true)
+                {
+                    final String aLine = br.readLine();
 
-					if (aLine == null)
-					{
-						break;
-					}
+                    if (aLine == null)
+                    {
+                        break;
+                    }
 
-					final List<String> filterEntry = CoreUtility.split(aLine, '\t');
+                    final List<String> filterEntry = CoreUtility.split(aLine, '\t');
 
-					if (filterEntry.size() >= 2)
-					{
-						try
-						{
-							final Integer key = Delta.decode(filterEntry.get(0));
-							outputFilter.put(key, filterEntry.get(1));
-						}
-						catch (NullPointerException | NumberFormatException e)
-						{
-							Logging.errorPrint("Exception in setCurrentOutputFilter", e);
-						}
-					}
-				}
+                    if (filterEntry.size() >= 2)
+                    {
+                        try
+                        {
+                            final Integer key = Delta.decode(filterEntry.get(0));
+                            outputFilter.put(key, filterEntry.get(1));
+                        } catch (NullPointerException | NumberFormatException e)
+                        {
+                            Logging.errorPrint("Exception in setCurrentOutputFilter", e);
+                        }
+                    }
+                }
 
-				br.close();
-			}
-		}
-		catch (IOException e)
-		{
-			//Should this be ignored?
-		}
-	}
+                br.close();
+            }
+        } catch (IOException e)
+        {
+            //Should this be ignored?
+        }
+    }
 
-	@Override
-	public String filterString(String aString)
-	{
-		if ((outputFilter != null) && (!outputFilter.isEmpty()) && aString != null)
-		{
-			final StringBuilder xlatedString = new StringBuilder(aString.length());
+    @Override
+    public String filterString(String aString)
+    {
+        if ((outputFilter != null) && (!outputFilter.isEmpty()) && aString != null)
+        {
+            final StringBuilder xlatedString = new StringBuilder(aString.length());
 
-			for (int i = 0; i < aString.length(); i++)
-			{
-				final char c = aString.charAt(i);
-				final String xlation = outputFilter.get((int) c);
+            for (int i = 0;i < aString.length();i++)
+            {
+                final char c = aString.charAt(i);
+                final String xlation = outputFilter.get((int) c);
 
-				if (xlation != null)
-				{
-					xlatedString.append(xlation);
-				}
-				else
-				{
-					xlatedString.append(c);
-				}
-			}
+                if (xlation != null)
+                {
+                    xlatedString.append(xlation);
+                } else
+                {
+                    xlatedString.append(c);
+                }
+            }
 
-			aString = xlatedString.toString();
-		}
-		return aString;
-	}
+            aString = xlatedString.toString();
+        }
+        return aString;
+    }
 
 }

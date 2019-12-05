@@ -33,127 +33,129 @@ import pcgen.core.PlayerCharacter;
  */
 public final class KitLevelAbility extends BaseKit
 {
-	private CDOMSingleRef<PCClass> theClassName;
-	private int theLevel;
-	private final List<String> choiceList = new ArrayList<>();
-	private PersistentTransitionChoice<?> add;
+    private CDOMSingleRef<PCClass> theClassName;
+    private int theLevel;
+    private final List<String> choiceList = new ArrayList<>();
+    private PersistentTransitionChoice<?> add;
 
-	/**
-	 * Set the class
-	 * @param className
-	 */
-	public void setClass(CDOMSingleRef<PCClass> className)
-	{
-		theClassName = className;
-	}
+    /**
+     * Set the class
+     *
+     * @param className
+     */
+    public void setClass(CDOMSingleRef<PCClass> className)
+    {
+        theClassName = className;
+    }
 
-	public CDOMSingleRef<PCClass> getPCClass()
-	{
-		return theClassName;
-	}
+    public CDOMSingleRef<PCClass> getPCClass()
+    {
+        return theClassName;
+    }
 
-	/**
-	 * Set the level
-	 * @param level
-	 */
-	public void setLevel(int level)
-	{
-		theLevel = level;
-	}
+    /**
+     * Set the level
+     *
+     * @param level
+     */
+    public void setLevel(int level)
+    {
+        theLevel = level;
+    }
 
-	public int getLevel()
-	{
-		return theLevel;
-	}
+    public int getLevel()
+    {
+        return theLevel;
+    }
 
-	@Override
-	public String toString()
-	{
-		StringBuilder buf = new StringBuilder();
-		//TODO is this clean (add.toString?)
-		buf.append(add);
-		buf.append(": [");
-		boolean firstTime = true;
-		for (String choiceStr : choiceList)
-		{
-			if (!firstTime)
-			{
-				buf.append(", ");
-			}
-			buf.append(choiceStr);
+    @Override
+    public String toString()
+    {
+        StringBuilder buf = new StringBuilder();
+        //TODO is this clean (add.toString?)
+        buf.append(add);
+        buf.append(": [");
+        boolean firstTime = true;
+        for (String choiceStr : choiceList)
+        {
+            if (!firstTime)
+            {
+                buf.append(", ");
+            }
+            buf.append(choiceStr);
 
-			firstTime = false;
-		}
-		buf.append("]");
-		return buf.toString();
-	}
+            firstTime = false;
+        }
+        buf.append("]");
+        return buf.toString();
+    }
 
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		return doApplication(aPC);
-	}
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        return doApplication(aPC);
+    }
 
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		doApplication(aPC);
-	}
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        doApplication(aPC);
+    }
 
-	private boolean doApplication(PlayerCharacter aPC)
-	{
-		PCClass theClass = theClassName.get();
-		PCClass classKeyed = aPC.getClassKeyed(theClass.getKeyName());
-		if (classKeyed == null)
-		{
-			//Error?
-		}
-		//Look for ADD in class
-		List<PersistentTransitionChoice<?>> adds = theClass.getListFor(ListKey.ADD);
-		if (adds == null)
-		{
-			//Error?
-		}
-		for (PersistentTransitionChoice<?> ch : adds)
-		{
-			if (add.equals(ch))
-			{
-				process(aPC, classKeyed, ch);
-				return true;
-			}
-		}
-		return false;
-	}
+    private boolean doApplication(PlayerCharacter aPC)
+    {
+        PCClass theClass = theClassName.get();
+        PCClass classKeyed = aPC.getClassKeyed(theClass.getKeyName());
+        if (classKeyed == null)
+        {
+            //Error?
+        }
+        //Look for ADD in class
+        List<PersistentTransitionChoice<?>> adds = theClass.getListFor(ListKey.ADD);
+        if (adds == null)
+        {
+            //Error?
+        }
+        for (PersistentTransitionChoice<?> ch : adds)
+        {
+            if (add.equals(ch))
+            {
+                process(aPC, classKeyed, ch);
+                return true;
+            }
+        }
+        return false;
+    }
 
-	private <T> void process(PlayerCharacter pc, PCClass cl, PersistentTransitionChoice<T> ch)
-	{
-		List<T> list = new ArrayList<>();
-		for (String s : choiceList)
-		{
-			list.add(ch.decodeChoice(Globals.getContext(), s));
-		}
-		//use ch
-		ch.act(list, cl, pc);
-	}
+    private <T> void process(PlayerCharacter pc, PCClass cl, PersistentTransitionChoice<T> ch)
+    {
+        List<T> list = new ArrayList<>();
+        for (String s : choiceList)
+        {
+            list.add(ch.decodeChoice(Globals.getContext(), s));
+        }
+        //use ch
+        ch.act(list, cl, pc);
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Class Feature";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Class Feature";
+    }
 
-	public void addChoice(String string)
-	{
-		choiceList.add(string);
-	}
+    public void addChoice(String string)
+    {
+        choiceList.add(string);
+    }
 
-	public void setAdd(PersistentTransitionChoice<?> name)
-	{
-		add = name;
-	}
+    public void setAdd(PersistentTransitionChoice<?> name)
+    {
+        add = name;
+    }
 
-	public PersistentTransitionChoice<?> getAdd()
-	{
-		return add;
-	}
+    public PersistentTransitionChoice<?> getAdd()
+    {
+        return add;
+    }
 }

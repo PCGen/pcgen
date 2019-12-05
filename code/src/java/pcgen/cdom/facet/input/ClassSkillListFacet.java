@@ -1,16 +1,16 @@
 /*
  * Copyright (c) Thomas Parker, 2012.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -40,109 +40,106 @@ import pcgen.core.SubClass;
 /**
  * ClassSkillListFacet stores the ClassSkillListFacet choices for a
  * PCClass of a Player Character
- * 
  */
 public class ClassSkillListFacet extends AbstractScopeFacet<CharID, PCClass, ClassSkillList>
-		implements ClassLevelChangeListener, ScopeFacetChangeListener<CharID, PCClass, String>
+        implements ClassLevelChangeListener, ScopeFacetChangeListener<CharID, PCClass, String>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet =
-			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+    private final PlayerCharacterTrackingFacet trackingFacet =
+            FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
-	private ClassFacet classFacet;
+    private ClassFacet classFacet;
 
-	private DefaultClassSkillListFacet defaultClassSkillListFacet;
+    private DefaultClassSkillListFacet defaultClassSkillListFacet;
 
-	private SubClassFacet subClassFacet;
+    private SubClassFacet subClassFacet;
 
-	private SkillListFacet skillListFacet;
+    private SkillListFacet skillListFacet;
 
-	@Override
-	public void levelChanged(ClassLevelChangeEvent lce)
-	{
-		if ((lce.getOldLevel() == 0) && (lce.getNewLevel() > 0))
-		{
-			PCClass cl = lce.getPCClass();
-			CharID id = lce.getCharID();
-			TransitionChoice<ClassSkillList> csc = cl.get(ObjectKey.SKILLLIST_CHOICE);
-			if (csc == null)
-			{
-				ClassSkillList l = cl.get(ObjectKey.CLASS_SKILLLIST);
-				if (l != null)
-				{
-					defaultClassSkillListFacet.add(id, cl, l, cl);
-				}
-			}
-			else
-			{
-				PlayerCharacter pc = trackingFacet.getPC(id);
-				for (ClassSkillList st : csc.driveChoice(pc))
-				{
-					add(id, cl, st, cl);
-				}
-			}
-		}
-		else if ((lce.getOldLevel() > 0) && (lce.getNewLevel() == 0))
-		{
-			removeAllFromSource(lce.getCharID(), lce.getPCClass());
-		}
-	}
+    @Override
+    public void levelChanged(ClassLevelChangeEvent lce)
+    {
+        if ((lce.getOldLevel() == 0) && (lce.getNewLevel() > 0))
+        {
+            PCClass cl = lce.getPCClass();
+            CharID id = lce.getCharID();
+            TransitionChoice<ClassSkillList> csc = cl.get(ObjectKey.SKILLLIST_CHOICE);
+            if (csc == null)
+            {
+                ClassSkillList l = cl.get(ObjectKey.CLASS_SKILLLIST);
+                if (l != null)
+                {
+                    defaultClassSkillListFacet.add(id, cl, l, cl);
+                }
+            } else
+            {
+                PlayerCharacter pc = trackingFacet.getPC(id);
+                for (ClassSkillList st : csc.driveChoice(pc))
+                {
+                    add(id, cl, st, cl);
+                }
+            }
+        } else if ((lce.getOldLevel() > 0) && (lce.getNewLevel() == 0))
+        {
+            removeAllFromSource(lce.getCharID(), lce.getPCClass());
+        }
+    }
 
-	@Override
-	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
-	{
-		//ignore
-	}
+    @Override
+    public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
+    {
+        //ignore
+    }
 
-	@Override
-	public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, String> dfce)
-	{
-		PCClass cl = dfce.getScope();
-		String subClassKey = dfce.getCDOMObject();
-		SubClass subclass = cl.getSubClassKeyed(subClassKey);
-		if (subclass != null)
-		{
-			ClassSkillList scl = subclass.get(ObjectKey.CLASS_SKILLLIST);
-			defaultClassSkillListFacet.add(dfce.getCharID(), cl, scl, subclass);
-		}
-	}
+    @Override
+    public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, String> dfce)
+    {
+        PCClass cl = dfce.getScope();
+        String subClassKey = dfce.getCDOMObject();
+        SubClass subclass = cl.getSubClassKeyed(subClassKey);
+        if (subclass != null)
+        {
+            ClassSkillList scl = subclass.get(ObjectKey.CLASS_SKILLLIST);
+            defaultClassSkillListFacet.add(dfce.getCharID(), cl, scl, subclass);
+        }
+    }
 
-	@Override
-	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, String> dfce)
-	{
-		PCClass cl = dfce.getScope();
-		String subClassKey = dfce.getCDOMObject();
-		SubClass subclass = cl.getSubClassKeyed(subClassKey);
-		if (subclass != null)
-		{
-			ClassSkillList scl = subclass.get(ObjectKey.CLASS_SKILLLIST);
-			defaultClassSkillListFacet.add(dfce.getCharID(), cl, scl, subclass);
-		}
-	}
+    @Override
+    public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, String> dfce)
+    {
+        PCClass cl = dfce.getScope();
+        String subClassKey = dfce.getCDOMObject();
+        SubClass subclass = cl.getSubClassKeyed(subClassKey);
+        if (subclass != null)
+        {
+            ClassSkillList scl = subclass.get(ObjectKey.CLASS_SKILLLIST);
+            defaultClassSkillListFacet.add(dfce.getCharID(), cl, scl, subclass);
+        }
+    }
 
-	public void setClassFacet(ClassFacet classFacet)
-	{
-		this.classFacet = classFacet;
-	}
+    public void setClassFacet(ClassFacet classFacet)
+    {
+        this.classFacet = classFacet;
+    }
 
-	public void setSubClassFacet(SubClassFacet subClassFacet)
-	{
-		this.subClassFacet = subClassFacet;
-	}
+    public void setSubClassFacet(SubClassFacet subClassFacet)
+    {
+        this.subClassFacet = subClassFacet;
+    }
 
-	public void setDefaultClassSkillListFacet(DefaultClassSkillListFacet defaultClassSkillListFacet)
-	{
-		this.defaultClassSkillListFacet = defaultClassSkillListFacet;
-	}
+    public void setDefaultClassSkillListFacet(DefaultClassSkillListFacet defaultClassSkillListFacet)
+    {
+        this.defaultClassSkillListFacet = defaultClassSkillListFacet;
+    }
 
-	public void setSkillListFacet(SkillListFacet skillListFacet)
-	{
-		this.skillListFacet = skillListFacet;
-	}
+    public void setSkillListFacet(SkillListFacet skillListFacet)
+    {
+        this.skillListFacet = skillListFacet;
+    }
 
-	public void init()
-	{
-		classFacet.addLevelChangeListener(this);
-		subClassFacet.addScopeFacetChangeListener(this);
-		addScopeFacetChangeListener(skillListFacet);
-	}
+    public void init()
+    {
+        classFacet.addLevelChangeListener(this);
+        subClassFacet.addScopeFacetChangeListener(this);
+        addScopeFacetChangeListener(skillListFacet);
+    }
 }

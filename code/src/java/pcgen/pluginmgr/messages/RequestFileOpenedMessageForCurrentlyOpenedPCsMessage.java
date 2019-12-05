@@ -23,23 +23,22 @@ import pcgen.pluginmgr.PCGenMessage;
 
 /**
  * The Class {@code RequestFileOpenedMessageForCurrentlyOpenedPCsMessage}
- * encapsulates a request to have PCGen send out open messages sent for each 
+ * encapsulates a request to have PCGen send out open messages sent for each
  * already open PC.
- *
- * 
  */
 
 @SuppressWarnings("serial")
 public class RequestFileOpenedMessageForCurrentlyOpenedPCsMessage extends PCGenMessage
 {
 
-	/**
-	 * Create a new instance of RequestVirtualFileOpenedMessageForCurrentlyOpenedPCsMessage
-	 * @param source The source of the message.
-	 */
-	public RequestFileOpenedMessageForCurrentlyOpenedPCsMessage(Object source)
-	{
-		super(source);
-	}
+    /**
+     * Create a new instance of RequestVirtualFileOpenedMessageForCurrentlyOpenedPCsMessage
+     *
+     * @param source The source of the message.
+     */
+    public RequestFileOpenedMessageForCurrentlyOpenedPCsMessage(Object source)
+    {
+        super(source);
+    }
 
 }

@@ -30,48 +30,48 @@ import pcgen.rules.persistence.token.ParseResult;
 public class LangToken extends AbstractQualifiedChooseToken<Language>
 {
 
-	private static final Class<Language> LANGUAGE_CLASS = Language.class;
+    private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "LANG";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LANG";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Langauge choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Langauge choice";
+    }
 
-	@Override
-	public Language decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, s);
-	}
+    @Override
+    public Language decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(Language choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(Language choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<Language> getListKey()
-	{
-		return AssociationListKey.getKeyFor(LANGUAGE_CLASS, "CHOOSE*LANGUAGE");
-	}
+    @Override
+    protected AssociationListKey<Language> getListKey()
+    {
+        return AssociationListKey.getKeyFor(LANGUAGE_CLASS, "CHOOSE*LANGUAGE");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(LANGUAGE_CLASS),
-			obj, value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(LANGUAGE_CLASS),
+                obj, value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "LANGUAGE";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "LANGUAGE";
+    }
 }

@@ -33,51 +33,51 @@ import javafx.scene.control.SpinnerValueFactory;
  */
 public class EquipmentPreferencesPanelController implements ResettableController
 {
-	@FXML
-	private Spinner<Integer> wandSpinner;
+    @FXML
+    private Spinner<Integer> wandSpinner;
 
-	@FXML
-	private Spinner<Integer> potionSpinner;
+    @FXML
+    private Spinner<Integer> potionSpinner;
 
-	private final EquipmentPreferencesModel model = new EquipmentPreferencesModel();
+    private final EquipmentPreferencesModel model = new EquipmentPreferencesModel();
 
-	@FXML
-	void initialize()
-	{
-		var potionValueFactory =
-				new SpinnerValueFactory.IntegerSpinnerValueFactory(model.getMaxPotionLevelBounds().min,
-						model.getMaxWandLevelBounds().max,
-						SettingsHandler.maxPotionSpellLevel().getValue(), 1
-				);
-		potionSpinner.setValueFactory(potionValueFactory);
-		var wandValueFactory =
-				new SpinnerValueFactory.IntegerSpinnerValueFactory(model.getMaxWandLevelBounds().min,
-						model.getMaxWandLevelBounds().max,
-						SettingsHandler.maxWandSpellLevel().getValue(), 1
-				);
-		wandSpinner.setValueFactory(wandValueFactory);
+    @FXML
+    void initialize()
+    {
+        var potionValueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(model.getMaxPotionLevelBounds().min,
+                        model.getMaxWandLevelBounds().max,
+                        SettingsHandler.maxPotionSpellLevel().getValue(), 1
+                );
+        potionSpinner.setValueFactory(potionValueFactory);
+        var wandValueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(model.getMaxWandLevelBounds().min,
+                        model.getMaxWandLevelBounds().max,
+                        SettingsHandler.maxWandSpellLevel().getValue(), 1
+                );
+        wandSpinner.setValueFactory(wandValueFactory);
 
-		// TODO: consider adding an apply button that sets values rather than using binding directly
-		model.maxPotionLevelProperty().bind(potionSpinner.valueProperty());
-		model.maxWandLevelProperty().bind(wandSpinner.valueProperty());
-	}
+        // TODO: consider adding an apply button that sets values rather than using binding directly
+        model.maxPotionLevelProperty().bind(potionSpinner.valueProperty());
+        model.maxWandLevelProperty().bind(wandSpinner.valueProperty());
+    }
 
-	// TOOD: eventually apply/reset ought to be composed behavior
-	// and really ought to be implemented as "copy initial model to safe space; and
-	// copy it back from the saved model when we reset.
-	// for now, do this to make some progress.
+    // TOOD: eventually apply/reset ought to be composed behavior
+    // and really ought to be implemented as "copy initial model to safe space; and
+    // copy it back from the saved model when we reset.
+    // for now, do this to make some progress.
 
-	@Override
-	public void reset()
-	{
-		potionSpinner.getValueFactory().setValue(SettingsHandler.maxPotionSpellLevel().getValue());
-		wandSpinner.getValueFactory().setValue(SettingsHandler.maxWandSpellLevel().getValue());
-	}
+    @Override
+    public void reset()
+    {
+        potionSpinner.getValueFactory().setValue(SettingsHandler.maxPotionSpellLevel().getValue());
+        wandSpinner.getValueFactory().setValue(SettingsHandler.maxWandSpellLevel().getValue());
+    }
 
-	@Override
-	public void apply()
-	{
-		SettingsHandler.maxPotionSpellLevel().set(model.maxPotionLevelProperty().get());
-		SettingsHandler.maxWandSpellLevel().set(model.maxWandLevelProperty().get());
-	}
+    @Override
+    public void apply()
+    {
+        SettingsHandler.maxPotionSpellLevel().set(model.maxPotionLevelProperty().get());
+        SettingsHandler.maxWandSpellLevel().set(model.maxWandLevelProperty().get());
+    }
 }

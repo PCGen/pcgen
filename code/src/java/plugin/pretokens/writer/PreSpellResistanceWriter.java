@@ -30,32 +30,31 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreSpellResistanceWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "SR";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "SR";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return null;
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return null;
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		try
-		{
-			writer.write("PRESR");
-			writer.write(prereq.getOperator().toString().toUpperCase());
-			writer.write(':' + (prereq.isOverrideQualify() ? "Q:" : ""));
-			writer.write(prereq.getOperand());
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        try
+        {
+            writer.write("PRESR");
+            writer.write(prereq.getOperator().toString().toUpperCase());
+            writer.write(':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+            writer.write(prereq.getOperand());
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
 }

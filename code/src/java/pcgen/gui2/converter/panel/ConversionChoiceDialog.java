@@ -39,121 +39,121 @@ import pcgen.util.Logging;
 
 /**
  * The Class {@code ConversionChoiceDialog} is responsible for
- * displaying choices the user needs to make as part of the conversion 
- * of some data items. 
- * 
- * 
+ * displaying choices the user needs to make as part of the conversion
+ * of some data items.
  */
 @SuppressWarnings("serial")
 public class ConversionChoiceDialog extends JDialog implements ActionListener
 {
 
-	private final List<String> choices;
-	private final String introText;
+    private final List<String> choices;
+    private final String introText;
 
-	/** The result selected by the user. */
-	private int result = -1;
+    /**
+     * The result selected by the user.
+     */
+    private int result = -1;
 
-	private JComboBox<String> choiceCombo;
-	private final int defaultChoice;
+    private JComboBox<String> choiceCombo;
+    private final int defaultChoice;
 
-	/**
-	 * Instantiates a new decision dialog for the data converter.
-	 * 
-	 * @param parent the parent frame
-	 * @param introText the intro text to explain the dialogs purpose to the user.
-	 * @param choices The list of choices the user can make. The first item is the default.
-	 * @param defaultChoice The index of the initially selected option.
-	 */
-	public ConversionChoiceDialog(Frame parent, String introText, List<String> choices, int defaultChoice)
-	{
-		super(parent, "PCGenDataConvert", true);
+    /**
+     * Instantiates a new decision dialog for the data converter.
+     *
+     * @param parent        the parent frame
+     * @param introText     the intro text to explain the dialogs purpose to the user.
+     * @param choices       The list of choices the user can make. The first item is the default.
+     * @param defaultChoice The index of the initially selected option.
+     */
+    public ConversionChoiceDialog(Frame parent, String introText, List<String> choices, int defaultChoice)
+    {
+        super(parent, "PCGenDataConvert", true);
 
-		this.introText = introText;
-		this.choices = choices;
-		this.defaultChoice = defaultChoice;
+        this.introText = introText;
+        this.choices = choices;
+        this.defaultChoice = defaultChoice;
 
-		initComponents();
-		setLocationRelativeTo(parent);
-	}
+        initComponents();
+        setLocationRelativeTo(parent);
+    }
 
-	/**
-	 * @return the result
-	 */
-	public int getResult()
-	{
-		return result;
-	}
+    /**
+     * @return the result
+     */
+    public int getResult()
+    {
+        return result;
+    }
 
-	/**
-	 * Initialises the user interface.
-	 */
-	private void initComponents()
-	{
-		setLayout(new GridBagLayout());
+    /**
+     * Initialises the user interface.
+     */
+    private void initComponents()
+    {
+        setLayout(new GridBagLayout());
 
-		JTextArea introLabel = new JTextArea(introText, 5, 40);
-		introLabel.setEditable(false);
-		introLabel.setWrapStyleWord(true);
-		introLabel.setLineWrap(true);
-		GridBagConstraints gbc = new GridBagConstraints();
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 1.0);
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.insets = new Insets(10, 10, 5, 10);
-		add(introLabel, gbc);
+        JTextArea introLabel = new JTextArea(introText, 5, 40);
+        introLabel.setEditable(false);
+        introLabel.setWrapStyleWord(true);
+        introLabel.setLineWrap(true);
+        GridBagConstraints gbc = new GridBagConstraints();
+        Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 1.0);
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(10, 10, 5, 10);
+        add(introLabel, gbc);
 
-		choiceCombo = new JComboBox<>();
-		for (String choice : choices)
-		{
-			choiceCombo.addItem(choice);
-		}
-		if (defaultChoice >= 0 && defaultChoice < choices.size())
-		{
-			choiceCombo.setSelectedIndex(defaultChoice);
-		}
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
-			GridBagConstraints.WEST);
-		gbc.insets = new Insets(5, 10, 5, 10);
-		add(choiceCombo, gbc);
+        choiceCombo = new JComboBox<>();
+        for (String choice : choices)
+        {
+            choiceCombo.addItem(choice);
+        }
+        if (defaultChoice >= 0 && defaultChoice < choices.size())
+        {
+            choiceCombo.setSelectedIndex(defaultChoice);
+        }
+        Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+                GridBagConstraints.WEST);
+        gbc.insets = new Insets(5, 10, 5, 10);
+        add(choiceCombo, gbc);
 
-		JLabel dummy = new JLabel(" ");
-		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
-		add(dummy, gbc);
+        JLabel dummy = new JLabel(" ");
+        Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+        add(dummy, gbc);
 
-		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
-		okButton.addActionListener(this);
-		getRootPane().setDefaultButton(okButton);
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 0, 0,
-			GridBagConstraints.NONE, GridBagConstraints.EAST);
-		gbc.insets = new Insets(5, 5, 10, 10);
-		add(okButton, gbc);
+        JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
+        okButton.addActionListener(this);
+        getRootPane().setDefaultButton(okButton);
+        Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 0, 0,
+                GridBagConstraints.NONE, GridBagConstraints.EAST);
+        gbc.insets = new Insets(5, 5, 10, 10);
+        add(okButton, gbc);
 
-		pack();
+        pack();
 
-		addWindowListener(new WindowAdapter()
-		{
-			@Override
-			public void windowClosing(WindowEvent e)
-			{
-				result = choiceCombo.getSelectedIndex();
-				setVisible(false);
-				logChoice();
-			}
-		});
+        addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                result = choiceCombo.getSelectedIndex();
+                setVisible(false);
+                logChoice();
+            }
+        });
 
-	}
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		result = choiceCombo.getSelectedIndex();
-		setVisible(false);
-		logChoice();
-	}
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        result = choiceCombo.getSelectedIndex();
+        setVisible(false);
+        logChoice();
+    }
 
-	private void logChoice()
-	{
-		Logging.log(Logging.INFO,
-			"Decision required: " + introText + "\nChoices: " + choices + "\nChoice made: " + choices.get(result));
-	}
+    private void logChoice()
+    {
+        Logging.log(Logging.INFO,
+                "Decision required: " + introText + "\nChoices: " + choices + "\nChoice made: " + choices.get(result));
+    }
 }

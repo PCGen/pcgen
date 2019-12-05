@@ -49,101 +49,101 @@ import util.TestURI;
  */
 public class ClassLevelCommandTest extends AbstractCharacterTestCase
 {
-	private Race nymphRace;
-	private PCClass megaCasterClass;
-	private PCClass humanoidClass;
-	private PCClass nymphClass;
+    private Race nymphRace;
+    private PCClass megaCasterClass;
+    private PCClass humanoidClass;
+    private PCClass nymphClass;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
 
-		Campaign customCampaign = new Campaign();
-		customCampaign.setName("Unit Test");
-		customCampaign.setName("KEY_Unit Test");
-		customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Unit Test data"));
+        Campaign customCampaign = new Campaign();
+        customCampaign.setName("Unit Test");
+        customCampaign.setName("KEY_Unit Test");
+        customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Unit Test data"));
 
-		// Create the monseter class type
-		GameMode gamemode = SettingsHandler.getGame();
-		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
-		methodLoader.parseLine(gamemode.getModeContext(),
-			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO",
-			TestURI.getURI());
-		gamemode.removeSkillMultiplierLevels();
-		gamemode.addSkillMultiplierLevel("4");
-		gamemode.setMaxNonEpicLevel(20);
+        // Create the monseter class type
+        GameMode gamemode = SettingsHandler.getGame();
+        SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
+        methodLoader.parseLine(gamemode.getModeContext(),
+                "Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO",
+                TestURI.getURI());
+        gamemode.removeSkillMultiplierLevels();
+        gamemode.addSkillMultiplierLevel("4");
+        gamemode.setMaxNonEpicLevel(20);
 
-		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
-		// Create the Nymph race
-		nymphRace = new Race();
-		nymphRace.setName("Nymph");
-		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
-		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
-		Globals.getContext().getReferenceContext().importObject(nymphRace);
+        CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+        // Create the Nymph race
+        nymphRace = new Race();
+        nymphRace.setName("Nymph");
+        nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
+        nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
+        Globals.getContext().getReferenceContext().importObject(nymphRace);
 
-		// Create the humanoid class
-		humanoidClass = new PCClass();
-		humanoidClass.setName("Humanoid");
-		humanoidClass.addToListFor(ListKey.TYPE, Type.getConstant("Monster"));
-		Globals.getContext().getReferenceContext().importObject(humanoidClass);
+        // Create the humanoid class
+        humanoidClass = new PCClass();
+        humanoidClass.setName("Humanoid");
+        humanoidClass.addToListFor(ListKey.TYPE, Type.getConstant("Monster"));
+        Globals.getContext().getReferenceContext().importObject(humanoidClass);
 
-		nymphClass = new PCClass();
-		nymphClass.setName("Nymph");
-		nymphClass.addToListFor(ListKey.TYPE, Type.getConstant("Monster"));
-		Globals.getContext().getReferenceContext().importObject(nymphClass);
+        nymphClass = new PCClass();
+        nymphClass.setName("Nymph");
+        nymphClass.addToListFor(ListKey.TYPE, Type.getConstant("Monster"));
+        Globals.getContext().getReferenceContext().importObject(nymphClass);
 
-		megaCasterClass = new PCClass();
-		megaCasterClass.setName("MegaCaster");
-		BuildUtilities.setFact(megaCasterClass, "SpellType", "Arcane");
-		Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
-		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
-		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
-		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
+        megaCasterClass = new PCClass();
+        megaCasterClass.setName("MegaCaster");
+        BuildUtilities.setFact(megaCasterClass, "SpellType", "Arcane");
+        Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
+        megaCasterClass.put(ObjectKey.SPELLBOOK, false);
+        megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
+        Globals.getContext().getReferenceContext().importObject(megaCasterClass);
 
-	}
+    }
 
-	@Test
-	public void testClassLevel()
-	{
-		PlayerCharacter pc = this.getCharacter();
-		pc.setRace(nymphRace);
-		pc.incrementClassLevel(1, megaCasterClass);
-		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(0.0, 0.001));
-		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
-		assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(1.0, 0.001));
-		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(0.0, 0.001));
-		pc.incrementClassLevel(1, megaCasterClass);
-		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(0.0, 0.001));
-		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
-		assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
-		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(0.0, 0.001));
-		pc.incrementClassLevel(1, humanoidClass);
-		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(1.0, 0.001));
-		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
-		assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
-		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(1.0, 0.001));
-		pc.incrementClassLevel(1, nymphClass);
-		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(1.0, 0.001));
-		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(1.0, 0.001));
-		assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
-		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(2.0, 0.001));
-	}
+    @Test
+    public void testClassLevel()
+    {
+        PlayerCharacter pc = this.getCharacter();
+        pc.setRace(nymphRace);
+        pc.incrementClassLevel(1, megaCasterClass);
+        assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(0.0, 0.001));
+        assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
+        assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(1.0, 0.001));
+        assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(0.0, 0.001));
+        pc.incrementClassLevel(1, megaCasterClass);
+        assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(0.0, 0.001));
+        assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
+        assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
+        assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(0.0, 0.001));
+        pc.incrementClassLevel(1, humanoidClass);
+        assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(1.0, 0.001));
+        assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
+        assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
+        assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(1.0, 0.001));
+        pc.incrementClassLevel(1, nymphClass);
+        assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(1.0, 0.001));
+        assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(1.0, 0.001));
+        assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
+        assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(2.0, 0.001));
+    }
 
-	@Test
-	public void testClassLevelAppliedAs()
-	{
-		PlayerCharacter pc = this.getCharacter();
-		pc.setRace(nymphRace);
-		pc.incrementClassLevel(1, megaCasterClass);
-		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(1.0, 0.001));
-		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(0.0, 0.001));
-		pc.incrementClassLevel(1, megaCasterClass);
-		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(2.0, 0.001));
-		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(0.0, 0.001));
-		pc.incrementClassLevel(1, nymphClass);
-		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(2.0, 0.001));
-		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(1.0, 0.001));
-	}	
+    @Test
+    public void testClassLevelAppliedAs()
+    {
+        PlayerCharacter pc = this.getCharacter();
+        pc.setRace(nymphRace);
+        pc.incrementClassLevel(1, megaCasterClass);
+        assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(1.0, 0.001));
+        assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(0.0, 0.001));
+        pc.incrementClassLevel(1, megaCasterClass);
+        assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(2.0, 0.001));
+        assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(0.0, 0.001));
+        pc.incrementClassLevel(1, nymphClass);
+        assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(2.0, 0.001));
+        assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(1.0, 0.001));
+    }
 }

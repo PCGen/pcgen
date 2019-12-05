@@ -23,70 +23,72 @@ package pcgen.core.utils;
 public class MessageWrapper
 {
 
-	private final Object message;
-	private final String title;
-	private final MessageType messageType;
-	private final Object parent;
+    private final Object message;
+    private final String title;
+    private final MessageType messageType;
+    private final Object parent;
 
-	/**
-	 * Constructor
-	 * @param message
-	 * @param title
-	 * @param messageType
-	 * @param parent
-	 */
-	public MessageWrapper(final Object message, final String title, final MessageType messageType, final Object parent)
-	{
-		this.message = message;
-		this.title = title;
-		this.messageType = messageType;
-		this.parent = parent;
-	}
+    /**
+     * Constructor
+     *
+     * @param message
+     * @param title
+     * @param messageType
+     * @param parent
+     */
+    public MessageWrapper(final Object message, final String title, final MessageType messageType, final Object parent)
+    {
+        this.message = message;
+        this.title = title;
+        this.messageType = messageType;
+        this.parent = parent;
+    }
 
-	/**
-	 * Constructor
-	 * @param message
-	 * @param title
-	 * @param messageType
-	 */
-	public MessageWrapper(final Object message, final String title, final MessageType messageType)
-	{
-		this.message = message;
-		this.title = title;
-		this.messageType = messageType;
-		this.parent = null;
-	}
+    /**
+     * Constructor
+     *
+     * @param message
+     * @param title
+     * @param messageType
+     */
+    public MessageWrapper(final Object message, final String title, final MessageType messageType)
+    {
+        this.message = message;
+        this.title = title;
+        this.messageType = messageType;
+        this.parent = null;
+    }
 
-	/**
-	 * @return Returns the message.
-	 */
-	public Object getMessage()
-	{
-		return message;
-	}
+    /**
+     * @return Returns the message.
+     */
+    public Object getMessage()
+    {
+        return message;
+    }
 
-	/**
-	 * @return Returns the messageType.
-	 */
-	public MessageType getMessageType()
-	{
-		return messageType;
-	}
+    /**
+     * @return Returns the messageType.
+     */
+    public MessageType getMessageType()
+    {
+        return messageType;
+    }
 
-	/**
-	 * @return Returns the title.
-	 */
-	public String getTitle()
-	{
-		return title;
-	}
+    /**
+     * @return Returns the title.
+     */
+    public String getTitle()
+    {
+        return title;
+    }
 
-	/**
-	 * @return Returns the parent.
-	 */
-	public Object getParent()
-	{
-		return parent;
-	}
+    /**
+     * @return Returns the parent.
+     */
+    public Object getParent()
+    {
+        return parent;
+    }
 
 }

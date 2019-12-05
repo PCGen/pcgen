@@ -31,32 +31,33 @@ import pcgen.util.Delta;
  */
 public class InitiativeModToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "INITIATIVEMOD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "INITIATIVEMOD";
+    }
 
-	//TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
-	//to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Delta.toString(getInitiativeModToken(pc));
-	}
+    //TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
+    //to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Delta.toString(getInitiativeModToken(pc));
+    }
 
-	/**
-	 * Get the token
-	 * @param pc PlayerCharacter
-	 * @return int Initiative Modifier
-	 */
-	public static int getInitiativeModToken(PlayerCharacter pc)
-	{
-		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVE);
-		if (initiativeVar == null)
-		{
-			return pc.getDisplay().processOldInitiativeMod();
-		}
-		return ((Number) pc.getGlobal(initiativeVar)).intValue();
-	}
+    /**
+     * Get the token
+     *
+     * @param pc PlayerCharacter
+     * @return int Initiative Modifier
+     */
+    public static int getInitiativeModToken(PlayerCharacter pc)
+    {
+        String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+        if (initiativeVar == null)
+        {
+            return pc.getDisplay().processOldInitiativeMod();
+        }
+        return ((Number) pc.getGlobal(initiativeVar)).intValue();
+    }
 }

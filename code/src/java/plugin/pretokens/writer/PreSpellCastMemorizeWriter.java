@@ -30,37 +30,36 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreSpellCastMemorizeWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "spellcast.memorize";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "spellcast.memorize";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
 
-		try
-		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-			{
-				writer.write('!');
-			}
+        try
+        {
+            if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+            {
+                writer.write('!');
+            }
 
-			writer.write("PRESPELLCAST:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MEMORIZE=");
-			writer.write(prereq.getKey());
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+            writer.write("PRESPELLCAST:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MEMORIZE=");
+            writer.write(prereq.getKey());
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
 }

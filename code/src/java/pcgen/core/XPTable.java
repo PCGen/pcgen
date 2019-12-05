@@ -24,81 +24,78 @@ import java.util.Map;
 
 /**
  * {@code XPTable}.
- * 
  */
 @SuppressWarnings("serial")
 public final class XPTable extends PObject
 {
-	private final String name;
-	private final Map<String, LevelInfo> infoMap;
+    private final String name;
+    private final Map<String, LevelInfo> infoMap;
 
-	public XPTable()
-	{
-		this.name = "Default";
-		this.infoMap = new HashMap<>();
-	}
+    public XPTable()
+    {
+        this.name = "Default";
+        this.infoMap = new HashMap<>();
+    }
 
-	public XPTable(String xpTable)
-	{
-		this.name = xpTable;
-		this.infoMap = new HashMap<>();
-	}
+    public XPTable(String xpTable)
+    {
+        this.name = xpTable;
+        this.infoMap = new HashMap<>();
+    }
 
-	public String getName()
-	{
-		return name;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public void addLevelInfo(String level, LevelInfo levelInfo)
-	{
-		infoMap.put(level, levelInfo);
-	}
+    public void addLevelInfo(String level, LevelInfo levelInfo)
+    {
+        infoMap.put(level, levelInfo);
+    }
 
-	public LevelInfo getLevelInfo(String levelString)
-	{
-		return infoMap.get(levelString);
-	}
+    public LevelInfo getLevelInfo(String levelString)
+    {
+        return infoMap.get(levelString);
+    }
 
-	/**
-	 * Returns Level information for the given Level
-	 * 
-	 * @param level
-	 *            the level for which Level Info should be returned
-	 * @return The LevelInfo for the given level
-	 */
-	public LevelInfo getLevelInfo(int level)
-	{
-		if (level < 1)
-		{
-			return null;
-		}
-		LevelInfo lInfo = getLevelInfo(String.valueOf(level));
+    /**
+     * Returns Level information for the given Level
+     *
+     * @param level the level for which Level Info should be returned
+     * @return The LevelInfo for the given level
+     */
+    public LevelInfo getLevelInfo(int level)
+    {
+        if (level < 1)
+        {
+            return null;
+        }
+        LevelInfo lInfo = getLevelInfo(String.valueOf(level));
 
-		if (lInfo == null)
-		{
-			lInfo = getLevelInfo("LEVEL");
-		}
-		return lInfo;
-	}
+        if (lInfo == null)
+        {
+            lInfo = getLevelInfo("LEVEL");
+        }
+        return lInfo;
+    }
 
-	public boolean validateSequence(String levelValue)
-	{
-		int value = getIntValue(levelValue);
-		return infoMap.values()
-		              .stream()
-		              .mapToInt(levelInfo -> getIntValue(levelInfo.getLevelString()))
-		              .noneMatch(intValue -> value < intValue);
-	}
+    public boolean validateSequence(String levelValue)
+    {
+        int value = getIntValue(levelValue);
+        return infoMap.values()
+                .stream()
+                .mapToInt(levelInfo -> getIntValue(levelInfo.getLevelString()))
+                .noneMatch(intValue -> value < intValue);
+    }
 
-	private static int getIntValue(String level)
-	{
-		try
-		{
-			return Integer.parseInt(level);
-		}
-		catch (NumberFormatException e)
-		{
-			return 0;
-		}
-	}
+    private static int getIntValue(String level)
+    {
+        try
+        {
+            return Integer.parseInt(level);
+        } catch (NumberFormatException e)
+        {
+            return 0;
+        }
+    }
 }

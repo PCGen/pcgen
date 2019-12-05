@@ -32,38 +32,38 @@ import org.junit.jupiter.api.Test;
 class ControlUtilitiesTest
 {
 
-	@Test
-	public void testGetControlTokenString()
-	{
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
-		assertNull(ControlUtilities.getControlToken(context, "Got"));
-		CodeControl controller = context.getReferenceContext()
-			.constructCDOMObject(CodeControl.class, "Controller");
-		ObjectKey<String> ok = ObjectKey.getKeyFor(String.class, "*Got");
-		controller.put(ok, "Loot");
-		assertEquals("Loot", ControlUtilities.getControlToken(context, "Got"));
-		assertNull(ControlUtilities.getControlToken(context, "Other"));
-	}
+    @Test
+    public void testGetControlTokenString()
+    {
+        LoadContext context = new RuntimeLoadContext(
+                RuntimeReferenceContext.createRuntimeReferenceContext(),
+                new ConsolidatedListCommitStrategy());
+        assertNull(ControlUtilities.getControlToken(context, "Got"));
+        CodeControl controller = context.getReferenceContext()
+                .constructCDOMObject(CodeControl.class, "Controller");
+        ObjectKey<String> ok = ObjectKey.getKeyFor(String.class, "*Got");
+        controller.put(ok, "Loot");
+        assertEquals("Loot", ControlUtilities.getControlToken(context, "Got"));
+        assertNull(ControlUtilities.getControlToken(context, "Other"));
+    }
 
-	@Test
-	public void testGetControlTokenControl()
-	{
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
-		CControl control =
-				new CControl("Got", "Swag", Optional.empty(), "STRING");
-		assertEquals("Swag",
-			ControlUtilities.getControlToken(context, control));
-		CodeControl controller = context.getReferenceContext()
-			.constructCDOMObject(CodeControl.class, "Controller");
-		ObjectKey<String> ok = ObjectKey.getKeyFor(String.class, "*Got");
-		controller.put(ok, "Loot");
-		assertEquals("Loot",
-			ControlUtilities.getControlToken(context, control));
-		assertNull(ControlUtilities.getControlToken(context, "Other"));
-	}
+    @Test
+    public void testGetControlTokenControl()
+    {
+        LoadContext context = new RuntimeLoadContext(
+                RuntimeReferenceContext.createRuntimeReferenceContext(),
+                new ConsolidatedListCommitStrategy());
+        CControl control =
+                new CControl("Got", "Swag", Optional.empty(), "STRING");
+        assertEquals("Swag",
+                ControlUtilities.getControlToken(context, control));
+        CodeControl controller = context.getReferenceContext()
+                .constructCDOMObject(CodeControl.class, "Controller");
+        ObjectKey<String> ok = ObjectKey.getKeyFor(String.class, "*Got");
+        controller.put(ok, "Loot");
+        assertEquals("Loot",
+                ControlUtilities.getControlToken(context, control));
+        assertNull(ControlUtilities.getControlToken(context, "Other"));
+    }
 
 }

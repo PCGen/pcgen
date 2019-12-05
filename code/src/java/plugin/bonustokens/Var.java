@@ -25,28 +25,29 @@ import pcgen.rules.context.LoadContext;
  */
 public final class Var extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		addBonusInfo(token);
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        addBonusInfo(token);
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "VAR";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "VAR";
+    }
 
 }

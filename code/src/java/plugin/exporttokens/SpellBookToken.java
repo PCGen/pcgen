@@ -31,65 +31,60 @@ import pcgen.io.exporttoken.AbstractExportToken;
 public class SpellBookToken extends AbstractExportToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SPELLBOOK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPELLBOOK";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
 
-		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 
-		// Ignore the token itself
-		aTok.nextToken();
+        // Ignore the token itself
+        aTok.nextToken();
 
-		final int bookNum = Integer.parseInt(aTok.nextToken());
-		String aLabel = "NAME";
+        final int bookNum = Integer.parseInt(aTok.nextToken());
+        String aLabel = "NAME";
 
-		if (aTok.hasMoreTokens())
-		{
-			aLabel = aTok.nextToken();
-		}
+        if (aTok.hasMoreTokens())
+        {
+            aLabel = aTok.nextToken();
+        }
 
-		SpellBook book = null;
-		if (bookNum >= 0 && bookNum < display.getSpellBookCount())
-		{
-			String bookName = display.getSpellBookNames().get(bookNum);
-			book = display.getSpellBookByName(bookName);
-		}
-		if (book != null)
-		{
-			if ("NAME".equals(aLabel))
-			{
-				retString = book.getName();
-			}
-			else if ("NUMPAGES".equals(aLabel))
-			{
-				retString = String.valueOf(book.getNumPages());
-			}
-			else if ("NUMPAGESUSED".equals(aLabel))
-			{
-				retString = String.valueOf(book.getNumPagesUsed());
-			}
-			else if ("NUMSPELLS".equals(aLabel))
-			{
-				retString = String.valueOf(book.getNumSpells());
-			}
-			else if ("PAGEFORMULA".equals(aLabel))
-			{
-				retString = book.getPageFormula().toString();
-			}
-			else if ("TYPE".equals(aLabel))
-			{
-				retString = book.getTypeName();
-			}
-		}
+        SpellBook book = null;
+        if (bookNum >= 0 && bookNum < display.getSpellBookCount())
+        {
+            String bookName = display.getSpellBookNames().get(bookNum);
+            book = display.getSpellBookByName(bookName);
+        }
+        if (book != null)
+        {
+            if ("NAME".equals(aLabel))
+            {
+                retString = book.getName();
+            } else if ("NUMPAGES".equals(aLabel))
+            {
+                retString = String.valueOf(book.getNumPages());
+            } else if ("NUMPAGESUSED".equals(aLabel))
+            {
+                retString = String.valueOf(book.getNumPagesUsed());
+            } else if ("NUMSPELLS".equals(aLabel))
+            {
+                retString = String.valueOf(book.getNumSpells());
+            } else if ("PAGEFORMULA".equals(aLabel))
+            {
+                retString = book.getPageFormula().toString();
+            } else if ("TYPE".equals(aLabel))
+            {
+                retString = book.getTypeName();
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
 }

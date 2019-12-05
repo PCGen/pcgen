@@ -35,54 +35,56 @@ import pcgen.io.exporttoken.SpellListToken;
 
 public class SpellListBookToken extends SpellListToken
 {
-	/** token name */
-	public static final String TOKENNAME = "SPELLLISTBOOK";
+    /**
+     * token name
+     */
+    public static final String TOKENNAME = "SPELLLISTBOOK";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringBuilder retValue = new StringBuilder();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_BOOK);
+        SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_BOOK);
 
-		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+        final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
-		if (aObject != null)
-		{
-			String bookName = Globals.getDefaultSpellBook();
+        if (aObject != null)
+        {
+            String bookName = Globals.getDefaultSpellBook();
 
-			if (params.getBookNum() > 0)
-			{
-				bookName = pc.getDisplay().getSpellBookNames().get(params.getBookNum());
-			}
+            if (params.getBookNum() > 0)
+            {
+                bookName = pc.getDisplay().getSpellBookNames().get(params.getBookNum());
+            }
 
-			final List<CharacterSpell> spells = pc.getCharacterSpells(aObject, null, bookName, params.getLevel());
+            final List<CharacterSpell> spells = pc.getCharacterSpells(aObject, null, bookName, params.getLevel());
 
-			boolean needcomma = false;
-			for (CharacterSpell cs : spells)
-			{
-				if (needcomma)
-				{
-					retValue.append(", ");
-				}
-				needcomma = true;
+            boolean needcomma = false;
+            for (CharacterSpell cs : spells)
+            {
+                if (needcomma)
+                {
+                    retValue.append(", ");
+                }
+                needcomma = true;
 
-				retValue.append(OutputNameFormatting.getOutputName(cs.getSpell()));
-			}
+                retValue.append(OutputNameFormatting.getOutputName(cs.getSpell()));
+            }
 
-			if (!needcomma && eh != null && eh.getExistsOnly())
-			{
-				eh.setNoMoreItems(true);
-			}
-		}
+            if (!needcomma && eh != null && eh.getExistsOnly())
+            {
+                eh.setNoMoreItems(true);
+            }
+        }
 
-		return retValue.toString();
-	}
+        return retValue.toString();
+    }
 
 }

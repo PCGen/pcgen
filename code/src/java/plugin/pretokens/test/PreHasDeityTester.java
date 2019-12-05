@@ -33,36 +33,36 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreHasDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		int runningTotal;
-		final boolean charHasDeity = display.getDeity() != null;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        int runningTotal;
+        final boolean charHasDeity = display.getDeity() != null;
 
-		final String ucOp = prereq.getKey().toUpperCase();
-		final boolean flag =
-				(ucOp.startsWith("Y") && charHasDeity) //$NON-NLS-1$
-				|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$
-		if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
-			|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
-		{
-			runningTotal = flag ? 1 : 0;
-		}
-		else
-		{
-			runningTotal = flag ? 0 : 1;
-		}
+        final String ucOp = prereq.getKey().toUpperCase();
+        final boolean flag =
+                (ucOp.startsWith("Y") && charHasDeity) //$NON-NLS-1$
+                        || (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$
+        if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
+                || prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+        {
+            runningTotal = flag ? 1 : 0;
+        } else
+        {
+            runningTotal = flag ? 0 : 1;
+        }
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "HAS.DEITY"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "HAS.DEITY"; //$NON-NLS-1$
+    }
 }

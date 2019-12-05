@@ -34,33 +34,33 @@ import org.junit.jupiter.api.Test;
  */
 class PreBirthplaceTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Test the PREBIRTHPLACE code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testAtt() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		character.setPCAttribute(PCStringKey.BIRTHPLACE, "Klamath");
+    /**
+     * Test the PREBIRTHPLACE code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testAtt() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        character.setPCAttribute(PCStringKey.BIRTHPLACE, "Klamath");
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREBIRTHPLACE:Klamath");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREBIRTHPLACE:Klamath");
 
-		assertTrue("Character is from Klamath", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character is from Klamath", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREBIRTHPLACE:KLAMATH");
+        prereq = factory.parse("PREBIRTHPLACE:KLAMATH");
 
-		assertTrue("Case is not significant", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Case is not significant", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREBIRTHPLACE:Klam");
+        prereq = factory.parse("PREBIRTHPLACE:Klam");
 
-		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        assertFalse("Requires a full match", PrereqHandler.passes(prereq,
+                character, null));
+    }
 }

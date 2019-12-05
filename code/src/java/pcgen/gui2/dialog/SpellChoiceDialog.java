@@ -35,59 +35,60 @@ import javafx.scene.control.ButtonBar;
 
 /**
  * The Class {@code SpellChoiceDialog} provides a pop-up dialog that allows
- * the user to select a spell for inclusion in things like custom equipment 
- * items.  
+ * the user to select a spell for inclusion in things like custom equipment
+ * items.
  */
 public final class SpellChoiceDialog extends JDialog
 {
-	private final SpellChoicePanel spellChoicePanel;
-	private boolean cancelled;
+    private final SpellChoicePanel spellChoicePanel;
+    private boolean cancelled;
 
-	/**
-	 * Create a new instance of SpellChoiceDialog
-	 * @param frame The parent frame we are displaying over.
-	 */
-	public SpellChoiceDialog(JFrame frame, SpellBuilderFacade builder)
-	{
-		super(frame, true);
-		setTitle(LanguageBundle.getString("in_csdChooseSpell"));
-		this.spellChoicePanel = new SpellChoicePanel(builder);
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		Utility.installEscapeCloseOperation(this);
-		initComponents();
-		pack();
-	}
+    /**
+     * Create a new instance of SpellChoiceDialog
+     *
+     * @param frame The parent frame we are displaying over.
+     */
+    public SpellChoiceDialog(JFrame frame, SpellBuilderFacade builder)
+    {
+        super(frame, true);
+        setTitle(LanguageBundle.getString("in_csdChooseSpell"));
+        this.spellChoicePanel = new SpellChoicePanel(builder);
+        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        Utility.installEscapeCloseOperation(this);
+        initComponents();
+        pack();
+    }
 
-	private void initComponents()
-	{
-		Container pane = getContentPane();
-		pane.setLayout(new BorderLayout());
+    private void initComponents()
+    {
+        Container pane = getContentPane();
+        pane.setLayout(new BorderLayout());
 
-		pane.add(spellChoicePanel, BorderLayout.CENTER);
+        pane.add(spellChoicePanel, BorderLayout.CENTER);
 
-		ButtonBar buttonBar = new OKCloseButtonBar(
-				this::onOK,
-				this::onCancel
-		);
+        ButtonBar buttonBar = new OKCloseButtonBar(
+                this::onOK,
+                this::onCancel
+        );
 
-		pane.add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
-	}
+        pane.add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
+    }
 
-	private void onOK(javafx.event.ActionEvent event)
-	{
-		cancelled = false;
-		dispose();
-	}
+    private void onOK(javafx.event.ActionEvent event)
+    {
+        cancelled = false;
+        dispose();
+    }
 
-	private void onCancel(javafx.event.ActionEvent event)
-	{
-		cancelled = true;
-		dispose();
-	}
+    private void onCancel(javafx.event.ActionEvent event)
+    {
+        cancelled = true;
+        dispose();
+    }
 
-	public boolean isCancelled()
-	{
-		return cancelled;
-	}
+    public boolean isCancelled()
+    {
+        return cancelled;
+    }
 
 }

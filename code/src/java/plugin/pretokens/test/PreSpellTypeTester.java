@@ -32,43 +32,43 @@ import pcgen.util.Logging;
 public class PreSpellTypeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-	{
-		final String castingType = prereq.getKey();
-		int requiredLevel;
-		try
-		{
-			requiredLevel = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException e)
-		{
-			requiredLevel = 1;
-			Logging.errorPrintLocalised("PreSpellType.Badly_formed_spell_type", //$NON-NLS-1$
-				prereq.getOperand(), prereq.toString());
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+    {
+        final String castingType = prereq.getKey();
+        int requiredLevel;
+        try
+        {
+            requiredLevel = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException e)
+        {
+            requiredLevel = 1;
+            Logging.errorPrintLocalised("PreSpellType.Badly_formed_spell_type", //$NON-NLS-1$
+                    prereq.getOperand(), prereq.toString());
+        }
 
-		int count = character.countSpellCastTypeLevel(castingType, requiredLevel);
+        int count = character.countSpellCastTypeLevel(castingType, requiredLevel);
 
-		final int runningTotal = prereq.getOperator().compare(count, 1);
-		return countedTotal(prereq, runningTotal);
-	}
+        final int runningTotal = prereq.getOperator().compare(count, 1);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "SPELLTYPE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "SPELLTYPE"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString("PreSpellType.toHtmlSingle", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(), 1, prereq.getKey(), prereq.getOperand());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString("PreSpellType.toHtmlSingle", //$NON-NLS-1$
+                prereq.getOperator().toDisplayString(), 1, prereq.getKey(), prereq.getOperand());
+    }
 
 }

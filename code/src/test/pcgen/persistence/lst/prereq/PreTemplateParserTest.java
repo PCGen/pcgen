@@ -17,8 +17,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *
- * 
- * 
+ *
+ *
  */
 package pcgen.persistence.lst.prereq;
 
@@ -37,36 +37,36 @@ import org.junit.jupiter.api.Test;
 class PreTemplateParserTest extends EnUsLocaleDependentTestCase
 {
 
-	@Test
-	void testPositive() throws PersistenceLayerException
-	{
-		PrerequisiteParserInterface parser = new PreTemplateParser();
+    @Test
+    void testPositive() throws PersistenceLayerException
+    {
+        PrerequisiteParserInterface parser = new PreTemplateParser();
 
-		Prerequisite prereq =
-				parser.parse("TEMPLATE", "1,Half-Dragon", false, false);
+        Prerequisite prereq =
+                parser.parse("TEMPLATE", "1,Half-Dragon", false, false);
 
-		assertEquals(
-			"<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
-			prereq.toString());
-	}
+        assertEquals(
+                "<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
+                prereq.toString());
+    }
 
-	
-	/**
-	 * Test 990007 2.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	void testInvertResult() throws PersistenceLayerException
-	{
-		PrerequisiteParserInterface parser = new PreTemplateParser();
 
-		Prerequisite prereq =
-				parser.parse("TEMPLATE", "1,Half-Dragon", true, false);
+    /**
+     * Test 990007 2.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    void testInvertResult() throws PersistenceLayerException
+    {
+        PrerequisiteParserInterface parser = new PreTemplateParser();
 
-		assertEquals(
-			"<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
-			prereq.toString());
-	}
+        Prerequisite prereq =
+                parser.parse("TEMPLATE", "1,Half-Dragon", true, false);
+
+        assertEquals(
+                "<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
+                prereq.toString());
+    }
 
 }

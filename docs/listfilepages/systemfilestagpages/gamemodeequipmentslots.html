@@ -1,239 +1,239 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Game Mode: Equipment Slots List
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Game Mode: equipmentslots.lst
-  </h1>
-  <p>
-   The equipmentslots.lst sets the name of locations on the
-character to which specific equipment types can be equipped as well
-as the number of such items which can be equipped. Equipment which
-do not have one of the types specified in this file can be equipped
-to the character without taking up a slot an unlimited number of
-times.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="numslots" name="numslots">
-     Tag
-Name:
-    </a>
-   </strong>
-   NUMSLOTS:DEFAULT
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Lists the DEFAULT number of slots for each type.
-NUMSLOTS:DEFAULT is followed on the same line by slot types and the
-default number of slots for each type
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>NUMSLOTS:DEFAULT HEAD:1 HANDS:2</code>
-  </p>
-  <p class="indent3">
-   Sets the default number of slots for HEAD to 1
-and for HANDS to 2.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eqslot" name="eqslot">
-     Tag
-Name:
-    </a>
-   </strong>
-   EQSLOT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Name
-of slot)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is the first tag in an equipmentslot line
-and sets the name of the slot. It is followed by a CONTAINS tag and
-a NUMBER tag.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQSLOT:Eyes</code>
-  </p>
-  <p class="indent3">
-   Sets the name of this slot as Eyes.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="contains" name="contains">
-     Tag
-Name:
-    </a>
-   </strong>
-   CONTAINS:x,x=y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Equipment type)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Number of such types the slot can hold)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag follows the
-    <code>EQSLOT</code>
-    tag and sets what
-equipment type, and how many, the slot holds.
-   </li>
-   <li>
-    Multiple equipment types may be included in a comma-delimited
-(,) list.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:Eyegear=1</code>
-  </p>
-  <p class="indent3">
-   This slot can hold 1 item of type Eyegear.
-  </p>
-  <p class="indent2">
-   <code>CONTAINS:Armor,Robe=1</code>
-  </p>
-  <p class="indent3">
-   This slot can hold 1 item of type Armor or
-Robe.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="number" name="number">
-     Tag
-Name:
-    </a>
-   </strong>
-   NUMBER:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Name
-of slot type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This follows the EQSLOT and CONTAINS tags and
-sets the default number of slots. The default numbers used are set
-in the NUMSLOTS tag line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>NUMBER:LEGS</code>
-  </p>
-  <p class="indent3">
-   The default number of LEGS is 2 so this would
-set this slot to 2.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>EQSLOT:Hand CONTAINS:Glove=1
-NUMBER:HANDS</code>
-  </p>
-  <p class="indent2">
-   This defines a Hand slot, of which there are 2
-each of which can hold 1 Glove.
-  </p>
-  <p class="indent1">
-   <code>EQSLOT:Fingers CONTAINS:Ring=2
-NUMBER:TORSO</code>
-  </p>
-  <p class="indent2">
-   This defines a Fingers slot which can hold 2
-Rings. The number of slots is defined using the TORSO type because
-a character can only wear 2 rings at any one time regardless of the
-number of hands the character might have. The TORSO type is useful
-if you need the slot number to remain static, many creatures have
-non standard numbers of arms, legs, heads etc. but all creatures
-have only one TORSO.
-  </p>
-  <p class="indent1">
-   <code>EQSLOT:Skin CONTAINS:PsionicTattoo=20
-NUMBER:TORSO</code>
-  </p>
-  <p class="indent2">
-   This defines a Skin slot which can hold 20 items
-of TYPE:PsionicTattoo.
-  </p>
-  <p class="indent1">
-   <code>EQSLOT:Body CONTAINS:Armor,Robe=1
-NUMBER:TORSO</code>
-  </p>
-  <p class="indent2">
-   This defines a Body slot which can hold 1 item
-of type Armor or Robe.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Game Mode: Equipment Slots List
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Game Mode: equipmentslots.lst
+</h1>
+<p>
+    The equipmentslots.lst sets the name of locations on the
+    character to which specific equipment types can be equipped as well
+    as the number of such items which can be equipped. Equipment which
+    do not have one of the types specified in this file can be equipped
+    to the character without taking up a slot an unlimited number of
+    times.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="numslots" name="numslots">
+            Tag
+            Name:
+        </a>
+    </strong>
+    NUMSLOTS:DEFAULT
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Lists the DEFAULT number of slots for each type.
+    NUMSLOTS:DEFAULT is followed on the same line by slot types and the
+    default number of slots for each type
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>NUMSLOTS:DEFAULT HEAD:1 HANDS:2</code>
+</p>
+<p class="indent3">
+    Sets the default number of slots for HEAD to 1
+    and for HANDS to 2.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eqslot" name="eqslot">
+            Tag
+            Name:
+        </a>
+    </strong>
+    EQSLOT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Name
+    of slot)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is the first tag in an equipmentslot line
+    and sets the name of the slot. It is followed by a CONTAINS tag and
+    a NUMBER tag.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQSLOT:Eyes</code>
+</p>
+<p class="indent3">
+    Sets the name of this slot as Eyes.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="contains" name="contains">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CONTAINS:x,x=y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Equipment type)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Number of such types the slot can hold)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag follows the
+        <code>EQSLOT</code>
+        tag and sets what
+        equipment type, and how many, the slot holds.
+    </li>
+    <li>
+        Multiple equipment types may be included in a comma-delimited
+        (,) list.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CONTAINS:Eyegear=1</code>
+</p>
+<p class="indent3">
+    This slot can hold 1 item of type Eyegear.
+</p>
+<p class="indent2">
+    <code>CONTAINS:Armor,Robe=1</code>
+</p>
+<p class="indent3">
+    This slot can hold 1 item of type Armor or
+    Robe.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="number" name="number">
+            Tag
+            Name:
+        </a>
+    </strong>
+    NUMBER:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Name
+    of slot type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This follows the EQSLOT and CONTAINS tags and
+    sets the default number of slots. The default numbers used are set
+    in the NUMSLOTS tag line.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>NUMBER:LEGS</code>
+</p>
+<p class="indent3">
+    The default number of LEGS is 2 so this would
+    set this slot to 2.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent1">
+    <code>EQSLOT:Hand CONTAINS:Glove=1
+        NUMBER:HANDS</code>
+</p>
+<p class="indent2">
+    This defines a Hand slot, of which there are 2
+    each of which can hold 1 Glove.
+</p>
+<p class="indent1">
+    <code>EQSLOT:Fingers CONTAINS:Ring=2
+        NUMBER:TORSO</code>
+</p>
+<p class="indent2">
+    This defines a Fingers slot which can hold 2
+    Rings. The number of slots is defined using the TORSO type because
+    a character can only wear 2 rings at any one time regardless of the
+    number of hands the character might have. The TORSO type is useful
+    if you need the slot number to remain static, many creatures have
+    non standard numbers of arms, legs, heads etc. but all creatures
+    have only one TORSO.
+</p>
+<p class="indent1">
+    <code>EQSLOT:Skin CONTAINS:PsionicTattoo=20
+        NUMBER:TORSO</code>
+</p>
+<p class="indent2">
+    This defines a Skin slot which can hold 20 items
+    of TYPE:PsionicTattoo.
+</p>
+<p class="indent1">
+    <code>EQSLOT:Body CONTAINS:Armor,Robe=1
+        NUMBER:TORSO</code>
+</p>
+<p class="indent2">
+    This defines a Body slot which can hold 1 item
+    of type Armor or Robe.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

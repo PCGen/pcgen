@@ -25,26 +25,24 @@ import pcgen.persistence.lst.GameModeLstToken;
 
 /**
  * This class handles the PREVIEWDIR game mode token.
- * 
- * 
  */
 public class PreviewDirToken implements GameModeLstToken
 {
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		gameMode.setPreviewDir(value);
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        gameMode.setPreviewDir(value);
+        return true;
+    }
 
-	/**
-	 * Returns the name of the token this class handles.
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "PREVIEWDIR"; //$NON-NLS-1$
-	}
+    /**
+     * Returns the name of the token this class handles.
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "PREVIEWDIR"; //$NON-NLS-1$
+    }
 
 }

@@ -38,70 +38,70 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase
 {
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		// TODO Auto-generated method stub
-		super.setUp();
-		RuleCheck preRule = new RuleCheck();
-		preRule.setName("PRERULE");
-		preRule.setDefault(false);
-		GameMode gameMode = SettingsHandler.getGame();
-		gameMode.getModeContext().getReferenceContext().importObject(preRule);
-	}
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        // TODO Auto-generated method stub
+        super.setUp();
+        RuleCheck preRule = new RuleCheck();
+        preRule.setName("PRERULE");
+        preRule.setDefault(false);
+        GameMode gameMode = SettingsHandler.getGame();
+        gameMode.getModeContext().getReferenceContext().importObject(preRule);
+    }
 
-	@Test
-	public void testRule() throws Exception
-	{
-		// if ruleEnabled is launch before disabled, the disabled assert are wrong.
-		ruleDisabled();
-		ruleEnabled();
-	}
+    @Test
+    public void testRule() throws Exception
+    {
+        // if ruleEnabled is launch before disabled, the disabled assert are wrong.
+        ruleDisabled();
+        ruleEnabled();
+    }
 
-	/**
-	 * Test to ensure that we return false when races don't match.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	private void ruleDisabled() throws PersistenceLayerException
-	{
-		assertFalse("Our rule should start as false", Globals
-			.checkRule("PRERULE"));
+    /**
+     * Test to ensure that we return false when races don't match.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    private void ruleDisabled() throws PersistenceLayerException
+    {
+        assertFalse("Our rule should start as false", Globals
+                .checkRule("PRERULE"));
 
-		PreRuleParser parser = new PreRuleParser();
-		Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
+        PreRuleParser parser = new PreRuleParser();
+        Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
 
-		boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertFalse("PreRule should fail when rule is disabled.", passes);
+        boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
+        assertFalse("PreRule should fail when rule is disabled.", passes);
 
-		prereq = parser.parse("RULE", "1,PRERULE", true, false);
-		passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertTrue("!PreRule should pass when rule is disabled.", passes);
-	}
+        prereq = parser.parse("RULE", "1,PRERULE", true, false);
+        passes = PrereqHandler.passes(prereq, getCharacter(), null);
+        assertTrue("!PreRule should pass when rule is disabled.", passes);
+    }
 
-	/**
-	 * Test to ensure that we return false when races don't match.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	private void ruleEnabled() throws PersistenceLayerException
-	{
-		RuleCheck preRule = SettingsHandler.getGame().getModeContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");
-		preRule.setDefault(true);
-		
-		assertTrue("Our rule should now be true", Globals
-			.checkRule("PRERULE"));
+    /**
+     * Test to ensure that we return false when races don't match.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    private void ruleEnabled() throws PersistenceLayerException
+    {
+        RuleCheck preRule = SettingsHandler.getGame().getModeContext().getReferenceContext()
+                .silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");
+        preRule.setDefault(true);
 
-		PreRuleParser parser = new PreRuleParser();
-		Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
+        assertTrue("Our rule should now be true", Globals
+                .checkRule("PRERULE"));
 
-		boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertTrue("PreRule should pass when rule is enabled.", passes);
+        PreRuleParser parser = new PreRuleParser();
+        Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
 
-		prereq = parser.parse("RULE", "1,PRERULE", true, false);
-		passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertFalse("!PreRule should fail when rule is enabled.", passes);
-	}
+        boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
+        assertTrue("PreRule should pass when rule is enabled.", passes);
+
+        prereq = parser.parse("RULE", "1,PRERULE", true, false);
+        passes = PrereqHandler.passes(prereq, getCharacter(), null);
+        assertFalse("!PreRule should fail when rule is enabled.", passes);
+    }
 }

@@ -26,8 +26,8 @@ import pcgen.cdom.enumeration.DataSetID;
  */
 public interface PCGenIdentifier
 {
-	/**
-	 * @return the owned DataSetID under which variable was created.
-	 */
+    /**
+     * @return the owned DataSetID under which variable was created.
+     */
     DataSetID getDataSetID();
 }

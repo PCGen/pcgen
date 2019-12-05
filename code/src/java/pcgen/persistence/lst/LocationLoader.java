@@ -29,63 +29,58 @@ import pcgen.rules.context.LoadContext;
  * This class is a LstFileLoader used to load character locations.
  *
  * <p>
- *
  */
 public class LocationLoader extends LstLineFileLoader
 {
-	private int traitType = -1;
+    private int traitType = -1;
 
-	@Override
-	public void loadLstFile(LoadContext context, URI source) throws PersistenceLayerException
-	{
-		traitType = -1;
-		super.loadLstFile(context, source);
-	}
+    @Override
+    public void loadLstFile(LoadContext context, URI source) throws PersistenceLayerException
+    {
+        traitType = -1;
+        super.loadLstFile(context, source);
+    }
 
-	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-	{
-		if (lstLine.charAt(0) != '[')
-		{
-			switch (traitType)
-			{
-				case 0:
-					SystemCollections.addToLocationList(lstLine.intern(), gameMode);
+    @Override
+    public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+    {
+        if (lstLine.charAt(0) != '[')
+        {
+            switch (traitType)
+            {
+                case 0:
+                    SystemCollections.addToLocationList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				case 1:
-					SystemCollections.addToBirthplaceList(lstLine.intern(), gameMode);
+                case 1:
+                    SystemCollections.addToBirthplaceList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				case 2:
-					SystemCollections.addToCityList(lstLine.intern(), gameMode);
+                case 2:
+                    SystemCollections.addToCityList(lstLine.intern(), gameMode);
 
-					break;
+                    break;
 
-				default:
-					break;
-			}
-		}
-		else
-		{
-			if (lstLine.startsWith("[LOCATION]"))
-			{
-				traitType = 0;
-			}
-			else if (lstLine.startsWith("[BIRTHPLACE]"))
-			{
-				traitType = 1;
-			}
-			else if (lstLine.startsWith("[CITY]"))
-			{
-				traitType = 2;
-			}
-			else
-			{
-				traitType = -1;
-			}
-		}
-	}
+                default:
+                    break;
+            }
+        } else
+        {
+            if (lstLine.startsWith("[LOCATION]"))
+            {
+                traitType = 0;
+            } else if (lstLine.startsWith("[BIRTHPLACE]"))
+            {
+                traitType = 1;
+            } else if (lstLine.startsWith("[CITY]"))
+            {
+                traitType = 2;
+            } else
+            {
+                traitType = -1;
+            }
+        }
+    }
 }

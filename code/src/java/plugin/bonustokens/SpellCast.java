@@ -27,74 +27,73 @@ import pcgen.rules.context.LoadContext;
  */
 public final class SpellCast extends BonusObj
 {
-	/*
-	 * CLASS.<classname OR Any>;LEVEL.<level>
-	 * TYPE.<type>;LEVEL.<level>
-	 * @param token
-	 * @return
-	 */
+    /*
+     * CLASS.<classname OR Any>;LEVEL.<level>
+     * TYPE.<type>;LEVEL.<level>
+     * @param token
+     * @return
+     */
 
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		int idx = token.indexOf(Constants.LST_SEMI_LEVEL_EQUAL);
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        int idx = token.indexOf(Constants.LST_SEMI_LEVEL_EQUAL);
 
-		if (idx < 0)
-		{
-			idx = token.indexOf(Constants.LST_SEMI_LEVEL_DOT);
-		}
+        if (idx < 0)
+        {
+            idx = token.indexOf(Constants.LST_SEMI_LEVEL_DOT);
+        }
 
-		if (idx < 0)
-		{
-			if (token.equals(Constants.LST_PERCENT_LIST))
-			{
-				addBonusInfo(token);
-				return true;
-			}
-			return false;
-		}
+        if (idx < 0)
+        {
+            if (token.equals(Constants.LST_PERCENT_LIST))
+            {
+                addBonusInfo(token);
+                return true;
+            }
+            return false;
+        }
 
-		final String level = token.substring(idx + Constants.SUBSTRING_LENGTH_SEVEN);
+        final String level = token.substring(idx + Constants.SUBSTRING_LENGTH_SEVEN);
 
-		addBonusInfo(new SpellCastInfo(token.substring(0, idx), level));
+        addBonusInfo(new SpellCastInfo(token.substring(0, idx), level));
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		final StringBuilder sb = new StringBuilder(30);
-		if (obj instanceof SpellCastInfo)
-		{
-			final SpellCastInfo sci = (SpellCastInfo) obj;
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        final StringBuilder sb = new StringBuilder(30);
+        if (obj instanceof SpellCastInfo)
+        {
+            final SpellCastInfo sci = (SpellCastInfo) obj;
 
-			if (sci.getType() != null)
-			{
-				sb.append(Constants.LST_TYPE_DOT).append(((SpellCastInfo) obj).getType());
-			}
-			else if (sci.getPcClassName() != null)
-			{
-				sb.append(Constants.LST_CLASS_DOT).append(((SpellCastInfo) obj).getPcClassName());
-			}
+            if (sci.getType() != null)
+            {
+                sb.append(Constants.LST_TYPE_DOT).append(((SpellCastInfo) obj).getType());
+            } else if (sci.getPcClassName() != null)
+            {
+                sb.append(Constants.LST_CLASS_DOT).append(((SpellCastInfo) obj).getPcClassName());
+            }
 
-			sb.append(Constants.LST_SEMI_LEVEL_DOT).append(((SpellCastInfo) obj).getLevel());
-		}
-		else
-		{
-			sb.append(obj);
-		}
+            sb.append(Constants.LST_SEMI_LEVEL_DOT).append(((SpellCastInfo) obj).getLevel());
+        } else
+        {
+            sb.append(obj);
+        }
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "SPELLCAST";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "SPELLCAST";
+    }
 }

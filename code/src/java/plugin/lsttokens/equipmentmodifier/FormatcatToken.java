@@ -32,43 +32,42 @@ import pcgen.rules.persistence.token.ParseResult;
  * to.
  */
 public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "FORMATCAT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FORMATCAT";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
-	{
-		try
-		{
-			context.getObjectContext().put(mod, ObjectKey.FORMAT, EqModFormatCat.valueOf(value));
-		}
-		catch (IllegalArgumentException iae)
-		{
-			return new ParseResult.Fail("Invalid Format provided in " + getTokenName() + ": " + value);
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
+    {
+        try
+        {
+            context.getObjectContext().put(mod, ObjectKey.FORMAT, EqModFormatCat.valueOf(value));
+        } catch (IllegalArgumentException iae)
+        {
+            return new ParseResult.Fail("Invalid Format provided in " + getTokenName() + ": " + value);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		EqModFormatCat fc = context.getObjectContext().getObject(mod, ObjectKey.FORMAT);
-		if (fc == null)
-		{
-			return null;
-		}
-		return new String[]{fc.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, EquipmentModifier mod)
+    {
+        EqModFormatCat fc = context.getObjectContext().getObject(mod, ObjectKey.FORMAT);
+        if (fc == null)
+        {
+            return null;
+        }
+        return new String[]{fc.toString()};
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

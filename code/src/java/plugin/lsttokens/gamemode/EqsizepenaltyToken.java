@@ -14,25 +14,24 @@ import pcgen.util.Logging;
 public class EqsizepenaltyToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "EQSIZEPENALTY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "EQSIZEPENALTY";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			SimpleLoader<EqSizePenalty> penaltyDiceLoader = new SimpleLoader<>(EqSizePenalty.class);
-			penaltyDiceLoader.parseLine(gameMode.getModeContext(), value, source);
-			return true;
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getMessage());
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            SimpleLoader<EqSizePenalty> penaltyDiceLoader = new SimpleLoader<>(EqSizePenalty.class);
+            penaltyDiceLoader.parseLine(gameMode.getModeContext(), value, source);
+            return true;
+        } catch (Exception e)
+        {
+            Logging.errorPrint(e.getMessage());
+            return false;
+        }
+    }
 }

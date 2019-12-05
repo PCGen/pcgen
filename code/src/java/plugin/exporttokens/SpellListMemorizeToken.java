@@ -33,40 +33,42 @@ import pcgen.io.exporttoken.SpellListToken;
 public class SpellListMemorizeToken extends SpellListToken
 {
 
-	/** Token name */
-	public static final String TOKENNAME = "SPELLLISTMEMORIZE";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "SPELLLISTMEMORIZE";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringBuilder retValue = new StringBuilder();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_MEMORIZE);
+        SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_MEMORIZE);
 
-		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+        final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
-		if (aObject != null)
-		{
-			PCClass aClass = null;
+        if (aObject != null)
+        {
+            PCClass aClass = null;
 
-			if (aObject instanceof PCClass)
-			{
-				aClass = (PCClass) aObject;
-			}
+            if (aObject instanceof PCClass)
+            {
+                aClass = (PCClass) aObject;
+            }
 
-			if (aClass != null)
-			{
-				retValue.append((boolean) aClass.getSafe(ObjectKey.MEMORIZE_SPELLS));
-			}
-		}
+            if (aClass != null)
+            {
+                retValue.append((boolean) aClass.getSafe(ObjectKey.MEMORIZE_SPELLS));
+            }
+        }
 
-		return retValue.toString();
-	}
+        return retValue.toString();
+    }
 
 }

@@ -35,33 +35,32 @@ import pcgen.util.Logging;
 public class StatsAndChecksLoader extends SimpleLoader<Loadable>
 {
 
-	public StatsAndChecksLoader()
-	{
-		super(Loadable.class);
-	}
+    public StatsAndChecksLoader()
+    {
+        super(Loadable.class);
+    }
 
-	@Override
-	protected Loadable getLoadable(LoadContext context, String token, URI sourceURI)
-	{
-		final int colonLoc = token.indexOf(':');
-		if (colonLoc == -1)
-		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: '" + token + "' in " + sourceURI);
-			return null;
-		}
-		else if (colonLoc == 0)
-		{
-			Logging.errorPrint("Invalid Token - starts with a colon: '" + token + "' in " + sourceURI);
-			return null;
-		}
-		else if (colonLoc == (token.length() - 1))
-		{
-			Logging.errorPrint("Invalid Token - " + "ends with a colon (no value): '" + token + "' in " + sourceURI);
-			return null;
-		}
-		String key = token.substring(0, colonLoc);
-		Class<? extends Loadable> loadClass;
-        switch (key) {
+    @Override
+    protected Loadable getLoadable(LoadContext context, String token, URI sourceURI)
+    {
+        final int colonLoc = token.indexOf(':');
+        if (colonLoc == -1)
+        {
+            Logging.errorPrint("Invalid Token - does not contain a colon: '" + token + "' in " + sourceURI);
+            return null;
+        } else if (colonLoc == 0)
+        {
+            Logging.errorPrint("Invalid Token - starts with a colon: '" + token + "' in " + sourceURI);
+            return null;
+        } else if (colonLoc == (token.length() - 1))
+        {
+            Logging.errorPrint("Invalid Token - " + "ends with a colon (no value): '" + token + "' in " + sourceURI);
+            return null;
+        }
+        String key = token.substring(0, colonLoc);
+        Class<? extends Loadable> loadClass;
+        switch (key)
+        {
             case "STATNAME":
                 Logging.deprecationPrint(
                         "Loading Stats in Game Mode is deprecated, " + "please use the STAT: token in a PCC file");
@@ -84,15 +83,15 @@ public class StatsAndChecksLoader extends SimpleLoader<Loadable>
                 Logging.errorPrint("Invalid Token '" + key + "' as the first key in " + sourceURI);
                 return null;
         }
-		String name = token.substring(colonLoc + 1);
-		if ((name == null) || (name.isEmpty()))
-		{
-			Logging.errorPrint("Invalid Token '" + key + "' had no value in " + sourceURI);
-			return null;
-		}
-		Loadable loadable = context.getReferenceContext().constructCDOMObject(loadClass, name.intern());
-		loadable.setSourceURI(sourceURI);
-		return loadable;
-	}
+        String name = token.substring(colonLoc + 1);
+        if ((name == null) || (name.isEmpty()))
+        {
+            Logging.errorPrint("Invalid Token '" + key + "' had no value in " + sourceURI);
+            return null;
+        }
+        Loadable loadable = context.getReferenceContext().constructCDOMObject(loadClass, name.intern());
+        loadable.setSourceURI(sourceURI);
+        return loadable;
+    }
 
 }

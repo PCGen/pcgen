@@ -28,87 +28,90 @@ import pcgen.util.Logging;
  */
 public final class EqmArmor extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};
+    private static final String[] BONUS_TAGS = {"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "EQMARMOR";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "EQMARMOR";
+    }
 
-	/**
-	 * Get by index, an individual armour equipment attribute that may be bonused.
-	 * @param tagNumber the index of the equipment attribute.
-	 * @return The equipment attribute.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual armour equipment attribute that may be bonused.
+     *
+     * @param tagNumber the index of the equipment attribute.
+     * @return The equipment attribute.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of armour equipment attributes that may be bonused.
-	 * @return The number of equipment attributes.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of armour equipment attributes that may be bonused.
+     *
+     * @return The number of equipment attributes.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 
-	@Override
-	protected boolean parseToken(LoadContext context, String token)
-	{
-		if (ControlUtilities.hasControlToken(context, CControl.EDR))
-		{
-			if ("EDR".equals(token))
-			{
-				Logging.errorPrint("BONUS:EQMARMOR|EDR is disabled when EDR control is used: " + token, context);
-				return false;
-			}
-		}
-		if (ControlUtilities.hasControlToken(context, CControl.EQSPELLFAILURE))
-		{
-			if ("SPELLFAILURE".equals(token))
-			{
-				Logging.errorPrint(
-					"BONUS:EQMARMOR|SPELLFAILURE is disabled " + "when EQSPELLFAILURE control is used: " + token,
-					context);
-				return false;
-			}
-		}
-		if (ControlUtilities.hasControlToken(context, CControl.EQMAXDEX))
-		{
-			if ("MAXDEX".equals(token))
-			{
-				Logging.errorPrint("BONUS:EQMARMOR|MAXDEX is disabled " + "when EQMAXDEX control is used: " + token,
-					context);
-				return false;
-			}
-		}
-		if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
-		{
-			if ("AC".equals(token))
-			{
-				Logging.errorPrint("BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: " + token,
-					context);
-				return false;
-			}
-		}
-		if (ControlUtilities.hasControlToken(context, CControl.EQACCHECK))
-		{
-			if ("ACCHECK".equals(token))
-			{
-				Logging.errorPrint("BONUS:EQMARMOR|ACCHECK is disabled " + "when EQACCHECK control is used: " + token,
-					context);
-				return false;
-			}
-		}
-		return super.parseToken(context, token);
-	}
+    @Override
+    protected boolean parseToken(LoadContext context, String token)
+    {
+        if (ControlUtilities.hasControlToken(context, CControl.EDR))
+        {
+            if ("EDR".equals(token))
+            {
+                Logging.errorPrint("BONUS:EQMARMOR|EDR is disabled when EDR control is used: " + token, context);
+                return false;
+            }
+        }
+        if (ControlUtilities.hasControlToken(context, CControl.EQSPELLFAILURE))
+        {
+            if ("SPELLFAILURE".equals(token))
+            {
+                Logging.errorPrint(
+                        "BONUS:EQMARMOR|SPELLFAILURE is disabled " + "when EQSPELLFAILURE control is used: " + token,
+                        context);
+                return false;
+            }
+        }
+        if (ControlUtilities.hasControlToken(context, CControl.EQMAXDEX))
+        {
+            if ("MAXDEX".equals(token))
+            {
+                Logging.errorPrint("BONUS:EQMARMOR|MAXDEX is disabled " + "when EQMAXDEX control is used: " + token,
+                        context);
+                return false;
+            }
+        }
+        if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
+        {
+            if ("AC".equals(token))
+            {
+                Logging.errorPrint("BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: " + token,
+                        context);
+                return false;
+            }
+        }
+        if (ControlUtilities.hasControlToken(context, CControl.EQACCHECK))
+        {
+            if ("ACCHECK".equals(token))
+            {
+                Logging.errorPrint("BONUS:EQMARMOR|ACCHECK is disabled " + "when EQACCHECK control is used: " + token,
+                        context);
+                return false;
+            }
+        }
+        return super.parseToken(context, token);
+    }
 }

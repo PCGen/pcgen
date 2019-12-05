@@ -23,22 +23,22 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * SpaceToken - Used to provide a breaking space character (e.g. ASCII 32) 
- * character) for use in a MANUASLWHITESPACE section as 
- * the MANUALWHITESPACE token removes all whitespace and an HTML &nbsp; is 
+ * SpaceToken - Used to provide a breaking space character (e.g. ASCII 32)
+ * character) for use in a MANUASLWHITESPACE section as
+ * the MANUALWHITESPACE token removes all whitespace and an HTML &nbsp; is
  * sometimes not desirable (as it doesn't naturally line break).
  */
 public class SpaceToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "SPACE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPACE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return " ";
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return " ";
+    }
 }

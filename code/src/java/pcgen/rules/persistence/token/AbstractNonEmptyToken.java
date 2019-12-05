@@ -21,30 +21,29 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * Does initial parsing of a token which should not be empty.
- * 
- * @param <T>
- *            The type of object on which this AbstractNonEmptyToken can be used
+ *
+ * @param <T> The type of object on which this AbstractNonEmptyToken can be used
  */
 public abstract class AbstractNonEmptyToken<T> extends AbstractToken implements CDOMToken<T>
 {
-	/**
-	 * Checks to make sure the value is non-empty before continuing parsing.
-	 */
-	@Override
-	@SuppressWarnings("PMD.StringInstantiation")
-	public ParseResult parseToken(LoadContext context, T obj, String value)
-	{
-		ParseResult pr = checkNonEmpty(value);
-		if (pr.passed())
-		{
-			// new String() just in case because this seems to be where a lot of the substrings pass through
-			pr = parseNonEmptyToken(context, obj, new String(value));
-		}
-		return pr;
-	}
+    /**
+     * Checks to make sure the value is non-empty before continuing parsing.
+     */
+    @Override
+    @SuppressWarnings("PMD.StringInstantiation")
+    public ParseResult parseToken(LoadContext context, T obj, String value)
+    {
+        ParseResult pr = checkNonEmpty(value);
+        if (pr.passed())
+        {
+            // new String() just in case because this seems to be where a lot of the substrings pass through
+            pr = parseNonEmptyToken(context, obj, new String(value));
+        }
+        return pr;
+    }
 
-	/**
-	 * Must be overridden to continue parsing.
-	 */
-	protected abstract ParseResult parseNonEmptyToken(LoadContext context, T obj, String value);
+    /**
+     * Must be overridden to continue parsing.
+     */
+    protected abstract ParseResult parseNonEmptyToken(LoadContext context, T obj, String value);
 }

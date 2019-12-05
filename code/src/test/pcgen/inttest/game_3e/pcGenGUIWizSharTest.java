@@ -25,15 +25,15 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 1st level Human Wizard.
- * 
+ * <p>
  * See the PCG file for details.
  */
 public class pcGenGUIWizSharTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testWizShar() throws IOException
-	{
-		runTest("3e_WizShar", "3e");
-	}
+    @Test
+    public void testWizShar() throws IOException
+    {
+        runTest("3e_WizShar", "3e");
+    }
 
 }

@@ -26,51 +26,47 @@ import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.util.Logging;
 
 /**
- * This class handles the INFOSHEET game mode token. The token allows a 
- * game mode specific information output sheet to be specified that will be 
- * displayed on the summary tab when editing a character. 
- *
- * 
+ * This class handles the INFOSHEET game mode token. The token allows a
+ * game mode specific information output sheet to be specified that will be
+ * displayed on the summary tab when editing a character.
  */
 public class InfoSheetToken implements GameModeLstToken
 {
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		String[] tokens = value.split("\\|");
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        String[] tokens = value.split("\\|");
 
-		if (tokens.length != 2)
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName() + Constants.COLON + value
-				+ ". Expected INFOSHEET:SUMMARY|x or INFOSHEET:SKILL|x " + " in " + source.toString());
-			return false;
-		}
-		if (tokens[0].equals("SUMMARY"))
-		{
-			gameMode.setInfoSheet(tokens[1]);
-		}
-		else if (tokens[0].equals("SKILLS"))
-		{
-			gameMode.setInfoSheetSkill(tokens[1]);
-		}
-		else
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName() + Constants.COLON + value
-				+ ". Expected INFOSHEET:SUMMARY|x or INFOSHEET:SKILL|x " + " in " + source.toString());
-			return false;
-		}
+        if (tokens.length != 2)
+        {
+            Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName() + Constants.COLON + value
+                    + ". Expected INFOSHEET:SUMMARY|x or INFOSHEET:SKILL|x " + " in " + source.toString());
+            return false;
+        }
+        if (tokens[0].equals("SUMMARY"))
+        {
+            gameMode.setInfoSheet(tokens[1]);
+        } else if (tokens[0].equals("SKILLS"))
+        {
+            gameMode.setInfoSheetSkill(tokens[1]);
+        } else
+        {
+            Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName() + Constants.COLON + value
+                    + ". Expected INFOSHEET:SUMMARY|x or INFOSHEET:SKILL|x " + " in " + source.toString());
+            return false;
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	/**
-	 * Returns the name of the token this class handles.
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "INFOSHEET"; //$NON-NLS-1$
-	}
+    /**
+     * Returns the name of the token this class handles.
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "INFOSHEET"; //$NON-NLS-1$
+    }
 
 }

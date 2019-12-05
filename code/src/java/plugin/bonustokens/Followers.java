@@ -24,32 +24,33 @@ import pcgen.rules.context.LoadContext;
  */
 public class Followers extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String argToken)
-	{
-		//		Collection<String> followerTypes = Globals.getFollowerTypes();
-		//		if ( followerTypes.contains( argToken ) )
-		//		{
-		addBonusInfo(argToken);
-		return true;
-		//		}
-		//		return false;
-	}
+    @Override
+    protected boolean parseToken(LoadContext context, final String argToken)
+    {
+        //		Collection<String> followerTypes = Globals.getFollowerTypes();
+        //		if ( followerTypes.contains( argToken ) )
+        //		{
+        addBonusInfo(argToken);
+        return true;
+        //		}
+        //		return false;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "FOLLOWERS";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "FOLLOWERS";
+    }
 
 }

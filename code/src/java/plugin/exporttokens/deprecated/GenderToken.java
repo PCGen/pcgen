@@ -25,39 +25,38 @@ import pcgen.io.exporttoken.Token;
 
 /**
  * Deal with:
- * 
+ * <p>
  * GENDER
  * GENDER.SHORT
  * GENDER.LONG
  */
 public class GenderToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "GENDER";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "GENDER";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		if (!pc.getDisplay().getSuppressBioField(BiographyField.GENDER))
-		{
-			/*
-			 * TODO Short and long result are the same as Gender is no longer
-			 * abbreviated in PC (what to do?)
-			 */
-			if ("GENDER".equals(tokenSource) || "GENDER.SHORT".equals(tokenSource))
-			{
-				retString = pc.getGenderString();
-			}
-			else if ("GENDER.LONG".equals(tokenSource))
-			{
-				retString = pc.getGenderString();
-			}
-		}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        if (!pc.getDisplay().getSuppressBioField(BiographyField.GENDER))
+        {
+            /*
+             * TODO Short and long result are the same as Gender is no longer
+             * abbreviated in PC (what to do?)
+             */
+            if ("GENDER".equals(tokenSource) || "GENDER.SHORT".equals(tokenSource))
+            {
+                retString = pc.getGenderString();
+            } else if ("GENDER.LONG".equals(tokenSource))
+            {
+                retString = pc.getGenderString();
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 }

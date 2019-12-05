@@ -27,44 +27,44 @@ import java.util.Collection;
  */
 public class PatternChanges<T>
 {
-	private final Collection<T> positive;
-	private final Collection<String> negative;
-	private final boolean clear;
+    private final Collection<T> positive;
+    private final Collection<String> negative;
+    private final boolean clear;
 
-	public PatternChanges(Collection<T> added, Collection<String> removed, boolean globallyCleared)
-	{
-		positive = added;
-		negative = removed;
-		clear = globallyCleared;
-	}
+    public PatternChanges(Collection<T> added, Collection<String> removed, boolean globallyCleared)
+    {
+        positive = added;
+        negative = removed;
+        clear = globallyCleared;
+    }
 
-	public boolean includesGlobalClear()
-	{
-		return clear;
-	}
+    public boolean includesGlobalClear()
+    {
+        return clear;
+    }
 
-	public boolean isEmpty()
-	{
-		return !clear && !hasAddedItems() && !hasRemovedItems();
-	}
+    public boolean isEmpty()
+    {
+        return !clear && !hasAddedItems() && !hasRemovedItems();
+    }
 
-	public Collection<T> getAdded()
-	{
-		return positive;
-	}
+    public Collection<T> getAdded()
+    {
+        return positive;
+    }
 
-	public boolean hasAddedItems()
-	{
-		return positive != null && !positive.isEmpty();
-	}
+    public boolean hasAddedItems()
+    {
+        return positive != null && !positive.isEmpty();
+    }
 
-	public Collection<String> getRemoved()
-	{
-		return negative;
-	}
+    public Collection<String> getRemoved()
+    {
+        return negative;
+    }
 
-	public boolean hasRemovedItems()
-	{
-		return negative != null && !negative.isEmpty();
-	}
+    public boolean hasRemovedItems()
+    {
+        return negative != null && !negative.isEmpty();
+    }
 }

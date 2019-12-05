@@ -38,66 +38,66 @@ import pcgen.rules.persistence.token.ParseResult;
 public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "LSTEXCLUDE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LSTEXCLUDE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
-	{
-		final StringTokenizer lstTok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
+    {
+        final StringTokenizer lstTok = new StringTokenizer(value, Constants.PIPE);
 
-		while (lstTok.hasMoreTokens())
-		{
-			final String lstFilename = lstTok.nextToken();
-			CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, lstFilename);
-			if (cse == null)
-			{
-				//Error
-				return ParseResult.INTERNAL_ERROR;
-			}
-			/*
-			 * No need to check for cse.getIncludeItems or getExcludeItems as
-			 * the use of pipe separator would have caused an error in fetching
-			 * the CSE
-			 */
-			context.getObjectContext().addToList(campaign, ListKey.FILE_LST_EXCLUDE, cse);
-		}
+        while (lstTok.hasMoreTokens())
+        {
+            final String lstFilename = lstTok.nextToken();
+            CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, lstFilename);
+            if (cse == null)
+            {
+                //Error
+                return ParseResult.INTERNAL_ERROR;
+            }
+            /*
+             * No need to check for cse.getIncludeItems or getExcludeItems as
+             * the use of pipe separator would have caused an error in fetching
+             * the CSE
+             */
+            context.getObjectContext().addToList(campaign, ListKey.FILE_LST_EXCLUDE, cse);
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Changes<CampaignSourceEntry> cseChanges =
-				context.getObjectContext().getListChanges(campaign, ListKey.FILE_LST_EXCLUDE);
-		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
-		if (added == null)
-		{
-			//empty indicates no token
-			return null;
-		}
-		Set<String> set = new TreeSet<>();
-		for (CampaignSourceEntry cse : added)
-		{
-			set.add(cse.getLSTformat());
-		}
-		return set.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        Changes<CampaignSourceEntry> cseChanges =
+                context.getObjectContext().getListChanges(campaign, ListKey.FILE_LST_EXCLUDE);
+        Collection<CampaignSourceEntry> added = cseChanges.getAdded();
+        if (added == null)
+        {
+            //empty indicates no token
+            return null;
+        }
+        Set<String> set = new TreeSet<>();
+        for (CampaignSourceEntry cse : added)
+        {
+            set.add(cse.getLSTformat());
+        }
+        return set.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 
 }

@@ -40,41 +40,42 @@ import org.junit.jupiter.api.Test;
 public class PCBooleanFunctionTest extends AbstractJunit5CharacterTestCase
 {
 
-	private Ability fooFeat;
+    private Ability fooFeat;
 
-	@Override
-	protected void additionalSetUp() throws Exception
-	{
-		CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(),
-			new URI("file:/" + getClass().getName() + ".java"));
-		final FeatLoader featLoader = new FeatLoader();
+    @Override
+    protected void additionalSetUp() throws Exception
+    {
+        CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(),
+                new URI("file:/" + getClass().getName() + ".java"));
+        final FeatLoader featLoader = new FeatLoader();
 
-		fooFeat = new Ability();
-		final String fooFeatStr =
-			"Foo	TYPE:General	DEFINE:FooV|0";
-		featLoader.parseLine(Globals.getContext(), fooFeat, fooFeatStr, cse);
-	
-	}
-	
-	/**
-	 * Test method for {@link pcgen.io.freemarker.PCBooleanFunction#exec(java.util.List)}.
-	 * @throws Exception 
-	 */
-	@Test
-	public void testExec() throws Exception
-	{
-		PlayerCharacter pc = getCharacter();
-		ExportHandler eh = ExportHandler.createExportHandler(new File(""));
-		PCBooleanFunction pcbf = new PCBooleanFunction(pc, eh);
-		
-		Boolean result = (Boolean) pcbf.exec(Collections.singletonList("VAR.VARDEFINED:FooV"));
-		assertFalse(result, "Should not have var");
+        fooFeat = new Ability();
+        final String fooFeatStr =
+                "Foo	TYPE:General	DEFINE:FooV|0";
+        featLoader.parseLine(Globals.getContext(), fooFeat, fooFeatStr, cse);
 
-		addAbility(BuildUtilities.getFeatCat(), fooFeat);
-		pc.calcActiveBonuses();
-		assertTrue(pc.hasVariable("FooV"), "Should have var FooV");
-		result = (Boolean) pcbf.exec(Collections.singletonList("VAR.VARDEFINED:FooV"));
-		assertTrue(result, "PCBoolean could not see FooV");
-	}
+    }
+
+    /**
+     * Test method for {@link pcgen.io.freemarker.PCBooleanFunction#exec(java.util.List)}.
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testExec() throws Exception
+    {
+        PlayerCharacter pc = getCharacter();
+        ExportHandler eh = ExportHandler.createExportHandler(new File(""));
+        PCBooleanFunction pcbf = new PCBooleanFunction(pc, eh);
+
+        Boolean result = (Boolean) pcbf.exec(Collections.singletonList("VAR.VARDEFINED:FooV"));
+        assertFalse(result, "Should not have var");
+
+        addAbility(BuildUtilities.getFeatCat(), fooFeat);
+        pc.calcActiveBonuses();
+        assertTrue(pc.hasVariable("FooV"), "Should have var FooV");
+        result = (Boolean) pcbf.exec(Collections.singletonList("VAR.VARDEFINED:FooV"));
+        assertTrue(result, "PCBoolean could not see FooV");
+    }
 
 }

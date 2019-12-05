@@ -29,20 +29,20 @@ import pcgen.output.channel.compat.HandedCompat;
  */
 public class HandedToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "HANDED";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "HANDED";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
-		if (!display.getSuppressBioField(BiographyField.HANDED))
-		{
-			retString = HandedCompat.getCurrentHandedness(display.getCharID()).toString();
-		}
-		return retString;
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
+        if (!display.getSuppressBioField(BiographyField.HANDED))
+        {
+            retString = HandedCompat.getCurrentHandedness(display.getCharID()).toString();
+        }
+        return retString;
+    }
 }

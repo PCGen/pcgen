@@ -31,67 +31,64 @@ import pcgen.util.Logging;
 public class ShowinmenuToken extends AbstractNonEmptyToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SHOWINMENU";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SHOWINMENU";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
-	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
-			}
-			set = Boolean.TRUE;
-		}
-		else if (Boolean.parseBoolean(value))
-		{
-			Logging.deprecationPrint(
-				"You should use 'YES' as the " + getTokenName() + ": " + value + " in " + campaign.toString(), context);
-			set = Boolean.TRUE;
-		}
-		else if ("false".equalsIgnoreCase(value))
-		{
-			Logging.deprecationPrint(
-				"You should use 'NO' as the " + getTokenName() + ": " + value + " in " + campaign.toString(), context);
-			set = Boolean.FALSE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
-			}
-			set = Boolean.FALSE;
-		}
-		context.getObjectContext().put(campaign, ObjectKey.SHOW_IN_MENU, set);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
+    {
+        Boolean set;
+        char firstChar = value.charAt(0);
+        if (firstChar == 'y' || firstChar == 'Y')
+        {
+            if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+            {
+                return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
+            }
+            set = Boolean.TRUE;
+        } else if (Boolean.parseBoolean(value))
+        {
+            Logging.deprecationPrint(
+                    "You should use 'YES' as the " + getTokenName() + ": " + value + " in " + campaign.toString(), context);
+            set = Boolean.TRUE;
+        } else if ("false".equalsIgnoreCase(value))
+        {
+            Logging.deprecationPrint(
+                    "You should use 'NO' as the " + getTokenName() + ": " + value + " in " + campaign.toString(), context);
+            set = Boolean.FALSE;
+        } else
+        {
+            if (firstChar != 'N' && firstChar != 'n')
+            {
+                return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
+            }
+            if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+            {
+                return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
+            }
+            set = Boolean.FALSE;
+        }
+        context.getObjectContext().put(campaign, ObjectKey.SHOW_IN_MENU, set);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Boolean isM = context.getObjectContext().getObject(campaign, ObjectKey.SHOW_IN_MENU);
-		if (isM == null)
-		{
-			return null;
-		}
-		return new String[]{isM ? "YES" : "NO"};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        Boolean isM = context.getObjectContext().getObject(campaign, ObjectKey.SHOW_IN_MENU);
+        if (isM == null)
+        {
+            return null;
+        }
+        return new String[]{isM ? "YES" : "NO"};
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

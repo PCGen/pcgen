@@ -30,56 +30,55 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /*** Test
-	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
+ * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
  */
 @SuppressWarnings("nls")
 class PreMultParserTest extends EnUsLocaleDependentTestCase
 {
 
-	@BeforeEach
-	void setUp()
-	{
-		TestHelper.loadPlugins();
-	}
+    @BeforeEach
+    void setUp()
+    {
+        TestHelper.loadPlugins();
+    }
 
-	@Test
-	public void testFeat1() throws Exception
-	{
-		PreMultParser parser = new PreMultParser();
+    @Test
+    public void testFeat1() throws Exception
+    {
+        PreMultParser parser = new PreMultParser();
 
-		Prerequisite prereq =
-				parser
-					.parse(
-						"mult",
-						"1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]",
-						false, false);
+        Prerequisite prereq =
+                parser
+                        .parse(
+                                "mult",
+                                "1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]",
+                                false, false);
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"profwitharmor\" key=\"TYPE.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"ability\" category=\"FEAT\" key=\"Armor Proficiency\" sub-key=\"Medium\" "
-				+ "operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "<prereq kind=\"profwitharmor\" key=\"TYPE.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"ability\" category=\"FEAT\" key=\"Armor Proficiency\" sub-key=\"Medium\" "
+                        + "operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
-	@Test
-	public void testUnbalancedBracket()
-	{
-		PreMultParser parser = new PreMultParser();
+    @Test
+    public void testUnbalancedBracket()
+    {
+        PreMultParser parser = new PreMultParser();
 
-		try
-		{
-			parser.parse("mult",
-				"1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)",
-				false, false);
-			fail("Expected unbalanced bracket to be detected.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			assertEquals(
-				"Unbalanced [] in PREMULT '[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)'.",
-				e.getMessage());
-		}
-	}
+        try
+        {
+            parser.parse("mult",
+                    "1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)",
+                    false, false);
+            fail("Expected unbalanced bracket to be detected.");
+        } catch (PersistenceLayerException e)
+        {
+            assertEquals(
+                    "Unbalanced [] in PREMULT '[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)'.",
+                    e.getMessage());
+        }
+    }
 }

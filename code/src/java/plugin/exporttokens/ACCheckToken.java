@@ -31,40 +31,43 @@ import pcgen.util.Delta;
  */
 public class ACCheckToken extends Token
 {
-	/** Name of the Token */
-	public static final String TOKENNAME = "ACCHECK";
+    /**
+     * Name of the Token
+     */
+    public static final String TOKENNAME = "ACCHECK";
 
-	/**
-	 * Return the token name
-	 * @return token name
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    /**
+     * Return the token name
+     *
+     * @return token name
+     */
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Delta.toString(getACCheckToken(tokenSource, pc));
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Delta.toString(getACCheckToken(tokenSource, pc));
+    }
 
-	/**
-	 * TODO: Rip the processing of this token out of PlayerCharacter
-	 * 
-	 * @param tokenSource
-	 * @param pc - The PC to calculate the ACCHECK for 
-	 * @return THe ACCHECK Penalty
-	 */
-	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
-	{
-		String acCheckVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCACCHECK);
-		if (acCheckVar == null)
-		{
-			return pc.processOldAcCheck();
-		}
-		return ((Number) pc.getGlobal(acCheckVar)).intValue();
-	}
+    /**
+     * TODO: Rip the processing of this token out of PlayerCharacter
+     *
+     * @param tokenSource
+     * @param pc          - The PC to calculate the ACCHECK for
+     * @return THe ACCHECK Penalty
+     */
+    public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
+    {
+        String acCheckVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCACCHECK);
+        if (acCheckVar == null)
+        {
+            return pc.processOldAcCheck();
+        }
+        return ((Number) pc.getGlobal(acCheckVar)).intValue();
+    }
 
 }

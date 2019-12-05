@@ -24,36 +24,39 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class WieldCategory extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"LIGHT", "ONEHANDED", "TWOHANDED"};
+    private static final String[] BONUS_TAGS = {"LIGHT", "ONEHANDED", "TWOHANDED"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "WIELDCATEGORY";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "WIELDCATEGORY";
+    }
 
-	/**
-	 * Get by index, an individual wield category that may be bonused.
-	 * @param tagNumber the index of the wield category.
-	 * @return The wield category.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual wield category that may be bonused.
+     *
+     * @param tagNumber the index of the wield category.
+     * @return The wield category.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of wield categories that may be bonused.
-	 * @return The number of wield categories.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of wield categories that may be bonused.
+     *
+     * @return The number of wield categories.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 }

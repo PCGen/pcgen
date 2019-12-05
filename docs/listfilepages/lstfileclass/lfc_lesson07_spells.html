@@ -1,667 +1,667 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                        
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #7: .lst - Spell Basics
-  </h1>
-  <p>
-   By Professor Andrew McDougall (Tir Gwaith).
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *spells.lst
-  </p>
-  <p class="indent0">
-   <strong>
-    PCGen LST Standard:
-   </strong>
-   PCGen
-6.00.x
-  </p>
-  <p class="indent0">
-   <strong>
-    GameMode:
-   </strong>
-   3.5e (RSRD)
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../datafilestagpages/datafilesspells.html#school">
-     SCHOOL
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #7: .lst - Spell Basics
+</h1>
+<p>
+    By Professor Andrew McDougall (Tir Gwaith).
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    *spells.lst
+</p>
+<p class="indent0">
+    <strong>
+        PCGen LST Standard:
+    </strong>
+    PCGen
+    6.00.x
+</p>
+<p class="indent0">
+    <strong>
+        GameMode:
+    </strong>
+    3.5e (RSRD)
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../datafilestagpages/datafilesspells.html#school">
+        SCHOOL
     </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#subschool">
-     SUBSCHOOL
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#descriptor">
-     DESCRIPTOR
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#classes">
-     CLASSES
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#domains">
-     DOMAINS
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#type">
-     TYPE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#comps">
-     COMPS
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#casttime">
-     CASTTIME
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#range">
-     RANGE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#targetarea">
-     TARGETAREA
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#duration">
-     DURATION
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#saveinfo">
-     SAVEINFO
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#spellres">
-     SPELLRES
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#desc">
-     DESC
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#variants">
-     VARIANTS
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#cost">
-     COST
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesspells.html#xpcost">
-     XPCOST
-    </a></code>
-  </p>
-  <p>
-   Please notice the
-   <strong>
-    order
-   </strong>
-   of the tags I put them
-in. That is how I enter spells into LST format. I use this order
-mainly because it is order in which the information is provided in
-the spell blocks found in most sources. For my example, I'll be
-using
-   <strong>
-    Blasphemy
-   </strong>
-   from the RSRD. This spell covers
-most of the tags I'll be covering in this class. I'll use other
-spells as examples of the tags that
-   <strong>
-    Blasphemy
-   </strong>
-   doesn't use.
-  </p>
-  <p>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#subschool">
+            SUBSCHOOL
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#descriptor">
+            DESCRIPTOR
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#classes">
+            CLASSES
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#domains">
+            DOMAINS
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#type">
+            TYPE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#comps">
+            COMPS
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#casttime">
+            CASTTIME
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#range">
+            RANGE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#targetarea">
+            TARGETAREA
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#duration">
+            DURATION
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#saveinfo">
+            SAVEINFO
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#spellres">
+            SPELLRES
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#desc">
+            DESC
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#variants">
+            VARIANTS
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#cost">
+            COST
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesspells.html#xpcost">
+            XPCOST
+        </a></code>
+</p>
+<p>
+    Please notice the
+    <strong>
+        order
+    </strong>
+    of the tags I put them
+    in. That is how I enter spells into LST format. I use this order
+    mainly because it is order in which the information is provided in
+    the spell blocks found in most sources. For my example, I'll be
+    using
+    <strong>
+        Blasphemy
+    </strong>
+    from the RSRD. This spell covers
+    most of the tags I'll be covering in this class. I'll use other
+    spells as examples of the tags that
+    <strong>
+        Blasphemy
+    </strong>
+    doesn't use.
+</p>
+<p>
    <span class="lstfile">
     spells.lst
    </span>
-   is probably the most
-"data" like of all the different file types. This lesson is going
-to cover the basics on that data entry. Parts for Temporary bonus
-information (applying a spell to a character) will come later.
-  </p>
-  <hr/>
-  <h3>
-   Part 1: Schools of Magic
-  </h3>
-  <p class="indent0">
-   <strong>
-    Tags covered:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>SCHOOL, SUBSCHOOL, DESCRIPTOR</code>
-  </p>
-  <p>
-   The line below the spell name is usually in this format:
-   <strong>
-    School (Subschool) [Descriptors]
-   </strong>
-  </p>
-  <p>
-   Note that I mention "Descriptors" in plural. There generally is
-only one School and Subschool, but many spells have more than one
-descriptor.
-   <code>DESCRIPTOR</code>
-   can contain a pipe-delimited
-(|) list of descriptors, so put a pipe between more than one
-descriptor.
-  </p>
-  <p>
-   Blasphemy has
-   <strong>
-    Evocation [Evil, Sonic]
-   </strong>
-   so it has
-a School and 2 descriptors.
-  </p>
-  <blockquote>
-   <p>
-    <code>SCHOOL:Evocation
-     <br/>
-     DESCRIPTOR:Evil|Sonic</code>
-   </p>
-  </blockquote>
-  <p>
-   Animal Trance has all 3 tags:
-  </p>
-  <p>
-   <strong>
-    Enchantment (Compulsion) [Mind-Affecting,
-Sonic]
-   </strong>
-  </p>
-  <blockquote>
-   <p>
-    <code>SCHOOL:Enchantment
-     <br/>
-     SUBSCHOOL:Compulsion
-     <br/>
-     DESCRIPTOR:Mind-Affecting|Sonic</code>
-   </p>
-  </blockquote>
-  <p>
-   The tag associated with Descriptor is VARIANTS, but I normally
-enter it when doing DESC, since this field usually comes from the
-body of the spell description, but is usually linked with the
-DESCRIPTOR.
-  </p>
-  <hr/>
-  <h3>
-   Part 2: Linking to a spell list:
-  </h3>
-  <p class="indent0">
-   <strong>
-    Tags covered:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>CLASSES, DOMAINS, TYPE</code>
-  </p>
-  <p>
-   This is only part of the way of linking. If adding a new spell,
-this is the method used. When adding a new class and linking an old
-spell, the SPELLLEVEL tag is used.
-  </p>
-  <p>
-   The first two are easy. TYPE is then based on the first two
-tags. Our example from
-   <strong>
-    Blasphemy:
-   </strong>
-  </p>
-  <blockquote>
-   <p>
+    is probably the most
+    "data" like of all the different file types. This lesson is going
+    to cover the basics on that data entry. Parts for Temporary bonus
+    information (applying a spell to a character) will come later.
+</p>
+<hr/>
+<h3>
+    Part 1: Schools of Magic
+</h3>
+<p class="indent0">
     <strong>
-     Blasphemy
+        Tags covered:
     </strong>
-    <br/>
-    Level: Clr 7, Evil 7
-   </p>
-  </blockquote>
-  <p>
-   Would translate into:
-  </p>
-  <blockquote>
-   <p>
-    <code>Blasphamy
-     <br/>
-     CLASSES:Cleric=7
-     <br/>
-     DOMAINS:Evil=7</code>
-   </p>
-  </blockquote>
-  <p>
-   Since both of these are for Divine spellcasters, it would
-get:
-  </p>
-  <blockquote>
-   <p>
-    <code>TYPE:Divine.</code>
-   </p>
-  </blockquote>
-  <p>
-   Both tags are pipe (|) and comma (,) delimited. As an
-example:
-  </p>
-  <blockquote>
-   <p>
+</p>
+<p class="indent1">
+    <code>SCHOOL, SUBSCHOOL, DESCRIPTOR</code>
+</p>
+<p>
+    The line below the spell name is usually in this format:
     <strong>
-     Antimagic Field
+        School (Subschool) [Descriptors]
     </strong>
-    <br/>
-    Level: Clr 8, Magic 6, Protection 6, Sor/Wiz 6
-   </p>
-  </blockquote>
-  <p>
-   Which would translate into:
-  </p>
-  <blockquote>
-   <p>
-    <code>Antimagic Field
-     <br/>
-     CLASSES:Cleric=8|Sorcerer,Wizard=6
-     <br/>
-     DOMAINS:Magic,Protection=6</code>
-   </p>
-  </blockquote>
-  <p>
-   Now, because the above list has both Arcane and Divine spells,
-the next tag would be:
-  </p>
-  <blockquote>
-   <p>
-    <code>TYPE:Arcane.Divine</code>
-   </p>
-  </blockquote>
-  <p>
-   There are a lot more aspects to linking spells, castability,
-etc. but those are global tags not normally used in a
-   <span class="lstfile">
+</p>
+<p>
+    Note that I mention "Descriptors" in plural. There generally is
+    only one School and Subschool, but many spells have more than one
+    descriptor.
+    <code>DESCRIPTOR</code>
+    can contain a pipe-delimited
+    (|) list of descriptors, so put a pipe between more than one
+    descriptor.
+</p>
+<p>
+    Blasphemy has
+    <strong>
+        Evocation [Evil, Sonic]
+    </strong>
+    so it has
+    a School and 2 descriptors.
+</p>
+<blockquote>
+    <p>
+        <code>SCHOOL:Evocation
+            <br/>
+            DESCRIPTOR:Evil|Sonic</code>
+    </p>
+</blockquote>
+<p>
+    Animal Trance has all 3 tags:
+</p>
+<p>
+    <strong>
+        Enchantment (Compulsion) [Mind-Affecting,
+        Sonic]
+    </strong>
+</p>
+<blockquote>
+    <p>
+        <code>SCHOOL:Enchantment
+            <br/>
+            SUBSCHOOL:Compulsion
+            <br/>
+            DESCRIPTOR:Mind-Affecting|Sonic</code>
+    </p>
+</blockquote>
+<p>
+    The tag associated with Descriptor is VARIANTS, but I normally
+    enter it when doing DESC, since this field usually comes from the
+    body of the spell description, but is usually linked with the
+    DESCRIPTOR.
+</p>
+<hr/>
+<h3>
+    Part 2: Linking to a spell list:
+</h3>
+<p class="indent0">
+    <strong>
+        Tags covered:
+    </strong>
+</p>
+<p class="indent1">
+    <code>CLASSES, DOMAINS, TYPE</code>
+</p>
+<p>
+    This is only part of the way of linking. If adding a new spell,
+    this is the method used. When adding a new class and linking an old
+    spell, the SPELLLEVEL tag is used.
+</p>
+<p>
+    The first two are easy. TYPE is then based on the first two
+    tags. Our example from
+    <strong>
+        Blasphemy:
+    </strong>
+</p>
+<blockquote>
+    <p>
+        <strong>
+            Blasphemy
+        </strong>
+        <br/>
+        Level: Clr 7, Evil 7
+    </p>
+</blockquote>
+<p>
+    Would translate into:
+</p>
+<blockquote>
+    <p>
+        <code>Blasphamy
+            <br/>
+            CLASSES:Cleric=7
+            <br/>
+            DOMAINS:Evil=7</code>
+    </p>
+</blockquote>
+<p>
+    Since both of these are for Divine spellcasters, it would
+    get:
+</p>
+<blockquote>
+    <p>
+        <code>TYPE:Divine.</code>
+    </p>
+</blockquote>
+<p>
+    Both tags are pipe (|) and comma (,) delimited. As an
+    example:
+</p>
+<blockquote>
+    <p>
+        <strong>
+            Antimagic Field
+        </strong>
+        <br/>
+        Level: Clr 8, Magic 6, Protection 6, Sor/Wiz 6
+    </p>
+</blockquote>
+<p>
+    Which would translate into:
+</p>
+<blockquote>
+    <p>
+        <code>Antimagic Field
+            <br/>
+            CLASSES:Cleric=8|Sorcerer,Wizard=6
+            <br/>
+            DOMAINS:Magic,Protection=6</code>
+    </p>
+</blockquote>
+<p>
+    Now, because the above list has both Arcane and Divine spells,
+    the next tag would be:
+</p>
+<blockquote>
+    <p>
+        <code>TYPE:Arcane.Divine</code>
+    </p>
+</blockquote>
+<p>
+    There are a lot more aspects to linking spells, castability,
+    etc. but those are global tags not normally used in a
+    <span class="lstfile">
     spells.lst
    </span>
-   , and we can cover those later.
-  </p>
-  <hr/>
-  <h3>
-   Part 3: Spell Components and Casting time
-  </h3>
-  <p class="indent0">
-   <strong>
-    Tags covered:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>COMPS, CASTTIME</code>
-  </p>
-  <p>
-   This section is easy, especially for those people that like to
-cut and paste. For the following spell information:
-  </p>
-  <blockquote>
-   <p>
-    Components: V
-    <br/>
-    Casting Time: 1 standard action
-   </p>
-  </blockquote>
-  <p>
-   Is coded as:
-  </p>
-  <blockquote>
-   <p>
-    <code>COMPS:V
-     <br/>
-     CASTTIME:1 standard action</code>
-   </p>
-  </blockquote>
-  <p>
-   Exact entry into the tag field. Easy.
-  </p>
-  <hr/>
-  <h3>
-   Part 4: Range, Duration, and Target / Area / Effect
-  </h3>
-  <p class="indent0">
-   <strong>
-    Tags covered:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>RANGE, DURATION, TARGETAREA</code>
-  </p>
-  <p>
-   Ok, the first two are easy.
-  </p>
-  <p class="indent1">
-   1)
-   <strong>
-    Range
-   </strong>
-   - We have a nice bit
-of code that auto-calculates the Close / Medium / Long ranges for
-spells, which is done through a GameMode file so you can add more
-if you wish, so whenever you see one of those, you merely need to
-put in the word for the range.
-  </p>
-  <p class="indent1">
-   2)
-   <strong>
-    Duration
-   </strong>
-   - We have a nice
-bit of code that will do math functions. Such math functions must
-be encapsulated within a set of parentheses (). The character
-casterlevel can be used in these calculations by using the variable
-   <code>CASTERLEVEL</code>
-   as part of the math function. Everything
-in the parentheses is reduced to a number. For normal parentheses,
-like those used for "(D)" where spellcaster can end the spell
-sooner than the listed duration, we use the square-brackets [].
-  </p>
-  <p class="indent1">
-   3)
-   <strong>
-    Target
-   </strong>
-   /
-   <strong>
-    Area
-   </strong>
-   /
-   <strong>
-    Effect
-   </strong>
-   - I have only once
-or twice seen a spell that had more than one of these three. Hence
-we combine them into one tag.
-  </p>
-  <p>
-   Here is a example of these spell info items and how they are
-coded in PCGen:
-  </p>
-  <blockquote>
-   <p>
+    , and we can cover those later.
+</p>
+<hr/>
+<h3>
+    Part 3: Spell Components and Casting time
+</h3>
+<p class="indent0">
     <strong>
-     Range: 40 ft.
-     <br/>
-     Area: Nonevil creatures in a 40-ft.-radius spread centered on
-you
-     <br/>
-     Duration: Instantaneous
+        Tags covered:
     </strong>
-   </p>
-  </blockquote>
-  <p>
-   Is coded as:
-  </p>
-  <blockquote>
-   <p>
-    <code>RANGE:40 ft.
-     <br/>
-     TARGETAREA:Nonevil creatures in a 40-ft.-radius spread centered on
-you
-     <br/>
-     DURATION:Instantaneous</code>
-   </p>
-  </blockquote>
-  <p>
-   Another example (from
-   <strong>
-    Antipathy
-   </strong>
-   spell):
-  </p>
-  <blockquote>
-   <p>
+</p>
+<p class="indent1">
+    <code>COMPS, CASTTIME</code>
+</p>
+<p>
+    This section is easy, especially for those people that like to
+    cut and paste. For the following spell information:
+</p>
+<blockquote>
+    <p>
+        Components: V
+        <br/>
+        Casting Time: 1 standard action
+    </p>
+</blockquote>
+<p>
+    Is coded as:
+</p>
+<blockquote>
+    <p>
+        <code>COMPS:V
+            <br/>
+            CASTTIME:1 standard action</code>
+    </p>
+</blockquote>
+<p>
+    Exact entry into the tag field. Easy.
+</p>
+<hr/>
+<h3>
+    Part 4: Range, Duration, and Target / Area / Effect
+</h3>
+<p class="indent0">
     <strong>
-     Range: Close (25 ft. + 5 ft./2 levels)
-     <br/>
-     Target: One location (up to a 10-ft. cube/level) or one
-object
-     <br/>
-     Duration: 2 hours/level (D)
+        Tags covered:
     </strong>
-   </p>
-  </blockquote>
-  <p>
-   Is coded as:
-  </p>
-  <blockquote>
-   <p>
-    <code>RANGE:Close
-     <br/>
-     TARGETAREA:One location [ up to (CASETERLEVEL*10) cubes] or one
-object
-     <br/>
-     DURATION:(CASTERLEVEL*2) hours [D]</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <h3>
-   Part 5: Saving Throws and Spell Resistance
-  </h3>
-  <p class="indent0">
-   <strong>
-    Tags covered:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>SAVEINFO, SPELLRES</code>
-  </p>
-  <p>
-   Again, this is easy copy/paste stuff.
-  </p>
-  <p>
-   Example:
-  </p>
-  <blockquote>
-   <p>
-    Saving Throw: None or Will negates; see text
-    <br/>
-    Spell Resistance: Yes
-   </p>
-  </blockquote>
-  <p>
-   Is coded as:
-  </p>
-  <blockquote>
-   <p>
-    <code>SAVEINFO:None or Will negates; see text
-     <br/>
-     SPELLRES:Yes</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <h3>
-   Part 6: Description and Variants, and extra costs.
-  </h3>
-  <p class="indent0">
-   <strong>
-    Tags covered:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>DESC</code>
-   ,
-   <code>VARIANTS</code>
-   ,
-   <code>COST</code>
-   ,
-   <code>XPCOST</code>
-  </p>
-  <p>
-   These tags are from the spells description, and require some
-judgment calls.
-  </p>
-  <p class="indent1">
-   1)
-   <code>DESC</code>
-   is usually pulled from the
-"one-liners" in spell descriptions, such as those found in the RSRD
-   <span class="lstfile">
+</p>
+<p class="indent1">
+    <code>RANGE, DURATION, TARGETAREA</code>
+</p>
+<p>
+    Ok, the first two are easy.
+</p>
+<p class="indent1">
+    1)
+    <strong>
+        Range
+    </strong>
+    - We have a nice bit
+    of code that auto-calculates the Close / Medium / Long ranges for
+    spells, which is done through a GameMode file so you can add more
+    if you wish, so whenever you see one of those, you merely need to
+    put in the word for the range.
+</p>
+<p class="indent1">
+    2)
+    <strong>
+        Duration
+    </strong>
+    - We have a nice
+    bit of code that will do math functions. Such math functions must
+    be encapsulated within a set of parentheses (). The character
+    casterlevel can be used in these calculations by using the variable
+    <code>CASTERLEVEL</code>
+    as part of the math function. Everything
+    in the parentheses is reduced to a number. For normal parentheses,
+    like those used for "(D)" where spellcaster can end the spell
+    sooner than the listed duration, we use the square-brackets [].
+</p>
+<p class="indent1">
+    3)
+    <strong>
+        Target
+    </strong>
+    /
+    <strong>
+        Area
+    </strong>
+    /
+    <strong>
+        Effect
+    </strong>
+    - I have only once
+    or twice seen a spell that had more than one of these three. Hence
+    we combine them into one tag.
+</p>
+<p>
+    Here is a example of these spell info items and how they are
+    coded in PCGen:
+</p>
+<blockquote>
+    <p>
+        <strong>
+            Range: 40 ft.
+            <br/>
+            Area: Nonevil creatures in a 40-ft.-radius spread centered on
+            you
+            <br/>
+            Duration: Instantaneous
+        </strong>
+    </p>
+</blockquote>
+<p>
+    Is coded as:
+</p>
+<blockquote>
+    <p>
+        <code>RANGE:40 ft.
+            <br/>
+            TARGETAREA:Nonevil creatures in a 40-ft.-radius spread centered on
+            you
+            <br/>
+            DURATION:Instantaneous</code>
+    </p>
+</blockquote>
+<p>
+    Another example (from
+    <strong>
+        Antipathy
+    </strong>
+    spell):
+</p>
+<blockquote>
+    <p>
+        <strong>
+            Range: Close (25 ft. + 5 ft./2 levels)
+            <br/>
+            Target: One location (up to a 10-ft. cube/level) or one
+            object
+            <br/>
+            Duration: 2 hours/level (D)
+        </strong>
+    </p>
+</blockquote>
+<p>
+    Is coded as:
+</p>
+<blockquote>
+    <p>
+        <code>RANGE:Close
+            <br/>
+            TARGETAREA:One location [ up to (CASETERLEVEL*10) cubes] or one
+            object
+            <br/>
+            DURATION:(CASTERLEVEL*2) hours [D]</code>
+    </p>
+</blockquote>
+<hr/>
+<h3>
+    Part 5: Saving Throws and Spell Resistance
+</h3>
+<p class="indent0">
+    <strong>
+        Tags covered:
+    </strong>
+</p>
+<p class="indent1">
+    <code>SAVEINFO, SPELLRES</code>
+</p>
+<p>
+    Again, this is easy copy/paste stuff.
+</p>
+<p>
+    Example:
+</p>
+<blockquote>
+    <p>
+        Saving Throw: None or Will negates; see text
+        <br/>
+        Spell Resistance: Yes
+    </p>
+</blockquote>
+<p>
+    Is coded as:
+</p>
+<blockquote>
+    <p>
+        <code>SAVEINFO:None or Will negates; see text
+            <br/>
+            SPELLRES:Yes</code>
+    </p>
+</blockquote>
+<hr/>
+<h3>
+    Part 6: Description and Variants, and extra costs.
+</h3>
+<p class="indent0">
+    <strong>
+        Tags covered:
+    </strong>
+</p>
+<p class="indent1">
+    <code>DESC</code>
+    ,
+    <code>VARIANTS</code>
+    ,
+    <code>COST</code>
+    ,
+    <code>XPCOST</code>
+</p>
+<p>
+    These tags are from the spells description, and require some
+    judgment calls.
+</p>
+<p class="indent1">
+    1)
+    <code>DESC</code>
+    is usually pulled from the
+    "one-liners" in spell descriptions, such as those found in the RSRD
+    <span class="lstfile">
     SpellListI.rtf
    </span>
-   etc. Otherwise,
-reducing a paragraph into something that will fit on a character
-sheet (and will require the user to still own the book the item
-came from) becomes an editing call. We try to keep these
-descriptions to less than 50 characters long.
-  </p>
-  <p class="indent1">
-   2)
-   <code>VARIANTS</code>
-   are taken from the
-description, where the caster makes a decision on how a spell works
-when casting, such as Fire Seeds, where the caster uses either
-acorns or berries. This also applies to things like
-   <strong>
-    Energy
-Resistance
-   </strong>
-   , where the energy type is decided at
-casting.
-  </p>
-  <p class="indent1">
-   3)
-   <code>COST</code>
-   gives the specific cost of
-material components, usually listed at end of the spell
-description.
-  </p>
-  <p class="indent1">
-   4)
-   <code>XPCOST</code>
-   gives the xp cost, when
-one exists, when casting the related spell. As with the material
-component cost, the xp cost is typically listed at the end of the
-spell description.
-  </p>
-  <p>
-   Example from
-   <strong>
-    Blasphemy
-   </strong>
-   :
-  </p>
-  <blockquote>
-   <p>
-    <code>DESC:Kills, paralyzes, weakens, or dazes nonevil
-subjects.</code>
-   </p>
-  </blockquote>
-  <p>
-   Per
-   <span class="lstfile">
+    etc. Otherwise,
+    reducing a paragraph into something that will fit on a character
+    sheet (and will require the user to still own the book the item
+    came from) becomes an editing call. We try to keep these
+    descriptions to less than 50 characters long.
+</p>
+<p class="indent1">
+    2)
+    <code>VARIANTS</code>
+    are taken from the
+    description, where the caster makes a decision on how a spell works
+    when casting, such as Fire Seeds, where the caster uses either
+    acorns or berries. This also applies to things like
+    <strong>
+        Energy
+        Resistance
+    </strong>
+    , where the energy type is decided at
+    casting.
+</p>
+<p class="indent1">
+    3)
+    <code>COST</code>
+    gives the specific cost of
+    material components, usually listed at end of the spell
+    description.
+</p>
+<p class="indent1">
+    4)
+    <code>XPCOST</code>
+    gives the xp cost, when
+    one exists, when casting the related spell. As with the material
+    component cost, the xp cost is typically listed at the end of the
+    spell description.
+</p>
+<p>
+    Example from
+    <strong>
+        Blasphemy
+    </strong>
+    :
+</p>
+<blockquote>
+    <p>
+        <code>DESC:Kills, paralyzes, weakens, or dazes nonevil
+            subjects.</code>
+    </p>
+</blockquote>
+<p>
+    Per
+    <span class="lstfile">
     SpellListI.rtf
    </span>
-   ,
-   <strong>
-    Blasphemy
-   </strong>
-   does not have any listed variants,
-material component cost, or xp cost.(Copy/Paste from
-SpellListI.rtf)
-  </p>
-  <p>
-   Example from
-   <strong>
-    Clone
-   </strong>
-   :
-  </p>
-  <blockquote>
-   <p>
-    Clone M F: Duplicate awakens when original dies.
+    ,
+    <strong>
+        Blasphemy
+    </strong>
+    does not have any listed variants,
+    material component cost, or xp cost.(Copy/Paste from
+    SpellListI.rtf)
+</p>
+<p>
+    Example from
+    <strong>
+        Clone
+    </strong>
+    :
+</p>
+<blockquote>
+    <p>
+        Clone M F: Duplicate awakens when original dies.
+        <br/>
+        Material Component: The piece of flesh and various laboratory
+        supplies (cost 1,000 gp).
+        <br/>
+        Focus: Special laboratory equipment (cost 500 gp).
+    </p>
+</blockquote>
+<p>
+    Is coded as:
+</p>
+<blockquote>
+    <p>
+        <code>DESC:Duplicate awakens when original dies.
+            <br/>
+            COST:1500</code>
+    </p>
+</blockquote>
+<p>
+    Now, adding the cost of the Focus may not be the right thing to
+    do here (I just used the example from the RSRD, so I could find one
+    for the field...). The deciding factor on that would be how the
+    cost of the Focus would be added into the creation of an item based
+    on this spell (Material component costs are added into item
+    creation costs).
+</p>
+<p>
+    The XPCOST example is easier (from
+    <strong>
+        Commune
+    </strong>
+    )
+</p>
+<blockquote>
+    <p>
+        XP Cost: 100 XP.
+    </p>
+</blockquote>
+<blockquote>
+    <p>
+        <code>XPCOST:100</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    Throw in a
+    <code>SOURCEPAGE</code>
+    tag, and basically, that is a
+    spell, minus any Temp bonus tags for applying spell effects to
+    characters.
+</p>
+<p>
+    Tir Gwaith
     <br/>
-    Material Component: The piece of flesh and various laboratory
-supplies (cost 1,000 gp).
-    <br/>
-    Focus: Special laboratory equipment (cost 500 gp).
-   </p>
-  </blockquote>
-  <p>
-   Is coded as:
-  </p>
-  <blockquote>
-   <p>
-    <code>DESC:Duplicate awakens when original dies.
-     <br/>
-     COST:1500</code>
-   </p>
-  </blockquote>
-  <p>
-   Now, adding the cost of the Focus may not be the right thing to
-do here (I just used the example from the RSRD, so I could find one
-for the field...). The deciding factor on that would be how the
-cost of the Focus would be added into the creation of an item based
-on this spell (Material component costs are added into item
-creation costs).
-  </p>
-  <p>
-   The XPCOST example is easier (from
-   <strong>
-    Commune
-   </strong>
-   )
-  </p>
-  <blockquote>
-   <p>
-    XP Cost: 100 XP.
-   </p>
-  </blockquote>
-  <blockquote>
-   <p>
-    <code>XPCOST:100</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   Throw in a
-   <code>SOURCEPAGE</code>
-   tag, and basically, that is a
-spell, minus any Temp bonus tags for applying spell effects to
-characters.
-  </p>
-  <p>
-   Tir Gwaith
-   <br/>
-   LST Chimp
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    LST Chimp
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

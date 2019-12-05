@@ -38,73 +38,73 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 public class DeityToken implements PrimitiveToken<Domain>
 {
 
-	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
+    private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Domain> cl, String value, String args)
-	{
-		return (value == null) && (args == null);
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Domain> cl, String value, String args)
+    {
+        return (value == null) && (args == null);
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "DEITY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DEITY";
+    }
 
-	@Override
-	public Class<Domain> getReferenceClass()
-	{
-		return DOMAIN_CLASS;
-	}
+    @Override
+    public Class<Domain> getReferenceClass()
+    {
+        return DOMAIN_CLASS;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return getTokenName();
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return getTokenName();
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		return obj instanceof DeityToken;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj instanceof DeityToken;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return 8635;
-	}
+    @Override
+    public int hashCode()
+    {
+        return 8635;
+    }
 
-	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
-	{
-		HashSet<R> returnSet = new HashSet<>();
-		Deity deity = pc.getDisplay().getDeity();
-		if (deity == null)
-		{
-			return returnSet;
-		}
-		CDOMReference<DomainList> list = Deity.DOMAINLIST;
-		Collection<CDOMReference<Domain>> mods = deity.getListMods(list);
-		for (CDOMReference<Domain> ref : mods)
-		{
-			Collection<AssociatedPrereqObject> assoc = deity.getListAssociations(list, ref);
-			for (AssociatedPrereqObject apo : assoc)
-			{
-				if (PrereqHandler.passesAll(apo, pc, deity))
-				{
-					returnSet.addAll(c.convert(ref));
-					break;
-				}
-			}
-		}
-		return returnSet;
-	}
+    @Override
+    public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
+    {
+        HashSet<R> returnSet = new HashSet<>();
+        Deity deity = pc.getDisplay().getDeity();
+        if (deity == null)
+        {
+            return returnSet;
+        }
+        CDOMReference<DomainList> list = Deity.DOMAINLIST;
+        Collection<CDOMReference<Domain>> mods = deity.getListMods(list);
+        for (CDOMReference<Domain> ref : mods)
+        {
+            Collection<AssociatedPrereqObject> assoc = deity.getListAssociations(list, ref);
+            for (AssociatedPrereqObject apo : assoc)
+            {
+                if (PrereqHandler.passesAll(apo, pc, deity))
+                {
+                    returnSet.addAll(c.convert(ref));
+                    break;
+                }
+            }
+        }
+        return returnSet;
+    }
 }

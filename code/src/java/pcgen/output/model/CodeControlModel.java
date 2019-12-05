@@ -14,33 +14,33 @@ import freemarker.template.TemplateModelException;
 public class CodeControlModel implements TemplateHashModel
 {
 
-	private final CodeControl control;
+    private final CodeControl control;
 
-	/**
-	 * Constructs a new CodeControlModel with the given underlying CodeControl.
-	 * 
-	 * @param controller
-	 *            The CodeControl underlying this CodeControlModel
-	 */
-	public CodeControlModel(CodeControl controller)
-	{
-		control = controller;
-	}
+    /**
+     * Constructs a new CodeControlModel with the given underlying CodeControl.
+     *
+     * @param controller The CodeControl underlying this CodeControlModel
+     */
+    public CodeControlModel(CodeControl controller)
+    {
+        control = controller;
+    }
 
-	@Override
-	public TemplateModel get(String key) throws TemplateModelException
-	{
-		String result = control.get(ObjectKey.getKeyFor(String.class, "*" + key));
-		if (result == null)
-		{
-			return null;
-		}
-		return SimpleWrapperLibrary.wrap(result);
-	}
+    @Override
+    public TemplateModel get(String key) throws TemplateModelException
+    {
+        String result = control.get(ObjectKey.getKeyFor(String.class, "*" + key));
+        if (result == null)
+        {
+            return null;
+        }
+        return SimpleWrapperLibrary.wrap(result);
+    }
 
-	@Override
-	public boolean isEmpty() {
-		return false;
-	}
+    @Override
+    public boolean isEmpty()
+    {
+        return false;
+    }
 
 }

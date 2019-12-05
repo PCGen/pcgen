@@ -1,16 +1,16 @@
 /**
  * Copyright James Dempsey, 2011
- *
+ * <p>
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
+ * <p>
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -37,48 +37,50 @@ import org.junit.jupiter.api.Test;
  */
 class IconTokenTest
 {
-	private URI uri;
-	
-	@BeforeEach
-	void setUp() throws Exception
-	{
-		uri = new URI("http://www.pcgen.org");
-	}
+    private URI uri;
 
-	@Test
-	public void testValidSyntax() {
-		GameMode gameMode = SettingsHandler.getGame();
-		assertNull(gameMode
-				.getEquipTypeIcon("Eyegear"), "starting condition, eyegear icon should be null");
+    @BeforeEach
+    void setUp() throws Exception
+    {
+        uri = new URI("http://www.pcgen.org");
+    }
 
-		EquipIconLstToken token = new IconToken();
-		assertTrue(token.parse(gameMode,
-				"Eyegear|preview/summary/images/icon_eye.png", uri
-		), "Parse should succeed");
+    @Test
+    public void testValidSyntax()
+    {
+        GameMode gameMode = SettingsHandler.getGame();
+        assertNull(gameMode
+                .getEquipTypeIcon("Eyegear"), "starting condition, eyegear icon should be null");
 
-		assertEquals(
-				"preview/summary/images/icon_eye.png", gameMode
-						.getEquipTypeIcon("Eyegear"),
-				"Incorrect icon path"
-		);
-		assertEquals(
-				"preview/summary/images/icon_eye.png", gameMode
-						.getEquipTypeIcon("EyegeaR"),
-				"Case misimatch fails"
-		);
-		assertNull(gameMode
-				.getEquipTypeIcon("Unknown"), "Unknown type should be null");
-	}
+        EquipIconLstToken token = new IconToken();
+        assertTrue(token.parse(gameMode,
+                "Eyegear|preview/summary/images/icon_eye.png", uri
+        ), "Parse should succeed");
 
-	@Test
-	public void testInValidSyntax() {
-		GameMode gameMode = SettingsHandler.getGame();
-		EquipIconLstToken token = new IconToken();
-		assertFalse(token.parse(gameMode,
-				"Eyegear:preview/summary/images/icon_eye.png", uri
-		), "Parse should fail");
-		assertFalse(token.parse(gameMode,
-				"Eyegear|preview/summary/images|icon_eye.png", uri
-		), "Parse should fail");
-	}
+        assertEquals(
+                "preview/summary/images/icon_eye.png", gameMode
+                        .getEquipTypeIcon("Eyegear"),
+                "Incorrect icon path"
+        );
+        assertEquals(
+                "preview/summary/images/icon_eye.png", gameMode
+                        .getEquipTypeIcon("EyegeaR"),
+                "Case misimatch fails"
+        );
+        assertNull(gameMode
+                .getEquipTypeIcon("Unknown"), "Unknown type should be null");
+    }
+
+    @Test
+    public void testInValidSyntax()
+    {
+        GameMode gameMode = SettingsHandler.getGame();
+        EquipIconLstToken token = new IconToken();
+        assertFalse(token.parse(gameMode,
+                "Eyegear:preview/summary/images/icon_eye.png", uri
+        ), "Parse should fail");
+        assertFalse(token.parse(gameMode,
+                "Eyegear|preview/summary/images|icon_eye.png", uri
+        ), "Parse should fail");
+    }
 }

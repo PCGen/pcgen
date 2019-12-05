@@ -22,36 +22,36 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * The Class {@code PCBaseCRTermEvaluator} is responsible for calculating
- * the character's unmodified challenge rating, as specified by the 
- * CR tag in the race definition. 
+ * the character's unmodified challenge rating, as specified by the
+ * CR tag in the race definition.
  */
 public class PCBaseCRTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	/**
-	 * Instantiates a new PCBaseHDTermEvaluator.
-	 * 
-	 * @param expressionString the expression string
-	 */
-	public PCBaseCRTermEvaluator(String expressionString)
-	{
-		this.originalText = expressionString;
-	}
+    /**
+     * Instantiates a new PCBaseHDTermEvaluator.
+     *
+     * @param expressionString the expression string
+     */
+    public PCBaseCRTermEvaluator(String expressionString)
+    {
+        this.originalText = expressionString;
+    }
 
-	@Override
-	public Float resolve(PlayerCharacter pc)
-	{
-		return (float) pc.getDisplay().calcBaseCR();
-	}
+    @Override
+    public Float resolve(PlayerCharacter pc)
+    {
+        return (float) pc.getDisplay().calcBaseCR();
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return false;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return false;
+    }
 
-	public boolean isStatic()
-	{
-		return false;
-	}
+    public boolean isStatic()
+    {
+        return false;
+    }
 }

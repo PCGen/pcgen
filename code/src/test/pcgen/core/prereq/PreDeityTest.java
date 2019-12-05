@@ -41,202 +41,203 @@ import org.junit.jupiter.api.Test;
  */
 public class PreDeityTest extends AbstractCharacterTestCase
 {
-	private Deity deity;
+    private Deity deity;
 
-	/**
-	 * Test that the boolean version (Y/N) works.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testBoolean() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test that the boolean version (Y/N) works.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testBoolean() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITY:1,Y");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREDEITY:1,Y");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:1,N");
+        prereq = factory.parse("PREDEITY:1,N");
 
-		assertTrue("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
 
-		assertFalse("Character has deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:1,Y");
+        prereq = factory.parse("PREDEITY:1,Y");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
+                character, null));
 
-	}
+    }
 
-	/**
-	 * Test different formats for the option.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testFormat() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test different formats for the option.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testFormat() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITY:1,YES");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREDEITY:1,YES");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:1,NO");
+        prereq = factory.parse("PREDEITY:1,NO");
 
-		assertTrue("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
 
-		assertFalse("Character has deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:1,YES");
+        prereq = factory.parse("PREDEITY:1,YES");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREDEITY:1,yes");
+        prereq = factory.parse("PREDEITY:1,yes");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREDEITY:1,Yesmeth");
+        prereq = factory.parse("PREDEITY:1,Yesmeth");
 
-		assertFalse("Character does not have Yesmeth as deity", PrereqHandler
-			.passes(prereq, character, null));
-	}
+        assertFalse("Character does not have Yesmeth as deity", PrereqHandler
+                .passes(prereq, character, null));
+    }
 
-	/**
-	 * Test naming specific deities works as expected.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testName() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test naming specific deities works as expected.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testName() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITY:1,Test Deity");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREDEITY:1,Test Deity");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
 
-		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character has Test Deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:1,Test Deity,Zeus,Odin");
+        prereq = factory.parse("PREDEITY:1,Test Deity,Zeus,Odin");
 
-		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
-			prereq, character, null));
-	}
+        assertTrue("Character has Test Deity selected", PrereqHandler.passes(
+                prereq, character, null));
+    }
 
-	/**
-	 * Test that the new standardized format works correctly.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testNewFormat() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test that the new standardized format works correctly.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testNewFormat() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITY:1,YES");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREDEITY:1,YES");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:1,NO");
+        prereq = factory.parse("PREDEITY:1,NO");
 
-		assertTrue("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
 
-		assertFalse("Character has deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:1,YES");
+        prereq = factory.parse("PREDEITY:1,YES");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREDEITY:1,yes");
+        prereq = factory.parse("PREDEITY:1,yes");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREDEITY:1,Yesmeth");
+        prereq = factory.parse("PREDEITY:1,Yesmeth");
 
-		assertFalse("Character does not have Yesmeth as deity", PrereqHandler
-			.passes(prereq, character, null));
-	}
+        assertFalse("Character does not have Yesmeth as deity", PrereqHandler
+                .passes(prereq, character, null));
+    }
 
-	/**
-	 * Test the pantheon fucntioanlity of the PREDEITY tag. 
-	 * @throws PersistenceLayerException 
-	 */
-	@Test
-	public void testPantheon() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test the pantheon fucntioanlity of the PREDEITY tag.
+     *
+     * @throws PersistenceLayerException
+     */
+    @Test
+    public void testPantheon() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITY:1,PANTHEON.Celtic");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREDEITY:1,PANTHEON.Celtic");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
-		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
+        assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:1,Zeus,PANTHEON.Celtic,Odin");
+        prereq = factory.parse("PREDEITY:1,Zeus,PANTHEON.Celtic,Odin");
 
-		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
-			prereq, character, null));
-	}
+        assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
+                prereq, character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		deity = new Deity();
-		deity.setName("Test Deity");
-		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
-		StringManager sm = new StringManager();
-		FactSetKey<String> fsk = FactSetKey.getConstant("Pantheon", sm);
-		deity.addToSetFor(fsk, new BasicIndirect<>(sm, "Celtic"));
-	}
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        deity = new Deity();
+        deity.setName("Test Deity");
+        deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
+        StringManager sm = new StringManager();
+        FactSetKey<String> fsk = FactSetKey.getConstant("Pantheon", sm);
+        deity.addToSetFor(fsk, new BasicIndirect<>(sm, "Celtic"));
+    }
 }

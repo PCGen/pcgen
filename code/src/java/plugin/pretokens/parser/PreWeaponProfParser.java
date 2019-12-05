@@ -26,74 +26,73 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
  */
 public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"WEAPONPROF"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"WEAPONPROF"};
+    }
 
-	/**
-	 * This operation performs the actual parsing.
-	 * @param kind the kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite;
-	 * @param invertResult If the prerequisite should invert the result
-	 * before it is returned
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 *
-	 * @return a object for testing the prerequisite
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+    /**
+     * This operation performs the actual parsing.
+     *
+     * @param kind            the kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite;
+     * @param invertResult    If the prerequisite should invert the result
+     *                        before it is returned
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return a object for testing the prerequisite
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		doTypeInvertFixUp(prereq);
+        doTypeInvertFixUp(prereq);
 
-		return prereq;
-	}
+        return prereq;
+    }
 
-	private static void doTypeInvertFixUp(Prerequisite prereq)
-	{
-		if ("weaponprof".equalsIgnoreCase(prereq.getKind()))
-		{
-			if (prereq.getKey().startsWith("TYPE"))
-			{
-				prereq.setCountMultiples(true);
-			}
-			else if (prereq.getKey().startsWith("["))
-			{
-				final int length = prereq.getKey().length() - 1;
-				final int rBracket = prereq.getKey().lastIndexOf(']');
-				final int endIndex = Math.max(length, rBracket);
+    private static void doTypeInvertFixUp(Prerequisite prereq)
+    {
+        if ("weaponprof".equalsIgnoreCase(prereq.getKind()))
+        {
+            if (prereq.getKey().startsWith("TYPE"))
+            {
+                prereq.setCountMultiples(true);
+            } else if (prereq.getKey().startsWith("["))
+            {
+                final int length = prereq.getKey().length() - 1;
+                final int rBracket = prereq.getKey().lastIndexOf(']');
+                final int endIndex = Math.max(length, rBracket);
 
-				final String key = prereq.getKey().substring(1, endIndex);
+                final String key = prereq.getKey().substring(1, endIndex);
 
-				prereq.setKey(key);
-				prereq.setOperator(prereq.getOperator().invert());
-			}
-		}
+                prereq.setKey(key);
+                prereq.setOperator(prereq.getOperator().invert());
+            }
+        }
 
-		/*
-		 * In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)',
-		 * need to check all sub-prereqs
-		 */
-		for (Prerequisite subReq : prereq.getPrerequisites())
-		{
-			doTypeInvertFixUp(subReq);
-		}
-	}
+        /*
+         * In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)',
+         * need to check all sub-prereqs
+         */
+        for (Prerequisite subReq : prereq.getPrerequisites())
+        {
+            doTypeInvertFixUp(subReq);
+        }
+    }
 
-	@Override
-	protected boolean allowsNegate()
-	{
-		return true;
-	}
+    @Override
+    protected boolean allowsNegate()
+    {
+        return true;
+    }
 }

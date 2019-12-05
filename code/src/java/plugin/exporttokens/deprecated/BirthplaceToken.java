@@ -28,15 +28,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class BirthplaceToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "BIRTHPLACE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BIRTHPLACE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getSafeStringFor(PCStringKey.BIRTHPLACE);
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getSafeStringFor(PCStringKey.BIRTHPLACE);
+    }
 }

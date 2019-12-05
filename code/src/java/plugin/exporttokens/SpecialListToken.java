@@ -11,26 +11,28 @@ import pcgen.io.exporttoken.Token;
 public class SpecialListToken extends Token
 {
 
-	/** Token name */
-	public static final String TOKENNAME = "SPECIALLIST";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "SPECIALLIST";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String delim = tokenSource.substring(11);
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String delim = tokenSource.substring(11);
 
-		if ("".equals(delim))
-		{
-			delim = ", ";
-		}
+        if ("".equals(delim))
+        {
+            delim = ", ";
+        }
 
-		return StringUtil.join(pc.getSpecialAbilityTimesList(), delim);
-	}
+        return StringUtil.join(pc.getSpecialAbilityTimesList(), delim);
+    }
 
 }

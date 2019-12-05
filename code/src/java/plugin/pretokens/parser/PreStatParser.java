@@ -32,98 +32,96 @@ import pcgen.util.Logging;
 public class PreStatParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"STAT", "STATEQ", "STATGT", "STATGTEQ", "STATLT", "STATLTEQ", "STATNEQ"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"STAT", "STATEQ", "STATGT", "STATGTEQ", "STATLT", "STATLTEQ", "STATNEQ"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		try
-		{
-			prereq.setKind(null); // PREMULT
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        try
+        {
+            prereq.setKind(null); // PREMULT
 
-			// Get the comparator type STATGTEQ, STAT, STATNEQ etc.
-			String compType = kind.substring(4);
+            // Get the comparator type STATGTEQ, STAT, STATNEQ etc.
+            String compType = kind.substring(4);
 
-			if (compType.isEmpty())
-			{
-				compType = "gteq";
-			}
+            if (compType.isEmpty())
+            {
+                compType = "gteq";
+            }
 
-			String[] tokens = formula.split(",|\\|");
-			int currToken = 0;
+            String[] tokens = formula.split(",|\\|");
+            int currToken = 0;
 
-			// Get the minimum match count
-			String aString = tokens[currToken++];
+            // Get the minimum match count
+            String aString = tokens[currToken++];
 
-			try
-			{
-				prereq.setOperand(Integer.toString(Integer.parseInt(aString)));
-			}
-			catch (NumberFormatException e)
-			{
-				Logging.errorPrint("Badly formed PRESTAT attribute: " + aString);
-				prereq.setOperand("1");
-			}
+            try
+            {
+                prereq.setOperand(Integer.toString(Integer.parseInt(aString)));
+            } catch (NumberFormatException e)
+            {
+                Logging.errorPrint("Badly formed PRESTAT attribute: " + aString);
+                prereq.setOperand("1");
+            }
 
-			while (currToken < tokens.length)
-			{
-				aString = tokens[currToken++];
+            while (currToken < tokens.length)
+            {
+                aString = tokens[currToken++];
 
-				final int idxEquals = aString.lastIndexOf('=');
-				if (idxEquals < 3)
-				{
-					throw new PersistenceLayerException(
-						"PRE" + kindsHandled()[0] + " formula '" + formula + "' is not valid.");
-				}
+                final int idxEquals = aString.lastIndexOf('=');
+                if (idxEquals < 3)
+                {
+                    throw new PersistenceLayerException(
+                            "PRE" + kindsHandled()[0] + " formula '" + formula + "' is not valid.");
+                }
 
-				final String stat = aString.substring(0, Math.min(3, idxEquals));
-				Prerequisite statPrereq = new Prerequisite();
-				statPrereq.setKind("stat");
-				statPrereq.setKey(stat);
-				statPrereq.setOperator(compType);
-				statPrereq.setOperand(aString.substring(idxEquals + 1));
+                final String stat = aString.substring(0, Math.min(3, idxEquals));
+                Prerequisite statPrereq = new Prerequisite();
+                statPrereq.setKind("stat");
+                statPrereq.setKey(stat);
+                statPrereq.setOperator(compType);
+                statPrereq.setOperand(aString.substring(idxEquals + 1));
 
-				prereq.addPrerequisite(statPrereq);
-			}
+                prereq.addPrerequisite(statPrereq);
+            }
 
-			if ((prereq.getPrerequisiteCount() == 1) && (prereq.getOperator() == PrerequisiteOperator.GTEQ)
-				&& prereq.getOperand().equals("1"))
-			{
-				prereq = prereq.getPrerequisites().get(0);
-			}
+            if ((prereq.getPrerequisiteCount() == 1) && (prereq.getOperator() == PrerequisiteOperator.GTEQ)
+                    && prereq.getOperand().equals("1"))
+            {
+                prereq = prereq.getPrerequisites().get(0);
+            }
 
-			if (invertResult)
-			{
-				prereq.setOperator(prereq.getOperator().invert());
-			}
-		}
-		catch (PrerequisiteException pe)
-		{
-			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
-		}
-		return prereq;
-	}
+            if (invertResult)
+            {
+                prereq.setOperator(prereq.getOperator().invert());
+            }
+        } catch (PrerequisiteException pe)
+        {
+            throw new PersistenceLayerException(
+                    "Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
+        }
+        return prereq;
+    }
 }

@@ -46,86 +46,83 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * The Class {@code CampaignPanel} displays a panel allowing
  * the user to select the campaigns to be converted.
- * 
- * 
  */
 public class CampaignPanel extends ConvertSubPanel
 {
 
-	private List<Campaign> gameModeCampaigns;
-	private String folderName;
+    private List<Campaign> gameModeCampaigns;
+    private String folderName;
 
-	@Override
-	public boolean autoAdvance(CDOMObject pc)
-	{
-		return false;
-	}
+    @Override
+    public boolean autoAdvance(CDOMObject pc)
+    {
+        return false;
+    }
 
-	@Override
-	public boolean returnAllowed()
-	{
-		return true;
-	}
+    @Override
+    public boolean returnAllowed()
+    {
+        return true;
+    }
 
-	@Override
-	public boolean performAnalysis(CDOMObject pc)
-	{
-		GameMode game = pc.get(ObjectKey.GAME_MODE);
+    @Override
+    public boolean performAnalysis(CDOMObject pc)
+    {
+        GameMode game = pc.get(ObjectKey.GAME_MODE);
         List<String> gameModeList = new ArrayList<>(game.getAllowedModes());
 
-		File sourceFolder = pc.get(ObjectKey.DIRECTORY);
-		folderName = sourceFolder.toURI().toString();
+        File sourceFolder = pc.get(ObjectKey.DIRECTORY);
+        folderName = sourceFolder.toURI().toString();
 
-		// Only add those campaigns in the user's chosen folder and game mode
-		List<Campaign> allCampaigns = Globals.getCampaignList();
-		gameModeCampaigns = new ArrayList<>();
-		for (Campaign campaign : allCampaigns)
-		{
-			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
-			{
-				if (campaign.getSourceURI().toString().startsWith(folderName))
-				{
-					gameModeCampaigns.add(campaign);
-				}
-			}
-		}
-		return false;
-	}
+        // Only add those campaigns in the user's chosen folder and game mode
+        List<Campaign> allCampaigns = Globals.getCampaignList();
+        gameModeCampaigns = new ArrayList<>();
+        for (Campaign campaign : allCampaigns)
+        {
+            if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
+            {
+                if (campaign.getSourceURI().toString().startsWith(folderName))
+                {
+                    gameModeCampaigns.add(campaign);
+                }
+            }
+        }
+        return false;
+    }
 
-	@Override
-	public void setupDisplay(JPanel panel, final CDOMObject pc)
-	{
-		panel.setLayout(new GridBagLayout());
-		JLabel introLabel = new JLabel("Please select the Campaign(s) to Convert:");
-		GridBagConstraints gbc = new GridBagConstraints();
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
-			GridBagConstraints.NORTHWEST);
-		gbc.insets = new Insets(25, 25, 5, 25);
-		panel.add(introLabel, gbc);
+    @Override
+    public void setupDisplay(JPanel panel, final CDOMObject pc)
+    {
+        panel.setLayout(new GridBagLayout());
+        JLabel introLabel = new JLabel("Please select the Campaign(s) to Convert:");
+        GridBagConstraints gbc = new GridBagConstraints();
+        Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+                GridBagConstraints.NORTHWEST);
+        gbc.insets = new Insets(25, 25, 5, 25);
+        panel.add(introLabel, gbc);
 
-		final CampaignTableModel model = new CampaignTableModel(gameModeCampaigns, folderName);
-		final JTable table = new JTable(model)
-		{
-			//Implement table cell tool tips.
-			@Override
-			public String getToolTipText(MouseEvent e)
-			{
-				java.awt.Point p = e.getPoint();
-				int rowIndex = rowAtPoint(p);
-				int colIndex = columnAtPoint(p);
-				String tip = String.valueOf(getValueAt(rowIndex, colIndex));
-				return tip;
-			}
-		};
-		table.getSelectionModel().addListSelectionListener(event -> {
+        final CampaignTableModel model = new CampaignTableModel(gameModeCampaigns, folderName);
+        final JTable table = new JTable(model)
+        {
+            //Implement table cell tool tips.
+            @Override
+            public String getToolTipText(MouseEvent e)
+            {
+                java.awt.Point p = e.getPoint();
+                int rowIndex = rowAtPoint(p);
+                int colIndex = columnAtPoint(p);
+                String tip = String.valueOf(getValueAt(rowIndex, colIndex));
+                return tip;
+            }
+        };
+        table.getSelectionModel().addListSelectionListener(event -> {
             pc.removeListFor(ListKey.CAMPAIGN);
             int[] selRows = table.getSelectedRows();
             if (selRows.length == 0)
             {
                 saveSourceSelection(pc);
                 fireProgressEvent(ProgressEvent.NOT_ALLOWED);
-            }
-            else
+            } else
             {
                 for (int row : selRows)
                 {
@@ -137,111 +134,115 @@ public class CampaignPanel extends ConvertSubPanel
             }
         });
 
-		JScrollPane listScroller = new JScrollPane(table);
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0, 1.0);
-		gbc.fill = GridBagConstraints.BOTH;
-		panel.add(listScroller, gbc);
+        JScrollPane listScroller = new JScrollPane(table);
+        Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0, 1.0);
+        gbc.fill = GridBagConstraints.BOTH;
+        panel.add(listScroller, gbc);
 
-		initSourceSelection(model, table);
-	}
+        initSourceSelection(model, table);
+    }
 
-	private void initSourceSelection(CampaignTableModel model, JTable table)
-	{
-		// Select any previous selections
-		PCGenSettings context = PCGenSettings.getInstance();
-		String sourceString = context.initProperty(PCGenSettings.CONVERT_SOURCES, "");
-		String[] sources = sourceString.split("\\|");
-		for (String srcName : sources)
-		{
-			for (Campaign camp : gameModeCampaigns)
-			{
-				if (camp.toString().equals(srcName))
-				{
-					for (int i = 0; i < model.getRowCount(); i++)
-					{
-						if (camp.equals(model.getValueAt(i, 0)))
-						{
-							table.getSelectionModel().addSelectionInterval(i, i);
-							break;
-						}
-					}
-					break;
-				}
-			}
-		}
-	}
+    private void initSourceSelection(CampaignTableModel model, JTable table)
+    {
+        // Select any previous selections
+        PCGenSettings context = PCGenSettings.getInstance();
+        String sourceString = context.initProperty(PCGenSettings.CONVERT_SOURCES, "");
+        String[] sources = sourceString.split("\\|");
+        for (String srcName : sources)
+        {
+            for (Campaign camp : gameModeCampaigns)
+            {
+                if (camp.toString().equals(srcName))
+                {
+                    for (int i = 0;i < model.getRowCount();i++)
+                    {
+                        if (camp.equals(model.getValueAt(i, 0)))
+                        {
+                            table.getSelectionModel().addSelectionInterval(i, i);
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    }
 
-	private void saveSourceSelection(CDOMObject pc)
-	{
-		List<Campaign> selCampaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
-		PCGenSettings context = PCGenSettings.getInstance();
-		context.setProperty(PCGenSettings.CONVERT_SOURCES, StringUtils.join(selCampaigns, "|"));
-	}
+    private void saveSourceSelection(CDOMObject pc)
+    {
+        List<Campaign> selCampaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
+        PCGenSettings context = PCGenSettings.getInstance();
+        context.setProperty(PCGenSettings.CONVERT_SOURCES, StringUtils.join(selCampaigns, "|"));
+    }
 
-	/**
-	 * The model of the campaign table.
-	 */
-	@SuppressWarnings("serial")
-	public static class CampaignTableModel extends AbstractTableModel
-	{
+    /**
+     * The model of the campaign table.
+     */
+    @SuppressWarnings("serial")
+    public static class CampaignTableModel extends AbstractTableModel
+    {
 
-		/** The column names. */
-		private final String[] columnNames = {"Campaign", "Location"};
+        /**
+         * The column names.
+         */
+        private final String[] columnNames = {"Campaign", "Location"};
 
-		/** The row data. */
-		private final Object[][] rowData;
+        /**
+         * The row data.
+         */
+        private final Object[][] rowData;
 
-		/**
-		 * Instantiates a new campaign table model.
-		 * 
-		 * @param campList the list of campaigns to be displayed
-		 * @param prefix the prefix to be removed from each campaign location.
-		 */
-		public CampaignTableModel(List<Campaign> campList, String prefix)
-		{
-			rowData = new Object[campList.size()][2];
-			int i = 0;
-			for (Campaign campaign : campList)
-			{
-				rowData[i++] = new Object[]{campaign, campaign.getSourceURI().toString().substring(prefix.length())};
-			}
-		}
+        /**
+         * Instantiates a new campaign table model.
+         *
+         * @param campList the list of campaigns to be displayed
+         * @param prefix   the prefix to be removed from each campaign location.
+         */
+        public CampaignTableModel(List<Campaign> campList, String prefix)
+        {
+            rowData = new Object[campList.size()][2];
+            int i = 0;
+            for (Campaign campaign : campList)
+            {
+                rowData[i++] = new Object[]{campaign, campaign.getSourceURI().toString().substring(prefix.length())};
+            }
+        }
 
-		@Override
-		public String getColumnName(int col)
-		{
-			return columnNames[col];
-		}
+        @Override
+        public String getColumnName(int col)
+        {
+            return columnNames[col];
+        }
 
-		@Override
-		public int getRowCount()
-		{
-			return rowData.length;
-		}
+        @Override
+        public int getRowCount()
+        {
+            return rowData.length;
+        }
 
-		@Override
-		public int getColumnCount()
-		{
-			return columnNames.length;
-		}
+        @Override
+        public int getColumnCount()
+        {
+            return columnNames.length;
+        }
 
-		@Override
-		public Object getValueAt(int row, int col)
-		{
-			return rowData[row][col];
-		}
+        @Override
+        public Object getValueAt(int row, int col)
+        {
+            return rowData[row][col];
+        }
 
-		@Override
-		public boolean isCellEditable(int row, int col)
-		{
-			return false;
-		}
+        @Override
+        public boolean isCellEditable(int row, int col)
+        {
+            return false;
+        }
 
-		@Override
-		public void setValueAt(Object value, int row, int col)
-		{
-			// read only 
-		}
-	}
+        @Override
+        public void setValueAt(Object value, int row, int col)
+        {
+            // read only
+        }
+    }
 
 }

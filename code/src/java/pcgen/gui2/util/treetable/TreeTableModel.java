@@ -27,54 +27,59 @@ import javax.swing.tree.TreeModel;
  * a TableModel, has a name and a type associated with it. Each node in
  * the TreeTableModel can return a value for each of the columns and
  * set that value if isCellEditable() returns true.
- *
  */
 public interface TreeTableModel extends TreeModel
 {
-	/**
-	 * Indicates whether the value for node {@code node},
-	 * at column number {@code column} is editable.
-	 * @param node
-	 * @param column
-	 * @return TRUE if cell is editable
-	 */
-	boolean isCellEditable(Object node, int column);
+    /**
+     * Indicates whether the value for node {@code node},
+     * at column number {@code column} is editable.
+     *
+     * @param node
+     * @param column
+     * @return TRUE if cell is editable
+     */
+    boolean isCellEditable(Object node, int column);
 
-	/**
-	 * Returns the type for column number {@code column}.
-	 * @param column
-	 * @return Class
-	 */
-	Class<?> getColumnClass(int column);
+    /**
+     * Returns the type for column number {@code column}.
+     *
+     * @param column
+     * @return Class
+     */
+    Class<?> getColumnClass(int column);
 
-	/**
-	 * Returns the number ofs availible column.
-	 * @return column count
-	 */
-	int getColumnCount();
+    /**
+     * Returns the number ofs availible column.
+     *
+     * @return column count
+     */
+    int getColumnCount();
 
-	/**
-	 * Returns the name for column number {@code column}.
-	 * @param column
-	 * @return column name
-	 */
-	String getColumnName(int column);
+    /**
+     * Returns the name for column number {@code column}.
+     *
+     * @param column
+     * @return column name
+     */
+    String getColumnName(int column);
 
-	/**
-	 * Sets the value for node {@code node},
-	 * at column number {@code column}.
-	 * @param aValue
-	 * @param node
-	 * @param column
-	 */
-	void setValueAt(Object aValue, Object node, int column);
+    /**
+     * Sets the value for node {@code node},
+     * at column number {@code column}.
+     *
+     * @param aValue
+     * @param node
+     * @param column
+     */
+    void setValueAt(Object aValue, Object node, int column);
 
-	/**
-	 * Returns the value to be displayed for node {@code node},
-	 * at column number {@code column}.
-	 * @param node
-	 * @param column
-	 * @return Object
-	 */
-	Object getValueAt(Object node, int column);
+    /**
+     * Returns the value to be displayed for node {@code node},
+     * at column number {@code column}.
+     *
+     * @param node
+     * @param column
+     * @return Object
+     */
+    Object getValueAt(Object node, int column);
 }

@@ -37,52 +37,52 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements CDOMPrimaryToken<KitDeity>
 {
 
-	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
+    private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "DOMAIN";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "DOMAIN";
+    }
 
-	@Override
-	public Class<KitDeity> getTokenClass()
-	{
-		return KitDeity.class;
-	}
+    @Override
+    public Class<KitDeity> getTokenClass()
+    {
+        return KitDeity.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitDeity kitDeity, String value)
-	{
-		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
-		while (pipeTok.hasMoreTokens())
-		{
-			String tokString = pipeTok.nextToken();
-			CDOMSingleRef<Domain> ref = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
-			kitDeity.addDomain(ref);
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitDeity kitDeity, String value)
+    {
+        StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
+        while (pipeTok.hasMoreTokens())
+        {
+            String tokString = pipeTok.nextToken();
+            CDOMSingleRef<Domain> ref = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
+            kitDeity.addDomain(ref);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitDeity kitDeity)
-	{
-		Collection<CDOMSingleRef<Domain>> domains = kitDeity.getDomains();
-		if (domains == null || domains.isEmpty())
-		{
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(domains, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitDeity kitDeity)
+    {
+        Collection<CDOMSingleRef<Domain>> domains = kitDeity.getDomains();
+        if (domains == null || domains.isEmpty())
+        {
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(domains, Constants.PIPE)};
+    }
 }

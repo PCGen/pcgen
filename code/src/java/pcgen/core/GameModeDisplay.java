@@ -24,62 +24,63 @@ import pcgen.facade.core.GameModeDisplayFacade;
  */
 public final class GameModeDisplay implements Comparable<Object>, GameModeDisplayFacade
 {
-	private GameMode gameMode;
+    private GameMode gameMode;
 
-	/**
-	 * Creates a new instance of GameModeMenuEntry.
-	 *
-	 * @param mode the mode name
-	 */
-	public GameModeDisplay(final GameMode mode)
-	{
-		gameMode = mode;
-	}
+    /**
+     * Creates a new instance of GameModeMenuEntry.
+     *
+     * @param mode the mode name
+     */
+    public GameModeDisplay(final GameMode mode)
+    {
+        gameMode = mode;
+    }
 
-	/**
-	 * Get the game mode
-	 * @return gameMode
-	 */
-	@Override
-	public GameMode getGameMode()
-	{
-		return gameMode;
-	}
+    /**
+     * Get the game mode
+     *
+     * @return gameMode
+     */
+    @Override
+    public GameMode getGameMode()
+    {
+        return gameMode;
+    }
 
-	/**
-	 * Get the menu entry of the game mode
-	 * @return menuEntry
-	 */
-	@Override
-	public String toString()
-	{
-		return gameMode.getDisplayName();
-	}
+    /**
+     * Get the menu entry of the game mode
+     *
+     * @return menuEntry
+     */
+    @Override
+    public String toString()
+    {
+        return gameMode.getDisplayName();
+    }
 
-	@Override
-	public int compareTo(final Object obj)
-	{
-		if (obj != null)
-		{
-			final int iOrder = ((GameModeDisplay) obj).getGameMode().getDisplayOrder();
+    @Override
+    public int compareTo(final Object obj)
+    {
+        if (obj != null)
+        {
+            final int iOrder = ((GameModeDisplay) obj).getGameMode().getDisplayOrder();
 
-			if (iOrder < gameMode.getDisplayOrder())
-			{
-				return 1;
-			}
-			else if (iOrder > gameMode.getDisplayOrder())
-			{
-				return -1;
-			}
+            if (iOrder < gameMode.getDisplayOrder())
+            {
+                return 1;
+            } else if (iOrder > gameMode.getDisplayOrder())
+            {
+                return -1;
+            }
 
-			//
-			// Order matches, so put in alphabetical order
-			//
-			// should throw a ClassCastException for non-PObjects,
-			// like the Comparable interface calls for
-			return gameMode.getDisplayName()
-				.compareToIgnoreCase(((GameModeDisplay) obj).getGameMode().getDisplayName());
-		}
-		return 1;
-	}
+            //
+            // Order matches, so put in alphabetical order
+            //
+            // should throw a ClassCastException for non-PObjects,
+            // like the Comparable interface calls for
+            return gameMode.getDisplayName()
+                    .compareToIgnoreCase(((GameModeDisplay) obj).getGameMode().getDisplayName());
+        }
+        return 1;
+    }
 }

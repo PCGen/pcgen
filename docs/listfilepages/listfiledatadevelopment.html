@@ -1,182 +1,182 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                        
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Provides information on New Source Development.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   List File Main
-  </title>
-  <link href="../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   New Source Development
-  </h1>
-  <p>
-   This is the process for developing datasets for inclusion in
-PCGen. Those familiar with how this process has worked in the past
-will note that it is essentially unchanged with the exception that
-the point at which a review of the source for OGL compliance
-and Publisher permission needed before the source can be entered
-into the Git repository is now handled on an internal issue by the
-Publisher Liaison, Data License and Content Silverbacks.
-  </p>
-  <h2>
-   Initial Development
-  </h2>
-  <p>
-   It begins as always with our volunteers creating the datasets.
-The style of this stage of development is entirely up the
-individual monkey who is developing the set, they are free to
-upload the work to pcgen_experimental for review or not. Smaller
-sources being done by individually monkeys should ideally be
-complete or near complete before being submitted for entry into
-Git. Larger projects, such as core sources or SRD additions that
-are being developed by several monkeys which could benefit from the
-cooperative nature of Git do not have to be complete but should be
-a good ways towards this point. It will be the Lead Data Monkeys
-call when it should be submitted.
-  </p>
-  <h2>
-   Resources
-  </h2>
-  <p>
-   The following resources are available to aid volunteers learn to
-create LST files. The first place to go is the Documentation, which
-you are reading now. There are a variety of pages dealing with LST
-files designed to help get you up and running. For beginners we
-have a growing section of lessons in the
-   <a href="lstfileclass/lstfileclass_heading.html">
-    LST file Class
-   </a>
-   . If you
-are creating datasets for inclusion in PCGen you should pay close
-attention to the section on
-   <a href="listfileLSTstandards.html">
-    Official Release LST standards
-   </a>
-   especially to the section on
-   <a href="listfileLSTstandards.html#ogl">
-    OGL Compliance
-   </a>
-   . The docs are
-also available
-   <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/index.html">
-    online
-   </a>
-   on our
-   <a href="http://pcgen.sourceforge.net/autobuilds/">
-    autobuild
-site
-   </a>
-   and are updated periodically.
-  </p>
-  <p>
-   In addition to the main
-   <a href="http://groups.yahoo.com/group/pcgen/">
-    PCGen Yahoo group
-   </a>
-   we
-have several other lists to aid in data development.
-   <a href="http://groups.yahoo.com/group/pcgen_experimental/">
-    pcgen_experimental
-   </a>
-   is used for development. You can get in touch with other data
-monkeys here and upload your files for others to review. It is a
-good place to coordinate activity if multiple monkeys are working
-on a source. Additionally it is the place where new LST syntax and
-new tags are developed.
-   <a href="http://groups.yahoo.com/group/PCGenListFileHelp/">
-    PCGenListFileHelp
-   </a>
-   is the place to go for help with specific how-to problems with LST
-files.
-   <a href="http://groups.yahoo.com/group/LSTfileclass/">
-    LSTFileClass
-   </a>
-   is a
-group set up to publish lessons on how to create LST files. The LST
-File Classes here in the docs were originally published there.
-  </p>
-  <h2>
-   Inclusion in Git
-  </h2>
-  <p>
-   When a source has been completed and is ready for inclusion in
-the program it may be submitted in one of several ways. Data sets
-can be uploaded to
-   <a href="http://groups.yahoo.com/group/pcgen_experimental/">
-    pcgen_experimental
-   </a>
-   to the appropriate folder and, along with a shout out to your
-friendly neighborhood tracker monkey, they will be picked up for
-review. Once submitted the data must pass an internal review before
-it can be included in the Git repository.
-  </p>
-  <p>
-   When a new source is submitted for inclusion in PCGen an
-internal issue is opened for the Source. This is a special issue
-for tracking New Source Development and will be the repository for
-all permission and OGL status reports concerning the source. This
-issue will only contain permission and OGL status reports, bug
-reports and the like will be entered in separately in the regular
-issues. It will be closed when it has passed all the required
-reviews and is checked in to the Git repository.
-  </p>
-  <p>
-   New submission issues will be opened by the Content Silverback
-or the Chief Data Monkey. The dataset will be checked for obvious
-errors that would prevent it from running in PCGen as well as for
-completeness. Basically we are checking for show stoppers and not
-much more. If we find a major problem we will contact the author to
-get it resolved.
-  </p>
-  <p>
-   If the dataset meets these minimum requirement it is zipped up
-and attached to the issue. The issue is then reassigned to the Open
-Game License (OGL) personnel. If problems are found the issue is
-reassigned back to Data who will work to resolve the issue. Once
-resolved issue is again reassigned to OGL.
-  </p>
-  <p>
-   When OGL passes the Source it is reassigned to Publisher Liaison
-(PL) who will attach publisher permission to the issue, though the
-PL need not wait for this step and may attach permissions at any
-time he receives them.
-  </p>
-  <p>
-   When the source has passed OGL and PL the issue is reassigned to
-the Lead Data Monkey who will commit the dataset in the appropriate
-directory. The issue is then closed.
-  </p>
-  <h2>
-   Alpha Development
-  </h2>
-  <p>
-   At this point the dataset author will be invited to continue
-development and be granted Git access to continue work on the set.
-QA should be informed that a new set is in Git which needs to be
-reviewed. The author, the QA team and the Tracker Monkey team will
-then work together to bring the set up to release quality. Once the
-Dataset has been though the QA process and all known issues have
-been resolved it is moved into a permanent location in the data
-directory.
-  </p>
-  <p>
-  </p>
- </body>
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Provides information on New Source Development.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        List File Main
+    </title>
+    <link href="../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    New Source Development
+</h1>
+<p>
+    This is the process for developing datasets for inclusion in
+    PCGen. Those familiar with how this process has worked in the past
+    will note that it is essentially unchanged with the exception that
+    the point at which a review of the source for OGL compliance
+    and Publisher permission needed before the source can be entered
+    into the Git repository is now handled on an internal issue by the
+    Publisher Liaison, Data License and Content Silverbacks.
+</p>
+<h2>
+    Initial Development
+</h2>
+<p>
+    It begins as always with our volunteers creating the datasets.
+    The style of this stage of development is entirely up the
+    individual monkey who is developing the set, they are free to
+    upload the work to pcgen_experimental for review or not. Smaller
+    sources being done by individually monkeys should ideally be
+    complete or near complete before being submitted for entry into
+    Git. Larger projects, such as core sources or SRD additions that
+    are being developed by several monkeys which could benefit from the
+    cooperative nature of Git do not have to be complete but should be
+    a good ways towards this point. It will be the Lead Data Monkeys
+    call when it should be submitted.
+</p>
+<h2>
+    Resources
+</h2>
+<p>
+    The following resources are available to aid volunteers learn to
+    create LST files. The first place to go is the Documentation, which
+    you are reading now. There are a variety of pages dealing with LST
+    files designed to help get you up and running. For beginners we
+    have a growing section of lessons in the
+    <a href="lstfileclass/lstfileclass_heading.html">
+        LST file Class
+    </a>
+    . If you
+    are creating datasets for inclusion in PCGen you should pay close
+    attention to the section on
+    <a href="listfileLSTstandards.html">
+        Official Release LST standards
+    </a>
+    especially to the section on
+    <a href="listfileLSTstandards.html#ogl">
+        OGL Compliance
+    </a>
+    . The docs are
+    also available
+    <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/index.html">
+        online
+    </a>
+    on our
+    <a href="http://pcgen.sourceforge.net/autobuilds/">
+        autobuild
+        site
+    </a>
+    and are updated periodically.
+</p>
+<p>
+    In addition to the main
+    <a href="http://groups.yahoo.com/group/pcgen/">
+        PCGen Yahoo group
+    </a>
+    we
+    have several other lists to aid in data development.
+    <a href="http://groups.yahoo.com/group/pcgen_experimental/">
+        pcgen_experimental
+    </a>
+    is used for development. You can get in touch with other data
+    monkeys here and upload your files for others to review. It is a
+    good place to coordinate activity if multiple monkeys are working
+    on a source. Additionally it is the place where new LST syntax and
+    new tags are developed.
+    <a href="http://groups.yahoo.com/group/PCGenListFileHelp/">
+        PCGenListFileHelp
+    </a>
+    is the place to go for help with specific how-to problems with LST
+    files.
+    <a href="http://groups.yahoo.com/group/LSTfileclass/">
+        LSTFileClass
+    </a>
+    is a
+    group set up to publish lessons on how to create LST files. The LST
+    File Classes here in the docs were originally published there.
+</p>
+<h2>
+    Inclusion in Git
+</h2>
+<p>
+    When a source has been completed and is ready for inclusion in
+    the program it may be submitted in one of several ways. Data sets
+    can be uploaded to
+    <a href="http://groups.yahoo.com/group/pcgen_experimental/">
+        pcgen_experimental
+    </a>
+    to the appropriate folder and, along with a shout out to your
+    friendly neighborhood tracker monkey, they will be picked up for
+    review. Once submitted the data must pass an internal review before
+    it can be included in the Git repository.
+</p>
+<p>
+    When a new source is submitted for inclusion in PCGen an
+    internal issue is opened for the Source. This is a special issue
+    for tracking New Source Development and will be the repository for
+    all permission and OGL status reports concerning the source. This
+    issue will only contain permission and OGL status reports, bug
+    reports and the like will be entered in separately in the regular
+    issues. It will be closed when it has passed all the required
+    reviews and is checked in to the Git repository.
+</p>
+<p>
+    New submission issues will be opened by the Content Silverback
+    or the Chief Data Monkey. The dataset will be checked for obvious
+    errors that would prevent it from running in PCGen as well as for
+    completeness. Basically we are checking for show stoppers and not
+    much more. If we find a major problem we will contact the author to
+    get it resolved.
+</p>
+<p>
+    If the dataset meets these minimum requirement it is zipped up
+    and attached to the issue. The issue is then reassigned to the Open
+    Game License (OGL) personnel. If problems are found the issue is
+    reassigned back to Data who will work to resolve the issue. Once
+    resolved issue is again reassigned to OGL.
+</p>
+<p>
+    When OGL passes the Source it is reassigned to Publisher Liaison
+    (PL) who will attach publisher permission to the issue, though the
+    PL need not wait for this step and may attach permissions at any
+    time he receives them.
+</p>
+<p>
+    When the source has passed OGL and PL the issue is reassigned to
+    the Lead Data Monkey who will commit the dataset in the appropriate
+    directory. The issue is then closed.
+</p>
+<h2>
+    Alpha Development
+</h2>
+<p>
+    At this point the dataset author will be invited to continue
+    development and be granted Git access to continue work on the set.
+    QA should be informed that a new set is in Git which needs to be
+    reviewed. The author, the QA team and the Tracker Monkey team will
+    then work together to bring the set up to release quality. Once the
+    Dataset has been though the QA process and all known issues have
+    been resolved it is moved into a permanent location in the data
+    directory.
+</p>
+<p>
+</p>
+</body>
 </html>

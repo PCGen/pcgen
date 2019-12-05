@@ -35,53 +35,53 @@ import pcgen.rules.persistence.token.ParseResult;
 public class OptionToken extends AbstractNonEmptyToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "OPTION";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "OPTION";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
-	{
-		final int equalsPos = value.indexOf(Constants.EQUALS);
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
+    {
+        final int equalsPos = value.indexOf(Constants.EQUALS);
 
-		if (equalsPos < 0)
-		{
-			return new ParseResult.Fail("Invalid option line in campaign " + campaign.getKeyName() + " : " + value);
-		}
-		String optName = value.substring(0, equalsPos);
+        if (equalsPos < 0)
+        {
+            return new ParseResult.Fail("Invalid option line in campaign " + campaign.getKeyName() + " : " + value);
+        }
+        String optName = value.substring(0, equalsPos);
 
-		if (optName.regionMatches(true, 0, "pcgen.options.", 0, 14))
-		{
-			optName = optName.substring(14);
-		}
+        if (optName.regionMatches(true, 0, "pcgen.options.", 0, 14))
+        {
+            optName = optName.substring(14);
+        }
 
-		final String optValue = value.substring(equalsPos + 1);
-		context.getObjectContext().put(campaign, MapKey.PROPERTY, optName, optValue);
-		return ParseResult.SUCCESS;
-	}
+        final String optValue = value.substring(equalsPos + 1);
+        context.getObjectContext().put(campaign, MapKey.PROPERTY, optName, optValue);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		MapChanges<String, String> changes = context.getObjectContext().getMapChanges(campaign, MapKey.PROPERTY);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		Set<String> set = new TreeSet<>();
-		for (String property : changes.getAdded().keySet())
-		{
-			String value = changes.getAdded().get(property);
-			set.add(property + Constants.EQUALS + value);
-		}
-		return set.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        MapChanges<String, String> changes = context.getObjectContext().getMapChanges(campaign, MapKey.PROPERTY);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        Set<String> set = new TreeSet<>();
+        for (String property : changes.getAdded().keySet())
+        {
+            String value = changes.getAdded().get(property);
+            set.add(property + Constants.EQUALS + value);
+        }
+        return set.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

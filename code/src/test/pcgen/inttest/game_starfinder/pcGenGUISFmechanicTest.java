@@ -14,9 +14,9 @@ import org.junit.jupiter.api.Test;
  */
 public class pcGenGUISFmechanicTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testCode() throws IOException
-	{
-		runTest("sf_mechanic", "Starfinder");
-	}
+    @Test
+    public void testCode() throws IOException
+    {
+        runTest("sf_mechanic", "Starfinder");
+    }
 }

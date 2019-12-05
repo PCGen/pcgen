@@ -25,20 +25,20 @@ import pcgen.rules.context.LoadContext;
 public class OverlapLoader<T extends Loadable> extends SimpleLoader<T>
 {
 
-	public OverlapLoader(Class<T> cl)
-	{
-		super(cl);
-	}
+    public OverlapLoader(Class<T> cl)
+    {
+        super(cl);
+    }
 
-	@Override
-	protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
-	{
-		String name = processFirstToken(context, firstToken);
-		if (name == null)
-		{
-			return null;
-		}
-		return context.getReferenceContext().constructNowIfNecessary(getLoadClass(), name);
-	}
+    @Override
+    protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
+    {
+        String name = processFirstToken(context, firstToken);
+        if (name == null)
+        {
+            return null;
+        }
+        return context.getReferenceContext().constructNowIfNecessary(getLoadClass(), name);
+    }
 
 }

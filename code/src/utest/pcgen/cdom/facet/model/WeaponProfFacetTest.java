@@ -24,42 +24,42 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.WeaponProf;
 
 public class WeaponProfFacetTest extends
-		AbstractConsolidatingFacetTest<WeaponProf, WeaponProf>
+        AbstractConsolidatingFacetTest<WeaponProf, WeaponProf>
 {
 
-	private WeaponProfFacet facet = new WeaponProfFacet();
+    private WeaponProfFacet facet = new WeaponProfFacet();
 
-	@Override
-	protected WeaponProfFacet getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected WeaponProfFacet getFacet()
+    {
+        return facet;
+    }
 
-	public static int n = 0;
+    public static int n = 0;
 
-	@Override
-	protected WeaponProf getObject()
-	{
-		WeaponProf wp = new WeaponProf();
-		wp.setName("WP" + n++);
-		return wp;
-	}
+    @Override
+    protected WeaponProf getObject()
+    {
+        WeaponProf wp = new WeaponProf();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, WeaponProf> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, WeaponProf> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected WeaponProf getSourceObject()
-	{
-		return getObject();
-	}
+    @Override
+    protected WeaponProf getSourceObject()
+    {
+        return getObject();
+    }
 
-	@Override
-	protected WeaponProf getConverted(WeaponProf wp)
-	{
-		return wp;
-	}
+    @Override
+    protected WeaponProf getConverted(WeaponProf wp)
+    {
+        return wp;
+    }
 }

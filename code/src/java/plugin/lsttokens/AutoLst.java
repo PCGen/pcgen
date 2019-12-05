@@ -28,37 +28,37 @@ import pcgen.rules.persistence.token.ParseResult;
 public class AutoLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "AUTO";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "AUTO";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (obj instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
-		}
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail(getTokenName() + " requires a SubToken");
-		}
-		return context.processSubToken(obj, getTokenName(), value.substring(0, pipeLoc), value.substring(pipeLoc + 1));
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (obj instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
+        }
+        int pipeLoc = value.indexOf(Constants.PIPE);
+        if (pipeLoc == -1)
+        {
+            return new ParseResult.Fail(getTokenName() + " requires a SubToken");
+        }
+        return context.processSubToken(obj, getTokenName(), value.substring(0, pipeLoc), value.substring(pipeLoc + 1));
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		return context.unparseSubtoken(obj, getTokenName());
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        return context.unparseSubtoken(obj, getTokenName());
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

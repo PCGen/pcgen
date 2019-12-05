@@ -35,98 +35,97 @@ import pcgen.rules.persistence.token.ParseResult;
  * Level Ability token (a component of Kits)
  */
 public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
-		implements CDOMPrimaryToken<KitLevelAbility>, DeferredToken<Kit>
+        implements CDOMPrimaryToken<KitLevelAbility>, DeferredToken<Kit>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 *
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "LEVELABILITY";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "LEVELABILITY";
+    }
 
-	@Override
-	public Class<KitLevelAbility> getTokenClass()
-	{
-		return KitLevelAbility.class;
-	}
+    @Override
+    public Class<KitLevelAbility> getTokenClass()
+    {
+        return KitLevelAbility.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitLevelAbility kitLA, String value)
-	{
-		int equalLoc = value.indexOf('=');
-		if (equalLoc == -1)
-		{
-			return new ParseResult.Fail(getTokenName() + " requires an =: " + value);
-		}
-		if (equalLoc != value.lastIndexOf('='))
-		{
-			return new ParseResult.Fail(getTokenName() + " requires a single =: " + value);
-		}
-		String className = value.substring(0, equalLoc);
-		if (className.isEmpty())
-		{
-			return new ParseResult.Fail(getTokenName() + " requires a class name before =: " + value);
-		}
-		String level = value.substring(equalLoc + 1);
-		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class, className);
-		try
-		{
-			int lvl = Integer.parseInt(level);
-			if (lvl <= 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
-			}
-			kitLA.setLevel(lvl);
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
-		}
-		kitLA.setClass(cl);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitLevelAbility kitLA, String value)
+    {
+        int equalLoc = value.indexOf('=');
+        if (equalLoc == -1)
+        {
+            return new ParseResult.Fail(getTokenName() + " requires an =: " + value);
+        }
+        if (equalLoc != value.lastIndexOf('='))
+        {
+            return new ParseResult.Fail(getTokenName() + " requires a single =: " + value);
+        }
+        String className = value.substring(0, equalLoc);
+        if (className.isEmpty())
+        {
+            return new ParseResult.Fail(getTokenName() + " requires a class name before =: " + value);
+        }
+        String level = value.substring(equalLoc + 1);
+        CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class, className);
+        try
+        {
+            int lvl = Integer.parseInt(level);
+            if (lvl <= 0)
+            {
+                return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
+            }
+            kitLA.setLevel(lvl);
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
+        }
+        kitLA.setClass(cl);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitLevelAbility kitLA)
-	{
-		CDOMReference<PCClass> cl = kitLA.getPCClass();
-		if (cl == null)
-		{
-			return null;
-		}
-		int lvl = kitLA.getLevel();
-		return new String[]{cl.getLSTformat(false) + '=' + lvl};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitLevelAbility kitLA)
+    {
+        CDOMReference<PCClass> cl = kitLA.getPCClass();
+        if (cl == null)
+        {
+            return null;
+        }
+        int lvl = kitLA.getLevel();
+        return new String[]{cl.getLSTformat(false) + '=' + lvl};
+    }
 
-	@Override
-	public Class<Kit> getDeferredTokenClass()
-	{
-		return Kit.class;
-	}
+    @Override
+    public Class<Kit> getDeferredTokenClass()
+    {
+        return Kit.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, Kit obj)
-	{
-		for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
-		{
-			if (bk instanceof KitLevelAbility)
-			{
-				obj.setDoLevelAbilities(false);
-			}
-		}
-		return true;
-	}
+    @Override
+    public boolean process(LoadContext context, Kit obj)
+    {
+        for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
+        {
+            if (bk instanceof KitLevelAbility)
+            {
+                obj.setDoLevelAbilities(false);
+            }
+        }
+        return true;
+    }
 
-	/*
-	 * KitLevelAbility kla = (KitLevelAbility) bk; PersistentTransitionChoice<?>
-	 * add = kla.getAdd(); CDOMSingleRef<PCClass> ref = kla.getPCClass();
-	 * PCClass pcc = ref.resolvesTo(); List<PersistentTransitionChoice<?>>
-	 * addList = pcc.getListFor(ListKey.ADD); if (addList == null) { //Error }
-	 * else if (!addList.contains(add)) { //Error }
-	 */
+    /*
+     * KitLevelAbility kla = (KitLevelAbility) bk; PersistentTransitionChoice<?>
+     * add = kla.getAdd(); CDOMSingleRef<PCClass> ref = kla.getPCClass();
+     * PCClass pcc = ref.resolvesTo(); List<PersistentTransitionChoice<?>>
+     * addList = pcc.getListFor(ListKey.ADD); if (addList == null) { //Error }
+     * else if (!addList.contains(add)) { //Error }
+     */
 }

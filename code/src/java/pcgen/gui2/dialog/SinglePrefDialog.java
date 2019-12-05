@@ -33,50 +33,48 @@ import javafx.scene.control.ButtonBar;
 /**
  * The Class {@code SinglePrefDialog} displays a single
  * preference panel to the user.
- *
- * 
  */
 public final class SinglePrefDialog extends JDialog
 {
-	private final PCGenPrefsPanel prefsPanel;
+    private final PCGenPrefsPanel prefsPanel;
 
-	/**
-	 * Create a new modal SinglePrefDialog to display a particular panel.
-	 *  
-	 * @param parent The parent frame, used for positioning and to be modal 
-	 * @param prefsPanel The panel to be displayed.
-	 */
-	public SinglePrefDialog(JFrame parent, PCGenPrefsPanel prefsPanel)
-	{
-		super(parent, prefsPanel.getTitle(), true);
+    /**
+     * Create a new modal SinglePrefDialog to display a particular panel.
+     *
+     * @param parent     The parent frame, used for positioning and to be modal
+     * @param prefsPanel The panel to be displayed.
+     */
+    public SinglePrefDialog(JFrame parent, PCGenPrefsPanel prefsPanel)
+    {
+        super(parent, prefsPanel.getTitle(), true);
 
-		this.prefsPanel = prefsPanel;
+        this.prefsPanel = prefsPanel;
 
-		ButtonBar controlPanel = new OKCloseButtonBar(
-				this::okButtonActionPerformed,
-				this::cancelButtonActionPerformed
-		);
+        ButtonBar controlPanel = new OKCloseButtonBar(
+                this::okButtonActionPerformed,
+                this::cancelButtonActionPerformed
+        );
 
-		this.getContentPane().setLayout(new BorderLayout());
-		this.getContentPane().add(prefsPanel, BorderLayout.CENTER);
-		this.getContentPane().add(GuiUtility.wrapParentAsJFXPanel(controlPanel), BorderLayout.PAGE_END);
-		prefsPanel.applyOptionValuesToControls();
-		pack();
-		Utility.installEscapeCloseOperation(this);
-	}
+        this.getContentPane().setLayout(new BorderLayout());
+        this.getContentPane().add(prefsPanel, BorderLayout.CENTER);
+        this.getContentPane().add(GuiUtility.wrapParentAsJFXPanel(controlPanel), BorderLayout.PAGE_END);
+        prefsPanel.applyOptionValuesToControls();
+        pack();
+        Utility.installEscapeCloseOperation(this);
+    }
 
-	private void cancelButtonActionPerformed(final ActionEvent actionEvent)
-	{
-		setVisible(false);
-		this.dispose();
-	}
+    private void cancelButtonActionPerformed(final ActionEvent actionEvent)
+    {
+        setVisible(false);
+        this.dispose();
+    }
 
-	private void okButtonActionPerformed(final ActionEvent actionEvent)
-	{
-		prefsPanel.setOptionsBasedOnControls();
-		setVisible(false);
+    private void okButtonActionPerformed(final ActionEvent actionEvent)
+    {
+        prefsPanel.setOptionsBasedOnControls();
+        setVisible(false);
 
-		this.dispose();
-	}
+        this.dispose();
+    }
 
 }

@@ -25,16 +25,22 @@ import java.util.logging.Level;
  */
 public final class PCGenLogLevel extends Level
 {
-	/** Logging level for LST errors such as syntax errors. */
-	public static final PCGenLogLevel LST_ERROR = new PCGenLogLevel("LSTERROR", 950);
-	/** Logging level for LST warnings such as deprectaed syntax use. */
-	public static final PCGenLogLevel LST_WARNING = new PCGenLogLevel("LSTWARN", 850);
-	/** Logging level for LST information such as references to missing items in PRE or CHOOSE tags. */
-	public static final PCGenLogLevel LST_INFO = new PCGenLogLevel("LSTINFO", 750);
+    /**
+     * Logging level for LST errors such as syntax errors.
+     */
+    public static final PCGenLogLevel LST_ERROR = new PCGenLogLevel("LSTERROR", 950);
+    /**
+     * Logging level for LST warnings such as deprectaed syntax use.
+     */
+    public static final PCGenLogLevel LST_WARNING = new PCGenLogLevel("LSTWARN", 850);
+    /**
+     * Logging level for LST information such as references to missing items in PRE or CHOOSE tags.
+     */
+    public static final PCGenLogLevel LST_INFO = new PCGenLogLevel("LSTINFO", 750);
 
-	private PCGenLogLevel(String arg0, int arg1)
-	{
-		super(arg0, arg1);
-	}
+    private PCGenLogLevel(String arg0, int arg1)
+    {
+        super(arg0, arg1);
+    }
 
 }

@@ -32,38 +32,39 @@ import pcgen.system.LanguageBundle;
 public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		int runningTotal = 0;
-		final GameMode gm = SettingsHandler.getGame();
-		if (gm != null)
-		{
-			final String purchaseMode = gm.getPurchaseModeMethodName();
-			if ((purchaseMode != null) && purchaseMode.equalsIgnoreCase(prereq.getKey()))
-			{
-				++runningTotal;
-			}
-		}
-		return countedTotal(prereq, runningTotal);
-	}
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        int runningTotal = 0;
+        final GameMode gm = SettingsHandler.getGame();
+        if (gm != null)
+        {
+            final String purchaseMode = gm.getPurchaseModeMethodName();
+            if ((purchaseMode != null) && purchaseMode.equalsIgnoreCase(prereq.getKey()))
+            {
+                ++runningTotal;
+            }
+        }
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "POINTBUYMETHOD"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "POINTBUYMETHOD"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		final String foo = LanguageBundle.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
-			prereq.getKey());
-		return foo;
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        final String foo = LanguageBundle.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
+                prereq.getKey());
+        return foo;
+    }
 
 }

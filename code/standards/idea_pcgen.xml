@@ -1,54 +1,54 @@
 <code_scheme name="pcgennew">
-  <option name="JAVA_INDENT_OPTIONS">
-    <value>
-      <option name="INDENT_SIZE" value="4" />
-      <option name="CONTINUATION_INDENT_SIZE" value="4" />
-      <option name="TAB_SIZE" value="4" />
-      <option name="USE_TAB_CHARACTER" value="true" />
-      <option name="SMART_TABS" value="false" />
-      <option name="LABEL_INDENT_SIZE" value="0" />
-      <option name="LABEL_INDENT_ABSOLUTE" value="false" />
-      <option name="USE_RELATIVE_INDENTS" value="false" />
-    </value>
-  </option>
-  <option name="LINE_SEPARATOR" value="&#xA;" />
-  <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="998" />
-  <option name="PACKAGES_TO_USE_IMPORT_ON_DEMAND">
-    <value />
-  </option>
-  <option name="IMPORT_LAYOUT_TABLE">
-    <value>
-      <package name="java" withSubpackages="true" static="false" />
-      <emptyLine />
-      <package name="javax" withSubpackages="true" static="false" />
-      <emptyLine />
-      <package name="gmgem" withSubpackages="true" static="false" />
-      <package name="pcgen" withSubpackages="true" static="false" />
-      <emptyLine />
-      <package name="" withSubpackages="true" static="false" />
-      <emptyLine />
-      <package name="" withSubpackages="true" static="true" />
-    </value>
-  </option>
-  <option name="JD_DO_NOT_WRAP_ONE_LINE_COMMENTS" value="true" />
-  <option name="JD_PRESERVE_LINE_FEEDS" value="true" />
-  <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
-  <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
-  <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
-  <option name="BRACE_STYLE" value="2" />
-  <option name="CLASS_BRACE_STYLE" value="2" />
-  <option name="METHOD_BRACE_STYLE" value="2" />
-  <option name="ELSE_ON_NEW_LINE" value="true" />
-  <option name="WHILE_ON_NEW_LINE" value="true" />
-  <option name="CATCH_ON_NEW_LINE" value="true" />
-  <option name="FINALLY_ON_NEW_LINE" value="true" />
-  <codeStyleSettings language="JAVA">
-    <option name="CLASS_BRACE_STYLE" value="2" />
-    <option name="METHOD_BRACE_STYLE" value="2" />
-    <option name="METHOD_PARAMETERS_WRAP" value="5" />
-    <option name="EXTENDS_LIST_WRAP" value="5" />
-    <option name="THROWS_LIST_WRAP" value="1" />
-    <option name="EXTENDS_KEYWORD_WRAP" value="1" />
-    <option name="THROWS_KEYWORD_WRAP" value="1" />
-  </codeStyleSettings>
+    <option name="JAVA_INDENT_OPTIONS">
+        <value>
+            <option name="INDENT_SIZE" value="4"/>
+            <option name="CONTINUATION_INDENT_SIZE" value="4"/>
+            <option name="TAB_SIZE" value="4"/>
+            <option name="USE_TAB_CHARACTER" value="true"/>
+            <option name="SMART_TABS" value="false"/>
+            <option name="LABEL_INDENT_SIZE" value="0"/>
+            <option name="LABEL_INDENT_ABSOLUTE" value="false"/>
+            <option name="USE_RELATIVE_INDENTS" value="false"/>
+        </value>
+    </option>
+    <option name="LINE_SEPARATOR" value="&#xA;"/>
+    <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="998"/>
+    <option name="PACKAGES_TO_USE_IMPORT_ON_DEMAND">
+        <value/>
+    </option>
+    <option name="IMPORT_LAYOUT_TABLE">
+        <value>
+            <package name="java" withSubpackages="true" static="false"/>
+            <emptyLine/>
+            <package name="javax" withSubpackages="true" static="false"/>
+            <emptyLine/>
+            <package name="gmgem" withSubpackages="true" static="false"/>
+            <package name="pcgen" withSubpackages="true" static="false"/>
+            <emptyLine/>
+            <package name="" withSubpackages="true" static="false"/>
+            <emptyLine/>
+            <package name="" withSubpackages="true" static="true"/>
+        </value>
+    </option>
+    <option name="JD_DO_NOT_WRAP_ONE_LINE_COMMENTS" value="true"/>
+    <option name="JD_PRESERVE_LINE_FEEDS" value="true"/>
+    <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false"/>
+    <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1"/>
+    <option name="KEEP_BLANK_LINES_IN_CODE" value="1"/>
+    <option name="BRACE_STYLE" value="2"/>
+    <option name="CLASS_BRACE_STYLE" value="2"/>
+    <option name="METHOD_BRACE_STYLE" value="2"/>
+    <option name="ELSE_ON_NEW_LINE" value="true"/>
+    <option name="WHILE_ON_NEW_LINE" value="true"/>
+    <option name="CATCH_ON_NEW_LINE" value="true"/>
+    <option name="FINALLY_ON_NEW_LINE" value="true"/>
+    <codeStyleSettings language="JAVA">
+        <option name="CLASS_BRACE_STYLE" value="2"/>
+        <option name="METHOD_BRACE_STYLE" value="2"/>
+        <option name="METHOD_PARAMETERS_WRAP" value="5"/>
+        <option name="EXTENDS_LIST_WRAP" value="5"/>
+        <option name="THROWS_LIST_WRAP" value="1"/>
+        <option name="EXTENDS_KEYWORD_WRAP" value="1"/>
+        <option name="THROWS_KEYWORD_WRAP" value="1"/>
+    </codeStyleSettings>
 </code_scheme>

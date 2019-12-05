@@ -22,51 +22,49 @@ import java.math.BigDecimal;
 public final class SkillUtilities
 {
 
-	private SkillUtilities()
-	{
-	}
+    private SkillUtilities()
+    {
+    }
 
-	/**
-	 * Returns the maximum number of ranks a character can have in a class skill
-	 * at the specified level. <p>Should this be moved to PCClass?
-	 *
-	 * @param level
-	 *            character level to get max skill ranks for
-	 * @param pc
-	 * @return The maximum allowed skill ranks
-	 */
-	public static BigDecimal maxClassSkillForLevel(final int level, final PlayerCharacter pc)
-	{
-		LevelInfo info = pc.getXPTableLevelInfo(level);
-		if (info != null)
-		{
-			return info.getMaxClassSkillRank(level, pc);
-		}
-		/*
-		 * TODO Should this be a warning/error?
-		 */
-		return BigDecimal.ZERO;
-	}
+    /**
+     * Returns the maximum number of ranks a character can have in a class skill
+     * at the specified level. <p>Should this be moved to PCClass?
+     *
+     * @param level character level to get max skill ranks for
+     * @param pc
+     * @return The maximum allowed skill ranks
+     */
+    public static BigDecimal maxClassSkillForLevel(final int level, final PlayerCharacter pc)
+    {
+        LevelInfo info = pc.getXPTableLevelInfo(level);
+        if (info != null)
+        {
+            return info.getMaxClassSkillRank(level, pc);
+        }
+        /*
+         * TODO Should this be a warning/error?
+         */
+        return BigDecimal.ZERO;
+    }
 
-	/**
-	 * Returns the maximum number of ranks a character can <p>have in a
-	 * cross-class skill at the specified level.
-	 *
-	 * @param level
-	 *            character level to get max skill ranks for
-	 * @param pc
-	 * @return The maximum allowed skill ranks
-	 */
-	public static BigDecimal maxCrossClassSkillForLevel(final int level, final PlayerCharacter pc)
-	{
-		LevelInfo info = pc.getXPTableLevelInfo(level);
-		if (info != null)
-		{
-			return info.getMaxCrossClassSkillRank(level, pc);
-		}
-		/*
-		 * TODO Should this be a warning/error?
-		 */
-		return BigDecimal.ZERO;
-	}
+    /**
+     * Returns the maximum number of ranks a character can <p>have in a
+     * cross-class skill at the specified level.
+     *
+     * @param level character level to get max skill ranks for
+     * @param pc
+     * @return The maximum allowed skill ranks
+     */
+    public static BigDecimal maxCrossClassSkillForLevel(final int level, final PlayerCharacter pc)
+    {
+        LevelInfo info = pc.getXPTableLevelInfo(level);
+        if (info != null)
+        {
+            return info.getMaxCrossClassSkillRank(level, pc);
+        }
+        /*
+         * TODO Should this be a warning/error?
+         */
+        return BigDecimal.ZERO;
+    }
 }

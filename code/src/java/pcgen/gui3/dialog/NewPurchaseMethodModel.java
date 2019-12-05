@@ -28,37 +28,39 @@ import javafx.beans.property.StringProperty;
  */
 public class NewPurchaseMethodModel
 {
-	private boolean cancelled = false;
-	private final StringProperty name = new SimpleStringProperty();
-	private final IntegerProperty points = new SimpleIntegerProperty();
+    private boolean cancelled = false;
+    private final StringProperty name = new SimpleStringProperty();
+    private final IntegerProperty points = new SimpleIntegerProperty();
 
-	StringProperty nameProperty()
-	{
-		return name;
-	}
+    StringProperty nameProperty()
+    {
+        return name;
+    }
 
-	IntegerProperty pointsProperty()
-	{
-		return points;
-	}
+    IntegerProperty pointsProperty()
+    {
+        return points;
+    }
 
-	/**
-	 * This class is a dialog and returns its result.
-	 * We should probably make this a real {@code javafx.scene.control.Dialog}
-	 * In the meantime this returns said state.
-	 * @return if the dialog was closed via cancel or "ok"
-	 */
-	public boolean isCancelled()
-	{
-		return cancelled;
-	}
+    /**
+     * This class is a dialog and returns its result.
+     * We should probably make this a real {@code javafx.scene.control.Dialog}
+     * In the meantime this returns said state.
+     *
+     * @return if the dialog was closed via cancel or "ok"
+     */
+    public boolean isCancelled()
+    {
+        return cancelled;
+    }
 
-	/**
-	 * Sets cancelled state. See isCancelled for details
-	 * @param cancelled state to set
-	 */
-	void setCancelled(boolean cancelled)
-	{
-		this.cancelled = cancelled;
-	}
+    /**
+     * Sets cancelled state. See isCancelled for details
+     *
+     * @param cancelled state to set
+     */
+    void setCancelled(boolean cancelled)
+    {
+        this.cancelled = cancelled;
+    }
 }

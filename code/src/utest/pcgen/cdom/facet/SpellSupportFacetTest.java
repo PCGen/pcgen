@@ -24,29 +24,29 @@ import pcgen.core.PCClass;
 import pcgen.core.SpellSupportForPCClass;
 
 public class SpellSupportFacetTest extends
-		AbstractAssociationFacetTest<PCClass, SpellSupportForPCClass>
+        AbstractAssociationFacetTest<PCClass, SpellSupportForPCClass>
 {
-	private SpellSupportFacet facet = new SpellSupportFacet();
+    private SpellSupportFacet facet = new SpellSupportFacet();
 
-	@Override
-	protected SpellSupportForPCClass developSource(PCClass obj)
-	{
-		return new SpellSupportForPCClass(obj);
-	}
+    @Override
+    protected SpellSupportForPCClass developSource(PCClass obj)
+    {
+        return new SpellSupportForPCClass(obj);
+    }
 
-	@Override
-	protected AbstractAssociationFacet<CharID, PCClass, SpellSupportForPCClass> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractAssociationFacet<CharID, PCClass, SpellSupportForPCClass> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected PCClass getTypeObj()
-	{
-		PCClass cl = new PCClass();
-		cl.setName("Class" + n++);
-		return cl;
-	}
+    @Override
+    protected PCClass getTypeObj()
+    {
+        PCClass cl = new PCClass();
+        cl.setName("Class" + n++);
+        return cl;
+    }
 }

@@ -35,40 +35,39 @@ import javafx.scene.control.TextField;
  */
 public class CalculatorDialogController
 {
-	@FXML
-	private TextField formulaText;
-	@FXML
-	private TextArea outputText;
+    @FXML
+    private TextField formulaText;
+    @FXML
+    private TextArea outputText;
 
-	@FXML
-	private void onCalculate(final ActionEvent actionEvent)
-	{
-		String formula = formulaText.getText();
-		// This is really temporary until everything is converted
-		// to JavaFX and we could actually legally access our parent.
-		PCGenFrame rootFrame = (PCGenFrame) Globals.getRootFrame();
-		ReferenceFacade<CharacterFacade> selectedCharacterRef = rootFrame.getSelectedCharacterRef();
-		CharacterFacade currentPC = selectedCharacterRef.get();
+    @FXML
+    private void onCalculate(final ActionEvent actionEvent)
+    {
+        String formula = formulaText.getText();
+        // This is really temporary until everything is converted
+        // to JavaFX and we could actually legally access our parent.
+        PCGenFrame rootFrame = (PCGenFrame) Globals.getRootFrame();
+        ReferenceFacade<CharacterFacade> selectedCharacterRef = rootFrame.getSelectedCharacterRef();
+        CharacterFacade currentPC = selectedCharacterRef.get();
 
-		if (currentPC != null)
-		{
-			VariableProcessor vp = currentPC.getVariableProcessor();
-			vp.pauseCache();
-			outputText.setText(outputText.getText()
-					+ currentPC.getNameRef() + ": " + formula + " = " + currentPC.getVariable(formula, true) + '\n');
-			vp.restartCache();
-		}
-		else
-		{
-			outputText.setText(outputText.getText() + "No character currently selected.\n");
-		}
-		formulaText.requestFocus();
+        if (currentPC != null)
+        {
+            VariableProcessor vp = currentPC.getVariableProcessor();
+            vp.pauseCache();
+            outputText.setText(outputText.getText()
+                    + currentPC.getNameRef() + ": " + formula + " = " + currentPC.getVariable(formula, true) + '\n');
+            vp.restartCache();
+        } else
+        {
+            outputText.setText(outputText.getText() + "No character currently selected.\n");
+        }
+        formulaText.requestFocus();
 
-	}
+    }
 
-	@FXML
-	private void onClear(final ActionEvent actionEvent)
-	{
-		outputText.clear();
-	}
+    @FXML
+    private void onClear(final ActionEvent actionEvent)
+    {
+        outputText.clear();
+    }
 }

@@ -25,19 +25,20 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreShieldProfParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"PROFWITHSHIELD"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"PROFWITHSHIELD"};
+    }
 
-	@Override
-	protected boolean isAnyLegal()
-	{
-		return false;
-	}
+    @Override
+    protected boolean isAnyLegal()
+    {
+        return false;
+    }
 }

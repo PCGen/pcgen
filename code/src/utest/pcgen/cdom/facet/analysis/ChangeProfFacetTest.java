@@ -35,66 +35,66 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import org.junit.jupiter.api.BeforeEach;
 
 public class ChangeProfFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, ChangeProf>
+        AbstractExtractingFacetTest<CDOMObject, ChangeProf>
 {
 
-	public static int n = 0;
+    public static int n = 0;
 
-	private ChangeProfFacet facet = new ChangeProfFacet();
-	private ChangeProf[] target;
-	private CDOMObject[] source;
+    private ChangeProfFacet facet = new ChangeProfFacet();
+    private ChangeProf[] target;
+    private CDOMObject[] source;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		context =
-			new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
-				new ConsolidatedListCommitStrategy());
-		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Template1");
-		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race1");
-		ChangeProf st1 = getObject();
-		ChangeProf st2 = getObject();
-		cdo1.addToListFor(ListKey.CHANGEPROF, st1);
-		cdo2.addToListFor(ListKey.CHANGEPROF, st2);
-		source = new CDOMObject[]{cdo1, cdo2};
-		target = new ChangeProf[]{st1, st2};
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        context =
+                new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+                        new ConsolidatedListCommitStrategy());
+        CDOMObject cdo1 = new PCTemplate();
+        cdo1.setName("Template1");
+        CDOMObject cdo2 = new Race();
+        cdo2.setName("Race1");
+        ChangeProf st1 = getObject();
+        ChangeProf st2 = getObject();
+        cdo1.addToListFor(ListKey.CHANGEPROF, st1);
+        cdo2.addToListFor(ListKey.CHANGEPROF, st2);
+        source = new CDOMObject[]{cdo1, cdo2};
+        target = new ChangeProf[]{st1, st2};
+    }
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, ChangeProf> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, ChangeProf> getFacet()
+    {
+        return facet;
+    }
 
-	private LoadContext context;
+    private LoadContext context;
 
-	@Override
-	protected ChangeProf getObject()
-	{
-		return new ChangeProf(context.getReferenceContext().getCDOMReference(WeaponProf.class,
-			"StartProf" + n++), context.getReferenceContext().getCDOMTypeReference(
-			WeaponProf.class, "Gorpy"));
-	}
+    @Override
+    protected ChangeProf getObject()
+    {
+        return new ChangeProf(context.getReferenceContext().getCDOMReference(WeaponProf.class,
+                "StartProf" + n++), context.getReferenceContext().getCDOMTypeReference(
+                WeaponProf.class, "Gorpy"));
+    }
 
-	@Override
-	protected CDOMObject getContainingObject(int i)
-	{
-		return source[i];
-	}
+    @Override
+    protected CDOMObject getContainingObject(int i)
+    {
+        return source[i];
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, CDOMObject> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected ChangeProf getTargetObject(int i)
-	{
-		return target[i];
-	}
+    @Override
+    protected ChangeProf getTargetObject(int i)
+    {
+        return target[i];
+    }
 }

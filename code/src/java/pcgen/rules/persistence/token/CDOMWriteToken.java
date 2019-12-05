@@ -22,5 +22,5 @@ import pcgen.rules.context.LoadContext;
 
 public interface CDOMWriteToken<T> extends LstToken
 {
-	String[] unparse(LoadContext context, T obj);
+    String[] unparse(LoadContext context, T obj);
 }

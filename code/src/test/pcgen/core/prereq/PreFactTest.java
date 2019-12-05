@@ -39,48 +39,48 @@ import org.junit.jupiter.api.Test;
 public class PreFactTest extends AbstractCharacterTestCase
 {
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		LoadContext context = Globals.getContext();
-		BuildUtilities.createFact(context, "Abb", Race.class);
-		finishLoad();
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        LoadContext context = Globals.getContext();
+        BuildUtilities.createFact(context, "Abb", Race.class);
+        finishLoad();
+    }
 
-	/**
-	 * Test the PREFACT code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testFact() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		Race race = new Race();
-		BuildUtilities.setFact(race, "ABB", "Hgln");
-		race.setName("Hobgoblin");
+    /**
+     * Test the PREFACT code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testFact() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        Race race = new Race();
+        BuildUtilities.setFact(race, "ABB", "Hgln");
+        race.setName("Hobgoblin");
 
-		character.setRace(race);
+        character.setRace(race);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREFACT:1,RACE,ABB=Hum");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREFACT:1,RACE,ABB=Hum");
 
-		assertFalse(PrereqHandler.passes(
-			prereq, character, null), "Character should not be a matching race");
+        assertFalse(PrereqHandler.passes(
+                prereq, character, null), "Character should not be a matching race");
 
-		prereq = factory.parse("PREFACT:1,RACE,ABB=Hgln");
+        prereq = factory.parse("PREFACT:1,RACE,ABB=Hgln");
 
-		assertTrue(PrereqHandler.passes(prereq,
-			character, null), "Character should be a matching race");
-	}
+        assertTrue(PrereqHandler.passes(prereq,
+                character, null), "Character should be a matching race");
+    }
 
-	@Override
-	protected void defaultSetupEnd()
-	{
-		//Nothing, we will trigger ourselves
-	}
+    @Override
+    protected void defaultSetupEnd()
+    {
+        //Nothing, we will trigger ourselves
+    }
 }

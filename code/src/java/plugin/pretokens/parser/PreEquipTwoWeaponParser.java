@@ -22,13 +22,14 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 public class PreEquipTwoWeaponParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"EQUIPTWOWEAPON"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"EQUIPTWOWEAPON"};
+    }
 }

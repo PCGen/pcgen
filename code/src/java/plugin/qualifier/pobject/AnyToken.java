@@ -34,133 +34,129 @@ import pcgen.util.Logging;
 public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 {
 
-	private Class<T> refClass;
+    private Class<T> refClass;
 
-	private PrimitiveCollection<T> pcs = null;
+    private PrimitiveCollection<T> pcs = null;
 
-	private boolean wasRestricted = false;
+    private boolean wasRestricted = false;
 
-	private boolean negated = false;
+    private boolean negated = false;
 
-	@Override
-	public String getTokenName()
-	{
-		return "ANY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ANY";
+    }
 
-	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<T> sc, String condition, String value,
-		boolean negate)
-	{
-		if (condition != null)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
-			return false;
-		}
-		if (sc == null)
-		{
-			throw new IllegalArgumentException();
-		}
-		refClass = sc.getReferenceClass();
-		negated = negate;
-		if (value == null)
-		{
-			pcs = sc.getAllReference();
-		}
-		else
-		{
-			pcs = context.getPrimitiveChoiceFilter(sc, value);
-			wasRestricted = true;
-		}
-		return pcs != null;
-	}
+    @Override
+    public boolean initialize(LoadContext context, SelectionCreator<T> sc, String condition, String value,
+            boolean negate)
+    {
+        if (condition != null)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    "Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
+            return false;
+        }
+        if (sc == null)
+        {
+            throw new IllegalArgumentException();
+        }
+        refClass = sc.getReferenceClass();
+        negated = negate;
+        if (value == null)
+        {
+            pcs = sc.getAllReference();
+        } else
+        {
+            pcs = context.getPrimitiveChoiceFilter(sc, value);
+            wasRestricted = true;
+        }
+        return pcs != null;
+    }
 
-	@Override
-	public Class<? super T> getReferenceClass()
-	{
-		if (refClass == null)
-		{
-			return CDOMObject.class;
-		}
-		else
-		{
-			return refClass;
-		}
-	}
+    @Override
+    public Class<? super T> getReferenceClass()
+    {
+        if (refClass == null)
+        {
+            return CDOMObject.class;
+        } else
+        {
+            return refClass;
+        }
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		StringBuilder sb = new StringBuilder();
-		if (negated)
-		{
-			sb.append('!');
-		}
-		sb.append(getTokenName());
-		if (wasRestricted)
-		{
-			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
-		}
-		return sb.toString();
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        StringBuilder sb = new StringBuilder();
+        if (negated)
+        {
+            sb.append('!');
+        }
+        sb.append(getTokenName());
+        if (wasRestricted)
+        {
+            sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
+        }
+        return sb.toString();
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return pcs == null ? 0 : pcs.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return pcs == null ? 0 : pcs.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o instanceof AnyToken)
-		{
-			AnyToken<?> other = (AnyToken<?>) o;
-			if (pcs == null)
-			{
-				if (other.pcs != null)
-				{
-					return false;
-				}
-			}
-			else
-			{
-				if (!pcs.equals(other.pcs))
-				{
-					return false;
-				}
-			}
-			if (refClass == null)
-			{
-				if (other.refClass != null)
-				{
-					return false;
-				}
-			}
-			else
-			{
-				if (!refClass.equals(other.refClass))
-				{
-					return false;
-				}
-			}
-			return negated == other.negated;
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o instanceof AnyToken)
+        {
+            AnyToken<?> other = (AnyToken<?>) o;
+            if (pcs == null)
+            {
+                if (other.pcs != null)
+                {
+                    return false;
+                }
+            } else
+            {
+                if (!pcs.equals(other.pcs))
+                {
+                    return false;
+                }
+            }
+            if (refClass == null)
+            {
+                if (other.refClass != null)
+                {
+                    return false;
+                }
+            } else
+            {
+                if (!refClass.equals(other.refClass))
+                {
+                    return false;
+                }
+            }
+            return negated == other.negated;
+        }
+        return false;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		GroupingState gs = pcs == null ? GroupingState.ALLOWS_NONE : pcs.getGroupingState();
-		return negated ? gs.negate() : gs;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        GroupingState gs = pcs == null ? GroupingState.ALLOWS_NONE : pcs.getGroupingState();
+        return negated ? gs.negate() : gs;
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
-	{
-		Converter<T, R> conv = negated ? new NegateFilterConverter<>(c) : c;
-		return pcs.getCollection(pc, conv);
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+    {
+        Converter<T, R> conv = negated ? new NegateFilterConverter<>(c) : c;
+        return pcs.getCollection(pc, conv);
+    }
 }

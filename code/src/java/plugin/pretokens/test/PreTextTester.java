@@ -32,41 +32,42 @@ import pcgen.system.LanguageBundle;
 public class PreTextTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		// PRETEXT: is a flavor text string that needs
-		// to be displayed in the GUI, but the PC
-		// should always be qualified to take it, as
-		// it's a DM call/issue
-		if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
-		{
-			return countedTotal(prereq, 0);
-		}
-		return countedTotal(prereq, 1);
-	}
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        // PRETEXT: is a flavor text string that needs
+        // to be displayed in the GUI, but the PC
+        // should always be qualified to take it, as
+        // it's a DM call/issue
+        if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+        {
+            return countedTotal(prereq, 0);
+        }
+        return countedTotal(prereq, 1);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "TEXT"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "TEXT"; //$NON-NLS-1$
+    }
 
-	/**
-	 * Convert PreReq to an HTML string
-	 * 
-	 * @param prereq
-	 * @return html String representation of the PreReq 
-	 */
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString("AbstractPrerequisiteTest.toHtml",
-			prereq.getOperator().toDisplayString(), "", "", prereq.getKey());
-	}
+    /**
+     * Convert PreReq to an HTML string
+     *
+     * @param prereq
+     * @return html String representation of the PreReq
+     */
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString("AbstractPrerequisiteTest.toHtml",
+                prereq.getOperator().toDisplayString(), "", "", prereq.getKey());
+    }
 
 }

@@ -27,15 +27,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class SpeechTendancyToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "SPEECHTENDENCY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPEECHTENDENCY";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getSpeechTendency();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getSpeechTendency();
+    }
 }

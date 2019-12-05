@@ -29,29 +29,29 @@ import org.junit.jupiter.api.Test;
 
 class PreRuleParserTest extends EnUsLocaleDependentTestCase
 {
-	@Test
-	public void testPositive() throws PersistenceLayerException
-	{
-		PreRuleParser parser = new PreRuleParser();
-		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", false, false);
+    @Test
+    public void testPositive() throws PersistenceLayerException
+    {
+        PreRuleParser parser = new PreRuleParser();
+        Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", false, false);
 
-		assertEquals(
-			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
-			prereq.toString());
-		assertFalse(prereq.isCharacterRequired(), "Prerule should nto need a character");
-	}
+        assertEquals(
+                "<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
+                prereq.toString());
+        assertFalse(prereq.isCharacterRequired(), "Prerule should nto need a character");
+    }
 
 
-	@Test
-	public void testNegative() throws PersistenceLayerException
-	{
-		PreRuleParser parser = new PreRuleParser();
-		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", true, false);
+    @Test
+    public void testNegative() throws PersistenceLayerException
+    {
+        PreRuleParser parser = new PreRuleParser();
+        Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", true, false);
 
-		assertEquals(
-			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
-			prereq.toString());
-		assertFalse(prereq.isCharacterRequired(), "Prerule should nto need a character");
-	}
+        assertEquals(
+                "<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
+                prereq.toString());
+        assertFalse(prereq.isCharacterRequired(), "Prerule should nto need a character");
+    }
 
 }

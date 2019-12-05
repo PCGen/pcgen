@@ -28,23 +28,22 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class StartStatMaxToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "STARTSTATMAX";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "STARTSTATMAX";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			gameMode.setStatMax(Integer.parseInt(value));
-			return true;
-		}
-		catch (NumberFormatException exc)
-		{
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            gameMode.setStatMax(Integer.parseInt(value));
+            return true;
+        } catch (NumberFormatException exc)
+        {
+            return false;
+        }
+    }
 }

@@ -30,42 +30,42 @@ import pcgen.rules.persistence.token.ParseResult;
 public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements CDOMPrimaryToken<PCAlignment>
 {
 
-	/**
-	 * Return token name
-	 *
-	 * @return token name
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "ABB";
-	}
+    /**
+     * Return token name
+     *
+     * @return token name
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "ABB";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCAlignment al, String value)
-	{
-		if (!context.processToken(al, "KEY", value))
-		{
-			return new ParseResult.Fail("Internal Error");
-		}
-		context.getObjectContext().put(al, StringKey.ABB_KR, value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, PCAlignment al, String value)
+    {
+        if (!context.processToken(al, "KEY", value))
+        {
+            return new ParseResult.Fail("Internal Error");
+        }
+        context.getObjectContext().put(al, StringKey.ABB_KR, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PCAlignment al)
-	{
-		String abb = context.getObjectContext().getString(al, StringKey.ABB_KR);
-		if (abb == null)
-		{
-			return null;
-		}
-		return new String[]{abb};
-	}
+    @Override
+    public String[] unparse(LoadContext context, PCAlignment al)
+    {
+        String abb = context.getObjectContext().getString(al, StringKey.ABB_KR);
+        if (abb == null)
+        {
+            return null;
+        }
+        return new String[]{abb};
+    }
 
-	@Override
-	public Class<PCAlignment> getTokenClass()
-	{
-		return PCAlignment.class;
-	}
+    @Override
+    public Class<PCAlignment> getTokenClass()
+    {
+        return PCAlignment.class;
+    }
 }

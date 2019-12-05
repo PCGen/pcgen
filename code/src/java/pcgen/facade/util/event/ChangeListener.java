@@ -20,16 +20,15 @@ package pcgen.facade.util.event;
 /**
  * The interface {@code ChangeListener} should be implemented by classes interested in
  * object changes.
- *
- * 
  */
 
 @FunctionalInterface
 public interface ChangeListener
 {
-	/**
-	 * Notification that an item changed.
-	 * @param event The change event.
-	 */
+    /**
+     * Notification that an item changed.
+     *
+     * @param event The change event.
+     */
     void ItemChanged(ChangeEvent event);
 }

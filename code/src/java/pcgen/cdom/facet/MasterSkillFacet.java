@@ -5,12 +5,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -34,42 +34,41 @@ import pcgen.rules.context.LoadContext;
  * lists. This allows faster checking of whether skills are class skills for a
  * character class. Note this is a "global" facet in that it does not have
  * method that depend on CharID (they are not character specific).
- * 
  */
 public class MasterSkillFacet extends AbstractScopeFacet<DataSetID, ClassSkillList, Skill>
-		implements DataSetInitializedFacet
+        implements DataSetInitializedFacet
 {
 
-	private DataSetInitializationFacet datasetInitializationFacet;
+    private DataSetInitializationFacet datasetInitializationFacet;
 
-	@Override
-	public synchronized void initialize(LoadContext context)
-	{
-		DataSetID dsID = context.getDataSetID();
-		if (getCache(dsID) == null)
-		{
-			MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
-			for (CDOMReference ref : masterLists.getActiveLists())
-			{
-				Collection objects = masterLists.getObjects(ref);
-				for (Object cl : ref.getContainedObjects())
-				{
-					if (cl instanceof ClassSkillList)
-					{
-						addAll(dsID, (ClassSkillList) cl, objects, cl);
-					}
-				}
-			}
-		}
-	}
+    @Override
+    public synchronized void initialize(LoadContext context)
+    {
+        DataSetID dsID = context.getDataSetID();
+        if (getCache(dsID) == null)
+        {
+            MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+            for (CDOMReference ref : masterLists.getActiveLists())
+            {
+                Collection objects = masterLists.getObjects(ref);
+                for (Object cl : ref.getContainedObjects())
+                {
+                    if (cl instanceof ClassSkillList)
+                    {
+                        addAll(dsID, (ClassSkillList) cl, objects, cl);
+                    }
+                }
+            }
+        }
+    }
 
-	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
-	{
-		this.datasetInitializationFacet = datasetInitializationFacet;
-	}
+    public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
+    {
+        this.datasetInitializationFacet = datasetInitializationFacet;
+    }
 
-	public void init()
-	{
-		datasetInitializationFacet.addDataSetInitializedFacet(this);
-	}
+    public void init()
+    {
+        datasetInitializationFacet.addDataSetInitializedFacet(this);
+    }
 }

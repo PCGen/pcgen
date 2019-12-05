@@ -30,35 +30,35 @@ import pcgen.rules.persistence.token.ParseResult;
  * Deals with FUMBLERANGE token
  */
 public class FumblerangeToken extends AbstractStringToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "FUMBLERANGE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FUMBLERANGE";
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.FUMBLE_RANGE;
-	}
+    @Override
+    protected StringKey stringKey()
+    {
+        return StringKey.FUMBLE_RANGE;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier obj, String value)
-	{
-		if (ControlUtilities.hasControlToken(context, CControl.FUMBLERANGE))
-		{
-			return new ParseResult.Fail(getTokenName() + " is disabled when FUMBLERANGE control is used: " + value);
-		}
-		return super.parseNonEmptyToken(context, obj, value);
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier obj, String value)
+    {
+        if (ControlUtilities.hasControlToken(context, CControl.FUMBLERANGE))
+        {
+            return new ParseResult.Fail(getTokenName() + " is disabled when FUMBLERANGE control is used: " + value);
+        }
+        return super.parseNonEmptyToken(context, obj, value);
+    }
 
 }

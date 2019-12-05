@@ -23,7 +23,7 @@
        xmlns:fx="http://javafx.com/fxml/1"
        fx:controller="plugin.experience.gui3.PreferencesExperiencesPanelController">
     <fx:define>
-        <ToggleGroup fx:id="experienceGroup" />
+        <ToggleGroup fx:id="experienceGroup"/>
     </fx:define>
     <VBox>
         <RadioButton fx:id="experienceRB1"
@@ -31,14 +31,14 @@
                      selected="true"
                      text="%in_plugin_xp_byParty">
             <userData>
-                <PreferencesExperiencesPanelController fx:constant="EXPERIENCE_3" />
+                <PreferencesExperiencesPanelController fx:constant="EXPERIENCE_3"/>
             </userData>
         </RadioButton>
         <RadioButton fx:id="experienceRB2"
                      toggleGroup="$experienceGroup"
                      text="%in_plugin_xp_byPC">
             <userData>
-                <PreferencesExperiencesPanelController fx:constant="EXPERIENCE_35" />
+                <PreferencesExperiencesPanelController fx:constant="EXPERIENCE_35"/>
             </userData>
 
         </RadioButton>

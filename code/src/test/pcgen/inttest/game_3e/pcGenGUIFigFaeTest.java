@@ -30,9 +30,9 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class pcGenGUIFigFaeTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testFigFae() throws Exception
-	{
-		runTest("3e_FigFae", "3e");
-	}
+    @Test
+    public void testFigFae() throws Exception
+    {
+        runTest("3e_FigFae", "3e");
+    }
 }

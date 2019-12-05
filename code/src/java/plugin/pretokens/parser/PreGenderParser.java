@@ -28,39 +28,39 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreGenderParser extends AbstractPrerequisiteSimpleParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"GENDER"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"GENDER"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setKey(formula);
-		prereq.setOperator(PrerequisiteOperator.EQ);
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
-		return prereq;
-	}
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        prereq.setKey(formula);
+        prereq.setOperator(PrerequisiteOperator.EQ);
+        if (invertResult)
+        {
+            prereq.setOperator(prereq.getOperator().invert());
+        }
+        return prereq;
+    }
 }

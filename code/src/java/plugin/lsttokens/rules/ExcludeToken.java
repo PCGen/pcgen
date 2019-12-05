@@ -30,34 +30,34 @@ import pcgen.rules.persistence.token.ParseResult;
 public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements CDOMPrimaryToken<RuleCheck>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "EXCLUDE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "EXCLUDE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
-	{
-		CDOMSingleRef<RuleCheck> excludeRef = context.getReferenceContext().getCDOMReference(RuleCheck.class, value);
-		rule.setExclude(excludeRef);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
+    {
+        CDOMSingleRef<RuleCheck> excludeRef = context.getReferenceContext().getCDOMReference(RuleCheck.class, value);
+        rule.setExclude(excludeRef);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, RuleCheck rule)
-	{
-		CDOMSingleRef<RuleCheck> exclude = rule.getExclude();
-		if (exclude == null)
-		{
-			return null;
-		}
-		return new String[]{exclude.getLSTformat(false)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, RuleCheck rule)
+    {
+        CDOMSingleRef<RuleCheck> exclude = rule.getExclude();
+        if (exclude == null)
+        {
+            return null;
+        }
+        return new String[]{exclude.getLSTformat(false)};
+    }
 
-	@Override
-	public Class<RuleCheck> getTokenClass()
-	{
-		return RuleCheck.class;
-	}
+    @Override
+    public Class<RuleCheck> getTokenClass()
+    {
+        return RuleCheck.class;
+    }
 }

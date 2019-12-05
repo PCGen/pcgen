@@ -32,50 +32,50 @@ import javafx.scene.control.ColorPicker;
  */
 public class ColorsPreferencesPanelController implements ResettableController
 {
-	@FXML
-	private ColorPicker prereqQualifyColor;
-	@FXML
-	private ColorPicker prereqFailColor;
-	@FXML
-	private ColorPicker featAutoColor;
-	@FXML
-	private ColorPicker featVirtualColor;
-	@FXML
-	private ColorPicker sourceStatusRelease;
-	@FXML
-	private ColorPicker sourceStatusAlpha;
-	@FXML
-	private ColorPicker sourceStatusBeta;
-	@FXML
-	private ColorPicker sourceStatusTest;
+    @FXML
+    private ColorPicker prereqQualifyColor;
+    @FXML
+    private ColorPicker prereqFailColor;
+    @FXML
+    private ColorPicker featAutoColor;
+    @FXML
+    private ColorPicker featVirtualColor;
+    @FXML
+    private ColorPicker sourceStatusRelease;
+    @FXML
+    private ColorPicker sourceStatusAlpha;
+    @FXML
+    private ColorPicker sourceStatusBeta;
+    @FXML
+    private ColorPicker sourceStatusTest;
 
-	@Override
-	public void reset()
-	{
-		GuiAssertions.assertIsJavaFXThread();
-		prereqQualifyColor.setValue(UIPropertyContext.getQualifiedColor());
-		prereqFailColor.setValue(UIPropertyContext.getNotQualifiedColor());
-		featAutoColor.setValue(UIPropertyContext.getAutomaticColor());
-		featVirtualColor.setValue(UIPropertyContext.getVirtualColor());
+    @Override
+    public void reset()
+    {
+        GuiAssertions.assertIsJavaFXThread();
+        prereqQualifyColor.setValue(UIPropertyContext.getQualifiedColor());
+        prereqFailColor.setValue(UIPropertyContext.getNotQualifiedColor());
+        featAutoColor.setValue(UIPropertyContext.getAutomaticColor());
+        featVirtualColor.setValue(UIPropertyContext.getVirtualColor());
 
-		sourceStatusRelease.setValue(UIPropertyContext.getSourceStatusReleaseColor());
-		sourceStatusAlpha.setValue(UIPropertyContext.getSourceStatusAlphaColor());
-		sourceStatusBeta.setValue(UIPropertyContext.getSourceStatusBetaColor());
-		sourceStatusTest.setValue(UIPropertyContext.getSourceStatusTestColor());
-	}
+        sourceStatusRelease.setValue(UIPropertyContext.getSourceStatusReleaseColor());
+        sourceStatusAlpha.setValue(UIPropertyContext.getSourceStatusAlphaColor());
+        sourceStatusBeta.setValue(UIPropertyContext.getSourceStatusBetaColor());
+        sourceStatusTest.setValue(UIPropertyContext.getSourceStatusTestColor());
+    }
 
-	@Override
-	public void apply()
-	{
-		UIPropertyContext.setQualifiedColor(prereqQualifyColor.getValue());
-		UIPropertyContext.setNotQualifiedColor(prereqFailColor.getValue());
-		UIPropertyContext.setAutomaticColor(featAutoColor.getValue());
-		UIPropertyContext.setVirtualColor(featVirtualColor.getValue());
+    @Override
+    public void apply()
+    {
+        UIPropertyContext.setQualifiedColor(prereqQualifyColor.getValue());
+        UIPropertyContext.setNotQualifiedColor(prereqFailColor.getValue());
+        UIPropertyContext.setAutomaticColor(featAutoColor.getValue());
+        UIPropertyContext.setVirtualColor(featVirtualColor.getValue());
 
-		UIPropertyContext.setSourceStatusReleaseColor(sourceStatusRelease.getValue());
-		UIPropertyContext.setSourceStatusAlphaColor(sourceStatusAlpha.getValue());
-		UIPropertyContext.setSourceStatusBetaColor(sourceStatusBeta.getValue());
-		UIPropertyContext.setSourceStatusTestColor(sourceStatusTest.getValue());
+        UIPropertyContext.setSourceStatusReleaseColor(sourceStatusRelease.getValue());
+        UIPropertyContext.setSourceStatusAlphaColor(sourceStatusAlpha.getValue());
+        UIPropertyContext.setSourceStatusBetaColor(sourceStatusBeta.getValue());
+        UIPropertyContext.setSourceStatusTestColor(sourceStatusTest.getValue());
 
-	}
+    }
 }

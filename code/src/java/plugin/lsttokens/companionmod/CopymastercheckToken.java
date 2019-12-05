@@ -28,22 +28,22 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class CopymastercheckToken extends AbstractStringToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "COPYMASTERCHECK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "COPYMASTERCHECK";
+    }
 
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.MASTER_CHECK_FORMULA;
-	}
+    @Override
+    protected StringKey stringKey()
+    {
+        return StringKey.MASTER_CHECK_FORMULA;
+    }
 
-	@Override
-	public Class<CompanionMod> getTokenClass()
-	{
-		return CompanionMod.class;
-	}
+    @Override
+    public Class<CompanionMod> getTokenClass()
+    {
+        return CompanionMod.class;
+    }
 
 }

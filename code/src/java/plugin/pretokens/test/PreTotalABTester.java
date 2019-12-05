@@ -29,45 +29,45 @@ import pcgen.system.LanguageBundle;
 public class PreTotalABTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal;
-		int att = character.baseAttackBonus();
-		att += character.getTotalBonusTo("COMBAT", "EPICAB");
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal;
+        int att = character.baseAttackBonus();
+        att += character.getTotalBonusTo("COMBAT", "EPICAB");
 
-		try
-		{
-			final int anInt = Integer.parseInt(prereq.getOperand());
-			runningTotal = prereq.getOperator().compare(att, anInt);
-		}
-		catch (NumberFormatException exc)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString(
-					"PreAttack.error.badly_formed_attribute", prereq.getOperand()), exc);
-		}
+        try
+        {
+            final int anInt = Integer.parseInt(prereq.getOperand());
+            runningTotal = prereq.getOperator().compare(att, anInt);
+        } catch (NumberFormatException exc)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString(
+                            "PreAttack.error.badly_formed_attribute", prereq.getOperand()), exc);
+        }
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "TOTALAB"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "TOTALAB"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString(
-			"PreAttack.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
-			prereq.getOperand());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString(
+                "PreAttack.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+                prereq.getOperand());
+    }
 
 }

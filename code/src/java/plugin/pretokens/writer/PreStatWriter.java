@@ -34,73 +34,72 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreStatWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "STAT";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "STAT";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
-			PrerequisiteOperator.GT, PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
+                PrerequisiteOperator.GT, PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
 
-		try
-		{
-			PrerequisiteOperator operator = prereq.getOperator();
-			if (operator.equals(PrerequisiteOperator.LT))
-			{
-				writer.write("!");
-			}
-			writer.write("PRESTAT");
-			if (!operator.equals(PrerequisiteOperator.GTEQ) && !operator.equals(PrerequisiteOperator.LT))
-			{
-				writer.write(operator.toString().toUpperCase(Locale.ENGLISH));
-			}
-			writer.write(":1," + prereq.getKey() + '=' + prereq.getOperand());
+        try
+        {
+            PrerequisiteOperator operator = prereq.getOperator();
+            if (operator.equals(PrerequisiteOperator.LT))
+            {
+                writer.write("!");
+            }
+            writer.write("PRESTAT");
+            if (!operator.equals(PrerequisiteOperator.GTEQ) && !operator.equals(PrerequisiteOperator.LT))
+            {
+                writer.write(operator.toString().toUpperCase(Locale.ENGLISH));
+            }
+            writer.write(":1," + prereq.getKey() + '=' + prereq.getOperand());
 
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
-	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
-	{
-		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, true);
-		if (po == null)
-		{
-			return false;
-		}
-		if (!po.equals(prereq.getOperator()))
-		{
-			writer.write('!');
-		}
+    @Override
+    public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+    {
+        PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, true);
+        if (po == null)
+        {
+            return false;
+        }
+        if (!po.equals(prereq.getOperator()))
+        {
+            writer.write('!');
+        }
 
-		PrerequisiteOperator operator = prereq.getOperator();
-		writer.write("PRESTAT");
-		if (!operator.equals(PrerequisiteOperator.GTEQ) && !operator.equals(PrerequisiteOperator.LT))
-		{
-			writer.write(operator.toString().toUpperCase(Locale.ENGLISH));
-		}
-		writer.write(':');
-		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : "1");
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			writer.write(',');
-			writer.write(p.getKey());
-			writer.write('=');
-			writer.write(p.getOperand());
-		}
-		return true;
-	}
+        PrerequisiteOperator operator = prereq.getOperator();
+        writer.write("PRESTAT");
+        if (!operator.equals(PrerequisiteOperator.GTEQ) && !operator.equals(PrerequisiteOperator.LT))
+        {
+            writer.write(operator.toString().toUpperCase(Locale.ENGLISH));
+        }
+        writer.write(':');
+        writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : "1");
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            writer.write(',');
+            writer.write(p.getKey());
+            writer.write('=');
+            writer.write(p.getOperand());
+        }
+        return true;
+    }
 }

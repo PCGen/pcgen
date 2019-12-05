@@ -14,20 +14,20 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class HiddenskilltypesToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "HIDDENSKILLTYPES";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "HIDDENSKILLTYPES";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		while (st.hasMoreTokens())
-		{
-			gameMode.addHiddenType(Skill.class, st.nextToken());
-		}
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+        while (st.hasMoreTokens())
+        {
+            gameMode.addHiddenType(Skill.class, st.nextToken());
+        }
+        return true;
+    }
 }

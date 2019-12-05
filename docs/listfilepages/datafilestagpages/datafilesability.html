@@ -1,1563 +1,1563 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
+<!--
 
-                PCGen Documentation Project
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
-                Eric C. Smith - mareduddATblackrootDOTorg
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Eric C. Smith - mareduddATblackrootDOTorg
 
-                Description:
-                Provides information on the use of PCGen Ability Tags.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   ABILITY: Tag
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Ability Files
-  </h1>
-  <p class="indent0">
-   The Ability files are used to identify and
-implement the individual class/racial abilities that make up each
-character.
-  </p>
-  <!--
-                <p class="indent1">The following tags are discussed in the <a href="#abilitytagdictionary">Ability Tag Dictionary</a> section below:</p>
-                <p></p>
-                <blockquote>
-                        <p class="indent1"><a href="#ADDSPELLLEVEL">ADDSPELLLEVEL</a>, 
-                                <a href="#BENEFIT">BENEFIT</a>, 
-                                <a href="#CATEGORY2">CATEGORY</a>, 
-                                <a href="#COST">COST</a>, 
-                                <a href="#MODIFYABILITYCHOICE">MODIFYABILITYCHOICE</a>, 
-                                <a href="#MULT">MULT</a>, 
-                                <a href="#STACK">STACK</a>, 
-                                <a href="#VISIBLE">VISIBLE</a></p> 
-                </blockquote>
-                <p></p>
+               Description:
+               Provides information on the use of PCGen Ability Tags.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        ABILITY: Tag
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Ability Files
+</h1>
+<p class="indent0">
+    The Ability files are used to identify and
+    implement the individual class/racial abilities that make up each
+    character.
+</p>
+<!--
+              <p class="indent1">The following tags are discussed in the <a href="#abilitytagdictionary">Ability Tag Dictionary</a> section below:</p>
+              <p></p>
+              <blockquote>
+                      <p class="indent1"><a href="#ADDSPELLLEVEL">ADDSPELLLEVEL</a>,
+                              <a href="#BENEFIT">BENEFIT</a>,
+                              <a href="#CATEGORY2">CATEGORY</a>,
+                              <a href="#COST">COST</a>,
+                              <a href="#MODIFYABILITYCHOICE">MODIFYABILITYCHOICE</a>,
+                              <a href="#MULT">MULT</a>,
+                              <a href="#STACK">STACK</a>,
+                              <a href="#VISIBLE">VISIBLE</a></p>
+              </blockquote>
+              <p></p>
 -->
-  <hr/>
-  <h2>
-   How to Build an Ability
-  </h2>
-  <p class="indent12">
-   The first field is the Ability Name, this is a
-required field and does not have a tag.
-  </p>
-  <hr/>
-  <h2>
-   <a id="abilitytagdictionary" name="abilitytagdictionary">
-    Ability File Tag Dictionary
-   </a>
-  </h2>
-  <p class="indent1">
-   This section is broken into three subsections.
-The first, the
-   <a href="#abilityfiletags">
-    Ability File Tags
-   </a>
-   subsection, lists the new ability file tags, the second subsection,
-   <a href="#globalabilitytags">
-    Global Ability Tags
-   </a>
-   , and the third
-subsection,
-   <a href="#otherabilitytags">
-    Other Ability Tags
-   </a>
-   ,
-lists the tags located elsewhere in the PCGen documentation.
-  </p>
-  <hr/>
-  <h3>
-   <a id="abilityfiletags" name="abilityfiletags">
-    The Ability File
-Tags
-   </a>
-  </h3>
-  <hr/>
-  <p class="status">
-   <a id="addspelllevel" name="addspelllevel">
-    ***
-Added 5.11.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ADDSPELLLEVEL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Increase in spell slot level)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag is used in metamagic abilities to denote how much
-higher the spell levelslot requires.
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying an ability with
-the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>ADDSPELLLEVEL</code>
-    tag, the data included in a new
-    <code>ADDSPELLLEVEL</code>
-    tag will overwrite the existing tag
-data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ADDSPELLLEVEL:2</code>
-  </p>
-  <p class="indent3">
-   A spell with this metamagic ability applied to
-it takes up a slot two levels higher than the normal spell.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Ability:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt;
-ADDSPELLLEVEL:1</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt;
-ADDSPELLLEVEL:2</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt;
-ADDSPELLLEVEL:2</code>
-  </p>
-  <p class="indent3">
-   Modified ability applied to a spell will cause
-the spell to take up a slot two levels higher than the normal
-spell.
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="appliedname" name="appliedname">
-    ***
-Deprecated 6.05.01 - use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   APPLIEDNAME:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (An
-adjective to be prefixed to a spell modified by this ability)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This tag is used in metamagic abilities to give
-an addribute that can modify the spell name./p&gt;
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>APPLIEDNAME:Empowered</code>
-  </p>
-  <p class="indent3">
-   A spell with this metamagic ability applied to
-it gets the word "Empowered" prefixed to the spell name.
-  </p>
-  <hr/>
-  <p class="lststatus">
-   <strong>
-    <a id="aspect" name="aspect">
-     *** New
-5.15.2
+<hr/>
+<h2>
+    How to Build an Ability
+</h2>
+<p class="indent12">
+    The first field is the Ability Name, this is a
+    required field and does not have a tag.
+</p>
+<hr/>
+<h2>
+    <a id="abilitytagdictionary" name="abilitytagdictionary">
+        Ability File Tag Dictionary
     </a>
-   </strong>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ASPECT:x|y|z|z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Name
-of Aspect)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Value
-of Aspect)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Number or
-Formula (Substitution value. Optional.)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Identifies an "aspect" (see examples below) that an ability has
-and sets its value.
-   </li>
-   <li>
-    PRExxx tags can be used with the
-    <code>ASPECT</code>
-    tag.
-   </li>
-   <li>
-    This tag can be used multiple times within an ability but each
-time it must identify a new aspect unless the
-    <code>ASPECT</code>
-    tag includes a PRExxx tag appended to the end.
-   </li>
-   <li>
-    When using multiple
-    <code>ASPECT</code>
-    tags for the same
-"aspect" and PRExxx tags appended to the end of each, the final
-value for that aspect will be set by the physically last
-    <code>ASPECT</code>
-    tag in the ability line that passes the
-prerequisite.
-   </li>
-   <li>
-    The text in the (y) parameter can use %# for substituting
-numerical values set by the (z) parameter, %1 is replaced by the
-first (z), %2 is replaced by the second (z), etc..
-   </li>
-   <li>
-    The (y) parameter can also use other special variables as is
-done in the
-    <code>DESC</code>
-    tag:
-    <ul>
-     <li>
-      <code>%CHOICE</code>
-      - Will replace the first associated choice
-in the object.
-     </li>
-     <li>
-      <code>%LIST</code>
-      - Will substitute all choices comma
-separated into that parameter.
-     </li>
-     <li>
-      <code>%NAME</code>
-      - The
-      <code>OUTPUTNAME</code>
-      or name of the
-object this
-      <code>DESC</code>
-      tag is in.
-     </li>
-    </ul>
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying an ability with
-the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>ASPECT</code>
-    tag, the data included in a new
-    <code>ASPECT</code>
-    tag will
-selectively overwrite the existing tag data or include the separate
-tags. Since each aspect name can hold only one value per ability,
-modifying an existing
-    <code>ASPECT</code>
-    tag will overwrite only
-the value of the aspect by that name in the ability, and will add a
-separate
-    <code>ASPECT</code>
-    tag with a new name.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ASPECT:Action Type|Standard
-Action</code>
-  </p>
-  <p class="indent3">
-   Identifies the "Action Type" of an action
-performed as part of the associated ability as a "Standard
-Action".
-  </p>
-  <p class="indent2">
-   <code>ASPECT:Attack Type|Melee weapon</code>
-  </p>
-  <p class="indent3">
-   Identifies the "Attack Type" of an attack
-performed as part of the associated ability as a "Melee weapon"
-attack.
-  </p>
-  <p class="indent2">
-   <code>ASPECT:Target|One creature</code>
-  </p>
-  <p class="indent3">
-   Identifies the "Target" of an action performed
-as part of the associated ability as "One creature".
-  </p>
-  <p class="indent2">
-   <code>ASPECT:Attack|Strength vs. AC</code>
-  </p>
-  <p class="indent3">
-   Identifies an "Attack" performed as part of the
-associated ability as "Strength vs. AC".
-  </p>
-  <p class="indent2">
-   <code>ASPECT:Attack Type|Ranged
-%1|PowerRange</code>
-  </p>
-  <p class="indent3">
-   Identifies the "Attack Type" of an attack
-performed as part of the associated ability as a "Ranged" attack
-with a range equivalent to the "PowerRange" variable.
-  </p>
-  <p class="indent2">
-   <code>ASPECT:Effect|Double damage to %CHOICE
-creatures</code>
-  </p>
-  <p class="indent3">
-   Identifies the "Effect" of an action performed
-as part of the associated ability as "Double damage" to the
-creature chosen by the associated chooser.
-  </p>
-  <p class="indent2">
-   <code>ASPECT:Target|One creature &lt;tab&gt;
-ASPECT:Target|Two creatures|PREPCLEVEL:MIN=7,MAX=12 &lt;tab&gt;
-ASPECT:Target|Three creatures|PREPCLEVEL:MIN=13</code>
-  </p>
-  <p class="indent3">
-   Identifies the "Target" of an action performed
-as part of the associated ability as "One creature" for characters
-that are level 1-6, "Two creatures"' for characters level 7-12, and
-"'Three creatures" for characters level 13 or greater.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwrite):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Ability:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A3</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A3</code>
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Include
-Separately):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Ability:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:B1|B2</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2 &lt;tab&gt;
-ASPECT:B1|B2</code>
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="benefit" name="benefit">
-    *** Updated
-6.01.3
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   BENEFIT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(benefit text)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEAR
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEAR.text
-(regular expression)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent1">
-   <li>
-    This is the benefit text of the ability from the source
-material.
-   </li>
-   <li>
-    The included text will be displayed in the ability description
-field if the
-    <a href="../../menupages/settings/appearance/appearancedisplay.html">
-     "Display
-Feat Description"
+</h2>
+<p class="indent1">
+    This section is broken into three subsections.
+    The first, the
+    <a href="#abilityfiletags">
+        Ability File Tags
     </a>
-    checkbox in the Appearance/Display Options
-Preference window is unchecked. Otherwise the text from the
-    <a href="#desc">
-     DESC
+    subsection, lists the new ability file tags, the second subsection,
+    <a href="#globalabilitytags">
+        Global Ability Tags
     </a>
-    tag will be displayed.
-   </li>
-   <li>
-    PRExxx tags can be used with the
-    <code>BENEFIT</code>
-    tag.
-   </li>
-   <li>
-    Multiple
-    <code>BENEFIT</code>
-    tags per line are allowed with
-all qualifying
-    <code>BENEFIT</code>
-    tags being concatonated for
-output and separated by spaces.
-   </li>
-   <li>
-    <code>.CLEAR</code>
-    will clear all
-    <code>BENEFIT</code>
-    tags.
-   </li>
-   <li>
-    <code>.CLEAR.(regular expression match)</code>
-    will clear
-specific instances.
-   </li>
-   <li>
-    <code>BENEFIT</code>
-    tags will take variable substitution.
-    <ul>
-     <li>
-      Within the text a % followed by a number will substitute the
-#th variable from the variable list associated with the
-      <code>BENEFIT</code>
-      .
-     </li>
-     <li>
-      Variables are specified after the descriptive text and are
-pipe-delimited (|).
-     </li>
-     <li>
-      The special parameter %% will insert an actual % character into
-the text.
-     </li>
-     <li>
-      If the parameter needs to be next to a number the parameter
-number should be surrounded in curly brackets { }. For example,
-%{1000}gp.
-     </li>
-    </ul>
-   </li>
-   <li>
-    The following special variables are allowed within the variable
-list:
-    <ul>
-     <li>
-      <code>%NAME</code>
-      - The name of the object this
-      <code>BENEFIT</code>
-      tag is in.
-     </li>
-     <li>
-      <code>%FEAT</code>
-      - Will substitute the descriptions of feats
-within the object that match the associated preqrequisites.
-     </li>
-     <li>
-      <code>%CHOICE</code>
-      - Will replace the first associated choice
-in the object.
-     </li>
-     <li>
-      <code>%LIST</code>
-      - Will substitute all choices into that
-parameter as a comma-delimited list.
-     </li>
-    </ul>
-   </li>
-   <li>
-    Formulas can be parsed and the results replaced in the output
-by enclosing the variables and formulas within parentheses.
-    <ul>
-     <li>
-      <a href="#casterlevel">
-       CASTERLEVEL
-      </a>
-      , a variable specifically
-designed for this purpose, is commonly used though other variables
-can be used as well.
-     </li>
-     <li>
-      Because anything within parentheses is assumed to be a formula
-to be parsed, text containing parentheses must substitute brackets
-[ ] in place of parentheses.
-     </li>
-    </ul>
-   </li>
-   <li>
-    <strong>
-     Regular Expressions:
-    </strong>
-    Java has a Regular
-Expression library built in that is very similar to Perl regular
-expressions. Basically it allows for pattern matching in strings.
-You can create fairly powerful match structures using things like
-character groups "[a-zA-Z]" match any alphabetic character or
-groupings "(bat|super)man" match batman or superman and many many
-more. So, for example, you could clear all benefits by doing
-    <code>BENEFIT:.CLEAR..*</code>
-    , or clear all exceptional abilities
-by doing
-    <code>BENEFIT:.CLEAR.\(Ex\)</code>
-    , or clear everything
-that's non-numeric with
-    <code>BENEFIT:.CLEAR.[A-Za-z]</code>
-    .
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying an ability with
-the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>BENEFIT</code>
-    tag, the data included in a new
-    <code>BENEFIT</code>
-    tag will be
-included as a separate tag.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BENEFIT:This is sample text for the
-example purposes</code>
-  </p>
-  <p class="indent3">
-   Adds ability benefit.
-  </p>
-  <p class="indent2">
-   <code>BENEFIT:Kick Butt (level
-3)|PRELEVEL:3</code>
-  </p>
-  <p class="indent3">
-   Adds ability description only if the PC is level
-3 or higher.
-  </p>
-  <p class="indent2">
-   <code>BENEFIT:Assembly ~ 1
-table|PREVAREQ:AssemblyTables,1
-    <br/>
-    BENEFIT:Assembly ~ %1
-tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2</code>
-  </p>
-  <p class="indent3">
-   Adds an ability description which is dependent
-upon the value of the variable AssemblyTables.
-  </p>
-  <p class="indent2">
-   <code>BENEFIT:You get a +2 bonus on all %1
-saving throws|%CHOICE</code>
-  </p>
-  <p class="indent3">
-   Adds ability description and replaces %1 with
-the first choice made.
-  </p>
-  <p class="indent2">
-   <code>BENEFIT:You get a +3 bonus on all checks
-involving %1|%LIST.</code>
-  </p>
-  <p class="indent3">
-   Adds ability description, replacing %LIST with
-all choices made.
-  </p>
-  <p class="indent2">
-   <code>BENEFIT:%3 Sneak Attacks per day for
-+%1d%2
-damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code>
-  </p>
-  <p class="indent3">
-   Adds ability description, substituting the
-variables from the positions specified.
-  </p>
-  <p class="indent2">
-   <code>Advanced Combat Martial Arts.MOD
-&lt;tab&gt; BENEFIT:.CLEAR &lt;tab&gt; BENEFIT:When the character
-scores a critical hit on an opponent with an unarmed strike, the
-character deals triple damage</code>
-  </p>
-  <p class="indent3">
-   Changes the ability description, substituting
-the specified text.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Include
-Separately):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Ability:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:Initial benefit
-text.</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:New benefit
-text.</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:Initial benefit
-text. &lt;tab&gt; BENEFIT:New benefit text.</code>
-  </p>
-  <p class="indent3">
-   The output will show the following:
-&amp;quotInitial benefit text. New benefit text."
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="category2" name="category2">
-    *** Updated
-5.13.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   CATEGORY:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Ability category)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is the
-   <a href="datafilesabilitycategory.html">
-    Ability Category
-   </a>
-   that the
-ability belongs to. The ability category is a broad group of
-abilities, defined in the game mode. An ability's key name need
-only be unique within its category.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CATEGORY:SpecialAttack</code>
-  </p>
-  <p class="indent3">
-   This ability is part of the "SpecialAttack"
-ability category.
-  </p>
-  <p class="indent2">
-   <code>CATEGORY:Feat</code>
-  </p>
-  <p class="indent3">
-   This ability is part of the "Feat" ability
-category, which is a special case of abilities that can be selected
-as feats.
-  </p>
-  <p class="indent2">
-   <code>CATEGORY=Talent|Uncanny Dodge II.MOD
-&lt;tab&gt; PRE:.CLEAR</code>
-  </p>
-  <p class="indent3">
-   This ability is part of the "Talent" ability
-category, which is aimed at the feat of "Uncanny Dodge II" so that
-it can be modified by removing the PRExxx.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="cost" name="cost">
-    *** Added 5.11.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   COST:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(ability point cost)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is how many ability points the ability costs. A decimal
-value, as the example below, would mean that it only costs 1/2 an
-ability point.
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying an ability with
-the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>COST</code>
-    tag,
-the data included in a new
-    <code>COST</code>
-    tag will overwrite the
-existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>COST:1</code>
-  </p>
-  <p class="indent3">
-   Ability costs one ability point.
-  </p>
-  <p class="indent2">
-   <code>COST:.5</code>
-  </p>
-  <p class="indent3">
-   Ability costs half a ability point.
-  </p>
-  <p class="indent1">
-   <strong>
-    Default Value:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>1</code>
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Ability:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:2</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:1</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:1</code>
-  </p>
-  <p class="indent3">
-   Ability costs one ability point.
-  </p>
-  <hr/>
-  <p class="lststatus">
-   <a id="mult" name="mult">
-    *** Added
-5.11.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MULT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Boolean
-('YES' or 'NO')
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This determines if an ability can be taken multiple times. If
-the value is set to 'YES', then you
-    <strong>
-     MUST
-    </strong>
-    also use
-a
-    <code>CHOOSE</code>
-    tag.
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying an ability with
-the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>MULT</code>
-    tag,
-the data included in a new
-    <code>MULT</code>
-    tag will overwrite the
-existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MULT:YES</code>
-  </p>
-  <p class="indent3">
-   This Ability can be taken multiple times.
-  </p>
-  <p class="indent1">
-   <strong>
-    Default Value:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>NO</code>
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Ability:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:YES</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:NO</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:NO</code>
-  </p>
-  <p class="indent3">
-   Modified ability cannot be taken multiple
-times.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="stack" name="stack">
-    *** Added
-5.11.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   STACK:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Boolean
-('YES' or 'NO')
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tells PCGen if the ability benefits may be stacked on one
-another.
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying an ability with
-the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>STACK</code>
-    tag, the data included in a new
-    <code>STACK</code>
-    tag will
-overwrite the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STACK:YES</code>
-  </p>
-  <p class="indent3">
-   The benefits for this ability stack with itself
-if taken multiple times.
-  </p>
-  <p class="indent1">
-   <strong>
-    Default Value:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>NO</code>
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Ability:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:YES</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:NO</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:NO</code>
-  </p>
-  <p class="indent3">
-   The benefits for the modified ability will not
-stack with itself if taken multiple times.
-  </p>
-  <hr/>
-  <p class="lststatus">
-   <a id="template" name="template">
-    *** Updated
-5.17.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TEMPLATE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a pipe-delimited (|) list of templates that are granted
-by the ability.
-   </li>
-   <li>
-    Supports
-    <code>%LIST</code>
-    in conjunction with a
-    <code>CHOOSE</code>
-    tag.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
-  </p>
-  <p class="indent3">
-   The ability applies the "Incorporeal", "Undead"
-and "Celestial" templates.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="templateaddchoice" name="templateaddchoice">
-     Tag Name:
-    </a>
-   </strong>
-   TEMPLATE:ADDCHOICE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a pipe-delimited list of template choices that are
-added to the list presented by the original
-    <code>TEMPLATE:CHOOSE</code>
-    tag.
-   </li>
-   <li>
-    When using the
-    <code>TEMPLATE:ADDCOICE</code>
-    tag as part of a
-    <code>.MOD</code>
-    of a Race object that containes multiple
-    <code>TEMPLATE:CHOOSE</code>
-    tags, all instances of the
-    <code>TEMPLATE:CHOOSE</code>
-    tag will be modified.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
-  </p>
-  <p class="indent3">
-   The ability can choose previously defined
-templates plus the "Demihuman" or "Beast" templates.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="templatechoose" name="templatechoose">
-     Tag Name:
-    </a>
-   </strong>
-   TEMPLATE:CHOOSE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Will present a popup window of the choices provided in the
-pipe-delimited (|) list, allowing the user to pick ONE from the
-list.
-   </li>
-   <li>
-    Multiple
-    <code>TEMPLATE:CHOOSE</code>
-    tags can be used in the
-same LST object but PCGen's current Data Standard is to include no
-more that one in each LST object.
-   </li>
-   <li>
-    Though the
-    <code>TEMPLATE:CHOOSE</code>
-    tag is not a gobal tag
-it can be used in the
-    <a href="datafilesclasses.html#templatechoose">
-     Class
+    , and the third
+    subsection,
+    <a href="#otherabilitytags">
+        Other Ability Tags
     </a>
     ,
-    <a href="datafilesraces.html#templatechoose">
-     Race
+    lists the tags located elsewhere in the PCGen documentation.
+</p>
+<hr/>
+<h3>
+    <a id="abilityfiletags" name="abilityfiletags">
+        The Ability File
+        Tags
     </a>
-    , and
-    <a href="datafilestemplates.html#templatechoose">
-     Template
+</h3>
+<hr/>
+<p class="status">
+    <a id="addspelllevel" name="addspelllevel">
+        ***
+        Added 5.11.x
     </a>
-    files.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
-  </p>
-  <p class="indent3">
-   The ability allows the selection of either the
-"Celestial" or "Outsider" template.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="visible" name="visible">
-    *** Added
-5.11.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   VISIBLE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   YES
-(Default)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   NO
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   DISPLAY
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   EXPORT
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    <code>YES</code>
-    - Shows the ability name in PCGen and on
-export to a character sheet.
-   </li>
-   <li>
-    <code>NO</code>
-    - Hides the ability name in PCGen and on export
-to a character sheet.
-   </li>
-   <li>
-    <code>DISPLAY</code>
-    - Displays the ability name in PCGen but
-not on the character sheet.
-   </li>
-   <li>
-    <code>EXPORT</code>
-    - Hides the ability name from PCGen but
-displays it on the character sheet.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        Tag Name:
     </strong>
-    When modifying an ability with
-the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>VISIBLE</code>
-    tag, the data included in a new
-    <code>VISIBLE</code>
-    tag will
-overwrite the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:YES</code>
-  </p>
-  <p class="indent3">
-   Shows the ability name in PCGen and on the
-Output sheet.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Ability:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; VISIBLEE:YES</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt;
-VISIBLE:DISPLAY</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt;
-VISIBLE:DISPLAY</code>
-  </p>
-  <p class="indent3">
-   Modified ability will appear in the GUI but will
-not appear on the output sheet.
-  </p>
-  <hr/>
-  <h3>
-   <a id="globalabilitytags" name="globalabilitytags">
-    Global
-Ability Tags
-   </a>
-  </h3>
-  <ul>
-   <li>
-    <a href="../globalfilestagpages/globalfilesother.html#ability2">
-     ABILITY
+    ADDSPELLLEVEL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Increase in spell slot level)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag is used in metamagic abilities to denote how much
+        higher the spell levelslot requires.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying an ability with
+        the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>ADDSPELLLEVEL</code>
+        tag, the data included in a new
+        <code>ADDSPELLLEVEL</code>
+        tag will overwrite the existing tag
+        data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ADDSPELLLEVEL:2</code>
+</p>
+<p class="indent3">
+    A spell with this metamagic ability applied to
+    it takes up a slot two levels higher than the normal spell.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Ability:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt;
+        ADDSPELLLEVEL:1</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt;
+        ADDSPELLLEVEL:2</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt;
+        ADDSPELLLEVEL:2</code>
+</p>
+<p class="indent3">
+    Modified ability applied to a spell will cause
+    the spell to take up a slot two levels higher than the normal
+    spell.
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="appliedname" name="appliedname">
+        ***
+        Deprecated 6.05.01 - use FACT
     </a>
-    <span class="note">
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    APPLIEDNAME:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (An
+    adjective to be prefixed to a spell modified by this ability)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This tag is used in metamagic abilities to give
+    an addribute that can modify the spell name./p&gt;
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>APPLIEDNAME:Empowered</code>
+</p>
+<p class="indent3">
+    A spell with this metamagic ability applied to
+    it gets the word "Empowered" prefixed to the spell name.
+</p>
+<hr/>
+<p class="lststatus">
+    <strong>
+        <a id="aspect" name="aspect">
+            *** New
+            5.15.2
+        </a>
+    </strong>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ASPECT:x|y|z|z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Name
+    of Aspect)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Value
+    of Aspect)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Number or
+    Formula (Substitution value. Optional.)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Identifies an "aspect" (see examples below) that an ability has
+        and sets its value.
+    </li>
+    <li>
+        PRExxx tags can be used with the
+        <code>ASPECT</code>
+        tag.
+    </li>
+    <li>
+        This tag can be used multiple times within an ability but each
+        time it must identify a new aspect unless the
+        <code>ASPECT</code>
+        tag includes a PRExxx tag appended to the end.
+    </li>
+    <li>
+        When using multiple
+        <code>ASPECT</code>
+        tags for the same
+        "aspect" and PRExxx tags appended to the end of each, the final
+        value for that aspect will be set by the physically last
+        <code>ASPECT</code>
+        tag in the ability line that passes the
+        prerequisite.
+    </li>
+    <li>
+        The text in the (y) parameter can use %# for substituting
+        numerical values set by the (z) parameter, %1 is replaced by the
+        first (z), %2 is replaced by the second (z), etc..
+    </li>
+    <li>
+        The (y) parameter can also use other special variables as is
+        done in the
+        <code>DESC</code>
+        tag:
+        <ul>
+            <li>
+                <code>%CHOICE</code>
+                - Will replace the first associated choice
+                in the object.
+            </li>
+            <li>
+                <code>%LIST</code>
+                - Will substitute all choices comma
+                separated into that parameter.
+            </li>
+            <li>
+                <code>%NAME</code>
+                - The
+                <code>OUTPUTNAME</code>
+                or name of the
+                object this
+                <code>DESC</code>
+                tag is in.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying an ability with
+        the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>ASPECT</code>
+        tag, the data included in a new
+        <code>ASPECT</code>
+        tag will
+        selectively overwrite the existing tag data or include the separate
+        tags. Since each aspect name can hold only one value per ability,
+        modifying an existing
+        <code>ASPECT</code>
+        tag will overwrite only
+        the value of the aspect by that name in the ability, and will add a
+        separate
+        <code>ASPECT</code>
+        tag with a new name.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ASPECT:Action Type|Standard
+        Action</code>
+</p>
+<p class="indent3">
+    Identifies the "Action Type" of an action
+    performed as part of the associated ability as a "Standard
+    Action".
+</p>
+<p class="indent2">
+    <code>ASPECT:Attack Type|Melee weapon</code>
+</p>
+<p class="indent3">
+    Identifies the "Attack Type" of an attack
+    performed as part of the associated ability as a "Melee weapon"
+    attack.
+</p>
+<p class="indent2">
+    <code>ASPECT:Target|One creature</code>
+</p>
+<p class="indent3">
+    Identifies the "Target" of an action performed
+    as part of the associated ability as "One creature".
+</p>
+<p class="indent2">
+    <code>ASPECT:Attack|Strength vs. AC</code>
+</p>
+<p class="indent3">
+    Identifies an "Attack" performed as part of the
+    associated ability as "Strength vs. AC".
+</p>
+<p class="indent2">
+    <code>ASPECT:Attack Type|Ranged
+        %1|PowerRange</code>
+</p>
+<p class="indent3">
+    Identifies the "Attack Type" of an attack
+    performed as part of the associated ability as a "Ranged" attack
+    with a range equivalent to the "PowerRange" variable.
+</p>
+<p class="indent2">
+    <code>ASPECT:Effect|Double damage to %CHOICE
+        creatures</code>
+</p>
+<p class="indent3">
+    Identifies the "Effect" of an action performed
+    as part of the associated ability as "Double damage" to the
+    creature chosen by the associated chooser.
+</p>
+<p class="indent2">
+    <code>ASPECT:Target|One creature &lt;tab&gt;
+        ASPECT:Target|Two creatures|PREPCLEVEL:MIN=7,MAX=12 &lt;tab&gt;
+        ASPECT:Target|Three creatures|PREPCLEVEL:MIN=13</code>
+</p>
+<p class="indent3">
+    Identifies the "Target" of an action performed
+    as part of the associated ability as "One creature" for characters
+    that are level 1-6, "Two creatures"' for characters level 7-12, and
+    "'Three creatures" for characters level 13 or greater.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwrite):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Ability:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A3</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A3</code>
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Include
+        Separately):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Ability:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:B1|B2</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2 &lt;tab&gt;
+        ASPECT:B1|B2</code>
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="benefit" name="benefit">
+        *** Updated
+        6.01.3
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    BENEFIT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (benefit text)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEAR
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEAR.text
+    (regular expression)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent1">
+    <li>
+        This is the benefit text of the ability from the source
+        material.
+    </li>
+    <li>
+        The included text will be displayed in the ability description
+        field if the
+        <a href="../../menupages/settings/appearance/appearancedisplay.html">
+            "Display
+            Feat Description"
+        </a>
+        checkbox in the Appearance/Display Options
+        Preference window is unchecked. Otherwise the text from the
+        <a href="#desc">
+            DESC
+        </a>
+        tag will be displayed.
+    </li>
+    <li>
+        PRExxx tags can be used with the
+        <code>BENEFIT</code>
+        tag.
+    </li>
+    <li>
+        Multiple
+        <code>BENEFIT</code>
+        tags per line are allowed with
+        all qualifying
+        <code>BENEFIT</code>
+        tags being concatonated for
+        output and separated by spaces.
+    </li>
+    <li>
+        <code>.CLEAR</code>
+        will clear all
+        <code>BENEFIT</code>
+        tags.
+    </li>
+    <li>
+        <code>.CLEAR.(regular expression match)</code>
+        will clear
+        specific instances.
+    </li>
+    <li>
+        <code>BENEFIT</code>
+        tags will take variable substitution.
+        <ul>
+            <li>
+                Within the text a % followed by a number will substitute the
+                #th variable from the variable list associated with the
+                <code>BENEFIT</code>
+                .
+            </li>
+            <li>
+                Variables are specified after the descriptive text and are
+                pipe-delimited (|).
+            </li>
+            <li>
+                The special parameter %% will insert an actual % character into
+                the text.
+            </li>
+            <li>
+                If the parameter needs to be next to a number the parameter
+                number should be surrounded in curly brackets { }. For example,
+                %{1000}gp.
+            </li>
+        </ul>
+    </li>
+    <li>
+        The following special variables are allowed within the variable
+        list:
+        <ul>
+            <li>
+                <code>%NAME</code>
+                - The name of the object this
+                <code>BENEFIT</code>
+                tag is in.
+            </li>
+            <li>
+                <code>%FEAT</code>
+                - Will substitute the descriptions of feats
+                within the object that match the associated preqrequisites.
+            </li>
+            <li>
+                <code>%CHOICE</code>
+                - Will replace the first associated choice
+                in the object.
+            </li>
+            <li>
+                <code>%LIST</code>
+                - Will substitute all choices into that
+                parameter as a comma-delimited list.
+            </li>
+        </ul>
+    </li>
+    <li>
+        Formulas can be parsed and the results replaced in the output
+        by enclosing the variables and formulas within parentheses.
+        <ul>
+            <li>
+                <a href="#casterlevel">
+                    CASTERLEVEL
+                </a>
+                , a variable specifically
+                designed for this purpose, is commonly used though other variables
+                can be used as well.
+            </li>
+            <li>
+                Because anything within parentheses is assumed to be a formula
+                to be parsed, text containing parentheses must substitute brackets
+                [ ] in place of parentheses.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <strong>
+            Regular Expressions:
+        </strong>
+        Java has a Regular
+        Expression library built in that is very similar to Perl regular
+        expressions. Basically it allows for pattern matching in strings.
+        You can create fairly powerful match structures using things like
+        character groups "[a-zA-Z]" match any alphabetic character or
+        groupings "(bat|super)man" match batman or superman and many many
+        more. So, for example, you could clear all benefits by doing
+        <code>BENEFIT:.CLEAR..*</code>
+        , or clear all exceptional abilities
+        by doing
+        <code>BENEFIT:.CLEAR.\(Ex\)</code>
+        , or clear everything
+        that's non-numeric with
+        <code>BENEFIT:.CLEAR.[A-Za-z]</code>
+        .
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying an ability with
+        the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>BENEFIT</code>
+        tag, the data included in a new
+        <code>BENEFIT</code>
+        tag will be
+        included as a separate tag.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BENEFIT:This is sample text for the
+        example purposes</code>
+</p>
+<p class="indent3">
+    Adds ability benefit.
+</p>
+<p class="indent2">
+    <code>BENEFIT:Kick Butt (level
+        3)|PRELEVEL:3</code>
+</p>
+<p class="indent3">
+    Adds ability description only if the PC is level
+    3 or higher.
+</p>
+<p class="indent2">
+    <code>BENEFIT:Assembly ~ 1
+        table|PREVAREQ:AssemblyTables,1
+        <br/>
+        BENEFIT:Assembly ~ %1
+        tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2</code>
+</p>
+<p class="indent3">
+    Adds an ability description which is dependent
+    upon the value of the variable AssemblyTables.
+</p>
+<p class="indent2">
+    <code>BENEFIT:You get a +2 bonus on all %1
+        saving throws|%CHOICE</code>
+</p>
+<p class="indent3">
+    Adds ability description and replaces %1 with
+    the first choice made.
+</p>
+<p class="indent2">
+    <code>BENEFIT:You get a +3 bonus on all checks
+        involving %1|%LIST.</code>
+</p>
+<p class="indent3">
+    Adds ability description, replacing %LIST with
+    all choices made.
+</p>
+<p class="indent2">
+    <code>BENEFIT:%3 Sneak Attacks per day for
+        +%1d%2
+        damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code>
+</p>
+<p class="indent3">
+    Adds ability description, substituting the
+    variables from the positions specified.
+</p>
+<p class="indent2">
+    <code>Advanced Combat Martial Arts.MOD
+        &lt;tab&gt; BENEFIT:.CLEAR &lt;tab&gt; BENEFIT:When the character
+        scores a critical hit on an opponent with an unarmed strike, the
+        character deals triple damage</code>
+</p>
+<p class="indent3">
+    Changes the ability description, substituting
+    the specified text.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Include
+        Separately):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Ability:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:Initial benefit
+        text.</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:New benefit
+        text.</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:Initial benefit
+        text. &lt;tab&gt; BENEFIT:New benefit text.</code>
+</p>
+<p class="indent3">
+    The output will show the following:
+    &amp;quotInitial benefit text. New benefit text."
+</p>
+<hr/>
+<p class="status">
+    <a id="category2" name="category2">
+        *** Updated
+        5.13.6
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    CATEGORY:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Ability category)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is the
+    <a href="datafilesabilitycategory.html">
+        Ability Category
+    </a>
+    that the
+    ability belongs to. The ability category is a broad group of
+    abilities, defined in the game mode. An ability's key name need
+    only be unique within its category.
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CATEGORY:SpecialAttack</code>
+</p>
+<p class="indent3">
+    This ability is part of the "SpecialAttack"
+    ability category.
+</p>
+<p class="indent2">
+    <code>CATEGORY:Feat</code>
+</p>
+<p class="indent3">
+    This ability is part of the "Feat" ability
+    category, which is a special case of abilities that can be selected
+    as feats.
+</p>
+<p class="indent2">
+    <code>CATEGORY=Talent|Uncanny Dodge II.MOD
+        &lt;tab&gt; PRE:.CLEAR</code>
+</p>
+<p class="indent3">
+    This ability is part of the "Talent" ability
+    category, which is aimed at the feat of "Uncanny Dodge II" so that
+    it can be modified by removing the PRExxx.
+</p>
+<hr/>
+<p class="status">
+    <a id="cost" name="cost">
+        *** Added 5.11.x
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    COST:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (ability point cost)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is how many ability points the ability costs. A decimal
+        value, as the example below, would mean that it only costs 1/2 an
+        ability point.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying an ability with
+        the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>COST</code>
+        tag,
+        the data included in a new
+        <code>COST</code>
+        tag will overwrite the
+        existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>COST:1</code>
+</p>
+<p class="indent3">
+    Ability costs one ability point.
+</p>
+<p class="indent2">
+    <code>COST:.5</code>
+</p>
+<p class="indent3">
+    Ability costs half a ability point.
+</p>
+<p class="indent1">
+    <strong>
+        Default Value:
+    </strong>
+</p>
+<p class="indent2">
+    <code>1</code>
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Ability:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:2</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:1</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:1</code>
+</p>
+<p class="indent3">
+    Ability costs one ability point.
+</p>
+<hr/>
+<p class="lststatus">
+    <a id="mult" name="mult">
+        *** Added
+        5.11.x
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MULT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Boolean
+    ('YES' or 'NO')
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This determines if an ability can be taken multiple times. If
+        the value is set to 'YES', then you
+        <strong>
+            MUST
+        </strong>
+        also use
+        a
+        <code>CHOOSE</code>
+        tag.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying an ability with
+        the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>MULT</code>
+        tag,
+        the data included in a new
+        <code>MULT</code>
+        tag will overwrite the
+        existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MULT:YES</code>
+</p>
+<p class="indent3">
+    This Ability can be taken multiple times.
+</p>
+<p class="indent1">
+    <strong>
+        Default Value:
+    </strong>
+</p>
+<p class="indent2">
+    <code>NO</code>
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Ability:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:YES</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:NO</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:NO</code>
+</p>
+<p class="indent3">
+    Modified ability cannot be taken multiple
+    times.
+</p>
+<hr/>
+<p class="status">
+    <a id="stack" name="stack">
+        *** Added
+        5.11.x
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    STACK:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Boolean
+    ('YES' or 'NO')
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tells PCGen if the ability benefits may be stacked on one
+        another.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying an ability with
+        the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>STACK</code>
+        tag, the data included in a new
+        <code>STACK</code>
+        tag will
+        overwrite the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STACK:YES</code>
+</p>
+<p class="indent3">
+    The benefits for this ability stack with itself
+    if taken multiple times.
+</p>
+<p class="indent1">
+    <strong>
+        Default Value:
+    </strong>
+</p>
+<p class="indent2">
+    <code>NO</code>
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Ability:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:YES</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:NO</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:NO</code>
+</p>
+<p class="indent3">
+    The benefits for the modified ability will not
+    stack with itself if taken multiple times.
+</p>
+<hr/>
+<p class="lststatus">
+    <a id="template" name="template">
+        *** Updated
+        5.17.x
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TEMPLATE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a pipe-delimited (|) list of templates that are granted
+        by the ability.
+    </li>
+    <li>
+        Supports
+        <code>%LIST</code>
+        in conjunction with a
+        <code>CHOOSE</code>
+        tag.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
+</p>
+<p class="indent3">
+    The ability applies the "Incorporeal", "Undead"
+    and "Celestial" templates.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="templateaddchoice" name="templateaddchoice">
+            Tag Name:
+        </a>
+    </strong>
+    TEMPLATE:ADDCHOICE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a pipe-delimited list of template choices that are
+        added to the list presented by the original
+        <code>TEMPLATE:CHOOSE</code>
+        tag.
+    </li>
+    <li>
+        When using the
+        <code>TEMPLATE:ADDCOICE</code>
+        tag as part of a
+        <code>.MOD</code>
+        of a Race object that containes multiple
+        <code>TEMPLATE:CHOOSE</code>
+        tags, all instances of the
+        <code>TEMPLATE:CHOOSE</code>
+        tag will be modified.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
+</p>
+<p class="indent3">
+    The ability can choose previously defined
+    templates plus the "Demihuman" or "Beast" templates.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="templatechoose" name="templatechoose">
+            Tag Name:
+        </a>
+    </strong>
+    TEMPLATE:CHOOSE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Will present a popup window of the choices provided in the
+        pipe-delimited (|) list, allowing the user to pick ONE from the
+        list.
+    </li>
+    <li>
+        Multiple
+        <code>TEMPLATE:CHOOSE</code>
+        tags can be used in the
+        same LST object but PCGen's current Data Standard is to include no
+        more that one in each LST object.
+    </li>
+    <li>
+        Though the
+        <code>TEMPLATE:CHOOSE</code>
+        tag is not a gobal tag
+        it can be used in the
+        <a href="datafilesclasses.html#templatechoose">
+            Class
+        </a>
+        ,
+        <a href="datafilesraces.html#templatechoose">
+            Race
+        </a>
+        , and
+        <a href="datafilestemplates.html#templatechoose">
+            Template
+        </a>
+        files.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
+</p>
+<p class="indent3">
+    The ability allows the selection of either the
+    "Celestial" or "Outsider" template.
+</p>
+<hr/>
+<p class="status">
+    <a id="visible" name="visible">
+        *** Added
+        5.11.x
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    VISIBLE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    YES
+    (Default)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    NO
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    DISPLAY
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    EXPORT
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        <code>YES</code>
+        - Shows the ability name in PCGen and on
+        export to a character sheet.
+    </li>
+    <li>
+        <code>NO</code>
+        - Hides the ability name in PCGen and on export
+        to a character sheet.
+    </li>
+    <li>
+        <code>DISPLAY</code>
+        - Displays the ability name in PCGen but
+        not on the character sheet.
+    </li>
+    <li>
+        <code>EXPORT</code>
+        - Hides the ability name from PCGen but
+        displays it on the character sheet.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying an ability with
+        the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>VISIBLE</code>
+        tag, the data included in a new
+        <code>VISIBLE</code>
+        tag will
+        overwrite the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>VISIBLE:YES</code>
+</p>
+<p class="indent3">
+    Shows the ability name in PCGen and on the
+    Output sheet.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Ability:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt; VISIBLEE:YES</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt;
+        VISIBLE:DISPLAY</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>CATEGORY=&lt;category
+        name&gt;|&lt;ability name&gt; &lt;tab&gt;
+        VISIBLE:DISPLAY</code>
+</p>
+<p class="indent3">
+    Modified ability will appear in the GUI but will
+    not appear on the output sheet.
+</p>
+<hr/>
+<h3>
+    <a id="globalabilitytags" name="globalabilitytags">
+        Global
+        Ability Tags
+    </a>
+</h3>
+<ul>
+    <li>
+        <a href="../globalfilestagpages/globalfilesother.html#ability2">
+            ABILITY
+        </a>
+        <span class="note">
      (Global Other)
     </span>
-   </li>
-  </ul>
-  <hr/>
-  <h3>
-   <a id="otherabilitytags" name="otherabilitytags">
-    Other Ability
-Tags
-   </a>
-  </h3>
-  <p>
-   These are not true global tags as the tags in the previous
-section are. Though they occur in other files, they have an impact
-on abilities and are being included here to make them easier to
-locate and understand.
-  </p>
-  <hr/>
-  <h4>
-   <a id="gamemodemiscinfoabilitytags" name="gamemodemiscinfoabilitytags">
-    Game Mode Misc Info and
-AbilityCategory Files
-   </a>
-  </h4>
-  <ul>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#abilitycategory">
-     ABILITYCATEGORY
+    </li>
+</ul>
+<hr/>
+<h3>
+    <a id="otherabilitytags" name="otherabilitytags">
+        Other Ability
+        Tags
     </a>
-    <span class="note">
+</h3>
+<p>
+    These are not true global tags as the tags in the previous
+    section are. Though they occur in other files, they have an impact
+    on abilities and are being included here to make them easier to
+    locate and understand.
+</p>
+<hr/>
+<h4>
+    <a id="gamemodemiscinfoabilitytags" name="gamemodemiscinfoabilitytags">
+        Game Mode Misc Info and
+        AbilityCategory Files
+    </a>
+</h4>
+<ul>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#abilitycategory">
+            ABILITYCATEGORY
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-    or
-    <a href="../datafilestagpages/datafilesabilitycategory.html#abilitycategory">
-     ABILITYCATEGORY
-    </a>
-    <span class="note">
+        or
+        <a href="../datafilestagpages/datafilesabilitycategory.html#abilitycategory">
+            ABILITYCATEGORY
+        </a>
+        <span class="note">
      (Ability
 Category)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#category">
-     CATEGORY
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#category">
+            CATEGORY
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#displayname">
-     DISPLAYNAME
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#displayname">
+            DISPLAYNAME
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#editable">
-     EDITABLE
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#editable">
+            EDITABLE
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#editpool">
-     EDITPOOL
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#editpool">
+            EDITPOOL
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#fractionalpool">
-     FRACTIONALPOOL
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#fractionalpool">
+            FRACTIONALPOOL
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#plural">
-     PLURAL
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#plural">
+            PLURAL
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#pool">
-     POOL
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#pool">
+            POOL
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#type">
-     TYPE
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#type">
+            TYPE
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#visible">
-     VISIBLE
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#visible">
+            VISIBLE
+        </a>
+        <span class="note">
      (Misc Info)
     </span>
-   </li>
-  </ul>
-  <hr/>
-  <h4>
-   <a id="gamemodemiscgamemodestatsandcheckslist" name="gamemodemiscgamemodestatsandcheckslist">
-    Game Mode - Stats and
-Checks File
-   </a>
-  </h4>
-  <ul>
-   <li>
-    <a href="../systemfilestagpages/gamemodestatsandcheckslist.html#abilityaddspelllevel">
-     ABILITY:ADDSPELLLEVEL
+    </li>
+</ul>
+<hr/>
+<h4>
+    <a id="gamemodemiscgamemodestatsandcheckslist" name="gamemodemiscgamemodestatsandcheckslist">
+        Game Mode - Stats and
+        Checks File
     </a>
-    <span class="note">
+</h4>
+<ul>
+    <li>
+        <a href="../systemfilestagpages/gamemodestatsandcheckslist.html#abilityaddspelllevel">
+            ABILITY:ADDSPELLLEVEL
+        </a>
+        <span class="note">
      (Stats &amp; Checks,
 in STATNAME Line)
     </span>
-   </li>
-  </ul>
-  <hr/>
-  <h4>
-   <a id="bonusabilitytags" name="bonusabilitytags">
-    Bonus Ability
-Tags
-   </a>
-  </h4>
-  <ul>
-   <li>
-    <a href="../globalfilestagpages/globalfilesbonus.html#abilitypool">
-     BONUS:ABILITYPOOL
+    </li>
+</ul>
+<hr/>
+<h4>
+    <a id="bonusabilitytags" name="bonusabilitytags">
+        Bonus Ability
+        Tags
     </a>
-    <span class="note">
+</h4>
+<ul>
+    <li>
+        <a href="../globalfilestagpages/globalfilesbonus.html#abilitypool">
+            BONUS:ABILITYPOOL
+        </a>
+        <span class="note">
      (Global BONUS)
     </span>
-   </li>
-  </ul>
-  <hr/>
-  <h4>
-   <a name="starting kit tags">
-    Starting Kit Tags
-   </a>
-  </h4>
-  <ul>
-   <li>
-    <a href="../datafilestagpages/datafilesstartingkits.html#category">
-     ABILITY:CATEGORY
+    </li>
+</ul>
+<hr/>
+<h4>
+    <a name="starting kit tags">
+        Starting Kit Tags
     </a>
-    <span class="note">
+</h4>
+<ul>
+    <li>
+        <a href="../datafilestagpages/datafilesstartingkits.html#category">
+            ABILITY:CATEGORY
+        </a>
+        <span class="note">
      (Starting Kit)
     </span>
-   </li>
-   <li>
-    <a href="../datafilestagpages/datafilesstartingkits.html#ability">
-     ABILITY:PROMPT:FEAT
-    </a>
-    <span class="note">
+    </li>
+    <li>
+        <a href="../datafilestagpages/datafilesstartingkits.html#ability">
+            ABILITY:PROMPT:FEAT
+        </a>
+        <span class="note">
      (Starting Kit)
     </span>
-   </li>
-  </ul>
-  <hr/>
-  <h4>
-   <a id="pccabilitytags" name="pccabilitytags">
-    PCC Ability
-Tags
-   </a>
-  </h4>
-  <ul>
-   <li>
-    <a href="../datafilestagpages/datafilespcc.html#abilitypcc">
-     ABILITY
+    </li>
+</ul>
+<hr/>
+<h4>
+    <a id="pccabilitytags" name="pccabilitytags">
+        PCC Ability
+        Tags
     </a>
-    <span class="note">
+</h4>
+<ul>
+    <li>
+        <a href="../datafilestagpages/datafilespcc.html#abilitypcc">
+            ABILITY
+        </a>
+        <span class="note">
      (PCC)
     </span>
-   </li>
-  </ul>
-  <hr/>
-  <p>
-  </p>
- </body>
+    </li>
+</ul>
+<hr/>
+<p>
+</p>
+</body>
 </html>

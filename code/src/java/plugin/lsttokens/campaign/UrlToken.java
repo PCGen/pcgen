@@ -38,106 +38,102 @@ import pcgen.util.Logging;
 
 /**
  * {@code UrlToken} is responsible for parsing the URL campaign token.
- * 
+ * <p>
  * -0500 (Sun, 27 Jan 2008) $
- * 
  */
 public class UrlToken implements CDOMPrimaryToken<Campaign>
 {
 
-	private static final String URL_KIND_NAME_WEBSITE = "WEBSITE";
-	private static final String URL_KIND_NAME_SURVEY = "SURVEY";
+    private static final String URL_KIND_NAME_WEBSITE = "WEBSITE";
+    private static final String URL_KIND_NAME_SURVEY = "SURVEY";
 
-	@Override
-	public String getTokenName()
-	{
-		return "URL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "URL";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, Campaign campaign, String value)
-	{
-		final StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		if (tok.countTokens() != 3)
-		{
-			return new ParseResult.Fail(
-				"URL token requires three arguments. Link kind, " + "link and description.  : " + value);
-		}
-		String urlTypeName = tok.nextToken();
-		String urlText = tok.nextToken();
-		String urlDesc = tok.nextToken();
-		CampaignURL.URLKind urlType;
+    @Override
+    public ParseResult parseToken(LoadContext context, Campaign campaign, String value)
+    {
+        final StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+        if (tok.countTokens() != 3)
+        {
+            return new ParseResult.Fail(
+                    "URL token requires three arguments. Link kind, " + "link and description.  : " + value);
+        }
+        String urlTypeName = tok.nextToken();
+        String urlText = tok.nextToken();
+        String urlDesc = tok.nextToken();
+        CampaignURL.URLKind urlType;
 
-		if (urlTypeName.equalsIgnoreCase(URL_KIND_NAME_WEBSITE))
-		{
-			if (!urlTypeName.equals(URL_KIND_NAME_WEBSITE))
-			{
-				Logging.log(Logging.LST_WARNING, "URL type should be WEBSITE in upper case : " + value);
-			}
-			urlType = CampaignURL.URLKind.WEBSITE;
-			urlTypeName = "";
-		}
-		else if (urlTypeName.equalsIgnoreCase(URL_KIND_NAME_SURVEY))
-		{
-			if (!urlTypeName.equals(URL_KIND_NAME_SURVEY))
-			{
-				Logging.log(Logging.LST_WARNING, "URL type should be SURVEY in upper case : " + value);
-			}
-			urlType = CampaignURL.URLKind.SURVEY;
-			urlTypeName = "";
-		}
-		else
-		{
-			urlType = CampaignURL.URLKind.PURCHASE;
-		}
+        if (urlTypeName.equalsIgnoreCase(URL_KIND_NAME_WEBSITE))
+        {
+            if (!urlTypeName.equals(URL_KIND_NAME_WEBSITE))
+            {
+                Logging.log(Logging.LST_WARNING, "URL type should be WEBSITE in upper case : " + value);
+            }
+            urlType = CampaignURL.URLKind.WEBSITE;
+            urlTypeName = "";
+        } else if (urlTypeName.equalsIgnoreCase(URL_KIND_NAME_SURVEY))
+        {
+            if (!urlTypeName.equals(URL_KIND_NAME_SURVEY))
+            {
+                Logging.log(Logging.LST_WARNING, "URL type should be SURVEY in upper case : " + value);
+            }
+            urlType = CampaignURL.URLKind.SURVEY;
+            urlTypeName = "";
+        } else
+        {
+            urlType = CampaignURL.URLKind.PURCHASE;
+        }
 
-		URI uri;
-		try
-		{
-			uri = new URI(urlText);
-		}
-		catch (URISyntaxException e)
-		{
-			return new ParseResult.Fail("Invalid URL (" + e.getMessage() + ") : " + value);
-		}
-		// Create URL object
-		CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, uri, urlDesc);
+        URI uri;
+        try
+        {
+            uri = new URI(urlText);
+        } catch (URISyntaxException e)
+        {
+            return new ParseResult.Fail("Invalid URL (" + e.getMessage() + ") : " + value);
+        }
+        // Create URL object
+        CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, uri, urlDesc);
 
-		// Add URL Object to campaign
-		context.getObjectContext().addToList(campaign, ListKey.CAMPAIGN_URL, campUrl);
-		return ParseResult.SUCCESS;
-	}
+        // Add URL Object to campaign
+        context.getObjectContext().addToList(campaign, ListKey.CAMPAIGN_URL, campUrl);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Changes<CampaignURL> changes = context.getObjectContext().getListChanges(campaign, ListKey.CAMPAIGN_URL);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		Collection<CampaignURL> added = changes.getAdded();
-		if (added != null && !added.isEmpty())
-		{
-			List<String> list = new ArrayList<>();
-			for (CampaignURL curl : added)
-			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(curl.getUrlKind());
-				sb.append(Constants.PIPE);
-				sb.append(curl.getUri().toString());
-				sb.append(Constants.PIPE);
-				sb.append(curl.getUrlDesc());
-			}
-			return list.toArray(new String[0]);
-		}
-		return null;
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        Changes<CampaignURL> changes = context.getObjectContext().getListChanges(campaign, ListKey.CAMPAIGN_URL);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        Collection<CampaignURL> added = changes.getAdded();
+        if (added != null && !added.isEmpty())
+        {
+            List<String> list = new ArrayList<>();
+            for (CampaignURL curl : added)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.append(curl.getUrlKind());
+                sb.append(Constants.PIPE);
+                sb.append(curl.getUri().toString());
+                sb.append(Constants.PIPE);
+                sb.append(curl.getUrlDesc());
+            }
+            return list.toArray(new String[0]);
+        }
+        return null;
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 
 }

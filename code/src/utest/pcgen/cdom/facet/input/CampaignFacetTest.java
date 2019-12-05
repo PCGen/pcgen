@@ -24,21 +24,21 @@ import pcgen.core.Campaign;
 
 public class CampaignFacetTest extends AbstractListFacetTest<Campaign>
 {
-	private CampaignFacet facet = new CampaignFacet();
+    private CampaignFacet facet = new CampaignFacet();
 
-	@Override
-	protected AbstractListFacet<CharID, Campaign> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractListFacet<CharID, Campaign> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected Campaign getObject()
-	{
-		Campaign t = new Campaign();
-		t.setName("Campaign" + n++);
-		return t;
-	}
+    @Override
+    protected Campaign getObject()
+    {
+        Campaign t = new Campaign();
+        t.setName("Campaign" + n++);
+        return t;
+    }
 }

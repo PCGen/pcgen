@@ -22,41 +22,43 @@ import java.util.List;
 
 public class HyphenRule implements DataElement
 {
-	private final List<DataValue> retList = new ArrayList<>();
+    private final List<DataValue> retList = new ArrayList<>();
 
-	/** Creates a new instance of SpaceRule */
-	public HyphenRule()
-	{
-		retList.add(new DataValue("-"));
-	}
+    /**
+     * Creates a new instance of SpaceRule
+     */
+    public HyphenRule()
+    {
+        retList.add(new DataValue("-"));
+    }
 
-	@Override
-	public List<DataValue> getData()
-	{
-		return retList;
-	}
+    @Override
+    public List<DataValue> getData()
+    {
+        return retList;
+    }
 
-	@Override
-	public String getId()
-	{
-		return "-";
-	}
+    @Override
+    public String getId()
+    {
+        return "-";
+    }
 
-	@Override
-	public List<DataValue> getLastData()
-	{
-		return retList;
-	}
+    @Override
+    public List<DataValue> getLastData()
+    {
+        return retList;
+    }
 
-	@Override
-	public String getTitle()
-	{
-		return null;
-	}
+    @Override
+    public String getTitle()
+    {
+        return null;
+    }
 
-	@Override
-	public int getWeight()
-	{
-		return 1;
-	}
+    @Override
+    public int getWeight()
+    {
+        return 1;
+    }
 }

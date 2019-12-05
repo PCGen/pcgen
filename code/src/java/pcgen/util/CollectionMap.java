@@ -23,44 +23,44 @@ import java.util.Map;
 
 public interface CollectionMap<K, V, C extends Collection<V>> extends Map<K, C>
 {
-	/**
-	 * Associates the specified collection with the specified key in this map
-	 * (optional operation).  If the map previously contained a mapping for
-	 * the key, the old collection is replaced by the specified value.  (A map
-	 * <tt>m</tt> is said to contain a mapping for a key <tt>k</tt> if and only
-	 * if {@link #containsKey(Object) m.containsKey(k)} would return
-	 * <tt>true</tt>.)
-	 *
-	 * @param key key with which the specified value is to be associated
-	 * @param collection collection to be associated with the specified key
-	 * @return the previous collection associated with <tt>key</tt>, or
-	 *         <tt>null</tt> if there was no mapping for <tt>key</tt>.
-	 * @throws UnsupportedOperationException if the <tt>put</tt> operation
-	 *         is not supported by this map
-	 * @throws ClassCastException if the class of the specified key or value
-	 *         prevents it from being stored in this map
-	 * @throws NullPointerException if the specified key or value is null
-	 *         and this map does not permit null keys or values
-	 * @throws IllegalArgumentException if some property of the specified key
-	 *         or value prevents it from being stored in this map
-	 */
-	@Override
-	C put(K key, C collection);
+    /**
+     * Associates the specified collection with the specified key in this map
+     * (optional operation).  If the map previously contained a mapping for
+     * the key, the old collection is replaced by the specified value.  (A map
+     * <tt>m</tt> is said to contain a mapping for a key <tt>k</tt> if and only
+     * if {@link #containsKey(Object) m.containsKey(k)} would return
+     * <tt>true</tt>.)
+     *
+     * @param key        key with which the specified value is to be associated
+     * @param collection collection to be associated with the specified key
+     * @return the previous collection associated with <tt>key</tt>, or
+     * <tt>null</tt> if there was no mapping for <tt>key</tt>.
+     * @throws UnsupportedOperationException if the <tt>put</tt> operation
+     *                                       is not supported by this map
+     * @throws ClassCastException            if the class of the specified key or value
+     *                                       prevents it from being stored in this map
+     * @throws NullPointerException          if the specified key or value is null
+     *                                       and this map does not permit null keys or values
+     * @throws IllegalArgumentException      if some property of the specified key
+     *                                       or value prevents it from being stored in this map
+     */
+    @Override
+    C put(K key, C collection);
 
-	boolean add(K key, V value);
+    boolean add(K key, V value);
 
-	boolean addAll(K key, Collection<? extends V> values);
+    boolean addAll(K key, Collection<? extends V> values);
 
-	boolean containsValue(Object key, Object value);
+    boolean containsValue(Object key, Object value);
 
-	@Override
-	boolean remove(Object key, Object value);
+    @Override
+    boolean remove(Object key, Object value);
 
-	boolean removeAll(Object key, Collection<?> c);
+    boolean removeAll(Object key, Collection<?> c);
 
-	boolean retainAll(Object key, Collection<?> c);
+    boolean retainAll(Object key, Collection<?> c);
 
-	Collection<V> getAll();
+    Collection<V> getAll();
 
-	int size(Object key);
+    int size(Object key);
 }

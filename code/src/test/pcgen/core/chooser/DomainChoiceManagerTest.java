@@ -44,47 +44,46 @@ import org.hamcrest.Matchers;
 /**
  * {@code DomainChoiceManagerTest} test that the DomainChoiceManager class is
  * functioning correctly.
- * 
  */
 
 public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 * Test the constructor
-	 */
-	public void test001()
-	{
-		Race pObj = new Race();
-		pObj.setName("My PObject");
-		LoadContext context = Globals.getContext();
-		Domain foo = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Foo");
-		Domain bar = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Bar");
-		Domain baz = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Baz");
-		Domain qux = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Qux");
-		Domain quux = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Quux");
-		context.unconditionallyProcess(pObj, "CHOOSE",
-				"DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
-		assertThat(context.getReferenceContext().resolveReferences(null), Matchers.is(true));
-		assertThat(pObj.get(ObjectKey.CHOOSE_INFO), notNullValue());
-		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
-		PlayerCharacter aPC = getCharacter();
+    /**
+     * Test the constructor
+     */
+    public void test001()
+    {
+        Race pObj = new Race();
+        pObj.setName("My PObject");
+        LoadContext context = Globals.getContext();
+        Domain foo = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Foo");
+        Domain bar = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Bar");
+        Domain baz = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Baz");
+        Domain qux = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Qux");
+        Domain quux = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Quux");
+        context.unconditionallyProcess(pObj, "CHOOSE",
+                "DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
+        assertThat(context.getReferenceContext().resolveReferences(null), Matchers.is(true));
+        assertThat(pObj.get(ObjectKey.CHOOSE_INFO), notNullValue());
+        pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
+        PlayerCharacter aPC = getCharacter();
 
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(
-				pObj, aPC);
-		assertThat("Found the chooser", choiceManager, notNullValue());
+        ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(
+                pObj, aPC);
+        assertThat("Found the chooser", choiceManager, notNullValue());
 
-		List<Domain> aList = new ArrayList<>();
-		List<Domain> sList = new ArrayList<>();
-		choiceManager.getChoices(aPC, aList, sList);
-		assertThat(aList.size(), Matchers.is(5));
-		assertThat(aList, hasItem(foo));
-		assertThat(aList, hasItem(bar));
-		assertThat(aList, hasItem(baz));
-		assertThat(aList, hasItem(qux));
-		assertThat(aList, hasItem(quux));
+        List<Domain> aList = new ArrayList<>();
+        List<Domain> sList = new ArrayList<>();
+        choiceManager.getChoices(aPC, aList, sList);
+        assertThat(aList.size(), Matchers.is(5));
+        assertThat(aList, hasItem(foo));
+        assertThat(aList, hasItem(bar));
+        assertThat(aList, hasItem(baz));
+        assertThat(aList, hasItem(qux));
+        assertThat(aList, hasItem(quux));
 
-		assertThat(sList.size(), Matchers.is(0));
-	}
+        assertThat(sList.size(), Matchers.is(0));
+    }
 
 }

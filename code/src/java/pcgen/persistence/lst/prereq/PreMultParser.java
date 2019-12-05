@@ -27,106 +27,104 @@ import pcgen.util.Logging;
 
 public class PreMultParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"MULT"};
-	}
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"MULT"};
+    }
 
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setKind(null);
-		prereq.setCharacterRequired(false);
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        prereq.setKind(null);
+        prereq.setCharacterRequired(false);
 
-		int commaIndex = formula.indexOf(',');
+        int commaIndex = formula.indexOf(',');
 
-		if (commaIndex > 0)
-		{
-			String minFormula = formula.substring(0, commaIndex);
-			formula = formula.substring(commaIndex + 1);
-			prereq.setOperator(PrerequisiteOperator.GTEQ);
-			prereq.setOperand(minFormula);
-		}
+        if (commaIndex > 0)
+        {
+            String minFormula = formula.substring(0, commaIndex);
+            formula = formula.substring(commaIndex + 1);
+            prereq.setOperator(PrerequisiteOperator.GTEQ);
+            prereq.setOperand(minFormula);
+        }
 
-		// [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
-		PreParserFactory parser = PreParserFactory.getInstance();
-		for (String s : splitOnTopLevelToken(formula, '[', ']'))
-		{
-			prereq.addPrerequisite(parser.parse(s));
-		}
+        // [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
+        PreParserFactory parser = PreParserFactory.getInstance();
+        for (String s : splitOnTopLevelToken(formula, '[', ']'))
+        {
+            prereq.addPrerequisite(parser.parse(s));
+        }
 
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
-		return prereq;
-	}
+        if (invertResult)
+        {
+            prereq.setOperator(prereq.getOperator().invert());
+        }
+        return prereq;
+    }
 
-	protected static List<String> splitOnTopLevelToken(String input, char startDelimiter, char endDelimiter)
-		throws PersistenceLayerException
-	{
-		int nesting = 0;
-		int startIndex = 0;
-		int currIndex = 0;
-		boolean expectComma = false;
-		boolean expectStart = true;
-		List<String> subList = new ArrayList<>();
+    protected static List<String> splitOnTopLevelToken(String input, char startDelimiter, char endDelimiter)
+            throws PersistenceLayerException
+    {
+        int nesting = 0;
+        int startIndex = 0;
+        int currIndex = 0;
+        boolean expectComma = false;
+        boolean expectStart = true;
+        List<String> subList = new ArrayList<>();
 
-		for (currIndex = 0; currIndex < input.length(); currIndex++)
-		{
-			char currChar = input.charAt(currIndex);
+        for (currIndex = 0;currIndex < input.length();currIndex++)
+        {
+            char currChar = input.charAt(currIndex);
 
-			if ((currChar == ',') && (nesting == 0))
-			{
-				String subPre = input.substring(startIndex + 1, currIndex - 1);
-				startIndex = currIndex + 1;
+            if ((currChar == ',') && (nesting == 0))
+            {
+                String subPre = input.substring(startIndex + 1, currIndex - 1);
+                startIndex = currIndex + 1;
 
-				// subPre = PREARMORPROF:1,TYPE.Medium
-				subList.add(subPre);
-			}
-			else if (expectComma)
-			{
-				Logging.log(Logging.LST_WARNING, "Found close bracket without trailing comma in PREMULT, "
-					+ "trailing character was: " + currChar + " in " + input);
-			}
-			expectComma = false;
+                // subPre = PREARMORPROF:1,TYPE.Medium
+                subList.add(subPre);
+            } else if (expectComma)
+            {
+                Logging.log(Logging.LST_WARNING, "Found close bracket without trailing comma in PREMULT, "
+                        + "trailing character was: " + currChar + " in " + input);
+            }
+            expectComma = false;
 
-			if (currChar == startDelimiter)
-			{
-				nesting++;
-			}
-			else if (expectStart)
-			{
-				String loc = (currIndex == 0) ? "at start" : "after comma";
-				Logging.log(Logging.LST_WARNING,
-					"Expected Open Bracket " + loc + " in PREMULT, " + "character was: " + currChar + " in " + input);
-			}
-			expectStart = false;
+            if (currChar == startDelimiter)
+            {
+                nesting++;
+            } else if (expectStart)
+            {
+                String loc = (currIndex == 0) ? "at start" : "after comma";
+                Logging.log(Logging.LST_WARNING,
+                        "Expected Open Bracket " + loc + " in PREMULT, " + "character was: " + currChar + " in " + input);
+            }
+            expectStart = false;
 
-			if (currChar == endDelimiter)
-			{
-				nesting--;
-				if (nesting == 0)
-				{
-					expectComma = true;
-				}
-			}
-		}
+            if (currChar == endDelimiter)
+            {
+                nesting--;
+                if (nesting == 0)
+                {
+                    expectComma = true;
+                }
+            }
+        }
 
-		if (nesting != 0)
-		{
-			throw new PersistenceLayerException(
-				"Unbalanced " + startDelimiter + endDelimiter + " in PREMULT '" + input + "'.");
-		}
-		if (currIndex - startIndex <= 1)
-		{
-			throw new PersistenceLayerException("Found empty or unbracketed section in PREMULT '" + input + "'.");
-		}
-		subList.add(input.substring(startIndex + 1, currIndex - 1));
+        if (nesting != 0)
+        {
+            throw new PersistenceLayerException(
+                    "Unbalanced " + startDelimiter + endDelimiter + " in PREMULT '" + input + "'.");
+        }
+        if (currIndex - startIndex <= 1)
+        {
+            throw new PersistenceLayerException("Found empty or unbracketed section in PREMULT '" + input + "'.");
+        }
+        subList.add(input.substring(startIndex + 1, currIndex - 1));
 
-		return subList;
-	}
+        return subList;
+    }
 }

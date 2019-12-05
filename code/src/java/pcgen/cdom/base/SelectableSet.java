@@ -1,21 +1,21 @@
 /*
  * Copyright 2006 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * 
+ *
+ *
  */
 package pcgen.cdom.base;
 
@@ -26,25 +26,24 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * A SelectableSet is a named container of a Collection of objects.
- * 
- * @param <T>
- *            the Class contained within this SelectableSet
+ *
+ * @param <T> the Class contained within this SelectableSet
  */
 public interface SelectableSet<T>
 {
 
-	String getLSTformat();
+    String getLSTformat();
 
-	Class<? super T> getChoiceClass();
+    Class<? super T> getChoiceClass();
 
-	String getName();
+    String getName();
 
-	GroupingState getGroupingState();
+    GroupingState getGroupingState();
 
-	String getTitle();
+    String getTitle();
 
-	void setTitle(String title);
+    void setTitle(String title);
 
-	Collection<? extends T> getSet(PlayerCharacter pc);
+    Collection<? extends T> getSet(PlayerCharacter pc);
 
 }

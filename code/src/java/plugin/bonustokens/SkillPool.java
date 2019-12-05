@@ -26,42 +26,40 @@ import pcgen.rules.context.LoadContext;
  */
 public final class SkillPool extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		if (token.startsWith(Constants.LST_CLASS))
-		{
-			addBonusInfo(token.replace('=', '.'));
-		}
-		else if (token.startsWith("LEVEL"))
-		{
-			addBonusInfo(token.replace('=', '.'));
-		}
-		else if ("NUMBER".equals(token))
-		{
-			addBonusInfo(token);
-		}
-		else
-		{
-			return false;
-		}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        if (token.startsWith(Constants.LST_CLASS))
+        {
+            addBonusInfo(token.replace('=', '.'));
+        } else if (token.startsWith("LEVEL"))
+        {
+            addBonusInfo(token.replace('=', '.'));
+        } else if ("NUMBER".equals(token))
+        {
+            addBonusInfo(token);
+        } else
+        {
+            return false;
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "SKILLPOOL";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "SKILLPOOL";
+    }
 }

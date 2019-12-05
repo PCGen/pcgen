@@ -26,66 +26,58 @@ import pcgen.core.term.TermEvaluator;
  * associated with a character's equipment. This class converts
  * formulas or variables into values and is used extensively
  * both in definitions of objects and for output to output sheets.
- *
- *
  */
 public class VariableProcessorEq extends VariableProcessor
 {
 
-	private final Equipment eq;
-	private final boolean primaryHead;
+    private final Equipment eq;
+    private final boolean primaryHead;
 
-	/**
-	 * Create a new VariableProcessorEq instance for an equipment item, and
-	 * pc. It also allows splitting of the processing of the heads of double
-	 * weapons.
-	 *
-	 * @param eq
-	 *           The item of equipment  being processed.
-	 * @param pc 
-	 *           The player character being processed.
-	 * @param primaryHead
-	 *           Is this the primary head of a double weapon?
-	 */
-	public VariableProcessorEq(Equipment eq, PlayerCharacter pc, boolean primaryHead)
-	{
-		super(pc);
-		this.eq = eq;
-		this.primaryHead = primaryHead;
-	}
+    /**
+     * Create a new VariableProcessorEq instance for an equipment item, and
+     * pc. It also allows splitting of the processing of the heads of double
+     * weapons.
+     *
+     * @param eq          The item of equipment  being processed.
+     * @param pc          The player character being processed.
+     * @param primaryHead Is this the primary head of a double weapon?
+     */
+    public VariableProcessorEq(Equipment eq, PlayerCharacter pc, boolean primaryHead)
+    {
+        super(pc);
+        this.eq = eq;
+        this.primaryHead = primaryHead;
+    }
 
-	/**
-	 * Retrieve a pre-coded variable for a piece of equipment. These are known
-	 * properties of all equipment items. If a value is not found for the
-	 * equipment item, a search will be made of the character.
-	 *
-	 * @param aSpell  
-	 *              This is specifically to compute bonuses to CASTERLEVEL
-	 *              for a specific spell.
-	 * @param valString
-	 *              The variable to be evaluated
-	 * @param src
-	 *              The source within which the variable is evaluated
-	 * @return The value of the variable
-	 */
+    /**
+     * Retrieve a pre-coded variable for a piece of equipment. These are known
+     * properties of all equipment items. If a value is not found for the
+     * equipment item, a search will be made of the character.
+     *
+     * @param aSpell    This is specifically to compute bonuses to CASTERLEVEL
+     *                  for a specific spell.
+     * @param valString The variable to be evaluated
+     * @param src       The source within which the variable is evaluated
+     * @return The value of the variable
+     */
 
-	@Override
-	Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src)
-	{
-		TermEvaluator evaluator = getTermEvaluator(valString, src);
+    @Override
+    Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src)
+    {
+        TermEvaluator evaluator = getTermEvaluator(valString, src);
 
-		return evaluator == null ? null : evaluator.resolve(eq, primaryHead, pc);
-	}
+        return evaluator == null ? null : evaluator.resolve(eq, primaryHead, pc);
+    }
 
-	TermEvaluator getTermEvaluator(String valString, String src)
-	{
-		TermEvaluator evaluator = EvaluatorFactory.EQ.getTermEvaluator(valString, src);
+    TermEvaluator getTermEvaluator(String valString, String src)
+    {
+        TermEvaluator evaluator = EvaluatorFactory.EQ.getTermEvaluator(valString, src);
 
-		if (evaluator == null)
-		{
-			return EvaluatorFactory.PC.getTermEvaluator(valString, src);
-		}
+        if (evaluator == null)
+        {
+            return EvaluatorFactory.PC.getTermEvaluator(valString, src);
+        }
 
-		return evaluator;
-	}
+        return evaluator;
+    }
 }

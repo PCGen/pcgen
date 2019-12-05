@@ -31,79 +31,76 @@ import pcgen.rules.context.LoadContext;
 
 public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 {
-	private final Class<T> baseClass;
+    private final Class<T> baseClass;
 
-	public GenericLoader(Class<T> cl)
-	{
-		Objects.requireNonNull(cl, "Class for GenericLoader cannot be null");
-		if (Modifier.isAbstract(cl.getModifiers()))
-		{
-			throw new IllegalArgumentException("Class for GenericLoader must not be abstract");
-		}
-		try
-		{
-			if (!Modifier.isPublic(cl.getConstructor().getModifiers()))
-			{
-				throw new IllegalArgumentException(
-					"Class for GenericLoader must have public zero-argument constructor");
-			}
-		}
-		catch (SecurityException | NoSuchMethodException e)
-		{
-			throw new IllegalArgumentException("Class for GenericLoader must have public zero-argument constructor", e);
-		}
-		baseClass = cl;
-	}
+    public GenericLoader(Class<T> cl)
+    {
+        Objects.requireNonNull(cl, "Class for GenericLoader cannot be null");
+        if (Modifier.isAbstract(cl.getModifiers()))
+        {
+            throw new IllegalArgumentException("Class for GenericLoader must not be abstract");
+        }
+        try
+        {
+            if (!Modifier.isPublic(cl.getConstructor().getModifiers()))
+            {
+                throw new IllegalArgumentException(
+                        "Class for GenericLoader must have public zero-argument constructor");
+            }
+        } catch (SecurityException | NoSuchMethodException e)
+        {
+            throw new IllegalArgumentException("Class for GenericLoader must have public zero-argument constructor", e);
+        }
+        baseClass = cl;
+    }
 
-	@Override
-	public final T parseLine(LoadContext context, T object, String lstLine, SourceEntry source)
-		throws PersistenceLayerException
-	{
-		T po;
-		boolean isnew = false;
-		if (object == null)
-		{
-			try
-			{
-				po = baseClass.newInstance();
-			}
-			catch (InstantiationException | IllegalAccessException e)
-			{
-				throw new UnreachableError(e);
-			}
-			isnew = true;
-		}
-		else
-		{
-			po = object;
-		}
+    @Override
+    public final T parseLine(LoadContext context, T object, String lstLine, SourceEntry source)
+            throws PersistenceLayerException
+    {
+        T po;
+        boolean isnew = false;
+        if (object == null)
+        {
+            try
+            {
+                po = baseClass.newInstance();
+            } catch (InstantiationException | IllegalAccessException e)
+            {
+                throw new UnreachableError(e);
+            }
+            isnew = true;
+        } else
+        {
+            po = object;
+        }
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		if (colToken.hasMoreTokens())
-		{
-			po.setName(colToken.nextToken());
-			po.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
-			po.setSourceURI(source.getURI());
-			if (isnew)
-			{
-				context.addStatefulInformation(po);
-				context.getReferenceContext().importObject(po);
-			}
-		}
+        final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+        if (colToken.hasMoreTokens())
+        {
+            po.setName(colToken.nextToken());
+            po.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
+            po.setSourceURI(source.getURI());
+            if (isnew)
+            {
+                context.addStatefulInformation(po);
+                context.getReferenceContext().importObject(po);
+            }
+        }
 
-		while (colToken.hasMoreTokens())
-		{
-			LstUtils.processToken(context, po, source, colToken.nextToken());
-		}
+        while (colToken.hasMoreTokens())
+        {
+            LstUtils.processToken(context, po, source, colToken.nextToken());
+        }
 
-		// One line each; finish the object and return null
-		completeObject(context, source, po);
-		return null;
-	}
+        // One line each; finish the object and return null
+        completeObject(context, source, po);
+        return null;
+    }
 
-	@Override
-	protected final T getObjectKeyed(LoadContext context, String aKey)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(baseClass, aKey);
-	}
+    @Override
+    protected final T getObjectKeyed(LoadContext context, String aKey)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(baseClass, aKey);
+    }
 }

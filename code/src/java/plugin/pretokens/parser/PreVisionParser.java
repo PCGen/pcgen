@@ -28,69 +28,69 @@ import pcgen.util.Logging;
  */
 public class PreVisionParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"VISION"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"VISION"};
+    }
 
-	@Override
-	protected String getAssumedValue()
-	{
-		return "ANY";
-	}
+    @Override
+    protected String getAssumedValue()
+    {
+        return "ANY";
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		if (!validateNotZero(prereq))
-		{
-			Logging.errorPrint("  Prerequisite was: " + formula);
-		}
-		return prereq;
-	}
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        if (!validateNotZero(prereq))
+        {
+            Logging.errorPrint("  Prerequisite was: " + formula);
+        }
+        return prereq;
+    }
 
-	private static boolean validateNotZero(Prerequisite prereq)
-	{
-		boolean returnValue = true;
-		if (prereq.getKind() != null && prereq.getKind().equalsIgnoreCase("VISION"))
-		{
-			if ("0".equals(prereq.getOperand()))
-			{
-				Logging.deprecationPrint("Found PREVISION that is invalid (vision=0 is always true)");
-				Logging.deprecationPrint("  You should use =1 or =ANY");
-				returnValue = false;
-			}
-		}
+    private static boolean validateNotZero(Prerequisite prereq)
+    {
+        boolean returnValue = true;
+        if (prereq.getKind() != null && prereq.getKind().equalsIgnoreCase("VISION"))
+        {
+            if ("0".equals(prereq.getOperand()))
+            {
+                Logging.deprecationPrint("Found PREVISION that is invalid (vision=0 is always true)");
+                Logging.deprecationPrint("  You should use =1 or =ANY");
+                returnValue = false;
+            }
+        }
 
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			returnValue &= validateNotZero(element);
-		}
-		return returnValue;
-	}
+        for (Prerequisite element : prereq.getPrerequisites())
+        {
+            returnValue &= validateNotZero(element);
+        }
+        return returnValue;
+    }
 
-	@Override
-	protected boolean requiresValue()
-	{
-		return true;
-	}
+    @Override
+    protected boolean requiresValue()
+    {
+        return true;
+    }
 }

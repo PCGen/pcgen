@@ -26,12 +26,12 @@ import javafx.scene.text.Text;
 
 public class CenteredLabelPanelController
 {
-	@FXML
-	private Text label;
+    @FXML
+    private Text label;
 
-	public void setText(String text)
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() -> label.setText(text));
-	}
+    public void setText(String text)
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        Platform.runLater(() -> label.setText(text));
+    }
 }

@@ -34,95 +34,93 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreArmorTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	// TODO All the equipment related PRE tag code should be refactored into a
-	// common base class.
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		int runningTotal = 0;
+    // TODO All the equipment related PRE tag code should be refactored into a
+    // common base class.
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        int runningTotal = 0;
 
-		if (display.hasEquipment())
-		{
-			final String desiredType = prereq.getKey();
-			for (Equipment eq : display.getEquippedEquipmentSet())
-			{
-				if (!eq.isArmor())
-				{
-					continue;
-				}
+        if (display.hasEquipment())
+        {
+            final String desiredType = prereq.getKey();
+            for (Equipment eq : display.getEquippedEquipmentSet())
+            {
+                if (!eq.isArmor())
+                {
+                    continue;
+                }
 
-				// Match against a TYPE of armour
-				if (desiredType.startsWith(Constants.LST_TYPE_EQUAL) || desiredType.startsWith(Constants.LST_TYPE_DOT))
-				{
+                // Match against a TYPE of armour
+                if (desiredType.startsWith(Constants.LST_TYPE_EQUAL) || desiredType.startsWith(Constants.LST_TYPE_DOT))
+                {
 
-					String stripped = desiredType.substring(Constants.SUBSTRING_LENGTH_FIVE);
-					StringTokenizer tok = new StringTokenizer(stripped.toUpperCase(), ".");
+                    String stripped = desiredType.substring(Constants.SUBSTRING_LENGTH_FIVE);
+                    StringTokenizer tok = new StringTokenizer(stripped.toUpperCase(), ".");
 
-					boolean match = false;
-					if (tok.hasMoreTokens())
-					{
-						match = true;
-					}
-					//
-					// Must match all listed types to qualify
-					//
-					while (tok.hasMoreTokens())
-					{
-						final String type = tok.nextToken();
-						if (!eq.isType(type))
-						{
-							match = false;
-							break;
-						}
-					}
-					if (match)
-					{
-						runningTotal++;
-						break;
-					}
-				}
-				else
-				{ //not a TYPE string
-					final String eqName = eq.getName().toUpperCase();
-					final int percentPos = desiredType.indexOf('%');
-					if (percentPos >= 0)
-					{
-						//handle wildcards (always assume they
-						// end the line)
-						final String substring = desiredType.substring(0, percentPos).toUpperCase();
-						if (eqName.startsWith(substring))
-						{
-							runningTotal++;
-							break;
-						}
-					}
-					else if (desiredType.contains("LIST")) //$NON-NLS-1$
-					{
-						if (display.isProficientWithArmor(eq))
-						{
-							runningTotal++;
-							break;
-						}
-					}
-					else if (eqName.equals(desiredType)) //just a straight String compare
-					{
-						runningTotal++;
-						break;
-					}
-				}
-			}
-		}
-		return countedTotal(prereq, runningTotal);
-	}
+                    boolean match = false;
+                    if (tok.hasMoreTokens())
+                    {
+                        match = true;
+                    }
+                    //
+                    // Must match all listed types to qualify
+                    //
+                    while (tok.hasMoreTokens())
+                    {
+                        final String type = tok.nextToken();
+                        if (!eq.isType(type))
+                        {
+                            match = false;
+                            break;
+                        }
+                    }
+                    if (match)
+                    {
+                        runningTotal++;
+                        break;
+                    }
+                } else
+                { //not a TYPE string
+                    final String eqName = eq.getName().toUpperCase();
+                    final int percentPos = desiredType.indexOf('%');
+                    if (percentPos >= 0)
+                    {
+                        //handle wildcards (always assume they
+                        // end the line)
+                        final String substring = desiredType.substring(0, percentPos).toUpperCase();
+                        if (eqName.startsWith(substring))
+                        {
+                            runningTotal++;
+                            break;
+                        }
+                    } else if (desiredType.contains("LIST")) //$NON-NLS-1$
+                    {
+                        if (display.isProficientWithArmor(eq))
+                        {
+                            runningTotal++;
+                            break;
+                        }
+                    } else if (eqName.equals(desiredType)) //just a straight String compare
+                    {
+                        runningTotal++;
+                        break;
+                    }
+                }
+            }
+        }
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "ARMORTYPE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "ARMORTYPE"; //$NON-NLS-1$
+    }
 
 }

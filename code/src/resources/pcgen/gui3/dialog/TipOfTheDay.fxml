@@ -32,38 +32,39 @@
   -->
 
 <?import javafx.scene.web.WebView?>
-<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.dialog.TipOfTheDayController">
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+       fx:controller="pcgen.gui3.dialog.TipOfTheDayController">
     <AnchorPane>
         <BorderPane>
-         <left>
-            <ImageView pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                <Image url="@TipOfTheDay24.gif" />
-            </ImageView>
-         </left>
-         <top>
-            <Label id="didYouKnowLabel" text="%in_tod_didyouknow" BorderPane.alignment="CENTER" />
-         </top>
-         <bottom>
-             <HBox BorderPane.alignment="CENTER">
-                 <CheckBox fx:id="showTips" text="%in_tod_showTips" />
-                 <Region HBox.hgrow="ALWAYS" />
-                 <Button text="%in_tod_prevTip" onAction="#onPrevTip" />
-                 <Button text="%in_tod_nextTip" onAction="#onNextTip" />
-                 <Button text="%in_close" onAction="#onClose" cancelButton="true" defaultButton="true" />
-             </HBox>
-         </bottom>
-         <center>
-             <!--
-                Can't use <fx:include fx:id="tipPanel" source="/pcgen/gui3/SimpleHtmlPanel.fxml" />
-                since the SimpleHtmlPanel is a scene. Instead, both would have to fx:include the same
-                webview. In the event that either becomes more complex and shares config/code it
-                would be worth it.
-             -->
-             <WebView fx:id="browser"/>
-         </center>
+            <left>
+                <ImageView pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                    <Image url="@TipOfTheDay24.gif"/>
+                </ImageView>
+            </left>
+            <top>
+                <Label id="didYouKnowLabel" text="%in_tod_didyouknow" BorderPane.alignment="CENTER"/>
+            </top>
+            <bottom>
+                <HBox BorderPane.alignment="CENTER">
+                    <CheckBox fx:id="showTips" text="%in_tod_showTips"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="%in_tod_prevTip" onAction="#onPrevTip"/>
+                    <Button text="%in_tod_nextTip" onAction="#onNextTip"/>
+                    <Button text="%in_close" onAction="#onClose" cancelButton="true" defaultButton="true"/>
+                </HBox>
+            </bottom>
+            <center>
+                <!--
+                   Can't use <fx:include fx:id="tipPanel" source="/pcgen/gui3/SimpleHtmlPanel.fxml" />
+                   since the SimpleHtmlPanel is a scene. Instead, both would have to fx:include the same
+                   webview. In the event that either becomes more complex and shares config/code it
+                   would be worth it.
+                -->
+                <WebView fx:id="browser"/>
+            </center>
         </BorderPane>
         <stylesheets>
-            <URL value="@TipOfTheDay.css" />
+            <URL value="@TipOfTheDay.css"/>
         </stylesheets>
     </AnchorPane>
 </Scene>

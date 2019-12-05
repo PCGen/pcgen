@@ -28,88 +28,88 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 public class SpellProhibitor extends ConcretePrereqObject
 {
 
-	private ProhibitedSpellType type = null;
-	private List<String> valueList = null;
+    private ProhibitedSpellType type = null;
+    private List<String> valueList = null;
 
-	public ProhibitedSpellType getType()
-	{
-		return type;
-	}
+    public ProhibitedSpellType getType()
+    {
+        return type;
+    }
 
-	public List<String> getValueList()
-	{
-		return valueList;
-	}
+    public List<String> getValueList()
+    {
+        return valueList;
+    }
 
-	public void setType(ProhibitedSpellType prohibitedType)
-	{
-		type = prohibitedType;
-	}
+    public void setType(ProhibitedSpellType prohibitedType)
+    {
+        type = prohibitedType;
+    }
 
-	public void addValue(String value)
-	{
-		if (valueList == null)
-		{
-			valueList = new ArrayList<>();
-		}
-		valueList.add(value);
-	}
+    public void addValue(String value)
+    {
+        if (valueList == null)
+        {
+            valueList = new ArrayList<>();
+        }
+        valueList.add(value);
+    }
 
-	public boolean isProhibited(Spell s, PlayerCharacter aPC, CDOMObject owner)
-	{
-		/*
-		 * Note the rule is only "Prohibit Cleric/Druid spells based on
-		 * Alignment" - thus this Globals check is only relevant to the
-		 * Alignment type
-		 */
-		if (type == ProhibitedSpellType.ALIGNMENT && !Globals.checkRule(RuleConstants.PROHIBITSPELLS))
-		{
-			return false;
-		}
+    public boolean isProhibited(Spell s, PlayerCharacter aPC, CDOMObject owner)
+    {
+        /*
+         * Note the rule is only "Prohibit Cleric/Druid spells based on
+         * Alignment" - thus this Globals check is only relevant to the
+         * Alignment type
+         */
+        if (type == ProhibitedSpellType.ALIGNMENT && !Globals.checkRule(RuleConstants.PROHIBITSPELLS))
+        {
+            return false;
+        }
 
-		if (!qualifies(aPC, owner))
-		{
-			return false;
-		}
+        if (!qualifies(aPC, owner))
+        {
+            return false;
+        }
 
-		int hits = 0;
-		for (String typeDesc : type.getCheckList(s))
-		{
-			for (String prohib : valueList)
-			{
-				if (prohib.equalsIgnoreCase(typeDesc))
-				{
-					hits++;
-				}
-			}
-		}
-		return hits == type.getRequiredCount(valueList);
-	}
+        int hits = 0;
+        for (String typeDesc : type.getCheckList(s))
+        {
+            for (String prohib : valueList)
+            {
+                if (prohib.equalsIgnoreCase(typeDesc))
+                {
+                    hits++;
+                }
+            }
+        }
+        return hits == type.getRequiredCount(valueList);
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return type.hashCode() ^ valueList.size();
-	}
+    @Override
+    public int hashCode()
+    {
+        return type.hashCode() ^ valueList.size();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof SpellProhibitor))
-		{
-			return false;
-		}
-		SpellProhibitor other = (SpellProhibitor) o;
-		if ((type == null && other.type == null) || (type != null && type == other.type))
-		{
-			return (other.valueList == null && valueList == null)
-				|| valueList != null && valueList.equals(other.valueList);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+        {
+            return true;
+        }
+        if (!(o instanceof SpellProhibitor))
+        {
+            return false;
+        }
+        SpellProhibitor other = (SpellProhibitor) o;
+        if ((type == null && other.type == null) || (type != null && type == other.type))
+        {
+            return (other.valueList == null && valueList == null)
+                    || valueList != null && valueList.equals(other.valueList);
+        }
+        return false;
+    }
 
 }

@@ -1,1619 +1,1619 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
+<!--
 
-                PCGen Documentation Project
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
 
-                Description:
-                Provides information on the use of PCGen TYPE Tags with special case uses.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Global TYPE Page
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Global TYPE Page
-  </h1>
-  <p>
-   The LST file tag
-   <code>TYPE</code>
-   has many uses within the
-PCGen, most commonly it is used to sort objects by type within the
-display or to identify a group of objects to another object that
-grants a choice from that type. Additionally there are certain
-types which have uses beyond sorting the display and identification
-within the data. Examples of this include types used to identify
-objects for the output sheets and special case types used by the
-code for various purposes. This page will list these types and
-explain their uses. This page will not detail all TYPEs used in our
-data (that would be a long list) just the ones more commonly used
-and/or which have uses outside of the dataset which may not be
-immediately apparent.
-  </p>
-  <p class="indent1">
-   The following Objects utilize TYPE tags:
-  </p>
-  <ul class="indent1">
-   <li>
-    <a href="#class">
-     Classes
+               Description:
+               Provides information on the use of PCGen TYPE Tags with special case uses.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Global TYPE Page
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Global TYPE Page
+</h1>
+<p>
+    The LST file tag
+    <code>TYPE</code>
+    has many uses within the
+    PCGen, most commonly it is used to sort objects by type within the
+    display or to identify a group of objects to another object that
+    grants a choice from that type. Additionally there are certain
+    types which have uses beyond sorting the display and identification
+    within the data. Examples of this include types used to identify
+    objects for the output sheets and special case types used by the
+    code for various purposes. This page will list these types and
+    explain their uses. This page will not detail all TYPEs used in our
+    data (that would be a long list) just the ones more commonly used
+    and/or which have uses outside of the dataset which may not be
+    immediately apparent.
+</p>
+<p class="indent1">
+    The following Objects utilize TYPE tags:
+</p>
+<ul class="indent1">
+    <li>
+        <a href="#class">
+            Classes
+        </a>
+    </li>
+    <li>
+        <a href="#companionmod">
+            Companion Modifiers
+        </a>
+    </li>
+    <li>
+        <a href="#deity">
+            Deities
+        </a>
+    </li>
+    <li>
+        <a href="#equipment">
+            Equipment
+        </a>
+    </li>
+    <li>
+        <a href="#equipmod">
+            Equipment Modifiers
+        </a>
+    </li>
+    <li>
+        <a href="#feat">
+            Feats and Abilities
+        </a>
+    </li>
+    <li>
+        <a href="#language">
+            Languages
+        </a>
+    </li>
+    <li>
+        <a href="#pcc">
+            PCC Files
+        </a>
+    </li>
+    <li>
+        <a href="#race">
+            Races
+        </a>
+    </li>
+    <li>
+        <a href="#skill">
+            Skills
+        </a>
+    </li>
+    <li>
+        <a href="#spell">
+            Spells
+        </a>
+    </li>
+    <li>
+        <a href="#startkit">
+            Starting Kits
+        </a>
+    </li>
+    <li>
+        <a href="#template">
+            Templates
+        </a>
+    </li>
+    <li>
+        <a href="#weaponprof">
+            Weapon Proficiencies
+        </a>
+    </li>
+</ul>
+<hr/>
+<h2>
+    <a id="class" name="class">
     </a>
-   </li>
-   <li>
-    <a href="#companionmod">
-     Companion Modifiers
-    </a>
-   </li>
-   <li>
-    <a href="#deity">
-     Deities
-    </a>
-   </li>
-   <li>
-    <a href="#equipment">
-     Equipment
-    </a>
-   </li>
-   <li>
-    <a href="#equipmod">
-     Equipment Modifiers
-    </a>
-   </li>
-   <li>
-    <a href="#feat">
-     Feats and Abilities
-    </a>
-   </li>
-   <li>
-    <a href="#language">
-     Languages
-    </a>
-   </li>
-   <li>
-    <a href="#pcc">
-     PCC Files
-    </a>
-   </li>
-   <li>
-    <a href="#race">
-     Races
-    </a>
-   </li>
-   <li>
-    <a href="#skill">
-     Skills
-    </a>
-   </li>
-   <li>
-    <a href="#spell">
-     Spells
-    </a>
-   </li>
-   <li>
-    <a href="#startkit">
-     Starting Kits
-    </a>
-   </li>
-   <li>
-    <a href="#template">
-     Templates
-    </a>
-   </li>
-   <li>
-    <a href="#weaponprof">
-     Weapon Proficiencies
-    </a>
-   </li>
-  </ul>
-  <hr/>
-  <h2>
-   <a id="class" name="class">
-   </a>
-   Class TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Class
-type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is used within the filters of PCGen to sort the classes by
-their respective types (makes it easier to find a specific
-class).
-   </li>
-   <li>
-    In addition to sorting classes in the display, class type is
-used by the gameMode to define certain properties of the class as
-set by the
-    <span class="lstfile">
+    Class TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Class
+    type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is used within the filters of PCGen to sort the classes by
+        their respective types (makes it easier to find a specific
+        class).
+    </li>
+    <li>
+        In addition to sorting classes in the display, class type is
+        used by the gameMode to define certain properties of the class as
+        set by the
+        <span class="lstfile">
      miscinfo.lst
     </span>
-    tag
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#classtype">
-     CLASSTYPE
-    </a>
-    .
-These properties include how much (if any) CR is added per level of
-the class, whether or not the class is considered a monster class
-and if the class is subject to an XP penalty for
-multiclassing.
-   </li>
-   <li>
-    See also
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#crformula">
-     CRFORMULA
-    </a>
-    ,
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#ismonster">
-     ISMONSTER
-    </a>
-    and
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#xppenalty">
-     XPPENALTY
-    </a>
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Base.PC</code>
-  </p>
-  <p class="indent3">
-   The class will appear if the "Base" or "PC"
-filter options are selected.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Commonly Used Types:
-   </strong>
-  </p>
-  <p class="indent2">
-   RSRD
-  </p>
-  <p class="indent3">
-   <code>PC</code>
-  </p>
-  <p class="indent3">
-   <code>NPC</code>
-  </p>
-  <p class="indent3">
-   <code>Prestige</code>
-  </p>
-  <p class="indent3">
-   <code>Monster</code>
-  </p>
-  <p class="indent2">
-   MSRD
-  </p>
-  <p class="indent3">
-   <code>Advanced</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="companionmod" name="companionmod">
-   </a>
-   Companion Modifier
-TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Companion type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Used to define what the creature is for the purposes of display
-on the resources tab.
-   </li>
-   <li>
-    Companion Modifiers can be composed of several lines, each
-requiring the
-    <code>TYPE</code>
-    tag.
-   </li>
-   <li>
-    Each companion Modifier line begins with a
-    <a href="../datafilestagpages/datafilescompanionmodifiers.html#follower">
-     FOLLOWER
-    </a>
-    or
-    <a href="../datafilestagpages/datafilescompanionmodifiers.html#masterbonusrace">
-     MASTERBONUSRACE
-    </a>
-    tag and not a name or KEY, using the type as
-the primary identifier instead.
-   </li>
-   <li>
-    Types in Companion Modifiers can contain Spaces, though this is
-normally not recommended.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Familiar</code>
-  </p>
-  <p class="indent3">
-   Defines the creature as a "Familiar" for
-resources tab display purposes.
-  </p>
-  <p class="indent1">
-   <strong>
-    Commonly Used Types:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Familiar</code>
-  </p>
-  <p class="indent2">
-   <code>Animal Companion</code>
-  </p>
-  <p class="indent2">
-   <code>Special Mount</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="deity" name="deity">
-   </a>
-   Deity TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Deity
-Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a period-delimited (".") list of the types the deity
-belongs to.
-   </li>
-   <li>
-    TYPE is not commonly used in Deity files.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Good</code>
-  </p>
-  <p class="indent3">
-   The deity belongs to the "Good" type.
-  </p>
-  <p class="indent2">
-   <code>TYPE:Good.Chaotic</code>
-  </p>
-  <p class="indent3">
-   The deity belongs to the "Good" and "Chaotic"
-types.
-  </p>
-  <hr/>
-  <h2>
-   <a id="equipment" name="equipment">
-   </a>
-   Equipment TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Item
-Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The
-    <code>TYPE</code>
-    tag is used for many filtering and PRExxx
-tags. Please follow the conventions used in the Players Rules for
-the
-    <code>TYPE</code>
-    tag.
-   </li>
-   <li>
-    The
-    <code>TYPE</code>
-    tag may also be used to identify which
-"slot" the item will be equiped to. See
-    <a href="#equipslottypes">
-     Equipment Type Slots
-    </a>
-    below
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Weapon.Simple.Melee.Slashing.Metal</code>
-  </p>
-  <p class="indent3">
-   Item is a Simple Melee Slashing Metal
-Weapon.
-  </p>
-  <p class="indent2">
-   <code>Scythe.MOD &lt;tab&gt; TYPE:.CLEAR
-&lt;tab&gt;
-TYPE:Weapon.Exotic.Melee.Piercing.Slashing.Standard</code>
-  </p>
-  <p class="indent3">
-   Modifying the Scythe to have a few more
-capabilities.
-  </p>
-  <p class="indent1">
-   <strong>
-    Special Case and Commonly Used
-Types:
-   </strong>
-  </p>
-  <blockquote>
-   <p class="indent0">
-    <a id="equipslottypes" name="equipslottypes">
-     <strong>
-      Equip Slot Types
-     </strong>
-    </a>
-    - Equipment
-slot types are specific types which are used to control how many of
-a specific equipment TYPE a character can Equip to any one
-Equipset. Equipment slots and their associated types are defined in
-the
-    <a href="../systemfilestagpages/gamemodeequipmentslots.html">
-     equipmentslots.lst
-    </a>
-    gameMode file. Since Slot TYPEs control where an item can be
-equipped no item should have more than one of these types, an item
-with more than one slot type will confuse PCGen and may not be
-equipped into the expected slot. A slot type is not required and
-any item with no slot type designated can still be equipped. There
-is no limit on how many such items can be equipped.
-   </p>
-   <p class="indent1">
+        tag
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#classtype">
+            CLASSTYPE
+        </a>
+        .
+        These properties include how much (if any) CR is added per level of
+        the class, whether or not the class is considered a monster class
+        and if the class is subject to an XP penalty for
+        multiclassing.
+    </li>
+    <li>
+        See also
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#crformula">
+            CRFORMULA
+        </a>
+        ,
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#ismonster">
+            ISMONSTER
+        </a>
+        and
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#xppenalty">
+            XPPENALTY
+        </a>
+    </li>
+</ul>
+<p class="indent1">
     <strong>
-     Common Equip Slot Types
+        Example:
     </strong>
-   </p>
-   <p class="indent2">
-    <code>Eyegear</code>
-   </p>
-   <p class="indent2">
-    <code>Headgear</code>
-   </p>
-   <p class="indent2">
-    <code>Amulet</code>
-   </p>
-   <p class="indent2">
-    <code>Armor</code>
-   </p>
-   <p class="indent2">
-    <code>Robe</code>
-   </p>
-   <p class="indent2">
-    <code>Cape</code>
-   </p>
-   <p class="indent2">
-    <code>Shirt</code>
-   </p>
-   <p class="indent2">
-    <code>Clothing</code>
-   </p>
-   <p class="indent2">
-    <code>Belt</code>
-   </p>
-   <p class="indent2">
-    <code>Shield</code>
-   </p>
-   <p class="indent2">
-    <code>Bracer</code>
-   </p>
-   <p class="indent2">
-    <code>Glove</code>
-   </p>
-   <p class="indent2">
-    <code>Weapon</code>
-   </p>
-   <p class="indent2">
-    <code>Ring</code>
-   </p>
-   <p class="indent2">
-    <code>Legwear</code>
-   </p>
-   <p class="indent2">
-    <code>Boot</code>
-   </p>
-   <p class="indent1">
+</p>
+<p class="indent2">
+    <code>TYPE:Base.PC</code>
+</p>
+<p class="indent3">
+    The class will appear if the "Base" or "PC"
+    filter options are selected.
+</p>
+<p class="indent1">
     <strong>
-     Uncommon Equip Slot Types
+        Where it is used:
     </strong>
-   </p>
-   <p class="indent2">
-    <code>PsionicTattoo</code>
-    - used in SRD and
-RSRD
-   </p>
-   <p class="indent2">
-    <code>Tattoo</code>
-    - used in MSRD
-   </p>
-   <p class="indent2">
-    <code>Transportation</code>
-    - used in MSRD
-   </p>
-   <p class="indent2">
-    <code>Vehicle</code>
-    - used in Spycraft
-   </p>
-   <p class="indent0">
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<p class="indent1">
     <strong>
-     Output Sheet Types
+        Commonly Used Types:
     </strong>
-   </p>
-   <p class="indent1">
-    Items with the following types are not listed in
-the Equipment List but are instead listed in a separate block
-labeled Money.
-   </p>
-   <p class="indent2">
-    <code>Coin</code>
-   </p>
-   <p class="indent2">
-    <code>Gem</code>
-   </p>
-   <p class="indent1">
-    The following types trigger special blocks for
-these types of equipment and are mutually exclusive.
-   </p>
-   <p class="indent2">
-    <code>Armor</code>
-   </p>
-   <p class="indent2">
-    <code>Ammunition</code>
-   </p>
-   <p class="indent2">
-    <code>Shield</code>
-   </p>
-   <p class="indent2">
-    <code>Weapon</code>
-   </p>
-   <p class="indent1">
-    The following is used to identify Equipment
-which can be useful in combat during ones turn but which is not a
-Weapon or Ammunition (and thus already listed under attacks). This
-is used in some newer stat block formats. Examples might include a
-wand of Fireballs, a Thunderstone and a Tanglefoot Bag.
-   </p>
-   <p class="indent2">
-    <code>OffensiveGear</code>
-   </p>
-   <p class="indent1">
-    The following is used to identify Equipment
-which can be useful for defense in combat but which is not an Armor
-or Shield item (and thus already listed under Armor Class). This is
-used in some newer stat block formats. Examples might include a
-Cloak of Displacement and a Ring of Invisibility.
-   </p>
-   <p class="indent2">
-    <code>DefensiveGear</code>
-   </p>
-   <p class="indent1">
-    The following is used to identify Equipment
-which can be used to cast illumination. The item should also
-contain certain
-    <code>QUALITY</code>
-    tags which define the
-brightness and duration of the light source.
-   </p>
-   <p class="indent2">
-    <code>LightSource</code>
-   </p>
-   <p class="indent0">
-    <strong>
-     Weapon Types:
-    </strong>
-   </p>
-   <p class="indent1">
-    All items of type
-    <code>Weapon</code>
-    must also
-have at least one of the types
-    <code>Melee</code>
-    or
-    <code>Ranged</code>
-    .
-   </p>
-   <p class="indent1">
-    The type
-    <code>Thrown</code>
-    is designates a
-weapon as a thrown weapon and activates a second output block
-showing the weapons Ranged statistics.
-   </p>
-   <p class="indent1">
-    The type
-    <code>Double</code>
-    designates a weapon
-as a double weapon and activates the three
-    <a href="../datafilestagpages/datafilesequipment.html#altcritmult">
-     ALTxxx
+</p>
+<p class="indent2">
+    RSRD
+</p>
+<p class="indent3">
+    <code>PC</code>
+</p>
+<p class="indent3">
+    <code>NPC</code>
+</p>
+<p class="indent3">
+    <code>Prestige</code>
+</p>
+<p class="indent3">
+    <code>Monster</code>
+</p>
+<p class="indent2">
+    MSRD
+</p>
+<p class="indent3">
+    <code>Advanced</code>
+</p>
+<hr/>
+<h2>
+    <a id="companionmod" name="companionmod">
     </a>
-    tags for the statistics for the second head.
-   </p>
-   <p class="indent0">
+    Companion Modifier
+    TYPE
+</h2>
+<p class="indent0">
     <strong>
-     Weapon Damage Types
+        Tag Name:
     </strong>
-   </p>
-   <p class="indent1">
-    Weapon Damage types are defined in the
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html">
-     miscinfo.lst
+    TYPE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Companion type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Used to define what the creature is for the purposes of display
+        on the resources tab.
+    </li>
+    <li>
+        Companion Modifiers can be composed of several lines, each
+        requiring the
+        <code>TYPE</code>
+        tag.
+    </li>
+    <li>
+        Each companion Modifier line begins with a
+        <a href="../datafilestagpages/datafilescompanionmodifiers.html#follower">
+            FOLLOWER
+        </a>
+        or
+        <a href="../datafilestagpages/datafilescompanionmodifiers.html#masterbonusrace">
+            MASTERBONUSRACE
+        </a>
+        tag and not a name or KEY, using the type as
+        the primary identifier instead.
+    </li>
+    <li>
+        Types in Companion Modifiers can contain Spaces, though this is
+        normally not recommended.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Familiar</code>
+</p>
+<p class="indent3">
+    Defines the creature as a "Familiar" for
+    resources tab display purposes.
+</p>
+<p class="indent1">
+    <strong>
+        Commonly Used Types:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Familiar</code>
+</p>
+<p class="indent2">
+    <code>Animal Companion</code>
+</p>
+<p class="indent2">
+    <code>Special Mount</code>
+</p>
+<hr/>
+<h2>
+    <a id="deity" name="deity">
     </a>
-    gameMode file by the
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#weapontype">
-     WEAPONTYPE
+    Deity TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Deity
+    Type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a period-delimited (".") list of the types the deity
+        belongs to.
+    </li>
+    <li>
+        TYPE is not commonly used in Deity files.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Good</code>
+</p>
+<p class="indent3">
+    The deity belongs to the "Good" type.
+</p>
+<p class="indent2">
+    <code>TYPE:Good.Chaotic</code>
+</p>
+<p class="indent3">
+    The deity belongs to the "Good" and "Chaotic"
+    types.
+</p>
+<hr/>
+<h2>
+    <a id="equipment" name="equipment">
     </a>
-    tag.
-   </p>
-   <p class="indent2">
-    <code>Bludgeoning</code>
-   </p>
-   <p class="indent2">
-    <code>Piercing</code>
-   </p>
-   <p class="indent2">
-    <code>Slashing</code>
-   </p>
-   <p class="indent2">
-    <code>Fire</code>
-   </p>
-   <p class="indent2">
-    <code>Acid</code>
-   </p>
-   <p class="indent2">
-    <code>Electricity</code>
-   </p>
-   <p class="indent2">
-    <code>Cold</code>
-   </p>
-   <p class="indent2">
-    <code>Poison</code>
-   </p>
-   <p class="indent2">
-    <code>Sonic
-     <br/></code>
-   </p>
-   <p class="indent1">
-    Additional MSRD Weapon Damage Types:
-   </p>
-   <p class="indent2">
-    <code>Ballistic</code>
-   </p>
-   <p class="indent2">
-    <code>Concussion</code>
-   </p>
-   <p class="indent2">
-    <code>Radiation</code>
-   </p>
-   <p class="indent2">
-    <code>Disintegration</code>
-   </p>
-   <p class="indent0">
+    Equipment TYPE
+</h2>
+<p class="indent0">
     <strong>
-     Miscellaneous Types:
+        Tag Name:
     </strong>
-   </p>
-   <p class="indent1">
-    <code>Container</code>
-    designates the item is a
-container and activates the
-    <a href="../datafilestagpages/datafilesequipment.html#contains">
-     CONTAINS
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Item
+    Type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The
+        <code>TYPE</code>
+        tag is used for many filtering and PRExxx
+        tags. Please follow the conventions used in the Players Rules for
+        the
+        <code>TYPE</code>
+        tag.
+    </li>
+    <li>
+        The
+        <code>TYPE</code>
+        tag may also be used to identify which
+        "slot" the item will be equiped to. See
+        <a href="#equipslottypes">
+            Equipment Type Slots
+        </a>
+        below
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Weapon.Simple.Melee.Slashing.Metal</code>
+</p>
+<p class="indent3">
+    Item is a Simple Melee Slashing Metal
+    Weapon.
+</p>
+<p class="indent2">
+    <code>Scythe.MOD &lt;tab&gt; TYPE:.CLEAR
+        &lt;tab&gt;
+        TYPE:Weapon.Exotic.Melee.Piercing.Slashing.Standard</code>
+</p>
+<p class="indent3">
+    Modifying the Scythe to have a few more
+    capabilities.
+</p>
+<p class="indent1">
+    <strong>
+        Special Case and Commonly Used
+        Types:
+    </strong>
+</p>
+<blockquote>
+    <p class="indent0">
+        <a id="equipslottypes" name="equipslottypes">
+            <strong>
+                Equip Slot Types
+            </strong>
+        </a>
+        - Equipment
+        slot types are specific types which are used to control how many of
+        a specific equipment TYPE a character can Equip to any one
+        Equipset. Equipment slots and their associated types are defined in
+        the
+        <a href="../systemfilestagpages/gamemodeequipmentslots.html">
+            equipmentslots.lst
+        </a>
+        gameMode file. Since Slot TYPEs control where an item can be
+        equipped no item should have more than one of these types, an item
+        with more than one slot type will confuse PCGen and may not be
+        equipped into the expected slot. A slot type is not required and
+        any item with no slot type designated can still be equipped. There
+        is no limit on how many such items can be equipped.
+    </p>
+    <p class="indent1">
+        <strong>
+            Common Equip Slot Types
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>Eyegear</code>
+    </p>
+    <p class="indent2">
+        <code>Headgear</code>
+    </p>
+    <p class="indent2">
+        <code>Amulet</code>
+    </p>
+    <p class="indent2">
+        <code>Armor</code>
+    </p>
+    <p class="indent2">
+        <code>Robe</code>
+    </p>
+    <p class="indent2">
+        <code>Cape</code>
+    </p>
+    <p class="indent2">
+        <code>Shirt</code>
+    </p>
+    <p class="indent2">
+        <code>Clothing</code>
+    </p>
+    <p class="indent2">
+        <code>Belt</code>
+    </p>
+    <p class="indent2">
+        <code>Shield</code>
+    </p>
+    <p class="indent2">
+        <code>Bracer</code>
+    </p>
+    <p class="indent2">
+        <code>Glove</code>
+    </p>
+    <p class="indent2">
+        <code>Weapon</code>
+    </p>
+    <p class="indent2">
+        <code>Ring</code>
+    </p>
+    <p class="indent2">
+        <code>Legwear</code>
+    </p>
+    <p class="indent2">
+        <code>Boot</code>
+    </p>
+    <p class="indent1">
+        <strong>
+            Uncommon Equip Slot Types
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>PsionicTattoo</code>
+        - used in SRD and
+        RSRD
+    </p>
+    <p class="indent2">
+        <code>Tattoo</code>
+        - used in MSRD
+    </p>
+    <p class="indent2">
+        <code>Transportation</code>
+        - used in MSRD
+    </p>
+    <p class="indent2">
+        <code>Vehicle</code>
+        - used in Spycraft
+    </p>
+    <p class="indent0">
+        <strong>
+            Output Sheet Types
+        </strong>
+    </p>
+    <p class="indent1">
+        Items with the following types are not listed in
+        the Equipment List but are instead listed in a separate block
+        labeled Money.
+    </p>
+    <p class="indent2">
+        <code>Coin</code>
+    </p>
+    <p class="indent2">
+        <code>Gem</code>
+    </p>
+    <p class="indent1">
+        The following types trigger special blocks for
+        these types of equipment and are mutually exclusive.
+    </p>
+    <p class="indent2">
+        <code>Armor</code>
+    </p>
+    <p class="indent2">
+        <code>Ammunition</code>
+    </p>
+    <p class="indent2">
+        <code>Shield</code>
+    </p>
+    <p class="indent2">
+        <code>Weapon</code>
+    </p>
+    <p class="indent1">
+        The following is used to identify Equipment
+        which can be useful in combat during ones turn but which is not a
+        Weapon or Ammunition (and thus already listed under attacks). This
+        is used in some newer stat block formats. Examples might include a
+        wand of Fireballs, a Thunderstone and a Tanglefoot Bag.
+    </p>
+    <p class="indent2">
+        <code>OffensiveGear</code>
+    </p>
+    <p class="indent1">
+        The following is used to identify Equipment
+        which can be useful for defense in combat but which is not an Armor
+        or Shield item (and thus already listed under Armor Class). This is
+        used in some newer stat block formats. Examples might include a
+        Cloak of Displacement and a Ring of Invisibility.
+    </p>
+    <p class="indent2">
+        <code>DefensiveGear</code>
+    </p>
+    <p class="indent1">
+        The following is used to identify Equipment
+        which can be used to cast illumination. The item should also
+        contain certain
+        <code>QUALITY</code>
+        tags which define the
+        brightness and duration of the light source.
+    </p>
+    <p class="indent2">
+        <code>LightSource</code>
+    </p>
+    <p class="indent0">
+        <strong>
+            Weapon Types:
+        </strong>
+    </p>
+    <p class="indent1">
+        All items of type
+        <code>Weapon</code>
+        must also
+        have at least one of the types
+        <code>Melee</code>
+        or
+        <code>Ranged</code>
+        .
+    </p>
+    <p class="indent1">
+        The type
+        <code>Thrown</code>
+        is designates a
+        weapon as a thrown weapon and activates a second output block
+        showing the weapons Ranged statistics.
+    </p>
+    <p class="indent1">
+        The type
+        <code>Double</code>
+        designates a weapon
+        as a double weapon and activates the three
+        <a href="../datafilestagpages/datafilesequipment.html#altcritmult">
+            ALTxxx
+        </a>
+        tags for the statistics for the second head.
+    </p>
+    <p class="indent0">
+        <strong>
+            Weapon Damage Types
+        </strong>
+    </p>
+    <p class="indent1">
+        Weapon Damage types are defined in the
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html">
+            miscinfo.lst
+        </a>
+        gameMode file by the
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#weapontype">
+            WEAPONTYPE
+        </a>
+        tag.
+    </p>
+    <p class="indent2">
+        <code>Bludgeoning</code>
+    </p>
+    <p class="indent2">
+        <code>Piercing</code>
+    </p>
+    <p class="indent2">
+        <code>Slashing</code>
+    </p>
+    <p class="indent2">
+        <code>Fire</code>
+    </p>
+    <p class="indent2">
+        <code>Acid</code>
+    </p>
+    <p class="indent2">
+        <code>Electricity</code>
+    </p>
+    <p class="indent2">
+        <code>Cold</code>
+    </p>
+    <p class="indent2">
+        <code>Poison</code>
+    </p>
+    <p class="indent2">
+        <code>Sonic
+            <br/></code>
+    </p>
+    <p class="indent1">
+        Additional MSRD Weapon Damage Types:
+    </p>
+    <p class="indent2">
+        <code>Ballistic</code>
+    </p>
+    <p class="indent2">
+        <code>Concussion</code>
+    </p>
+    <p class="indent2">
+        <code>Radiation</code>
+    </p>
+    <p class="indent2">
+        <code>Disintegration</code>
+    </p>
+    <p class="indent0">
+        <strong>
+            Miscellaneous Types:
+        </strong>
+    </p>
+    <p class="indent1">
+        <code>Container</code>
+        designates the item is a
+        container and activates the
+        <a href="../datafilestagpages/datafilesequipment.html#contains">
+            CONTAINS
+        </a>
+        tag in the item.
+    </p>
+</blockquote>
+<hr/>
+<h2>
+    <a id="equipmod" name="equipmod">
     </a>
-    tag in the item.
-   </p>
-  </blockquote>
-  <hr/>
-  <h2>
-   <a id="equipmod" name="equipmod">
-   </a>
-   Equipment Modifier
-TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Type
-name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Provides a list of the types of items that the modifier can be
-applied to.
-   </li>
-   <li>
-    Equipment must have at least one type that an equipment
-modifier has in order for that modifier to be applied.
-   </li>
-   <li>
-    Used in conjunction with
-    <code>PRETYPE</code>
-    and
-    <code>ITYPE</code>
-    .
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Armor.Shield</code>
-  </p>
-  <p class="indent3">
-   Item is of the "Armor" &amp; "Shield" types.
-  </p>
-  <p class="indent2">
-   <code>EDF Combat Armor.MOD &lt;tab&gt;
-TYPE:.CLEAR &lt;tab&gt;
-TYPE:Armor.Medium.Suit.Tactical.PL6</code>
-  </p>
-  <p class="indent3">
-   Modifies the item is of the "Armor" "Medium"
-"Suit" "Tactical" "PL6" types.
-  </p>
-  <p class="indent1">
-   <strong>
-    Special Case:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BaseMaterial</code>
-  </p>
-  <p class="indent3">
-   The BaseMaterial TYPE is used to identify
-Equipment Modifiers which represent materials an item can be made
-from such as Mithral, Adamantine, Steel and Wood. An equipment item
-can only have one Equipment Modifier with the "BaseMaterial" type,
-if a second one is applied the first is automatically removed.
-  </p>
-  <hr/>
-  <h2>
-   <a id="feat" name="feat">
-   </a>
-   Feat and Ability TYPEs
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Feat
-or Ability type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a period-delimited (.) list of the types
-assigned to the feat or ability.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:General.Fighter</code>
-  </p>
-  <p class="indent3">
-   This Feat is part of the "General" and "Fighter"
-feat types.
-  </p>
-  <p class="indent2">
-   <code>Acrobatic.MOD &lt;tab&gt; TYPE:.CLEAR
-&lt;tab&gt; TYPE:General.Fast.Pugilist.Rustler.Showman</code>
-  </p>
-  <p class="indent3">
-   Modification of the Acrobatic Class to be
-"General", "Fast", "Pugilist", "Rustler", "Showman", feat
-types.
-  </p>
-  <p class="indent2">
-   <code>Charm.MOD &lt;tab&gt;
-TYPE:Efficacious</code>
-  </p>
-  <p class="indent3">
-   This modification adds the "Efficacious" feat
-type to the list of types for this feat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Special Case and Common
-Types:
-   </strong>
-  </p>
-  <blockquote>
-   <p class="indent0">
-    Feat and Ability types fall into three general
-uses; Game Rule types, Class Bonus Feat or Ability types, and types
-used by the Output Sheets. Game rule types represent the types the
-game itself groups the feats or abilities into and are derived from
-the source material. Class bonus feat or ability types are used to
-create a group of feats or abilities from which a class is granted
-a selection.
-   </p>
-   <p class="indent0">
+    Equipment Modifier
+    TYPE
+</h2>
+<p class="indent0">
     <strong>
-     Common Game Rule Types
+        Tag Name:
     </strong>
-   </p>
-   <p class="indent2">
-    <code>General</code>
-   </p>
-   <p class="indent2">
-    <code>ItemCreation</code>
-   </p>
-   <p class="indent2">
-    <code>Metamagic</code>
-   </p>
-   <p class="indent0">
+    TYPE:x.x
+</p>
+<p class="indent1">
     <strong>
-     Common Class Bonus Feat or Ability
-Types
+        Variables Used (x):
     </strong>
-   </p>
-   <p class="indent2">
-    <code>Fighter</code>
-   </p>
-   <p class="indent2">
-    <code>Wizard</code>
-   </p>
-   <p class="indent2">
-    <code>FavoredEnemy</code>
-   </p>
-   <p class="indent2">
-    <code>Turning</code>
-   </p>
-   <p class="indent2">
-    <code>RogueAbilities</code>
-   </p>
-   <p class="indent0">
+    Text (Type
+    name)
+</p>
+<p class="indent1">
     <strong>
-     Output Sheet types
+        What it does:
     </strong>
-   </p>
-   <p class="indent1">
-    Types used by the output sheets require more
-explanation since their purpose is not evident in the data
-files.
-   </p>
-   <p class="indent1">
-    The following two types are used in Abilities of
-CATEGORY=Special Ability (in the RSRD). Every Ability in this
-category should have one of these types or the other. Depending on
-the type the output sheet will list the ability in the Special
-Attacks block or the Special Qualities block.
-   </p>
-   <p class="indent2">
-    <code>SpecialAttack</code>
-   </p>
-   <p class="indent2">
-    <code>SpecialQuality</code>
-   </p>
-   <p class="indent1">
-    Abilities designated as Extraordinary,
-SpellLike, Supernatural or PsiLike in the source material do so
-with an abbreviation at the end of the name, (Ex), (Sp), (Su) and
-(Ps). The output sheet can use this type to add the abbreviation to
-the end of the ability name if it is appropriate for that sheet.
-Not all sheets will want to display the name in that way and by
-using a type rather than having the abbreviation be part of the
-name this makes it optional.
-   </p>
-   <p class="indent2">
-    <code>Extraordinary</code>
-   </p>
-   <p class="indent2">
-    <code>SpellLike</code>
-   </p>
-   <p class="indent2">
-    <code>Supernatural</code>
-   </p>
-   <p class="indent2">
-    <code>PsiLike</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which provides an alternate attack or modifies a
-standard attack. This is used in some newer stat block formats.
-   </p>
-   <p class="indent2">
-    <code>AttackOption</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which represents an Aura or continuous area of
-effect ability. This is used in some newer stat block formats.
-   </p>
-   <p class="indent2">
-    <code>Aura</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which grants some ability to communicate. This is
-used in some newer stat block formats where the ability is listed
-with languages.
-   </p>
-   <p class="indent2">
-    <code>Communicate</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability of a Defensive nature other than Resistances, Immunities,
-AC or HP effecting abilities. This is used in some newer stat block
-formats.
-   </p>
-   <p class="indent2">
-    <code>Defensive</code>
-   </p>
-   <p class="indent1">
-    The followng type identifies the Feat or Ability
-as one which represent a specific immunity. This is used in some
-newer stat block formats.
-   </p>
-   <p class="indent2">
-    <code>Immunity</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which provide a circumstantial AC bonus or other
-defensive benefit. This is used in some newer stat block formats
-where the ability is listed with AC details.
-   </p>
-   <p class="indent2">
-    <code>ModifyAC</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which provide a bonus or other defensive benefit
-related to hit points. This is used in some newer stat block
-formats where the ability is listed with hit points.
-   </p>
-   <p class="indent2">
-    <code>ModifyHP</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which provides some for of special movement or
-modifies the movement rate. This is used in some newer stat block
-formats where the ability is listed with movement rates.
-   </p>
-   <p class="indent2">
-    <code>ModifyMovement</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which represent a specific resistance. This is used
-in some newer stat block formats.
-   </p>
-   <p class="indent2">
-    <code>Resistance</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which represent a circumstancial bonus to one or
-more saving throws. This is used in some newer stat block formats
-where the bonus is listed with saving throws.
-   </p>
-   <p class="indent2">
-    <code>SaveBonus</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which represent a specific special sense or
-perception. This is used in some newer stat block formats.
-   </p>
-   <p class="indent2">
-    <code>Sense</code>
-   </p>
-   <p class="indent1">
-    The following type identifies the Feat or
-Ability as one which represent a specific weakness. This is used in
-some newer stat block formats.
-   </p>
-   <p class="indent2">
-    <code>Weakness</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <h2>
-   <a id="language" name="language">
-   </a>
-   Language TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Language type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a period-delimited (".") list of the
-types that languages are.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Spoken.Written.Read</code>
-  </p>
-  <p class="indent3">
-   Language is "Spoken", "Written" and "Read".
-  </p>
-  <p class="indent2">
-   <code>Celestial &lt;tab&gt;
-TYPE:Spoken</code>
-  </p>
-  <p class="indent3">
-   Language Celestial is "Spoken", not "Written" or
-"Read".
-  </p>
-  <p class="indent1">
-   <strong>
-    Commonly Used Types:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Read</code>
-  </p>
-  <p class="indent2">
-   <code>Spoken</code>
-  </p>
-  <p class="indent2">
-   <code>Written</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="pcc" name="pcc">
-   </a>
-   PCC TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Source
-types)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag
+</p>
+<ul class="indent2">
+    <li>
+        Provides a list of the types of items that the modifier can be
+        applied to.
+    </li>
+    <li>
+        Equipment must have at least one type that an equipment
+        modifier has in order for that modifier to be applied.
+    </li>
+    <li>
+        Used in conjunction with
+        <code>PRETYPE</code>
+        and
+        <code>ITYPE</code>
+        .
+    </li>
+</ul>
+<p class="indent1">
     <strong>
-     <em>
-      MUST
-     </em>
+        Example:
     </strong>
-    be the third tag in the
-file.
-   </li>
-   <li>
-    The
-    <code>TYPE</code>
-    tag is used to set the source display
-tree in the Sources Tab.
-   </li>
-   <li>
-    PCC types can contain spaces.
-   </li>
-   <li>
-    PCC
-    <code>TYPE</code>
-    tags cannot have more than three type
-elements as follows:
-    <ul class="indent2">
-     <li>
-      element 1 is the name of the company or individual that
-produced the material that the data files are based.
-     </li>
-     <li>
-      element 2 is the format of that original material (e.g.,
-Sourcebook, Web Enhancement, Magazine, Supplement, etc.).
-     </li>
-     <li>
-      element 3 is the "campaign setting" for the original material
-(such as the publisher's campaign realm) and is optional.
-     </li>
-    </ul>
-   </li>
-   <li>
+</p>
+<p class="indent2">
+    <code>TYPE:Armor.Shield</code>
+</p>
+<p class="indent3">
+    Item is of the "Armor" &amp; "Shield" types.
+</p>
+<p class="indent2">
+    <code>EDF Combat Armor.MOD &lt;tab&gt;
+        TYPE:.CLEAR &lt;tab&gt;
+        TYPE:Armor.Medium.Suit.Tactical.PL6</code>
+</p>
+<p class="indent3">
+    Modifies the item is of the "Armor" "Medium"
+    "Suit" "Tactical" "PL6" types.
+</p>
+<p class="indent1">
     <strong>
-     Caution:
+        Special Case:
     </strong>
-    If two PCC files use the same types
-but in different order the display in the Sources Tab can
-potentially be disrupted. Side effects can include sources being
-displayed more than once. Duplicate types should be used in the
-same order in every file.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Foo Games.Core Rules.Core</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="race" name="race">
-   </a>
-   Race TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Race
-type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines the Type of creature the race is.
-   </li>
-   <li>
-    Important for matching up with Monster HD, and for references
-to race, such as the Rangers Favored Enemy.
-   </li>
-   <li>
-    Currently existing selections from the Monster List
-include:
-    <br/>
-    Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey,
-Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider,
-Plant, Shapechanger, Undead, and Vermin
-   </li>
-   <li>
-    <strong>
-     Note:
-    </strong>
-    In the past, the
-    <code>TYPE</code>
-    tag
-in race files has been used to set the races Creature Type as
-defined in the game rules. This function is now being performed by
-the
-    <a href="../datafilestagpages/datafilesraces.html#racetype">
-     RACETYPE
+</p>
+<p class="indent2">
+    <code>BaseMaterial</code>
+</p>
+<p class="indent3">
+    The BaseMaterial TYPE is used to identify
+    Equipment Modifiers which represent materials an item can be made
+    from such as Mithral, Adamantine, Steel and Wood. An equipment item
+    can only have one Equipment Modifier with the "BaseMaterial" type,
+    if a second one is applied the first is automatically removed.
+</p>
+<hr/>
+<h2>
+    <a id="feat" name="feat">
     </a>
-    tag and the use of the
-    <code>TYPE</code>
-    tag to set this is being
-phased out.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Outsider</code>
-  </p>
-  <p class="indent3">
-   The race is of the "Outsider" type.
-  </p>
-  <p class="indent1">
-   <strong>
-    Commonly Used Types:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Aberration
-    <br/>
-    Animal
-    <br/>
-    Beast
-    <br/>
-    Construct
-    <br/>
-    Dragon
-    <br/>
-    Elemental
-    <br/>
-    Fey
-    <br/>
-    Giant
-    <br/>
-    Humanoid
-    <br/>
-    Magical Beast
-    <br/>
-    Monstrous Humanoid
-    <br/>
-    Ooze
-    <br/>
-    Outsider
-    <br/>
-    Plant
-    <br/>
-    Shapechanger
-    <br/>
-    Undead
-    <br/>
-    Vermin</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="skill" name="skill">
-   </a>
-   Skill TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Skill
-type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    All skill type tags should use the skill's key attribute as the
-first type ("None" is an acceptable option).
-   </li>
-   <li>
-    Multiple types can be specified as a period-delimited (".")
-list.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Charisma.Perform</code>
-  </p>
-  <p class="indent3">
-   This skill belongs to the "Charisma" and
-"Perform" types.
-  </p>
-  <p class="indent2">
-   <code>Craft (Electronic - class skill).MOD
-&lt;tab&gt; TYPE:.CLEAR &lt;tab&gt;
-TYPE:Scientist_Skills.Terraformer_Skills</code>
-  </p>
-  <p class="indent3">
-   This skill is modified to be in the
-"Scientist_Skills" and "Terraformer_Skills" types.
-  </p>
-  <p class="indent1">
-   <strong>
-    Commonly Used Types:
-   </strong>
-  </p>
-  <p class="indent2">
-   <strong>
-    To group by relevant
-ability
-   </strong>
-  </p>
-  <p class="indent3">
-   <code>Strength
-    <br/>
-    Dexterity
-    <br/>
-    Constitution
-    <br/>
-    Intelligence
-    <br/>
-    Wisdom
-    <br/>
-    Charisma</code>
-  </p>
-  <p class="indent2">
-   <strong>
-    To group by relevant skill
-type
-   </strong>
-  </p>
-  <p class="indent3">
-   <code>Craft
-    <br/>
-    Knowledge
-    <br/>
-    Perform</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="spell" name="spell">
-   </a>
-   Spell TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Spell
-type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Indicates what "types" are associated with the spell.
-   </li>
-   <li>
-    You can also Specify multiple types using the . (period)
-delimiter.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Arcane.Divine</code>
-  </p>
-  <p class="indent3">
-   Spell is both "Arcane" and "Divine".
-  </p>
-  <p class="indent1">
-   <strong>
-    Commonly Used Types:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Arcane</code>
-  </p>
-  <p class="indent2">
-   <code>Divine</code>
-  </p>
-  <p class="indent2">
-   <code>Psionic</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="startkit" name="startkit">
-   </a>
-   Starting Kit TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Start
-Kit type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Indicates what "types" are associated with the starting
-kit.
-   </li>
-   <li>
-    You can also specify multiple types using the
-period-delimiter.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:DefaultMonster</code>
-  </p>
-  <p class="indent3">
-   Kit is a "DefaultMonster" kit.
-  </p>
-  <p class="indent1">
-   <strong>
-    Commonly Used Types:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DefaultMonster</code>
-  </p>
-  <p class="indent2">
-   <code>Treasure</code>
-  </p>
-  <p class="indent2">
-   <code>NPC</code>
-  </p>
-  <p class="indent2">
-   <code>PC</code>
-  </p>
-  <p class="indent2">
-   <code>StartingKit</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="template" name="template">
-   </a>
-   Template TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines the Type of creature members of the template are.
-   </li>
-   <li>
-    Important for matching up with Monster HD, and for references
-to race, such as the Rangers Favored Enemy
-   </li>
-   <li>
+    Feat and Ability TYPEs
+</h2>
+<p class="indent0">
     <strong>
-     Note:
+        Tag Name:
     </strong>
-    In the past, the
-    <code>TYPE</code>
-    tag
-in template files have been used to alter the races Creature Type
-as defined in the game rules. This function is now being performed
-by the
-    <a href="../datafilestagpages/datafilesraces.html#racetype">
-     RACETYPE
+    TYPE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Feat
+    or Ability type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a period-delimited (.) list of the types
+    assigned to the feat or ability.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:General.Fighter</code>
+</p>
+<p class="indent3">
+    This Feat is part of the "General" and "Fighter"
+    feat types.
+</p>
+<p class="indent2">
+    <code>Acrobatic.MOD &lt;tab&gt; TYPE:.CLEAR
+        &lt;tab&gt; TYPE:General.Fast.Pugilist.Rustler.Showman</code>
+</p>
+<p class="indent3">
+    Modification of the Acrobatic Class to be
+    "General", "Fast", "Pugilist", "Rustler", "Showman", feat
+    types.
+</p>
+<p class="indent2">
+    <code>Charm.MOD &lt;tab&gt;
+        TYPE:Efficacious</code>
+</p>
+<p class="indent3">
+    This modification adds the "Efficacious" feat
+    type to the list of types for this feat.
+</p>
+<p class="indent1">
+    <strong>
+        Special Case and Common
+        Types:
+    </strong>
+</p>
+<blockquote>
+    <p class="indent0">
+        Feat and Ability types fall into three general
+        uses; Game Rule types, Class Bonus Feat or Ability types, and types
+        used by the Output Sheets. Game rule types represent the types the
+        game itself groups the feats or abilities into and are derived from
+        the source material. Class bonus feat or ability types are used to
+        create a group of feats or abilities from which a class is granted
+        a selection.
+    </p>
+    <p class="indent0">
+        <strong>
+            Common Game Rule Types
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>General</code>
+    </p>
+    <p class="indent2">
+        <code>ItemCreation</code>
+    </p>
+    <p class="indent2">
+        <code>Metamagic</code>
+    </p>
+    <p class="indent0">
+        <strong>
+            Common Class Bonus Feat or Ability
+            Types
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>Fighter</code>
+    </p>
+    <p class="indent2">
+        <code>Wizard</code>
+    </p>
+    <p class="indent2">
+        <code>FavoredEnemy</code>
+    </p>
+    <p class="indent2">
+        <code>Turning</code>
+    </p>
+    <p class="indent2">
+        <code>RogueAbilities</code>
+    </p>
+    <p class="indent0">
+        <strong>
+            Output Sheet types
+        </strong>
+    </p>
+    <p class="indent1">
+        Types used by the output sheets require more
+        explanation since their purpose is not evident in the data
+        files.
+    </p>
+    <p class="indent1">
+        The following two types are used in Abilities of
+        CATEGORY=Special Ability (in the RSRD). Every Ability in this
+        category should have one of these types or the other. Depending on
+        the type the output sheet will list the ability in the Special
+        Attacks block or the Special Qualities block.
+    </p>
+    <p class="indent2">
+        <code>SpecialAttack</code>
+    </p>
+    <p class="indent2">
+        <code>SpecialQuality</code>
+    </p>
+    <p class="indent1">
+        Abilities designated as Extraordinary,
+        SpellLike, Supernatural or PsiLike in the source material do so
+        with an abbreviation at the end of the name, (Ex), (Sp), (Su) and
+        (Ps). The output sheet can use this type to add the abbreviation to
+        the end of the ability name if it is appropriate for that sheet.
+        Not all sheets will want to display the name in that way and by
+        using a type rather than having the abbreviation be part of the
+        name this makes it optional.
+    </p>
+    <p class="indent2">
+        <code>Extraordinary</code>
+    </p>
+    <p class="indent2">
+        <code>SpellLike</code>
+    </p>
+    <p class="indent2">
+        <code>Supernatural</code>
+    </p>
+    <p class="indent2">
+        <code>PsiLike</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which provides an alternate attack or modifies a
+        standard attack. This is used in some newer stat block formats.
+    </p>
+    <p class="indent2">
+        <code>AttackOption</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which represents an Aura or continuous area of
+        effect ability. This is used in some newer stat block formats.
+    </p>
+    <p class="indent2">
+        <code>Aura</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which grants some ability to communicate. This is
+        used in some newer stat block formats where the ability is listed
+        with languages.
+    </p>
+    <p class="indent2">
+        <code>Communicate</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability of a Defensive nature other than Resistances, Immunities,
+        AC or HP effecting abilities. This is used in some newer stat block
+        formats.
+    </p>
+    <p class="indent2">
+        <code>Defensive</code>
+    </p>
+    <p class="indent1">
+        The followng type identifies the Feat or Ability
+        as one which represent a specific immunity. This is used in some
+        newer stat block formats.
+    </p>
+    <p class="indent2">
+        <code>Immunity</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which provide a circumstantial AC bonus or other
+        defensive benefit. This is used in some newer stat block formats
+        where the ability is listed with AC details.
+    </p>
+    <p class="indent2">
+        <code>ModifyAC</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which provide a bonus or other defensive benefit
+        related to hit points. This is used in some newer stat block
+        formats where the ability is listed with hit points.
+    </p>
+    <p class="indent2">
+        <code>ModifyHP</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which provides some for of special movement or
+        modifies the movement rate. This is used in some newer stat block
+        formats where the ability is listed with movement rates.
+    </p>
+    <p class="indent2">
+        <code>ModifyMovement</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which represent a specific resistance. This is used
+        in some newer stat block formats.
+    </p>
+    <p class="indent2">
+        <code>Resistance</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which represent a circumstancial bonus to one or
+        more saving throws. This is used in some newer stat block formats
+        where the bonus is listed with saving throws.
+    </p>
+    <p class="indent2">
+        <code>SaveBonus</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which represent a specific special sense or
+        perception. This is used in some newer stat block formats.
+    </p>
+    <p class="indent2">
+        <code>Sense</code>
+    </p>
+    <p class="indent1">
+        The following type identifies the Feat or
+        Ability as one which represent a specific weakness. This is used in
+        some newer stat block formats.
+    </p>
+    <p class="indent2">
+        <code>Weakness</code>
+    </p>
+</blockquote>
+<hr/>
+<h2>
+    <a id="language" name="language">
     </a>
-    tag and the use of
-    <code>TYPE</code>
-    to alter this is being phased
-out.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Outsider</code>
-  </p>
-  <p class="indent3">
-   Is a "Outsider" if this template is
-selected.
-  </p>
-  <hr/>
-  <h2>
-   <a id="weaponprof" name="weaponprof">
-   </a>
-   Weapon Proficiency
-TYPE
-  </h2>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TYPE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Type
-name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines what type of weapon proficiency isrequired for a
-character to be able to use a particular weapon.
-   </li>
-   <li>
-    Proficiency types are used to grant proficiencies and to grant
-bonuses to weapons of a certain proficiency.
-   </li>
-   <li>
-    Types generally represent broad groups of weapons, such as
-Simple, Martial and Exotic, or a smaller, more specific group of
-weapons such as Axe, Sword, Crossbow and Thrown used for granting
-bonuses.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TYPE:Simple</code>
-  </p>
-  <p class="indent3">
-   Characters with "Simple" weapon proficiency can
-use this weapon.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    Language TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Language type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a period-delimited (".") list of the
+    types that languages are.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Spoken.Written.Read</code>
+</p>
+<p class="indent3">
+    Language is "Spoken", "Written" and "Read".
+</p>
+<p class="indent2">
+    <code>Celestial &lt;tab&gt;
+        TYPE:Spoken</code>
+</p>
+<p class="indent3">
+    Language Celestial is "Spoken", not "Written" or
+    "Read".
+</p>
+<p class="indent1">
+    <strong>
+        Commonly Used Types:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Read</code>
+</p>
+<p class="indent2">
+    <code>Spoken</code>
+</p>
+<p class="indent2">
+    <code>Written</code>
+</p>
+<hr/>
+<h2>
+    <a id="pcc" name="pcc">
+    </a>
+    PCC TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Source
+    types)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag
+        <strong>
+            <em>
+                MUST
+            </em>
+        </strong>
+        be the third tag in the
+        file.
+    </li>
+    <li>
+        The
+        <code>TYPE</code>
+        tag is used to set the source display
+        tree in the Sources Tab.
+    </li>
+    <li>
+        PCC types can contain spaces.
+    </li>
+    <li>
+        PCC
+        <code>TYPE</code>
+        tags cannot have more than three type
+        elements as follows:
+        <ul class="indent2">
+            <li>
+                element 1 is the name of the company or individual that
+                produced the material that the data files are based.
+            </li>
+            <li>
+                element 2 is the format of that original material (e.g.,
+                Sourcebook, Web Enhancement, Magazine, Supplement, etc.).
+            </li>
+            <li>
+                element 3 is the "campaign setting" for the original material
+                (such as the publisher's campaign realm) and is optional.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <strong>
+            Caution:
+        </strong>
+        If two PCC files use the same types
+        but in different order the display in the Sources Tab can
+        potentially be disrupted. Side effects can include sources being
+        displayed more than once. Duplicate types should be used in the
+        same order in every file.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Foo Games.Core Rules.Core</code>
+</p>
+<hr/>
+<h2>
+    <a id="race" name="race">
+    </a>
+    Race TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Race
+    type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Defines the Type of creature the race is.
+    </li>
+    <li>
+        Important for matching up with Monster HD, and for references
+        to race, such as the Rangers Favored Enemy.
+    </li>
+    <li>
+        Currently existing selections from the Monster List
+        include:
+        <br/>
+        Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey,
+        Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider,
+        Plant, Shapechanger, Undead, and Vermin
+    </li>
+    <li>
+        <strong>
+            Note:
+        </strong>
+        In the past, the
+        <code>TYPE</code>
+        tag
+        in race files has been used to set the races Creature Type as
+        defined in the game rules. This function is now being performed by
+        the
+        <a href="../datafilestagpages/datafilesraces.html#racetype">
+            RACETYPE
+        </a>
+        tag and the use of the
+        <code>TYPE</code>
+        tag to set this is being
+        phased out.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Outsider</code>
+</p>
+<p class="indent3">
+    The race is of the "Outsider" type.
+</p>
+<p class="indent1">
+    <strong>
+        Commonly Used Types:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Aberration
+        <br/>
+        Animal
+        <br/>
+        Beast
+        <br/>
+        Construct
+        <br/>
+        Dragon
+        <br/>
+        Elemental
+        <br/>
+        Fey
+        <br/>
+        Giant
+        <br/>
+        Humanoid
+        <br/>
+        Magical Beast
+        <br/>
+        Monstrous Humanoid
+        <br/>
+        Ooze
+        <br/>
+        Outsider
+        <br/>
+        Plant
+        <br/>
+        Shapechanger
+        <br/>
+        Undead
+        <br/>
+        Vermin</code>
+</p>
+<hr/>
+<h2>
+    <a id="skill" name="skill">
+    </a>
+    Skill TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Skill
+    type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        All skill type tags should use the skill's key attribute as the
+        first type ("None" is an acceptable option).
+    </li>
+    <li>
+        Multiple types can be specified as a period-delimited (".")
+        list.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Charisma.Perform</code>
+</p>
+<p class="indent3">
+    This skill belongs to the "Charisma" and
+    "Perform" types.
+</p>
+<p class="indent2">
+    <code>Craft (Electronic - class skill).MOD
+        &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt;
+        TYPE:Scientist_Skills.Terraformer_Skills</code>
+</p>
+<p class="indent3">
+    This skill is modified to be in the
+    "Scientist_Skills" and "Terraformer_Skills" types.
+</p>
+<p class="indent1">
+    <strong>
+        Commonly Used Types:
+    </strong>
+</p>
+<p class="indent2">
+    <strong>
+        To group by relevant
+        ability
+    </strong>
+</p>
+<p class="indent3">
+    <code>Strength
+        <br/>
+        Dexterity
+        <br/>
+        Constitution
+        <br/>
+        Intelligence
+        <br/>
+        Wisdom
+        <br/>
+        Charisma</code>
+</p>
+<p class="indent2">
+    <strong>
+        To group by relevant skill
+        type
+    </strong>
+</p>
+<p class="indent3">
+    <code>Craft
+        <br/>
+        Knowledge
+        <br/>
+        Perform</code>
+</p>
+<hr/>
+<h2>
+    <a id="spell" name="spell">
+    </a>
+    Spell TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Spell
+    type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Indicates what "types" are associated with the spell.
+    </li>
+    <li>
+        You can also Specify multiple types using the . (period)
+        delimiter.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Arcane.Divine</code>
+</p>
+<p class="indent3">
+    Spell is both "Arcane" and "Divine".
+</p>
+<p class="indent1">
+    <strong>
+        Commonly Used Types:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Arcane</code>
+</p>
+<p class="indent2">
+    <code>Divine</code>
+</p>
+<p class="indent2">
+    <code>Psionic</code>
+</p>
+<hr/>
+<h2>
+    <a id="startkit" name="startkit">
+    </a>
+    Starting Kit TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Start
+    Kit type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Indicates what "types" are associated with the starting
+        kit.
+    </li>
+    <li>
+        You can also specify multiple types using the
+        period-delimiter.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:DefaultMonster</code>
+</p>
+<p class="indent3">
+    Kit is a "DefaultMonster" kit.
+</p>
+<p class="indent1">
+    <strong>
+        Commonly Used Types:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DefaultMonster</code>
+</p>
+<p class="indent2">
+    <code>Treasure</code>
+</p>
+<p class="indent2">
+    <code>NPC</code>
+</p>
+<p class="indent2">
+    <code>PC</code>
+</p>
+<p class="indent2">
+    <code>StartingKit</code>
+</p>
+<hr/>
+<h2>
+    <a id="template" name="template">
+    </a>
+    Template TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Defines the Type of creature members of the template are.
+    </li>
+    <li>
+        Important for matching up with Monster HD, and for references
+        to race, such as the Rangers Favored Enemy
+    </li>
+    <li>
+        <strong>
+            Note:
+        </strong>
+        In the past, the
+        <code>TYPE</code>
+        tag
+        in template files have been used to alter the races Creature Type
+        as defined in the game rules. This function is now being performed
+        by the
+        <a href="../datafilestagpages/datafilesraces.html#racetype">
+            RACETYPE
+        </a>
+        tag and the use of
+        <code>TYPE</code>
+        to alter this is being phased
+        out.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Outsider</code>
+</p>
+<p class="indent3">
+    Is a "Outsider" if this template is
+    selected.
+</p>
+<hr/>
+<h2>
+    <a id="weaponprof" name="weaponprof">
+    </a>
+    Weapon Proficiency
+    TYPE
+</h2>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TYPE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Type
+    name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Defines what type of weapon proficiency isrequired for a
+        character to be able to use a particular weapon.
+    </li>
+    <li>
+        Proficiency types are used to grant proficiencies and to grant
+        bonuses to weapons of a certain proficiency.
+    </li>
+    <li>
+        Types generally represent broad groups of weapons, such as
+        Simple, Martial and Exotic, or a smaller, more specific group of
+        weapons such as Axe, Sword, Crossbow and Thrown used for granting
+        bonuses.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TYPE:Simple</code>
+</p>
+<p class="indent3">
+    Characters with "Simple" weapon proficiency can
+    use this weapon.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

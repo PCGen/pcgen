@@ -35,98 +35,97 @@ import pcgen.util.Logging;
 public class NoRankToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 {
 
-	private PrimitiveCollection<Skill> pcs = null;
+    private PrimitiveCollection<Skill> pcs = null;
 
-	private boolean wasRestricted = false;
+    private boolean wasRestricted = false;
 
-	@Override
-	public String getTokenName()
-	{
-		return "NORANK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "NORANK";
+    }
 
-	@Override
-	public Class<Skill> getReferenceClass()
-	{
-		return Skill.class;
-	}
+    @Override
+    public Class<Skill> getReferenceClass()
+    {
+        return Skill.class;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName());
-		if (wasRestricted)
-		{
-			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
-		}
-		return sb.toString();
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getTokenName());
+        if (wasRestricted)
+        {
+            sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
+        }
+        return sb.toString();
+    }
 
-	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc, String condition, String value,
-		boolean negate)
-	{
-		if (condition != null)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
-			return false;
-		}
-		if (negate)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				"Cannot make " + getTokenName() + " into a negated Qualifier, remove !");
-			return false;
-		}
-		if (value == null)
-		{
-			pcs = sc.getAllReference();
-		}
-		else
-		{
-			pcs = context.getPrimitiveChoiceFilter(sc, value);
-			wasRestricted = true;
-		}
-		return pcs != null;
-	}
+    @Override
+    public boolean initialize(LoadContext context, SelectionCreator<Skill> sc, String condition, String value,
+            boolean negate)
+    {
+        if (condition != null)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    "Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
+            return false;
+        }
+        if (negate)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    "Cannot make " + getTokenName() + " into a negated Qualifier, remove !");
+            return false;
+        }
+        if (value == null)
+        {
+            pcs = sc.getAllReference();
+        } else
+        {
+            pcs = context.getPrimitiveChoiceFilter(sc, value);
+            wasRestricted = true;
+        }
+        return pcs != null;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return pcs == null ? 0 : pcs.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return pcs == null ? 0 : pcs.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o instanceof NoRankToken)
-		{
-			NoRankToken other = (NoRankToken) o;
-			if (pcs == null)
-			{
-				return other.pcs == null;
-			}
-			return pcs.equals(other.pcs);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o instanceof NoRankToken)
+        {
+            NoRankToken other = (NoRankToken) o;
+            if (pcs == null)
+            {
+                return other.pcs == null;
+            }
+            return pcs.equals(other.pcs);
+        }
+        return false;
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
-	{
-		return pcs.getCollection(pc, new AddFilterConverter<>(c, this));
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
+    {
+        return pcs.getCollection(pc, new AddFilterConverter<>(c, this));
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Skill sk)
-	{
-		return (pc.getDisplay().getRank(sk) == 0);
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Skill sk)
+    {
+        return (pc.getDisplay().getRank(sk) == 0);
+    }
 }

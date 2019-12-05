@@ -39,64 +39,64 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 {
 
-	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+    private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<WeaponProf> cl, String value, String args)
-	{
-		return (value == null) && (args == null);
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<WeaponProf> cl, String value, String args)
+    {
+        return (value == null) && (args == null);
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "DEITYWEAPON";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DEITYWEAPON";
+    }
 
-	@Override
-	public Class<WeaponProf> getReferenceClass()
-	{
-		return WEAPONPROF_CLASS;
-	}
+    @Override
+    public Class<WeaponProf> getReferenceClass()
+    {
+        return WEAPONPROF_CLASS;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return "DEITYWEAPON";
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return "DEITYWEAPON";
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		return obj instanceof DeityWeaponToken;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj instanceof DeityWeaponToken;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return 5783;
-	}
+    @Override
+    public int hashCode()
+    {
+        return 5783;
+    }
 
-	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
-	{
-		Deity deity = pc.getDisplay().getDeity();
-		if (deity == null)
-		{
-			return Collections.emptySet();
-		}
-		HashSet<R> set = new HashSet<>();
-		List<CDOMReference<WeaponProf>> dwp = deity.getSafeListFor(ListKey.DEITYWEAPON);
-		for (CDOMReference<WeaponProf> ref : dwp)
-		{
-			set.addAll(c.convert(ref));
-		}
-		return set;
-	}
+    @Override
+    public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
+    {
+        Deity deity = pc.getDisplay().getDeity();
+        if (deity == null)
+        {
+            return Collections.emptySet();
+        }
+        HashSet<R> set = new HashSet<>();
+        List<CDOMReference<WeaponProf>> dwp = deity.getSafeListFor(ListKey.DEITYWEAPON);
+        for (CDOMReference<WeaponProf> ref : dwp)
+        {
+            set.addAll(c.convert(ref));
+        }
+        return set;
+    }
 }

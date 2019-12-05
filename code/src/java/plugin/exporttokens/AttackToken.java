@@ -28,7 +28,7 @@ import pcgen.util.enumeration.AttackType;
 
 /**
  * Class Deals with:
- *
+ * <p>
  * ATTACK.GRAPPLE.BASE
  * ATTACK.GRAPPLE.EPIC
  * ATTACK.GRAPPLE.MISC
@@ -54,42 +54,44 @@ import pcgen.util.enumeration.AttackType;
  */
 public class AttackToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "ATTACK";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "ATTACK";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		if (aTok.hasMoreTokens())
-		{
-			String attackTypeString = aTok.nextToken();
-			String modifier = aTok.hasMoreTokens() ? aTok.nextToken() : "";
-			String format = aTok.hasMoreTokens() ? aTok.nextToken() : "";
+        if (aTok.hasMoreTokens())
+        {
+            String attackTypeString = aTok.nextToken();
+            String modifier = aTok.hasMoreTokens() ? aTok.nextToken() : "";
+            String format = aTok.hasMoreTokens() ? aTok.nextToken() : "";
 
-			AttackType attackType = AttackType.valueOf(attackTypeString);
-			retString = AttackInfo.getAttackInfo(pc, attackType, modifier);
+            AttackType attackType = AttackType.valueOf(attackTypeString);
+            retString = AttackInfo.getAttackInfo(pc, attackType, modifier);
 
-			// SHORT means we only return the first attack bonus
-			if ("SHORT".equalsIgnoreCase(format))
-			{
-				int sepPos = retString.indexOf('/');
-				if (sepPos >= 0)
-				{
-					retString = retString.substring(0, sepPos);
-				}
-			}
-		}
+            // SHORT means we only return the first attack bonus
+            if ("SHORT".equalsIgnoreCase(format))
+            {
+                int sepPos = retString.indexOf('/');
+                if (sepPos >= 0)
+                {
+                    retString = retString.substring(0, sepPos);
+                }
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 }

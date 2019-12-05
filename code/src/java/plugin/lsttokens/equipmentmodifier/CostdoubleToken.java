@@ -26,24 +26,24 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * Deals with COSTDOUBLE token
  */
 public class CostdoubleToken extends AbstractYesNoToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "COSTDOUBLE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "COSTDOUBLE";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.COST_DOUBLE;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.COST_DOUBLE;
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

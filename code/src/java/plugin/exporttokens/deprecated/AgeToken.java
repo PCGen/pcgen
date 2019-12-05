@@ -24,34 +24,33 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Class handles AGE Token 
+ * Class handles AGE Token
  */
 public class AgeToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "AGE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "AGE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		if (display.getSuppressBioField(BiographyField.AGE))
-		{
-			return "";
-		}
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        if (display.getSuppressBioField(BiographyField.AGE))
+        {
+            return "";
+        }
+        String retString = "";
 
-		if ("AGE".equals(tokenSource))
-		{
-			retString = Integer.toString(display.getAge());
-		}
-		else if ("AGE.CATEGORY".equals(tokenSource))
-		{
-			retString = display.getAgeSet().getDisplayName();
-		}
+        if ("AGE".equals(tokenSource))
+        {
+            retString = Integer.toString(display.getAge());
+        } else if ("AGE.CATEGORY".equals(tokenSource))
+        {
+            retString = display.getAgeSet().getDisplayName();
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 }

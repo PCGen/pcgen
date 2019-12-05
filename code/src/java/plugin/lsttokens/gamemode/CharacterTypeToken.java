@@ -29,29 +29,29 @@ import pcgen.persistence.lst.GameModeLstToken;
 
 /**
  * {@code ResizableEquipTypeToken} parses the list of equipment
- * types designated as able to be automatically resized. 
+ * types designated as able to be automatically resized.
  */
 public class CharacterTypeToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "CHARACTERTYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CHARACTERTYPE";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		List<String> typelist = new ArrayList<>();
-		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        List<String> typelist = new ArrayList<>();
+        final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
 
-		while (aTok.hasMoreTokens())
-		{
-			final String aString = aTok.nextToken();
-			typelist.add(aString);
-		}
-		gameMode.setCharacterTypeList(typelist);
-		return true;
-	}
+        while (aTok.hasMoreTokens())
+        {
+            final String aString = aTok.nextToken();
+            typelist.add(aString);
+        }
+        gameMode.setCharacterTypeList(typelist);
+        return true;
+    }
 }

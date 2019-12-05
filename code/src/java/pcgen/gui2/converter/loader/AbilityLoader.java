@@ -33,55 +33,53 @@ import pcgen.rules.context.EditorLoadContext;
 /**
  * AbilityLoader is an instance of BasicLoader that does extra processing to
  * properly process Ability files.
- * 
- * 
  */
 public class AbilityLoader extends BasicLoader<Ability>
 {
-	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
+    private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
-	private final EditorLoadContext context;
+    private final EditorLoadContext context;
 
-	/**
-	 * Create a new AbilityLoader instance.
-	 * 
-	 * @param lc The context being used to process the tokens. 
-	 * @param cl The class of the objects to be processed.
-	 * @param lk The key under which the files to be processed are stored.
-	 * @param changeLogWriter The stream we will record any changes to.
-	 */
-	public AbilityLoader(EditorLoadContext lc, Class<Ability> cl, ListKey<CampaignSourceEntry> lk,
-		Writer changeLogWriter)
-	{
-		super(lc, cl, lk, changeLogWriter);
+    /**
+     * Create a new AbilityLoader instance.
+     *
+     * @param lc              The context being used to process the tokens.
+     * @param cl              The class of the objects to be processed.
+     * @param lk              The key under which the files to be processed are stored.
+     * @param changeLogWriter The stream we will record any changes to.
+     */
+    public AbilityLoader(EditorLoadContext lc, Class<Ability> cl, ListKey<CampaignSourceEntry> lk,
+            Writer changeLogWriter)
+    {
+        super(lc, cl, lk, changeLogWriter);
 
-		context = lc;
-	}
+        context = lc;
+    }
 
-	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
-		throws PersistenceLayerException, InterruptedException
-	{
-		// We do a scan for the category first and ensure the ability category is defined.
-		String[] tokens = lineString.split(FIELD_SEPARATOR);
-		for (String tok : tokens)
-		{
-			if (tok.startsWith("CATEGORY:"))
-			{
-				String abilityCatName = tok.substring(9);
-				final Category<Ability> cat = context.getReferenceContext()
-					.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);
-				if (cat == null)
-				{
-					//					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
-					//						+ " at line " + line + ": " + lineString);
-					context.getReferenceContext().constructCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);
-				}
+    @Override
+    public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
+            throws PersistenceLayerException, InterruptedException
+    {
+        // We do a scan for the category first and ensure the ability category is defined.
+        String[] tokens = lineString.split(FIELD_SEPARATOR);
+        for (String tok : tokens)
+        {
+            if (tok.startsWith("CATEGORY:"))
+            {
+                String abilityCatName = tok.substring(9);
+                final Category<Ability> cat = context.getReferenceContext()
+                        .silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);
+                if (cat == null)
+                {
+                    //					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
+                    //						+ " at line " + line + ": " + lineString);
+                    context.getReferenceContext().constructCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);
+                }
 
-			}
-		}
+            }
+        }
 
-		return super.process(sb, line, lineString, decider);
-	}
+        return super.process(sb, line, lineString, decider);
+    }
 
 }

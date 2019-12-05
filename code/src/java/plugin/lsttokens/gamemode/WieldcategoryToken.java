@@ -13,36 +13,37 @@ import pcgen.util.Logging;
 public class WieldcategoryToken implements GameModeLstToken
 {
 
-	/**
-	 * Get token name
-	 * @return token name  
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "WIELDCATEGORY";
-	}
+    /**
+     * Get token name
+     *
+     * @return token name
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "WIELDCATEGORY";
+    }
 
-	/**
-	 * Parse WIELDCATEGORY token
-	 * @param gameMode 
-	 * @param value 
-	 * @return true if successful
-	 */
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			WieldCategoryLoader catDiceLoader = new WieldCategoryLoader();
-			catDiceLoader.parseLine(gameMode, "WIELDCATEGORY:" + value, source);
-			return true;
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getMessage());
-			return false;
-		}
+    /**
+     * Parse WIELDCATEGORY token
+     *
+     * @param gameMode
+     * @param value
+     * @return true if successful
+     */
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            WieldCategoryLoader catDiceLoader = new WieldCategoryLoader();
+            catDiceLoader.parseLine(gameMode, "WIELDCATEGORY:" + value, source);
+            return true;
+        } catch (Exception e)
+        {
+            Logging.errorPrint(e.getMessage());
+            return false;
+        }
 
-	}
+    }
 }

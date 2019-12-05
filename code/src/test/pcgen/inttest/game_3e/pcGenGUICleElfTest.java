@@ -28,9 +28,9 @@ import org.junit.jupiter.api.Test;
  */
 public class pcGenGUICleElfTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testCleElf() throws Exception
-	{
-		runTest("3e_CleElf", "3e");
-	}
+    @Test
+    public void testCleElf() throws Exception
+    {
+        runTest("3e_CleElf", "3e");
+    }
 }

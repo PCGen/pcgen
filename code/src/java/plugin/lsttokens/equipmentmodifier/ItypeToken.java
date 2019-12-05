@@ -34,57 +34,56 @@ import pcgen.rules.persistence.token.ParseResult;
  * Deals with ITYPE token
  */
 public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ITYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ITYPE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '.';
-	}
+    @Override
+    protected char separator()
+    {
+        return '.';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, EquipmentModifier mod, String value)
-	{
-		context.getObjectContext().removeList(mod, ListKey.ITEM_TYPES);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, EquipmentModifier mod, String value)
+    {
+        context.getObjectContext().removeList(mod, ListKey.ITEM_TYPES);
 
-		StringTokenizer tok = new StringTokenizer(value, Constants.DOT);
-		while (tok.hasMoreTokens())
-		{
-			final String typeName = tok.nextToken();
-			if ("double".equalsIgnoreCase(typeName))
-			{
-				return new ParseResult.Fail(
-					"IType must not be double. Ignoring occurrence in " + getTokenName() + Constants.COLON + value);
-			}
-			else
-			{
-				context.getObjectContext().addToList(mod, ListKey.ITEM_TYPES, Type.getConstant(typeName));
-			}
-		}
-		return ParseResult.SUCCESS;
-	}
+        StringTokenizer tok = new StringTokenizer(value, Constants.DOT);
+        while (tok.hasMoreTokens())
+        {
+            final String typeName = tok.nextToken();
+            if ("double".equalsIgnoreCase(typeName))
+            {
+                return new ParseResult.Fail(
+                        "IType must not be double. Ignoring occurrence in " + getTokenName() + Constants.COLON + value);
+            } else
+            {
+                context.getObjectContext().addToList(mod, ListKey.ITEM_TYPES, Type.getConstant(typeName));
+            }
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		Changes<Type> changes = context.getObjectContext().getListChanges(mod, ListKey.ITEM_TYPES);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		return new String[]{StringUtil.join(changes.getAdded(), Constants.DOT)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, EquipmentModifier mod)
+    {
+        Changes<Type> changes = context.getObjectContext().getListChanges(mod, ListKey.ITEM_TYPES);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        return new String[]{StringUtil.join(changes.getAdded(), Constants.DOT)};
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

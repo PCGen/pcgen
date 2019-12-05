@@ -38,71 +38,67 @@ import pcgen.util.Logging;
 
 /**
  * {@code CampaignOutput} writes out data sets to PCC files.
- *
  */
 public final class CampaignOutput
 {
-	/**
-	 * Private constructor added to inhibit instance creation for this utility class.
-	 */
-	private CampaignOutput()
-	{
-		// Empty Constructor
-	}
+    /**
+     * Private constructor added to inhibit instance creation for this utility class.
+     */
+    private CampaignOutput()
+    {
+        // Empty Constructor
+    }
 
-	/**
-	 * @param campaign
-	 */
-	public static void output(LoadContext context, Campaign campaign)
-	{
-		final File outFile = new File(
-			ConfigurationSettings.getPccFilesDir() + File.separator + campaign.getSafe(StringKey.DESTINATION));
-		BufferedWriter out = null;
+    /**
+     * @param campaign
+     */
+    public static void output(LoadContext context, Campaign campaign)
+    {
+        final File outFile = new File(
+                ConfigurationSettings.getPccFilesDir() + File.separator + campaign.getSafe(StringKey.DESTINATION));
+        BufferedWriter out = null;
 
-		try
-		{
-			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), StandardCharsets.UTF_8));
+        try
+        {
+            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), StandardCharsets.UTF_8));
 
-			List<String> commentList = campaign.getListFor(ListKey.COMMENT);
-			if (commentList != null)
-			{
-				for (String s : commentList)
-				{
-					FileAccess.write(out, "#" + s);
-					FileAccess.newLine(out);
-				}
-			}
+            List<String> commentList = campaign.getListFor(ListKey.COMMENT);
+            if (commentList != null)
+            {
+                for (String s : commentList)
+                {
+                    FileAccess.write(out, "#" + s);
+                    FileAccess.newLine(out);
+                }
+            }
 
-			Collection<String> lines = context.unparse(campaign);
-			if (lines != null)
-			{
-				for (String line : lines)
-				{
-					FileAccess.write(out, line);
-					FileAccess.newLine(out);
-				}
-			}
-		}
-		catch (FileNotFoundException exc)
-		{
-			Logging.errorPrint("Error while writing to " + outFile.toString(), exc);
+            Collection<String> lines = context.unparse(campaign);
+            if (lines != null)
+            {
+                for (String line : lines)
+                {
+                    FileAccess.write(out, line);
+                    FileAccess.newLine(out);
+                }
+            }
+        } catch (FileNotFoundException exc)
+        {
+            Logging.errorPrint("Error while writing to " + outFile.toString(), exc);
 
-			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		}
-		finally
-		{
-			try
-			{
-				if (out != null)
-				{
-					out.flush();
-					out.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint("Can't close " + outFile.toString(), ex); //Not much more to do really...
-			}
-		}
-	}
+            //TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
+        } finally
+        {
+            try
+            {
+                if (out != null)
+                {
+                    out.flush();
+                    out.close();
+                }
+            } catch (IOException ex)
+            {
+                Logging.errorPrint("Can't close " + outFile.toString(), ex); //Not much more to do really...
+            }
+        }
+    }
 }

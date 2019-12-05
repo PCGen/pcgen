@@ -27,16 +27,16 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class TotalLevelsToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "TOTALLEVELS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TOTALLEVELS";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return Integer.toString(display.getTotalLevels());
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return Integer.toString(display.getTotalLevels());
+    }
 
 }

@@ -41,700 +41,686 @@ import org.junit.jupiter.api.Test;
 
 public abstract class AbstractListFacetTest<T>
 {
-	protected CharID id;
-	protected CharID altid;
+    protected CharID id;
+    protected CharID altid;
 
-	private Listener listener = new Listener();
+    private Listener listener = new Listener();
 
-	private class Listener implements DataFacetChangeListener<CharID, T>
-	{
+    private class Listener implements DataFacetChangeListener<CharID, T>
+    {
 
-		private int addEventCount;
-		private int removeEventCount;
-
-        @Override
-		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
-		{
-			addEventCount++;
-		}
+        private int addEventCount;
+        private int removeEventCount;
 
         @Override
-		public void dataRemoved(DataFacetChangeEvent<CharID, T> dfce)
-		{
-			removeEventCount++;
-		}
+        public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
+        {
+            addEventCount++;
+        }
 
-	}
+        @Override
+        public void dataRemoved(DataFacetChangeEvent<CharID, T> dfce)
+        {
+            removeEventCount++;
+        }
 
-	@BeforeEach
-	public void setUp() throws Exception
-	{
-		DataSetID cid = DataSetID.getID();
-		id = CharID.getID(cid);
-		altid = CharID.getID(cid);
-		getFacet().addDataFacetChangeListener(listener);
-	}
+    }
 
-	@AfterEach
-	public void tearDown()
-	{
-		id = null;
-		altid = null;
-		listener = null;
-	}
+    @BeforeEach
+    public void setUp() throws Exception
+    {
+        DataSetID cid = DataSetID.getID();
+        id = CharID.getID(cid);
+        altid = CharID.getID(cid);
+        getFacet().addDataFacetChangeListener(listener);
+    }
 
-	protected void assertEventCount(int a, int r)
-	{
-		assertEquals(a, listener.addEventCount);
-		assertEquals(r, listener.removeEventCount);
-	}
+    @AfterEach
+    public void tearDown()
+    {
+        id = null;
+        altid = null;
+        listener = null;
+    }
 
-	@Test
-	public void testListUnsetZeroCount()
-	{
-		assertEquals(0, getFacet().getCount(id));
-	}
+    protected void assertEventCount(int a, int r)
+    {
+        assertEquals(a, listener.addEventCount);
+        assertEquals(r, listener.removeEventCount);
+    }
 
-	@Test
-	public void testListUnsetEmpty()
-	{
-		assertTrue(getFacet().isEmpty(id));
-	}
+    @Test
+    public void testListUnsetZeroCount()
+    {
+        assertEquals(0, getFacet().getCount(id));
+    }
 
-	@Test
-	public void testListUnsetEmptySet()
-	{
-		assertNotNull(getFacet().getSet(id));
-		assertTrue(getFacet().getSet(id).isEmpty());
-	}
+    @Test
+    public void testListUnsetEmpty()
+    {
+        assertTrue(getFacet().isEmpty(id));
+    }
 
-	@Test
-	public void testTypeAddNullID()
-	{
-		//Remove to try to avoid any event being formed
-		getFacet().removeDataFacetChangeListener(listener);
-		try
-		{
-			getFacet().add(null, getObject());
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-		assertEventCount(0, 0);
-	}
+    @Test
+    public void testListUnsetEmptySet()
+    {
+        assertNotNull(getFacet().getSet(id));
+        assertTrue(getFacet().getSet(id).isEmpty());
+    }
 
-	@Test
-	public void testAddNullItem()
-	{
-		try
-		{
-			getFacet().add(id, null);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-		assertEventCount(0, 0);
-	}
+    @Test
+    public void testTypeAddNullID()
+    {
+        //Remove to try to avoid any event being formed
+        getFacet().removeDataFacetChangeListener(listener);
+        try
+        {
+            getFacet().add(null, getObject());
+            fail();
+        } catch (NullPointerException e)
+        {
+            // Yep!
+        }
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+        assertEventCount(0, 0);
+    }
 
-	@Test
-	public void testAddSingleGet()
-	{
-		T t1 = getObject();
-		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
-		assertEventCount(1, 0);
-		// No cross-pollution
-		assertEquals(0, getFacet().getCount(altid));
-		assertTrue(getFacet().isEmpty(altid));
-		assertNotNull(getFacet().getSet(altid));
-		assertTrue(getFacet().getSet(altid).isEmpty());
-	}
+    @Test
+    public void testAddNullItem()
+    {
+        try
+        {
+            getFacet().add(id, null);
+            fail();
+        } catch (NullPointerException e)
+        {
+            // Yep!
+        }
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+        assertEventCount(0, 0);
+    }
 
-	@Test
-	public void testAddSingleTwiceGet()
-	{
-		T t1 = getObject();
-		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
-		assertEventCount(1, 0);
-		// Add same, still only once in set (and only one event)
-		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
-		assertEventCount(1, 0);
-	}
+    @Test
+    public void testAddSingleGet()
+    {
+        T t1 = getObject();
+        getFacet().add(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertEquals(1, getFacet().getSet(id).size());
+        assertEquals(t1, getFacet().getSet(id).iterator().next());
+        assertEventCount(1, 0);
+        // No cross-pollution
+        assertEquals(0, getFacet().getCount(altid));
+        assertTrue(getFacet().isEmpty(altid));
+        assertNotNull(getFacet().getSet(altid));
+        assertTrue(getFacet().getSet(altid).isEmpty());
+    }
 
-	@Test
-	public void testAddMultGet()
-	{
-		T t1 = getObject();
-		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(t1, setofone.iterator().next());
-		assertEventCount(1, 0);
-		T t2 = getObject();
-		getFacet().add(id, t2);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
-		assertEventCount(2, 0);
-	}
+    @Test
+    public void testAddSingleTwiceGet()
+    {
+        T t1 = getObject();
+        getFacet().add(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertEquals(1, getFacet().getSet(id).size());
+        assertEquals(t1, getFacet().getSet(id).iterator().next());
+        assertEventCount(1, 0);
+        // Add same, still only once in set (and only one event)
+        getFacet().add(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertEquals(1, getFacet().getSet(id).size());
+        assertEquals(t1, getFacet().getSet(id).iterator().next());
+        assertEventCount(1, 0);
+    }
 
-	@Test
-	public void testContains()
-	{
-		T t1 = getObject();
-		assertFalse(getFacet().contains(id, t1));
-		getFacet().add(id, t1);
-		assertTrue(getFacet().contains(id, t1));
-		getFacet().remove(id, t1);
-		assertFalse(getFacet().contains(id, t1));
-	}
+    @Test
+    public void testAddMultGet()
+    {
+        T t1 = getObject();
+        getFacet().add(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertEquals(t1, setofone.iterator().next());
+        assertEventCount(1, 0);
+        T t2 = getObject();
+        getFacet().add(id, t2);
+        assertEquals(2, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setoftwo = getFacet().getSet(id);
+        assertNotNull(setoftwo);
+        assertEquals(2, setoftwo.size());
+        assertTrue(setoftwo.contains(t1));
+        assertTrue(setoftwo.contains(t2));
+        assertEventCount(2, 0);
+    }
 
-	@Test
-	public void testAddAllNull()
-	{
-		try
-		{
-			getFacet().addAll(id, null);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Expected
-		}
-		assertEventCount(0, 0);
-	}
+    @Test
+    public void testContains()
+    {
+        T t1 = getObject();
+        assertFalse(getFacet().contains(id, t1));
+        getFacet().add(id, t1);
+        assertTrue(getFacet().contains(id, t1));
+        getFacet().remove(id, t1);
+        assertFalse(getFacet().contains(id, t1));
+    }
 
-	@Test
-	public void testAddAllUseless()
-	{
-		getFacet().addAll(id, new ArrayList<>());
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-		assertEventCount(0, 0);
-	}
+    @Test
+    public void testAddAllNull()
+    {
+        try
+        {
+            getFacet().addAll(id, null);
+            fail();
+        } catch (NullPointerException e)
+        {
+            // Expected
+        }
+        assertEventCount(0, 0);
+    }
 
-	@Test
-	public void testAddAll()
-	{
-		T t1 = getObject();
-		T t2 = getObject();
-		List<T> pct = new ArrayList<>();
-		pct.add(t1);
-		pct.add(t2);
-		getFacet().addAll(id, pct);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
-		assertEventCount(2, 0);
-		// Prove independence
-		pct.remove(t2);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
-	}
+    @Test
+    public void testAddAllUseless()
+    {
+        getFacet().addAll(id, new ArrayList<>());
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+        assertEventCount(0, 0);
+    }
 
-	@Test
-	public void testAddAllTwice()
-	{
-		T t1 = getObject();
-		List<T> pct = new ArrayList<>();
-		pct.add(t1);
-		pct.add(t1);
-		getFacet().addAll(id, pct);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t1));
-		assertEventCount(1, 0);
-	}
+    @Test
+    public void testAddAll()
+    {
+        T t1 = getObject();
+        T t2 = getObject();
+        List<T> pct = new ArrayList<>();
+        pct.add(t1);
+        pct.add(t2);
+        getFacet().addAll(id, pct);
+        assertEquals(2, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setoftwo = getFacet().getSet(id);
+        assertNotNull(setoftwo);
+        assertEquals(2, setoftwo.size());
+        assertTrue(setoftwo.contains(t1));
+        assertTrue(setoftwo.contains(t2));
+        assertEventCount(2, 0);
+        // Prove independence
+        pct.remove(t2);
+        assertEquals(2, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        setoftwo = getFacet().getSet(id);
+        assertNotNull(setoftwo);
+        assertEquals(2, setoftwo.size());
+        assertTrue(setoftwo.contains(t1));
+        assertTrue(setoftwo.contains(t2));
+    }
 
-	@Test
-	public void testAddAllNullInList()
-	{
-		T t1 = getObject();
-		T t2 = getObject();
-		List<T> pct = new ArrayList<>();
-		pct.add(t1);
-		pct.add(null);
-		pct.add(t2);
-		try
-		{
-			getFacet().addAll(id, pct);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
-		/*
-		 * TODO This should be zero, one or two??? Not a huge fan of only 1, but
-		 * not sure what the better solution is to keep facet code from becoming
-		 * too complex. Either way, this situation is bad, so the stack trace
-		 * genereted by the IllegalArgumentException will get attention :)
-		 */
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t1));
-		assertEventCount(1, 0);
-	}
+    @Test
+    public void testAddAllTwice()
+    {
+        T t1 = getObject();
+        List<T> pct = new ArrayList<>();
+        pct.add(t1);
+        pct.add(t1);
+        getFacet().addAll(id, pct);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t1));
+        assertEventCount(1, 0);
+    }
 
-	@Test
-	public void testRemoveUseless()
-	{
-		try
-		{
-			getFacet().remove(id, null);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Expected
-		}
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-		assertEventCount(0, 0);
-	}
+    @Test
+    public void testAddAllNullInList()
+    {
+        T t1 = getObject();
+        T t2 = getObject();
+        List<T> pct = new ArrayList<>();
+        pct.add(t1);
+        pct.add(null);
+        pct.add(t2);
+        try
+        {
+            getFacet().addAll(id, pct);
+            fail();
+        } catch (NullPointerException e)
+        {
+            // Yep!
+        }
+        /*
+         * TODO This should be zero, one or two??? Not a huge fan of only 1, but
+         * not sure what the better solution is to keep facet code from becoming
+         * too complex. Either way, this situation is bad, so the stack trace
+         * genereted by the IllegalArgumentException will get attention :)
+         */
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t1));
+        assertEventCount(1, 0);
+    }
 
-	@Test
-	public void testAddSingleRemove()
-	{
-		T t1 = getObject();
-		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
-		assertEventCount(1, 0);
-		// Remove
-		getFacet().remove(id, t1);
-		assertEquals(0, getFacet().getCount(id));
-		assertTrue(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertTrue(getFacet().getSet(id).isEmpty());
-		assertEventCount(1, 1);
-	}
+    @Test
+    public void testRemoveUseless()
+    {
+        try
+        {
+            getFacet().remove(id, null);
+            fail();
+        } catch (NullPointerException e)
+        {
+            // Expected
+        }
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+        assertEventCount(0, 0);
+    }
 
-	@Test
-	public void testAddUselessRemove()
-	{
-		T t1 = getObject();
-		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
-		assertEventCount(1, 0);
-		// Useless Remove
-		getFacet().remove(id, getObject());
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
-		assertEventCount(1, 0);
-	}
+    @Test
+    public void testAddSingleRemove()
+    {
+        T t1 = getObject();
+        getFacet().add(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertEquals(1, getFacet().getSet(id).size());
+        assertEquals(t1, getFacet().getSet(id).iterator().next());
+        assertEventCount(1, 0);
+        // Remove
+        getFacet().remove(id, t1);
+        assertEquals(0, getFacet().getCount(id));
+        assertTrue(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertTrue(getFacet().getSet(id).isEmpty());
+        assertEventCount(1, 1);
+    }
 
-	@Test
-	public void testAddSingleTwiceRemove()
-	{
-		T t1 = getObject();
-		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
-		assertEventCount(1, 0);
-		// Add same, still only once in set
-		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
-		assertEventCount(1, 0);
-		// Only requires one Remove (internally a Set, not List)
-		getFacet().remove(id, t1);
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-		assertEventCount(1, 1);
-		// Second has no effect
-		getFacet().remove(id, t1);
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-		assertEventCount(1, 1);
-	}
+    @Test
+    public void testAddUselessRemove()
+    {
+        T t1 = getObject();
+        getFacet().add(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertEquals(1, getFacet().getSet(id).size());
+        assertEquals(t1, getFacet().getSet(id).iterator().next());
+        assertEventCount(1, 0);
+        // Useless Remove
+        getFacet().remove(id, getObject());
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertEquals(1, getFacet().getSet(id).size());
+        assertEquals(t1, getFacet().getSet(id).iterator().next());
+        assertEventCount(1, 0);
+    }
 
-	@Test
-	public void testAddMultRemove()
-	{
-		T t1 = getObject();
-		T t2 = getObject();
-		getFacet().add(id, t1);
-		getFacet().add(id, t2);
-		getFacet().remove(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
-		assertEventCount(2, 1);
-	}
+    @Test
+    public void testAddSingleTwiceRemove()
+    {
+        T t1 = getObject();
+        getFacet().add(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertEquals(1, getFacet().getSet(id).size());
+        assertEquals(t1, getFacet().getSet(id).iterator().next());
+        assertEventCount(1, 0);
+        // Add same, still only once in set
+        getFacet().add(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        assertNotNull(getFacet().getSet(id));
+        assertEquals(1, getFacet().getSet(id).size());
+        assertEquals(t1, getFacet().getSet(id).iterator().next());
+        assertEventCount(1, 0);
+        // Only requires one Remove (internally a Set, not List)
+        getFacet().remove(id, t1);
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+        assertEventCount(1, 1);
+        // Second has no effect
+        getFacet().remove(id, t1);
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+        assertEventCount(1, 1);
+    }
 
-	@Test
-	public void testRemoveAllNull()
-	{
-		getFacet().add(id, getObject());
-		try
-		{
-			getFacet().removeAll(id, null);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Expected
-		}
-	}
+    @Test
+    public void testAddMultRemove()
+    {
+        T t1 = getObject();
+        T t2 = getObject();
+        getFacet().add(id, t1);
+        getFacet().add(id, t2);
+        getFacet().remove(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t2));
+        assertEventCount(2, 1);
+    }
 
-	@Test
-	public void testRemoveAllUseless()
-	{
-		getFacet().removeAll(id, new ArrayList<>());
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-		assertEventCount(0, 0);
-	}
+    @Test
+    public void testRemoveAllNull()
+    {
+        getFacet().add(id, getObject());
+        try
+        {
+            getFacet().removeAll(id, null);
+            fail();
+        } catch (NullPointerException e)
+        {
+            // Expected
+        }
+    }
 
-	@Test
-	public void testRemoveAllList()
-	{
-		T t1 = getObject();
-		T t2 = getObject();
-		T t3 = getObject();
-		List<T> pct = new ArrayList<>();
-		getFacet().add(id, t1);
-		getFacet().add(id, t2);
-		getFacet().add(id, t3);
-		pct.add(t1);
-		pct.add(t3);
-		assertEventCount(3, 0);
-		getFacet().removeAll(id, pct);
-		assertEventCount(3, 2);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
-		// Prove independence
-		pct.remove(t1);
-		setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
-	}
+    @Test
+    public void testRemoveAllUseless()
+    {
+        getFacet().removeAll(id, new ArrayList<>());
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+        assertEventCount(0, 0);
+    }
 
-	@Test
-	public void testRemoveAllTwice()
-	{
-		T t1 = getObject();
-		T t2 = getObject();
-		List<T> pct = new ArrayList<>();
-		getFacet().add(id, t1);
-		getFacet().add(id, t2);
-		pct.add(t1);
-		pct.add(t1);
-		assertEventCount(2, 0);
-		getFacet().removeAll(id, pct);
-		assertEventCount(2, 1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
-	}
+    @Test
+    public void testRemoveAllList()
+    {
+        T t1 = getObject();
+        T t2 = getObject();
+        T t3 = getObject();
+        List<T> pct = new ArrayList<>();
+        getFacet().add(id, t1);
+        getFacet().add(id, t2);
+        getFacet().add(id, t3);
+        pct.add(t1);
+        pct.add(t3);
+        assertEventCount(3, 0);
+        getFacet().removeAll(id, pct);
+        assertEventCount(3, 2);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t2));
+        // Prove independence
+        pct.remove(t1);
+        setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t2));
+    }
 
-	@Test
-	public void testRemoveAllNullInList()
-	{
-		T t1 = getObject();
-		T t2 = getObject();
-		List<T> pct = new ArrayList<>();
-		getFacet().add(id, t1);
-		getFacet().add(id, t2);
-		pct.add(t1);
-		pct.add(null);
-		pct.add(t2);
-		assertEventCount(2, 0);
-		try
-		{
-			getFacet().removeAll(id, pct);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Expected
-		}
-		assertEventCount(2, 1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
-	}
+    @Test
+    public void testRemoveAllTwice()
+    {
+        T t1 = getObject();
+        T t2 = getObject();
+        List<T> pct = new ArrayList<>();
+        getFacet().add(id, t1);
+        getFacet().add(id, t2);
+        pct.add(t1);
+        pct.add(t1);
+        assertEventCount(2, 0);
+        getFacet().removeAll(id, pct);
+        assertEventCount(2, 1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t2));
+    }
 
-	@Test
-	public void testRemoveAll()
-	{
-		assertNotNull(getFacet().removeAll(id));
-		assertTrue(getFacet().removeAll(id).isEmpty());
-		T t1 = getObject();
-		T t2 = getObject();
-		getFacet().add(id, t1);
-		getFacet().add(id, t2);
-		assertEventCount(2, 0);
-		Collection<T> setoftwo = getFacet().removeAll(id);
-		assertEventCount(2, 2);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-	}
+    @Test
+    public void testRemoveAllNullInList()
+    {
+        T t1 = getObject();
+        T t2 = getObject();
+        List<T> pct = new ArrayList<>();
+        getFacet().add(id, t1);
+        getFacet().add(id, t2);
+        pct.add(t1);
+        pct.add(null);
+        pct.add(t2);
+        assertEventCount(2, 0);
+        try
+        {
+            getFacet().removeAll(id, pct);
+            fail();
+        } catch (NullPointerException e)
+        {
+            // Expected
+        }
+        assertEventCount(2, 1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t2));
+    }
 
-	@Test
-	public void testGetSetIndependence()
-	{
-		T t1 = getObject();
-		T t2 = getObject();
-		getFacet().add(id, t1);
-		Collection<T> set = getFacet().getSet(id);
-		try
-		{
-			set.add(t2);
-			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
-		}
-		catch (UnsupportedOperationException e)
-		{
-			// This is ok too
-		}
-		try
-		{
-			set.remove(t1);
-			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
-		}
-		catch (UnsupportedOperationException e)
-		{
-			// This is ok too
-		}
-		List<T> pct = new ArrayList<>();
-		pct.add(t1);
-		pct.add(t2);
-		try
-		{
-			set.addAll(pct);
-			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
-		}
-		catch (UnsupportedOperationException e)
-		{
-			// This is ok too
-		}
-		try
-		{
-			set.removeAll(pct);
-			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
-		}
-		catch (UnsupportedOperationException e)
-		{
-			// This is ok too
-		}
-		try
-		{
-			set.retainAll(new ArrayList<T>());
-			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
-		}
-		catch (UnsupportedOperationException e)
-		{
-			// This is ok too
-		}
-		getFacet().add(id, t1);
-		try
-		{
-			set.clear();
-			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
-		}
-		catch (UnsupportedOperationException e)
-		{
-			// This is ok too
-		}
-	}
+    @Test
+    public void testRemoveAll()
+    {
+        assertNotNull(getFacet().removeAll(id));
+        assertTrue(getFacet().removeAll(id).isEmpty());
+        T t1 = getObject();
+        T t2 = getObject();
+        getFacet().add(id, t1);
+        getFacet().add(id, t2);
+        assertEventCount(2, 0);
+        Collection<T> setoftwo = getFacet().removeAll(id);
+        assertEventCount(2, 2);
+        assertNotNull(setoftwo);
+        assertEquals(2, setoftwo.size());
+        assertTrue(setoftwo.contains(t1));
+        assertTrue(setoftwo.contains(t2));
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+    }
 
-	@Test
-	public void testCopyContentsNone()
-	{
-		getFacet().copyContents(altid, id);
-		testListUnsetZeroCount();
-		testListUnsetEmpty();
-		testListUnsetEmptySet();
-	}
+    @Test
+    public void testGetSetIndependence()
+    {
+        T t1 = getObject();
+        T t2 = getObject();
+        getFacet().add(id, t1);
+        Collection<T> set = getFacet().getSet(id);
+        try
+        {
+            set.add(t2);
+            // If we can modify, then make sure it's independent of the facet
+            assertEquals(1, getFacet().getCount(id));
+            assertFalse(getFacet().isEmpty(id));
+            assertNotNull(getFacet().getSet(id));
+            assertEquals(1, getFacet().getSet(id).size());
+            assertEquals(t1, getFacet().getSet(id).iterator().next());
+        } catch (UnsupportedOperationException e)
+        {
+            // This is ok too
+        }
+        try
+        {
+            set.remove(t1);
+            // If we can modify, then make sure it's independent of the facet
+            assertEquals(1, getFacet().getCount(id));
+            assertFalse(getFacet().isEmpty(id));
+            assertNotNull(getFacet().getSet(id));
+            assertEquals(1, getFacet().getSet(id).size());
+            assertEquals(t1, getFacet().getSet(id).iterator().next());
+        } catch (UnsupportedOperationException e)
+        {
+            // This is ok too
+        }
+        List<T> pct = new ArrayList<>();
+        pct.add(t1);
+        pct.add(t2);
+        try
+        {
+            set.addAll(pct);
+            // If we can modify, then make sure it's independent of the facet
+            assertEquals(1, getFacet().getCount(id));
+            assertFalse(getFacet().isEmpty(id));
+            assertNotNull(getFacet().getSet(id));
+            assertEquals(1, getFacet().getSet(id).size());
+            assertEquals(t1, getFacet().getSet(id).iterator().next());
+        } catch (UnsupportedOperationException e)
+        {
+            // This is ok too
+        }
+        try
+        {
+            set.removeAll(pct);
+            // If we can modify, then make sure it's independent of the facet
+            assertEquals(1, getFacet().getCount(id));
+            assertFalse(getFacet().isEmpty(id));
+            assertNotNull(getFacet().getSet(id));
+            assertEquals(1, getFacet().getSet(id).size());
+            assertEquals(t1, getFacet().getSet(id).iterator().next());
+        } catch (UnsupportedOperationException e)
+        {
+            // This is ok too
+        }
+        try
+        {
+            set.retainAll(new ArrayList<T>());
+            // If we can modify, then make sure it's independent of the facet
+            assertEquals(1, getFacet().getCount(id));
+            assertFalse(getFacet().isEmpty(id));
+            assertNotNull(getFacet().getSet(id));
+            assertEquals(1, getFacet().getSet(id).size());
+            assertEquals(t1, getFacet().getSet(id).iterator().next());
+        } catch (UnsupportedOperationException e)
+        {
+            // This is ok too
+        }
+        getFacet().add(id, t1);
+        try
+        {
+            set.clear();
+            // If we can modify, then make sure it's independent of the facet
+            assertEquals(1, getFacet().getCount(id));
+            assertFalse(getFacet().isEmpty(id));
+            assertNotNull(getFacet().getSet(id));
+            assertEquals(1, getFacet().getSet(id).size());
+            assertEquals(t1, getFacet().getSet(id).iterator().next());
+        } catch (UnsupportedOperationException e)
+        {
+            // This is ok too
+        }
+    }
 
-	@Test
-	public void testCopyContents()
-	{
-		T t1 = getObject();
-		T t2 = getAltObject();
-		getFacet().add(id, t1);
-		getFacet().add(id, t2);
-		assertEquals(2, getFacet().getCount(id));
-		assertEquals(0, getFacet().getCount(altid));
-		getFacet().copyContents(id, altid);
-		assertEquals(2, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
-		Collection<T> setoftwo = getFacet().getSet(altid);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
-		// Prove independence (remove from id)
-		getFacet().remove(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		Collection<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+    @Test
+    public void testCopyContentsNone()
+    {
+        getFacet().copyContents(altid, id);
+        testListUnsetZeroCount();
+        testListUnsetEmpty();
+        testListUnsetEmptySet();
+    }
 
-		assertEquals(2, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
-		setoftwo = getFacet().getSet(altid);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
-		// Prove Independence (remove from altid)
+    @Test
+    public void testCopyContents()
+    {
+        T t1 = getObject();
+        T t2 = getAltObject();
+        getFacet().add(id, t1);
+        getFacet().add(id, t2);
+        assertEquals(2, getFacet().getCount(id));
+        assertEquals(0, getFacet().getCount(altid));
+        getFacet().copyContents(id, altid);
+        assertEquals(2, getFacet().getCount(altid));
+        assertFalse(getFacet().isEmpty(altid));
+        Collection<T> setoftwo = getFacet().getSet(altid);
+        assertNotNull(setoftwo);
+        assertEquals(2, setoftwo.size());
+        assertTrue(setoftwo.contains(t1));
+        assertTrue(setoftwo.contains(t2));
+        // Prove independence (remove from id)
+        getFacet().remove(id, t1);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        Collection<T> setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t2));
 
-		getFacet().remove(altid, t2);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+        assertEquals(2, getFacet().getCount(altid));
+        assertFalse(getFacet().isEmpty(altid));
+        setoftwo = getFacet().getSet(altid);
+        assertNotNull(setoftwo);
+        assertEquals(2, setoftwo.size());
+        assertTrue(setoftwo.contains(t1));
+        assertTrue(setoftwo.contains(t2));
+        // Prove Independence (remove from altid)
 
-		assertEquals(1, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
-		setofone = getFacet().getSet(altid);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t1));
-	}
+        getFacet().remove(altid, t2);
+        assertEquals(1, getFacet().getCount(id));
+        assertFalse(getFacet().isEmpty(id));
+        setofone = getFacet().getSet(id);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t2));
 
-	protected T getAltObject()
-	{
-		return getObject();
-	}
+        assertEquals(1, getFacet().getCount(altid));
+        assertFalse(getFacet().isEmpty(altid));
+        setofone = getFacet().getSet(altid);
+        assertNotNull(setofone);
+        assertEquals(1, setofone.size());
+        assertTrue(setofone.contains(t1));
+    }
 
-	protected abstract T getObject();
+    protected T getAltObject()
+    {
+        return getObject();
+    }
 
-	protected abstract AbstractListFacet<CharID, T> getFacet();
+    protected abstract T getObject();
+
+    protected abstract AbstractListFacet<CharID, T> getFacet();
 
 
-	public static void addBonus(Class<? extends BonusObj> clazz)
-	{
-		try
-		{
-			TokenLibrary.addBonusClass(clazz);
-		}
-		catch (InstantiationException | IllegalAccessException e)
-		{
-			e.printStackTrace();
-		}
-	}
+    public static void addBonus(Class<? extends BonusObj> clazz)
+    {
+        try
+        {
+            TokenLibrary.addBonusClass(clazz);
+        } catch (InstantiationException | IllegalAccessException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -33,55 +33,54 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //PROHIBITEDLIST
 public class ProhibitedListToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "PROHIBITEDLIST";
+    public static final String TOKENNAME = "PROHIBITEDLIST";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return getProhibitedListToken(tokenSource, display);
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return getProhibitedListToken(tokenSource, display);
+    }
 
-	public static String getProhibitedListToken(String tokenSource, CharacterDisplay display)
-	{
-		int k = tokenSource.lastIndexOf(',');
+    public static String getProhibitedListToken(String tokenSource, CharacterDisplay display)
+    {
+        int k = tokenSource.lastIndexOf(',');
 
-		String jointext;
-		if (k >= 0)
-		{
-			jointext = tokenSource.substring(k + 1);
-		}
-		else
-		{
-			jointext = ",";
-		}
+        String jointext;
+        if (k >= 0)
+        {
+            jointext = tokenSource.substring(k + 1);
+        } else
+        {
+            jointext = ",";
+        }
 
-		Set<String> set = new TreeSet<>();
-		for (PCClass pcClass : display.getClassSet())
-		{
-			if (display.getLevel(pcClass) > 0)
-			{
-				for (SpellProhibitor sp : pcClass.getSafeListFor(ListKey.PROHIBITED_SPELLS))
-				{
-					set.addAll(sp.getValueList());
-				}
+        Set<String> set = new TreeSet<>();
+        for (PCClass pcClass : display.getClassSet())
+        {
+            if (display.getLevel(pcClass) > 0)
+            {
+                for (SpellProhibitor sp : pcClass.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+                {
+                    set.addAll(sp.getValueList());
+                }
 
-				Collection<? extends SpellProhibitor> prohibList = display.getProhibitedSchools(pcClass);
-				if (prohibList != null)
-				{
-					for (SpellProhibitor sp : prohibList)
-					{
-						set.addAll(sp.getValueList());
-					}
-				}
-			}
-		}
+                Collection<? extends SpellProhibitor> prohibList = display.getProhibitedSchools(pcClass);
+                if (prohibList != null)
+                {
+                    for (SpellProhibitor sp : prohibList)
+                    {
+                        set.addAll(sp.getValueList());
+                    }
+                }
+            }
+        }
 
-		return StringUtil.join(set, jointext);
-	}
+        return StringUtil.join(set, jointext);
+    }
 }

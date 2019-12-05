@@ -27,13 +27,14 @@ import pcgen.core.Campaign;
  */
 public interface InstallLstToken extends LstToken
 {
-	/**
-	 * Parses an Campaign object
-	 * @param campaign The campaignbeing loaded
-	 * @param value The value of the token
-	 * @param sourceURI The source that contained the token
-	 * @return true if parse OK
-	 */
+    /**
+     * Parses an Campaign object
+     *
+     * @param campaign  The campaignbeing loaded
+     * @param value     The value of the token
+     * @param sourceURI The source that contained the token
+     * @return true if parse OK
+     */
     boolean parse(Campaign campaign, String value, URI sourceURI);
 
 }

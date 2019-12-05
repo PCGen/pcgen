@@ -22,43 +22,43 @@ import pcgen.cdom.base.Ungranted;
 
 /**
  * {@code ShieldProf}.
- *
+ * <p>
  * DO NOT DELETE (waiting for use)
  */
 public final class ShieldProf extends PObject implements Comparable<Object>, Ungranted
 {
-	/**
-	 * Compares keyName only
-	 *
-	 * @param o1 Object
-	 * @return int
-	 */
-	@Override
-	public int compareTo(final Object o1)
-	{
-		return getKeyName().compareToIgnoreCase(((ShieldProf) o1).getKeyName());
-	}
+    /**
+     * Compares keyName only
+     *
+     * @param o1 Object
+     * @return int
+     */
+    @Override
+    public int compareTo(final Object o1)
+    {
+        return getKeyName().compareToIgnoreCase(((ShieldProf) o1).getKeyName());
+    }
 
-	/**
-	 * Compares keyName only
-	 *
-	 * @param obj Object
-	 * @return boolean
-	 */
-	@Override
-	public boolean equals(final Object obj)
-	{
-		return obj instanceof ShieldProf && getKeyName().equalsIgnoreCase(((ShieldProf) obj).getKeyName());
-	}
+    /**
+     * Compares keyName only
+     *
+     * @param obj Object
+     * @return boolean
+     */
+    @Override
+    public boolean equals(final Object obj)
+    {
+        return obj instanceof ShieldProf && getKeyName().equalsIgnoreCase(((ShieldProf) obj).getKeyName());
+    }
 
-	/**
-	 * Hashcode of the keyName
-	 *
-	 * @return int
-	 */
-	@Override
-	public int hashCode()
-	{
-		return getKeyName().hashCode();
-	}
+    /**
+     * Hashcode of the keyName
+     *
+     * @return int
+     */
+    @Override
+    public int hashCode()
+    {
+        return getKeyName().hashCode();
+    }
 }

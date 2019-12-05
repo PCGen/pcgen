@@ -32,153 +32,153 @@ import org.junit.jupiter.api.Test;
 
 class PreSubClassTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Test to ensure that a character with a named class can be found.
-	 *
-	 * @throws PrerequisiteException the prerequisite exception
-	 */
-	@Test
-	void testNamedSubClass() throws PrerequisiteException
-	{
-		final PCClass pcClass = new PCClass();
-		pcClass.setName("MyClass");
-		pcClass.put(StringKey.KEY_NAME, "KEY_MyClass");
-		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
+    /**
+     * Test to ensure that a character with a named class can be found.
+     *
+     * @throws PrerequisiteException the prerequisite exception
+     */
+    @Test
+    void testNamedSubClass() throws PrerequisiteException
+    {
+        final PCClass pcClass = new PCClass();
+        pcClass.setName("MyClass");
+        pcClass.put(StringKey.KEY_NAME, "KEY_MyClass");
+        BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(3, pcClass);
-		SubClassApplication.setSubClassKey(character, character
-				.getClassKeyed("KEY_MyClass"), "MySubClass");
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(3, pcClass);
+        SubClassApplication.setSubClassKey(character, character
+                .getClassKeyed("KEY_MyClass"), "MySubClass");
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("subclass");
-		prereq.setKey("mysubclass");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("subclass");
+        prereq.setKey("mysubclass");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
 
-		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character, null);
-		assertEquals(1, passes);
-	}
+        final PreSubClassTester test = new PreSubClassTester();
+        final int passes = test.passes(prereq, character, null);
+        assertEquals(1, passes);
+    }
 
-	/**
-	 * Test to make sure subclass still found if multiple classes, only one with subclass.
-	 *
-	 * @throws PrerequisiteException the prerequisite exception
-	 */
-	@Test
-	public void testCharWithMultipleClasses() throws PrerequisiteException
-	{
-		final PCClass pcClass = new PCClass();
-		pcClass.setName("MyClass");
-		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
+    /**
+     * Test to make sure subclass still found if multiple classes, only one with subclass.
+     *
+     * @throws PrerequisiteException the prerequisite exception
+     */
+    @Test
+    public void testCharWithMultipleClasses() throws PrerequisiteException
+    {
+        final PCClass pcClass = new PCClass();
+        pcClass.setName("MyClass");
+        BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PCClass pcClass2 = new PCClass();
-		pcClass2.setName("Other Class");
+        final PCClass pcClass2 = new PCClass();
+        pcClass2.setName("Other Class");
 
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(1, pcClass);
-		character.incrementClassLevel(2, pcClass2);
-		SubClassApplication.setSubClassKey(character, character
-				.getClassKeyed("Other Class"), "OtherSubClass");
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(1, pcClass);
+        character.incrementClassLevel(2, pcClass2);
+        SubClassApplication.setSubClassKey(character, character
+                .getClassKeyed("Other Class"), "OtherSubClass");
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("subclass");
-		prereq.setKey("othersubclass");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("subclass");
+        prereq.setKey("othersubclass");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
 
-		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character, null);
-		assertEquals(1, passes);
-	}
+        final PreSubClassTester test = new PreSubClassTester();
+        final int passes = test.passes(prereq, character, null);
+        assertEquals(1, passes);
+    }
 
-	/**
-	 * Test to make sure subclass still found if multiple classes, both with subclass.
-	 *
-	 * @throws PrerequisiteException the prerequisite exception
-	 */
-	@Test
-	public void testCharWithMultipleSubClasses() throws PrerequisiteException
-	{
-		final PCClass pcClass = new PCClass();
-		pcClass.setName("MyClass");
-		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
+    /**
+     * Test to make sure subclass still found if multiple classes, both with subclass.
+     *
+     * @throws PrerequisiteException the prerequisite exception
+     */
+    @Test
+    public void testCharWithMultipleSubClasses() throws PrerequisiteException
+    {
+        final PCClass pcClass = new PCClass();
+        pcClass.setName("MyClass");
+        BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PCClass pcClass2 = new PCClass();
-		pcClass2.setName("Other Class");
+        final PCClass pcClass2 = new PCClass();
+        pcClass2.setName("Other Class");
 
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(1, pcClass);
-		SubClassApplication.setSubClassKey(character, character
-				.getClassKeyed("MyClass"), "MySubClass");
-		character.incrementClassLevel(2, pcClass2);
-		SubClassApplication.setSubClassKey(character, character
-				.getClassKeyed("Other Class"), "OtherSubClass");
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(1, pcClass);
+        SubClassApplication.setSubClassKey(character, character
+                .getClassKeyed("MyClass"), "MySubClass");
+        character.incrementClassLevel(2, pcClass2);
+        SubClassApplication.setSubClassKey(character, character
+                .getClassKeyed("Other Class"), "OtherSubClass");
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("subclass");
-		prereq.setKey("othersubclass");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("subclass");
+        prereq.setKey("othersubclass");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
 
-		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character, null);
-		assertEquals(1, passes);
-	}
+        final PreSubClassTester test = new PreSubClassTester();
+        final int passes = test.passes(prereq, character, null);
+        assertEquals(1, passes);
+    }
 
-	/**
-	 * Test to ensure that a character without a named subclass cannot be found.
-	 *
-	 * @throws PrerequisiteException the prerequisite exception
-	 */
-	@Test
-	public void testNamedSubClassFail() throws PrerequisiteException
-	{
-		final PCClass pcClass = new PCClass();
-		pcClass.setName("MyClass");
-		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
+    /**
+     * Test to ensure that a character without a named subclass cannot be found.
+     *
+     * @throws PrerequisiteException the prerequisite exception
+     */
+    @Test
+    public void testNamedSubClassFail() throws PrerequisiteException
+    {
+        final PCClass pcClass = new PCClass();
+        pcClass.setName("MyClass");
+        BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(1, pcClass);
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(1, pcClass);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("subclass");
-		prereq.setKey("mysubclass");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("subclass");
+        prereq.setKey("mysubclass");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
 
-		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character, null);
-		assertEquals(0, passes);
-	}
+        final PreSubClassTester test = new PreSubClassTester();
+        final int passes = test.passes(prereq, character, null);
+        assertEquals(0, passes);
+    }
 
-	/**
-	 * Test to ensure that a character without a named subclass cannot be found.
-	 *
-	 * @throws PrerequisiteException the prerequisite exception
-	 */
-	@Test
-	public void testNamedDifSubClassFail() throws PrerequisiteException
-	{
-		final PCClass pcClass = new PCClass();
-		pcClass.setName("MyClass");
-		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
+    /**
+     * Test to ensure that a character without a named subclass cannot be found.
+     *
+     * @throws PrerequisiteException the prerequisite exception
+     */
+    @Test
+    public void testNamedDifSubClassFail() throws PrerequisiteException
+    {
+        final PCClass pcClass = new PCClass();
+        pcClass.setName("MyClass");
+        BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(1, pcClass);
-		SubClassApplication.setSubClassKey(character, character
-				.getClassKeyed("MyClass"), "MySubClass");
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(1, pcClass);
+        SubClassApplication.setSubClassKey(character, character
+                .getClassKeyed("MyClass"), "MySubClass");
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("subclass");
-		prereq.setKey("myothersubclass");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("subclass");
+        prereq.setKey("myothersubclass");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
 
-		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character, null);
-		assertEquals(0, passes);
-	}
+        final PreSubClassTester test = new PreSubClassTester();
+        final int passes = test.passes(prereq, character, null);
+        assertEquals(0, passes);
+    }
 
 }

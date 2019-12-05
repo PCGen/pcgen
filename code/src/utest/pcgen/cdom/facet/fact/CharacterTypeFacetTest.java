@@ -24,19 +24,19 @@ import pcgen.cdom.testsupport.AbstractItemFacetTest;
 public class CharacterTypeFacetTest extends AbstractItemFacetTest<String>
 {
 
-	private final CharacterTypeFacet facet = new CharacterTypeFacet();
+    private final CharacterTypeFacet facet = new CharacterTypeFacet();
 
-	@Override
-	protected AbstractItemFacet<CharID, String> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractItemFacet<CharID, String> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected String getItem()
-	{
-		return "TYPE:" + n++;
-	}
+    @Override
+    protected String getItem()
+    {
+        return "TYPE:" + n++;
+    }
 }

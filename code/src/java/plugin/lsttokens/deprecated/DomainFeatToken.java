@@ -30,55 +30,55 @@ import pcgen.util.Logging;
  * Deal with FEAT token
  */
 public class DomainFeatToken extends AbstractNonEmptyToken<Domain>
-		implements CDOMCompatibilityToken<Domain>, DeprecatedToken
+        implements CDOMCompatibilityToken<Domain>, DeprecatedToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "FEAT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FEAT";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Domain obj, String value)
-	{
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Domain obj, String value)
+    {
 
-			if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error from Domain's FEAT");
-			}
+        if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Delegation Error from Domain's FEAT");
+        }
 
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String getMessage(CDOMObject obj, String value)
-	{
-		return "Feat-based tokens have been deprecated - use ABILITY based functions";
-	}
+    @Override
+    public String getMessage(CDOMObject obj, String value)
+    {
+        return "Feat-based tokens have been deprecated - use ABILITY based functions";
+    }
 
-	@Override
-	public Class<Domain> getTokenClass()
-	{
-		return Domain.class;
-	}
+    @Override
+    public Class<Domain> getTokenClass()
+    {
+        return Domain.class;
+    }
 
-	@Override
-	public int compatibilityLevel()
-	{
-		return 6;
-	}
+    @Override
+    public int compatibilityLevel()
+    {
+        return 6;
+    }
 
-	@Override
-	public int compatibilitySubLevel()
-	{
-		return 4;
-	}
+    @Override
+    public int compatibilitySubLevel()
+    {
+        return 4;
+    }
 
-	@Override
-	public int compatibilityPriority()
-	{
-		return 3;
-	}
+    @Override
+    public int compatibilityPriority()
+    {
+        return 3;
+    }
 }

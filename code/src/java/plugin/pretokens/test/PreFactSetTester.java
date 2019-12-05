@@ -38,84 +38,85 @@ import pcgen.system.LanguageBundle;
 public class PreFactSetTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source)
-		throws PrerequisiteException
-	{
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source)
+            throws PrerequisiteException
+    {
 
-		final int number;
-		try
-		{
-			number = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException exceptn)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreFactSet.error", prereq.toString()), exceptn); //$NON-NLS-1$
-		}
+        final int number;
+        try
+        {
+            number = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException exceptn)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreFactSet.error", prereq.toString()), exceptn); //$NON-NLS-1$
+        }
 
-		String location = prereq.getCategoryName();
-		String[] locationElements = location.split("\\.");
-		Iterable<Reducible> objModel = (Iterable<Reducible>) OutputDB.getIterable(aPC.getCharID(), locationElements);
-		if (objModel == null)
-		{
-			throw new PrerequisiteException("Output System does not have model for: " + location);
-		}
+        String location = prereq.getCategoryName();
+        String[] locationElements = location.split("\\.");
+        Iterable<Reducible> objModel = (Iterable<Reducible>) OutputDB.getIterable(aPC.getCharID(), locationElements);
+        if (objModel == null)
+        {
+            throw new PrerequisiteException("Output System does not have model for: " + location);
+        }
 
-		String test = prereq.getKey();
-		String[] factinfo = test.split("=");
-		String factid = factinfo[0];
-		String factval = factinfo[1];
-		FactSetKey<?> fk = FactSetKey.valueOf(factid);
+        String test = prereq.getKey();
+        String[] factinfo = test.split("=");
+        String factid = factinfo[0];
+        String factval = factinfo[1];
+        FactSetKey<?> fk = FactSetKey.valueOf(factid);
 
-		int runningTotal = getRunningTotal(prereq, number, objModel, factval, fk);
-		return countedTotal(prereq, runningTotal);
-	}
+        int runningTotal = getRunningTotal(prereq, number, objModel, factval, fk);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	private static <T> int getRunningTotal(final Prerequisite prereq, final int number, Iterable<Reducible> objModel,
-		String factval, FactSetKey<T> fk)
-	{
-		T targetVal = fk.getFormatManager().convert(factval);
-		int runningTotal = 0;
-		CDO: for (Reducible r : objModel)
-		{
-			List<Indirect<T>> sets = r.getCDOMObject().getSetFor(fk);
-			for (Indirect<T> indirect : sets)
-			{
-				if (indirect.get().equals(targetVal))
-				{
-					runningTotal++;
-					continue CDO;
-				}
-			}
-		}
+    private static <T> int getRunningTotal(final Prerequisite prereq, final int number, Iterable<Reducible> objModel,
+            String factval, FactSetKey<T> fk)
+    {
+        T targetVal = fk.getFormatManager().convert(factval);
+        int runningTotal = 0;
+        CDO:
+        for (Reducible r : objModel)
+        {
+            List<Indirect<T>> sets = r.getCDOMObject().getSetFor(fk);
+            for (Indirect<T> indirect : sets)
+            {
+                if (indirect.get().equals(targetVal))
+                {
+                    runningTotal++;
+                    continue CDO;
+                }
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, number);
-		return runningTotal;
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, number);
+        return runningTotal;
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "FACTSET"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "FACTSET"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		// Simplify the output when requiring a single source
-		if (prereq.getOperator() == PrerequisiteOperator.GTEQ && ("1".equals(prereq.getOperand())))
-		{
-			return prereq.getKey();
-		}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        // Simplify the output when requiring a single source
+        if (prereq.getOperator() == PrerequisiteOperator.GTEQ && ("1".equals(prereq.getOperand())))
+        {
+            return prereq.getKey();
+        }
 
-		final String foo = LanguageBundle.getFormattedString("PreFactSet.toHtml", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
-		return foo;
-	}
+        final String foo = LanguageBundle.getFormattedString("PreFactSet.toHtml", //$NON-NLS-1$
+                prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
+        return foo;
+    }
 
 }

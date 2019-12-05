@@ -32,23 +32,23 @@ import pcgen.persistence.PersistenceLayerException;
 public interface PrerequisiteWriterInterface
 {
 
-	/**
-	 * @return String
-	 */
-	String kindHandled();
+    /**
+     * @return String
+     */
+    String kindHandled();
 
-	/**
-	 * @return PrerequisiteOperator[]
-	 */
-	PrerequisiteOperator[] operatorsHandled();
+    /**
+     * @return PrerequisiteOperator[]
+     */
+    PrerequisiteOperator[] operatorsHandled();
 
-	/**
-	 * Write.
-	 *
-	 * @param writer the writer
-	 * @param prereq the prereq
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException;
+    /**
+     * Write.
+     *
+     * @param writer the writer
+     * @param prereq the prereq
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException;
 
 }

@@ -29,107 +29,103 @@ import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 /**
  * AllGroupingToken parses the "ALL" Grouping to be able to create an appropriate
  * GroupingCollection.
- * 
- * @param <T>
- *            The Format of the object type returned during processing by this
+ *
+ * @param <T> The Format of the object type returned during processing by this
  *            AllGroupingToken
  */
 public class AllGroupingToken<T extends Loadable> implements GroupingDefinition<T>
 {
 
-	@Override
-	public String getIdentification()
-	{
-		return "ALL";
-	}
+    @Override
+    public String getIdentification()
+    {
+        return "ALL";
+    }
 
-	@Override
-	public Class<Object> getUsableLocation()
-	{
-		return Object.class;
-	}
+    @Override
+    public Class<Object> getUsableLocation()
+    {
+        return Object.class;
+    }
 
-	@Override
-	public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info)
-	{
-		if ((info.getCharacteristic() != null) && (!info.getCharacteristic().isEmpty()))
-		{
-			throw new IllegalArgumentException("Instructions using = prohibited for ALL Grouping");
-		}
-		AllGrouping<T> allGrouping = new AllGrouping<>(info);
-		if (info.hasChild())
-		{
-			GroupingCollection<?> childCollection =
-					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
-			allGrouping.setChild(childCollection);
-		}
-		return allGrouping;
-	}
+    @Override
+    public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info)
+    {
+        if ((info.getCharacteristic() != null) && (!info.getCharacteristic().isEmpty()))
+        {
+            throw new IllegalArgumentException("Instructions using = prohibited for ALL Grouping");
+        }
+        AllGrouping<T> allGrouping = new AllGrouping<>(info);
+        if (info.hasChild())
+        {
+            GroupingCollection<?> childCollection =
+                    ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
+            allGrouping.setChild(childCollection);
+        }
+        return allGrouping;
+    }
 
-	@Override
-	public boolean requiresDirect()
-	{
-		return false;
-	}
+    @Override
+    public boolean requiresDirect()
+    {
+        return false;
+    }
 
-	/**
-	 * AllGrouping serves as the GroupingCollection for the "ALL" Grouping.
-	 * 
-	 * @param <T>
-	 *            The Format of the object type contained by this AllGrouping
-	 */
-	private static class AllGrouping<T extends Loadable> implements GroupingCollection<T>
-	{
+    /**
+     * AllGrouping serves as the GroupingCollection for the "ALL" Grouping.
+     *
+     * @param <T> The Format of the object type contained by this AllGrouping
+     */
+    private static class AllGrouping<T extends Loadable> implements GroupingCollection<T>
+    {
 
-		/**
-		 * The GroupingInfo used to determine the format of objects contained by this
-		 * AllGrouping.
-		 */
-		private GroupingInfo<T> groupingInfo;
+        /**
+         * The GroupingInfo used to determine the format of objects contained by this
+         * AllGrouping.
+         */
+        private GroupingInfo<T> groupingInfo;
 
-		/**
-		 * The child GroupingCollection providing additional grouping information.
-		 */
-		private GroupingCollection<?> childGrouping;
+        /**
+         * The child GroupingCollection providing additional grouping information.
+         */
+        private GroupingCollection<?> childGrouping;
 
-		/**
-		 * Constructs a new AllGrouping from the given GroupingInfo.
-		 * 
-		 * @param groupingInfo
-		 *            The GroupingInfo used to determine the format of objects contained
-		 *            by this AllGrouping
-		 */
-		public AllGrouping(GroupingInfo<T> groupingInfo)
-		{
-			this.groupingInfo = Objects.requireNonNull(groupingInfo);
-		}
+        /**
+         * Constructs a new AllGrouping from the given GroupingInfo.
+         *
+         * @param groupingInfo The GroupingInfo used to determine the format of objects contained
+         *                     by this AllGrouping
+         */
+        public AllGrouping(GroupingInfo<T> groupingInfo)
+        {
+            this.groupingInfo = Objects.requireNonNull(groupingInfo);
+        }
 
-		public void setChild(GroupingCollection<?> childCollection)
-		{
-			childGrouping = childCollection;
-		}
+        public void setChild(GroupingCollection<?> childCollection)
+        {
+            childGrouping = childCollection;
+        }
 
-		@Override
-		public String getInstructions()
-		{
-			return groupingInfo.getInstructions();
-		}
+        @Override
+        public String getInstructions()
+        {
+            return groupingInfo.getInstructions();
+        }
 
-		@Override
-		public void process(PCGenScoped o, Consumer<PCGenScoped> consumer)
-		{
-			if (childGrouping == null)
-			{
-				consumer.accept(o);
-			}
-			else
-			{
-				GroupingInfo<?> childInfo = groupingInfo.getChild();
-				for (PCGenScoped childObject : o.getChildren(childInfo.getObjectType()))
-				{
-					childGrouping.process(childObject, consumer);
-				}
-			}
-		}
-	}
+        @Override
+        public void process(PCGenScoped o, Consumer<PCGenScoped> consumer)
+        {
+            if (childGrouping == null)
+            {
+                consumer.accept(o);
+            } else
+            {
+                GroupingInfo<?> childInfo = groupingInfo.getChild();
+                for (PCGenScoped childObject : o.getChildren(childInfo.getObjectType()))
+                {
+                    childGrouping.process(childObject, consumer);
+                }
+            }
+        }
+    }
 }

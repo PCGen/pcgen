@@ -31,43 +31,43 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class CountToken extends AbstractNonEmptyToken<KitSpells> implements CDOMPrimaryToken<KitSpells>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "COUNT";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "COUNT";
+    }
 
-	@Override
-	public Class<KitSpells> getTokenClass()
-	{
-		return KitSpells.class;
-	}
+    @Override
+    public Class<KitSpells> getTokenClass()
+    {
+        return KitSpells.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitSpells kitSpells, String value)
-	{
-		Formula formula = FormulaFactory.getFormulaFor(value);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		kitSpells.setCount(formula);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitSpells kitSpells, String value)
+    {
+        Formula formula = FormulaFactory.getFormulaFor(value);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        kitSpells.setCount(formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitSpells kitSpells)
-	{
-		Formula bd = kitSpells.getCount();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitSpells kitSpells)
+    {
+        Formula bd = kitSpells.getCount();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd.toString()};
+    }
 }

@@ -24,21 +24,21 @@ import pcgen.core.Skill;
 
 public class SkillFacetTest extends AbstractSourcedListFacetTest<Skill>
 {
-	private SkillFacet facet = new SkillFacet();
+    private SkillFacet facet = new SkillFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, Skill> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, Skill> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected Skill getObject()
-	{
-		Skill t = new Skill();
-		t.setName("Skill" + n++);
-		return t;
-	}
+    @Override
+    protected Skill getObject()
+    {
+        Skill t = new Skill();
+        t.setName("Skill" + n++);
+        return t;
+    }
 }

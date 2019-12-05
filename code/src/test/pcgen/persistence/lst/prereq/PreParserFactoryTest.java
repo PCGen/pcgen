@@ -35,95 +35,95 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class PreParserFactoryTest extends AbstractCharacterTestCase
 {
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		LocaleDependentTestCase.before(Locale.US);
-	}
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        LocaleDependentTestCase.before(Locale.US);
+    }
 
-	@AfterEach
-	@Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-		LocaleDependentTestCase.after();
-	}
-	
-	
-	/**
-	 * Test not equal.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testNotEqual() throws PersistenceLayerException
-	{
-		PreParserFactory factory = PreParserFactory.getInstance();
-
-		Prerequisite prereq = factory.parse("PREVARNEQ:Enraged,1");
-
-		assertEquals(
-			"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" >\n</prereq>\n",
-			prereq.toString());
-	}
+    @AfterEach
+    @Override
+    protected void tearDown() throws Exception
+    {
+        super.tearDown();
+        LocaleDependentTestCase.after();
+    }
 
 
-	/**
-	 * Test override qualifies.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testOverrideQualifies() throws PersistenceLayerException
-	{
-		PreParserFactory factory = PreParserFactory.getInstance();
+    /**
+     * Test not equal.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testNotEqual() throws PersistenceLayerException
+    {
+        PreParserFactory factory = PreParserFactory.getInstance();
 
-		Prerequisite prereq = factory.parse("PREVARNEQ:Q:Enraged,1");
+        Prerequisite prereq = factory.parse("PREVARNEQ:Enraged,1");
 
-		assertEquals(
-		"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n",
-		prereq.toString());
-	}
+        assertEquals(
+                "<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" >\n</prereq>\n",
+                prereq.toString());
+    }
 
-	@Test
-	public void testSkillTypeKnowledge() throws Exception
-	{
-		PreParserFactory factory = PreParserFactory.getInstance();
 
-		Prerequisite prereq = factory.parse("PRESKILLTOT:TYPE.Knowledge=20");
+    /**
+     * Test override qualifies.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testOverrideQualifies() throws PersistenceLayerException
+    {
+        PreParserFactory factory = PreParserFactory.getInstance();
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"20\" >\n"
-			+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
-			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+        Prerequisite prereq = factory.parse("PREVARNEQ:Q:Enraged,1");
 
-	}
+        assertEquals(
+                "<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n",
+                prereq.toString());
+    }
 
-	@Test
-	public void testInvertResult() throws Exception
-	{
-		PreParserFactory factory = PreParserFactory.getInstance();
+    @Test
+    public void testSkillTypeKnowledge() throws Exception
+    {
+        PreParserFactory factory = PreParserFactory.getInstance();
 
-		Prerequisite prereq = factory.parse("!PREALIGN:LG,LN,LE");
-		assertEquals(
-			"<prereq operator=\"LT\" operand=\"1\" >\n"
-				+ "<prereq kind=\"align\" key=\"LG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "<prereq kind=\"align\" key=\"LN\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "<prereq kind=\"align\" key=\"LE\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "</prereq>\n", prereq.toString());
+        Prerequisite prereq = factory.parse("PRESKILLTOT:TYPE.Knowledge=20");
 
-		prereq = factory.parse("PREALIGN:NG,TN,NE,CG,CN,CE");
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"align\" key=\"NG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "<prereq kind=\"align\" key=\"TN\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "<prereq kind=\"align\" key=\"NE\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "<prereq kind=\"align\" key=\"CG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "<prereq kind=\"align\" key=\"CN\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "<prereq kind=\"align\" key=\"CE\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
-				+ "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"20\" >\n"
+                        + "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+
+    }
+
+    @Test
+    public void testInvertResult() throws Exception
+    {
+        PreParserFactory factory = PreParserFactory.getInstance();
+
+        Prerequisite prereq = factory.parse("!PREALIGN:LG,LN,LE");
+        assertEquals(
+                "<prereq operator=\"LT\" operand=\"1\" >\n"
+                        + "<prereq kind=\"align\" key=\"LG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "<prereq kind=\"align\" key=\"LN\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "<prereq kind=\"align\" key=\"LE\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "</prereq>\n", prereq.toString());
+
+        prereq = factory.parse("PREALIGN:NG,TN,NE,CG,CN,CE");
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "<prereq kind=\"align\" key=\"NG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "<prereq kind=\"align\" key=\"TN\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "<prereq kind=\"align\" key=\"NE\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "<prereq kind=\"align\" key=\"CG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "<prereq kind=\"align\" key=\"CN\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "<prereq kind=\"align\" key=\"CE\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
+                        + "</prereq>\n", prereq.toString());
+    }
 
 }

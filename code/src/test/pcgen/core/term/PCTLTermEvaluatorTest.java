@@ -44,72 +44,70 @@ import org.junit.jupiter.api.Test;
 
 /**
  * PCTLTermEvaluatorTest checks the fucntion of the TL variable.
- * 
- * 
  */
 public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 {
-	private Race bugbearRace;
-	private PCClass humanoidClass;
+    private Race bugbearRace;
+    private PCClass humanoidClass;
 
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
 
-		Campaign customCampaign = new Campaign();
-		customCampaign.setName("Unit Test");
-		customCampaign.setName("KEY_Unit Test");
-		customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Unit Test data"));
-		CampaignSourceEntry source = new CampaignSourceEntry(customCampaign,
-					new URI("file:/" + getClass().getName() + ".java"));
-		
-		// Create the humanoid class
-		String classDef =
-				"CLASS:Humanoid	KEY:KEY_Humanoid	HD:8		CLASSTYPE:Monster	STARTSKILLPTS:1	"
-					+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
-					+ "MONNONSKILLHD:2|PRESIZEEQ:L";
-		PCClassLoader classLoader = new PCClassLoader();
-		LoadContext context = Globals.getContext();
-		humanoidClass = classLoader.parseLine(context, null, classDef, source);
-		Globals.getContext().getReferenceContext().importObject(humanoidClass);
+        Campaign customCampaign = new Campaign();
+        customCampaign.setName("Unit Test");
+        customCampaign.setName("KEY_Unit Test");
+        customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Unit Test data"));
+        CampaignSourceEntry source = new CampaignSourceEntry(customCampaign,
+                new URI("file:/" + getClass().getName() + ".java"));
 
-		// Create the BugBear race
-		bugbearRace = new Race();
-		bugbearRace.setName("Bugbear");
-		bugbearRace.put(StringKey.KEY_NAME, "KEY_Bugbear");
-		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
-		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
-		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
-		bugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
-		Globals.getContext().getReferenceContext().importObject(bugbearRace);
-		
-	}
+        // Create the humanoid class
+        String classDef =
+                "CLASS:Humanoid	KEY:KEY_Humanoid	HD:8		CLASSTYPE:Monster	STARTSKILLPTS:1	"
+                        + "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
+                        + "MONNONSKILLHD:2|PRESIZEEQ:L";
+        PCClassLoader classLoader = new PCClassLoader();
+        LoadContext context = Globals.getContext();
+        humanoidClass = classLoader.parseLine(context, null, classDef, source);
+        Globals.getContext().getReferenceContext().importObject(humanoidClass);
 
-	/**
-	 * Check that TL works with a monster style class. 
-	 */
-	@Test
-	public void testResolveTlMonster()
-	{
-		PCTLTermEvaluator tlEval = new PCTLTermEvaluator("TL");
-		
-		PlayerCharacter pc = getCharacter();
-		
-		assertEquals(0, tlEval.resolve(pc.getDisplay()), 0.001, "Before adding levels, shold be 0th level");
-		
-		pc.setRace(bugbearRace);
-		assertEquals(0, tlEval.resolve(pc.getDisplay()), 0.001, "With monster race shold be 0th level");
-		
-		pc.incrementClassLevel(1, humanoidClass);
-		assertEquals(1, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
-		
-		pc.incrementClassLevel(5, humanoidClass);
-		assertEquals(6, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
-		
-		pc.incrementClassLevel(-2, humanoidClass);
-		assertEquals(4, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
+        // Create the BugBear race
+        bugbearRace = new Race();
+        bugbearRace.setName("Bugbear");
+        bugbearRace.put(StringKey.KEY_NAME, "KEY_Bugbear");
+        CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+        bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
+        bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
+        bugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
+        Globals.getContext().getReferenceContext().importObject(bugbearRace);
 
-	}
+    }
+
+    /**
+     * Check that TL works with a monster style class.
+     */
+    @Test
+    public void testResolveTlMonster()
+    {
+        PCTLTermEvaluator tlEval = new PCTLTermEvaluator("TL");
+
+        PlayerCharacter pc = getCharacter();
+
+        assertEquals(0, tlEval.resolve(pc.getDisplay()), 0.001, "Before adding levels, shold be 0th level");
+
+        pc.setRace(bugbearRace);
+        assertEquals(0, tlEval.resolve(pc.getDisplay()), 0.001, "With monster race shold be 0th level");
+
+        pc.incrementClassLevel(1, humanoidClass);
+        assertEquals(1, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
+
+        pc.incrementClassLevel(5, humanoidClass);
+        assertEquals(6, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
+
+        pc.incrementClassLevel(-2, humanoidClass);
+        assertEquals(4, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
+
+    }
 }

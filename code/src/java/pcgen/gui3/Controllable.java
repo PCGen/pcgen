@@ -21,13 +21,14 @@ package pcgen.gui3;
 /**
  * Intended to apply to UILoader that allows one to
  * control the underlying object.
+ *
  * @param <T>
  */
 @FunctionalInterface
 public interface Controllable<T>
 {
-	/**
-	 * @return controller for the loaded FXML file
-	 */
-	T getController();
+    /**
+     * @return controller for the loaded FXML file
+     */
+    T getController();
 }

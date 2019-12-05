@@ -43,126 +43,125 @@ import pcgen.util.Logging;
 
 public class EquipmentToken implements QualifierToken<WeaponProf>, Converter<Equipment, CDOMReference<WeaponProf>>
 {
-	private static final Type WEAPON_TYPE = Type.getConstant("Weapon");
+    private static final Type WEAPON_TYPE = Type.getConstant("Weapon");
 
-	private PrimitiveCollection<Equipment> pcs;
+    private PrimitiveCollection<Equipment> pcs;
 
-	private boolean wasRestricted = false;
+    private boolean wasRestricted = false;
 
-	@Override
-	public String getTokenName()
-	{
-		return "EQUIPMENT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "EQUIPMENT";
+    }
 
-	@Override
-	public Class<WeaponProf> getReferenceClass()
-	{
-		return WeaponProf.class;
-	}
+    @Override
+    public Class<WeaponProf> getReferenceClass()
+    {
+        return WeaponProf.class;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName());
-		if (wasRestricted)
-		{
-			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
-		}
-		return sb.toString();
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getTokenName());
+        if (wasRestricted)
+        {
+            sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
+        }
+        return sb.toString();
+    }
 
-	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<WeaponProf> sc, String condition, String value,
-		boolean negate)
-	{
-		if (negate)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				"Cannot make " + getTokenName() + " into a negated Qualifier, remove !");
-			return false;
-		}
-		if (condition != null)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
-			return false;
-		}
-		ReferenceManufacturer<Equipment> erm = context.getReferenceContext().getManufacturer(Equipment.class);
-		if (value == null)
-		{
-			pcs = erm.getAllReference();
-		}
-		else
-		{
-			pcs = context.getPrimitiveChoiceFilter(erm, value);
-			wasRestricted = true;
-		}
-		return pcs != null;
-	}
+    @Override
+    public boolean initialize(LoadContext context, SelectionCreator<WeaponProf> sc, String condition, String value,
+            boolean negate)
+    {
+        if (negate)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    "Cannot make " + getTokenName() + " into a negated Qualifier, remove !");
+            return false;
+        }
+        if (condition != null)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    "Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
+            return false;
+        }
+        ReferenceManufacturer<Equipment> erm = context.getReferenceContext().getManufacturer(Equipment.class);
+        if (value == null)
+        {
+            pcs = erm.getAllReference();
+        } else
+        {
+            pcs = context.getPrimitiveChoiceFilter(erm, value);
+            wasRestricted = true;
+        }
+        return pcs != null;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return pcs == null ? 0 : pcs.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return pcs == null ? 0 : pcs.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o instanceof EquipmentToken)
-		{
-			EquipmentToken other = (EquipmentToken) o;
-			if (pcs == null)
-			{
-				return other.pcs == null;
-			}
-			return pcs.equals(other.pcs);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o instanceof EquipmentToken)
+        {
+            EquipmentToken other = (EquipmentToken) o;
+            if (pcs == null)
+            {
+                return other.pcs == null;
+            }
+            return pcs.equals(other.pcs);
+        }
+        return false;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState().reduce();
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState().reduce();
+    }
 
-	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
-	{
-		Set<R> returnSet = new HashSet<>();
-		Collection<? extends ObjectContainer<WeaponProf>> intermediate = pcs.getCollection(pc, this);
-		for (ObjectContainer<WeaponProf> ref : intermediate)
-		{
-			returnSet.addAll(c.convert(ref));
-		}
-		return returnSet;
-	}
+    @Override
+    public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
+    {
+        Set<R> returnSet = new HashSet<>();
+        Collection<? extends ObjectContainer<WeaponProf>> intermediate = pcs.getCollection(pc, this);
+        for (ObjectContainer<WeaponProf> ref : intermediate)
+        {
+            returnSet.addAll(c.convert(ref));
+        }
+        return returnSet;
+    }
 
-	@Override
-	public Collection<CDOMReference<WeaponProf>> convert(ObjectContainer<Equipment> orig)
-	{
-		Set<CDOMReference<WeaponProf>> refSet = new HashSet<>();
-		for (Equipment e : orig.getContainedObjects())
-		{
-			if (e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))
-			{
-				CDOMSingleRef<WeaponProf> prof = e.get(ObjectKey.WEAPON_PROF);
-				if (prof != null)
-				{
-					refSet.add(prof);
-				}
-			}
-		}
-		return refSet;
-	}
+    @Override
+    public Collection<CDOMReference<WeaponProf>> convert(ObjectContainer<Equipment> orig)
+    {
+        Set<CDOMReference<WeaponProf>> refSet = new HashSet<>();
+        for (Equipment e : orig.getContainedObjects())
+        {
+            if (e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))
+            {
+                CDOMSingleRef<WeaponProf> prof = e.get(ObjectKey.WEAPON_PROF);
+                if (prof != null)
+                {
+                    refSet.add(prof);
+                }
+            }
+        }
+        return refSet;
+    }
 
-	@Override
-	public Collection<CDOMReference<WeaponProf>> convert(ObjectContainer<Equipment> orig,
-		PrimitiveFilter<Equipment> lim)
-	{
-		throw new UnsupportedOperationException("Only EquipmentToken should call itself as a Converter");
-	}
+    @Override
+    public Collection<CDOMReference<WeaponProf>> convert(ObjectContainer<Equipment> orig,
+            PrimitiveFilter<Equipment> lim)
+    {
+        throw new UnsupportedOperationException("Only EquipmentToken should call itself as a Converter");
+    }
 }

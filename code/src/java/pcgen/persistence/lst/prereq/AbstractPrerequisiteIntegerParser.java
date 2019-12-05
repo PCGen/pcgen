@@ -28,26 +28,25 @@ import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractPrerequisiteIntegerParser extends AbstractPrerequisiteParser
 {
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		try
-		{
-			prereq.setOperand(Integer.toString(Integer.parseInt(formula)));
-		}
-		catch (NumberFormatException nfe)
-		{
-			throw new PersistenceLayerException("'" + formula + "' is not a valid integer", nfe);
-		}
+        try
+        {
+            prereq.setOperand(Integer.toString(Integer.parseInt(formula)));
+        } catch (NumberFormatException nfe)
+        {
+            throw new PersistenceLayerException("'" + formula + "' is not a valid integer", nfe);
+        }
 
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
+        if (invertResult)
+        {
+            prereq.setOperator(prereq.getOperator().invert());
+        }
 
-		return prereq;
-	}
+        return prereq;
+    }
 }

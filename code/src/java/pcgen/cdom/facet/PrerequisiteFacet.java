@@ -1,16 +1,16 @@
 /*
  * Copyright (c) Thomas Parker, 2009.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -30,36 +30,33 @@ import pcgen.core.PlayerCharacter;
  */
 public class PrerequisiteFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet =
-			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+    private final PlayerCharacterTrackingFacet trackingFacet =
+            FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
-	/**
-	 * Returns true if the Player Character identified by the given CharID
-	 * qualifies for the given QualifyingObject when the QualifyingObject is
-	 * from the given source.
-	 * 
-	 * @param id
-	 *            The CharID identifying the Player Character on which the
-	 *            prerequisite test will be performed
-	 * @param obj
-	 *            The QualifyingObject which contains the prerequisite(s) to be
-	 *            tested
-	 * @param source
-	 *            The source of the QualifyingObject, which is used to given
-	 *            context to the prerequisites being tested
-	 * @return true if the Player Character identified by the given CharID
-	 *         qualifies for the given QualifyingObject when the
-	 *         QualifyingObject is from the given source; false otherwise
-	 */
-	public boolean qualifies(CharID id, QualifyingObject obj, Object source)
-	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
-		CDOMObject cdo = null;
-		if (source instanceof CDOMObject)
-		{
-			cdo = (CDOMObject) source;
-		}
-		return obj.qualifies(pc, cdo);
-	}
+    /**
+     * Returns true if the Player Character identified by the given CharID
+     * qualifies for the given QualifyingObject when the QualifyingObject is
+     * from the given source.
+     *
+     * @param id     The CharID identifying the Player Character on which the
+     *               prerequisite test will be performed
+     * @param obj    The QualifyingObject which contains the prerequisite(s) to be
+     *               tested
+     * @param source The source of the QualifyingObject, which is used to given
+     *               context to the prerequisites being tested
+     * @return true if the Player Character identified by the given CharID
+     * qualifies for the given QualifyingObject when the
+     * QualifyingObject is from the given source; false otherwise
+     */
+    public boolean qualifies(CharID id, QualifyingObject obj, Object source)
+    {
+        PlayerCharacter pc = trackingFacet.getPC(id);
+        CDOMObject cdo = null;
+        if (source instanceof CDOMObject)
+        {
+            cdo = (CDOMObject) source;
+        }
+        return obj.qualifies(pc, cdo);
+    }
 
 }

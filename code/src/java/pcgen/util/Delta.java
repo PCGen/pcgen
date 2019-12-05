@@ -27,95 +27,98 @@ package pcgen.util;
  */
 public final class Delta
 {
-	private Delta()
-	{
-	}
+    private Delta()
+    {
+    }
 
-	/**
-	 * Construct a @see java.lang.Integer and strip a leading plus
-	 * sign since {@code Integer} does not understand it.
-	 * @param s
-	 * @return Integer
-	 */
-	public static Integer decode(String s)
-	{
-		if ((!s.isEmpty()) && (s.charAt(0) == '+'))
-		{
-			s = s.substring(1);
-		}
+    /**
+     * Construct a @see java.lang.Integer and strip a leading plus
+     * sign since {@code Integer} does not understand it.
+     *
+     * @param s
+     * @return Integer
+     */
+    public static Integer decode(String s)
+    {
+        if ((!s.isEmpty()) && (s.charAt(0) == '+'))
+        {
+            s = s.substring(1);
+        }
 
-		return Integer.decode(s);
-	}
+        return Integer.decode(s);
+    }
 
-	/**
-	 * Parse a string with an option plus or minus followed by digits
-	 * into an int.
-	 * @param s a string that may or may not be a valid delta
-	 * @return int
-	 * @exception java.lang.NumberFormatException
-	 * This exception is thrown if the string does not match the
-	 * required format for a delta.
-	 */
-	public static int parseInt(String s)
-	{
-		if (s.charAt(0) == '+')
-		{
-			s = s.substring(1);
-		}
+    /**
+     * Parse a string with an option plus or minus followed by digits
+     * into an int.
+     *
+     * @param s a string that may or may not be a valid delta
+     * @return int
+     * @throws java.lang.NumberFormatException This exception is thrown if the string does not match the
+     *                                         required format for a delta.
+     */
+    public static int parseInt(String s)
+    {
+        if (s.charAt(0) == '+')
+        {
+            s = s.substring(1);
+        }
 
-		return Integer.parseInt(s);
-	}
+        return Integer.parseInt(s);
+    }
 
-	/**
-	 * toString
-	 * @param v
-	 * @return String
-	 */
-	public static String toString(Integer v)
-	{
-		return toString(v.intValue());
-	}
+    /**
+     * toString
+     *
+     * @param v
+     * @return String
+     */
+    public static String toString(Integer v)
+    {
+        return toString(v.intValue());
+    }
 
-	/**
-	 * Returns a String representation of an integer value.  If the value is
-	 * positive a plus sign (+) will be prepended.
-	 * 
-	 * @param v An integer to convert.
-	 * 
-	 * @return String value of integer.
-	 */
-	public static String toString(final int v)
-	{
-		if (v >= 0)
-		{
-			return "+" + v;
-		}
+    /**
+     * Returns a String representation of an integer value.  If the value is
+     * positive a plus sign (+) will be prepended.
+     *
+     * @param v An integer to convert.
+     * @return String value of integer.
+     */
+    public static String toString(final int v)
+    {
+        if (v >= 0)
+        {
+            return "+" + v;
+        }
 
-		return String.valueOf(v);
-	}
+        return String.valueOf(v);
+    }
 
-	/**
-	 * toString
-	 * @param v
-	 * @return String
-	 */
-	public static String toString(Float v)
-	{
-		return toString(v.floatValue());
-	}
+    /**
+     * toString
+     *
+     * @param v
+     * @return String
+     */
+    public static String toString(Float v)
+    {
+        return toString(v.floatValue());
+    }
 
-	/**
-	 * toString
-	 * @param v
-	 * @return String
-	 */
-	public static String toString(float v)
-	{
-		if (v >= 0.0)
-		{
-			return "+" + v;
-		}
+    /**
+     * toString
+     *
+     * @param v
+     * @return String
+     */
+    public static String toString(float v)
+    {
+        if (v >= 0.0)
+        {
+            return "+" + v;
+        }
 
-		return Float.toString(v);
-	}
+        return Float.toString(v);
+    }
 }

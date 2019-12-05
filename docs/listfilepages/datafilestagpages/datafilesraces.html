@@ -1,2711 +1,2711 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
-                Eric C. Smith - mareduddATblackrootDOTorg
-                Stefan Radermacher - stefanATzaisterDOTde
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Eric C. Smith - mareduddATblackrootDOTorg
+               Stefan Radermacher - stefanATzaisterDOTde
 
-                Description:
-                Provides information on the content of PCGen Race Files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Race Files
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Race Files
-  </h1>
-  <p>
-   The "Name" of the race must be the first field on each line, the
-remaining tags may be of any order.
-  </p>
-  <p class="indent2">
-   <code>Boar (Wild Pig)</code>
-  </p>
-  <p class="indent3">
-   The race named "Boar (Wild Pig)" is to be
-created.
-  </p>
-  <p class="indent2">
-   <code>Bugbear.COPY=Bugbear
-(Shadowkind)</code>
-  </p>
-  <p class="indent3">
-   Copies the race named "Bugbear" to a new race
-called "Bugbear (Shadowkind)".
-  </p>
-  <p class="indent2">
-   <code>Shark (Huge).MOD</code>
-  </p>
-  <p class="indent3">
-   The race named "Shark (Huge)" is to be
-modified.
-  </p>
-  <p>
-   If you want to get rid of
-   <strong>
-    racex
-   </strong>
-   in your
-campaign, better put
-   <code>racex.
-    <a href="../globalfilestagpages/globalfilesother.html#forget">
-     FORGET
-    </a></code>
-   in one of your
-   <strong>
-    RACE
-   </strong>
-   files. That will remove
-   <strong>
-    racex
-   </strong>
-   from your campaign. In fact you won't even
-be able to use the name
-   <strong>
-    racex
-   </strong>
-   for a new race in
-your campaign. If you want to do so later you will need to use the
-   <a href="../globalfilestagpages/globalfilesother.html#mod">
-    .MOD
-   </a>
-   tag.
-  </p>
-  <p class="indent2">
-   <code>Shark (Huge).FORGET</code>
-  </p>
-  <p class="indent3">
-   The race named "Shark (Huge)" is to be
-forgotten.
-  </p>
-  <hr/>
-  <h2>
-   Race File Tag Dictionary
-  </h2>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="langauto" name="langauto">
-     Tag
-Name:
+               Description:
+               Provides information on the content of PCGen Race Files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Race Files
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Race Files
+</h1>
+<p>
+    The "Name" of the race must be the first field on each line, the
+    remaining tags may be of any order.
+</p>
+<p class="indent2">
+    <code>Boar (Wild Pig)</code>
+</p>
+<p class="indent3">
+    The race named "Boar (Wild Pig)" is to be
+    created.
+</p>
+<p class="indent2">
+    <code>Bugbear.COPY=Bugbear
+        (Shadowkind)</code>
+</p>
+<p class="indent3">
+    Copies the race named "Bugbear" to a new race
+    called "Bugbear (Shadowkind)".
+</p>
+<p class="indent2">
+    <code>Shark (Huge).MOD</code>
+</p>
+<p class="indent3">
+    The race named "Shark (Huge)" is to be
+    modified.
+</p>
+<p>
+    If you want to get rid of
+    <strong>
+        racex
+    </strong>
+    in your
+    campaign, better put
+    <code>racex.
+        <a href="../globalfilestagpages/globalfilesother.html#forget">
+            FORGET
+        </a></code>
+    in one of your
+    <strong>
+        RACE
+    </strong>
+    files. That will remove
+    <strong>
+        racex
+    </strong>
+    from your campaign. In fact you won't even
+    be able to use the name
+    <strong>
+        racex
+    </strong>
+    for a new race in
+    your campaign. If you want to do so later you will need to use the
+    <a href="../globalfilestagpages/globalfilesother.html#mod">
+        .MOD
     </a>
-   </strong>
-   CHOOSE:LANGAUTO:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Language name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a | (pipe) delimited choice of Automatic
-Languages that do not count against the limit determined by a
-Stat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CHOOSE:LANGAUTO:Abyssal|Infernal</code>
-  </p>
-  <p class="indent3">
-   May choose between "Abyssal" or "Infernal" as a
-race language.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="cr" name="cr">
-     Tag
-Name:
-    </a>
-   </strong>
-   CR:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Challenge rating)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Sets the Challenge Rating of the creature. For CR's less than
-1, fractions are used (1/2, 1/4, 1/8).
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>CR</code>
-    tag, the
-data included in a new
-    <code>CR</code>
-    tag will overwrite the
-existing tag data.
-   </li>
-  </ul>
-  <p class="sidebar0">
-   <strong>
-    Note:
-   </strong>
-   CR's using fractions
-must start with a "1/". Expressions such as CR:3/4 or CR:0.5 will
-not work.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CR:1/4</code>
-  </p>
-  <p class="indent3">
-   Race is rated at a quarter challenge rating.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>Boar &lt;tab&gt;
-CR:2</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Boar.MOD &lt;tab&gt;
-CR:3</code>
-  </p>
-  <p class="indent2">
-   Results In:
-   <code>Boar &lt;tab&gt;
-CR:3</code>
-  </p>
-  <p class="indent3">
-   The Boar's CR is set to 3.
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="crmod" name="crmod">
-    *** New 6.1.2
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="crmod" name="crmod">
-     Tag
-Name:
-    </a>
-   </strong>
-   CRMOD:x.x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (a
-class type as defined in the game mode).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Formula (a
-standard PCGen LST formula).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Overrule the CRMODs from the game mode for
-creatures of the race. The CRMOD is set to the value of y for all
-class types specified as x
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CRMOD:PC.NPC|0</code>
-  </p>
-  <p class="indent3">
-   In the Pathfinder RPG, a drow noble's CR is
-always equal to his character level.
-  </p>
-  <p class="indent2">
-   <code>CRMOD:NPC|-3</code>
-  </p>
-  <p class="indent3">
-   In the Pathfinder RPG, the CR of a kobold with
-only NPC classes is equal to his character level minus 3.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="face" name="face">
-     Tag
-Name:
-    </a>
-   </strong>
-   FACE:x,y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Space the creature occupies)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Optional, side space)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Describes how much space the creature takes up. For 3.0 rules
-this tag is used for the Face statistic. For 3.5 rules this tag is
-used for the Space statistic. If only one number is used it is
-assumed to represent all sides.
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>FACE</code>
-    tag, the
-data included in a new
-    <code>FACE</code>
-    tag will overwrite the
-existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>FACE:5,10</code>
-  </p>
-  <p class="indent3">
-   The race has a face of 5 by 10.
-  </p>
-  <p class="indent2">
-   <code>FACE:10</code>
-  </p>
-  <p class="indent3">
-   The race has a face of 10.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; FACE:10</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; FACE:5,10</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; FACE:5,10</code>
-  </p>
-  <p class="indent3">
-   The race now has a face of 5 by 10.
-  </p>
-  <hr/>
-  <p class="lststatus">
-   <a id="favclass" name="favclass">
-    *** Updated
-5.15.8
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   FAVCLASS:x|x.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Base
-class name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   ANY
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Base
-class or sub-class name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines the Race's favored class.
-   </li>
-   <li>
-    Classes with sub-classes must use the (x.y) syntax and must
-include the base-class name or the sub-class name.
-   </li>
-   <li>
-    More than one class may be included as a pipe-delimited (|)
-list with all listed classes identified as "Favored".
-   </li>
-   <li>
-    Special type 'ANY' will grant the character's highest level
-class as Favored.
-   </li>
-   <li>
-    When 'ANY' is used no other class is allowed.
-   </li>
-   <li>
-    <strong>
-     .MOD Behavior:
-    </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>FAVCLASS</code>
-    tag,
-the data included in a new
-    <code>FAVCLASS</code>
-    tag will overwrite
-the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>FAVCLASS:Wizard|Fighter</code>
-  </p>
-  <p class="indent3">
-   The character's favored classes are "Wizard"
-(including any sub-class of wizard) and "Fighter".
-  </p>
-  <p class="indent2">
-   <code>FAVCLASS:Wizard.Wizard</code>
-  </p>
-  <p class="indent3">
-   Race's favored class is "Wizard" (excluding any
-sub-class of wizard).
-  </p>
-  <p class="indent2">
-   <code>FAVCLASS:Wizard.Illusionist</code>
-  </p>
-  <p class="indent3">
-   Race's favored class is the "Wizard" sub-class,
-the "Illusionist".
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; FAVCLASS:Wizard|Fighter</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; FAVCLASS:Wizard.Illusionist</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; FAVCLASS:Wizard.Illusionist</code>
-  </p>
-  <p class="indent3">
-   Race's favored class is changed to "Wizard"
-sub-class, the "Illusionist".
-  </p>
-  <hr/>
-  <p class="lststatus">
-   <a id="favclasschoose" name="favclasschoose">
-    *** Updated 5.15.8
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   FAVCLASS:CHOOSE:x|x.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Base
-class name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   ANY
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Base
-class or sub-class name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines the Race's favored class.
-   </li>
-   <li>
-    More than one class may be included, as a pipe-delimited (|)
-list, with all listws classes identified as "Favored".
-   </li>
-   <li>
-    Special type 'ANY' will grant the character's highest level
-class as Favored.
-   </li>
-   <li>
-    When 'ANY' is used no other class is allowed.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>FAVCLASS:CHOOSE:Wizard</code>
-  </p>
-  <p class="indent3">
-   Race may select any sub-class of "Wizard" as the
-favored class.
-  </p>
-  <p class="indent2">
-   <code>FAVCLASS:CHOOSE:Rogue|Wizard.Illusionist</code>
-  </p>
-  <p class="indent3">
-   Race may select either "Rogue" or "Wizard"
-sub-class, "Illusionist", as the favored class.
-  </p>
-  <p class="indent2">
-   <code>FAVCLASS:CHOOSE:Wizard</code>
-  </p>
-  <p class="indent3">
-   Race may select the "Wizard" base class or any
-of its sub-classes as the favored class.
-  </p>
-  <hr/>
-  <h3 id="feat">
-   FEAT
-  </h3>
-  <ul class="incremental">
-   <li>
-    6.05.04 (July 2015): JIRA
-    <a href="http://jira.pcgen.org/browse/NEWTAG-477">
-     NEWTAG-477
-    </a>
-    / Github
-    <a href="https://github.com/PCGen/pcgen/pull/380">
-     PR #380
-    </a>
-    <ul class="incremental">
-     <li>
-      The
-      <code>FEAT</code>
-      tag is deprecated. Use
-      <a href="../globalfilestagpages/globalfilesother.html#ability">
-       <code>ABILITY</code>
-      </a>
-      instead.
-     </li>
-     <li>
-      All
-      <code>FEAT</code>
-      tags have been
-      <strong>
-       deprecated
-      </strong>
-      and replaced by the
-      <code>ABILITY</code>
-      system, which is more general. The
-      <code>ABILITY</code>
-      system can model feats, racial features, class
-features, traits, flaws, temporary bonuses, and so on, all using a
-common format.
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <div class="deprecated">
-   <p class="lststatus">
-    *** Updated 5.17.4
-   </p>
-   <p class="indent0">
-    <strong>
-     Tag Name:
-    </strong>
-    FEAT:x|x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text (Feat
-name)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent1">
-    <li>
-     This is a pipe-delimited (|) list of feats granted to a Race
-(also known as "bonus feats").
-    </li>
-    <li>
-     The hyphen (-) is used only in the
-     <code>OUTPUTNAME</code>
-     of
-feats and should NOT be used in the feat list for this tag. (See
-example below.)
-    </li>
-    <li>
-     When including a feat with an internal chooser, subchoices can
-be handled one of two ways.
-    </li>
-    <li style="list-style: none; display: inline;">
-     <ul>
-      <li>
-       Subchoices must be specified within the tag. (e.g. Weapon Focus
-(Longsword)).
-       <br/>
-       or
-      </li>
-      <li>
-       Used in conjunction with the
-       <code>CHOOSE</code>
-       tag,
-       <code>%LIST</code>
-       can be used with this tag to provide the
-required choice.
-      </li>
-     </ul>
-    </li>
-    <li>
-     When modifying a race, with the
-     <code>.MOD</code>
-     tag, given an
-existing
-     <code>FEAT</code>
-     tag, the data included in a new
-     <code>FEAT</code>
-     tag will overwrite the existing tag data.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>FEAT:Blind Fight|Alertness</code>
-   </p>
-   <p class="indent3">
-    Race gets "Blind-Fight" and "Alertness" as bonus
-feats.
-   </p>
-   <p class="indent2">
-    <code>CHOOSE:WEAPONPROFS|LIST &lt;tab&gt;
-FEAT:Weapon Focus (%LIST)</code>
-   </p>
-   <p class="indent3">
-    The feat "Weapon Focus" is granted as an
-automatic feat with the weapon chosen with the
-    <code>CHOOSE</code>
     tag.
-   </p>
-   <p class="indent1">
+</p>
+<p class="indent2">
+    <code>Shark (Huge).FORGET</code>
+</p>
+<p class="indent3">
+    The race named "Shark (Huge)" is to be
+    forgotten.
+</p>
+<hr/>
+<h2>
+    Race File Tag Dictionary
+</h2>
+<hr/>
+<p class="indent0">
     <strong>
-     .MOD Example:
+        <a id="langauto" name="langauto">
+            Tag
+            Name:
+        </a>
     </strong>
-   </p>
-   <p class="indent2">
+    CHOOSE:LANGAUTO:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Language name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a | (pipe) delimited choice of Automatic
+    Languages that do not count against the limit determined by a
+    Stat.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CHOOSE:LANGAUTO:Abyssal|Infernal</code>
+</p>
+<p class="indent3">
+    May choose between "Abyssal" or "Infernal" as a
+    race language.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="cr" name="cr">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CR:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Challenge rating)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Sets the Challenge Rating of the creature. For CR's less than
+        1, fractions are used (1/2, 1/4, 1/8).
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>CR</code>
+        tag, the
+        data included in a new
+        <code>CR</code>
+        tag will overwrite the
+        existing tag data.
+    </li>
+</ul>
+<p class="sidebar0">
+    <strong>
+        Note:
+    </strong>
+    CR's using fractions
+    must start with a "1/". Expressions such as CR:3/4 or CR:0.5 will
+    not work.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CR:1/4</code>
+</p>
+<p class="indent3">
+    Race is rated at a quarter challenge rating.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
     Initial Race:
-    <code>Darkling &lt;tab&gt;
-FEAT:Blind Fight|Alertness</code>
-   </p>
-   <p class="indent2">
+    <code>Boar &lt;tab&gt;
+        CR:2</code>
+</p>
+<p class="indent2">
     Modified By:
-    <code>Darkling.MOD &lt;tab&gt;
-FEAT:Blind Fight|Combat Reflexes</code>
-   </p>
-   <p class="indent2">
+    <code>Boar.MOD &lt;tab&gt;
+        CR:3</code>
+</p>
+<p class="indent2">
+    Results In:
+    <code>Boar &lt;tab&gt;
+        CR:3</code>
+</p>
+<p class="indent3">
+    The Boar's CR is set to 3.
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="crmod" name="crmod">
+        *** New 6.1.2
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        <a id="crmod" name="crmod">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CRMOD:x.x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (a
+    class type as defined in the game mode).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Formula (a
+    standard PCGen LST formula).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Overrule the CRMODs from the game mode for
+    creatures of the race. The CRMOD is set to the value of y for all
+    class types specified as x
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CRMOD:PC.NPC|0</code>
+</p>
+<p class="indent3">
+    In the Pathfinder RPG, a drow noble's CR is
+    always equal to his character level.
+</p>
+<p class="indent2">
+    <code>CRMOD:NPC|-3</code>
+</p>
+<p class="indent3">
+    In the Pathfinder RPG, the CR of a kobold with
+    only NPC classes is equal to his character level minus 3.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="face" name="face">
+            Tag
+            Name:
+        </a>
+    </strong>
+    FACE:x,y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Space the creature occupies)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Optional, side space)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Describes how much space the creature takes up. For 3.0 rules
+        this tag is used for the Face statistic. For 3.5 rules this tag is
+        used for the Space statistic. If only one number is used it is
+        assumed to represent all sides.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>FACE</code>
+        tag, the
+        data included in a new
+        <code>FACE</code>
+        tag will overwrite the
+        existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>FACE:5,10</code>
+</p>
+<p class="indent3">
+    The race has a face of 5 by 10.
+</p>
+<p class="indent2">
+    <code>FACE:10</code>
+</p>
+<p class="indent3">
+    The race has a face of 10.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; FACE:10</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; FACE:5,10</code>
+</p>
+<p class="indent2">
     Is Equivalent To:
-    <code>Darkling &lt;tab&gt;
-FEAT:Blind Fight|Combat Reflexes</code>
-   </p>
-   <p class="indent3">
-    Race gets the "Blind-Fight" and "Combat
-Reflexes" feats as bonus feats.
-   </p>
-  </div>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="hands" name="hands">
-     Tag
-Name:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; FACE:5,10</code>
+</p>
+<p class="indent3">
+    The race now has a face of 5 by 10.
+</p>
+<hr/>
+<p class="lststatus">
+    <a id="favclass" name="favclass">
+        *** Updated
+        5.15.8
     </a>
-   </strong>
-   HANDS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of Hands)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines the Number of Hands the creature has for purposes of
-Multiattack and Multidexterity.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        Tag Name:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>HANDS</code>
-    tag,
-the data included in a new
-    <code>HANDS</code>
-    tag will overwrite
-the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>HANDS:4</code>
-  </p>
-  <p class="indent3">
-   Race has four hands.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; HANDS:2</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; HANDS:4</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; HANDS:4</code>
-  </p>
-  <p class="indent3">
-   Race now has four hands.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="hitdiceadvancement" name="hitdiceadvancement">
-     Tag Name:
+    FAVCLASS:x|x.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Base
+    class name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    ANY
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Base
+    class or sub-class name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines the Race's favored class.
+    </li>
+    <li>
+        Classes with sub-classes must use the (x.y) syntax and must
+        include the base-class name or the sub-class name.
+    </li>
+    <li>
+        More than one class may be included as a pipe-delimited (|)
+        list with all listed classes identified as "Favored".
+    </li>
+    <li>
+        Special type 'ANY' will grant the character's highest level
+        class as Favored.
+    </li>
+    <li>
+        When 'ANY' is used no other class is allowed.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>FAVCLASS</code>
+        tag,
+        the data included in a new
+        <code>FAVCLASS</code>
+        tag will overwrite
+        the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>FAVCLASS:Wizard|Fighter</code>
+</p>
+<p class="indent3">
+    The character's favored classes are "Wizard"
+    (including any sub-class of wizard) and "Fighter".
+</p>
+<p class="indent2">
+    <code>FAVCLASS:Wizard.Wizard</code>
+</p>
+<p class="indent3">
+    Race's favored class is "Wizard" (excluding any
+    sub-class of wizard).
+</p>
+<p class="indent2">
+    <code>FAVCLASS:Wizard.Illusionist</code>
+</p>
+<p class="indent3">
+    Race's favored class is the "Wizard" sub-class,
+    the "Illusionist".
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; FAVCLASS:Wizard|Fighter</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; FAVCLASS:Wizard.Illusionist</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; FAVCLASS:Wizard.Illusionist</code>
+</p>
+<p class="indent3">
+    Race's favored class is changed to "Wizard"
+    sub-class, the "Illusionist".
+</p>
+<hr/>
+<p class="lststatus">
+    <a id="favclasschoose" name="favclasschoose">
+        *** Updated 5.15.8
     </a>
-   </strong>
-   HITDICEADVANCEMENT:x,x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (Hit
-Dice)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The last number in the comma delimited list is the highest HD
-the creature can advance to, through HD advancement. Unlimited HD
-advancement is indicated by using an asterisk (*) in place of the
-final number.
-   </li>
-   <li>
-    All the numbers preceding the last number each indicate the
-highest number of HD the creature can have before its size
-increases by one category.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        Tag Name:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>HITDICEADVANCMENT</code>
-    tag, the data included in a new
-    <code>HITDICEADVACEMENT</code>
-    tag will overwrite the existing tag
-data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>HITDICEADVANCEMENT:4,6,8</code>
-  </p>
-  <p class="indent3">
-   Race starts out as Tiny, with 4 Hit Dice. 5-6 it
-is Small, 7+ it is Medium. 8 Hit Dice is the maximum it can ever
-raise to.
-  </p>
-  <p class="indent2">
-   <code>HITDICEADVANCEMENT:4,16,32,*</code>
-  </p>
-  <p class="indent3">
-   Assassin Vine: starts out as Large, with 4 HD.
-5-16 it is Huge, 17-32 it is Gargantuan, 33+ it is Colossal. There
-is no limit to the creature's hit dice.
-  </p>
-  <p class="indent2">
-   <code>HITDICEADVANCEMENT:4,6,*</code>
-  </p>
-  <p class="indent3">
-   Race starts out as Tiny, with 4 Hit Dice. 5-6 it
-is Small, 7+ it is Medium. There is no limit to the creature's hit
-dice.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; HITDICEADVANCEMENT:4,6,8</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; HITDICEADVANCEMENT:4,6,*</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; HITDICEADVANCEMENT:4,6,*</code>
-  </p>
-  <p class="indent3">
-   Race starts out as Tiny, with 4 Hit Dice. 5-6 it
-is Small, 7+ it is Medium. The race no longer has a limit to the
-creature's hit dice.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="hitdie" name="hitdie">
-    *** Updated
-5.13.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   HITDIE:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (Hit
-Die size)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %+Number
-(Amount added to Hit Die)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %-Number
-(Amount subtracted from Hit Die)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %*Number
-(Amount Hit Die is multiplied by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %/Number
-(Amount Hit Die is divided by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %upNumber
-(Amount Hit Die size is stepped up by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %downNumber
-(Amount Hit Die size is stepped down by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %Hup
-(Amount Hit Die size is stepped up by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %Hdown
-(Amount Hit Die size is stepped down by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   CLASS=&lt;class name&gt; (Optional, Specific class the HITDIE will
-be applied to)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   CLASS.TYPE=&lt;class type name&gt; (Optional, Specific class type
-the HITDIE will be applied to)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent1">
-   <li>
-    Specifies the new Hit Die size granted to the creature.
-   </li>
-   <li>
-    HITDIE may also be used in
-    <a href="datafilesclasses.html#hitdie">
-     Class
+    FAVCLASS:CHOOSE:x|x.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Base
+    class name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    ANY
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Base
+    class or sub-class name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines the Race's favored class.
+    </li>
+    <li>
+        More than one class may be included, as a pipe-delimited (|)
+        list, with all listws classes identified as "Favored".
+    </li>
+    <li>
+        Special type 'ANY' will grant the character's highest level
+        class as Favored.
+    </li>
+    <li>
+        When 'ANY' is used no other class is allowed.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>FAVCLASS:CHOOSE:Wizard</code>
+</p>
+<p class="indent3">
+    Race may select any sub-class of "Wizard" as the
+    favored class.
+</p>
+<p class="indent2">
+    <code>FAVCLASS:CHOOSE:Rogue|Wizard.Illusionist</code>
+</p>
+<p class="indent3">
+    Race may select either "Rogue" or "Wizard"
+    sub-class, "Illusionist", as the favored class.
+</p>
+<p class="indent2">
+    <code>FAVCLASS:CHOOSE:Wizard</code>
+</p>
+<p class="indent3">
+    Race may select the "Wizard" base class or any
+    of its sub-classes as the favored class.
+</p>
+<hr/>
+<h3 id="feat">
+    FEAT
+</h3>
+<ul class="incremental">
+    <li>
+        6.05.04 (July 2015): JIRA
+        <a href="http://jira.pcgen.org/browse/NEWTAG-477">
+            NEWTAG-477
+        </a>
+        / Github
+        <a href="https://github.com/PCGen/pcgen/pull/380">
+            PR #380
+        </a>
+        <ul class="incremental">
+            <li>
+                The
+                <code>FEAT</code>
+                tag is deprecated. Use
+                <a href="../globalfilestagpages/globalfilesother.html#ability">
+                    <code>ABILITY</code>
+                </a>
+                instead.
+            </li>
+            <li>
+                All
+                <code>FEAT</code>
+                tags have been
+                <strong>
+                    deprecated
+                </strong>
+                and replaced by the
+                <code>ABILITY</code>
+                system, which is more general. The
+                <code>ABILITY</code>
+                system can model feats, racial features, class
+                features, traits, flaws, temporary bonuses, and so on, all using a
+                common format.
+            </li>
+        </ul>
+    </li>
+</ul>
+<div class="deprecated">
+    <p class="lststatus">
+        *** Updated 5.17.4
+    </p>
+    <p class="indent0">
+        <strong>
+            Tag Name:
+        </strong>
+        FEAT:x|x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text (Feat
+        name)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent1">
+        <li>
+            This is a pipe-delimited (|) list of feats granted to a Race
+            (also known as "bonus feats").
+        </li>
+        <li>
+            The hyphen (-) is used only in the
+            <code>OUTPUTNAME</code>
+            of
+            feats and should NOT be used in the feat list for this tag. (See
+            example below.)
+        </li>
+        <li>
+            When including a feat with an internal chooser, subchoices can
+            be handled one of two ways.
+        </li>
+        <li style="list-style: none; display: inline;">
+            <ul>
+                <li>
+                    Subchoices must be specified within the tag. (e.g. Weapon Focus
+                    (Longsword)).
+                    <br/>
+                    or
+                </li>
+                <li>
+                    Used in conjunction with the
+                    <code>CHOOSE</code>
+                    tag,
+                    <code>%LIST</code>
+                    can be used with this tag to provide the
+                    required choice.
+                </li>
+            </ul>
+        </li>
+        <li>
+            When modifying a race, with the
+            <code>.MOD</code>
+            tag, given an
+            existing
+            <code>FEAT</code>
+            tag, the data included in a new
+            <code>FEAT</code>
+            tag will overwrite the existing tag data.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>FEAT:Blind Fight|Alertness</code>
+    </p>
+    <p class="indent3">
+        Race gets "Blind-Fight" and "Alertness" as bonus
+        feats.
+    </p>
+    <p class="indent2">
+        <code>CHOOSE:WEAPONPROFS|LIST &lt;tab&gt;
+            FEAT:Weapon Focus (%LIST)</code>
+    </p>
+    <p class="indent3">
+        The feat "Weapon Focus" is granted as an
+        automatic feat with the weapon chosen with the
+        <code>CHOOSE</code>
+        tag.
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Race:
+        <code>Darkling &lt;tab&gt;
+            FEAT:Blind Fight|Alertness</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>Darkling.MOD &lt;tab&gt;
+            FEAT:Blind Fight|Combat Reflexes</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>Darkling &lt;tab&gt;
+            FEAT:Blind Fight|Combat Reflexes</code>
+    </p>
+    <p class="indent3">
+        Race gets the "Blind-Fight" and "Combat
+        Reflexes" feats as bonus feats.
+    </p>
+</div>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="hands" name="hands">
+            Tag
+            Name:
+        </a>
+    </strong>
+    HANDS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of Hands)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines the Number of Hands the creature has for purposes of
+        Multiattack and Multidexterity.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>HANDS</code>
+        tag,
+        the data included in a new
+        <code>HANDS</code>
+        tag will overwrite
+        the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>HANDS:4</code>
+</p>
+<p class="indent3">
+    Race has four hands.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; HANDS:2</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; HANDS:4</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; HANDS:4</code>
+</p>
+<p class="indent3">
+    Race now has four hands.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="hitdiceadvancement" name="hitdiceadvancement">
+            Tag Name:
+        </a>
+    </strong>
+    HITDICEADVANCEMENT:x,x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (Hit
+    Dice)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The last number in the comma delimited list is the highest HD
+        the creature can advance to, through HD advancement. Unlimited HD
+        advancement is indicated by using an asterisk (*) in place of the
+        final number.
+    </li>
+    <li>
+        All the numbers preceding the last number each indicate the
+        highest number of HD the creature can have before its size
+        increases by one category.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>HITDICEADVANCMENT</code>
+        tag, the data included in a new
+        <code>HITDICEADVACEMENT</code>
+        tag will overwrite the existing tag
+        data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>HITDICEADVANCEMENT:4,6,8</code>
+</p>
+<p class="indent3">
+    Race starts out as Tiny, with 4 Hit Dice. 5-6 it
+    is Small, 7+ it is Medium. 8 Hit Dice is the maximum it can ever
+    raise to.
+</p>
+<p class="indent2">
+    <code>HITDICEADVANCEMENT:4,16,32,*</code>
+</p>
+<p class="indent3">
+    Assassin Vine: starts out as Large, with 4 HD.
+    5-16 it is Huge, 17-32 it is Gargantuan, 33+ it is Colossal. There
+    is no limit to the creature's hit dice.
+</p>
+<p class="indent2">
+    <code>HITDICEADVANCEMENT:4,6,*</code>
+</p>
+<p class="indent3">
+    Race starts out as Tiny, with 4 Hit Dice. 5-6 it
+    is Small, 7+ it is Medium. There is no limit to the creature's hit
+    dice.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; HITDICEADVANCEMENT:4,6,8</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; HITDICEADVANCEMENT:4,6,*</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; HITDICEADVANCEMENT:4,6,*</code>
+</p>
+<p class="indent3">
+    Race starts out as Tiny, with 4 Hit Dice. 5-6 it
+    is Small, 7+ it is Medium. The race no longer has a limit to the
+    creature's hit dice.
+</p>
+<hr/>
+<p class="status">
+    <a id="hitdie" name="hitdie">
+        *** Updated
+        5.13.6
     </a>
-    and
-    <a href="datafilestemplates.html#hitdie">
-     Template
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    HITDIE:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (Hit
+    Die size)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %+Number
+    (Amount added to Hit Die)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %-Number
+    (Amount subtracted from Hit Die)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %*Number
+    (Amount Hit Die is multiplied by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %/Number
+    (Amount Hit Die is divided by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %upNumber
+    (Amount Hit Die size is stepped up by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %downNumber
+    (Amount Hit Die size is stepped down by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %Hup
+    (Amount Hit Die size is stepped up by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %Hdown
+    (Amount Hit Die size is stepped down by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    CLASS=&lt;class name&gt; (Optional, Specific class the HITDIE will
+    be applied to)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    CLASS.TYPE=&lt;class type name&gt; (Optional, Specific class type
+    the HITDIE will be applied to)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent1">
+    <li>
+        Specifies the new Hit Die size granted to the creature.
+    </li>
+    <li>
+        HITDIE may also be used in
+        <a href="datafilesclasses.html#hitdie">
+            Class
+        </a>
+        and
+        <a href="datafilestemplates.html#hitdie">
+            Template
+        </a>
+        files.
+    </li>
+    <li>
+        The scale used by the functions which raise or lower Hit Die in
+        steps is defined by the
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#diesizes">
+            DIESIZES
+        </a>
+        gameMode tag.
+    </li>
+    <li>
+        The scale used in most gameModes is:
+        1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
+    </li>
+    <li>
+        When using the step up function (%upNumber) or step down
+        function (%downNumber) the minimum and maximum steps are set by the
+        MIN and MAX tags in the DIESIZES tag.
+    </li>
+    <li>
+        The step up function (%Hup) and step down functions (%Hdown)
+        will ignore the MIN and MAX settings and use the full range of die
+        sizes specified by the DIESIZES tag.
+    </li>
+    <li>
+        Regardless of the number it will never allow a hit die below
+        1.
+    </li>
+    <li>
+        Optionally HITDIE can be qualified with a Class or Class type
+        in which case it will only be applied to matching classes.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>HITDIE</code>
+        tag,
+        the data included in a new
+        <code>HITDIE</code>
+        tag will overwrite
+        the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>HITDIE:12</code>
+</p>
+<p class="indent3">
+    The character now has a Hit Dice of 12.
+</p>
+<p class="indent2">
+    <code>HITDIE:%+2</code>
+</p>
+<p class="indent3">
+    Adds 2 to the current Hit Dice size.
+</p>
+<p class="indent2">
+    <code>HITDIE:%-4</code>
+</p>
+<p class="indent3">
+    Subtracts 4 from the current Hit Dice size.
+</p>
+<p class="indent2">
+    <code>HITDIE:%*3</code>
+</p>
+<p class="indent3">
+    Multiplies the current Hit Dice size by 3.
+</p>
+<p class="indent2">
+    <code>HITDIE:%/2</code>
+</p>
+<p class="indent3">
+    Divides the current Hit Dice size by 2.
+</p>
+<p class="indent2">
+    <code>HITDIE:%up2</code>
+</p>
+<p class="indent3">
+    Steps up the Hit Dice size by two steps. If the
+    creature has a Hit Die of d6 it will be stepped up to d10.
+</p>
+<p class="indent2">
+    <code>HITDIE:%down1</code>
+</p>
+<p class="indent3">
+    Steps down the Hit Dice size by one step. If the
+    creature has a Hit Die of d6 it will be stepped down to d4.
+</p>
+<p class="indent2">
+    <code>HITDIE:%up1|CLASS.TYPE=Monster</code>
+</p>
+<p class="indent3">
+    Steps up the Hit Dice size by one step for any
+    Monster class levels the creature has. If the creature has a
+    Monster class Hit Die of d8 it will be stepped up to d10.
+</p>
+<p class="indent2">
+    <code>HITDIE:%Hup4</code>
+</p>
+<p class="indent3">
+    Steps up the Hit Dice size by four steps. If the
+    class has a Hit Die of d6 it will be stepped up to d20.
+</p>
+<p class="indent2">
+    <code>HITDIE:%Hdown3</code>
+</p>
+<p class="indent3">
+    Steps down the Hit Dice size by three steps. If
+    the class has a Hit Die of d6 it will be stepped down to d2.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; HITDIE:12</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; HITDIE:%/2</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; HITDIE:%/2</code>
+</p>
+<p class="indent3">
+    The creature's new hitdie size is a divided by
+    2.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="langbonus" name="langbonus">
+            Tag
+            Name:
+        </a>
+    </strong>
+    LANGBONUS:x,x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Language Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TYPE=Text
+    (Language Type)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    ALL
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEAR
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a comma-delimited (,) list of languages that the
+        character may select from to gain as a bonus language. This does
+        not effect languages granted from skills.
+    </li>
+    <li>
+        When using
+        <code>ALL</code>
+        , no other language designation is
+        necessary.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>LANGBONUS</code>
+        tag, the data included in a new
+        <code>LANGBONUS</code>
+        tag will be
+        appended to the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc</code>
+</p>
+<p class="indent3">
+    Race can choose starting languages from
+    "Dwarven", "Elven", "Gnome", "Goblin" or "Orc".
+</p>
+<blockquote class="indent2">
+    <p class="tagindent1">
+        <code>Hobgoblin.MOD &lt;tab&gt;
+            LANGAUTO:Gadohig &lt;tab&gt; LANGBONUS:.CLEAR &lt;tab&gt;
+            LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian</code>
+    </p>
+</blockquote>
+<p class="indent3">
+    Race can choose starting languages from
+    "Aeylamdyarian", "Calisian", "Desolati", "Galkarnic" or "Homish",
+    or "Launhymian", in addition to the Autoknown "Gadohig".
+</p>
+<p class="indent2">
+    <code>LANGBONUS:Old
+        Dwarven,Orcish,TYPE=ClanDialect,Trader's Tongue</code>
+</p>
+<p class="indent3">
+    Race can choose starting languages from "Old
+    Dwarven", "Orcish", any type of "ClanDialect", or "Trader's
+    Tongue".
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>Space Monkey &lt;tab&gt;
+        LANGBONUS:Simian</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Space Monkey.MOD &lt;tab&gt;
+        LANGBONUS:Martian</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Space Monkey &lt;tab&gt;
+        LANGBONUS:Simian,Martian</code>
+    .
+</p>
+<p class="indent3">
+    The character can choose between the languages
+    "Simian" and "Martian" as bonus languages.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="legs" name="legs">
+            Tag
+            Name:
+        </a>
+    </strong>
+    LEGS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of Legs)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Used to determine encumbrance and carrying capacity for
+        creatures/characters with a nonstandard amount of legs. (i.e. more
+        than/less than 2).
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>LEGS</code>
+        tag, the
+        data included in a new
+        <code>LEGS</code>
+        tag will overwrite the
+        existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LEGS:4</code>
+</p>
+<p class="indent3">
+    A horse has 4 legs.
+</p>
+<p class="indent2">
+    <code>LEGS:0</code>
+</p>
+<p class="indent3">
+    Slime and ooze creatures/characters would have
+    no legs!
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; LEGS:2</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; LEGS:4</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; LEGS:4</code>
+</p>
+<p class="indent3">
+    The race now has 4 legs.
+</p>
+<hr/>
+<p class="status">
+    <a id="leveladjustment" name="leveladjustment">
+        *** Updated 5.11.13
     </a>
-    files.
-   </li>
-   <li>
-    The scale used by the functions which raise or lower Hit Die in
-steps is defined by the
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#diesizes">
-     DIESIZES
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    LEVELADJUSTMENT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number or
+    Formula (Level Adjustment)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Raises the Effective Character Level (ECL) of the creature by
+        the number supplied.
+    </li>
+    <li>
+        This is factored in when determining how much experience is
+        needed to raise a character's level. For example, a 1st level
+        character with a Level adjustment of 3 would need the same amount
+        of experience to reach 2nd level as a 4th level character with no
+        level adjustments would need to reach 5th level.
+    </li>
+    <li>
+        The Level Adjustment is added to Monster Hit Dice and/or
+        Character Levels to determine the Effective Character Level (ECL)
+        of the creature.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>LEVELADJUSTMENT</code>
+        tag, the data included in a new
+        <code>LEVELADJUSTMENT</code>
+        tag will overwrite the existing tag
+        data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LEVELADJUSTMENT:1</code>
+</p>
+<p class="indent3">
+    Effective Character Level is raised by one.
+</p>
+<p class="indent2">
+    <code>Bugbear (Shadowkind).MOD &lt;tab&gt;
+        OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt;
+        RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt;
+        LEVELADJUSTMENT:2</code>
+</p>
+<p class="indent3">
+    This modification of the race Bugbear, changes
+    all of the indicated tags.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; LEVELADJUSTMENT:1</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; LEVELADJUSTMENT:2</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; LEVELADJUSTMENT:2</code>
+</p>
+<p class="indent3">
+    Effective Character Level is now raised by
+    two.
+</p>
+<hr/>
+<p class="status">
+    <a id="monccskill" name="monccskill">
+        *** New
+        5.4
     </a>
-    gameMode tag.
-   </li>
-   <li>
-    The scale used in most gameModes is:
-1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
-   </li>
-   <li>
-    When using the step up function (%upNumber) or step down
-function (%downNumber) the minimum and maximum steps are set by the
-MIN and MAX tags in the DIESIZES tag.
-   </li>
-   <li>
-    The step up function (%Hup) and step down functions (%Hdown)
-will ignore the MIN and MAX settings and use the full range of die
-sizes specified by the DIESIZES tag.
-   </li>
-   <li>
-    Regardless of the number it will never allow a hit die below
-1.
-   </li>
-   <li>
-    Optionally HITDIE can be qualified with a Class or Class type
-in which case it will only be applied to matching classes.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        Tag Name:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>HITDIE</code>
-    tag,
-the data included in a new
-    <code>HITDIE</code>
-    tag will overwrite
-the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>HITDIE:12</code>
-  </p>
-  <p class="indent3">
-   The character now has a Hit Dice of 12.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%+2</code>
-  </p>
-  <p class="indent3">
-   Adds 2 to the current Hit Dice size.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%-4</code>
-  </p>
-  <p class="indent3">
-   Subtracts 4 from the current Hit Dice size.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%*3</code>
-  </p>
-  <p class="indent3">
-   Multiplies the current Hit Dice size by 3.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%/2</code>
-  </p>
-  <p class="indent3">
-   Divides the current Hit Dice size by 2.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%up2</code>
-  </p>
-  <p class="indent3">
-   Steps up the Hit Dice size by two steps. If the
-creature has a Hit Die of d6 it will be stepped up to d10.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%down1</code>
-  </p>
-  <p class="indent3">
-   Steps down the Hit Dice size by one step. If the
-creature has a Hit Die of d6 it will be stepped down to d4.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%up1|CLASS.TYPE=Monster</code>
-  </p>
-  <p class="indent3">
-   Steps up the Hit Dice size by one step for any
-Monster class levels the creature has. If the creature has a
-Monster class Hit Die of d8 it will be stepped up to d10.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%Hup4</code>
-  </p>
-  <p class="indent3">
-   Steps up the Hit Dice size by four steps. If the
-class has a Hit Die of d6 it will be stepped up to d20.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%Hdown3</code>
-  </p>
-  <p class="indent3">
-   Steps down the Hit Dice size by three steps. If
-the class has a Hit Die of d6 it will be stepped down to d2.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; HITDIE:12</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; HITDIE:%/2</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; HITDIE:%/2</code>
-  </p>
-  <p class="indent3">
-   The creature's new hitdie size is a divided by
-2.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="langbonus" name="langbonus">
-     Tag
-Name:
+    MONCCSKILL:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Skill
+    Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TYPE.Text
+    (Skill Type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Grants the listed skills as monster cross class skills.
+    </li>
+    <li>
+        The replacement/substitution symbol (%) may be used at the end
+        of the skill name.
+    </li>
+    <li>
+        Monster cross class skills are only cross class skills for
+        monster classes such as Giant, Outsider, Undead etc.
+    </li>
+    <li>
+        If a monster takes levels in a base class only those skills
+        defined as cross class skills in that class count as cross class
+        skills for that level, the monster cross class skills will not
+        apply.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>MONCCSKILL</code>
+        tag, the data included in a new
+        <code>MONCCSKILL</code>
+        tag will be
+        appended to the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MONCCSKILL:Alchemy|Wilderness
+        Lore</code>
+</p>
+<p class="indent3">
+    The "Alchemy" and "Wilderness Lore" skills are
+    made monster cross class skills.
+</p>
+<p class="indent2">
+    <code>MONCCSKILL:Alchemy|TYPE.Knowledge</code>
+</p>
+<p class="indent3">
+    The "Alchemy" and "Knowledge" type skills are
+    made monster cross class skills.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>Ooze Monkey &lt;tab&gt;
+        MONCCSKILL:Alchemy|Wilderness Lore</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Ooze Monkey.MOD &lt;tab&gt;
+        MONCCSKILL:Acrobatics|Stealth</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Ooze Monkey &lt;tab&gt;
+        MONCCSKILL:Acrobatics|Alchemy|Stealth|Wilderness Lore</code>
+    .
+</p>
+<p class="indent3">
+    The "Acrobatics", "Alchemy", "Stealth", and
+    "Wilderness Lore" skills are made monster cross class skills.
+</p>
+<hr/>
+<p class="status">
+    <a id="moncskill" name="moncskill">
+        *** New
+        5.4
     </a>
-   </strong>
-   LANGBONUS:x,x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Language Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TYPE=Text
-(Language Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   ALL
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEAR
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a comma-delimited (,) list of languages that the
-character may select from to gain as a bonus language. This does
-not effect languages granted from skills.
-   </li>
-   <li>
-    When using
-    <code>ALL</code>
-    , no other language designation is
-necessary.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        Tag Name:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>LANGBONUS</code>
-    tag, the data included in a new
-    <code>LANGBONUS</code>
-    tag will be
-appended to the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc</code>
-  </p>
-  <p class="indent3">
-   Race can choose starting languages from
-"Dwarven", "Elven", "Gnome", "Goblin" or "Orc".
-  </p>
-  <blockquote class="indent2">
-   <p class="tagindent1">
-    <code>Hobgoblin.MOD &lt;tab&gt;
-LANGAUTO:Gadohig &lt;tab&gt; LANGBONUS:.CLEAR &lt;tab&gt;
-LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian</code>
-   </p>
-  </blockquote>
-  <p class="indent3">
-   Race can choose starting languages from
-"Aeylamdyarian", "Calisian", "Desolati", "Galkarnic" or "Homish",
-or "Launhymian", in addition to the Autoknown "Gadohig".
-  </p>
-  <p class="indent2">
-   <code>LANGBONUS:Old
-Dwarven,Orcish,TYPE=ClanDialect,Trader's Tongue</code>
-  </p>
-  <p class="indent3">
-   Race can choose starting languages from "Old
-Dwarven", "Orcish", any type of "ClanDialect", or "Trader's
-Tongue".
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>Space Monkey &lt;tab&gt;
-LANGBONUS:Simian</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Space Monkey.MOD &lt;tab&gt;
-LANGBONUS:Martian</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Space Monkey &lt;tab&gt;
-LANGBONUS:Simian,Martian</code>
-   .
-  </p>
-  <p class="indent3">
-   The character can choose between the languages
-"Simian" and "Martian" as bonus languages.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="legs" name="legs">
-     Tag
-Name:
+    MONCSKILL:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Skill
+    Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TYPE.Text
+    (Skill Type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Grants the listed skills as monster class skills.
+    </li>
+    <li>
+        The replacement/substitution symbol (%) may be used at the end
+        of the skill name.
+    </li>
+    <li>
+        Monster class skills are only class skills for monster classes
+        such as Giant, Outsider, Undead etc.
+    </li>
+    <li>
+        If a monster takes levels in a base class only those skills
+        defined as class skills in that class count as class skills for
+        that level, the monster class skills will not apply.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>MONCSKILL</code>
+        tag, the data included in a new
+        <code>MONCSKILL</code>
+        tag will be
+        appended to the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MONCSKILL:Alchemy|Wilderness
+        Lore</code>
+</p>
+<p class="indent3">
+    The "Alchemy" and "Wilderness Lore" skills are
+    made monster class skills.
+</p>
+<p class="indent2">
+    <code>MONCSKILL:Alchemy|TYPE.Knowledge</code>
+</p>
+<p class="indent3">
+    The "Alchemy" and "Knowledge" type skills are
+    made monster class skills.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>Ooze Monkey &lt;tab&gt;
+        MONCSKILL:Alchemy|Wilderness Lore</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Ooze Monkey.MOD &lt;tab&gt;
+        MONCSKILL:Acrobatics|Stealth</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Ooze Monkey &lt;tab&gt;
+        MONCSKILL:Acrobatics|Alchemy|Stealth|Wilderness Lore</code>
+    .
+</p>
+<p class="indent3">
+    The "Acrobatics", "Alchemy", "Stealth", and
+    "Wilderness Lore" skills are made monster class skills.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="monsterclass" name="monsterclass">
+            Tag Name:
+        </a>
+    </strong>
+    MONSTERCLASS:x:y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Monster Class Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Starting Level)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines the number of Monster Levels the race gets on
+        start.
+    </li>
+    <li>
+        Class must be TYPE:Monster and have a PRERACETYPE that matches
+        the race.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>MONSTERCLASS</code>
+        tag, the data included in a new
+        <code>MONSTERCLASS</code>
+        tag will
+        overwrite the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MONSTERCLASS:Outsider:2</code>
+</p>
+<p class="indent3">
+    The race has 2 levels of Outsider to start.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; MONSTERCLASS:2</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; MONSTERCLASS:4</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; MONSTERCLASS:4</code>
+</p>
+<p class="indent3">
+    The creature's new monster class is "Outsider"
+    with "4" levels.
+</p>
+<hr/>
+<p class="status">
+    <a id="racesubtype" name="racesubtype">
+        *** New
+        5.9.4
     </a>
-   </strong>
-   LEGS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of Legs)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Used to determine encumbrance and carrying capacity for
-creatures/characters with a nonstandard amount of legs. (i.e. more
-than/less than 2).
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        Tag Name:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>LEGS</code>
-    tag, the
-data included in a new
-    <code>LEGS</code>
-    tag will overwrite the
-existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LEGS:4</code>
-  </p>
-  <p class="indent3">
-   A horse has 4 legs.
-  </p>
-  <p class="indent2">
-   <code>LEGS:0</code>
-  </p>
-  <p class="indent3">
-   Slime and ooze creatures/characters would have
-no legs!
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; LEGS:2</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; LEGS:4</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; LEGS:4</code>
-  </p>
-  <p class="indent3">
-   The race now has 4 legs.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="leveladjustment" name="leveladjustment">
-    *** Updated 5.11.13
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   LEVELADJUSTMENT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number or
-Formula (Level Adjustment)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Raises the Effective Character Level (ECL) of the creature by
-the number supplied.
-   </li>
-   <li>
-    This is factored in when determining how much experience is
-needed to raise a character's level. For example, a 1st level
-character with a Level adjustment of 3 would need the same amount
-of experience to reach 2nd level as a 4th level character with no
-level adjustments would need to reach 5th level.
-   </li>
-   <li>
-    The Level Adjustment is added to Monster Hit Dice and/or
-Character Levels to determine the Effective Character Level (ECL)
-of the creature.
-   </li>
-   <li>
+    RACESUBTYPE:x|x
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        Variables Used (x):
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>LEVELADJUSTMENT</code>
-    tag, the data included in a new
-    <code>LEVELADJUSTMENT</code>
-    tag will overwrite the existing tag
-data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LEVELADJUSTMENT:1</code>
-  </p>
-  <p class="indent3">
-   Effective Character Level is raised by one.
-  </p>
-  <p class="indent2">
-   <code>Bugbear (Shadowkind).MOD &lt;tab&gt;
-OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt;
-RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt;
-LEVELADJUSTMENT:2</code>
-  </p>
-  <p class="indent3">
-   This modification of the race Bugbear, changes
-all of the indicated tags.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; LEVELADJUSTMENT:1</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; LEVELADJUSTMENT:2</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; LEVELADJUSTMENT:2</code>
-  </p>
-  <p class="indent3">
-   Effective Character Level is now raised by
-two.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="monccskill" name="monccskill">
-    *** New
-5.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MONCCSKILL:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Skill
-Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TYPE.Text
-(Skill Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Grants the listed skills as monster cross class skills.
-   </li>
-   <li>
-    The replacement/substitution symbol (%) may be used at the end
-of the skill name.
-   </li>
-   <li>
-    Monster cross class skills are only cross class skills for
-monster classes such as Giant, Outsider, Undead etc.
-   </li>
-   <li>
-    If a monster takes levels in a base class only those skills
-defined as cross class skills in that class count as cross class
-skills for that level, the monster cross class skills will not
-apply.
-   </li>
-   <li>
+    Text
+    (Creature Subtype)
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        What it does:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>MONCCSKILL</code>
-    tag, the data included in a new
-    <code>MONCCSKILL</code>
-    tag will be
-appended to the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MONCCSKILL:Alchemy|Wilderness
-Lore</code>
-  </p>
-  <p class="indent3">
-   The "Alchemy" and "Wilderness Lore" skills are
-made monster cross class skills.
-  </p>
-  <p class="indent2">
-   <code>MONCCSKILL:Alchemy|TYPE.Knowledge</code>
-  </p>
-  <p class="indent3">
-   The "Alchemy" and "Knowledge" type skills are
-made monster cross class skills.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>Ooze Monkey &lt;tab&gt;
-MONCCSKILL:Alchemy|Wilderness Lore</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Ooze Monkey.MOD &lt;tab&gt;
-MONCCSKILL:Acrobatics|Stealth</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Ooze Monkey &lt;tab&gt;
-MONCCSKILL:Acrobatics|Alchemy|Stealth|Wilderness Lore</code>
-   .
-  </p>
-  <p class="indent3">
-   The "Acrobatics", "Alchemy", "Stealth", and
-"Wilderness Lore" skills are made monster cross class skills.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="moncskill" name="moncskill">
-    *** New
-5.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MONCSKILL:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Skill
-Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TYPE.Text
-(Skill Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Grants the listed skills as monster class skills.
-   </li>
-   <li>
-    The replacement/substitution symbol (%) may be used at the end
-of the skill name.
-   </li>
-   <li>
-    Monster class skills are only class skills for monster classes
-such as Giant, Outsider, Undead etc.
-   </li>
-   <li>
-    If a monster takes levels in a base class only those skills
-defined as class skills in that class count as class skills for
-that level, the monster class skills will not apply.
-   </li>
-   <li>
+</p>
+<ul class="indent2">
+    <li>
+        Defines the Subtypes a creature possesses.
+    </li>
+    <li>
+        Additional Subtypes can be added and/or removed with a
+        RACESUBTYPE in a template or other file type.
+    </li>
+    <li>
+        Examples include: Air, Angel, Aquatic, Archon, Augmented,
+        Chaotic, Cold, Earth, Evil, Extraplanar, Fire, Goblinoid, Good,
+        Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water
+        as well as Humanoid subraces such as Elf, Orc, Dwarf, etc..
+    </li>
+    <li>
+        The
+        <code>.CLEAR</code>
+        tag may be used with this tag.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>RACESUBTYPE</code>
+        tag, the data included in a new
+        <code>RACESUBTYPE</code>
+        tag will
+        be appended to the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        Example:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>MONCSKILL</code>
-    tag, the data included in a new
-    <code>MONCSKILL</code>
-    tag will be
-appended to the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MONCSKILL:Alchemy|Wilderness
-Lore</code>
-  </p>
-  <p class="indent3">
-   The "Alchemy" and "Wilderness Lore" skills are
-made monster class skills.
-  </p>
-  <p class="indent2">
-   <code>MONCSKILL:Alchemy|TYPE.Knowledge</code>
-  </p>
-  <p class="indent3">
-   The "Alchemy" and "Knowledge" type skills are
-made monster class skills.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>Ooze Monkey &lt;tab&gt;
-MONCSKILL:Alchemy|Wilderness Lore</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Ooze Monkey.MOD &lt;tab&gt;
-MONCSKILL:Acrobatics|Stealth</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Ooze Monkey &lt;tab&gt;
-MONCSKILL:Acrobatics|Alchemy|Stealth|Wilderness Lore</code>
-   .
-  </p>
-  <p class="indent3">
-   The "Acrobatics", "Alchemy", "Stealth", and
-"Wilderness Lore" skills are made monster class skills.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="monsterclass" name="monsterclass">
-     Tag Name:
+</p>
+<p class="indent2">
+    <code>RACESUBTYPE:Lawful|Air</code>
+</p>
+<p class="indent3">
+    The race possesses the "Lawful" and "Air"
+    subtypes.
+</p>
+<p class="indent2">
+    <code>Bugbear (Shadowkind).MOD &lt;tab&gt;
+        OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt;
+        RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt;
+        LEVELADJUSTMENT:2</code>
+</p>
+<p class="indent3">
+    This modification of the race Bugbear, changes
+    all of the indicated tags.
+</p>
+<p class="indent2">
+    <code>&lt;race&gt;.MOD &lt;tab&gt;
+        RACESUBTYPE:.CLEAR &lt;tab&gt; RACESUBTYPE:Lawful|Air</code>
+</p>
+<p class="indent3">
+    This modification clears a race's existing
+    subtypes and replaces it with the "Lawful" and "Air" subtypes.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>Ooze Monkey &lt;tab&gt;
+        RACESUBTYPE:Simian</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Ooze Monkey.MOD &lt;tab&gt;
+        RACESUBTYPE:Gooey</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Ooze Monkey &lt;tab&gt;
+        RACESUBTYPE:Simian|Gooey</code>
+    .
+</p>
+<p class="indent3">
+    The character is granted the race types "Simian"
+    and "Gooey".
+</p>
+<hr/>
+<p class="status">
+    <a id="racetype" name="racetype">
+        *** New
+        5.9.4
     </a>
-   </strong>
-   MONSTERCLASS:x:y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Monster Class Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Starting Level)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines the number of Monster Levels the race gets on
-start.
-   </li>
-   <li>
-    Class must be TYPE:Monster and have a PRERACETYPE that matches
-the race.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        Tag Name:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>MONSTERCLASS</code>
-    tag, the data included in a new
-    <code>MONSTERCLASS</code>
-    tag will
-overwrite the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MONSTERCLASS:Outsider:2</code>
-  </p>
-  <p class="indent3">
-   The race has 2 levels of Outsider to start.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; MONSTERCLASS:2</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; MONSTERCLASS:4</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; MONSTERCLASS:4</code>
-  </p>
-  <p class="indent3">
-   The creature's new monster class is "Outsider"
-with "4" levels.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="racesubtype" name="racesubtype">
-    *** New
-5.9.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   RACESUBTYPE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Creature Subtype)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines the Subtypes a creature possesses.
-   </li>
-   <li>
-    Additional Subtypes can be added and/or removed with a
-RACESUBTYPE in a template or other file type.
-   </li>
-   <li>
-    Examples include: Air, Angel, Aquatic, Archon, Augmented,
-Chaotic, Cold, Earth, Evil, Extraplanar, Fire, Goblinoid, Good,
-Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water
-as well as Humanoid subraces such as Elf, Orc, Dwarf, etc..
-   </li>
-   <li>
-    The
-    <code>.CLEAR</code>
-    tag may be used with this tag.
-   </li>
-   <li>
+    RACETYPE:x
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        Variables Used (x):
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>RACESUBTYPE</code>
-    tag, the data included in a new
-    <code>RACESUBTYPE</code>
-    tag will
-be appended to the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>RACESUBTYPE:Lawful|Air</code>
-  </p>
-  <p class="indent3">
-   The race possesses the "Lawful" and "Air"
-subtypes.
-  </p>
-  <p class="indent2">
-   <code>Bugbear (Shadowkind).MOD &lt;tab&gt;
-OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt;
-RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt;
-LEVELADJUSTMENT:2</code>
-  </p>
-  <p class="indent3">
-   This modification of the race Bugbear, changes
-all of the indicated tags.
-  </p>
-  <p class="indent2">
-   <code>&lt;race&gt;.MOD &lt;tab&gt;
-RACESUBTYPE:.CLEAR &lt;tab&gt; RACESUBTYPE:Lawful|Air</code>
-  </p>
-  <p class="indent3">
-   This modification clears a race's existing
-subtypes and replaces it with the "Lawful" and "Air" subtypes.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>Ooze Monkey &lt;tab&gt;
-RACESUBTYPE:Simian</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Ooze Monkey.MOD &lt;tab&gt;
-RACESUBTYPE:Gooey</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Ooze Monkey &lt;tab&gt;
-RACESUBTYPE:Simian|Gooey</code>
-   .
-  </p>
-  <p class="indent3">
-   The character is granted the race types "Simian"
-and "Gooey".
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="racetype" name="racetype">
-    *** New
-5.9.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   RACETYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Creature Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines the Type of creature the race is.
-   </li>
-   <li>
-    A Creature may only have one RACETYPE at any given time.
-   </li>
-   <li>
-    The Base RACETYPE set in the race line can be changed with a
-RACETYPE tag in a template or other file type.
-   </li>
-   <li>
-    Currently existing selections from the Monster List include:
-Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey,
-Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider,
-Plant, Shapechanger, Undead, and Vermin.
-   </li>
-   <li>
+    Text
+    (Creature Type)
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        What it does:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>RACETYPE</code>
-    tag,
-the data included in a new
-    <code>RACETYPE</code>
-    tag will overwrite
-the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>RACETYPE:Outsider</code>
-  </p>
-  <p class="indent3">
-   The race is of the "Outsider" type.
-  </p>
-  <p class="indent2">
-   <code>Bugbear (Shadowkind).MOD &lt;tab&gt;
-OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt;
-RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt;
-LEVELADJUSTMENT:2</code>
-  </p>
-  <p class="indent3">
-   This modification of the race Bugbear, changes
-all of the indicated tags.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; RACETYPE:Humanoid</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; RACETYPE:Outsider</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; RACETYPE:Outsider</code>
-  </p>
-  <p class="indent3">
-   The race is now of the "Outsider" type.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="reach" name="reach">
-     Tag
-Name:
-    </a>
-   </strong>
-   REACH:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Reach in Feet)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines the reach of the Race.
-   </li>
-   <li>
+</p>
+<ul class="indent2">
+    <li>
+        Defines the Type of creature the race is.
+    </li>
+    <li>
+        A Creature may only have one RACETYPE at any given time.
+    </li>
+    <li>
+        The Base RACETYPE set in the race line can be changed with a
+        RACETYPE tag in a template or other file type.
+    </li>
+    <li>
+        Currently existing selections from the Monster List include:
+        Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey,
+        Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider,
+        Plant, Shapechanger, Undead, and Vermin.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>RACETYPE</code>
+        tag,
+        the data included in a new
+        <code>RACETYPE</code>
+        tag will overwrite
+        the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        Example:
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>REACH</code>
-    tag,
-the data included in a new
-    <code>REACH</code>
-    tag will overwrite
-the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>REACH:10</code>
-  </p>
-  <p class="indent3">
-   The race has a reach of ten feet.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; REACH:5</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; REACH:10</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; REACH:10</code>
-  </p>
-  <p class="indent3">
-   The final reach is "10".
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="role" name="role">
-    *** New 6.1.2
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
+</p>
+<p class="indent2">
+    <code>RACETYPE:Outsider</code>
+</p>
+<p class="indent3">
+    The race is of the "Outsider" type.
+</p>
+<p class="indent2">
+    <code>Bugbear (Shadowkind).MOD &lt;tab&gt;
+        OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt;
+        RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt;
+        LEVELADJUSTMENT:2</code>
+</p>
+<p class="indent3">
+    This modification of the race Bugbear, changes
+    all of the indicated tags.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; RACETYPE:Humanoid</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; RACETYPE:Outsider</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; RACETYPE:Outsider</code>
+</p>
+<p class="indent3">
+    The race is now of the "Outsider" type.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="reach" name="reach">
+            Tag
+            Name:
+        </a>
+    </strong>
+    REACH:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Reach in Feet)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines the reach of the Race.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>REACH</code>
+        tag,
+        the data included in a new
+        <code>REACH</code>
+        tag will overwrite
+        the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>REACH:10</code>
+</p>
+<p class="indent3">
+    The race has a reach of ten feet.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; REACH:5</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; REACH:10</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; REACH:10</code>
+</p>
+<p class="indent3">
+    The final reach is "10".
+</p>
+<hr/>
+<p class="lstnew">
     <a id="role" name="role">
-     Tag
-Name:
+        *** New 6.1.2
     </a>
-   </strong>
-   ROLE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (a
-monster role as defined in the game mode).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Specifies the monster role or roles of a
-creature. Used to determine CR for creatures with both racial hit
-dice and class levels.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ROLE:Combat</code>
-  </p>
-  <p class="indent3">
-   Character levels in classes associated with the
-Combat role are key levels for CR calculation purposes for this
-creature.
-  </p>
-  <p class="indent2">
-   <code>ROLE:Combat.Skill</code>
-  </p>
-  <p class="indent3">
-   Character levels in classes associated with
-either the Combat role or the Skill role are key levels for CR
-calculation purposes for this creature.
-  </p>
-  <p class="indent2">
-   <code>ROLE:Cleric</code>
-  </p>
-  <p class="indent3">
-   Cleric levels are key levels for CR calculation
-purposes for this creature.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="size" name="size">
-    *** Updated 5.12
-RC3
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SIZE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(F,D,T,S,M,L,H,G,C)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines the size of the Race. (F=Fine, D=Diminutive, T=Tiny,
-S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal). Size
-is used in determining to-hit, AC, and affects some skills.
-   </li>
-   <li>
-    The size designations, including abbreviations, are dependant
-upon the gamemode used and may be redefined in the
-sizeadjustments.lst file.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     .MOD Behavior:
+        <a id="role" name="role">
+            Tag
+            Name:
+        </a>
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>SIZE</code>
-    tag, the
-data included in a new
-    <code>SIZE</code>
-    tag will overwrite the
-existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Special Sizes:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    SIZE:P - Mode: RSRD (35e) - Colossal+ - Restricted to only
-dragons.
-   </li>
-   <li>
-    SIZE:C - Mode: Spycraft 2 - Vast - .
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SIZE:M</code>
-  </p>
-  <p class="indent3">
-   The race is of Medium size.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; SIZE:M</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; SIZE:L</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; SIZE:L</code>
-  </p>
-  <p class="indent3">
-   The creatue is "Large".
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="skillmult" name="skillmult">
-     Tag
-Name:
-    </a>
-   </strong>
-   SKILLMULT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Skill Multiplier)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines the Multiplier of the skill points when the character
-is first level.
-   </li>
-   <li>
-    Default is x4.
-   </li>
-   <li>
-    Most Multi-hit die creatures have SKILLMULT:1 since adding
-class levels is done as Multi-Classing.
-   </li>
-   <li>
+    ROLE:x.x
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        Variables Used (x):
     </strong>
-    When modifying a race with the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>SKILLMULT</code>
-    tag, the data included in a new
-    <code>SKILLMULT</code>
-    tag will
-overwrite the existing tag data.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SKILLMULT:1</code>
-  </p>
-  <p class="indent3">
-   Monsters have x1 since adding class levels is
-done as Multi-classing.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; SKILLMULT:1</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; SKILLMULT:2</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; SKILLMULT:2</code>
-  </p>
-  <p class="indent3">
-   The final skill multiplier is "2".
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="startfeats" name="startfeats">
-    *** Updated
-before 5.12.0
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   STARTFEATS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of Starting Feats)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Grants a number of free feats to the race at first level. These
-are unrestricted feats. To restrict choice (such as "only Fighter
-feats") use the global ADD:FEAT() tag.
-   </li>
-   <li>
+    Text (a
+    monster role as defined in the game mode).
+</p>
+<p class="indent1">
     <strong>
-     .MOD Behavior:
+        What it does:
     </strong>
-    When modifying a template, with
-the
-    <code>.MOD</code>
-    tag, given an existing
-    <code>STARTFEATS</code>
-    tag, the data included in a new
-    <code>STARTFEATS</code>
-    tag will be included as if it were a
-separate tag.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STARTFEATS:2</code>
-  </p>
-  <p class="indent3">
-   The race starts with 2 free feats.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>Werewolf &lt;tab&gt;
-STARTFEATS:2</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Werewolf.MOD &lt;tab&gt;
-STARTFEATS:2</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Werewolf &lt;tab&gt;
-STARTFEATS:2 &lt;tab&gt; STARTFEATS:2</code>
-  </p>
-  <p class="indent3">
-   The Werewolf now starts with 4 free feats.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="template" name="template">
-     Tag
-Name:
+</p>
+<p class="indent2">
+    Specifies the monster role or roles of a
+    creature. Used to determine CR for creatures with both racial hit
+    dice and class levels.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ROLE:Combat</code>
+</p>
+<p class="indent3">
+    Character levels in classes associated with the
+    Combat role are key levels for CR calculation purposes for this
+    creature.
+</p>
+<p class="indent2">
+    <code>ROLE:Combat.Skill</code>
+</p>
+<p class="indent3">
+    Character levels in classes associated with
+    either the Combat role or the Skill role are key levels for CR
+    calculation purposes for this creature.
+</p>
+<p class="indent2">
+    <code>ROLE:Cleric</code>
+</p>
+<p class="indent3">
+    Cleric levels are key levels for CR calculation
+    purposes for this creature.
+</p>
+<hr/>
+<p class="status">
+    <a id="size" name="size">
+        *** Updated 5.12
+        RC3
     </a>
-   </strong>
-   TEMPLATE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a pipe-delimited (|) list of templates
-that are granted to the race.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
-  </p>
-  <p class="indent3">
-   The race uses the "Incorporeal", "Undead" and
-"Celestial" templates.
-  </p>
-  <p class="indent2">
-   <code>Bugbear (Shadowkind).MOD &lt;tab&gt;
-OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt;
-RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt;
-LEVELADJUSTMENT:2</code>
-  </p>
-  <p class="indent3">
-   This modification of the race Bugbear, changes
-all of the indicated tags.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="templateaddchoice" name="templateaddchoice">
-     Tag Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SIZE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (F,D,T,S,M,L,H,G,C)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines the size of the Race. (F=Fine, D=Diminutive, T=Tiny,
+        S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal). Size
+        is used in determining to-hit, AC, and affects some skills.
+    </li>
+    <li>
+        The size designations, including abbreviations, are dependant
+        upon the gamemode used and may be redefined in the
+        sizeadjustments.lst file.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>SIZE</code>
+        tag, the
+        data included in a new
+        <code>SIZE</code>
+        tag will overwrite the
+        existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Special Sizes:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        SIZE:P - Mode: RSRD (35e) - Colossal+ - Restricted to only
+        dragons.
+    </li>
+    <li>
+        SIZE:C - Mode: Spycraft 2 - Vast - .
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SIZE:M</code>
+</p>
+<p class="indent3">
+    The race is of Medium size.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; SIZE:M</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; SIZE:L</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; SIZE:L</code>
+</p>
+<p class="indent3">
+    The creatue is "Large".
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="skillmult" name="skillmult">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SKILLMULT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Skill Multiplier)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Defines the Multiplier of the skill points when the character
+        is first level.
+    </li>
+    <li>
+        Default is x4.
+    </li>
+    <li>
+        Most Multi-hit die creatures have SKILLMULT:1 since adding
+        class levels is done as Multi-Classing.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a race with the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>SKILLMULT</code>
+        tag, the data included in a new
+        <code>SKILLMULT</code>
+        tag will
+        overwrite the existing tag data.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SKILLMULT:1</code>
+</p>
+<p class="indent3">
+    Monsters have x1 since adding class levels is
+    done as Multi-classing.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; SKILLMULT:1</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; SKILLMULT:2</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; SKILLMULT:2</code>
+</p>
+<p class="indent3">
+    The final skill multiplier is "2".
+</p>
+<hr/>
+<p class="status">
+    <a id="startfeats" name="startfeats">
+        *** Updated
+        before 5.12.0
     </a>
-   </strong>
-   TEMPLATE:ADDCHOICE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a pipe-delimited list of template choices that are
-added to the list presented by the original TEMPLATE:CHOOSE
-tag.
-   </li>
-   <li>
-    When using the
-    <code>TEMPLATE:ADDCOICE</code>
-    tag as part of a
-    <code>.MOD</code>
-    of a Race object that containes multiple
-    <code>TEMPLATE:CHOOSE</code>
-    tags, all instances of the
-    <code>TEMPLATE:CHOOSE</code>
-    tag will be modified.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
-  </p>
-  <p class="indent3">
-   The race can choose previously defined templates
-plus the "Demihuman" or "Beast" templates.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="templatechoose" name="templatechoose">
-     Tag Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    STARTFEATS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of Starting Feats)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Grants a number of free feats to the race at first level. These
+        are unrestricted feats. To restrict choice (such as "only Fighter
+        feats") use the global ADD:FEAT() tag.
+    </li>
+    <li>
+        <strong>
+            .MOD Behavior:
+        </strong>
+        When modifying a template, with
+        the
+        <code>.MOD</code>
+        tag, given an existing
+        <code>STARTFEATS</code>
+        tag, the data included in a new
+        <code>STARTFEATS</code>
+        tag will be included as if it were a
+        separate tag.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STARTFEATS:2</code>
+</p>
+<p class="indent3">
+    The race starts with 2 free feats.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>Werewolf &lt;tab&gt;
+        STARTFEATS:2</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Werewolf.MOD &lt;tab&gt;
+        STARTFEATS:2</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Werewolf &lt;tab&gt;
+        STARTFEATS:2 &lt;tab&gt; STARTFEATS:2</code>
+</p>
+<p class="indent3">
+    The Werewolf now starts with 4 free feats.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="template" name="template">
+            Tag
+            Name:
+        </a>
+    </strong>
+    TEMPLATE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a pipe-delimited (|) list of templates
+    that are granted to the race.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
+</p>
+<p class="indent3">
+    The race uses the "Incorporeal", "Undead" and
+    "Celestial" templates.
+</p>
+<p class="indent2">
+    <code>Bugbear (Shadowkind).MOD &lt;tab&gt;
+        OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt;
+        RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt;
+        LEVELADJUSTMENT:2</code>
+</p>
+<p class="indent3">
+    This modification of the race Bugbear, changes
+    all of the indicated tags.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="templateaddchoice" name="templateaddchoice">
+            Tag Name:
+        </a>
+    </strong>
+    TEMPLATE:ADDCHOICE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a pipe-delimited list of template choices that are
+        added to the list presented by the original TEMPLATE:CHOOSE
+        tag.
+    </li>
+    <li>
+        When using the
+        <code>TEMPLATE:ADDCOICE</code>
+        tag as part of a
+        <code>.MOD</code>
+        of a Race object that containes multiple
+        <code>TEMPLATE:CHOOSE</code>
+        tags, all instances of the
+        <code>TEMPLATE:CHOOSE</code>
+        tag will be modified.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
+</p>
+<p class="indent3">
+    The race can choose previously defined templates
+    plus the "Demihuman" or "Beast" templates.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="templatechoose" name="templatechoose">
+            Tag Name:
+        </a>
+    </strong>
+    TEMPLATE:CHOOSE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Will present a popup window of the choices provided in the
+        pipe-delimited (|) list, allowing the user to pick ONE from the
+        list.
+    </li>
+    <li>
+        Multiple
+        <code>TEMPLATE:CHOOSE</code>
+        tags can be used in the
+        same LST object but PCGen's current Data Standard is to include no
+        more that one in each LST object.
+    </li>
+    <li>
+        Although the
+        <code>TEMPLATE:CHOOSE</code>
+        tag is not a gobal
+        tag it can be used in the
+        <a href="datafilesability.html#templatechoose">
+            Ability
+        </a>
+        ,
+        <a href="datafilesclasses.html#templatechoose">
+            Class
+        </a>
+        , and
+        <a href="datafilestemplates.html#templatechoose">
+            Template
+        </a>
+        files.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
+</p>
+<p class="indent3">
+    The race can choose either the "Celestial" or
+    "Outsider" template.
+</p>
+<hr/>
+<p class="status">
+    <strong>
+        <a id="weaponbonus" name="weaponbonus">
+            *** Updated 5.7.12
+        </a>
+    </strong>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    WEAPONBONUS:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Weapon Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TYPE.Text
+    (Weapon Type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a | (pipe) delimited list of weapons or
+    weapon types that are granted to the race as a choice of ONE of the
+    listed weapons.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WEAPONBONUS:Rapier|Longbow</code>
+</p>
+<p class="indent3">
+    The race receives bonus proficiency in "Rapier"
+    or "Longbow".
+</p>
+<p class="indent2">
+    <code>WEAPONBONUS:TYPE.Simple</code>
+</p>
+<p class="indent3">
+    The race receives bonus proficiency in any one
+    Simple weapon.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>Grunt &lt;tab&gt;
+        WEAPONBONUS:TYPE.Simple</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>Grunt.MOD &lt;tab&gt;
+        WEAPONBONUS:TYPE.Martial</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>Grunt &lt;tab&gt;
+        WEAPONBONUS:TYPE.Simple|TYPE.Martial</code>
+    .
+</p>
+<p class="indent3">
+    The Grunt may choose between Simple and Martial
+    weapons for a single bonus weapon proficiency.
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="xtraskillptsperlvl" name="xtraskillptsperlvl">
+        *** Updated Syntax 6.03.02
     </a>
-   </strong>
-   TEMPLATE:CHOOSE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Will present a popup window of the choices provided in the
-pipe-delimited (|) list, allowing the user to pick ONE from the
-list.
-   </li>
-   <li>
-    Multiple
-    <code>TEMPLATE:CHOOSE</code>
-    tags can be used in the
-same LST object but PCGen's current Data Standard is to include no
-more that one in each LST object.
-   </li>
-   <li>
-    Although the
-    <code>TEMPLATE:CHOOSE</code>
-    tag is not a gobal
-tag it can be used in the
-    <a href="datafilesability.html#templatechoose">
-     Ability
-    </a>
-    ,
-    <a href="datafilesclasses.html#templatechoose">
-     Class
-    </a>
-    , and
-    <a href="datafilestemplates.html#templatechoose">
-     Template
-    </a>
-    files.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
-  </p>
-  <p class="indent3">
-   The race can choose either the "Celestial" or
-"Outsider" template.
-  </p>
-  <hr/>
-  <p class="status">
-   <strong>
-    <a id="weaponbonus" name="weaponbonus">
-     *** Updated 5.7.12
-    </a>
-   </strong>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   WEAPONBONUS:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Weapon Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TYPE.Text
-(Weapon Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a | (pipe) delimited list of weapons or
-weapon types that are granted to the race as a choice of ONE of the
-listed weapons.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WEAPONBONUS:Rapier|Longbow</code>
-  </p>
-  <p class="indent3">
-   The race receives bonus proficiency in "Rapier"
-or "Longbow".
-  </p>
-  <p class="indent2">
-   <code>WEAPONBONUS:TYPE.Simple</code>
-  </p>
-  <p class="indent3">
-   The race receives bonus proficiency in any one
-Simple weapon.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>Grunt &lt;tab&gt;
-WEAPONBONUS:TYPE.Simple</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>Grunt.MOD &lt;tab&gt;
-WEAPONBONUS:TYPE.Martial</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>Grunt &lt;tab&gt;
-WEAPONBONUS:TYPE.Simple|TYPE.Martial</code>
-   .
-  </p>
-  <p class="indent3">
-   The Grunt may choose between Simple and Martial
-weapons for a single bonus weapon proficiency.
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="xtraskillptsperlvl" name="xtraskillptsperlvl">
-    *** Updated Syntax 6.03.02
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   XTRASKILLPTSPERLVL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number,
-Variable, or Formula
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Grants a number of skill points to the race for
-free at every character level. This happens before multiplication
-of the first class level's skill points.
-  </p>
-  <p class="sidebar">
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    XTRASKILLPTSPERLVL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number,
+    Variable, or Formula
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Grants a number of skill points to the race for
+    free at every character level. This happens before multiplication
+    of the first class level's skill points.
+</p>
+<p class="sidebar">
    <span class="lstwarning">
     Warning:
    </span>
-   Use of
-this tag on levels greater than first level will lead to unexpected
-behavior.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>XTRASKILLPTSPERLVL:1</code>
-  </p>
-  <p class="indent3">
-   Adds one to the skill points per level (before
-multiplication for the 1st level).
-  </p>
-  <p class="indent2">
-   <code>XTRASKILLPTSPERLVL:HumanSkillBase</code>
-  </p>
-  <p class="indent3">
-   Adds a number of skill points per level (before
-multiplication for the 1st level) equal to the value of the
-variable "HumanSkillBase"".
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Race:
-   <code>&lt;race name&gt;
-&lt;tab&gt; XTRASKILLPTSPERLVL:1</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;race name&gt;.MOD
-&lt;tab&gt; XTRASKILLPTSPERLVL:2</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;race name&gt;
-&lt;tab&gt; XTRASKILLPTSPERLVL:2</code>
-  </p>
-  <p class="indent3">
-   The final extra skill points per level are
-"2".
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    Use of
+    this tag on levels greater than first level will lead to unexpected
+    behavior.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>XTRASKILLPTSPERLVL:1</code>
+</p>
+<p class="indent3">
+    Adds one to the skill points per level (before
+    multiplication for the 1st level).
+</p>
+<p class="indent2">
+    <code>XTRASKILLPTSPERLVL:HumanSkillBase</code>
+</p>
+<p class="indent3">
+    Adds a number of skill points per level (before
+    multiplication for the 1st level) equal to the value of the
+    variable "HumanSkillBase"".
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example:
+    </strong>
+</p>
+<p class="indent2">
+    Initial Race:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; XTRASKILLPTSPERLVL:1</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;race name&gt;.MOD
+        &lt;tab&gt; XTRASKILLPTSPERLVL:2</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;race name&gt;
+        &lt;tab&gt; XTRASKILLPTSPERLVL:2</code>
+</p>
+<p class="indent3">
+    The final extra skill points per level are
+    "2".
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

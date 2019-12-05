@@ -29,105 +29,102 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 public class PrePCLevelParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 
-	//TODO created tests
-	//TODO create writer
-	//TODO create prereqparser
+    //TODO created tests
+    //TODO create writer
+    //TODO create prereqparser
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"PCLEVEL"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"PCLEVEL"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		if (formula.contains("MIN") || formula.contains("MAX"))
-		{
-			StringTokenizer tok = new StringTokenizer(formula, ",");
-			Prerequisite maxPrereq = new Prerequisite();
-			Prerequisite minPrereq = new Prerequisite();
-			boolean hasMin = false;
-			boolean hasMax = false;
-			while (tok.hasMoreTokens())
-			{
-				String value = tok.nextToken();
-				String[] vals = value.split("=");
-				if (vals.length != 2)
-				{
-					throw new PersistenceLayerException("PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
-						+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '" + formula + "' is not valid. ");
+        if (formula.contains("MIN") || formula.contains("MAX"))
+        {
+            StringTokenizer tok = new StringTokenizer(formula, ",");
+            Prerequisite maxPrereq = new Prerequisite();
+            Prerequisite minPrereq = new Prerequisite();
+            boolean hasMin = false;
+            boolean hasMax = false;
+            while (tok.hasMoreTokens())
+            {
+                String value = tok.nextToken();
+                String[] vals = value.split("=");
+                if (vals.length != 2)
+                {
+                    throw new PersistenceLayerException("PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
+                            + "'MIN=x,MAX=y' where 'x' and 'y' are integers. '" + formula + "' is not valid. ");
 
-				}
-				String token = vals[0];
-				String hdVal = vals[1];
-				try
-				{
-					Integer.parseInt(hdVal);
-				}
-				catch (NumberFormatException nfe)
-				{
-					throw new PersistenceLayerException("PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
-						+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '" + formula + "' is not valid: " + hdVal
-						+ " is not an integer", nfe);
-				}
-				if (token.equals("MIN"))
-				{
-					minPrereq.setKind("pclevel");
-					minPrereq.setOperator(PrerequisiteOperator.GTEQ);
-					minPrereq.setOperand(hdVal);
+                }
+                String token = vals[0];
+                String hdVal = vals[1];
+                try
+                {
+                    Integer.parseInt(hdVal);
+                } catch (NumberFormatException nfe)
+                {
+                    throw new PersistenceLayerException("PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
+                            + "'MIN=x,MAX=y' where 'x' and 'y' are integers. '" + formula + "' is not valid: " + hdVal
+                            + " is not an integer", nfe);
+                }
+                if (token.equals("MIN"))
+                {
+                    minPrereq.setKind("pclevel");
+                    minPrereq.setOperator(PrerequisiteOperator.GTEQ);
+                    minPrereq.setOperand(hdVal);
 
-					hasMin = true;
+                    hasMin = true;
 
-				}
-				if (token.equals("MAX"))
-				{
-					maxPrereq.setKind("pclevel");
-					maxPrereq.setOperator(PrerequisiteOperator.LTEQ);
-					maxPrereq.setOperand(hdVal);
-					hasMax = true;
-				}
-			}
-			if (hasMin && hasMax)
-			{
-				prereq.setKind(null); // PREMULT
-				prereq.setOperand("2");
-				prereq.addPrerequisite(minPrereq);
-				prereq.addPrerequisite(maxPrereq);
-			}
-			else if (hasMin)
-			{
-				prereq = minPrereq;
-			}
-			else if (hasMax)
-			{
-				prereq = maxPrereq;
-			}
+                }
+                if (token.equals("MAX"))
+                {
+                    maxPrereq.setKind("pclevel");
+                    maxPrereq.setOperator(PrerequisiteOperator.LTEQ);
+                    maxPrereq.setOperand(hdVal);
+                    hasMax = true;
+                }
+            }
+            if (hasMin && hasMax)
+            {
+                prereq.setKind(null); // PREMULT
+                prereq.setOperand("2");
+                prereq.addPrerequisite(minPrereq);
+                prereq.addPrerequisite(maxPrereq);
+            } else if (hasMin)
+            {
+                prereq = minPrereq;
+            } else if (hasMax)
+            {
+                prereq = maxPrereq;
+            }
 
-		}
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
-		return prereq;
-	}
+        }
+        if (invertResult)
+        {
+            prereq.setOperator(prereq.getOperator().invert());
+        }
+        return prereq;
+    }
 }

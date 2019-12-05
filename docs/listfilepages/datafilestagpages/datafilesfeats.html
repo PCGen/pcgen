@@ -1,1348 +1,1348 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
-                Eric C. Smith - mareduddATblackrootDOTcom
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Eric C. Smith - mareduddATblackrootDOTcom
 
-                Description:
-                Provides information on the content of PCGen Feat Files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Feat Files
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Feat Files
-  </h1>
-  <ul>
-   <li>
-    6.05.04 (July 2015): JIRA
-    <a href="http://jira.pcgen.org/browse/NEWTAG-477">
-     NEWTAG-477
-    </a>
-    / Github
-    <a href="https://github.com/PCGen/pcgen/pull/380">
-     PR #380
-    </a>
-   </li>
-   <li style="list-style: none; display: inline;">
-    <ul class="incremental">
-     <li>
-      The feat files described below is deprecated.
-      <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesability.html">
-       Use the Ability system instead
-      </a>
-      .
-     </li>
-     <li>
-      To implement a feat, write an
-      <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesability.html">
-       ability
-      </a>
-      belonging to the
-      <code>FEAT</code>
-      <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesabilitycategory.html">
-       ability category
-      </a>
-      , i.e.
-      <code>CATEGORY:FEAT</code>
-      .
-     </li>
-     <li>
-      The feats may still be contained in a file called
-      <code>feats.lst</code>
-      (see
-      <code>/data/35e/wizards_of_the_coast/rsrd/basics/feats.lst</code>
-      for an example.) However this file must use the
-      <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesability.html">
-       <code>ability.lst</code>
-       format
-      </a>
-      , not the obsolete format
-described below.
-     </li>
-     <li>
-      All
-      <code>FEAT</code>
-      tags have been
-      <strong>
-       deprecated
-      </strong>
-      and replaced by the
-      <code>ABILITY</code>
-      system, which is more general. The
-      <code>ABILITY</code>
-      system can model feats, racial features, class
-features, traits, flaws, temporary bonuses, and so on, all using a
-common format
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <div class="deprecated">
-   <p>
-    Each feat takes one line and the first field must be the feat's
-name.
-   </p>
-   <hr/>
-   <h2>
-    <a id="featbuilding" name="featbuilding">
-     Building
-Feats
-    </a>
-   </h2>
-   <p class="indent0">
-    <strong>
-     Naming Feats
-    </strong>
-   </p>
-   <p class="indent1">
-    When naming feats you should only use
-parentheses at the end of the name if the name is not duplicated
-elsewhere. This is because of how PCGen names feats which can be
-taken multiple times. For example, the Feat Weapon Focus when taken
-will display as Weapon Focus(Dagger). Another example is Armor
-Proficiency (Light), there is no feat named Armor Proficiency so
-this name is fine. What is happening is when PCGen finds a feat
-with parentheses that duplicates the name of another feat it
-assumes that feat is an instance of the one without parentheses and
-does not display the one with parentheses.
-   </p>
-   <p class="indent2">
-    <code>Improved Critical</code>
-   </p>
-   <p class="indent3">
-    The feat named "Improved Critical" is to be
-created.
-   </p>
-   <p class="indent2">
-    <code>Acrobatic.MOD</code>
-   </p>
-   <p class="indent3">
-    The feat named "Acrobatic" is to be
-modified.
-   </p>
-   <p class="indent2">
-    <code>Occupation (Emergency
-Services).FORGET</code>
-   </p>
-   <p class="indent3">
-    The feat named "Occupation (Emergency Services)"
-is to be forgotten.
-   </p>
-   <p class="indent1">
-    When the
-    <code>POINTPOOLNAME</code>
-    trigger tag
-is present in the
-    <span class="lstfile">
+               Description:
+               Provides information on the content of PCGen Feat Files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Feat Files
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Feat Files
+</h1>
+<ul>
+    <li>
+        6.05.04 (July 2015): JIRA
+        <a href="http://jira.pcgen.org/browse/NEWTAG-477">
+            NEWTAG-477
+        </a>
+        / Github
+        <a href="https://github.com/PCGen/pcgen/pull/380">
+            PR #380
+        </a>
+    </li>
+    <li style="list-style: none; display: inline;">
+        <ul class="incremental">
+            <li>
+                The feat files described below is deprecated.
+                <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesability.html">
+                    Use the Ability system instead
+                </a>
+                .
+            </li>
+            <li>
+                To implement a feat, write an
+                <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesability.html">
+                    ability
+                </a>
+                belonging to the
+                <code>FEAT</code>
+                <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesabilitycategory.html">
+                    ability category
+                </a>
+                , i.e.
+                <code>CATEGORY:FEAT</code>
+                .
+            </li>
+            <li>
+                The feats may still be contained in a file called
+                <code>feats.lst</code>
+                (see
+                <code>/data/35e/wizards_of_the_coast/rsrd/basics/feats.lst</code>
+                for an example.) However this file must use the
+                <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesability.html">
+                    <code>ability.lst</code>
+                    format
+                </a>
+                , not the obsolete format
+                described below.
+            </li>
+            <li>
+                All
+                <code>FEAT</code>
+                tags have been
+                <strong>
+                    deprecated
+                </strong>
+                and replaced by the
+                <code>ABILITY</code>
+                system, which is more general. The
+                <code>ABILITY</code>
+                system can model feats, racial features, class
+                features, traits, flaws, temporary bonuses, and so on, all using a
+                common format
+            </li>
+        </ul>
+    </li>
+</ul>
+<div class="deprecated">
+    <p>
+        Each feat takes one line and the first field must be the feat's
+        name.
+    </p>
+    <hr/>
+    <h2>
+        <a id="featbuilding" name="featbuilding">
+            Building
+            Feats
+        </a>
+    </h2>
+    <p class="indent0">
+        <strong>
+            Naming Feats
+        </strong>
+    </p>
+    <p class="indent1">
+        When naming feats you should only use
+        parentheses at the end of the name if the name is not duplicated
+        elsewhere. This is because of how PCGen names feats which can be
+        taken multiple times. For example, the Feat Weapon Focus when taken
+        will display as Weapon Focus(Dagger). Another example is Armor
+        Proficiency (Light), there is no feat named Armor Proficiency so
+        this name is fine. What is happening is when PCGen finds a feat
+        with parentheses that duplicates the name of another feat it
+        assumes that feat is an instance of the one without parentheses and
+        does not display the one with parentheses.
+    </p>
+    <p class="indent2">
+        <code>Improved Critical</code>
+    </p>
+    <p class="indent3">
+        The feat named "Improved Critical" is to be
+        created.
+    </p>
+    <p class="indent2">
+        <code>Acrobatic.MOD</code>
+    </p>
+    <p class="indent3">
+        The feat named "Acrobatic" is to be
+        modified.
+    </p>
+    <p class="indent2">
+        <code>Occupation (Emergency
+            Services).FORGET</code>
+    </p>
+    <p class="indent3">
+        The feat named "Occupation (Emergency Services)"
+        is to be forgotten.
+    </p>
+    <p class="indent1">
+        When the
+        <code>POINTPOOLNAME</code>
+        trigger tag
+        is present in the
+        <span class="lstfile">
      miscinfo.lst
     </span>
-    file,
-the
-    <strong>
-     Summary Tab
-    </strong>
-    Will display total points/points
-remaining (i.e. Development Points 160/135) on the same line as the
-stat total and stat mod total
-   </p>
-   <p class="indent1">
-    Skills Tab - Instead of skill points by
-class/level requirement to spend skill points, it's just a pool
-this is also populated by the classes STARTSKILLPTS and miscinfo
-SKILLMULTIPLIER
-   </p>
-   <p class="indent1">
-    Feats Tab - Will show total point pool as
-reported on the skills tab
-   </p>
-   <hr/>
-   <h2>
-    <a id="taglist" name="taglist">
-     Feat Tag List
-    </a>
-   </h2>
-   <hr/>
-   <p class="lststatus">
-    <a id="addspelllevel" name="addspelllevel">
-     ***
-Updated 5.16.0
-    </a>
-   </p>
-   <p class="indent0">
-    <strong>
-     Tag Name:
-    </strong>
-    ADDSPELLLEVEL:x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Number
-(Increase in spell slot level)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     This tag is used in metamagic feats to denote how much higher
-the spell level slot requires.
-    </li>
-    <li>
-     <strong>
-      .MOD Behavior:
-     </strong>
-     When modifying a feat with
-the
-     <code>.MOD</code>
-     tag, given an existing
-     <code>ADDSPELLLEVEL</code>
-     tag, the data included in a new
-     <code>ADDSPELLLEVEL</code>
-     tag will overwrite the existing tag
-data.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>ADDSPELLLEVEL:2</code>
-   </p>
-   <p class="indent3">
-    A spell with this metamagic feat applied to it
-takes up a slot two levels higher than the normal spell.
-   </p>
-   <p class="indent1">
-    <strong>
-     .MOD Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; ADDSPELLLEVEL:1</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-ADDSPELLLEVEL:2</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; ADDSPELLLEVEL:2</code>
-   </p>
-   <p class="indent3">
-    Modified feat applied to a spell will causes the
-spell to take up a slot two levels higher than the normal
-spell.
-   </p>
-   <hr/>
-   <p class="lstnew">
-    <a id="appliedname" name="appliedname">
-     *** Added
-6.1.4
-    </a>
-   </p>
-   <p class="indent0">
-    <strong>
-     Tag Name:
-    </strong>
-    APPLIEDNAME:x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text (An
-adjective to be prefixed to a spell modified by this feat)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <p class="indent2">
-    This tag is used in metamagic feat to give an
-addribute that can modify the spell name./p&gt;
-   </p>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>APPLIEDNAME:Empowered</code>
-   </p>
-   <p class="indent3">
-    A spell with this metamagic feat applied to it
-gets the word "Empowered" prefixed to the spell name.
-   </p>
-   <hr/>
-   <p class="lststatus">
-    <a id="aspect" name="aspect">
-     *** New
-5.15.2
-    </a>
-   </p>
-   <p class="indent0">
-    <strong>
-     Tag Name:
-    </strong>
-    ASPECT:x|y|z|z
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text (Name
-of Aspect)
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (y):
-    </strong>
-    Text (Value
-of Aspect)
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (z):
-    </strong>
-    Number or
-Formula (Optional. Used for substitutions in y)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     Identifies an "aspect" (see examples below) that a feat has and
-sets it's value.
-    </li>
-    <li>
-     This tag can be used multiple times within a feat but each time
-it must identify a new aspect.
-    </li>
-    <li>
-     The text in the y variable can use %z for replacing numerical
-values set by the z variable, %1 is replaced by the first z, %2 is
-replaced by the second z, etc..
-    </li>
-    <li>
-     The y text can also use other special variables, also usable in
-the
-     <code>DESC</code>
-     tag:
-     <ul>
-      <li>
-       <code>%CHOICE</code>
-       - Will replace the first associated choice
-in the object.
-      </li>
-      <li>
-       <code>%LIST</code>
-       - Will substitute all choices comma
-separated into that parameter.
-      </li>
-      <li>
-       <code>%NAME</code>
-       - The
-       <code>OUTPUTNAME</code>
-       or name of the
-object this
-       <code>DESC</code>
-       tag is in.
-      </li>
-     </ul>
-    </li>
-    <li>
-     <strong>
-      .MOD Behavior:
-     </strong>
-     When modifying a feat with the
-     <code>.MOD</code>
-     tag, given an existing
-     <code>ASPECT</code>
-     tag,
-the data included in a new
-     <code>ASPECT</code>
-     tag will selectively
-overwrite the existing tag data or include the separate tags. Since
-each aspect name can hold only one value per feat, modifying an
-existing
-     <code>ASPECT</code>
-     tag will overwrite only the value of
-the aspect by that name in the feat, and will add a separate
-     <code>ASPECT</code>
-     tag with a new name.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>ASPECT:Action Type|Standard
-Action</code>
-   </p>
-   <p class="indent3">
-    Identifies the "Action Type" of an action
-performed as part of the associated feat as a "Standard
-Action".
-   </p>
-   <p class="indent2">
-    <code>ASPECT:Attack Type|Melee weapon</code>
-   </p>
-   <p class="indent3">
-    Identifies the "Attack Type" of an attack
-performed as part of the associated feat as a "Melee weapon"
-attack.
-   </p>
-   <p class="indent2">
-    <code>ASPECT:Target|One creature</code>
-   </p>
-   <p class="indent3">
-    Identifies the "Target" of an action performed
-as part of the associated feat as "One creature".
-   </p>
-   <p class="indent2">
-    <code>ASPECT:Attack|Strength vs. AC</code>
-   </p>
-   <p class="indent3">
-    Identifies an "Attack" performed as part of the
-associated feat as "Strength vs. AC".
-   </p>
-   <p class="indent2">
-    <code>ASPECT:Attack Type|Ranged
-%1|PowerRange</code>
-   </p>
-   <p class="indent3">
-    Identifies the "Attack Type" of an attack
-performed as part of the associated feat as a "Ranged" attack with
-a range equivalent to the "PowerRange" variable.
-   </p>
-   <p class="indent2">
-    <code>ASPECT:Effect|Double damage to %CHOICE
-creatures</code>
-   </p>
-   <p class="indent3">
-    Identifies the "Effect" of an action performed
-as part of the associated feat as "Double damage" to the creature
-chosen by the associated chooser.
-   </p>
-   <p class="indent1">
-    <strong>
-     .MOD Example (Overwrite):
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; ASPECT:A1|A2</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-ASPECT:A1|A3</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; ASPECT:A1|A3</code>
-   </p>
-   <p class="indent1">
-    <strong>
-     .MOD Example (Include
-Separately):
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; ASPECT:A1|A2</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-ASPECT:B1|B2</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; ASPECT:A1|A2 &lt;tab&gt; ASPECT:B1|B2</code>
-   </p>
-   <hr/>
-   <p class="indent0">
-    <strong>
-     <a id="benefit" name="benefit">
-      Tag
-Name:
-     </a>
-    </strong>
-    BENEFIT:x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text (feat
-benefit text)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent1">
-    <li>
-     This is the benefit text of the feat from the source
-material.
-    </li>
-    <li>
-     The included text will be displayed in the feat description
-field if the
-     <a href="../../menupages/settings/appearance/appearancedisplay.html">
-      "Display
-Feat Description"
-     </a>
-     checkbox in the Appearance/Display Options
-Preference window is unchecked. Otherwise the text from the
-     <a href="#desc">
-      DESC
-     </a>
-     tag will be displayed.
-    </li>
-    <li>
-     PRExxx tags can be used with the
-     <code>BENEFIT</code>
-     tag.
-    </li>
-    <li>
-     Multiple
-     <code>BENEFIT</code>
-     tags per line are allowed with
-all qualifying
-     <code>BENEFIT</code>
-     tags being concatonated for
-output and separated by spaces.
-    </li>
-    <li>
-     <code>.CLEAR</code>
-     will clear all
-     <code>BENEFIT</code>
-     tags.
-    </li>
-    <li>
-     <code>.CLEAR.(regular expression match)</code>
-     will clear
-specific instances.
-    </li>
-    <li>
-     <code>BENEFIT</code>
-     tags will take variable substitution.
-     <ul>
-      <li>
-       Within the text a % followed by a number will substitute the
-#th variable from the variable list associated with the
-       <code>BENEFIT</code>
-       .
-      </li>
-      <li>
-       Variables are specified after the descriptive text and are
-pipe-delimited (|).
-      </li>
-      <li>
-       The special parameter %% will insert an actual % character into
-the text.
-      </li>
-      <li>
-       If the parameter needs to be next to a number the parameter
-number should be surrounded in curly brackets { }. For example,
-%{1000}gp.
-      </li>
-     </ul>
-    </li>
-    <li>
-     The following special variables are allowed within the variable
-list:
-     <ul>
-      <li>
-       <code>%NAME</code>
-       - The name of the object this
-       <code>BENEFIT</code>
-       tag is in.
-      </li>
-      <li>
-       <code>%FEAT</code>
-       - Will substitute the descriptions of feats
-within the object that match the associated preqrequisites.
-      </li>
-      <li>
-       <code>%CHOICE</code>
-       - Will replace the first associated choice
-in the object.
-      </li>
-      <li>
-       <code>%LIST</code>
-       - Will substitute all choices into that
-parameter as a comma-delimited list.
-      </li>
-     </ul>
-    </li>
-    <li>
-     Formulas can be parsed and the results replaced in the output
-by enclosing the variables and formulas within parentheses.
-     <ul>
-      <li>
-       <a href="#casterlevel">
-        CASTERLEVEL
-       </a>
-       , a variable specifically
-designed for this purpose, is commonly used though other variables
-can be used as well.
-      </li>
-      <li>
-       Because anything within parentheses is assumed to be a formula
-to be parsed, text containing parentheses must substitute brackets
-[ ] in place of parentheses.
-      </li>
-     </ul>
-    </li>
-    <li>
-     <strong>
-      Regular Expressions:
-     </strong>
-     Java has a Regular
-Expression library built in that is very similar to Perl regular
-expressions. Basically it allows for pattern matching in strings.
-You can create fairly powerful match structures using things like
-character groups "[a-zA-Z]" match any alphabetic character or
-groupings "(bat|super)man" match batman or superman and many many
-more. So, for example, you could clear all benefits by doing
-     <code>BENEFIT:.CLEAR..*</code>
-     , or clear all exceptional abilities
-by doing
-     <code>BENEFIT:.CLEAR.\(Ex\)</code>
-     , or clear everything
-that's non-numeric with
-     <code>BENEFIT:.CLEAR.[A-Za-z]</code>
-     .
-    </li>
-    <li>
-     <strong>
-      .MOD Behavior:
-     </strong>
-     When modifying a feat with the
-     <code>.MOD</code>
-     tag, given an existing
-     <code>BENEFIT</code>
-     tag,
-the data included in a new
-     <code>BENEFIT</code>
-     tag will be
-included as a separate tag.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>BENEFIT:This is sample text for the
-example purposes</code>
-   </p>
-   <p class="indent3">
-    Adds feat benefit.
-   </p>
-   <p class="indent1">
-    <strong>
-     .MOD Example (Include
-Separately):
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; BENEFIT:Initial benefit text.</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-BENEFIT:New benefit text.</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; BENEFIT:Initial benefit text. &lt;tab&gt; BENEFIT:New
-benefit text.</code>
-   </p>
-   <p class="indent3">
-    The output of the modified will show the
-following: &amp;quotInitial benefit text. New benefit text."
-   </p>
-   <hr/>
-   <p class="indent0">
-    <strong>
-     <a id="cost" name="cost">
-      Tag
-Name:
-     </a>
-    </strong>
-    COST:x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Number
-(feat point cost)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     This is how many feat points the feat costs. A decimal value,
-as the example below, would mean that it only costs 1/2 a feat
-point.
-    </li>
-    <li>
-     <strong>
-      .MOD Behavior:
-     </strong>
-     When modifying a feat with the
-     <code>.MOD</code>
-     tag, given an existing
-     <code>COST</code>
-     tag, the
-data included in a new
-     <code>COST</code>
-     tag will overwrite the
-existing tag data.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>COST:1</code>
-   </p>
-   <p class="indent3">
-    Feat costs one feat point.
-   </p>
-   <p class="indent2">
-    <code>COST:.5</code>
-   </p>
-   <p class="indent3">
-    Feat costs half a feat point.
-   </p>
-   <p class="indent1">
-    <strong>
-     Default Value:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>1</code>
-   </p>
-   <p class="indent1">
-    <strong>
-     .MOD Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; COST:2</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-COST:1</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;ability name&gt;
-&lt;tab&gt; COST:1</code>
-   </p>
-   <p class="indent3">
-    Modified Feat costs one feat point.
-   </p>
-   <hr/>
-   <p class="lststatus">
-    <a id="modifyfeatchoice" name="modifyfeatchoice">
-     *** New 5.11.x
-    </a>
-   </p>
-   <p class="indent0">
-    <strong>
-     Tag Name:
-    </strong>
-    MODIFYFEATCHOICE:x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text (feat
-name)
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    TYPE=Text
-(feat type)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     This tag allows for a previous feat choice to be replaced by a
-new one.
-    </li>
-    <li>
-     The feat called must allow choices to be a valid ability.
-    </li>
-    <li>
-     <strong>
-      .MOD Behavior:
-     </strong>
-     When modifying an feat with the
-     <code>.MOD</code>
-     tag, given an existing
-     <code>MODIFYFEATCHOICE</code>
-     tag, the data included in a new
-     <code>MODIFYFEATCHOICE</code>
-     tag will overwrite the existing tag
-data.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>MODIFYFEATCHOICE:TYPE=NinjaMonkeySchool</code>
-   </p>
-   <p class="indent3">
-    Allows the selection of a new school from a list
-of schools of type 'NinjaMonkeySchool' to replace a previously
-selected one.
-   </p>
-   <p class="indent2">
-    <code>MODIFYFEATCHOICE:Ninja Monkey Primary
-Weapon Reselection</code>
-   </p>
-   <p class="indent3">
-    Allows a ninja monkey to select a new primary
-weapon, replacing an earlier selected primary weapon.
-   </p>
-   <p class="indent1">
-    <strong>
-     .MOD Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; MODIFYFEATCHOICE:TYPE=NinjaMonkeyChimpSchool</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-MODIFYFEATCHOICE:TYPE=NinjaMonkeySilverbackSchool</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;feat name&gt;
-&lt;tab&gt;
-MODIFYFEATCHOICE:TYPE=NinjaMonkeySilverbackSchool</code>
-   </p>
-   <p class="indent3">
-    Modified feat allows the selection of a new
-school from a list of schools of type 'NinjaMonkeySilverbackSchool'
-to replace a previously selected one.
-   </p>
-   <hr/>
-   <p class="indent0">
-    <strong>
-     <a id="mult" name="mult">
-      Tag
-Name:
-     </a>
-    </strong>
-    MULT:x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Boolean
-(YES/NO)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     This determines if a feat can be taken multiple times. If the
-value is set to YES, then you
-     <strong>
-      MUST
-     </strong>
-     also use a
-     <code>CHOOSE</code>
-     tag.
-    </li>
-    <li>
-     <strong>
-      .MOD Behavior:
-     </strong>
-     When modifying an feat with the
-     <code>.MOD</code>
-     tag, given an existing
-     <code>MULT</code>
-     tag, the
-data included in a new
-     <code>MULT</code>
-     tag will overwrite the
-existing tag data.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>MULT:YES</code>
-   </p>
-   <p class="indent3">
-    This Feat can be taken multiple times.
-   </p>
-   <p class="indent1">
-    <strong>
-     Default Value:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>NO</code>
-   </p>
-   <p class="indent1">
-    <strong>
-     .MOD Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; MULT:YES</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-MULT:NO</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; MULT:NO</code>
-   </p>
-   <p class="indent3">
-    Modified feat cannot be taken multiple
-times.
-   </p>
-   <hr/>
-   <p class="indent0">
-    <strong>
-     <a id="stack" name="stack">
-      Tag
-Name:
-     </a>
-    </strong>
-    STACK:x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Boolean
-(YES/NO)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     This tells PCGen if the feat benefits may be stacked on one
-another.
-    </li>
-    <li>
-     <strong>
-      .MOD Behavior:
-     </strong>
-     When modifying a feat with the
-     <code>.MOD</code>
-     tag, given an existing
-     <code>STACK</code>
-     tag,
-the data included in a new
-     <code>STACK</code>
-     tag will overwrite
-the existing tag data.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>STACK:YES</code>
-   </p>
-   <p class="indent3">
-    This Feat may be stack on itself.
-   </p>
-   <p class="indent1">
-    <strong>
-     Default Value:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>NO</code>
-   </p>
-   <p class="indent1">
-    <strong>
-     feat.MOD Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; STACK:YES</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-STACK:NO</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; STACK:NO</code>
-   </p>
-   <p class="indent3">
-    The benefits for the modified feat will not
-stack with itself if taken multiple times.
-   </p>
-   <hr/>
-   <p class="lststatus">
-    <a id="template" name="template">
-     *** Updated
-5.17.x
-    </a>
-   </p>
-   <p class="indent0">
-    <strong>
-     Tag Name:
-    </strong>
-    TEMPLATE:x|x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text (Name
-of template)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     This is a pipe-delimited (|) list of templates that are granted
-by the feat.
-    </li>
-    <li>
-     Supports
-     <code>%LIST</code>
-     in conjunction with a
-     <code>CHOOSE</code>
-     tag.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>TEMPLATE:Celestial</code>
-   </p>
-   <p class="indent3">
-    Adds the "Celestial" template to the
-character.
-   </p>
-   <p class="indent2">
-    <code>TEMPLATE:Half Dragon
-(Red)|Zombie</code>
-   </p>
-   <p class="indent3">
-    Adds the templates "Half Dragon (Red)" and
-"Zombie" to the character.
-   </p>
-   <hr/>
-   <p class="indent0">
-    <strong>
-     <a id="templateaddchoice" name="templateaddchoice">
-      Tag Name:
-     </a>
-    </strong>
-    TEMPLATE:ADDCHOICE:x|x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text
-(Template Name)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     This is a pipe-delimited list of template choices that are
-added to the list presented by the original
-     <code>TEMPLATE:CHOOSE</code>
-     tag.
-    </li>
-    <li>
-     When using the
-     <code>TEMPLATE:ADDCOICE</code>
-     tag as part of a
-     <code>.MOD</code>
-     of a Feat that containes multiple
-     <code>TEMPLATE:CHOOSE</code>
-     tags, all instances of the
-     <code>TEMPLATE:CHOOSE</code>
-     tag will be modified.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
-   </p>
-   <p class="indent3">
-    The feat allows the selection of previously
-defined templates plus the "Demihuman" or "Beast" templates.
-   </p>
-   <hr/>
-   <p class="indent0">
-    <strong>
-     <a id="templatechoose" name="templatechoose">
-      Tag Name:
-     </a>
-    </strong>
-    TEMPLATE:CHOOSE:x|x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text
-(Template Name)
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     Will present a popup window of the choices provided in the
-pipe-delimited (|) list, allowing the user to pick ONE from the
-list.
-    </li>
-    <li>
-     Multiple
-     <code>TEMPLATE:CHOOSE</code>
-     tags can be used in the
-same LST object but doing so can cause unintended results.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
-   </p>
-   <p class="indent3">
-    The feat allows the selections of either the
-"Celestial" or "Outsider" template.
-   </p>
-   <hr/>
-   <p class="indent0">
-    <strong>
-     <a id="visible" name="visible">
-      Tag
-Name:
-     </a>
-    </strong>
-    VISIBLE:x
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    YES
-(Default)
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    NO
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    DISPLAY
-   </p>
-   <p class="indent1">
-    <strong>
-     Variables Used (x):
-    </strong>
-    EXPORT
-   </p>
-   <p class="indent1">
-    <strong>
-     What it does:
-    </strong>
-   </p>
-   <ul class="indent2">
-    <li>
-     <code>YES</code>
-     - Shows the feat name in PCGen and on export
-to a character sheet.
-    </li>
-    <li>
-     <code>NO</code>
-     - Hides the feat name in PCGen and on export to
-a character sheet.
-    </li>
-    <li>
-     <code>DISPLAY</code>
-     - Displays the feat name in PCGen but not
-on the character sheet.
-    </li>
-    <li>
-     <code>EXPORT</code>
-     - Hides the feat name from PCGen but
-displays it on the character sheet.
-    </li>
-    <li>
-     <strong>
-      .MOD Behavior:
-     </strong>
-     When modifying a feat with the
-     <code>.MOD</code>
-     tag, given an existing
-     <code>VISIBLE</code>
-     tag,
-the data included in a new
-     <code>VISIBLE</code>
-     tag will overwrite
-the existing tag data.
-    </li>
-   </ul>
-   <p class="indent1">
-    <strong>
-     Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    <code>VISIBLE:YES</code>
-   </p>
-   <p class="indent3">
-    Shows the feat name in PCGen and on the Output
-sheet.
-   </p>
-   <p class="indent1">
-    <strong>
-     .MOD Example:
-    </strong>
-   </p>
-   <p class="indent2">
-    Initial Feat:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; VISIBLEE:YES</code>
-   </p>
-   <p class="indent2">
-    Modified By:
-    <code>&lt;feat name&gt; &lt;tab&gt;
-VISIBLE:DISPLAY</code>
-   </p>
-   <p class="indent2">
-    Is Equivalent To:
-    <code>&lt;feat name&gt;
-&lt;tab&gt; VISIBLE:DISPLAY</code>
-   </p>
-   <p class="indent3">
-    Modified feat will appear in the GUI but will
-not appear on the output sheet.
-   </p>
-  </div>
- </body>
+        file,
+        the
+        <strong>
+            Summary Tab
+        </strong>
+        Will display total points/points
+        remaining (i.e. Development Points 160/135) on the same line as the
+        stat total and stat mod total
+    </p>
+    <p class="indent1">
+        Skills Tab - Instead of skill points by
+        class/level requirement to spend skill points, it's just a pool
+        this is also populated by the classes STARTSKILLPTS and miscinfo
+        SKILLMULTIPLIER
+    </p>
+    <p class="indent1">
+        Feats Tab - Will show total point pool as
+        reported on the skills tab
+    </p>
+    <hr/>
+    <h2>
+        <a id="taglist" name="taglist">
+            Feat Tag List
+        </a>
+    </h2>
+    <hr/>
+    <p class="lststatus">
+        <a id="addspelllevel" name="addspelllevel">
+            ***
+            Updated 5.16.0
+        </a>
+    </p>
+    <p class="indent0">
+        <strong>
+            Tag Name:
+        </strong>
+        ADDSPELLLEVEL:x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Number
+        (Increase in spell slot level)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            This tag is used in metamagic feats to denote how much higher
+            the spell level slot requires.
+        </li>
+        <li>
+            <strong>
+                .MOD Behavior:
+            </strong>
+            When modifying a feat with
+            the
+            <code>.MOD</code>
+            tag, given an existing
+            <code>ADDSPELLLEVEL</code>
+            tag, the data included in a new
+            <code>ADDSPELLLEVEL</code>
+            tag will overwrite the existing tag
+            data.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>ADDSPELLLEVEL:2</code>
+    </p>
+    <p class="indent3">
+        A spell with this metamagic feat applied to it
+        takes up a slot two levels higher than the normal spell.
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; ADDSPELLLEVEL:1</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            ADDSPELLLEVEL:2</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; ADDSPELLLEVEL:2</code>
+    </p>
+    <p class="indent3">
+        Modified feat applied to a spell will causes the
+        spell to take up a slot two levels higher than the normal
+        spell.
+    </p>
+    <hr/>
+    <p class="lstnew">
+        <a id="appliedname" name="appliedname">
+            *** Added
+            6.1.4
+        </a>
+    </p>
+    <p class="indent0">
+        <strong>
+            Tag Name:
+        </strong>
+        APPLIEDNAME:x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text (An
+        adjective to be prefixed to a spell modified by this feat)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <p class="indent2">
+        This tag is used in metamagic feat to give an
+        addribute that can modify the spell name./p&gt;
+    </p>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>APPLIEDNAME:Empowered</code>
+    </p>
+    <p class="indent3">
+        A spell with this metamagic feat applied to it
+        gets the word "Empowered" prefixed to the spell name.
+    </p>
+    <hr/>
+    <p class="lststatus">
+        <a id="aspect" name="aspect">
+            *** New
+            5.15.2
+        </a>
+    </p>
+    <p class="indent0">
+        <strong>
+            Tag Name:
+        </strong>
+        ASPECT:x|y|z|z
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text (Name
+        of Aspect)
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (y):
+        </strong>
+        Text (Value
+        of Aspect)
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (z):
+        </strong>
+        Number or
+        Formula (Optional. Used for substitutions in y)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            Identifies an "aspect" (see examples below) that a feat has and
+            sets it's value.
+        </li>
+        <li>
+            This tag can be used multiple times within a feat but each time
+            it must identify a new aspect.
+        </li>
+        <li>
+            The text in the y variable can use %z for replacing numerical
+            values set by the z variable, %1 is replaced by the first z, %2 is
+            replaced by the second z, etc..
+        </li>
+        <li>
+            The y text can also use other special variables, also usable in
+            the
+            <code>DESC</code>
+            tag:
+            <ul>
+                <li>
+                    <code>%CHOICE</code>
+                    - Will replace the first associated choice
+                    in the object.
+                </li>
+                <li>
+                    <code>%LIST</code>
+                    - Will substitute all choices comma
+                    separated into that parameter.
+                </li>
+                <li>
+                    <code>%NAME</code>
+                    - The
+                    <code>OUTPUTNAME</code>
+                    or name of the
+                    object this
+                    <code>DESC</code>
+                    tag is in.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>
+                .MOD Behavior:
+            </strong>
+            When modifying a feat with the
+            <code>.MOD</code>
+            tag, given an existing
+            <code>ASPECT</code>
+            tag,
+            the data included in a new
+            <code>ASPECT</code>
+            tag will selectively
+            overwrite the existing tag data or include the separate tags. Since
+            each aspect name can hold only one value per feat, modifying an
+            existing
+            <code>ASPECT</code>
+            tag will overwrite only the value of
+            the aspect by that name in the feat, and will add a separate
+            <code>ASPECT</code>
+            tag with a new name.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>ASPECT:Action Type|Standard
+            Action</code>
+    </p>
+    <p class="indent3">
+        Identifies the "Action Type" of an action
+        performed as part of the associated feat as a "Standard
+        Action".
+    </p>
+    <p class="indent2">
+        <code>ASPECT:Attack Type|Melee weapon</code>
+    </p>
+    <p class="indent3">
+        Identifies the "Attack Type" of an attack
+        performed as part of the associated feat as a "Melee weapon"
+        attack.
+    </p>
+    <p class="indent2">
+        <code>ASPECT:Target|One creature</code>
+    </p>
+    <p class="indent3">
+        Identifies the "Target" of an action performed
+        as part of the associated feat as "One creature".
+    </p>
+    <p class="indent2">
+        <code>ASPECT:Attack|Strength vs. AC</code>
+    </p>
+    <p class="indent3">
+        Identifies an "Attack" performed as part of the
+        associated feat as "Strength vs. AC".
+    </p>
+    <p class="indent2">
+        <code>ASPECT:Attack Type|Ranged
+            %1|PowerRange</code>
+    </p>
+    <p class="indent3">
+        Identifies the "Attack Type" of an attack
+        performed as part of the associated feat as a "Ranged" attack with
+        a range equivalent to the "PowerRange" variable.
+    </p>
+    <p class="indent2">
+        <code>ASPECT:Effect|Double damage to %CHOICE
+            creatures</code>
+    </p>
+    <p class="indent3">
+        Identifies the "Effect" of an action performed
+        as part of the associated feat as "Double damage" to the creature
+        chosen by the associated chooser.
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example (Overwrite):
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; ASPECT:A1|A2</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            ASPECT:A1|A3</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; ASPECT:A1|A3</code>
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example (Include
+            Separately):
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; ASPECT:A1|A2</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            ASPECT:B1|B2</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; ASPECT:A1|A2 &lt;tab&gt; ASPECT:B1|B2</code>
+    </p>
+    <hr/>
+    <p class="indent0">
+        <strong>
+            <a id="benefit" name="benefit">
+                Tag
+                Name:
+            </a>
+        </strong>
+        BENEFIT:x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text (feat
+        benefit text)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent1">
+        <li>
+            This is the benefit text of the feat from the source
+            material.
+        </li>
+        <li>
+            The included text will be displayed in the feat description
+            field if the
+            <a href="../../menupages/settings/appearance/appearancedisplay.html">
+                "Display
+                Feat Description"
+            </a>
+            checkbox in the Appearance/Display Options
+            Preference window is unchecked. Otherwise the text from the
+            <a href="#desc">
+                DESC
+            </a>
+            tag will be displayed.
+        </li>
+        <li>
+            PRExxx tags can be used with the
+            <code>BENEFIT</code>
+            tag.
+        </li>
+        <li>
+            Multiple
+            <code>BENEFIT</code>
+            tags per line are allowed with
+            all qualifying
+            <code>BENEFIT</code>
+            tags being concatonated for
+            output and separated by spaces.
+        </li>
+        <li>
+            <code>.CLEAR</code>
+            will clear all
+            <code>BENEFIT</code>
+            tags.
+        </li>
+        <li>
+            <code>.CLEAR.(regular expression match)</code>
+            will clear
+            specific instances.
+        </li>
+        <li>
+            <code>BENEFIT</code>
+            tags will take variable substitution.
+            <ul>
+                <li>
+                    Within the text a % followed by a number will substitute the
+                    #th variable from the variable list associated with the
+                    <code>BENEFIT</code>
+                    .
+                </li>
+                <li>
+                    Variables are specified after the descriptive text and are
+                    pipe-delimited (|).
+                </li>
+                <li>
+                    The special parameter %% will insert an actual % character into
+                    the text.
+                </li>
+                <li>
+                    If the parameter needs to be next to a number the parameter
+                    number should be surrounded in curly brackets { }. For example,
+                    %{1000}gp.
+                </li>
+            </ul>
+        </li>
+        <li>
+            The following special variables are allowed within the variable
+            list:
+            <ul>
+                <li>
+                    <code>%NAME</code>
+                    - The name of the object this
+                    <code>BENEFIT</code>
+                    tag is in.
+                </li>
+                <li>
+                    <code>%FEAT</code>
+                    - Will substitute the descriptions of feats
+                    within the object that match the associated preqrequisites.
+                </li>
+                <li>
+                    <code>%CHOICE</code>
+                    - Will replace the first associated choice
+                    in the object.
+                </li>
+                <li>
+                    <code>%LIST</code>
+                    - Will substitute all choices into that
+                    parameter as a comma-delimited list.
+                </li>
+            </ul>
+        </li>
+        <li>
+            Formulas can be parsed and the results replaced in the output
+            by enclosing the variables and formulas within parentheses.
+            <ul>
+                <li>
+                    <a href="#casterlevel">
+                        CASTERLEVEL
+                    </a>
+                    , a variable specifically
+                    designed for this purpose, is commonly used though other variables
+                    can be used as well.
+                </li>
+                <li>
+                    Because anything within parentheses is assumed to be a formula
+                    to be parsed, text containing parentheses must substitute brackets
+                    [ ] in place of parentheses.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>
+                Regular Expressions:
+            </strong>
+            Java has a Regular
+            Expression library built in that is very similar to Perl regular
+            expressions. Basically it allows for pattern matching in strings.
+            You can create fairly powerful match structures using things like
+            character groups "[a-zA-Z]" match any alphabetic character or
+            groupings "(bat|super)man" match batman or superman and many many
+            more. So, for example, you could clear all benefits by doing
+            <code>BENEFIT:.CLEAR..*</code>
+            , or clear all exceptional abilities
+            by doing
+            <code>BENEFIT:.CLEAR.\(Ex\)</code>
+            , or clear everything
+            that's non-numeric with
+            <code>BENEFIT:.CLEAR.[A-Za-z]</code>
+            .
+        </li>
+        <li>
+            <strong>
+                .MOD Behavior:
+            </strong>
+            When modifying a feat with the
+            <code>.MOD</code>
+            tag, given an existing
+            <code>BENEFIT</code>
+            tag,
+            the data included in a new
+            <code>BENEFIT</code>
+            tag will be
+            included as a separate tag.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>BENEFIT:This is sample text for the
+            example purposes</code>
+    </p>
+    <p class="indent3">
+        Adds feat benefit.
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example (Include
+            Separately):
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; BENEFIT:Initial benefit text.</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            BENEFIT:New benefit text.</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; BENEFIT:Initial benefit text. &lt;tab&gt; BENEFIT:New
+            benefit text.</code>
+    </p>
+    <p class="indent3">
+        The output of the modified will show the
+        following: &amp;quotInitial benefit text. New benefit text."
+    </p>
+    <hr/>
+    <p class="indent0">
+        <strong>
+            <a id="cost" name="cost">
+                Tag
+                Name:
+            </a>
+        </strong>
+        COST:x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Number
+        (feat point cost)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            This is how many feat points the feat costs. A decimal value,
+            as the example below, would mean that it only costs 1/2 a feat
+            point.
+        </li>
+        <li>
+            <strong>
+                .MOD Behavior:
+            </strong>
+            When modifying a feat with the
+            <code>.MOD</code>
+            tag, given an existing
+            <code>COST</code>
+            tag, the
+            data included in a new
+            <code>COST</code>
+            tag will overwrite the
+            existing tag data.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>COST:1</code>
+    </p>
+    <p class="indent3">
+        Feat costs one feat point.
+    </p>
+    <p class="indent2">
+        <code>COST:.5</code>
+    </p>
+    <p class="indent3">
+        Feat costs half a feat point.
+    </p>
+    <p class="indent1">
+        <strong>
+            Default Value:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>1</code>
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; COST:2</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            COST:1</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;ability name&gt;
+            &lt;tab&gt; COST:1</code>
+    </p>
+    <p class="indent3">
+        Modified Feat costs one feat point.
+    </p>
+    <hr/>
+    <p class="lststatus">
+        <a id="modifyfeatchoice" name="modifyfeatchoice">
+            *** New 5.11.x
+        </a>
+    </p>
+    <p class="indent0">
+        <strong>
+            Tag Name:
+        </strong>
+        MODIFYFEATCHOICE:x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text (feat
+        name)
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        TYPE=Text
+        (feat type)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            This tag allows for a previous feat choice to be replaced by a
+            new one.
+        </li>
+        <li>
+            The feat called must allow choices to be a valid ability.
+        </li>
+        <li>
+            <strong>
+                .MOD Behavior:
+            </strong>
+            When modifying an feat with the
+            <code>.MOD</code>
+            tag, given an existing
+            <code>MODIFYFEATCHOICE</code>
+            tag, the data included in a new
+            <code>MODIFYFEATCHOICE</code>
+            tag will overwrite the existing tag
+            data.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>MODIFYFEATCHOICE:TYPE=NinjaMonkeySchool</code>
+    </p>
+    <p class="indent3">
+        Allows the selection of a new school from a list
+        of schools of type 'NinjaMonkeySchool' to replace a previously
+        selected one.
+    </p>
+    <p class="indent2">
+        <code>MODIFYFEATCHOICE:Ninja Monkey Primary
+            Weapon Reselection</code>
+    </p>
+    <p class="indent3">
+        Allows a ninja monkey to select a new primary
+        weapon, replacing an earlier selected primary weapon.
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; MODIFYFEATCHOICE:TYPE=NinjaMonkeyChimpSchool</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            MODIFYFEATCHOICE:TYPE=NinjaMonkeySilverbackSchool</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt;
+            MODIFYFEATCHOICE:TYPE=NinjaMonkeySilverbackSchool</code>
+    </p>
+    <p class="indent3">
+        Modified feat allows the selection of a new
+        school from a list of schools of type 'NinjaMonkeySilverbackSchool'
+        to replace a previously selected one.
+    </p>
+    <hr/>
+    <p class="indent0">
+        <strong>
+            <a id="mult" name="mult">
+                Tag
+                Name:
+            </a>
+        </strong>
+        MULT:x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Boolean
+        (YES/NO)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            This determines if a feat can be taken multiple times. If the
+            value is set to YES, then you
+            <strong>
+                MUST
+            </strong>
+            also use a
+            <code>CHOOSE</code>
+            tag.
+        </li>
+        <li>
+            <strong>
+                .MOD Behavior:
+            </strong>
+            When modifying an feat with the
+            <code>.MOD</code>
+            tag, given an existing
+            <code>MULT</code>
+            tag, the
+            data included in a new
+            <code>MULT</code>
+            tag will overwrite the
+            existing tag data.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>MULT:YES</code>
+    </p>
+    <p class="indent3">
+        This Feat can be taken multiple times.
+    </p>
+    <p class="indent1">
+        <strong>
+            Default Value:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>NO</code>
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; MULT:YES</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            MULT:NO</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; MULT:NO</code>
+    </p>
+    <p class="indent3">
+        Modified feat cannot be taken multiple
+        times.
+    </p>
+    <hr/>
+    <p class="indent0">
+        <strong>
+            <a id="stack" name="stack">
+                Tag
+                Name:
+            </a>
+        </strong>
+        STACK:x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Boolean
+        (YES/NO)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            This tells PCGen if the feat benefits may be stacked on one
+            another.
+        </li>
+        <li>
+            <strong>
+                .MOD Behavior:
+            </strong>
+            When modifying a feat with the
+            <code>.MOD</code>
+            tag, given an existing
+            <code>STACK</code>
+            tag,
+            the data included in a new
+            <code>STACK</code>
+            tag will overwrite
+            the existing tag data.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>STACK:YES</code>
+    </p>
+    <p class="indent3">
+        This Feat may be stack on itself.
+    </p>
+    <p class="indent1">
+        <strong>
+            Default Value:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>NO</code>
+    </p>
+    <p class="indent1">
+        <strong>
+            feat.MOD Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; STACK:YES</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            STACK:NO</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; STACK:NO</code>
+    </p>
+    <p class="indent3">
+        The benefits for the modified feat will not
+        stack with itself if taken multiple times.
+    </p>
+    <hr/>
+    <p class="lststatus">
+        <a id="template" name="template">
+            *** Updated
+            5.17.x
+        </a>
+    </p>
+    <p class="indent0">
+        <strong>
+            Tag Name:
+        </strong>
+        TEMPLATE:x|x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text (Name
+        of template)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            This is a pipe-delimited (|) list of templates that are granted
+            by the feat.
+        </li>
+        <li>
+            Supports
+            <code>%LIST</code>
+            in conjunction with a
+            <code>CHOOSE</code>
+            tag.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>TEMPLATE:Celestial</code>
+    </p>
+    <p class="indent3">
+        Adds the "Celestial" template to the
+        character.
+    </p>
+    <p class="indent2">
+        <code>TEMPLATE:Half Dragon
+            (Red)|Zombie</code>
+    </p>
+    <p class="indent3">
+        Adds the templates "Half Dragon (Red)" and
+        "Zombie" to the character.
+    </p>
+    <hr/>
+    <p class="indent0">
+        <strong>
+            <a id="templateaddchoice" name="templateaddchoice">
+                Tag Name:
+            </a>
+        </strong>
+        TEMPLATE:ADDCHOICE:x|x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text
+        (Template Name)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            This is a pipe-delimited list of template choices that are
+            added to the list presented by the original
+            <code>TEMPLATE:CHOOSE</code>
+            tag.
+        </li>
+        <li>
+            When using the
+            <code>TEMPLATE:ADDCOICE</code>
+            tag as part of a
+            <code>.MOD</code>
+            of a Feat that containes multiple
+            <code>TEMPLATE:CHOOSE</code>
+            tags, all instances of the
+            <code>TEMPLATE:CHOOSE</code>
+            tag will be modified.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
+    </p>
+    <p class="indent3">
+        The feat allows the selection of previously
+        defined templates plus the "Demihuman" or "Beast" templates.
+    </p>
+    <hr/>
+    <p class="indent0">
+        <strong>
+            <a id="templatechoose" name="templatechoose">
+                Tag Name:
+            </a>
+        </strong>
+        TEMPLATE:CHOOSE:x|x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text
+        (Template Name)
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            Will present a popup window of the choices provided in the
+            pipe-delimited (|) list, allowing the user to pick ONE from the
+            list.
+        </li>
+        <li>
+            Multiple
+            <code>TEMPLATE:CHOOSE</code>
+            tags can be used in the
+            same LST object but doing so can cause unintended results.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
+    </p>
+    <p class="indent3">
+        The feat allows the selections of either the
+        "Celestial" or "Outsider" template.
+    </p>
+    <hr/>
+    <p class="indent0">
+        <strong>
+            <a id="visible" name="visible">
+                Tag
+                Name:
+            </a>
+        </strong>
+        VISIBLE:x
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        YES
+        (Default)
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        NO
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        DISPLAY
+    </p>
+    <p class="indent1">
+        <strong>
+            Variables Used (x):
+        </strong>
+        EXPORT
+    </p>
+    <p class="indent1">
+        <strong>
+            What it does:
+        </strong>
+    </p>
+    <ul class="indent2">
+        <li>
+            <code>YES</code>
+            - Shows the feat name in PCGen and on export
+            to a character sheet.
+        </li>
+        <li>
+            <code>NO</code>
+            - Hides the feat name in PCGen and on export to
+            a character sheet.
+        </li>
+        <li>
+            <code>DISPLAY</code>
+            - Displays the feat name in PCGen but not
+            on the character sheet.
+        </li>
+        <li>
+            <code>EXPORT</code>
+            - Hides the feat name from PCGen but
+            displays it on the character sheet.
+        </li>
+        <li>
+            <strong>
+                .MOD Behavior:
+            </strong>
+            When modifying a feat with the
+            <code>.MOD</code>
+            tag, given an existing
+            <code>VISIBLE</code>
+            tag,
+            the data included in a new
+            <code>VISIBLE</code>
+            tag will overwrite
+            the existing tag data.
+        </li>
+    </ul>
+    <p class="indent1">
+        <strong>
+            Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        <code>VISIBLE:YES</code>
+    </p>
+    <p class="indent3">
+        Shows the feat name in PCGen and on the Output
+        sheet.
+    </p>
+    <p class="indent1">
+        <strong>
+            .MOD Example:
+        </strong>
+    </p>
+    <p class="indent2">
+        Initial Feat:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; VISIBLEE:YES</code>
+    </p>
+    <p class="indent2">
+        Modified By:
+        <code>&lt;feat name&gt; &lt;tab&gt;
+            VISIBLE:DISPLAY</code>
+    </p>
+    <p class="indent2">
+        Is Equivalent To:
+        <code>&lt;feat name&gt;
+            &lt;tab&gt; VISIBLE:DISPLAY</code>
+    </p>
+    <p class="indent3">
+        Modified feat will appear in the GUI but will
+        not appear on the output sheet.
+    </p>
+</div>
+</body>
 </html>

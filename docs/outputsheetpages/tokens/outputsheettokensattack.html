@@ -1,266 +1,266 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Sigurdur H. Olafsson - shoATtnDOTis
-                
-                Description:
-                Provides information on the use of PCGen Outputsheet Tokens.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Attack Related Output Sheet Tokens
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Attack Related Output Sheet Tokens
-  </h1>
-  <p>
-   The below Tokens control how attack unarmed damage and
-initiative information is presented in Output Sheets (OS).
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="attack" name="attack">
-     Token
-Name:
-    </a>
-   </strong>
-   ATTACK.x.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Attack Type)
-  </p>
-  <ul class="indent2">
-   <li>
-    GRAPPLE - Displays the property selected for Grapple
-attacks.
-   </li>
-   <li>
-    MELEE - Displays the property selected for Melee attacks.
-   </li>
-   <li>
-    RANGED - Displays the property selected for Ranged
-attacks.
-   </li>
-   <li>
-    UNARMED - Displays the property selected for Unarmed
-attacks.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Attack Property)
-  </p>
-  <ul class="indent2">
-   <li>
-    none - Displays the appropriate Base Attack Bonus with no
-modifiers (output: +16/+11/+6).
-   </li>
-   <li>
-    BASE - Displays just the Base Attack Bonus. (output: 16).
-   </li>
-   <li>
-    EPIC - Displays the Epic bonus to Attack. Output is delta
-between level 20 BAB and Epic Level BAB (Must be TYPE=EPIC).
-   </li>
-   <li>
-    MISC - Displays the sum of all bonuses/penalties, except size
-and ability. (output: +1).
-   </li>
-   <li>
-    SIZE - Displays the bonus/penalty due to size. (output:
-+1).
-   </li>
-   <li>
-    SHORT - Displays just the highest attack bonus. i.e no
-iteratives (output: +16).
-   </li>
-   <li>
-    STAT - Displays the bonus/penalty due to ability. (output:
-+2).
-   </li>
-   <li>
-    TOTAL - Displays the appropriate Base Attack Bonus + all
-modifiers (output: +20/+15/+10).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Optional
-Text (Formatting
-  </p>
-  <ul class="indent2">
-   <li>
-    none - Displays the appropriate attack bonus (output:
-+16/+11/+6).
-   </li>
-   <li>
-    SHORT - Displays just the highest attack bonus. i.e no
-iteratives (output: +16).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays appropriate attack information.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ATTACK.GRAPPLE</code>
-  </p>
-  <p class="indent3">
-   Displays the Grapple Attack Bonus with no
-modifiers.
-  </p>
-  <p class="indent2">
-   <code>ATTACK.GRAPPLE.TOTAL.SHORT</code>
-  </p>
-  <p class="indent3">
-   Displays a single Grapple Attack Bonus with all
-modifiers but no iteratives shown. e.g. +16
-  </p>
-  <p class="indent2">
-   <code>ATTACK.MELEE.BASE</code>
-  </p>
-  <p class="indent3">
-   Displays the Melee Base Attack Bonus
-  </p>
-  <p class="indent2">
-   <code>ATTACK.RANGED.STAT</code>
-  </p>
-  <p class="indent3">
-   Displays the Ranged bonus/penalty due to the
-corresponding ability score.
-  </p>
-  <p class="indent2">
-   <code>ATTACK.UNARMED.TOTAL</code>
-  </p>
-  <p class="indent3">
-   Displays the total Unarmed Attack Bonus.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="damage.unarmed" name="damage.unarmed">
-     Token Name:
-    </a>
-   </strong>
-   DAMAGE.UNARMED
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays unarmed damage value (includes STR
-mod). It applies any DAMAGE Modifiers applied to Melee attacks to
-the Unarmed damage.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DAMAGE.UNARMED</code>
-  </p>
-  <p class="indent3">
-   Displays unarmed damage value.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="initiativemisc" name="initiativemisc">
-     Token Name:
-    </a>
-   </strong>
-   INITIATIVEMISC
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays your adjustment to initiative (excludes
-dexterity modifier). This will contain +4 if you have the improved
-initiative feat).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>INITIATIVEMISC</code>
-  </p>
-  <p class="indent3">
-   Displays your adjustment to initiative excluding
-any dexterity modifer.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="initiativemod" name="initiativemod">
-     Token Name:
-    </a>
-   </strong>
-   INITIATIVEMOD
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays your adjustment to initiative
-(including dexterity modifier and +4 if you have the Improved
-Initiative feat).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>INITIATIVEMOD</code>
-  </p>
-  <p class="indent3">
-   Displays your adjustment to initiative.
-  </p>
-  <p>
-  </p>
- </body>
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Sigurdur H. Olafsson - shoATtnDOTis
+
+               Description:
+               Provides information on the use of PCGen Outputsheet Tokens.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Attack Related Output Sheet Tokens
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Attack Related Output Sheet Tokens
+</h1>
+<p>
+    The below Tokens control how attack unarmed damage and
+    initiative information is presented in Output Sheets (OS).
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="attack" name="attack">
+            Token
+            Name:
+        </a>
+    </strong>
+    ATTACK.x.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Attack Type)
+</p>
+<ul class="indent2">
+    <li>
+        GRAPPLE - Displays the property selected for Grapple
+        attacks.
+    </li>
+    <li>
+        MELEE - Displays the property selected for Melee attacks.
+    </li>
+    <li>
+        RANGED - Displays the property selected for Ranged
+        attacks.
+    </li>
+    <li>
+        UNARMED - Displays the property selected for Unarmed
+        attacks.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Attack Property)
+</p>
+<ul class="indent2">
+    <li>
+        none - Displays the appropriate Base Attack Bonus with no
+        modifiers (output: +16/+11/+6).
+    </li>
+    <li>
+        BASE - Displays just the Base Attack Bonus. (output: 16).
+    </li>
+    <li>
+        EPIC - Displays the Epic bonus to Attack. Output is delta
+        between level 20 BAB and Epic Level BAB (Must be TYPE=EPIC).
+    </li>
+    <li>
+        MISC - Displays the sum of all bonuses/penalties, except size
+        and ability. (output: +1).
+    </li>
+    <li>
+        SIZE - Displays the bonus/penalty due to size. (output:
+        +1).
+    </li>
+    <li>
+        SHORT - Displays just the highest attack bonus. i.e no
+        iteratives (output: +16).
+    </li>
+    <li>
+        STAT - Displays the bonus/penalty due to ability. (output:
+        +2).
+    </li>
+    <li>
+        TOTAL - Displays the appropriate Base Attack Bonus + all
+        modifiers (output: +20/+15/+10).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Optional
+    Text (Formatting
+</p>
+<ul class="indent2">
+    <li>
+        none - Displays the appropriate attack bonus (output:
+        +16/+11/+6).
+    </li>
+    <li>
+        SHORT - Displays just the highest attack bonus. i.e no
+        iteratives (output: +16).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays appropriate attack information.
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ATTACK.GRAPPLE</code>
+</p>
+<p class="indent3">
+    Displays the Grapple Attack Bonus with no
+    modifiers.
+</p>
+<p class="indent2">
+    <code>ATTACK.GRAPPLE.TOTAL.SHORT</code>
+</p>
+<p class="indent3">
+    Displays a single Grapple Attack Bonus with all
+    modifiers but no iteratives shown. e.g. +16
+</p>
+<p class="indent2">
+    <code>ATTACK.MELEE.BASE</code>
+</p>
+<p class="indent3">
+    Displays the Melee Base Attack Bonus
+</p>
+<p class="indent2">
+    <code>ATTACK.RANGED.STAT</code>
+</p>
+<p class="indent3">
+    Displays the Ranged bonus/penalty due to the
+    corresponding ability score.
+</p>
+<p class="indent2">
+    <code>ATTACK.UNARMED.TOTAL</code>
+</p>
+<p class="indent3">
+    Displays the total Unarmed Attack Bonus.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="damage.unarmed" name="damage.unarmed">
+            Token Name:
+        </a>
+    </strong>
+    DAMAGE.UNARMED
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays unarmed damage value (includes STR
+    mod). It applies any DAMAGE Modifiers applied to Melee attacks to
+    the Unarmed damage.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DAMAGE.UNARMED</code>
+</p>
+<p class="indent3">
+    Displays unarmed damage value.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="initiativemisc" name="initiativemisc">
+            Token Name:
+        </a>
+    </strong>
+    INITIATIVEMISC
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays your adjustment to initiative (excludes
+    dexterity modifier). This will contain +4 if you have the improved
+    initiative feat).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>INITIATIVEMISC</code>
+</p>
+<p class="indent3">
+    Displays your adjustment to initiative excluding
+    any dexterity modifer.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="initiativemod" name="initiativemod">
+            Token Name:
+        </a>
+    </strong>
+    INITIATIVEMOD
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays your adjustment to initiative
+    (including dexterity modifier and +4 if you have the Improved
+    Initiative feat).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>INITIATIVEMOD</code>
+</p>
+<p class="indent3">
+    Displays your adjustment to initiative.
+</p>
+<p>
+</p>
+</body>
 </html>

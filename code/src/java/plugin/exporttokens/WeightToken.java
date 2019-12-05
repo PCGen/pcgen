@@ -26,64 +26,61 @@ import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * {@code WeightToken}.
- * 
+ * <p>
  * Formats:	WEIGHT
- * 			WEIGHT.NOUNIT
- * 			WEIGHT.x
- * 
+ * WEIGHT.NOUNIT
+ * WEIGHT.x
  */
 public class WeightToken extends AbstractExportToken
 {
-	/**
-	 * Gets the token name
-	 * 
-	 * @return The token name.
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "WEIGHT";
-	}
+    /**
+     * Gets the token name
+     *
+     * @return The token name.
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "WEIGHT";
+    }
 
-	/**
-	 * Get the value of the token.
-	 *
-	 * @param tokenSource The full source of the token
-	 * @param display The character to retrieve the value for.
-	 * @param eh The ExportHandler that is managing the export.
-	 * @return The value of the token.
-	 */
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
+    /**
+     * Get the value of the token.
+     *
+     * @param tokenSource The full source of the token
+     * @param display     The character to retrieve the value for.
+     * @param eh          The ExportHandler that is managing the export.
+     * @return The value of the token.
+     */
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
 
-		boolean suppressPcWeight = display.getSuppressBioField(BiographyField.WEIGHT);
-		if ("WEIGHT".equals(tokenSource))
-		{
-			retString = suppressPcWeight ? "" : getWeightToken(display);
-		}
-		else if ("WEIGHT.NOUNIT".equals(tokenSource))
-		{
-			retString = suppressPcWeight ? "" : getNoUnitWeight(display);
-		}
-		else
-		{
-			String type = tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
-			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getLoadToken(type));
-		}
+        boolean suppressPcWeight = display.getSuppressBioField(BiographyField.WEIGHT);
+        if ("WEIGHT".equals(tokenSource))
+        {
+            retString = suppressPcWeight ? "" : getWeightToken(display);
+        } else if ("WEIGHT.NOUNIT".equals(tokenSource))
+        {
+            retString = suppressPcWeight ? "" : getNoUnitWeight(display);
+        } else
+        {
+            String type = tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
+            retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getLoadToken(type));
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	private String getNoUnitWeight(CharacterDisplay display)
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getWeight());
-	}
+    private String getNoUnitWeight(CharacterDisplay display)
+    {
+        return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getWeight());
+    }
 
-	private String getWeightToken(CharacterDisplay display)
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getWeight())
-			+ Globals.getGameModeUnitSet().getWeightUnit();
-	}
+    private String getWeightToken(CharacterDisplay display)
+    {
+        return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getWeight())
+                + Globals.getGameModeUnitSet().getWeightUnit();
+    }
 }

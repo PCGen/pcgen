@@ -23,37 +23,33 @@ import pcgen.util.Logging;
 
 /**
  * {@code LevelToken} parses the LEVEL tag for the game mode
- * file level.lst. 
- *
- * 
- * 
+ * file level.lst.
  */
 public class LevelToken implements LevelLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "LEVEL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LEVEL";
+    }
 
-	@Override
-	public boolean parse(LevelInfo levelInfo, String value)
-	{
-		if (!value.equals("LEVEL"))
-		{
-			try
-			{
-				Integer.parseInt(value);
-			}
-			catch (NumberFormatException e)
-			{
-				Logging.errorPrint(
-					"Invalid " + getTokenName() + " value: '" + value + "'. Value must be either LEVEL or a number.");
-				return false;
-			}
-		}
-		levelInfo.setLevelString(value);
-		return true;
-	}
+    @Override
+    public boolean parse(LevelInfo levelInfo, String value)
+    {
+        if (!value.equals("LEVEL"))
+        {
+            try
+            {
+                Integer.parseInt(value);
+            } catch (NumberFormatException e)
+            {
+                Logging.errorPrint(
+                        "Invalid " + getTokenName() + " value: '" + value + "'. Value must be either LEVEL or a number.");
+                return false;
+            }
+        }
+        levelInfo.setLevelString(value);
+        return true;
+    }
 }

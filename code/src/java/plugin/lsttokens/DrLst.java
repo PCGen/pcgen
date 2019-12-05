@@ -41,105 +41,104 @@ import pcgen.rules.persistence.token.ParseResult;
 
 public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "DR";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DR";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		if (obj instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
-		}
-		if (Constants.LST_DOT_CLEAR.equals(value))
-		{
-			context.getObjectContext().removeList(obj, ListKey.DAMAGE_REDUCTION);
-			return ParseResult.SUCCESS;
-		}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        if (obj instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
+        }
+        if (Constants.LST_DOT_CLEAR.equals(value))
+        {
+            context.getObjectContext().removeList(obj, ListKey.DAMAGE_REDUCTION);
+            return ParseResult.SUCCESS;
+        }
 
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		String drString = tok.nextToken();
-		ParseResult pr = checkForIllegalSeparator('/', drString);
-		if (!pr.passed())
-		{
-			return pr;
-		}
-		String[] values = drString.split("/");
-		if (values.length != 2)
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage(getTokenName() + " failed to build DamageReduction with value " + value);
-			cpr.addErrorMessage("  ...expected a String with one / as a separator");
-			return cpr;
-		}
-		Formula formula = FormulaFactory.getFormulaFor(values[0]);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		DamageReduction dr = new DamageReduction(formula, values[1]);
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+        String drString = tok.nextToken();
+        ParseResult pr = checkForIllegalSeparator('/', drString);
+        if (!pr.passed())
+        {
+            return pr;
+        }
+        String[] values = drString.split("/");
+        if (values.length != 2)
+        {
+            ComplexParseResult cpr = new ComplexParseResult();
+            cpr.addErrorMessage(getTokenName() + " failed to build DamageReduction with value " + value);
+            cpr.addErrorMessage("  ...expected a String with one / as a separator");
+            return cpr;
+        }
+        Formula formula = FormulaFactory.getFormulaFor(values[0]);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        DamageReduction dr = new DamageReduction(formula, values[1]);
 
-		if (tok.hasMoreTokens())
-		{
-			String currentToken = tok.nextToken();
-			Prerequisite prereq = getPrerequisite(currentToken);
-			if (prereq == null)
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
-			dr.addPrerequisite(prereq);
-		}
-		context.getObjectContext().addToList(obj, ListKey.DAMAGE_REDUCTION, dr);
-		return ParseResult.SUCCESS;
-	}
+        if (tok.hasMoreTokens())
+        {
+            String currentToken = tok.nextToken();
+            Prerequisite prereq = getPrerequisite(currentToken);
+            if (prereq == null)
+            {
+                return ParseResult.INTERNAL_ERROR;
+            }
+            dr.addPrerequisite(prereq);
+        }
+        context.getObjectContext().addToList(obj, ListKey.DAMAGE_REDUCTION, dr);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Changes<DamageReduction> changes = context.getObjectContext().getListChanges(obj, ListKey.DAMAGE_REDUCTION);
-		Collection<DamageReduction> added = changes.getAdded();
-		List<String> list = new ArrayList<>();
-		if (changes.includesGlobalClear())
-		{
-			list.add(Constants.LST_DOT_CLEAR);
-		}
-		else if (added == null || added.isEmpty())
-		{
-			// Zero indicates no Token (and no global clear, so nothing to do)
-			return null;
-		}
-		Set<String> set = new TreeSet<>();
-		if (added != null)
-		{
-			for (DamageReduction lw : added)
-			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(lw.getLSTformat());
-				if (lw.hasPrerequisites())
-				{
-					sb.append(Constants.PIPE);
-					sb.append(context.getPrerequisiteString(lw.getPrerequisiteList()));
-				}
-				set.add(sb.toString());
-			}
-		}
-		list.addAll(set);
-		return list.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        Changes<DamageReduction> changes = context.getObjectContext().getListChanges(obj, ListKey.DAMAGE_REDUCTION);
+        Collection<DamageReduction> added = changes.getAdded();
+        List<String> list = new ArrayList<>();
+        if (changes.includesGlobalClear())
+        {
+            list.add(Constants.LST_DOT_CLEAR);
+        } else if (added == null || added.isEmpty())
+        {
+            // Zero indicates no Token (and no global clear, so nothing to do)
+            return null;
+        }
+        Set<String> set = new TreeSet<>();
+        if (added != null)
+        {
+            for (DamageReduction lw : added)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.append(lw.getLSTformat());
+                if (lw.hasPrerequisites())
+                {
+                    sb.append(Constants.PIPE);
+                    sb.append(context.getPrerequisiteString(lw.getPrerequisiteList()));
+                }
+                set.add(sb.toString());
+            }
+        }
+        list.addAll(set);
+        return list.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

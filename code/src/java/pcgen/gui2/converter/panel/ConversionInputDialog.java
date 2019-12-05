@@ -37,100 +37,100 @@ import pcgen.util.Logging;
 
 /**
  * The Class {@code ConversionChoiceDialog} is responsible for
- * displaying choices the user needs to make as part of the conversion 
- * of some data items. 
+ * displaying choices the user needs to make as part of the conversion
+ * of some data items.
  */
 @SuppressWarnings("serial")
 public class ConversionInputDialog extends JDialog implements ActionListener
 {
 
-	private final String introText;
+    private final String introText;
 
-	private String result;
+    private String result;
 
-	private JTextField field;
+    private JTextField field;
 
-	/**
-	 * Instantiates a new decision dialog for the data converter.
-	 * 
-	 * @param parent the parent frame
-	 * @param introText the intro text to explain the dialogs purpose to the user.
-	 */
-	ConversionInputDialog(Frame parent, String introText)
-	{
-		super(parent, "PCGenDataConvert", true);
+    /**
+     * Instantiates a new decision dialog for the data converter.
+     *
+     * @param parent    the parent frame
+     * @param introText the intro text to explain the dialogs purpose to the user.
+     */
+    ConversionInputDialog(Frame parent, String introText)
+    {
+        super(parent, "PCGenDataConvert", true);
 
-		this.introText = introText;
+        this.introText = introText;
 
-		initComponents();
-		setLocationRelativeTo(parent);
-	}
+        initComponents();
+        setLocationRelativeTo(parent);
+    }
 
-	/**
-	 * @return the result
-	 */
-	public String getResult()
-	{
-		return result;
-	}
+    /**
+     * @return the result
+     */
+    public String getResult()
+    {
+        return result;
+    }
 
-	/**
-	 * Initialises the user interface.
-	 */
-	private void initComponents()
-	{
-		setLayout(new GridBagLayout());
+    /**
+     * Initialises the user interface.
+     */
+    private void initComponents()
+    {
+        setLayout(new GridBagLayout());
 
-		JLabel introLabel = new JLabel(introText);
-		GridBagConstraints gbc = new GridBagConstraints();
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 1.0);
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.insets = new Insets(10, 10, 5, 10);
-		add(introLabel, gbc);
+        JLabel introLabel = new JLabel(introText);
+        GridBagConstraints gbc = new GridBagConstraints();
+        Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 1.0);
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(10, 10, 5, 10);
+        add(introLabel, gbc);
 
-		field = new JTextField(20);
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
-			GridBagConstraints.WEST);
-		gbc.insets = new Insets(5, 10, 5, 10);
-		add(field, gbc);
+        field = new JTextField(20);
+        Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+                GridBagConstraints.WEST);
+        gbc.insets = new Insets(5, 10, 5, 10);
+        add(field, gbc);
 
-		JLabel dummy = new JLabel(" ");
-		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
-		add(dummy, gbc);
+        JLabel dummy = new JLabel(" ");
+        Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+        add(dummy, gbc);
 
-		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
-		okButton.addActionListener(this);
-		getRootPane().setDefaultButton(okButton);
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 0, 0,
-			GridBagConstraints.NONE, GridBagConstraints.EAST);
-		gbc.insets = new Insets(5, 5, 10, 10);
-		add(okButton, gbc);
+        JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
+        okButton.addActionListener(this);
+        getRootPane().setDefaultButton(okButton);
+        Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 0, 0,
+                GridBagConstraints.NONE, GridBagConstraints.EAST);
+        gbc.insets = new Insets(5, 5, 10, 10);
+        add(okButton, gbc);
 
-		pack();
+        pack();
 
-		addWindowListener(new WindowAdapter()
-		{
-			@Override
-			public void windowClosing(WindowEvent e)
-			{
-				result = field.getText();
-				setVisible(false);
-				logInput();
-			}
-		});
+        addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                result = field.getText();
+                setVisible(false);
+                logInput();
+            }
+        });
 
-	}
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		result = field.getText();
-		setVisible(false);
-		logInput();
-	}
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        result = field.getText();
+        setVisible(false);
+        logInput();
+    }
 
-	private void logInput()
-	{
-		Logging.log(Logging.INFO, "Decision required: " + introText + "\nValue entered: " + result);
-	}
+    private void logInput()
+    {
+        Logging.log(Logging.INFO, "Decision required: " + introText + "\nValue entered: " + result);
+    }
 }

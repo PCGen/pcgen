@@ -26,60 +26,59 @@ import pcgen.rules.persistence.token.ParseResult;
 
 public class RacialToken extends AbstractNonEmptyToken<KitProf> implements CDOMPrimaryToken<KitProf>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "RACIAL";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "RACIAL";
+    }
 
-	@Override
-	public Class<KitProf> getTokenClass()
-	{
-		return KitProf.class;
-	}
+    @Override
+    public Class<KitProf> getTokenClass()
+    {
+        return KitProf.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitProf obj, String value)
-	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
-			}
-			set = Boolean.FALSE;
-		}
-		obj.setRacialProf(set);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitProf obj, String value)
+    {
+        Boolean set;
+        char firstChar = value.charAt(0);
+        if (firstChar == 'y' || firstChar == 'Y')
+        {
+            if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+            {
+                return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
+            }
+            set = Boolean.TRUE;
+        } else
+        {
+            if (firstChar != 'N' && firstChar != 'n')
+            {
+                return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
+            }
+            if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+            {
+                return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
+            }
+            set = Boolean.FALSE;
+        }
+        obj.setRacialProf(set);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitProf obj)
-	{
-		Boolean mult = obj.getRacialProf();
-		if (mult == null)
-		{
-			return null;
-		}
-		return new String[]{mult ? "YES" : "NO"};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitProf obj)
+    {
+        Boolean mult = obj.getRacialProf();
+        if (mult == null)
+        {
+            return null;
+        }
+        return new String[]{mult ? "YES" : "NO"};
+    }
 }

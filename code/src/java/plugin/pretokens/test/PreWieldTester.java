@@ -25,25 +25,26 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreWieldTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
-	{
-		int runningTotal = 0;
-		if (equipment.getWieldName().equalsIgnoreCase(prereq.getKey()))
-		{
-			runningTotal++;
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
+    {
+        int runningTotal = 0;
+        if (equipment.getWieldName().equalsIgnoreCase(prereq.getKey()))
+        {
+            runningTotal++;
+        }
 
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, 1));
-	}
+        return countedTotal(prereq, prereq.getOperator().compare(runningTotal, 1));
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "WIELD"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "WIELD"; //$NON-NLS-1$
+    }
 }

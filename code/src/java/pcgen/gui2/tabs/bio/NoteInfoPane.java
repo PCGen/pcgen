@@ -42,134 +42,133 @@ import pcgen.system.LanguageBundle;
 /**
  * The NoteInfoPane displays a named text area that the user can fill in for her
  * character. This allows the creation of custom notes about the character.
- *
- * 
  */
 @SuppressWarnings("serial")
 public class NoteInfoPane extends JPanel implements CharacterInfoTab
 {
-	private final TabTitle title;
-	private final JTextField nameField;
-	private final JTextArea noteField;
-	private final JButton removeButton;
-	private String name;
-	private final NoteItem note;
+    private final TabTitle title;
+    private final JTextField nameField;
+    private final JTextArea noteField;
+    private final JButton removeButton;
+    private String name;
+    private final NoteItem note;
 
-	/**
-	 * Create a new instance of NoteInfoPane
-	 * @param note The note we are to manage.
-	 */
-	public NoteInfoPane(NoteItem note)
-	{
-		this.note = note;
-		this.nameField = new JTextField(15);
-		this.name = note.getName();
-		this.noteField = new JTextArea(8, 20);
-		this.title = new TabTitle(name, null);
-		this.removeButton = new JButton(LanguageBundle.getString("in_descDelNote")); //$NON-NLS-1$
-		nameField.setEditable(note.getPCStringKey().isEmpty());
-		removeButton.setEnabled(note.getPCStringKey().isEmpty());
-		initComponents();
-	}
+    /**
+     * Create a new instance of NoteInfoPane
+     *
+     * @param note The note we are to manage.
+     */
+    public NoteInfoPane(NoteItem note)
+    {
+        this.note = note;
+        this.nameField = new JTextField(15);
+        this.name = note.getName();
+        this.noteField = new JTextArea(8, 20);
+        this.title = new TabTitle(name, null);
+        this.removeButton = new JButton(LanguageBundle.getString("in_descDelNote")); //$NON-NLS-1$
+        nameField.setEditable(note.getPCStringKey().isEmpty());
+        removeButton.setEnabled(note.getPCStringKey().isEmpty());
+        initComponents();
+    }
 
-	private void initComponents()
-	{
-		setLayout(new BorderLayout());
+    private void initComponents()
+    {
+        setLayout(new BorderLayout());
 
-		Box hbox = Box.createHorizontalBox();
-		hbox.add(Box.createRigidArea(new Dimension(5, 0)));
-		hbox.add(new JLabel(LanguageBundle.getString("in_descNoteName"))); //$NON-NLS-1$
-		hbox.add(Box.createRigidArea(new Dimension(5, 0)));
-		hbox.add(nameField);
-		nameField.setText(name);
-		hbox.add(Box.createRigidArea(new Dimension(5, 0)));
-		hbox.add(removeButton);
-		hbox.add(Box.createHorizontalGlue());
+        Box hbox = Box.createHorizontalBox();
+        hbox.add(Box.createRigidArea(new Dimension(5, 0)));
+        hbox.add(new JLabel(LanguageBundle.getString("in_descNoteName"))); //$NON-NLS-1$
+        hbox.add(Box.createRigidArea(new Dimension(5, 0)));
+        hbox.add(nameField);
+        nameField.setText(name);
+        hbox.add(Box.createRigidArea(new Dimension(5, 0)));
+        hbox.add(removeButton);
+        hbox.add(Box.createHorizontalGlue());
 
-		noteField.setLineWrap(true);
-		noteField.setWrapStyleWord(true);
+        noteField.setLineWrap(true);
+        noteField.setWrapStyleWord(true);
 
-		add(hbox, BorderLayout.NORTH);
-		JScrollPane pane = new JScrollPane(noteField, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		add(pane, BorderLayout.CENTER);
-	}
+        add(hbox, BorderLayout.NORTH);
+        JScrollPane pane = new JScrollPane(noteField, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        add(pane, BorderLayout.CENTER);
+    }
 
-	@Override
-	public ModelMap createModels(CharacterFacade character)
-	{
-		ModelMap models = new ModelMap();
-		models.put(NoteHandler.class, new NoteHandler(character));
-		return models;
-	}
+    @Override
+    public ModelMap createModels(CharacterFacade character)
+    {
+        ModelMap models = new ModelMap();
+        models.put(NoteHandler.class, new NoteHandler(character));
+        return models;
+    }
 
-	@Override
-	public void restoreModels(ModelMap models)
-	{
-	}
+    @Override
+    public void restoreModels(ModelMap models)
+    {
+    }
 
-	@Override
-	public void storeModels(ModelMap models)
-	{
-	}
+    @Override
+    public void storeModels(ModelMap models)
+    {
+    }
 
-	@Override
-	public TabTitle getTabTitle()
-	{
-		return title;
-	}
+    @Override
+    public TabTitle getTabTitle()
+    {
+        return title;
+    }
 
-	/**
-	 * A NoteHandler handles changes to the note text or name as well as 
-	 * removeButton button presses.
-	 */
-	private class NoteHandler implements ActionListener
-	{
+    /**
+     * A NoteHandler handles changes to the note text or name as well as
+     * removeButton button presses.
+     */
+    private class NoteHandler implements ActionListener
+    {
 
-		private final DescriptionFacade descFacade;
+        private final DescriptionFacade descFacade;
 
-		public NoteHandler(CharacterFacade character)
-		{
-			descFacade = character.getDescriptionFacade();
-			noteField.setText(note.getValue());
+        public NoteHandler(CharacterFacade character)
+        {
+            descFacade = character.getDescriptionFacade();
+            noteField.setText(note.getValue());
 
-			nameField.getDocument().addDocumentListener(new TextFieldListener(nameField)
-			{
-				@Override
-				protected void textChanged(String text)
-				{
-					descFacade.renameNote(note, text);
-					name = text;
-				}
+            nameField.getDocument().addDocumentListener(new TextFieldListener(nameField)
+            {
+                @Override
+                protected void textChanged(String text)
+                {
+                    descFacade.renameNote(note, text);
+                    name = text;
+                }
 
-			});
+            });
 
-			noteField.getDocument().addDocumentListener(new TextFieldListener(noteField)
-			{
-				@Override
-				protected void textChanged(String text)
-				{
-					descFacade.setNote(note, text);
-				}
+            noteField.getDocument().addDocumentListener(new TextFieldListener(noteField)
+            {
+                @Override
+                protected void textChanged(String text)
+                {
+                    descFacade.setNote(note, text);
+                }
 
-			});
-			removeButton.addActionListener(this);
-		}
+            });
+            removeButton.addActionListener(this);
+        }
 
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			descFacade.deleteNote(note);
-		}
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            descFacade.deleteNote(note);
+        }
 
-	}
+    }
 
-	/**
-	 * @return the name
-	 */
-	public NoteItem getNote()
-	{
-		return note;
-	}
+    /**
+     * @return the name
+     */
+    public NoteItem getNote()
+    {
+        return note;
+    }
 
 }

@@ -32,43 +32,43 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SELECT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SELECT";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject cdo, String value)
-	{
-		if (cdo instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + cdo.getClass().getSimpleName());
-		}
-		Formula formula = FormulaFactory.getFormulaFor(value);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		context.getObjectContext().put(cdo, FormulaKey.SELECT, formula);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject cdo, String value)
+    {
+        if (cdo instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + cdo.getClass().getSimpleName());
+        }
+        Formula formula = FormulaFactory.getFormulaFor(value);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        context.getObjectContext().put(cdo, FormulaKey.SELECT, formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		Formula f = context.getObjectContext().getFormula(cdo, FormulaKey.SELECT);
-		if (f == null)
-		{
-			return null;
-		}
-		return new String[]{f.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject cdo)
+    {
+        Formula f = context.getObjectContext().getFormula(cdo, FormulaKey.SELECT);
+        if (f == null)
+        {
+            return null;
+        }
+        return new String[]{f.toString()};
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

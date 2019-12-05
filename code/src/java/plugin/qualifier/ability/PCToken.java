@@ -32,31 +32,31 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<Ability>
 {
-	private ClassIdentity<Ability> identity;
+    private ClassIdentity<Ability> identity;
 
-	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<Ability> sc, String condition, String value,
-		boolean negate)
-	{
-		identity = sc.getReferenceIdentity();
-		return super.initialize(context, sc, condition, value, negate);
-	}
+    @Override
+    public boolean initialize(LoadContext context, SelectionCreator<Ability> sc, String condition, String value,
+            boolean negate)
+    {
+        identity = sc.getReferenceIdentity();
+        return super.initialize(context, sc, condition, value, negate);
+    }
 
-	@Override
-	protected Collection<Ability> getPossessed(PlayerCharacter pc)
-	{
-		HashSet<Ability> hs = new HashSet<>();
-		for (CNAbility cna : pc.getCNAbilities((Category<Ability>) identity))
-		{
-			hs.add(cna.getAbility());
-		}
-		return new ArrayList<>(hs);
-	}
+    @Override
+    protected Collection<Ability> getPossessed(PlayerCharacter pc)
+    {
+        HashSet<Ability> hs = new HashSet<>();
+        for (CNAbility cna : pc.getCNAbilities((Category<Ability>) identity))
+        {
+            hs.add(cna.getAbility());
+        }
+        return new ArrayList<>(hs);
+    }
 
-	@Override
-	public Class<? super Ability> getReferenceClass()
-	{
-		return Ability.class;
-	}
+    @Override
+    public Class<? super Ability> getReferenceClass()
+    {
+        return Ability.class;
+    }
 
 }

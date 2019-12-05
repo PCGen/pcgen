@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2014 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -48,108 +48,107 @@ import util.TestURI;
 public class DataTypeTokenTest
 {
 
-	private static DataFormatToken token = new DataFormatToken();
-	private static CampaignSourceEntry testCampaign;
+    private static DataFormatToken token = new DataFormatToken();
+    private static CampaignSourceEntry testCampaign;
 
-	private ContentDefinition cd;
-	private LoadContext context;
+    private ContentDefinition cd;
+    private LoadContext context;
 
-	@BeforeAll
-	public static void classSetUp()
-	{
-		testCampaign =
-				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-	}
+    @BeforeAll
+    public static void classSetUp()
+    {
+        testCampaign =
+                new CampaignSourceEntry(new Campaign(), TestURI.getURI());
+    }
 
-	@BeforeEach
-	public void setUp() {
-		TokenRegistration.clearTokens();
-		TokenRegistration.register(token);
-		resetContext();
-	}
+    @BeforeEach
+    public void setUp()
+    {
+        TokenRegistration.clearTokens();
+        TokenRegistration.register(token);
+        resetContext();
+    }
 
-	@AfterEach
-	public void tearDown()
-	{
-		TokenRegistration.clearTokens();
-		context = null;
-		cd = null;
-	}
+    @AfterEach
+    public void tearDown()
+    {
+        TokenRegistration.clearTokens();
+        context = null;
+        cd = null;
+    }
 
-	@AfterAll
-	public static void classTearDown()
-	{
-		token = null;
-		testCampaign = null;
-	}
+    @AfterAll
+    public static void classTearDown()
+    {
+        token = null;
+        testCampaign = null;
+    }
 
-	protected void resetContext()
-	{
-		URI testURI = testCampaign.getURI();
-		context =
-				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
-					new ConsolidatedListCommitStrategy());
-		context.setSourceURI(testURI);
-		context.setExtractURI(testURI);
-		cd = new FactDefinition();
-	}
+    protected void resetContext()
+    {
+        URI testURI = testCampaign.getURI();
+        context =
+                new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+                        new ConsolidatedListCommitStrategy());
+        context.setSourceURI(testURI);
+        context.setExtractURI(testURI);
+        cd = new FactDefinition();
+    }
 
-	@Test
-	public void testInvalidInputNullString()
-	{
-		assertFalse(token.parseToken(context, cd, null).passed());
-	}
+    @Test
+    public void testInvalidInputNullString()
+    {
+        assertFalse(token.parseToken(context, cd, null).passed());
+    }
 
-	@Test
-	public void testInvalidInputEmptyString()
-	{
-		try
-		{
-			assertFalse(token.parseToken(context, cd, "").passed());
-		}
-		catch (IllegalArgumentException e)
-		{
-			//This is ok too
-		}
-	}
+    @Test
+    public void testInvalidInputEmptyString()
+    {
+        try
+        {
+            assertFalse(token.parseToken(context, cd, "").passed());
+        } catch (IllegalArgumentException e)
+        {
+            //This is ok too
+        }
+    }
 
-	@Test
-	public void testInvalidInputNotAType()
-	{
-		try
-		{
-			assertFalse(token.parseToken(context, cd, "NotAType").passed());
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//This is ok too
-		}
-	}
+    @Test
+    public void testInvalidInputNotAType()
+    {
+        try
+        {
+            assertFalse(token.parseToken(context, cd, "NotAType").passed());
+        } catch (NullPointerException | IllegalArgumentException e)
+        {
+            //This is ok too
+        }
+    }
 
-	@Test
-	public void testValidStringString()
-	{
-		assertNull(cd.getFormatManager());
-		assertTrue(token.parseToken(context, cd, "STRING").passed());
-		assertNotNull(cd.getFormatManager());
-		assertSame(StringManager.class, cd.getFormatManager().getClass());
-		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("STRING", unparsed[0]);
-	}
+    @Test
+    public void testValidStringString()
+    {
+        assertNull(cd.getFormatManager());
+        assertTrue(token.parseToken(context, cd, "STRING").passed());
+        assertNotNull(cd.getFormatManager());
+        assertSame(StringManager.class, cd.getFormatManager().getClass());
+        String[] unparsed = token.unparse(context, cd);
+        assertNotNull(unparsed);
+        assertEquals(1, unparsed.length);
+        assertEquals("STRING", unparsed[0]);
+    }
 
-	@Test
-	public void testValidStringNo()
-	{
-		assertNull(cd.getFormatManager());
-		assertTrue(token.parseToken(context, cd, "ORDEREDPAIR").passed());
-		assertNotNull(cd.getFormatManager());
-		assertSame(OrderedPairManager.class, cd.getFormatManager().getClass());
-		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("ORDEREDPAIR", unparsed[0]);
-	}
+    @Test
+    public void testValidStringNo()
+    {
+        assertNull(cd.getFormatManager());
+        assertTrue(token.parseToken(context, cd, "ORDEREDPAIR").passed());
+        assertNotNull(cd.getFormatManager());
+        assertSame(OrderedPairManager.class, cd.getFormatManager().getClass());
+        String[] unparsed = token.unparse(context, cd);
+        assertNotNull(unparsed);
+        assertEquals(1, unparsed.length);
+        assertEquals("ORDEREDPAIR", unparsed[0]);
+    }
 
 }

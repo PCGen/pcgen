@@ -26,40 +26,43 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 
-/** 
+/**
  * Deal with the INITIATIVEMISC Token
  */
 public class InitiativeMiscToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "INITIATIVEMISC";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "INITIATIVEMISC";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	//TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
-	//to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Delta.toString(getInitiativeMiscToken(pc));
-	}
+    //TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
+    //to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Delta.toString(getInitiativeMiscToken(pc));
+    }
 
-	/**
-	 * Get the token
-	 * @param pc
-	 * @return the token
-	 */
-	public static int getInitiativeMiscToken(PlayerCharacter pc)
-	{
-		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
-		if (initiativeVar == null)
-		{
-			return pc.getDisplay().processOldInitiativeMod() - pc.getVariableValue("INITCOMP", "").intValue();
-		}
-		return ((Number) pc.getGlobal(initiativeVar)).intValue();
-	}
+    /**
+     * Get the token
+     *
+     * @param pc
+     * @return the token
+     */
+    public static int getInitiativeMiscToken(PlayerCharacter pc)
+    {
+        String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
+        if (initiativeVar == null)
+        {
+            return pc.getDisplay().processOldInitiativeMod() - pc.getVariableValue("INITCOMP", "").intValue();
+        }
+        return ((Number) pc.getGlobal(initiativeVar)).intValue();
+    }
 }

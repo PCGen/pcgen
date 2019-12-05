@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2014 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -41,75 +41,75 @@ import util.TestURI;
 public class FunctionTokenTest
 {
 
-	private static CDOMToken<UserFunction> token = new FunctionToken();
-	private static CampaignSourceEntry testCampaign;
+    private static CDOMToken<UserFunction> token = new FunctionToken();
+    private static CampaignSourceEntry testCampaign;
 
-	private UserFunction function;
-	private LoadContext context;
+    private UserFunction function;
+    private LoadContext context;
 
 
-	@BeforeAll
-	public static void classSetUp()
-	{
-		testCampaign =
-				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-	}
+    @BeforeAll
+    public static void classSetUp()
+    {
+        testCampaign =
+                new CampaignSourceEntry(new Campaign(), TestURI.getURI());
+    }
 
-	@BeforeEach
-	public void setUp() {
-		TokenRegistration.clearTokens();
-		TokenRegistration.register(token);
-		resetContext();
-	}
+    @BeforeEach
+    public void setUp()
+    {
+        TokenRegistration.clearTokens();
+        TokenRegistration.register(token);
+        resetContext();
+    }
 
-	@AfterEach
-	public void tearDown()
-	{
-		TokenRegistration.clearTokens();
-		context = null;
-		function = null;
-	}
+    @AfterEach
+    public void tearDown()
+    {
+        TokenRegistration.clearTokens();
+        context = null;
+        function = null;
+    }
 
-	@AfterAll
-	public static void classTearDown()
-	{
-		token = null;
-		testCampaign = null;
-	}
+    @AfterAll
+    public static void classTearDown()
+    {
+        token = null;
+        testCampaign = null;
+    }
 
-	protected void resetContext()
-	{
-		URI testURI = testCampaign.getURI();
-		context =
-				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
-					new ConsolidatedListCommitStrategy());
-		context.setSourceURI(testURI);
-		context.setExtractURI(testURI);
-		function = new UserFunction();
-	}
+    protected void resetContext()
+    {
+        URI testURI = testCampaign.getURI();
+        context =
+                new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+                        new ConsolidatedListCommitStrategy());
+        context.setSourceURI(testURI);
+        context.setExtractURI(testURI);
+        function = new UserFunction();
+    }
 
-	@Test
-	public void testInvalidInputNullString()
-	{
-		assertFalse(token.parseToken(context, function, null).passed());
-	}
+    @Test
+    public void testInvalidInputNullString()
+    {
+        assertFalse(token.parseToken(context, function, null).passed());
+    }
 
-	@Test
-	public void testInvalidInputEmptyString()
-	{
-		try
-		{
-			assertFalse(token.parseToken(context, function, "").passed());
-		}
-		catch (IllegalArgumentException e)
-		{
-			//This is ok too
-		}
-	}
-	
-	/*
-	 * TODO This is not a round robin token :(
-	 */
+    @Test
+    public void testInvalidInputEmptyString()
+    {
+        try
+        {
+            assertFalse(token.parseToken(context, function, "").passed());
+        } catch (IllegalArgumentException e)
+        {
+            //This is ok too
+        }
+    }
+
+    /*
+     * TODO This is not a round robin token :(
+     */
 //
 //	@Test
 //	public void testValidStringString() throws PersistenceLayerException

@@ -29,27 +29,30 @@ import pcgen.io.ExportHandler;
  */
 public class GameModeToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "GAMEMODE";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "GAMEMODE";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return getGameModeToken();
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return getGameModeToken();
+    }
 
-	/**
-	 * Get the game mode token
-	 * @return the game mode token
-	 */
-	public static String getGameModeToken()
-	{
-		return SettingsHandler.getGame().getName();
-	}
+    /**
+     * Get the game mode token
+     *
+     * @return the game mode token
+     */
+    public static String getGameModeToken()
+    {
+        return SettingsHandler.getGame().getName();
+    }
 }

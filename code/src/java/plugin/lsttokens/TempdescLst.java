@@ -29,45 +29,44 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * TempdescLst - records a sentence that is used to describe what the TEMPBONUS
- * entries are going to do or when they should be used. The text will only be 
+ * entries are going to do or when they should be used. The text will only be
  * displayed in the Temporary Bonus Tab.
- * 
  */
 public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "TEMPDESC";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TEMPDESC";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if ((obj instanceof Ungranted) && !(obj instanceof Spell))
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
-		}
-		context.getObjectContext().put(obj, StringKey.TEMP_DESCRIPTION, EntityEncoder.decode(value));
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if ((obj instanceof Ungranted) && !(obj instanceof Spell))
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
+        }
+        context.getObjectContext().put(obj, StringKey.TEMP_DESCRIPTION, EntityEncoder.decode(value));
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		String descr = context.getObjectContext().getString(obj, StringKey.TEMP_DESCRIPTION);
-		if (descr == null)
-		{
-			return null;
-		}
-		return new String[]{EntityEncoder.encode(descr)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        String descr = context.getObjectContext().getString(obj, StringKey.TEMP_DESCRIPTION);
+        if (descr == null)
+        {
+            return null;
+        }
+        return new String[]{EntityEncoder.encode(descr)};
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

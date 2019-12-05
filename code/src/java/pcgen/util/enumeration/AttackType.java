@@ -21,35 +21,35 @@ package pcgen.util.enumeration;
 public enum AttackType
 {
 
-	MELEE("BAB"),
+    MELEE("BAB"),
 
-	RANGED("RAB"),
+    RANGED("RAB"),
 
-	UNARMED("UAB"),
+    UNARMED("UAB"),
 
-	GRAPPLE("GAB");
+    GRAPPLE("GAB");
 
-	private final String identifier;
+    private final String identifier;
 
-	AttackType(String ident)
-	{
-		identifier = ident;
-	}
+    AttackType(String ident)
+    {
+        identifier = ident;
+    }
 
-	public String getIdentifier()
-	{
-		return identifier;
-	}
+    public String getIdentifier()
+    {
+        return identifier;
+    }
 
-	public static AttackType getAttackInstance(String ident)
-	{
-		for (AttackType at : AttackType.values())
-		{
-			if (at.identifier.equals(ident))
-			{
-				return at;
-			}
-		}
-		throw new IllegalArgumentException("Illegal AttackType identifier: " + ident);
-	}
+    public static AttackType getAttackInstance(String ident)
+    {
+        for (AttackType at : AttackType.values())
+        {
+            if (at.identifier.equals(ident))
+            {
+                return at;
+            }
+        }
+        throw new IllegalArgumentException("Illegal AttackType identifier: " + ident);
+    }
 }

@@ -31,114 +31,119 @@ import pcgen.core.prereq.Prerequisite;
  * This class stores an association between an object and a set of prereqs.
  * Refactored from ChoiceInfo originally written by
  * Andrew Wilson &lt;nuance@sourceforge.net&gt;
- * @param <T> 
+ *
+ * @param <T>
  */
 public class QualifiedObject<T> extends ConcretePrereqObject implements QualifyingObject
 {
 
-	private T theObject = null;
+    private T theObject = null;
 
-	/**
-	 * Constructor
-	 * @param anObj
-	 */
-	public QualifiedObject(final T anObj)
-	{
-		theObject = anObj;
-	}
+    /**
+     * Constructor
+     *
+     * @param anObj
+     */
+    public QualifiedObject(final T anObj)
+    {
+        theObject = anObj;
+    }
 
-	/**
-	 * Constructor 
-	 * @param anObj
-	 * @param aPrereqList
-	 */
-	public QualifiedObject(final T anObj, final List<Prerequisite> aPrereqList)
-	{
-		theObject = anObj;
-		addAllPrerequisites(aPrereqList);
-	}
+    /**
+     * Constructor
+     *
+     * @param anObj
+     * @param aPrereqList
+     */
+    public QualifiedObject(final T anObj, final List<Prerequisite> aPrereqList)
+    {
+        theObject = anObj;
+        addAllPrerequisites(aPrereqList);
+    }
 
-	/**
-	 * Constructor 
-	 * @param anObj
-	 * @param prereq
-	 */
-	public QualifiedObject(final T anObj, Prerequisite prereq)
-	{
-		theObject = anObj;
-		addPrerequisite(prereq);
-	}
+    /**
+     * Constructor
+     *
+     * @param anObj
+     * @param prereq
+     */
+    public QualifiedObject(final T anObj, Prerequisite prereq)
+    {
+        theObject = anObj;
+        addPrerequisite(prereq);
+    }
 
-	/**
-	 * Get the qualifiying object. Will always return the object 
-	 * if no character is passed in.
-	 * 
-	 * @param aPC Character to be checked or null
-	 * @param owner TODO
-	 * @return qualifying object
-	 */
-	public T getObject(final PlayerCharacter aPC, CDOMObject owner)
-	{
-		if (aPC == null || qualifies(aPC, owner))
-		{
-			return theObject;
-		}
-		return null;
-	}
+    /**
+     * Get the qualifiying object. Will always return the object
+     * if no character is passed in.
+     *
+     * @param aPC   Character to be checked or null
+     * @param owner TODO
+     * @return qualifying object
+     */
+    public T getObject(final PlayerCharacter aPC, CDOMObject owner)
+    {
+        if (aPC == null || qualifies(aPC, owner))
+        {
+            return theObject;
+        }
+        return null;
+    }
 
-	/**
-	 * Get the qualifiying object. Will always return the object
-	 * 
-	 * @return qualifying object
-	 */
-	public T getRawObject()
-	{
-		return theObject;
-	}
+    /**
+     * Get the qualifiying object. Will always return the object
+     *
+     * @return qualifying object
+     */
+    public T getRawObject()
+    {
+        return theObject;
+    }
 
-	/**
-	 * Set qualifying object 
-	 * @param anObject
-	 */
-	public void setObject(final T anObject)
-	{
-		theObject = anObject;
-	}
+    /**
+     * Set qualifying object
+     *
+     * @param anObject
+     */
+    public void setObject(final T anObject)
+    {
+        theObject = anObject;
+    }
 
-	@Override
-	public String toString()
-	{
-		// TODO Auto-generated method stub
-		String result = "Object:"
-				+ theObject.toString()
-				+ ", Prereq:"
-				+ getPrerequisiteList().toString();
-		return result;
-	}
+    @Override
+    public String toString()
+    {
+        // TODO Auto-generated method stub
+        String result = "Object:"
+                + theObject.toString()
+                + ", Prereq:"
+                + getPrerequisiteList().toString();
+        return result;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj instanceof QualifiedObject)
-		{
-			QualifiedObject<?> other = (QualifiedObject<?>) obj;
-			if (!equalsPrereqObject(other))
-			{
-				return false;
-			}
-			if (other.theObject == null)
-			{
-				return theObject == null;
-			}
-			return other.theObject.equals(theObject);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof QualifiedObject)
+        {
+            QualifiedObject<?> other = (QualifiedObject<?>) obj;
+            if (!equalsPrereqObject(other))
+            {
+                return false;
+            }
+            if (other.theObject == null)
+            {
+                return theObject == null;
+            }
+            return other.theObject.equals(theObject);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return getPrerequisiteCount() * 23 + (theObject == null ? -1 : theObject.hashCode());
-	}
+    @Override
+    public int hashCode()
+    {
+        return getPrerequisiteCount() * 23 + (theObject == null ? -1 : theObject.hashCode());
+    }
 
 }

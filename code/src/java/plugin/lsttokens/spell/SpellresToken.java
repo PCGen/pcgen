@@ -36,79 +36,78 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SpellresToken extends AbstractTokenWithSeparator<Spell> implements CDOMPrimaryToken<Spell>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SPELLRES";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPELLRES";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
-	{
-		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
+    {
+        StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 
-		boolean first = true;
-		while (aTok.hasMoreTokens())
-		{
-			String tok = aTok.nextToken();
-			if (Constants.LST_DOT_CLEAR.equals(tok))
-			{
-				if (!first)
-				{
-					return new ParseResult.Fail("Non-sensical use of .CLEAR in " + getTokenName() + ": " + value);
-				}
-				context.getObjectContext().removeList(spell, ListKey.SPELL_RESISTANCE);
-			}
-			else
-			{
-				context.getObjectContext().addToList(spell, ListKey.SPELL_RESISTANCE, tok);
-			}
-			first = false;
-		}
-		return ParseResult.SUCCESS;
-	}
+        boolean first = true;
+        while (aTok.hasMoreTokens())
+        {
+            String tok = aTok.nextToken();
+            if (Constants.LST_DOT_CLEAR.equals(tok))
+            {
+                if (!first)
+                {
+                    return new ParseResult.Fail("Non-sensical use of .CLEAR in " + getTokenName() + ": " + value);
+                }
+                context.getObjectContext().removeList(spell, ListKey.SPELL_RESISTANCE);
+            } else
+            {
+                context.getObjectContext().addToList(spell, ListKey.SPELL_RESISTANCE, tok);
+            }
+            first = false;
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Spell spell)
-	{
-		Changes<String> changes = context.getObjectContext().getListChanges(spell, ListKey.SPELL_RESISTANCE);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		StringBuilder sb = new StringBuilder();
-		Collection<?> added = changes.getAdded();
-		boolean globalClear = changes.includesGlobalClear();
-		if (globalClear)
-		{
-			sb.append(Constants.LST_DOT_CLEAR);
-		}
-		if (added != null && !added.isEmpty())
-		{
-			if (globalClear)
-			{
-				sb.append(Constants.PIPE);
-			}
-			sb.append(StringUtil.join(added, Constants.PIPE));
-		}
-		if (sb.length() == 0)
-		{
-			context.addWriteMessage(
-				getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
-			return null;
-		}
-		return new String[]{sb.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Spell spell)
+    {
+        Changes<String> changes = context.getObjectContext().getListChanges(spell, ListKey.SPELL_RESISTANCE);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        Collection<?> added = changes.getAdded();
+        boolean globalClear = changes.includesGlobalClear();
+        if (globalClear)
+        {
+            sb.append(Constants.LST_DOT_CLEAR);
+        }
+        if (added != null && !added.isEmpty())
+        {
+            if (globalClear)
+            {
+                sb.append(Constants.PIPE);
+            }
+            sb.append(StringUtil.join(added, Constants.PIPE));
+        }
+        if (sb.length() == 0)
+        {
+            context.addWriteMessage(
+                    getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
+            return null;
+        }
+        return new String[]{sb.toString()};
+    }
 
-	@Override
-	public Class<Spell> getTokenClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTokenClass()
+    {
+        return Spell.class;
+    }
 }

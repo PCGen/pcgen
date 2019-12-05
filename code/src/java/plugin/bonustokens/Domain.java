@@ -24,36 +24,39 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Domain extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"NUMBER"};
+    private static final String[] BONUS_TAGS = {"NUMBER"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "DOMAIN";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "DOMAIN";
+    }
 
-	/**
-	 * Get by index, an individual attribute of a domain that may be bonused.
-	 * @param tagNumber the index of the domain attribute type.
-	 * @return The domain attribute.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual attribute of a domain that may be bonused.
+     *
+     * @param tagNumber the index of the domain attribute type.
+     * @return The domain attribute.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of domain attributes that may be bonused.
-	 * @return The number of domain attribute.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of domain attributes that may be bonused.
+     *
+     * @return The number of domain attribute.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 }

@@ -47,244 +47,238 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject>
-		implements CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<ArmorProf>
+        implements CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<ArmorProf>
 {
 
-	private static final Class<ArmorProf> ARMORPROF_CLASS = ArmorProf.class;
+    private static final Class<ArmorProf> ARMORPROF_CLASS = ArmorProf.class;
 
-	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
+    private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
-	@Override
-	public String getParentToken()
-	{
-		return "AUTO";
-	}
+    @Override
+    public String getParentToken()
+    {
+        return "AUTO";
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "ARMORPROF";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ARMORPROF";
+    }
 
-	private String getFullName()
-	{
-		return getParentToken() + Constants.COLON + getTokenName();
-	}
+    private String getFullName()
+    {
+        return getParentToken() + Constants.COLON + getTokenName();
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		String armorProf;
-		Prerequisite prereq = null; // Do not initialize, null is significant!
-		boolean isPre = false;
-		if (value.indexOf('[') == -1)
-		{
-			// Supported version of PRExxx using |.  Needs to be at the front of the
-			// Parsing code because many objects expect the pre to have been determined
-			// Ahead of time.  Until deprecated code is removed, it will have to stay
-			// like this.
-			armorProf = value;
-			StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);
-			while (tok.hasMoreTokens())
-			{
-				String token = tok.nextToken();
-				if (PreParserFactory.isPreReqString(token))
-				{
-					if (isPre)
-					{
-						String errorText =
-								"Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
-						Logging.errorPrint(errorText);
-						return new ParseResult.Fail(errorText);
-					}
-					prereq = getPrerequisite(token);
-					if (prereq == null)
-					{
-						return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName());
-					}
-					int preStart = value.indexOf(token) - 1;
-					armorProf = value.substring(0, preStart);
-					isPre = true;
-				}
-			}
-		}
-		else
-		{
-			return new ParseResult.Fail(
-				"Use of [] for Prerequisites has been removed. " + "Please use | based standard");
-		}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        String armorProf;
+        Prerequisite prereq = null; // Do not initialize, null is significant!
+        boolean isPre = false;
+        if (value.indexOf('[') == -1)
+        {
+            // Supported version of PRExxx using |.  Needs to be at the front of the
+            // Parsing code because many objects expect the pre to have been determined
+            // Ahead of time.  Until deprecated code is removed, it will have to stay
+            // like this.
+            armorProf = value;
+            StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);
+            while (tok.hasMoreTokens())
+            {
+                String token = tok.nextToken();
+                if (PreParserFactory.isPreReqString(token))
+                {
+                    if (isPre)
+                    {
+                        String errorText =
+                                "Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
+                        Logging.errorPrint(errorText);
+                        return new ParseResult.Fail(errorText);
+                    }
+                    prereq = getPrerequisite(token);
+                    if (prereq == null)
+                    {
+                        return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName());
+                    }
+                    int preStart = value.indexOf(token) - 1;
+                    armorProf = value.substring(0, preStart);
+                    isPre = true;
+                }
+            }
+        } else
+        {
+            return new ParseResult.Fail(
+                    "Use of [] for Prerequisites has been removed. " + "Please use | based standard");
+        }
 
-		ParseResult pr = checkSeparatorsAndNonEmpty('|', armorProf);
-		if (!pr.passed())
-		{
-			return pr;
-		}
+        ParseResult pr = checkSeparatorsAndNonEmpty('|', armorProf);
+        if (!pr.passed())
+        {
+            return pr;
+        }
 
-		boolean foundAny = false;
-		boolean foundOther = false;
+        boolean foundAny = false;
+        boolean foundOther = false;
 
-		StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);
+        StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);
 
-		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<>();
-		List<CDOMReference<Equipment>> equipTypes = new ArrayList<>();
+        List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<>();
+        List<CDOMReference<Equipment>> equipTypes = new ArrayList<>();
 
-		while (tok.hasMoreTokens())
-		{
-			String aProf = tok.nextToken();
+        while (tok.hasMoreTokens())
+        {
+            String aProf = tok.nextToken();
 
-			if (Constants.LST_PERCENT_LIST.equals(aProf))
-			{
-				foundOther = true;
-				ChooseSelectionActor<ArmorProf> cra;
-				if (prereq == null)
-				{
-					cra = this;
-				}
-				else
-				{
-					ConditionalSelectionActor<ArmorProf> cca = new ConditionalSelectionActor<>(this);
-					cca.addPrerequisite(prereq);
-					cra = cca;
-				}
-				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
-			}
-			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
-			{
-				foundAny = true;
-				armorProfs.add(context.getReferenceContext().getCDOMAllReference(ARMORPROF_CLASS));
-			}
-			else if (aProf.startsWith("ARMORTYPE.") || aProf.startsWith("ARMORTYPE="))
-			{
-				foundOther = true;
-				CDOMReference<Equipment> ref =
-						TokenUtilities.getTypeReference(context, EQUIPMENT_CLASS, "ARMOR." + aProf.substring(10));
-				if (ref == null)
-				{
-					return ParseResult.INTERNAL_ERROR;
-				}
-				equipTypes.add(ref);
-			}
-			else
-			{
-				foundOther = true;
-				armorProfs.add(context.getReferenceContext().getCDOMReference(ARMORPROF_CLASS, aProf));
-			}
-		}
+            if (Constants.LST_PERCENT_LIST.equals(aProf))
+            {
+                foundOther = true;
+                ChooseSelectionActor<ArmorProf> cra;
+                if (prereq == null)
+                {
+                    cra = this;
+                } else
+                {
+                    ConditionalSelectionActor<ArmorProf> cca = new ConditionalSelectionActor<>(this);
+                    cca.addPrerequisite(prereq);
+                    cra = cca;
+                }
+                context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
+            } else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
+            {
+                foundAny = true;
+                armorProfs.add(context.getReferenceContext().getCDOMAllReference(ARMORPROF_CLASS));
+            } else if (aProf.startsWith("ARMORTYPE.") || aProf.startsWith("ARMORTYPE="))
+            {
+                foundOther = true;
+                CDOMReference<Equipment> ref =
+                        TokenUtilities.getTypeReference(context, EQUIPMENT_CLASS, "ARMOR." + aProf.substring(10));
+                if (ref == null)
+                {
+                    return ParseResult.INTERNAL_ERROR;
+                }
+                equipTypes.add(ref);
+            } else
+            {
+                foundOther = true;
+                armorProfs.add(context.getReferenceContext().getCDOMReference(ARMORPROF_CLASS, aProf));
+            }
+        }
 
-		if (foundAny && foundOther)
-		{
-			return new ParseResult.Fail(
-				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
-		}
+        if (foundAny && foundOther)
+        {
+            return new ParseResult.Fail(
+                    "Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
+        }
 
-		if (!armorProfs.isEmpty() || !equipTypes.isEmpty())
-		{
-			ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
-			if (prereq != null)
-			{
-				pp.addPrerequisite(prereq);
-			}
-			context.getObjectContext().addToList(obj, ListKey.AUTO_ARMORPROF, pp);
-		}
+        if (!armorProfs.isEmpty() || !equipTypes.isEmpty())
+        {
+            ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
+            if (prereq != null)
+            {
+                pp.addPrerequisite(prereq);
+            }
+            context.getObjectContext().addToList(obj, ListKey.AUTO_ARMORPROF, pp);
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Changes<ArmorProfProvider> changes = context.getObjectContext().getListChanges(obj, ListKey.AUTO_ARMORPROF);
-		Changes<ChooseSelectionActor<?>> listChanges =
-				context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
-		Collection<ArmorProfProvider> added = changes.getAdded();
-		Set<String> set = new TreeSet<>();
-		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
-		boolean foundAny = false;
-		boolean foundOther = false;
-		if (listAdded != null && !listAdded.isEmpty())
-		{
-			for (ChooseSelectionActor<?> cra : listAdded)
-			{
-				if (cra.getSource().equals(getTokenName()))
-				{
-					try
-					{
-						set.add(cra.getLstFormat());
-						foundOther = true;
-					}
-					catch (PersistenceLayerException e)
-					{
-						context.addWriteMessage("Error writing Prerequisite: " + e);
-						return null;
-					}
-				}
-			}
-		}
-		if (added != null)
-		{
-			for (ArmorProfProvider spp : added)
-			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(spp.getLstFormat());
-				if (spp.hasPrerequisites())
-				{
-					sb.append('|');
-					sb.append(getPrerequisiteString(context, spp.getPrerequisiteList()));
-				}
-				String ab = sb.toString();
-				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
-				foundAny |= isUnconditionalAll;
-				foundOther |= !isUnconditionalAll;
-				set.add(ab);
-			}
-		}
-		if (foundAny && foundOther)
-		{
-			context
-				.addWriteMessage("Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + set);
-			return null;
-		}
-		if (set.isEmpty())
-		{
-			//okay
-			return null;
-		}
-		return set.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        Changes<ArmorProfProvider> changes = context.getObjectContext().getListChanges(obj, ListKey.AUTO_ARMORPROF);
+        Changes<ChooseSelectionActor<?>> listChanges =
+                context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
+        Collection<ArmorProfProvider> added = changes.getAdded();
+        Set<String> set = new TreeSet<>();
+        Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
+        boolean foundAny = false;
+        boolean foundOther = false;
+        if (listAdded != null && !listAdded.isEmpty())
+        {
+            for (ChooseSelectionActor<?> cra : listAdded)
+            {
+                if (cra.getSource().equals(getTokenName()))
+                {
+                    try
+                    {
+                        set.add(cra.getLstFormat());
+                        foundOther = true;
+                    } catch (PersistenceLayerException e)
+                    {
+                        context.addWriteMessage("Error writing Prerequisite: " + e);
+                        return null;
+                    }
+                }
+            }
+        }
+        if (added != null)
+        {
+            for (ArmorProfProvider spp : added)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.append(spp.getLstFormat());
+                if (spp.hasPrerequisites())
+                {
+                    sb.append('|');
+                    sb.append(getPrerequisiteString(context, spp.getPrerequisiteList()));
+                }
+                String ab = sb.toString();
+                boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
+                foundAny |= isUnconditionalAll;
+                foundOther |= !isUnconditionalAll;
+                set.add(ab);
+            }
+        }
+        if (foundAny && foundOther)
+        {
+            context
+                    .addWriteMessage("Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + set);
+            return null;
+        }
+        if (set.isEmpty())
+        {
+            //okay
+            return null;
+        }
+        return set.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public void applyChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
-	{
-		pc.addArmorProf(obj, ap);
-	}
+    @Override
+    public void applyChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
+    {
+        pc.addArmorProf(obj, ap);
+    }
 
-	@Override
-	public void removeChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
-	{
-		pc.removeArmorProf(obj, ap);
-	}
+    @Override
+    public void removeChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
+    {
+        pc.removeArmorProf(obj, ap);
+    }
 
-	@Override
-	public Class<ArmorProf> getChoiceClass()
-	{
-		return ARMORPROF_CLASS;
-	}
+    @Override
+    public Class<ArmorProf> getChoiceClass()
+    {
+        return ARMORPROF_CLASS;
+    }
 
-	@Override
-	public String getSource()
-	{
-		return getTokenName();
-	}
+    @Override
+    public String getSource()
+    {
+        return getTokenName();
+    }
 
-	@Override
-	public String getLstFormat()
-	{
-		return Constants.LST_PERCENT_LIST;
-	}
+    @Override
+    public String getLstFormat()
+    {
+        return Constants.LST_PERCENT_LIST;
+    }
 }

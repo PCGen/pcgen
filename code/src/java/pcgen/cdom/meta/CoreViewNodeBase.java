@@ -28,20 +28,21 @@ import pcgen.facade.core.CoreViewNodeFacade;
  */
 public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 {
-	private List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
+    private List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
 
-	@Override
-	public List<CoreViewNodeFacade> getGrantedByNodes()
-	{
-		return grantedByList;
-	}
+    @Override
+    public List<CoreViewNodeFacade> getGrantedByNodes()
+    {
+        return grantedByList;
+    }
 
-	/**
-	 * Add a node to the list of granted by nodes.
-	 * @param node The node to add.
-	 */
-	public void addGrantedByNode(CoreViewNodeBase node)
-	{
-		grantedByList.add(node);
-	}
+    /**
+     * Add a node to the list of granted by nodes.
+     *
+     * @param node The node to add.
+     */
+    public void addGrantedByNode(CoreViewNodeBase node)
+    {
+        grantedByList.add(node);
+    }
 }

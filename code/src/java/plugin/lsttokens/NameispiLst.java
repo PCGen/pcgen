@@ -25,21 +25,21 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class NameispiLst extends AbstractYesNoToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "NAMEISPI";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "NAMEISPI";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.NAME_PI;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.NAME_PI;
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

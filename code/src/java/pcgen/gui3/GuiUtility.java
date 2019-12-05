@@ -28,32 +28,33 @@ import javafx.scene.Scene;
 
 public final class GuiUtility
 {
-	private GuiUtility()
-	{
-	}
+    private GuiUtility()
+    {
+    }
 
-	/**
-	 * During the conversion to JavaFX we have a mix of JavaFX and Swing components
-	 * This provides a way to convert from JavaFX to Swing.
-	 * Note that the painting happens "eventually" and thus when the function returned
-	 * there is no guarantee that the component has any size yet.
-	 * @param parent a javafx Parent to be shown as a swing node
-	 * @return a jfxpanel that eventually gets painted as the parent container
-	 */
-	public static JFXPanel wrapParentAsJFXPanel(Parent parent)
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		JFXPanel jfxPanel = new JFXPanel();
-		Platform.runLater(() -> {
-			Scene scene = new Scene(parent);
-			jfxPanel.setScene(scene);
-		});
-		return jfxPanel;
-	}
+    /**
+     * During the conversion to JavaFX we have a mix of JavaFX and Swing components
+     * This provides a way to convert from JavaFX to Swing.
+     * Note that the painting happens "eventually" and thus when the function returned
+     * there is no guarantee that the component has any size yet.
+     *
+     * @param parent a javafx Parent to be shown as a swing node
+     * @return a jfxpanel that eventually gets painted as the parent container
+     */
+    public static JFXPanel wrapParentAsJFXPanel(Parent parent)
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        JFXPanel jfxPanel = new JFXPanel();
+        Platform.runLater(() -> {
+            Scene scene = new Scene(parent);
+            jfxPanel.setScene(scene);
+        });
+        return jfxPanel;
+    }
 
-	public static <T> T runOnJavaFXThreadNow(Supplier<T> supplier)
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		return CompletableFuture.supplyAsync(supplier, Platform::runLater).join();
-	}
+    public static <T> T runOnJavaFXThreadNow(Supplier<T> supplier)
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        return CompletableFuture.supplyAsync(supplier, Platform::runLater).join();
+    }
 }

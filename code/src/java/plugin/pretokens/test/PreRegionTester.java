@@ -31,53 +31,52 @@ import pcgen.system.LanguageBundle;
 public class PreRegionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(Prerequisite prereq, Equipment equipment, CharacterDisplay display) throws PrerequisiteException
-	{
-		if (display == null)
-		{
-			return 0;
-		}
-		return passes(prereq, display, equipment);
-	}
+    @Override
+    public int passes(Prerequisite prereq, Equipment equipment, CharacterDisplay display) throws PrerequisiteException
+    {
+        if (display == null)
+        {
+            return 0;
+        }
+        return passes(prereq, display, equipment);
+    }
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
 
-		final String requiredRegion = prereq.getKey().toUpperCase();
-		final String characterRegion = display.getFullRegion().toUpperCase();
+        final String requiredRegion = prereq.getKey().toUpperCase();
+        final String characterRegion = display.getFullRegion().toUpperCase();
 
-		final boolean sameRegion = characterRegion.startsWith(requiredRegion);
+        final boolean sameRegion = characterRegion.startsWith(requiredRegion);
 
-		int runningTotal;
-		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
-		{
-			runningTotal = sameRegion ? 1 : 0;
-		}
-		else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
-		{
-			runningTotal = sameRegion ? 0 : 1;
-		}
-		else
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString(
-					"PreRegion.error.invalid_comparator", prereq.toString())); //$NON-NLS-1$
-		}
+        int runningTotal;
+        if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
+        {
+            runningTotal = sameRegion ? 1 : 0;
+        } else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+        {
+            runningTotal = sameRegion ? 0 : 1;
+        } else
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString(
+                            "PreRegion.error.invalid_comparator", prereq.toString())); //$NON-NLS-1$
+        }
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "REGION"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "REGION"; //$NON-NLS-1$
+    }
 
 }

@@ -24,30 +24,29 @@ import pcgen.pluginmgr.PCGenMessage;
 
 /**
  * The Class {@code PlayerCharacterWasLoadedMessage} encapsulates a
- * message that a character was opened in PCGen. 
- *
- * 
+ * message that a character was opened in PCGen.
  */
 @SuppressWarnings("serial")
 public class PlayerCharacterWasLoadedMessage extends PCGenMessage
 {
 
-	private final PlayerCharacter pc;
+    private final PlayerCharacter pc;
 
-	/**
-	 * Create a new instance of PlayerCharacterWasLoadedMessage
-	 * @param source The source of the message.
-	 * @param pc The character that was loaded.
-	 */
-	public PlayerCharacterWasLoadedMessage(Object source, PlayerCharacter pc)
-	{
-		super(source);
-		this.pc = pc;
-	}
+    /**
+     * Create a new instance of PlayerCharacterWasLoadedMessage
+     *
+     * @param source The source of the message.
+     * @param pc     The character that was loaded.
+     */
+    public PlayerCharacterWasLoadedMessage(Object source, PlayerCharacter pc)
+    {
+        super(source);
+        this.pc = pc;
+    }
 
-	public PlayerCharacter getPc()
-	{
-		return pc;
-	}
+    public PlayerCharacter getPc()
+    {
+        return pc;
+    }
 
 }

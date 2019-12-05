@@ -35,80 +35,80 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
  */
 public class DomainListToken extends AbstractRestrictedSpellPrimitive
 {
-	private CDOMSingleRef<DomainSpellList> spelllist;
-	private MasterAvailableSpellFacet masterAvailableSpellFacet;
+    private CDOMSingleRef<DomainSpellList> spelllist;
+    private MasterAvailableSpellFacet masterAvailableSpellFacet;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
-	{
-		if (value == null)
-		{
-			return false;
-		}
-		spelllist = context.getReferenceContext().getCDOMReference(DomainSpellList.class, value);
-		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
-		return initialize(context, args);
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
+    {
+        if (value == null)
+        {
+            return false;
+        }
+        spelllist = context.getReferenceContext().getCDOMReference(DomainSpellList.class, value);
+        masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
+        return initialize(context, args);
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "DOMAINLIST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DOMAINLIST";
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
-	{
-		DomainSpellList list = spelllist.get();
-		DataSetID datasetID = pc.getCharID().getDatasetID();
+    @Override
+    public boolean allow(PlayerCharacter pc, Spell spell)
+    {
+        DomainSpellList list = spelllist.get();
+        DataSetID datasetID = pc.getCharID().getDatasetID();
 
-		for (AvailableSpell availSpell : masterAvailableSpellFacet.getMatchingSpellsInList(list, datasetID, spell))
-		{
-			int level = availSpell.getLevel();
-			if (level >= 0 && allow(pc, level, "", spell, list))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+        for (AvailableSpell availSpell : masterAvailableSpellFacet.getMatchingSpellsInList(list, datasetID, spell))
+        {
+            int level = availSpell.getLevel();
+            if (level >= 0 && allow(pc, level, "", spell, list))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof DomainListToken)
-		{
-			DomainListToken other = (DomainListToken) obj;
-			if (spelllist == null)
-			{
-				return other.spelllist == null;
-			}
-			return spelllist.equals(other.spelllist) && equalsRestrictedPrimitive(other);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof DomainListToken)
+        {
+            DomainListToken other = (DomainListToken) obj;
+            if (spelllist == null)
+            {
+                return other.spelllist == null;
+            }
+            return spelllist.equals(other.spelllist) && equalsRestrictedPrimitive(other);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return spelllist == null ? -7 : spelllist.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return spelllist == null ? -7 : spelllist.hashCode();
+    }
 
-	@Override
-	public CharSequence getPrimitiveLST()
-	{
-		return new StringBuilder().append(getTokenName()).append('=').append(spelllist.getLSTformat(false))
-			.append(getRestrictionLST());
-	}
+    @Override
+    public CharSequence getPrimitiveLST()
+    {
+        return new StringBuilder().append(getTokenName()).append('=').append(spelllist.getLSTformat(false))
+                .append(getRestrictionLST());
+    }
 
 }

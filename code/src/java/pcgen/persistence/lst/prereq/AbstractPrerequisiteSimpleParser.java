@@ -29,29 +29,29 @@ import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractPrerequisiteSimpleParser extends AbstractPrerequisiteParser
 {
-	/**
-	 * Parse PreReq 
-	 * 
-	 * @param kind 
-	 * @param formula 
-	 * @param invertResult 
-	 * @param overrideQualify 
-	 * @return PreReq
-	 * @throws PersistenceLayerException 
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setKey(formula);
-		prereq.setOperator(PrerequisiteOperator.EQ);
+    /**
+     * Parse PreReq
+     *
+     * @param kind
+     * @param formula
+     * @param invertResult
+     * @param overrideQualify
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        prereq.setKey(formula);
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
+        if (invertResult)
+        {
+            prereq.setOperator(prereq.getOperator().invert());
+        }
 
-		return prereq;
-	}
+        return prereq;
+    }
 }

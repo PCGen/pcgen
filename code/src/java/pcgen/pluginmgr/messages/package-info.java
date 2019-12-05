@@ -19,8 +19,6 @@
  */
 /**
  * The set of messages which are shared between PCGen and GMGen.
- *
- * 
  */
 
 package pcgen.pluginmgr.messages;

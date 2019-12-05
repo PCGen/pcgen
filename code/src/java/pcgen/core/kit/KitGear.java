@@ -44,481 +44,474 @@ import pcgen.core.character.EquipSet;
  */
 public final class KitGear extends BaseKit
 {
-	private Formula quantity;
-	private Integer maxCost;
-	private CDOMReference<Equipment> equip;
-	private List<EqModRef> mods;
-	private String theLocationStr = null;
-	private Boolean sizeToPC;
-	private CDOMSingleRef<SizeAdjustment> size;
+    private Formula quantity;
+    private Integer maxCost;
+    private CDOMReference<Equipment> equip;
+    private List<EqModRef> mods;
+    private String theLocationStr = null;
+    private Boolean sizeToPC;
+    private CDOMSingleRef<SizeAdjustment> size;
 
-	// These members store the state of an instance of this class.  They are
-	// not cloned.
-	private Formula actingQuantity;
-	private Integer actingCost;
-	private List<EqModRef> actingMods;
-	private String actingLocation;
-	private SizeAdjustment actingSize;
+    // These members store the state of an instance of this class.  They are
+    // not cloned.
+    private Formula actingQuantity;
+    private Integer actingCost;
+    private List<EqModRef> actingMods;
+    private String actingLocation;
+    private SizeAdjustment actingSize;
 
-	private Equipment theEquipment = null;
-	private int theQty = 0;
-	private String theLocation = "";
-	private BigDecimal theCost = BigDecimal.ZERO;
+    private Equipment theEquipment = null;
+    private int theQty = 0;
+    private String theLocation = "";
+    private BigDecimal theCost = BigDecimal.ZERO;
 
-	/**
-	 * Set the location of the gear
-	 * @param aLocation
-	 */
-	public void setLocation(final String aLocation)
-	{
-		theLocationStr = aLocation;
-	}
+    /**
+     * Set the location of the gear
+     *
+     * @param aLocation
+     */
+    public void setLocation(final String aLocation)
+    {
+        theLocationStr = aLocation;
+    }
 
-	/**
-	 * Get the location of the gear
-	 * @return location of the gear
-	 */
-	public String getLocation()
-	{
-		return theLocationStr;
-	}
+    /**
+     * Get the location of the gear
+     *
+     * @return location of the gear
+     */
+    public String getLocation()
+    {
+        return theLocationStr;
+    }
 
-	@Override
-	public String toString()
-	{
-		final StringBuilder info = new StringBuilder(100);
+    @Override
+    public String toString()
+    {
+        final StringBuilder info = new StringBuilder(100);
 
-		if (quantity != null)
-		{
-			String qtyStr = String.valueOf(quantity);
-			if (!"1".equals(qtyStr))
-			{
-				info.append(quantity).append('x');
-			}
-		}
+        if (quantity != null)
+        {
+            String qtyStr = String.valueOf(quantity);
+            if (!"1".equals(qtyStr))
+            {
+                info.append(quantity).append('x');
+            }
+        }
 
-		info.append(equip == null ? "null" : equip.getLSTformat(false));
+        info.append(equip == null ? "null" : equip.getLSTformat(false));
 
-		if (mods != null)
-		{
-			info.append(" (");
-			boolean needsSlash = false;
-			for (EqModRef modRef : mods)
-			{
-				if (needsSlash)
-				{
-					info.append('/');
-				}
-				needsSlash = true;
-				info.append(modRef.getRef().getLSTformat(false));
-				for (String s : modRef.getChoices())
-				{
-					info.append(Constants.PIPE).append(s);
-				}
-			}
-			info.append(')');
-		}
+        if (mods != null)
+        {
+            info.append(" (");
+            boolean needsSlash = false;
+            for (EqModRef modRef : mods)
+            {
+                if (needsSlash)
+                {
+                    info.append('/');
+                }
+                needsSlash = true;
+                info.append(modRef.getRef().getLSTformat(false));
+                for (String s : modRef.getChoices())
+                {
+                    info.append(Constants.PIPE).append(s);
+                }
+            }
+            info.append(')');
+        }
 
-		return info.toString();
-	}
+        return info.toString();
+    }
 
-	private void processLookups(Kit aKit, PlayerCharacter aPC)
-	{
-		Collection<NamedFormula> lookups = getLookups();
-		if (lookups == null)
-		{
-			return;
-		}
-		for (NamedFormula lookup : lookups)
-		{
-			KitTable kt = aKit.getTable(lookup.getName());
-			KitGear gear = kt.getEntry(aPC, lookup.getFormula().resolve(aPC, "").intValue());
-			gear.processLookups(aKit, aPC);
-			overlayGear(gear);
-		}
-	}
+    private void processLookups(Kit aKit, PlayerCharacter aPC)
+    {
+        Collection<NamedFormula> lookups = getLookups();
+        if (lookups == null)
+        {
+            return;
+        }
+        for (NamedFormula lookup : lookups)
+        {
+            KitTable kt = aKit.getTable(lookup.getName());
+            KitGear gear = kt.getEntry(aPC, lookup.getFormula().resolve(aPC, "").intValue());
+            gear.processLookups(aKit, aPC);
+            overlayGear(gear);
+        }
+    }
 
-	private void overlayGear(KitGear gear)
-	{
-		if (gear.quantity != null)
-		{
-			actingQuantity = gear.quantity;
-		}
-		if (gear.maxCost != null)
-		{
-			actingCost = gear.maxCost;
-		}
-		if (gear.mods != null)
-		{
-			actingMods.addAll(gear.mods);
-		}
-		if (gear.theLocationStr != null)
-		{
-			actingLocation = gear.theLocationStr;
-		}
-		if (gear.size != null)
-		{
-			actingSize = gear.size.get();
-		}
-	}
+    private void overlayGear(KitGear gear)
+    {
+        if (gear.quantity != null)
+        {
+            actingQuantity = gear.quantity;
+        }
+        if (gear.maxCost != null)
+        {
+            actingCost = gear.maxCost;
+        }
+        if (gear.mods != null)
+        {
+            actingMods.addAll(gear.mods);
+        }
+        if (gear.theLocationStr != null)
+        {
+            actingLocation = gear.theLocationStr;
+        }
+        if (gear.size != null)
+        {
+            actingSize = gear.size.get();
+        }
+    }
 
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		actingQuantity = quantity;
-		actingCost = maxCost;
-		actingMods = mods == null ? null : new ArrayList<>(mods);
-		actingLocation = theLocationStr;
-		if (size != null)
-		{
-			actingSize = size.get();
-		}
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        actingQuantity = quantity;
+        actingCost = maxCost;
+        actingMods = mods == null ? null : new ArrayList<>(mods);
+        actingLocation = theLocationStr;
+        if (size != null)
+        {
+            actingSize = size.get();
+        }
 
-		theEquipment = null;
-		theQty = 0;
-		theLocation = "";
-		theCost = BigDecimal.ZERO;
+        theEquipment = null;
+        theQty = 0;
+        theLocation = "";
+        theCost = BigDecimal.ZERO;
 
-		processLookups(aKit, aPC);
+        processLookups(aKit, aPC);
 
-		int aBuyRate = aKit.getBuyRate(aPC);
-		final BigDecimal pcGold = aPC.getGold();
-		final BigDecimal fixedTotalCost = aKit.getTotalCost(aPC);
-		if (fixedTotalCost != null)
-		{
-			// We are going to charge fr the kit once, rather than for every piece of gear
-			aBuyRate = 0;
-		}
+        int aBuyRate = aKit.getBuyRate(aPC);
+        final BigDecimal pcGold = aPC.getGold();
+        final BigDecimal fixedTotalCost = aKit.getTotalCost(aPC);
+        if (fixedTotalCost != null)
+        {
+            // We are going to charge fr the kit once, rather than for every piece of gear
+            aBuyRate = 0;
+        }
 
-		List<Equipment> eqList = new ArrayList<>(equip.getContainedObjects());
-		if (actingCost != null)
-		{
-			final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(actingCost));
+        List<Equipment> eqList = new ArrayList<>(equip.getContainedObjects());
+        if (actingCost != null)
+        {
+            final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(actingCost));
             eqList.removeIf(equipment -> equipment.getCost(aPC).compareTo(bdMaxCost) > 0);
-		}
-		if (eqList.size() == 1)
-		{
-			theEquipment = eqList.get(0);
-		}
-		else
-		{
-			List<Equipment> selected = new ArrayList<>(1);
-			selected = Globals.getChoiceFromList("Choose equipment", eqList, selected, 1, aPC);
-			if (selected.size() == 1)
-			{
-				theEquipment = selected.get(0);
-			}
-		}
+        }
+        if (eqList.size() == 1)
+        {
+            theEquipment = eqList.get(0);
+        } else
+        {
+            List<Equipment> selected = new ArrayList<>(1);
+            selected = Globals.getChoiceFromList("Choose equipment", eqList, selected, 1, aPC);
+            if (selected.size() == 1)
+            {
+                theEquipment = selected.get(0);
+            }
+        }
 
-		//
-		// TODO: Check to see if the user has selected an item that
-		// requires modification (MOD:R)
+        //
+        // TODO: Check to see if the user has selected an item that
+        // requires modification (MOD:R)
 
-		theEquipment = theEquipment.clone();
+        theEquipment = theEquipment.clone();
 
-		//
-		// Resize item for character--never resize weapons or ammo, unless it's a
-		// natural (weapon)
-		boolean tryResize = false;
+        //
+        // Resize item for character--never resize weapons or ammo, unless it's a
+        // natural (weapon)
+        boolean tryResize = false;
 
-		SizeAdjustment sizeToSet = aPC.getSizeAdjustment();
+        SizeAdjustment sizeToSet = aPC.getSizeAdjustment();
 
-		if (actingSize == null)
-		{
-			if (theEquipment.isType("Natural") || (sizeToPC != null && sizeToPC)
-				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
-			{
-				tryResize = Globals.canResizeHaveEffect(theEquipment, null);
-			}
-		}
-		else
-		{
-			if (sizeToPC != null && sizeToPC)
-			{
-				tryResize = Globals.canResizeHaveEffect(theEquipment, null);
-			}
-			else
-			{
-				sizeToSet = actingSize;
-				tryResize = true;
-			}
-		}
+        if (actingSize == null)
+        {
+            if (theEquipment.isType("Natural") || (sizeToPC != null && sizeToPC)
+                    || (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
+            {
+                tryResize = Globals.canResizeHaveEffect(theEquipment, null);
+            }
+        } else
+        {
+            if (sizeToPC != null && sizeToPC)
+            {
+                tryResize = Globals.canResizeHaveEffect(theEquipment, null);
+            } else
+            {
+                sizeToSet = actingSize;
+                tryResize = true;
+            }
+        }
 
-		if (tryResize)
-		{
-			theEquipment.resizeItem(aPC, sizeToSet);
-		}
-		else
-		{
-			// We need setBase() called.  The only way to do that is to resize.
-			// We will set the size to itself.
-			theEquipment.resizeItem(aPC, theEquipment.getSizeAdjustment());
-		}
+        if (tryResize)
+        {
+            theEquipment.resizeItem(aPC, sizeToSet);
+        } else
+        {
+            // We need setBase() called.  The only way to do that is to resize.
+            // We will set the size to itself.
+            theEquipment.resizeItem(aPC, theEquipment.getSizeAdjustment());
+        }
 
-		//
-		// Find and add any equipment modifiers
-		//
-		if (actingMods != null)
-		{
-			for (EqModRef modref : actingMods)
-			{
-				/*
-				 * Going to do this the long way for now to avoid ugly entanglements
-				 */
-				StringBuilder sb = new StringBuilder(50);
-				EquipmentModifier eqMod = modref.getRef().get();
-				sb.append(eqMod.getKeyName());
-				for (String assoc : modref.getChoices())
-				{
-					sb.append(Constants.PIPE).append(eval(aPC, assoc));
-				}
-				theEquipment.addEqModifiers(sb.toString(), true);
-			}
-		}
+        //
+        // Find and add any equipment modifiers
+        //
+        if (actingMods != null)
+        {
+            for (EqModRef modref : actingMods)
+            {
+                /*
+                 * Going to do this the long way for now to avoid ugly entanglements
+                 */
+                StringBuilder sb = new StringBuilder(50);
+                EquipmentModifier eqMod = modref.getRef().get();
+                sb.append(eqMod.getKeyName());
+                for (String assoc : modref.getChoices())
+                {
+                    sb.append(Constants.PIPE).append(eval(aPC, assoc));
+                }
+                theEquipment.addEqModifiers(sb.toString(), true);
+            }
+        }
 
-		if (tryResize || (actingMods != null))
-		{
-			theEquipment.nameItemFromModifiers(aPC);
-		}
+        if (tryResize || (actingMods != null))
+        {
+            theEquipment.nameItemFromModifiers(aPC);
+        }
 
-		if (actingQuantity == null)
-		{
-			theQty = 1;
-		}
-		else
-		{
-			theQty = actingQuantity.resolve(aPC, "").intValue();
-		}
-		int origQty = theQty;
-		final BigDecimal eqCost = theEquipment.getCost(aPC);
-		if (aBuyRate != 0)
-		{
-			if (fixedTotalCost == null)
-			{
-				final BigDecimal bdBuyRate =
-						new BigDecimal(Integer.toString(aBuyRate)).multiply(new BigDecimal("0.01"));
+        if (actingQuantity == null)
+        {
+            theQty = 1;
+        } else
+        {
+            theQty = actingQuantity.resolve(aPC, "").intValue();
+        }
+        int origQty = theQty;
+        final BigDecimal eqCost = theEquipment.getCost(aPC);
+        if (aBuyRate != 0)
+        {
+            if (fixedTotalCost == null)
+            {
+                final BigDecimal bdBuyRate =
+                        new BigDecimal(Integer.toString(aBuyRate)).multiply(new BigDecimal("0.01"));
 
-				// Check to see if the PC can afford to buy this equipment. If
-				// not, then decrement the quantity and try again.
-				theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty))).multiply(bdBuyRate);
+                // Check to see if the PC can afford to buy this equipment. If
+                // not, then decrement the quantity and try again.
+                theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty))).multiply(bdBuyRate);
 
-				while (theQty > 0)
-				{
-					if (theCost.compareTo(pcGold) <= 0) // PC has enough?
-					{
-						break;
-					}
+                while (theQty > 0)
+                {
+                    if (theCost.compareTo(pcGold) <= 0) // PC has enough?
+                    {
+                        break;
+                    }
 
-					theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
-				}
-			}
+                    theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
+                }
+            }
 
-			aPC.setGold(aPC.getGold().subtract(theCost));
-		}
+            aPC.setGold(aPC.getGold().subtract(theCost));
+        }
 
-		boolean outOfFunds = false;
-		if (theQty != origQty)
-		{
-			outOfFunds = true;
-		}
+        boolean outOfFunds = false;
+        if (theQty != origQty)
+        {
+            outOfFunds = true;
+        }
 
-		if (outOfFunds)
-		{
-			warnings.add("GEAR: Could not purchase " + (origQty - theQty) + " " + theEquipment.getName()
-				+ ". Not enough funds.");
-		}
+        if (outOfFunds)
+        {
+            warnings.add("GEAR: Could not purchase " + (origQty - theQty) + " " + theEquipment.getName()
+                    + ". Not enough funds.");
+        }
 
-		//
-		// Can't buy none
-		//
-		if (theQty == 0)
-		{
-			return false;
-		}
+        //
+        // Can't buy none
+        //
+        if (theQty == 0)
+        {
+            return false;
+        }
 
-		Equipment testApplyEquipment = theEquipment.clone();
-		// Temporarily add the equipment so we can see if we can equip it.
-		testApplyEquipment.setQty(Float.valueOf(theQty));
-		aPC.addEquipment(testApplyEquipment);
-		Equipment theTarget = null;
-		if (actingLocation != null)
-		{
-			theLocation = actingLocation;
-			if (!theLocation.equalsIgnoreCase("DEFAULT")
-				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
-				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
-				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
-			{
-				theTarget = EquipmentUtilities.findEquipmentByBaseKey(aPC.getEquipmentMasterList(), theLocation);
-			}
-			else if (theLocation.equalsIgnoreCase("DEFAULT"))
-			{
-				theLocation = "";
-			}
+        Equipment testApplyEquipment = theEquipment.clone();
+        // Temporarily add the equipment so we can see if we can equip it.
+        testApplyEquipment.setQty(Float.valueOf(theQty));
+        aPC.addEquipment(testApplyEquipment);
+        Equipment theTarget = null;
+        if (actingLocation != null)
+        {
+            theLocation = actingLocation;
+            if (!theLocation.equalsIgnoreCase("DEFAULT")
+                    && !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
+                    && !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
+                    && !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
+            {
+                theTarget = EquipmentUtilities.findEquipmentByBaseKey(aPC.getEquipmentMasterList(), theLocation);
+            } else if (theLocation.equalsIgnoreCase("DEFAULT"))
+            {
+                theLocation = "";
+            }
 
-			EquipSet eSet = null;
-			if (theTarget != null)
-			{
-				eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH), theTarget);
-			}
-			if (eSet == null)
-			{
-				eSet = aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
-			}
-			if (eSet == null)
-			{
-				warnings.add(
-					"GEAR: Could not find location " + theLocation + " for gear " + testApplyEquipment.getName() + ".");
-				return false;
-			}
-			else
-			{
-				EquipSet eqSet =
-						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, -1.0f);
-				if (eqSet == null)
-				{
-					warnings.add("GEAR: Could not equip " + testApplyEquipment.getName() + " to " + theLocation);
-				}
-			}
-		}
-		return true;
-	}
+            EquipSet eSet = null;
+            if (theTarget != null)
+            {
+                eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH), theTarget);
+            }
+            if (eSet == null)
+            {
+                eSet = aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
+            }
+            if (eSet == null)
+            {
+                warnings.add(
+                        "GEAR: Could not find location " + theLocation + " for gear " + testApplyEquipment.getName() + ".");
+                return false;
+            } else
+            {
+                EquipSet eqSet =
+                        aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, -1.0f);
+                if (eqSet == null)
+                {
+                    warnings.add("GEAR: Could not equip " + testApplyEquipment.getName() + " to " + theLocation);
+                }
+            }
+        }
+        return true;
+    }
 
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		final Equipment existing = aPC.getEquipmentNamed(theEquipment.getName());
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        final Equipment existing = aPC.getEquipmentNamed(theEquipment.getName());
 
-		if (existing == null)
-		{
-			theEquipment.setQty(Float.valueOf(theQty));
+        if (existing == null)
+        {
+            theEquipment.setQty(Float.valueOf(theQty));
 
-			aPC.addEquipment(theEquipment);
-			Globals.getContext().getReferenceContext().importObject(theEquipment);
-		}
-		else
-		{
-			existing.setQty(existing.qty() + theQty);
-		}
+            aPC.addEquipment(theEquipment);
+            Globals.getContext().getReferenceContext().importObject(theEquipment);
+        } else
+        {
+            existing.setQty(existing.qty() + theQty);
+        }
 
-		// If the target is null, try and grab it incase it is there now
-		Equipment theTarget = null;
-		EquipSet eSet;
-		if (!theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
-			&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
-			&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
-		{
-			theTarget = EquipmentUtilities.findEquipmentByBaseKey(aPC.getEquipmentMasterList(), theLocation);
-			if (theTarget == null)
-			{
-				theLocation = Constants.EQUIP_LOCATION_CARRIED;
-			}
-		}
-		if (theTarget == null)
-		{
-			eSet = aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
-		}
-		else
-		{
-			eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH), theTarget);
-		}
+        // If the target is null, try and grab it incase it is there now
+        Equipment theTarget = null;
+        EquipSet eSet;
+        if (!theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
+                && !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
+                && !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
+        {
+            theTarget = EquipmentUtilities.findEquipmentByBaseKey(aPC.getEquipmentMasterList(), theLocation);
+            if (theTarget == null)
+            {
+                theLocation = Constants.EQUIP_LOCATION_CARRIED;
+            }
+        }
+        if (theTarget == null)
+        {
+            eSet = aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
+        } else
+        {
+            eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH), theTarget);
+        }
 
-		//
-		// Equip the item to the default EquipSet.
-		//
-		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, (float) theQty);
+        //
+        // Equip the item to the default EquipSet.
+        //
+        aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, (float) theQty);
 
-		aPC.setGold(aPC.getGold().subtract(theCost));
-	}
+        aPC.setGold(aPC.getGold().subtract(theCost));
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Gear";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Gear";
+    }
 
-	public void setQuantity(Formula formula)
-	{
-		quantity = formula;
-	}
+    public void setQuantity(Formula formula)
+    {
+        quantity = formula;
+    }
 
-	public Formula getQuantity()
-	{
-		return quantity;
-	}
+    public Formula getQuantity()
+    {
+        return quantity;
+    }
 
-	public void setMaxCost(Integer quan)
-	{
-		maxCost = quan;
-	}
+    public void setMaxCost(Integer quan)
+    {
+        maxCost = quan;
+    }
 
-	public Integer getMaxCost()
-	{
-		return maxCost;
-	}
+    public Integer getMaxCost()
+    {
+        return maxCost;
+    }
 
-	public void setEquipment(CDOMReference<Equipment> reference)
-	{
-		equip = reference;
-	}
+    public void setEquipment(CDOMReference<Equipment> reference)
+    {
+        equip = reference;
+    }
 
-	public CDOMReference<Equipment> getEquipment()
-	{
-		return equip;
-	}
+    public CDOMReference<Equipment> getEquipment()
+    {
+        return equip;
+    }
 
-	public void setSizeToPC(Boolean b)
-	{
-		sizeToPC = b;
-	}
+    public void setSizeToPC(Boolean b)
+    {
+        sizeToPC = b;
+    }
 
-	public Boolean getSizeToPC()
-	{
-		return sizeToPC;
-	}
+    public Boolean getSizeToPC()
+    {
+        return sizeToPC;
+    }
 
-	public void setSize(CDOMSingleRef<SizeAdjustment> sa)
-	{
-		size = sa;
-	}
+    public void setSize(CDOMSingleRef<SizeAdjustment> sa)
+    {
+        size = sa;
+    }
 
-	public CDOMSingleRef<SizeAdjustment> getSize()
-	{
-		return size;
-	}
+    public CDOMSingleRef<SizeAdjustment> getSize()
+    {
+        return size;
+    }
 
-	private List<NamedFormula> lookupList;
+    private List<NamedFormula> lookupList;
 
-	public void loadLookup(String tableEntry, Formula f)
-	{
-		if (lookupList == null)
-		{
-			lookupList = new LinkedList<>();
-		}
-		lookupList.add(new NamedFormula(tableEntry, f));
-	}
+    public void loadLookup(String tableEntry, Formula f)
+    {
+        if (lookupList == null)
+        {
+            lookupList = new LinkedList<>();
+        }
+        lookupList.add(new NamedFormula(tableEntry, f));
+    }
 
-	public Collection<NamedFormula> getLookups()
-	{
-		return lookupList;
-	}
+    public Collection<NamedFormula> getLookups()
+    {
+        return lookupList;
+    }
 
-	public void addModRef(EqModRef modRef)
-	{
-		if (mods == null)
-		{
-			mods = new LinkedList<>();
-		}
-		mods.add(modRef);
-	}
+    public void addModRef(EqModRef modRef)
+    {
+        if (mods == null)
+        {
+            mods = new LinkedList<>();
+        }
+        mods.add(modRef);
+    }
 
-	public boolean hasEqMods()
-	{
-		return mods != null && !mods.isEmpty();
-	}
+    public boolean hasEqMods()
+    {
+        return mods != null && !mods.isEmpty();
+    }
 
-	public List<EqModRef> getEqMods()
-	{
-		return Collections.unmodifiableList(mods);
-	}
+    public List<EqModRef> getEqMods()
+    {
+        return Collections.unmodifiableList(mods);
+    }
 }

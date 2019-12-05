@@ -31,56 +31,56 @@ import pcgen.core.SettingsHandler;
  */
 public class KitRace extends BaseKit
 {
-	private CDOMSingleRef<Race> theRace = null;
+    private CDOMSingleRef<Race> theRace = null;
 
-	/**
-	 * Actually applies the race to this PC.
-	 *
-	 * @param aPC The PlayerCharacter the alignment is applied to
-	 */
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		// We want to level up as quietly as possible for kits.
-		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
-		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		aPC.setRace(theRace.get());
-		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
-	}
+    /**
+     * Actually applies the race to this PC.
+     *
+     * @param aPC The PlayerCharacter the alignment is applied to
+     */
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        // We want to level up as quietly as possible for kits.
+        boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+        SettingsHandler.setShowHPDialogAtLevelUp(false);
+        aPC.setRace(theRace.get());
+        SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+    }
 
-	/**
-	 * testApply
-	 *
-	 * @param aPC PlayerCharacter
-	 * @param aKit Kit
-	 * @param warnings List
-	 */
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		apply(aPC);
-		return true;
-	}
+    /**
+     * testApply
+     *
+     * @param aPC      PlayerCharacter
+     * @param aKit     Kit
+     * @param warnings List
+     */
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        apply(aPC);
+        return true;
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Race";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Race";
+    }
 
-	@Override
-	public String toString()
-	{
-		return theRace.getLSTformat(false);
-	}
+    @Override
+    public String toString()
+    {
+        return theRace.getLSTformat(false);
+    }
 
-	public void setRace(CDOMSingleRef<Race> ref)
-	{
-		theRace = ref;
-	}
+    public void setRace(CDOMSingleRef<Race> ref)
+    {
+        theRace = ref;
+    }
 
-	public CDOMReference<Race> getRace()
-	{
-		return theRace;
-	}
+    public CDOMReference<Race> getRace()
+    {
+        return theRace;
+    }
 }

@@ -64,85 +64,84 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 {
-	/**
-	 *
-	 * @return token name
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "FOLLOWERS"; //$NON-NLS-1$
-	}
+    /**
+     * @return token name
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "FOLLOWERS"; //$NON-NLS-1$
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (obj instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
-		}
-		if ((value == null) || value.isEmpty())
-		{
-			return new ParseResult.Fail("Argument in " + getTokenName() + " cannot be empty");
-		}
-		ParsingSeparator sep = new ParsingSeparator(value, '|');
-		sep.addGroupingPair('[', ']');
-		sep.addGroupingPair('(', ')');
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (obj instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
+        }
+        if ((value == null) || value.isEmpty())
+        {
+            return new ParseResult.Fail("Argument in " + getTokenName() + " cannot be empty");
+        }
+        ParsingSeparator sep = new ParsingSeparator(value, '|');
+        sep.addGroupingPair('[', ']');
+        sep.addGroupingPair('(', ')');
 
-		String followerType = sep.next();
-		if (followerType.isEmpty())
-		{
-			return new ParseResult.Fail("Follower Type in " + getTokenName() + " cannot be empty");
-		}
-		if (!sep.hasNext())
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " has no PIPE character: " + "Must be of the form <follower type>|<formula>");
-		}
-		String followerNumber = sep.next();
-		if (sep.hasNext())
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " has too many PIPE characters: " + "Must be of the form <follower type>|<formula");
-		}
-		if (followerNumber.isEmpty())
-		{
-			return new ParseResult.Fail("Follower Count in " + getTokenName() + " cannot be empty");
-		}
-		CDOMSingleRef<CompanionList> cl =
-				context.getReferenceContext().getCDOMReference(CompanionList.class, followerType);
-		Formula num = FormulaFactory.getFormulaFor(followerNumber);
-		if (!num.isValid())
-		{
-			return new ParseResult.Fail(
-				"Number of Followers in " + getTokenName() + " was not valid: " + num.toString());
-		}
-		context.getObjectContext().addToList(obj, ListKey.FOLLOWERS, new FollowerLimit(cl, num));
-		return ParseResult.SUCCESS;
-	}
+        String followerType = sep.next();
+        if (followerType.isEmpty())
+        {
+            return new ParseResult.Fail("Follower Type in " + getTokenName() + " cannot be empty");
+        }
+        if (!sep.hasNext())
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " has no PIPE character: " + "Must be of the form <follower type>|<formula>");
+        }
+        String followerNumber = sep.next();
+        if (sep.hasNext())
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " has too many PIPE characters: " + "Must be of the form <follower type>|<formula");
+        }
+        if (followerNumber.isEmpty())
+        {
+            return new ParseResult.Fail("Follower Count in " + getTokenName() + " cannot be empty");
+        }
+        CDOMSingleRef<CompanionList> cl =
+                context.getReferenceContext().getCDOMReference(CompanionList.class, followerType);
+        Formula num = FormulaFactory.getFormulaFor(followerNumber);
+        if (!num.isValid())
+        {
+            return new ParseResult.Fail(
+                    "Number of Followers in " + getTokenName() + " was not valid: " + num.toString());
+        }
+        context.getObjectContext().addToList(obj, ListKey.FOLLOWERS, new FollowerLimit(cl, num));
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Changes<FollowerLimit> changes = context.getObjectContext().getListChanges(obj, ListKey.FOLLOWERS);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		TreeSet<String> returnSet = new TreeSet<>();
-		for (FollowerLimit fl : changes.getAdded())
-		{
-			String followerType = fl.getCompanionList().getLSTformat(false);
-			Formula followerNumber = fl.getValue();
-			returnSet.add(followerType + Constants.PIPE + followerNumber.toString());
-		}
-		return returnSet.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        Changes<FollowerLimit> changes = context.getObjectContext().getListChanges(obj, ListKey.FOLLOWERS);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        TreeSet<String> returnSet = new TreeSet<>();
+        for (FollowerLimit fl : changes.getAdded())
+        {
+            String followerType = fl.getCompanionList().getLSTformat(false);
+            Formula followerNumber = fl.getValue();
+            returnSet.add(followerType + Constants.PIPE + followerNumber.toString());
+        }
+        return returnSet.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

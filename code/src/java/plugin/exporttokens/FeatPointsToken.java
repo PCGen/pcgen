@@ -23,38 +23,40 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-/** 
+/**
  * Deal with FEATPOINTS Token
  */
 public class FeatPointsToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "FEATPOINTS";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "FEATPOINTS";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Double.toString(getFeatPointsToken(pc));
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Double.toString(getFeatPointsToken(pc));
+    }
 
-	/**
-	 * Get the number of feat points remaining
-	 * 
-	 * @param pc - The PC to get the FEat points for
-	 * @return The number of feat points remaining
-	 */
-	public static double getFeatPointsToken(PlayerCharacter pc)
-	{
-		if (!CoreUtility.doublesEqual(pc.getRemainingFeatPoolPoints(), 0))
-		{
-			return pc.getRemainingFeatPoolPoints();
-		}
-		return 0.0;
-	}
+    /**
+     * Get the number of feat points remaining
+     *
+     * @param pc - The PC to get the FEat points for
+     * @return The number of feat points remaining
+     */
+    public static double getFeatPointsToken(PlayerCharacter pc)
+    {
+        if (!CoreUtility.doublesEqual(pc.getRemainingFeatPoolPoints(), 0))
+        {
+            return pc.getRemainingFeatPoolPoints();
+        }
+        return 0.0;
+    }
 }

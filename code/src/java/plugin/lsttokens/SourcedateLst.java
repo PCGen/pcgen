@@ -35,86 +35,83 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>, InstallLstToken
+        implements CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SOURCEDATE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SOURCEDATE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		Date theDate = getDate(value);
-		if (theDate == null)
-		{
-			return ParseResult.INTERNAL_ERROR;
-		}
-		context.getObjectContext().put(obj, ObjectKey.SOURCE_DATE, theDate);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        Date theDate = getDate(value);
+        if (theDate == null)
+        {
+            return ParseResult.INTERNAL_ERROR;
+        }
+        context.getObjectContext().put(obj, ObjectKey.SOURCE_DATE, theDate);
+        return ParseResult.SUCCESS;
+    }
 
-	private static Date getDate(String value)
-	{
-		DateFormat df = new SimpleDateFormat("yyyy-MM", Locale.ROOT); //$NON-NLS-1$
-		Date theDate;
-		try
-		{
-			theDate = df.parse(value);
-		}
-		catch (ParseException pe)
-		{
-			df = DateFormat.getDateInstance();
-			try
-			{
-				theDate = df.parse(value);
-			}
-			catch (ParseException e)
-			{
-				try
-				{
-					DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy", Locale.ROOT);
-					theDate = formatter.parse(value);
-				}
-				catch (ParseException ipe)
-				{
-					Logging.log(Logging.LST_ERROR, "Error parsing date", ipe);
-					return null;
-				}
-			}
-		}
-		return theDate;
-	}
+    private static Date getDate(String value)
+    {
+        DateFormat df = new SimpleDateFormat("yyyy-MM", Locale.ROOT); //$NON-NLS-1$
+        Date theDate;
+        try
+        {
+            theDate = df.parse(value);
+        } catch (ParseException pe)
+        {
+            df = DateFormat.getDateInstance();
+            try
+            {
+                theDate = df.parse(value);
+            } catch (ParseException e)
+            {
+                try
+                {
+                    DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy", Locale.ROOT);
+                    theDate = formatter.parse(value);
+                } catch (ParseException ipe)
+                {
+                    Logging.log(Logging.LST_ERROR, "Error parsing date", ipe);
+                    return null;
+                }
+            }
+        }
+        return theDate;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Date date = context.getObjectContext().getObject(obj, ObjectKey.SOURCE_DATE);
-		if (date == null)
-		{
-			return null;
-		}
-		DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
-		return new String[]{df.format(date)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        Date date = context.getObjectContext().getObject(obj, ObjectKey.SOURCE_DATE);
+        if (date == null)
+        {
+            return null;
+        }
+        DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
+        return new String[]{df.format(date)};
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public boolean parse(Campaign campaign, String value, URI sourceURI)
-	{
-		Date theDate = getDate(value);
-		if (theDate == null)
-		{
-			return false;
-		}
-		campaign.put(ObjectKey.SOURCE_DATE, theDate);
-		return true;
-	}
+    @Override
+    public boolean parse(Campaign campaign, String value, URI sourceURI)
+    {
+        Date theDate = getDate(value);
+        if (theDate == null)
+        {
+            return false;
+        }
+        campaign.put(ObjectKey.SOURCE_DATE, theDate);
+        return true;
+    }
 }

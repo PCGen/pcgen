@@ -25,21 +25,21 @@ import pcgen.persistence.lst.GameModeLstToken;
 
 /**
  * {@code ResizableEquipTypeToken} parses the list of equipment
- * types designated as able to be automatically resized. 
+ * types designated as able to be automatically resized.
  */
 public class MonsterRoleDefaultToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "MONSTERROLEDEFAULT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "MONSTERROLEDEFAULT";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		gameMode.setMonsterRoleDefault(value);
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        gameMode.setMonsterRoleDefault(value);
+        return true;
+    }
 }

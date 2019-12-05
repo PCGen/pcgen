@@ -40,153 +40,153 @@ import org.junit.jupiter.api.Test;
  */
 public class PreArmorTypeTest extends AbstractCharacterTestCase
 {
-	/*
-	 * Class under test for int passes(Prerequisite, PlayerCharacter)
-	 */
-	@Test
-	public void testPassesPrerequisitePlayerCharacter()
-	{
-		final PlayerCharacter character = getCharacter();
+    /*
+     * Class under test for int passes(Prerequisite, PlayerCharacter)
+     */
+    @Test
+    public void testPassesPrerequisitePlayerCharacter()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Equipment armor = new Equipment();
-		armor.setName("Leather");
-		armor.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
+        final Equipment armor = new Equipment();
+        armor.setName("Leather");
+        armor.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
 
-		character.addEquipment(armor);
+        character.addEquipment(armor);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("armortype");
-		prereq.setKey("CHAINMAIL");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("armortype");
+        prereq.setKey("CHAINMAIL");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Doesn't have chainmail equipped", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Doesn't have chainmail equipped", PrereqHandler.passes(
+                prereq, character, null));
 
-		armor.setName("Chainmail");
+        armor.setName("Chainmail");
 
-		assertFalse("Chainmail is not equipped", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Chainmail is not equipped", PrereqHandler.passes(prereq,
+                character, null));
 
-		armor.setIsEquipped(true, character);
-		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+        armor.setIsEquipped(true, character);
+        character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
-		assertTrue("Chainmail is equipped", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Chainmail is equipped", PrereqHandler.passes(prereq,
+                character, null));
 
-		armor.setName("Chainmail (Masterwork)");
+        armor.setName("Chainmail (Masterwork)");
 
-		assertFalse("Should be an exact match only", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Should be an exact match only", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq.setKey("CHAINMAIL%");
+        prereq.setKey("CHAINMAIL%");
 
-		assertTrue("Should be allow wildcard match", PrereqHandler.passes(
-			prereq, character, null));
-	}
+        assertTrue("Should be allow wildcard match", PrereqHandler.passes(
+                prereq, character, null));
+    }
 
-	/**
-	 * Test armor type tests.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testType() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test armor type tests.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testType() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Equipment armor = new Equipment();
-		armor.setName("Chainmail");
+        final Equipment armor = new Equipment();
+        armor.setName("Chainmail");
 
-		character.addEquipment(armor);
-		armor.setIsEquipped(true, character);
-		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+        character.addEquipment(armor);
+        armor.setIsEquipped(true, character);
+        character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
-		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("armortype");
-		prereq.setKey("TYPE=Medium");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        Prerequisite prereq = new Prerequisite();
+        prereq.setKind("armortype");
+        prereq.setKey("TYPE=Medium");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
+                character, null));
 
-		armor.addType(Type.getConstant("ARMOR"));
-		armor.addType(Type.getConstant("MEDIUM"));
-		
-		assertTrue("Armor is medium", PrereqHandler.passes(prereq, character,
-			null));
+        armor.addType(Type.getConstant("ARMOR"));
+        armor.addType(Type.getConstant("MEDIUM"));
 
-		prereq.setKey("TYPE.Heavy");
+        assertTrue("Armor is medium", PrereqHandler.passes(prereq, character,
+                null));
 
-		assertFalse("Armor is not heavy", PrereqHandler.passes(prereq,
-			character, null));
+        prereq.setKey("TYPE.Heavy");
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREARMORTYPE:2,TYPE=Medium,Full%");
+        assertFalse("Armor is not heavy", PrereqHandler.passes(prereq,
+                character, null));
 
-		assertFalse("Armor is not Full something", PrereqHandler.passes(prereq,
-			character, null));
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREARMORTYPE:2,TYPE=Medium,Full%");
 
-		prereq = factory.parse("PREARMORTYPE:2,TYPE=Medium,Chain%");
-		assertTrue("Armor is medium and Chain", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        assertFalse("Armor is not Full something", PrereqHandler.passes(prereq,
+                character, null));
 
-	/**
-	 * Test LIST.
-	 */
-	@Test
-	public void testList()
-	{
-		final PlayerCharacter character = getCharacter();
+        prereq = factory.parse("PREARMORTYPE:2,TYPE=Medium,Chain%");
+        assertTrue("Armor is medium and Chain", PrereqHandler.passes(prereq,
+                character, null));
+    }
 
-		final Ability mediumProf =
-				TestHelper.makeAbility("Armor Proficiency (Medium)", BuildUtilities.getFeatCat(),
-					"General");
-		Globals.getContext().unconditionallyProcess(mediumProf, "AUTO",
-				"ARMORPROF|ARMORTYPE.Medium");
-		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), mediumProf, null);
+    /**
+     * Test LIST.
+     */
+    @Test
+    public void testList()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Equipment chainmail = new Equipment();
-		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
-		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("MEDIUM"));
-		chainmail.setName("Chainmail");
-		Globals.getContext().getReferenceContext().importObject(chainmail);
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
-		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("armortype");
-		prereq.setKey("LIST");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        final Ability mediumProf =
+                TestHelper.makeAbility("Armor Proficiency (Medium)", BuildUtilities.getFeatCat(),
+                        "General");
+        Globals.getContext().unconditionallyProcess(mediumProf, "AUTO",
+                "ARMORPROF|ARMORTYPE.Medium");
+        AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), mediumProf, null);
 
-		assertFalse("No armor equipped", PrereqHandler.passes(prereq,
-			character, null));
+        final Equipment chainmail = new Equipment();
+        chainmail.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
+        chainmail.addToListFor(ListKey.TYPE, Type.getConstant("MEDIUM"));
+        chainmail.setName("Chainmail");
+        Globals.getContext().getReferenceContext().importObject(chainmail);
+        assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+        Prerequisite prereq = new Prerequisite();
+        prereq.setKind("armortype");
+        prereq.setKey("LIST");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		character.addEquipment(chainmail);
-		chainmail.setIsEquipped(true, character);
-		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+        assertFalse("No armor equipped", PrereqHandler.passes(prereq,
+                character, null));
 
-		assertTrue("Proficient armor equipped", PrereqHandler.passes(prereq,
-			character, null));
+        character.addEquipment(chainmail);
+        chainmail.setIsEquipped(true, character);
+        character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
-		chainmail.setIsEquipped(false, character);
-		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+        assertTrue("Proficient armor equipped", PrereqHandler.passes(prereq,
+                character, null));
 
-		final Equipment fullPlate = new Equipment();
-		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
-		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("HEAVY"));
-		fullPlate.setName("Full Plate");
-		Globals.getContext().getReferenceContext().importObject(fullPlate);
-		
-		/*
-		 * TODO This doesn't make a lot of sense - false? Shouldn't this be true
-		 * to be a useful test?
-		 */
-		fullPlate.setIsEquipped(false, character);
-		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+        chainmail.setIsEquipped(false, character);
+        character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
-		assertFalse("Not Proficient in armor equipped", PrereqHandler.passes(
-			prereq, character, null));
-	}
+        final Equipment fullPlate = new Equipment();
+        fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
+        fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("HEAVY"));
+        fullPlate.setName("Full Plate");
+        Globals.getContext().getReferenceContext().importObject(fullPlate);
+
+        /*
+         * TODO This doesn't make a lot of sense - false? Shouldn't this be true
+         * to be a useful test?
+         */
+        fullPlate.setIsEquipped(false, character);
+        character.doAfavorForAunitTestThatIgnoresEquippingRules();
+
+        assertFalse("Not Proficient in armor equipped", PrereqHandler.passes(
+                prereq, character, null));
+    }
 }

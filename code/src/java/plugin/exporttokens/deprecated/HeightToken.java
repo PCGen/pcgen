@@ -26,68 +26,65 @@ import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with Tokens:
- * 
+ * <p>
  * HEIGHT
  * HEIGHT.FOOTPART
  * HEIGHT.INCHPART
  */
 public class HeightToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "HEIGHT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "HEIGHT";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
 
-		if (!display.getSuppressBioField(BiographyField.HEIGHT))
-		{
-			if ("HEIGHT".equals(tokenSource))
-			{
-				retString = getHeightString(display);
-			}
-			else if ("HEIGHT.FOOTPART".equals(tokenSource))
-			{
-				retString = getHeightFootPart(display);
-			}
-			else if ("HEIGHT.INCHPART".equals(tokenSource))
-			{
-				retString = getHeightInchPart(display);
-			}
-		}
+        if (!display.getSuppressBioField(BiographyField.HEIGHT))
+        {
+            if ("HEIGHT".equals(tokenSource))
+            {
+                retString = getHeightString(display);
+            } else if ("HEIGHT.FOOTPART".equals(tokenSource))
+            {
+                retString = getHeightFootPart(display);
+            } else if ("HEIGHT.INCHPART".equals(tokenSource))
+            {
+                retString = getHeightInchPart(display);
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	private String getHeightInchPart(CharacterDisplay display)
-	{
-		return Integer.toString(display.getHeight() % 12);
-	}
+    private String getHeightInchPart(CharacterDisplay display)
+    {
+        return Integer.toString(display.getHeight() % 12);
+    }
 
-	private String getHeightFootPart(CharacterDisplay display)
-	{
-		return Integer.toString(display.getHeight() / 12);
-	}
+    private String getHeightFootPart(CharacterDisplay display)
+    {
+        return Integer.toString(display.getHeight() / 12);
+    }
 
-	private String getHeightString(CharacterDisplay display)
-	{
-		String retString;
+    private String getHeightString(CharacterDisplay display)
+    {
+        String retString;
 
-		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
-		{
-			retString = Integer.toString(display.getHeight() / 12) + "' " + Integer.toString(display.getHeight() % 12)
-				+ '"';
-		}
-		else
-		{
-			retString = Globals.getGameModeUnitSet().displayHeightInUnitSet(display.getHeight()) + ' '
-				+ Globals.getGameModeUnitSet().getHeightUnit();
-		}
+        if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
+        {
+            retString = Integer.toString(display.getHeight() / 12) + "' " + Integer.toString(display.getHeight() % 12)
+                    + '"';
+        } else
+        {
+            retString = Globals.getGameModeUnitSet().displayHeightInUnitSet(display.getHeight()) + ' '
+                    + Globals.getGameModeUnitSet().getHeightUnit();
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 }

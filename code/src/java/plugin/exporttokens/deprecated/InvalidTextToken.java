@@ -27,25 +27,25 @@ import pcgen.util.Logging;
 //PAPERINFO
 public class InvalidTextToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "INVALIDTEXT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "INVALIDTEXT";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String sourceText = tokenSource.substring(getTokenName().length() + 1);
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String sourceText = tokenSource.substring(getTokenName().length() + 1);
 
-		switch (sourceText)
-		{
-			case "TOHIT":
-			case "DAMAGE":
-				return LanguageBundle.getString("SettingsHandler.not.applicable");
-			default:
-				Logging.errorPrint("Invalid INVALIDTEXT token:" + tokenSource);
-				return "";
-		}
-	}
+        switch (sourceText)
+        {
+            case "TOHIT":
+            case "DAMAGE":
+                return LanguageBundle.getString("SettingsHandler.not.applicable");
+            default:
+                Logging.errorPrint("Invalid INVALIDTEXT token:" + tokenSource);
+                return "";
+        }
+    }
 }

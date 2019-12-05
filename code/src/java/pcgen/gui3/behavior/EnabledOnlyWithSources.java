@@ -28,19 +28,19 @@ import javafx.scene.Node;
 
 public final class EnabledOnlyWithSources implements ReferenceListener<Object>
 {
-	private final Node node;
+    private final Node node;
 
-	public EnabledOnlyWithSources(Node node, PCGenFrame frame)
-	{
-		this.node = node;
-		ReferenceFacade<DataSetFacade> loadedDataSetRef = frame.getLoadedDataSetRef();
-		node.setDisable(loadedDataSetRef.get() == null);
-	}
+    public EnabledOnlyWithSources(Node node, PCGenFrame frame)
+    {
+        this.node = node;
+        ReferenceFacade<DataSetFacade> loadedDataSetRef = frame.getLoadedDataSetRef();
+        node.setDisable(loadedDataSetRef.get() == null);
+    }
 
-	@Override
-	public void referenceChanged(ReferenceEvent<Object> e)
-	{
-		node.setDisable(e.getNewReference() == null);
-	}
+    @Override
+    public void referenceChanged(ReferenceEvent<Object> e)
+    {
+        node.setDisable(e.getNewReference() == null);
+    }
 
 }

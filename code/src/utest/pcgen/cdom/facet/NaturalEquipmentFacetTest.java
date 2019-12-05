@@ -25,42 +25,42 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Equipment;
 
 public class NaturalEquipmentFacetTest extends
-		AbstractConsolidatingFacetTest<Equipment, Equipment>
+        AbstractConsolidatingFacetTest<Equipment, Equipment>
 {
-	private static int n = 0;
+    private static int n = 0;
 
-	private NaturalEquipmentFacet facet = new NaturalEquipmentFacet();
+    private NaturalEquipmentFacet facet = new NaturalEquipmentFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, Equipment> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, Equipment> getFacet()
+    {
+        return facet;
+    }
 
-	@Override
-	protected Equipment getObject()
-	{
-		Equipment eq = new Equipment();
-		eq.setName("EQ" + n++);
-		eq.addType(Type.NATURAL);
-		return eq;
-	}
+    @Override
+    protected Equipment getObject()
+    {
+        Equipment eq = new Equipment();
+        eq.setName("EQ" + n++);
+        eq.addType(Type.NATURAL);
+        return eq;
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, Equipment> getListener()
-	{
-		return facet;
-	}
-	
-	@Override
-	protected Equipment getSourceObject()
-	{
-		return getObject();
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, Equipment> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected Equipment getConverted(Equipment e)
-	{
-		return e;
-	}
+    @Override
+    protected Equipment getSourceObject()
+    {
+        return getObject();
+    }
+
+    @Override
+    protected Equipment getConverted(Equipment e)
+    {
+        return e;
+    }
 }

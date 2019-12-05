@@ -32,7 +32,7 @@ import pcgen.util.enumeration.Load;
 
 /**
  * Deal with returning TOTAL Tokens
- * 
+ * <p>
  * TOTAL.WEIGHT
  * TOTAL.VALUE
  * TOTAL.CAPACITY
@@ -40,99 +40,102 @@ import pcgen.util.enumeration.Load;
  */
 public class TotalToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "TOTAL";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "TOTAL";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("TOTAL.WEIGHT".equals(tokenSource))
-		{
-			retString = getWeightToken(pc.getDisplay());
-		}
-		else if ("TOTAL.VALUE".equals(tokenSource))
-		{
-			retString = getValueToken(pc);
-		}
-		else if ("TOTAL.CAPACITY".equals(tokenSource))
-		{
-			retString = getCapacityToken(pc.getDisplay());
-		}
-		else if ("TOTAL.LOAD".equals(tokenSource))
-		{
-			retString = getLoadToken(pc.getDisplay());
-		}
+        if ("TOTAL.WEIGHT".equals(tokenSource))
+        {
+            retString = getWeightToken(pc.getDisplay());
+        } else if ("TOTAL.VALUE".equals(tokenSource))
+        {
+            retString = getValueToken(pc);
+        } else if ("TOTAL.CAPACITY".equals(tokenSource))
+        {
+            retString = getCapacityToken(pc.getDisplay());
+        } else if ("TOTAL.LOAD".equals(tokenSource))
+        {
+            retString = getLoadToken(pc.getDisplay());
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the CAPACITY sub token
-	 * @param display
-	 * @return the CAPACITY sub token
-	 */
-	public static String getCapacityToken(CharacterDisplay display)
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getMaxLoad().doubleValue());
-	}
+    /**
+     * Get the CAPACITY sub token
+     *
+     * @param display
+     * @return the CAPACITY sub token
+     */
+    public static String getCapacityToken(CharacterDisplay display)
+    {
+        return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getMaxLoad().doubleValue());
+    }
 
-	/**
-	 * Get the LOAD sub token
-	 * @param display
-	 * @return the LOAD sub token
-	 */
-	public static String getLoadToken(CharacterDisplay display)
-	{
-		Load load = display.getLoadType();
+    /**
+     * Get the LOAD sub token
+     *
+     * @param display
+     * @return the LOAD sub token
+     */
+    public static String getLoadToken(CharacterDisplay display)
+    {
+        Load load = display.getLoadType();
 
-		switch (load)
-		{
-			case LIGHT:
-				return CoreUtility.capitalizeFirstLetter(Load.LIGHT.toString());
+        switch (load)
+        {
+            case LIGHT:
+                return CoreUtility.capitalizeFirstLetter(Load.LIGHT.toString());
 
-			case MEDIUM:
-				return CoreUtility.capitalizeFirstLetter(Load.MEDIUM.toString());
+            case MEDIUM:
+                return CoreUtility.capitalizeFirstLetter(Load.MEDIUM.toString());
 
-			case HEAVY:
-				return CoreUtility.capitalizeFirstLetter(Load.HEAVY.toString());
+            case HEAVY:
+                return CoreUtility.capitalizeFirstLetter(Load.HEAVY.toString());
 
-			case OVERLOAD:
-				return CoreUtility.capitalizeFirstLetter(Load.OVERLOAD.toString());
+            case OVERLOAD:
+                return CoreUtility.capitalizeFirstLetter(Load.OVERLOAD.toString());
 
-			default:
-				Logging.errorPrint(
-					"Unknown load constant detected in TokenTotal.getLoadToken, the constant was " + load + '.');
+            default:
+                Logging.errorPrint(
+                        "Unknown load constant detected in TokenTotal.getLoadToken, the constant was " + load + '.');
 
-				return "Unknown";
-		}
-	}
+                return "Unknown";
+        }
+    }
 
-	/**
-	 * Get the VALUE sub token
-	 * @param pc
-	 * @return the VALUE sub token
-	 */
-	public static String getValueToken(PlayerCharacter pc)
-	{
-		return BigDecimalHelper.trimZeros(pc.totalValue()) + ' ' + SettingsHandler.getGame().getCurrencyDisplay();
-	}
+    /**
+     * Get the VALUE sub token
+     *
+     * @param pc
+     * @return the VALUE sub token
+     */
+    public static String getValueToken(PlayerCharacter pc)
+    {
+        return BigDecimalHelper.trimZeros(pc.totalValue()) + ' ' + SettingsHandler.getGame().getCurrencyDisplay();
+    }
 
-	/**
-	 * Get the WEIGHT sub token
-	 * @param display
-	 * @return the WEIGHT sub token
-	 */
-	public static String getWeightToken(CharacterDisplay display)
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.totalWeight().doubleValue())
-			+ Globals.getGameModeUnitSet().getWeightUnit();
-	}
+    /**
+     * Get the WEIGHT sub token
+     *
+     * @param display
+     * @return the WEIGHT sub token
+     */
+    public static String getWeightToken(CharacterDisplay display)
+    {
+        return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.totalWeight().doubleValue())
+                + Globals.getGameModeUnitSet().getWeightUnit();
+    }
 }

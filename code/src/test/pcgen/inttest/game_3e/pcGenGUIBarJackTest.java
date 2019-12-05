@@ -28,9 +28,9 @@ import org.junit.jupiter.api.Test;
  */
 public class pcGenGUIBarJackTest extends PcgenFtlTestCase
 {
-	@Test
-	public void testBarJack() throws Exception
-	{
-		runTest("3e_BarJack", "3e");
-	}
+    @Test
+    public void testBarJack() throws Exception
+    {
+        runTest("3e_BarJack", "3e");
+    }
 }

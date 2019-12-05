@@ -27,26 +27,26 @@ import pcgen.core.bonus.BonusObj;
 
 /**
  * {@code SizeAdjustment}.
- *
  */
 public final class SizeAdjustment extends PObject implements VarScoped
 {
-	/**
-	 * Activates (checks PrereqToUse) and returns list of BonusObj's
-	 * @param aPC
-	 * @return active bonuses
-	 **/
-	@Override
-	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
-	{
-		BonusActivation.activateBonuses(this, aPC);
+    /**
+     * Activates (checks PrereqToUse) and returns list of BonusObj's
+     *
+     * @param aPC
+     * @return active bonuses
+     **/
+    @Override
+    public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
+    {
+        BonusActivation.activateBonuses(this, aPC);
 
-		return super.getActiveBonuses(aPC);
-	}
+        return super.getActiveBonuses(aPC);
+    }
 
-	@Override
-	public Optional<String> getLocalScopeName()
-	{
-		return Optional.of("PC.SIZE");
-	}
+    @Override
+    public Optional<String> getLocalScopeName()
+    {
+        return Optional.of("PC.SIZE");
+    }
 }

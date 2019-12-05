@@ -35,96 +35,93 @@ import pcgen.util.Logging;
 public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "USERINPUT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "USERINPUT";
+    }
 
-	@Override
-	public String getParentToken()
-	{
-		return "CHOOSE";
-	}
+    @Override
+    public String getParentToken()
+    {
+        return "CHOOSE";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
-	{
-		UserChooseInformation ci = new UserChooseInformation();
-		if (value != null)
-		{
-			int pipeLoc = value.indexOf('|');
-			String titleString;
-			if (pipeLoc == -1)
-			{
-				titleString = value;
-			}
-			else
-			{
-				String countString = value.substring(0, pipeLoc);
-				Logging.deprecationPrint("CHOOSE:USERINPUT with count is deprecated, "
-					+ "please use SELECT: to identify the quantity of selections", context);
-				int firstarg;
-				try
-				{
-					firstarg = Integer.parseInt(countString);
-				}
-				catch (NumberFormatException nfe)
-				{
-					return new ParseResult.Fail("If CHOOSE:" + getTokenName() + " contains a pipe, "
-						+ "first argument must be an Integer : " + value);
-				}
-				Formula count = FormulaFactory.getFormulaFor(firstarg);
-				context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, count);
-				context.getObjectContext().put(obj, FormulaKey.SELECT, count);
-				titleString = value.substring(pipeLoc + 1);
-			}
-			if (!titleString.startsWith("TITLE="))
-			{
-				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in " + obj.getClass() + ' '
-					+ obj.getKeyName() + " had invalid arguments: " + value);
-			}
-			String title = titleString.substring(6);
-			if (title.startsWith("\""))
-			{
-				title = title.substring(1, title.length() - 1);
-			}
-			ci.setTitle(title);
-		}
-		else
-		{
-			ci.setTitle(getDefaultTitle());
-		}
-		// No args - legal
-		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, ci);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+    {
+        UserChooseInformation ci = new UserChooseInformation();
+        if (value != null)
+        {
+            int pipeLoc = value.indexOf('|');
+            String titleString;
+            if (pipeLoc == -1)
+            {
+                titleString = value;
+            } else
+            {
+                String countString = value.substring(0, pipeLoc);
+                Logging.deprecationPrint("CHOOSE:USERINPUT with count is deprecated, "
+                        + "please use SELECT: to identify the quantity of selections", context);
+                int firstarg;
+                try
+                {
+                    firstarg = Integer.parseInt(countString);
+                } catch (NumberFormatException nfe)
+                {
+                    return new ParseResult.Fail("If CHOOSE:" + getTokenName() + " contains a pipe, "
+                            + "first argument must be an Integer : " + value);
+                }
+                Formula count = FormulaFactory.getFormulaFor(firstarg);
+                context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, count);
+                context.getObjectContext().put(obj, FormulaKey.SELECT, count);
+                titleString = value.substring(pipeLoc + 1);
+            }
+            if (!titleString.startsWith("TITLE="))
+            {
+                return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in " + obj.getClass() + ' '
+                        + obj.getKeyName() + " had invalid arguments: " + value);
+            }
+            String title = titleString.substring(6);
+            if (title.startsWith("\""))
+            {
+                title = title.substring(1, title.length() - 1);
+            }
+            ci.setTitle(title);
+        } else
+        {
+            ci.setTitle(getDefaultTitle());
+        }
+        // No args - legal
+        context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, ci);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		ChooseInformation<?> ci = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
-		if ((ci == null) || !ci.getName().equals(UserChooseInformation.UCI_NAME))
-		{
-			return null;
-		}
-		String title = ci.getTitle();
-		String result = "";
-		if (!title.equals(getDefaultTitle()))
-		{
-			result = "TITLE=" + title;
-		}
-		return new String[]{result};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject cdo)
+    {
+        ChooseInformation<?> ci = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
+        if ((ci == null) || !ci.getName().equals(UserChooseInformation.UCI_NAME))
+        {
+            return null;
+        }
+        String title = ci.getTitle();
+        String result = "";
+        if (!title.equals(getDefaultTitle()))
+        {
+            result = "TITLE=" + title;
+        }
+        return new String[]{result};
+    }
 
-	private String getDefaultTitle()
-	{
-		return "Provide User Input";
-	}
+    private String getDefaultTitle()
+    {
+        return "Provide User Input";
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

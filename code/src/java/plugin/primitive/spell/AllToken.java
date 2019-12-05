@@ -31,70 +31,70 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
  */
 public class AllToken extends AbstractRestrictedSpellPrimitive
 {
-	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
-	{
-		if (value != null)
-		{
-			return false;
-		}
-		return initialize(context, args);
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
+    {
+        if (value != null)
+        {
+            return false;
+        }
+        return initialize(context, args);
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "ALL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ALL";
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
-	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(spell);
-		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
-		{
-			for (Integer level : levelInfo.getListFor(spellList))
-			{
-				if (allow(pc, level, "ANY", spell, null))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Spell spell)
+    {
+        HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(spell);
+        for (CDOMList<Spell> spellList : levelInfo.getKeySet())
+        {
+            for (Integer level : levelInfo.getListFor(spellList))
+            {
+                if (allow(pc, level, "ANY", spell, null))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return hasRestriction() ? GroupingState.ANY : GroupingState.ALLOWS_NONE;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return hasRestriction() ? GroupingState.ANY : GroupingState.ALLOWS_NONE;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof AllToken)
-		{
-			AllToken other = (AllToken) obj;
-			return equalsRestrictedPrimitive(other);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof AllToken)
+        {
+            AllToken other = (AllToken) obj;
+            return equalsRestrictedPrimitive(other);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return -47;
-	}
+    @Override
+    public int hashCode()
+    {
+        return -47;
+    }
 
-	@Override
-	public CharSequence getPrimitiveLST()
-	{
-		return getTokenName() + getRestrictionLST();
-	}
+    @Override
+    public CharSequence getPrimitiveLST()
+    {
+        return getTokenName() + getRestrictionLST();
+    }
 
 }

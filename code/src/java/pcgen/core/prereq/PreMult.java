@@ -29,111 +29,109 @@ import org.apache.commons.lang3.StringUtils;
 public class PreMult extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
-		final int targetNumber = Integer.parseInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
+        final int targetNumber = Integer.parseInt(prereq.getOperand());
 
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-			final PrerequisiteTest test = factory.getTest(element.getKind());
-			if (test != null)
-			{
-				runningTotal += test.passes(element, character, source);
-			}
-			else
-			{
-				Logging.errorPrintLocalised("PreMult.cannot_find_subtest", element.getKind()); //$NON-NLS-1$
-			}
-		}
+        for (Prerequisite element : prereq.getPrerequisites())
+        {
+            final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+            final PrerequisiteTest test = factory.getTest(element.getKind());
+            if (test != null)
+            {
+                runningTotal += test.passes(element, character, source);
+            } else
+            {
+                Logging.errorPrintLocalised("PreMult.cannot_find_subtest", element.getKind()); //$NON-NLS-1$
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, targetNumber);
+        runningTotal = prereq.getOperator().compare(runningTotal, targetNumber);
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	@Override
-	public String kindHandled()
-	{
-		return "MULT"; //$NON-NLS-1$
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "MULT"; //$NON-NLS-1$
+    }
 
-	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
-		final int targetNumber = Integer.parseInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
+        final int targetNumber = Integer.parseInt(prereq.getOperand());
 
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-			final PrerequisiteTest test = factory.getTest(element.getKind());
-			runningTotal += test.passes(element, equipment, aPC);
-		}
+        for (Prerequisite element : prereq.getPrerequisites())
+        {
+            final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+            final PrerequisiteTest test = factory.getTest(element.getKind());
+            runningTotal += test.passes(element, equipment, aPC);
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, targetNumber);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, targetNumber);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 
-		StringBuilder str = new StringBuilder(250);
-		String delimiter = ""; //$NON-NLS-1$
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			final PrerequisiteTest test = factory.getTest(element.getKind());
-			if (test == null)
-			{
-				Logging.errorPrintLocalised("PreMult.cannot_find_subformatter", element.getKind()); //$NON-NLS-1$
-			}
-			else
-			{
-				str.append(delimiter);
-				if (test instanceof PreMult && !delimiter.equals(""))
-				{
-					str.append("##BR##");
-				}
-				str.append(test.toHtmlString(element));
-				delimiter = LanguageBundle.getString("PreMult.html_delimiter"); //$NON-NLS-1$
-			}
-		}
+        StringBuilder str = new StringBuilder(250);
+        String delimiter = ""; //$NON-NLS-1$
+        for (Prerequisite element : prereq.getPrerequisites())
+        {
+            final PrerequisiteTest test = factory.getTest(element.getKind());
+            if (test == null)
+            {
+                Logging.errorPrintLocalised("PreMult.cannot_find_subformatter", element.getKind()); //$NON-NLS-1$
+            } else
+            {
+                str.append(delimiter);
+                if (test instanceof PreMult && !delimiter.equals(""))
+                {
+                    str.append("##BR##");
+                }
+                str.append(test.toHtmlString(element));
+                delimiter = LanguageBundle.getString("PreMult.html_delimiter"); //$NON-NLS-1$
+            }
+        }
 
-		// Handle some special cases - all required, one required or none required
-		int numRequired = -1;
-		if (StringUtils.isNumeric(prereq.getOperand()))
-		{
-			numRequired = Integer.parseInt(prereq.getOperand());
-		}
-		if ((prereq.getOperator() == PrerequisiteOperator.GTEQ || prereq.getOperator() == PrerequisiteOperator.GT
-			|| prereq.getOperator() == PrerequisiteOperator.EQ) && numRequired == prereq.getPrerequisites().size())
-		{
-			return LanguageBundle.getFormattedString("PreMult.toHtmlAllOf", //$NON-NLS-1$
-				str.toString());
-		}
-		if ((prereq.getOperator() == PrerequisiteOperator.GTEQ || prereq.getOperator() == PrerequisiteOperator.EQ)
-			&& numRequired == 1)
-		{
-			return LanguageBundle.getFormattedString("PreMult.toHtmlEither", //$NON-NLS-1$
-				str.toString());
-		}
-		if ((prereq.getOperator() == PrerequisiteOperator.LT && numRequired == 1)
-			|| ((prereq.getOperator() == PrerequisiteOperator.EQ || prereq.getOperator() == PrerequisiteOperator.LTEQ)
-				&& numRequired == 0))
-		{
-			return LanguageBundle.getFormattedString("PreMult.toHtmlNone", //$NON-NLS-1$
-				str.toString());
-		}
+        // Handle some special cases - all required, one required or none required
+        int numRequired = -1;
+        if (StringUtils.isNumeric(prereq.getOperand()))
+        {
+            numRequired = Integer.parseInt(prereq.getOperand());
+        }
+        if ((prereq.getOperator() == PrerequisiteOperator.GTEQ || prereq.getOperator() == PrerequisiteOperator.GT
+                || prereq.getOperator() == PrerequisiteOperator.EQ) && numRequired == prereq.getPrerequisites().size())
+        {
+            return LanguageBundle.getFormattedString("PreMult.toHtmlAllOf", //$NON-NLS-1$
+                    str.toString());
+        }
+        if ((prereq.getOperator() == PrerequisiteOperator.GTEQ || prereq.getOperator() == PrerequisiteOperator.EQ)
+                && numRequired == 1)
+        {
+            return LanguageBundle.getFormattedString("PreMult.toHtmlEither", //$NON-NLS-1$
+                    str.toString());
+        }
+        if ((prereq.getOperator() == PrerequisiteOperator.LT && numRequired == 1)
+                || ((prereq.getOperator() == PrerequisiteOperator.EQ || prereq.getOperator() == PrerequisiteOperator.LTEQ)
+                && numRequired == 0))
+        {
+            return LanguageBundle.getFormattedString("PreMult.toHtmlNone", //$NON-NLS-1$
+                    str.toString());
+        }
 
-		return LanguageBundle.getFormattedString("PreMult.toHtml", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(), prereq.getOperand(), str.toString());
+        return LanguageBundle.getFormattedString("PreMult.toHtml", //$NON-NLS-1$
+                prereq.getOperator().toDisplayString(), prereq.getOperand(), str.toString());
 
-	}
+    }
 
 }

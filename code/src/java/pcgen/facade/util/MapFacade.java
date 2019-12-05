@@ -24,33 +24,36 @@ import pcgen.facade.util.event.MapListener;
 public interface MapFacade<K, V>
 {
 
-	void addMapListener(MapListener<? super K, ? super V> listener);
+    void addMapListener(MapListener<? super K, ? super V> listener);
 
-	void removeMapListener(MapListener<? super K, ? super V> listener);
+    void removeMapListener(MapListener<? super K, ? super V> listener);
 
-	/**
-	 * returns a list of the keys in this map. This list is
-	 * backed by the map and will be updated alongside
-	 * map events.
-	 * @return a list containing the map's keys
-	 */
-	Set<K> getKeys();
+    /**
+     * returns a list of the keys in this map. This list is
+     * backed by the map and will be updated alongside
+     * map events.
+     *
+     * @return a list containing the map's keys
+     */
+    Set<K> getKeys();
 
-	V getValue(K key);
+    V getValue(K key);
 
-	int getSize();
+    int getSize();
 
-	/**
-	 * tests whether the map has a value with the given key
-	 * @param key
-	 * @return true if a key is found, false otherwise
-	 */
-	boolean containsKey(K key);
+    /**
+     * tests whether the map has a value with the given key
+     *
+     * @param key
+     * @return true if a key is found, false otherwise
+     */
+    boolean containsKey(K key);
 
-	/**
-	 * Note: This is shorthand for (getSize() == 0)
-	 * @return whether this list is empty
-	 */
-	boolean isEmpty();
+    /**
+     * Note: This is shorthand for (getSize() == 0)
+     *
+     * @return whether this list is empty
+     */
+    boolean isEmpty();
 
 }

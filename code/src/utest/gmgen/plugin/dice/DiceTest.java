@@ -25,23 +25,23 @@ import org.junit.jupiter.api.Test;
  */
 class DiceTest
 {
-	@Test
-	public void nonRandomDiceAssertions()
-	{
-		Die oneDie = new Dice(1, 1);
-		assertThat("one sided die returns 1", oneDie.roll(), is(1));
-		Die manyDie = new Dice(10, 1);
-		assertThat("many rolls of a single die returns number of rolls", manyDie.roll(), is(10));
-	}
+    @Test
+    public void nonRandomDiceAssertions()
+    {
+        Die oneDie = new Dice(1, 1);
+        assertThat("one sided die returns 1", oneDie.roll(), is(1));
+        Die manyDie = new Dice(10, 1);
+        assertThat("many rolls of a single die returns number of rolls", manyDie.roll(), is(10));
+    }
 
-	@Test
-	public void randomDiceAssertions()
-	{
-		Die die = new Dice(1, 10);
-		assertThat("single die returns value as expected", die.roll(),
-				allOf(lessThanOrEqualTo(10), greaterThanOrEqualTo(1))
-		);
-	}
+    @Test
+    public void randomDiceAssertions()
+    {
+        Die die = new Dice(1, 10);
+        assertThat("single die returns value as expected", die.roll(),
+                allOf(lessThanOrEqualTo(10), greaterThanOrEqualTo(1))
+        );
+    }
 
 
 }

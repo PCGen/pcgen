@@ -29,43 +29,43 @@ import org.junit.jupiter.api.Test;
 
 public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 {
-	
-	/**
-	 * Test new style.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testNewStyle() throws PersistenceLayerException
-	{
-		PreTypeParser producer = new PreTypeParser();
 
-		Prerequisite prereq =
-				producer.parse("TYPE", "1,Mithral,Adamantine,Darkwood", false,
-					false);
+    /**
+     * Test new style.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testNewStyle() throws PersistenceLayerException
+    {
+        PreTypeParser producer = new PreTypeParser();
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"type\" key=\"Mithral\" operator=\"EQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"type\" key=\"Adamantine\" operator=\"EQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"type\" key=\"Darkwood\" operator=\"EQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        Prerequisite prereq =
+                producer.parse("TYPE", "1,Mithral,Adamantine,Darkwood", false,
+                        false);
 
-	
-	/**
-	 * Test new style 2.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testNewStyle2() throws PersistenceLayerException
-	{
-		PreTypeParser producer = new PreTypeParser();
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "<prereq kind=\"type\" key=\"Mithral\" operator=\"EQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"type\" key=\"Adamantine\" operator=\"EQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"type\" key=\"Darkwood\" operator=\"EQ\" operand=\"1\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
-		Prerequisite prereq = producer.parse("TYPE", "1,Animal", true, false);
+
+    /**
+     * Test new style 2.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testNewStyle2() throws PersistenceLayerException
+    {
+        PreTypeParser producer = new PreTypeParser();
+
+        Prerequisite prereq = producer.parse("TYPE", "1,Animal", true, false);
 
 		/*		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n" +
 		 "<prereq kind=\"type\" key=\"Animal\" operator=\"eq\" operand=\"1\" >\n" + 
@@ -73,9 +73,9 @@ public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 		 "</prereq>\n",
 		 prereq.toString());
 		 */
-		assertEquals(
-			"<prereq kind=\"TYPE\" key=\"Animal\" operator=\"NEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n", prereq.toString());
-	}
+        assertEquals(
+                "<prereq kind=\"TYPE\" key=\"Animal\" operator=\"NEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n", prereq.toString());
+    }
 
 }

@@ -32,91 +32,90 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
 /**
- * A Factory for PreReq Writing 
+ * A Factory for PreReq Writing
  */
 public final class PrerequisiteWriterFactory implements PluginLoader
 {
-	private static PrerequisiteWriterFactory instance = null;
-	private Map<String, PrerequisiteWriterInterface> parserLookup = new HashMap<>();
+    private static PrerequisiteWriterFactory instance = null;
+    private Map<String, PrerequisiteWriterInterface> parserLookup = new HashMap<>();
 
-	private PrerequisiteWriterFactory()
-	{
-		// Do Nothing
-	}
+    private PrerequisiteWriterFactory()
+    {
+        // Do Nothing
+    }
 
-	/**
-	 * @return PrerequisiteWriterFactory
-	 */
-	public static PrerequisiteWriterFactory getInstance()
-	{
-		if (instance == null)
-		{
-			instance = new PrerequisiteWriterFactory();
-		}
-		return instance;
-	}
+    /**
+     * @return PrerequisiteWriterFactory
+     */
+    public static PrerequisiteWriterFactory getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new PrerequisiteWriterFactory();
+        }
+        return instance;
+    }
 
-	/**
-	 * @param kind
-	 * @return PrerequisiteWriterInterface
-	 */
-	public PrerequisiteWriterInterface getWriter(String kind)
-	{
-		PrerequisiteWriterInterface test = null;
-		if (kind == null)
-		{
-			test = new PrerequisiteMultWriter();
-		}
-		else
-		{
-			test = parserLookup.get(kind.toLowerCase());
-			if (test == null)
-			{
-				Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
-			}
-		}
-		return test;
-	}
+    /**
+     * @param kind
+     * @return PrerequisiteWriterInterface
+     */
+    public PrerequisiteWriterInterface getWriter(String kind)
+    {
+        PrerequisiteWriterInterface test = null;
+        if (kind == null)
+        {
+            test = new PrerequisiteMultWriter();
+        } else
+        {
+            test = parserLookup.get(kind.toLowerCase());
+            if (test == null)
+            {
+                Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
+            }
+        }
+        return test;
+    }
 
-	/**
-	 * Register the test class with the factory .
-	 *
-	 * @param testClass the test class
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	public void register(PrerequisiteWriterInterface testClass) throws PersistenceLayerException
-	{
-		String kindHandled = testClass.kindHandled();
+    /**
+     * Register the test class with the factory .
+     *
+     * @param testClass the test class
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    public void register(PrerequisiteWriterInterface testClass) throws PersistenceLayerException
+    {
+        String kindHandled = testClass.kindHandled();
 
-		Object test = parserLookup.get(kindHandled.toLowerCase());
+        Object test = parserLookup.get(kindHandled.toLowerCase());
 
-		if (test != null)
-		{
-			throw new PersistenceLayerException("Error registering '" + testClass.getClass().getName() + "' as test '"
-				+ kindHandled + "'. The test is already registered to '" + test.getClass().getName() + "'");
-		}
+        if (test != null)
+        {
+            throw new PersistenceLayerException("Error registering '" + testClass.getClass().getName() + "' as test '"
+                    + kindHandled + "'. The test is already registered to '" + test.getClass().getName() + "'");
+        }
 
-		parserLookup.put(kindHandled.toLowerCase(), testClass);
-	}
+        parserLookup.put(kindHandled.toLowerCase(), testClass);
+    }
 
-	@Override
-	public void loadPlugin(Class<?> clazz) throws PersistenceLayerException, InstantiationException,
-		IllegalAccessException, NoSuchMethodException, InvocationTargetException
-	{
-		register((PrerequisiteWriterInterface) clazz.getConstructor().newInstance());
-	}
+    @Override
+    public void loadPlugin(Class<?> clazz) throws PersistenceLayerException, InstantiationException,
+            IllegalAccessException, NoSuchMethodException, InvocationTargetException
+    {
+        register((PrerequisiteWriterInterface) clazz.getConstructor().newInstance());
+    }
 
-	@Override
-	public Class[] getPluginClasses()
-	{
-		return new Class[]{PrerequisiteWriterInterface.class};
-	}
-	
-	public static void clear()
-	{
-		if (instance != null)
-		{
-			instance.parserLookup.clear();
-		}
-	}
+    @Override
+    public Class[] getPluginClasses()
+    {
+        return new Class[]{PrerequisiteWriterInterface.class};
+    }
+
+    public static void clear()
+    {
+        if (instance != null)
+        {
+            instance.parserLookup.clear();
+        }
+    }
 }

@@ -26,58 +26,58 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class AutoFeatToken extends AbstractNonEmptyToken<CDOMObject>
-		implements CDOMCompatibilityToken<CDOMObject>, DeprecatedToken
+        implements CDOMCompatibilityToken<CDOMObject>, DeprecatedToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "AUTO";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "AUTO";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (!value.startsWith("FEAT|"))
-		{
-			return new ParseResult.Fail("Incompatible with " + value);
-		}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (!value.startsWith("FEAT|"))
+        {
+            return new ParseResult.Fail("Incompatible with " + value);
+        }
 
-			if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value.substring(5)))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error from AUTO:FEAT");
-			}
+        if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value.substring(5)))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Delegation Error from AUTO:FEAT");
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public String getMessage(CDOMObject obj, String value)
-	{
-		return "Feat-based tokens have been deprecated - use ABILITY based functions";
-	}
+    @Override
+    public String getMessage(CDOMObject obj, String value)
+    {
+        return "Feat-based tokens have been deprecated - use ABILITY based functions";
+    }
 
-	@Override
-	public int compatibilityLevel()
-	{
-		return 6;
-	}
+    @Override
+    public int compatibilityLevel()
+    {
+        return 6;
+    }
 
-	@Override
-	public int compatibilitySubLevel()
-	{
-		return 4;
-	}
+    @Override
+    public int compatibilitySubLevel()
+    {
+        return 4;
+    }
 
-	@Override
-	public int compatibilityPriority()
-	{
-		return 8;
-	}
+    @Override
+    public int compatibilityPriority()
+    {
+        return 8;
+    }
 }

@@ -30,83 +30,83 @@ import pcgen.base.lang.UnreachableError;
 
 public final class VisionType
 {
-	private VisionType()
-	{
-	}
+    private VisionType()
+    {
+    }
 
-	private static Map<CaseInsensitiveString, VisionType> typeMap;
+    private static Map<CaseInsensitiveString, VisionType> typeMap;
 
-	public static VisionType getVisionType(String s)
-	{
-		if (typeMap == null)
-		{
-			buildMap();
-		}
-		CaseInsensitiveString caseInsensitiveS = new CaseInsensitiveString(s);
-		/*
-		 * CONSIDER Now this is CASE INSENSITIVE. Should this really be the
-		 * case? - thpr 10/28/06
-		 */
-		VisionType o = typeMap.get(caseInsensitiveS);
-		if (o == null)
-		{
-			o = new VisionType();
-			typeMap.put(caseInsensitiveS, o);
-		}
-		return o;
-	}
+    public static VisionType getVisionType(String s)
+    {
+        if (typeMap == null)
+        {
+            buildMap();
+        }
+        CaseInsensitiveString caseInsensitiveS = new CaseInsensitiveString(s);
+        /*
+         * CONSIDER Now this is CASE INSENSITIVE. Should this really be the
+         * case? - thpr 10/28/06
+         */
+        VisionType o = typeMap.get(caseInsensitiveS);
+        if (o == null)
+        {
+            o = new VisionType();
+            typeMap.put(caseInsensitiveS, o);
+        }
+        return o;
+    }
 
-	private static void buildMap()
-	{
-		typeMap = new HashMap<>();
-		Field[] fields = VisionType.class.getDeclaredFields();
-		for (Field field : fields)
-		{
-			int mod = field.getModifiers();
+    private static void buildMap()
+    {
+        typeMap = new HashMap<>();
+        Field[] fields = VisionType.class.getDeclaredFields();
+        for (Field field : fields)
+        {
+            int mod = field.getModifiers();
 
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
-			{
-				try
-				{
-					Object o = field.get(null);
-					if (o instanceof VisionType)
-					{
-						typeMap.put(new CaseInsensitiveString(field.getName()), (VisionType) o);
-					}
-				} catch (IllegalArgumentException | IllegalAccessException e)
-				{
-					throw new UnreachableError(e);
-				}
-			}
-		}
-	}
+            if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
+            {
+                try
+                {
+                    Object o = field.get(null);
+                    if (o instanceof VisionType)
+                    {
+                        typeMap.put(new CaseInsensitiveString(field.getName()), (VisionType) o);
+                    }
+                } catch (IllegalArgumentException | IllegalAccessException e)
+                {
+                    throw new UnreachableError(e);
+                }
+            }
+        }
+    }
 
-	@Override
-	public String toString()
-	{
-		if (typeMap == null)
-		{
-			return "";
-		}
-		return typeMap.entrySet()
-		              .stream()
-		              .filter(me -> me.getValue().equals(this))
-		              .findFirst()
-		              .map(me -> me.getKey().toString())
-		              .orElse("");
-	}
+    @Override
+    public String toString()
+    {
+        if (typeMap == null)
+        {
+            return "";
+        }
+        return typeMap.entrySet()
+                .stream()
+                .filter(me -> me.getValue().equals(this))
+                .findFirst()
+                .map(me -> me.getKey().toString())
+                .orElse("");
+    }
 
-	public static void clearConstants()
-	{
-		buildMap();
-	}
+    public static void clearConstants()
+    {
+        buildMap();
+    }
 
-	public static Collection<VisionType> getAllVisionTypes()
-	{
-		if (typeMap == null)
-		{
-			buildMap();
-		}
-		return Collections.unmodifiableCollection(typeMap.values());
-	}
+    public static Collection<VisionType> getAllVisionTypes()
+    {
+        if (typeMap == null)
+        {
+            buildMap();
+        }
+        return Collections.unmodifiableCollection(typeMap.values());
+    }
 }

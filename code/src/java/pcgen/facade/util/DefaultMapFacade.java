@@ -25,70 +25,69 @@ import java.util.Set;
 public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 {
 
-	private final Map<K, V> map;
+    private final Map<K, V> map;
 
-	public DefaultMapFacade()
-	{
-		this.map = new HashMap<>();
-	}
+    public DefaultMapFacade()
+    {
+        this.map = new HashMap<>();
+    }
 
-	public DefaultMapFacade(Map<? extends K, ? extends V> map)
-	{
-		this.map = new HashMap<>(map);
-	}
+    public DefaultMapFacade(Map<? extends K, ? extends V> map)
+    {
+        this.map = new HashMap<>(map);
+    }
 
-	@Override
-	public Set<K> getKeys()
-	{
-		return Collections.unmodifiableSet(map.keySet());
-	}
+    @Override
+    public Set<K> getKeys()
+    {
+        return Collections.unmodifiableSet(map.keySet());
+    }
 
-	@Override
-	public V getValue(K key)
-	{
-		return map.get(key);
-	}
+    @Override
+    public V getValue(K key)
+    {
+        return map.get(key);
+    }
 
-	public void putValue(K key, V value)
-	{
-		boolean hasKey = map.containsKey(key);
-		V oldValue = map.put(key, value);
-		if (hasKey)
-		{
-			fireValueChanged(this, key, oldValue, value);
-		}
-		else
-		{
-			fireKeyAdded(this, key, value);
-		}
-	}
+    public void putValue(K key, V value)
+    {
+        boolean hasKey = map.containsKey(key);
+        V oldValue = map.put(key, value);
+        if (hasKey)
+        {
+            fireValueChanged(this, key, oldValue, value);
+        } else
+        {
+            fireKeyAdded(this, key, value);
+        }
+    }
 
-	public void removeKey(K key)
-	{
-		if (map.containsKey(key))
-		{
-			V value = map.remove(key);
-			fireKeyRemoved(this, key, value);
-		}
-	}
+    public void removeKey(K key)
+    {
+        if (map.containsKey(key))
+        {
+            V value = map.remove(key);
+            fireKeyRemoved(this, key, value);
+        }
+    }
 
-	public void setContents(Map<? extends K, ? extends V> newMap)
-	{
-		map.clear();
-		map.putAll(newMap);
-		fireKeysChanged(this);
-	}
+    public void setContents(Map<? extends K, ? extends V> newMap)
+    {
+        map.clear();
+        map.putAll(newMap);
+        fireKeysChanged(this);
+    }
 
-	public void clear()
-	{
-		map.clear();
-		fireKeysChanged(this);
-	}
+    public void clear()
+    {
+        map.clear();
+        fireKeysChanged(this);
+    }
 
-	@Override
-	public String toString()
-	{
-		return "DefaultMapFacade [map=" + map + "]"; //$NON-NLS-1$
-	}
+    @Override
+    public String toString()
+    {
+        return "DefaultMapFacade [map=" + map + "]"; //$NON-NLS-1$
+    }
 
 }

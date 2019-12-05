@@ -33,42 +33,42 @@ import org.junit.jupiter.api.Test;
 public class PreKitParserTest extends EnUsLocaleDependentTestCase
 {
 
-	
-	/**
-	 * Test parse.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testParse() throws PersistenceLayerException
-	{
-		PreKitParser parser = new PreKitParser();
 
-		Prerequisite prereq =
-				parser.parse("KIT", "1,Dungeoneering Kit (Common)", false, false);
+    /**
+     * Test parse.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testParse() throws PersistenceLayerException
+    {
+        PreKitParser parser = new PreKitParser();
 
-		assertEquals(
-			"<prereq kind=\"kit\" key=\"Dungeoneering Kit (Common)\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
-			prereq.toString());
-	}
+        Prerequisite prereq =
+                parser.parse("KIT", "1,Dungeoneering Kit (Common)", false, false);
 
-	
-	/**
-	 * Test parse negated.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testParseNegated() throws PersistenceLayerException
-	{
-		PreKitParser parser = new PreKitParser();
+        assertEquals(
+                "<prereq kind=\"kit\" key=\"Dungeoneering Kit (Common)\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
+                prereq.toString());
+    }
 
-		Prerequisite prereq =
-				parser.parse("KIT", "1,Dungeoneering Kit (Common)", true, false);
 
-		assertEquals(
-			"<prereq kind=\"kit\" key=\"Dungeoneering Kit (Common)\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
-			prereq.toString());
-	}
+    /**
+     * Test parse negated.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testParseNegated() throws PersistenceLayerException
+    {
+        PreKitParser parser = new PreKitParser();
+
+        Prerequisite prereq =
+                parser.parse("KIT", "1,Dungeoneering Kit (Common)", true, false);
+
+        assertEquals(
+                "<prereq kind=\"kit\" key=\"Dungeoneering Kit (Common)\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
+                prereq.toString());
+    }
 
 }

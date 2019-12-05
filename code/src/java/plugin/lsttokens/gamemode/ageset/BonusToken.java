@@ -30,50 +30,50 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class BonusToken implements CDOMPrimaryToken<AgeSet>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "BONUS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BONUS";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, AgeSet obj, String value)
-	{
-		BonusObj bon = Bonus.newBonus(context, value);
-		if (bon == null)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " was given invalid bonus: " + value);
-		}
-		bon.setTokenSource(getTokenName());
-		obj.addBonus(bon);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, AgeSet obj, String value)
+    {
+        BonusObj bon = Bonus.newBonus(context, value);
+        if (bon == null)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " was given invalid bonus: " + value);
+        }
+        bon.setTokenSource(getTokenName());
+        obj.addBonus(bon);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, AgeSet obj)
-	{
-		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<>();
-		for (BonusObj bonus : obj.getBonuses())
-		{
-			if (tokenName.equals(bonus.getTokenSource()))
-			{
-				String bonusString = bonus.getLSTformat();
-				bonusSet.add(bonusString);
-			}
-		}
-		if (bonusSet.isEmpty())
-		{
-			// This is okay - just no BONUSes from this token
-			return null;
-		}
-		return bonusSet.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, AgeSet obj)
+    {
+        String tokenName = getTokenName();
+        Set<String> bonusSet = new TreeSet<>();
+        for (BonusObj bonus : obj.getBonuses())
+        {
+            if (tokenName.equals(bonus.getTokenSource()))
+            {
+                String bonusString = bonus.getLSTformat();
+                bonusSet.add(bonusString);
+            }
+        }
+        if (bonusSet.isEmpty())
+        {
+            // This is okay - just no BONUSes from this token
+            return null;
+        }
+        return bonusSet.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<AgeSet> getTokenClass()
-	{
-		return AgeSet.class;
-	}
+    @Override
+    public Class<AgeSet> getTokenClass()
+    {
+        return AgeSet.class;
+    }
 }

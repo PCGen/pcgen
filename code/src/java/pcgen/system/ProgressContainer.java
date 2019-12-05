@@ -2,21 +2,21 @@ package pcgen.system;
 
 public interface ProgressContainer
 {
-	int getMaximum();
+    int getMaximum();
 
-	int getProgress();
+    int getProgress();
 
-	String getMessage();
+    String getMessage();
 
-	void setValues(int progress, int maximum);
+    void setValues(int progress, int maximum);
 
-	void setValues(String message, int progress, int maximum);
+    void setValues(String message, int progress, int maximum);
 
-	void setProgress(int progress);
+    void setProgress(int progress);
 
-	void setProgress(String message, int progress);
+    void setProgress(String message, int progress);
 
-	void setMaximum(int maximum);
+    void setMaximum(int maximum);
 
-	void fireProgressChangedEvent();
+    void fireProgressChangedEvent();
 }

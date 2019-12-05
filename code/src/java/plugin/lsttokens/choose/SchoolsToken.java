@@ -32,54 +32,54 @@ import pcgen.util.Logging;
 public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 {
 
-	private static final Class<SpellSchool> SPELLSCHOOL_CLASS = SpellSchool.class;
+    private static final Class<SpellSchool> SPELLSCHOOL_CLASS = SpellSchool.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "SCHOOLS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SCHOOLS";
+    }
 
-	@Override
-	protected Class<SpellSchool> getChooseClass()
-	{
-		return SPELLSCHOOL_CLASS;
-	}
+    @Override
+    protected Class<SpellSchool> getChooseClass()
+    {
+        return SPELLSCHOOL_CLASS;
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "School choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "School choice";
+    }
 
-	@Override
-	public SpellSchool decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SPELLSCHOOL_CLASS, s);
-	}
+    @Override
+    public SpellSchool decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(SPELLSCHOOL_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(SpellSchool choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(SpellSchool choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<SpellSchool> getListKey()
-	{
-		return AssociationListKey.getKeyFor(SPELLSCHOOL_CLASS, "CHOOSE*SPELLSCHOOL");
-	}
+    @Override
+    protected AssociationListKey<SpellSchool> getListKey()
+    {
+        return AssociationListKey.getKeyFor(SPELLSCHOOL_CLASS, "CHOOSE*SPELLSCHOOL");
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (value == null)
-		{
-			// No args - deprecated
-			Logging.deprecationPrint("CHOOSE:" + getTokenName() + " with no argument has been deprecated", context);
-			value = Constants.LST_ALL;
-		}
-		return super.parseToken(context, obj, value);
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (value == null)
+        {
+            // No args - deprecated
+            Logging.deprecationPrint("CHOOSE:" + getTokenName() + " with no argument has been deprecated", context);
+            value = Constants.LST_ALL;
+        }
+        return super.parseToken(context, obj, value);
+    }
 
 }

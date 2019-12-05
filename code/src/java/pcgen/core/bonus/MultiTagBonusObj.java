@@ -25,44 +25,43 @@ import pcgen.rules.context.LoadContext;
 public abstract class MultiTagBonusObj extends BonusObj
 {
 
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		for (int i = 0; i < getBonusTagLength(); ++i)
-		{
-			if (getBonusTag(i).equals(token))
-			{
-				addBonusInfo(i);
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        for (int i = 0;i < getBonusTagLength();++i)
+        {
+            if (getBonusTag(i).equals(token))
+            {
+                addBonusInfo(i);
 
-				return true;
-			}
-		}
+                return true;
+            }
+        }
 
-		if (token.startsWith("TYPE="))
-		{
-			addBonusInfo(token.replace('=', '.'));
-		}
-		else
-		{
-			addBonusInfo(token);
-		}
+        if (token.startsWith("TYPE="))
+        {
+            addBonusInfo(token.replace('=', '.'));
+        } else
+        {
+            addBonusInfo(token);
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		if (obj instanceof Integer)
-		{
-			return getBonusTag((Integer) obj);
-		}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        if (obj instanceof Integer)
+        {
+            return getBonusTag((Integer) obj);
+        }
 
-		return (String) obj;
-	}
+        return (String) obj;
+    }
 
-	protected abstract String getBonusTag(final int tagNumber);
+    protected abstract String getBonusTag(final int tagNumber);
 
-	protected abstract int getBonusTagLength();
+    protected abstract int getBonusTagLength();
 
 }

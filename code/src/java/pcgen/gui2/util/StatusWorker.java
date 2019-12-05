@@ -18,10 +18,8 @@
  */
 
 /**
- * 
  * StatusWorker extends SwingWorker to handle progress display in the status bar.
- * 		It replaces TaskExecutor, which was a private class inside PCGenStatusBar.
- *
+ * It replaces TaskExecutor, which was a private class inside PCGenStatusBar.
  */
 package pcgen.gui2.util;
 
@@ -41,82 +39,81 @@ import pcgen.util.Logging;
 
 public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> implements PCGenTaskListener
 {
-	private final String statusMsg;
-	private final PCGenTask task;
-	private final PCGenStatusBar statusBar;
-	private boolean dirty = false;
-	private final List<LogRecord> errors = new ArrayList<>();
+    private final String statusMsg;
+    private final PCGenTask task;
+    private final PCGenStatusBar statusBar;
+    private boolean dirty = false;
+    private final List<LogRecord> errors = new ArrayList<>();
 
-	/**
-	 * @param statusMsg - text to display in status bar
-	 * @param task to be executed
-	 * @param statusBar the PCGen status Bar
-	 */
-	public StatusWorker(String statusMsg, PCGenTask task, PCGenStatusBar statusBar)
-	{
-		this.statusMsg = statusMsg;
-		this.task = task;
-		this.statusBar = statusBar;
-	}
+    /**
+     * @param statusMsg - text to display in status bar
+     * @param task      to be executed
+     * @param statusBar the PCGen status Bar
+     */
+    public StatusWorker(String statusMsg, PCGenTask task, PCGenStatusBar statusBar)
+    {
+        this.statusMsg = statusMsg;
+        this.task = task;
+        this.statusBar = statusBar;
+    }
 
 
-	@Override
-	public void done()
-	{
-		super.done();
-		statusBar.endShowingProgress();
-	}
+    @Override
+    public void done()
+    {
+        super.done();
+        statusBar.endShowingProgress();
+    }
 
-	@Override
-	public void progressChanged(final PCGenTaskEvent event)
-	{
-		if (!dirty)
-		{
-			dirty = true;
-			SwingUtilities.invokeLater(() -> {
-				statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0,
-					task.getMaximum(), true);
-				statusBar.getProgressBar().setString(task.getMessage());
-				dirty = false;
-			});
-		}
-	}
+    @Override
+    public void progressChanged(final PCGenTaskEvent event)
+    {
+        if (!dirty)
+        {
+            dirty = true;
+            SwingUtilities.invokeLater(() -> {
+                statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0,
+                        task.getMaximum(), true);
+                statusBar.getProgressBar().setString(task.getMessage());
+                dirty = false;
+            });
+        }
+    }
 
-	@Override
-	public void errorOccurred(PCGenTaskEvent event)
-	{
-		errors.add(event.getErrorRecord());
-	}
+    @Override
+    public void errorOccurred(PCGenTaskEvent event)
+    {
+        errors.add(event.getErrorRecord());
+    }
 
-	/**
-	 * @return records for all errors reported by the task
-	 */
-	public List<LogRecord> getErrors()
-	{
-		return Collections.unmodifiableList(errors);
-	}
+    /**
+     * @return records for all errors reported by the task
+     */
+    public List<LogRecord> getErrors()
+    {
+        return Collections.unmodifiableList(errors);
+    }
 
-	@Override
-	protected List<LogRecord> doInBackground()
-	{
-		final String oldMessage = statusBar.getContextMessage();
-		statusBar.startShowingProgress(statusMsg, false);
-		statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
+    @Override
+    protected List<LogRecord> doInBackground()
+    {
+        final String oldMessage = statusBar.getContextMessage();
+        statusBar.startShowingProgress(statusMsg, false);
+        statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
 
-		task.addPCGenTaskListener(this);
+        task.addPCGenTaskListener(this);
 
-		try
-		{
-			task.run();
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getLocalizedMessage(), e);
-		}
+        try
+        {
+            task.run();
+        } catch (Exception e)
+        {
+            Logging.errorPrint(e.getLocalizedMessage(), e);
+        }
 
-		task.removePCGenTaskListener(this);
+        task.removePCGenTaskListener(this);
 
-		SwingUtilities.invokeLater(() -> statusBar.setContextMessage(oldMessage));
-		return Collections.unmodifiableList(errors);
-	}
+        SwingUtilities.invokeLater(() -> statusBar.setContextMessage(oldMessage));
+        return Collections.unmodifiableList(errors);
+    }
 }

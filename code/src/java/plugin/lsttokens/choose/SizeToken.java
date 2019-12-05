@@ -26,29 +26,29 @@ import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
  */
 public class SizeToken extends AbstractSimpleChooseToken<SizeAdjustment>
 {
-	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
+    private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "SIZE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SIZE";
+    }
 
-	@Override
-	protected Class<SizeAdjustment> getChooseClass()
-	{
-		return SIZEADJUSTMENT_CLASS;
-	}
+    @Override
+    protected Class<SizeAdjustment> getChooseClass()
+    {
+        return SIZEADJUSTMENT_CLASS;
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Size choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Size choice";
+    }
 
-	@Override
-	protected AssociationListKey<SizeAdjustment> getListKey()
-	{
-		return AssociationListKey.getKeyFor(SIZEADJUSTMENT_CLASS, "CHOOSE*SIZEADJUSTMENT");
-	}
+    @Override
+    protected AssociationListKey<SizeAdjustment> getListKey()
+    {
+        return AssociationListKey.getKeyFor(SIZEADJUSTMENT_CLASS, "CHOOSE*SIZEADJUSTMENT");
+    }
 }

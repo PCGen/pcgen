@@ -28,22 +28,22 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class CopymasterhdToken extends AbstractStringToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "COPYMASTERHP";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "COPYMASTERHP";
+    }
 
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.MASTER_HP_FORMULA;
-	}
+    @Override
+    protected StringKey stringKey()
+    {
+        return StringKey.MASTER_HP_FORMULA;
+    }
 
-	@Override
-	public Class<CompanionMod> getTokenClass()
-	{
-		return CompanionMod.class;
-	}
+    @Override
+    public Class<CompanionMod> getTokenClass()
+    {
+        return CompanionMod.class;
+    }
 
 }

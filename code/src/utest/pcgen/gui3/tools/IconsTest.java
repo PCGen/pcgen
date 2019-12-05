@@ -31,18 +31,18 @@ import org.testfx.framework.junit5.ApplicationExtension;
 @ExtendWith(ApplicationExtension.class)
 class IconsTest
 {
-	/**
-	 * Test that the icons in Icons actually exist
-	 */
-	@Test
-	void testIconsExist()
-	{
-		Arrays.stream(Icons.values())
-		      .forEach(icon -> assertThat(
-				      "Expected Icon for: " + icon.name(),
-				      icon.asJavaFX(),
-				      notNullValue()
-		      ));
-	}
+    /**
+     * Test that the icons in Icons actually exist
+     */
+    @Test
+    void testIconsExist()
+    {
+        Arrays.stream(Icons.values())
+                .forEach(icon -> assertThat(
+                        "Expected Icon for: " + icon.name(),
+                        icon.asJavaFX(),
+                        notNullValue()
+                ));
+    }
 
 }

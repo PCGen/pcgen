@@ -27,28 +27,31 @@ import pcgen.io.exporttoken.Token;
  */
 public class SRToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "SR";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "SR";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return String.valueOf(getSRToken(pc));
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return String.valueOf(getSRToken(pc));
+    }
 
-	/**
-	 * Get the value of the SR token for export
-	 * @param pc
-	 * @return the value of the SR token for export
-	 */
-	public static int getSRToken(PlayerCharacter pc)
-	{
-		return pc.getSR();
-	}
+    /**
+     * Get the value of the SR token for export
+     *
+     * @param pc
+     * @return the value of the SR token for export
+     */
+    public static int getSRToken(PlayerCharacter pc)
+    {
+        return pc.getSR();
+    }
 }

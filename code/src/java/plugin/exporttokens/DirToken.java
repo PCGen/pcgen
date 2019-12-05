@@ -40,97 +40,97 @@ import pcgen.util.Logging;
  */
 public class DirToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "DIR";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DIR";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		String dirType = "";
+        String dirType = "";
 
-		if (aTok.hasMoreTokens())
-		{
-			dirType = aTok.nextToken();
-		}
+        if (aTok.hasMoreTokens())
+        {
+            dirType = aTok.nextToken();
+        }
 
-		if ("PCGEN".equals(dirType))
-		{
-			retString = getPCGenToken();
-		}
-		else if ("TEMPLATES".equals(dirType))
-		{
-			retString = getTemplatesToken();
-		}
-		else if ("PCG".equals(dirType))
-		{
-			retString = getPcgToken();
-		}
-		else if ("HTML".equals(dirType))
-		{
-			retString = getHtmlToken();
-		}
-		else if ("TEMP".equals(dirType))
-		{
-			retString = getTempToken();
-		}
-		else
-		{
-			Logging.errorPrint("DIR: Unknown Dir: " + dirType);
-			retString = dirType;
-		}
+        if ("PCGEN".equals(dirType))
+        {
+            retString = getPCGenToken();
+        } else if ("TEMPLATES".equals(dirType))
+        {
+            retString = getTemplatesToken();
+        } else if ("PCG".equals(dirType))
+        {
+            retString = getPcgToken();
+        } else if ("HTML".equals(dirType))
+        {
+            retString = getHtmlToken();
+        } else if ("TEMP".equals(dirType))
+        {
+            retString = getTempToken();
+        } else
+        {
+            Logging.errorPrint("DIR: Unknown Dir: " + dirType);
+            retString = dirType;
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the HTML sub token
-	 * @return HTML sub token
-	 */
-	public static String getHtmlToken()
-	{
-		return SettingsHandler.getHTMLOutputSheetPath();
-	}
+    /**
+     * Get the HTML sub token
+     *
+     * @return HTML sub token
+     */
+    public static String getHtmlToken()
+    {
+        return SettingsHandler.getHTMLOutputSheetPath();
+    }
 
-	/**
-	 * Get the PCGEN sub token
-	 * @return PCGEN sub token
-	 */
-	public static String getPCGenToken()
-	{
-		return new File(ConfigurationSettings.getSystemsDir()).getAbsolutePath();
-	}
+    /**
+     * Get the PCGEN sub token
+     *
+     * @return PCGEN sub token
+     */
+    public static String getPCGenToken()
+    {
+        return new File(ConfigurationSettings.getSystemsDir()).getAbsolutePath();
+    }
 
-	/**
-	 * Get the PCG sub token
-	 * @return PCG sub token
-	 */
-	public static String getPcgToken()
-	{
-		return new File(PCGenSettings.getPcgDir()).getAbsolutePath();
-	}
+    /**
+     * Get the PCG sub token
+     *
+     * @return PCG sub token
+     */
+    public static String getPcgToken()
+    {
+        return new File(PCGenSettings.getPcgDir()).getAbsolutePath();
+    }
 
-	/**
-	 * Get the TEMP sub token
-	 * @return TEMP sub token
-	 */
-	public static String getTempToken()
-	{
-		return SettingsHandler.getTempPath().getAbsolutePath();
-	}
+    /**
+     * Get the TEMP sub token
+     *
+     * @return TEMP sub token
+     */
+    public static String getTempToken()
+    {
+        return SettingsHandler.getTempPath().getAbsolutePath();
+    }
 
-	/**
-	 * Get the TEMPLATES sub token
-	 * @return TEMPLATES sub token
-	 */
-	public static String getTemplatesToken()
-	{
-		return new File(ConfigurationSettings.getOutputSheetsDir()).getAbsolutePath();
-	}
+    /**
+     * Get the TEMPLATES sub token
+     *
+     * @return TEMPLATES sub token
+     */
+    public static String getTemplatesToken()
+    {
+        return new File(ConfigurationSettings.getOutputSheetsDir()).getAbsolutePath();
+    }
 }

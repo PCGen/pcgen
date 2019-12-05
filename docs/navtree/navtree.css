@@ -1,49 +1,40 @@
-body.navtree
-{
-    background: rgb(255,214,173);
+body.navtree {
+    background: rgb(255, 214, 173);
     margin: 0.4em 1.5em 0.4em 0.4em;
 }
 
-ul
-{
+ul {
     padding-left: 2.0em;
     margin-left: 0em;
 }
 
-ul.navtree li ul
-{
+ul.navtree li ul {
     display: none;
 }
 
-ul.navtree li
-{
+ul.navtree li {
     list-style-image: url(plus.png);
     list-style-type: disc;
 }
 
-ul.navtree li.gap
-{
+ul.navtree li.gap {
     list-style: none;
 }
 
-ul.navtree li a
-{
+ul.navtree li a {
     text-decoration: none;
 }
 
-img.newindex
-{
+img.newindex {
     border: none;
     margin-left: 0.2em;
 }
 
- span.deprecated
- {
-     color: #FF0000; 
-     font-size: 80%;
- }
+span.deprecated {
+    color: #FF0000;
+    font-size: 80%;
+}
 
- span.note
- {
-     font-size: 80%;
- }
+span.note {
+    font-size: 80%;
+}

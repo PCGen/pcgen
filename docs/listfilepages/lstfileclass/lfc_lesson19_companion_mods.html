@@ -1,675 +1,675 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                                
-                $Author: maredudd800 $
-                $Date: 2008-07-15 07:01:18 -0400 (Tue, 15 Jul 2008) $
-                $Revision: 7165 $
-                
-                Contributors:
-                Andrew Maitland - drew0500ATyahooDOTcom
-                Eric C. Smith - mareduddATblackrootDOTorg
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #19: .lst - Companion Modifications
-  </h1>
-  <p class="indent0">
-   By Andrew A. Maitland (LegacyKing)
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   <span class="lstfile">
+<!--
+               PCGen Documentation Project
+
+               $Author: maredudd800 $
+               $Date: 2008-07-15 07:01:18 -0400 (Tue, 15 Jul 2008) $
+               $Revision: 7165 $
+
+               Contributors:
+               Andrew Maitland - drew0500ATyahooDOTcom
+               Eric C. Smith - mareduddATblackrootDOTorg
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #19: .lst - Companion Modifications
+</h1>
+<p class="indent0">
+    By Andrew A. Maitland (LegacyKing)
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    <span class="lstfile">
     companionmods.lst
    </span>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="">
-     FOLLOWER
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="">
+        FOLLOWER
     </a>
-    ,
-    <a href="">
-     COPYMASTERBAB
+        ,
+        <a href="">
+            COPYMASTERBAB
+        </a>
+        ,
+        <a href="">
+            COPYMASTERCHECK
+        </a>
+        ,
+        <a href="">
+            COPYMASTERHP
+        </a>
+        ,
+        <a href="">
+            FOLLOWERADJUSTMENT
+        </a>
+        ,
+        <a href="">
+            HD
+        </a>
+        ,
+        <a href="">
+            MASTERBONUSRACE
+        </a>
+        ,
+        <a href="">
+            RACETYPE
+        </a>
+        ,
+        <a href="">
+            TYPE
+        </a>
+        ,
+        <a href="">
+            USEMASTERSKILL
+        </a>
+        ,
+        <a href="">
+            BONUS:FOLLOWERS
+        </a>
+        ,
+        <a href="">
+            COMPANIONLIST
+        </a></code>
+</p>
+<hr/>
+<p class="indent0">
+</p>
+<p class="indent0">
+    Welcome to the LST File Class on Companion_Mod
+    creation and editing. In this class we cover the basics tags
+    required to make a complete companion_mod file and how the file
+    works. As in all things, this is a small part of the whole, PCGen
+    works in many parts - Which is why I cover two tags not part of
+    this file, but must be included to get the "bigger picture".
+</p>
+<h4>
+    Style Guide
+</h4>
+<p>
+    This LST File Class follows the
+    <a href="lfc_style_guide.html">
+        LST File Class Style Guide
     </a>
-    ,
-    <a href="">
-     COPYMASTERCHECK
-    </a>
-    ,
-    <a href="">
-     COPYMASTERHP
-    </a>
-    ,
-    <a href="">
-     FOLLOWERADJUSTMENT
-    </a>
-    ,
-    <a href="">
-     HD
-    </a>
-    ,
-    <a href="">
-     MASTERBONUSRACE
-    </a>
-    ,
-    <a href="">
-     RACETYPE
-    </a>
-    ,
-    <a href="">
-     TYPE
-    </a>
-    ,
-    <a href="">
-     USEMASTERSKILL
-    </a>
-    ,
-    <a href="">
-     BONUS:FOLLOWERS
-    </a>
-    ,
-    <a href="">
-     COMPANIONLIST
-    </a></code>
-  </p>
-  <hr/>
-  <p class="indent0">
-  </p>
-  <p class="indent0">
-   Welcome to the LST File Class on Companion_Mod
-creation and editing. In this class we cover the basics tags
-required to make a complete companion_mod file and how the file
-works. As in all things, this is a small part of the whole, PCGen
-works in many parts - Which is why I cover two tags not part of
-this file, but must be included to get the "bigger picture".
-  </p>
-  <h4>
-   Style Guide
-  </h4>
-  <p>
-   This LST File Class follows the
-   <a href="lfc_style_guide.html">
-    LST File Class Style Guide
-   </a>
-   .
-  </p>
-  <hr/>
-  <h2>
-   SECTION 1: How to Create Your Own Companions
-  </h2>
-  <p class="indent0">
-   There may come a time when you want to make your
-own special companion which doesn't match the rules. That's okay.
-Setting up a new companion with different powers or grants
-different bonuses to the master is acceptable. That is what this
-section is here for, to guide you through the process of making
-your companion - be it a Special Familiar, a War mount or anything
-else you might want.
-  </p>
-  <p class="indent0">
-   So without further adieu...
-  </p>
-  <h3>
-   Sample Sly Slink Companion
-  </h3>
-  <p class="indent0">
-   I have a creature that when I gain have 3
-levels, grants me a +2 to my Hide Skill; at 5th level I can use
-Shadow Walk once per day. It also gains 3 hit dice when I reach 3rd
-and 5th.. Sly Slink is only available as a Shadow Ferret.
-  </p>
-  <hr/>
-  <h3>
-   Required Tags
-  </h3>
-  <h4>
-   FOLLOWER
-  </h4>
-  <p class="indent0">
-   The first tag we're going to look at is
-   <span class="lstobj">
+    .
+</p>
+<hr/>
+<h2>
+    SECTION 1: How to Create Your Own Companions
+</h2>
+<p class="indent0">
+    There may come a time when you want to make your
+    own special companion which doesn't match the rules. That's okay.
+    Setting up a new companion with different powers or grants
+    different bonuses to the master is acceptable. That is what this
+    section is here for, to guide you through the process of making
+    your companion - be it a Special Familiar, a War mount or anything
+    else you might want.
+</p>
+<p class="indent0">
+    So without further adieu...
+</p>
+<h3>
+    Sample Sly Slink Companion
+</h3>
+<p class="indent0">
+    I have a creature that when I gain have 3
+    levels, grants me a +2 to my Hide Skill; at 5th level I can use
+    Shadow Walk once per day. It also gains 3 hit dice when I reach 3rd
+    and 5th.. Sly Slink is only available as a Shadow Ferret.
+</p>
+<hr/>
+<h3>
+    Required Tags
+</h3>
+<h4>
+    FOLLOWER
+</h4>
+<p class="indent0">
+    The first tag we're going to look at is
+    <span class="lstobj">
     FOLLOWER
    </span>
-   , each line generally starts
-with the Follower tag.
-  </p>
-  <p class="indent0">
-   Think of the Follower as sort of a class Tag
-telling the program what "level" things happen at. So like we have
-Class Level Lines to tell PCGen what is applied at that level and
-lower so to do we have a tag called
-   <code>FOLLOWER</code>
-   which
-acts in much the same way.
-  </p>
-  <p class="indent1">
-   <code>FOLLOWER:MonkeyFu=1</code>
-  </p>
-  <p class="indent2">
-   The Follower tag can take variables or Class
-names. So if MonkeyFu is a Class then you need to have the first
-level to qualify, however, MonkeyFu is a variable, so you need to
-have this variable of at least 1 to obtain the rest of the benefits
-derived from the rest of the line.
-  </p>
-  <p class="indent1">
-   <code>FOLLOWER:Paladin=1</code>
-  </p>
-  <p class="indent2">
-   You need to have 1 level in paladin class.
-  </p>
-  <p class="indent1">
-   <code>FOLLOWER:MagicItem=1</code>
-  </p>
-  <p class="indent2">
-   You need to have 1 in a variable name called
-MagicItem
-  </p>
-  <hr/>
-  <h4>
-   TYPE
-  </h4>
-  <p class="indent0">
-   The second and VERY important tag is
-   <code>TYPE</code>
-  </p>
-  <p class="indent0">
-   Type tells pcgen what applies to this line. The
-ones used commonly in PCGen's main sets are: Familiar, Animal
-Companion, Special Mount, Mount and Follower.
-  </p>
-  <p class="indent0">
-   Any Creature meeting that "TYPE" will have the
-benefits applied to them. Simply put without a TYPE PCGen won't be
-able to able the changes you code up. TYPE has to match exactly the
-name from
-   <code>COMPANIONLIST</code>
-   . Think of TYPE as a Group as
-it groups things together, so with that frame of mind, Familiar is
-a group, as is Special Mount.
-  </p>
-  <p class="indent0">
-   Example of a Familiar:
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST:Familiar|Bat,Cat</code>
-  </p>
-  <p class="indent2">
-   Bat and Cat are both of the Familiar TYPE or
-group.
-  </p>
-  <hr/>
-  <h3>
-   Miscelaneous Tags
-  </h3>
-  <p class="indent0">
-   You can use any Tags that are appropriate for
-your Companion.
-  </p>
-  <p class="indent0">
-   The following tags are commonly use on the
-Follower Line.
-  </p>
-  <hr/>
-  <h4>
-   COPYMASTERBAB
-  </h4>
-  <p class="indent0">
-   This tag identifies the companion's Base Attack
-Bonus (BAB) progression and can be set to that of its master, by
-using the
-   <code>MASTER</code>
-   parameter, or you may use a number,
-variable or formula.
-  </p>
-  <p class="indent0">
-   So, if you want your companion to either follow
-the Master PC's BAB progression you would use the following
-tag:
-  </p>
-  <p class="indent1">
-   <code>COPYMASTERBAB:MASTER</code>
-   (Common for
-familiars)
-  </p>
-  <p class="indent0">
-   If you wanted to set the companion's BAB to
-%quot;5%quot; no mater what level the master is, you would use the
-following tag:
-  </p>
-  <p class="indent1">
-   <code>COPYMASTERBAB:5</code>
-  </p>
-  <hr/>
-  <h4>
-   COPYMASTERCHECK:MASTER
-  </h4>
-  <p class="indent0">
-   That's it, this only copies the Master's Base
-Checks (Commonly Fortitude, Reflex and Will) The creature will use
-it's Stats to modify the base though (Common for Familiar)
-  </p>
-  <p class="indent1">
-   <code>COPYMASTERCHECK:MASTER</code>
-  </p>
-  <hr/>
-  <h4>
-   FOLLOWERADJUSTMENT
-  </h4>
-  <p class="indent0">
-   This is used appended to the COMPANIONLIST tag.
-COMPANIONLIST is a Tag that is not used in a companion mod file.
-However, it is important to mention it's uses as it pertains to the
-companionmod file.
-  </p>
-  <p class="indent0">
-   Example from the docs
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST:Animal
-Companion|Ape|FOLLOWERADJUSTMENT:-3</code>
-  </p>
-  <p class="indent0">
-   An Ape companion to a 4th level Druid gains the
-benefits normally granted to a companion of a 1st level Druid.
-  </p>
-  <hr/>
-  <h4>
-   HD
-  </h4>
-  <p class="indent0">
-   This will grant bonus Hit Die of the creature
-type.
-  </p>
-  <p class="indent1">
-   <code>HD:5</code>
-  </p>
-  <p class="indent2">
-   Will grant 5 bonus Hit Die (Or class levels) of
-the creatures type (The Creature TYPE is called RACETYPE and
-normally follows the standard choices. The RACETYPE can be changed
-inside the CompanionMod lst file any bonus HD will use that Race
-Type. If the Creature is Fey it will gain the HD and class benefits
-of being 5 HD stronger
-  </p>
-  <p class="sidebar1">
-   NOTE: The base creature can exceed the maximum
-HD cap for its race in this manner.
-  </p>
-  <hr/>
-  <h4>
-   MASTERBONUSRACE
-  </h4>
-  <p class="indent0">
-   Sets any special bonuses a particular race or
-creature may grant to the master (Common for familiar).
-  </p>
-  <p class="indent0">
-   Common tags to follow this are BONUS and
-VFEAT.
-  </p>
-  <p class="indent0">
-   The uses of this tag are not to be
-underestimated, with this tag you can grant a level dependent bonus
-to the master at a certain level.
-  </p>
-  <p class="indent1">
-   <code>MASTERBONUSRACE:Bat &lt;TAB&gt;
-BONUS:SKILL|Spot|3</code>
-  </p>
-  <p class="indent2">
-   Would give the master +3 bonus to Spot checks if
-he has a Bat.
-  </p>
-  <p class="indent1">
-   <code>MASTERBONUSRACE:Bat &lt;TAB&gt;
-BONUS:VAR|MyCoolVar|3|PREPCLEVEL:MIN=10</code>
-  </p>
-  <p class="indent2">
-   At 10th level the Master of this Bat gets 3 to
-his 'MyCoolVar' which can be attached to a feat, ability, or even
-an item with a Variable in the SPROP.
-  </p>
-  <p class="indent1">
-   <code>MASTERBONUSRACE:Magic Item - Sword
-&lt;TAB&gt;
-BONUS:VAR|MagicWeaponPlusIncrease|2|PREVARGTEQ:MagicItem,1</code>
-  </p>
-  <p class="indent2">
-   This will grant two (2) to the varaible
-MagicWeaponPlusIncrease when the PREVAR requirements are met.
-  </p>
-  <hr/>
-  <h4>
-   RACETYPE
-  </h4>
-  <p class="indent0">
-   This tag will change the base creature's type to
-the one listed. RACETYPE affects the Bonus HD and progression of
-the creature.
-  </p>
-  <p class="indent1">
-   <code>RACETYPE:Fey</code>
-  </p>
-  <p class="indent2">
-   The creature now has the Fey Type which replaces
-its previous RACETYPE as assigned by the race file.
-  </p>
-  <hr/>
-  <h4>
-   USEMASTERSKILL
-  </h4>
-  <p class="indent0">
-   Determines whether the creature will have the
-exact same skill ranks as the master.
-  </p>
-  <p class="indent0">
-   Your choices are
-   <code>YES</code>
-   and
-   <code>NO</code>
-   (Default).
-  </p>
-  <p class="indent1">
-   <code>USEMASTERSKILL:YES</code>
-  </p>
-  <p class="indent2">
-   Creature will have the exact same ranks in the
-skills chosen by the master.
-  </p>
-  <hr/>
-  <h4>
-   BONUS:FOLLOWERS
-  </h4>
-  <p class="indent0">
-   Although this tag is not used in a
-   <span class="lstfile">
+    , each line generally starts
+    with the Follower tag.
+</p>
+<p class="indent0">
+    Think of the Follower as sort of a class Tag
+    telling the program what "level" things happen at. So like we have
+    Class Level Lines to tell PCGen what is applied at that level and
+    lower so to do we have a tag called
+    <code>FOLLOWER</code>
+    which
+    acts in much the same way.
+</p>
+<p class="indent1">
+    <code>FOLLOWER:MonkeyFu=1</code>
+</p>
+<p class="indent2">
+    The Follower tag can take variables or Class
+    names. So if MonkeyFu is a Class then you need to have the first
+    level to qualify, however, MonkeyFu is a variable, so you need to
+    have this variable of at least 1 to obtain the rest of the benefits
+    derived from the rest of the line.
+</p>
+<p class="indent1">
+    <code>FOLLOWER:Paladin=1</code>
+</p>
+<p class="indent2">
+    You need to have 1 level in paladin class.
+</p>
+<p class="indent1">
+    <code>FOLLOWER:MagicItem=1</code>
+</p>
+<p class="indent2">
+    You need to have 1 in a variable name called
+    MagicItem
+</p>
+<hr/>
+<h4>
+    TYPE
+</h4>
+<p class="indent0">
+    The second and VERY important tag is
+    <code>TYPE</code>
+</p>
+<p class="indent0">
+    Type tells pcgen what applies to this line. The
+    ones used commonly in PCGen's main sets are: Familiar, Animal
+    Companion, Special Mount, Mount and Follower.
+</p>
+<p class="indent0">
+    Any Creature meeting that "TYPE" will have the
+    benefits applied to them. Simply put without a TYPE PCGen won't be
+    able to able the changes you code up. TYPE has to match exactly the
+    name from
+    <code>COMPANIONLIST</code>
+    . Think of TYPE as a Group as
+    it groups things together, so with that frame of mind, Familiar is
+    a group, as is Special Mount.
+</p>
+<p class="indent0">
+    Example of a Familiar:
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST:Familiar|Bat,Cat</code>
+</p>
+<p class="indent2">
+    Bat and Cat are both of the Familiar TYPE or
+    group.
+</p>
+<hr/>
+<h3>
+    Miscelaneous Tags
+</h3>
+<p class="indent0">
+    You can use any Tags that are appropriate for
+    your Companion.
+</p>
+<p class="indent0">
+    The following tags are commonly use on the
+    Follower Line.
+</p>
+<hr/>
+<h4>
+    COPYMASTERBAB
+</h4>
+<p class="indent0">
+    This tag identifies the companion's Base Attack
+    Bonus (BAB) progression and can be set to that of its master, by
+    using the
+    <code>MASTER</code>
+    parameter, or you may use a number,
+    variable or formula.
+</p>
+<p class="indent0">
+    So, if you want your companion to either follow
+    the Master PC's BAB progression you would use the following
+    tag:
+</p>
+<p class="indent1">
+    <code>COPYMASTERBAB:MASTER</code>
+    (Common for
+    familiars)
+</p>
+<p class="indent0">
+    If you wanted to set the companion's BAB to
+    %quot;5%quot; no mater what level the master is, you would use the
+    following tag:
+</p>
+<p class="indent1">
+    <code>COPYMASTERBAB:5</code>
+</p>
+<hr/>
+<h4>
+    COPYMASTERCHECK:MASTER
+</h4>
+<p class="indent0">
+    That's it, this only copies the Master's Base
+    Checks (Commonly Fortitude, Reflex and Will) The creature will use
+    it's Stats to modify the base though (Common for Familiar)
+</p>
+<p class="indent1">
+    <code>COPYMASTERCHECK:MASTER</code>
+</p>
+<hr/>
+<h4>
+    FOLLOWERADJUSTMENT
+</h4>
+<p class="indent0">
+    This is used appended to the COMPANIONLIST tag.
+    COMPANIONLIST is a Tag that is not used in a companion mod file.
+    However, it is important to mention it's uses as it pertains to the
+    companionmod file.
+</p>
+<p class="indent0">
+    Example from the docs
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST:Animal
+        Companion|Ape|FOLLOWERADJUSTMENT:-3</code>
+</p>
+<p class="indent0">
+    An Ape companion to a 4th level Druid gains the
+    benefits normally granted to a companion of a 1st level Druid.
+</p>
+<hr/>
+<h4>
+    HD
+</h4>
+<p class="indent0">
+    This will grant bonus Hit Die of the creature
+    type.
+</p>
+<p class="indent1">
+    <code>HD:5</code>
+</p>
+<p class="indent2">
+    Will grant 5 bonus Hit Die (Or class levels) of
+    the creatures type (The Creature TYPE is called RACETYPE and
+    normally follows the standard choices. The RACETYPE can be changed
+    inside the CompanionMod lst file any bonus HD will use that Race
+    Type. If the Creature is Fey it will gain the HD and class benefits
+    of being 5 HD stronger
+</p>
+<p class="sidebar1">
+    NOTE: The base creature can exceed the maximum
+    HD cap for its race in this manner.
+</p>
+<hr/>
+<h4>
+    MASTERBONUSRACE
+</h4>
+<p class="indent0">
+    Sets any special bonuses a particular race or
+    creature may grant to the master (Common for familiar).
+</p>
+<p class="indent0">
+    Common tags to follow this are BONUS and
+    VFEAT.
+</p>
+<p class="indent0">
+    The uses of this tag are not to be
+    underestimated, with this tag you can grant a level dependent bonus
+    to the master at a certain level.
+</p>
+<p class="indent1">
+    <code>MASTERBONUSRACE:Bat &lt;TAB&gt;
+        BONUS:SKILL|Spot|3</code>
+</p>
+<p class="indent2">
+    Would give the master +3 bonus to Spot checks if
+    he has a Bat.
+</p>
+<p class="indent1">
+    <code>MASTERBONUSRACE:Bat &lt;TAB&gt;
+        BONUS:VAR|MyCoolVar|3|PREPCLEVEL:MIN=10</code>
+</p>
+<p class="indent2">
+    At 10th level the Master of this Bat gets 3 to
+    his 'MyCoolVar' which can be attached to a feat, ability, or even
+    an item with a Variable in the SPROP.
+</p>
+<p class="indent1">
+    <code>MASTERBONUSRACE:Magic Item - Sword
+        &lt;TAB&gt;
+        BONUS:VAR|MagicWeaponPlusIncrease|2|PREVARGTEQ:MagicItem,1</code>
+</p>
+<p class="indent2">
+    This will grant two (2) to the varaible
+    MagicWeaponPlusIncrease when the PREVAR requirements are met.
+</p>
+<hr/>
+<h4>
+    RACETYPE
+</h4>
+<p class="indent0">
+    This tag will change the base creature's type to
+    the one listed. RACETYPE affects the Bonus HD and progression of
+    the creature.
+</p>
+<p class="indent1">
+    <code>RACETYPE:Fey</code>
+</p>
+<p class="indent2">
+    The creature now has the Fey Type which replaces
+    its previous RACETYPE as assigned by the race file.
+</p>
+<hr/>
+<h4>
+    USEMASTERSKILL
+</h4>
+<p class="indent0">
+    Determines whether the creature will have the
+    exact same skill ranks as the master.
+</p>
+<p class="indent0">
+    Your choices are
+    <code>YES</code>
+    and
+    <code>NO</code>
+    (Default).
+</p>
+<p class="indent1">
+    <code>USEMASTERSKILL:YES</code>
+</p>
+<p class="indent2">
+    Creature will have the exact same ranks in the
+    skills chosen by the master.
+</p>
+<hr/>
+<h4>
+    BONUS:FOLLOWERS
+</h4>
+<p class="indent0">
+    Although this tag is not used in a
+    <span class="lstfile">
     companionmods.lst
    </span>
-   file, it does deserve mention in
-this class.
-  </p>
-  <p class="indent0">
-   The
-   <code>BONUS:FOLLOWER</code>
-   tag is what
-allows us to actually gain a creature in a particular TYPE or
-group. Without it you won't be able to select or add any creatures
-from that TYPE or group. This needs to match the
-   <code>COMPANIONLIST</code>
-   definition, which is seen as the
-companion type inside our actual file.
-  </p>
-  <p class="indent0">
-   The following line will be found in your
-non-companion mod lst file (e.g.
-   <span class="lstfile">
+    file, it does deserve mention in
+    this class.
+</p>
+<p class="indent0">
+    The
+    <code>BONUS:FOLLOWER</code>
+    tag is what
+    allows us to actually gain a creature in a particular TYPE or
+    group. Without it you won't be able to select or add any creatures
+    from that TYPE or group. This needs to match the
+    <code>COMPANIONLIST</code>
+    definition, which is seen as the
+    companion type inside our actual file.
+</p>
+<p class="indent0">
+    The following line will be found in your
+    non-companion mod lst file (e.g.
+    <span class="lstfile">
     class.lst
    </span>
-   ,
-   <span class="lstfile">
+    ,
+    <span class="lstfile">
     feat.lst
    </span>
-   ,
-   <span class="lstfile">
+    ,
+    <span class="lstfile">
     race.lst
    </span>
-   ,
-   <span class="lstfile">
+    ,
+    <span class="lstfile">
     template.lst
    </span>
-   , etc.)
-  </p>
-  <p class="indent1">
-   <code>BONUS:FOLLOWERS|
-    <b>
-     Familiar
-    </b>
-    |1</code>
-  </p>
-  <p class="indent2">
-   You can gain one (1) Familiar
-  </p>
-  <p class="indent0">
-   The following line is the corresponding line in
-the
-   <span class="lstfile">
+    , etc.)
+</p>
+<p class="indent1">
+    <code>BONUS:FOLLOWERS|
+        <b>
+            Familiar
+        </b>
+        |1</code>
+</p>
+<p class="indent2">
+    You can gain one (1) Familiar
+</p>
+<p class="indent0">
+    The following line is the corresponding line in
+    the
+    <span class="lstfile">
     companionmod.lst
    </span>
-   :
-  </p>
-  <p class="indent1">
-   <code>FOLLOWER:Whatever=1 &lt;TAB&gt;
-TYPE:
-    <b>
-     Familiar
-    </b></code>
-  </p>
-  <p class="indent2">
-  </p>
-  <p class="indent0">
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST:
-    <b>
-     Familiar
-    </b>
-    |Foo</code>
-  </p>
-  <p class="indent2">
-  </p>
-  <p class="indent0">
-   Notice the pattern, if you don't match those
-exactly you won't get access to that TYPE or group. I bolded the
-entries for you to see what must match.
-  </p>
-  <hr/>
-  <h3>
-   Putting it All Together
-  </h3>
-  <p class="indent0">
-   Okay, lets put together the sample critter
-  </p>
-  <p class="indent1">
-   Remember the sample from the begining? "I have a
-creature that when I gain have 3 levels, grants me a +2 to my Hide
-Skill; at 5th level I can use Shadow Walk once per day. It also
-gains 3 hit dice when I reach 3rd and 5th. Sly Slink is only
-available as a Shadow Ferret.". Well we are going to make that into
-something PCGen understands.
-  </p>
-  <blockquote class="indent1">
-   <p class="tagindent1">
-    <code>FOLLOWER:SlySlinkLvl=3 &lt;TAB&gt;
-TYPE:Sly Slink &lt;TAB&gt; HD:3</code>
-   </p>
-   <p class="tagindent1">
-    <code>FOLLOWER:SlySlinkLvl=5 &lt;TAB&gt;
-TYPE:Sly Slink &lt;TAB&gt; HD:3</code>
-   </p>
-  </blockquote>
-  <blockquote class="indent1">
-   <p class="tagindent1">
-    <code>MASTERBONUSRACE:Shadow Ferret
-&lt;TAB&gt; TYPE:Sly Slink &lt;TAB&gt;
-BONUS:SKILL|Hide|2|PREPCLEVEL:MIN=3 &lt;TAB&gt; SAB:use Shadow Walk
-once per day|PREPCLEVEL:MIN=5</code>
-   </p>
-  </blockquote>
-  <p class="indent0">
-   In an ability or somewhere else you would need
-this:
-  </p>
-  <blockquote class="indent1">
-   <p class="tagindent1">
-    <code>FOLLOWERS:Sly Slink|1 &lt;TAB&gt;
-COMPANIONLIST:Sly Slink|Shadow Ferret &lt;TAB&gt;
-DEFINE:SlySlinkLvl|0 &lt;TAB&gt;
-BONUS:VAR|SlySlinkLvl|TL</code>
-   </p>
-  </blockquote>
-  <p class="indent0">
-   Okay, lets put together another sample
-critter
-  </p>
-  <blockquote class="indent1">
-   <p class="tagindent1">
-    <code>FOLLOWER:Monkey Warrior=1 &lt;TAB&gt;
-HD:5 &lt;TAB&gt; TYPE:Monkey Mount &lt;TAB&gt; ABILITY:Special
-Ability|AUTOMATIC|Dodging Foo|Nasty Breath &lt;TAB&gt;
-RACETYPE:Dragon &lt;TAB&gt; USEMASTERSKILL:YES</code>
-   </p>
-  </blockquote>
-  <p class="indent2">
-   Okay Class, I threw a few curve balls in there.
-As a 1st level Monkey Warrior,
-   <code>FOLLOWER:Monkey
-Warrior=1</code>
-   , my critter of the Monkey Mount type,
-   <code>TYPE:Monkey Mount</code>
-   , will become a Dragon race type,
-   <code>RACETYPE:Dragon</code>
-   . It will use my skill rank selection,
-   <code>USEMASTERSKILL:YES</code>
-   , and get the special abilities of
-Dodging Foo and Nasty Breath,
-   <code>ABILITY:Special
-Ability|AUTOMATIC|Dodging Foo|Nasty Breath</code>
-   , as automatic
-abilities.
-  </p>
-  <p class="indent1">
-   <code>FOLLOWER:Monkey Warrior=5 &lt;TAB&gt; HD:5
-&lt;TAB&gt; SR:12+HD</code>
-  </p>
-  <p class="indent2">
-   When Monkey Warrior becomes 5th level, my
-critter will gain another 5 bonus hit die and gain Spell Resistance
-of 12 + it's HD.
-  </p>
-  <p class="indent0">
-   This is showing you what is possible in your own
-Companion Mod file.
-  </p>
-  <p class="indent0">
-   Now, we shouldn't leave you at this... You need
-to place the COMPANIONLIST tag somewhere outside this file, either
-a feat, ability, template or even inside a class, and with the tag
-you choose what creatures belong in the Monkey Mount (TYPE) or
-group.
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST:Monkey Mount|Wolf,Fuzzy
-Bear</code>
-  </p>
-  <p class="indent2">
-   That would make a Wolf and Fuzzy Bear part of
-the Monkey Mount (TYPE) or group.
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST:Monkey
-Mount|Bat|FOLLOWERADJUSTMENT:-5</code>
-  </p>
-  <p class="indent2">
-   If my Monkey Warrior takes a bat companion he
-needs to be 6th level before the 1st level effect takes place and
-then 10th level for the level 5 effect. The '-5' means the creature
-in that grouping will act as if five (5) levels lower, this works
-regardless of Class or Variable. Druid Class in the SRD and RSRD
-makes a great example of this case.
-  </p>
-  <p class="indent0">
-   Now an advanced technique for those that feel
-they understand this.
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST:Intelligent Item|Intelligent
-Weapon - Longsword</code>
-  </p>
-  <p class="indent1">
-   <code>BONUS:FOLLOWERS|Intelligent
-Item|1</code>
-  </p>
-  <blockquote class="indent1">
-   <p class="tagindent1">
-    <code>MASTERBONUSRACE:Intelligent Weapon -
-Longsword &lt;TAB&gt; BONUS:SKILL|Move Silently|5|TYPE=Competence
-&lt;TAB&gt; AUTO:FEAT|Weapon Focus(Longsword) &lt;TAB&gt;
-BONUS:VAR|WeaponPlusIncrease|1|PREPCLEVEL:MIN=8</code>
-   </p>
-  </blockquote>
-  <p class="indent0">
-   Can you figure it out? If I have the Intelligent
-Weapon - Longsword I'll get a plus five (+5) competence bonus to
-Move Silently, Weapon Focus for the Longsword as an Automatic Feat
-and when I attain a total character level of eight (8th level) I
-will get plus one (+1) to the variable name 'WeaponPlusIncrease'.
-Were you able to follow that? If not, it's okay, this can become
-complex quickly.
-  </p>
-  <p class="indent0">
-   Okay, that should get you on the path of
-Companion Mod file creation. In the next section we discuss
-applications of adding and modifying the Companion List.
-  </p>
-  <hr/>
-  <h2>
-   SECTION 2: Modifying Companion Lists
-  </h2>
-  <p class="indent0">
-   It always happens, either through a feat, new
-power or just a whim. Regardless of the source, there may come a
-time when you wish to add to the list of available critters to a
-certain class or group.
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST</code>
-   is additive. A good
-example of this case is Improved Familiar.
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST:Familiar|Shocker
-Lizard,Stirge|PRECLASS:1,SPELLCASTER.Arcane=5</code>
-  </p>
-  <p class="indent0">
-   This will grant the Shocker Lizard and Stirge to
-the available list in the Familiar (TYPE) if the master is an
-Arcane Spell Caster of 5th level or higher.
-  </p>
-  <p class="indent1">
-   <code>COMPANIONLIST:Monkey Mount|Sand
-Shark</code>
-  </p>
-  <p class="indent0">
-   This will grant the Sand Shark to the available
-list in the Monkey Mount (TYPE) group.
-  </p>
-  <hr/>
-  <p class="indent0">
-   -Andrew Maitland
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    :
+</p>
+<p class="indent1">
+    <code>FOLLOWER:Whatever=1 &lt;TAB&gt;
+        TYPE:
+        <b>
+            Familiar
+        </b></code>
+</p>
+<p class="indent2">
+</p>
+<p class="indent0">
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST:
+        <b>
+            Familiar
+        </b>
+        |Foo</code>
+</p>
+<p class="indent2">
+</p>
+<p class="indent0">
+    Notice the pattern, if you don't match those
+    exactly you won't get access to that TYPE or group. I bolded the
+    entries for you to see what must match.
+</p>
+<hr/>
+<h3>
+    Putting it All Together
+</h3>
+<p class="indent0">
+    Okay, lets put together the sample critter
+</p>
+<p class="indent1">
+    Remember the sample from the begining? "I have a
+    creature that when I gain have 3 levels, grants me a +2 to my Hide
+    Skill; at 5th level I can use Shadow Walk once per day. It also
+    gains 3 hit dice when I reach 3rd and 5th. Sly Slink is only
+    available as a Shadow Ferret.". Well we are going to make that into
+    something PCGen understands.
+</p>
+<blockquote class="indent1">
+    <p class="tagindent1">
+        <code>FOLLOWER:SlySlinkLvl=3 &lt;TAB&gt;
+            TYPE:Sly Slink &lt;TAB&gt; HD:3</code>
+    </p>
+    <p class="tagindent1">
+        <code>FOLLOWER:SlySlinkLvl=5 &lt;TAB&gt;
+            TYPE:Sly Slink &lt;TAB&gt; HD:3</code>
+    </p>
+</blockquote>
+<blockquote class="indent1">
+    <p class="tagindent1">
+        <code>MASTERBONUSRACE:Shadow Ferret
+            &lt;TAB&gt; TYPE:Sly Slink &lt;TAB&gt;
+            BONUS:SKILL|Hide|2|PREPCLEVEL:MIN=3 &lt;TAB&gt; SAB:use Shadow Walk
+            once per day|PREPCLEVEL:MIN=5</code>
+    </p>
+</blockquote>
+<p class="indent0">
+    In an ability or somewhere else you would need
+    this:
+</p>
+<blockquote class="indent1">
+    <p class="tagindent1">
+        <code>FOLLOWERS:Sly Slink|1 &lt;TAB&gt;
+            COMPANIONLIST:Sly Slink|Shadow Ferret &lt;TAB&gt;
+            DEFINE:SlySlinkLvl|0 &lt;TAB&gt;
+            BONUS:VAR|SlySlinkLvl|TL</code>
+    </p>
+</blockquote>
+<p class="indent0">
+    Okay, lets put together another sample
+    critter
+</p>
+<blockquote class="indent1">
+    <p class="tagindent1">
+        <code>FOLLOWER:Monkey Warrior=1 &lt;TAB&gt;
+            HD:5 &lt;TAB&gt; TYPE:Monkey Mount &lt;TAB&gt; ABILITY:Special
+            Ability|AUTOMATIC|Dodging Foo|Nasty Breath &lt;TAB&gt;
+            RACETYPE:Dragon &lt;TAB&gt; USEMASTERSKILL:YES</code>
+    </p>
+</blockquote>
+<p class="indent2">
+    Okay Class, I threw a few curve balls in there.
+    As a 1st level Monkey Warrior,
+    <code>FOLLOWER:Monkey
+        Warrior=1</code>
+    , my critter of the Monkey Mount type,
+    <code>TYPE:Monkey Mount</code>
+    , will become a Dragon race type,
+    <code>RACETYPE:Dragon</code>
+    . It will use my skill rank selection,
+    <code>USEMASTERSKILL:YES</code>
+    , and get the special abilities of
+    Dodging Foo and Nasty Breath,
+    <code>ABILITY:Special
+        Ability|AUTOMATIC|Dodging Foo|Nasty Breath</code>
+    , as automatic
+    abilities.
+</p>
+<p class="indent1">
+    <code>FOLLOWER:Monkey Warrior=5 &lt;TAB&gt; HD:5
+        &lt;TAB&gt; SR:12+HD</code>
+</p>
+<p class="indent2">
+    When Monkey Warrior becomes 5th level, my
+    critter will gain another 5 bonus hit die and gain Spell Resistance
+    of 12 + it's HD.
+</p>
+<p class="indent0">
+    This is showing you what is possible in your own
+    Companion Mod file.
+</p>
+<p class="indent0">
+    Now, we shouldn't leave you at this... You need
+    to place the COMPANIONLIST tag somewhere outside this file, either
+    a feat, ability, template or even inside a class, and with the tag
+    you choose what creatures belong in the Monkey Mount (TYPE) or
+    group.
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST:Monkey Mount|Wolf,Fuzzy
+        Bear</code>
+</p>
+<p class="indent2">
+    That would make a Wolf and Fuzzy Bear part of
+    the Monkey Mount (TYPE) or group.
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST:Monkey
+        Mount|Bat|FOLLOWERADJUSTMENT:-5</code>
+</p>
+<p class="indent2">
+    If my Monkey Warrior takes a bat companion he
+    needs to be 6th level before the 1st level effect takes place and
+    then 10th level for the level 5 effect. The '-5' means the creature
+    in that grouping will act as if five (5) levels lower, this works
+    regardless of Class or Variable. Druid Class in the SRD and RSRD
+    makes a great example of this case.
+</p>
+<p class="indent0">
+    Now an advanced technique for those that feel
+    they understand this.
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST:Intelligent Item|Intelligent
+        Weapon - Longsword</code>
+</p>
+<p class="indent1">
+    <code>BONUS:FOLLOWERS|Intelligent
+        Item|1</code>
+</p>
+<blockquote class="indent1">
+    <p class="tagindent1">
+        <code>MASTERBONUSRACE:Intelligent Weapon -
+            Longsword &lt;TAB&gt; BONUS:SKILL|Move Silently|5|TYPE=Competence
+            &lt;TAB&gt; AUTO:FEAT|Weapon Focus(Longsword) &lt;TAB&gt;
+            BONUS:VAR|WeaponPlusIncrease|1|PREPCLEVEL:MIN=8</code>
+    </p>
+</blockquote>
+<p class="indent0">
+    Can you figure it out? If I have the Intelligent
+    Weapon - Longsword I'll get a plus five (+5) competence bonus to
+    Move Silently, Weapon Focus for the Longsword as an Automatic Feat
+    and when I attain a total character level of eight (8th level) I
+    will get plus one (+1) to the variable name 'WeaponPlusIncrease'.
+    Were you able to follow that? If not, it's okay, this can become
+    complex quickly.
+</p>
+<p class="indent0">
+    Okay, that should get you on the path of
+    Companion Mod file creation. In the next section we discuss
+    applications of adding and modifying the Companion List.
+</p>
+<hr/>
+<h2>
+    SECTION 2: Modifying Companion Lists
+</h2>
+<p class="indent0">
+    It always happens, either through a feat, new
+    power or just a whim. Regardless of the source, there may come a
+    time when you wish to add to the list of available critters to a
+    certain class or group.
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST</code>
+    is additive. A good
+    example of this case is Improved Familiar.
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST:Familiar|Shocker
+        Lizard,Stirge|PRECLASS:1,SPELLCASTER.Arcane=5</code>
+</p>
+<p class="indent0">
+    This will grant the Shocker Lizard and Stirge to
+    the available list in the Familiar (TYPE) if the master is an
+    Arcane Spell Caster of 5th level or higher.
+</p>
+<p class="indent1">
+    <code>COMPANIONLIST:Monkey Mount|Sand
+        Shark</code>
+</p>
+<p class="indent0">
+    This will grant the Sand Shark to the available
+    list in the Monkey Mount (TYPE) group.
+</p>
+<hr/>
+<p class="indent0">
+    -Andrew Maitland
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

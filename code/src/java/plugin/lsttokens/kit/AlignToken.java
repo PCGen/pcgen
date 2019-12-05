@@ -37,53 +37,53 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class AlignToken extends AbstractTokenWithSeparator<KitAlignment> implements CDOMPrimaryToken<KitAlignment>
 {
-	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
+    private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "ALIGN";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "ALIGN";
+    }
 
-	@Override
-	public Class<KitAlignment> getTokenClass()
-	{
-		return KitAlignment.class;
-	}
+    @Override
+    public Class<KitAlignment> getTokenClass()
+    {
+        return KitAlignment.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitAlignment kitAlignment, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitAlignment kitAlignment, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
-		while (tok.hasMoreTokens())
-		{
-			String tokText = tok.nextToken();
-			CDOMSingleRef<PCAlignment> ref = context.getReferenceContext().getCDOMReference(ALIGNMENT_CLASS, tokText);
-			kitAlignment.addAlignment(ref);
-		}
-		return ParseResult.SUCCESS;
-	}
+        while (tok.hasMoreTokens())
+        {
+            String tokText = tok.nextToken();
+            CDOMSingleRef<PCAlignment> ref = context.getReferenceContext().getCDOMReference(ALIGNMENT_CLASS, tokText);
+            kitAlignment.addAlignment(ref);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitAlignment kitAlignment)
-	{
-		List<CDOMSingleRef<PCAlignment>> alignments = kitAlignment.getAlignments();
-		if (alignments == null)
-		{
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(alignments, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitAlignment kitAlignment)
+    {
+        List<CDOMSingleRef<PCAlignment>> alignments = kitAlignment.getAlignments();
+        if (alignments == null)
+        {
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(alignments, Constants.PIPE)};
+    }
 }

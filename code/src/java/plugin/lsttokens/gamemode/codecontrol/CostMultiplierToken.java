@@ -23,15 +23,15 @@ import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
 public class CostMultiplierToken extends AbstractStringStoringToken<CodeControl>
 {
-	@Override
-	public String getTokenName()
-	{
-		return CControl.COSTMULTIPLIER;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return CControl.COSTMULTIPLIER;
+    }
 
-	@Override
-	public Class<CodeControl> getTokenClass()
-	{
-		return CodeControl.class;
-	}
+    @Override
+    public Class<CodeControl> getTokenClass()
+    {
+        return CodeControl.class;
+    }
 }

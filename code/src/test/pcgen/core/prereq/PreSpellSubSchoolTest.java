@@ -35,148 +35,150 @@ import org.junit.jupiter.api.Test;
 public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 {
 
-	private PCClass wiz;
-	private PCClass cle;
+    private PCClass wiz;
+    private PCClass cle;
 
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		LoadContext context = Globals.getContext();
-		wiz = context.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
-		BuildUtilities.setFact(wiz, "SpellType", "Arcane");
-		context.unconditionallyProcess(wiz, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
-		context.unconditionallyProcess(wiz.getOriginalClassLevel(1), "CAST", "1,1");
-		context.unconditionallyProcess(wiz.getOriginalClassLevel(2), "CAST", "2,2,1");
-		cle = context.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
-		BuildUtilities.setFact(cle, "SpellType", "Divine");
-		context.unconditionallyProcess(cle, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
-		context.unconditionallyProcess(cle.getOriginalClassLevel(1), "CAST", "1,1");
-		context.unconditionallyProcess(cle.getOriginalClassLevel(2), "CAST", "1,1,1");
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        LoadContext context = Globals.getContext();
+        wiz = context.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+        BuildUtilities.setFact(wiz, "SpellType", "Arcane");
+        context.unconditionallyProcess(wiz, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
+        context.unconditionallyProcess(wiz.getOriginalClassLevel(1), "CAST", "1,1");
+        context.unconditionallyProcess(wiz.getOriginalClassLevel(2), "CAST", "2,2,1");
+        cle = context.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
+        BuildUtilities.setFact(cle, "SpellType", "Divine");
+        context.unconditionallyProcess(cle, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
+        context.unconditionallyProcess(cle.getOriginalClassLevel(1), "CAST", "1,1");
+        context.unconditionallyProcess(cle.getOriginalClassLevel(2), "CAST", "1,1,1");
 
-		Spell fireball = new Spell();
-		fireball.setName("Fireball");
-		context.getReferenceContext().importObject(fireball);
-		context.unconditionallyProcess(fireball, "CLASSES", "Wizard=2");
-		context.unconditionallyProcess(fireball, "SUBSCHOOL", "Fire");
+        Spell fireball = new Spell();
+        fireball.setName("Fireball");
+        context.getReferenceContext().importObject(fireball);
+        context.unconditionallyProcess(fireball, "CLASSES", "Wizard=2");
+        context.unconditionallyProcess(fireball, "SUBSCHOOL", "Fire");
 
-		Spell lightning = new Spell();
-		lightning.setName("Lightning Bolt");
-		context.getReferenceContext().importObject(lightning);
-		context.unconditionallyProcess(lightning, "CLASSES", "Wizard=2");
-		context.unconditionallyProcess(lightning, "SUBSCHOOL", "Useful");
+        Spell lightning = new Spell();
+        lightning.setName("Lightning Bolt");
+        context.getReferenceContext().importObject(lightning);
+        context.unconditionallyProcess(lightning, "CLASSES", "Wizard=2");
+        context.unconditionallyProcess(lightning, "SUBSCHOOL", "Useful");
 
-		Spell burning = new Spell();
-		burning.setName("Burning Hands");
-		context.getReferenceContext().importObject(burning);
-		context.unconditionallyProcess(burning, "CLASSES", "Wizard=1");
-		context.unconditionallyProcess(burning, "SUBSCHOOL", "Fire");
+        Spell burning = new Spell();
+        burning.setName("Burning Hands");
+        context.getReferenceContext().importObject(burning);
+        context.unconditionallyProcess(burning, "CLASSES", "Wizard=1");
+        context.unconditionallyProcess(burning, "SUBSCHOOL", "Fire");
 
-		Spell heal = new Spell();
-		heal.setName("Heal");
-		context.getReferenceContext().importObject(heal);
-		context.unconditionallyProcess(heal, "CLASSES", "Cleric=2");
-		context.unconditionallyProcess(heal, "SUBSCHOOL", "Useful");
+        Spell heal = new Spell();
+        heal.setName("Heal");
+        context.getReferenceContext().importObject(heal);
+        context.unconditionallyProcess(heal, "CLASSES", "Cleric=2");
+        context.unconditionallyProcess(heal, "SUBSCHOOL", "Useful");
 
-		Spell cure = new Spell();
-		cure.setName("Cure Light Wounds");
-		context.getReferenceContext().importObject(cure);
-		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
-		context.unconditionallyProcess(cure, "SUBSCHOOL", "Useful");
-		
-		finishLoad();
-	}
+        Spell cure = new Spell();
+        cure.setName("Cure Light Wounds");
+        context.getReferenceContext().importObject(cure);
+        context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
+        context.unconditionallyProcess(cure, "SUBSCHOOL", "Useful");
 
-	@Test
-	public void testSimpleSUBSCHOOL() {
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("SpellSCHOOLSUB");
-		prereq.setKey("Fire");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("2");
+        finishLoad();
+    }
 
-		final PlayerCharacter character = getCharacter();
-		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-		character.incrementClassLevel(1, wiz);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-		character.incrementClassLevel(1, wiz);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+    @Test
+    public void testSimpleSUBSCHOOL()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("SpellSCHOOLSUB");
+        prereq.setKey("Fire");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("2");
 
-	@Test
-	public void testTwoClassSUBSCHOOL() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
+        final PlayerCharacter character = getCharacter();
+        boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+        character.incrementClassLevel(1, wiz);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+        character.incrementClassLevel(1, wiz);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory
-				.parse("PRESPELLSCHOOLSUB:3,Fire=2,Useful=2");
+    @Test
+    public void testTwoClassSUBSCHOOL() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
 
-		assertFalse(PrereqHandler.passes(prereq, character, null));
-		character.incrementClassLevel(1, wiz);
-		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-		character.incrementClassLevel(1, wiz);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-		character.incrementClassLevel(1, cle);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-		character.incrementClassLevel(1, cle);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-	}
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        Prerequisite prereq = factory
+                .parse("PRESPELLSCHOOLSUB:3,Fire=2,Useful=2");
 
-	@Test
-	public void testNotSimpleSUBSCHOOL() {
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("SpellSCHOOLSUB");
-		prereq.setKey("Fire");
-		prereq.setOperator(PrerequisiteOperator.LT);
-		prereq.setOperand("2");
+        assertFalse(PrereqHandler.passes(prereq, character, null));
+        character.incrementClassLevel(1, wiz);
+        boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+        character.incrementClassLevel(1, wiz);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+        character.incrementClassLevel(1, cle);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+        character.incrementClassLevel(1, cle);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+    }
 
-		final PlayerCharacter character = getCharacter();
-		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-		character.incrementClassLevel(1, wiz);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-		character.incrementClassLevel(1, wiz);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-	}
+    @Test
+    public void testNotSimpleSUBSCHOOL()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("SpellSCHOOLSUB");
+        prereq.setKey("Fire");
+        prereq.setOperator(PrerequisiteOperator.LT);
+        prereq.setOperand("2");
 
-	@Test
-	public void testNotTwoClassSUBSCHOOL() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
+        final PlayerCharacter character = getCharacter();
+        boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+        character.incrementClassLevel(1, wiz);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+        character.incrementClassLevel(1, wiz);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+    }
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory
-				.parse("!PRESPELLSCHOOLSUB:3,Fire=2,Useful=2");
+    @Test
+    public void testNotTwoClassSUBSCHOOL() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
 
-		assertTrue(PrereqHandler.passes(prereq, character, null));
-		character.incrementClassLevel(1, wiz);
-		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-		character.incrementClassLevel(1, wiz);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-		character.incrementClassLevel(1, cle);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
-		character.incrementClassLevel(1, cle);
-		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-	}
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        Prerequisite prereq = factory
+                .parse("!PRESPELLSCHOOLSUB:3,Fire=2,Useful=2");
 
-	@Override
-	protected void defaultSetupEnd()
-	{
-		//Nothing, we will trigger ourselves
-	}
+        assertTrue(PrereqHandler.passes(prereq, character, null));
+        character.incrementClassLevel(1, wiz);
+        boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+        character.incrementClassLevel(1, wiz);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+        character.incrementClassLevel(1, cle);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
+        character.incrementClassLevel(1, cle);
+        passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+    }
+
+    @Override
+    protected void defaultSetupEnd()
+    {
+        //Nothing, we will trigger ourselves
+    }
 }

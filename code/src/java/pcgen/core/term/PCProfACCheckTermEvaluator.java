@@ -1,20 +1,20 @@
 /**
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
- *
+ * <p>
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- *
+ * <p>
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
+ * <p>
  * Created 09-Aug-2008 23:53:33
  */
 
@@ -28,50 +28,48 @@ import pcgen.util.Logging;
 
 public class PCProfACCheckTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
-	private final String eqKey;
+    private final String eqKey;
 
-	public PCProfACCheckTermEvaluator(String originalText, String eqKey)
-	{
-		this.originalText = originalText;
-		this.eqKey = eqKey;
-	}
+    public PCProfACCheckTermEvaluator(String originalText, String eqKey)
+    {
+        this.originalText = originalText;
+        this.eqKey = eqKey;
+    }
 
-	@Override
-	public Float resolve(PlayerCharacter pc)
-	{
-		if (pc.hasControl(CControl.EQACCHECK))
-		{
-			Logging.errorPrint(
-				originalText + " term is deprecated (does not function)" + " when EQACCHECK CodeControl is used");
-		}
-		if ("".equals(eqKey))
-		{
-			return 0.0f;
-		}
-		else
-		{
-			final Equipment eq =
-					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, eqKey);
+    @Override
+    public Float resolve(PlayerCharacter pc)
+    {
+        if (pc.hasControl(CControl.EQACCHECK))
+        {
+            Logging.errorPrint(
+                    originalText + " term is deprecated (does not function)" + " when EQACCHECK CodeControl is used");
+        }
+        if ("".equals(eqKey))
+        {
+            return 0.0f;
+        } else
+        {
+            final Equipment eq =
+                    Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, eqKey);
 
-			if (eq == null || pc.isProficientWith(eq))
-			{
-				return 0.0f;
-			}
-			else
-			{
-				return (float) eq.preFormulaAcCheck(pc);
-			}
-		}
-	}
+            if (eq == null || pc.isProficientWith(eq))
+            {
+                return 0.0f;
+            } else
+            {
+                return (float) eq.preFormulaAcCheck(pc);
+            }
+        }
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return true;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return true;
+    }
 
-	public boolean isStatic()
-	{
-		return false;
-	}
+    public boolean isStatic()
+    {
+        return false;
+    }
 }

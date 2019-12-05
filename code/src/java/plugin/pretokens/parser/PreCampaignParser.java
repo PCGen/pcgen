@@ -27,95 +27,93 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreCampaignParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"CAMPAIGN"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"CAMPAIGN"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 * 
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException 
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
 
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		setNoNeedForChar(prereq);
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        setNoNeedForChar(prereq);
 
-		//
-		// Negate the campaign names wrapped in []'s. Then need to bump up the required number of matches
-		//
-		if (formula.indexOf('[') >= 0)
-		{
-			negateCampaignChoice(prereq);
-		}
+        //
+        // Negate the campaign names wrapped in []'s. Then need to bump up the required number of matches
+        //
+        if (formula.indexOf('[') >= 0)
+        {
+            negateCampaignChoice(prereq);
+        }
 
-		return prereq;
-	}
+        return prereq;
+    }
 
-	/**
-	 * Process prereq keys wrapped in []. If the key is wrapped in [], the
-	 * prereq will be negated to check that the prereq is not passed, and
-	 * the number of required matches is increased by the number of negated
-	 * tests. Can handle nested prereqs.
-	 *
-	 * @param prereq The prereq to be negated.
-	 */
-	private static void negateCampaignChoice(Prerequisite prereq)
-	{
-		int modified = 0;
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			if (p.getKind() == null) // PREMULT
-			{
-				negateCampaignChoice(p);
-			}
-			else
-			{
-				String preKey = p.getKey();
-				if (preKey.startsWith("[") && preKey.endsWith("]"))
-				{
-					preKey = preKey.substring(1, preKey.length() - 1);
-					p.setKey(preKey);
-					p.setOperator(p.getOperator().invert());
-					++modified;
-				}
-			}
-		}
-		if (modified > 0)
-		{
-			String oper = prereq.getOperand();
-			try
-			{
-				oper = Integer.toString(Integer.parseInt(oper) + modified);
-			}
-			catch (NumberFormatException nfe)
-			{
-				oper = '(' + oper + ")+" + Integer.toString(modified);
-			}
-			prereq.setOperand(oper);
-		}
-	}
+    /**
+     * Process prereq keys wrapped in []. If the key is wrapped in [], the
+     * prereq will be negated to check that the prereq is not passed, and
+     * the number of required matches is increased by the number of negated
+     * tests. Can handle nested prereqs.
+     *
+     * @param prereq The prereq to be negated.
+     */
+    private static void negateCampaignChoice(Prerequisite prereq)
+    {
+        int modified = 0;
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            if (p.getKind() == null) // PREMULT
+            {
+                negateCampaignChoice(p);
+            } else
+            {
+                String preKey = p.getKey();
+                if (preKey.startsWith("[") && preKey.endsWith("]"))
+                {
+                    preKey = preKey.substring(1, preKey.length() - 1);
+                    p.setKey(preKey);
+                    p.setOperator(p.getOperator().invert());
+                    ++modified;
+                }
+            }
+        }
+        if (modified > 0)
+        {
+            String oper = prereq.getOperand();
+            try
+            {
+                oper = Integer.toString(Integer.parseInt(oper) + modified);
+            } catch (NumberFormatException nfe)
+            {
+                oper = '(' + oper + ")+" + Integer.toString(modified);
+            }
+            prereq.setOperand(oper);
+        }
+    }
 
-	@Override
-	protected boolean allowsNegate()
-	{
-		return true;
-	}
+    @Override
+    protected boolean allowsNegate()
+    {
+        return true;
+    }
 
 }

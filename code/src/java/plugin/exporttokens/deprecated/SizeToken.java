@@ -27,15 +27,15 @@ import pcgen.io.exporttoken.Token;
  */
 public class SizeToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "SIZE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SIZE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return pc.getSizeAdjustment().getKeyName();
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return pc.getSizeAdjustment().getKeyName();
+    }
 }

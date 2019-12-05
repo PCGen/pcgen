@@ -30,48 +30,48 @@ import pcgen.rules.persistence.token.ParseResult;
 public class ShieldProficiencyToken extends AbstractQualifiedChooseToken<ShieldProf>
 {
 
-	private static final Class<ShieldProf> SHIELDPROF_CLASS = ShieldProf.class;
+    private static final Class<ShieldProf> SHIELDPROF_CLASS = ShieldProf.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "SHIELDPROFICIENCY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SHIELDPROFICIENCY";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Shield Proficiency choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Shield Proficiency choice";
+    }
 
-	@Override
-	public ShieldProf decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, s);
-	}
+    @Override
+    public ShieldProf decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(ShieldProf choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(ShieldProf choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<ShieldProf> getListKey()
-	{
-		return AssociationListKey.getKeyFor(SHIELDPROF_CLASS, "CHOOSE*SHIELDPROF");
-	}
+    @Override
+    protected AssociationListKey<ShieldProf> getListKey()
+    {
+        return AssociationListKey.getKeyFor(SHIELDPROF_CLASS, "CHOOSE*SHIELDPROF");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(SHIELDPROF_CLASS),
-			obj, value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(SHIELDPROF_CLASS),
+                obj, value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "SHIELDPROF";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "SHIELDPROF";
+    }
 }

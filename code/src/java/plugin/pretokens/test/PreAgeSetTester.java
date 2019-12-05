@@ -26,50 +26,49 @@ import pcgen.system.LanguageBundle;
 public class PreAgeSetTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		final int ageset = display.getAgeSetIndex();
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        final int ageset = display.getAgeSetIndex();
 
-		int runningTotal = -1;
-		int anInt;
+        int runningTotal = -1;
+        int anInt;
 
-		try
-		{
-			anInt = Integer.parseInt(prereq.getKey());
-		}
-		catch (NumberFormatException exc)
-		{
-			anInt = display.getBioSet().getAgeSetNamed(prereq.getKey());
-		}
-		catch (Exception e)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString(
-					"PreAgeSet.error.badly_formed_attribute", prereq.getOperand()), e); //$NON-NLS-1$
-		}
+        try
+        {
+            anInt = Integer.parseInt(prereq.getKey());
+        } catch (NumberFormatException exc)
+        {
+            anInt = display.getBioSet().getAgeSetNamed(prereq.getKey());
+        } catch (Exception e)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString(
+                            "PreAgeSet.error.badly_formed_attribute", prereq.getOperand()), e); //$NON-NLS-1$
+        }
 
-		if (anInt == -1)
-		{ //String was not recognized
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString(
-					"PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
-		}
+        if (anInt == -1)
+        { //String was not recognized
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString(
+                            "PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
+        }
 
-		runningTotal = prereq.getOperator().compare(ageset, anInt);
+        runningTotal = prereq.getOperator().compare(ageset, anInt);
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "AGESET"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "AGESET"; //$NON-NLS-1$
+    }
 
 }

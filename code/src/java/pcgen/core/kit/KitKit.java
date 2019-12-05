@@ -33,66 +33,66 @@ import pcgen.core.PlayerCharacter;
  */
 public class KitKit extends BaseKit
 {
-	private List<CDOMSingleRef<Kit>> availableKits = new ArrayList<>();
+    private List<CDOMSingleRef<Kit>> availableKits = new ArrayList<>();
 
-	// These members store the state of an instance of this class.  They are
-	// not cloned.
-	private Map<Kit, List<BaseKit>> appliedKits = new HashMap<>();
+    // These members store the state of an instance of this class.  They are
+    // not cloned.
+    private Map<Kit, List<BaseKit>> appliedKits = new HashMap<>();
 
-	/**
-	 * Actually applies the kit to this PC.
-	 *
-	 * @param aPC The PlayerCharacter the alignment is applied to
-	 */
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		for (Map.Entry<Kit, List<BaseKit>> me : appliedKits.entrySet())
-		{
-			me.getKey().processKit(aPC, me.getValue());
-		}
-	}
+    /**
+     * Actually applies the kit to this PC.
+     *
+     * @param aPC The PlayerCharacter the alignment is applied to
+     */
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        for (Map.Entry<Kit, List<BaseKit>> me : appliedKits.entrySet())
+        {
+            me.getKey().processKit(aPC, me.getValue());
+        }
+    }
 
-	/**
-	 * Test applying this kit to the character.
-	 *
-	 * @param aPC PlayerCharacter The character to apply the kit to.
-	 * @param aKit Kit The kit that has requested the application of the kit.
-	 * @param warnings List The warign list to be populated if anything fails.
-	 */
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		appliedKits = new HashMap<>();
-		for (CDOMSingleRef<Kit> ref : availableKits)
-		{
-			Kit addedKit = ref.get();
-			ArrayList<BaseKit> thingsToAdd = new ArrayList<>();
-			addedKit.testApplyKit(aPC, thingsToAdd, warnings, true);
-			appliedKits.put(addedKit, thingsToAdd);
-		}
-		return true;
-	}
+    /**
+     * Test applying this kit to the character.
+     *
+     * @param aPC      PlayerCharacter The character to apply the kit to.
+     * @param aKit     Kit The kit that has requested the application of the kit.
+     * @param warnings List The warign list to be populated if anything fails.
+     */
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        appliedKits = new HashMap<>();
+        for (CDOMSingleRef<Kit> ref : availableKits)
+        {
+            Kit addedKit = ref.get();
+            ArrayList<BaseKit> thingsToAdd = new ArrayList<>();
+            addedKit.testApplyKit(aPC, thingsToAdd, warnings, true);
+            appliedKits.put(addedKit, thingsToAdd);
+        }
+        return true;
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Kit";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Kit";
+    }
 
-	@Override
-	public String toString()
-	{
-		return ReferenceUtilities.joinLstFormat(availableKits, Constants.PIPE);
-	}
+    @Override
+    public String toString()
+    {
+        return ReferenceUtilities.joinLstFormat(availableKits, Constants.PIPE);
+    }
 
-	public void addKit(CDOMSingleRef<Kit> ref)
-	{
-		availableKits.add(ref);
-	}
+    public void addKit(CDOMSingleRef<Kit> ref)
+    {
+        availableKits.add(ref);
+    }
 
-	public List<CDOMSingleRef<Kit>> getKits()
-	{
-		return availableKits;
-	}
+    public List<CDOMSingleRef<Kit>> getKits()
+    {
+        return availableKits;
+    }
 }

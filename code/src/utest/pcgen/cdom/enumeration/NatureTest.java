@@ -24,23 +24,23 @@ import org.junit.jupiter.api.Test;
 
 class NatureTest
 {
-	@Test
-	public void testGetBest()
-	{
-		assertNull(Nature.getBestNature(null, null));
-		assertEquals(Nature.AUTOMATIC, Nature.getBestNature(null, Nature.AUTOMATIC));
-		assertEquals(Nature.AUTOMATIC, Nature.getBestNature(Nature.AUTOMATIC, null));
-		assertEquals(Nature.VIRTUAL, Nature.getBestNature(null, Nature.VIRTUAL));
-		assertEquals(Nature.VIRTUAL, Nature.getBestNature(Nature.VIRTUAL, null));
-		assertEquals(Nature.NORMAL, Nature.getBestNature(null, Nature.NORMAL));
-		assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.NORMAL, null));
-		assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.AUTOMATIC, Nature.NORMAL));
-		assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.NORMAL, Nature.AUTOMATIC));
-		assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.VIRTUAL, Nature.NORMAL));
-		assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.NORMAL, Nature.VIRTUAL));
-		assertEquals(Nature.VIRTUAL, Nature.getBestNature(Nature.VIRTUAL, Nature.AUTOMATIC));
-		assertEquals(Nature.VIRTUAL, Nature.getBestNature(Nature.AUTOMATIC, Nature.VIRTUAL));
-	}
+    @Test
+    public void testGetBest()
+    {
+        assertNull(Nature.getBestNature(null, null));
+        assertEquals(Nature.AUTOMATIC, Nature.getBestNature(null, Nature.AUTOMATIC));
+        assertEquals(Nature.AUTOMATIC, Nature.getBestNature(Nature.AUTOMATIC, null));
+        assertEquals(Nature.VIRTUAL, Nature.getBestNature(null, Nature.VIRTUAL));
+        assertEquals(Nature.VIRTUAL, Nature.getBestNature(Nature.VIRTUAL, null));
+        assertEquals(Nature.NORMAL, Nature.getBestNature(null, Nature.NORMAL));
+        assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.NORMAL, null));
+        assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.AUTOMATIC, Nature.NORMAL));
+        assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.NORMAL, Nature.AUTOMATIC));
+        assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.VIRTUAL, Nature.NORMAL));
+        assertEquals(Nature.NORMAL, Nature.getBestNature(Nature.NORMAL, Nature.VIRTUAL));
+        assertEquals(Nature.VIRTUAL, Nature.getBestNature(Nature.VIRTUAL, Nature.AUTOMATIC));
+        assertEquals(Nature.VIRTUAL, Nature.getBestNature(Nature.AUTOMATIC, Nature.VIRTUAL));
+    }
 
 
 }

@@ -28,29 +28,32 @@ import pcgen.io.exporttoken.Token;
  */
 public class MaxSkillLevelToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "MAXSKILLLEVEL";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "MAXSKILLLEVEL";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	//TODO: This should really be in the skill token.
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Integer.toString(getMaxSkillLevelToken(pc));
-	}
+    //TODO: This should really be in the skill token.
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Integer.toString(getMaxSkillLevelToken(pc));
+    }
 
-	/**
-	 * Get the Max Skill level token value
-	 * @param pc
-	 * @return Max Skill level token value
-	 */
-	public static int getMaxSkillLevelToken(PlayerCharacter pc)
-	{
-		return SkillUtilities.maxClassSkillForLevel(pc.getDisplay().getTotalLevels(), pc).intValue();
-	}
+    /**
+     * Get the Max Skill level token value
+     *
+     * @param pc
+     * @return Max Skill level token value
+     */
+    public static int getMaxSkillLevelToken(PlayerCharacter pc)
+    {
+        return SkillUtilities.maxClassSkillForLevel(pc.getDisplay().getTotalLevels(), pc).intValue();
+    }
 }

@@ -37,54 +37,54 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements CDOMPrimaryToken<KitBio>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "GENDER";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "GENDER";
+    }
 
-	@Override
-	public Class<KitBio> getTokenClass()
-	{
-		return KitBio.class;
-	}
+    @Override
+    public Class<KitBio> getTokenClass()
+    {
+        return KitBio.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitBio kitGender, String value)
-	{
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		while (st.hasMoreTokens())
-		{
-			kitGender.addGender(GenderCompat.getGenderReference(context, st.nextToken()));
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitBio kitGender, String value)
+    {
+        StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+        while (st.hasMoreTokens())
+        {
+            kitGender.addGender(GenderCompat.getGenderReference(context, st.nextToken()));
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitBio kitGender)
-	{
-		Collection<Indirect<Gender>> genders = kitGender.getGenders();
-		if (genders == null)
-		{
-			return null;
-		}
-		String[] g = new String[genders.size()];
-		int i = 0;
-		for (Indirect<Gender> genderIndirect : genders)
-		{
-			g[i++] = genderIndirect.get().name();
-		}
-		return new String[]{StringUtil.join(g, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitBio kitGender)
+    {
+        Collection<Indirect<Gender>> genders = kitGender.getGenders();
+        if (genders == null)
+        {
+            return null;
+        }
+        String[] g = new String[genders.size()];
+        int i = 0;
+        for (Indirect<Gender> genderIndirect : genders)
+        {
+            g[i++] = genderIndirect.get().name();
+        }
+        return new String[]{StringUtil.join(g, Constants.PIPE)};
+    }
 }

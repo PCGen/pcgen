@@ -27,54 +27,50 @@ import pcgen.core.PlayerCharacter;
 public final class BonusDisplay
 {
 
-	private BonusDisplay()
-	{
-	}
+    private BonusDisplay()
+    {
+    }
 
-	/**
-	 * Returns a String which can be used to display in the GUI
-	 * 
-	 * @return name
-	 */
-	public static String getBonusDisplayName(BonusManager.TempBonusInfo ti)
-	{
-		return getBonusDisplayName(ti.source, ti.target);
-	}
+    /**
+     * Returns a String which can be used to display in the GUI
+     *
+     * @return name
+     */
+    public static String getBonusDisplayName(BonusManager.TempBonusInfo ti)
+    {
+        return getBonusDisplayName(ti.source, ti.target);
+    }
 
-	/**
-	 * Returns a Display name for a Bonus based on a source object and target for a
-	 * temporary bonus.
-	 * 
-	 * @param sourceObj
-	 *            The source object that contained the temporary bonus
-	 * @param targetObj
-	 *            The target object of the temporary bonus
-	 * @return a Display name for a Bonus based on the given objects
-	 */
-	public static String getBonusDisplayName(Object sourceObj, Object targetObj)
-	{
-		final StringBuilder buffer = new StringBuilder(50);
+    /**
+     * Returns a Display name for a Bonus based on a source object and target for a
+     * temporary bonus.
+     *
+     * @param sourceObj The source object that contained the temporary bonus
+     * @param targetObj The target object of the temporary bonus
+     * @return a Display name for a Bonus based on the given objects
+     */
+    public static String getBonusDisplayName(Object sourceObj, Object targetObj)
+    {
+        final StringBuilder buffer = new StringBuilder(50);
 
-		buffer.append(sourceObj);
-		buffer.append(" [");
+        buffer.append(sourceObj);
+        buffer.append(" [");
 
 
-		if (targetObj instanceof PlayerCharacter)
-		{
-			buffer.append("PC");
-		}
-		else if (targetObj instanceof Equipment)
-		{
-			buffer.append(((Equipment) targetObj).getName());
-		}
-		else
-		{
-			buffer.append("NONE");
-		}
+        if (targetObj instanceof PlayerCharacter)
+        {
+            buffer.append("PC");
+        } else if (targetObj instanceof Equipment)
+        {
+            buffer.append(((Equipment) targetObj).getName());
+        } else
+        {
+            buffer.append("NONE");
+        }
 
-		buffer.append(']');
+        buffer.append(']');
 
-		return buffer.toString();
-	}
+        return buffer.toString();
+    }
 
 }

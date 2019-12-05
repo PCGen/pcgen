@@ -1,5 +1,5 @@
 /*
-* Copyright James Dempsey, 2015
+ * Copyright James Dempsey, 2015
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -39,54 +39,54 @@ import org.junit.jupiter.api.Test;
 public class PreFactSetTest extends AbstractCharacterTestCase
 {
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		LoadContext context = Globals.getContext();
-		BuildUtilities.createFactSet(context, "PANTHEON", Deity.class);
-		finishLoad();
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        LoadContext context = Globals.getContext();
+        BuildUtilities.createFactSet(context, "PANTHEON", Deity.class);
+        finishLoad();
+    }
 
-	/**
-	 * Test the PREFACT code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testFact() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		Deity deity = new Deity();
-		BuildUtilities.addToFactSet(deity, "PANTHEON", "Greek");
-		BuildUtilities.addToFactSet(deity, "PANTHEON", "War");
-		deity.setName("Ares");
+    /**
+     * Test the PREFACT code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testFact() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        Deity deity = new Deity();
+        BuildUtilities.addToFactSet(deity, "PANTHEON", "Greek");
+        BuildUtilities.addToFactSet(deity, "PANTHEON", "War");
+        deity.setName("Ares");
 
-		character.setDeity(deity);
+        character.setDeity(deity);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=Roman");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=Roman");
 
-		assertFalse(PrereqHandler.passes(
-			prereq, character, null), "Character's deity should not match requirement");
+        assertFalse(PrereqHandler.passes(
+                prereq, character, null), "Character's deity should not match requirement");
 
-		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=War");
+        prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=War");
 
-		assertTrue(PrereqHandler.passes(prereq,
-			character, null), "Character's deity should match pantheon");
+        assertTrue(PrereqHandler.passes(prereq,
+                character, null), "Character's deity should match pantheon");
 
-		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=Greek");
+        prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=Greek");
 
-		assertTrue(PrereqHandler.passes(prereq,
-			character, null), "Character's deity should match pantheon");
-	}
+        assertTrue(PrereqHandler.passes(prereq,
+                character, null), "Character's deity should match pantheon");
+    }
 
-	@Override
-	protected void defaultSetupEnd()
-	{
-		//Nothing, we will trigger ourselves
-	}
+    @Override
+    protected void defaultSetupEnd()
+    {
+        //Nothing, we will trigger ourselves
+    }
 }

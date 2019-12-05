@@ -31,23 +31,24 @@ import javafx.collections.ObservableList;
  */
 class DisplayOptionsPreferencesPanelModel
 {
-	private static final String IN_CM_NONE =
-			LanguageBundle.getString("in_Prefs_cmNone");
-	private static final String IN_CM_SELECT =
-			LanguageBundle.getString("in_Prefs_cmSelect");
-	private static final String IN_CM_SELECT_EXIT =
-			LanguageBundle.getString("in_Prefs_cmSelectExit");
+    private static final String IN_CM_NONE =
+            LanguageBundle.getString("in_Prefs_cmNone");
+    private static final String IN_CM_SELECT =
+            LanguageBundle.getString("in_Prefs_cmSelect");
+    private static final String IN_CM_SELECT_EXIT =
+            LanguageBundle.getString("in_Prefs_cmSelectExit");
 
-	private static final Collection<String> SINGLE_CHOICE_METHODS =
-			Arrays.asList(IN_CM_NONE, IN_CM_SELECT, IN_CM_SELECT_EXIT);
+    private static final Collection<String> SINGLE_CHOICE_METHODS =
+            Arrays.asList(IN_CM_NONE, IN_CM_SELECT, IN_CM_SELECT_EXIT);
 
-	/**
-	 * provides the potencial options for when a Chooser has only
-	 * one legal option
-	 * @return a List usable in JavaFX
-	 */
-	ObservableList<String> choiceOptionsAsObservableList()
-	{
-		return FXCollections.observableArrayList(SINGLE_CHOICE_METHODS);
-	}
+    /**
+     * provides the potencial options for when a Chooser has only
+     * one legal option
+     *
+     * @return a List usable in JavaFX
+     */
+    ObservableList<String> choiceOptionsAsObservableList()
+    {
+        return FXCollections.observableArrayList(SINGLE_CHOICE_METHODS);
+    }
 }

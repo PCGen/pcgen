@@ -27,29 +27,29 @@ import org.junit.jupiter.api.Test;
 public class RaceFacetTest extends AbstractItemFacetTest<Race>
 {
 
-	private final RaceFacet facet = new RaceFacet();
+    private final RaceFacet facet = new RaceFacet();
 
-	@Override
-	protected AbstractItemFacet<CharID, Race> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractItemFacet<CharID, Race> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected Race getItem()
-	{
-		Race r = new Race();
-		r.setName("Race" + n++);
-		return r;
-	}
+    @Override
+    protected Race getItem()
+    {
+        Race r = new Race();
+        r.setName("Race" + n++);
+        return r;
+    }
 
-	@Test
-	public void testEmptyRemoval()
-	{
-		Listener newL = new Listener();
-		// Useless Removal
-		new RaceFacet().removeDataFacetChangeListener(newL);
-	}
+    @Test
+    public void testEmptyRemoval()
+    {
+        Listener newL = new Listener();
+        // Useless Removal
+        new RaceFacet().removeDataFacetChangeListener(newL);
+    }
 }

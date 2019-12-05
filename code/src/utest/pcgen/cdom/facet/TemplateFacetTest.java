@@ -25,21 +25,21 @@ import pcgen.core.PCTemplate;
 
 public class TemplateFacetTest extends AbstractSourcedListFacetTest<PCTemplate>
 {
-	private TemplateFacet facet = new TemplateFacet();
+    private TemplateFacet facet = new TemplateFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, PCTemplate> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, PCTemplate> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected PCTemplate getObject()
-	{
-		PCTemplate t = new PCTemplate();
-		t.setName("Template" + n++);
-		return t;
-	}
+    @Override
+    protected PCTemplate getObject()
+    {
+        PCTemplate t = new PCTemplate();
+        t.setName("Template" + n++);
+        return t;
+    }
 }

@@ -32,37 +32,37 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DescToken extends AbstractNonEmptyToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "DESC";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DESC";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
-	{
-		ParseResult pr = checkForInvalidXMLChars(value);
-		if (pr.passed())
-		{
-			context.getObjectContext().put(campaign, StringKey.DESCRIPTION, value);
-		}
-		return pr;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
+    {
+        ParseResult pr = checkForInvalidXMLChars(value);
+        if (pr.passed())
+        {
+            context.getObjectContext().put(campaign, StringKey.DESCRIPTION, value);
+        }
+        return pr;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		String title = context.getObjectContext().getString(campaign, StringKey.DESCRIPTION);
-		if (title == null)
-		{
-			return null;
-		}
-		return new String[]{title};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        String title = context.getObjectContext().getString(campaign, StringKey.DESCRIPTION);
+        if (title == null)
+        {
+            return null;
+        }
+        return new String[]{title};
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

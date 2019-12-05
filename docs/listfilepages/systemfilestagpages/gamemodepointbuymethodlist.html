@@ -1,325 +1,325 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author: maredudd800 $
-                $Date: 2012-03-07 23:19:59 -0500 (Wed, 07 Mar 2012) $
-                $Revision: 16447 $
+               $Author: maredudd800 $
+               $Date: 2012-03-07 23:19:59 -0500 (Wed, 07 Mar 2012) $
+               $Revision: 16447 $
 
-                Contributors:
-                Eric C Smith (Maredudd) - mareduddATblackrootDOTorg
+               Contributors:
+               Eric C Smith (Maredudd) - mareduddATblackrootDOTorg
 
-                Description:
-                Provides information on the use of PCGen Game Mode:Point Buy Method List.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Game Mode:PointBuyMethods List
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Game Mode: pointbuymethods_system.lst
-  </h1>
-  <p class="indent0">
-   The
-   <span class="lstfile">
+               Description:
+               Provides information on the use of PCGen Game Mode:Point Buy Method List.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Game Mode:PointBuyMethods List
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Game Mode: pointbuymethods_system.lst
+</h1>
+<p class="indent0">
+    The
+    <span class="lstfile">
     pointbuymethods_system.lst
    </span>
-   file is where a
-GameMode defines the "standard" point levels used for that GameMode
-when using the
-   <strong>
-    Point Buy Methods
-   </strong>
-   for Character
-Statdetermination.
-  </p>
-  <h2>
-   Building a Point Buy Methods File 101
-  </h2>
-  <p class="indent0">
-   PointBuyMethods files have two types of lines:
-the Stat line and the Method line.
-  </p>
-  <h3>
-   The Stat Line Tags
-  </h3>
-  <p class="indent0">
-   The Stat Line uses the following tags:
-  </p>
-  <hr/>
-  <p>
-   <a id="statcost" name="statcost">
-   </a>
-  </p>
-  <p class="indent0">
-   <a id="statcost" name="statcost">
+    file is where a
+    GameMode defines the "standard" point levels used for that GameMode
+    when using the
     <strong>
-     Tag
-Name:
+        Point Buy Methods
     </strong>
-   </a>
-   STAT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Stat value)
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   COST:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Stat point cost)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   When using the "Point Buy Method" of determining
-a characters stats, the Stat Line defines the
-   <code>COST</code>
-   to
-"buy" a particular
-   <code>STAT</code>
-   .
-  </p>
-  <p class="indent1">
-   <strong>
-    Stat Line Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STAT:7 &lt;tab&gt; COST:-4</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 7 will gain 4 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:8 &lt;tab&gt; COST:-2</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 8 will gain 2 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:9 &lt;tab&gt; COST:-1</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 9 will gain 3 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:10 &lt;tab&gt; COST:0</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 10 will cost 0 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:11 &lt;tab&gt; COST:1</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 11 will cost 1 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:12 &lt;tab&gt; COST:2</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 12 will cost 2 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:13 &lt;tab&gt; COST:3</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 13 will cost 3 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:14 &lt;tab&gt; COST:5</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 14 will cost 5 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:15 &lt;tab&gt; COST:7</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 15 will cost 7 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:16 &lt;tab&gt; COST:10</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 16 will cost 10 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:17 &lt;tab&gt; COST:13</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 17 will cost 13 points.
-  </p>
-  <p class="indent2">
-   <code>STAT:18 &lt;tab&gt; COST:17</code>
-  </p>
-  <p class="indent3">
-   Starting with a stat of 10, buying a stat change
-to 18 will cost 17 points.
-  </p>
-  <hr/>
-  <h3>
-   The Method Line Tags
-  </h3>
-  <p class="indent0">
-   The Method Line uses the following tags:
-  </p>
-  <hr/>
-  <p>
-   <a id="methodpoints" name="methodpoints">
-   </a>
-  </p>
-  <p class="indent0">
-   <a id="methodpoints" name="methodpoints">
+    for Character
+    Statdetermination.
+</p>
+<h2>
+    Building a Point Buy Methods File 101
+</h2>
+<p class="indent0">
+    PointBuyMethods files have two types of lines:
+    the Stat line and the Method line.
+</p>
+<h3>
+    The Stat Line Tags
+</h3>
+<p class="indent0">
+    The Stat Line uses the following tags:
+</p>
+<hr/>
+<p>
+    <a id="statcost" name="statcost">
+    </a>
+</p>
+<p class="indent0">
+    <a id="statcost" name="statcost">
+        <strong>
+            Tag
+            Name:
+        </strong>
+    </a>
+    STAT:x
+</p>
+<p class="indent1">
     <strong>
-     Tag Name:
-    </strong>
-    METHOD:x
-   </a>
-  </p>
-  <p class="indent1">
-   <a id="methodpoints" name="methodpoints">
-    <strong>
-     Variables Used (x):
-    </strong>
-    Text (Method
-name)
-   </a>
-  </p>
-  <p class="indent0">
-   <a id="methodpoints" name="methodpoints">
-    <strong>
-     Tag Name:
-    </strong>
-    POINTS:x
-   </a>
-  </p>
-  <p class="indent1">
-   <a id="methodpoints" name="methodpoints">
-    <strong>
-     Variables Used (x):
+        Variables Used (x):
     </strong>
     Number
-(Available points)
-   </a>
-  </p>
-  <p class="indent1">
-   <a id="methodpoints" name="methodpoints">
+    (Stat value)
+</p>
+<p class="indent0">
     <strong>
-     What it does:
+        Tag Name:
     </strong>
-   </a>
-  </p>
-  <p class="indent2">
-   <a id="methodpoints" name="methodpoints">
-    When
-using the "Point Buy Method" of determining a characters stats, the
-Method Line defines the total
-    <code>POINTS</code>
-    available to buy
-stats.
-   </a>
-  </p>
-  <p class="indent1">
-   <a id="methodpoints" name="methodpoints">
+    COST:x
+</p>
+<p class="indent1">
     <strong>
-     Method Line Examples:
+        Variables Used (x):
     </strong>
-   </a>
-  </p>
-  <p class="indent2">
-   <a id="methodpoints" name="methodpoints">
-    <code>METHOD:Low Fantasy &lt;tab&gt;
-POINTS:10</code>
-   </a>
-  </p>
-  <p class="indent3">
-   <a id="methodpoints" name="methodpoints">
-    The
-"Low Fantasy" point buy method allows 10 total points for
-purchasing stats.
-   </a>
-  </p>
-  <p class="indent2">
-   <a id="methodpoints" name="methodpoints">
-    <code>METHOD:Standard Fantasy &lt;tab&gt;
-POINTS:15</code>
-   </a>
-  </p>
-  <p class="indent3">
-   <a id="methodpoints" name="methodpoints">
-    The
-"Standard Fantasy" point buy method allows 15 total points for
-purchasing stats.
-   </a>
-  </p>
-  <p class="indent2">
-   <a id="methodpoints" name="methodpoints">
-    <code>METHOD:High Fantasy &lt;tab&gt;
-POINTS:20</code>
-   </a>
-  </p>
-  <p class="indent3">
-   <a id="methodpoints" name="methodpoints">
-    The
-"High Fantasy" point buy method allows 20 total points for
-purchasing stats.
-   </a>
-  </p>
-  <p class="indent2">
-   <a id="methodpoints" name="methodpoints">
-    <code>METHOD:Epic Fantasy &lt;tab&gt;
-POINTS:25</code>
-   </a>
-  </p>
-  <p class="indent3">
-   <a id="methodpoints" name="methodpoints">
-    The
-"Epic Fantasy" point buy method allows 25 total points for
-purchasing stats.
-   </a>
-  </p>
-  <p>
-   <a id="methodpoints" name="methodpoints">
-   </a>
-  </p>
-  <hr/>
-  <p>
-   <a id="methodpoints" name="methodpoints">
-   </a>
-  </p>
- </body>
+    Number
+    (Stat point cost)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    When using the "Point Buy Method" of determining
+    a characters stats, the Stat Line defines the
+    <code>COST</code>
+    to
+    "buy" a particular
+    <code>STAT</code>
+    .
+</p>
+<p class="indent1">
+    <strong>
+        Stat Line Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STAT:7 &lt;tab&gt; COST:-4</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 7 will gain 4 points.
+</p>
+<p class="indent2">
+    <code>STAT:8 &lt;tab&gt; COST:-2</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 8 will gain 2 points.
+</p>
+<p class="indent2">
+    <code>STAT:9 &lt;tab&gt; COST:-1</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 9 will gain 3 points.
+</p>
+<p class="indent2">
+    <code>STAT:10 &lt;tab&gt; COST:0</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 10 will cost 0 points.
+</p>
+<p class="indent2">
+    <code>STAT:11 &lt;tab&gt; COST:1</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 11 will cost 1 points.
+</p>
+<p class="indent2">
+    <code>STAT:12 &lt;tab&gt; COST:2</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 12 will cost 2 points.
+</p>
+<p class="indent2">
+    <code>STAT:13 &lt;tab&gt; COST:3</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 13 will cost 3 points.
+</p>
+<p class="indent2">
+    <code>STAT:14 &lt;tab&gt; COST:5</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 14 will cost 5 points.
+</p>
+<p class="indent2">
+    <code>STAT:15 &lt;tab&gt; COST:7</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 15 will cost 7 points.
+</p>
+<p class="indent2">
+    <code>STAT:16 &lt;tab&gt; COST:10</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 16 will cost 10 points.
+</p>
+<p class="indent2">
+    <code>STAT:17 &lt;tab&gt; COST:13</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 17 will cost 13 points.
+</p>
+<p class="indent2">
+    <code>STAT:18 &lt;tab&gt; COST:17</code>
+</p>
+<p class="indent3">
+    Starting with a stat of 10, buying a stat change
+    to 18 will cost 17 points.
+</p>
+<hr/>
+<h3>
+    The Method Line Tags
+</h3>
+<p class="indent0">
+    The Method Line uses the following tags:
+</p>
+<hr/>
+<p>
+    <a id="methodpoints" name="methodpoints">
+    </a>
+</p>
+<p class="indent0">
+    <a id="methodpoints" name="methodpoints">
+        <strong>
+            Tag Name:
+        </strong>
+        METHOD:x
+    </a>
+</p>
+<p class="indent1">
+    <a id="methodpoints" name="methodpoints">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Text (Method
+        name)
+    </a>
+</p>
+<p class="indent0">
+    <a id="methodpoints" name="methodpoints">
+        <strong>
+            Tag Name:
+        </strong>
+        POINTS:x
+    </a>
+</p>
+<p class="indent1">
+    <a id="methodpoints" name="methodpoints">
+        <strong>
+            Variables Used (x):
+        </strong>
+        Number
+        (Available points)
+    </a>
+</p>
+<p class="indent1">
+    <a id="methodpoints" name="methodpoints">
+        <strong>
+            What it does:
+        </strong>
+    </a>
+</p>
+<p class="indent2">
+    <a id="methodpoints" name="methodpoints">
+        When
+        using the "Point Buy Method" of determining a characters stats, the
+        Method Line defines the total
+        <code>POINTS</code>
+        available to buy
+        stats.
+    </a>
+</p>
+<p class="indent1">
+    <a id="methodpoints" name="methodpoints">
+        <strong>
+            Method Line Examples:
+        </strong>
+    </a>
+</p>
+<p class="indent2">
+    <a id="methodpoints" name="methodpoints">
+        <code>METHOD:Low Fantasy &lt;tab&gt;
+            POINTS:10</code>
+    </a>
+</p>
+<p class="indent3">
+    <a id="methodpoints" name="methodpoints">
+        The
+        "Low Fantasy" point buy method allows 10 total points for
+        purchasing stats.
+    </a>
+</p>
+<p class="indent2">
+    <a id="methodpoints" name="methodpoints">
+        <code>METHOD:Standard Fantasy &lt;tab&gt;
+            POINTS:15</code>
+    </a>
+</p>
+<p class="indent3">
+    <a id="methodpoints" name="methodpoints">
+        The
+        "Standard Fantasy" point buy method allows 15 total points for
+        purchasing stats.
+    </a>
+</p>
+<p class="indent2">
+    <a id="methodpoints" name="methodpoints">
+        <code>METHOD:High Fantasy &lt;tab&gt;
+            POINTS:20</code>
+    </a>
+</p>
+<p class="indent3">
+    <a id="methodpoints" name="methodpoints">
+        The
+        "High Fantasy" point buy method allows 20 total points for
+        purchasing stats.
+    </a>
+</p>
+<p class="indent2">
+    <a id="methodpoints" name="methodpoints">
+        <code>METHOD:Epic Fantasy &lt;tab&gt;
+            POINTS:25</code>
+    </a>
+</p>
+<p class="indent3">
+    <a id="methodpoints" name="methodpoints">
+        The
+        "Epic Fantasy" point buy method allows 25 total points for
+        purchasing stats.
+    </a>
+</p>
+<p>
+    <a id="methodpoints" name="methodpoints">
+    </a>
+</p>
+<hr/>
+<p>
+    <a id="methodpoints" name="methodpoints">
+    </a>
+</p>
+</body>
 </html>

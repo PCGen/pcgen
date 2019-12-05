@@ -30,39 +30,39 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class NameToken extends AbstractNonEmptyToken<KitBio> implements CDOMPrimaryToken<KitBio>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "NAME";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "NAME";
+    }
 
-	@Override
-	public Class<KitBio> getTokenClass()
-	{
-		return KitBio.class;
-	}
+    @Override
+    public Class<KitBio> getTokenClass()
+    {
+        return KitBio.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitBio kitName, String value)
-	{
-		kitName.setCharacterName(value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitBio kitName, String value)
+    {
+        kitName.setCharacterName(value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitBio kitName)
-	{
-		String bd = kitName.getCharacterName();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitBio kitName)
+    {
+        String bd = kitName.getCharacterName();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd};
+    }
 
 }

@@ -26,33 +26,32 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code MinDevVerToken} parses the MINDEVVER token in migration.lst
- * game mode files. The MINDEVVER token specifies the development PCGen version when 
- * the rules object was first coded in the old format.  
- * 
+ * game mode files. The MINDEVVER token specifies the development PCGen version when
+ * the rules object was first coded in the old format.
  */
 public class MinDevVerToken extends VersionAwareToken implements MigrationLstToken
 {
 
-	@Override
-	public boolean parse(MigrationRule migrationRule, String value, String gameModeName)
-	{
-		if (StringUtils.isBlank(value))
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value.");
-			return false;
-		}
-		if (!validateVersionNumber(value))
-		{
-			return false;
-		}
-		migrationRule.setMinDevVer(value);
-		return true;
-	}
+    @Override
+    public boolean parse(MigrationRule migrationRule, String value, String gameModeName)
+    {
+        if (StringUtils.isBlank(value))
+        {
+            Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value.");
+            return false;
+        }
+        if (!validateVersionNumber(value))
+        {
+            return false;
+        }
+        migrationRule.setMinDevVer(value);
+        return true;
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "MINDEVVER";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "MINDEVVER";
+    }
 
 }

@@ -31,49 +31,48 @@ import pcgen.system.LanguageBundle;
 public class PreLanguageTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		final String requiredLang = prereq.getKey();
-		final int requiredNumber = Integer.parseInt(prereq.getOperand());
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        final String requiredLang = prereq.getKey();
+        final int requiredNumber = Integer.parseInt(prereq.getOperand());
+        int runningTotal = 0;
 
-		if (prereq.getKey().equalsIgnoreCase("ANY")) //$NON-NLS-1$
-		{
-			runningTotal = display.getLanguageCount();
-		}
-		else
-		{
-			final Language aLang = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Language.class, requiredLang);
-			if (aLang != null)
-			{
-				if (display.hasLanguage(aLang))
-				{
-					runningTotal = 1;
-				}
-			}
-			else if (!requiredLang.equals("ANY")) //$NON-NLS-1$
-			{
-				throw new PrerequisiteException(
-					LanguageBundle.getFormattedString(
-						"PreLanguage.error.no_such_language", requiredLang)); //$NON-NLS-1$
-			}
-		}
+        if (prereq.getKey().equalsIgnoreCase("ANY")) //$NON-NLS-1$
+        {
+            runningTotal = display.getLanguageCount();
+        } else
+        {
+            final Language aLang = Globals.getContext().getReferenceContext()
+                    .silentlyGetConstructedCDOMObject(Language.class, requiredLang);
+            if (aLang != null)
+            {
+                if (display.hasLanguage(aLang))
+                {
+                    runningTotal = 1;
+                }
+            } else if (!requiredLang.equals("ANY")) //$NON-NLS-1$
+            {
+                throw new PrerequisiteException(
+                        LanguageBundle.getFormattedString(
+                                "PreLanguage.error.no_such_language", requiredLang)); //$NON-NLS-1$
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "LANG"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "LANG"; //$NON-NLS-1$
+    }
 
 }

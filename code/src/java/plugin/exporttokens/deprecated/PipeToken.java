@@ -25,15 +25,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //PIPE
 public class PipeToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "PIPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "PIPE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return "|";
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return "|";
+    }
 }

@@ -37,71 +37,71 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code LogoToken} parses the LOGO Token.
  */
 public class LogoToken extends AbstractTokenWithSeparator<Campaign>
-		implements CDOMPrimaryToken<Campaign>, InstallLstToken
+        implements CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "LOGO";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LOGO";
+    }
 
-	@Override
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
-	{
-		campaign.addToListFor(ListKey.FILE_LOGO, CampaignSourceEntry.getNewCSE(campaign, sourceUri, value));
-		return true;
-	}
+    @Override
+    public boolean parse(Campaign campaign, String value, URI sourceUri)
+    {
+        campaign.addToListFor(ListKey.FILE_LOGO, CampaignSourceEntry.getNewCSE(campaign, sourceUri, value));
+        return true;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
-	{
-		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
-		if (cse == null)
-		{
-			//Error
-			return ParseResult.INTERNAL_ERROR;
-		}
-		if (!cse.getIncludeItems().isEmpty())
-		{
-			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: " + value);
-		}
-		if (!cse.getExcludeItems().isEmpty())
-		{
-			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: " + value);
-		}
-		context.getObjectContext().addToList(campaign, ListKey.FILE_LOGO, cse);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
+    {
+        CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
+        if (cse == null)
+        {
+            //Error
+            return ParseResult.INTERNAL_ERROR;
+        }
+        if (!cse.getIncludeItems().isEmpty())
+        {
+            return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: " + value);
+        }
+        if (!cse.getExcludeItems().isEmpty())
+        {
+            return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: " + value);
+        }
+        context.getObjectContext().addToList(campaign, ListKey.FILE_LOGO, cse);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Changes<CampaignSourceEntry> cseChanges =
-				context.getObjectContext().getListChanges(campaign, ListKey.FILE_LOGO);
-		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
-		if (added == null)
-		{
-			//empty indicates no token
-			return null;
-		}
-		Set<String> set = new TreeSet<>();
-		for (CampaignSourceEntry cse : added)
-		{
-			set.add(cse.getLSTformat());
-		}
-		return set.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        Changes<CampaignSourceEntry> cseChanges =
+                context.getObjectContext().getListChanges(campaign, ListKey.FILE_LOGO);
+        Collection<CampaignSourceEntry> added = cseChanges.getAdded();
+        if (added == null)
+        {
+            //empty indicates no token
+            return null;
+        }
+        Set<String> set = new TreeSet<>();
+        for (CampaignSourceEntry cse : added)
+        {
+            set.add(cse.getLSTformat());
+        }
+        return set.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

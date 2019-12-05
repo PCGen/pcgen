@@ -28,61 +28,61 @@ import pcgen.core.PlayerCharacter;
  */
 public final class KitFunds extends BaseKit
 {
-	private String name;
-	private Formula quantity;
+    private String name;
+    private Formula quantity;
 
-	// These members store the state of an instance of this class.  They are
-	// not cloned.
-	private int theQty = 0;
+    // These members store the state of an instance of this class.  They are
+    // not cloned.
+    private int theQty = 0;
 
-	@Override
-	public String toString()
-	{
-		return quantity.toString() + ' ' + name;
-	}
+    @Override
+    public String toString()
+    {
+        return quantity.toString() + ' ' + name;
+    }
 
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		theQty = -1;
-		if (quantity == null)
-		{
-			return false;
-		}
-		theQty = quantity.resolve(aPC, "").intValue();
-		return true;
-	}
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        theQty = -1;
+        if (quantity == null)
+        {
+            return false;
+        }
+        theQty = quantity.resolve(aPC, "").intValue();
+        return true;
+    }
 
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		aPC.adjustGold(theQty);
-	}
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        aPC.adjustGold(theQty);
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Funds";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Funds";
+    }
 
-	public void setQuantity(Formula formula)
-	{
-		quantity = formula;
-	}
+    public void setQuantity(Formula formula)
+    {
+        quantity = formula;
+    }
 
-	@Override
-	public void setName(String value)
-	{
-		name = value;
-	}
+    @Override
+    public void setName(String value)
+    {
+        name = value;
+    }
 
-	public String getName()
-	{
-		return name;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public Formula getQuantity()
-	{
-		return quantity;
-	}
+    public Formula getQuantity()
+    {
+        return quantity;
+    }
 }

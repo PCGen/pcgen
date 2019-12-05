@@ -35,31 +35,31 @@ import javafx.stage.Stage;
  */
 public class DebugDialog
 {
-	private final Stage primaryStage;
+    private final Stage primaryStage;
 
-	public DebugDialog()
-	{
-		GuiAssertions.assertIsJavaFXThread();
-		FXMLLoader loader = new FXMLLoader();
-		loader.setResources(LanguageBundle.getBundle());
-		loader.setLocation(getClass().getResource("DebugDialog.fxml"));
-		primaryStage = new Stage();
-		final Scene scene;
-		try
-		{
-			scene = loader.load();
-		} catch (IOException e)
-		{
-			Logging.errorPrint("failed to load debugdialog", e);
-			return;
-		}
-		primaryStage.setScene(scene);
-		DebugDialogController controller = loader.getController();
-		primaryStage.setOnShown(e -> controller.initTimer());
-	}
+    public DebugDialog()
+    {
+        GuiAssertions.assertIsJavaFXThread();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setResources(LanguageBundle.getBundle());
+        loader.setLocation(getClass().getResource("DebugDialog.fxml"));
+        primaryStage = new Stage();
+        final Scene scene;
+        try
+        {
+            scene = loader.load();
+        } catch (IOException e)
+        {
+            Logging.errorPrint("failed to load debugdialog", e);
+            return;
+        }
+        primaryStage.setScene(scene);
+        DebugDialogController controller = loader.getController();
+        primaryStage.setOnShown(e -> controller.initTimer());
+    }
 
-	public void show()
-	{
-		primaryStage.show();
-	}
+    public void show()
+    {
+        primaryStage.show();
+    }
 }

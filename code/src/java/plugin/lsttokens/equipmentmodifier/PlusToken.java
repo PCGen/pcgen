@@ -29,31 +29,31 @@ import pcgen.rules.persistence.token.ParseResult;
 public class PlusToken extends AbstractIntToken<EquipmentModifier> implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "PLUS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "PLUS";
+    }
 
-	@Override
-	protected IntegerKey integerKey()
-	{
-		return IntegerKey.PLUS;
-	}
+    @Override
+    protected IntegerKey integerKey()
+    {
+        return IntegerKey.PLUS;
+    }
 
-	@Override
-	protected ParseResult checkValue(Integer plus)
-	{
-		if (plus == 0)
-		{
-			return new ParseResult.Fail(getTokenName() + " must be an integer not equal to 0");
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult checkValue(Integer plus)
+    {
+        if (plus == 0)
+        {
+            return new ParseResult.Fail(getTokenName() + " must be an integer not equal to 0");
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

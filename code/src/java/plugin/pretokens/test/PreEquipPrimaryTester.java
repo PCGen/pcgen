@@ -29,21 +29,22 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreEquipPrimaryTester extends PreEquippedTester implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-		throws PrerequisiteException
-	{
-		return passesPreEquipHandleTokens(prereq, character, EquipmentLocation.EQUIPPED_PRIMARY);
-	}
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+            throws PrerequisiteException
+    {
+        return passesPreEquipHandleTokens(prereq, character, EquipmentLocation.EQUIPPED_PRIMARY);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "EQUIPPRIMARY"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "EQUIPPRIMARY"; //$NON-NLS-1$
+    }
 
 }

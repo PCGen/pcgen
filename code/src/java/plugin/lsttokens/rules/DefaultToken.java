@@ -29,51 +29,50 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements CDOMPrimaryToken<RuleCheck>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "DEFAULT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DEFAULT";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
-	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
-			}
-			set = Boolean.FALSE;
-		}
-		rule.setDefault(set);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
+    {
+        Boolean set;
+        char firstChar = value.charAt(0);
+        if (firstChar == 'y' || firstChar == 'Y')
+        {
+            if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+            {
+                return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
+            }
+            set = Boolean.TRUE;
+        } else
+        {
+            if (firstChar != 'N' && firstChar != 'n')
+            {
+                return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
+            }
+            if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+            {
+                return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
+            }
+            set = Boolean.FALSE;
+        }
+        rule.setDefault(set);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, RuleCheck rule)
-	{
-		boolean set = rule.getDefault();
-		return new String[]{set ? "YES" : "NO"};
-	}
+    @Override
+    public String[] unparse(LoadContext context, RuleCheck rule)
+    {
+        boolean set = rule.getDefault();
+        return new String[]{set ? "YES" : "NO"};
+    }
 
-	@Override
-	public Class<RuleCheck> getTokenClass()
-	{
-		return RuleCheck.class;
-	}
+    @Override
+    public Class<RuleCheck> getTokenClass()
+    {
+        return RuleCheck.class;
+    }
 }

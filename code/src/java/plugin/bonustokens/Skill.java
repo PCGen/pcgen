@@ -27,67 +27,67 @@ import pcgen.rules.persistence.TokenUtilities;
  */
 public final class Skill extends BonusObj
 {
-	private static final String[] BONUS_TAGS = {"LIST", "ALL"};
+    private static final String[] BONUS_TAGS = {"LIST", "ALL"};
 
-	private static final Class<pcgen.core.Skill> SKILL_CLASS = pcgen.core.Skill.class;
+    private static final Class<pcgen.core.Skill> SKILL_CLASS = pcgen.core.Skill.class;
 
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		for (int i = 0; i < BONUS_TAGS.length; ++i)
-		{
-			if (BONUS_TAGS[i].equals(token))
-			{
-				addBonusInfo(i);
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        for (int i = 0;i < BONUS_TAGS.length;++i)
+        {
+            if (BONUS_TAGS[i].equals(token))
+            {
+                addBonusInfo(i);
 
-				return true;
-			}
-		}
+                return true;
+            }
+        }
 
-		if (token.startsWith("STAT=") || token.startsWith(Constants.LST_TYPE_EQUAL))
-		{
-			addBonusInfo(token.replace('=', '.'));
-		}
-		else
-		{
-			addBonusInfo(token);
-		}
+        if (token.startsWith("STAT=") || token.startsWith(Constants.LST_TYPE_EQUAL))
+        {
+            addBonusInfo(token.replace('=', '.'));
+        } else
+        {
+            addBonusInfo(token);
+        }
 
-		if (!token.equals("LIST") && !token.startsWith("STAT.") && !token.equals("%CHOICE")
-			&& !token.startsWith("STAT=") && !token.equals("%LIST") && !token.equals("%VAR")
-			&& !token.equals("TYPE=%LIST"))
-		{
-			//This is done entirely for the side effects
-			context.forgetMeNot(TokenUtilities.getReference(context, SKILL_CLASS, token));
-		}
+        if (!token.equals("LIST") && !token.startsWith("STAT.") && !token.equals("%CHOICE")
+                && !token.startsWith("STAT=") && !token.equals("%LIST") && !token.equals("%VAR")
+                && !token.equals("TYPE=%LIST"))
+        {
+            //This is done entirely for the side effects
+            context.forgetMeNot(TokenUtilities.getReference(context, SKILL_CLASS, token));
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		if (obj instanceof Integer)
-		{
-			return BONUS_TAGS[(Integer) obj];
-		}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        if (obj instanceof Integer)
+        {
+            return BONUS_TAGS[(Integer) obj];
+        }
 
-		return (String) obj;
-	}
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "SKILL";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "SKILL";
+    }
 
-	@Override
-	protected boolean requiresRealCaseTarget()
-	{
-		return true;
-	}
+    @Override
+    protected boolean requiresRealCaseTarget()
+    {
+        return true;
+    }
 }

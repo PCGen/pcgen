@@ -41,175 +41,170 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 
 public class CskillToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>, PostDeferredToken<PCClass>
+        implements CDOMPrimaryToken<PCClass>, PostDeferredToken<PCClass>
 {
-	private static final Class<Skill> SKILL_CLASS = Skill.class;
+    private static final Class<Skill> SKILL_CLASS = Skill.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "CSKILL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CSKILL";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass obj, String value)
-	{
-		boolean first = true;
-		boolean foundAny = false;
-		boolean foundOther = false;
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass obj, String value)
+    {
+        boolean first = true;
+        boolean foundAny = false;
+        boolean foundOther = false;
 
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		while (tok.hasMoreTokens())
-		{
-			String tokText = tok.nextToken();
-			if (Constants.LST_DOT_CLEAR.equals(tokText))
-			{
-				if (!first)
-				{
-					return new ParseResult.Fail(
-						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item");
-				}
-				context.getObjectContext().removeList(obj, ListKey.CLASS_SKILL);
-			}
-			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
-			{
-				String clearText = tokText.substring(7);
-				if (Constants.LST_ALL.equals(clearText))
-				{
-					context.getObjectContext().removeFromList(obj, ListKey.CLASS_SKILL,
-						context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
-				}
-				else
-				{
-					CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, clearText);
-					if (ref == null)
-					{
-						return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
-					}
-					context.getObjectContext().removeFromList(obj, ListKey.CLASS_SKILL, ref);
-				}
-			}
-			else
-			{
-				/*
-				 * Note this HAS to be done one-by-one, because the
-				 * .clearChildNodeOfClass method above does NOT recognize the
-				 * C/CC Skill object and therefore doesn't know how to search
-				 * the sublists
-				 */
-				if (Constants.LST_ALL.equals(tokText))
-				{
-					foundAny = true;
-					context.getObjectContext().addToList(obj, ListKey.CLASS_SKILL,
-						context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
-				}
-				else
-				{
-					foundOther = true;
-					CDOMReference<Skill> ref = getSkillReference(context, tokText);
-					if (ref == null)
-					{
-						return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
-					}
-					context.getObjectContext().addToList(obj, ListKey.CLASS_SKILL, ref);
-				}
-			}
-			first = false;
-		}
-		if (foundAny && foundOther)
-		{
-			return new ParseResult.Fail(
-				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
-		}
-		return ParseResult.SUCCESS;
-	}
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+        while (tok.hasMoreTokens())
+        {
+            String tokText = tok.nextToken();
+            if (Constants.LST_DOT_CLEAR.equals(tokText))
+            {
+                if (!first)
+                {
+                    return new ParseResult.Fail(
+                            "  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item");
+                }
+                context.getObjectContext().removeList(obj, ListKey.CLASS_SKILL);
+            } else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
+            {
+                String clearText = tokText.substring(7);
+                if (Constants.LST_ALL.equals(clearText))
+                {
+                    context.getObjectContext().removeFromList(obj, ListKey.CLASS_SKILL,
+                            context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
+                } else
+                {
+                    CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, clearText);
+                    if (ref == null)
+                    {
+                        return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
+                    }
+                    context.getObjectContext().removeFromList(obj, ListKey.CLASS_SKILL, ref);
+                }
+            } else
+            {
+                /*
+                 * Note this HAS to be done one-by-one, because the
+                 * .clearChildNodeOfClass method above does NOT recognize the
+                 * C/CC Skill object and therefore doesn't know how to search
+                 * the sublists
+                 */
+                if (Constants.LST_ALL.equals(tokText))
+                {
+                    foundAny = true;
+                    context.getObjectContext().addToList(obj, ListKey.CLASS_SKILL,
+                            context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
+                } else
+                {
+                    foundOther = true;
+                    CDOMReference<Skill> ref = getSkillReference(context, tokText);
+                    if (ref == null)
+                    {
+                        return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
+                    }
+                    context.getObjectContext().addToList(obj, ListKey.CLASS_SKILL, ref);
+                }
+            }
+            first = false;
+        }
+        if (foundAny && foundOther)
+        {
+            return new ParseResult.Fail(
+                    "Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	private CDOMReference<Skill> getSkillReference(LoadContext context, String tokText)
-	{
-		if (tokText.endsWith(Constants.PERCENT))
-		{
-			return new PatternMatchingReference<>(context.getReferenceContext().getCDOMAllReference(SKILL_CLASS),
-				tokText);
-		}
-		else
-		{
-			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
-		}
-	}
+    private CDOMReference<Skill> getSkillReference(LoadContext context, String tokText)
+    {
+        if (tokText.endsWith(Constants.PERCENT))
+        {
+            return new PatternMatchingReference<>(context.getReferenceContext().getCDOMAllReference(SKILL_CLASS),
+                    tokText);
+        } else
+        {
+            return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PCClass obj)
-	{
-		Changes<CDOMReference<Skill>> changes = context.getObjectContext().getListChanges(obj, ListKey.CLASS_SKILL);
-		List<String> list = new ArrayList<>();
-		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
-		if (removedItems != null && !removedItems.isEmpty())
-		{
-			if (changes.includesGlobalClear())
-			{
-				context.addWriteMessage(
-					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
-				return null;
-			}
-			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, "|.CLEAR."));
-		}
-		if (changes.includesGlobalClear())
-		{
-			list.add(Constants.LST_DOT_CLEAR);
-		}
-		Collection<CDOMReference<Skill>> added = changes.getAdded();
-		if (added != null && !added.isEmpty())
-		{
-			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
-		}
-		if (list.isEmpty())
-		{
-			return null;
-		}
-		return list.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, PCClass obj)
+    {
+        Changes<CDOMReference<Skill>> changes = context.getObjectContext().getListChanges(obj, ListKey.CLASS_SKILL);
+        List<String> list = new ArrayList<>();
+        Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
+        if (removedItems != null && !removedItems.isEmpty())
+        {
+            if (changes.includesGlobalClear())
+            {
+                context.addWriteMessage(
+                        "Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
+                return null;
+            }
+            list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, "|.CLEAR."));
+        }
+        if (changes.includesGlobalClear())
+        {
+            list.add(Constants.LST_DOT_CLEAR);
+        }
+        Collection<CDOMReference<Skill>> added = changes.getAdded();
+        if (added != null && !added.isEmpty())
+        {
+            list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
+        }
+        if (list.isEmpty())
+        {
+            return null;
+        }
+        return list.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<PCClass> getTokenClass()
-	{
-		return PCClass.class;
-	}
+    @Override
+    public Class<PCClass> getTokenClass()
+    {
+        return PCClass.class;
+    }
 
-	@Override
-	public Class<PCClass> getDeferredTokenClass()
-	{
-		return PCClass.class;
-	}
+    @Override
+    public Class<PCClass> getDeferredTokenClass()
+    {
+        return PCClass.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, PCClass obj)
-	{
-		List<CDOMReference<Skill>> list = obj.getListFor(ListKey.CLASS_SKILL);
-		if (list != null)
-		{
-			ClassSkillList csl = obj.get(ObjectKey.CLASS_SKILLLIST);
-			CDOMSingleRef<ClassSkillList> listref = context.getReferenceContext().getCDOMDirectReference(csl);
-			for (CDOMReference<Skill> ref : list)
-			{
-				for (Skill sk : ref.getContainedObjects())
-				{
-					context.getListContext().addToMasterList(getTokenName(), obj, listref, sk);
-					context.commit();
-				}
-			}
-		}
-		return true;
-	}
+    @Override
+    public boolean process(LoadContext context, PCClass obj)
+    {
+        List<CDOMReference<Skill>> list = obj.getListFor(ListKey.CLASS_SKILL);
+        if (list != null)
+        {
+            ClassSkillList csl = obj.get(ObjectKey.CLASS_SKILLLIST);
+            CDOMSingleRef<ClassSkillList> listref = context.getReferenceContext().getCDOMDirectReference(csl);
+            for (CDOMReference<Skill> ref : list)
+            {
+                for (Skill sk : ref.getContainedObjects())
+                {
+                    context.getListContext().addToMasterList(getTokenName(), obj, listref, sk);
+                    context.commit();
+                }
+            }
+        }
+        return true;
+    }
 
-	@Override
-	public int getPriority()
-	{
-		return 0;
-	}
+    @Override
+    public int getPriority()
+    {
+        return 0;
+    }
 }

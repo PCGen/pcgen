@@ -29,34 +29,34 @@ import org.junit.jupiter.api.Test;
 public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 {
 
-	private final AgeFacet facet = new AgeFacet();
+    private final AgeFacet facet = new AgeFacet();
 
-	private final CharID id = CharID.getID(DataSetID.getID());
+    private final CharID id = CharID.getID(DataSetID.getID());
 
-	@Override
-	protected AbstractItemFacet<CharID, Integer> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractItemFacet<CharID, Integer> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected Integer getItem()
-	{
-		return n++;
-	}
+    @Override
+    protected Integer getItem()
+    {
+        return n++;
+    }
 
-	@Test
-	public void testItemSetMultGetAge()
-	{
-		assertEquals(0, facet.getAge(id));
-		getFacet().set(id, 4);
-		assertEquals(4, facet.getAge(id));
-		getFacet().set(id, 2);
-		assertEquals(2, facet.getAge(id));
-		// Remove
-		getFacet().remove(id);
-		assertEquals(0, facet.getAge(id));
-	}
+    @Test
+    public void testItemSetMultGetAge()
+    {
+        assertEquals(0, facet.getAge(id));
+        getFacet().set(id, 4);
+        assertEquals(4, facet.getAge(id));
+        getFacet().set(id, 2);
+        assertEquals(2, facet.getAge(id));
+        // Remove
+        getFacet().remove(id);
+        assertEquals(0, facet.getAge(id));
+    }
 }

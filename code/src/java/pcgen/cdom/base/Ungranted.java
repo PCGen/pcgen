@@ -23,5 +23,5 @@ package pcgen.cdom.base;
  */
 public interface Ungranted
 {
-	//Intentionally Empty Interface
+    //Intentionally Empty Interface
 }

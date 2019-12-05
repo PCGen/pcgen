@@ -33,307 +33,315 @@ import pcgen.util.Logging;
 /**
  * {@code LoadInfo} describes the data associated with a loads and
  * encumbrance
- * 
  */
 public class LoadInfo implements Loadable
 {
-	private URI sourceURI;
-	private String loadInfoName;
+    private URI sourceURI;
+    private String loadInfoName;
 
-	private final Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
-	private final Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
+    private final Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
+    private final Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
 
-	private final SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
-	private int minStrenghScoreWithLoad = 0;
-	private int maxStrengthScoreWithLoad = 0;
+    private final SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
+    private int minStrenghScoreWithLoad = 0;
+    private int maxStrengthScoreWithLoad = 0;
 
-	private BigDecimal loadScoreMultiplier = BigDecimal.ZERO;
-	private int loadMultStep = 10;
+    private BigDecimal loadScoreMultiplier = BigDecimal.ZERO;
+    private int loadMultStep = 10;
 
-	private final Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
-	private String modifyFormula;
+    private final Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
+    private String modifyFormula;
 
-	@Override
-	public URI getSourceURI()
-	{
-		return sourceURI;
-	}
+    @Override
+    public URI getSourceURI()
+    {
+        return sourceURI;
+    }
 
-	@Override
-	public void setSourceURI(URI source)
-	{
-		sourceURI = source;
-	}
+    @Override
+    public void setSourceURI(URI source)
+    {
+        sourceURI = source;
+    }
 
-	/**
-	 * @param multiplier the load score multiplier to set
-	 */
-	public void setLoadScoreMultiplier(BigDecimal multiplier)
-	{
-		loadScoreMultiplier = multiplier;
-	}
+    /**
+     * @param multiplier the load score multiplier to set
+     */
+    public void setLoadScoreMultiplier(BigDecimal multiplier)
+    {
+        loadScoreMultiplier = multiplier;
+    }
 
-	public BigDecimal getLoadScoreMultiplier()
-	{
-		return loadScoreMultiplier;
-	}
+    public BigDecimal getLoadScoreMultiplier()
+    {
+        return loadScoreMultiplier;
+    }
 
-	/**
-	 * Add a load score/value pair
-	 * 
-	 * @param score
-	 * @param load
-	 */
-	public void addLoadScoreValue(int score, BigDecimal load)
-	{
-		strengthLoadMap.put(score, load);
-		if (score > maxStrengthScoreWithLoad)
-		{
-			maxStrengthScoreWithLoad = score;
-		}
-		if (score < minStrenghScoreWithLoad)
-		{
-			minStrenghScoreWithLoad = score;
-		}
-	}
+    /**
+     * Add a load score/value pair
+     *
+     * @param score
+     * @param load
+     */
+    public void addLoadScoreValue(int score, BigDecimal load)
+    {
+        strengthLoadMap.put(score, load);
+        if (score > maxStrengthScoreWithLoad)
+        {
+            maxStrengthScoreWithLoad = score;
+        }
+        if (score < minStrenghScoreWithLoad)
+        {
+            minStrenghScoreWithLoad = score;
+        }
+    }
 
-	/**
-	 * Get the value for a load score
-	 * 
-	 * @param score
-	 * @return the value for a load score
-	 */
-	public BigDecimal getLoadScoreValue(int score)
-	{
-		if (score < minStrenghScoreWithLoad)
-		{
-			return BigDecimal.ZERO;
-		}
-		else if (score > maxStrengthScoreWithLoad)
-		{
-			if (getLoadMultiplierCount() == 1)
-			{
-				// TODO Isn't this a bug??
-				return getLoadScoreValue(minStrenghScoreWithLoad);
-			}
-			return loadScoreMultiplier.multiply(getLoadScoreValue(score - loadMultStep));
-		}
-		else
-		{
-			BigDecimal loadScore = strengthLoadMap.get(score);
-			if (loadScore == null)
-			{
-				SortedMap<Integer, BigDecimal> headMap = strengthLoadMap.headMap(score);
-				/*
-				 * Assume headMap is populated, since minScore is tested, above -
-				 * thpr Mar 14, 2007
-				 */
-				return strengthLoadMap.get(headMap.lastKey());
-			}
-			return loadScore;
-		}
-	}
+    /**
+     * Get the value for a load score
+     *
+     * @param score
+     * @return the value for a load score
+     */
+    public BigDecimal getLoadScoreValue(int score)
+    {
+        if (score < minStrenghScoreWithLoad)
+        {
+            return BigDecimal.ZERO;
+        } else if (score > maxStrengthScoreWithLoad)
+        {
+            if (getLoadMultiplierCount() == 1)
+            {
+                // TODO Isn't this a bug??
+                return getLoadScoreValue(minStrenghScoreWithLoad);
+            }
+            return loadScoreMultiplier.multiply(getLoadScoreValue(score - loadMultStep));
+        } else
+        {
+            BigDecimal loadScore = strengthLoadMap.get(score);
+            if (loadScore == null)
+            {
+                SortedMap<Integer, BigDecimal> headMap = strengthLoadMap.headMap(score);
+                /*
+                 * Assume headMap is populated, since minScore is tested, above -
+                 * thpr Mar 14, 2007
+                 */
+                return strengthLoadMap.get(headMap.lastKey());
+            }
+            return loadScore;
+        }
+    }
 
-	/**
-	 * Add a size adjustment
-	 * 
-	 * @param size
-	 * @param multiplier
-	 */
-	public void addSizeAdjustment(CDOMSingleRef<SizeAdjustment> size, BigDecimal multiplier)
-	{
-		rawSizeMultiplierMap.put(size, multiplier);
-	}
+    /**
+     * Add a size adjustment
+     *
+     * @param size
+     * @param multiplier
+     */
+    public void addSizeAdjustment(CDOMSingleRef<SizeAdjustment> size, BigDecimal multiplier)
+    {
+        rawSizeMultiplierMap.put(size, multiplier);
+    }
 
-	public void resolveSizeAdjustmentMap()
-	{
-		for (Map.Entry<CDOMSingleRef<SizeAdjustment>, BigDecimal> me : rawSizeMultiplierMap.entrySet())
-		{
-			sizeMultiplierMap.put(me.getKey().get(), me.getValue());
-		}
-	}
+    public void resolveSizeAdjustmentMap()
+    {
+        for (Map.Entry<CDOMSingleRef<SizeAdjustment>, BigDecimal> me : rawSizeMultiplierMap.entrySet())
+        {
+            sizeMultiplierMap.put(me.getKey().get(), me.getValue());
+        }
+    }
 
-	/**
-	 * Get the size adjustment
-	 * 
-	 * @param size
-	 * @return the size adjustment
-	 */
-	public BigDecimal getSizeAdjustment(SizeAdjustment size)
-	{
-		if (sizeMultiplierMap.containsKey(size))
-		{
-			return sizeMultiplierMap.get(size);
-		}
-		if (Logging.isDebugMode())
-		{
-			Logging.debugPrint("Unable to find Load Multiplier for Size: " + size.getKeyName());
-		}
-		return BigDecimal.ONE;
-	}
+    /**
+     * Get the size adjustment
+     *
+     * @param size
+     * @return the size adjustment
+     */
+    public BigDecimal getSizeAdjustment(SizeAdjustment size)
+    {
+        if (sizeMultiplierMap.containsKey(size))
+        {
+            return sizeMultiplierMap.get(size);
+        }
+        if (Logging.isDebugMode())
+        {
+            Logging.debugPrint("Unable to find Load Multiplier for Size: " + size.getKeyName());
+        }
+        return BigDecimal.ONE;
+    }
 
-	/**
-	 * Add load multiplier
-	 * @param encumbranceType
-	 * @param value
-	 * @param formula
-	 * @param checkPenalty
-	 */
-	public void addLoadMultiplier(String encumbranceType, Float value, String formula, Integer checkPenalty)
-	{
-		LoadMapEntry newEntry = new LoadMapEntry(value, formula, checkPenalty);
-		loadMultiplierMap.put(encumbranceType, newEntry);
-	}
+    /**
+     * Add load multiplier
+     *
+     * @param encumbranceType
+     * @param value
+     * @param formula
+     * @param checkPenalty
+     */
+    public void addLoadMultiplier(String encumbranceType, Float value, String formula, Integer checkPenalty)
+    {
+        LoadMapEntry newEntry = new LoadMapEntry(value, formula, checkPenalty);
+        loadMultiplierMap.put(encumbranceType, newEntry);
+    }
 
-	/**
-	 * Get the load multiplier
-	 * @param encumbranceType
-	 * @return load multiplier
-	 */
-	public Float getLoadMultiplier(String encumbranceType)
-	{
-		if (loadMultiplierMap.containsKey(encumbranceType))
-		{
-			return loadMultiplierMap.get(encumbranceType).getMuliplier();
-		}
-		return null;
-	}
+    /**
+     * Get the load multiplier
+     *
+     * @param encumbranceType
+     * @return load multiplier
+     */
+    public Float getLoadMultiplier(String encumbranceType)
+    {
+        if (loadMultiplierMap.containsKey(encumbranceType))
+        {
+            return loadMultiplierMap.get(encumbranceType).getMuliplier();
+        }
+        return null;
+    }
 
-	/**
-	 * Get the load move formula
-	 * @param encumbranceType
-	 * @return the load move formula
-	 */
-	public String getLoadMoveFormula(String encumbranceType)
-	{
-		if (loadMultiplierMap.containsKey(encumbranceType))
-		{
-			return loadMultiplierMap.get(encumbranceType).getFormula();
-		}
-		return "";
-	}
+    /**
+     * Get the load move formula
+     *
+     * @param encumbranceType
+     * @return the load move formula
+     */
+    public String getLoadMoveFormula(String encumbranceType)
+    {
+        if (loadMultiplierMap.containsKey(encumbranceType))
+        {
+            return loadMultiplierMap.get(encumbranceType).getFormula();
+        }
+        return "";
+    }
 
-	/**
-	 * Get the load check penalty
-	 * @param encumbranceType
-	 * @return the load check penalty
-	 */
-	public int getLoadCheckPenalty(String encumbranceType)
-	{
-		if (loadMultiplierMap.containsKey(encumbranceType))
-		{
-			return loadMultiplierMap.get(encumbranceType).getCheckPenalty();
-		}
-		return 0;
-	}
+    /**
+     * Get the load check penalty
+     *
+     * @param encumbranceType
+     * @return the load check penalty
+     */
+    public int getLoadCheckPenalty(String encumbranceType)
+    {
+        if (loadMultiplierMap.containsKey(encumbranceType))
+        {
+            return loadMultiplierMap.get(encumbranceType).getCheckPenalty();
+        }
+        return 0;
+    }
 
-	/**
-	 * Set the load modifier formula
-	 * @param argFormula
-	 */
-	public void setLoadModifierFormula(final String argFormula)
-	{
-		modifyFormula = argFormula;
-	}
+    /**
+     * Set the load modifier formula
+     *
+     * @param argFormula
+     */
+    public void setLoadModifierFormula(final String argFormula)
+    {
+        modifyFormula = argFormula;
+    }
 
-	/**
-	 * Get the load modifier formula
-	 * @return the load modifier formula
-	 */
-	public String getLoadModifierFormula()
-	{
-		return modifyFormula;
-	}
+    /**
+     * Get the load modifier formula
+     *
+     * @return the load modifier formula
+     */
+    public String getLoadModifierFormula()
+    {
+        return modifyFormula;
+    }
 
-	/**
-	 * Get the load multiplier count
-	 * @return the load multiplier count
-	 */
-	public int getLoadMultiplierCount()
-	{
-		return loadMultiplierMap.size();
-	}
+    /**
+     * Get the load multiplier count
+     *
+     * @return the load multiplier count
+     */
+    public int getLoadMultiplierCount()
+    {
+        return loadMultiplierMap.size();
+    }
 
-	private static class LoadMapEntry
-	{
-		private final Float multiplier;
-		private final String moveFormula;
-		private final Integer checkPenalty;
+    private static class LoadMapEntry
+    {
+        private final Float multiplier;
+        private final String moveFormula;
+        private final Integer checkPenalty;
 
-		/**
-		 * Constructor
-		 * @param argMultiplier
-		 * @param argFormula
-		 * @param argPenalty
-		 */
-		public LoadMapEntry(Float argMultiplier, String argFormula, Integer argPenalty)
-		{
-			multiplier = argMultiplier;
-			moveFormula = argFormula;
-			checkPenalty = argPenalty;
-		}
+        /**
+         * Constructor
+         *
+         * @param argMultiplier
+         * @param argFormula
+         * @param argPenalty
+         */
+        public LoadMapEntry(Float argMultiplier, String argFormula, Integer argPenalty)
+        {
+            multiplier = argMultiplier;
+            moveFormula = argFormula;
+            checkPenalty = argPenalty;
+        }
 
-		/**
-		 * Get multiplier
-		 * @return multiplier
-		 */
-		public Float getMuliplier()
-		{
-			return multiplier;
-		}
+        /**
+         * Get multiplier
+         *
+         * @return multiplier
+         */
+        public Float getMuliplier()
+        {
+            return multiplier;
+        }
 
-		/**
-		 * Get the formula
-		 * @return formula
-		 */
-		public String getFormula()
-		{
-			return moveFormula;
-		}
+        /**
+         * Get the formula
+         *
+         * @return formula
+         */
+        public String getFormula()
+        {
+            return moveFormula;
+        }
 
-		/**
-		 * Get the check penalty
-		 * @return the check penalty
-		 */
-		public int getCheckPenalty()
-		{
-			return checkPenalty;
-		}
-	}
+        /**
+         * Get the check penalty
+         *
+         * @return the check penalty
+         */
+        public int getCheckPenalty()
+        {
+            return checkPenalty;
+        }
+    }
 
-	public void setLoadMultStep(int step)
-	{
-		loadMultStep = step;
-	}
+    public void setLoadMultStep(int step)
+    {
+        loadMultStep = step;
+    }
 
-	@Override
-	public String getDisplayName()
-	{
-		return loadInfoName;
-	}
+    @Override
+    public String getDisplayName()
+    {
+        return loadInfoName;
+    }
 
-	@Override
-	public String getKeyName()
-	{
-		return getDisplayName();
-	}
+    @Override
+    public String getKeyName()
+    {
+        return getDisplayName();
+    }
 
-	@Override
-	public boolean isInternal()
-	{
-		return false;
-	}
+    @Override
+    public boolean isInternal()
+    {
+        return false;
+    }
 
-	@Override
-	public boolean isType(String type)
-	{
-		return false;
-	}
+    @Override
+    public boolean isType(String type)
+    {
+        return false;
+    }
 
-	@Override
-	public void setName(String name)
-	{
-		loadInfoName = name;
-	}
+    @Override
+    public void setName(String name)
+    {
+        loadInfoName = name;
+    }
 
 }

@@ -29,62 +29,63 @@ import pcgen.facade.core.GearBuySellFacade;
 public class GearBuySellScheme implements GearBuySellFacade
 {
 
-	private String name;
-	private final BigDecimal buyRate;
-	private final BigDecimal sellRate;
-	private final BigDecimal cashSellRate;
+    private String name;
+    private final BigDecimal buyRate;
+    private final BigDecimal sellRate;
+    private final BigDecimal cashSellRate;
 
-	/**
-	 * Create a new named instance of GearBuySellScheme
-	 * @param name The name of the scheme.
-	 * @param buyRate The percentage of list price at which a pc buys gear. 
-	 * @param sellRate The percentage of list price at which a pc sells gear. 
-	 * @param cashSellRate The percentage of list price at which a pc sells coins, gems etc.
-	 */
-	public GearBuySellScheme(String name, BigDecimal buyRate, BigDecimal sellRate, BigDecimal cashSellRate)
-	{
-		this.name = name;
-		this.buyRate = buyRate;
-		this.sellRate = sellRate;
-		this.cashSellRate = cashSellRate;
-	}
+    /**
+     * Create a new named instance of GearBuySellScheme
+     *
+     * @param name         The name of the scheme.
+     * @param buyRate      The percentage of list price at which a pc buys gear.
+     * @param sellRate     The percentage of list price at which a pc sells gear.
+     * @param cashSellRate The percentage of list price at which a pc sells coins, gems etc.
+     */
+    public GearBuySellScheme(String name, BigDecimal buyRate, BigDecimal sellRate, BigDecimal cashSellRate)
+    {
+        this.name = name;
+        this.buyRate = buyRate;
+        this.sellRate = sellRate;
+        this.cashSellRate = cashSellRate;
+    }
 
-	@Override
-	public String getName()
-	{
-		return name;
-	}
+    @Override
+    public String getName()
+    {
+        return name;
+    }
 
-	/**
-	 * @return the buyRate
-	 */
-	public BigDecimal getBuyRate()
-	{
-		return buyRate;
-	}
+    /**
+     * @return the buyRate
+     */
+    public BigDecimal getBuyRate()
+    {
+        return buyRate;
+    }
 
-	/**
-	 * @return the sellRate
-	 */
-	public BigDecimal getSellRate()
-	{
-		return sellRate;
-	}
+    /**
+     * @return the sellRate
+     */
+    public BigDecimal getSellRate()
+    {
+        return sellRate;
+    }
 
-	/**
-	 * @return the cashSellRate
-	 */
-	public BigDecimal getCashSellRate()
-	{
-		return cashSellRate;
-	}
+    /**
+     * @return the cashSellRate
+     */
+    public BigDecimal getCashSellRate()
+    {
+        return cashSellRate;
+    }
 
-	@Override
-	public String toString()
-	{
-		NumberFormat numFmt = NumberFormat.getNumberInstance();
+    @Override
+    public String toString()
+    {
+        NumberFormat numFmt = NumberFormat.getNumberInstance();
 
-		return name + " - Buy " + numFmt.format(buyRate) + " Sell " + numFmt.format(sellRate);
-	}
+        return name + " - Buy " + numFmt.format(buyRate) + " Sell " + numFmt.format(sellRate);
+    }
 
 }

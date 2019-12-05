@@ -29,36 +29,39 @@ import pcgen.io.exporttoken.Token;
  */
 public class SizeModToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "SIZEMOD";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "SIZEMOD";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	//TODO: This should really be in the Size token as SIZE.MOD
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Integer.toString(getSizeModToken(pc));
-	}
+    //TODO: This should really be in the Size token as SIZE.MOD
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Integer.toString(getSizeModToken(pc));
+    }
 
-	/**
-	 * Get value for SIZEMOD
-	 * @param pc
-	 * @return value for SIZEMOD
-	 */
-	public static int getSizeModToken(PlayerCharacter pc)
-	{
-		String sizeModDef = pc.getControl(CControl.SIZEMODDEFENSE);
-		if (sizeModDef == null)
-		{
-			return (int) pc.getSizeAdjustmentBonusTo("COMBAT", "AC");
-		}
-		SizeAdjustment sa = pc.getSizeAdjustment();
-		Object o = pc.getLocal(sa, sizeModDef);
-		return ((Number) o).intValue();
-	}
+    /**
+     * Get value for SIZEMOD
+     *
+     * @param pc
+     * @return value for SIZEMOD
+     */
+    public static int getSizeModToken(PlayerCharacter pc)
+    {
+        String sizeModDef = pc.getControl(CControl.SIZEMODDEFENSE);
+        if (sizeModDef == null)
+        {
+            return (int) pc.getSizeAdjustmentBonusTo("COMBAT", "AC");
+        }
+        SizeAdjustment sa = pc.getSizeAdjustment();
+        Object o = pc.getLocal(sa, sizeModDef);
+        return ((Number) o).intValue();
+    }
 }

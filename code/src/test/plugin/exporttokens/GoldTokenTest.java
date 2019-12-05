@@ -37,32 +37,33 @@ import org.junit.jupiter.api.Test;
 public class GoldTokenTest extends AbstractCharacterTestCase
 {
 
-	private final Token goldToken = new GoldToken();
-	/**
-	 * Test formatted output of {@link GoldToken#getToken(String, PlayerCharacter, pcgen.io.ExportHandler)}.
-	 */
-	@Test
-	void testGetToken()
-	{
-		SourceFileLoader.createLangBonusObject(Globals.getContext());
-		PlayerCharacter pc = super.getCharacter();
-		assertEquals("0", goldToken.getToken("", pc, null), "No money");
-		
-		pc.setGold(new BigDecimal("500"));
-		assertEquals("500", goldToken.getToken("", pc, null), "Non decimal money");
-		pc.setGold(new BigDecimal("2500"));
-		assertEquals("2,500", goldToken.getToken("", pc, null), "Non decimal money");
-		pc.setGold(new BigDecimal("1012500"));
-		assertEquals("1,012,500", goldToken.getToken("", pc, null), "Non decimal money");
-		
-		pc.setGold(new BigDecimal("500.76"));
-		assertEquals("500.76", goldToken.getToken("", pc, null), "Decimal money");
-		pc.setGold(new BigDecimal("500.701234"));
-		assertEquals("500.7", goldToken.getToken("", pc, null), "Decimal money");
-		pc.setGold(new BigDecimal("0.701234"));
-		assertEquals("0.7", goldToken.getToken("", pc, null), "Decimal money");
-		pc.setGold(new BigDecimal("0.709934"));
-		assertEquals("0.71", goldToken.getToken("", pc, null), "Decimal money");
-	}
+    private final Token goldToken = new GoldToken();
+
+    /**
+     * Test formatted output of {@link GoldToken#getToken(String, PlayerCharacter, pcgen.io.ExportHandler)}.
+     */
+    @Test
+    void testGetToken()
+    {
+        SourceFileLoader.createLangBonusObject(Globals.getContext());
+        PlayerCharacter pc = super.getCharacter();
+        assertEquals("0", goldToken.getToken("", pc, null), "No money");
+
+        pc.setGold(new BigDecimal("500"));
+        assertEquals("500", goldToken.getToken("", pc, null), "Non decimal money");
+        pc.setGold(new BigDecimal("2500"));
+        assertEquals("2,500", goldToken.getToken("", pc, null), "Non decimal money");
+        pc.setGold(new BigDecimal("1012500"));
+        assertEquals("1,012,500", goldToken.getToken("", pc, null), "Non decimal money");
+
+        pc.setGold(new BigDecimal("500.76"));
+        assertEquals("500.76", goldToken.getToken("", pc, null), "Decimal money");
+        pc.setGold(new BigDecimal("500.701234"));
+        assertEquals("500.7", goldToken.getToken("", pc, null), "Decimal money");
+        pc.setGold(new BigDecimal("0.701234"));
+        assertEquals("0.7", goldToken.getToken("", pc, null), "Decimal money");
+        pc.setGold(new BigDecimal("0.709934"));
+        assertEquals("0.71", goldToken.getToken("", pc, null), "Decimal money");
+    }
 
 }

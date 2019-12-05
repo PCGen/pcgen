@@ -11,16 +11,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class RankmodformulaToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "RANKMODFORMULA";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "RANKMODFORMULA";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		gameMode.setRankModFormula(value);
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        gameMode.setRankModFormula(value);
+        return true;
+    }
 }

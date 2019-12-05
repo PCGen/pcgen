@@ -26,53 +26,53 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class VFeatLst extends AbstractNonEmptyToken<CDOMObject>
-		implements CDOMCompatibilityToken<CDOMObject>, DeprecatedToken
+        implements CDOMCompatibilityToken<CDOMObject>, DeprecatedToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "VFEAT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VFEAT";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-			if (!context.processToken(obj, "ABILITY", "FEAT|VIRTUAL|" + value))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error from VFEAT");
-			}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (!context.processToken(obj, "ABILITY", "FEAT|VIRTUAL|" + value))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Delegation Error from VFEAT");
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public String getMessage(CDOMObject obj, String value)
-	{
-		return "Feat-based tokens have been deprecated - use ABILITY based functions";
-	}
+    @Override
+    public String getMessage(CDOMObject obj, String value)
+    {
+        return "Feat-based tokens have been deprecated - use ABILITY based functions";
+    }
 
-	@Override
-	public int compatibilityLevel()
-	{
-		return 6;
-	}
+    @Override
+    public int compatibilityLevel()
+    {
+        return 6;
+    }
 
-	@Override
-	public int compatibilitySubLevel()
-	{
-		return 4;
-	}
+    @Override
+    public int compatibilitySubLevel()
+    {
+        return 4;
+    }
 
-	@Override
-	public int compatibilityPriority()
-	{
-		return 7;
-	}
+    @Override
+    public int compatibilityPriority()
+    {
+        return 7;
+    }
 }

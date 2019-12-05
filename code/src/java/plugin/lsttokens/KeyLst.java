@@ -27,34 +27,34 @@ import pcgen.rules.persistence.token.ParseResult;
 public class KeyLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "KEY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "KEY";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		context.getReferenceContext().reassociateKey(value, obj);
-		context.getObjectContext().put(obj, StringKey.KEY_NAME, value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        context.getReferenceContext().reassociateKey(value, obj);
+        context.getObjectContext().put(obj, StringKey.KEY_NAME, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		String key = context.getObjectContext().getString(obj, StringKey.KEY_NAME);
-		if (key == null)
-		{
-			return null;
-		}
-		return new String[]{key};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        String key = context.getObjectContext().getString(obj, StringKey.KEY_NAME);
+        if (key == null)
+        {
+            return null;
+        }
+        return new String[]{key};
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

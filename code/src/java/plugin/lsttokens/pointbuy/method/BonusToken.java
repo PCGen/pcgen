@@ -32,54 +32,53 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * {@code BonusToken}
- * 
  */
 public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements CDOMPrimaryToken<PointBuyMethod>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "BONUS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BONUS";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PointBuyMethod pbm, String value)
-	{
-		BonusObj bon = Bonus.newBonus(context, value);
-		if (bon == null)
-		{
-			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: " + value);
-		}
-		bon.setTokenSource(getTokenName());
-		pbm.addBonus(bon);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, PointBuyMethod pbm, String value)
+    {
+        BonusObj bon = Bonus.newBonus(context, value);
+        if (bon == null)
+        {
+            return new ParseResult.Fail(getTokenName() + " was given invalid bonus: " + value);
+        }
+        bon.setTokenSource(getTokenName());
+        pbm.addBonus(bon);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PointBuyMethod pbm)
-	{
-		Collection<BonusObj> added = pbm.getBonuses();
-		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<>();
-		for (BonusObj bonus : added)
-		{
-			if (tokenName.equals(bonus.getTokenSource()))
-			{
-				bonusSet.add(bonus.toString());
-			}
-		}
-		if (bonusSet.isEmpty())
-		{
-			// This is okay - just no BONUSes from this token
-			return null;
-		}
-		return bonusSet.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, PointBuyMethod pbm)
+    {
+        Collection<BonusObj> added = pbm.getBonuses();
+        String tokenName = getTokenName();
+        Set<String> bonusSet = new TreeSet<>();
+        for (BonusObj bonus : added)
+        {
+            if (tokenName.equals(bonus.getTokenSource()))
+            {
+                bonusSet.add(bonus.toString());
+            }
+        }
+        if (bonusSet.isEmpty())
+        {
+            // This is okay - just no BONUSes from this token
+            return null;
+        }
+        return bonusSet.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<PointBuyMethod> getTokenClass()
-	{
-		return PointBuyMethod.class;
-	}
+    @Override
+    public Class<PointBuyMethod> getTokenClass()
+    {
+        return PointBuyMethod.class;
+    }
 }

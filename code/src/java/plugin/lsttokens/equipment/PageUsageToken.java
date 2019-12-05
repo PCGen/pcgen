@@ -29,45 +29,44 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * {@code PageUsageToken} deals with PAGEUSAGE token
- * 
+ * <p>
  * (Tue, 14 Mar 2006) $
- * 
  */
 public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "PAGEUSAGE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "PAGEUSAGE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
-	{
-		Formula formula = FormulaFactory.getFormulaFor(value);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE, formula);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
+    {
+        Formula formula = FormulaFactory.getFormulaFor(value);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE, formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Formula f = context.getObjectContext().getFormula(eq, FormulaKey.PAGE_USAGE);
-		if (f == null)
-		{
-			return null;
-		}
-		return new String[]{f.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Equipment eq)
+    {
+        Formula f = context.getObjectContext().getFormula(eq, FormulaKey.PAGE_USAGE);
+        if (f == null)
+        {
+            return null;
+        }
+        return new String[]{f.toString()};
+    }
 
-	@Override
-	public Class<Equipment> getTokenClass()
-	{
-		return Equipment.class;
-	}
+    @Override
+    public Class<Equipment> getTokenClass()
+    {
+        return Equipment.class;
+    }
 }

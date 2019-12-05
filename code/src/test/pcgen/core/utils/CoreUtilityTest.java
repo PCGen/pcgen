@@ -36,127 +36,127 @@ import org.junit.jupiter.api.Test;
  */
 public class CoreUtilityTest
 {
-	@Test
-	public void testisNetURL() throws MalformedURLException
-	{
-		URL https = new URL("https://127.0.0.1");
-		URL http = new URL("http://127.0.0.1");
-		URL ftp = new URL("ftp://127.0.0.1");
-		assertTrue(CoreUtility.isNetURL(https));
-		assertTrue(CoreUtility.isNetURL(http));
-		assertTrue(CoreUtility.isNetURL(ftp));
-	}
+    @Test
+    public void testisNetURL() throws MalformedURLException
+    {
+        URL https = new URL("https://127.0.0.1");
+        URL http = new URL("http://127.0.0.1");
+        URL ftp = new URL("ftp://127.0.0.1");
+        assertTrue(CoreUtility.isNetURL(https));
+        assertTrue(CoreUtility.isNetURL(http));
+        assertTrue(CoreUtility.isNetURL(ftp));
+    }
 
-	/**
-	 * Test unsplit string (join method).
-	 */
-	@Test
-	public void testJoin()
-	{
-		final String sep = "|";
-		final List<String> list = List.of("one", "two", "three", "four");
-		final String result = StringUtil.join(list, sep);
-		final String trueResult = "one|two|three|four";
-		assertEquals(trueResult, result, "join returned bad String");
-	}
+    /**
+     * Test unsplit string (join method).
+     */
+    @Test
+    public void testJoin()
+    {
+        final String sep = "|";
+        final List<String> list = List.of("one", "two", "three", "four");
+        final String result = StringUtil.join(list, sep);
+        final String trueResult = "one|two|three|four";
+        assertEquals(trueResult, result, "join returned bad String");
+    }
 
-	@Test
-	public void testCompareVersions()
-	{
-		int[] firstVer = {5, 13, 6};
-		int[] secondVer = {5, 13, 6};
-		
-		assertEquals(0, CoreUtility.compareVersions(firstVer, secondVer), "Check for equal values");
-		secondVer[2] = 4;
-		assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
-		secondVer[2] = 7;
-		assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
-		secondVer[2] = 6;
-		secondVer[1] = 12;
-		assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
-		secondVer[1] = 14;
-		assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
-		secondVer[1] = 13;
-		secondVer[0] = 4;
-		assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
-		secondVer[0] = 6;
-		assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
-	}
+    @Test
+    public void testCompareVersions()
+    {
+        int[] firstVer = {5, 13, 6};
+        int[] secondVer = {5, 13, 6};
 
-	@Test
-	public void testCompareVersionsString()
-	{
-		String firstVer = "5.13.6";
-		
-		assertEquals(0, CoreUtility.compareVersions(firstVer, firstVer), "Check for equal values");
-		assertEquals(1, CoreUtility.compareVersions(firstVer, "5.13.4"), "Check for first later");
-	}
-	
-	@Test
-	public void testConvertVersionToNumber()
-	{
-		int[] norc = CoreUtility.convertVersionToNumber("5.13.6");
-		assertArrayEquals(new int[]{5, 13, 6}, norc, "pcgen version");
-		int[] rc = CoreUtility.convertVersionToNumber("5.13.6 RC1");
-		assertArrayEquals(new int[]{5, 13, 6}, rc, "pcgen version");
-	}
+        assertEquals(0, CoreUtility.compareVersions(firstVer, secondVer), "Check for equal values");
+        secondVer[2] = 4;
+        assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
+        secondVer[2] = 7;
+        assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
+        secondVer[2] = 6;
+        secondVer[1] = 12;
+        assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
+        secondVer[1] = 14;
+        assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
+        secondVer[1] = 13;
+        secondVer[0] = 4;
+        assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
+        secondVer[0] = 6;
+        assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
+    }
 
-	@Test
-	public void testIsCurrMinorVer()
-	{
-		String currVerStr = PCGenPropBundle.getVersionNumber();
-		assertTrue(CoreUtility
-				.isCurrMinorVer(currVerStr), "Check for same verison");
-		int[] currVer = CoreUtility.convertVersionToNumber(currVerStr);
-		currVer[2] = 99;
-		String verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertTrue(CoreUtility
-				.isCurrMinorVer(verStr), "Check for differing release");
-		int oldMinor = currVer[1];
-		currVer[1] = 99;
-		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertFalse(CoreUtility
-				.isCurrMinorVer(verStr), "Check for differing minor");
-		currVer[1] = oldMinor;
-		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertTrue(CoreUtility
-				.isCurrMinorVer(verStr), "Check for returned minor");
-		currVer[0] = 2;
-		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertFalse(CoreUtility
-				.isCurrMinorVer(verStr), "Check for differing major");
-	}
+    @Test
+    public void testCompareVersionsString()
+    {
+        String firstVer = "5.13.6";
 
-	@Test
-	public void testIsPriorToCurrent()
-	{
-		String currVerStr = PCGenPropBundle.getVersionNumber();
-		assertTrue(CoreUtility
-				.isPriorToCurrent(currVerStr), "Check for same verison");
-		int[] currVer = CoreUtility.convertVersionToNumber(currVerStr);
-		currVer[2] = 99;
-		String verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertFalse(CoreUtility
-				.isPriorToCurrent(verStr), "Check for differing release");
-		currVer[2] = 0;
-		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertTrue(CoreUtility
-				.isPriorToCurrent(verStr), "Check for earlier release");
-		currVer[1] = 99;
-		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertFalse(CoreUtility
-				.isPriorToCurrent(verStr), "Check for differing minor");
-		currVer[1] = 0;
-		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertTrue(CoreUtility
-				.isPriorToCurrent(verStr), "Check for earlier minor");
-		currVer[0] = 99;
-		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertFalse(CoreUtility
-				.isPriorToCurrent(verStr), "Check for differing major");
-		currVer[0] = 0;
-		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertTrue(CoreUtility
-				.isPriorToCurrent(verStr), "Check for earlier major");
-	}
+        assertEquals(0, CoreUtility.compareVersions(firstVer, firstVer), "Check for equal values");
+        assertEquals(1, CoreUtility.compareVersions(firstVer, "5.13.4"), "Check for first later");
+    }
+
+    @Test
+    public void testConvertVersionToNumber()
+    {
+        int[] norc = CoreUtility.convertVersionToNumber("5.13.6");
+        assertArrayEquals(new int[]{5, 13, 6}, norc, "pcgen version");
+        int[] rc = CoreUtility.convertVersionToNumber("5.13.6 RC1");
+        assertArrayEquals(new int[]{5, 13, 6}, rc, "pcgen version");
+    }
+
+    @Test
+    public void testIsCurrMinorVer()
+    {
+        String currVerStr = PCGenPropBundle.getVersionNumber();
+        assertTrue(CoreUtility
+                .isCurrMinorVer(currVerStr), "Check for same verison");
+        int[] currVer = CoreUtility.convertVersionToNumber(currVerStr);
+        currVer[2] = 99;
+        String verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertTrue(CoreUtility
+                .isCurrMinorVer(verStr), "Check for differing release");
+        int oldMinor = currVer[1];
+        currVer[1] = 99;
+        verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertFalse(CoreUtility
+                .isCurrMinorVer(verStr), "Check for differing minor");
+        currVer[1] = oldMinor;
+        verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertTrue(CoreUtility
+                .isCurrMinorVer(verStr), "Check for returned minor");
+        currVer[0] = 2;
+        verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertFalse(CoreUtility
+                .isCurrMinorVer(verStr), "Check for differing major");
+    }
+
+    @Test
+    public void testIsPriorToCurrent()
+    {
+        String currVerStr = PCGenPropBundle.getVersionNumber();
+        assertTrue(CoreUtility
+                .isPriorToCurrent(currVerStr), "Check for same verison");
+        int[] currVer = CoreUtility.convertVersionToNumber(currVerStr);
+        currVer[2] = 99;
+        String verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertFalse(CoreUtility
+                .isPriorToCurrent(verStr), "Check for differing release");
+        currVer[2] = 0;
+        verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertTrue(CoreUtility
+                .isPriorToCurrent(verStr), "Check for earlier release");
+        currVer[1] = 99;
+        verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertFalse(CoreUtility
+                .isPriorToCurrent(verStr), "Check for differing minor");
+        currVer[1] = 0;
+        verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertTrue(CoreUtility
+                .isPriorToCurrent(verStr), "Check for earlier minor");
+        currVer[0] = 99;
+        verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertFalse(CoreUtility
+                .isPriorToCurrent(verStr), "Check for differing major");
+        currVer[0] = 0;
+        verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
+        assertTrue(CoreUtility
+                .isPriorToCurrent(verStr), "Check for earlier major");
+    }
 }

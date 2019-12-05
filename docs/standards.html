@@ -1,337 +1,337 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                        
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors: 
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                
-                Description:
-                Provides information on the Standards involved in the Documentation for PCGen.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Documentation Standards
-  </title>
-  <link href="pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Documentation Standards
-  </h1>
-  <p class="indent0">
-   This page will be used to provide standards to
-follow in the creation of documentation pages for PCGen.
-  </p>
-  <h2>
-   General Documentation Standards
-  </h2>
-  <p class="indent0">
-  </p>
-  <ol class="indent0">
-   <li>
-    Each page should have information commented in the page which
-should contain the names of those contributing to the creation and
-maintenance of the page. There should also be a brief description
-of the purpose of the page and in the case of LST File Tag Pages, a
-basic to how to create the specific LST Objects covered by that
-page.
-   </li>
-   <li>
-    The documentation should, in general, document what PCGen, with
-its LST Tags and OS Tokens, DO. Instances of documenting what PCGen
-WONT do should be minimized.
-   </li>
-  </ol>
-  <h2>
-   LST Tag Documentation Standards
-  </h2>
-  <p class="indent0">
-   The following is a generic example of the format
-to be used when documenting LST tags. You can copy the code and use
-it as a starting point for new entries if you wish. Following the
-entry will be a detailed explanation of how the format is should be
-used.
-  </p>
-  <hr/>
-  <p class="new">
-   *** New
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="taganchor" name="taganchor">
-     Tag
-Name:
-    </a>
-   </strong>
-   TAG:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Explanation)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Explanation)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Property
-(Explanation)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Explanation of what this tag does and how to use
-it.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TAG:EXAMPLE</code>
-  </p>
-  <p class="indent3">
-   Description of what this example tag does.
-  </p>
-  <p class="indent1">
-   <strong>
-    Deprecated Syntax:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TAG:EXAMPLE</code>
-  </p>
-  <p class="indent3">
-   Identify deprecated syntax.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Explanation of where this tag may be used in
-terms of lines and files.
-  </p>
-  <hr/>
-  <h3>
-   Anchors
-  </h3>
-  <p class="indent0">
-   If you examine the source code you will see that
-the first line of the entry contains a named anchor next to the
-horizontal rule. This is so the entry can be linked to from the
-index and other relevant entries. The anchor name should match the
-tag name up to the first variable minus any symbols used. See the
-source code for examples
-  </p>
-  <h3>
-   State of the entry
-  </h3>
-  <p class="indent0">
-   Some entries are labeled "
-   <span class="lstnew">
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+
+               Description:
+               Provides information on the Standards involved in the Documentation for PCGen.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Documentation Standards
+    </title>
+    <link href="pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Documentation Standards
+</h1>
+<p class="indent0">
+    This page will be used to provide standards to
+    follow in the creation of documentation pages for PCGen.
+</p>
+<h2>
+    General Documentation Standards
+</h2>
+<p class="indent0">
+</p>
+<ol class="indent0">
+    <li>
+        Each page should have information commented in the page which
+        should contain the names of those contributing to the creation and
+        maintenance of the page. There should also be a brief description
+        of the purpose of the page and in the case of LST File Tag Pages, a
+        basic to how to create the specific LST Objects covered by that
+        page.
+    </li>
+    <li>
+        The documentation should, in general, document what PCGen, with
+        its LST Tags and OS Tokens, DO. Instances of documenting what PCGen
+        WONT do should be minimized.
+    </li>
+</ol>
+<h2>
+    LST Tag Documentation Standards
+</h2>
+<p class="indent0">
+    The following is a generic example of the format
+    to be used when documenting LST tags. You can copy the code and use
+    it as a starting point for new entries if you wish. Following the
+    entry will be a detailed explanation of how the format is should be
+    used.
+</p>
+<hr/>
+<p class="new">
+    *** New
+</p>
+<p class="indent0">
+    <strong>
+        <a id="taganchor" name="taganchor">
+            Tag
+            Name:
+        </a>
+    </strong>
+    TAG:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Explanation)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Explanation)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Property
+    (Explanation)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Explanation of what this tag does and how to use
+    it.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TAG:EXAMPLE</code>
+</p>
+<p class="indent3">
+    Description of what this example tag does.
+</p>
+<p class="indent1">
+    <strong>
+        Deprecated Syntax:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TAG:EXAMPLE</code>
+</p>
+<p class="indent3">
+    Identify deprecated syntax.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Explanation of where this tag may be used in
+    terms of lines and files.
+</p>
+<hr/>
+<h3>
+    Anchors
+</h3>
+<p class="indent0">
+    If you examine the source code you will see that
+    the first line of the entry contains a named anchor next to the
+    horizontal rule. This is so the entry can be linked to from the
+    index and other relevant entries. The anchor name should match the
+    tag name up to the first variable minus any symbols used. See the
+    source code for examples
+</p>
+<h3>
+    State of the entry
+</h3>
+<p class="indent0">
+    Some entries are labeled "
+    <span class="lstnew">
     New
    </span>
-   "/"
-   <span class="lststatus">
+    "/"
+    <span class="lststatus">
     New
    </span>
-   ",
-"
-   <span class="lstupnew">
+    ",
+    "
+    <span class="lstupnew">
     Updated
    </span>
-   "/"
-   <span class="lststatus">
+    "/"
+    <span class="lststatus">
     Updated
    </span>
-   ", or "
-   <span class="lstdep">
+    ", or "
+    <span class="lstdep">
     Deprecated
    </span>
-   ". When the state of a tag entry has
-changed in the current or immediately previous development cycle
-the state will appear in
-   <span class="lstnew">
+    ". When the state of a tag entry has
+    changed in the current or immediately previous development cycle
+    the state will appear in
+    <span class="lstnew">
     red
    </span>
-   . Entries
-whose state has gone unchanged through at least one full stable
-release cycle will have their state displayed in "
-   <span class="lststatus">
+    . Entries
+    whose state has gone unchanged through at least one full stable
+    release cycle will have their state displayed in "
+    <span class="lststatus">
     black
    </span>
-   ". Tag entries marked for deprecation will
-marked in "
-   <span class="lstdep">
+    ". Tag entries marked for deprecation will
+    marked in "
+    <span class="lstdep">
     red
    </span>
-   " until they are removed
-from the PCGen Tag Dictionary.
-  </p>
-  <p class="sidebar0">
-   CSS styles used:
-   <br/>
-   "
-   <span class="lstnew">
+    " until they are removed
+    from the PCGen Tag Dictionary.
+</p>
+<p class="sidebar0">
+    CSS styles used:
+    <br/>
+    "
+    <span class="lstnew">
     New
    </span>
-   " tag doc entry states
-marked in "
-   <span class="lstnew">
+    " tag doc entry states
+    marked in "
+    <span class="lstnew">
     red
    </span>
-   " use the
-   <strong>
-    CSS
-   </strong>
-   style "lstnew".
-   <br/>
-   "
-   <span class="lstupnew">
+    " use the
+    <strong>
+        CSS
+    </strong>
+    style "lstnew".
+    <br/>
+    "
+    <span class="lstupnew">
     Updated
    </span>
-   " tag doc entry
-states marked in "
-   <span class="lstupnew">
+    " tag doc entry
+    states marked in "
+    <span class="lstupnew">
     red
    </span>
-   " use the
-   <strong>
-    CSS
-   </strong>
-   style "lstupnew".
-   <br/>
-   "
-   <span class="lststatus">
+    " use the
+    <strong>
+        CSS
+    </strong>
+    style "lstupnew".
+    <br/>
+    "
+    <span class="lststatus">
     New
    </span>
-   " or "
-   <span class="lststatus">
+    " or "
+    <span class="lststatus">
     Updated
    </span>
-   " tag doc entry states marked in
-"
-   <span class="lststatus">
+    " tag doc entry states marked in
+    "
+    <span class="lststatus">
     black
    </span>
-   " use the
-   <strong>
-    CSS
-   </strong>
-   style "lststatus".
-   <br/>
-   "
-   <span class="lstdep">
+    " use the
+    <strong>
+        CSS
+    </strong>
+    style "lststatus".
+    <br/>
+    "
+    <span class="lstdep">
     Deprecated
    </span>
-   " tag doc entry
-states use the
-   <strong>
-    CSS
-   </strong>
-   style "lstdep".
-  </p>
-  <h3>
-   Tag Name
-  </h3>
-  <p class="indent0">
-   The tag name is entered with the whole structure
-and syntax demonstrated. The variables are indicated using the
-letter x, y and z. You can use u, v, w and other letters if
-needed.
-  </p>
-  <h3>
-   Variables Used
-  </h3>
-  <p class="indent0">
-   All the variables that can be used are
-explained. Number variables can be standard numbers or formulas or
-other variables if the tags accepts them. Text variables accept
-text strings, names and other text forms. Property variables
-indicate that the variable must be one of several properties
-hardcoded into the program. These properties are usually presented
-in a list following the variable.
-  </p>
-  <h3>
-   What it does
-  </h3>
-  <p class="indent0">
-   A complete explanation of the tag and its
-uses.
-  </p>
-  <h3>
-   Example
-  </h3>
-  <p class="indent0">
-   Examples of the tag in as many variations as
-needed to demonstrate the variety of uses of the tag.
-  </p>
-  <h3>
-   Deprecated Syntax
-  </h3>
-  <p class="indent0">
-   Obsolete LST tag syntax is included here. When
-the deprecated syntax represents a complete LST tag entry, a link
-to the deprecated listing is provided. Were applicable, the version
-in which the syntax was deprecated should be included as per the
-'State of the Entry' information listed above.
-  </p>
-  <h3>
-   Conversion Example
-  </h3>
-  <p class="indent0">
-   Obsolete LST tag conversion examples are
-included here. The form of the example generally takes the form
-of:
-   <br/>
-   <code>old lst code</code>
-   becomes
-   <code>new lst
-code</code>
-   .
-  </p>
-  <h3>
-   Where it is used
-  </h3>
-  <p class="indent0">
-   Some times it may be helpful to indicate exactly
-where the tag may be used. Most times this is indicated by the page
-the entry is found on.
-  </p>
-  <hr/>
-  <h2>
-   LST Tag Documentation Style Guide
-  </h2>
-  <p class="indent0">
-   The LST Tag Documentation Style Guide will be
-placed here.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    " tag doc entry
+    states use the
+    <strong>
+        CSS
+    </strong>
+    style "lstdep".
+</p>
+<h3>
+    Tag Name
+</h3>
+<p class="indent0">
+    The tag name is entered with the whole structure
+    and syntax demonstrated. The variables are indicated using the
+    letter x, y and z. You can use u, v, w and other letters if
+    needed.
+</p>
+<h3>
+    Variables Used
+</h3>
+<p class="indent0">
+    All the variables that can be used are
+    explained. Number variables can be standard numbers or formulas or
+    other variables if the tags accepts them. Text variables accept
+    text strings, names and other text forms. Property variables
+    indicate that the variable must be one of several properties
+    hardcoded into the program. These properties are usually presented
+    in a list following the variable.
+</p>
+<h3>
+    What it does
+</h3>
+<p class="indent0">
+    A complete explanation of the tag and its
+    uses.
+</p>
+<h3>
+    Example
+</h3>
+<p class="indent0">
+    Examples of the tag in as many variations as
+    needed to demonstrate the variety of uses of the tag.
+</p>
+<h3>
+    Deprecated Syntax
+</h3>
+<p class="indent0">
+    Obsolete LST tag syntax is included here. When
+    the deprecated syntax represents a complete LST tag entry, a link
+    to the deprecated listing is provided. Were applicable, the version
+    in which the syntax was deprecated should be included as per the
+    'State of the Entry' information listed above.
+</p>
+<h3>
+    Conversion Example
+</h3>
+<p class="indent0">
+    Obsolete LST tag conversion examples are
+    included here. The form of the example generally takes the form
+    of:
+    <br/>
+    <code>old lst code</code>
+    becomes
+    <code>new lst
+        code</code>
+    .
+</p>
+<h3>
+    Where it is used
+</h3>
+<p class="indent0">
+    Some times it may be helpful to indicate exactly
+    where the tag may be used. Most times this is indicated by the page
+    the entry is found on.
+</p>
+<hr/>
+<h2>
+    LST Tag Documentation Style Guide
+</h2>
+<p class="indent0">
+    The LST Tag Documentation Style Guide will be
+    placed here.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

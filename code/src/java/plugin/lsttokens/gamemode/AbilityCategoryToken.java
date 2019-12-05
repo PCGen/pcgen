@@ -29,53 +29,49 @@ import pcgen.util.Logging;
 
 /**
  * This class handles the ABILITYCATEGORY game mode token.
- * 
+ *
  * <p>The class deligates the loading of the various subtokens to a separate
  * loader.
- * 
- * 
  */
 public class AbilityCategoryToken implements GameModeLstToken
 {
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
-		try
-		{
-			loader.parseLine(gameMode.getModeContext(), getTokenName() + ':' + value, source);
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint(e.getMessage());
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        final AbilityCategoryLoader loader = new AbilityCategoryLoader();
+        try
+        {
+            loader.parseLine(gameMode.getModeContext(), getTokenName() + ':' + value, source);
+        } catch (PersistenceLayerException e)
+        {
+            Logging.errorPrint(e.getMessage());
+            return false;
+        }
+        return true;
+    }
 
-	public boolean parse(LoadContext context, String line, URI source)
-	{
-		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
-		try
-		{
-			loader.parseLine(context, line, source);
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint(e.getMessage());
-			return false;
-		}
-		return true;
-	}
+    public boolean parse(LoadContext context, String line, URI source)
+    {
+        final AbilityCategoryLoader loader = new AbilityCategoryLoader();
+        try
+        {
+            loader.parseLine(context, line, source);
+        } catch (PersistenceLayerException e)
+        {
+            Logging.errorPrint(e.getMessage());
+            return false;
+        }
+        return true;
+    }
 
-	/**
-	 * Returns the name of the token this class handles.
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "ABILITYCATEGORY"; //$NON-NLS-1$
-	}
+    /**
+     * Returns the name of the token this class handles.
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "ABILITYCATEGORY"; //$NON-NLS-1$
+    }
 
 }

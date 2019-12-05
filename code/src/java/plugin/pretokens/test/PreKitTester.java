@@ -33,59 +33,58 @@ import pcgen.system.LanguageBundle;
 public class PreKitTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	private static final Class<Kit> KIT_CLASS = Kit.class;
+    private static final Class<Kit> KIT_CLASS = Kit.class;
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
 
-		final int number;
-		try
-		{
-			number = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException exceptn)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreKit.error", prereq.toString()), exceptn); //$NON-NLS-1$
-		}
+        final int number;
+        try
+        {
+            number = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException exceptn)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreKit.error", prereq.toString()), exceptn); //$NON-NLS-1$
+        }
 
-		String kitKey = prereq.getKey().toUpperCase();
-		final int wildCard = kitKey.indexOf('%');
-		//handle wildcards (always assume they end the line)
-		if (wildCard >= 0)
-		{
-			kitKey = kitKey.substring(0, wildCard);
-			for (Kit kit : display.getKitInfo())
-			{
-				if (kit.getKeyName().toUpperCase().startsWith(kitKey))
-				{
-					runningTotal++;
-				}
-			}
-		}
-		else
-		{
-			Kit kit = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(KIT_CLASS, kitKey);
-			if (display.hasKit(kit))
-			{
-				runningTotal++;
-			}
-		}
-		runningTotal = prereq.getOperator().compare(runningTotal, number);
-		return countedTotal(prereq, runningTotal);
-	}
+        String kitKey = prereq.getKey().toUpperCase();
+        final int wildCard = kitKey.indexOf('%');
+        //handle wildcards (always assume they end the line)
+        if (wildCard >= 0)
+        {
+            kitKey = kitKey.substring(0, wildCard);
+            for (Kit kit : display.getKitInfo())
+            {
+                if (kit.getKeyName().toUpperCase().startsWith(kitKey))
+                {
+                    runningTotal++;
+                }
+            }
+        } else
+        {
+            Kit kit = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(KIT_CLASS, kitKey);
+            if (display.hasKit(kit))
+            {
+                runningTotal++;
+            }
+        }
+        runningTotal = prereq.getOperator().compare(runningTotal, number);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "KIT"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "KIT"; //$NON-NLS-1$
+    }
 
 }

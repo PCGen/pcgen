@@ -32,202 +32,188 @@ import pcgen.util.enumeration.Load;
 public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "UNENCUMBEREDMOVE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "UNENCUMBEREDMOVE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		if (obj instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
-		}
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        if (obj instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
+        }
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
-		boolean hasArmor = false;
-		boolean hasMove = false;
+        boolean hasArmor = false;
+        boolean hasMove = false;
 
-		Load loadMove = null;
-		Load loadArmor = null;
+        Load loadMove = null;
+        Load loadArmor = null;
 
-		while (tok.hasMoreTokens())
-		{
-			String loadString = tok.nextToken();
-			if (loadString.equalsIgnoreCase("MediumLoad"))
-			{
-				ParseResult pr = validateOnlyMove(hasMove);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				loadMove = Load.MEDIUM;
-				hasMove = true;
-			}
-			else if (loadString.equalsIgnoreCase("HeavyLoad"))
-			{
-				ParseResult pr = validateOnlyMove(hasMove);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				loadMove = Load.HEAVY;
-				hasMove = true;
-			}
-			else if (loadString.equalsIgnoreCase("Overload"))
-			{
-				ParseResult pr = validateOnlyMove(hasMove);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				loadMove = Load.OVERLOAD;
-				hasMove = true;
-			}
-			else if (loadString.equalsIgnoreCase("MediumArmor"))
-			{
-				ParseResult pr = validateOnlyArmor(hasArmor);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				loadArmor = Load.MEDIUM;
-				hasArmor = true;
-			}
-			else if (loadString.equalsIgnoreCase("HeavyArmor"))
-			{
-				ParseResult pr = validateOnlyArmor(hasArmor);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				loadArmor = Load.OVERLOAD;
-				hasArmor = true;
-			}
-			else if (loadString.equalsIgnoreCase("LightLoad"))
-			{
-				ParseResult pr = validateOnlyMove(hasMove);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				loadMove = Load.LIGHT;
-				hasMove = true;
-			}
-			else if (loadString.equalsIgnoreCase("LightArmor"))
-			{
-				ParseResult pr = validateOnlyMove(hasArmor);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				loadArmor = Load.LIGHT;
-				hasArmor = true;
-			}
-			else
-			{
-				return new ParseResult.Fail("Invalid value of \"" + loadString + "\" for UNENCUMBEREDMOVE in \""
-					+ obj.getDisplayName() + "\".");
-			}
-		}
-		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_LOAD, loadMove);
-		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_ARMOR, loadArmor);
-		return ParseResult.SUCCESS;
-	}
+        while (tok.hasMoreTokens())
+        {
+            String loadString = tok.nextToken();
+            if (loadString.equalsIgnoreCase("MediumLoad"))
+            {
+                ParseResult pr = validateOnlyMove(hasMove);
+                if (!pr.passed())
+                {
+                    return pr;
+                }
+                loadMove = Load.MEDIUM;
+                hasMove = true;
+            } else if (loadString.equalsIgnoreCase("HeavyLoad"))
+            {
+                ParseResult pr = validateOnlyMove(hasMove);
+                if (!pr.passed())
+                {
+                    return pr;
+                }
+                loadMove = Load.HEAVY;
+                hasMove = true;
+            } else if (loadString.equalsIgnoreCase("Overload"))
+            {
+                ParseResult pr = validateOnlyMove(hasMove);
+                if (!pr.passed())
+                {
+                    return pr;
+                }
+                loadMove = Load.OVERLOAD;
+                hasMove = true;
+            } else if (loadString.equalsIgnoreCase("MediumArmor"))
+            {
+                ParseResult pr = validateOnlyArmor(hasArmor);
+                if (!pr.passed())
+                {
+                    return pr;
+                }
+                loadArmor = Load.MEDIUM;
+                hasArmor = true;
+            } else if (loadString.equalsIgnoreCase("HeavyArmor"))
+            {
+                ParseResult pr = validateOnlyArmor(hasArmor);
+                if (!pr.passed())
+                {
+                    return pr;
+                }
+                loadArmor = Load.OVERLOAD;
+                hasArmor = true;
+            } else if (loadString.equalsIgnoreCase("LightLoad"))
+            {
+                ParseResult pr = validateOnlyMove(hasMove);
+                if (!pr.passed())
+                {
+                    return pr;
+                }
+                loadMove = Load.LIGHT;
+                hasMove = true;
+            } else if (loadString.equalsIgnoreCase("LightArmor"))
+            {
+                ParseResult pr = validateOnlyMove(hasArmor);
+                if (!pr.passed())
+                {
+                    return pr;
+                }
+                loadArmor = Load.LIGHT;
+                hasArmor = true;
+            } else
+            {
+                return new ParseResult.Fail("Invalid value of \"" + loadString + "\" for UNENCUMBEREDMOVE in \""
+                        + obj.getDisplayName() + "\".");
+            }
+        }
+        context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_LOAD, loadMove);
+        context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_ARMOR, loadArmor);
+        return ParseResult.SUCCESS;
+    }
 
-	private ParseResult validateOnlyArmor(boolean hasArmor)
-	{
-		if (hasArmor)
-		{
-			return new ParseResult.Fail(
-				"Encountered Second Armor Load Type in " + getTokenName() + " this is not valid.");
-		}
-		return ParseResult.SUCCESS;
-	}
+    private ParseResult validateOnlyArmor(boolean hasArmor)
+    {
+        if (hasArmor)
+        {
+            return new ParseResult.Fail(
+                    "Encountered Second Armor Load Type in " + getTokenName() + " this is not valid.");
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	private ParseResult validateOnlyMove(boolean hasMove)
-	{
-		if (hasMove)
-		{
-			return new ParseResult.Fail(
-				"Encountered Second Move Load Type in " + getTokenName() + " this is not valid.");
-		}
-		return ParseResult.SUCCESS;
-	}
+    private ParseResult validateOnlyMove(boolean hasMove)
+    {
+        if (hasMove)
+        {
+            return new ParseResult.Fail(
+                    "Encountered Second Move Load Type in " + getTokenName() + " this is not valid.");
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Load load = context.getObjectContext().getObject(obj, ObjectKey.UNENCUMBERED_LOAD);
-		Load at = context.getObjectContext().getObject(obj, ObjectKey.UNENCUMBERED_ARMOR);
-		if (load == null && at == null)
-		{
-			return null;
-		}
-		StringBuilder sb = new StringBuilder();
-		if (load != null)
-		{
-			if (Load.OVERLOAD.equals(load))
-			{
-				sb.append("Overload");
-			}
-			else if (Load.HEAVY.equals(load))
-			{
-				sb.append("HeavyLoad");
-			}
-			else if (Load.MEDIUM.equals(load))
-			{
-				sb.append("MediumLoad");
-			}
-			else if (Load.LIGHT.equals(load))
-			{
-				sb.append("LightLoad");
-			}
-			else
-			{
-				context.addWriteMessage(getTokenName() + " encountered unknown Movement Load: " + load);
-				return null;
-			}
-		}
-		if (at != null)
-		{
-			if (sb.length() != 0)
-			{
-				sb.append(Constants.PIPE);
-			}
-			if (Load.OVERLOAD.equals(at))
-			{
-				sb.append("HeavyArmor");
-			}
-			else if (Load.MEDIUM.equals(at))
-			{
-				sb.append("MediumArmor");
-			}
-			else if (Load.LIGHT.equals(at))
-			{
-				sb.append("LightArmor");
-			}
-			else
-			{
-				context.addWriteMessage(getTokenName() + " encountered invalid Armor Load: " + load);
-				return null;
-			}
-		}
-		return new String[]{sb.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        Load load = context.getObjectContext().getObject(obj, ObjectKey.UNENCUMBERED_LOAD);
+        Load at = context.getObjectContext().getObject(obj, ObjectKey.UNENCUMBERED_ARMOR);
+        if (load == null && at == null)
+        {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        if (load != null)
+        {
+            if (Load.OVERLOAD.equals(load))
+            {
+                sb.append("Overload");
+            } else if (Load.HEAVY.equals(load))
+            {
+                sb.append("HeavyLoad");
+            } else if (Load.MEDIUM.equals(load))
+            {
+                sb.append("MediumLoad");
+            } else if (Load.LIGHT.equals(load))
+            {
+                sb.append("LightLoad");
+            } else
+            {
+                context.addWriteMessage(getTokenName() + " encountered unknown Movement Load: " + load);
+                return null;
+            }
+        }
+        if (at != null)
+        {
+            if (sb.length() != 0)
+            {
+                sb.append(Constants.PIPE);
+            }
+            if (Load.OVERLOAD.equals(at))
+            {
+                sb.append("HeavyArmor");
+            } else if (Load.MEDIUM.equals(at))
+            {
+                sb.append("MediumArmor");
+            } else if (Load.LIGHT.equals(at))
+            {
+                sb.append("LightArmor");
+            } else
+            {
+                context.addWriteMessage(getTokenName() + " encountered invalid Armor Load: " + load);
+                return null;
+            }
+        }
+        return new String[]{sb.toString()};
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

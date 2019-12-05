@@ -29,52 +29,50 @@ import org.apache.commons.lang3.StringUtils;
 public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 {
 
-	private final String prefixString;
+    private final String prefixString;
 
-	public SimplePrefixLoader(Class<T> cl, String prefix)
-	{
-		super(cl);
-		if (Objects.requireNonNull(prefix).isEmpty())
-		{
-			throw new IllegalArgumentException("Prefix cannot be empty");
-		}
-		prefixString = prefix;
-	}
+    public SimplePrefixLoader(Class<T> cl, String prefix)
+    {
+        super(cl);
+        if (Objects.requireNonNull(prefix).isEmpty())
+        {
+            throw new IllegalArgumentException("Prefix cannot be empty");
+        }
+        prefixString = prefix;
+    }
 
-	@Override
-	protected String processFirstToken(LoadContext context, String token)
-	{
-		final int colonLoc = token.indexOf(':');
-		if (colonLoc == -1)
-		{
-			Logging.errorPrint(
-				"Invalid Token - does not contain a colon: '" + token + "' in " + getLoadClass().getSimpleName());
-			return null;
-		}
-		else if (colonLoc == 0)
-		{
-			Logging.errorPrint(
-				"Invalid Token - starts with a colon: '" + token + "' in " + getLoadClass().getSimpleName());
-			return null;
-		}
-		else if (colonLoc == (token.length() - 1))
-		{
-			Logging.errorPrint("Invalid Token - " + "ends with a colon (no value): '" + token + "' in "
-				+ getLoadClass().getSimpleName());
-			return null;
-		}
-		String key = token.substring(0, colonLoc);
-		if (!prefixString.equals(key))
-		{
-			Logging.errorPrint("Invalid Token - expected '" + prefixString + "' to be the first key in "
-				+ getLoadClass().getSimpleName());
-			return null;
-		}
-		String firstTokenValue = token.substring(colonLoc + 1);
-		if (StringUtils.isNotBlank(firstTokenValue) && firstTokenValue.startsWith("in_"))
-		{
-			firstTokenValue = LanguageBundle.getString(firstTokenValue);
-		}
-		return super.processFirstToken(context, firstTokenValue);
-	}
+    @Override
+    protected String processFirstToken(LoadContext context, String token)
+    {
+        final int colonLoc = token.indexOf(':');
+        if (colonLoc == -1)
+        {
+            Logging.errorPrint(
+                    "Invalid Token - does not contain a colon: '" + token + "' in " + getLoadClass().getSimpleName());
+            return null;
+        } else if (colonLoc == 0)
+        {
+            Logging.errorPrint(
+                    "Invalid Token - starts with a colon: '" + token + "' in " + getLoadClass().getSimpleName());
+            return null;
+        } else if (colonLoc == (token.length() - 1))
+        {
+            Logging.errorPrint("Invalid Token - " + "ends with a colon (no value): '" + token + "' in "
+                    + getLoadClass().getSimpleName());
+            return null;
+        }
+        String key = token.substring(0, colonLoc);
+        if (!prefixString.equals(key))
+        {
+            Logging.errorPrint("Invalid Token - expected '" + prefixString + "' to be the first key in "
+                    + getLoadClass().getSimpleName());
+            return null;
+        }
+        String firstTokenValue = token.substring(colonLoc + 1);
+        if (StringUtils.isNotBlank(firstTokenValue) && firstTokenValue.startsWith("in_"))
+        {
+            firstTokenValue = LanguageBundle.getString(firstTokenValue);
+        }
+        return super.processFirstToken(context, firstTokenValue);
+    }
 }

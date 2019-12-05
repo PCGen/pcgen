@@ -30,91 +30,93 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Language extends PObject implements Comparable<Object>, Ungranted, Cloneable
 {
-	public static final CDOMReference<LanguageList> STARTING_LIST;
+    public static final CDOMReference<LanguageList> STARTING_LIST;
 
-	static
-	{
-		LanguageList wpl = new LanguageList();
-		wpl.setName("*Starting");
-		STARTING_LIST = CDOMDirectSingleRef.getRef(wpl);
-	}
+    static
+    {
+        LanguageList wpl = new LanguageList();
+        wpl.setName("*Starting");
+        STARTING_LIST = CDOMDirectSingleRef.getRef(wpl);
+    }
 
-	/**
-	 * Compares keyName only
-	 * @param o1
-	 * @return int
-	 */
-	@Override
-	public int compareTo(final Object o1)
-	{
-		/*
-		 * TODO This behavior of compareTo could be improved... need to figure
-		 * out why this is present in the code (where a language should be
-		 * compared to a String) and get RID of it... explicitly grab the key
-		 * name and compare the strings. -thpr 06/18/05
-		 */
-		if (o1 instanceof String)
-		{
-			return getKeyName().compareToIgnoreCase((String) o1);
-		}
+    /**
+     * Compares keyName only
+     *
+     * @param o1
+     * @return int
+     */
+    @Override
+    public int compareTo(final Object o1)
+    {
+        /*
+         * TODO This behavior of compareTo could be improved... need to figure
+         * out why this is present in the code (where a language should be
+         * compared to a String) and get RID of it... explicitly grab the key
+         * name and compare the strings. -thpr 06/18/05
+         */
+        if (o1 instanceof String)
+        {
+            return getKeyName().compareToIgnoreCase((String) o1);
+        }
 
-		return getKeyName().compareToIgnoreCase(((Language) o1).getKeyName());
-	}
+        return getKeyName().compareToIgnoreCase(((Language) o1).getKeyName());
+    }
 
-	/**
-	 * Compares keyName only
-	 * @param o1
-	 * @return true if equal
-	 */
-	@Override
-	public boolean equals(final Object o1)
-	{
-		/*
-		 * TODO This is behavior of equals could be improved... need to figure
-		 * out why this is present in the code (where a language should be
-		 * compared to a String) and get RID of it... explicitly grab the key
-		 * name and call .equals() on the strings. -thpr 06/18/05
-		 */
-		if (o1 == null)
-		{
-			return false;
-		}
-		if (o1 instanceof String)
-		{
-			return getKeyName().equals(o1);
-		}
-		if (!o1.getClass().equals(Language.class))
-		{
-			return false;
-		}
+    /**
+     * Compares keyName only
+     *
+     * @param o1
+     * @return true if equal
+     */
+    @Override
+    public boolean equals(final Object o1)
+    {
+        /*
+         * TODO This is behavior of equals could be improved... need to figure
+         * out why this is present in the code (where a language should be
+         * compared to a String) and get RID of it... explicitly grab the key
+         * name and call .equals() on the strings. -thpr 06/18/05
+         */
+        if (o1 == null)
+        {
+            return false;
+        }
+        if (o1 instanceof String)
+        {
+            return getKeyName().equals(o1);
+        }
+        if (!o1.getClass().equals(Language.class))
+        {
+            return false;
+        }
 
-		return getKeyName().equals(((Language) o1).getKeyName());
-	}
+        return getKeyName().equals(((Language) o1).getKeyName());
+    }
 
-	/**
-	 * Hashcode of the keyName
-	 * @return hash code
-	 */
-	@Override
-	public int hashCode()
-	{
-		return getKeyName().hashCode();
-	}
+    /**
+     * Hashcode of the keyName
+     *
+     * @return hash code
+     */
+    @Override
+    public int hashCode()
+    {
+        return getKeyName().hashCode();
+    }
 
-	@Override
-	public Language clone()
-	{
-		Language l = null;
+    @Override
+    public Language clone()
+    {
+        Language l = null;
 
-		try
-		{
-			l = (Language) super.clone();
-		}
-		catch (CloneNotSupportedException e)
-		{
-			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
-		}
+        try
+        {
+            l = (Language) super.clone();
+        } catch (CloneNotSupportedException e)
+        {
+            ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
+        }
 
-		return l;
-	}
+        return l;
+    }
 }

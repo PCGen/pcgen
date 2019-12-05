@@ -44,127 +44,126 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 /**
- *  PCGen preferences dialog
+ * PCGen preferences dialog
  */
 public final class PreferencesDialog extends AbstractDialog
 {
-	private static final String LB_TITLE = "in_Prefs_title"; //$NON-NLS-1$
+    private static final String LB_TITLE = "in_Prefs_title"; //$NON-NLS-1$
 
-	private TreeView<PCGenPrefsPanel> settingsTree;
-	private final TreeItem<PCGenPrefsPanel> root;
-	private JSplitPane splitPane;
+    private TreeView<PCGenPrefsPanel> settingsTree;
+    private final TreeItem<PCGenPrefsPanel> root;
+    private JSplitPane splitPane;
 
-	public PreferencesDialog(JFrame parent, TreeItem<PCGenPrefsPanel> model, String applicationName)
-	{
-		super(parent, LanguageBundle.getFormattedString(LB_TITLE, applicationName), true);
-		this.root = Objects.requireNonNull(model);
-		initCenter();
+    public PreferencesDialog(JFrame parent, TreeItem<PCGenPrefsPanel> model, String applicationName)
+    {
+        super(parent, LanguageBundle.getFormattedString(LB_TITLE, applicationName), true);
+        this.root = Objects.requireNonNull(model);
+        initCenter();
 
-		applyOptionValuesToControls();
-		pack();
-		this.setLocationRelativeTo(getParent());
-	}
+        applyOptionValuesToControls();
+        pack();
+        this.setLocationRelativeTo(getParent());
+    }
 
-	private void setOptionsBasedOnControls()
-	{
-		forEachLeaf(root, PCGenPrefsPanel::setOptionsBasedOnControls);
+    private void setOptionsBasedOnControls()
+    {
+        forEachLeaf(root, PCGenPrefsPanel::setOptionsBasedOnControls);
 
-		if (SettingsHandler.settingsNeedRestartProperty().get())
-		{
-			Alert alert = new Alert(Alert.AlertType.INFORMATION);
-			alert.setTitle(Constants.APPLICATION_NAME);
-			alert.setContentText(LanguageBundle.getString("in_Prefs_restartRequired"));
-			alert.showAndWait();
-		}
-	}
+        if (SettingsHandler.settingsNeedRestartProperty().get())
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle(Constants.APPLICATION_NAME);
+            alert.setContentText(LanguageBundle.getString("in_Prefs_restartRequired"));
+            alert.showAndWait();
+        }
+    }
 
-	private void applyOptionValuesToControls()
-	{
-		forEachLeaf(root, PCGenPrefsPanel::applyOptionValuesToControls);
-	}
+    private void applyOptionValuesToControls()
+    {
+        forEachLeaf(root, PCGenPrefsPanel::applyOptionValuesToControls);
+    }
 
-	private void initCenter()
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
+    private void initCenter()
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
 
-		Platform.runLater(() -> {
+        Platform.runLater(() -> {
 
-			settingsTree.setRoot(root);
+            settingsTree.setRoot(root);
 
-			settingsTree.showRootProperty().set(false);
-			settingsTree.selectionModelProperty().get().setSelectionMode(SelectionMode.SINGLE);
+            settingsTree.showRootProperty().set(false);
+            settingsTree.selectionModelProperty().get().setSelectionMode(SelectionMode.SINGLE);
 
-			settingsTree.getRoot().getChildren().forEach(child -> child.setExpanded(true));
+            settingsTree.getRoot().getChildren().forEach(child -> child.setExpanded(true));
 
-			settingsTree.getRoot().setExpanded(true);
-			// Add the listener which switches panels when a node of the tree is selected
-			settingsTree.selectionModelProperty().get().selectedItemProperty().addListener((observable, oldValue,
-			                                                                                newValue) -> {
-				// this actually gets called by both swing and JavaFX threads.
-				// It appears to be fine to 'invokelater' regardless of the thread
-				// but this is certainly weird
-				// assert we're on a GUI thread mostly to be clear about what we're expecting
-				GuiAssertions.assertIsOnGUIThread();
-				if (newValue == null)
-				{
-					return;
-				}
+            settingsTree.getRoot().setExpanded(true);
+            // Add the listener which switches panels when a node of the tree is selected
+            settingsTree.selectionModelProperty().get().selectedItemProperty().addListener((observable, oldValue,
+                    newValue) -> {
+                // this actually gets called by both swing and JavaFX threads.
+                // It appears to be fine to 'invokelater' regardless of the thread
+                // but this is certainly weird
+                // assert we're on a GUI thread mostly to be clear about what we're expecting
+                GuiAssertions.assertIsOnGUIThread();
+                if (newValue == null)
+                {
+                    return;
+                }
 
-				SwingUtilities.invokeLater(() -> {
-					Logging.debugPrint("new preference tree value is " + newValue);
-					PCGenPrefsPanel value = newValue.getValue();
-					JScrollPane scrollableSettings = new JScrollPane(value);
-					splitPane.setRightComponent(scrollableSettings);
-				});
-			});
-			settingsTree.getSelectionModel().select(1);
+                SwingUtilities.invokeLater(() -> {
+                    Logging.debugPrint("new preference tree value is " + newValue);
+                    PCGenPrefsPanel value = newValue.getValue();
+                    JScrollPane scrollableSettings = new JScrollPane(value);
+                    splitPane.setRightComponent(scrollableSettings);
+                });
+            });
+            settingsTree.getSelectionModel().select(1);
 
-		});
-	}
+        });
+    }
 
-	@Override
-	protected JComponent getCenter()
-	{
-		// Build the settings panel
-		JPanel emptyPanel = new JPanel();
-		emptyPanel.setPreferredSize(new Dimension(780, 420));
+    @Override
+    protected JComponent getCenter()
+    {
+        // Build the settings panel
+        JPanel emptyPanel = new JPanel();
+        emptyPanel.setPreferredSize(new Dimension(780, 420));
 
-		settingsTree = new TreeView<>();
-		settingsTree.setRoot(new TreeItem<>(null));
+        settingsTree = new TreeView<>();
+        settingsTree.setRoot(new TreeItem<>(null));
 
-		// Build the split pane
-		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, GuiUtility.wrapParentAsJFXPanel(settingsTree),
-				emptyPanel
-		);
-		splitPane.setOneTouchExpandable(true);
-		splitPane.setDividerSize(10);
+        // Build the split pane
+        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, GuiUtility.wrapParentAsJFXPanel(settingsTree),
+                emptyPanel
+        );
+        splitPane.setOneTouchExpandable(true);
+        splitPane.setDividerSize(10);
 
-		return splitPane;
-	}
+        return splitPane;
+    }
 
 
-	private static <T> void forEachLeaf(TreeItem<? extends T> parent, Consumer<T> func)
-	{
-		if (parent.isLeaf())
-		{
-			func.accept(parent.getValue());
-		}
-		else
-		{
-			parent.getChildren().forEach(child -> forEachLeaf(child, func));
-		}
-	}
+    private static <T> void forEachLeaf(TreeItem<? extends T> parent, Consumer<T> func)
+    {
+        if (parent.isLeaf())
+        {
+            func.accept(parent.getValue());
+        } else
+        {
+            parent.getChildren().forEach(child -> forEachLeaf(child, func));
+        }
+    }
 
-	@Override
-	public void applyButtonActionPerformed()
-	{
-		setOptionsBasedOnControls();
-	}
+    @Override
+    public void applyButtonActionPerformed()
+    {
+        setOptionsBasedOnControls();
+    }
 
-	@Override
-	protected boolean includeApplyButton()
-	{
-		return true;
-	}
+    @Override
+    protected boolean includeApplyButton()
+    {
+        return true;
+    }
 
 }

@@ -31,65 +31,65 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 {
-	
-	/**
-	 * Test base fort 4 will 7.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testBaseFort4Will7() throws PersistenceLayerException
-	{
-		PreCheckParser parser = new PreCheckParser();
 
-		Prerequisite prereq =
-				parser.parse("CHECKBASE", "1,Fortitude=4,Will=7", false, false);
+    /**
+     * Test base fort 4 will 7.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testBaseFort4Will7() throws PersistenceLayerException
+    {
+        PreCheckParser parser = new PreCheckParser();
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" "
-				+ "key=\"Fortitude\" operator=\"GTEQ\" operand=\"4\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" "
-				+ "key=\"Will\" operator=\"GTEQ\" operand=\"7\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        Prerequisite prereq =
+                parser.parse("CHECKBASE", "1,Fortitude=4,Will=7", false, false);
 
-	
-	/**
-	 * Test base will 7.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testBaseWill7() throws PersistenceLayerException
-	{
-		PreCheckParser parser = new PreCheckParser();
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "<prereq kind=\"checkbase\" count-multiples=\"true\" "
+                        + "key=\"Fortitude\" operator=\"GTEQ\" operand=\"4\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"checkbase\" count-multiples=\"true\" "
+                        + "key=\"Will\" operator=\"GTEQ\" operand=\"7\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
-		Prerequisite prereq =
-				parser.parse("CHECKBASE", "1,Will=7", false, false);
 
-		assertEquals(
-			"<prereq kind=\"checkbase\" key=\"Will\" operator=\"GTEQ\" operand=\"7\" >\n"
-				+ "</prereq>\n", prereq.toString());
-	}
+    /**
+     * Test base will 7.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testBaseWill7() throws PersistenceLayerException
+    {
+        PreCheckParser parser = new PreCheckParser();
 
-	
-	/**
-	 * Test fort 3.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testFort3() throws PersistenceLayerException
-	{
-		PreCheckParser parser = new PreCheckParser();
+        Prerequisite prereq =
+                parser.parse("CHECKBASE", "1,Will=7", false, false);
 
-		Prerequisite prereq =
-				parser.parse("CHECK", "1,Fortitude=3", false, false);
+        assertEquals(
+                "<prereq kind=\"checkbase\" key=\"Will\" operator=\"GTEQ\" operand=\"7\" >\n"
+                        + "</prereq>\n", prereq.toString());
+    }
 
-		assertEquals(
-			"<prereq kind=\"check\" key=\"Fortitude\" operator=\"GTEQ\" operand=\"3\" >\n"
-				+ "</prereq>\n", prereq.toString());
-	}
+
+    /**
+     * Test fort 3.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testFort3() throws PersistenceLayerException
+    {
+        PreCheckParser parser = new PreCheckParser();
+
+        Prerequisite prereq =
+                parser.parse("CHECK", "1,Fortitude=3", false, false);
+
+        assertEquals(
+                "<prereq kind=\"check\" key=\"Fortitude\" operator=\"GTEQ\" operand=\"3\" >\n"
+                        + "</prereq>\n", prereq.toString());
+    }
 }

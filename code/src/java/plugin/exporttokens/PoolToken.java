@@ -26,38 +26,37 @@ import pcgen.io.exporttoken.Token;
 //POOL.COST
 public class PoolToken extends Token
 {
-	public static final String TOKENNAME = "POOL";
+    public static final String TOKENNAME = "POOL";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("POOL.CURRENT".equals(tokenSource))
-		{
-			retString = Integer.toString(getCurrentToken(pc));
-		}
-		else if ("POOL.COST".equals(tokenSource))
-		{
-			retString = Integer.toString(getCostToken(pc));
-		}
+        if ("POOL.CURRENT".equals(tokenSource))
+        {
+            retString = Integer.toString(getCurrentToken(pc));
+        } else if ("POOL.COST".equals(tokenSource))
+        {
+            retString = Integer.toString(getCostToken(pc));
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	public static int getCostToken(PlayerCharacter pc)
-	{
-		return pc.getCostPool();
-	}
+    public static int getCostToken(PlayerCharacter pc)
+    {
+        return pc.getCostPool();
+    }
 
-	public static int getCurrentToken(PlayerCharacter pc)
-	{
-		return pc.getPoolAmount();
-	}
+    public static int getCurrentToken(PlayerCharacter pc)
+    {
+        return pc.getPoolAmount();
+    }
 }

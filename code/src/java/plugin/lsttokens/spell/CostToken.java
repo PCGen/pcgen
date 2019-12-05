@@ -35,68 +35,66 @@ import pcgen.rules.persistence.token.ParseResult;
 public class CostToken extends AbstractNonEmptyToken<Spell> implements CDOMPrimaryToken<Spell>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "COST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "COST";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
-	{
-		if (Constants.LST_DOT_CLEAR.equals(value))
-		{
-			context.getObjectContext().remove(spell, ObjectKey.COST);
-		}
-		else
-		{
-			try
-			{
-				BigDecimal cost = new BigDecimal(value);
-				if (cost.compareTo(BigDecimal.ZERO) <= 0)
-				{
-					return new ParseResult.Fail(getTokenName() + " requires a positive Integer");
-				}
-				context.getObjectContext().put(spell, ObjectKey.COST, cost);
-			}
-			catch (NumberFormatException nfe)
-			{
-				return new ParseResult.Fail(
-					getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
-			}
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
+    {
+        if (Constants.LST_DOT_CLEAR.equals(value))
+        {
+            context.getObjectContext().remove(spell, ObjectKey.COST);
+        } else
+        {
+            try
+            {
+                BigDecimal cost = new BigDecimal(value);
+                if (cost.compareTo(BigDecimal.ZERO) <= 0)
+                {
+                    return new ParseResult.Fail(getTokenName() + " requires a positive Integer");
+                }
+                context.getObjectContext().put(spell, ObjectKey.COST, cost);
+            } catch (NumberFormatException nfe)
+            {
+                return new ParseResult.Fail(
+                        getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
+            }
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Spell spell)
-	{
-		BigDecimal i = context.getObjectContext().getObject(spell, ObjectKey.COST);
-		boolean globalClear = context.getObjectContext().wasRemoved(spell, ObjectKey.COST);
-		List<String> list = new ArrayList<>();
-		if (globalClear)
-		{
-			list.add(Constants.LST_DOT_CLEAR);
-		}
-		if (i != null)
-		{
-			if (i.compareTo(BigDecimal.ZERO) <= 00)
-			{
-				context.addWriteMessage(getTokenName() + " requires a positive Integer");
-				return null;
-			}
-			list.add(i.toString());
-		}
-		if (list.isEmpty())
-		{
-			return null;
-		}
-		return list.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Spell spell)
+    {
+        BigDecimal i = context.getObjectContext().getObject(spell, ObjectKey.COST);
+        boolean globalClear = context.getObjectContext().wasRemoved(spell, ObjectKey.COST);
+        List<String> list = new ArrayList<>();
+        if (globalClear)
+        {
+            list.add(Constants.LST_DOT_CLEAR);
+        }
+        if (i != null)
+        {
+            if (i.compareTo(BigDecimal.ZERO) <= 00)
+            {
+                context.addWriteMessage(getTokenName() + " requires a positive Integer");
+                return null;
+            }
+            list.add(i.toString());
+        }
+        if (list.isEmpty())
+        {
+            return null;
+        }
+        return list.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Spell> getTokenClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTokenClass()
+    {
+        return Spell.class;
+    }
 }

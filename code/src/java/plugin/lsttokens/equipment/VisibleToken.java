@@ -29,21 +29,21 @@ import pcgen.util.enumeration.Visibility;
 /**
  * VisibleToken handles the processing of the VISIBLE tag in the
  * definition of an Equipment object.
- * 
  */
 public class VisibleToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "VISIBLE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VISIBLE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
-	{
-		Visibility vis;
-        switch (value) {
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
+    {
+        Visibility vis;
+        switch (value)
+        {
             case "YES":
                 vis = Visibility.DEFAULT;
                 break;
@@ -63,46 +63,42 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment> implements CD
                 cpr.addErrorMessage(" Valid values in Equipment are YES, NO, DISPLAY, EXPORT");
                 return cpr;
         }
-		context.getObjectContext().put(eq, ObjectKey.VISIBILITY, vis);
-		return ParseResult.SUCCESS;
-	}
+        context.getObjectContext().put(eq, ObjectKey.VISIBILITY, vis);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		Visibility vis = context.getObjectContext().getObject(eq, ObjectKey.VISIBILITY);
-		if (vis == null)
-		{
-			return null;
-		}
-		String visString;
-		if (vis.equals(Visibility.DEFAULT))
-		{
-			visString = "YES";
-		}
-		else if (vis.equals(Visibility.DISPLAY_ONLY))
-		{
-			visString = "DISPLAY";
-		}
-		else if (vis.equals(Visibility.OUTPUT_ONLY))
-		{
-			visString = "EXPORT";
-		}
-		else if (vis.equals(Visibility.HIDDEN))
-		{
-			visString = "NO";
-		}
-		else
-		{
-			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for an Equipment");
-			return null;
-		}
-		return new String[]{visString};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Equipment eq)
+    {
+        Visibility vis = context.getObjectContext().getObject(eq, ObjectKey.VISIBILITY);
+        if (vis == null)
+        {
+            return null;
+        }
+        String visString;
+        if (vis.equals(Visibility.DEFAULT))
+        {
+            visString = "YES";
+        } else if (vis.equals(Visibility.DISPLAY_ONLY))
+        {
+            visString = "DISPLAY";
+        } else if (vis.equals(Visibility.OUTPUT_ONLY))
+        {
+            visString = "EXPORT";
+        } else if (vis.equals(Visibility.HIDDEN))
+        {
+            visString = "NO";
+        } else
+        {
+            context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for an Equipment");
+            return null;
+        }
+        return new String[]{visString};
+    }
 
-	@Override
-	public Class<Equipment> getTokenClass()
-	{
-		return Equipment.class;
-	}
+    @Override
+    public Class<Equipment> getTokenClass()
+    {
+        return Equipment.class;
+    }
 }

@@ -26,59 +26,61 @@ import pcgen.io.exporttoken.SpellListToken;
 
 /**
  * {@code SpellListKnownToken} outputs the number of spells you
- * can know for the specified spellcaster class and level. For Clerics 
+ * can know for the specified spellcaster class and level. For Clerics
  * with domains, this does not include domain spells.
  */
 
 public class SpellListKnownToken extends SpellListToken
 {
 
-	/** Token name */
-	public static final String TOKENNAME = "SPELLLISTKNOWN";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "SPELLLISTKNOWN";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringBuilder retValue = new StringBuilder();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_KNOWN);
+        SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_KNOWN);
 
-		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+        final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
-		if (aObject != null)
-		{
-			retValue.append(Integer.toString(getKnownNum(aObject, params.getLevel(), pc)));
-		}
+        if (aObject != null)
+        {
+            retValue.append(Integer.toString(getKnownNum(aObject, params.getLevel(), pc)));
+        }
 
-		return retValue.toString();
-	}
+        return retValue.toString();
+    }
 
-	/**
-	 * Retrieve the number of spells the pc may know of the specified 
-	 * level of the supplied class.
-	 * 
-	 * @param aObject The class
-	 * @param level The spell level
-	 * @param pc The character being queried
-	 * @return The number of spells allowed to be known.
-	 */
-	private int getKnownNum(CDOMObject aObject, int level, PlayerCharacter pc)
-	{
-		int knownNum = 0;
+    /**
+     * Retrieve the number of spells the pc may know of the specified
+     * level of the supplied class.
+     *
+     * @param aObject The class
+     * @param level   The spell level
+     * @param pc      The character being queried
+     * @return The number of spells allowed to be known.
+     */
+    private int getKnownNum(CDOMObject aObject, int level, PlayerCharacter pc)
+    {
+        int knownNum = 0;
 
-		if (aObject instanceof PCClass)
-		{
-			PCClass aClass = (PCClass) aObject;
-			knownNum = pc.getSpellSupport(aClass).getKnownForLevel(level, pc);
-		}
+        if (aObject instanceof PCClass)
+        {
+            PCClass aClass = (PCClass) aObject;
+            knownNum = pc.getSpellSupport(aClass).getKnownForLevel(level, pc);
+        }
 
-		return knownNum;
-	}
+        return knownNum;
+    }
 
 }

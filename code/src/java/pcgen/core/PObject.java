@@ -45,204 +45,205 @@ import pcgen.system.PCGenSettings;
  * This is the base class for several objects in the PCGen database.
  */
 public class PObject extends CDOMObject
-		implements Cloneable, Serializable, Comparable<Object>, KeyedListContainer, QualifyingObject
+        implements Cloneable, Serializable, Comparable<Object>, KeyedListContainer, QualifyingObject
 {
 
-	private HiddenTypeFacet hiddenTypeFacet = FacetLibrary.getFacet(HiddenTypeFacet.class);
+    private HiddenTypeFacet hiddenTypeFacet = FacetLibrary.getFacet(HiddenTypeFacet.class);
 
-	/** Standard serialVersionUID for Serializable objects */
-	private static final long serialVersionUID = 1;
+    /**
+     * Standard serialVersionUID for Serializable objects
+     */
+    private static final long serialVersionUID = 1;
 
-	private final Class<?> myClass = getClass();
+    private final Class<?> myClass = getClass();
 
-	/* ************
-	 * Methods
-	 * ************/
+    /* ************
+     * Methods
+     * ************/
 
-	/**
-	 * if a class implements the Cloneable interface then it should have a
-	 * public" 'clone ()' method It should be declared to throw
-	 * CloneNotSupportedException', but subclasses do not need the "throws"
-	 * declaration unless their 'clone ()' method will throw the exception
-	 * Thus subclasses can decide to not support 'Cloneable' by implementing
-	 * the 'clone ()' method to throw 'CloneNotSupportedException'
-	 * If this rule were ignored and the parent did not have the "throws"
-	 * declaration then subclasses that should not be cloned would be forced
-	 * to implement a trivial 'clone ()' to satisfy inheritance
-	 * final" classes implementing 'Cloneable' should not be declared to
-	 * throw 'CloneNotSupportedException" because their implementation of
-	 * clone ()' should be a fully functional method that will not
-	 * throw the exception.
-	 * @return cloned object
-	 * @throws CloneNotSupportedException
-	 */
-	@Override
-	public PObject clone() throws CloneNotSupportedException
-	{
-		return (PObject) super.clone();
-	}
+    /**
+     * if a class implements the Cloneable interface then it should have a
+     * public" 'clone ()' method It should be declared to throw
+     * CloneNotSupportedException', but subclasses do not need the "throws"
+     * declaration unless their 'clone ()' method will throw the exception
+     * Thus subclasses can decide to not support 'Cloneable' by implementing
+     * the 'clone ()' method to throw 'CloneNotSupportedException'
+     * If this rule were ignored and the parent did not have the "throws"
+     * declaration then subclasses that should not be cloned would be forced
+     * to implement a trivial 'clone ()' to satisfy inheritance
+     * final" classes implementing 'Cloneable' should not be declared to
+     * throw 'CloneNotSupportedException" because their implementation of
+     * clone ()' should be a fully functional method that will not
+     * throw the exception.
+     *
+     * @return cloned object
+     * @throws CloneNotSupportedException
+     */
+    @Override
+    public PObject clone() throws CloneNotSupportedException
+    {
+        return (PObject) super.clone();
+    }
 
-	/**
-	 * Compares the keys of the object.
-	 */
-	@Override
-	public int compareTo(final Object obj)
-	{
-		if (obj != null)
-		{
-			//this should throw a ClassCastException for non-PObjects, like the Comparable interface calls for
-			return this.getKeyName().compareToIgnoreCase(((PObject) obj).getKeyName());
-		}
-		return 1;
-	}
+    /**
+     * Compares the keys of the object.
+     */
+    @Override
+    public int compareTo(final Object obj)
+    {
+        if (obj != null)
+        {
+            //this should throw a ClassCastException for non-PObjects, like the Comparable interface calls for
+            return this.getKeyName().compareToIgnoreCase(((PObject) obj).getKeyName());
+        }
+        return 1;
+    }
 
-	@Override
-	public boolean equals(final Object obj)
-	{
-		return obj instanceof PObject && getKeyName().equalsIgnoreCase(((PObject) obj).getKeyName());
-	}
+    @Override
+    public boolean equals(final Object obj)
+    {
+        return obj instanceof PObject && getKeyName().equalsIgnoreCase(((PObject) obj).getKeyName());
+    }
 
-	//Temporarily commented out since unit tests are badly behaved, see COD#E-1895
-	//	@Override
-	//	public int hashCode()
-	//	{
-	//		return getKeyName().hashCode();
-	//	}
+    //Temporarily commented out since unit tests are badly behaved, see COD#E-1895
+    //	@Override
+    //	public int hashCode()
+    //	{
+    //		return getKeyName().hashCode();
+    //	}
 
-	/**
-	 * Set the name (sets keyname also)
-	 * @param aString
-	 */
-	@Override
-	public void setName(final String aString)
-	{
-		if (!aString.endsWith(".MOD"))
-		{
-			super.setName(aString);
-			put(StringKey.KEY_NAME, aString);
-		}
-	}
+    /**
+     * Set the name (sets keyname also)
+     *
+     * @param aString
+     */
+    @Override
+    public void setName(final String aString)
+    {
+        if (!aString.endsWith(".MOD"))
+        {
+            super.setName(aString);
+            put(StringKey.KEY_NAME, aString);
+        }
+    }
 
-	///////////////////////////////////////////////////////////////////////
-	// Accessor(s) and Mutator(s)
-	///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    // Accessor(s) and Mutator(s)
+    ///////////////////////////////////////////////////////////////////////
 
-	public final String getOutputName()
-	{
-		return OutputNameFormatting.getOutputName(this);
-	}
+    public final String getOutputName()
+    {
+        return OutputNameFormatting.getOutputName(this);
+    }
 
-	/**
-	 * Get the type of PObject
-	 * 
-	 * @return the type of PObject
-	 */
-	public String getType()
-	{
-		return StringUtil.join(getTrueTypeList(false), ".");
-	}
+    /**
+     * Get the type of PObject
+     *
+     * @return the type of PObject
+     */
+    public String getType()
+    {
+        return StringUtil.join(getTrueTypeList(false), ".");
+    }
 
-	public final List<Type> getTrueTypeList(final boolean visibleOnly)
-	{
-		final List<Type> ret = getSafeListFor(ListKey.TYPE);
-		if (visibleOnly)
-		{
-			for (Iterator<Type> it = ret.iterator(); it.hasNext();)
-			{
-				DataSetID id = Globals.getContext().getDataSetID();
-				if (hiddenTypeFacet.contains(id, myClass, it.next()))
-				{
-					it.remove();
-				}
-			}
-		}
-		return Collections.unmodifiableList(ret);
-	}
+    public final List<Type> getTrueTypeList(final boolean visibleOnly)
+    {
+        final List<Type> ret = getSafeListFor(ListKey.TYPE);
+        if (visibleOnly)
+        {
+            for (Iterator<Type> it = ret.iterator();it.hasNext();)
+            {
+                DataSetID id = Globals.getContext().getDataSetID();
+                if (hiddenTypeFacet.contains(id, myClass, it.next()))
+                {
+                    it.remove();
+                }
+            }
+        }
+        return Collections.unmodifiableList(ret);
+    }
 
-	/**
-	 * If aType begins with an &#34; (Exclamation Mark) the &#34; will be
-	 * removed before checking the type.
-	 *
-	 * @param aType
-	 * @return Whether the item is of this type
-	 * 
-	 */
-	@Override
-	public boolean isType(final String aType)
-	{
-		final String myType;
+    /**
+     * If aType begins with an &#34; (Exclamation Mark) the &#34; will be
+     * removed before checking the type.
+     *
+     * @param aType
+     * @return Whether the item is of this type
+     */
+    @Override
+    public boolean isType(final String aType)
+    {
+        final String myType;
 
-		if (aType.isEmpty())
-		{
-			return false;
-		}
-		else if (aType.charAt(0) == '!')
-		{
-			myType = aType.substring(1).toUpperCase();
-		}
-		else if (aType.startsWith("TYPE=") || aType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
-		{
-			myType = aType.substring(5).toUpperCase();
-		}
-		else
-		{
-			myType = aType.toUpperCase();
-		}
+        if (aType.isEmpty())
+        {
+            return false;
+        } else if (aType.charAt(0) == '!')
+        {
+            myType = aType.substring(1).toUpperCase();
+        } else if (aType.startsWith("TYPE=") || aType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
+        {
+            myType = aType.substring(5).toUpperCase();
+        } else
+        {
+            myType = aType.toUpperCase();
+        }
 
-		//
-		// Must match all listed types in order to qualify
-		//
-		StringTokenizer tok = new StringTokenizer(myType, ".");
-		while (tok.hasMoreTokens())
-		{
-			if (!containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))
-			{
-				return false;
-			}
-		}
-		return true;
-	}
+        //
+        // Must match all listed types in order to qualify
+        //
+        StringTokenizer tok = new StringTokenizer(myType, ".");
+        while (tok.hasMoreTokens())
+        {
+            if (!containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
-	@Override
-	public String toString()
-	{
-		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false))
-		{
-			return getOutputName();
-		}
+    @Override
+    public String toString()
+    {
+        if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false))
+        {
+            return getOutputName();
+        }
 
-		return getDisplayName();
-	}
+        return getDisplayName();
+    }
 
-	/**
-	 * @return true if the name of this item is Product Identity (i.e owned by the publisher)
-	 */
-	public boolean isNamePI()
-	{
-		return getSafe(ObjectKey.NAME_PI);
-	}
+    /**
+     * @return true if the name of this item is Product Identity (i.e owned by the publisher)
+     */
+    public boolean isNamePI()
+    {
+        return getSafe(ObjectKey.NAME_PI);
+    }
 
-	/**
-	 * Get the PCC text with the saved name
-	 * @return the PCC text with the saved name
-	 */
-	public String getPCCText()
-	{
-		StringJoiner txt = new StringJoiner("\t");
-		txt.add(getDisplayName());
-		Globals.getContext().unparse(this).forEach(txt::add);
-		txt.add(PrerequisiteWriter.prereqsToString(this));
-		return txt.toString();
-	}
+    /**
+     * Get the PCC text with the saved name
+     *
+     * @return the PCC text with the saved name
+     */
+    public String getPCCText()
+    {
+        StringJoiner txt = new StringJoiner("\t");
+        txt.add(getDisplayName());
+        Globals.getContext().unparse(this).forEach(txt::add);
+        txt.add(PrerequisiteWriter.prereqsToString(this));
+        return txt.toString();
+    }
 
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this, Globals.getSourceDisplay(), true);
-	}
+    public String getSource()
+    {
+        return SourceFormat.getFormattedString(this, Globals.getSourceDisplay(), true);
+    }
 
-	public String getSourceForNodeDisplay()
-	{
-		return SourceFormat.getFormattedString(this, SourceFormat.LONG, false);
-	}
+    public String getSourceForNodeDisplay()
+    {
+        return SourceFormat.getFormattedString(this, SourceFormat.LONG, false);
+    }
 
 }

@@ -11,23 +11,22 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class RangepenaltyToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "RANGEPENALTY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "RANGEPENALTY";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			gameMode.setRangePenalty(Integer.parseInt(value));
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            gameMode.setRangePenalty(Integer.parseInt(value));
+            return true;
+        } catch (NumberFormatException nfe)
+        {
+            return false;
+        }
+    }
 }

@@ -24,34 +24,34 @@ import java.util.Observable;
  */
 public final class ShowMessageDelegate extends Observable
 {
-	private static final ShowMessageDelegate INSTANCE = new ShowMessageDelegate();
+    private static final ShowMessageDelegate INSTANCE = new ShowMessageDelegate();
 
-	private ShowMessageDelegate()
-	{
-	}
+    private ShowMessageDelegate()
+    {
+    }
 
-	public static void showMessageDialog(final Object message, final String title, final MessageType messageType)
-	{
-		showMessageDialog(new MessageWrapper(message, title, messageType));
-	}
+    public static void showMessageDialog(final Object message, final String title, final MessageType messageType)
+    {
+        showMessageDialog(new MessageWrapper(message, title, messageType));
+    }
 
-	public static void showMessageDialog(final MessageWrapper messageWrapper)
-	{
-		INSTANCE.setChanged();
-		INSTANCE.notifyObservers(messageWrapper);
-		if (INSTANCE.countObservers() == 0 && messageWrapper.getMessage() != null
-			&& !messageWrapper.getMessage().toString().isEmpty())
-		{
-			System.out.println(messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
-		}
-	}
+    public static void showMessageDialog(final MessageWrapper messageWrapper)
+    {
+        INSTANCE.setChanged();
+        INSTANCE.notifyObservers(messageWrapper);
+        if (INSTANCE.countObservers() == 0 && messageWrapper.getMessage() != null
+                && !messageWrapper.getMessage().toString().isEmpty())
+        {
+            System.out.println(messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
+        }
+    }
 
-	/**
-	 * @return Returns the instance.
-	 */
-	public static ShowMessageDelegate getInstance()
-	{
-		return INSTANCE;
-	}
+    /**
+     * @return Returns the instance.
+     */
+    public static ShowMessageDelegate getInstance()
+    {
+        return INSTANCE;
+    }
 
 }

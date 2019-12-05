@@ -34,39 +34,39 @@ import javafx.scene.control.ToggleGroup;
  */
 public class HitPointsPreferencesController implements ResettableController
 {
-	@FXML
-	private ToggleGroup hpModeGroup;
-	@FXML
-	private Spinner<Integer> hpPercentSpinner;
-	@FXML
-	private CheckBox maxHpAtFirstLevel;
-	@FXML
-	private CheckBox maxHpAtFirstClassLevel;
+    @FXML
+    private ToggleGroup hpModeGroup;
+    @FXML
+    private Spinner<Integer> hpPercentSpinner;
+    @FXML
+    private CheckBox maxHpAtFirstLevel;
+    @FXML
+    private CheckBox maxHpAtFirstClassLevel;
 
-	@Override
-	public void reset()
-	{
-		int hpRollMethod = SettingsHandler.getHPRollMethod();
-		FilteredList<Toggle> filtered = hpModeGroup.getToggles().filtered(e -> (int) e.getUserData() == hpRollMethod);
-		if (!filtered.isEmpty())
-		{
-			assert filtered.size() == 1;
-			hpModeGroup.selectToggle(filtered.get(0));
-		}
+    @Override
+    public void reset()
+    {
+        int hpRollMethod = SettingsHandler.getHPRollMethod();
+        FilteredList<Toggle> filtered = hpModeGroup.getToggles().filtered(e -> (int) e.getUserData() == hpRollMethod);
+        if (!filtered.isEmpty())
+        {
+            assert filtered.size() == 1;
+            hpModeGroup.selectToggle(filtered.get(0));
+        }
 
-		hpPercentSpinner.getValueFactory().setValue(SettingsHandler.getHPPercent());
-		maxHpAtFirstLevel.setSelected(SettingsHandler.isHPMaxAtFirstLevel());
-		maxHpAtFirstClassLevel.setSelected(SettingsHandler.isHPMaxAtFirstClassLevel());
+        hpPercentSpinner.getValueFactory().setValue(SettingsHandler.getHPPercent());
+        maxHpAtFirstLevel.setSelected(SettingsHandler.isHPMaxAtFirstLevel());
+        maxHpAtFirstClassLevel.setSelected(SettingsHandler.isHPMaxAtFirstClassLevel());
 
-	}
+    }
 
-	@Override
-	public void apply()
-	{
-		SettingsHandler.setHPRollMethod((int)hpModeGroup.getSelectedToggle().getUserData());
-		SettingsHandler.setHPPercent(hpPercentSpinner.getValue());
-		SettingsHandler.setHPMaxAtFirstLevel(maxHpAtFirstLevel.isSelected());
-		SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
+    @Override
+    public void apply()
+    {
+        SettingsHandler.setHPRollMethod((int) hpModeGroup.getSelectedToggle().getUserData());
+        SettingsHandler.setHPPercent(hpPercentSpinner.getValue());
+        SettingsHandler.setHPMaxAtFirstLevel(maxHpAtFirstLevel.isSelected());
+        SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
 
-	}
+    }
 }

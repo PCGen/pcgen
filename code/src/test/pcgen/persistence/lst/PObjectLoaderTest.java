@@ -17,8 +17,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *
- * 
- * 
+ *
+ *
  */
 package pcgen.persistence.lst;
 
@@ -49,75 +49,81 @@ import org.junit.jupiter.api.Test;
 
 class PObjectLoaderTest
 {
-	/**
-	 * Sets up the test case by loading the system plugins.
-	 */
-	@BeforeEach
-	public void setUp() {
-		TestHelper.loadPlugins();
-	}
+    /**
+     * Sets up the test case by loading the system plugins.
+     */
+    @BeforeEach
+    public void setUp()
+    {
+        TestHelper.loadPlugins();
+    }
 
-	@Test
-	public void testDefine() {
-		Ability feat = new Ability();
+    @Test
+    public void testDefine()
+    {
+        Ability feat = new Ability();
 
-		Globals.getContext().unconditionallyProcess(feat, "DEFINE", "Foo|0");
+        Globals.getContext().unconditionallyProcess(feat, "DEFINE", "Foo|0");
 
-		assertEquals(1, feat.getVariableKeys().size());
-		assertEquals("Foo", feat.getVariableKeys().iterator().next().toString());
-		assertEquals("0", feat.get(VariableKey.getConstant("Foo")).toString());
-	}
+        assertEquals(1, feat.getVariableKeys().size());
+        assertEquals("Foo", feat.getVariableKeys().iterator().next().toString());
+        assertEquals("0", feat.get(VariableKey.getConstant("Foo")).toString());
+    }
 
-	@Test
-	public void testBadDefine() {
-		Ability feat = new Ability();
-		assertFalse(
-				Globals.getContext().processToken(feat, "DEFINE", "Foo"), "Parse fails for badly formed define");
-	}
+    @Test
+    public void testBadDefine()
+    {
+        Ability feat = new Ability();
+        assertFalse(
+                Globals.getContext().processToken(feat, "DEFINE", "Foo"), "Parse fails for badly formed define");
+    }
 
-	@Test
-	public void testUnlockDefineStat() {
-		LoadContext context = Globals.getContext();
-		
-		AbstractReferenceContext ref = context.getReferenceContext();
-		ref.importObject(BuildUtilities.createStat("Constitution", "CON"));
-		ref.importObject(BuildUtilities.createStat("Intelligence", "INT"));
+    @Test
+    public void testUnlockDefineStat()
+    {
+        LoadContext context = Globals.getContext();
 
-		Ability feat = new Ability();
+        AbstractReferenceContext ref = context.getReferenceContext();
+        ref.importObject(BuildUtilities.createStat("Constitution", "CON"));
+        ref.importObject(BuildUtilities.createStat("Intelligence", "INT"));
 
-		assertTrue(
-				context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), "Parse fails for unlock");
-		context.commit();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		Logging.clearParseMessages();
+        Ability feat = new Ability();
 
-		List<CDOMSingleRef<PCStat>> statList = feat.getListFor(ListKey.UNLOCKED_STATS);
-		assertEquals(1, statList.size());
-		assertEquals("INT", statList.get(0).get().getKeyName());
-	}
+        assertTrue(
+                context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), "Parse fails for unlock");
+        context.commit();
+        assertTrue(context.getReferenceContext().resolveReferences(null));
+        Logging.clearParseMessages();
 
-	@Test
-	public void testBadUnlockDefine() {
-		Ability feat = new Ability();
-		assertFalse(
-				Globals.getContext()
-				       .processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"), "Parse fails to catch bad unlock definestat");
-	}
+        List<CDOMSingleRef<PCStat>> statList = feat.getListFor(ListKey.UNLOCKED_STATS);
+        assertEquals(1, statList.size());
+        assertEquals("INT", statList.get(0).get().getKeyName());
+    }
 
-	@Test
-	public void testParsePreClear() {
-		PObject object = new PObject();
+    @Test
+    public void testBadUnlockDefine()
+    {
+        Ability feat = new Ability();
+        assertFalse(
+                Globals.getContext()
+                        .processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"), "Parse fails to catch bad unlock definestat");
+    }
 
-		LoadContext context = Globals.getContext();
-		context.unconditionallyProcess(object, "PREVARLT", "GreaterRage,1");
-		context.unconditionallyProcess(object, "PREFEAT", "1,Dodge");
-		List<Prerequisite> list = object.getPrerequisiteList();
-		assertEquals(2, list.size());
+    @Test
+    public void testParsePreClear()
+    {
+        PObject object = new PObject();
 
-		context.unconditionallyProcess(object, "PRE", Constants.LST_DOT_CLEAR);
-		List<Prerequisite> prerequisiteList = object.getPrerequisiteList();
-		assertNotNull(prerequisiteList,
-				"Prereq list should never be null as it is used in foreach loops directly.");
-		assertTrue(prerequisiteList.isEmpty(), "Prereqlist should be empty after the clear");
-	}
+        LoadContext context = Globals.getContext();
+        context.unconditionallyProcess(object, "PREVARLT", "GreaterRage,1");
+        context.unconditionallyProcess(object, "PREFEAT", "1,Dodge");
+        List<Prerequisite> list = object.getPrerequisiteList();
+        assertEquals(2, list.size());
+
+        context.unconditionallyProcess(object, "PRE", Constants.LST_DOT_CLEAR);
+        List<Prerequisite> prerequisiteList = object.getPrerequisiteList();
+        assertNotNull(prerequisiteList,
+                "Prereq list should never be null as it is used in foreach loops directly.");
+        assertTrue(prerequisiteList.isEmpty(), "Prereqlist should be empty after the clear");
+    }
 }

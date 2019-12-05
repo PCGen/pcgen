@@ -33,49 +33,49 @@ import pcgen.system.LanguageBundle;
 public class PreSubClassTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
-		int num;
-		try
-		{
-			num = Integer.parseInt(prereq.getOperand()); // number we must match
-		}
-		catch (NumberFormatException nfe)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreSubClass.error.badly_formed", prereq.toString()), nfe); //$NON
-			// -NLS-1$
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
+        int num;
+        try
+        {
+            num = Integer.parseInt(prereq.getOperand()); // number we must match
+        } catch (NumberFormatException nfe)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreSubClass.error.badly_formed", prereq.toString()), nfe); //$NON
+            // -NLS-1$
+        }
 
-		final String thisClass = prereq.getKey();
-		for (PCClass aClass : display.getClassSet())
-		{
-			final String subClassName = display.getSubClassName(aClass);
-			if (subClassName != null && !subClassName.isEmpty())
-			{
-				if (thisClass.equalsIgnoreCase(subClassName))
-				{
-					runningTotal++;
-					break;
-				}
-			}
-		}
+        final String thisClass = prereq.getKey();
+        for (PCClass aClass : display.getClassSet())
+        {
+            final String subClassName = display.getSubClassName(aClass);
+            if (subClassName != null && !subClassName.isEmpty())
+            {
+                if (thisClass.equalsIgnoreCase(subClassName))
+                {
+                    runningTotal++;
+                    break;
+                }
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, num);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, num);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "SUBCLASS"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "SUBCLASS"; //$NON-NLS-1$
+    }
 
 }

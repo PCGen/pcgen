@@ -35,67 +35,69 @@ import pcgen.util.Logging;
  */
 public class VarToken extends Token
 {
-	/** The name of the token handled by this class. */
-	public static final String TOKENNAME = "VAR";
+    /**
+     * The name of the token handled by this class.
+     */
+    public static final String TOKENNAME = "VAR";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		boolean isMin = tokenSource.lastIndexOf(".MINVAL") >= 0;
-		boolean isInt = tokenSource.lastIndexOf(".INTVAL") >= 0;
-		boolean isSign = (tokenSource.lastIndexOf(".SIGN") >= 0);
-		if (tokenSource.lastIndexOf(".NOSIGN") >= 0)
-		{
-			isSign = false;
-			Logging.errorPrint(".NOSIGN in output token " + tokenSource + " is deprecated. "
-				+ "The default output format is unsigned.");
-		}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        boolean isMin = tokenSource.lastIndexOf(".MINVAL") >= 0;
+        boolean isInt = tokenSource.lastIndexOf(".INTVAL") >= 0;
+        boolean isSign = (tokenSource.lastIndexOf(".SIGN") >= 0);
+        if (tokenSource.lastIndexOf(".NOSIGN") >= 0)
+        {
+            isSign = false;
+            Logging.errorPrint(".NOSIGN in output token " + tokenSource + " is deprecated. "
+                    + "The default output format is unsigned.");
+        }
 
-		String workingSource = tokenSource;
-		// clear out the gunk
-		if (isMin)
-		{
-			workingSource = workingSource.replaceAll(".MINVAL", "");
-		}
-		if (isInt)
-		{
-			workingSource = workingSource.replaceAll(".INTVAL", "");
-		}
-		workingSource = workingSource.replaceAll(".NOSIGN", "");
-		workingSource = workingSource.replaceAll(".SIGN", "");
+        String workingSource = tokenSource;
+        // clear out the gunk
+        if (isMin)
+        {
+            workingSource = workingSource.replaceAll(".MINVAL", "");
+        }
+        if (isInt)
+        {
+            workingSource = workingSource.replaceAll(".INTVAL", "");
+        }
+        workingSource = workingSource.replaceAll(".NOSIGN", "");
+        workingSource = workingSource.replaceAll(".SIGN", "");
 
-		StringTokenizer aTok = new StringTokenizer(workingSource, ".");
-		aTok.nextToken(); //this should be VAR
+        StringTokenizer aTok = new StringTokenizer(workingSource, ".");
+        aTok.nextToken(); //this should be VAR
 
-		StringBuilder varName = new StringBuilder();
+        StringBuilder varName = new StringBuilder();
 
-		if (aTok.hasMoreElements())
-		{
-			varName.append(aTok.nextToken());
-		}
-		while (aTok.hasMoreElements())
-		{
-			varName.append('.').append(aTok.nextToken());
-		}
+        if (aTok.hasMoreElements())
+        {
+            varName.append(aTok.nextToken());
+        }
+        while (aTok.hasMoreElements())
+        {
+            varName.append('.').append(aTok.nextToken());
+        }
 
-		if (isInt)
-		{
-			if (isSign)
-			{
-				return Delta.toString(pc.getVariable(varName.toString(), !isMin).intValue());
-			}
-			return String.valueOf(pc.getVariable(varName.toString(), !isMin).intValue());
-		}
-		if (isSign)
-		{
-			return Delta.toString((float) pc.getVariable(varName.toString(), !isMin));
-		}
-		return String.valueOf(pc.getVariable(varName.toString(), !isMin));
-	}
+        if (isInt)
+        {
+            if (isSign)
+            {
+                return Delta.toString(pc.getVariable(varName.toString(), !isMin).intValue());
+            }
+            return String.valueOf(pc.getVariable(varName.toString(), !isMin).intValue());
+        }
+        if (isSign)
+        {
+            return Delta.toString((float) pc.getVariable(varName.toString(), !isMin));
+        }
+        return String.valueOf(pc.getVariable(varName.toString(), !isMin));
+    }
 }

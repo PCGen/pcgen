@@ -41,49 +41,49 @@ import javafx.stage.Stage;
 public class AboutDialog implements Controllable<AboutDialogController>
 {
 
-	private final FXMLLoader loader = new FXMLLoader();
-	private Stage primaryStage;
+    private final FXMLLoader loader = new FXMLLoader();
+    private Stage primaryStage;
 
 
-	public AboutDialog()
-	{
-		loader.setResources(LanguageBundle.getBundle());
-		loader.setLocation(getClass().getResource("AboutDialog.fxml"));
-		Platform.runLater(() -> {
-			primaryStage = new Stage();
-			final Scene scene;
-			try
-			{
-				scene = loader.load();
-				scene.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
-					if(keyEvent.getCode()== KeyCode.ESCAPE)
-					{
-						primaryStage.close();
-					}
-				});
-			} catch (IOException e)
-			{
-				Logging.errorPrint("failed to load preloader", e);
-				return;
-			}
+    public AboutDialog()
+    {
+        loader.setResources(LanguageBundle.getBundle());
+        loader.setLocation(getClass().getResource("AboutDialog.fxml"));
+        Platform.runLater(() -> {
+            primaryStage = new Stage();
+            final Scene scene;
+            try
+            {
+                scene = loader.load();
+                scene.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
+                    if (keyEvent.getCode() == KeyCode.ESCAPE)
+                    {
+                        primaryStage.close();
+                    }
+                });
+            } catch (IOException e)
+            {
+                Logging.errorPrint("failed to load preloader", e);
+                return;
+            }
 
-			primaryStage.setScene(scene);
-			primaryStage.sizeToScene();
-			primaryStage.showAndWait();
-		});
-	}
+            primaryStage.setScene(scene);
+            primaryStage.sizeToScene();
+            primaryStage.showAndWait();
+        });
+    }
 
 
-	/**
-	 * @return the controller for the preloader
-	 */
-	@Override
-	public AboutDialogController getController()
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		return CompletableFuture
-				.supplyAsync(loader::<AboutDialogController>getController)
-				.join();
-	}
+    /**
+     * @return the controller for the preloader
+     */
+    @Override
+    public AboutDialogController getController()
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        return CompletableFuture
+                .supplyAsync(loader::<AboutDialogController>getController)
+                .join();
+    }
 
 }

@@ -48,85 +48,85 @@ import pcgen.util.enumeration.Load;
  */
 public class BaseMovementToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "BASEMOVEMENT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BASEMOVEMENT";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
-		if ((display.getRace() != null) && !display.getRace().isUnselected())
-		{
-			StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
-			aTok.nextToken(); //clear BASEMOVEMENT Token
-			String moveType = "WALK";
-			Load load = Load.LIGHT;
-			boolean flag = true;
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
+        if ((display.getRace() != null) && !display.getRace().isUnselected())
+        {
+            StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
+            aTok.nextToken(); //clear BASEMOVEMENT Token
+            String moveType = "WALK";
+            Load load = Load.LIGHT;
+            boolean flag = true;
 
-			//Move Type
-			if (aTok.hasMoreElements())
-			{
-				moveType = aTok.nextToken();
-				try
-				{
-					int movNum = Integer.parseInt(moveType);
-					if (movNum < display.getNumberOfMovements())
-					{
-						moveType = display.getMovementValues().get(movNum).getName();
-					}
-				}
-				catch (NumberFormatException e)
-				{
-					// Delibrately ignore exception, means movetype is not an index
-				}
-			}
+            //Move Type
+            if (aTok.hasMoreElements())
+            {
+                moveType = aTok.nextToken();
+                try
+                {
+                    int movNum = Integer.parseInt(moveType);
+                    if (movNum < display.getNumberOfMovements())
+                    {
+                        moveType = display.getMovementValues().get(movNum).getName();
+                    }
+                } catch (NumberFormatException e)
+                {
+                    // Delibrately ignore exception, means movetype is not an index
+                }
+            }
 
-			//Encumberance Level
-			if (aTok.hasMoreElements())
-			{
-				String loadName = aTok.nextToken();
-				for (Load aLoad : Load.values())
-				{
-					if (loadName.equals(aLoad.toString()))
-					{
-						load = aLoad;
-					}
-				}
-			}
+            //Encumberance Level
+            if (aTok.hasMoreElements())
+            {
+                String loadName = aTok.nextToken();
+                for (Load aLoad : Load.values())
+                {
+                    if (loadName.equals(aLoad.toString()))
+                    {
+                        load = aLoad;
+                    }
+                }
+            }
 
-			//Display Movement Measurement type?
-			if (aTok.hasMoreElements())
-			{
-				flag = "TRUE".equalsIgnoreCase(aTok.nextToken());
-			}
-			retString = getBaseMovementToken(display, MovementType.getConstant(moveType), load, flag);
-		}
-		return retString;
-	}
+            //Display Movement Measurement type?
+            if (aTok.hasMoreElements())
+            {
+                flag = "TRUE".equalsIgnoreCase(aTok.nextToken());
+            }
+            retString = getBaseMovementToken(display, MovementType.getConstant(moveType), load, flag);
+        }
+        return retString;
+    }
 
-	/**
-	 * Get the base movement token
-	 * @param display
-	 * @param moveType
-	 * @param load
-	 * @param displayFlag
-	 * @return The base movement token
-	 */
-	public static String getBaseMovementToken(CharacterDisplay display, MovementType moveType, Load load, boolean displayFlag)
-	{
-		if (!display.hasMovement(moveType))
-		{
-			return "";
-		}
-		int baseMovement = display.getBaseMovement(moveType, load);
-		if (displayFlag)
-		{
-			return moveType.toString() + ' ' + Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement)
-				+ Globals.getGameModeUnitSet().getDistanceUnit();
-		}
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement);
-	}
+    /**
+     * Get the base movement token
+     *
+     * @param display
+     * @param moveType
+     * @param load
+     * @param displayFlag
+     * @return The base movement token
+     */
+    public static String getBaseMovementToken(CharacterDisplay display, MovementType moveType, Load load, boolean displayFlag)
+    {
+        if (!display.hasMovement(moveType))
+        {
+            return "";
+        }
+        int baseMovement = display.getBaseMovement(moveType, load);
+        if (displayFlag)
+        {
+            return moveType.toString() + ' ' + Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement)
+                    + Globals.getGameModeUnitSet().getDistanceUnit();
+        }
+        return Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement);
+    }
 }

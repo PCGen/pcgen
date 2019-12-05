@@ -20,46 +20,46 @@ import pcgen.io.exporttoken.AbilityListToken;
 public class FeatAllListToken extends AbilityListToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "FEATALLLIST"; //$NON-NLS-1$
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FEATALLLIST"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		// Skip the token itself
-		final String tokenString = aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        // Skip the token itself
+        final String tokenString = aTok.nextToken();
 
-		return getTokenForCategory(pc, aTok, tokenString, AbilityCategory.FEAT);
-	}
+        return getTokenForCategory(pc, aTok, tokenString, AbilityCategory.FEAT);
+    }
 
-	@Override
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
-	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
-		Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
-		return listOfAbilities;
-	}
+    @Override
+    protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
+    {
+        final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
+        Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
+        for (AbilityCategory aCat : allCats)
+        {
+            if (aCat.getParentCategory().equals(aCategory))
+            {
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+            }
+        }
+        return listOfAbilities;
+    }
 
 }

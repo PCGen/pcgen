@@ -29,48 +29,47 @@ import pcgen.util.Logging;
  */
 public class PreAttackParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"ATT"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"ATT"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		try
-		{
-			prereq.setOperand(Integer.toString(Integer.parseInt(formula)));
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.errorPrint("Badly formed PREATT attribute: '" + formula + "' assuming '1'");
-			prereq.setOperand("1");
-		}
+        try
+        {
+            prereq.setOperand(Integer.toString(Integer.parseInt(formula)));
+        } catch (NumberFormatException nfe)
+        {
+            Logging.errorPrint("Badly formed PREATT attribute: '" + formula + "' assuming '1'");
+            prereq.setOperand("1");
+        }
 
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
-		return prereq;
-	}
+        if (invertResult)
+        {
+            prereq.setOperator(prereq.getOperator().invert());
+        }
+        return prereq;
+    }
 }

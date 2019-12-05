@@ -30,126 +30,124 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
 /**
- * The model for the Equip View table. It shows a flat list of the equipment which 
- * is either equipped, unequipped or of all gear owned. Each instance relates to 
+ * The model for the Equip View table. It shows a flat list of the equipment which
+ * is either equipped, unequipped or of all gear owned. Each instance relates to
  * one type of view.
- * 
- * 
  */
 public class EquipmentTableModel
-		extends FilteredListFacadeTableModel<EquipmentFacade>
-		implements EquipmentListListener, ReferenceListener<EquipmentSetFacade>
+        extends FilteredListFacadeTableModel<EquipmentFacade>
+        implements EquipmentListListener, ReferenceListener<EquipmentSetFacade>
 {
 
-	protected EquipmentListFacade equipmentList = null;
-	protected EquipmentSetFacade equipmentSet = null;
+    protected EquipmentListFacade equipmentList = null;
+    protected EquipmentSetFacade equipmentSet = null;
 
-	public EquipmentTableModel(CharacterFacade character)
-	{
-		super(character);
-		ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
-		ref.addReferenceListener(this);
-		setEquipmentList(ref.get().getEquippedItems());
-		setEquipmentSet(ref.get());
-	}
+    public EquipmentTableModel(CharacterFacade character)
+    {
+        super(character);
+        ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
+        ref.addReferenceListener(this);
+        setEquipmentList(ref.get().getEquippedItems());
+        setEquipmentSet(ref.get());
+    }
 
-	@Override
-	public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
-	{
-		setEquipmentList(e.getNewReference().getEquippedItems());
-		setEquipmentSet(e.getNewReference());
-	}
+    @Override
+    public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
+    {
+        setEquipmentList(e.getNewReference().getEquippedItems());
+        setEquipmentSet(e.getNewReference());
+    }
 
-	protected void setEquipmentList(EquipmentListFacade equipmentList)
-	{
-		EquipmentListFacade oldList = this.equipmentList;
-		if (oldList != null)
-		{
-			oldList.removeEquipmentListListener(this);
-		}
-		this.equipmentList = equipmentList;
-		if (equipmentList != null)
-		{
-			equipmentList.addEquipmentListListener(this);
-		}
-		super.setDelegate(equipmentList);
-	}
+    protected void setEquipmentList(EquipmentListFacade equipmentList)
+    {
+        EquipmentListFacade oldList = this.equipmentList;
+        if (oldList != null)
+        {
+            oldList.removeEquipmentListListener(this);
+        }
+        this.equipmentList = equipmentList;
+        if (equipmentList != null)
+        {
+            equipmentList.addEquipmentListListener(this);
+        }
+        super.setDelegate(equipmentList);
+    }
 
-	protected void setEquipmentSet(EquipmentSetFacade equipmentSet)
-	{
-		this.equipmentSet = equipmentSet;
-	}
+    protected void setEquipmentSet(EquipmentSetFacade equipmentSet)
+    {
+        this.equipmentSet = equipmentSet;
+    }
 
-	@Override
-	public int getColumnCount()
-	{
-		return 5;
-	}
+    @Override
+    public int getColumnCount()
+    {
+        return 5;
+    }
 
-	@Override
-	public Class<?> getColumnClass(int columnIndex)
-	{
-		switch (columnIndex)
-		{
-			case 0:
-				return Object.class;
-			case 1:
-			case 2:
-				return String.class;
-			case 3:
-				return Integer.class;
-			case 4:
-				return Float.class;
-			case 5:
-				return String.class;
-			default:
-				return Object.class;
-		}
-	}
+    @Override
+    public Class<?> getColumnClass(int columnIndex)
+    {
+        switch (columnIndex)
+        {
+            case 0:
+                return Object.class;
+            case 1:
+            case 2:
+                return String.class;
+            case 3:
+                return Integer.class;
+            case 4:
+                return Float.class;
+            case 5:
+                return String.class;
+            default:
+                return Object.class;
+        }
+    }
 
-	@Override
-	public void quantityChanged(EquipmentListEvent e)
-	{
-		for (int i = 0; i < sortedList.getSize(); i++)
-		{
-			if (e.getEquipment() == sortedList.getElementAt(i))
-			{
-				fireTableCellUpdated(i, 3);
-				return;
-			}
-		}
-	}
+    @Override
+    public void quantityChanged(EquipmentListEvent e)
+    {
+        for (int i = 0;i < sortedList.getSize();i++)
+        {
+            if (e.getEquipment() == sortedList.getElementAt(i))
+            {
+                fireTableCellUpdated(i, 3);
+                return;
+            }
+        }
+    }
 
-	public EquipmentFacade getValue(int index)
-	{
-		return sortedList.getElementAt(index);
-	}
+    public EquipmentFacade getValue(int index)
+    {
+        return sortedList.getElementAt(index);
+    }
 
-	@Override
-	protected Object getValueAt(EquipmentFacade equipment, int column)
-	{
-		switch (column)
-		{
-			case 0:
-				return equipment;
-			case 1:
-				return equipment.getTypes()[0];
-			case 2:
-				return equipmentSet.getLocation(equipment);
-			case 3:
-				return equipmentList.getQuantity(equipment);
-			case 4:
-				return character.getInfoFactory().getWeight(equipment);
-			case 5:
-				return character.getInfoFactory().getDescription(equipment);
-			default:
-				return null;
-		}
-	}
+    @Override
+    protected Object getValueAt(EquipmentFacade equipment, int column)
+    {
+        switch (column)
+        {
+            case 0:
+                return equipment;
+            case 1:
+                return equipment.getTypes()[0];
+            case 2:
+                return equipmentSet.getLocation(equipment);
+            case 3:
+                return equipmentList.getQuantity(equipment);
+            case 4:
+                return character.getInfoFactory().getWeight(equipment);
+            case 5:
+                return character.getInfoFactory().getDescription(equipment);
+            default:
+                return null;
+        }
+    }
 
-	@Override
-	public void elementModified(ListEvent<EquipmentFacade> e)
-	{
-	}
+    @Override
+    public void elementModified(ListEvent<EquipmentFacade> e)
+    {
+    }
 
 }

@@ -26,58 +26,58 @@ import pcgen.cdom.enumeration.ObjectKey;
 
 /**
  * {@code SubClass}.
- *
  */
 public final class SubClass extends PCClass implements Categorized<SubClass>
 {
-	/**
-	 * Get the choice
-	 * @return choice
-	 */
-	public String getChoice()
-	{
-		SpellProhibitor sp = get(ObjectKey.CHOICE);
-		if (sp == null)
-		{
-			return "";
-		}
+    /**
+     * Get the choice
+     *
+     * @return choice
+     */
+    public String getChoice()
+    {
+        SpellProhibitor sp = get(ObjectKey.CHOICE);
+        if (sp == null)
+        {
+            return "";
+        }
 
-		return sp.getValueList().get(0);
-	}
+        return sp.getValueList().get(0);
+    }
 
-	/**
-	 * Returns the prohibitCost. If the prohibited cost has not already
-	 * been set, then the sub-classes cost will be returned. This preserves
-	 * the previous behaviour where the prohibited cost and cost were the same.
-	 *
-	 * @return int The prohibit cost for the sub-class.
-	 */
-	public int getProhibitCost()
-	{
-		Integer prohib = get(IntegerKey.PROHIBIT_COST);
-		if (prohib != null)
-		{
-			return prohib;
-		}
-		return getSafe(IntegerKey.COST);
-	}
+    /**
+     * Returns the prohibitCost. If the prohibited cost has not already
+     * been set, then the sub-classes cost will be returned. This preserves
+     * the previous behaviour where the prohibited cost and cost were the same.
+     *
+     * @return int The prohibit cost for the sub-class.
+     */
+    public int getProhibitCost()
+    {
+        Integer prohib = get(IntegerKey.PROHIBIT_COST);
+        if (prohib != null)
+        {
+            return prohib;
+        }
+        return getSafe(IntegerKey.COST);
+    }
 
-	@Override
-	public Category<SubClass> getCDOMCategory()
-	{
-		return get(ObjectKey.SUBCLASS_CATEGORY);
-	}
+    @Override
+    public Category<SubClass> getCDOMCategory()
+    {
+        return get(ObjectKey.SUBCLASS_CATEGORY);
+    }
 
-	@Override
-	public void setCDOMCategory(Category<SubClass> cat)
-	{
-		put(ObjectKey.SUBCLASS_CATEGORY, cat);
-	}
+    @Override
+    public void setCDOMCategory(Category<SubClass> cat)
+    {
+        put(ObjectKey.SUBCLASS_CATEGORY, cat);
+    }
 
-	@Override
-	public String getFullKey()
-	{
-		return getCDOMCategory() + "." + super.getFullKey();
-	}
+    @Override
+    public String getFullKey()
+    {
+        return getCDOMCategory() + "." + super.getFullKey();
+    }
 
 }

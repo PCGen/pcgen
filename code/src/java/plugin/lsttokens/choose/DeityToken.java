@@ -30,48 +30,48 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 {
 
-	private static final Class<Deity> DEITY_CLASS = Deity.class;
+    private static final Class<Deity> DEITY_CLASS = Deity.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "DEITY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DEITY";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Deity choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Deity choice";
+    }
 
-	@Override
-	public Deity decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(DEITY_CLASS, s);
-	}
+    @Override
+    public Deity decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(DEITY_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(Deity choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(Deity choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<Deity> getListKey()
-	{
-		return AssociationListKey.getKeyFor(DEITY_CLASS, "CHOOSE*DEITY");
-	}
+    @Override
+    protected AssociationListKey<Deity> getListKey()
+    {
+        return AssociationListKey.getKeyFor(DEITY_CLASS, "CHOOSE*DEITY");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(DEITY_CLASS), obj,
-			value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(DEITY_CLASS), obj,
+                value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "DEITY";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "DEITY";
+    }
 }

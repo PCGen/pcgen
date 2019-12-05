@@ -27,36 +27,35 @@ import pcgen.rules.persistence.token.ParseResult;
 public class CostToken extends AbstractNonEmptyToken<PointBuyCost> implements CDOMPrimaryToken<PointBuyCost>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "COST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "COST";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PointBuyCost pbc, String value)
-	{
-		try
-		{
-			pbc.setBuyCost(Integer.parseInt(value));
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
-		}
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, PointBuyCost pbc, String value)
+    {
+        try
+        {
+            pbc.setBuyCost(Integer.parseInt(value));
+            return ParseResult.SUCCESS;
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PointBuyCost pbc)
-	{
-		return new String[]{String.valueOf(pbc.getBuyCost())};
-	}
+    @Override
+    public String[] unparse(LoadContext context, PointBuyCost pbc)
+    {
+        return new String[]{String.valueOf(pbc.getBuyCost())};
+    }
 
-	@Override
-	public Class<PointBuyCost> getTokenClass()
-	{
-		return PointBuyCost.class;
-	}
+    @Override
+    public Class<PointBuyCost> getTokenClass()
+    {
+        return PointBuyCost.class;
+    }
 }

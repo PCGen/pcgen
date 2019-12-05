@@ -30,48 +30,48 @@ import pcgen.rules.persistence.token.ParseResult;
 public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 {
 
-	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
+    private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "EQUIPMENT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "EQUIPMENT";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Equipment choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Equipment choice";
+    }
 
-	@Override
-	public Equipment decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, s);
-	}
+    @Override
+    public Equipment decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(Equipment choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(Equipment choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<Equipment> getListKey()
-	{
-		return AssociationListKey.getKeyFor(EQUIPMENT_CLASS, "CHOOSE*EQUIPMENT");
-	}
+    @Override
+    protected AssociationListKey<Equipment> getListKey()
+    {
+        return AssociationListKey.getKeyFor(EQUIPMENT_CLASS, "CHOOSE*EQUIPMENT");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(EQUIPMENT_CLASS),
-			obj, value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(EQUIPMENT_CLASS),
+                obj, value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "EQUIPMENT";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "EQUIPMENT";
+    }
 }

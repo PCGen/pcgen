@@ -46,211 +46,208 @@ import pcgen.rules.persistence.token.ParseResult;
 public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {
 
-	private static final String ADDCHOICE_COLON = "ADDCHOICE:";
-	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
-	private static final ClassIdentity<PCTemplate> PCTEMPLATE_IDENTITY =
-			BasicClassIdentity.getIdentity(PCTEMPLATE_CLASS);
+    private static final String ADDCHOICE_COLON = "ADDCHOICE:";
+    private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
+    private static final ClassIdentity<PCTemplate> PCTEMPLATE_IDENTITY =
+            BasicClassIdentity.getIdentity(PCTEMPLATE_CLASS);
 
-	@Override
-	public String getTokenName()
-	{
-		return "TEMPLATE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TEMPLATE";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject cdo, String value)
-	{
-		if (cdo instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + cdo.getClass().getSimpleName());
-		}
-		ListKey<CDOMReference<PCTemplate>> lk;
-		String remaining;
-		boolean consolidate = false;
-		boolean specialLegal = false;
-		if (value.startsWith(Constants.LST_CHOOSE_COLON))
-		{
-			lk = ListKey.TEMPLATE_CHOOSE;
-			remaining = value.substring(Constants.LST_CHOOSE_COLON.length());
-			consolidate = true;
-		}
-		else if (value.startsWith(ADDCHOICE_COLON))
-		{
-			lk = ListKey.TEMPLATE_ADDCHOICE;
-			remaining = value.substring(ADDCHOICE_COLON.length());
-		}
-		else
-		{
-			lk = ListKey.TEMPLATE;
-			remaining = value;
-			specialLegal = true;
-		}
-		ParseResult pr = checkSeparatorsAndNonEmpty('|', remaining);
-		if (!pr.passed())
-		{
-			return pr;
-		}
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject cdo, String value)
+    {
+        if (cdo instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + cdo.getClass().getSimpleName());
+        }
+        ListKey<CDOMReference<PCTemplate>> lk;
+        String remaining;
+        boolean consolidate = false;
+        boolean specialLegal = false;
+        if (value.startsWith(Constants.LST_CHOOSE_COLON))
+        {
+            lk = ListKey.TEMPLATE_CHOOSE;
+            remaining = value.substring(Constants.LST_CHOOSE_COLON.length());
+            consolidate = true;
+        } else if (value.startsWith(ADDCHOICE_COLON))
+        {
+            lk = ListKey.TEMPLATE_ADDCHOICE;
+            remaining = value.substring(ADDCHOICE_COLON.length());
+        } else
+        {
+            lk = ListKey.TEMPLATE;
+            remaining = value;
+            specialLegal = true;
+        }
+        ParseResult pr = checkSeparatorsAndNonEmpty('|', remaining);
+        if (!pr.passed())
+        {
+            return pr;
+        }
 
-		StringTokenizer tok = new StringTokenizer(remaining, Constants.PIPE);
+        StringTokenizer tok = new StringTokenizer(remaining, Constants.PIPE);
 
-		List<CDOMReference<PCTemplate>> list = new ArrayList<>();
-		List<CDOMReference<PCTemplate>> removelist = new ArrayList<>();
-		while (tok.hasMoreTokens())
-		{
-			String templKey = tok.nextToken();
-			if (specialLegal && templKey.endsWith(".REMOVE"))
-			{
-				removelist.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS,
-					templKey.substring(0, templKey.length() - 7)));
-			}
-			else if (specialLegal && templKey.equals(Constants.LST_PERCENT_LIST))
-			{
-				context.getObjectContext().addToList(cdo, ListKey.NEW_CHOOSE_ACTOR, this);
-			}
-			else
-			{
-				ReferenceManufacturer<PCTemplate> rm = context.getReferenceContext().getManufacturer(PCTEMPLATE_CLASS);
-				CDOMReference<PCTemplate> ref = TokenUtilities.getTypeOrPrimitive(rm, templKey);
-				if (ref == null)
-				{
-					return ParseResult.INTERNAL_ERROR;
-				}
-				list.add(ref);
-			}
-		}
+        List<CDOMReference<PCTemplate>> list = new ArrayList<>();
+        List<CDOMReference<PCTemplate>> removelist = new ArrayList<>();
+        while (tok.hasMoreTokens())
+        {
+            String templKey = tok.nextToken();
+            if (specialLegal && templKey.endsWith(".REMOVE"))
+            {
+                removelist.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS,
+                        templKey.substring(0, templKey.length() - 7)));
+            } else if (specialLegal && templKey.equals(Constants.LST_PERCENT_LIST))
+            {
+                context.getObjectContext().addToList(cdo, ListKey.NEW_CHOOSE_ACTOR, this);
+            } else
+            {
+                ReferenceManufacturer<PCTemplate> rm = context.getReferenceContext().getManufacturer(PCTEMPLATE_CLASS);
+                CDOMReference<PCTemplate> ref = TokenUtilities.getTypeOrPrimitive(rm, templKey);
+                if (ref == null)
+                {
+                    return ParseResult.INTERNAL_ERROR;
+                }
+                list.add(ref);
+            }
+        }
 
-		if (consolidate)
-		{
-			CDOMCompoundOrReference<PCTemplate> ref =
-					new CDOMCompoundOrReference<>(PCTEMPLATE_IDENTITY, Constants.LST_CHOOSE_COLON);
-			for (CDOMReference<PCTemplate> r : list)
-			{
-				ref.addReference(r);
-			}
-			ref.trimToSize();
-			list.clear();
-			list.add(ref);
-		}
-		for (CDOMReference<PCTemplate> ref : list)
-		{
-			context.getObjectContext().addToList(cdo, lk, ref);
-		}
-		if (!removelist.isEmpty())
-		{
-			for (CDOMReference<PCTemplate> ref : removelist)
-			{
-				context.getObjectContext().addToList(cdo, ListKey.REMOVE_TEMPLATES, ref);
-			}
-		}
-		return ParseResult.SUCCESS;
-	}
+        if (consolidate)
+        {
+            CDOMCompoundOrReference<PCTemplate> ref =
+                    new CDOMCompoundOrReference<>(PCTEMPLATE_IDENTITY, Constants.LST_CHOOSE_COLON);
+            for (CDOMReference<PCTemplate> r : list)
+            {
+                ref.addReference(r);
+            }
+            ref.trimToSize();
+            list.clear();
+            list.add(ref);
+        }
+        for (CDOMReference<PCTemplate> ref : list)
+        {
+            context.getObjectContext().addToList(cdo, lk, ref);
+        }
+        if (!removelist.isEmpty())
+        {
+            for (CDOMReference<PCTemplate> ref : removelist)
+            {
+                context.getObjectContext().addToList(cdo, ListKey.REMOVE_TEMPLATES, ref);
+            }
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		Changes<CDOMReference<PCTemplate>> changes = context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE);
-		Changes<CDOMReference<PCTemplate>> removechanges =
-				context.getObjectContext().getListChanges(cdo, ListKey.REMOVE_TEMPLATES);
-		Changes<ChooseSelectionActor<?>> listChanges =
-				context.getObjectContext().getListChanges(cdo, ListKey.NEW_CHOOSE_ACTOR);
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject cdo)
+    {
+        Changes<CDOMReference<PCTemplate>> changes = context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE);
+        Changes<CDOMReference<PCTemplate>> removechanges =
+                context.getObjectContext().getListChanges(cdo, ListKey.REMOVE_TEMPLATES);
+        Changes<ChooseSelectionActor<?>> listChanges =
+                context.getObjectContext().getListChanges(cdo, ListKey.NEW_CHOOSE_ACTOR);
 
-		List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
-		Collection<CDOMReference<PCTemplate>> added = changes.getAdded();
-		if (added != null && !added.isEmpty())
-		{
-			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
-		}
+        Collection<CDOMReference<PCTemplate>> added = changes.getAdded();
+        if (added != null && !added.isEmpty())
+        {
+            list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
+        }
 
-		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
-		if (listAdded != null && !listAdded.isEmpty())
-		{
-			for (ChooseSelectionActor<?> csa : listAdded)
-			{
-				if (csa.equals(this))
-				{
-					list.add(Constants.LST_PERCENT_LIST);
-				}
-			}
-		}
+        Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
+        if (listAdded != null && !listAdded.isEmpty())
+        {
+            for (ChooseSelectionActor<?> csa : listAdded)
+            {
+                if (csa.equals(this))
+                {
+                    list.add(Constants.LST_PERCENT_LIST);
+                }
+            }
+        }
 
-		Changes<CDOMReference<PCTemplate>> choosechanges =
-				context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE_CHOOSE);
-		Collection<CDOMReference<PCTemplate>> chadded = choosechanges.getAdded();
-		if (chadded != null && !chadded.isEmpty())
-		{
-			for (CDOMReference<PCTemplate> ref : chadded)
-			{
-				list.add(Constants.LST_CHOOSE_COLON + ref.getLSTformat(false).replaceAll(",", "\\|"));
-			}
-		}
+        Changes<CDOMReference<PCTemplate>> choosechanges =
+                context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE_CHOOSE);
+        Collection<CDOMReference<PCTemplate>> chadded = choosechanges.getAdded();
+        if (chadded != null && !chadded.isEmpty())
+        {
+            for (CDOMReference<PCTemplate> ref : chadded)
+            {
+                list.add(Constants.LST_CHOOSE_COLON + ref.getLSTformat(false).replaceAll(",", "\\|"));
+            }
+        }
 
-		Changes<CDOMReference<PCTemplate>> addchanges =
-				context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE_ADDCHOICE);
-		Collection<CDOMReference<PCTemplate>> addedItems = addchanges.getAdded();
-		if (addedItems != null && !addedItems.isEmpty())
-		{
-			list.add(ADDCHOICE_COLON + ReferenceUtilities.joinLstFormat(addedItems, Constants.PIPE));
-		}
+        Changes<CDOMReference<PCTemplate>> addchanges =
+                context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE_ADDCHOICE);
+        Collection<CDOMReference<PCTemplate>> addedItems = addchanges.getAdded();
+        if (addedItems != null && !addedItems.isEmpty())
+        {
+            list.add(ADDCHOICE_COLON + ReferenceUtilities.joinLstFormat(addedItems, Constants.PIPE));
+        }
 
-		Collection<CDOMReference<PCTemplate>> radd = removechanges.getAdded();
-		if (radd != null && !radd.isEmpty())
-		{
-			StringBuilder sb = new StringBuilder();
-			boolean needPipe = false;
-			for (CDOMReference<PCTemplate> ref : radd)
-			{
-				if (needPipe)
-				{
-					sb.append(Constants.PIPE);
-				}
-				needPipe = true;
-				sb.append(ref.getLSTformat(false)).append(".REMOVE");
-			}
-			list.add(sb.toString());
-		}
+        Collection<CDOMReference<PCTemplate>> radd = removechanges.getAdded();
+        if (radd != null && !radd.isEmpty())
+        {
+            StringBuilder sb = new StringBuilder();
+            boolean needPipe = false;
+            for (CDOMReference<PCTemplate> ref : radd)
+            {
+                if (needPipe)
+                {
+                    sb.append(Constants.PIPE);
+                }
+                needPipe = true;
+                sb.append(ref.getLSTformat(false)).append(".REMOVE");
+            }
+            list.add(sb.toString());
+        }
 
-		if (list.isEmpty())
-		{
-			// Possible if none triggered
-			return null;
-		}
-		return list.toArray(new String[0]);
-	}
+        if (list.isEmpty())
+        {
+            // Possible if none triggered
+            return null;
+        }
+        return list.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public void removeChoice(ChooseDriver owner, PCTemplate choice, PlayerCharacter pc)
-	{
-		pc.removeTemplate(choice);
-	}
+    @Override
+    public void removeChoice(ChooseDriver owner, PCTemplate choice, PlayerCharacter pc)
+    {
+        pc.removeTemplate(choice);
+    }
 
-	@Override
-	public void applyChoice(ChooseDriver owner, PCTemplate choice, PlayerCharacter pc)
-	{
-		pc.addTemplate(choice);
-	}
+    @Override
+    public void applyChoice(ChooseDriver owner, PCTemplate choice, PlayerCharacter pc)
+    {
+        pc.addTemplate(choice);
+    }
 
-	@Override
-	public String getLstFormat() {
-		return Constants.LST_PERCENT_LIST;
-	}
+    @Override
+    public String getLstFormat()
+    {
+        return Constants.LST_PERCENT_LIST;
+    }
 
-	@Override
-	public String getSource()
-	{
-		return getTokenName();
-	}
+    @Override
+    public String getSource()
+    {
+        return getTokenName();
+    }
 
-	@Override
-	public Class<PCTemplate> getChoiceClass()
-	{
-		return PCTEMPLATE_CLASS;
-	}
+    @Override
+    public Class<PCTemplate> getChoiceClass()
+    {
+        return PCTEMPLATE_CLASS;
+    }
 }

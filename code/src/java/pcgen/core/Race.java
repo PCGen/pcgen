@@ -35,73 +35,74 @@ import pcgen.cdom.enumeration.ObjectKey;
 public final class Race extends PObject implements ChooseDriver, LimitedVarHolder
 {
 
-	/**
-	 * Checks if this race's advancement is limited.
-	 * 
-	 * @return <tt>true</tt> if this race advances unlimitedly.
-	 */
-	public boolean isAdvancementUnlimited()
-	{
-		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
-		return hda == null || hda.get(hda.size() - 1) == Integer.MAX_VALUE;
-	}
+    /**
+     * Checks if this race's advancement is limited.
+     *
+     * @return <tt>true</tt> if this race advances unlimitedly.
+     */
+    public boolean isAdvancementUnlimited()
+    {
+        List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
+        return hda == null || hda.get(hda.size() - 1) == Integer.MAX_VALUE;
+    }
 
-	/**
-	 * Overridden to only consider the race's name.
-	 * @return hash code
-	 */
-	@Override
-	public int hashCode()
-	{
-		return getKeyName().hashCode();
-	}
+    /**
+     * Overridden to only consider the race's name.
+     *
+     * @return hash code
+     */
+    @Override
+    public int hashCode()
+    {
+        return getKeyName().hashCode();
+    }
 
-	public int maxHitDiceAdvancement()
-	{
-		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
-		return hda == null ? 0 : hda.get(hda.size() - 1);
-	}
+    public int maxHitDiceAdvancement()
+    {
+        List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
+        return hda == null ? 0 : hda.get(hda.size() - 1);
+    }
 
-	@Override
-	public ChooseInformation<?> getChooseInfo()
-	{
-		return get(ObjectKey.CHOOSE_INFO);
-	}
+    @Override
+    public ChooseInformation<?> getChooseInfo()
+    {
+        return get(ObjectKey.CHOOSE_INFO);
+    }
 
-	@Override
-	public Formula getSelectFormula()
-	{
-		return getSafe(FormulaKey.SELECT);
-	}
+    @Override
+    public Formula getSelectFormula()
+    {
+        return getSafe(FormulaKey.SELECT);
+    }
 
-	@Override
-	public List<ChooseSelectionActor<?>> getActors()
-	{
-		return getListFor(ListKey.NEW_CHOOSE_ACTOR);
-	}
+    @Override
+    public List<ChooseSelectionActor<?>> getActors()
+    {
+        return getListFor(ListKey.NEW_CHOOSE_ACTOR);
+    }
 
-	@Override
-	public String getFormulaSource()
-	{
-		return getKeyName();
-	}
+    @Override
+    public String getFormulaSource()
+    {
+        return getKeyName();
+    }
 
-	@Override
-	public Formula getNumChoices()
-	{
-		return getSafe(FormulaKey.NUMCHOICES);
-	}
+    @Override
+    public Formula getNumChoices()
+    {
+        return getSafe(FormulaKey.NUMCHOICES);
+    }
 
-	@Override
-	public String getIdentifier()
-	{
-		return "RACE";
-	}
+    @Override
+    public String getIdentifier()
+    {
+        return "RACE";
+    }
 
-	@Override
-	public Optional<String> getLocalScopeName()
-	{
-		return Optional.of("PC.RACE");
-	}
+    @Override
+    public Optional<String> getLocalScopeName()
+    {
+        return Optional.of("PC.RACE");
+    }
 
 }

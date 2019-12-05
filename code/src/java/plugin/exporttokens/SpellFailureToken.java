@@ -30,33 +30,33 @@ import pcgen.io.exporttoken.Token;
 //SPELLFAILURE
 public class SpellFailureToken extends Token
 {
-	public static final String TOKENNAME = "SPELLFAILURE";
+    public static final String TOKENNAME = "SPELLFAILURE";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	//TODO: Rip the processing of this token out of PlayerCharacter
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Integer.toString(getSpellFailure(pc));
-	}
+    //TODO: Rip the processing of this token out of PlayerCharacter
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Integer.toString(getSpellFailure(pc));
+    }
 
-	private int getSpellFailure(PlayerCharacter pc)
-	{
-		String spellFailVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCSPELLFAILURE);
-		if (spellFailVar == null)
-		{
-			int bonus = 0;
-			for (Equipment eq : pc.getEquippedEquipmentSet())
-			{
-				bonus += EqToken.getSpellFailureTokenInt(pc, eq);
-			}
-			return bonus + (int) pc.getTotalBonusTo("MISC", "SPELLFAILURE");
-		}
-		return ((Number) pc.getGlobal(spellFailVar)).intValue();
-	}
+    private int getSpellFailure(PlayerCharacter pc)
+    {
+        String spellFailVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCSPELLFAILURE);
+        if (spellFailVar == null)
+        {
+            int bonus = 0;
+            for (Equipment eq : pc.getEquippedEquipmentSet())
+            {
+                bonus += EqToken.getSpellFailureTokenInt(pc, eq);
+            }
+            return bonus + (int) pc.getTotalBonusTo("MISC", "SPELLFAILURE");
+        }
+        return ((Number) pc.getGlobal(spellFailVar)).intValue();
+    }
 }

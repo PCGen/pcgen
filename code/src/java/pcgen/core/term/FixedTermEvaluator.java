@@ -22,27 +22,27 @@ import pcgen.core.display.CharacterDisplay;
 
 public class FixedTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
-	private final int value;
+    private final int value;
 
-	FixedTermEvaluator(int i)
-	{
-		value = i;
-	}
+    FixedTermEvaluator(int i)
+    {
+        value = i;
+    }
 
-	@Override
-	public Float resolve(CharacterDisplay display)
-	{
-		return (float) value;
-	}
+    @Override
+    public Float resolve(CharacterDisplay display)
+    {
+        return (float) value;
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return true;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return true;
+    }
 
-	public boolean isStatic()
-	{
-		return false;
-	}
+    public boolean isStatic()
+    {
+        return false;
+    }
 }

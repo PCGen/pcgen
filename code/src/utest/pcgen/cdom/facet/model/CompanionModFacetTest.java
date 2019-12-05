@@ -25,22 +25,22 @@ import pcgen.core.character.CompanionMod;
 
 public class CompanionModFacetTest extends AbstractListFacetTest<CompanionMod>
 {
-	private CompanionModFacet facet = new CompanionModFacet();
+    private CompanionModFacet facet = new CompanionModFacet();
 
-	@Override
-	protected AbstractListFacet<CharID, CompanionMod> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractListFacet<CharID, CompanionMod> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected CompanionMod getObject()
-	{
-		CompanionMod t = new CompanionMod();
-		t.put(IntegerKey.LEVEL, n);
-		t.setName("CompanionMod" + n++);
-		return t;
-	}
+    @Override
+    protected CompanionMod getObject()
+    {
+        CompanionMod t = new CompanionMod();
+        t.put(IntegerKey.LEVEL, n);
+        t.setName("CompanionMod" + n++);
+        return t;
+    }
 }

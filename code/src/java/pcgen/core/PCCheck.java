@@ -26,15 +26,15 @@ import pcgen.cdom.enumeration.StringKey;
 
 public final class PCCheck extends PObject implements NonInteractive, SortKeyRequired, VarScoped
 {
-	@Override
-	public Optional<String> getLocalScopeName()
-	{
-		return Optional.of("PC.SAVE");
-	}
+    @Override
+    public Optional<String> getLocalScopeName()
+    {
+        return Optional.of("PC.SAVE");
+    }
 
-	@Override
-	public String getSortKey()
-	{
-		return get(StringKey.SORT_KEY);
-	}
+    @Override
+    public String getSortKey()
+    {
+        return get(StringKey.SORT_KEY);
+    }
 }

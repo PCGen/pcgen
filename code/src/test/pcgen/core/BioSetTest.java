@@ -44,125 +44,125 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class BioSetTest extends AbstractCharacterTestCase
 {
-	private static final String[] BIO_SET_DATA =
-			{
-				"AGESET:0|Adulthood",
-				"RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|"
-				+ "Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
-				"RACENAME:Human%		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|"
-				+ "TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|"
-						+ "TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
-				"RACENAME:Human%		BASEAGE:15	MAXAGE:34	AGEDIEROLL:5d4	HAIR:Blond|Brown	EYES:Blue	"
-						+ "SKINTONE:Tanned|Pasty",
-				"AGESET:1|Middle Age	BONUS:STAT|STR,CON,DEX|-1	BONUS:STAT|INT,WIS,CHA|1",
-				"RACENAME:Human%		BASEAGE:35	MAXAGE:52	AGEDIEROLL:3d6",
-				"AGESET:2|Old		BONUS:STAT|STR,CON,DEX|-3	BONUS:STAT|INT,WIS,CHA|2",
-				"RACENAME:Human%		BASEAGE:53	MAXAGE:69	AGEDIEROLL:4d4+1",
-				"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
-				"RACENAME:Human%		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10"};
+    private static final String[] BIO_SET_DATA =
+            {
+                    "AGESET:0|Adulthood",
+                    "RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|"
+                            + "Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
+                    "RACENAME:Human%		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|"
+                            + "TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|"
+                            + "TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
+                    "RACENAME:Human%		BASEAGE:15	MAXAGE:34	AGEDIEROLL:5d4	HAIR:Blond|Brown	EYES:Blue	"
+                            + "SKINTONE:Tanned|Pasty",
+                    "AGESET:1|Middle Age	BONUS:STAT|STR,CON,DEX|-1	BONUS:STAT|INT,WIS,CHA|1",
+                    "RACENAME:Human%		BASEAGE:35	MAXAGE:52	AGEDIEROLL:3d6",
+                    "AGESET:2|Old		BONUS:STAT|STR,CON,DEX|-3	BONUS:STAT|INT,WIS,CHA|2",
+                    "RACENAME:Human%		BASEAGE:53	MAXAGE:69	AGEDIEROLL:4d4+1",
+                    "AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
+                    "RACENAME:Human%		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10"};
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA,
-			new BioSetLoader());
-		finishLoad();
-	}
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA,
+                new BioSetLoader());
+        finishLoad();
+    }
 
-	@AfterEach
-	@Override
-	protected void tearDown() throws Exception
-	{
-		SettingsHandler.getGame().getBioSet().clearUserMap();
+    @AfterEach
+    @Override
+    protected void tearDown() throws Exception
+    {
+        SettingsHandler.getGame().getBioSet().clearUserMap();
 
-		super.tearDown();
-	}
+        super.tearDown();
+    }
 
-	/**
-	 * Verify that the randomize function in BioSet
-	 * is functioning properly.
-	 */
-	@Test
-	public void testRandomize()
-	{
-		final int[] BASE_AGE = {15, 35, 53, 70};
-		final int[] MAX_AGE = {34, 52, 69, 110};
+    /**
+     * Verify that the randomize function in BioSet
+     * is functioning properly.
+     */
+    @Test
+    public void testRandomize()
+    {
+        final int[] BASE_AGE = {15, 35, 53, 70};
+        final int[] MAX_AGE = {34, 52, 69, 110};
 
-		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
-		final PlayerCharacter pc = getCharacter();
-		final Race human = new Race();
-		human.setName("NAME_Human");
-		human.put(StringKey.KEY_NAME, "Human");
-		pc.setRace(human);
-		for (int ageCat = 0; ageCat < MAX_AGE.length; ageCat++)
-		{
-			currBioSet.randomize("AGECAT" + ageCat, pc);
-			final int age = pc.getDisplay().getAge();
-			//System.out.println("Age for cat " + ageCat + " is " + age + ".");
-			assertTrue(
-					(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]), "Generated age " + age + " is not between "
-						+ BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat]);
-		}
-		LocaleDependentTestCase.before(Locale.US);
-		currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
-		LocaleDependentTestCase.after();
-		assertTrue((pc.getDisplay().getHeight() >= 58 && pc
-					.getDisplay().getHeight() <= 78), "Generated height " + pc.getDisplay().getHeight()
-						+ " is not in required range.");
-		assertTrue((pc.getDisplay().getWeight() >= 120 && pc
-					.getDisplay().getWeight() <= 280), "Generated weight " + pc.getDisplay().getWeight()
-						+ " is not in required range.");
-		assertEquals("Blue", pc.getSafeStringFor(PCStringKey.EYECOLOR), "Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
-				+ " is not valid.");
-		assertTrue(("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
-			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))), "Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
-				+ " is not valid.");
-		assertTrue(("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
-			.equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))), "Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
-				+ " is not valid.");
-	}
+        final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
+        final PlayerCharacter pc = getCharacter();
+        final Race human = new Race();
+        human.setName("NAME_Human");
+        human.put(StringKey.KEY_NAME, "Human");
+        pc.setRace(human);
+        for (int ageCat = 0;ageCat < MAX_AGE.length;ageCat++)
+        {
+            currBioSet.randomize("AGECAT" + ageCat, pc);
+            final int age = pc.getDisplay().getAge();
+            //System.out.println("Age for cat " + ageCat + " is " + age + ".");
+            assertTrue(
+                    (age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]), "Generated age " + age + " is not between "
+                            + BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat]);
+        }
+        LocaleDependentTestCase.before(Locale.US);
+        currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
+        LocaleDependentTestCase.after();
+        assertTrue((pc.getDisplay().getHeight() >= 58 && pc
+                .getDisplay().getHeight() <= 78), "Generated height " + pc.getDisplay().getHeight()
+                + " is not in required range.");
+        assertTrue((pc.getDisplay().getWeight() >= 120 && pc
+                .getDisplay().getWeight() <= 280), "Generated weight " + pc.getDisplay().getWeight()
+                + " is not in required range.");
+        assertEquals("Blue", pc.getSafeStringFor(PCStringKey.EYECOLOR), "Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
+                + " is not valid.");
+        assertTrue(("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
+                .equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))), "Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
+                + " is not valid.");
+        assertTrue(("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
+                .equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))), "Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
+                + " is not valid.");
+    }
 
-	/**
-	 * Test the age set
-	 */
-	@Test
-	public void testAgeSet()
-	{
-		final PlayerCharacter pc = getCharacter();
-		CharacterDisplay display = pc.getDisplay();
-		final Race human = new Race();
-		human.setName("Human");
-		pc.setRace(human);
-		pc.setPCAttribute(NumericPCAttribute.AGE, 12);
-		int idx = display.getAgeSetIndex();
-		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
+    /**
+     * Test the age set
+     */
+    @Test
+    public void testAgeSet()
+    {
+        final PlayerCharacter pc = getCharacter();
+        CharacterDisplay display = pc.getDisplay();
+        final Race human = new Race();
+        human.setName("Human");
+        pc.setRace(human);
+        pc.setPCAttribute(NumericPCAttribute.AGE, 12);
+        int idx = display.getAgeSetIndex();
+        assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 17);
-		idx = display.getAgeSetIndex();
-		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
+        pc.setPCAttribute(NumericPCAttribute.AGE, 17);
+        idx = display.getAgeSetIndex();
+        assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 36);
-		idx = display.getAgeSetIndex();
-		assertEquals(1, idx, "Ageset for " + display.getAge() + ".");
+        pc.setPCAttribute(NumericPCAttribute.AGE, 36);
+        idx = display.getAgeSetIndex();
+        assertEquals(1, idx, "Ageset for " + display.getAge() + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 54);
-		idx = display.getAgeSetIndex();
-		assertEquals(2, idx, "Ageset for " + display.getAge() + ".");
+        pc.setPCAttribute(NumericPCAttribute.AGE, 54);
+        idx = display.getAgeSetIndex();
+        assertEquals(2, idx, "Ageset for " + display.getAge() + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 72);
-		idx = display.getAgeSetIndex();
-		assertEquals(3, idx, "Ageset for " + display.getAge() + ".");
+        pc.setPCAttribute(NumericPCAttribute.AGE, 72);
+        idx = display.getAgeSetIndex();
+        assertEquals(3, idx, "Ageset for " + display.getAge() + ".");
 
-		Optional<Region> region = pc.getDisplay().getRegion();
-		SettingsHandler.getGame().getBioSet().getAgeSet(region, idx);
+        Optional<Region> region = pc.getDisplay().getRegion();
+        SettingsHandler.getGame().getBioSet().getAgeSet(region, idx);
 
-	}
+    }
 
-	@Override
-	protected void defaultSetupEnd()
-	{
-		//Nothing, we will trigger ourselves
-	}
+    @Override
+    protected void defaultSetupEnd()
+    {
+        //Nothing, we will trigger ourselves
+    }
 }

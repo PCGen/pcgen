@@ -30,48 +30,48 @@ import pcgen.rules.persistence.token.ParseResult;
 public class ArmorProficiencyToken extends AbstractQualifiedChooseToken<ArmorProf>
 {
 
-	private static final Class<ArmorProf> ARMORPROF_CLASS = ArmorProf.class;
+    private static final Class<ArmorProf> ARMORPROF_CLASS = ArmorProf.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "ARMORPROFICIENCY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ARMORPROFICIENCY";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Armor Proficiency choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Armor Proficiency choice";
+    }
 
-	@Override
-	public ArmorProf decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, s);
-	}
+    @Override
+    public ArmorProf decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(ArmorProf choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(ArmorProf choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<ArmorProf> getListKey()
-	{
-		return AssociationListKey.getKeyFor(ARMORPROF_CLASS, "CHOOSE*ARMORPROF");
-	}
+    @Override
+    protected AssociationListKey<ArmorProf> getListKey()
+    {
+        return AssociationListKey.getKeyFor(ARMORPROF_CLASS, "CHOOSE*ARMORPROF");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(ARMORPROF_CLASS),
-			obj, value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(ARMORPROF_CLASS),
+                obj, value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "ARMORPROF";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "ARMORPROF";
+    }
 }

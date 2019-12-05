@@ -1,720 +1,720 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Eric C. Smith - mareduddATblackrootDOTcom
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Eric C. Smith - mareduddATblackrootDOTcom
 
-                Description:
-                Provides information on the content of PCGen Deity Files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Deity Files
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Deity Files
-  </h1>
-  <p class="indent0">
-   The Deity files are used to specify deity
-pertinent information, such as the domains they grant, what
-alignments their clerics must be and chosen weapon if they have the
-War domain.
-  </p>
-  <hr/>
-  <h2>
-   How to Build a Deity
-  </h2>
-  <p class="indent1">
-   Information about building deities can be found
-in Lst File Class
-   <a href="../lstfileclass/lfc_lesson14_deities.html">
-    Lesson 14:
-Deities
-   </a>
-   .
-  </p>
-  <hr/>
-  <h2>
-   Deity File Tag Dictionary
-  </h2>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="align" name="align">
-     Tag
-Name:
+               Description:
+               Provides information on the content of PCGen Deity Files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Deity Files
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Deity Files
+</h1>
+<p class="indent0">
+    The Deity files are used to specify deity
+    pertinent information, such as the domains they grant, what
+    alignments their clerics must be and chosen weapon if they have the
+    War domain.
+</p>
+<hr/>
+<h2>
+    How to Build a Deity
+</h2>
+<p class="indent1">
+    Information about building deities can be found
+    in Lst File Class
+    <a href="../lstfileclass/lfc_lesson14_deities.html">
+        Lesson 14:
+        Deities
     </a>
-   </strong>
-   ALIGN:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (LG,
-LN, LE, NG, TN, NE, CG, CN or CE)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is the two letter abbreviated alignment of
-the deity itself.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALIGN:LG</code>
-  </p>
-  <p class="indent3">
-   The deity's alignment is Lawful Good.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; ALIGN:LG</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; ALIGN:NG</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; ALIGN:NG</code>
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="appearance" name="appearance">
-    ***
-Deprecated 6.05.1 - use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   APPEARANCE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Description of what the Deity looks like
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is used for a description of what the deity
-looks like.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>APPEARANCE:Tall human with dark
-hair</code>
-  </p>
-  <p class="indent3">
-   The deity's description of appearance.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; APPEARANCE:Tall human with dark hair</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; APPEARANCE:Tall human with white hair</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; APPEARANCE:Tall human with white hair</code>
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="deityweap" name="deityweap">
-    *** Updated
-6.3.0
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   DEITYWEAP:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Weapon Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   ANY
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEAR
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a | (pipe) delimited list of the deity's favored
-weapon(s). (or a choice of one of the weapons if more than one is
-listed).
-   </li>
-   <li>
-    ANY will produce a list of all loaded proficiencies for the War
-domain.
-   </li>
-   <li>
-    The Weapon name MUST match exactly what is listed in the weapon
-proficiencies list file.
-   </li>
-   <li>
-    Using
-    <code>.CLEAR</code>
-    will clear all deity weapons from the
-associated deity.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DEITYWEAP:Sword (Long)</code>
-  </p>
-  <p class="indent3">
-   The deity's favored weapon is a "Long
-Sword".
-  </p>
-  <p class="indent2">
-   <code>DEITYWEAP:Longspear|Shortspear|Halfspear</code>
-  </p>
-  <p class="indent3">
-   The deity's favored weapon is either a
-"Longspear", "Shortspear" or "Halfspear".
-  </p>
-  <p class="indent2">
-   <code>DEITYWEAP:ANY</code>
-  </p>
-  <p class="indent3">
-   The deity's favored weapon can be any
-weapon.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Appending):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; DEITYWEAP:Longsword</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; DEITYWEAP:Scimitar</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; DEITYWEAP:Longsword|Scimitar</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="domains" name="domains">
-     Tag
-Name:
+    .
+</p>
+<hr/>
+<h2>
+    Deity File Tag Dictionary
+</h2>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="align" name="align">
+            Tag
+            Name:
+        </a>
+    </strong>
+    ALIGN:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (LG,
+    LN, LE, NG, TN, NE, CG, CN or CE)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is the two letter abbreviated alignment of
+    the deity itself.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALIGN:LG</code>
+</p>
+<p class="indent3">
+    The deity's alignment is Lawful Good.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; ALIGN:LG</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; ALIGN:NG</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; ALIGN:NG</code>
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="appearance" name="appearance">
+        ***
+        Deprecated 6.05.1 - use FACT
     </a>
-   </strong>
-   DOMAINS:x,x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Domain Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-('ALL')
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEAR
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEAR.Text
-(Domain Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a comma-delimited list of domains that the deity grants
-to it's divine spell casting followers.
-   </li>
-   <li>
-    The domain name MUST match the domain names listed in the
-domain list file.
-   </li>
-   <li>
-    A domain entry of .CLEAR will remove all previously listed
-domains for the deity.
-   </li>
-   <li>
-    A domain entry of .CLEAR.name will remove the domain called
-"name" from the deity's domain list.
-   </li>
-   <li>
-    A domain entry of ALL will provide access to all domains for
-the deity and makes additional domain designations
-uncessecary.
-   </li>
-   <li>
-    Multiple DOMAINS tags may be present for a deity. They will all
-add to the list of the deity's domains.
-   </li>
-   <li>
-    PRExxx tags can be added at the end of DOMAINS tags to apply
-restrictions on which divine casters are allowed to select the
-domain.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DOMAINS:War,Law,Protection|PREALIGN:LG,NG,TN,CG</code>
-  </p>
-  <p class="indent3">
-   The deity grants two of either the "War", "Law"
-or "Protection" domains, but only if the cleric has one of the
-listed alignments.
-  </p>
-  <p class="indent2">
-   <code>DOMAINS:ALL</code>
-  </p>
-  <p class="indent3">
-   The deity grants two of any domains.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Appending):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; DOMAINS:Law</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; DOMAINS:Evil</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; DOMAINS:Law,Evil</code>
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="pantheon" name="pantheon">
-    *** Deprecated
-6.05.1 - use FACTSET
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   PANTHEON:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Pantheon Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEAR
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    To specify what pantheon the deity belongs to.
-   </li>
-   <li>
-    This is a pipe (|) delimited list.
-   </li>
-   <li>
-    The deity belongs to all pantheons if this tag is not
-present.
-   </li>
-   <li>
-    Using
-    <code>.CLEAR</code>
-    will clear the pantheon from the
-deities profile.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PANTHEON:Celtic</code>
-  </p>
-  <p class="indent3">
-   The deity belongs to the "Celtic" pantheon.
-  </p>
-  <p class="indent2">
-   <code>PANTHEON:Celtic|Elf (Sun)</code>
-  </p>
-  <p class="indent3">
-   The deity belongs to the "Celtic" or "Sun Elf"
-pantheon.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Appending):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; PANTHEON:Celtic</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; PANTHEON:Elf</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; PANTHEON:Celtic|Elf</code>
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="race" name="race">
-    *** Deprecated 6.05.1 -
-use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   RACE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Race
-of typical Worshippers)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is used to identify the race of the typical
-worshippers of a Deity.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>RACE:Dwarf|Gnome</code>
-  </p>
-  <p class="indent3">
-   The deity's typical worshippers are Dwarves and
-Gnomes.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Appending):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; RACE:Elf</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; RACE:Halfling</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; RACE:Elf|Halfling</code>
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="symbol" name="symbol">
-    *** Deprecated
-6.05.1 - use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SYMBOL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Symbol Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Used on the output sheet to display what the
-holy symbol is for this deity.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SYMBOL:A small wooden cross</code>
-  </p>
-  <p class="indent3">
-   The deity's symbol is a small wooden cross.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; SYMBOL:Knowed Snake</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; SYMBOL:Frayed Knot</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; SYMBOL:Frayed Knot</code>
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="title" name="title">
-    *** Deprecated 6.05.1
-- use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   TITLE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-Deity's title)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is used for a the deity's title.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TITLE:Lord of the Morning</code>
-  </p>
-  <p class="indent3">
-   The deity's title.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; TITLE:War Bringer</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; TITLE:The Storm Crow</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; TITLE:The Storm Crow</code>
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="worshippers" name="worshippers">
-    ***
-Deprecated 6.05.1 - use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   WORSHIPPERS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-Deity's typical worshippers)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is used for a the deity's typical
-worshippers.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WORSHIPPERS:Fighters and Monks</code>
-  </p>
-  <p class="indent3">
-   The deity's typical worshippers.
-  </p>
-  <p class="indent1">
-   <strong>
-    .MOD Example (Overwriting):
-   </strong>
-  </p>
-  <p class="indent2">
-   Initial Deity:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; WORSHIPPERS:Fighters and Monks</code>
-  </p>
-  <p class="indent2">
-   Modified By:
-   <code>&lt;deity name&gt;.MOD
-&lt;tab&gt; WORSHIPPERS:Rogues and Ninjas</code>
-  </p>
-  <p class="indent2">
-   Is Equivalent To:
-   <code>&lt;deity name&gt;
-&lt;tab&gt; WORSHIPPERS:Ronues and Ninjas</code>
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    APPEARANCE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Description of what the Deity looks like
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is used for a description of what the deity
+    looks like.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>APPEARANCE:Tall human with dark
+        hair</code>
+</p>
+<p class="indent3">
+    The deity's description of appearance.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; APPEARANCE:Tall human with dark hair</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; APPEARANCE:Tall human with white hair</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; APPEARANCE:Tall human with white hair</code>
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="deityweap" name="deityweap">
+        *** Updated
+        6.3.0
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    DEITYWEAP:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Weapon Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    ANY
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEAR
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a | (pipe) delimited list of the deity's favored
+        weapon(s). (or a choice of one of the weapons if more than one is
+        listed).
+    </li>
+    <li>
+        ANY will produce a list of all loaded proficiencies for the War
+        domain.
+    </li>
+    <li>
+        The Weapon name MUST match exactly what is listed in the weapon
+        proficiencies list file.
+    </li>
+    <li>
+        Using
+        <code>.CLEAR</code>
+        will clear all deity weapons from the
+        associated deity.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DEITYWEAP:Sword (Long)</code>
+</p>
+<p class="indent3">
+    The deity's favored weapon is a "Long
+    Sword".
+</p>
+<p class="indent2">
+    <code>DEITYWEAP:Longspear|Shortspear|Halfspear</code>
+</p>
+<p class="indent3">
+    The deity's favored weapon is either a
+    "Longspear", "Shortspear" or "Halfspear".
+</p>
+<p class="indent2">
+    <code>DEITYWEAP:ANY</code>
+</p>
+<p class="indent3">
+    The deity's favored weapon can be any
+    weapon.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Appending):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; DEITYWEAP:Longsword</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; DEITYWEAP:Scimitar</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; DEITYWEAP:Longsword|Scimitar</code>
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="domains" name="domains">
+            Tag
+            Name:
+        </a>
+    </strong>
+    DOMAINS:x,x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Domain Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    ('ALL')
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEAR
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEAR.Text
+    (Domain Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a comma-delimited list of domains that the deity grants
+        to it's divine spell casting followers.
+    </li>
+    <li>
+        The domain name MUST match the domain names listed in the
+        domain list file.
+    </li>
+    <li>
+        A domain entry of .CLEAR will remove all previously listed
+        domains for the deity.
+    </li>
+    <li>
+        A domain entry of .CLEAR.name will remove the domain called
+        "name" from the deity's domain list.
+    </li>
+    <li>
+        A domain entry of ALL will provide access to all domains for
+        the deity and makes additional domain designations
+        uncessecary.
+    </li>
+    <li>
+        Multiple DOMAINS tags may be present for a deity. They will all
+        add to the list of the deity's domains.
+    </li>
+    <li>
+        PRExxx tags can be added at the end of DOMAINS tags to apply
+        restrictions on which divine casters are allowed to select the
+        domain.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DOMAINS:War,Law,Protection|PREALIGN:LG,NG,TN,CG</code>
+</p>
+<p class="indent3">
+    The deity grants two of either the "War", "Law"
+    or "Protection" domains, but only if the cleric has one of the
+    listed alignments.
+</p>
+<p class="indent2">
+    <code>DOMAINS:ALL</code>
+</p>
+<p class="indent3">
+    The deity grants two of any domains.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Appending):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; DOMAINS:Law</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; DOMAINS:Evil</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; DOMAINS:Law,Evil</code>
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="pantheon" name="pantheon">
+        *** Deprecated
+        6.05.1 - use FACTSET
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    PANTHEON:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Pantheon Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEAR
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        To specify what pantheon the deity belongs to.
+    </li>
+    <li>
+        This is a pipe (|) delimited list.
+    </li>
+    <li>
+        The deity belongs to all pantheons if this tag is not
+        present.
+    </li>
+    <li>
+        Using
+        <code>.CLEAR</code>
+        will clear the pantheon from the
+        deities profile.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>PANTHEON:Celtic</code>
+</p>
+<p class="indent3">
+    The deity belongs to the "Celtic" pantheon.
+</p>
+<p class="indent2">
+    <code>PANTHEON:Celtic|Elf (Sun)</code>
+</p>
+<p class="indent3">
+    The deity belongs to the "Celtic" or "Sun Elf"
+    pantheon.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Appending):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; PANTHEON:Celtic</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; PANTHEON:Elf</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; PANTHEON:Celtic|Elf</code>
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="race" name="race">
+        *** Deprecated 6.05.1 -
+        use FACT
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    RACE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Race
+    of typical Worshippers)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is used to identify the race of the typical
+    worshippers of a Deity.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>RACE:Dwarf|Gnome</code>
+</p>
+<p class="indent3">
+    The deity's typical worshippers are Dwarves and
+    Gnomes.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Appending):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; RACE:Elf</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; RACE:Halfling</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; RACE:Elf|Halfling</code>
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="symbol" name="symbol">
+        *** Deprecated
+        6.05.1 - use FACT
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SYMBOL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Symbol Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Used on the output sheet to display what the
+    holy symbol is for this deity.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SYMBOL:A small wooden cross</code>
+</p>
+<p class="indent3">
+    The deity's symbol is a small wooden cross.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; SYMBOL:Knowed Snake</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; SYMBOL:Frayed Knot</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; SYMBOL:Frayed Knot</code>
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="title" name="title">
+        *** Deprecated 6.05.1
+        - use FACT
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    TITLE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    Deity's title)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is used for a the deity's title.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TITLE:Lord of the Morning</code>
+</p>
+<p class="indent3">
+    The deity's title.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; TITLE:War Bringer</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; TITLE:The Storm Crow</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; TITLE:The Storm Crow</code>
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="worshippers" name="worshippers">
+        ***
+        Deprecated 6.05.1 - use FACT
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    WORSHIPPERS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    Deity's typical worshippers)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is used for a the deity's typical
+    worshippers.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WORSHIPPERS:Fighters and Monks</code>
+</p>
+<p class="indent3">
+    The deity's typical worshippers.
+</p>
+<p class="indent1">
+    <strong>
+        .MOD Example (Overwriting):
+    </strong>
+</p>
+<p class="indent2">
+    Initial Deity:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; WORSHIPPERS:Fighters and Monks</code>
+</p>
+<p class="indent2">
+    Modified By:
+    <code>&lt;deity name&gt;.MOD
+        &lt;tab&gt; WORSHIPPERS:Rogues and Ninjas</code>
+</p>
+<p class="indent2">
+    Is Equivalent To:
+    <code>&lt;deity name&gt;
+        &lt;tab&gt; WORSHIPPERS:Ronues and Ninjas</code>
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

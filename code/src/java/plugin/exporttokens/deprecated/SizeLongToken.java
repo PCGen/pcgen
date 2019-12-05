@@ -28,20 +28,20 @@ import pcgen.io.exporttoken.Token;
  */
 public class SizeLongToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "SIZELONG";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SIZELONG";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		final SizeAdjustment sadj = pc.getSizeAdjustment();
-		if (sadj != null)
-		{
-			return sadj.getDisplayName();
-		}
-		return "";
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        final SizeAdjustment sadj = pc.getSizeAdjustment();
+        if (sadj != null)
+        {
+            return sadj.getDisplayName();
+        }
+        return "";
+    }
 }

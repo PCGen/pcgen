@@ -9,16 +9,16 @@ import pcgen.persistence.lst.EquipSlotLstToken;
 public class EqslotToken implements EquipSlotLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "EQSLOT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "EQSLOT";
+    }
 
-	@Override
-	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
-	{
-		eqSlot.setSlotName(value.intern());
-		return true;
-	}
+    @Override
+    public boolean parse(EquipSlot eqSlot, String value, String gameMode)
+    {
+        eqSlot.setSlotName(value.intern());
+        return true;
+    }
 }

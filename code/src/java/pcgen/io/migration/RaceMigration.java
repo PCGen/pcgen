@@ -27,39 +27,38 @@ import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 
 /**
- * RaceMigration translates old race keys into their current values. This is 
- * used to allow clean loading of older characters which were saved with race 
+ * RaceMigration translates old race keys into their current values. This is
+ * used to allow clean loading of older characters which were saved with race
  * keys that have now been changed in the data.
- * 
  */
 public final class RaceMigration
 {
-	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<>();
+    private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<>();
 
-	private RaceMigration()
-	{
-	}
+    private RaceMigration()
+    {
+    }
 
-	/**
-	 * Find the new race key to replace the provided one.
-	 * 
-	 * @param raceKey The original race key as found in the character file.
-	 * @param pcgVer The version of PCGen in which the character was created.
-	 * @return The new race key, or the passed in one if it has not changed.
-	 */
-	public static String getNewRaceKey(String raceKey, int[] pcgVer, String gameModeName)
-	{
-		List<MigrationRule> raceChangeList = raceChangesForVer.computeIfAbsent(pcgVer,
-			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.RACE));
+    /**
+     * Find the new race key to replace the provided one.
+     *
+     * @param raceKey The original race key as found in the character file.
+     * @param pcgVer  The version of PCGen in which the character was created.
+     * @return The new race key, or the passed in one if it has not changed.
+     */
+    public static String getNewRaceKey(String raceKey, int[] pcgVer, String gameModeName)
+    {
+        List<MigrationRule> raceChangeList = raceChangesForVer.computeIfAbsent(pcgVer,
+                v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.RACE));
 
-		for (MigrationRule rule : raceChangeList)
-		{
-			if (rule.getOldKey().equalsIgnoreCase(raceKey))
-			{
-				return rule.getNewKey();
-			}
-		}
-		return raceKey;
-	}
+        for (MigrationRule rule : raceChangeList)
+        {
+            if (rule.getOldKey().equalsIgnoreCase(raceKey))
+            {
+                return rule.getNewKey();
+            }
+        }
+        return raceKey;
+    }
 
 }

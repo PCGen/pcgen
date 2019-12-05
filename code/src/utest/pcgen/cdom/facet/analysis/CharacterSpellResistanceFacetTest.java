@@ -33,64 +33,64 @@ import pcgen.core.Race;
 import org.junit.jupiter.api.BeforeEach;
 
 public class CharacterSpellResistanceFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, Formula>
+        AbstractExtractingFacetTest<CDOMObject, Formula>
 {
 
-	private CharacterSpellResistanceFacet facet =
-			new CharacterSpellResistanceFacet();
-	private Formula[] target;
-	private CDOMObject[] source;
+    private CharacterSpellResistanceFacet facet =
+            new CharacterSpellResistanceFacet();
+    private Formula[] target;
+    private CDOMObject[] source;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Templ");
-		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race");
-		PCStat pcs1 = new PCStat();
-		pcs1.setName("Stat1");
-		PCStat pcs2 = new PCStat();
-		pcs2.setName("Stat2");
-		Formula st1 = FormulaFactory.getFormulaFor(4);
-		Formula st2 = FormulaFactory.getFormulaFor(2);
-		cdo1.put(ObjectKey.SR, new SpellResistance(st1));
-		cdo2.put(ObjectKey.SR, new SpellResistance(st2));
-		source = new CDOMObject[]{cdo1, cdo2};
-		target = new Formula[]{st1, st2};
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        CDOMObject cdo1 = new PCTemplate();
+        cdo1.setName("Templ");
+        CDOMObject cdo2 = new Race();
+        cdo2.setName("Race");
+        PCStat pcs1 = new PCStat();
+        pcs1.setName("Stat1");
+        PCStat pcs2 = new PCStat();
+        pcs2.setName("Stat2");
+        Formula st1 = FormulaFactory.getFormulaFor(4);
+        Formula st2 = FormulaFactory.getFormulaFor(2);
+        cdo1.put(ObjectKey.SR, new SpellResistance(st1));
+        cdo2.put(ObjectKey.SR, new SpellResistance(st2));
+        source = new CDOMObject[]{cdo1, cdo2};
+        target = new Formula[]{st1, st2};
+    }
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, Formula> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, Formula> getFacet()
+    {
+        return facet;
+    }
 
-	private static int n = 0;
+    private static int n = 0;
 
-	@Override
-	protected Formula getObject()
-	{
-		return FormulaFactory.getFormulaFor(n++);
-	}
+    @Override
+    protected Formula getObject()
+    {
+        return FormulaFactory.getFormulaFor(n++);
+    }
 
-	@Override
-	protected CDOMObject getContainingObject(int i)
-	{
-		return source[i];
-	}
+    @Override
+    protected CDOMObject getContainingObject(int i)
+    {
+        return source[i];
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, CDOMObject> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected Formula getTargetObject(int i)
-	{
-		return target[i];
-	}
+    @Override
+    protected Formula getTargetObject(int i)
+    {
+        return target[i];
+    }
 }

@@ -27,16 +27,16 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class InterestsToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "INTERESTS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "INTERESTS";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getInterests();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getInterests();
+    }
 
 }

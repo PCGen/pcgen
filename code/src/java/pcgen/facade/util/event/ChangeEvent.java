@@ -22,22 +22,23 @@ import java.util.EventObject;
 /**
  * The Class {@code ChangeEvent} indicates the source object, or
  * associated data, was modified in some way.
- *
- * 
  */
 public class ChangeEvent extends EventObject
 {
 
-	/** ID for serialization. */
-	private static final long serialVersionUID = 4689320734592481155L;
+    /**
+     * ID for serialization.
+     */
+    private static final long serialVersionUID = 4689320734592481155L;
 
-	/**
-	 * Create a new instance of ChangeEvent
-	 * @param source The object being changed
-	 */
-	public ChangeEvent(Object source)
-	{
-		super(source);
-	}
+    /**
+     * Create a new instance of ChangeEvent
+     *
+     * @param source The object being changed
+     */
+    public ChangeEvent(Object source)
+    {
+        super(source);
+    }
 
 }

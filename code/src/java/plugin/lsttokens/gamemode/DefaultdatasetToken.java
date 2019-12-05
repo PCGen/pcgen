@@ -27,36 +27,34 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * The Class {@code DefaultdatasetToken} is responsible for parsing
  * the value of the DEFAULTDATASET tag and processing it against the game mode..
- * 
- * 
  */
 public class DefaultdatasetToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "DEFAULTDATASET";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DEFAULTDATASET";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		String[] tokens = value.split("\\|");
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        String[] tokens = value.split("\\|");
 
-		final StringTokenizer aTok = new StringTokenizer(tokens[0], ",", false);
-		gameMode.clearDefaultDataSetList();
+        final StringTokenizer aTok = new StringTokenizer(tokens[0], ",", false);
+        gameMode.clearDefaultDataSetList();
 
-		while (aTok.hasMoreTokens())
-		{
-			final String aString = aTok.nextToken();
+        while (aTok.hasMoreTokens())
+        {
+            final String aString = aTok.nextToken();
 
-			gameMode.addDefaultDataSet(aString);
-		}
-		if (tokens.length > 1)
-		{
-			gameMode.setDefaultSourceTitle(tokens[1]);
-		}
-		return true;
-	}
+            gameMode.addDefaultDataSet(aString);
+        }
+        if (tokens.length > 1)
+        {
+            gameMode.setDefaultSourceTitle(tokens[1]);
+        }
+        return true;
+    }
 }

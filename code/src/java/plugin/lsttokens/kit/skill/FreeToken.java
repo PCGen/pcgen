@@ -29,60 +29,59 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class FreeToken extends AbstractNonEmptyToken<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "FREE";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "FREE";
+    }
 
-	@Override
-	public Class<KitSkill> getTokenClass()
-	{
-		return KitSkill.class;
-	}
+    @Override
+    public Class<KitSkill> getTokenClass()
+    {
+        return KitSkill.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill, String value)
-	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
-			}
-			set = Boolean.FALSE;
-		}
-		kitSkill.setFree(set);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill, String value)
+    {
+        Boolean set;
+        char firstChar = value.charAt(0);
+        if (firstChar == 'y' || firstChar == 'Y')
+        {
+            if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+            {
+                return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
+            }
+            set = Boolean.TRUE;
+        } else
+        {
+            if (firstChar != 'N' && firstChar != 'n')
+            {
+                return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
+            }
+            if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+            {
+                return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
+            }
+            set = Boolean.FALSE;
+        }
+        kitSkill.setFree(set);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitSkill kitSkill)
-	{
-		Boolean mult = kitSkill.getFree();
-		if (mult == null)
-		{
-			return null;
-		}
-		return new String[]{mult ? "YES" : "NO"};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitSkill kitSkill)
+    {
+        Boolean mult = kitSkill.getFree();
+        if (mult == null)
+        {
+            return null;
+        }
+        return new String[]{mult ? "YES" : "NO"};
+    }
 }

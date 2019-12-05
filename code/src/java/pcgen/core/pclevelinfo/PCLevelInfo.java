@@ -32,324 +32,321 @@ import pcgen.core.bonus.BonusUtilities;
 
 /**
  * {@code PCLevelInfo}.
- *
+ * <p>
  * Represents the data kept about a level that a PC has added.
  */
 public final class PCLevelInfo implements Cloneable
 {
-	private List<PCLevelInfoStat> statsPostModified = null;
-	private List<PCLevelInfoStat> statsPreModified = null;
-	private String classKeyName = "";
-	private int classLevel = 0;
-	private int skillPointsGained = Integer.MIN_VALUE;
-	private int skillPointsRemaining = 0;
+    private List<PCLevelInfoStat> statsPostModified = null;
+    private List<PCLevelInfoStat> statsPreModified = null;
+    private String classKeyName = "";
+    private int classLevel = 0;
+    private int skillPointsGained = Integer.MIN_VALUE;
+    private int skillPointsRemaining = 0;
 
-	/**
-	 * Creates a new PCLevelInfo object.
-	 *
-	 * @param  argClassKeyName  The KeyName of the class taken at this level
-	 */
-	public PCLevelInfo(final String argClassKeyName)
-	{
-		classKeyName = argClassKeyName;
-	}
+    /**
+     * Creates a new PCLevelInfo object.
+     *
+     * @param argClassKeyName The KeyName of the class taken at this level
+     */
+    public PCLevelInfo(final String argClassKeyName)
+    {
+        classKeyName = argClassKeyName;
+    }
 
-	/**
-	 * Set the Class at this level
-	 *
-	 * @param  argClassKeyName  the KeyName of the class
-	 */
-	public void setClassKeyName(final String argClassKeyName)
-	{
-		classKeyName = argClassKeyName;
-	}
+    /**
+     * Set the Class at this level
+     *
+     * @param argClassKeyName the KeyName of the class
+     */
+    public void setClassKeyName(final String argClassKeyName)
+    {
+        classKeyName = argClassKeyName;
+    }
 
-	/**
-	 * @return  the Keyname of the Class at this level
-	 */
-	public String getClassKeyName()
-	{
-		return classKeyName;
-	}
+    /**
+     * @return the Keyname of the Class at this level
+     */
+    public String getClassKeyName()
+    {
+        return classKeyName;
+    }
 
-	/**
-	 * Set the level that this represents
-	 *
-	 * @param  arg  an int representing the level
-	 */
-	public void setClassLevel(final int arg)
-	{
-		classLevel = arg;
-	}
+    /**
+     * Set the level that this represents
+     *
+     * @param arg an int representing the level
+     */
+    public void setClassLevel(final int arg)
+    {
+        classLevel = arg;
+    }
 
-	/**
-	 * @return  an int representing the level
-	 */
-	public int getClassLevel()
-	{
-		return classLevel;
-	}
+    /**
+     * @return an int representing the level
+     */
+    public int getClassLevel()
+    {
+        return classLevel;
+    }
 
-	/**
-	 * Get a list of character stats
-	 *
-	 * @param   preMod  Whether any increment gaind at this level should be
-	 *                  applied
-	 *
-	 * @return  a list of character stats at this level
-	 */
-	public List<PCLevelInfoStat> getModifiedStats(final boolean preMod)
-	{
-		List<PCLevelInfoStat> result = statsPostModified;
+    /**
+     * Get a list of character stats
+     *
+     * @param preMod Whether any increment gaind at this level should be
+     *               applied
+     * @return a list of character stats at this level
+     */
+    public List<PCLevelInfoStat> getModifiedStats(final boolean preMod)
+    {
+        List<PCLevelInfoStat> result = statsPostModified;
 
-		if (preMod)
-		{
-			result = statsPreModified;
-		}
+        if (preMod)
+        {
+            result = statsPreModified;
+        }
 
-		return result;
-	}
+        return result;
+    }
 
-	/**
-	 * Set the number of kill points gained at this level
-	 *
-	 * @param  arg  the number of skill points gained
-	 */
-	public void setSkillPointsGained(PlayerCharacter aPC, final int arg)
-	{
-		final int bonusPoints = getBonusSkillPool(aPC);
-		setFixedSkillPointsGained(arg + bonusPoints);
-	}
+    /**
+     * Set the number of kill points gained at this level
+     *
+     * @param arg the number of skill points gained
+     */
+    public void setSkillPointsGained(PlayerCharacter aPC, final int arg)
+    {
+        final int bonusPoints = getBonusSkillPool(aPC);
+        setFixedSkillPointsGained(arg + bonusPoints);
+    }
 
-	/**
-	 * @param pc TODO
-	 * @return  the number of skill points gained
-	 */
-	public int getSkillPointsGained(PlayerCharacter pc)
-	{
-		// If this information in not saved on PCG, then try to recalc it
-		if ((skillPointsGained == Integer.MIN_VALUE) && (!classKeyName.isEmpty()))
-		{
-			final PCClass aClass = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
-			skillPointsGained = pc.recalcSkillPointMod(aClass, classLevel) + getBonusSkillPool(pc);
-		}
+    /**
+     * @param pc TODO
+     * @return the number of skill points gained
+     */
+    public int getSkillPointsGained(PlayerCharacter pc)
+    {
+        // If this information in not saved on PCG, then try to recalc it
+        if ((skillPointsGained == Integer.MIN_VALUE) && (!classKeyName.isEmpty()))
+        {
+            final PCClass aClass = Globals.getContext().getReferenceContext()
+                    .silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
+            skillPointsGained = pc.recalcSkillPointMod(aClass, classLevel) + getBonusSkillPool(pc);
+        }
 
-		return skillPointsGained;
-	}
+        return skillPointsGained;
+    }
 
-	/**
-	 * Set the number of skill points gained at this level that have not been
-	 * spent yet.
-	 *
-	 * @param  points  skill points remaining for this level
-	 */
-	public void setSkillPointsRemaining(final int points)
-	{
-		skillPointsRemaining = points;
-	}
+    /**
+     * Set the number of skill points gained at this level that have not been
+     * spent yet.
+     *
+     * @param points skill points remaining for this level
+     */
+    public void setSkillPointsRemaining(final int points)
+    {
+        skillPointsRemaining = points;
+    }
 
-	/**
-	 * @return  The number of skill points remaining at this level
-	 */
-	public int getSkillPointsRemaining()
-	{
-		return skillPointsRemaining;
-	}
+    /**
+     * @return The number of skill points remaining at this level
+     */
+    public int getSkillPointsRemaining()
+    {
+        return skillPointsRemaining;
+    }
 
-	/**
-	 * Get the value of a character stat at this level
-	 *
-	 * @param   aStat      the Abbreviation of the stat (STR, DEX, etc)
-	 * @param   includePost  whether to include any stat increases gained at
-	 *                       this level
-	 *
-	 * @return  the value of the stat at this level.
-	 */
-	public int getTotalStatMod(final PCStat aStat, final boolean includePost)
-	{
-		int mod = 0;
+    /**
+     * Get the value of a character stat at this level
+     *
+     * @param aStat       the Abbreviation of the stat (STR, DEX, etc)
+     * @param includePost whether to include any stat increases gained at
+     *                    this level
+     * @return the value of the stat at this level.
+     */
+    public int getTotalStatMod(final PCStat aStat, final boolean includePost)
+    {
+        int mod = 0;
 
-		if (statsPreModified != null)
-		{
-			for (PCLevelInfoStat stat : statsPreModified)
-			{
-				if (stat.getStat().equals(aStat))
-				{
-					mod += stat.getStatMod();
-				}
-			}
-		}
+        if (statsPreModified != null)
+        {
+            for (PCLevelInfoStat stat : statsPreModified)
+            {
+                if (stat.getStat().equals(aStat))
+                {
+                    mod += stat.getStatMod();
+                }
+            }
+        }
 
-		if (includePost && (statsPostModified != null))
-		{
-			for (PCLevelInfoStat stat : statsPostModified)
-			{
-				if (stat.getStat().equals(aStat))
-				{
-					mod += stat.getStatMod();
-				}
-			}
-		}
+        if (includePost && (statsPostModified != null))
+        {
+            for (PCLevelInfoStat stat : statsPostModified)
+            {
+                if (stat.getStat().equals(aStat))
+                {
+                    mod += stat.getStatMod();
+                }
+            }
+        }
 
-		return mod;
-	}
+        return mod;
+    }
 
-	/**
-	 * Modify a character stat at this level.  Only works with one of the two
-	 * stat lists pre or post depending on the value of isPreMod.  If the list
-	 * doesn't exist yet, an empty one is created, then we search for the stat
-	 * which has an abbreviation matching statABB.  If we find a match we adjust
-	 * it by mod, if we don't find a match set it to mod.  If we cant find a
-	 * stat matching statABB, make a new on, set its value to mod and store it
-	 * in the list.
-	 *
-	 * @param  stat   The abbreviation of the stat to modifiy
-	 * @param  mod       The adjustment to make
-	 * @param  isPreMod  Whether the increment should be pre or post the
-	 *                   calculation of other benefits gained at this level.
-	 */
-	public void addModifiedStat(final PCStat stat, final int mod, final boolean isPreMod)
-	{
-		final List<PCLevelInfoStat> statList;
+    /**
+     * Modify a character stat at this level.  Only works with one of the two
+     * stat lists pre or post depending on the value of isPreMod.  If the list
+     * doesn't exist yet, an empty one is created, then we search for the stat
+     * which has an abbreviation matching statABB.  If we find a match we adjust
+     * it by mod, if we don't find a match set it to mod.  If we cant find a
+     * stat matching statABB, make a new on, set its value to mod and store it
+     * in the list.
+     *
+     * @param stat     The abbreviation of the stat to modifiy
+     * @param mod      The adjustment to make
+     * @param isPreMod Whether the increment should be pre or post the
+     *                 calculation of other benefits gained at this level.
+     */
+    public void addModifiedStat(final PCStat stat, final int mod, final boolean isPreMod)
+    {
+        final List<PCLevelInfoStat> statList;
 
-		if (isPreMod)
-		{
-			if (statsPreModified == null)
-			{
-				statsPreModified = new ArrayList<>();
-			}
+        if (isPreMod)
+        {
+            if (statsPreModified == null)
+            {
+                statsPreModified = new ArrayList<>();
+            }
 
-			statList = statsPreModified;
-		}
-		else
-		{
-			if (statsPostModified == null)
-			{
-				statsPostModified = new ArrayList<>();
-			}
+            statList = statsPreModified;
+        } else
+        {
+            if (statsPostModified == null)
+            {
+                statsPostModified = new ArrayList<>();
+            }
 
-			statList = statsPostModified;
-		}
+            statList = statsPostModified;
+        }
 
-		PCLevelInfoStat aStat;
+        PCLevelInfoStat aStat;
 
-		for (int i = 0; i < statList.size(); ++i)
-		{
-			aStat = statList.get(i);
+        for (int i = 0;i < statList.size();++i)
+        {
+            aStat = statList.get(i);
 
-			if (stat.equals(aStat.getStat()))
-			{
-				aStat.modifyStat(mod);
+            if (stat.equals(aStat.getStat()))
+            {
+                aStat.modifyStat(mod);
 
-				if (aStat.getStatMod() == 0)
-				{
-					statList.remove(aStat);
-				}
+                if (aStat.getStatMod() == 0)
+                {
+                    statList.remove(aStat);
+                }
 
-				return;
-			}
-		}
+                return;
+            }
+        }
 
-		statList.add(new PCLevelInfoStat(stat, mod));
-	}
+        statList.add(new PCLevelInfoStat(stat, mod));
+    }
 
-	/**
-	 * Calculate the number of bonus skill points added by this level.
-	 *
-	 * @return  the number of bonus skill points added by this level
-	 */
-	private int getBonusSkillPool(PlayerCharacter aPC)
-	{
-		int returnValue = 0;
-		final PCClass aClass = aPC.getClassKeyed(classKeyName);
+    /**
+     * Calculate the number of bonus skill points added by this level.
+     *
+     * @return the number of bonus skill points added by this level
+     */
+    private int getBonusSkillPool(PlayerCharacter aPC)
+    {
+        int returnValue = 0;
+        final PCClass aClass = aPC.getClassKeyed(classKeyName);
 
-		final String purchaseName = SettingsHandler.getGame().getPurchaseModeMethodName();
-		if (purchaseName != null)
-		{
-			PointBuyMethod pbm = SettingsHandler.getGame().getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, purchaseName);
+        final String purchaseName = SettingsHandler.getGame().getPurchaseModeMethodName();
+        if (purchaseName != null)
+        {
+            PointBuyMethod pbm = SettingsHandler.getGame().getContext().getReferenceContext()
+                    .silentlyGetConstructedCDOMObject(PointBuyMethod.class, purchaseName);
 
-			List<BonusObj> bonusList = BonusUtilities.getBonusFromList(pbm.getBonuses(), "SKILLPOOL", "NUMBER");
-			returnValue += (int) aPC.calcBonusFromList(bonusList, null);
-		}
+            List<BonusObj> bonusList = BonusUtilities.getBonusFromList(pbm.getBonuses(), "SKILLPOOL", "NUMBER");
+            returnValue += (int) aPC.calcBonusFromList(bonusList, null);
+        }
 
-		if (aClass != null)
-		{
-			// These bonuses apply to the level or higher. We have to add and then remove
-			// the previous to get the effective level bonus
-			returnValue += (int) aClass.getBonusTo("SKILLPOOL", "NUMBER", classLevel, aPC);
-			returnValue -= (int) aClass.getBonusTo("SKILLPOOL", "NUMBER", classLevel - 1, aPC);
-		}
+        if (aClass != null)
+        {
+            // These bonuses apply to the level or higher. We have to add and then remove
+            // the previous to get the effective level bonus
+            returnValue += (int) aClass.getBonusTo("SKILLPOOL", "NUMBER", classLevel, aPC);
+            returnValue -= (int) aClass.getBonusTo("SKILLPOOL", "NUMBER", classLevel - 1, aPC);
+        }
 
-		if (classLevel == 1)
-		{
-			returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL", "CLASS." + classKeyName);
-		}
+        if (classLevel == 1)
+        {
+            returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL", "CLASS." + classKeyName);
+        }
 
-		returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL",
-			"CLASS." + classKeyName + ";LEVEL." + Integer.toString(classLevel));
+        returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL",
+                "CLASS." + classKeyName + ";LEVEL." + Integer.toString(classLevel));
 
-		returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL", "LEVEL." + aPC.getCharacterLevel(this));
+        returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL", "LEVEL." + aPC.getCharacterLevel(this));
 
-		return returnValue;
-	}
+        return returnValue;
+    }
 
-	@Override
-	public PCLevelInfo clone()
-	{
-		PCLevelInfo clone = new PCLevelInfo(classKeyName);
-		if (statsPostModified != null)
-		{
-			for (PCLevelInfoStat stat : statsPostModified)
-			{
-				if (clone.statsPostModified == null)
-				{
-					clone.statsPostModified = new ArrayList<>();
-				}
-				clone.statsPostModified.add(stat);
-			}
-		}
-		if (statsPreModified != null)
-		{
-			for (PCLevelInfoStat stat : statsPreModified)
-			{
-				if (clone.statsPreModified == null)
-				{
-					clone.statsPreModified = new ArrayList<>();
-				}
-				clone.statsPreModified.add(stat);
-			}
-		}
-		clone.classLevel = classLevel;
-		clone.skillPointsGained = skillPointsGained;
-		clone.skillPointsRemaining = skillPointsRemaining;
-		return clone;
-	}
+    @Override
+    public PCLevelInfo clone()
+    {
+        PCLevelInfo clone = new PCLevelInfo(classKeyName);
+        if (statsPostModified != null)
+        {
+            for (PCLevelInfoStat stat : statsPostModified)
+            {
+                if (clone.statsPostModified == null)
+                {
+                    clone.statsPostModified = new ArrayList<>();
+                }
+                clone.statsPostModified.add(stat);
+            }
+        }
+        if (statsPreModified != null)
+        {
+            for (PCLevelInfoStat stat : statsPreModified)
+            {
+                if (clone.statsPreModified == null)
+                {
+                    clone.statsPreModified = new ArrayList<>();
+                }
+                clone.statsPreModified.add(stat);
+            }
+        }
+        clone.classLevel = classLevel;
+        clone.skillPointsGained = skillPointsGained;
+        clone.skillPointsRemaining = skillPointsRemaining;
+        return clone;
+    }
 
-	public void setFixedSkillPointsGained(int arg)
-	{
-		skillPointsGained = arg;
-	}
+    public void setFixedSkillPointsGained(int arg)
+    {
+        skillPointsGained = arg;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return classLevel * 17 + classKeyName.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return classLevel * 17 + classKeyName.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o instanceof PCLevelInfo)
-		{
-			PCLevelInfo other = (PCLevelInfo) o;
-			return classLevel == other.classLevel && skillPointsGained == other.skillPointsGained
-				&& skillPointsRemaining == other.skillPointsRemaining && classKeyName.equals(other.classKeyName)
-				&& Objects.equals(statsPreModified, other.statsPreModified)
-				&& Objects.equals(statsPostModified, other.statsPostModified);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o instanceof PCLevelInfo)
+        {
+            PCLevelInfo other = (PCLevelInfo) o;
+            return classLevel == other.classLevel && skillPointsGained == other.skillPointsGained
+                    && skillPointsRemaining == other.skillPointsRemaining && classKeyName.equals(other.classKeyName)
+                    && Objects.equals(statsPreModified, other.statsPreModified)
+                    && Objects.equals(statsPostModified, other.statsPostModified);
+        }
+        return false;
+    }
 
 }

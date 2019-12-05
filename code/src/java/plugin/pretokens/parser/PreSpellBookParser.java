@@ -25,13 +25,14 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreSpellBookParser extends AbstractPrerequisiteSimpleParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"SPELLBOOK"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"SPELLBOOK"};
+    }
 }

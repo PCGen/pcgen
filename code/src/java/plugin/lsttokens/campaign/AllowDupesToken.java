@@ -35,51 +35,49 @@ import pcgen.util.StringPClassUtil;
 public class AllowDupesToken extends AbstractNonEmptyToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ALLOWDUPES";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ALLOWDUPES";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign obj, String value)
-	{
-		if ("SPELL".equals(value))
-		{
-			context.getObjectContext().addToList(obj, ListKey.DUPES_ALLOWED, Spell.class);
-			return ParseResult.SUCCESS;
-		}
-		else if ("LANGUAGE".equals(value))
-		{
-			context.getObjectContext().addToList(obj, ListKey.DUPES_ALLOWED, Language.class);
-			return ParseResult.SUCCESS;
-		}
-		else
-		{
-			return new ParseResult.Fail("Token must be SPELL or LANGUAGE");
-		}
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Campaign obj, String value)
+    {
+        if ("SPELL".equals(value))
+        {
+            context.getObjectContext().addToList(obj, ListKey.DUPES_ALLOWED, Spell.class);
+            return ParseResult.SUCCESS;
+        } else if ("LANGUAGE".equals(value))
+        {
+            context.getObjectContext().addToList(obj, ListKey.DUPES_ALLOWED, Language.class);
+            return ParseResult.SUCCESS;
+        } else
+        {
+            return new ParseResult.Fail("Token must be SPELL or LANGUAGE");
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign obj)
-	{
-		Changes<Class<?>> changes = context.getObjectContext().getListChanges(obj, ListKey.DUPES_ALLOWED);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		Collection<Class<?>> added = changes.getAdded();
-		Set<String> returnSet = new TreeSet<>();
-		for (Class<?> cl : added)
-		{
-			returnSet.add(StringPClassUtil.getStringFor(cl));
-		}
-		return returnSet.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign obj)
+    {
+        Changes<Class<?>> changes = context.getObjectContext().getListChanges(obj, ListKey.DUPES_ALLOWED);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        Collection<Class<?>> added = changes.getAdded();
+        Set<String> returnSet = new TreeSet<>();
+        for (Class<?> cl : added)
+        {
+            returnSet.add(StringPClassUtil.getStringFor(cl));
+        }
+        return returnSet.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

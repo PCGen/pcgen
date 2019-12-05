@@ -27,52 +27,52 @@ import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 
 /**
- * PCBooleanFunction allows character boolean values to be exported to a 
- * Freemarker template. It evaluates an export token for the current character and 
- * returns the value as a boolean. e.g. ${pcboolean("WEAPON.0.ISTYPE.Double")} 
- * 
+ * PCBooleanFunction allows character boolean values to be exported to a
+ * Freemarker template. It evaluates an export token for the current character and
+ * returns the value as a boolean. e.g. ${pcboolean("WEAPON.0.ISTYPE.Double")}
  */
 public class PCBooleanFunction implements TemplateMethodModelEx, CharacterExportAction
 {
-	private PlayerCharacter pc;
-	private ExportHandler eh;
+    private PlayerCharacter pc;
+    private ExportHandler eh;
 
-	/**
-	 * Create a new instance of PCBooleanFunction
-	 * @param pc The character being exported.
-	 * @param eh The managing export handler.
-	 */
-	public PCBooleanFunction(PlayerCharacter pc, ExportHandler eh)
-	{
-		this.pc = pc;
-		this.eh = eh;
-	}
+    /**
+     * Create a new instance of PCBooleanFunction
+     *
+     * @param pc The character being exported.
+     * @param eh The managing export handler.
+     */
+    public PCBooleanFunction(PlayerCharacter pc, ExportHandler eh)
+    {
+        this.pc = pc;
+        this.eh = eh;
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Object exec(List arg0) throws TemplateModelException
-	{
-		if (arg0.size() != 1)
-		{
-			throw new TemplateModelException("Wrong arguments. formula required");
-		}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public Object exec(List arg0) throws TemplateModelException
+    {
+        if (arg0.size() != 1)
+        {
+            throw new TemplateModelException("Wrong arguments. formula required");
+        }
 
-		String tag = arg0.get(0).toString();
+        String tag = arg0.get(0).toString();
 
-		String value = getExportVariable(tag, pc, eh);
+        String value = getExportVariable(tag, pc, eh);
 
-		if ("1.0".equals(value) || "1".equals(value) || "Y".equals(value))
-		{
-			return Boolean.TRUE;
-		}
+        if ("1.0".equals(value) || "1".equals(value) || "Y".equals(value))
+        {
+            return Boolean.TRUE;
+        }
 
-		if (tag.equals(value))
-		{
-			throw new TemplateModelException("Invalid export tag '" + tag + "'.");
-		}
+        if (tag.equals(value))
+        {
+            throw new TemplateModelException("Invalid export tag '" + tag + "'.");
+        }
 
-		Boolean valueOf = Boolean.valueOf(value);
-		return valueOf;
-	}
+        Boolean valueOf = Boolean.valueOf(value);
+        return valueOf;
+    }
 
 }

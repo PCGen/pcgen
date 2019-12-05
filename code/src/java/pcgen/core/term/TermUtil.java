@@ -20,33 +20,32 @@ import pcgen.util.Logging;
 
 final class TermUtil
 {
-	private TermUtil()
-	{
-	}
+    private TermUtil()
+    {
+    }
 
-	static Float convertToFloat(String element, String aNumber)
-	{
-		Float d = null;
-		try
-		{
-			d = Float.valueOf(aNumber);
-		}
-		catch (NumberFormatException ignored)
-		{
-			// What we got back was not a number
-		}
+    static Float convertToFloat(String element, String aNumber)
+    {
+        Float d = null;
+        try
+        {
+            d = Float.valueOf(aNumber);
+        } catch (NumberFormatException ignored)
+        {
+            // What we got back was not a number
+        }
 
-		Float retVal = null;
-		if ((d != null) && !d.isNaN())
-		{
-			retVal = d;
-			if (Logging.isDebugMode())
-			{
-				Logging.debugPrint("Export variable for: '" + element + "' = " + d);
-			}
-		}
+        Float retVal = null;
+        if ((d != null) && !d.isNaN())
+        {
+            retVal = d;
+            if (Logging.isDebugMode())
+            {
+                Logging.debugPrint("Export variable for: '" + element + "' = " + d);
+            }
+        }
 
-		return retVal;
-	}
+        return retVal;
+    }
 
 }

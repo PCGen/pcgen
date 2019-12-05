@@ -32,63 +32,62 @@ import pcgen.rules.context.LoadContext;
  */
 public class PreSizeParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"SIZE", "SIZEEQ", "SIZEGT", "SIZEGTEQ", "SIZELT", "SIZELTEQ", "SIZENEQ"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"SIZE", "SIZEEQ", "SIZEGT", "SIZEGTEQ", "SIZELT", "SIZELTEQ", "SIZENEQ"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		try
-		{
-			prereq.setKind("size");
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        try
+        {
+            prereq.setKind("size");
 
-			// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
-			String compType = kind.substring(4);
-			if (compType.isEmpty())
-			{
-				compType = "gteq";
-			}
-			prereq.setOperator(compType);
+            // Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
+            String compType = kind.substring(4);
+            if (compType.isEmpty())
+            {
+                compType = "gteq";
+            }
+            prereq.setOperator(compType);
 
-			String abb = formula.substring(0, 1);
+            String abb = formula.substring(0, 1);
 
-			LoadContext context = Globals.getContext();
-			CDOMSingleRef<SizeAdjustment> ref =
-					context.getReferenceContext().getCDOMReference(SizeAdjustment.class, abb);
-			context.forgetMeNot(ref);
+            LoadContext context = Globals.getContext();
+            CDOMSingleRef<SizeAdjustment> ref =
+                    context.getReferenceContext().getCDOMReference(SizeAdjustment.class, abb);
+            context.forgetMeNot(ref);
 
-			prereq.setOperand(formula);
-			if (invertResult)
-			{
-				prereq.setOperator(prereq.getOperator().invert());
-			}
-		}
-		catch (PrerequisiteException pe)
-		{
-			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
-		}
-		return prereq;
-	}
+            prereq.setOperand(formula);
+            if (invertResult)
+            {
+                prereq.setOperator(prereq.getOperator().invert());
+            }
+        } catch (PrerequisiteException pe)
+        {
+            throw new PersistenceLayerException(
+                    "Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
+        }
+        return prereq;
+    }
 }

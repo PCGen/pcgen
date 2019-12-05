@@ -29,92 +29,90 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreVariableParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"VAR", "VAREQ", "VARLTEQ", "VARLT", "VARNEQ", "VARGT", "VARGTEQ"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"VAR", "VAREQ", "VARLTEQ", "VARLT", "VARNEQ", "VARGT", "VARGTEQ"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setKind("var");
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        prereq.setKind("var");
 
-		// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
-		String compType = kind.substring(3);
-		if (compType.isEmpty())
-		{
-			compType = "gteq";
-		}
+        // Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
+        String compType = kind.substring(3);
+        if (compType.isEmpty())
+        {
+            compType = "gteq";
+        }
 
-		ParsingSeparator ps = new ParsingSeparator(formula, ',');
-		ps.addGroupingPair('[', ']');
-		ps.addGroupingPair('(', ')');
+        ParsingSeparator ps = new ParsingSeparator(formula, ',');
+        ps.addGroupingPair('[', ']');
+        ps.addGroupingPair('(', ')');
 
-		try
-		{
-			int count = 0;
-			while (ps.hasNext())
-			{
-				String first = ps.next();
-				if (!ps.hasNext())
-				{
-					throw new PersistenceLayerException("Unable to parse prerequisite 'PRE" + kind + ':' + formula
-						+ "'. Incorrect parameter count (must be even)");
-				}
-				String second = ps.next();
-				Prerequisite subreq;
-				if (!ps.hasNext() && count == 0)
-				{
-					subreq = prereq;
-				}
-				else
-				{
-					prereq.setKind(null); // PREMULT
-					subreq = new Prerequisite();
-					subreq.setKind("var");
-					prereq.addPrerequisite(subreq);
-					count++;
-				}
-				subreq.setOperator(compType.intern());
-				subreq.setKey(first.intern());
-				subreq.setOperand(second.intern());
-			}
-			if (count > 0)
-			{
-				prereq.setOperand(Integer.toString(count));
-			}
-		}
-		catch (PrerequisiteException pe)
-		{
-			throw new PersistenceLayerException(
-				"Unable to parse prerequisite 'PRE" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
-		}
+        try
+        {
+            int count = 0;
+            while (ps.hasNext())
+            {
+                String first = ps.next();
+                if (!ps.hasNext())
+                {
+                    throw new PersistenceLayerException("Unable to parse prerequisite 'PRE" + kind + ':' + formula
+                            + "'. Incorrect parameter count (must be even)");
+                }
+                String second = ps.next();
+                Prerequisite subreq;
+                if (!ps.hasNext() && count == 0)
+                {
+                    subreq = prereq;
+                } else
+                {
+                    prereq.setKind(null); // PREMULT
+                    subreq = new Prerequisite();
+                    subreq.setKind("var");
+                    prereq.addPrerequisite(subreq);
+                    count++;
+                }
+                subreq.setOperator(compType.intern());
+                subreq.setKey(first.intern());
+                subreq.setOperand(second.intern());
+            }
+            if (count > 0)
+            {
+                prereq.setOperand(Integer.toString(count));
+            }
+        } catch (PrerequisiteException pe)
+        {
+            throw new PersistenceLayerException(
+                    "Unable to parse prerequisite 'PRE" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
+        }
 
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
-		prereq.setOverrideQualify(overrideQualify);
+        if (invertResult)
+        {
+            prereq.setOperator(prereq.getOperator().invert());
+        }
+        prereq.setOverrideQualify(overrideQualify);
 
-		return prereq;
-	}
+        return prereq;
+    }
 }

@@ -24,44 +24,44 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Equipment;
 
 public class UserEquipmentFacetTest extends
-		AbstractConsolidatingFacetTest<Equipment, Equipment>
+        AbstractConsolidatingFacetTest<Equipment, Equipment>
 {
 
-	private UserEquipmentFacet facet = new UserEquipmentFacet();
+    private UserEquipmentFacet facet = new UserEquipmentFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, Equipment> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, Equipment> getFacet()
+    {
+        return facet;
+    }
 
-	public static int n = 0;
+    public static int n = 0;
 
-	@Override
-	protected Equipment getObject()
-	{
-		Equipment wp = new Equipment();
-		wp.setName("WP" + n++);
-		return wp;
-	}
-
-
-	@Override
-	protected DataFacetChangeListener<CharID, Equipment> getListener()
-	{
-		return facet;
-	}
-
-	@Override
-	protected Equipment getSourceObject()
-	{
-		return getObject();
-	}
+    @Override
+    protected Equipment getObject()
+    {
+        Equipment wp = new Equipment();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 
 
-	@Override
-	protected Equipment getConverted(Equipment e)
-	{
-		return e;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, Equipment> getListener()
+    {
+        return facet;
+    }
+
+    @Override
+    protected Equipment getSourceObject()
+    {
+        return getObject();
+    }
+
+
+    @Override
+    protected Equipment getConverted(Equipment e)
+    {
+        return e;
+    }
 }

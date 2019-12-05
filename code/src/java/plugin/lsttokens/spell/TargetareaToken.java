@@ -34,55 +34,54 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class TargetareaToken extends AbstractNonEmptyToken<Spell> implements CDOMPrimaryToken<Spell>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "TARGETAREA";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TARGETAREA";
+    }
 
-	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
-	{
-		if (Constants.LST_DOT_CLEAR.equals(value))
-		{
-			context.getObjectContext().remove(spell, StringKey.TARGET_AREA);
-		}
-		else
-		{
-			if (!StringUtil.hasBalancedParens(value))
-			{
-				return new ParseResult.Fail(
-					"Unbalanced parentheses in " + getTokenName() + " '" + value + "' used in spell " + spell);
-			}
-			context.getObjectContext().put(spell, StringKey.TARGET_AREA, value);
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    public ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
+    {
+        if (Constants.LST_DOT_CLEAR.equals(value))
+        {
+            context.getObjectContext().remove(spell, StringKey.TARGET_AREA);
+        } else
+        {
+            if (!StringUtil.hasBalancedParens(value))
+            {
+                return new ParseResult.Fail(
+                        "Unbalanced parentheses in " + getTokenName() + " '" + value + "' used in spell " + spell);
+            }
+            context.getObjectContext().put(spell, StringKey.TARGET_AREA, value);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Spell spell)
-	{
-		String target = context.getObjectContext().getString(spell, StringKey.TARGET_AREA);
-		boolean globalClear = context.getObjectContext().wasRemoved(spell, StringKey.TARGET_AREA);
-		List<String> list = new ArrayList<>();
-		if (globalClear)
-		{
-			list.add(Constants.LST_DOT_CLEAR);
-		}
-		if (target != null)
-		{
-			list.add(target);
-		}
-		if (list.isEmpty())
-		{
-			return null;
-		}
-		return list.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Spell spell)
+    {
+        String target = context.getObjectContext().getString(spell, StringKey.TARGET_AREA);
+        boolean globalClear = context.getObjectContext().wasRemoved(spell, StringKey.TARGET_AREA);
+        List<String> list = new ArrayList<>();
+        if (globalClear)
+        {
+            list.add(Constants.LST_DOT_CLEAR);
+        }
+        if (target != null)
+        {
+            list.add(target);
+        }
+        if (list.isEmpty())
+        {
+            return null;
+        }
+        return list.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Spell> getTokenClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTokenClass()
+    {
+        return Spell.class;
+    }
 }

@@ -17,8 +17,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *
- * 
- * 
+ *
+ *
  */
 package plugin.pretokens.parser;
 
@@ -31,20 +31,21 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 public class PreArmorProfParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"PROFWITHARMOR"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"PROFWITHARMOR"};
+    }
 
-	@Override
-	protected boolean isAnyLegal()
-	{
-		return false;
-	}
+    @Override
+    protected boolean isAnyLegal()
+    {
+        return false;
+    }
 
 }

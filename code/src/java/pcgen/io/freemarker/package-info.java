@@ -18,16 +18,14 @@
  *
  */
 /**
- * This is a collection of custom directives and functions that can be called 
+ * This is a collection of custom directives and functions that can be called
  * from within Freemarker templates as part of the PCGen export system.
- *
- * Each directive class in this folder must be registered in the ExportHandler 
- * so that it can be called within a template. 
- * 
- * Developers' note: All directive classes must be thread safe - no values 
- * specific to a particular export request can be stored as instance of 
- * class variables. 
- * 
- * 
+ * <p>
+ * Each directive class in this folder must be registered in the ExportHandler
+ * so that it can be called within a template.
+ * <p>
+ * Developers' note: All directive classes must be thread safe - no values
+ * specific to a particular export request can be stored as instance of
+ * class variables.
  */
 package pcgen.io.freemarker;

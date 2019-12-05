@@ -25,34 +25,34 @@ import pcgen.rules.context.LoadContext;
  */
 public final class ItemCost extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		if (token.startsWith("TYPE="))
-		{
-			addBonusInfo(token.replace('=', '.'));
-		}
-		else
-		{
-			addBonusInfo(token);
-		}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        if (token.startsWith("TYPE="))
+        {
+            addBonusInfo(token.replace('=', '.'));
+        } else
+        {
+            addBonusInfo(token);
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "ITEMCOST";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "ITEMCOST";
+    }
 }

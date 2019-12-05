@@ -29,26 +29,26 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class TemplateListToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "TEMPLATELIST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TEMPLATELIST";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		StringBuilder retString = new StringBuilder();
-		String del = "";
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        StringBuilder retString = new StringBuilder();
+        String del = "";
 
-		for (PCTemplate template : display.getOutputVisibleTemplateList())
-		{
-			// karianna bug 1514970
-			retString.append(del).append(OutputNameFormatting.getOutputName(template));
-			del = ", ";
-		}
+        for (PCTemplate template : display.getOutputVisibleTemplateList())
+        {
+            // karianna bug 1514970
+            retString.append(del).append(OutputNameFormatting.getOutputName(template));
+            del = ", ";
+        }
 
-		return retString.toString();
-	}
+        return retString.toString();
+    }
 
 }

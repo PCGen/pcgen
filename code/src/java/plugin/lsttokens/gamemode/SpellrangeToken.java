@@ -13,26 +13,26 @@ import pcgen.util.Logging;
 public class SpellrangeToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SPELLRANGE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPELLRANGE";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		StringTokenizer aTok = new StringTokenizer(value, "|");
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        StringTokenizer aTok = new StringTokenizer(value, "|");
 
-		if (aTok.countTokens() != 2)
-		{
-			Logging.errorPrint("Invalid SPELLRANGE: " + value);
-			return false;
-		}
+        if (aTok.countTokens() != 2)
+        {
+            Logging.errorPrint("Invalid SPELLRANGE: " + value);
+            return false;
+        }
 
-		String aRange = aTok.nextToken().toUpperCase();
-		String aFormula = aTok.nextToken();
-		gameMode.addSpellRange(aRange, aFormula);
-		return true;
-	}
+        String aRange = aTok.nextToken().toUpperCase();
+        String aFormula = aTok.nextToken();
+        gameMode.addSpellRange(aRange, aFormula);
+        return true;
+    }
 }

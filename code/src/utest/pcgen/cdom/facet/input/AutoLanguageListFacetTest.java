@@ -25,21 +25,21 @@ import pcgen.core.Language;
 public class AutoLanguageListFacetTest extends AbstractSourcedListFacetTest<Language>
 {
 
-	private AutoLanguageListFacet facet = new AutoLanguageListFacet();
+    private AutoLanguageListFacet facet = new AutoLanguageListFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, Language> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, Language> getFacet()
+    {
+        return facet;
+    }
 
-	public static int n = 0;
+    public static int n = 0;
 
-	@Override
-	protected Language getObject()
-	{
-		Language wp = new Language();
-		wp.setName("WP" + n++);
-		return wp;
-	}
+    @Override
+    protected Language getObject()
+    {
+        Language wp = new Language();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 }

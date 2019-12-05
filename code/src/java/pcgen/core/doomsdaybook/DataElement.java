@@ -21,38 +21,41 @@ import java.util.List;
 
 public interface DataElement
 {
-	
-	/**
-	 * Get Data.
-	 *
-	 * @return ArrayList
-	 * @throws Exception the exception
-	 */
+
+    /**
+     * Get Data.
+     *
+     * @return ArrayList
+     * @throws Exception the exception
+     */
     List<DataValue> getData() throws Exception;
 
-	/**
-	 * Get id
-	 * @return id
-	 */
+    /**
+     * Get id
+     *
+     * @return id
+     */
     String getId();
 
-	/**
-	 * Get last data.
-	 *
-	 * @return last data
-	 * @throws Exception the exception
-	 */
+    /**
+     * Get last data.
+     *
+     * @return last data
+     * @throws Exception the exception
+     */
     List<DataValue> getLastData() throws Exception;
 
-	/**
-	 * Get title
-	 * @return title
-	 */
+    /**
+     * Get title
+     *
+     * @return title
+     */
     String getTitle();
 
-	/**
-	 * Get weight
-	 * @return weight
-	 */
+    /**
+     * Get weight
+     *
+     * @return weight
+     */
     int getWeight();
 }

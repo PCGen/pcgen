@@ -27,17 +27,17 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class ManualWhitespaceToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "MANUALWHITESPACE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "MANUALWHITESPACE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		eh.setManualWhitespace(true);
-		return "";
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        eh.setManualWhitespace(true);
+        return "";
+    }
 
 }

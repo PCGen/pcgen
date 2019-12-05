@@ -26,29 +26,29 @@ import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
  */
 public class CheckToken extends AbstractSimpleChooseToken<PCCheck>
 {
-	private static final Class<PCCheck> PCCHECK_CLASS = PCCheck.class;
+    private static final Class<PCCheck> PCCHECK_CLASS = PCCheck.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "CHECK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CHECK";
+    }
 
-	@Override
-	protected Class<PCCheck> getChooseClass()
-	{
-		return PCCHECK_CLASS;
-	}
+    @Override
+    protected Class<PCCheck> getChooseClass()
+    {
+        return PCCHECK_CLASS;
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Check choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Check choice";
+    }
 
-	@Override
-	protected AssociationListKey<PCCheck> getListKey()
-	{
-		return AssociationListKey.getKeyFor(PCCHECK_CLASS, "CHOOSE*PCCHECK");
-	}
+    @Override
+    protected AssociationListKey<PCCheck> getListKey()
+    {
+        return AssociationListKey.getKeyFor(PCCHECK_CLASS, "CHOOSE*PCCHECK");
+    }
 }

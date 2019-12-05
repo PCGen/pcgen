@@ -35,81 +35,81 @@ import org.junit.jupiter.api.Test;
 public class BonusManagerTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 * Validate that the setActiveBonusStack method will correctly calculate the value of 
-	 * a positive bonus followed by a negative bonus to a non-stackable value.
-	 */
-	@Test
-	public void testStackingPositiveFirst()
-	{
-		PCTemplate testObj = TestHelper.makeTemplate("PostiveFirst");
-		LoadContext context = Globals.getContext();
-		final BonusObj posBonus = Bonus.newBonus(context, "COMBAT|AC|5|TYPE=Armor");
-		testObj.addToListFor(ListKey.BONUS, posBonus);
-		final BonusObj negBonus = Bonus.newBonus(context, "COMBAT|AC|-2|TYPE=Armor");
-		testObj.addToListFor(ListKey.BONUS, negBonus);
-		
-		PlayerCharacter pc = getCharacter();
-		pc.addTemplate(testObj);
-		// Run the check a few times to ensure no randomness issues 
-		for (int i = 0; i < 10; i++)
-		{
-			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
-		}
-	}
+    /**
+     * Validate that the setActiveBonusStack method will correctly calculate the value of
+     * a positive bonus followed by a negative bonus to a non-stackable value.
+     */
+    @Test
+    public void testStackingPositiveFirst()
+    {
+        PCTemplate testObj = TestHelper.makeTemplate("PostiveFirst");
+        LoadContext context = Globals.getContext();
+        final BonusObj posBonus = Bonus.newBonus(context, "COMBAT|AC|5|TYPE=Armor");
+        testObj.addToListFor(ListKey.BONUS, posBonus);
+        final BonusObj negBonus = Bonus.newBonus(context, "COMBAT|AC|-2|TYPE=Armor");
+        testObj.addToListFor(ListKey.BONUS, negBonus);
 
-	/**
-	 * Validate that the setActiveBonusStack method will correctly calculate the value of 
-	 * a negative bonus followed by a positive bonus to a non-stackable value.
-	 */
-	@Test
-	public void testStackingNegativeFirst()
-	{
-		PCTemplate testObj = TestHelper.makeTemplate("PostiveFirst");
-		LoadContext context = Globals.getContext();
-		final BonusObj negBonus = Bonus.newBonus(context, "COMBAT|AC|-2|TYPE=Armor");
-		testObj.addToListFor(ListKey.BONUS, negBonus);
-		final BonusObj posBonus = Bonus.newBonus(context, "COMBAT|AC|5|TYPE=Armor");
-		testObj.addToListFor(ListKey.BONUS, posBonus);
-		
-		PlayerCharacter pc = getCharacter();
-		pc.addTemplate(testObj);
+        PlayerCharacter pc = getCharacter();
+        pc.addTemplate(testObj);
+        // Run the check a few times to ensure no randomness issues
+        for (int i = 0;i < 10;i++)
+        {
+            pc.calcActiveBonuses();
+            assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+        }
+    }
 
-		// Run the check a few times to ensure no randomness issues 
-		for (int i = 0; i < 10; i++)
-		{
-			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
-		}
-	}
+    /**
+     * Validate that the setActiveBonusStack method will correctly calculate the value of
+     * a negative bonus followed by a positive bonus to a non-stackable value.
+     */
+    @Test
+    public void testStackingNegativeFirst()
+    {
+        PCTemplate testObj = TestHelper.makeTemplate("PostiveFirst");
+        LoadContext context = Globals.getContext();
+        final BonusObj negBonus = Bonus.newBonus(context, "COMBAT|AC|-2|TYPE=Armor");
+        testObj.addToListFor(ListKey.BONUS, negBonus);
+        final BonusObj posBonus = Bonus.newBonus(context, "COMBAT|AC|5|TYPE=Armor");
+        testObj.addToListFor(ListKey.BONUS, posBonus);
 
-	/**
-	 * Validate that the setActiveBonusStack method will correctly calculate the value of 
-	 * a positive bonus, then a negative bonus followed by a positive bonus to a 
-	 * non-stackable value.
-	 */
-	@Test
-	public void testStackingPosNegPos()
-	{
-		PCTemplate testObj = TestHelper.makeTemplate("PosNegPos");
-		LoadContext context = Globals.getContext();
-		final BonusObj posBonus = Bonus.newBonus(context, "COMBAT|AC|5|TYPE=Armor");
-		testObj.addToListFor(ListKey.BONUS, posBonus);
-		final BonusObj negBonus = Bonus.newBonus(context, "COMBAT|AC|-2|TYPE=Armor");
-		testObj.addToListFor(ListKey.BONUS, negBonus);
-		final BonusObj posBonus2 = Bonus.newBonus(context, "COMBAT|AC|4|TYPE=Armor");
-		testObj.addToListFor(ListKey.BONUS, posBonus2);
-		
-		PlayerCharacter pc = getCharacter();
-		pc.addTemplate(testObj);
-		
-		// Run the check a few times to ensure no randomness issues 
-		for (int i = 0; i < 10; i++)
-		{
-			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
-		}
-	}
+        PlayerCharacter pc = getCharacter();
+        pc.addTemplate(testObj);
+
+        // Run the check a few times to ensure no randomness issues
+        for (int i = 0;i < 10;i++)
+        {
+            pc.calcActiveBonuses();
+            assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+        }
+    }
+
+    /**
+     * Validate that the setActiveBonusStack method will correctly calculate the value of
+     * a positive bonus, then a negative bonus followed by a positive bonus to a
+     * non-stackable value.
+     */
+    @Test
+    public void testStackingPosNegPos()
+    {
+        PCTemplate testObj = TestHelper.makeTemplate("PosNegPos");
+        LoadContext context = Globals.getContext();
+        final BonusObj posBonus = Bonus.newBonus(context, "COMBAT|AC|5|TYPE=Armor");
+        testObj.addToListFor(ListKey.BONUS, posBonus);
+        final BonusObj negBonus = Bonus.newBonus(context, "COMBAT|AC|-2|TYPE=Armor");
+        testObj.addToListFor(ListKey.BONUS, negBonus);
+        final BonusObj posBonus2 = Bonus.newBonus(context, "COMBAT|AC|4|TYPE=Armor");
+        testObj.addToListFor(ListKey.BONUS, posBonus2);
+
+        PlayerCharacter pc = getCharacter();
+        pc.addTemplate(testObj);
+
+        // Run the check a few times to ensure no randomness issues
+        for (int i = 0;i < 10;i++)
+        {
+            pc.calcActiveBonuses();
+            assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+        }
+    }
 
 }

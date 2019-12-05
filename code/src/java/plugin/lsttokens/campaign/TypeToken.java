@@ -30,86 +30,84 @@ import pcgen.rules.persistence.token.ParseResult;
 public class TypeToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "TYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TYPE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '.';
-	}
+    @Override
+    protected char separator()
+    {
+        return '.';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
-	{
-		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
-		String dataProducer = aTok.nextToken();
-		context.getObjectContext().put(campaign, StringKey.DATA_PRODUCER, dataProducer);
-		if (aTok.hasMoreTokens())
-		{
-			String dataFormat = aTok.nextToken();
-			context.getObjectContext().put(campaign, StringKey.DATA_FORMAT, dataFormat);
-		}
-		else
-		{
-			/*
-			 * This is not attempting to get a .CLEAR, but to do a reset, so
-			 * this is OK
-			 */
-			context.getObjectContext().put(campaign, StringKey.DATA_FORMAT, null);
-		}
-		if (aTok.hasMoreTokens())
-		{
-			String campaignSetting = aTok.nextToken();
-			context.getObjectContext().put(campaign, StringKey.CAMPAIGN_SETTING, campaignSetting);
-		}
-		else
-		{
-			/*
-			 * This is not attempting to get a .CLEAR, but to do a reset, so
-			 * this is OK
-			 */
-			context.getObjectContext().put(campaign, StringKey.CAMPAIGN_SETTING, null);
-		}
-		if (aTok.hasMoreTokens())
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " in Campaign may have a" + " maximum of 3 items, value is invalid: " + value);
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
+    {
+        StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
+        String dataProducer = aTok.nextToken();
+        context.getObjectContext().put(campaign, StringKey.DATA_PRODUCER, dataProducer);
+        if (aTok.hasMoreTokens())
+        {
+            String dataFormat = aTok.nextToken();
+            context.getObjectContext().put(campaign, StringKey.DATA_FORMAT, dataFormat);
+        } else
+        {
+            /*
+             * This is not attempting to get a .CLEAR, but to do a reset, so
+             * this is OK
+             */
+            context.getObjectContext().put(campaign, StringKey.DATA_FORMAT, null);
+        }
+        if (aTok.hasMoreTokens())
+        {
+            String campaignSetting = aTok.nextToken();
+            context.getObjectContext().put(campaign, StringKey.CAMPAIGN_SETTING, campaignSetting);
+        } else
+        {
+            /*
+             * This is not attempting to get a .CLEAR, but to do a reset, so
+             * this is OK
+             */
+            context.getObjectContext().put(campaign, StringKey.CAMPAIGN_SETTING, null);
+        }
+        if (aTok.hasMoreTokens())
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " in Campaign may have a" + " maximum of 3 items, value is invalid: " + value);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		String producer = context.getObjectContext().getString(campaign, StringKey.DATA_PRODUCER);
-		if (producer == null)
-		{
-			return null;
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(producer);
-		String format = context.getObjectContext().getString(campaign, StringKey.DATA_FORMAT);
-		if (format != null)
-		{
-			sb.append(Constants.DOT);
-			sb.append(format);
-		}
-		String setting = context.getObjectContext().getString(campaign, StringKey.CAMPAIGN_SETTING);
-		if (setting != null)
-		{
-			sb.append(Constants.DOT);
-			sb.append(setting);
-		}
-		return new String[]{sb.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        String producer = context.getObjectContext().getString(campaign, StringKey.DATA_PRODUCER);
+        if (producer == null)
+        {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(producer);
+        String format = context.getObjectContext().getString(campaign, StringKey.DATA_FORMAT);
+        if (format != null)
+        {
+            sb.append(Constants.DOT);
+            sb.append(format);
+        }
+        String setting = context.getObjectContext().getString(campaign, StringKey.CAMPAIGN_SETTING);
+        if (setting != null)
+        {
+            sb.append(Constants.DOT);
+            sb.append(setting);
+        }
+        return new String[]{sb.toString()};
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

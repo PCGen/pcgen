@@ -24,103 +24,102 @@ import pcgen.util.Logging;
 
 public class Rule extends ArrayList<String> implements DataElement
 {
-	private final List<DataValue> retList = new ArrayList<>();
-	private String id;
-	private String title;
-	private final VariableHashMap allVars;
-	private int weight;
+    private final List<DataValue> retList = new ArrayList<>();
+    private String id;
+    private String title;
+    private final VariableHashMap allVars;
+    private int weight;
 
-	public Rule(VariableHashMap allVars, String title, String id, int weight)
-	{
-		this.allVars = allVars;
-		this.title = title;
-		this.id = id;
-		this.weight = weight;
-	}
+    public Rule(VariableHashMap allVars, String title, String id, int weight)
+    {
+        this.allVars = allVars;
+        this.title = title;
+        this.id = id;
+        this.weight = weight;
+    }
 
-	@Override
-	public List<DataValue> getData() throws Exception
-	{
-		retList.clear();
+    @Override
+    public List<DataValue> getData() throws Exception
+    {
+        retList.clear();
 
-		for (String key : this)
-		{
-			DataElement ele = allVars.getDataElement(key);
-			retList.addAll(ele.getData());
-		}
+        for (String key : this)
+        {
+            DataElement ele = allVars.getDataElement(key);
+            retList.addAll(ele.getData());
+        }
 
-		return retList;
-	}
+        return retList;
+    }
 
-	public void setId(String id)
-	{
-		this.id = id;
-	}
+    public void setId(String id)
+    {
+        this.id = id;
+    }
 
-	@Override
-	public String getId()
-	{
-		return id;
-	}
+    @Override
+    public String getId()
+    {
+        return id;
+    }
 
-	@Override
-	public List<DataValue> getLastData() throws Exception
-	{
-		retList.clear();
+    @Override
+    public List<DataValue> getLastData() throws Exception
+    {
+        retList.clear();
 
-		for (String key : this)
-		{
-			DataElement ele = allVars.getDataElement(key);
-			retList.addAll(ele.getLastData());
-		}
+        for (String key : this)
+        {
+            DataElement ele = allVars.getDataElement(key);
+            retList.addAll(ele.getLastData());
+        }
 
-		return retList;
-	}
+        return retList;
+    }
 
-	public void setTitle(String title)
-	{
-		this.title = title;
-	}
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
 
-	@Override
-	public String getTitle()
-	{
-		return title;
-	}
+    @Override
+    public String getTitle()
+    {
+        return title;
+    }
 
-	public void setWeight(int weight)
-	{
-		this.weight = weight;
-	}
+    public void setWeight(int weight)
+    {
+        this.weight = weight;
+    }
 
-	@Override
-	public int getWeight()
-	{
-		return weight;
-	}
+    @Override
+    public int getWeight()
+    {
+        return weight;
+    }
 
-	@Override
-	public String toString()
-	{
-		StringBuilder sb = new StringBuilder();
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
 
-		for (String key : this)
-		{
-			try
-			{
-				DataElement ele = allVars.getDataElement(key);
+        for (String key : this)
+        {
+            try
+            {
+                DataElement ele = allVars.getDataElement(key);
 
-				if (ele.getTitle() != null)
-				{
-					sb.append("[").append(ele.getTitle()).append("] ");
-				}
-			}
-			catch (Exception e)
-			{
-				Logging.errorPrint(e.getMessage(), e);
-			}
-		}
+                if (ele.getTitle() != null)
+                {
+                    sb.append("[").append(ele.getTitle()).append("] ");
+                }
+            } catch (Exception e)
+            {
+                Logging.errorPrint(e.getMessage(), e);
+            }
+        }
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 }

@@ -23,31 +23,33 @@ package pcgen.persistence;
 public final class PersistenceLayerException extends Exception
 {
 
-	/**
-	 * Constructs an instance of {@code PersistenceLayerException} with the specified detail message.
-	 * @param msg the detail message.
-	 */
-	public PersistenceLayerException(String msg)
-	{
-		super(msg);
-	}
+    /**
+     * Constructs an instance of {@code PersistenceLayerException} with the specified detail message.
+     *
+     * @param msg the detail message.
+     */
+    public PersistenceLayerException(String msg)
+    {
+        super(msg);
+    }
 
-	/**
-	 * @param rootCause the root cause of the exception.
-	 */
-	public PersistenceLayerException(Throwable rootCause)
-	{
-		super(rootCause);
-	}
+    /**
+     * @param rootCause the root cause of the exception.
+     */
+    public PersistenceLayerException(Throwable rootCause)
+    {
+        super(rootCause);
+    }
 
-	/**
-	 * Constructs an instance of {@code PersistenceLayerException} with the specified {@link Throwable rootCause}
-	 * and the specified detail message.
-	 * @param msg the detail message.
-	 * @param rootCause the root cause of the exception.
-	 */
-	public PersistenceLayerException(String msg, Throwable rootCause)
-	{
-		super(msg, rootCause);
-	}
+    /**
+     * Constructs an instance of {@code PersistenceLayerException} with the specified {@link Throwable rootCause}
+     * and the specified detail message.
+     *
+     * @param msg       the detail message.
+     * @param rootCause the root cause of the exception.
+     */
+    public PersistenceLayerException(String msg, Throwable rootCause)
+    {
+        super(msg, rootCause);
+    }
 }

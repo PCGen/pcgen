@@ -31,35 +31,38 @@ import pcgen.util.Delta;
  */
 public class InitiativeBonusToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "INITIATIVEBONUS";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "INITIATIVEBONUS";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	//TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
-	//to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Delta.toString(getInitiativeBonusToken(pc));
-	}
+    //TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
+    //to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Delta.toString(getInitiativeBonusToken(pc));
+    }
 
-	/**
-	 * Get the Token
-	 * @param pc
-	 * @return the token
-	 */
-	public static int getInitiativeBonusToken(PlayerCharacter pc)
-	{
-		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
-		if (initiativeVar == null)
-		{
-			return pc.getDisplay().processOldInitiativeMod() - pc.getVariableValue("INITCOMP", "").intValue();
-		}
-		return ((Number) pc.getGlobal(initiativeVar)).intValue();
-	}
+    /**
+     * Get the Token
+     *
+     * @param pc
+     * @return the token
+     */
+    public static int getInitiativeBonusToken(PlayerCharacter pc)
+    {
+        String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
+        if (initiativeVar == null)
+        {
+            return pc.getDisplay().processOldInitiativeMod() - pc.getVariableValue("INITCOMP", "").intValue();
+        }
+        return ((Number) pc.getGlobal(initiativeVar)).intValue();
+    }
 }

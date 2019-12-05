@@ -29,38 +29,39 @@ import pcgen.io.exporttoken.Token;
 @Deprecated
 public class AltHPToken extends Token
 {
-	/** Name of Token */
-	public static final String TOKENNAME = "ALTHP";
+    /**
+     * Name of Token
+     */
+    public static final String TOKENNAME = "ALTHP";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return Integer.toString(getAltHPToken(pc));
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return Integer.toString(getAltHPToken(pc));
+    }
 
-	/**
-	 * @param pc
-	 * @return token
-	 */
-	public static int getAltHPToken(PlayerCharacter pc)
-	{
-		int i;
-		String solverValue = pc.getControl(CControl.ALTHP);
-		if (solverValue != null)
-		{
-			Object val = pc.getGlobal(solverValue);
-			i = ((Number) val).intValue();
-		}
-		else
-		{
-			i = (int) pc.getTotalBonusTo("HP", "ALTHP");
-		}
-		return i;
-	}
+    /**
+     * @param pc
+     * @return token
+     */
+    public static int getAltHPToken(PlayerCharacter pc)
+    {
+        int i;
+        String solverValue = pc.getControl(CControl.ALTHP);
+        if (solverValue != null)
+        {
+            Object val = pc.getGlobal(solverValue);
+            i = ((Number) val).intValue();
+        } else
+        {
+            i = (int) pc.getTotalBonusTo("HP", "ALTHP");
+        }
+        return i;
+    }
 }

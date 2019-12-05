@@ -36,51 +36,51 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class KitToken extends AbstractTokenWithSeparator<KitKit> implements CDOMPrimaryToken<KitKit>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "KIT";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "KIT";
+    }
 
-	@Override
-	public Class<KitKit> getTokenClass()
-	{
-		return KitKit.class;
-	}
+    @Override
+    public Class<KitKit> getTokenClass()
+    {
+        return KitKit.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitKit kitKit, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitKit kitKit, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
-		while (tok.hasMoreTokens())
-		{
-			String tokText = tok.nextToken();
-			CDOMSingleRef<Kit> ref = context.getReferenceContext().getCDOMReference(Kit.class, tokText);
-			kitKit.addKit(ref);
-		}
-		return ParseResult.SUCCESS;
-	}
+        while (tok.hasMoreTokens())
+        {
+            String tokText = tok.nextToken();
+            CDOMSingleRef<Kit> ref = context.getReferenceContext().getCDOMReference(Kit.class, tokText);
+            kitKit.addKit(ref);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitKit kitKit)
-	{
-		List<CDOMSingleRef<Kit>> kits = kitKit.getKits();
-		if (kits == null || kits.isEmpty())
-		{
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(kits, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitKit kitKit)
+    {
+        List<CDOMSingleRef<Kit>> kits = kitKit.getKits();
+        if (kits == null || kits.isEmpty())
+        {
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(kits, Constants.PIPE)};
+    }
 }

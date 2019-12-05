@@ -26,19 +26,19 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //PLAYERNAME
 public class PlayerNameToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "PLAYERNAME";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "PLAYERNAME";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		if (display.getSuppressBioField(BiographyField.PLAYERNAME))
-		{
-			return "";
-		}
-		return display.getPlayersName();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        if (display.getSuppressBioField(BiographyField.PLAYERNAME))
+        {
+            return "";
+        }
+        return display.getPlayersName();
+    }
 }

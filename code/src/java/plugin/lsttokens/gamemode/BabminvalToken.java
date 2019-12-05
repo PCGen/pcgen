@@ -11,23 +11,22 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class BabminvalToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "BABMINVAL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BABMINVAL";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			gameMode.setBabMinVal(Integer.parseInt(value));
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            gameMode.setBabMinVal(Integer.parseInt(value));
+            return true;
+        } catch (NumberFormatException nfe)
+        {
+            return false;
+        }
+    }
 }

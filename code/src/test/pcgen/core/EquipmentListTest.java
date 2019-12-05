@@ -37,41 +37,42 @@ import org.junit.jupiter.api.Test;
 public class EquipmentListTest
 {
 
-	private Equipment eq = null;
-	private static final String ORIGINAL_KEY = "OrigKey";
+    private Equipment eq = null;
+    private static final String ORIGINAL_KEY = "OrigKey";
 
-	@BeforeAll
-	public static void beforeClass()
-	{
-		TestHelper.makeSizeAdjustments();
-	}
+    @BeforeAll
+    public static void beforeClass()
+    {
+        TestHelper.makeSizeAdjustments();
+    }
 
-	@BeforeEach
-	public void setUp() {
-		this.eq = new Equipment();
-		this.eq.setName("Dummy");
-		SizeAdjustment sa = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				SizeAdjustment.class, "M");
-		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(sa);
-		eq.put(ObjectKey.SIZE, mediumRef);
-		eq.put(ObjectKey.BASESIZE, mediumRef);
-		TestHelper.addType(eq, "WEAPON.MELEE.CHOCOLATE");
+    @BeforeEach
+    public void setUp()
+    {
+        this.eq = new Equipment();
+        this.eq.setName("Dummy");
+        SizeAdjustment sa = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+                SizeAdjustment.class, "M");
+        CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(sa);
+        eq.put(ObjectKey.SIZE, mediumRef);
+        eq.put(ObjectKey.BASESIZE, mediumRef);
+        TestHelper.addType(eq, "WEAPON.MELEE.CHOCOLATE");
 
-		this.eq.put(StringKey.KEY_NAME, ORIGINAL_KEY);
-	}
+        this.eq.put(StringKey.KEY_NAME, ORIGINAL_KEY);
+    }
 
-	/**
-	 * test the getEquipmentOfType method
-	 */
-	@Test
-	public void testGetEquipmentOfType()
-	{
-		Globals.getContext().getReferenceContext().importObject(eq);
+    /**
+     * test the getEquipmentOfType method
+     */
+    @Test
+    public void testGetEquipmentOfType()
+    {
+        Globals.getContext().getReferenceContext().importObject(eq);
 
-		List<Equipment> results =
-				EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");
-		assertThat("Should get a single result", results.size(), is(1));
-		assertThat("Should find the DUmmy equipment object.", results
-				.get(0), is(eq));
-	}
+        List<Equipment> results =
+                EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");
+        assertThat("Should get a single result", results.size(), is(1));
+        assertThat("Should find the DUmmy equipment object.", results
+                .get(0), is(eq));
+    }
 }

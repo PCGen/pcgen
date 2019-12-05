@@ -41,89 +41,89 @@ import org.junit.jupiter.api.Test;
  */
 public class PreDeityDomainTest extends AbstractCharacterTestCase
 {
-	private Deity deity;
+    private Deity deity;
 
-	/**
-	 * Test for a single domain.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testSingle() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test for a single domain.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testSingle() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITYDOMAIN:1,Good");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREDEITYDOMAIN:1,Good");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
 
-		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character's deity has Good domain", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITYDOMAIN:1,Law");
+        prereq = factory.parse("PREDEITYDOMAIN:1,Law");
 
-		assertFalse("Character's deity doesn't have Law domain", PrereqHandler
-			.passes(prereq, character, null));
+        assertFalse("Character's deity doesn't have Law domain", PrereqHandler
+                .passes(prereq, character, null));
 
-	}
+    }
 
-	@Test
-	public void testMultiple() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
+    @Test
+    public void testMultiple() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITYDOMAIN:1,Good,Law");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREDEITYDOMAIN:1,Good,Law");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+        assertFalse("Character has no deity selected", PrereqHandler.passes(
+                prereq, character, null));
 
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
 
-		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
-			prereq, character, null));
+        assertTrue("Character's deity has Good domain", PrereqHandler.passes(
+                prereq, character, null));
 
-		prereq = factory.parse("PREDEITYDOMAIN:2,Good,Law");
+        prereq = factory.parse("PREDEITYDOMAIN:2,Good,Law");
 
-		assertFalse("Character's deity doesn't have Law domain", PrereqHandler
-			.passes(prereq, character, null));
+        assertFalse("Character's deity doesn't have Law domain", PrereqHandler
+                .passes(prereq, character, null));
 
-		prereq = factory.parse("PREDEITYDOMAIN:2,Good,Animal");
+        prereq = factory.parse("PREDEITYDOMAIN:2,Good,Animal");
 
-		assertTrue("Character's deity has Good and animal domains",
-			PrereqHandler.passes(prereq, character, null));
-	}
+        assertTrue("Character's deity has Good and animal domains",
+                PrereqHandler.passes(prereq, character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
+    protected void setUp() throws Exception
+    {
+        super.setUp();
 
-		Domain goodDomain = new Domain();
-		goodDomain.setName("Good");
-		Globals.getContext().getReferenceContext().importObject(goodDomain);
+        Domain goodDomain = new Domain();
+        goodDomain.setName("Good");
+        Globals.getContext().getReferenceContext().importObject(goodDomain);
 
-		Domain animalDomain = new Domain();
-		animalDomain.setName("Animal");
-		Globals.getContext().getReferenceContext().importObject(animalDomain);
+        Domain animalDomain = new Domain();
+        animalDomain.setName("Animal");
+        Globals.getContext().getReferenceContext().importObject(animalDomain);
 
-		deity = new Deity();
-		deity.setName("Test Deity");
-		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
-		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
-				.getRef(goodDomain), new SimpleAssociatedObject());
-		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
-				.getRef(animalDomain), new SimpleAssociatedObject());
-	}
+        deity = new Deity();
+        deity.setName("Test Deity");
+        deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
+        deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
+                .getRef(goodDomain), new SimpleAssociatedObject());
+        deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
+                .getRef(animalDomain), new SimpleAssociatedObject());
+    }
 }

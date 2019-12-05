@@ -28,50 +28,50 @@ import javafx.application.Platform;
 
 public final class ConvertedJavaFXPanel<T extends ResettableController> extends PCGenPrefsPanel
 {
-	private final String titleTextKey;
-	private final JFXPanelFromResource<T> panel;
+    private final String titleTextKey;
+    private final JFXPanelFromResource<T> panel;
 
-	public ConvertedJavaFXPanel(Class<T> klass, String resource, String titleTextKey)
-	{
-		this.titleTextKey = titleTextKey;
-		this.panel =
-				new JFXPanelFromResource<>(
-						klass,
-						resource
-				);
-		this.add(panel);
+    public ConvertedJavaFXPanel(Class<T> klass, String resource, String titleTextKey)
+    {
+        this.titleTextKey = titleTextKey;
+        this.panel =
+                new JFXPanelFromResource<>(
+                        klass,
+                        resource
+                );
+        this.add(panel);
 
-	}
+    }
 
-	@Override
-	public String getTitle()
-	{
-		return LanguageBundle.getString(titleTextKey);
-	}
+    @Override
+    public String getTitle()
+    {
+        return LanguageBundle.getString(titleTextKey);
+    }
 
-	@Override
-	public void applyOptionValuesToControls()
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() ->
-			panel.getControllerFromJavaFXThread().reset()
-		);
-	}
+    @Override
+    public void applyOptionValuesToControls()
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        Platform.runLater(() ->
+                panel.getControllerFromJavaFXThread().reset()
+        );
+    }
 
-	@Override
-	public void setOptionsBasedOnControls()
-	{
-		panel.getController().apply();
-	}
+    @Override
+    public void setOptionsBasedOnControls()
+    {
+        panel.getController().apply();
+    }
 
-	public T getController()
-	{
-		return this.panel.getController();
-	}
+    public T getController()
+    {
+        return this.panel.getController();
+    }
 
-	@Override
-	public String toString()
-	{
-		return getTitle();
-	}
+    @Override
+    public String toString()
+    {
+        return getTitle();
+    }
 }

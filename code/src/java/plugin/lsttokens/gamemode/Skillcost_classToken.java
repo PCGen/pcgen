@@ -11,23 +11,22 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class Skillcost_classToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SKILLCOST_CLASS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SKILLCOST_CLASS";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			gameMode.setSkillCost_Class(Integer.parseInt(value));
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            gameMode.setSkillCost_Class(Integer.parseInt(value));
+            return true;
+        } catch (NumberFormatException nfe)
+        {
+            return false;
+        }
+    }
 }

@@ -26,19 +26,19 @@ import pcgen.cdom.testsupport.AbstractItemFacetTest;
 public class PortraitThumbnailRectFacetTest extends AbstractItemFacetTest<Rectangle>
 {
 
-	private final PortraitThumbnailRectFacet facet = new PortraitThumbnailRectFacet();
+    private final PortraitThumbnailRectFacet facet = new PortraitThumbnailRectFacet();
 
-	@Override
-	protected AbstractItemFacet<CharID, Rectangle> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractItemFacet<CharID, Rectangle> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 1;
+    private int n = 1;
 
-	@Override
-	protected Rectangle getItem()
-	{
-		return new Rectangle(n++, n, n, n++);
-	}
+    @Override
+    protected Rectangle getItem()
+    {
+        return new Rectangle(n++, n, n, n++);
+    }
 }

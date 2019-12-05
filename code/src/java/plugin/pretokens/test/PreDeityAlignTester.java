@@ -24,69 +24,69 @@ import pcgen.util.Logging;
 public class PreDeityAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
-	{
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
+    {
 
-		//
-		// If game mode doesn't support alignment, then pass the prereq
-		//
-		int runningTotal = 0;
+        //
+        // If game mode doesn't support alignment, then pass the prereq
+        //
+        int runningTotal = 0;
 
-		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
-		{
-			runningTotal = 1;
-		}
-		else
-		{
-			CDOMSingleRef<PCAlignment> deityAlign = null;
-			Deity deity = pc.getDeity();
-			if (deity != null)
-			{
-				deityAlign = deity.get(ObjectKey.ALIGNMENT);
-			}
-			if (deityAlign != null)
-			{
-				String desiredAlignIdentifier = prereq.getOperand();
-				PCAlignment desiredAlign = getPCAlignment(desiredAlignIdentifier);
+        if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
+        {
+            runningTotal = 1;
+        } else
+        {
+            CDOMSingleRef<PCAlignment> deityAlign = null;
+            Deity deity = pc.getDeity();
+            if (deity != null)
+            {
+                deityAlign = deity.get(ObjectKey.ALIGNMENT);
+            }
+            if (deityAlign != null)
+            {
+                String desiredAlignIdentifier = prereq.getOperand();
+                PCAlignment desiredAlign = getPCAlignment(desiredAlignIdentifier);
 
-				if (desiredAlign.equals(deityAlign.get()))
-				{
-					runningTotal = 1;
-				}
-			}
-		}
+                if (desiredAlign.equals(deityAlign.get()))
+                {
+                    runningTotal = 1;
+                }
+            }
+        }
 
-		return countedTotal(prereq, runningTotal);
-	}
+        return countedTotal(prereq, runningTotal);
+    }
 
-	private static PCAlignment getPCAlignment(String desiredAlignIdentifier)
-	{
-		PCAlignment desiredAlign = Globals.getContext().getReferenceContext()
-			.silentlyGetConstructedCDOMObject(PCAlignment.class, desiredAlignIdentifier);
-		if (desiredAlign == null)
-		{
-			Logging.errorPrint("Unable to find alignment that matches: " + desiredAlignIdentifier);
-		}
-		return desiredAlign;
-	}
+    private static PCAlignment getPCAlignment(String desiredAlignIdentifier)
+    {
+        PCAlignment desiredAlign = Globals.getContext().getReferenceContext()
+                .silentlyGetConstructedCDOMObject(PCAlignment.class, desiredAlignIdentifier);
+        if (desiredAlign == null)
+        {
+            Logging.errorPrint("Unable to find alignment that matches: " + desiredAlignIdentifier);
+        }
+        return desiredAlign;
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "DEITYALIGN"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "DEITYALIGN"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString(
-			"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
-			getPCAlignment(prereq.getOperand()).getKeyName());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString(
+                "PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+                getPCAlignment(prereq.getOperand()).getKeyName());
+    }
 
 }

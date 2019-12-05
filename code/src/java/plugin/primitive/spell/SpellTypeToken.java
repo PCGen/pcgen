@@ -31,81 +31,81 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
  */
 public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 {
-	private String spelltype;
+    private String spelltype;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
-	{
-		if (value == null)
-		{
-			return false;
-		}
-		spelltype = value;
-		return initialize(context, args);
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
+    {
+        if (value == null)
+        {
+            return false;
+        }
+        spelltype = value;
+        return initialize(context, args);
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "SPELLTYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPELLTYPE";
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
-	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(spell);
-		String source = "SPELLTYPE:" + spelltype;
-		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
-		{
-			if (spellList.isType(spelltype))
-			{
-				for (Integer level : levelInfo.getListFor(spellList))
-				{
-					if (allow(pc, level, source, spell, null))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Spell spell)
+    {
+        HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(spell);
+        String source = "SPELLTYPE:" + spelltype;
+        for (CDOMList<Spell> spellList : levelInfo.getKeySet())
+        {
+            if (spellList.isType(spelltype))
+            {
+                for (Integer level : levelInfo.getListFor(spellList))
+                {
+                    if (allow(pc, level, source, spell, null))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof SpellTypeToken)
-		{
-			SpellTypeToken other = (SpellTypeToken) obj;
-			if (spelltype == null)
-			{
-				return other.spelltype == null;
-			}
-			return spelltype.equals(other.spelltype) && equalsRestrictedPrimitive(other);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof SpellTypeToken)
+        {
+            SpellTypeToken other = (SpellTypeToken) obj;
+            if (spelltype == null)
+            {
+                return other.spelltype == null;
+            }
+            return spelltype.equals(other.spelltype) && equalsRestrictedPrimitive(other);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return spelltype == null ? -23 : spelltype.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return spelltype == null ? -23 : spelltype.hashCode();
+    }
 
-	@Override
-	public CharSequence getPrimitiveLST()
-	{
-		return new StringBuilder().append(getTokenName()).append('=').append(spelltype).append(getRestrictionLST());
-	}
+    @Override
+    public CharSequence getPrimitiveLST()
+    {
+        return new StringBuilder().append(getTokenName()).append('=').append(spelltype).append(getRestrictionLST());
+    }
 
 }

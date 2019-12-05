@@ -1,520 +1,520 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Header: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqoutofmemoryandjavaissues.html,v 1.2 2007-08-05 03:54:46 (Sat, 5 Aug 2007 fitzs $
-                $Author$
-                $Date$
-                $Revision$
+               $Header: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqoutofmemoryandjavaissues.html,v 1.2 2007-08-05 03:54:46 (Sat, 5 Aug 2007 fitzs $
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                ravagonATbredbandDOTnet
-                Michael <java_kensaiATsbcglobalDOTnet>
-                Paul W. King <paulkingDOTrhochiATverizonDOTnet>
-                Terry FitzSimons <fitzsimonsATmintelDOTnet>
-                Eric C Smith <mareduddATblackrootDOTorg>
+               Contributors:
+               ravagonATbredbandDOTnet
+               Michael <java_kensaiATsbcglobalDOTnet>
+               Paul W. King <paulkingDOTrhochiATverizonDOTnet>
+               Terry FitzSimons <fitzsimonsATmintelDOTnet>
+               Eric C Smith <mareduddATblackrootDOTorg>
 
-                Description:
-                PCGen FAQ Out of Memory and Java Issues.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Out of Memory and Java Issues
-  </title>
-  <link href="../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Out of Memory Issues
-  </h1>
-  <h2>
-   How do I increase my memory?
-  </h2>
-  <h3>
-   For Windows Users:
-  </h3>
-  <p class="indent1">
-   You increase the memory allotment by editing the
-   <em>
-    pcgen.bet
-   </em>
-   file.
-  </p>
-  <ul>
-   <li>
-    Open the
+               Description:
+               PCGen FAQ Out of Memory and Java Issues.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Out of Memory and Java Issues
+    </title>
+    <link href="../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Out of Memory Issues
+</h1>
+<h2>
+    How do I increase my memory?
+</h2>
+<h3>
+    For Windows Users:
+</h3>
+<p class="indent1">
+    You increase the memory allotment by editing the
     <em>
-     pcgen.bat
-    </em>
-    file
-   </li>
-   <li>
-    Find and change the following code:
-    <ul>
-     <li>
-      <strong>
-       From:
-      </strong>
-      <code>java -Dswing.aatext=true -Xms128m
--Xmx256m -jar pcgen.jar</code>
-     </li>
-     <li>
-      <strong>
-       To:
-      </strong>
-      <code>java -Dswing.aatext=true -Xms256m
--Xmx512m -jar pcgen.jar</code>
-     </li>
-    </ul>
-   </li>
-   <li>
-    <strong>
-     Note:
-    </strong>
-    <code>-Xms256</code>
-    assigns starting
-memory for PCGen to 256Mb of RAM and should be enough memory for
-pcgen to run with lots of sources loaded.
-   </li>
-   <li>
-    <strong>
-     Note:
-    </strong>
-    <code>-Xmx512</code>
-    assigns a maximum
-of 512Mb of RAM to PCGen and should be enough memory for pcgen to
-run with lots more sources and characters loaded.
-   </li>
-  </ul>
-  <h3>
-   For Mac Users:
-  </h3>
-  <p class="indent1">
-   You increase the memory allotment by editing the
-   <em>
-    info.plist
-   </em>
-   file, which can be found in the 'Contents'
-folder inside of the PCGen app package.
-  </p>
-  <ol class="indent1">
-   <li>
-    Right-click, or commend-click, on the PCGen app and select
-'Show Package Contents'.
-   </li>
-   <li>
-    Double click on the 'Contents' folder. (If in Columns view,
-single click on the Contents folder.)
-   </li>
-   <li>
-    Right-click, or command-click, on 'info.plist', selecting 'Open
-with' and then the application you wish to use to edit the file.
-Text Editor will work but if you have Property List Editor, things
-will work out better.
-   </li>
-   <li>
-    Look for the following text:
-    <code>-Xms128m -Xmx256m</code>
-    <ol style="list-style-type: lower-alpha;">
-     <li>
-      If you have 512MB of ram, you can change the text to the
-following:
-      <code>-Xms256m -Xmx512m</code>
-     </li>
-     <li>
-      If you have 1GB of ram, you can change the text to the
-following:
-      <code>-Xms512m -Xmx1024m</code>
-     </li>
-    </ol>
-   </li>
-   <li>
-    Save the file and relaunch PCGen.
-   </li>
-  </ol>
-  <h3>
-   For Unix Users:
-  </h3>
-  <p class="indent1">
-   You can make the following change to the
-   <em>
-    pcgen.sh
-   </em>
-   file.:
-  </p>
-  <ol class="indent1">
-   <li>
-    Open the
-    <em>
-     pcgen.sh
+        pcgen.bet
     </em>
     file.
-   </li>
-   <li>
-    Find the following line:
-    <code>java -jar ./pcgen.jar</code>
-    . .
-.
-   </li>
-   <li>
-    Replace it with the following line:
-    <code>java -Xms256m
--Xmx512m -jar ./pcgen.jar</code>
-    . . .
-   </li>
-   <li>
-    The values "256" and "512" are the "Minimum" and "Maximum"
-memory allocated to PCGen when it is run.
-   </li>
-   <li>
-    The line of replacement code may also be run at the command
-line.
-   </li>
-  </ol>
-  <h3>
-   Advice For All Users:
-  </h3>
-  <p class="indent1">
-   The following are a set of recommendations for
-all users irrespective of what platform they are using:
-  </p>
-  <ul class="indent1">
-   <li>
-    Don't load sources that you don't need.
-   </li>
-   <li>
-    In Preferences, don't turn on the "Auto Create Equipment"
-feature. Use the provided equipment and custom create equipment as
-needed. To create custom equipment, right click on the basic
-equipement in the "Inventory/Gear" tab and add the desired
-enhancements to it.
-   </li>
-  </ul>
-  <hr/>
-  <h1>
-   Java Issues
-  </h1>
-  <h2>
-   What Java do I need?
-  </h2>
-  <p class="indent1">
-   The following are the versions of Java required
-for PCGen (by PCGen version)
-  </p>
-  <dl class="indent2">
-   <dt>
-    PCGen 5.12.x and above
-   </dt>
-   <dd>
-    Java 1.5.x or Java 1.6.0_01 (and above)
-   </dd>
-   <dt>
-    PCGen 5.10.2 and below
-   </dt>
-   <dd>
-    Java 1.5.x
-   </dd>
-   <dt>
-    PCGen 5.8.1 and below
-   </dt>
-   <dd>
-    Java 1.4.x
-   </dd>
-   <dt>
-    PCGen 5.6.1 and below
-   </dt>
-   <dd>
-    Java 1.3.x
-   </dd>
-  </dl>
-  <hr/>
-  <h2>
-   How do I find out what version of Java I am running?
-  </h2>
-  <h4>
-   For Windows Users:
-  </h4>
-  <p class="indent1">
-   Go the command prompt and type:
-  </p>
-  <p class="indent2">
-   <code>java -version</code>
-  </p>
-  <p class="indent1">
-   You should get some kind of a response like:
-  </p>
-  <p class="indent2">
-   <code>java version "1.5.0_06"</code>
-  </p>
-  <p class="indent2">
-   <code>Java(TM) 2 Runtime Environment, Standard
-Edition (build 1.5.0_06-b05)</code>
-  </p>
-  <p class="indent2">
-   <code>Java HotSpot(TM) Client VM (build
-1.5.0_06-b05, mixed mode, sharing)</code>
-  </p>
-  <h4>
-   For Windows Vista Users:
-  </h4>
-  <p class="indent1">
-   If above does not work:
-  </p>
-  <p class="indent1">
-   Open Control Panel:
-  </p>
-  <p class="indent2">
-   Double click on the Java Icon
-  </p>
-  <p class="indent1">
-   Open Java Page.
-  </p>
-  <p class="indent2">
-   Open "Java Application Runtime Setting"
-  </p>
-  <p class="indent2">
-   Open "User"
-  </p>
-  <p class="indent2">
-   Click the Enabled button on any Java version
-other than 1.6.0_00
-  </p>
-  <p class="indent2">
-   Open "System"
-  </p>
-  <p class="indent2">
-   Only have one in mine and its not selectable
-  </p>
-  <h4>
-   For Mac Users:
-  </h4>
-  <p class="indent1">
-   Open a terminal window and enter:
-  </p>
-  <p class="indent2">
-   <code>java -version</code>
-  </p>
-  <p class="indent1">
-   You should get some kind of a response like:
-  </p>
-  <p class="indent2">
-   <code>java version "1.5.0_06"</code>
-  </p>
-  <p class="indent2">
-   <code>Java(TM) 2 Runtime Environment, Standard
-Edition (build 1.5.0_06-b05)</code>
-  </p>
-  <p class="indent2">
-   <code>Java HotSpot(TM) Client VM (build
-1.5.0_06-b05, mixed mode, sharing)</code>
-  </p>
-  <h4>
-   For Unix Users:
-  </h4>
-  <p class="indent1">
-   Refer to the Mac instructions.
-  </p>
-  <hr/>
-  <h2>
-   Miscellaneous Error Messages
-  </h2>
-  <dl class="indent1">
-   <dt>
-    <strong>
-     Bad command or file name
-    </strong>
-   </dt>
-   <dd>
-    A common cause for this error is not having java installed. Go
-to
-    <a href="http://java.sun.com/">
-     http://java.sun.com/
-    </a>
-    and
-download and install the latest java 1.5.x JRE. You'll then be able
-to run PCGen.
-   </dd>
-  </dl>
-  <hr/>
-  <h1>
-   Operating System Issues
-  </h1>
-  <h4>
-   For Vista and XP 64 Bit Users:
-  </h4>
-  <p class="indent1">
-   Question: Why doesn't Windows Vista/XP 64 run
-the
-   <em>
-    pcgen.bat
-   </em>
-   file?
-  </p>
-  <p class="indent1">
-   Answer1: PCGen should be installed in the
-C:\Program Files (x86) folder.
-  </p>
-  <p class="indent1">
-   Answer2: The other most common cause of this
-problem is that Windows is not pointing the command "java" to the
-   <em>
-    java.exe
-   </em>
-   file.
-  </p>
-  <p class="indent2">
-   Solution #1: Create a new file called
-   <em>
-    PCGen.cmd
-   </em>
-   and then put the following into it:
-  </p>
-  <ol class="indent2">
-   <li>
-    <code>&lt;Path to Java&gt; -Dswing.aatext=true -Xms&lt;Minimum
-Memory&gt;m -Xmx&lt;Maximum Memory&gt;m -jar &lt;Path to
-PcGen&gt;</code>
-    <div style="margin-left: 2em;">
-     <code>Example Vista: "C:\Program
-Files (x86)\Java\jre1.6.0_01\bin\java.exe" -Dswing.aatext=true
--Xms256m -Xmx512m -jar "C:\Program Files
-(x86)\PCGen\PCGen5102\pcgen.jar"</code>
-    </div>
-   </li>
-   <li>
-    Put your paths and memory limits in as appropriate. If the path
-has a space in it, you need the quotes.
-    <ol style="list-style-type: lower-alpha;">
-     <li>
-      Sample Path to Java: "C:\Program Files
-(x86)\Java\jre1.6.0_01\bin\java.exe"
-     </li>
-     <li>
-      Minimum Memory: 768, Maximum Memory: 1024
-     </li>
-     <li>
-      Sample Path to PCGen: "E:\PCGen5102\"
-     </li>
-     <li>
-      Note: "Quotes" are required in path names that include
-spaces.
-     </li>
-    </ol>
-   </li>
-   <li>
-    Launch PCGen by running the
+</p>
+<ul>
+    <li>
+        Open the
+        <em>
+            pcgen.bat
+        </em>
+        file
+    </li>
+    <li>
+        Find and change the following code:
+        <ul>
+            <li>
+                <strong>
+                    From:
+                </strong>
+                <code>java -Dswing.aatext=true -Xms128m
+                    -Xmx256m -jar pcgen.jar</code>
+            </li>
+            <li>
+                <strong>
+                    To:
+                </strong>
+                <code>java -Dswing.aatext=true -Xms256m
+                    -Xmx512m -jar pcgen.jar</code>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <strong>
+            Note:
+        </strong>
+        <code>-Xms256</code>
+        assigns starting
+        memory for PCGen to 256Mb of RAM and should be enough memory for
+        pcgen to run with lots of sources loaded.
+    </li>
+    <li>
+        <strong>
+            Note:
+        </strong>
+        <code>-Xmx512</code>
+        assigns a maximum
+        of 512Mb of RAM to PCGen and should be enough memory for pcgen to
+        run with lots more sources and characters loaded.
+    </li>
+</ul>
+<h3>
+    For Mac Users:
+</h3>
+<p class="indent1">
+    You increase the memory allotment by editing the
     <em>
-     PCGen.cmd
+        info.plist
+    </em>
+    file, which can be found in the 'Contents'
+    folder inside of the PCGen app package.
+</p>
+<ol class="indent1">
+    <li>
+        Right-click, or commend-click, on the PCGen app and select
+        'Show Package Contents'.
+    </li>
+    <li>
+        Double click on the 'Contents' folder. (If in Columns view,
+        single click on the Contents folder.)
+    </li>
+    <li>
+        Right-click, or command-click, on 'info.plist', selecting 'Open
+        with' and then the application you wish to use to edit the file.
+        Text Editor will work but if you have Property List Editor, things
+        will work out better.
+    </li>
+    <li>
+        Look for the following text:
+        <code>-Xms128m -Xmx256m</code>
+        <ol style="list-style-type: lower-alpha;">
+            <li>
+                If you have 512MB of ram, you can change the text to the
+                following:
+                <code>-Xms256m -Xmx512m</code>
+            </li>
+            <li>
+                If you have 1GB of ram, you can change the text to the
+                following:
+                <code>-Xms512m -Xmx1024m</code>
+            </li>
+        </ol>
+    </li>
+    <li>
+        Save the file and relaunch PCGen.
+    </li>
+</ol>
+<h3>
+    For Unix Users:
+</h3>
+<p class="indent1">
+    You can make the following change to the
+    <em>
+        pcgen.sh
+    </em>
+    file.:
+</p>
+<ol class="indent1">
+    <li>
+        Open the
+        <em>
+            pcgen.sh
+        </em>
+        file.
+    </li>
+    <li>
+        Find the following line:
+        <code>java -jar ./pcgen.jar</code>
+        . .
+        .
+    </li>
+    <li>
+        Replace it with the following line:
+        <code>java -Xms256m
+            -Xmx512m -jar ./pcgen.jar</code>
+        . . .
+    </li>
+    <li>
+        The values "256" and "512" are the "Minimum" and "Maximum"
+        memory allocated to PCGen when it is run.
+    </li>
+    <li>
+        The line of replacement code may also be run at the command
+        line.
+    </li>
+</ol>
+<h3>
+    Advice For All Users:
+</h3>
+<p class="indent1">
+    The following are a set of recommendations for
+    all users irrespective of what platform they are using:
+</p>
+<ul class="indent1">
+    <li>
+        Don't load sources that you don't need.
+    </li>
+    <li>
+        In Preferences, don't turn on the "Auto Create Equipment"
+        feature. Use the provided equipment and custom create equipment as
+        needed. To create custom equipment, right click on the basic
+        equipement in the "Inventory/Gear" tab and add the desired
+        enhancements to it.
+    </li>
+</ul>
+<hr/>
+<h1>
+    Java Issues
+</h1>
+<h2>
+    What Java do I need?
+</h2>
+<p class="indent1">
+    The following are the versions of Java required
+    for PCGen (by PCGen version)
+</p>
+<dl class="indent2">
+    <dt>
+        PCGen 5.12.x and above
+    </dt>
+    <dd>
+        Java 1.5.x or Java 1.6.0_01 (and above)
+    </dd>
+    <dt>
+        PCGen 5.10.2 and below
+    </dt>
+    <dd>
+        Java 1.5.x
+    </dd>
+    <dt>
+        PCGen 5.8.1 and below
+    </dt>
+    <dd>
+        Java 1.4.x
+    </dd>
+    <dt>
+        PCGen 5.6.1 and below
+    </dt>
+    <dd>
+        Java 1.3.x
+    </dd>
+</dl>
+<hr/>
+<h2>
+    How do I find out what version of Java I am running?
+</h2>
+<h4>
+    For Windows Users:
+</h4>
+<p class="indent1">
+    Go the command prompt and type:
+</p>
+<p class="indent2">
+    <code>java -version</code>
+</p>
+<p class="indent1">
+    You should get some kind of a response like:
+</p>
+<p class="indent2">
+    <code>java version "1.5.0_06"</code>
+</p>
+<p class="indent2">
+    <code>Java(TM) 2 Runtime Environment, Standard
+        Edition (build 1.5.0_06-b05)</code>
+</p>
+<p class="indent2">
+    <code>Java HotSpot(TM) Client VM (build
+        1.5.0_06-b05, mixed mode, sharing)</code>
+</p>
+<h4>
+    For Windows Vista Users:
+</h4>
+<p class="indent1">
+    If above does not work:
+</p>
+<p class="indent1">
+    Open Control Panel:
+</p>
+<p class="indent2">
+    Double click on the Java Icon
+</p>
+<p class="indent1">
+    Open Java Page.
+</p>
+<p class="indent2">
+    Open "Java Application Runtime Setting"
+</p>
+<p class="indent2">
+    Open "User"
+</p>
+<p class="indent2">
+    Click the Enabled button on any Java version
+    other than 1.6.0_00
+</p>
+<p class="indent2">
+    Open "System"
+</p>
+<p class="indent2">
+    Only have one in mine and its not selectable
+</p>
+<h4>
+    For Mac Users:
+</h4>
+<p class="indent1">
+    Open a terminal window and enter:
+</p>
+<p class="indent2">
+    <code>java -version</code>
+</p>
+<p class="indent1">
+    You should get some kind of a response like:
+</p>
+<p class="indent2">
+    <code>java version "1.5.0_06"</code>
+</p>
+<p class="indent2">
+    <code>Java(TM) 2 Runtime Environment, Standard
+        Edition (build 1.5.0_06-b05)</code>
+</p>
+<p class="indent2">
+    <code>Java HotSpot(TM) Client VM (build
+        1.5.0_06-b05, mixed mode, sharing)</code>
+</p>
+<h4>
+    For Unix Users:
+</h4>
+<p class="indent1">
+    Refer to the Mac instructions.
+</p>
+<hr/>
+<h2>
+    Miscellaneous Error Messages
+</h2>
+<dl class="indent1">
+    <dt>
+        <strong>
+            Bad command or file name
+        </strong>
+    </dt>
+    <dd>
+        A common cause for this error is not having java installed. Go
+        to
+        <a href="http://java.sun.com/">
+            http://java.sun.com/
+        </a>
+        and
+        download and install the latest java 1.5.x JRE. You'll then be able
+        to run PCGen.
+    </dd>
+</dl>
+<hr/>
+<h1>
+    Operating System Issues
+</h1>
+<h4>
+    For Vista and XP 64 Bit Users:
+</h4>
+<p class="indent1">
+    Question: Why doesn't Windows Vista/XP 64 run
+    the
+    <em>
+        pcgen.bat
+    </em>
+    file?
+</p>
+<p class="indent1">
+    Answer1: PCGen should be installed in the
+    C:\Program Files (x86) folder.
+</p>
+<p class="indent1">
+    Answer2: The other most common cause of this
+    problem is that Windows is not pointing the command "java" to the
+    <em>
+        java.exe
     </em>
     file.
-   </li>
-  </ol>
-  <p class="indent2">
-   Solution #2: Add the bin directory from your
-java install to the path.:
-  </p>
-  <ol class="indent2">
-   <li>
-    Open the control panel.
-   </li>
-   <li>
-    Open the system item.
-   </li>
-   <li>
-    Select the advanced tab.
-   </li>
-   <li>
-    Select "Continue" on the User Account Control.
-   </li>
-   <li>
-    Click on the button marked environment variables.
-   </li>
-   <li>
-    On my system "Path" is listed under the system variables.
-   </li>
-   <li>
-    Click on the button marked EDIT....
-   </li>
-   <li>
-    Look at Path for something similiar to what is in Solution #1
-&lt;Path to Java&amp;gt. If you have it, do nothing else, if you
-don't: proceed.
-   </li>
-   <li>
-    Edit the path item. At the end of the Path statement, click and
-add the following ";&lt;Path to Java&gt;" i.e. ;"C:\Program Files
-(x86)\Java\jre1.6.0_01\bin\java.exe"
-   </li>
-   <li>
-    Then Restart the computer
-   </li>
-   <li>
-    Note: The path is a semi-colon (;) separated list.
-   </li>
-   <li>
-    See if you can launch PCGen by running the icon on the desktop
-from the program, If you can, you don't need the
+</p>
+<p class="indent2">
+    Solution #1: Create a new file called
     <em>
-     pcgen.bat
+        PCGen.cmd
     </em>
-    file from Solution #1.
-   </li>
-   <li>
-    Launch PCGen by running the
-    <em>
-     pcgen.bat
-    </em>
-    file.
-   </li>
-  </ol>
-  <h4>
-   For Ubuntu Users:
-  </h4>
-  <p class="indent1">
-   The #1 issue for PCGen users running on Ubuntu
-is that you need to use the Sun Java implementation, not the
-default that ships with Ubuntu.
-  </p>
-  <ul>
-   <li>
-    Check the version of Java being used:
-    <code>$ java
--version</code>
-   </li>
-   <li>
-    If not using Sun's JRE, you will need to install it. (see the
-Ubuntu wiki for help)
-   </li>
-   <li>
-    If Sun's Java is installed but not running, update the default
-java by using:
-    <ul>
-     <li>
-      <code>$ sudo update-alternatives --config java</code>
-      <br/>
-      or
-     </li>
-     <li>
-      <code>$ sudo update-alternatives --set \java
-/usr/lib/jvm/java-1.5.0-sun/jre/bin/java</code>
-      <br/>
-      Note: Both command do the same thing (with the first command you
-get a list of possible java's and are asked to choose).
-     </li>
-    </ul>
-   </li>
-   <li>
-    WARNING: Manually moving files and placing symbolic links might
-get the job done but is probably bad for the long-term health of
-your system. I think things might break with an update.
-   </li>
-  </ul>
-  <hr/>
-  <p>
-  </p>
- </body>
+    and then put the following into it:
+</p>
+<ol class="indent2">
+    <li>
+        <code>&lt;Path to Java&gt; -Dswing.aatext=true -Xms&lt;Minimum
+            Memory&gt;m -Xmx&lt;Maximum Memory&gt;m -jar &lt;Path to
+            PcGen&gt;</code>
+        <div style="margin-left: 2em;">
+            <code>Example Vista: "C:\Program
+                Files (x86)\Java\jre1.6.0_01\bin\java.exe" -Dswing.aatext=true
+                -Xms256m -Xmx512m -jar "C:\Program Files
+                (x86)\PCGen\PCGen5102\pcgen.jar"</code>
+        </div>
+    </li>
+    <li>
+        Put your paths and memory limits in as appropriate. If the path
+        has a space in it, you need the quotes.
+        <ol style="list-style-type: lower-alpha;">
+            <li>
+                Sample Path to Java: "C:\Program Files
+                (x86)\Java\jre1.6.0_01\bin\java.exe"
+            </li>
+            <li>
+                Minimum Memory: 768, Maximum Memory: 1024
+            </li>
+            <li>
+                Sample Path to PCGen: "E:\PCGen5102\"
+            </li>
+            <li>
+                Note: "Quotes" are required in path names that include
+                spaces.
+            </li>
+        </ol>
+    </li>
+    <li>
+        Launch PCGen by running the
+        <em>
+            PCGen.cmd
+        </em>
+        file.
+    </li>
+</ol>
+<p class="indent2">
+    Solution #2: Add the bin directory from your
+    java install to the path.:
+</p>
+<ol class="indent2">
+    <li>
+        Open the control panel.
+    </li>
+    <li>
+        Open the system item.
+    </li>
+    <li>
+        Select the advanced tab.
+    </li>
+    <li>
+        Select "Continue" on the User Account Control.
+    </li>
+    <li>
+        Click on the button marked environment variables.
+    </li>
+    <li>
+        On my system "Path" is listed under the system variables.
+    </li>
+    <li>
+        Click on the button marked EDIT....
+    </li>
+    <li>
+        Look at Path for something similiar to what is in Solution #1
+        &lt;Path to Java&amp;gt. If you have it, do nothing else, if you
+        don't: proceed.
+    </li>
+    <li>
+        Edit the path item. At the end of the Path statement, click and
+        add the following ";&lt;Path to Java&gt;" i.e. ;"C:\Program Files
+        (x86)\Java\jre1.6.0_01\bin\java.exe"
+    </li>
+    <li>
+        Then Restart the computer
+    </li>
+    <li>
+        Note: The path is a semi-colon (;) separated list.
+    </li>
+    <li>
+        See if you can launch PCGen by running the icon on the desktop
+        from the program, If you can, you don't need the
+        <em>
+            pcgen.bat
+        </em>
+        file from Solution #1.
+    </li>
+    <li>
+        Launch PCGen by running the
+        <em>
+            pcgen.bat
+        </em>
+        file.
+    </li>
+</ol>
+<h4>
+    For Ubuntu Users:
+</h4>
+<p class="indent1">
+    The #1 issue for PCGen users running on Ubuntu
+    is that you need to use the Sun Java implementation, not the
+    default that ships with Ubuntu.
+</p>
+<ul>
+    <li>
+        Check the version of Java being used:
+        <code>$ java
+            -version</code>
+    </li>
+    <li>
+        If not using Sun's JRE, you will need to install it. (see the
+        Ubuntu wiki for help)
+    </li>
+    <li>
+        If Sun's Java is installed but not running, update the default
+        java by using:
+        <ul>
+            <li>
+                <code>$ sudo update-alternatives --config java</code>
+                <br/>
+                or
+            </li>
+            <li>
+                <code>$ sudo update-alternatives --set \java
+                    /usr/lib/jvm/java-1.5.0-sun/jre/bin/java</code>
+                <br/>
+                Note: Both command do the same thing (with the first command you
+                get a list of possible java's and are asked to choose).
+            </li>
+        </ul>
+    </li>
+    <li>
+        WARNING: Manually moving files and placing symbolic links might
+        get the job done but is probably bad for the long-term health of
+        your system. I think things might break with an update.
+    </li>
+</ul>
+<hr/>
+<p>
+</p>
+</body>
 </html>

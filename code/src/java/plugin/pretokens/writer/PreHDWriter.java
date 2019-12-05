@@ -31,94 +31,90 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreHDWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "HD";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "HD";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
-			PrerequisiteOperator.GT};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
+                PrerequisiteOperator.GT};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
 
-		try
-		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-			{
-				writer.write('!');
-				writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
-				writer.write(prereq.getOperand());
-			}
-			else if (prereq.getOperator().equals(PrerequisiteOperator.GT))
-			{
-				writer.write('!');
-				writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
-				writer.write(prereq.getOperand());
-			}
-			else if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
-			{
-				writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
-				writer.write(prereq.getOperand());
-			}
-			else if (prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
-			{
-				writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
-				writer.write(prereq.getOperand());
-			}
+        try
+        {
+            if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+            {
+                writer.write('!');
+                writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
+                writer.write(prereq.getOperand());
+            } else if (prereq.getOperator().equals(PrerequisiteOperator.GT))
+            {
+                writer.write('!');
+                writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
+                writer.write(prereq.getOperand());
+            } else if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+            {
+                writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
+                writer.write(prereq.getOperand());
+            } else if (prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
+            {
+                writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
+                writer.write(prereq.getOperand());
+            }
 
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
-	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
-	{
-		//
-		// If this is a PREMULT...
-		//
-		if (prereq.getKind() == null)
-		{
-			//
-			// ...with exactly 2 entries...
-			//
-			List<Prerequisite> prereqList = prereq.getPrerequisites();
-			if (prereqList.size() == 2)
-			{
-				//
-				// ...both of which are PREHD. The first must specify >= and the second <=
-				//
-				final Prerequisite elementGTEQ = prereqList.get(0);
-				final Prerequisite elementLTEQ = prereqList.get(1);
-				if ("hd".equalsIgnoreCase(elementGTEQ.getKind())
-					&& elementGTEQ.getOperator().equals(PrerequisiteOperator.GTEQ)
-					&& "hd".equalsIgnoreCase(elementLTEQ.getKind())
-					&& elementLTEQ.getOperator().equals(PrerequisiteOperator.LTEQ))
-				{
-					if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-					{
-						writer.write('!');
-					}
-					writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : ""));
-					writer.write("MIN=");
-					writer.write(elementGTEQ.getOperand());
-					writer.write(",MAX=");
-					writer.write(elementLTEQ.getOperand());
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+    @Override
+    public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+    {
+        //
+        // If this is a PREMULT...
+        //
+        if (prereq.getKind() == null)
+        {
+            //
+            // ...with exactly 2 entries...
+            //
+            List<Prerequisite> prereqList = prereq.getPrerequisites();
+            if (prereqList.size() == 2)
+            {
+                //
+                // ...both of which are PREHD. The first must specify >= and the second <=
+                //
+                final Prerequisite elementGTEQ = prereqList.get(0);
+                final Prerequisite elementLTEQ = prereqList.get(1);
+                if ("hd".equalsIgnoreCase(elementGTEQ.getKind())
+                        && elementGTEQ.getOperator().equals(PrerequisiteOperator.GTEQ)
+                        && "hd".equalsIgnoreCase(elementLTEQ.getKind())
+                        && elementLTEQ.getOperator().equals(PrerequisiteOperator.LTEQ))
+                {
+                    if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+                    {
+                        writer.write('!');
+                    }
+                    writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : ""));
+                    writer.write("MIN=");
+                    writer.write(elementGTEQ.getOperand());
+                    writer.write(",MAX=");
+                    writer.write(elementLTEQ.getOperand());
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 }

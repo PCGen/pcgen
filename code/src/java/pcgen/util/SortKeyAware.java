@@ -19,18 +19,16 @@ package pcgen.util;
 
 /**
  * The Class {@code SortKeyAware} identifies a class which can return its
- * sort key. That is the text to be used for sorting, which may be different 
+ * sort key. That is the text to be used for sorting, which may be different
  * from the text used to display the item.
- *
- * 
  */
 @FunctionalInterface
 public interface SortKeyAware
 {
 
-	/**
-	 * @return The sort key for this object.
-	 */
+    /**
+     * @return The sort key for this object.
+     */
     String getSortKey();
 
 }

@@ -43,83 +43,81 @@ import javafx.scene.control.ComboBox;
  */
 public class DefaultsPreferencesPanelController implements ResettableController
 {
-	private static final String DEFAULT_PREVIEW_SHEET_KEY = "CharacterSheetInfoTab.defaultPreviewSheet.";
-	@FXML
-	private ComboBox<String> xpTableCombo;
-	@FXML
-	private ComboBox<String> characterTypeCombo;
-	@FXML
-	private ComboBox<String> previewSheetCombo;
+    private static final String DEFAULT_PREVIEW_SHEET_KEY = "CharacterSheetInfoTab.defaultPreviewSheet.";
+    @FXML
+    private ComboBox<String> xpTableCombo;
+    @FXML
+    private ComboBox<String> characterTypeCombo;
+    @FXML
+    private ComboBox<String> previewSheetCombo;
 
-	private static List<String> getPreviewDirecoryOptions(GameMode gameMode)
-	{
-		String previewDir = ConfigurationSettings.getPreviewDir();
-		File sheetDir = new File(previewDir, gameMode.getCharSheetDir());
-		if (sheetDir.exists() && sheetDir.isDirectory())
-		{
-			File[] files = sheetDir.listFiles();
-			if (files == null)
-			{
-				return Collections.emptyList();
-			}
-			else
-			{
-				return Arrays.stream(files)
-				             .map(File::toString)
-				             .collect(Collectors.toList());
-			}
+    private static List<String> getPreviewDirecoryOptions(GameMode gameMode)
+    {
+        String previewDir = ConfigurationSettings.getPreviewDir();
+        File sheetDir = new File(previewDir, gameMode.getCharSheetDir());
+        if (sheetDir.exists() && sheetDir.isDirectory())
+        {
+            File[] files = sheetDir.listFiles();
+            if (files == null)
+            {
+                return Collections.emptyList();
+            } else
+            {
+                return Arrays.stream(files)
+                        .map(File::toString)
+                        .collect(Collectors.toList());
+            }
 
-		}
-		else
-		{
-			return Collections.emptyList();
-		}
+        } else
+        {
+            return Collections.emptyList();
+        }
 
-	}
+    }
 
-	@Override
-	public void reset()
-	{
-		/*
-		 * much of this data should be driven by a
-		 * model and the controller should actually be getting
-		 * a observableList to attach.
-		 */
+    @Override
+    public void reset()
+    {
+        /*
+         * much of this data should be driven by a
+         * model and the controller should actually be getting
+         * a observableList to attach.
+         */
 
-		final GameMode gameMode = SettingsHandler.getGame();
+        final GameMode gameMode = SettingsHandler.getGame();
 
-		final String xpTableName = gameMode.getDefaultXPTableName();
-		List<String> xpTableNames = gameMode.getXPTableNames();
-		ObservableList<String> xpSheetItems =
-				FXCollections.observableArrayList(xpTableNames);
-		xpTableCombo.setItems(xpSheetItems);
-		xpTableCombo.getSelectionModel().select(xpTableName);
+        final String xpTableName = gameMode.getDefaultXPTableName();
+        List<String> xpTableNames = gameMode.getXPTableNames();
+        ObservableList<String> xpSheetItems =
+                FXCollections.observableArrayList(xpTableNames);
+        xpTableCombo.setItems(xpSheetItems);
+        xpTableCombo.getSelectionModel().select(xpTableName);
 
-		final String characterType = gameMode.getDefaultCharacterType();
-		List<String> characterTypes = gameMode.getCharacterTypeList();
-		ObservableList<String> characterTypeItems =
-				FXCollections.observableArrayList(characterTypes);
-		characterTypeCombo.setItems(characterTypeItems);
-		characterTypeCombo.getSelectionModel().select(characterType);
+        final String characterType = gameMode.getDefaultCharacterType();
+        List<String> characterTypes = gameMode.getCharacterTypeList();
+        ObservableList<String> characterTypeItems =
+                FXCollections.observableArrayList(characterTypes);
+        characterTypeCombo.setItems(characterTypeItems);
+        characterTypeCombo.getSelectionModel().select(characterType);
 
-		final String previewSheet = UIPropertyContext.getInstance().initProperty(DEFAULT_PREVIEW_SHEET_KEY + gameMode,
-				gameMode.getDefaultPreviewSheet());
-		ObservableList<String> previewSheetItems =
-				FXCollections.observableArrayList(getPreviewDirecoryOptions(gameMode));
-		previewSheetCombo.setItems(previewSheetItems);
-		previewSheetCombo.getSelectionModel().select(previewSheet);
-	}
+        final String previewSheet = UIPropertyContext.getInstance().initProperty(DEFAULT_PREVIEW_SHEET_KEY + gameMode,
+                gameMode.getDefaultPreviewSheet());
+        ObservableList<String> previewSheetItems =
+                FXCollections.observableArrayList(getPreviewDirecoryOptions(gameMode));
+        previewSheetCombo.setItems(previewSheetItems);
+        previewSheetCombo.getSelectionModel().select(previewSheet);
+    }
 
-	@Override
-	public void apply()
-	{
-		final GameMode gameMode = SettingsHandler.getGame();
-		gameMode.setDefaultXPTableName(xpTableCombo.getSelectionModel().getSelectedItem());
-		gameMode.setDefaultCharacterType(characterTypeCombo.getSelectionModel().getSelectedItem());
-		gameMode.setDefaultPreviewSheet(previewSheetCombo.getSelectionModel().getSelectedItem());
+    @Override
+    public void apply()
+    {
+        final GameMode gameMode = SettingsHandler.getGame();
+        gameMode.setDefaultXPTableName(xpTableCombo.getSelectionModel().getSelectedItem());
+        gameMode.setDefaultCharacterType(characterTypeCombo.getSelectionModel().getSelectedItem());
+        gameMode.setDefaultPreviewSheet(previewSheetCombo.getSelectionModel().getSelectedItem());
 
-		UIPropertyContext.getInstance().setProperty(DEFAULT_PREVIEW_SHEET_KEY + gameMode.getName(),
-				previewSheetCombo.getSelectionModel().getSelectedItem()
-		);
-	}
+        UIPropertyContext.getInstance().setProperty(DEFAULT_PREVIEW_SHEET_KEY + gameMode.getName(),
+                previewSheetCombo.getSelectionModel().getSelectedItem()
+        );
+    }
 }

@@ -1,574 +1,574 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                        PCGen Documentation Project
-                        
-                        $Author$
-                        $Date$
-                        $Revision$
-                        
-                        Contributors:
-                        Eric C Smith - mareduddATblackrootDOTorg
-                        Andrew McDougall (Tir Gwaith) - TirDOTGwaithATgmailDOTcom
-                        
-                        Description:
-                        Provides information on List files.
+<!--
+                       PCGen Documentation Project
+
+                       $Author$
+                       $Date$
+                       $Revision$
+
+                       Contributors:
+                       Eric C Smith - mareduddATblackrootDOTorg
+                       Andrew McDougall (Tir Gwaith) - TirDOTGwaithATgmailDOTcom
+
+                       Description:
+                       Provides information on List files.
 -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #15: .lst - Domains ( Part 1, The Basics)
-  </h1>
-  <p class="indent0">
-   By Eric C Smith (Maredudd) and Andrew McDougall
-(Tir Gwaith)
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *_domains.lst
-  </p>
-  <p class="indent0">
-   <strong>
-    LST Standard
-   </strong>
-   : 6.0.0
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../globalfilestagpages/globalfilesother.html#desc">
-     DESC
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #15: .lst - Domains ( Part 1, The Basics)
+</h1>
+<p class="indent0">
+    By Eric C Smith (Maredudd) and Andrew McDougall
+    (Tir Gwaith)
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    *_domains.lst
+</p>
+<p class="indent0">
+    <strong>
+        LST Standard
+    </strong>
+    : 6.0.0
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../globalfilestagpages/globalfilesother.html#desc">
+        DESC
     </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesother.html#spelllevel">
+            SPELLLEVEL:DOMAIN
+        </a>
+        <a href="../globalfilestagpages/globalfilesother.html#sourcepage">
+            SOURCEPAGE
+        </a>
+        ,</code>
+</p>
+<hr/>
+<p class="indent0">
+    The domain file is a simple text file with one
+    'Domain' per line. There is only one domain specific tag in PCGen
+    so most of the heavy work in building domains is in the global tags
+    you will use. In this class I will go over both the domain specific
+    tag as well as a few of the global tags, organized into two
+    lessons: The Basics, Lesson 15, covering the tags required to
+    create the basic functionality of a domain, and The Domain Powers,
+    Lesson 16, that will cover the more advanced tags that will be used
+    to add the 'Domain Powers' to your domains. Unfortunately, there
+    are so many variations of global tags that can be used in any data
+    file, including the domain file, that it is impractical to go over
+    them all, but I believe that the examples I will be using in these
+    two lessons, in conjunction with the PCGen documentation, will give
+    you a jump start on building your own domains.
+</p>
+<p class="indent0">
+    For those of you that have gone through the
+    previous LST Classes, some of the global tags will be repetitive.
+    feel free to skip those portions if you like. These classes are
+    being written for the new LST-coder, so there will be some overlap,
+    but a student of the classes does not need to take them in
+    order.
+</p>
+<p class="indent0">
+    To help you better understand how to put this
+    file together, I will be using several domains as examples, three
+    drawn from the Revised Standard Reference Document (RSRD) and one I
+    have made up for this class in order to more completely demonstrate
+    a few specific global tags. The domains we'll look at from the RSRD
+    are
+    <em>
+        <strong>
+            Law
+        </strong>
+    </em>
     ,
-    <a href="../globalfilestagpages/globalfilesother.html#spelllevel">
-     SPELLLEVEL:DOMAIN
+    <em>
+        <strong>
+            Trickery
+        </strong>
+    </em>
+    and
+    <em>
+        <strong>
+            War
+        </strong>
+    </em>
+    , as well as the new domain of
+    'Poetry'. Our new domain is presented below in the standard RSRD
+    format so you can follow along.
+</p>
+<h3>
+    Example Domain
+</h3>
+<h4 class="indent1">
+    Poetry Domain
+</h4>
+<p class="indent1">
+    <strong>
+        Granted Powers:
+    </strong>
+    You add all
+    <strong>
+        <em>
+            Perform
+        </em>
+    </strong>
+    skills to your cleric class
+    skills and automatically gain the ability to
+    <strong>
+        <em>
+            Scribe
+            Scrolls
+        </em>
+    </strong>
+    at 3rd level
+    <strong>
+        <em>
+            .
+        </em>
+    </strong>
+    You
+    cast mind-affecting spells at +1 caster level, and is graced by
+    <em>
+        <strong>
+            Great Intelligence
+        </strong>
+    </em>
+    every four levels to a
+    maximum of 20th level. If you have a charisma score of 12 or
+    greater you may use
+    <strong>
+        Ventriloquism
+    </strong>
+    once a day as a
+    spell-like ability.
+</p>
+<p class="indent1">
+    <strong>
+        Poetry Domain Spells
+    </strong>
+</p>
+<ol class="indent1">
+    <li>
+        <em>
+            <strong>
+                Hypnotism
+            </strong>
+        </em>
+        <strong>
+            :
+        </strong>
+        Fascinates 2d4 HD of creatures.
+    </li>
+    <li>
+        <strong>
+            <em>
+                Suggestion
+            </em>
+            :
+        </strong>
+        Compels subject to follow
+        stated course of action.
+    </li>
+    <li>
+        <em>
+            <strong>
+                Geas (Lesser)
+            </strong>
+        </em>
+        <strong>
+            :
+        </strong>
+        Commands subject of 7 HD or less.
+    </li>
+    <li>
+        <strong>
+            <em>
+                Modify Memory
+            </em>
+            :
+        </strong>
+        Changes 5 minutes of
+        subject’s memories.
+    </li>
+    <li>
+        <strong>
+            <em>
+                Song of Discord
+            </em>
+            :
+        </strong>
+        Forces targets to
+        attack each other.
+    </li>
+    <li>
+        <em>
+            <strong>
+                Irresistible Dance
+            </strong>
+        </em>
+        <strong>
+            :
+        </strong>
+        Forces subject to dance.
+    </li>
+    <li>
+        <strong>
+            <em>
+                Hold Person, Mass
+            </em>
+            :
+        </strong>
+        As hold person,
+        but all within 30 ft.
+    </li>
+    <li>
+        <strong>
+            <em>
+                Charm Monster, Mass
+            </em>
+            :
+        </strong>
+        As charm
+        monster, but all within 30 ft.
+    </li>
+    <li>
+        <strong>
+            <em>
+                Hold Monster, Mass
+            </em>
+            :
+        </strong>
+        As hold monster,
+        but all within 30 ft.
+    </li>
+</ol>
+<p class="indent0">
+    The Poetry Domain is a little overdone, but I
+    wanted to demonstrate a number of global tags. I would not
+    recommend using the Poetry Domain in your campaign, unless of
+    course you believe the pen is mightier than the sword . . .
+</p>
+<hr/>
+<p class="indent0">
+    Without further adieu, lets jump right into the
+    lesson.
+</p>
+<p class="sidebar1">
+    NOTE: The general conventions used within this
+    class can be found on the
+    <a href="lfc_style_guide.html">
+        LST File
+        Class Style Guide
     </a>
-    <a href="../globalfilestagpages/globalfilesother.html#sourcepage">
-     SOURCEPAGE
-    </a>
-    ,</code>
-  </p>
-  <hr/>
-  <p class="indent0">
-   The domain file is a simple text file with one
-'Domain' per line. There is only one domain specific tag in PCGen
-so most of the heavy work in building domains is in the global tags
-you will use. In this class I will go over both the domain specific
-tag as well as a few of the global tags, organized into two
-lessons: The Basics, Lesson 15, covering the tags required to
-create the basic functionality of a domain, and The Domain Powers,
-Lesson 16, that will cover the more advanced tags that will be used
-to add the 'Domain Powers' to your domains. Unfortunately, there
-are so many variations of global tags that can be used in any data
-file, including the domain file, that it is impractical to go over
-them all, but I believe that the examples I will be using in these
-two lessons, in conjunction with the PCGen documentation, will give
-you a jump start on building your own domains.
-  </p>
-  <p class="indent0">
-   For those of you that have gone through the
-previous LST Classes, some of the global tags will be repetitive.
-feel free to skip those portions if you like. These classes are
-being written for the new LST-coder, so there will be some overlap,
-but a student of the classes does not need to take them in
-order.
-  </p>
-  <p class="indent0">
-   To help you better understand how to put this
-file together, I will be using several domains as examples, three
-drawn from the Revised Standard Reference Document (RSRD) and one I
-have made up for this class in order to more completely demonstrate
-a few specific global tags. The domains we'll look at from the RSRD
-are
-   <em>
-    <strong>
-     Law
-    </strong>
-   </em>
-   ,
-   <em>
-    <strong>
-     Trickery
-    </strong>
-   </em>
-   and
-   <em>
-    <strong>
-     War
-    </strong>
-   </em>
-   , as well as the new domain of
-'Poetry'. Our new domain is presented below in the standard RSRD
-format so you can follow along.
-  </p>
-  <h3>
-   Example Domain
-  </h3>
-  <h4 class="indent1">
-   Poetry Domain
-  </h4>
-  <p class="indent1">
-   <strong>
-    Granted Powers:
-   </strong>
-   You add all
-   <strong>
-    <em>
-     Perform
-    </em>
-   </strong>
-   skills to your cleric class
-skills and automatically gain the ability to
-   <strong>
-    <em>
-     Scribe
-Scrolls
-    </em>
-   </strong>
-   at 3rd level
-   <strong>
-    <em>
-     .
-    </em>
-   </strong>
-   You
-cast mind-affecting spells at +1 caster level, and is graced by
-   <em>
-    <strong>
-     Great Intelligence
-    </strong>
-   </em>
-   every four levels to a
-maximum of 20th level. If you have a charisma score of 12 or
-greater you may use
-   <strong>
-    Ventriloquism
-   </strong>
-   once a day as a
-spell-like ability.
-  </p>
-  <p class="indent1">
-   <strong>
-    Poetry Domain Spells
-   </strong>
-  </p>
-  <ol class="indent1">
-   <li>
-    <em>
-     <strong>
-      Hypnotism
-     </strong>
-    </em>
-    <strong>
-     :
-    </strong>
-    Fascinates 2d4 HD of creatures.
-   </li>
-   <li>
-    <strong>
-     <em>
-      Suggestion
-     </em>
-     :
-    </strong>
-    Compels subject to follow
-stated course of action.
-   </li>
-   <li>
-    <em>
-     <strong>
-      Geas (Lesser)
-     </strong>
-    </em>
-    <strong>
-     :
-    </strong>
-    Commands subject of 7 HD or less.
-   </li>
-   <li>
-    <strong>
-     <em>
-      Modify Memory
-     </em>
-     :
-    </strong>
-    Changes 5 minutes of
-subject’s memories.
-   </li>
-   <li>
-    <strong>
-     <em>
-      Song of Discord
-     </em>
-     :
-    </strong>
-    Forces targets to
-attack each other.
-   </li>
-   <li>
-    <em>
-     <strong>
-      Irresistible Dance
-     </strong>
-    </em>
-    <strong>
-     :
-    </strong>
-    Forces subject to dance.
-   </li>
-   <li>
-    <strong>
-     <em>
-      Hold Person, Mass
-     </em>
-     :
-    </strong>
-    As hold person,
-but all within 30 ft.
-   </li>
-   <li>
-    <strong>
-     <em>
-      Charm Monster, Mass
-     </em>
-     :
-    </strong>
-    As charm
-monster, but all within 30 ft.
-   </li>
-   <li>
-    <strong>
-     <em>
-      Hold Monster, Mass
-     </em>
-     :
-    </strong>
-    As hold monster,
-but all within 30 ft.
-   </li>
-  </ol>
-  <p class="indent0">
-   The Poetry Domain is a little overdone, but I
-wanted to demonstrate a number of global tags. I would not
-recommend using the Poetry Domain in your campaign, unless of
-course you believe the pen is mightier than the sword . . .
-  </p>
-  <hr/>
-  <p class="indent0">
-   Without further adieu, lets jump right into the
-lesson.
-  </p>
-  <p class="sidebar1">
-   NOTE: The general conventions used within this
-class can be found on the
-   <a href="lfc_style_guide.html">
-    LST File
-Class Style Guide
-   </a>
-   .
-  </p>
-  <hr/>
-  <p class="indent0">
-   <code><strong>
-     &lt;Domain
-Name&gt;
+    .
+</p>
+<hr/>
+<p class="indent0">
+    <code><strong>
+        &lt;Domain
+        Name&gt;
     </strong></code>
-  </p>
-  <p class="indent0">
-   This is the name used for the domain. There is
-no specific tag associated with this entry and it must be the first
-entry on the domain line. So, our example domains lines will begin
-simply enough with the following entries:
-  </p>
-  <p class="indent0">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>War</code>
-   &lt;tab&gt;
-  </p>
-  <p class="indent1">
-   <code>Poetry</code>
-   &lt;tab&gt;
-  </p>
-  <p class="indent0">
-  </p>
-  <hr/>
-  <p class="indent0">
-   <code><strong>
-     DESC
-    </strong></code>
-  </p>
-  <p class="indent0">
-   Now we are getting to the 'fun stuff'. This tag
-is a global tag and is used to provide a simple explanation, or as
-Professor Baraks calls it, the 'flavor text', of the powers granted
-to the cleric by the domain. These powers can range anywhere from
-granted feats, spell-like abilities, or enhancements to any number
-of skills and abilities. If you are creating a domain based upon
-your favorite source book, you can generally find this information
-identified as the 'Granted Powers' in the domain block. For the
-Poetry Domain listed above and the War Domain, found in the RSRD,
-the
-   <code>DESC</code>
-   tags are reproduced below:
-  </p>
-  <p class="indent0">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <blockquote class="indent2">
-   <p class="tagindent2">
+</p>
+<p class="indent0">
+    This is the name used for the domain. There is
+    no specific tag associated with this entry and it must be the first
+    entry on the domain line. So, our example domains lines will begin
+    simply enough with the following entries:
+</p>
+<p class="indent0">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent1">
     <code>War</code>
-   </p>
-   <p class="tagindent2">
-    <code>DESC:Free Martial Weapon Proficiency
-with deity’s favored weapon (if necessary) and Weapon Focus
-with the deity favored weapon.</code>
-   </p>
-  </blockquote>
-  <p class="indent0">
-  </p>
-  <blockquote class="indent2">
-   <p class="tagindent2">
+    &lt;tab&gt;
+</p>
+<p class="indent1">
     <code>Poetry</code>
-   </p>
-   <p class="tagindent2">
-    <code>DESC:You add all Perform skills to your
-cleric class skills and automatically gain the ability to Scribe
-Scrolls at 3rd level. You cast mind-affecting spells at +1 caster
-level. and is graced by Great Intelligence every four levels to a
-maximum of 20th level. If you have a charisma score of 12 or
-greater you may use Ventriloquism once a day as a spell-like
-ability.</code>
-   </p>
-  </blockquote>
-  <p class="indent0">
-  </p>
-  <hr/>
-  <p class="indent0">
-   <code><strong>
-     SPELLLEVEL:DOMAIN
+    &lt;tab&gt;
+</p>
+<p class="indent0">
+</p>
+<hr/>
+<p class="indent0">
+    <code><strong>
+        DESC
     </strong></code>
-  </p>
-  <p class="indent0">
-   In the domain file this tag provides a list of
-bonus spells, and their levels, that the cleric is granted access
-to by the domain.
-  </p>
-  <p class="indent0">
-   There are two types of argument regularly used
-with this tag, used in pairs in a pipe (|) delimited list. These
-arguments are the domain spell level slot, appearing as
-   <code>&lt;domain name&gt;=&lt;spell level&gt;</code>
-   , and the name
-of the spell that fills that level slot. Together, the string of
-arguments will look like this:
-   <code>|&lt;domain name&gt;=&lt;spell
-level 1&gt;|&lt;spell name 1&gt;|&lt;domain name&gt;=&lt;spell
-level 2&gt;|&lt;spell name 2&gt;|&lt;domain name&gt;=&lt;spell
-level 3&gt;|&lt;spell name 3&gt; . . .</code>
-  </p>
-  <p class="indent0">
-   Using this format, and looking at the spell list
-for the War domain, we would code the first level War domain spell
-this way: &lt;War=1|Magic Weapon&gt;, with the complete list of
-spells codded as seen in the complete example below.
-  </p>
-  <p class="indent0">
-   Looking at our sample domain as defined above,
-the second example below shows how we would code the domain spells
-for the domain of Poetry.
-  </p>
-  <p class="indent0">
-   Oh, and one more thing. When listing a spell you
-MUST use the name used at the beginning of its entry in the
-spell.lst file and NOT its output name. The Poetry domains 3rd
-level spell,
-   <em>
+</p>
+<p class="indent0">
+    Now we are getting to the 'fun stuff'. This tag
+    is a global tag and is used to provide a simple explanation, or as
+    Professor Baraks calls it, the 'flavor text', of the powers granted
+    to the cleric by the domain. These powers can range anywhere from
+    granted feats, spell-like abilities, or enhancements to any number
+    of skills and abilities. If you are creating a domain based upon
+    your favorite source book, you can generally find this information
+    identified as the 'Granted Powers' in the domain block. For the
+    Poetry Domain listed above and the War Domain, found in the RSRD,
+    the
+    <code>DESC</code>
+    tags are reproduced below:
+</p>
+<p class="indent0">
     <strong>
-     Geas, Lesser
+        Example:
     </strong>
-   </em>
-   is a good
-example. The rsrd_spells.lst file has 'Geas (Lesser)' as the name
-of the spell with its output name being
-   <em>
+</p>
+<blockquote class="indent2">
+    <p class="tagindent2">
+        <code>War</code>
+    </p>
+    <p class="tagindent2">
+        <code>DESC:Free Martial Weapon Proficiency
+            with deity’s favored weapon (if necessary) and Weapon Focus
+            with the deity favored weapon.</code>
+    </p>
+</blockquote>
+<p class="indent0">
+</p>
+<blockquote class="indent2">
+    <p class="tagindent2">
+        <code>Poetry</code>
+    </p>
+    <p class="tagindent2">
+        <code>DESC:You add all Perform skills to your
+            cleric class skills and automatically gain the ability to Scribe
+            Scrolls at 3rd level. You cast mind-affecting spells at +1 caster
+            level. and is graced by Great Intelligence every four levels to a
+            maximum of 20th level. If you have a charisma score of 12 or
+            greater you may use Ventriloquism once a day as a spell-like
+            ability.</code>
+    </p>
+</blockquote>
+<p class="indent0">
+</p>
+<hr/>
+<p class="indent0">
+    <code><strong>
+        SPELLLEVEL:DOMAIN
+    </strong></code>
+</p>
+<p class="indent0">
+    In the domain file this tag provides a list of
+    bonus spells, and their levels, that the cleric is granted access
+    to by the domain.
+</p>
+<p class="indent0">
+    There are two types of argument regularly used
+    with this tag, used in pairs in a pipe (|) delimited list. These
+    arguments are the domain spell level slot, appearing as
+    <code>&lt;domain name&gt;=&lt;spell level&gt;</code>
+    , and the name
+    of the spell that fills that level slot. Together, the string of
+    arguments will look like this:
+    <code>|&lt;domain name&gt;=&lt;spell
+        level 1&gt;|&lt;spell name 1&gt;|&lt;domain name&gt;=&lt;spell
+        level 2&gt;|&lt;spell name 2&gt;|&lt;domain name&gt;=&lt;spell
+        level 3&gt;|&lt;spell name 3&gt; . . .</code>
+</p>
+<p class="indent0">
+    Using this format, and looking at the spell list
+    for the War domain, we would code the first level War domain spell
+    this way: &lt;War=1|Magic Weapon&gt;, with the complete list of
+    spells codded as seen in the complete example below.
+</p>
+<p class="indent0">
+    Looking at our sample domain as defined above,
+    the second example below shows how we would code the domain spells
+    for the domain of Poetry.
+</p>
+<p class="indent0">
+    Oh, and one more thing. When listing a spell you
+    MUST use the name used at the beginning of its entry in the
+    spell.lst file and NOT its output name. The Poetry domains 3rd
+    level spell,
+    <em>
+        <strong>
+            Geas, Lesser
+        </strong>
+    </em>
+    is a good
+    example. The rsrd_spells.lst file has 'Geas (Lesser)' as the name
+    of the spell with its output name being
+    <em>
+        <strong>
+            Geas,
+            Lesser
+        </strong>
+    </em>
+    . Other incarnations of the
+    <code>SPELLLEVEL</code>
+    tag use comma-delimited data and including
+    a comma in the domain's spell list will cause PCGen to ignore the
+    spell reference, thereby not granting access to that spell as a
+    domain spell.
+</p>
+<p class="indent0">
     <strong>
-     Geas,
-Lesser
+        Example:
     </strong>
-   </em>
-   . Other incarnations of the
-   <code>SPELLLEVEL</code>
-   tag use comma-delimited data and including
-a comma in the domain's spell list will cause PCGen to ignore the
-spell reference, thereby not granting access to that spell as a
-domain spell.
-  </p>
-  <p class="indent0">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <blockquote>
-   <p class="tagindent1">
-    <code>War</code>
-    &lt;tab&gt; . . .
-&lt;tab&gt;
-    <code>SPELLLEVEL:DOMAIN|War=1|Magic
-Weapon|War=2|Spiritual Weapon|War=3|Magic Vestment|War=4|Divine
-Power|War=5|Flame Strike|War=6|Blade Barrier|War=7|Power Word
-Blind|War=8|Power Word Stun|War=9|Power Word Kill</code>
-   </p>
-   <p class="tagindent1">
-    <code>Poetry</code>
-    &lt;tab&gt; . . .
-&lt;tab&gt;
-    <code>SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas
-(Lesser)|Poetry=4|Modify Memory|Poetry=5|Song of
-Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person
-(Mass)|Poetry=8|Charm Monster (Mass)|Poetry=9|Hold Monster
-(Mass)</code>
-   </p>
-  </blockquote>
-  <p class="indent0">
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
+</p>
+<blockquote>
+    <p class="tagindent1">
+        <code>War</code>
+        &lt;tab&gt; . . .
+        &lt;tab&gt;
+        <code>SPELLLEVEL:DOMAIN|War=1|Magic
+            Weapon|War=2|Spiritual Weapon|War=3|Magic Vestment|War=4|Divine
+            Power|War=5|Flame Strike|War=6|Blade Barrier|War=7|Power Word
+            Blind|War=8|Power Word Stun|War=9|Power Word Kill</code>
+    </p>
+    <p class="tagindent1">
+        <code>Poetry</code>
+        &lt;tab&gt; . . .
+        &lt;tab&gt;
+        <code>SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas
+            (Lesser)|Poetry=4|Modify Memory|Poetry=5|Song of
+            Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person
+            (Mass)|Poetry=8|Charm Monster (Mass)|Poetry=9|Hold Monster
+            (Mass)</code>
+    </p>
+</blockquote>
+<p class="indent0">
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <code>SOURCEPAGE</code>
+    </strong>
+</p>
+<p class="indent0">
+    This tag is as simple as it looks. It identifies
+    the page within the source material where you can find the specific
+    description, powers, and spells for the domain you are creating. It
+    takes free-form text but most often you will find it in one of two
+    forms. If your source material is an OGL book the format is usually
+    <code>SOURCEPAGE:p.&lt;#&gt;</code>
+    . If you are working from an
+    online source, such as the RSRD, you would use the filename, so
+    your tag would look like
+    <code>SOURCEPAGE:&lt;filename&gt;.</code>
+</p>
+<p class="indent0">
+    Since I have created the Poetry Domain from
+    scratch there is no 'source', so there is no
     <code>SOURCEPAGE</code>
-   </strong>
-  </p>
-  <p class="indent0">
-   This tag is as simple as it looks. It identifies
-the page within the source material where you can find the specific
-description, powers, and spells for the domain you are creating. It
-takes free-form text but most often you will find it in one of two
-forms. If your source material is an OGL book the format is usually
-   <code>SOURCEPAGE:p.&lt;#&gt;</code>
-   . If you are working from an
-online source, such as the RSRD, you would use the filename, so
-your tag would look like
-   <code>SOURCEPAGE:&lt;filename&gt;.</code>
-  </p>
-  <p class="indent0">
-   Since I have created the Poetry Domain from
-scratch there is no 'source', so there is no
-   <code>SOURCEPAGE</code>
-   tag required, but many functions and
-filters in PCGen use it, so it is good to include it. Therefore, I
-will include the tag with an N/A for the source page.
-The War Domain on the other hand comes from the RSRD and
-therefore would use the
-   <code>SOURCEPAGE</code>
-   tag per the example
-below.
-  </p>
-  <p class="indent0">
-   Note: There are three other
-   <code>SOURCExxx</code>
-   tags (
-   <code>SOURCELONG</code>
-   ,
-   <code>SOURCESHORT</code>
-   and
-   <code>SOURCEWEB</code>
-   ) that will be
-covered in a separate class so we will not be covering them
-here.
-  </p>
-  <p class="indent0">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code>War</code>
-   &lt;tab&gt; . . . &lt;tab&gt;
-   <code>SOURCEPAGE:SpellListI.rtf</code>
-  </p>
-  <p class="indent1">
-   <code>Poetry</code>
-   &lt;tab&gt; . . .
-&lt;tab&gt;
-   <code>SOURCEPAGE:N/A</code>
-  </p>
-  <p class="indent0">
-  </p>
-  <hr/>
-  <h3>
-   Conclusion: The Domain File Entry
-  </h3>
-  <p class="indent0">
-   My domain entry now looks like this (all on a
-single line.):
-  </p>
-  <blockquote class="indent2">
-   <p class="tagindent2">
+    tag required, but many functions and
+    filters in PCGen use it, so it is good to include it. Therefore, I
+    will include the tag with an N/A for the source page.
+    The War Domain on the other hand comes from the RSRD and
+    therefore would use the
+    <code>SOURCEPAGE</code>
+    tag per the example
+    below.
+</p>
+<p class="indent0">
+    Note: There are three other
+    <code>SOURCExxx</code>
+    tags (
+    <code>SOURCELONG</code>
+    ,
+    <code>SOURCESHORT</code>
+    and
+    <code>SOURCEWEB</code>
+    ) that will be
+    covered in a separate class so we will not be covering them
+    here.
+</p>
+<p class="indent0">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent1">
+    <code>War</code>
+    &lt;tab&gt; . . . &lt;tab&gt;
+    <code>SOURCEPAGE:SpellListI.rtf</code>
+</p>
+<p class="indent1">
     <code>Poetry</code>
-   </p>
-   <p class="tagindent2">
-    <code>DESC:You add all Perform skills to your
-cleric class skills and automatically gain the ability to Scribe
-Scrolls at 3rd level. You cast mind-affectng spells at +1 caster
-level and is graced by Great Inteligence every four levels to a
-maximum of 20th level. If you have a charisma score of 12 or
-greater you may use Ventriloquism once a day as a spell-like
-ability.</code>
-   </p>
-   <p class="tagindent2">
-    <code>SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas
-(Lesser)||Modify Memory|Poetry=5|Song of
-Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person
-(Mass)|Poetry=8|Charm Monster (Mass)|Poetry=9|Hold Monster
-(Mass)</code>
-   </p>
-   <p class="tagindent2">
+    &lt;tab&gt; . . .
+    &lt;tab&gt;
     <code>SOURCEPAGE:N/A</code>
-   </p>
-   <p class="indent0">
-   </p>
-  </blockquote>
-  <p class="indent0">
-  </p>
-  <hr/>
-  <p class="indent0">
-   Well, that's everything you need to add new
-domains to your campaign, albeit, only the most basic of
-functionality will exist. You may have noted a number of abilities
-are included in the
-   <code>DESC</code>
-   tag that this domain entry
-doesn't implement. To see how to implement these abilities we will
-move to the
-   <a href="lfc_lesson16_domains2.html">
-    LST File Class
-#16, Domain Powers
-   </a>
-   .
-  </p>
-  <p class="indent0">
-   Maredudd
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+</p>
+<p class="indent0">
+</p>
+<hr/>
+<h3>
+    Conclusion: The Domain File Entry
+</h3>
+<p class="indent0">
+    My domain entry now looks like this (all on a
+    single line.):
+</p>
+<blockquote class="indent2">
+    <p class="tagindent2">
+        <code>Poetry</code>
+    </p>
+    <p class="tagindent2">
+        <code>DESC:You add all Perform skills to your
+            cleric class skills and automatically gain the ability to Scribe
+            Scrolls at 3rd level. You cast mind-affectng spells at +1 caster
+            level and is graced by Great Inteligence every four levels to a
+            maximum of 20th level. If you have a charisma score of 12 or
+            greater you may use Ventriloquism once a day as a spell-like
+            ability.</code>
+    </p>
+    <p class="tagindent2">
+        <code>SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas
+            (Lesser)||Modify Memory|Poetry=5|Song of
+            Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person
+            (Mass)|Poetry=8|Charm Monster (Mass)|Poetry=9|Hold Monster
+            (Mass)</code>
+    </p>
+    <p class="tagindent2">
+        <code>SOURCEPAGE:N/A</code>
+    </p>
+    <p class="indent0">
+    </p>
+</blockquote>
+<p class="indent0">
+</p>
+<hr/>
+<p class="indent0">
+    Well, that's everything you need to add new
+    domains to your campaign, albeit, only the most basic of
+    functionality will exist. You may have noted a number of abilities
+    are included in the
+    <code>DESC</code>
+    tag that this domain entry
+    doesn't implement. To see how to implement these abilities we will
+    move to the
+    <a href="lfc_lesson16_domains2.html">
+        LST File Class
+        #16, Domain Powers
+    </a>
+    .
+</p>
+<p class="indent0">
+    Maredudd
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

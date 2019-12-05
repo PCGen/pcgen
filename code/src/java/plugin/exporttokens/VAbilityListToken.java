@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbilityListToken;
 /**
  * {@code VAbilityListToken} handles the output of a comma separated
  * list of virtual ability information.
- * 
+ * <p>
  * The format is VABILITYALLLIST.y.z where
  * y is the category (FEAT, FIGHTER etc, or ALL)
  * z is an option list of {@literal TYPE=<type>} - type filter - may be negated
@@ -41,28 +41,28 @@ import pcgen.io.exporttoken.AbilityListToken;
 public class VAbilityListToken extends AbilityListToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "VABILITYLIST"; //$NON-NLS-1$
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VABILITYLIST"; //$NON-NLS-1$
+    }
 
-	@Override
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
-	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
-		Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
-		return listOfAbilities;
-	}
+    @Override
+    protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
+    {
+        final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
+        Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
+        for (AbilityCategory aCat : allCats)
+        {
+            if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+            {
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+            }
+        }
+        return listOfAbilities;
+    }
 
 }

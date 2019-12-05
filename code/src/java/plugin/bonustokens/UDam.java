@@ -30,44 +30,45 @@ import pcgen.util.Logging;
  */
 public final class UDam extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		if (token.startsWith(Constants.LST_CLASS_EQUAL) || token.startsWith(Constants.LST_CLASS_DOT))
-		{
-			addBonusInfo(token.substring(Constants.SUBSTRING_LENGTH_SIX));
-			return true;
-		}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        if (token.startsWith(Constants.LST_CLASS_EQUAL) || token.startsWith(Constants.LST_CLASS_DOT))
+        {
+            addBonusInfo(token.substring(Constants.SUBSTRING_LENGTH_SIX));
+            return true;
+        }
 
-		Logging.errorPrint("BONUS:UDAM syntax must have Info (2nd arg to BONUS) start with CLASS= or CLASS. ");
-		return false;
-	}
+        Logging.errorPrint("BONUS:UDAM syntax must have Info (2nd arg to BONUS) start with CLASS= or CLASS. ");
+        return false;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		if (obj instanceof String)
-		{
-			String sObj = (String) obj;
-			final AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			final PCClass aClass = ref.silentlyGetConstructedCDOMObject(PCClass.class, sObj);
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        if (obj instanceof String)
+        {
+            String sObj = (String) obj;
+            final AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+            final PCClass aClass = ref.silentlyGetConstructedCDOMObject(PCClass.class, sObj);
 
-			if (aClass != null)
-			{
-				replaceBonusInfo(obj, aClass);
-			}
-			return Constants.LST_CLASS_DOT + obj;
-		}
-		return Constants.LST_CLASS_DOT + ((PCClass) obj).getKeyName();
-	}
+            if (aClass != null)
+            {
+                replaceBonusInfo(obj, aClass);
+            }
+            return Constants.LST_CLASS_DOT + obj;
+        }
+        return Constants.LST_CLASS_DOT + ((PCClass) obj).getKeyName();
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "UDAM";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "UDAM";
+    }
 }

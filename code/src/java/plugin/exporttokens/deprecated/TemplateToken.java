@@ -41,7 +41,7 @@ import pcgen.io.exporttoken.Token;
 /**
  * Deals with returning the values for the TEMPALTE Token
  * and it's Sub Tokens
- *
+ * <p>
  * TEMPLATE
  * TEMPLATE.x.NAME
  * TEMPLATE.x.OUTPUTNAME
@@ -54,254 +54,252 @@ import pcgen.io.exporttoken.Token;
  */
 public class TemplateToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "TEMPLATE";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "TEMPLATE";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		PCTemplate template;
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        PCTemplate template;
 
-		CharacterDisplay display = pc.getDisplay();
-		List<PCTemplate> tl = display.getOutputVisibleTemplateList();
+        CharacterDisplay display = pc.getDisplay();
+        List<PCTemplate> tl = display.getOutputVisibleTemplateList();
 
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		int indexOfTemplate;
-		indexOfTemplate = Integer.parseInt(aTok.nextToken());
+        int indexOfTemplate;
+        indexOfTemplate = Integer.parseInt(aTok.nextToken());
 
-		String aLabel = (aTok.hasMoreTokens()) ? aTok.nextToken() : "NAME";
+        String aLabel = (aTok.hasMoreTokens()) ? aTok.nextToken() : "NAME";
 
-		if ((indexOfTemplate > -1) && (indexOfTemplate < tl.size()))
-		{
-			template = tl.get(indexOfTemplate);
+        if ((indexOfTemplate > -1) && (indexOfTemplate < tl.size()))
+        {
+            template = tl.get(indexOfTemplate);
 
-			if ("NAME".equals(aLabel))
-			{
-				retString = getOutputNameToken(template);
-			}
-			else if ("OUTPUTNAME".equals(aLabel))
-			{
-				retString = getOutputNameToken(template);
-			}
-			else if ("APPLIEDNAME".equals(aLabel))
-			{
-				retString = getAppliedName(template);
-			}
-			else if ("SA".equals(aLabel))
-			{
-				retString = getSAToken(template, pc);
-			}
-			else if ("FEAT".equals(aLabel))
-			{
-				retString = getFeatToken(template, pc);
-			}
-			else if ("SR".equals(aLabel))
-			{
-				retString = Integer.toString(getSRToken(template, display));
-			}
-			else if ("CR".equals(aLabel))
-			{
-				// If the CR ends in .0, remove that for display purposes
-				retString = Float.toString(getCRToken(template, display));
-				String decimalPlaceValue = retString.substring(retString.length() - 2);
-				if (decimalPlaceValue.equals(".0"))
-				{
-					retString = retString.substring(0, retString.length() - 2);
-				}
-				return retString;
-			}
-			else if ("DR".equals(aLabel))
-			{
-				retString = display.calcDR();
-			}
-			else
-			{
-				retString = getModToken(pc, template, aLabel);
-			}
-		}
+            if ("NAME".equals(aLabel))
+            {
+                retString = getOutputNameToken(template);
+            } else if ("OUTPUTNAME".equals(aLabel))
+            {
+                retString = getOutputNameToken(template);
+            } else if ("APPLIEDNAME".equals(aLabel))
+            {
+                retString = getAppliedName(template);
+            } else if ("SA".equals(aLabel))
+            {
+                retString = getSAToken(template, pc);
+            } else if ("FEAT".equals(aLabel))
+            {
+                retString = getFeatToken(template, pc);
+            } else if ("SR".equals(aLabel))
+            {
+                retString = Integer.toString(getSRToken(template, display));
+            } else if ("CR".equals(aLabel))
+            {
+                // If the CR ends in .0, remove that for display purposes
+                retString = Float.toString(getCRToken(template, display));
+                String decimalPlaceValue = retString.substring(retString.length() - 2);
+                if (decimalPlaceValue.equals(".0"))
+                {
+                    retString = retString.substring(0, retString.length() - 2);
+                }
+                return retString;
+            } else if ("DR".equals(aLabel))
+            {
+                retString = display.calcDR();
+            } else
+            {
+                retString = getModToken(pc, template, aLabel);
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	private String getAppliedName(PCTemplate template)
-	{
-		FactKey<String> fk = FactKey.valueOf("AppliedName");
-		String retValue = template.getResolved(fk);
-		if (retValue == null)
-		{
-			retValue = template.toString();
-		}
-		return retValue;
-	}
+    private String getAppliedName(PCTemplate template)
+    {
+        FactKey<String> fk = FactKey.valueOf("AppliedName");
+        String retValue = template.getResolved(fk);
+        if (retValue == null)
+        {
+            retValue = template.toString();
+        }
+        return retValue;
+    }
 
-	/**
-	 * Retrieve the list of the keynames of any feats
-	 * that the PC qualifies for at the supplied level and
-	 * hit dice. 
-	 * 
-	 * @param pc
-	 *
-	 * @return a list of feats
-	 */
-	public static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct)
-	{
-		final List<CNAbilitySelection> feats = new ArrayList<>();
+    /**
+     * Retrieve the list of the keynames of any feats
+     * that the PC qualifies for at the supplied level and
+     * hit dice.
+     *
+     * @param pc
+     * @return a list of feats
+     */
+    public static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct)
+    {
+        final List<CNAbilitySelection> feats = new ArrayList<>();
 
-		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
-		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
-				if (featList != null)
-				{
-					feats.addAll(featList);
-				}
-			}
-		}
-		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-		{
-			Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
-			if (featList != null)
-			{
-				feats.addAll(featList);
-			}
-		}
+        for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+        {
+            for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+            {
+                Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
+                if (featList != null)
+                {
+                    feats.addAll(featList);
+                }
+            }
+        }
+        for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+        {
+            Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
+            if (featList != null)
+            {
+                feats.addAll(featList);
+            }
+        }
 
-		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
-		{
-			Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
-			if (featList != null)
-			{
-				feats.addAll(featList);
-			}
-		}
+        for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
+        {
+            Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
+            if (featList != null)
+            {
+                feats.addAll(featList);
+            }
+        }
 
-		Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(pct);
-		if (featList != null)
-		{
-			feats.addAll(featList);
-		}
+        Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(pct);
+        if (featList != null)
+        {
+            feats.addAll(featList);
+        }
 
-		return feats;
-	}
+        return feats;
+    }
 
-	/**
-	 * Get value of CR Sub Token
-	 * @param template
-	 * @param display
-	 * @return value of CR Sub Token
-	 */
-	public static float getCRToken(PCTemplate template, CharacterDisplay display)
-	{
-		return template.getCR(display.getTotalLevels(), display.totalHitDice());
-	}
+    /**
+     * Get value of CR Sub Token
+     *
+     * @param template
+     * @param display
+     * @return value of CR Sub Token
+     */
+    public static float getCRToken(PCTemplate template, CharacterDisplay display)
+    {
+        return template.getCR(display.getTotalLevels(), display.totalHitDice());
+    }
 
-	/**
-	 * Get value of FEAT sub token
-	 * @param template
-	 * @param pc
-	 * @return value of FEAT sub token
-	 */
-	private static String getFeatToken(PCTemplate template, PlayerCharacter pc)
-	{
-		List<CNAbilitySelection> fList = feats(pc, template);
-		return StringUtil.join(fList, ", ");
-	}
+    /**
+     * Get value of FEAT sub token
+     *
+     * @param template
+     * @param pc
+     * @return value of FEAT sub token
+     */
+    private static String getFeatToken(PCTemplate template, PlayerCharacter pc)
+    {
+        List<CNAbilitySelection> fList = feats(pc, template);
+        return StringUtil.join(fList, ", ");
+    }
 
-	/**
-	 * Get value of MOD sub token
-	 * @param pc
-	 * @param template
-	 * @param aLabel
-	 * @return value of MOD sub token
-	 */
-	public static String getModToken(PlayerCharacter pc, PCTemplate template, String aLabel)
-	{
-		StringBuilder retString = new StringBuilder();
+    /**
+     * Get value of MOD sub token
+     *
+     * @param pc
+     * @param template
+     * @param aLabel
+     * @return value of MOD sub token
+     */
+    public static String getModToken(PlayerCharacter pc, PCTemplate template, String aLabel)
+    {
+        StringBuilder retString = new StringBuilder();
 
-		for (PCStat stat : pc.getDisplay().getStatSet())
-		{
-			String modName = stat.getKeyName() + "MOD";
+        for (PCStat stat : pc.getDisplay().getStatSet())
+        {
+            String modName = stat.getKeyName() + "MOD";
 
-			if (aLabel.equals(modName))
-			{
-				if (NonAbilityDisplay.isNonAbilityForObject(stat, template))
-				{
-					retString.append('*');
-				}
-				else
-				{
-					retString.append(BonusCalc.getStatMod(template, stat, pc));
-				}
+            if (aLabel.equals(modName))
+            {
+                if (NonAbilityDisplay.isNonAbilityForObject(stat, template))
+                {
+                    retString.append('*');
+                } else
+                {
+                    retString.append(BonusCalc.getStatMod(template, stat, pc));
+                }
 
-				break;
-			}
-		}
+                break;
+            }
+        }
 
-		return retString.toString();
-	}
+        return retString.toString();
+    }
 
-	/**
-	 * Get value of OUTPUTNAME sub token
-	 * @param template
-	 * @return value of OUTPUTNAME sub token
-	 */
-	public static String getOutputNameToken(PCTemplate template)
-	{
-		return OutputNameFormatting.getOutputName(template);
-	}
+    /**
+     * Get value of OUTPUTNAME sub token
+     *
+     * @param template
+     * @return value of OUTPUTNAME sub token
+     */
+    public static String getOutputNameToken(PCTemplate template)
+    {
+        return OutputNameFormatting.getOutputName(template);
+    }
 
-	/**
-	 * Get value of SA sub token
-	 * @param template
-	 * @param pc
-	 * @return value of SA sub token
-	 */
-	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
-	{
-		CharacterDisplay display = pc.getDisplay();
-		List<SpecialAbility> saList = new ArrayList<>();
-		saList.addAll(display.getResolvedUserSpecialAbilities(template));
-		saList.addAll(display.getResolvedSpecialAbilities(template));
-		List<PCTemplate> subList = new ArrayList<>(template.getConditionalTemplates(display.getTotalLevels(), display.totalHitDice()));
-		for (PCTemplate subt : subList)
-		{
-			saList.addAll(display.getResolvedUserSpecialAbilities(subt));
-			saList.addAll(display.getResolvedSpecialAbilities(subt));
-		}
-		List<String> saDescList = new ArrayList<>();
-		for (SpecialAbility sa : saList)
-		{
-			if (!sa.qualifies(pc, template))
-			{
-				continue;
-			}
-			final String saText = sa.getParsedText(pc, pc, template);
-			if (saText != null && !saText.equals(""))
-			{
-				saDescList.add(saText);
-			}
-		}
-		return StringUtil.join(saDescList, ", ");
-	}
+    /**
+     * Get value of SA sub token
+     *
+     * @param template
+     * @param pc
+     * @return value of SA sub token
+     */
+    public static String getSAToken(PCTemplate template, PlayerCharacter pc)
+    {
+        CharacterDisplay display = pc.getDisplay();
+        List<SpecialAbility> saList = new ArrayList<>();
+        saList.addAll(display.getResolvedUserSpecialAbilities(template));
+        saList.addAll(display.getResolvedSpecialAbilities(template));
+        List<PCTemplate> subList = new ArrayList<>(template.getConditionalTemplates(display.getTotalLevels(), display.totalHitDice()));
+        for (PCTemplate subt : subList)
+        {
+            saList.addAll(display.getResolvedUserSpecialAbilities(subt));
+            saList.addAll(display.getResolvedSpecialAbilities(subt));
+        }
+        List<String> saDescList = new ArrayList<>();
+        for (SpecialAbility sa : saList)
+        {
+            if (!sa.qualifies(pc, template))
+            {
+                continue;
+            }
+            final String saText = sa.getParsedText(pc, pc, template);
+            if (saText != null && !saText.equals(""))
+            {
+                saDescList.add(saText);
+            }
+        }
+        return StringUtil.join(saDescList, ", ");
+    }
 
-	/**
-	 * Get value of SR Sub token
-	 * @param template
-	 * @param display
-	 * @return value of SR Sub token
-	 */
-	public static int getSRToken(PCTemplate template, CharacterDisplay display)
-	{
-		return display.getTemplateSR(template, display.getTotalLevels(), display.totalHitDice());
-	}
+    /**
+     * Get value of SR Sub token
+     *
+     * @param template
+     * @param display
+     * @return value of SR Sub token
+     */
+    public static int getSRToken(PCTemplate template, CharacterDisplay display)
+    {
+        return display.getTemplateSR(template, display.getTotalLevels(), display.totalHitDice());
+    }
 }

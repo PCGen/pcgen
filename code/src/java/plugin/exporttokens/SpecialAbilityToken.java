@@ -28,45 +28,45 @@ import pcgen.io.exporttoken.Token;
 //SPECIALABILITY.x.DESCRIPTION
 public class SpecialAbilityToken extends Token
 {
-	public static final String TOKENNAME = "SPECIALABILITY";
+    public static final String TOKENNAME = "SPECIALABILITY";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		int i = 0;
-		if (aTok.hasMoreTokens())
-		{
-			i = Integer.parseInt(aTok.nextToken());
-		}
+        int i = 0;
+        if (aTok.hasMoreTokens())
+        {
+            i = Integer.parseInt(aTok.nextToken());
+        }
 
-		if (aTok.hasMoreTokens())
-		{
-			String subToken = aTok.nextToken();
+        if (aTok.hasMoreTokens())
+        {
+            String subToken = aTok.nextToken();
 
-			if ("DESCRIPTION".equals(subToken))
-			{
-				return "";
-			}
-		}
-		return getSpecialAbilityToken(pc, i);
-	}
+            if ("DESCRIPTION".equals(subToken))
+            {
+                return "";
+            }
+        }
+        return getSpecialAbilityToken(pc, i);
+    }
 
-	private static String getSpecialAbilityToken(PlayerCharacter pc, int specialIndex)
-	{
-		if (specialIndex >= 0 && specialIndex < pc.getSpecialAbilityTimesList().size())
-		{
-			return pc.getSpecialAbilityTimesList().get(specialIndex);
-		}
-		return "";
-	}
+    private static String getSpecialAbilityToken(PlayerCharacter pc, int specialIndex)
+    {
+        if (specialIndex >= 0 && specialIndex < pc.getSpecialAbilityTimesList().size())
+        {
+            return pc.getSpecialAbilityTimesList().get(specialIndex);
+        }
+        return "";
+    }
 
 }

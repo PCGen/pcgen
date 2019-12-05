@@ -38,84 +38,85 @@ import javafx.scene.control.ButtonBar;
 /**
  * The Class {@code EquipCustomizerDialog} provides a pop-up dialog that allows
  * the user to build up custom equipment items by adding equipment modifiers and
- * setting the name, cost etc.  
+ * setting the name, cost etc.
  */
 public final class EquipCustomizerDialog extends JDialog
 {
-	private final EquipCustomPanel equipCustomPanel;
-	private boolean purchase;
-	private boolean cancelled;
+    private final EquipCustomPanel equipCustomPanel;
+    private boolean purchase;
+    private boolean cancelled;
 
-	/**
-	 * Create a new instance of KitSelectionDialog
-	 * @param frame The parent frame we are displaying over.
-	 * @param character The character being displayed.
-	 */
-	public EquipCustomizerDialog(JFrame frame, CharacterFacade character, EquipmentBuilderFacade builder)
-	{
-		super(frame, true);
-		setTitle(LanguageBundle.getString("in_itemCustomizer"));
+    /**
+     * Create a new instance of KitSelectionDialog
+     *
+     * @param frame     The parent frame we are displaying over.
+     * @param character The character being displayed.
+     */
+    public EquipCustomizerDialog(JFrame frame, CharacterFacade character, EquipmentBuilderFacade builder)
+    {
+        super(frame, true);
+        setTitle(LanguageBundle.getString("in_itemCustomizer"));
 
-		this.equipCustomPanel = new EquipCustomPanel(character, builder);
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		initComponents();
-		pack();
-	}
+        this.equipCustomPanel = new EquipCustomPanel(character, builder);
+        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        initComponents();
+        pack();
+    }
 
-	private void initComponents()
-	{
-		Container pane = getContentPane();
-		pane.setLayout(new BorderLayout());
+    private void initComponents()
+    {
+        Container pane = getContentPane();
+        pane.setLayout(new BorderLayout());
 
-		pane.add(equipCustomPanel, BorderLayout.CENTER);
+        pane.add(equipCustomPanel, BorderLayout.CENTER);
 
-		ButtonBar buttonBar = new OKCloseButtonBar(
-				this::doOK,
-				this::doCancel
-		);
+        ButtonBar buttonBar = new OKCloseButtonBar(
+                this::doOK,
+                this::doCancel
+        );
 
-		Button buyButton = new Button(LanguageBundle.getString("in_buy"));
-		buttonBar.getButtons().add(buyButton);
+        Button buyButton = new Button(LanguageBundle.getString("in_buy"));
+        buttonBar.getButtons().add(buyButton);
 
-		pane.add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
-		Utility.installEscapeCloseOperation(this);
-	}
+        pane.add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
+        Utility.installEscapeCloseOperation(this);
+    }
 
-	private void doOK(javafx.event.ActionEvent event)
-	{
-		purchase = false;
-		cancelled = false;
-		dispose();
-	}
+    private void doOK(javafx.event.ActionEvent event)
+    {
+        purchase = false;
+        cancelled = false;
+        dispose();
+    }
 
-	private void doCancel(javafx.event.ActionEvent event)
-	{
-		purchase = false;
-		cancelled = true;
-		dispose();
-	}
+    private void doCancel(javafx.event.ActionEvent event)
+    {
+        purchase = false;
+        cancelled = true;
+        dispose();
+    }
 
-	private void doBuy(javafx.event.ActionEvent event)
-	{
-		purchase = true;
-		cancelled = false;
-		dispose();
-	}
+    private void doBuy(javafx.event.ActionEvent event)
+    {
+        purchase = true;
+        cancelled = false;
+        dispose();
+    }
 
-	/**
-	 * @return boolean
-	 */
-	public boolean isPurchase()
-	{
-		return purchase;
-	}
+    /**
+     * @return boolean
+     */
+    public boolean isPurchase()
+    {
+        return purchase;
+    }
 
-	/**
-	 * @return boolean
-	 */
-	public boolean isCancelled()
-	{
-		return cancelled;
-	}
+    /**
+     * @return boolean
+     */
+    public boolean isCancelled()
+    {
+        return cancelled;
+    }
 
 }

@@ -22,9 +22,10 @@ package pcgen.persistence.lst;
 public interface LstToken
 {
 
-	/** 
-	 * Get Token Name
-	 * @return token name
-	 */
+    /**
+     * Get Token Name
+     *
+     * @return token name
+     */
     String getTokenName();
 }

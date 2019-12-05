@@ -33,65 +33,61 @@ import pcgen.io.exporttoken.MovementToken;
 //MOVE.x.RATE produce the appropriate parts.
 public class MoveToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "MOVE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "MOVE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		if (aTok.hasMoreTokens())
-		{
-			int moveIndex;
-			moveIndex = Integer.parseInt(aTok.nextToken());
+        if (aTok.hasMoreTokens())
+        {
+            int moveIndex;
+            moveIndex = Integer.parseInt(aTok.nextToken());
 
-			if (aTok.hasMoreTokens())
-			{
-				String subToken = aTok.nextToken();
+            if (aTok.hasMoreTokens())
+            {
+                String subToken = aTok.nextToken();
 
-				if ("NAME".equals(subToken))
-				{
-					retString = display.getMovementValues().get(moveIndex).getName();
-				}
-				else if ("RATE".equals(subToken))
-				{
-					retString = MovementToken.getRateToken(display.getMovementValues().get(moveIndex).getWeight());
-				}
-				else if ("SQUARES".equals(subToken))
-				{
-					retString = getSquaresToken(display, moveIndex);
-				}
-				else
-				{
-					retString = MovementToken.getMovementToken(display);
-				}
-			}
-			else
-			{
-				retString = getMoveXToken(display, moveIndex);
-			}
+                if ("NAME".equals(subToken))
+                {
+                    retString = display.getMovementValues().get(moveIndex).getName();
+                } else if ("RATE".equals(subToken))
+                {
+                    retString = MovementToken.getRateToken(display.getMovementValues().get(moveIndex).getWeight());
+                } else if ("SQUARES".equals(subToken))
+                {
+                    retString = getSquaresToken(display, moveIndex);
+                } else
+                {
+                    retString = MovementToken.getMovementToken(display);
+                }
+            } else
+            {
+                retString = getMoveXToken(display, moveIndex);
+            }
 
-			//TODO: merge all of MovementToken here, and eliminate MovementToken
-		}
+            //TODO: merge all of MovementToken here, and eliminate MovementToken
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	public static String getMoveXToken(CharacterDisplay display, int moveIndex)
-	{
-		NamedValue move = display.getMovementValues().get(moveIndex);
-		return move.getName() + ' ' + MovementToken.getRateToken(move.getWeight());
-	}
+    public static String getMoveXToken(CharacterDisplay display, int moveIndex)
+    {
+        NamedValue move = display.getMovementValues().get(moveIndex);
+        return move.getName() + ' ' + MovementToken.getRateToken(move.getWeight());
+    }
 
-	public static String getSquaresToken(CharacterDisplay display, int moveIndex)
-	{
-		return Integer.toString(
-			(int) (display.getMovementValues().get(moveIndex).getWeight() / SettingsHandler.getGame().getSquareSize()));
-	}
+    public static String getSquaresToken(CharacterDisplay display, int moveIndex)
+    {
+        return Integer.toString(
+                (int) (display.getMovementValues().get(moveIndex).getWeight() / SettingsHandler.getGame().getSquareSize()));
+    }
 }

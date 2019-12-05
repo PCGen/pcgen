@@ -22,45 +22,43 @@ import pcgen.cdom.base.Ungranted;
 
 /**
  * {@code WeaponProf}.
- * 
  */
 public final class WeaponProf extends PObject implements Comparable<Object>, Ungranted
 {
-	/**
-	 * Compares keyName only.
-	 * 
-	 * @param o1
-	 * @return a negative integer, zero, or a positive integer as WeaponProf is
-	 *         less than, equal to, or greater than the specified WeaponProf.
-	 */
-	@Override
-	public int compareTo(final Object o1)
-	{
-		return getKeyName().compareToIgnoreCase(((WeaponProf) o1).getKeyName());
-	}
+    /**
+     * Compares keyName only.
+     *
+     * @param o1
+     * @return a negative integer, zero, or a positive integer as WeaponProf is
+     * less than, equal to, or greater than the specified WeaponProf.
+     */
+    @Override
+    public int compareTo(final Object o1)
+    {
+        return getKeyName().compareToIgnoreCase(((WeaponProf) o1).getKeyName());
+    }
 
-	/**
-	 * Compares keyName only.
-	 * 
-	 * @param obj
-	 *            the WeaponProf with which to compare.
-	 * @return {@code true} if this WeaponProf is the same as the obj
-	 *         argument; {@code false} otherwise.
-	 */
-	@Override
-	public boolean equals(final Object obj)
-	{
-		return obj instanceof WeaponProf && getKeyName().equalsIgnoreCase(((WeaponProf) obj).getKeyName());
-	}
+    /**
+     * Compares keyName only.
+     *
+     * @param obj the WeaponProf with which to compare.
+     * @return {@code true} if this WeaponProf is the same as the obj
+     * argument; {@code false} otherwise.
+     */
+    @Override
+    public boolean equals(final Object obj)
+    {
+        return obj instanceof WeaponProf && getKeyName().equalsIgnoreCase(((WeaponProf) obj).getKeyName());
+    }
 
-	/**
-	 * Hashcode of the keyName.
-	 * 
-	 * @return Hashcode of the keyName.
-	 */
-	@Override
-	public int hashCode()
-	{
-		return getKeyName().hashCode();
-	}
+    /**
+     * Hashcode of the keyName.
+     *
+     * @return Hashcode of the keyName.
+     */
+    @Override
+    public int hashCode()
+    {
+        return getKeyName().hashCode();
+    }
 }

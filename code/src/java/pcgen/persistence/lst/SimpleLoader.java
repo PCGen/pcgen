@@ -28,56 +28,56 @@ import pcgen.rules.context.LoadContext;
 
 public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 {
-	private final Class<T> loadClass;
+    private final Class<T> loadClass;
 
-	public SimpleLoader(Class<T> cl)
-	{
-		Objects.requireNonNull(cl, "Loaded Class cannot be null");
-		loadClass = cl;
-	}
+    public SimpleLoader(Class<T> cl)
+    {
+        Objects.requireNonNull(cl, "Loaded Class cannot be null");
+        loadClass = cl;
+    }
 
-	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
-	{
-		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		String firstToken = colToken.nextToken().trim();
-		Loadable loadable = getLoadable(context, firstToken.intern(), sourceURI);
-		if (loadable == null)
-		{
-			return;
-		}
+    @Override
+    public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
+    {
+        StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+        String firstToken = colToken.nextToken().trim();
+        Loadable loadable = getLoadable(context, firstToken.intern(), sourceURI);
+        if (loadable == null)
+        {
+            return;
+        }
 
-		while (colToken.hasMoreTokens())
-		{
-			processNonFirstToken(context, sourceURI, colToken.nextToken(), loadable);
-		}
-	}
+        while (colToken.hasMoreTokens())
+        {
+            processNonFirstToken(context, sourceURI, colToken.nextToken(), loadable);
+        }
+    }
 
-	protected void processNonFirstToken(LoadContext context, URI sourceURI,
-		String token, Loadable loadable) throws PersistenceLayerException
-	{
-		LstUtils.processToken(context, loadable, sourceURI, token);
-	}
+    protected void processNonFirstToken(LoadContext context, URI sourceURI,
+            String token, Loadable loadable) throws PersistenceLayerException
+    {
+        LstUtils.processToken(context, loadable, sourceURI, token);
+    }
 
-	protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
-	{
-		String name = processFirstToken(context, firstToken);
-		if (name == null)
-		{
-			return null;
-		}
-		T loadable = context.getReferenceContext().constructCDOMObject(loadClass, name.intern());
-		loadable.setSourceURI(sourceURI);
-		return loadable;
-	}
+    protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
+    {
+        String name = processFirstToken(context, firstToken);
+        if (name == null)
+        {
+            return null;
+        }
+        T loadable = context.getReferenceContext().constructCDOMObject(loadClass, name.intern());
+        loadable.setSourceURI(sourceURI);
+        return loadable;
+    }
 
-	protected String processFirstToken(LoadContext context, String token)
-	{
-		return token;
-	}
+    protected String processFirstToken(LoadContext context, String token)
+    {
+        return token;
+    }
 
-	public Class<T> getLoadClass()
-	{
-		return loadClass;
-	}
+    public Class<T> getLoadClass()
+    {
+        return loadClass;
+    }
 }

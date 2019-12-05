@@ -44,55 +44,55 @@ import org.junit.jupiter.api.Test;
  */
 public class PreHPTest extends AbstractCharacterTestCase
 {
-	PCClass myClass = new PCClass();
+    PCClass myClass = new PCClass();
 
-	/**
-	 * Test the PREHP code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testHP() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		LoadContext context = Globals.getContext();
+    /**
+     * Test the PREHP code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testHP() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        LoadContext context = Globals.getContext();
 
-		character.incrementClassLevel(1, myClass, true);
-		myClass = character.getClassList().get(0);
-		PCClassLevel pcl = character.getActiveClassLevel(myClass, 1);
-		character.setHP(pcl, 4);
+        character.incrementClassLevel(1, myClass, true);
+        myClass = character.getClassList().get(0);
+        PCClassLevel pcl = character.getActiveClassLevel(myClass, 1);
+        character.setHP(pcl, 4);
 
-		character.calcActiveBonuses();
+        character.calcActiveBonuses();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREHP:4");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREHP:4");
 
-		assertTrue("Character should have 4 hp", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character should have 4 hp", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREHP:5");
+        prereq = factory.parse("PREHP:5");
 
-		assertFalse("Character should have less than 5 hp", PrereqHandler
-			.passes(prereq, character, null));
+        assertFalse("Character should have less than 5 hp", PrereqHandler
+                .passes(prereq, character, null));
 
-		final BonusObj hpBonus = Bonus.newBonus(context, "HP|CURRENTMAX|1");
-		myClass.addToListFor(ListKey.BONUS, hpBonus);
-		character.calcActiveBonuses();
+        final BonusObj hpBonus = Bonus.newBonus(context, "HP|CURRENTMAX|1");
+        myClass.addToListFor(ListKey.BONUS, hpBonus);
+        character.calcActiveBonuses();
 
-		assertTrue("Character should have 5 hp", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        assertTrue("Character should have 5 hp", PrereqHandler.passes(prereq,
+                character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
+    protected void setUp() throws Exception
+    {
+        super.setUp();
 
-		myClass.setName("My Class");
-		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		Globals.getContext().getReferenceContext().importObject(myClass);
-	}
+        myClass.setName("My Class");
+        myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
+        Globals.getContext().getReferenceContext().importObject(myClass);
+    }
 }

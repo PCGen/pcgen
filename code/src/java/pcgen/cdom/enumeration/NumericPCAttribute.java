@@ -17,23 +17,23 @@ package pcgen.cdom.enumeration;
 
 public enum NumericPCAttribute
 {
-	WEIGHT(false), AGE(true);
+    WEIGHT(false), AGE(true);
 
-	private final boolean recalcActiveBonuses;
+    private final boolean recalcActiveBonuses;
 
-	NumericPCAttribute(final boolean recalcActiveBonuses)
-	{
-		this.recalcActiveBonuses = recalcActiveBonuses;
-	}
+    NumericPCAttribute(final boolean recalcActiveBonuses)
+    {
+        this.recalcActiveBonuses = recalcActiveBonuses;
+    }
 
-	public boolean shouldRecalcActiveBonuses()
-	{
-		return recalcActiveBonuses;
-	}
+    public boolean shouldRecalcActiveBonuses()
+    {
+        return recalcActiveBonuses;
+    }
 
-	@Override
-	public String toString()
-	{
-		return "NumericPCAttribute{" + "recalcActiveBonuses=" + recalcActiveBonuses + '}';
-	}
+    @Override
+    public String toString()
+    {
+        return "NumericPCAttribute{" + "recalcActiveBonuses=" + recalcActiveBonuses + '}';
+    }
 }

@@ -1,788 +1,788 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
 
-                Description:
-                Provides information on the use of PCGen System File: Bio Settings list.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Game Mode: biosettings.lst
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Game Mode: biosettings.lst
-  </h1>
-  <p>
-   Bio Settings list files can now be included in datasets using
-the
-   <a href="../datafilestagpages/datafilespcc.html#bioset">
-    BIOSET
-   </a>
-   tag in a
-.pcc file.
-  </p>
-  <p>
-   Bio Settings list files loaded by a dataset will override
-settings set in the gameMode for creatures of the same name.
-  </p>
-  <p>
-   Bio Settings set the parameters for height, weight, eye color
-and other traits which can be randomly chosen in the
-   <a href="../../tabpages/tabdescription.html">
-    description
-tab
-   </a>
-   .
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="agedieroll" name="agedieroll">
-     Tag
-Name:
+               Description:
+               Provides information on the use of PCGen System File: Bio Settings list.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Game Mode: biosettings.lst
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Game Mode: biosettings.lst
+</h1>
+<p>
+    Bio Settings list files can now be included in datasets using
+    the
+    <a href="../datafilestagpages/datafilespcc.html#bioset">
+        BIOSET
     </a>
-   </strong>
-   AGEDIEROLL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Random
-Number Formula (Die expression).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Used to randomize the starting age of the character within the
-boundaries of the age set.
-   </li>
-   <li>
-    The closest die roll configuration that would total the
-difference between BASEAGE and MAXAGE at full value.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>AGEDIEROLL:5d4</code>
-  </p>
-  <p class="indent3">
-   This give a minimum age of 5 and maximum of
-20.
-  </p>
-  <p class="indent2">
-   <code>AGEDIEROLL:4d20+1d4</code>
-  </p>
-  <p class="indent3">
-   This give a minimum age of 5 and maximum of
-84.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="ageset" name="ageset">
-     Tag
-Name:
+    tag in a
+    .pcc file.
+</p>
+<p>
+    Bio Settings list files loaded by a dataset will override
+    settings set in the gameMode for creatures of the same name.
+</p>
+<p>
+    Bio Settings set the parameters for height, weight, eye color
+    and other traits which can be randomly chosen in the
+    <a href="../../tabpages/tabdescription.html">
+        description
+        tab
     </a>
-   </strong>
-   AGESET:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-number of the age set)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (A
-name for the age set - Adult, Old, Venerable, etc.)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines the age ranges for each race and age category.
-   </li>
-   <li>
-    Each age category should have it's own AGESET tag with a
-different Text field for a name.
-   </li>
-   <li>
-    Each AGESET tag should be sequentially numbered starting at 0,
-for the youngest age category.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>AGESET:0|Adulthood</code>
-  </p>
-  <p class="indent3">
-   1st ageset is "Adulthood".
-  </p>
-  <p class="indent2">
-   <code>AGESET:1|Middle Age</code>
-  </p>
-  <p class="indent3">
-   2nd ageset is "Middle Age".
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="baseage" name="baseage">
-     Tag
-Name:
-    </a>
-   </strong>
-   BASEAGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-minimum age for the associated age set and race)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets the minimum age to be considered in the age
-set.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BASEAGE:35</code>
-  </p>
-  <p class="indent3">
-   Base Age is 35.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="baseageadd" name="baseageadd">
-     Tag
-Name:
-    </a>
-   </strong>
-   BASEAGEADD:xdy
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of dice)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(number of sides on the dice)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The BASEAGEADD tag is used inside of the CLASS
-tag to define the spread for randomization in the number that is
-added to your base age for the class(es) it is paired with.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BASEAGEADD:2d4</code>
-  </p>
-  <p class="indent3">
-   This class added 2d4 years to the Base Age of
-the character.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="baseht" name="baseht">
-     Tag
-Name:
-    </a>
-   </strong>
-   BASEHT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-minimum height for the associated race and gender)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The BASEHT tag is used inside of the SEX tag to
-define the starting point for the height of the race. This number
-needs to be in the base units set in the game mode.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BASEHT:53</code>
-  </p>
-  <p class="indent3">
-   Base height is 53 inches (in 3e mode).
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="basewt" name="basewt">
-     Tag
-Name:
-    </a>
-   </strong>
-   BASEWT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-minimum weight for the associated race and gender)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The BASEWT tag is used inside of the SEX tag to
-define the starting point for the weight of the race. This number
-needs to be in the base units set in the game mode.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BASEWT:85</code>
-  </p>
-  <p class="indent3">
-   Base weight is 85 lbs. in 3e mode.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="class" name="class">
-     Tag
-Name:
-    </a>
-   </strong>
-   CLASS:x,x[BASEAGEADD:y]
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Class
-name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number (The
-die-roll to be added to the BASEAGE based upon the class)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Used in AGESET:0 to define the number of years
-to add to the base age, for each character class of this race.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]</code>
-  </p>
-  <p class="indent3">
-   If the class is "Barbarian", "Rogue" or
-"Sorcerer" than the add 1d4 to the base age.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eyes" name="eyes">
-     Tag
-Name:
-    </a>
-   </strong>
-   EYES:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Eye
-Color)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The entries in this tag are used by the
-Description tabs randomizing function for the eye color for the
-associated race.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EYES:Blue|Black|Brown|Gray</code>
-  </p>
-  <p class="indent3">
-   Eyes may be Blue, Black, Brown or Grey.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="hair" name="hair">
-     Tag
-Name:
-    </a>
-   </strong>
-   HAIR:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Hair
-Color)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The entries in this tag are used by the
-Description tabs randomizing function for the hair for the
-associated race.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>HAIR:Blue|Black|Brown|Gray</code>
-  </p>
-  <p class="indent3">
-   Hair may be Blue, Black, Brown or Grey.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="htdieroll" name="htdieroll">
-     Tag
-Name:
-    </a>
-   </strong>
-   HTDIEROLL:xdy
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of dice)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(number of sides on the dice)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The HTDIEROLL tag is used inside of the SEX tag
-to define the spread for randomization in the number that is added
-to your base height for the race/sex it is paired with. It also
-acts as a variable name that contains the result of this
-randomization.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>HTDIEROLL:2d10</code>
-  </p>
-  <p class="indent3">
-   This race added 2d10 to its base height.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="maxage" name="maxage">
-     Tag
-Name:
-    </a>
-   </strong>
-   MAXAGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-maximum age for the associated age set and race)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets the maximum age to be considered in the age
-set.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MAXAGE:50</code>
-  </p>
-  <p class="indent3">
-   Maximum age for this set is 50.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="racename" name="racename">
-     Tag
-Name:
-    </a>
-   </strong>
-   RACENAME:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-name of the race)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the name of the race. Will appear under
-every AGESET tag. If the name is followed by a "%" symbol then that
-BIOSET will apply to all subsets of that race name. For example
-   <code>RACENAME:Elf%</code>
-   will apply to Elf (Drow), Elf (Wood) and
-all other Elf races. Without the "%" symbol the age set will apply
-only to the race that matches the name exactly, so
-   <code>RACENAME:Elf (House)</code>
-   will only be used by the race
-"Elf (House)". Using parenthesis in combination with the "%" symbol
-will not work at all. BIOSET entries for specific subset races will
-override a general BIOSET entry of the same race.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>RACENAME:Human%</code>
-  </p>
-  <p class="indent3">
-   The race name is "Human" and the BIOSET will
-apply to all subsets of the Human race.
-  </p>
-  <p class="indent2">
-   <code>RACENAME:Elf (Drow)</code>
-  </p>
-  <p class="indent3">
-   The race name is "Elf (Drow)" and the BIOSET
-will apply only to the race "Elf (Drow)".
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="sex" name="sex">
-     Tag
-Name:
-    </a>
-   </strong>
-   SEX:gender[BASEHT:v|HTDIEROLL:w|BASEWT:x|WTDIEROLL:y|TOTALWT:z]
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (gender):
-   </strong>
-   Text
-(Male or Female)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Number (The
-base height for the associated race/gender)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text (The
-die roll for randomizing height)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-base weight for the associated race/gender)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (The
-die roll for randomizing weight)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text (A
-formula used to get the total weight)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determines how the Description tab randomizer generates height
-and weight for the different genders.
-   </li>
-   <li>
-    Both sexes are usually given on one line, one following the
-other with the same format as shown.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:130|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]</code>
-  </p>
-  <p class="indent3">
-   Male height is 58+2d10 and Weight is
-130+(height*2d4).
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="skintone" name="skintone">
-     Tag
-Name:
-    </a>
-   </strong>
-   SKINTONE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Skin
-tone color)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The entries in this tag are used by the
-Description tabs randomizing function for the skin tone for the
-associated race.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SKINTONE:Tanned|Pasty|Gray</code>
-  </p>
-  <p class="indent3">
-   Skin tone is Tanned Pasty or Gray.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="totalwt" name="totalwt">
-     Tag
-Name:
-    </a>
-   </strong>
-   TOTALWT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number or
-Formula (Total weight of the character)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The TOTALWT tag is used inside of the SEX tag to
-define the total weight of your character. It can use standard
-numbers, as well as the BASEWT, WTDIEROLL and HTDIEROLL
-variables.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)</code>
-  </p>
-  <p class="indent3">
-   Defines the total weight of the character.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="wtdieroll" name="wtdieroll">
-     Tag
-Name:
-    </a>
-   </strong>
-   WTDIEROLL:xdy
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of dice)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(number of sides on the dice)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The WTDIEROLL tag is used inside of the SEX tag
-to define the spread for randomization in the number that is added
-to your base weight for the race/sex it is paired with. It also
-acts as a variable name that contains the result of this
-randomization.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WTDIEROLL:2d4</code>
-  </p>
-  <p class="indent3">
-   This race added 2d10 to its base weight.
-  </p>
-  <p>
-  </p>
- </body>
+    .
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="agedieroll" name="agedieroll">
+            Tag
+            Name:
+        </a>
+    </strong>
+    AGEDIEROLL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Random
+    Number Formula (Die expression).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Used to randomize the starting age of the character within the
+        boundaries of the age set.
+    </li>
+    <li>
+        The closest die roll configuration that would total the
+        difference between BASEAGE and MAXAGE at full value.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>AGEDIEROLL:5d4</code>
+</p>
+<p class="indent3">
+    This give a minimum age of 5 and maximum of
+    20.
+</p>
+<p class="indent2">
+    <code>AGEDIEROLL:4d20+1d4</code>
+</p>
+<p class="indent3">
+    This give a minimum age of 5 and maximum of
+    84.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="ageset" name="ageset">
+            Tag
+            Name:
+        </a>
+    </strong>
+    AGESET:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    number of the age set)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (A
+    name for the age set - Adult, Old, Venerable, etc.)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Defines the age ranges for each race and age category.
+    </li>
+    <li>
+        Each age category should have it's own AGESET tag with a
+        different Text field for a name.
+    </li>
+    <li>
+        Each AGESET tag should be sequentially numbered starting at 0,
+        for the youngest age category.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>AGESET:0|Adulthood</code>
+</p>
+<p class="indent3">
+    1st ageset is "Adulthood".
+</p>
+<p class="indent2">
+    <code>AGESET:1|Middle Age</code>
+</p>
+<p class="indent3">
+    2nd ageset is "Middle Age".
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="baseage" name="baseage">
+            Tag
+            Name:
+        </a>
+    </strong>
+    BASEAGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    minimum age for the associated age set and race)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets the minimum age to be considered in the age
+    set.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BASEAGE:35</code>
+</p>
+<p class="indent3">
+    Base Age is 35.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="baseageadd" name="baseageadd">
+            Tag
+            Name:
+        </a>
+    </strong>
+    BASEAGEADD:xdy
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of dice)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (number of sides on the dice)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The BASEAGEADD tag is used inside of the CLASS
+    tag to define the spread for randomization in the number that is
+    added to your base age for the class(es) it is paired with.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BASEAGEADD:2d4</code>
+</p>
+<p class="indent3">
+    This class added 2d4 years to the Base Age of
+    the character.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="baseht" name="baseht">
+            Tag
+            Name:
+        </a>
+    </strong>
+    BASEHT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    minimum height for the associated race and gender)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The BASEHT tag is used inside of the SEX tag to
+    define the starting point for the height of the race. This number
+    needs to be in the base units set in the game mode.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BASEHT:53</code>
+</p>
+<p class="indent3">
+    Base height is 53 inches (in 3e mode).
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="basewt" name="basewt">
+            Tag
+            Name:
+        </a>
+    </strong>
+    BASEWT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    minimum weight for the associated race and gender)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The BASEWT tag is used inside of the SEX tag to
+    define the starting point for the weight of the race. This number
+    needs to be in the base units set in the game mode.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BASEWT:85</code>
+</p>
+<p class="indent3">
+    Base weight is 85 lbs. in 3e mode.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="class" name="class">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CLASS:x,x[BASEAGEADD:y]
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Class
+    name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number (The
+    die-roll to be added to the BASEAGE based upon the class)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Used in AGESET:0 to define the number of years
+    to add to the base age, for each character class of this race.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]</code>
+</p>
+<p class="indent3">
+    If the class is "Barbarian", "Rogue" or
+    "Sorcerer" than the add 1d4 to the base age.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eyes" name="eyes">
+            Tag
+            Name:
+        </a>
+    </strong>
+    EYES:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Eye
+    Color)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The entries in this tag are used by the
+    Description tabs randomizing function for the eye color for the
+    associated race.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EYES:Blue|Black|Brown|Gray</code>
+</p>
+<p class="indent3">
+    Eyes may be Blue, Black, Brown or Grey.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="hair" name="hair">
+            Tag
+            Name:
+        </a>
+    </strong>
+    HAIR:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Hair
+    Color)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The entries in this tag are used by the
+    Description tabs randomizing function for the hair for the
+    associated race.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>HAIR:Blue|Black|Brown|Gray</code>
+</p>
+<p class="indent3">
+    Hair may be Blue, Black, Brown or Grey.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="htdieroll" name="htdieroll">
+            Tag
+            Name:
+        </a>
+    </strong>
+    HTDIEROLL:xdy
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of dice)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (number of sides on the dice)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The HTDIEROLL tag is used inside of the SEX tag
+    to define the spread for randomization in the number that is added
+    to your base height for the race/sex it is paired with. It also
+    acts as a variable name that contains the result of this
+    randomization.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>HTDIEROLL:2d10</code>
+</p>
+<p class="indent3">
+    This race added 2d10 to its base height.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="maxage" name="maxage">
+            Tag
+            Name:
+        </a>
+    </strong>
+    MAXAGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    maximum age for the associated age set and race)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets the maximum age to be considered in the age
+    set.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MAXAGE:50</code>
+</p>
+<p class="indent3">
+    Maximum age for this set is 50.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="racename" name="racename">
+            Tag
+            Name:
+        </a>
+    </strong>
+    RACENAME:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    name of the race)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the name of the race. Will appear under
+    every AGESET tag. If the name is followed by a "%" symbol then that
+    BIOSET will apply to all subsets of that race name. For example
+    <code>RACENAME:Elf%</code>
+    will apply to Elf (Drow), Elf (Wood) and
+    all other Elf races. Without the "%" symbol the age set will apply
+    only to the race that matches the name exactly, so
+    <code>RACENAME:Elf (House)</code>
+    will only be used by the race
+    "Elf (House)". Using parenthesis in combination with the "%" symbol
+    will not work at all. BIOSET entries for specific subset races will
+    override a general BIOSET entry of the same race.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>RACENAME:Human%</code>
+</p>
+<p class="indent3">
+    The race name is "Human" and the BIOSET will
+    apply to all subsets of the Human race.
+</p>
+<p class="indent2">
+    <code>RACENAME:Elf (Drow)</code>
+</p>
+<p class="indent3">
+    The race name is "Elf (Drow)" and the BIOSET
+    will apply only to the race "Elf (Drow)".
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="sex" name="sex">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SEX:gender[BASEHT:v|HTDIEROLL:w|BASEWT:x|WTDIEROLL:y|TOTALWT:z]
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (gender):
+    </strong>
+    Text
+    (Male or Female)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (v):
+    </strong>
+    Number (The
+    base height for the associated race/gender)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text (The
+    die roll for randomizing height)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    base weight for the associated race/gender)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (The
+    die roll for randomizing weight)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text (A
+    formula used to get the total weight)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determines how the Description tab randomizer generates height
+        and weight for the different genders.
+    </li>
+    <li>
+        Both sexes are usually given on one line, one following the
+        other with the same format as shown.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:130|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]</code>
+</p>
+<p class="indent3">
+    Male height is 58+2d10 and Weight is
+    130+(height*2d4).
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="skintone" name="skintone">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SKINTONE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Skin
+    tone color)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The entries in this tag are used by the
+    Description tabs randomizing function for the skin tone for the
+    associated race.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SKINTONE:Tanned|Pasty|Gray</code>
+</p>
+<p class="indent3">
+    Skin tone is Tanned Pasty or Gray.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="totalwt" name="totalwt">
+            Tag
+            Name:
+        </a>
+    </strong>
+    TOTALWT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number or
+    Formula (Total weight of the character)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The TOTALWT tag is used inside of the SEX tag to
+    define the total weight of your character. It can use standard
+    numbers, as well as the BASEWT, WTDIEROLL and HTDIEROLL
+    variables.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)</code>
+</p>
+<p class="indent3">
+    Defines the total weight of the character.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="wtdieroll" name="wtdieroll">
+            Tag
+            Name:
+        </a>
+    </strong>
+    WTDIEROLL:xdy
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of dice)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (number of sides on the dice)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The WTDIEROLL tag is used inside of the SEX tag
+    to define the spread for randomization in the number that is added
+    to your base weight for the race/sex it is paired with. It also
+    acts as a variable name that contains the result of this
+    randomization.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WTDIEROLL:2d4</code>
+</p>
+<p class="indent3">
+    This race added 2d10 to its base weight.
+</p>
+<p>
+</p>
+</body>
 </html>

@@ -24,11 +24,10 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
- *
  * Interface to the Prerequisite parser. Each Prerequisite
  * is parsed by a separate class, each class implements this
  * interface.
- *
+ * <p>
  * Each class implementing this interface will parse 1 or more
  * prerequisite types. Normally if an implementation handles more
  * than 1 type the types will be very similar (i.e. a single
@@ -37,25 +36,25 @@ import pcgen.persistence.PersistenceLayerException;
  */
 public interface PrerequisiteParserInterface
 {
-	/**
-	 * @return An array of Strings each of which defines a type
-	 * of prerequisite that the parser will parse.
-	 */
+    /**
+     * @return An array of Strings each of which defines a type
+     * of prerequisite that the parser will parse.
+     */
     String[] kindsHandled();
 
-	/**
-	 * Parses the.
-	 *
-	 * @param kind the kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite;
-	 * @param invertResult If the prerequisite should invert the result
-	 * before it is returned
-	 * @param overrideQualify the override qualify
-	 * @return Returns a Prerequisite instance containing the parsed contents
-	 * of the input string "value". If the input could not be parsed
-	 * for any reason a PersistenceLayerException will be thrown.
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
+    /**
+     * Parses the.
+     *
+     * @param kind            the kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite;
+     * @param invertResult    If the prerequisite should invert the result
+     *                        before it is returned
+     * @param overrideQualify the override qualify
+     * @return Returns a Prerequisite instance containing the parsed contents
+     * of the input string "value". If the input could not be parsed
+     * for any reason a PersistenceLayerException will be thrown.
+     * @throws PersistenceLayerException the persistence layer exception
+     */
     Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException;
+            throws PersistenceLayerException;
 }

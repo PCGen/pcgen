@@ -32,122 +32,121 @@ import java.util.Objects;
  */
 public final class Stat extends BonusObj
 {
-	private static final String[] BONUS_TAGS = {"BASESPELLSTAT", "BASESPELLKNOWNSTAT"};
+    private static final String[] BONUS_TAGS = {"BASESPELLSTAT", "BASESPELLKNOWNSTAT"};
 
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		for (int i = 0; i < BONUS_TAGS.length; ++i)
-		{
-			if (BONUS_TAGS[i].equals(token))
-			{
-				addBonusInfo(i);
-				return true;
-			}
-		}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        for (int i = 0;i < BONUS_TAGS.length;++i)
+        {
+            if (BONUS_TAGS[i].equals(token))
+            {
+                addBonusInfo(i);
+                return true;
+            }
+        }
 
-		if (token.startsWith("CAST=") || token.startsWith("CAST."))
-		{
-			PCStat stat = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class,
-				token.substring(Constants.SUBSTRING_LENGTH_FIVE));
+        if (token.startsWith("CAST=") || token.startsWith("CAST."))
+        {
+            PCStat stat = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class,
+                    token.substring(Constants.SUBSTRING_LENGTH_FIVE));
 
-			if (stat != null)
-			{
-				addBonusInfo(new CastStat(stat));
+            if (stat != null)
+            {
+                addBonusInfo(new CastStat(stat));
 
-				return true;
-			}
-		}
-		else
-		{
-			PCStat stat = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, token);
+                return true;
+            }
+        } else
+        {
+            PCStat stat = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, token);
 
-			if (stat != null)
-			{
-				addBonusInfo(stat);
-			}
-			else
-			{
-				final PCClass aClass =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, token);
+            if (stat != null)
+            {
+                addBonusInfo(stat);
+            } else
+            {
+                final PCClass aClass =
+                        context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, token);
 
                 addBonusInfo(Objects.requireNonNullElseGet(aClass, () -> new MissingObject(token)));
-			}
+            }
 
-			return true;
-		}
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		if (obj instanceof Integer)
-		{
-			return BONUS_TAGS[(Integer) obj];
-		}
-		else if (obj instanceof CastStat)
-		{
-			return "CAST." + ((CastStat) obj).getStat().getKeyName();
-		}
-		else if (obj instanceof PCClass)
-		{
-			return ((PCClass) obj).getKeyName();
-		}
-		else if (obj instanceof MissingObject)
-		{
-			return ((MissingObject) obj).getObjectName();
-		}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        if (obj instanceof Integer)
+        {
+            return BONUS_TAGS[(Integer) obj];
+        } else if (obj instanceof CastStat)
+        {
+            return "CAST." + ((CastStat) obj).getStat().getKeyName();
+        } else if (obj instanceof PCClass)
+        {
+            return ((PCClass) obj).getKeyName();
+        } else if (obj instanceof MissingObject)
+        {
+            return ((MissingObject) obj).getObjectName();
+        }
 
-		return ((PCStat) obj).getKeyName();
-	}
+        return ((PCStat) obj).getKeyName();
+    }
 
-	/**
-	 * Deals with the Stat for casting.
-	 */
-	public static class CastStat
-	{
-		private final PCStat stat;
+    /**
+     * Deals with the Stat for casting.
+     */
+    public static class CastStat
+    {
+        private final PCStat stat;
 
-		/**
-		 * Constructor.
-		 * @param argStat The spell casting stat.
-		 */
-		public CastStat(final PCStat argStat)
-		{
-			stat = argStat;
-		}
+        /**
+         * Constructor.
+         *
+         * @param argStat The spell casting stat.
+         */
+        public CastStat(final PCStat argStat)
+        {
+            stat = argStat;
+        }
 
-		/** Get the spell casting stat.
-		 * @return The spell casting stat.
-		 * */
-		public PCStat getStat()
-		{
-			return stat;
-		}
-	}
+        /**
+         * Get the spell casting stat.
+         *
+         * @return The spell casting stat.
+         */
+        public PCStat getStat()
+        {
+            return stat;
+        }
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "STAT";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "STAT";
+    }
 
-	@Override
-	public String getDescription()
-	{
-		final PCStat pcstat = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class,
-			getBonusInfo());
-		if (pcstat != null)
-		{
-			return pcstat.getDisplayName();
-		}
-		return super.getDescription();
-	}
+    @Override
+    public String getDescription()
+    {
+        final PCStat pcstat = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class,
+                getBonusInfo());
+        if (pcstat != null)
+        {
+            return pcstat.getDisplayName();
+        }
+        return super.getDescription();
+    }
 
 }

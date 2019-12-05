@@ -32,103 +32,106 @@ import pcgen.util.Logging;
  */
 public final class TokenStore implements PluginLoader
 {
-	private static TokenStore inst;
-	private HashMap<Class<? extends LstToken>, Map<String, LstToken>> tokenTypeMap;
-	private final List<Class<? extends LstToken>> tokenTypeList;
+    private static TokenStore inst;
+    private HashMap<Class<? extends LstToken>, Map<String, LstToken>> tokenTypeMap;
+    private final List<Class<? extends LstToken>> tokenTypeList;
 
-	private TokenStore()
-	{
-		tokenTypeMap = new HashMap<>();
-		tokenTypeList = new ArrayList<>();
-		populateTokenTypeList();
-	}
+    private TokenStore()
+    {
+        tokenTypeMap = new HashMap<>();
+        tokenTypeList = new ArrayList<>();
+        populateTokenTypeList();
+    }
 
-	/**
-	 * Create an instance of TokenStore and return it.
-	 * @return an instance of TokenStore and return it.
-	 */
-	public static TokenStore inst()
-	{
-		if (inst == null)
-		{
-			inst = new TokenStore();
-		}
-		return inst;
-	}
+    /**
+     * Create an instance of TokenStore and return it.
+     *
+     * @return an instance of TokenStore and return it.
+     */
+    public static TokenStore inst()
+    {
+        if (inst == null)
+        {
+            inst = new TokenStore();
+        }
+        return inst;
+    }
 
-	public static void reset()
-	{
-		if (inst != null)
-		{
-			inst.tokenTypeList.clear();
-			inst.tokenTypeMap.clear();
-		}
-	}
+    public static void reset()
+    {
+        if (inst != null)
+        {
+            inst.tokenTypeList.clear();
+            inst.tokenTypeMap.clear();
+        }
+    }
 
-	private void populateTokenTypeList()
-	{
-		//miscinfo.lst
-		tokenTypeList.add(GameModeLstToken.class);
+    private void populateTokenTypeList()
+    {
+        //miscinfo.lst
+        tokenTypeList.add(GameModeLstToken.class);
 
-		//level.lst
-		tokenTypeList.add(LevelLstToken.class);
+        //level.lst
+        tokenTypeList.add(LevelLstToken.class);
 
-		//equipIcon.lst
-		tokenTypeList.add(EquipIconLstToken.class);
+        //equipIcon.lst
+        tokenTypeList.add(EquipIconLstToken.class);
 
-		//equipmentslots.lst
-		tokenTypeList.add(EquipSlotLstToken.class);
+        //equipmentslots.lst
+        tokenTypeList.add(EquipSlotLstToken.class);
 
-		//install.lst
-		tokenTypeList.add(InstallLstToken.class);
+        //install.lst
+        tokenTypeList.add(InstallLstToken.class);
 
-		//migrate.lst
-		tokenTypeList.add(MigrationLstToken.class);
-	}
+        //migrate.lst
+        tokenTypeList.add(MigrationLstToken.class);
+    }
 
-	@Override
-	public void loadPlugin(Class<?> clazz) throws Exception
-	{
-		addToTokenMap((LstToken) clazz.newInstance());
-	}
+    @Override
+    public void loadPlugin(Class<?> clazz) throws Exception
+    {
+        addToTokenMap((LstToken) clazz.newInstance());
+    }
 
-	@Override
-	public Class[] getPluginClasses()
-	{
-		return new Class[]{LstToken.class};
-	}
+    @Override
+    public Class[] getPluginClasses()
+    {
+        return new Class[]{LstToken.class};
+    }
 
-	/**
-	 * Add the new token to the token map
-	 * @param newToken
-	 */
-	public void addToTokenMap(LstToken newToken)
-	{
-		for (Class<? extends LstToken> tokClass : tokenTypeList)
-		{
-			if (tokClass.isAssignableFrom(newToken.getClass()))
-			{
-				Map<String, LstToken> tokenMap = getTokenMap(tokClass);
-				LstToken test = tokenMap.put(newToken.getTokenName(), newToken);
+    /**
+     * Add the new token to the token map
+     *
+     * @param newToken
+     */
+    public void addToTokenMap(LstToken newToken)
+    {
+        for (Class<? extends LstToken> tokClass : tokenTypeList)
+        {
+            if (tokClass.isAssignableFrom(newToken.getClass()))
+            {
+                Map<String, LstToken> tokenMap = getTokenMap(tokClass);
+                LstToken test = tokenMap.put(newToken.getTokenName(), newToken);
 
-				if (test != null)
-				{
-					Logging.errorPrint("More than one " + tokClass.getName() + " has the same token name: '"
-						+ newToken.getTokenName() + "'. " + "Classes were " + test.getClass().getName() + " and "
-						+ newToken.getClass().getName());
-				}
-			}
-		}
-	}
+                if (test != null)
+                {
+                    Logging.errorPrint("More than one " + tokClass.getName() + " has the same token name: '"
+                            + newToken.getTokenName() + "'. " + "Classes were " + test.getClass().getName() + " and "
+                            + newToken.getClass().getName());
+                }
+            }
+        }
+    }
 
-	/**
-	 * Get the token map
-	 * @param tokInterface
-	 * @return the token map
-	 */
-	public Map<String, LstToken> getTokenMap(Class<? extends LstToken> tokInterface)
-	{
+    /**
+     * Get the token map
+     *
+     * @param tokInterface
+     * @return the token map
+     */
+    public Map<String, LstToken> getTokenMap(Class<? extends LstToken> tokInterface)
+    {
         Map<String, LstToken> tokenMap = tokenTypeMap.computeIfAbsent(tokInterface, k -> new HashMap<>());
         return tokenMap;
-	}
+    }
 }

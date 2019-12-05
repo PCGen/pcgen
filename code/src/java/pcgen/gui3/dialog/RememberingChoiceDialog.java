@@ -32,43 +32,43 @@ import javafx.scene.web.WebView;
 
 public final class RememberingChoiceDialog
 {
-	private RememberingChoiceDialog()
-	{
-	}
+    private RememberingChoiceDialog()
+    {
+    }
 
-	// TODO: there are too many variables here. It should either be a builder
-	// or something that extends Alert/Dialog. This is mainly here to keep this
-	// in one place to allow us to fix later
+    // TODO: there are too many variables here. It should either be a builder
+    // or something that extends Alert/Dialog. This is mainly here to keep this
+    // in one place to allow us to fix later
 
-	public static Alert create(final String title,
-	                           final String header,
-	                           final String htmlContent,
-	                           final String checkboxContentKey,
-	                           final PropertyContext context,
-	                           final String option
-	)
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		Objects.requireNonNull(title);
-		Objects.requireNonNull(header);
-		Objects.requireNonNull(htmlContent);
-		Objects.requireNonNull(context);
-		Objects.requireNonNull(option);
+    public static Alert create(final String title,
+            final String header,
+            final String htmlContent,
+            final String checkboxContentKey,
+            final PropertyContext context,
+            final String option
+    )
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        Objects.requireNonNull(title);
+        Objects.requireNonNull(header);
+        Objects.requireNonNull(htmlContent);
+        Objects.requireNonNull(context);
+        Objects.requireNonNull(option);
 
-		Alert alert = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.INFORMATION));
-		alert.setTitle(title);
-		alert.setContentText(null);
-		alert.setHeaderText(header);
-		CheckBox showLicense = new CheckBox(LanguageBundle.getString(checkboxContentKey));
-		showLicense.selectedProperty().addListener((observableValue, oldValue, newValue) ->
+        Alert alert = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.INFORMATION));
+        alert.setTitle(title);
+        alert.setContentText(null);
+        alert.setHeaderText(header);
+        CheckBox showLicense = new CheckBox(LanguageBundle.getString(checkboxContentKey));
+        showLicense.selectedProperty().addListener((observableValue, oldValue, newValue) ->
                 context.setBoolean(option, newValue));
-		showLicense.setSelected(context.getBoolean(option));
-		Platform.runLater(() -> {
-			WebView webView = new WebView();
-			webView.getEngine().loadContent(htmlContent);
-			alert.getDialogPane().setContent(webView);
-		});
-		alert.getDialogPane().setExpandableContent(showLicense);
-		return alert;
-	}
+        showLicense.setSelected(context.getBoolean(option));
+        Platform.runLater(() -> {
+            WebView webView = new WebView();
+            webView.getEngine().loadContent(htmlContent);
+            alert.getDialogPane().setContent(webView);
+        });
+        alert.getDialogPane().setExpandableContent(showLicense);
+        return alert;
+    }
 }

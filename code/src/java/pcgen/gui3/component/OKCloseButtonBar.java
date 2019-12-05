@@ -36,54 +36,52 @@ import javafx.scene.control.ButtonBar;
  */
 public final class OKCloseButtonBar extends ButtonBar
 {
-	private final EventHandler<ActionEvent> okAction;
-	private final EventHandler<ActionEvent> cancelAction;
+    private final EventHandler<ActionEvent> okAction;
+    private final EventHandler<ActionEvent> cancelAction;
 
-	@FXML
-	private Button okButton;
+    @FXML
+    private Button okButton;
 
-	@FXML
-	private Button cancelButton;
+    @FXML
+    private Button cancelButton;
 
-	/**
-	 *
-	 * @param okAction what happens when OK is called
-	 * @param cancelAction what happens when cancel is called
-	 */
-	public OKCloseButtonBar(EventHandler<ActionEvent> okAction,
-	                        EventHandler<ActionEvent> cancelAction)
-	{
-		try
-		{
-			this.okAction = okAction;
-			this.cancelAction = cancelAction;
-			FXMLLoader loader = new FXMLLoader();
-			loader.setResources(LanguageBundle.getBundle());
-			loader.setController(this);
-			loader.setRoot(this);
-			loader.setLocation(getClass().getResource("OKCloseButtonBar.fxml"));
-			loader.load();
-		}
-		catch (IOException e)
-		{
-			throw new IORuntimeException(e);
-		}
-	}
+    /**
+     * @param okAction     what happens when OK is called
+     * @param cancelAction what happens when cancel is called
+     */
+    public OKCloseButtonBar(EventHandler<ActionEvent> okAction,
+            EventHandler<ActionEvent> cancelAction)
+    {
+        try
+        {
+            this.okAction = okAction;
+            this.cancelAction = cancelAction;
+            FXMLLoader loader = new FXMLLoader();
+            loader.setResources(LanguageBundle.getBundle());
+            loader.setController(this);
+            loader.setRoot(this);
+            loader.setLocation(getClass().getResource("OKCloseButtonBar.fxml"));
+            loader.load();
+        } catch (IOException e)
+        {
+            throw new IORuntimeException(e);
+        }
+    }
 
-	@FXML
-	void initialize()
-	{
-		okButton.setOnAction(okAction);
-		cancelButton.setOnAction(cancelAction);
-	}
+    @FXML
+    void initialize()
+    {
+        okButton.setOnAction(okAction);
+        cancelButton.setOnAction(cancelAction);
+    }
 
-	public Button getOkButton()
-	{
-		return okButton;
-	}
+    public Button getOkButton()
+    {
+        return okButton;
+    }
 
-	public Button getCancelButton()
-	{
-		return cancelButton;
-	}
+    public Button getCancelButton()
+    {
+        return cancelButton;
+    }
 }

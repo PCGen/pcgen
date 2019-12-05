@@ -29,28 +29,29 @@ import pcgen.core.GameMode;
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls abstract methods to
  * do the loading of system files.
- *
  */
 public interface SystemLoader
 {
-	/**
-	 * This is the delimiter for Tabs.
-	 */
+    /**
+     * This is the delimiter for Tabs.
+     */
     String TAB_DELIM = "\t";
 
-	/**
-	 * This method sets a List of campaigns selected for a particular game 
-	 * mode by the user.
-	 * @param l List containing the chosen campaign source files
-	 * @param game The game mode
-	 */
+    /**
+     * This method sets a List of campaigns selected for a particular game
+     * mode by the user.
+     *
+     * @param l    List containing the chosen campaign source files
+     * @param game The game mode
+     */
     void setChosenCampaignSourcefiles(List<URI> l, GameMode game);
 
-	/**
-	 * This method gets a List of campaigns previously or currently
-	 * selected for a particular game mode by the user.
-	 * @param game The game mode
-	 * @return List containing the chosen campaign source files
-	 */
+    /**
+     * This method gets a List of campaigns previously or currently
+     * selected for a particular game mode by the user.
+     *
+     * @param game The game mode
+     * @return List containing the chosen campaign source files
+     */
     List<URI> getChosenCampaignSourcefiles(GameMode game);
 }

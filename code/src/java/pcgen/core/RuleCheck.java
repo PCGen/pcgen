@@ -22,148 +22,145 @@ import pcgen.cdom.reference.CDOMSingleRef;
 
 public final class RuleCheck implements Loadable
 {
-	private String ruleName;
-	private String ruleKey;
-	private String ruleDescription = "";
-	private String parm = "";
-	private String var = "";
-	private CDOMSingleRef<RuleCheck> excludeKey;
-	private boolean isEnabledByDefault = false;
-	private URI sourceURI;
+    private String ruleName;
+    private String ruleKey;
+    private String ruleDescription = "";
+    private String parm = "";
+    private String var = "";
+    private CDOMSingleRef<RuleCheck> excludeKey;
+    private boolean isEnabledByDefault = false;
+    private URI sourceURI;
 
-	@Override
-	public URI getSourceURI()
-	{
-		return sourceURI;
-	}
+    @Override
+    public URI getSourceURI()
+    {
+        return sourceURI;
+    }
 
-	@Override
-	public void setSourceURI(URI source)
-	{
-		sourceURI = source;
-	}
+    @Override
+    public void setSourceURI(URI source)
+    {
+        sourceURI = source;
+    }
 
-	@Override
-	public boolean isInternal()
-	{
-		return false;
-	}
+    @Override
+    public boolean isInternal()
+    {
+        return false;
+    }
 
-	@Override
-	public boolean isType(String type)
-	{
-		return false;
-	}
+    @Override
+    public boolean isType(String type)
+    {
+        return false;
+    }
 
-	public void setDefault(Boolean set)
-	{
-		isEnabledByDefault = set;
-	}
+    public void setDefault(Boolean set)
+    {
+        isEnabledByDefault = set;
+    }
 
-	public boolean getDefault()
-	{
-		return isEnabledByDefault;
-	}
+    public boolean getDefault()
+    {
+        return isEnabledByDefault;
+    }
 
-	public void setDesc(String description)
-	{
-		ruleDescription = description;
-	}
+    public void setDesc(String description)
+    {
+        ruleDescription = description;
+    }
 
-	public String getDesc()
-	{
-		return ruleDescription;
-	}
+    public String getDesc()
+    {
+        return ruleDescription;
+    }
 
-	public void setExclude(CDOMSingleRef<RuleCheck> ref)
-	{
-		excludeKey = ref;
-	}
+    public void setExclude(CDOMSingleRef<RuleCheck> ref)
+    {
+        excludeKey = ref;
+    }
 
-	public boolean isExclude()
-	{
-		return (excludeKey != null);
-	}
+    public boolean isExclude()
+    {
+        return (excludeKey != null);
+    }
 
-	public CDOMSingleRef<RuleCheck> getExclude()
-	{
-		return excludeKey;
-	}
+    public CDOMSingleRef<RuleCheck> getExclude()
+    {
+        return excludeKey;
+    }
 
-	/**
-	 * Returns the unique key for this Rule
-	 * 
-	 * @return key
-	 */
-	@Override
-	public String getKeyName()
-	{
-		return ruleKey;
-	}
+    /**
+     * Returns the unique key for this Rule
+     *
+     * @return key
+     */
+    @Override
+    public String getKeyName()
+    {
+        return ruleKey;
+    }
 
-	/**
-	 * Sets the Name (and key if not already set)
-	 * 
-	 * @param name
-	 *            set name to
-	 */
-	@Override
-	public void setName(String name)
-	{
-		ruleName = name;
+    /**
+     * Sets the Name (and key if not already set)
+     *
+     * @param name set name to
+     */
+    @Override
+    public void setName(String name)
+    {
+        ruleName = name;
 
-		if (ruleKey == null)
-		{
-			ruleKey = name;
-		}
-	}
+        if (ruleKey == null)
+        {
+            ruleKey = name;
+        }
+    }
 
-	@Override
-	public String getDisplayName()
-	{
-		return ruleName;
-	}
+    @Override
+    public String getDisplayName()
+    {
+        return ruleName;
+    }
 
-	public String getName()
-	{
-		return ruleName;
-	}
+    public String getName()
+    {
+        return ruleName;
+    }
 
-	/**
-	 * @param aString
-	 *            set parm, key and var to
-	 */
-	public void setParameter(final String aString)
-	{
-		parm = aString;
+    /**
+     * @param aString set parm, key and var to
+     */
+    public void setParameter(final String aString)
+    {
+        parm = aString;
 
-		if (var.length() <= 0)
-		{
-			var = aString;
-		}
-	}
+        if (var.length() <= 0)
+        {
+            var = aString;
+        }
+    }
 
-	public String getParameter()
-	{
-		return parm;
-	}
+    public String getParameter()
+    {
+        return parm;
+    }
 
-	/**
-	 * @param aString
-	 *            set key and var to
-	 */
-	public void setVariable(final String aString)
-	{
-		var = aString;
-	}
+    /**
+     * @param aString set key and var to
+     */
+    public void setVariable(final String aString)
+    {
+        var = aString;
+    }
 
-	public String getVariable()
-	{
-		return var;
-	}
+    public String getVariable()
+    {
+        return var;
+    }
 
-	public void setKeyName(String key)
-	{
-		ruleKey = key;
-	}
+    public void setKeyName(String key)
+    {
+        ruleKey = key;
+    }
 }

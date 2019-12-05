@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -34,60 +34,60 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 
 public class ProhibitedTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
+        AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
 {
-	static ChooseLst token = new ChooseLst();
-	static SpellsToken subtoken = new SpellsToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+    static ChooseLst token = new ChooseLst();
+    static SpellsToken subtoken = new SpellsToken();
+    static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
-	private static final ProhibitedToken PROHIBITED_TOKEN = new ProhibitedToken();
+    private static final ProhibitedToken PROHIBITED_TOKEN = new ProhibitedToken();
 
-	public ProhibitedTokenTest()
-	{
-		super("PROHIBITED", "YES");
-	}
+    public ProhibitedTokenTest()
+    {
+        super("PROHIBITED", "YES");
+    }
 
-	@BeforeEach
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(PROHIBITED_TOKEN);
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws PersistenceLayerException, URISyntaxException
+    {
+        super.setUp();
+        TokenRegistration.register(PROHIBITED_TOKEN);
+    }
 
-	@Override
-	public CDOMSecondaryToken<?> getSubToken()
-	{
-		return subtoken;
-	}
+    @Override
+    public CDOMSecondaryToken<?> getSubToken()
+    {
+        return subtoken;
+    }
 
-	@Override
-	public Class<Spell> getTargetClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTargetClass()
+    {
+        return Spell.class;
+    }
 
-	@Override
-	public Class<Race> getCDOMClass()
-	{
-		return Race.class;
-	}
+    @Override
+    public Class<Race> getCDOMClass()
+    {
+        return Race.class;
+    }
 
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
+    @Override
+    public CDOMLoader<CDOMObject> getLoader()
+    {
+        return loader;
+    }
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getToken()
+    {
+        return token;
+    }
 
-	public void testPrimitiveIllegalNoTarget()
-	{
-		doPrimitiveIllegalTarget("Maybe");
-	}
+    public void testPrimitiveIllegalNoTarget()
+    {
+        doPrimitiveIllegalTarget("Maybe");
+    }
 
 }

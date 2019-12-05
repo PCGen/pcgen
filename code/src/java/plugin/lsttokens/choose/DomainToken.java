@@ -33,73 +33,73 @@ import pcgen.util.Logging;
 public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 {
 
-	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
+    private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "DOMAIN";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DOMAIN";
+    }
 
-	@Override
-	public String getParentToken()
-	{
-		return "CHOOSE";
-	}
+    @Override
+    public String getParentToken()
+    {
+        return "CHOOSE";
+    }
 
-	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		StringBuilder sb = new StringBuilder(value.length() + 20);
-		StringTokenizer st = new StringTokenizer(value, "|,", true);
-		while (st.hasMoreTokens())
-		{
-			String tok = st.nextToken();
-			if ("QUALIFY".equals(tok))
-			{
-				Logging.errorPrint("CHOOSE:DOMAIN argument " + "QUALIFY has been removed. "
-					+ "Please use QUALIFIED,!PC " + "to achieve the same effect.", context);
-				tok = "QUALIFIED,!PC";
-			}
-			sb.append(tok);
-		}
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(DOMAIN_CLASS), obj,
-			sb.toString());
-	}
+    @Override
+    public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        StringBuilder sb = new StringBuilder(value.length() + 20);
+        StringTokenizer st = new StringTokenizer(value, "|,", true);
+        while (st.hasMoreTokens())
+        {
+            String tok = st.nextToken();
+            if ("QUALIFY".equals(tok))
+            {
+                Logging.errorPrint("CHOOSE:DOMAIN argument " + "QUALIFY has been removed. "
+                        + "Please use QUALIFIED,!PC " + "to achieve the same effect.", context);
+                tok = "QUALIFIED,!PC";
+            }
+            sb.append(tok);
+        }
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(DOMAIN_CLASS), obj,
+                sb.toString());
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Domain choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Domain choice";
+    }
 
-	@Override
-	protected AssociationListKey<Domain> getListKey()
-	{
-		return AssociationListKey.getKeyFor(DOMAIN_CLASS, "CHOOSE*DOMAIN");
-	}
+    @Override
+    protected AssociationListKey<Domain> getListKey()
+    {
+        return AssociationListKey.getKeyFor(DOMAIN_CLASS, "CHOOSE*DOMAIN");
+    }
 
-	@Override
-	public Domain decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(DOMAIN_CLASS, s);
-	}
+    @Override
+    public Domain decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(DOMAIN_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(Domain choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(Domain choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "DOMAIN";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "DOMAIN";
+    }
 }

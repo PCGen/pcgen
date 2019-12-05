@@ -1,284 +1,284 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                
-                $Author: takeyabue $
-                $Date: 2007-08-11 22:11:43 -0400 (Sat, 11 Aug 2007) $
-                $Revision: 3752 $
-                
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Jayme Cox - jaymeATrealityDOTnet
-                
-                Description:
-                PCGen Documentation Tab Inventory Temporary Bonus Sub-Tab.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Temporary Bonus Tab
-  </title>
-  <link href="../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Temporary Bonus Tab
-  </h1>
-  <p>
-   The Temporary Bonus Tab is used to apply conditional bonuses to
-your character such as Spell effects, bonuses due to Rage, having a
-familiar within 5 feet of your character and more. Normally PCGen
-will only apply absolute bonuses to your character, for example if
-you you equip your character with a Belt of Giant Strength he gets
-a bonus to his strength score because wearing the belt is the only
-condition that needs to be met. If however your character is of a
-class that gets a +2 to Hide but only when he's in a forest
-environment then PCGen will not apply the bonus to the Skill on the
-character sheet although there may be an entry in a Special Ability
-noting this bonus. This is where the Temporary Bonus Tab comes into
-play, these conditional bonuses can be applied and removed from
-characters as needed and the bonuses will then show up on the
-character sheets. You could then for example apply the Rage bonuses
-and print out a second character sheet with these bonuses applied
-saving you the time of manually adding these in.
-  </p>
-  <p class="center">
-   <img alt="Temporary Bonus Tab" src="../images/tabs/tempbonustab/tab_tempbonus_00.png"/>
-  </p>
-  <p>
-   The panel on the top left displays all the conditional bonuses
-available to the character while the panel on the top right
-displays the conditional bonuses currently applied to the active
-character.
-  </p>
-  <p class="center">
-   <img alt="Applying a Temporary Bonus Target" src="../images/tabs/tempbonustab/tab_tempbonus_02_applying.png"/>
-  </p>
-  <p>
-   To apply one of the conditional bonuses, select the bonus and
-then press the
-   <strong>
-    Apply Bonus &gt;
-   </strong>
-   button. If the
-target of the bonus is the PC, the bonus title will appear in the
-right pane. If the bonus applies to a piece of gear
-carried by the character, e.g. a weapon or piece of armor, the
-target selection dialog will appear.
-  </p>
-  <p class="center">
-   <img alt="Temporary Bonus Target" src="../images/tabs/tempbonustab/tab_tempbonus_02_target.png"/>
-  </p>
-  <p>
-   Select the target of the bonus and click on the
-   <strong>
-    Add
-   </strong>
-   button. The bonus and the appropriate
-descriptive information will appear in the bottom panel, listing
-details of the bonus. Now click the
-   <strong>
-    Ok
-   </strong>
-   button and
-if the piece of equipment which has had the bonus applied to it is
-"Equipped", the temporary bonus will be applied to your character
-and appear on the output sheet.
-  </p>
-  <p class="center">
-   <img alt="Temporary Bonus Applied" src="../images/tabs/tempbonustab/tab_tempbonus_02_applied.png"/>
-  </p>
-  <p>
-   Removing the bonus from the target is as simple as selecting the
-bonus in the right-hand pane and clicking the
-   <strong>
-    &lt; Remove
-Bonus
-   </strong>
-   button.
-  </p>
-  <hr/>
-  <h4>
-   How to Code Temporary Bonuses.
-  </h4>
-  <p>
-   A conditional bonus can be added to a Feat, Spell, Item, Class
-or Template by including a BONUS tag with a PREAPPLY tag appended.
-Any bonus with a PREAPPLY tag on it will show up in (and only in)
-the
-   <strong>
-    Temporary Bonus
-   </strong>
-   tab. See the tag dictionary
-entry on
-   <a href="../listfilepages/globalfilestagpages/globalfilesprexxx.html#preapply">
-    PREAPPLY
-   </a>
-   for details on how to use this tag. Also see the tag
-   <a href="../listfilepages/globalfilestagpages/globalfilesother.html#tempdesc">
-    TEMPDESC
-   </a>
-   which provides a description of the bonus and the
-circumstances needed for it to be valid.
-  </p>
-  <p>
-   An example of what is required to get this tab to work is:
-  </p>
-  <p>
-   The Rapid Shot feat in
-   <span class="lstfile">
+<!--
+               PCGen Documentation Project
+
+               $Author: takeyabue $
+               $Date: 2007-08-11 22:11:43 -0400 (Sat, 11 Aug 2007) $
+               $Revision: 3752 $
+
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Jayme Cox - jaymeATrealityDOTnet
+
+               Description:
+               PCGen Documentation Tab Inventory Temporary Bonus Sub-Tab.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Temporary Bonus Tab
+    </title>
+    <link href="../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Temporary Bonus Tab
+</h1>
+<p>
+    The Temporary Bonus Tab is used to apply conditional bonuses to
+    your character such as Spell effects, bonuses due to Rage, having a
+    familiar within 5 feet of your character and more. Normally PCGen
+    will only apply absolute bonuses to your character, for example if
+    you you equip your character with a Belt of Giant Strength he gets
+    a bonus to his strength score because wearing the belt is the only
+    condition that needs to be met. If however your character is of a
+    class that gets a +2 to Hide but only when he's in a forest
+    environment then PCGen will not apply the bonus to the Skill on the
+    character sheet although there may be an entry in a Special Ability
+    noting this bonus. This is where the Temporary Bonus Tab comes into
+    play, these conditional bonuses can be applied and removed from
+    characters as needed and the bonuses will then show up on the
+    character sheets. You could then for example apply the Rage bonuses
+    and print out a second character sheet with these bonuses applied
+    saving you the time of manually adding these in.
+</p>
+<p class="center">
+    <img alt="Temporary Bonus Tab" src="../images/tabs/tempbonustab/tab_tempbonus_00.png"/>
+</p>
+<p>
+    The panel on the top left displays all the conditional bonuses
+    available to the character while the panel on the top right
+    displays the conditional bonuses currently applied to the active
+    character.
+</p>
+<p class="center">
+    <img alt="Applying a Temporary Bonus Target" src="../images/tabs/tempbonustab/tab_tempbonus_02_applying.png"/>
+</p>
+<p>
+    To apply one of the conditional bonuses, select the bonus and
+    then press the
+    <strong>
+        Apply Bonus &gt;
+    </strong>
+    button. If the
+    target of the bonus is the PC, the bonus title will appear in the
+    right pane. If the bonus applies to a piece of gear
+    carried by the character, e.g. a weapon or piece of armor, the
+    target selection dialog will appear.
+</p>
+<p class="center">
+    <img alt="Temporary Bonus Target" src="../images/tabs/tempbonustab/tab_tempbonus_02_target.png"/>
+</p>
+<p>
+    Select the target of the bonus and click on the
+    <strong>
+        Add
+    </strong>
+    button. The bonus and the appropriate
+    descriptive information will appear in the bottom panel, listing
+    details of the bonus. Now click the
+    <strong>
+        Ok
+    </strong>
+    button and
+    if the piece of equipment which has had the bonus applied to it is
+    "Equipped", the temporary bonus will be applied to your character
+    and appear on the output sheet.
+</p>
+<p class="center">
+    <img alt="Temporary Bonus Applied" src="../images/tabs/tempbonustab/tab_tempbonus_02_applied.png"/>
+</p>
+<p>
+    Removing the bonus from the target is as simple as selecting the
+    bonus in the right-hand pane and clicking the
+    <strong>
+        &lt; Remove
+        Bonus
+    </strong>
+    button.
+</p>
+<hr/>
+<h4>
+    How to Code Temporary Bonuses.
+</h4>
+<p>
+    A conditional bonus can be added to a Feat, Spell, Item, Class
+    or Template by including a BONUS tag with a PREAPPLY tag appended.
+    Any bonus with a PREAPPLY tag on it will show up in (and only in)
+    the
+    <strong>
+        Temporary Bonus
+    </strong>
+    tab. See the tag dictionary
+    entry on
+    <a href="../listfilepages/globalfilestagpages/globalfilesprexxx.html#preapply">
+        PREAPPLY
+    </a>
+    for details on how to use this tag. Also see the tag
+    <a href="../listfilepages/globalfilestagpages/globalfilesother.html#tempdesc">
+        TEMPDESC
+    </a>
+    which provides a description of the bonus and the
+    circumstances needed for it to be valid.
+</p>
+<p>
+    An example of what is required to get this tab to work is:
+</p>
+<p>
+    The Rapid Shot feat in
+    <span class="lstfile">
     srdfeats.lst
    </span>
-   would be modified to:
-  </p>
-  <p class="indent2">
-   <code>BONUS:WEAPON|TOHIT|-2|PREAPPLY:Weapon,Ranged</code>
-  </p>
-  <p class="indent2">
-   <code>BONUS:WEAPON|ATTACKS|1|PREAPPLY:Weapon,Ranged</code>
-  </p>
-  <p>
-   Rapid Shot would then appear in this tab as an available
-option.
-  </p>
-  <p>
-   A BONUS in a Spell, Feat or Template with a PREAPPLY:ANYPC tag
-will always show up in the Spell, Feat or Template lists of the
-Temporary Bonus Sub-Tab. This accounts for spells that can be cast
-on a character and Feats and Templates that can be used to hold a
-conditional bonus any character can apply without having the Feat
-or Template. This allows for several things:
-  </p>
-  <ol>
-   <li>
-    You can apply bonuses from spells 'cast on' your character
-   </li>
-   <li>
-    You can create templates or feats that do not have to be
-obtained, but your character can still gain the bonuses.
-   </li>
-  </ol>
-  <p>
-   You can use #2 as a Hidden feat or template that is used to
-"store" the bonuses for something else. Here is an example
-template:
-  </p>
-  <p class="indent2">
-   <code>Alter Self (Troglodyte)</code>
-  </p>
-  <p class="indent2">
-   <code>REMOVABLE:YES  
-VISIBLE:NO</code>
-  </p>
-  <p class="indent2">
-   <code>BONUS:COMBAT|AC|6|TYPE=NaturalArmor|PREAPPLY:ANYPC</code>
-  </p>
-  <p class="indent2">
-   <code>TEMPDESC:Alter Self spell applied to a
-Medium sized creature to transform into a Troglodyte</code>
-  </p>
-  <p>
-   You do not have to apply this template to a PC, I can just add
-it as a Bonus on the
-   <strong>
-    Temporary Bonus
-   </strong>
-   tab.
-  </p>
-  <hr/>
-  <h4>
-   Coding variable bonuses.
-  </h4>
-  <p>
-   Some Spells, like Bull's Strength for example, provide a
-variable bonus based on a die roll (1d4+1). These spells can be
-coded to accept user input by adding a choose tag. Take Bull's
-Strength as an example.
-  </p>
-  <p>
-   The Bull's Strength spell in
-   <span class="lstfile">
+    would be modified to:
+</p>
+<p class="indent2">
+    <code>BONUS:WEAPON|TOHIT|-2|PREAPPLY:Weapon,Ranged</code>
+</p>
+<p class="indent2">
+    <code>BONUS:WEAPON|ATTACKS|1|PREAPPLY:Weapon,Ranged</code>
+</p>
+<p>
+    Rapid Shot would then appear in this tab as an available
+    option.
+</p>
+<p>
+    A BONUS in a Spell, Feat or Template with a PREAPPLY:ANYPC tag
+    will always show up in the Spell, Feat or Template lists of the
+    Temporary Bonus Sub-Tab. This accounts for spells that can be cast
+    on a character and Feats and Templates that can be used to hold a
+    conditional bonus any character can apply without having the Feat
+    or Template. This allows for several things:
+</p>
+<ol>
+    <li>
+        You can apply bonuses from spells 'cast on' your character
+    </li>
+    <li>
+        You can create templates or feats that do not have to be
+        obtained, but your character can still gain the bonuses.
+    </li>
+</ol>
+<p>
+    You can use #2 as a Hidden feat or template that is used to
+    "store" the bonuses for something else. Here is an example
+    template:
+</p>
+<p class="indent2">
+    <code>Alter Self (Troglodyte)</code>
+</p>
+<p class="indent2">
+    <code>REMOVABLE:YES  
+        VISIBLE:NO</code>
+</p>
+<p class="indent2">
+    <code>BONUS:COMBAT|AC|6|TYPE=NaturalArmor|PREAPPLY:ANYPC</code>
+</p>
+<p class="indent2">
+    <code>TEMPDESC:Alter Self spell applied to a
+        Medium sized creature to transform into a Troglodyte</code>
+</p>
+<p>
+    You do not have to apply this template to a PC, I can just add
+    it as a Bonus on the
+    <strong>
+        Temporary Bonus
+    </strong>
+    tab.
+</p>
+<hr/>
+<h4>
+    Coding variable bonuses.
+</h4>
+<p>
+    Some Spells, like Bull's Strength for example, provide a
+    variable bonus based on a die roll (1d4+1). These spells can be
+    coded to accept user input by adding a choose tag. Take Bull's
+    Strength as an example.
+</p>
+<p>
+    The Bull's Strength spell in
+    <span class="lstfile">
     srdspells.lst
    </span>
-   would be modified to:
-  </p>
-  <p class="indent2">
-   <code>BONUS:STAT|STR|%CHOICE|PREAPPLY:ANYPC|TYPE=Enhancement</code>
-  </p>
-  <p class="indent2">
-   <code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll
-1d4+1</code>
-  </p>
-  <p>
-   When Bull's Strength is applied to the character a chooser
-window will pop up titled 'Roll 1d4+1' which asks for a number
-between 2 and 5.
-  </p>
-  <p>
-   Spells that grant bonuses dependent on the spellcasters level
-can be treated in a similar manner. For this example we will use
-Greater Magic Weapon, which grants a bonus of +1 for every 3
-casterlevels up to 5.
-  </p>
-  <p>
-   The Greater Magic Weapon spell in
-   <span class="lstfile">
+    would be modified to:
+</p>
+<p class="indent2">
+    <code>BONUS:STAT|STR|%CHOICE|PREAPPLY:ANYPC|TYPE=Enhancement</code>
+</p>
+<p class="indent2">
+    <code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll
+        1d4+1</code>
+</p>
+<p>
+    When Bull's Strength is applied to the character a chooser
+    window will pop up titled 'Roll 1d4+1' which asks for a number
+    between 2 and 5.
+</p>
+<p>
+    Spells that grant bonuses dependent on the spellcasters level
+    can be treated in a similar manner. For this example we will use
+    Greater Magic Weapon, which grants a bonus of +1 for every 3
+    casterlevels up to 5.
+</p>
+<p>
+    The Greater Magic Weapon spell in
+    <span class="lstfile">
     srdspells.lst
    </span>
-   would be modified to:
-  </p>
-  <p class="indent2">
-   <code>BONUS:COMBAT|TOHIT,DAMAGE|(((%CHOICE/3).TRUNC)MAX1)MIN5|PREAPPLY:Weapon|TYPE=Enhancement</code>
-  </p>
-  <p class="indent2">
-   <code>CHOOSE:NUMBER|MIN=3|MAX=20|TITLE=Choose
-Spell Caster Level</code>
-  </p>
-  <p>
-   When Greater Magic Weapon is applied to a character's weapon a
-chooser window will pop up titled 'Choose Spell Caster Level' which
-asks for a number between 3 (the minimum casterlevel) and 20. The
-bonus is calculated based on the casterlevel and applied to the
-weapon.
-  </p>
-  <p>
-   Feats and Templates can be treated in the same manner. Here is
-an example feat:
-  </p>
-  <p class="indent2">
-   <code>Variable Spell Resistance</code>
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:No</code>
-  </p>
-  <p class="indent2">
-   <code>TYPE:TemporaryBonus</code>
-  </p>
-  <p class="indent2">
-   <code>BONUS:MISC|SR|%CHOICE|PREAPPLY:ANYPC</code>
-  </p>
-  <p class="indent2">
-   <code>CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Choose
-Spell Resistance</code>
-  </p>
-  <p class="indent2">
-   <code>TEMPDESC:Assign Spell Resistance to a
-character</code>
-  </p>
-  <p>
-   The PC does not need to select this feat, you simply apply the
-bonus to the PC on the
-   <strong>
-    Temporary Bonus
-   </strong>
-   tab.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    would be modified to:
+</p>
+<p class="indent2">
+    <code>BONUS:COMBAT|TOHIT,DAMAGE|(((%CHOICE/3).TRUNC)MAX1)MIN5|PREAPPLY:Weapon|TYPE=Enhancement</code>
+</p>
+<p class="indent2">
+    <code>CHOOSE:NUMBER|MIN=3|MAX=20|TITLE=Choose
+        Spell Caster Level</code>
+</p>
+<p>
+    When Greater Magic Weapon is applied to a character's weapon a
+    chooser window will pop up titled 'Choose Spell Caster Level' which
+    asks for a number between 3 (the minimum casterlevel) and 20. The
+    bonus is calculated based on the casterlevel and applied to the
+    weapon.
+</p>
+<p>
+    Feats and Templates can be treated in the same manner. Here is
+    an example feat:
+</p>
+<p class="indent2">
+    <code>Variable Spell Resistance</code>
+</p>
+<p class="indent2">
+    <code>VISIBLE:No</code>
+</p>
+<p class="indent2">
+    <code>TYPE:TemporaryBonus</code>
+</p>
+<p class="indent2">
+    <code>BONUS:MISC|SR|%CHOICE|PREAPPLY:ANYPC</code>
+</p>
+<p class="indent2">
+    <code>CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Choose
+        Spell Resistance</code>
+</p>
+<p class="indent2">
+    <code>TEMPDESC:Assign Spell Resistance to a
+        character</code>
+</p>
+<p>
+    The PC does not need to select this feat, you simply apply the
+    bonus to the PC on the
+    <strong>
+        Temporary Bonus
+    </strong>
+    tab.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

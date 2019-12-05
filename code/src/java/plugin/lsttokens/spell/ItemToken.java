@@ -36,98 +36,97 @@ import pcgen.rules.persistence.token.ParseResult;
 public class ItemToken extends AbstractTokenWithSeparator<Spell> implements CDOMPrimaryToken<Spell>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ITEM";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ITEM";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return ',';
-	}
+    @Override
+    protected char separator()
+    {
+        return ',';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
-	{
-		StringTokenizer aTok = new StringTokenizer(value, Constants.COMMA);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
+    {
+        StringTokenizer aTok = new StringTokenizer(value, Constants.COMMA);
 
-		while (aTok.hasMoreTokens())
-		{
-			String tokString = aTok.nextToken();
-			int bracketLoc = tokString.indexOf('[');
-			if (bracketLoc == 0)
-			{
-				// Check ends with bracket
-				if (tokString.lastIndexOf(']') != tokString.length() - 1)
-				{
-					return new ParseResult.Fail(
-						"Invalid " + getTokenName() + ": mismatched open Bracket: " + tokString + " in " + value);
-				}
-				String substring = tokString.substring(1, tokString.length() - 1);
-				if (substring.isEmpty())
-				{
-					return new ParseResult.Fail("Invalid " + getTokenName() + ": cannot be empty item in brackets []");
-				}
-				context.getObjectContext().addToList(spell, ListKey.PROHIBITED_ITEM, Type.getConstant(substring));
-			}
-			else
-			{
-				if (tokString.lastIndexOf(']') != -1)
-				{
-					return new ParseResult.Fail(
-						"Invalid " + getTokenName() + ": mismatched close Bracket: " + tokString + " in " + value);
-				}
-				context.getObjectContext().addToList(spell, ListKey.ITEM, Type.getConstant(tokString));
-			}
-		}
-		return ParseResult.SUCCESS;
-	}
+        while (aTok.hasMoreTokens())
+        {
+            String tokString = aTok.nextToken();
+            int bracketLoc = tokString.indexOf('[');
+            if (bracketLoc == 0)
+            {
+                // Check ends with bracket
+                if (tokString.lastIndexOf(']') != tokString.length() - 1)
+                {
+                    return new ParseResult.Fail(
+                            "Invalid " + getTokenName() + ": mismatched open Bracket: " + tokString + " in " + value);
+                }
+                String substring = tokString.substring(1, tokString.length() - 1);
+                if (substring.isEmpty())
+                {
+                    return new ParseResult.Fail("Invalid " + getTokenName() + ": cannot be empty item in brackets []");
+                }
+                context.getObjectContext().addToList(spell, ListKey.PROHIBITED_ITEM, Type.getConstant(substring));
+            } else
+            {
+                if (tokString.lastIndexOf(']') != -1)
+                {
+                    return new ParseResult.Fail(
+                            "Invalid " + getTokenName() + ": mismatched close Bracket: " + tokString + " in " + value);
+                }
+                context.getObjectContext().addToList(spell, ListKey.ITEM, Type.getConstant(tokString));
+            }
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Spell spell)
-	{
-		Changes<Type> changes = context.getObjectContext().getListChanges(spell, ListKey.ITEM);
-		Changes<Type> proChanges = context.getObjectContext().getListChanges(spell, ListKey.PROHIBITED_ITEM);
-		Collection<Type> changeAdded = changes.getAdded();
-		Collection<Type> proAdded = proChanges.getAdded();
-		StringBuilder sb = new StringBuilder();
-		boolean needComma = false;
-		if (changeAdded != null)
-		{
-			for (Type t : changeAdded)
-			{
-				if (needComma)
-				{
-					sb.append(Constants.COMMA);
-				}
-				sb.append(t.toString());
-				needComma = true;
-			}
-		}
-		if (proAdded != null)
-		{
-			for (Type t : proAdded)
-			{
-				if (needComma)
-				{
-					sb.append(Constants.COMMA);
-				}
-				sb.append('[').append(t.toString()).append(']');
-				needComma = true;
-			}
-		}
-		if (sb.length() == 0)
-		{
-			return null;
-		}
-		return new String[]{sb.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Spell spell)
+    {
+        Changes<Type> changes = context.getObjectContext().getListChanges(spell, ListKey.ITEM);
+        Changes<Type> proChanges = context.getObjectContext().getListChanges(spell, ListKey.PROHIBITED_ITEM);
+        Collection<Type> changeAdded = changes.getAdded();
+        Collection<Type> proAdded = proChanges.getAdded();
+        StringBuilder sb = new StringBuilder();
+        boolean needComma = false;
+        if (changeAdded != null)
+        {
+            for (Type t : changeAdded)
+            {
+                if (needComma)
+                {
+                    sb.append(Constants.COMMA);
+                }
+                sb.append(t.toString());
+                needComma = true;
+            }
+        }
+        if (proAdded != null)
+        {
+            for (Type t : proAdded)
+            {
+                if (needComma)
+                {
+                    sb.append(Constants.COMMA);
+                }
+                sb.append('[').append(t.toString()).append(']');
+                needComma = true;
+            }
+        }
+        if (sb.length() == 0)
+        {
+            return null;
+        }
+        return new String[]{sb.toString()};
+    }
 
-	@Override
-	public Class<Spell> getTokenClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTokenClass()
+    {
+        return Spell.class;
+    }
 }

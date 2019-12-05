@@ -36,80 +36,80 @@ import pcgen.rules.persistence.token.PrimitiveToken;
  */
 public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
-	private static final Class<Spell> SPELL_CLASS = Spell.class;
-	private CDOMSingleRef<SpellSchool> school;
-	private CDOMReference<Spell> allSpells;
+    private static final Class<Spell> SPELL_CLASS = Spell.class;
+    private CDOMSingleRef<SpellSchool> school;
+    private CDOMReference<Spell> allSpells;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
-	{
-		if (args != null)
-		{
-			return false;
-		}
-		school = context.getReferenceContext().getCDOMReference(SpellSchool.class, value);
-		allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
-		return true;
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
+    {
+        if (args != null)
+        {
+            return false;
+        }
+        school = context.getReferenceContext().getCDOMReference(SpellSchool.class, value);
+        allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
+        return true;
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "SCHOOL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SCHOOL";
+    }
 
-	@Override
-	public Class<Spell> getReferenceClass()
-	{
-		return SPELL_CLASS;
-	}
+    @Override
+    public Class<Spell> getReferenceClass()
+    {
+        return SPELL_CLASS;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return getTokenName() + '=' + school.getLSTformat(false);
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return getTokenName() + '=' + school.getLSTformat(false);
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
-	{
-		return spell.containsInList(ListKey.SPELL_SCHOOL, school.get());
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Spell spell)
+    {
+        return spell.containsInList(ListKey.SPELL_SCHOOL, school.get());
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof SchoolToken)
-		{
-			SchoolToken other = (SchoolToken) obj;
-			if (school == null)
-			{
-				return other.school == null;
-			}
-			return school.equals(other.school);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof SchoolToken)
+        {
+            SchoolToken other = (SchoolToken) obj;
+            if (school == null)
+            {
+                return other.school == null;
+            }
+            return school.equals(other.school);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return school == null ? -7 : school.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return school == null ? -7 : school.hashCode();
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Spell, R> c)
-	{
-		return c.convert(allSpells, this);
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Spell, R> c)
+    {
+        return c.convert(allSpells, this);
+    }
 }

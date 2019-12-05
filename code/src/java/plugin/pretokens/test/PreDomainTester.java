@@ -29,46 +29,45 @@ import pcgen.util.Logging;
 public class PreDomainTester extends AbstractDisplayPrereqTest
 {
 
-	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
+    private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
-		int runningTotal;
-		int number = 0;
-		try
-		{
-			number = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException e)
-		{
-			Logging.errorPrintLocalised("PreDomain.error.bad_operand", prereq.toString()); //$NON-NLS-1$
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
+        int runningTotal;
+        int number = 0;
+        try
+        {
+            number = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException e)
+        {
+            Logging.errorPrintLocalised("PreDomain.error.bad_operand", prereq.toString()); //$NON-NLS-1$
+        }
 
-		if (prereq.getKey().equalsIgnoreCase("ANY"))
-		{
-			runningTotal = display.getDomainCount();
-		}
-		else
-		{
-			Domain domain = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
-				prereq.getKey());
-			final boolean hasDomain = domain != null && display.hasDomain(domain);
-			runningTotal = hasDomain ? 1 : 0;
-		}
+        if (prereq.getKey().equalsIgnoreCase("ANY"))
+        {
+            runningTotal = display.getDomainCount();
+        } else
+        {
+            Domain domain = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
+                    prereq.getKey());
+            final boolean hasDomain = domain != null && display.hasDomain(domain);
+            runningTotal = hasDomain ? 1 : 0;
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, number);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, number);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "DOMAIN"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "DOMAIN"; //$NON-NLS-1$
+    }
 
 }

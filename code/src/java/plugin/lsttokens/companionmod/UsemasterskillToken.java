@@ -28,21 +28,21 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class UsemasterskillToken extends AbstractYesNoToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "USEMASTERSKILL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "USEMASTERSKILL";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.USE_MASTER_SKILL;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.USE_MASTER_SKILL;
+    }
 
-	@Override
-	public Class<CompanionMod> getTokenClass()
-	{
-		return CompanionMod.class;
-	}
+    @Override
+    public Class<CompanionMod> getTokenClass()
+    {
+        return CompanionMod.class;
+    }
 }

@@ -32,69 +32,69 @@ import pcgen.core.Race;
 import org.junit.jupiter.api.BeforeEach;
 
 public class UnarmedDamageFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, List<String>>
+        AbstractExtractingFacetTest<CDOMObject, List<String>>
 {
 
-	private UnarmedDamageFacet facet = new UnarmedDamageFacet();
-	private List<String>[] target;
-	private CDOMObject[] source;
+    private UnarmedDamageFacet facet = new UnarmedDamageFacet();
+    private List<String>[] target;
+    private CDOMObject[] source;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Templ");
-		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race");
-		List<String> st1 = getObject();
-		List<String> st2 = getAltObject();
-		cdo1.addAllToListFor(ListKey.UNARMED_DAMAGE, st1);
-		cdo2.addAllToListFor(ListKey.UNARMED_DAMAGE, st2);
-		source = new CDOMObject[]{cdo1, cdo2};
-		target = new List[]{st1, st2};
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        CDOMObject cdo1 = new PCTemplate();
+        cdo1.setName("Templ");
+        CDOMObject cdo2 = new Race();
+        cdo2.setName("Race");
+        List<String> st1 = getObject();
+        List<String> st2 = getAltObject();
+        cdo1.addAllToListFor(ListKey.UNARMED_DAMAGE, st1);
+        cdo2.addAllToListFor(ListKey.UNARMED_DAMAGE, st2);
+        source = new CDOMObject[]{cdo1, cdo2};
+        target = new List[]{st1, st2};
+    }
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, List<String>> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, List<String>> getFacet()
+    {
+        return facet;
+    }
 
-	@Override
-	protected List<String> getObject()
-	{
-		return Arrays.asList("1d2", "1d3", "1d4");
-	}
+    @Override
+    protected List<String> getObject()
+    {
+        return Arrays.asList("1d2", "1d3", "1d4");
+    }
 
-	@Override
-	protected List<String> getAltObject()
-	{
-		return Arrays.asList("2d2", "2d3", "2d4");
-	}
+    @Override
+    protected List<String> getAltObject()
+    {
+        return Arrays.asList("2d2", "2d3", "2d4");
+    }
 
-	@Override
-	protected List<String> getThirdObject()
-	{
-		return Arrays.asList("3d2", "3d3", "3d4");
-	}
+    @Override
+    protected List<String> getThirdObject()
+    {
+        return Arrays.asList("3d2", "3d3", "3d4");
+    }
 
-	@Override
-	protected CDOMObject getContainingObject(int i)
-	{
-		return source[i];
-	}
+    @Override
+    protected CDOMObject getContainingObject(int i)
+    {
+        return source[i];
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, CDOMObject> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected List<String> getTargetObject(int i)
-	{
-		return target[i];
-	}
+    @Override
+    protected List<String> getTargetObject(int i)
+    {
+        return target[i];
+    }
 }

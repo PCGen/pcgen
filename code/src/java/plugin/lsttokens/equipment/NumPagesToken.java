@@ -25,34 +25,33 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * {@code NumPagesToken} deals with NUMPAGES token
- * 
+ * <p>
  * (Tue, 14 Mar 2006) $
- * 
  */
 public class NumPagesToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "NUMPAGES";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "NUMPAGES";
+    }
 
-	@Override
-	protected IntegerKey integerKey()
-	{
-		return IntegerKey.NUM_PAGES;
-	}
+    @Override
+    protected IntegerKey integerKey()
+    {
+        return IntegerKey.NUM_PAGES;
+    }
 
-	@Override
-	protected int minValue()
-	{
-		return 1;
-	}
+    @Override
+    protected int minValue()
+    {
+        return 1;
+    }
 
-	@Override
-	public Class<Equipment> getTokenClass()
-	{
-		return Equipment.class;
-	}
+    @Override
+    public Class<Equipment> getTokenClass()
+    {
+        return Equipment.class;
+    }
 }

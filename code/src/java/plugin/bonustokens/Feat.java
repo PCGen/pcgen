@@ -25,31 +25,32 @@ import pcgen.rules.context.LoadContext;
  */
 public final class Feat extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		if ("POOL".equals(token) || "MONSTERPOOL".equals(token) || "PCPOOL".equals(token))
-		{
-			addBonusInfo(token);
-			return true;
-		}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        if ("POOL".equals(token) || "MONSTERPOOL".equals(token) || "PCPOOL".equals(token))
+        {
+            addBonusInfo(token);
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "FEAT";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "FEAT";
+    }
 }

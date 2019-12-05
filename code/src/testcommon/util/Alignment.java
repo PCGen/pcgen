@@ -21,23 +21,23 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 public final class Alignment
 {
-	private Alignment()
-	{
-	}
+    private Alignment()
+    {
+    }
 
-	public static void createAllAlignments()
-	{
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		ref.importObject(BuildUtilities.createAlignment("Lawful Good", "LG"));
-		ref.importObject(BuildUtilities.createAlignment("Lawful Neutral", "LN"));
-		ref.importObject(BuildUtilities.createAlignment("Lawful Evil", "LE"));
-		ref.importObject(BuildUtilities.createAlignment("Neutral Good", "NG"));
-		ref.importObject(BuildUtilities.createAlignment("True Neutral", "TN"));
-		ref.importObject(BuildUtilities.createAlignment("Neutral Evil", "NE"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Good", "CG"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Neutral", "CN"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Evil", "CE"));
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
-		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
-	}
+    public static void createAllAlignments()
+    {
+        AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+        ref.importObject(BuildUtilities.createAlignment("Lawful Good", "LG"));
+        ref.importObject(BuildUtilities.createAlignment("Lawful Neutral", "LN"));
+        ref.importObject(BuildUtilities.createAlignment("Lawful Evil", "LE"));
+        ref.importObject(BuildUtilities.createAlignment("Neutral Good", "NG"));
+        ref.importObject(BuildUtilities.createAlignment("True Neutral", "TN"));
+        ref.importObject(BuildUtilities.createAlignment("Neutral Evil", "NE"));
+        ref.importObject(BuildUtilities.createAlignment("Chaotic Good", "CG"));
+        ref.importObject(BuildUtilities.createAlignment("Chaotic Neutral", "CN"));
+        ref.importObject(BuildUtilities.createAlignment("Chaotic Evil", "CE"));
+        ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+        ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
+    }
 }

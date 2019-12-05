@@ -27,15 +27,15 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class DRToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "DR";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DR";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.calcDR();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.calcDR();
+    }
 }

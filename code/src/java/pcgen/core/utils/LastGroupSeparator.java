@@ -24,100 +24,95 @@ import java.util.StringTokenizer;
 public class LastGroupSeparator
 {
 
-	private final String startingString;
-	private StringBuilder root = null;
+    private final String startingString;
+    private StringBuilder root = null;
 
-	public LastGroupSeparator(String baseString)
-	{
-		Objects.requireNonNull(baseString, "Choose Separator cannot take null initialization String");
-		startingString = baseString;
-	}
+    public LastGroupSeparator(String baseString)
+    {
+        Objects.requireNonNull(baseString, "Choose Separator cannot take null initialization String");
+        startingString = baseString;
+    }
 
-	public String process()
-	{
-		StringTokenizer base = new StringTokenizer(startingString, "()", true);
-		int sbLength = startingString.length();
-		root = new StringBuilder(sbLength);
-		StringBuilder temp = new StringBuilder(sbLength);
-		boolean isValid = false;
-		Stack<String> expected = new Stack<>();
-		while (base.hasMoreTokens())
-		{
-			String working = base.nextToken();
-			if (expected.isEmpty())
-			{
-				if (isValid)
-				{
-					root.append('(');
-					root.append(temp);
-					root.append(')');
-				}
-				temp = new StringBuilder(sbLength);
-				isValid = false;
-			}
-			if ("(".equals(working))
-			{
-				if (!expected.isEmpty())
-				{
-					temp.append(working);
-				}
-				isValid = true;
-				expected.push(")");
-			}
-			else if (")".equals(working))
-			{
-				if (expected.isEmpty())
-				{
-					throw new GroupingMismatchException(
-						startingString + " did not have an open parenthesis " + "before close: " + temp);
-				}
-				else if (!")".equals(expected.pop()))
-				{
-					throw new GroupingMismatchException(
-						startingString + " did not have matching parenthesis " + "inside of brackets: " + temp);
-				}
-				else if (!expected.isEmpty())
-				{
-					temp.append(working);
-				}
-			}
-			else if (expected.isEmpty())
-			{
-				root.append(working);
-			}
-			else
-			{
-				temp.append(working);
-			}
-		}
-		if (expected.isEmpty())
-		{
-			if (!isValid)
-			{
-				return null;
-			}
-			return temp.toString();
-		}
-		throw new GroupingMismatchException(
-			startingString + " reached end of String while attempting to match: " + expected.pop());
-	}
+    public String process()
+    {
+        StringTokenizer base = new StringTokenizer(startingString, "()", true);
+        int sbLength = startingString.length();
+        root = new StringBuilder(sbLength);
+        StringBuilder temp = new StringBuilder(sbLength);
+        boolean isValid = false;
+        Stack<String> expected = new Stack<>();
+        while (base.hasMoreTokens())
+        {
+            String working = base.nextToken();
+            if (expected.isEmpty())
+            {
+                if (isValid)
+                {
+                    root.append('(');
+                    root.append(temp);
+                    root.append(')');
+                }
+                temp = new StringBuilder(sbLength);
+                isValid = false;
+            }
+            if ("(".equals(working))
+            {
+                if (!expected.isEmpty())
+                {
+                    temp.append(working);
+                }
+                isValid = true;
+                expected.push(")");
+            } else if (")".equals(working))
+            {
+                if (expected.isEmpty())
+                {
+                    throw new GroupingMismatchException(
+                            startingString + " did not have an open parenthesis " + "before close: " + temp);
+                } else if (!")".equals(expected.pop()))
+                {
+                    throw new GroupingMismatchException(
+                            startingString + " did not have matching parenthesis " + "inside of brackets: " + temp);
+                } else if (!expected.isEmpty())
+                {
+                    temp.append(working);
+                }
+            } else if (expected.isEmpty())
+            {
+                root.append(working);
+            } else
+            {
+                temp.append(working);
+            }
+        }
+        if (expected.isEmpty())
+        {
+            if (!isValid)
+            {
+                return null;
+            }
+            return temp.toString();
+        }
+        throw new GroupingMismatchException(
+                startingString + " reached end of String while attempting to match: " + expected.pop());
+    }
 
-	public String getRoot()
-	{
-		if (root == null)
-		{
-			throw new IllegalStateException();
-		}
-		return root.toString();
-	}
+    public String getRoot()
+    {
+        if (root == null)
+        {
+            throw new IllegalStateException();
+        }
+        return root.toString();
+    }
 
-	public static final class GroupingMismatchException extends IllegalStateException
-	{
+    public static final class GroupingMismatchException extends IllegalStateException
+    {
 
-		private GroupingMismatchException(String base)
-		{
-			super(base);
-		}
+        private GroupingMismatchException(String base)
+        {
+            super(base);
+        }
 
-	}
+    }
 }

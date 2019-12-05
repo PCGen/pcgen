@@ -36,100 +36,95 @@ import pcgen.util.Logging;
  */
 public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveFilter<Equipment>
 {
-	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
-	private EqWield category;
-	private CDOMReference<Equipment> allEquipment;
+    private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
+    private EqWield category;
+    private CDOMReference<Equipment> allEquipment;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Equipment> cl, String value, String args)
-	{
-		if (args != null)
-		{
-			return false;
-		}
-		if ("Light".equalsIgnoreCase(value))
-		{
-			category = EqWield.Light;
-		}
-		else if ("1 handed".equalsIgnoreCase(value))
-		{
-			category = EqWield.OneHanded;
-		}
-		else if ("2 handed".equalsIgnoreCase(value))
-		{
-			category = EqWield.TwoHanded;
-		}
-		else if ("onehanded".equalsIgnoreCase(value))
-		{
-			category = EqWield.OneHanded;
-		}
-		else if ("twohanded".equalsIgnoreCase(value))
-		{
-			category = EqWield.TwoHanded;
-		}
-		else
-		{
-			Logging.errorPrint("Unable to understand Wield Category: " + value);
-			return false;
-		}
-		allEquipment = context.getReferenceContext().getCDOMAllReference(EQUIPMENT_CLASS);
-		return true;
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Equipment> cl, String value, String args)
+    {
+        if (args != null)
+        {
+            return false;
+        }
+        if ("Light".equalsIgnoreCase(value))
+        {
+            category = EqWield.Light;
+        } else if ("1 handed".equalsIgnoreCase(value))
+        {
+            category = EqWield.OneHanded;
+        } else if ("2 handed".equalsIgnoreCase(value))
+        {
+            category = EqWield.TwoHanded;
+        } else if ("onehanded".equalsIgnoreCase(value))
+        {
+            category = EqWield.OneHanded;
+        } else if ("twohanded".equalsIgnoreCase(value))
+        {
+            category = EqWield.TwoHanded;
+        } else
+        {
+            Logging.errorPrint("Unable to understand Wield Category: " + value);
+            return false;
+        }
+        allEquipment = context.getReferenceContext().getCDOMAllReference(EQUIPMENT_CLASS);
+        return true;
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "WIELD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "WIELD";
+    }
 
-	@Override
-	public Class<Equipment> getReferenceClass()
-	{
-		return EQUIPMENT_CLASS;
-	}
+    @Override
+    public Class<Equipment> getReferenceClass()
+    {
+        return EQUIPMENT_CLASS;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return "WIELD=" + category;
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return "WIELD=" + category;
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Equipment eq)
-	{
-		return category.checkWield(pc, eq);
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Equipment eq)
+    {
+        return category.checkWield(pc, eq);
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof WieldCategoryToken)
-		{
-			WieldCategoryToken other = (WieldCategoryToken) obj;
-			return category.equals(other.category);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof WieldCategoryToken)
+        {
+            WieldCategoryToken other = (WieldCategoryToken) obj;
+            return category.equals(other.category);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return category == null ? -13 : category.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return category == null ? -13 : category.hashCode();
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Equipment, R> c)
-	{
-		return c.convert(allEquipment, this);
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Equipment, R> c)
+    {
+        return c.convert(allEquipment, this);
+    }
 }

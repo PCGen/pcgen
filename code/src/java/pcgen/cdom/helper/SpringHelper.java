@@ -36,40 +36,40 @@ import org.springframework.core.io.Resource;
  */
 public final class SpringHelper
 {
-	private SpringHelper()
-	{
-	}
+    private SpringHelper()
+    {
+    }
 
-	private static final ListableBeanFactory BEAN_FACTORY;
+    private static final ListableBeanFactory BEAN_FACTORY;
 
-	static
-	{
-		Resource appClassRes = new ClassPathResource("applicationContext.xml");
-		DefaultListableBeanFactory xbf = new DefaultListableBeanFactory();
-		BeanDefinitionReader beanReader = new XmlBeanDefinitionReader(xbf);
-		beanReader.loadBeanDefinitions(appClassRes);
-		BEAN_FACTORY = xbf;
-	}
+    static
+    {
+        Resource appClassRes = new ClassPathResource("applicationContext.xml");
+        DefaultListableBeanFactory xbf = new DefaultListableBeanFactory();
+        BeanDefinitionReader beanReader = new XmlBeanDefinitionReader(xbf);
+        beanReader.loadBeanDefinitions(appClassRes);
+        BEAN_FACTORY = xbf;
+    }
 
-	/**
-	 * Retrieve a Spring bean based on the class that it implements. Where multiple 
-	 * beans implement a class, the first will be returned. 
-	 * 
-	 * @param cl The type of bean to be retrieved.
-	 * @return The bean, or null if none exists.
-	 */
-	public static @Nullable <T> T getBean(Class<T> cl)
-	{
-		String[] beanNamesForType = BEAN_FACTORY.getBeanNamesForType(cl);
-		if (beanNamesForType.length == 0)
-		{
-			return null;
-		}
-		return BEAN_FACTORY.getBean(beanNamesForType[0], cl);
-	}
+    /**
+     * Retrieve a Spring bean based on the class that it implements. Where multiple
+     * beans implement a class, the first will be returned.
+     *
+     * @param cl The type of bean to be retrieved.
+     * @return The bean, or null if none exists.
+     */
+    public static @Nullable <T> T getBean(Class<T> cl)
+    {
+        String[] beanNamesForType = BEAN_FACTORY.getBeanNamesForType(cl);
+        if (beanNamesForType.length == 0)
+        {
+            return null;
+        }
+        return BEAN_FACTORY.getBean(beanNamesForType[0], cl);
+    }
 
-	public static Collection<AbstractStorageFacet> getStorageBeans()
-	{
-		return BEAN_FACTORY.getBeansOfType(AbstractStorageFacet.class).values();
-	}
+    public static Collection<AbstractStorageFacet> getStorageBeans()
+    {
+        return BEAN_FACTORY.getBeansOfType(AbstractStorageFacet.class).values();
+    }
 }

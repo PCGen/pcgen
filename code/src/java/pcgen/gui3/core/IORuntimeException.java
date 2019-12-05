@@ -25,8 +25,8 @@ package pcgen.gui3.core;
  */
 public class IORuntimeException extends RuntimeException
 {
-	public IORuntimeException(final Throwable cause)
-	{
-		super(cause);
-	}
+    public IORuntimeException(final Throwable cause)
+    {
+        super(cause);
+    }
 }

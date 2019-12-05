@@ -20,13 +20,13 @@ package pcgen.gui3;
 
 public interface ResettableController
 {
-	/**
-	 * This is used for "apply" and "ok".
-	 */
-	void apply();
+    /**
+     * This is used for "apply" and "ok".
+     */
+    void apply();
 
-	/**
-	 * This is used for the "cancel" operation.
-	 */
-	void reset();
+    /**
+     * This is used for the "cancel" operation.
+     */
+    void reset();
 }

@@ -34,142 +34,142 @@ import org.junit.jupiter.api.Test;
  */
 class PreKitTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Ensure a character with a kit correctly passes
-	 * PREKIT
-	 */
-	@Test
-	public void testKitPresence()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a character with a kit correctly passes
+     * PREKIT
+     */
+    @Test
+    public void testKitPresence()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
-		// Note this is a shortcut rather than doing a full apply of the kit
-		character.addKit(kit);
+        Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
+        // Note this is a shortcut rather than doing a full apply of the kit
+        character.addKit(kit);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("kit");
-		prereq.setKey("KEY_Dungeoneering Kit (Common)");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("1");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("kit");
+        prereq.setKey("KEY_Dungeoneering Kit (Common)");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("1");
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit to be present", passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue("Expected kit to be present", passes);
+    }
 
-	/**
-	 * Ensure that a character with no templates correctly
-	 * passes !PRETEMPLATE
-	 */
-	@Test
-	public void testKitAbsence()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure that a character with no templates correctly
+     * passes !PRETEMPLATE
+     */
+    @Test
+    public void testKitAbsence()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("kit");
-		prereq.setKey("KEY_Dungeoneering Kit (Common)");
-		prereq.setOperator(PrerequisiteOperator.LT);
-		prereq.setOperand("1");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("kit");
+        prereq.setKey("KEY_Dungeoneering Kit (Common)");
+        prereq.setOperator(PrerequisiteOperator.LT);
+        prereq.setOperand("1");
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit not to be present", passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue("Expected kit not to be present", passes);
+    }
 
-	/**
-	 * Ensure that a character with kits, but not the
-	 * required kit correctly passes !PREKIT
-	 */
-	@Test
-	public void testSpecificKitAbsent()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure that a character with kits, but not the
+     * required kit correctly passes !PREKIT
+     */
+    @Test
+    public void testSpecificKitAbsent()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Kit kit = TestHelper.makeKit("Default Werebear");
-		// Note this is a shortcut rather than doing a full apply of the kit
-		character.addKit(kit);
+        Kit kit = TestHelper.makeKit("Default Werebear");
+        // Note this is a shortcut rather than doing a full apply of the kit
+        character.addKit(kit);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("kit");
-		prereq.setKey("KEY_Dungeoneering Kit (Common)");
-		prereq.setOperator(PrerequisiteOperator.LT);
-		prereq.setOperand("1");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("kit");
+        prereq.setKey("KEY_Dungeoneering Kit (Common)");
+        prereq.setOperator(PrerequisiteOperator.LT);
+        prereq.setOperand("1");
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit not to be present", passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue("Expected kit not to be present", passes);
+    }
 
-	/**
-	 * Ensure a character with the requested kit correctly fails
-	 * !PREKIT
-	 */
-	@Test
-	public void testNotAbsent()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a character with the requested kit correctly fails
+     * !PREKIT
+     */
+    @Test
+    public void testNotAbsent()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
-		// Note this is a shortcut rather than doing a full apply of the kit
-		character.addKit(kit);
+        Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
+        // Note this is a shortcut rather than doing a full apply of the kit
+        character.addKit(kit);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("kit");
-		prereq.setKey("KEY_Dungeoneering Kit (Common)");
-		prereq.setOperator(PrerequisiteOperator.LT);
-		prereq.setOperand("1");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("kit");
+        prereq.setKey("KEY_Dungeoneering Kit (Common)");
+        prereq.setOperator(PrerequisiteOperator.LT);
+        prereq.setOperand("1");
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("Expected kit to be present", passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse("Expected kit to be present", passes);
+    }
 
-	/**
-	 * Ensure a character with the requested kit correctly passes
-	 * a wildcard test
-	 */
-	@Test
-	public void testWildcard()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a character with the requested kit correctly passes
+     * a wildcard test
+     */
+    @Test
+    public void testWildcard()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
-		// Note this is a shortcut rather than doing a full apply of the kit
-		character.addKit(kit);
+        Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
+        // Note this is a shortcut rather than doing a full apply of the kit
+        character.addKit(kit);
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("kit");
-		prereq.setKey("key_dungeoneering%");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("1");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("kit");
+        prereq.setKey("key_dungeoneering%");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("1");
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected wildcard to match", passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue("Expected wildcard to match", passes);
+    }
 
-	/**
-	 * Ensure a test with a non integer operand fails with a meaningfull
-	 * error message
-	 */
-	@Test
-	public void testBadOperand()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Ensure a test with a non integer operand fails with a meaningfull
+     * error message
+     */
+    @Test
+    public void testBadOperand()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("kit");
-		prereq.setKey("half%");
-		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("One");
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("kit");
+        prereq.setKey("half%");
+        prereq.setOperator(PrerequisiteOperator.GTEQ);
+        prereq.setOperand("One");
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
-	}
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertFalse(passes);
+    }
 
-	@Test
-	public void testKindHandled()
-	{
-		final PreKitTester preKit = new PreKitTester();
+    @Test
+    public void testKindHandled()
+    {
+        final PreKitTester preKit = new PreKitTester();
 
-		assertEquals("KIT", preKit.kindHandled());
-	}
+        assertEquals("KIT", preKit.kindHandled());
+    }
 
 }

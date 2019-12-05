@@ -25,28 +25,27 @@ import pcgen.core.PlayerCharacter;
 
 public class BonusPair
 {
-	private final Formula formula;
-	public final String fullyQualifiedBonusType;
-	private final Object creatorObj;
+    private final Formula formula;
+    public final String fullyQualifiedBonusType;
+    private final Object creatorObj;
 
-	public BonusPair(String key, Formula f, Object source)
-	{
-		fullyQualifiedBonusType = key;
-		formula = f;
-		creatorObj = source;
-	}
+    public BonusPair(String key, Formula f, Object source)
+    {
+        fullyQualifiedBonusType = key;
+        formula = f;
+        creatorObj = source;
+    }
 
-	public Number resolve(PlayerCharacter aPC)
-	{
-		String source;
-		if (creatorObj instanceof CDOMObject)
-		{
-			source = ((CDOMObject) creatorObj).getQualifiedKey();
-		}
-		else
-		{
-			source = Constants.EMPTY_STRING;
-		}
-		return formula.resolve(aPC, source);
-	}
+    public Number resolve(PlayerCharacter aPC)
+    {
+        String source;
+        if (creatorObj instanceof CDOMObject)
+        {
+            source = ((CDOMObject) creatorObj).getQualifiedKey();
+        } else
+        {
+            source = Constants.EMPTY_STRING;
+        }
+        return formula.resolve(aPC, source);
+    }
 }

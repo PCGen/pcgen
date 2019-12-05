@@ -28,33 +28,33 @@ import javafx.scene.control.CheckBox;
 public class LevelUpPreferencesPanelController implements ResettableController
 {
 
-	private final LevelUpPreferencesModel model = new LevelUpPreferencesModel();
-	@FXML
-	private CheckBox statWindow;
-	@FXML
-	private CheckBox warnFirstLevelUp;
+    private final LevelUpPreferencesModel model = new LevelUpPreferencesModel();
+    @FXML
+    private CheckBox statWindow;
+    @FXML
+    private CheckBox warnFirstLevelUp;
 
-	@FXML
-	void initialize()
-	{
-		model.statWindowProperty().bind(statWindow.selectedProperty());
-		model.warnFirstLevelUpProperty().bind(warnFirstLevelUp.selectedProperty());
-	}
+    @FXML
+    void initialize()
+    {
+        model.statWindowProperty().bind(statWindow.selectedProperty());
+        model.warnFirstLevelUpProperty().bind(warnFirstLevelUp.selectedProperty());
+    }
 
-	@Override
-	public void reset()
-	{
-		statWindow.selectedProperty().set(SettingsHandler.getShowStatDialogAtLevelUp());
-		warnFirstLevelUp.selectedProperty().set(
-				PCGenSettings.OPTIONS_CONTEXT.getBoolean(
-						PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP, true));
-	}
+    @Override
+    public void reset()
+    {
+        statWindow.selectedProperty().set(SettingsHandler.getShowStatDialogAtLevelUp());
+        warnFirstLevelUp.selectedProperty().set(
+                PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+                        PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP, true));
+    }
 
-	@Override
-	public void apply()
-	{
-		SettingsHandler.setShowStatDialogAtLevelUp(statWindow.isSelected());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
-				warnFirstLevelUp.isSelected());
-	}
+    @Override
+    public void apply()
+    {
+        SettingsHandler.setShowStatDialogAtLevelUp(statWindow.isSelected());
+        PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
+                warnFirstLevelUp.isSelected());
+    }
 }

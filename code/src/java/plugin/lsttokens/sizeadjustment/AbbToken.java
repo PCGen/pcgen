@@ -30,44 +30,44 @@ import pcgen.rules.persistence.token.ParseResult;
 public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements CDOMPrimaryToken<SizeAdjustment>
 {
 
-	/**
-	 * Return token name
-	 *
-	 * @return token name
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "ABB";
-	}
+    /**
+     * Return token name
+     *
+     * @return token name
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "ABB";
+    }
 
-	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
-	{
+    @Override
+    public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
+    {
 
-			if (!context.processToken(size, "KEY", value))
-			{
-				return new ParseResult.Fail("Internal Error");
-			}
+        if (!context.processToken(size, "KEY", value))
+        {
+            return new ParseResult.Fail("Internal Error");
+        }
 
-		context.getObjectContext().put(size, StringKey.ABB_KR, value);
-		return ParseResult.SUCCESS;
-	}
+        context.getObjectContext().put(size, StringKey.ABB_KR, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, SizeAdjustment size)
-	{
-		String abb = context.getObjectContext().getString(size, StringKey.ABB_KR);
-		if (abb == null)
-		{
-			return null;
-		}
-		return new String[]{abb};
-	}
+    @Override
+    public String[] unparse(LoadContext context, SizeAdjustment size)
+    {
+        String abb = context.getObjectContext().getString(size, StringKey.ABB_KR);
+        if (abb == null)
+        {
+            return null;
+        }
+        return new String[]{abb};
+    }
 
-	@Override
-	public Class<SizeAdjustment> getTokenClass()
-	{
-		return SizeAdjustment.class;
-	}
+    @Override
+    public Class<SizeAdjustment> getTokenClass()
+    {
+        return SizeAdjustment.class;
+    }
 }

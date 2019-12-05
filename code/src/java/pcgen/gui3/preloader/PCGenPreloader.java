@@ -45,72 +45,73 @@ import javafx.stage.Stage;
 public class PCGenPreloader implements PCGenTaskListener, Controllable<PCGenPreloaderController>
 {
 
-	private final FXMLLoader loader = new FXMLLoader();
-	private Stage primaryStage;
+    private final FXMLLoader loader = new FXMLLoader();
+    private Stage primaryStage;
 
 
-	public PCGenPreloader()
-	{
-		GuiAssertions.assertIsNotOnGUIThread();
-		loader.setLocation(getClass().getResource("PCGenPreloader.fxml"));
-		Platform.runLater(() -> {
-			primaryStage = new Stage();
-			final Scene scene;
-			try
-			{
-				scene = loader.load();
-			} catch (IOException e)
-			{
-				Logging.errorPrint("failed to load preloader", e);
-				return;
-			}
+    public PCGenPreloader()
+    {
+        GuiAssertions.assertIsNotOnGUIThread();
+        loader.setLocation(getClass().getResource("PCGenPreloader.fxml"));
+        Platform.runLater(() -> {
+            primaryStage = new Stage();
+            final Scene scene;
+            try
+            {
+                scene = loader.load();
+            } catch (IOException e)
+            {
+                Logging.errorPrint("failed to load preloader", e);
+                return;
+            }
 
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		});
-	}
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        });
+    }
 
-	/**
-	 * @return the controller for the preloader
-	 */
-	@Override
-	public PCGenPreloaderController getController()
-	{
-		GuiAssertions.assertIsNotOnGUIThread();
-		return GuiUtility.runOnJavaFXThreadNow(loader::getController);
-	}
+    /**
+     * @return the controller for the preloader
+     */
+    @Override
+    public PCGenPreloaderController getController()
+    {
+        GuiAssertions.assertIsNotOnGUIThread();
+        return GuiUtility.runOnJavaFXThreadNow(loader::getController);
+    }
 
-	@Override
-	public void progressChanged(final PCGenTaskEvent event)
-	{
-		ProgressContainer task = event.getSource();
-		getController().setProgress(task.getMessage(), task.getProgress() / (double)task.getMaximum());
-	}
+    @Override
+    public void progressChanged(final PCGenTaskEvent event)
+    {
+        ProgressContainer task = event.getSource();
+        getController().setProgress(task.getMessage(), task.getProgress() / (double) task.getMaximum());
+    }
 
-	@Override
-	public void errorOccurred(final PCGenTaskEvent event)
-	{
-		Logging.errorPrint("ignore this for now. Eventually do something useful");
-		throw new UnsupportedOperationException("Not supported yet.");
+    @Override
+    public void errorOccurred(final PCGenTaskEvent event)
+    {
+        Logging.errorPrint("ignore this for now. Eventually do something useful");
+        throw new UnsupportedOperationException("Not supported yet.");
 
-	}
+    }
 
-	/**
-	 * indicates that preloading is done. splash screen should "go away"
-	 */
-	public void done()
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() -> primaryStage.close());
-	}
+    /**
+     * indicates that preloading is done. splash screen should "go away"
+     */
+    public void done()
+    {
+        GuiAssertions.assertIsNotJavaFXThread();
+        Platform.runLater(() -> primaryStage.close());
+    }
 
-	/**
-	 * Primarily exists for testing.
-	 * New features should be added to this class.
-	 * @return the stage associated with the preloader
-	 */
-	public Stage getStage()
-	{
-		return primaryStage;
-	}
+    /**
+     * Primarily exists for testing.
+     * New features should be added to this class.
+     *
+     * @return the stage associated with the preloader
+     */
+    public Stage getStage()
+    {
+        return primaryStage;
+    }
 }

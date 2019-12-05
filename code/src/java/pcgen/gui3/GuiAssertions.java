@@ -30,79 +30,77 @@ import javafx.application.Platform;
  */
 public final class GuiAssertions
 {
-	private static final class WrongThreadException extends RuntimeException
-	{
-		private WrongThreadException(String message)
-		{
-			super(message);
-		}
-	}
+    private static final class WrongThreadException extends RuntimeException
+    {
+        private WrongThreadException(String message)
+        {
+            super(message);
+        }
+    }
 
-	private GuiAssertions()
-	{
-	}
+    private GuiAssertions()
+    {
+    }
 
-	public static void assertIsJavaFXThread()
-	{
-		if (!Platform.isFxApplicationThread())
-		{
-			throw new WrongThreadException(
-					"expected to be on JavaFX thread - actually on: " + Thread.currentThread().getName());
-		}
-	}
+    public static void assertIsJavaFXThread()
+    {
+        if (!Platform.isFxApplicationThread())
+        {
+            throw new WrongThreadException(
+                    "expected to be on JavaFX thread - actually on: " + Thread.currentThread().getName());
+        }
+    }
 
-	public static void assertIsNotJavaFXThread()
-	{
-		if (Platform.isFxApplicationThread())
-		{
-			throw new WrongThreadException(
-					"expected NOT to be on JavaFX thread - actually on: " + Thread.currentThread().getName());
-		}
-	}
-
-
-	public static void assertIsSwingThread()
-	{
-		if (!SwingUtilities.isEventDispatchThread())
-		{
-			throw new WrongThreadException(
-					"expected to be on swing thread - actually on: " + Thread.currentThread().getName());
-		}
-	}
-
-	public static void assertIsNotSwingThread()
-	{
-		if (SwingUtilities.isEventDispatchThread())
-		{
-			throw new WrongThreadException(
-					"expected NOT to be on swing thread - actually on: " + Thread.currentThread().getName());
-		}
-	}
+    public static void assertIsNotJavaFXThread()
+    {
+        if (Platform.isFxApplicationThread())
+        {
+            throw new WrongThreadException(
+                    "expected NOT to be on JavaFX thread - actually on: " + Thread.currentThread().getName());
+        }
+    }
 
 
-	public static void assertIsNotOnGUIThread()
-	{
-		if (Platform.isFxApplicationThread() || SwingUtilities.isEventDispatchThread())
-		{
-			throw new WrongThreadException(
-					"expected NOT to be on gui thread - actually on: " + Thread.currentThread().getName());
-		}
-	}
+    public static void assertIsSwingThread()
+    {
+        if (!SwingUtilities.isEventDispatchThread())
+        {
+            throw new WrongThreadException(
+                    "expected to be on swing thread - actually on: " + Thread.currentThread().getName());
+        }
+    }
 
-	/**
-	 * This should be rarely used. Instead assert which thread you're actually supposed to be on.
-	 */
-	public static void assertIsOnGUIThread()
-	{
-		Logging.debugPrint("asserting unknown gui thread: actually on: " + Thread.currentThread().getName());
-		if (!Platform.isFxApplicationThread() && !SwingUtilities.isEventDispatchThread())
-		{
-			throw new WrongThreadException(
-					"expected to be on gui thread - actually on: " + Thread.currentThread().getName());
-		}
-	}
+    public static void assertIsNotSwingThread()
+    {
+        if (SwingUtilities.isEventDispatchThread())
+        {
+            throw new WrongThreadException(
+                    "expected NOT to be on swing thread - actually on: " + Thread.currentThread().getName());
+        }
+    }
 
 
+    public static void assertIsNotOnGUIThread()
+    {
+        if (Platform.isFxApplicationThread() || SwingUtilities.isEventDispatchThread())
+        {
+            throw new WrongThreadException(
+                    "expected NOT to be on gui thread - actually on: " + Thread.currentThread().getName());
+        }
+    }
+
+    /**
+     * This should be rarely used. Instead assert which thread you're actually supposed to be on.
+     */
+    public static void assertIsOnGUIThread()
+    {
+        Logging.debugPrint("asserting unknown gui thread: actually on: " + Thread.currentThread().getName());
+        if (!Platform.isFxApplicationThread() && !SwingUtilities.isEventDispatchThread())
+        {
+            throw new WrongThreadException(
+                    "expected to be on gui thread - actually on: " + Thread.currentThread().getName());
+        }
+    }
 
 
 }

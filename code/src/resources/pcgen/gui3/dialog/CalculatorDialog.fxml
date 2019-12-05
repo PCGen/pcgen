@@ -27,19 +27,19 @@
 <?import javafx.scene.layout.HBox?>
 
 <Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-       fx:controller="pcgen.gui3.dialog.CalculatorDialogController" >
-   <AnchorPane prefHeight="700" prefWidth="500">
-      <BorderPane>
-         <top>
-            <HBox>
-               <TextField HBox.hgrow="always" fx:id="formulaText"/>
-               <Button text="%in_calculate" onAction="#onCalculate"/>
-               <Button  text="%in_clear" onAction="#onClear"/>
-            </HBox>
-         </top>
-         <center>
-            <TextArea fx:id="outputText"/>
-         </center>
-      </BorderPane>
-   </AnchorPane>
+       fx:controller="pcgen.gui3.dialog.CalculatorDialogController">
+    <AnchorPane prefHeight="700" prefWidth="500">
+        <BorderPane>
+            <top>
+                <HBox>
+                    <TextField HBox.hgrow="always" fx:id="formulaText"/>
+                    <Button text="%in_calculate" onAction="#onCalculate"/>
+                    <Button text="%in_clear" onAction="#onClear"/>
+                </HBox>
+            </top>
+            <center>
+                <TextArea fx:id="outputText"/>
+            </center>
+        </BorderPane>
+    </AnchorPane>
 </Scene>

@@ -31,70 +31,69 @@ import java.util.regex.Pattern;
  */
 public final class SourceLogFormatter extends Formatter
 {
-	private static final char SEPERATOR = ' ';
-	private static final Pattern JAVA_EXT_PATTERN = Pattern.compile("\\.java");
+    private static final char SEPERATOR = ' ';
+    private static final Pattern JAVA_EXT_PATTERN = Pattern.compile("\\.java");
 
-	@Override
-	public String format(LogRecord record)
-	{
-		StringBuilder sb = new StringBuilder();
+    @Override
+    public String format(LogRecord record)
+    {
+        StringBuilder sb = new StringBuilder();
 
-		sb.append(LocalDateTime.now(Clock.systemUTC()));
+        sb.append(LocalDateTime.now(Clock.systemUTC()));
 
-		sb.append(SEPERATOR);
-		sb.append(record.getLevel());
-		sb.append(SEPERATOR);
-		sb.append(Thread.currentThread().getName());
-		sb.append(SEPERATOR);
+        sb.append(SEPERATOR);
+        sb.append(record.getLevel());
+        sb.append(SEPERATOR);
+        sb.append(Thread.currentThread().getName());
+        sb.append(SEPERATOR);
 
-		// Pick out the caller from the stack trace, ignoring the 
-		// logging classes themselves 
-		StackTraceElement[] stack = new Throwable().getStackTrace();
-		StackTraceElement caller = null;
+        // Pick out the caller from the stack trace, ignoring the
+        // logging classes themselves
+        StackTraceElement[] stack = new Throwable().getStackTrace();
+        StackTraceElement caller = null;
 
-		for (int i = 1; i < stack.length; i++) //1 to skip this method
-		{
-			if (!stack[i].getClassName().startsWith("pcgen.util.Logging")
-				&& !stack[i].getClassName().startsWith("java.util.logging")
-				&& !stack[i].getClassName().startsWith("pcgen.system.LoggingRecorder"))
-			{
-				caller = stack[i];
-				break;
-			}
-		}
+        for (int i = 1;i < stack.length;i++) //1 to skip this method
+        {
+            if (!stack[i].getClassName().startsWith("pcgen.util.Logging")
+                    && !stack[i].getClassName().startsWith("java.util.logging")
+                    && !stack[i].getClassName().startsWith("pcgen.system.LoggingRecorder"))
+            {
+                caller = stack[i];
+                break;
+            }
+        }
 
-		if (caller != null)
-		{
-			if (caller.getLineNumber() >= 0)
-			{
-				sb.append(JAVA_EXT_PATTERN.matcher(caller.getFileName()).replaceFirst(""));
-				sb.append(':');
-				sb.append(caller.getLineNumber());
-			}
-			else
-			{
-				sb.append(caller.getClassName());
-				sb.append(' ');
-				sb.append(caller.getMethodName());
-			}
-		}
+        if (caller != null)
+        {
+            if (caller.getLineNumber() >= 0)
+            {
+                sb.append(JAVA_EXT_PATTERN.matcher(caller.getFileName()).replaceFirst(""));
+                sb.append(':');
+                sb.append(caller.getLineNumber());
+            } else
+            {
+                sb.append(caller.getClassName());
+                sb.append(' ');
+                sb.append(caller.getMethodName());
+            }
+        }
 
-		sb.append(SEPERATOR);
+        sb.append(SEPERATOR);
 
-		sb.append(formatMessage(record));
+        sb.append(formatMessage(record));
 
-		if (record.getThrown() != null)
-		{
-			sb.append('\n');
-			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
-			record.getThrown().printStackTrace(pw);
-			pw.flush();
-			sb.append(sw);
-		}
+        if (record.getThrown() != null)
+        {
+            sb.append('\n');
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            record.getThrown().printStackTrace(pw);
+            pw.flush();
+            sb.append(sw);
+        }
 
-		sb.append('\n');
+        sb.append('\n');
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 }

@@ -29,78 +29,77 @@ import pcgen.util.Logging;
 
 public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements CDOMCompatibilityToken<CDOMObject>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "ADD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ADD";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		ParsingSeparator sep = new ParsingSeparator(value, '|');
-		sep.addGroupingPair('[', ']');
-		sep.addGroupingPair('(', ')');
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        ParsingSeparator sep = new ParsingSeparator(value, '|');
+        sep.addGroupingPair('[', ']');
+        sep.addGroupingPair('(', ')');
 
-		String addType = sep.next();
-		if (!"VFEAT".equals(addType))
-		{
-			return new ParseResult.Fail("Incompatible with ADD:VFEAT: " + value);
-		}
-		String activeValue = sep.next();
-		Formula count;
-		if (!sep.hasNext())
-		{
-			count = FormulaFactory.ONE;
-		}
-		else
-		{
-			count = FormulaFactory.getFormulaFor(activeValue);
-			if (!count.isValid())
-			{
-				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
-			}
-			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
-			{
-				return new ParseResult.Fail("Count in ADD:VFEAT must be > 0");
-			}
-			activeValue = sep.next();
-		}
-		if (sep.hasNext())
-		{
-			return new ParseResult.Fail("ADD:VFEAT had too many pipe separated items: " + value);
-		}
+        String addType = sep.next();
+        if (!"VFEAT".equals(addType))
+        {
+            return new ParseResult.Fail("Incompatible with ADD:VFEAT: " + value);
+        }
+        String activeValue = sep.next();
+        Formula count;
+        if (!sep.hasNext())
+        {
+            count = FormulaFactory.ONE;
+        } else
+        {
+            count = FormulaFactory.getFormulaFor(activeValue);
+            if (!count.isValid())
+            {
+                return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
+            }
+            if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
+            {
+                return new ParseResult.Fail("Count in ADD:VFEAT must be > 0");
+            }
+            activeValue = sep.next();
+        }
+        if (sep.hasNext())
+        {
+            return new ParseResult.Fail("ADD:VFEAT had too many pipe separated items: " + value);
+        }
 
-			if (!context.processToken(obj, "ADD", "ABILITY|" + count.toString() + "|FEAT|VIRTUAL|" + activeValue))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error from ADD:VFEAT");
-			}
+        if (!context.processToken(obj, "ADD", "ABILITY|" + count.toString() + "|FEAT|VIRTUAL|" + activeValue))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Delegation Error from ADD:VFEAT");
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public int compatibilityLevel()
-	{
-		return 6;
-	}
+    @Override
+    public int compatibilityLevel()
+    {
+        return 6;
+    }
 
-	@Override
-	public int compatibilitySubLevel()
-	{
-		return 4;
-	}
+    @Override
+    public int compatibilitySubLevel()
+    {
+        return 4;
+    }
 
-	@Override
-	public int compatibilityPriority()
-	{
-		return 1;
-	}
+    @Override
+    public int compatibilityPriority()
+    {
+        return 1;
+    }
 }

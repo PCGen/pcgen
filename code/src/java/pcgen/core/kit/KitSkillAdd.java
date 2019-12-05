@@ -28,68 +28,73 @@ import pcgen.core.Skill;
  */
 public final class KitSkillAdd //implements java.io.Serializable
 {
-	private Skill skill = null;
-	private double ranks = 0.0;
-	private int cost = 0;
-	private final List<Language> languages;
-	private final PCClass pcclass;
+    private Skill skill = null;
+    private double ranks = 0.0;
+    private int cost = 0;
+    private final List<Language> languages;
+    private final PCClass pcclass;
 
-	/**
-	 * Constructor
-	 * @param argSkill
-	 * @param aRanks
-	 * @param aCost
-	 * @param aLanguages The languages which should be selected.
-	 * @param pcClass 
-	 */
-	public KitSkillAdd(final Skill argSkill, double aRanks, int aCost, List<Language> aLanguages, PCClass pcClass)
-	{
-		skill = argSkill;
-		ranks = aRanks;
-		cost = aCost;
-		languages = aLanguages;
-		pcclass = pcClass;
-	}
+    /**
+     * Constructor
+     *
+     * @param argSkill
+     * @param aRanks
+     * @param aCost
+     * @param aLanguages The languages which should be selected.
+     * @param pcClass
+     */
+    public KitSkillAdd(final Skill argSkill, double aRanks, int aCost, List<Language> aLanguages, PCClass pcClass)
+    {
+        skill = argSkill;
+        ranks = aRanks;
+        cost = aCost;
+        languages = aLanguages;
+        pcclass = pcClass;
+    }
 
-	/**
-	 * Get ranks
-	 * @return ranks
-	 */
-	public double getRanks()
-	{
-		return ranks;
-	}
+    /**
+     * Get ranks
+     *
+     * @return ranks
+     */
+    public double getRanks()
+    {
+        return ranks;
+    }
 
-	/**
-	 * Get skill
-	 * @return skill
-	 */
-	public Skill getSkill()
-	{
-		return skill;
-	}
+    /**
+     * Get skill
+     *
+     * @return skill
+     */
+    public Skill getSkill()
+    {
+        return skill;
+    }
 
-	/**
-	 * Get cost
-	 * @return cost
-	 */
-	public int getCost()
-	{
-		return cost;
-	}
+    /**
+     * Get cost
+     *
+     * @return cost
+     */
+    public int getCost()
+    {
+        return cost;
+    }
 
-	/**
-	 * Gets the list of languages.
-	 * @return the languages
-	 */
-	public List<Language> getLanguages()
-	{
-		return languages;
-	}
+    /**
+     * Gets the list of languages.
+     *
+     * @return the languages
+     */
+    public List<Language> getLanguages()
+    {
+        return languages;
+    }
 
-	public PCClass getPCClass()
-	{
-		return pcclass;
-	}
+    public PCClass getPCClass()
+    {
+        return pcclass;
+    }
 
 }

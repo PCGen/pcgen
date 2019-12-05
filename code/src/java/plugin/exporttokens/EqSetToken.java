@@ -25,7 +25,7 @@ import pcgen.io.exporttoken.Token;
 
 /**
  * Deal with EQSET Token
- * 
+ * <p>
  * EQSET.START
  * EQSET.END
  * EQSET.NUMBER
@@ -33,57 +33,58 @@ import pcgen.io.exporttoken.Token;
  */
 public class EqSetToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "EQSET";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "EQSET";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
 
-		if ("EQSET.START".equals(tokenSource))
-		{
-			//TODO: Does Nothing here, only on EQSheet exports, should that be fixed?
-		}
-		else if ("EQSET.END".equals(tokenSource))
-		{
-			//TODO: Does Nothing here, only on EQSheet exports, should that be fixed?
-		}
-		else if ("EQSET.NUMBER".equals(tokenSource))
-		{
-			retString = Integer.toString(getNumberToken(pc));
-		}
-		else if ("EQSET.NAME".equals(tokenSource))
-		{
-			retString = getNameToken(pc.getDisplay());
-		}
+        if ("EQSET.START".equals(tokenSource))
+        {
+            //TODO: Does Nothing here, only on EQSheet exports, should that be fixed?
+        } else if ("EQSET.END".equals(tokenSource))
+        {
+            //TODO: Does Nothing here, only on EQSheet exports, should that be fixed?
+        } else if ("EQSET.NUMBER".equals(tokenSource))
+        {
+            retString = Integer.toString(getNumberToken(pc));
+        } else if ("EQSET.NAME".equals(tokenSource))
+        {
+            retString = getNameToken(pc.getDisplay());
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get Name Token
-	 * @param display
-	 * @return Name Token
-	 */
-	public static String getNameToken(CharacterDisplay display)
-	{
-		return display.getCurrentEquipSetName();
-	}
+    /**
+     * Get Name Token
+     *
+     * @param display
+     * @return Name Token
+     */
+    public static String getNameToken(CharacterDisplay display)
+    {
+        return display.getCurrentEquipSetName();
+    }
 
-	/**
-	 * Get Number Token
-	 * @param pc
-	 * @return Number Token
-	 */
-	public static int getNumberToken(PlayerCharacter pc)
-	{
-		return pc.getEquipSetNumber();
-	}
+    /**
+     * Get Number Token
+     *
+     * @param pc
+     * @return Number Token
+     */
+    public static int getNumberToken(PlayerCharacter pc)
+    {
+        return pc.getEquipSetNumber();
+    }
 }

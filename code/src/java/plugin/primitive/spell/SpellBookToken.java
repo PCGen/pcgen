@@ -33,81 +33,81 @@ import pcgen.rules.persistence.token.PrimitiveToken;
  */
 public class SpellBookToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
-	private static final Class<Spell> SPELL_CLASS = Spell.class;
-	private String spellbook;
-	private CDOMReference<Spell> allSpells;
+    private static final Class<Spell> SPELL_CLASS = Spell.class;
+    private String spellbook;
+    private CDOMReference<Spell> allSpells;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
-	{
-		if (args != null)
-		{
-			return false;
-		}
-		spellbook = value;
-		allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
-		return true;
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
+    {
+        if (args != null)
+        {
+            return false;
+        }
+        spellbook = value;
+        allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
+        return true;
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "SPELLBOOK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPELLBOOK";
+    }
 
-	@Override
-	public Class<Spell> getReferenceClass()
-	{
-		return SPELL_CLASS;
-	}
+    @Override
+    public Class<Spell> getReferenceClass()
+    {
+        return SPELL_CLASS;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return getTokenName() + '=' + spellbook;
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return getTokenName() + '=' + spellbook;
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
-	{
-		return pc.hasSpellInSpellbook(spell, spellbook);
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Spell spell)
+    {
+        return pc.hasSpellInSpellbook(spell, spellbook);
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof SpellBookToken)
-		{
-			SpellBookToken other = (SpellBookToken) obj;
-			if (spellbook == null)
-			{
-				return other.spellbook == null;
-			}
-			return spellbook.equals(other.spellbook);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof SpellBookToken)
+        {
+            SpellBookToken other = (SpellBookToken) obj;
+            if (spellbook == null)
+            {
+                return other.spellbook == null;
+            }
+            return spellbook.equals(other.spellbook);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return spellbook == null ? -7 : spellbook.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return spellbook == null ? -7 : spellbook.hashCode();
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Spell, R> c)
-	{
-		return c.convert(allSpells, this);
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Spell, R> c)
+    {
+        return c.convert(allSpells, this);
+    }
 
 }

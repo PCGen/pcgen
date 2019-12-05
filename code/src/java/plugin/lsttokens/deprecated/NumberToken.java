@@ -29,53 +29,52 @@ import pcgen.util.Logging;
 public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "CHOOSE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CHOOSE";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (!value.startsWith("NUMBER|"))
-		{
-			return new ParseResult.Fail("Incompatible with NUMBER|: " + value);
-		}
-		Logging.deprecationPrint("CHOOSE:NUMBER is deprecated, please use TEMPVALUE");
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (!value.startsWith("NUMBER|"))
+        {
+            return new ParseResult.Fail("Incompatible with NUMBER|: " + value);
+        }
+        Logging.deprecationPrint("CHOOSE:NUMBER is deprecated, please use TEMPVALUE");
 
-			if (!context.processToken(obj, "TEMPVALUE", value.substring(7)))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE");
-			}
+        if (!context.processToken(obj, "TEMPVALUE", value.substring(7)))
+        {
+            Logging.replayParsedMessages();
+            return new ParseResult.Fail("Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE");
+        }
 
 
+        return ParseResult.SUCCESS;
+    }
 
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public int compatibilityLevel()
+    {
+        return 6;
+    }
 
-	@Override
-	public int compatibilityLevel()
-	{
-		return 6;
-	}
+    @Override
+    public int compatibilitySubLevel()
+    {
+        return 4;
+    }
 
-	@Override
-	public int compatibilitySubLevel()
-	{
-		return 4;
-	}
-
-	@Override
-	public int compatibilityPriority()
-	{
-		return 20;
-	}
+    @Override
+    public int compatibilityPriority()
+    {
+        return 20;
+    }
 }

@@ -29,111 +29,107 @@ import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 /**
  * KeyGroupingToken parses the "GROUP=x" Grouping to be able to create an appropriate
  * GroupingCollection.
- * 
- * @param <T>
- *            The Format of the object type returned during processing by this
+ *
+ * @param <T> The Format of the object type returned during processing by this
  *            KeyGroupingToken
  */
 public class KeyGroupingToken<T extends Loadable & PCGenScoped> implements GroupingDefinition<T>
 {
 
-	@Override
-	public String getIdentification()
-	{
-		return "KEY";
-	}
+    @Override
+    public String getIdentification()
+    {
+        return "KEY";
+    }
 
-	@Override
-	public Class<Object> getUsableLocation()
-	{
-		return Object.class;
-	}
+    @Override
+    public Class<Object> getUsableLocation()
+    {
+        return Object.class;
+    }
 
-	@Override
-	public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info)
-	{
-		KeyGrouping<T> keyGrouping = new KeyGrouping<>(info);
-		if (info.hasChild())
-		{
-			GroupingCollection<?> childCollection =
-					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
-			keyGrouping.setChild(childCollection);
-		}
-		return keyGrouping;
-	}
+    @Override
+    public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info)
+    {
+        KeyGrouping<T> keyGrouping = new KeyGrouping<>(info);
+        if (info.hasChild())
+        {
+            GroupingCollection<?> childCollection =
+                    ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
+            keyGrouping.setChild(childCollection);
+        }
+        return keyGrouping;
+    }
 
-	@Override
-	public boolean requiresDirect()
-	{
-		return false;
-	}
+    @Override
+    public boolean requiresDirect()
+    {
+        return false;
+    }
 
-	/**
-	 * KeyGrouping serves as the GroupingCollection for the "GROUP=x" Grouping.
-	 * 
-	 * @param <T>
-	 *            The Format of the object type contained by this KeyGrouping
-	 */
-	private static class KeyGrouping<T extends Loadable> implements GroupingCollection<T>
-	{
-		/**
-		 * The GroupingInfo used to determine the format and GROUP: of objects contained
-		 * by this KeyGrouping.
-		 */
-		private final GroupingInfo<T> groupingInfo;
+    /**
+     * KeyGrouping serves as the GroupingCollection for the "GROUP=x" Grouping.
+     *
+     * @param <T> The Format of the object type contained by this KeyGrouping
+     */
+    private static class KeyGrouping<T extends Loadable> implements GroupingCollection<T>
+    {
+        /**
+         * The GroupingInfo used to determine the format and GROUP: of objects contained
+         * by this KeyGrouping.
+         */
+        private final GroupingInfo<T> groupingInfo;
 
-		/**
-		 * The child GroupingCollection providing additional grouping information.
-		 */
-		private GroupingCollection<?> childGrouping;
+        /**
+         * The child GroupingCollection providing additional grouping information.
+         */
+        private GroupingCollection<?> childGrouping;
 
-		/**
-		 * Constructs a new KeyGrouping from the given GroupingInfo.
-		 * 
-		 * @param info
-		 *            The GroupingInfo used to determine the format and KEY of objects
-		 *            contained by this KeyGrouping
-		 */
-		public KeyGrouping(GroupingInfo<T> info)
-		{
-			String value = info.getValue();
-			if ((value == null) || value.isEmpty())
-			{
-				throw new IllegalArgumentException("KEY must have value following =");
-			}
-			this.groupingInfo = Objects.requireNonNull(info);
-		}
+        /**
+         * Constructs a new KeyGrouping from the given GroupingInfo.
+         *
+         * @param info The GroupingInfo used to determine the format and KEY of objects
+         *             contained by this KeyGrouping
+         */
+        public KeyGrouping(GroupingInfo<T> info)
+        {
+            String value = info.getValue();
+            if ((value == null) || value.isEmpty())
+            {
+                throw new IllegalArgumentException("KEY must have value following =");
+            }
+            this.groupingInfo = Objects.requireNonNull(info);
+        }
 
-		public void setChild(GroupingCollection<?> childCollection)
-		{
-			childGrouping = childCollection;
-		}
+        public void setChild(GroupingCollection<?> childCollection)
+        {
+            childGrouping = childCollection;
+        }
 
-		@Override
-		public String getInstructions()
-		{
-			return groupingInfo.getInstructions();
-		}
+        @Override
+        public String getInstructions()
+        {
+            return groupingInfo.getInstructions();
+        }
 
-		@Override
-		public void process(PCGenScoped o, Consumer<PCGenScoped> consumer)
-		{
-			if (!o.getKeyName().equals(groupingInfo.getValue()))
-			{
-				return;
-			}
-			if (childGrouping == null)
-			{
-				consumer.accept(o);
-			}
-			else
-			{
-				GroupingInfo<?> childInfo = groupingInfo.getChild();
-				for (PCGenScoped childObject : o.getChildren(childInfo.getObjectType()))
-				{
-					childGrouping.process(childObject, consumer);
-				}
-			}
-		}
-	}
+        @Override
+        public void process(PCGenScoped o, Consumer<PCGenScoped> consumer)
+        {
+            if (!o.getKeyName().equals(groupingInfo.getValue()))
+            {
+                return;
+            }
+            if (childGrouping == null)
+            {
+                consumer.accept(o);
+            } else
+            {
+                GroupingInfo<?> childInfo = groupingInfo.getChild();
+                for (PCGenScoped childObject : o.getChildren(childInfo.getObjectType()))
+                {
+                    childGrouping.process(childObject, consumer);
+                }
+            }
+        }
+    }
 }

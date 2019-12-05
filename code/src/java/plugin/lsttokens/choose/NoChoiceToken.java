@@ -44,208 +44,208 @@ import org.jetbrains.annotations.NotNull;
  * New chooser plugin, handles no Choice.
  */
 public class NoChoiceToken
-		implements CDOMSecondaryToken<CDOMObject>, ChooseInformation<String>, Chooser<String>, DeferredToken<CDOMObject>
+        implements CDOMSecondaryToken<CDOMObject>, ChooseInformation<String>, Chooser<String>, DeferredToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "NOCHOICE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "NOCHOICE";
+    }
 
-	@Override
-	public String getParentToken()
-	{
-		return "CHOOSE";
-	}
+    @Override
+    public String getParentToken()
+    {
+        return "CHOOSE";
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (value == null)
-		{
-			// No args - legal
-			context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, this);
-			return ParseResult.SUCCESS;
-		}
-		return new ParseResult.Fail("CHOOSE:" + getTokenName() + " will ignore arguments: " + value);
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (value == null)
+        {
+            // No args - legal
+            context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, this);
+            return ParseResult.SUCCESS;
+        }
+        return new ParseResult.Fail("CHOOSE:" + getTokenName() + " will ignore arguments: " + value);
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		ChooseInformation<?> chooseString = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
-		if ((chooseString == null) || !chooseString.equals(this))
-		{
-			return null;
-		}
-		return new String[]{""};
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject cdo)
+    {
+        ChooseInformation<?> chooseString = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
+        if ((chooseString == null) || !chooseString.equals(this))
+        {
+            return null;
+        }
+        return new String[]{""};
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public Class<String> getReferenceClass()
-	{
-		return String.class;
-	}
+    @Override
+    public Class<String> getReferenceClass()
+    {
+        return String.class;
+    }
 
-	@Override
-	public ChoiceManagerList getChoiceManager(ChooseDriver owner, int cost)
-	{
-		return new NoChoiceManager(owner, this, cost);
-	}
+    @Override
+    public ChoiceManagerList getChoiceManager(ChooseDriver owner, int cost)
+    {
+        return new NoChoiceManager(owner, this, cost);
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ALLOWS_NONE;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ALLOWS_NONE;
+    }
 
-	@Override
-	public String getLSTformat()
-	{
-		return "*NOCHOICE";
-	}
+    @Override
+    public String getLSTformat()
+    {
+        return "*NOCHOICE";
+    }
 
-	@Override
-	public String getName()
-	{
-		return "No Choice";
-	}
+    @Override
+    public String getName()
+    {
+        return "No Choice";
+    }
 
-	@Override
-	public Collection<String> getSet(PlayerCharacter pc)
-	{
-		return Collections.singletonList("");
-	}
+    @Override
+    public Collection<String> getSet(PlayerCharacter pc)
+    {
+        return Collections.singletonList("");
+    }
 
-	@Override
-	public String getTitle()
-	{
-		return "No Choice Available";
-	}
+    @Override
+    public String getTitle()
+    {
+        return "No Choice Available";
+    }
 
-	@Override
-	public String decodeChoice(LoadContext context, String choice)
-	{
-		return choice;
-	}
+    @Override
+    public String decodeChoice(LoadContext context, String choice)
+    {
+        return choice;
+    }
 
-	@Override
-	public String encodeChoice(String choice)
-	{
-		return choice;
-	}
+    @Override
+    public String encodeChoice(String choice)
+    {
+        return choice;
+    }
 
-	@Override
-	public Chooser<String> getChoiceActor()
-	{
-		return this;
-	}
+    @Override
+    public Chooser<String> getChoiceActor()
+    {
+        return this;
+    }
 
-	@Override
-	public void setChoiceActor(Chooser<String> ca)
-	{
-		// ignore
-	}
+    @Override
+    public void setChoiceActor(Chooser<String> ca)
+    {
+        // ignore
+    }
 
-	@Override
-	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
-	{
-		return true;
-	}
+    @Override
+    public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
+    {
+        return true;
+    }
 
-	@Override
-	public void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc)
-	{
-		restoreChoice(pc, owner, "");
-	}
+    @Override
+    public void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc)
+    {
+        restoreChoice(pc, owner, "");
+    }
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, ChooseSelectionActor<String> ca)
-	{
-		ca.applyChoice(owner, "", pc);
-	}
+    private void applyChoice(ChooseDriver owner, PlayerCharacter pc, ChooseSelectionActor<String> ca)
+    {
+        ca.applyChoice(owner, "", pc);
+    }
 
-	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
-	{
-		pc.removeAssoc(owner, getListKey(), "");
-		List<ChooseSelectionActor<?>> actors = owner.getActors();
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				ca.removeChoice(owner, "", pc);
-			}
-		}
-	}
+    @Override
+    public void removeChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
+    {
+        pc.removeAssoc(owner, getListKey(), "");
+        List<ChooseSelectionActor<?>> actors = owner.getActors();
+        if (actors != null)
+        {
+            for (ChooseSelectionActor ca : actors)
+            {
+                ca.removeChoice(owner, "", pc);
+            }
+        }
+    }
 
-	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
-	{
-		pc.addAssoc(owner, getListKey(), "");
-		List<ChooseSelectionActor<?>> actors = owner.getActors();
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				applyChoice(owner, pc, ca);
-			}
-		}
-	}
+    @Override
+    public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
+    {
+        pc.addAssoc(owner, getListKey(), "");
+        List<ChooseSelectionActor<?>> actors = owner.getActors();
+        if (actors != null)
+        {
+            for (ChooseSelectionActor ca : actors)
+            {
+                applyChoice(owner, pc, ca);
+            }
+        }
+    }
 
-	@Override
-	public List<String> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
-	{
-		return pc.getAssocList(owner, getListKey());
-	}
+    @Override
+    public List<String> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
+    {
+        return pc.getAssocList(owner, getListKey());
+    }
 
-	private AssociationListKey<String> getListKey()
-	{
-		return AssociationListKey.getKeyFor(String.class, "CHOOSE*NOCHOICE");
-	}
+    private AssociationListKey<String> getListKey()
+    {
+        return AssociationListKey.getKeyFor(String.class, "CHOOSE*NOCHOICE");
+    }
 
-	@Override
-	public CharSequence composeDisplay(@NotNull Collection<? extends String> collection)
-	{
-		StringBuilder sb = new StringBuilder(5);
-		int count = collection.size();
-		if (count > 1)
-		{
-			sb.append(count);
-			sb.append('x');
-		}
-		return sb;
-	}
+    @Override
+    public CharSequence composeDisplay(@NotNull Collection<? extends String> collection)
+    {
+        StringBuilder sb = new StringBuilder(5);
+        int count = collection.size();
+        if (count > 1)
+        {
+            sb.append(count);
+            sb.append('x');
+        }
+        return sb;
+    }
 
-	@Override
-	public boolean process(LoadContext context, CDOMObject obj)
-	{
-		ChooseInformation<?> ci = obj.get(ObjectKey.CHOOSE_INFO);
-		if ((ci == this) && !obj.getSafe(ObjectKey.STACKS))
-		{
-			Logging.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
-				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(), obj.getSourceURI());
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean process(LoadContext context, CDOMObject obj)
+    {
+        ChooseInformation<?> ci = obj.get(ObjectKey.CHOOSE_INFO);
+        if ((ci == this) && !obj.getSafe(ObjectKey.STACKS))
+        {
+            Logging.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
+                    + obj.getClass().getSimpleName() + ' ' + obj.getKeyName(), obj.getSourceURI());
+            return false;
+        }
+        return true;
+    }
 
-	@Override
-	public Class<CDOMObject> getDeferredTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getDeferredTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public String getPersistentFormat()
-	{
-		return "STRING";
-	}
+    @Override
+    public String getPersistentFormat()
+    {
+        return "STRING";
+    }
 
 }

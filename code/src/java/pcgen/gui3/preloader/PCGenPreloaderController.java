@@ -27,11 +27,11 @@ import javafx.fxml.FXML;
  */
 public final class PCGenPreloaderController
 {
-	@FXML
-	private PCGenStatusBar pcGenStatusBar;
+    @FXML
+    private PCGenStatusBar pcGenStatusBar;
 
-	public void setProgress(String message, double progress)
-	{
-		pcGenStatusBar.setProgress(message, progress);
-	}
+    public void setProgress(String message, double progress)
+    {
+        pcGenStatusBar.setProgress(message, progress);
+    }
 }

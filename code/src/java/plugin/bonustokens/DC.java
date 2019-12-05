@@ -27,68 +27,69 @@ import pcgen.rules.context.LoadContext;
  */
 public final class DC extends BonusObj
 {
-	private static final String[] BONUS_TAGS = {"FEATBONUS", "ALLSPELLS"};
+    private static final String[] BONUS_TAGS = {"FEATBONUS", "ALLSPELLS"};
 
-	/*
-	 * When parsing the token, valid tokens are either a bonusTag[]
-	 * or:
-	 *    CLASS.<ClassName>
-	 *    DESCRIPTOR.<Description>
-	 *    DOMAIN.<DomainName>
-	 *    SCHOOL.<SchoolName>
-	 *    SUBSCHOOL.<SubSchoolName>
-	 *    TYPE.<CasterType>
-	 *    SPELL.<SpellName>
-	 */
+    /*
+     * When parsing the token, valid tokens are either a bonusTag[]
+     * or:
+     *    CLASS.<ClassName>
+     *    DESCRIPTOR.<Description>
+     *    DOMAIN.<DomainName>
+     *    SCHOOL.<SchoolName>
+     *    SUBSCHOOL.<SubSchoolName>
+     *    TYPE.<CasterType>
+     *    SPELL.<SpellName>
+     */
 
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		for (int i = 0; i < BONUS_TAGS.length; ++i)
-		{
-			if (token.equals(BONUS_TAGS[i]))
-			{
-				addBonusInfo(i);
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        for (int i = 0;i < BONUS_TAGS.length;++i)
+        {
+            if (token.equals(BONUS_TAGS[i]))
+            {
+                addBonusInfo(i);
 
-				return true;
-			}
-		}
+                return true;
+            }
+        }
 
-		boolean valid = token.startsWith(Constants.LST_CLASS);
-		valid = valid || token.startsWith("DESCRIPTOR");
-		valid = valid || token.startsWith("DOMAIN");
-		valid = valid || token.startsWith("SCHOOL");
-		valid = valid || token.startsWith("SUBSCHOOL");
-		valid = valid || token.startsWith("TYPE");
-		valid = valid || token.startsWith("SPELL");
+        boolean valid = token.startsWith(Constants.LST_CLASS);
+        valid = valid || token.startsWith("DESCRIPTOR");
+        valid = valid || token.startsWith("DOMAIN");
+        valid = valid || token.startsWith("SCHOOL");
+        valid = valid || token.startsWith("SUBSCHOOL");
+        valid = valid || token.startsWith("TYPE");
+        valid = valid || token.startsWith("SPELL");
 
-		if (valid)
-		{
-			addBonusInfo(token);
+        if (valid)
+        {
+            addBonusInfo(token);
 
-			return true;
-		}
-		return false;
-	}
+            return true;
+        }
+        return false;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		if (obj instanceof Integer)
-		{
-			return BONUS_TAGS[(Integer) obj];
-		}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        if (obj instanceof Integer)
+        {
+            return BONUS_TAGS[(Integer) obj];
+        }
 
-		return (String) obj;
-	}
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "DC";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "DC";
+    }
 }

@@ -27,16 +27,16 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class TabNameToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "TABNAME";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "TABNAME";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getTabName();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getTabName();
+    }
 
 }

@@ -35,27 +35,27 @@ import pcgen.persistence.SystemLoader;
 public final class LstSystemLoader implements SystemLoader
 {
 
-	private final Map<String, List<URI>> chosenCampaignSourcefiles = new HashMap<>();
+    private final Map<String, List<URI>> chosenCampaignSourcefiles = new HashMap<>();
 
-	/**
-	 * CODE-1889 to remove use of this method
-	 */
-	@Override
-	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
-	{
-		List<URI> files = chosenCampaignSourcefiles.computeIfAbsent(game.getName(), k -> new ArrayList<>());
-		files.clear();
-		files.addAll(l);
-		SettingsHandler.getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles." + game.getName(),
-			StringUtil.join(files, ", "));
-	}
+    /**
+     * CODE-1889 to remove use of this method
+     */
+    @Override
+    public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
+    {
+        List<URI> files = chosenCampaignSourcefiles.computeIfAbsent(game.getName(), k -> new ArrayList<>());
+        files.clear();
+        files.addAll(l);
+        SettingsHandler.getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles." + game.getName(),
+                StringUtil.join(files, ", "));
+    }
 
-	/**
-	 * CODE-1889 to remove use of this method
-	 */
-	@Override
-	public List<URI> getChosenCampaignSourcefiles(GameMode game)
-	{
-		return chosenCampaignSourcefiles.computeIfAbsent(game.getName(), k -> new ArrayList<>());
-	}
+    /**
+     * CODE-1889 to remove use of this method
+     */
+    @Override
+    public List<URI> getChosenCampaignSourcefiles(GameMode game)
+    {
+        return chosenCampaignSourcefiles.computeIfAbsent(game.getName(), k -> new ArrayList<>());
+    }
 }

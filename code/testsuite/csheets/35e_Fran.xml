@@ -1,1435 +1,1449 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-<!--========================================================================
-BIO
-========================================================================-->
-	<basics>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<name>Fran</name>
-		<followerof></followerof>
-		<playername>Unit Test</playername>
-		<action_points>0</action_points>
-		<age>0</age>
-		<alignment>
-			<long>True Neutral</long>
-			<short>TN</short>
-		</alignment>
-		<bab>+4</bab>
-		<bio></bio>
-		<birthplace></birthplace>
-		<catchphrase></catchphrase>
-		<classes>
-			<class>
-				<name>Domain Test</name>
-				<abbreviation>Dom</abbreviation>
-				<level>1</level>
-				<bonuslist>Domain Test</bonuslist>
-				<sequence>0</sequence>
-			</class>
-			<class>
-				<name>MonKee</name>
-				<abbreviation>Mon</abbreviation>
-				<level>1</level>
-				<bonuslist>MonKee</bonuslist>
-				<sequence>1</sequence>
-			</class>
-			<class>
-				<name>Test46c</name>
-				<abbreviation>Tes</abbreviation>
-				<level>2</level>
-				<bonuslist>Test46c</bonuslist>
-				<sequence>2</sequence>
-			</class>
-			<class>
-				<name>Test51I</name>
-				<abbreviation>Tes</abbreviation>
-				<level>1</level>
-				<bonuslist>Test51I</bonuslist>
-				<sequence>3</sequence>
-			</class>
-			<levels_total>5</levels_total>
-			<levels_ecl>5</levels_ecl>
-			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform>Dom1,Mon1,Tes2,Tes1</shortform>
-			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
-		</classes>
-		<deity>
-			<name></name>
-			<alignment></alignment>
-			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
-			<holyitem></holyitem>
-			<pantheonlist></pantheonlist>
-			<source></source>
-			<special_abilities></special_abilities>
-			<appearance></appearance>
-			<title></title>
-			<worshippers></worshippers>
-		</deity>
-		<description></description>
-		<experience>
-			<current>10000</current>
-			<next_level>15000</next_level>
-			<factor>100%</factor>
-			<penalty>0%</penalty>
-		</experience>
-		<eyes>
-			<color></color>
-		</eyes>
-		<hair>
-			<color></color>
-			<length></length>
-		</hair>
-		<skin>
-			<color></color>
-		</skin>
-		<cr>2</cr>
-		<face>
-		<face>5 ft.</face>
-			<short>5 ft.</short>
-			<squares>1</squares>
-		</face>
-		<favoredlist></favoredlist>
-		<followerlist></followerlist>
-		<gender>
-			<long>Male</long>
-			<short>Male</short>
-		</gender>
-		<handed>Right</handed>
-		<height>
-			<total>0&#39; 0&quot;</total>
-			<feet>0</feet>
-			<inches>0</inches>
-		</height>
-		<hitdice>(1d4)+(1d12)</hitdice>
-		<interests></interests>
-		<languages>
-			<all></all>
-		</languages>
-		<location></location>
-		<move>
-			<all></all>
-		</move>
-		<personality>
-			<trait></trait>
-			<trait></trait>
-		</personality>
-		<portrait></portrait>
-		<phobias></phobias>
-		<race>Hughpert Case Won</race>
-		<reach>
-		<reach>5 ft.</reach>
-			<squares>1</squares>
-		</reach>
-		<region>None</region>
-		<reputation>0</reputation>
-		<residence></residence>
-		<size>
-			<long>Tiny</long>
-			<short>T</short>
-		</size>
-		<speechtendency></speechtendency>
-		<type>Fey</type>
-		<vision>
-			<all></all>
-		</vision>
-		<wealth>0</wealth>
-		<weight>
-			<weight_unit>0 lbs.</weight_unit>
-			<weight_nounit>0</weight_nounit>
-		</weight>
-		<poolpoints>
-			<cost>0</cost>
-			<current>0</current>
-		</poolpoints>
-		<notes>
-		</notes>
-	</basics>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITIES
-	  ====================================
-	  ====================================-->
-	<abilities>
-		<ability>
-			<name>
-				<long>Strength</long>
-				<short>STR</short>
-			</name>
-			<score>3</score>
-			<modifier>-4</modifier>
-			<base>11</base>
-			<basemod>+0</basemod>
-			<noequip>3</noequip>
-			<noequip_mod>-4</noequip_mod>
-			<no_temp_score>3</no_temp_score>
-			<no_temp_modifier>-4</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Dexterity</long>
-				<short>DEX</short>
-			</name>
-			<score>34</score>
-			<modifier>+12</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>34</noequip>
-			<noequip_mod>+12</noequip_mod>
-			<no_temp_score>34</no_temp_score>
-			<no_temp_modifier>+12</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Constitution</long>
-				<short>CON</short>
-			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Intelligence</long>
-				<short>INT</short>
-			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Wisdom</long>
-				<short>WIS</short>
-			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Charisma</long>
-				<short>CHA</short>
-			</name>
-			<score>44</score>
-			<modifier>+17</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>44</noequip>
-			<noequip_mod>+17</noequip_mod>
-			<no_temp_score>44</no_temp_score>
-			<no_temp_modifier>+17</no_temp_modifier>
-		</ability>
-	</abilities>
-	<!--
-	  ====================================
-	  ====================================
-			HIT POINTS
-	  ====================================
-	  ====================================-->
-	<hit_points>
-		<points>10</points>
-		<alternate>10</alternate>
-		<die>(1d4)+(1d12)</die>
-		<current/>
-		<subdual/>
-		<damage_reduction></damage_reduction>
-		<damage_threshold>0</damage_threshold>
-		<history>
-			<roll>
-				<level>1</level>
-				<roll>4</roll>
-				<stat>0</stat>
-				<total>4</total>
-			</roll>
-			<roll>
-				<level>2</level>
-				<roll>6</roll>
-				<stat>0</stat>
-				<total>6</total>
-			</roll>
-			<roll>
-				<level>3</level>
-				<roll>0</roll>
-				<stat>0</stat>
-				<total>0</total>
-			</roll>
-			<roll>
-				<level>4</level>
-				<roll>0</roll>
-				<stat>0</stat>
-				<total>0</total>
-			</roll>
-			<roll>
-				<level>5</level>
-				<roll>0</roll>
-				<stat>0</stat>
-				<total>0</total>
-			</roll>
-		</history>
-	</hit_points>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR CLASS
-	  ====================================
-	  ====================================-->
-	<armor_class>
-		<total>29</total>
-		<listing>+5, ABILITY +12, BASE +10, SIZE +2</listing>
-		<flat>17</flat>
-		<touch>29</touch>
-		<base>10</base>
-		<armor_bonus>0</armor_bonus>
-		<shield_bonus>0</shield_bonus>
-		<stat_mod>12</stat_mod>
-		<size_mod>2</size_mod>
-		<natural>0</natural>
-		<class_bonus>0</class_bonus>
-		<dodge_bonus>0</dodge_bonus>
-		<misc>5</misc>
-		<miss_chance/>
-		<max_dex></max_dex>
-		<spell_failure>0</spell_failure>
-		<check_penalty>+0</check_penalty>
-		<spell_resistance>0</spell_resistance>
-	</armor_class>
-	<!--
-	  ====================================
-	  ====================================
-			INITIATIVE
-	  ====================================
-	  ====================================-->
-	<initiative>
-		<total>+12</total>
-		<dex_mod>+12</dex_mod>
-		<misc_mod>+0</misc_mod>
-	</initiative>
-	<!--
-	  ====================================
-	  ====================================
-			SKILLS
-	  ====================================
-	  ====================================-->
-	<skills>
-		<skillpoints>
-			<total>8</total>
-			<used>0</used>
-			<unused>8</unused>
-		</skillpoints>
-		<list_mods>Uber Scripting from five ranks in Test Coding Script +17</list_mods>
-		<max_class_skill_level>8</max_class_skill_level>
-		<max_cross_class_skill_level>4</max_cross_class_skill_level>
-		<skill>
-			<name>Acrobatics</name>
-			<ranks>0.0</ranks>
-			<mod>12<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>12</skill_mod>
-			<ability_mod>12<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Acrobatics</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>12</trained_total>
-			<exclusive_total>12</exclusive_total>
-		</skill>
-		<skill>
-			<name>Athletics</name>
-			<ranks>0.0</ranks>
-			<mod>-4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>-4</skill_mod>
-			<ability_mod>-4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Athletics</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>-4</trained_total>
-			<exclusive_total>-4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Combat Focus</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CON</ability>
-			<synergy>Combat Focus</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Craft (One)</name>
-			<ranks>0.0</ranks>
-			<mod>12<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>12</skill_mod>
-			<ability_mod>12<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Craft (One)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>12</trained_total>
-			<exclusive_total>12</exclusive_total>
-		</skill>
-		<skill>
-			<name>Craft (Two)</name>
-			<ranks>0.0</ranks>
-			<mod>12<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>12</skill_mod>
-			<ability_mod>12<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Craft (Two)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>12</trained_total>
-			<exclusive_total>12</exclusive_total>
-		</skill>
-		<skill>
-			<name>Knowledge</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Linguistics</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability></ability>
-			<synergy>Linguistics</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Monkey Building</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability></ability>
-			<synergy>Monkey Building</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Monkey Building Sensation</name>
-			<ranks>0.0</ranks>
-			<mod>17<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>17</skill_mod>
-			<ability_mod>17<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Monkey Building Sensation</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>17</trained_total>
-			<exclusive_total>17</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perception</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Perception</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Persuasion</name>
-			<ranks>0.0</ranks>
-			<mod>17<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>17</skill_mod>
-			<ability_mod>17<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Persuasion</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>17</trained_total>
-			<exclusive_total>17</exclusive_total>
-		</skill>
-		<skill>
-			<name>Poetry</name>
-			<ranks>0.0</ranks>
-			<mod>17<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>17</skill_mod>
-			<ability_mod>17<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Poetry</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>17</trained_total>
-			<exclusive_total>17</exclusive_total>
-		</skill>
-		<skill>
-			<name>Poetry Recitation Specialty</name>
-			<ranks>0.0</ranks>
-			<mod>17<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>17</skill_mod>
-			<ability_mod>17<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Poetry Recitation Specialty</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>17</trained_total>
-			<exclusive_total>17</exclusive_total>
-		</skill>
-		<skill>
-			<name>Stealth</name>
-			<ranks>0.0</ranks>
-			<mod>12<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>12</skill_mod>
-			<ability_mod>12<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Stealth</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>12</trained_total>
-			<exclusive_total>12</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test Coding Script</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Test Coding Script</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test Crafting</name>
-			<ranks>0.0</ranks>
-			<mod>12<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>12</skill_mod>
-			<ability_mod>12<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Test Crafting</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>12</trained_total>
-			<exclusive_total>12</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test Skill (Class Level)</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability></ability>
-			<synergy>Test Skill (Class Level)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test Skill Chooser_1</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Test Skill Chooser_1</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test Skill Chooser_2</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Test Skill Chooser_2</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test Skill Chooser_3</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Test Skill Chooser_3</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test Skill Chooser_4</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Test Skill Chooser_4</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test Skill Chooser_5</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Test Skill Chooser_5</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test96d</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability></ability>
-			<synergy>Test96d</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test96g</name>
-			<ranks>0.0</ranks>
-			<mod>-4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>-4</skill_mod>
-			<ability_mod>-4<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Test96g</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>-4</trained_total>
-			<exclusive_total>-4</exclusive_total>
-		</skill>
-		<skill>
-			<name>Test96h</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability></ability>
-			<synergy>Test96h</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Uber Scripting from five ranks in Test Coding Script</name>
-			<ranks>0.0</ranks>
-			<mod>17<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>17</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>17<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Uber Scripting from five ranks in Test Coding Script</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>17</trained_total>
-			<exclusive_total>17</exclusive_total>
-		</skill>
-	</skills>
-	<!--
-	  ====================================
-	  ====================================
-			SAVING THROWS
-	  ====================================
-	  ====================================-->
-	<saving_throws>
-		<conditional_modifiers/>
-		<saving_throw>
-			<name>
-				<long>fortitude</long>
-				<short>fort</short>
-			</name>
-			<ability>constitution</ability>
-			<total>+5</total>
-			<base>+5</base>
-			<abil_mod>+0</abil_mod>
-			<feats>+0</feats>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>reflex</long>
-				<short>ref</short>
-			</name>
-			<ability>dexterity</ability>
-			<total>+12</total>
-			<base>+0</base>
-			<feats>+0</feats>
-			<abil_mod>+12</abil_mod>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>will</long>
-				<short>will</short>
-			</name>
-			<ability>wisdom</ability>
-			<total>+0</total>
-			<base>+0</base>
-			<abil_mod>+0</abil_mod>
-			<feats>+0</feats>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-	</saving_throws>
-	<!--
-	  ====================================
-	  ====================================
-			ATTACK
-	  ====================================
-	  ====================================-->
-	<attack>
-		<melee>
-			<total>+2</total>
-			<bab>+4</bab>
-			<base_attack_bonus>+4</base_attack_bonus>
-			<stat_mod>-4</stat_mod>
-			<size_mod>+2</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</melee>
-		<ranged>
-			<total>+18</total>
-			<bab>+4</bab>
-			<base_attack_bonus>+4</base_attack_bonus>
-			<stat_mod>+12</stat_mod>
-			<size_mod>+2</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</ranged>
-		<grapple>
-			<total>-8</total>
-			<bab>+4</bab>
-			<base_attack_bonus>+4</base_attack_bonus>
-			<stat_mod>-4</stat_mod>
-			<size_mod>-8</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</grapple>
-	</attack>
-	<!--
-	  ====================================
-	  ====================================
-			WEAPONS
-	  ====================================
-	  ====================================-->
-	<weapons>
-		<unarmed>
-			<total>-2</total>
-			<damage>1d2-4</damage>
-			<critical>20/x2</critical>
-			<!-- Should be changed to a variable due to improved crit -->
-		</unarmed>
-		
-		<weapon>
-			<common>
-				<name>
-					<short>*Tentacles of the Fey</short>
-					<long>*Tentacles of the Fey (Natural/Primary)</long>
-				</name>
-				<category>Natural-Natural,Both (Melee)</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+2/+2/+2/+2/+2/+2</hit>
-					<magic_hit>+0</magic_hit>
-					<total_hit>+2/+2/+2/+2/+2/+2</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Primary</hand>
-				<num_attacks>6</num_attacks>
-				<reach>5</reach>
-				<size>M</size>
-				<special_properties></special_properties>
-				<template></template>
-				<type>BPS</type>
-				<weight>0</weight>
-				<sequence>0</sequence>
-			</common>
-			<melee>
-				<w1_h1_p>
-					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit>+2/+2/+2/+2/+2/+2</to_hit>
-					<damage>1d3-4</damage>
-				</w1_h1_p>
-				<w1_h1_o>
-					<!-- One weapon, 1 handed, offhand -->
-					<to_hit>+2/+2/+2/+2/+2/+2</to_hit>
-					<damage>1d3-4</damage>
-				</w1_h1_o>
-				<w1_h2>
-					<!-- One weapon, 2 handed -->
-					<to_hit>+2/+2/+2/+2/+2/+2</to_hit>
-					<damage>1d3-4</damage>
-				</w1_h2>
-				<w2_p_oh>
-					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit>+2/+2/+2/+2/+2/+2</to_hit>
-					<damage>1d3-4</damage>
-				</w2_p_oh>
-				<w2_p_ol>
-					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit>+2/+2/+2/+2/+2/+2</to_hit>
-					<damage>1d3-4</damage>
-				</w2_p_ol>
-				<w2_o>
-					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit>+2</to_hit>
-					<damage>1d3-4</damage>
-				</w2_o>
-			</melee>
-			<ranges>
-				<range>
-					<distance>0 ft.</distance>
-					<to_hit>+14/+14/+14/+14/+14/+14</to_hit>
-					<damage>1d3-4</damage>
-				</range>
-				<range>
-					<distance>0 ft.</distance>
-					<to_hit>+14/+14/+14/+14/+14/+14</to_hit>
-					<damage>1d3-4</damage>
-				</range>
-				<range>
-					<distance>0 ft.</distance>
-					<to_hit>+14/+14/+14/+14/+14/+14</to_hit>
-					<damage>1d3-4</damage>
-				</range>
-				<range>
-					<distance>0 ft.</distance>
-					<to_hit>+14/+14/+14/+14/+14/+14</to_hit>
-					<damage>1d3-4</damage>
-				</range>
-				<range>
-					<distance>0 ft.</distance>
-					<to_hit>+14/+14/+14/+14/+14/+14</to_hit>
-					<damage>1d3-4</damage>
-				</range>
-			</ranges>
-		</weapon>
-	</weapons>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR
-	  ====================================
-	  ====================================-->
-	<protection>
-	</protection>
-	<!--
-	  ====================================
-	  ====================================
-			CLASS-DEPENDANT FEATURES
-	  ====================================
-	  ====================================-->
-	<class_features>
-	<!-- Bard -->
+    <!--========================================================================
+    BIO
+    ========================================================================-->
+    <basics>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <name>Fran</name>
+        <followerof></followerof>
+        <playername>Unit Test</playername>
+        <action_points>0</action_points>
+        <age>0</age>
+        <alignment>
+            <long>True Neutral</long>
+            <short>TN</short>
+        </alignment>
+        <bab>+4</bab>
+        <bio></bio>
+        <birthplace></birthplace>
+        <catchphrase></catchphrase>
+        <classes>
+            <class>
+                <name>Domain Test</name>
+                <abbreviation>Dom</abbreviation>
+                <level>1</level>
+                <bonuslist>Domain Test</bonuslist>
+                <sequence>0</sequence>
+            </class>
+            <class>
+                <name>MonKee</name>
+                <abbreviation>Mon</abbreviation>
+                <level>1</level>
+                <bonuslist>MonKee</bonuslist>
+                <sequence>1</sequence>
+            </class>
+            <class>
+                <name>Test46c</name>
+                <abbreviation>Tes</abbreviation>
+                <level>2</level>
+                <bonuslist>Test46c</bonuslist>
+                <sequence>2</sequence>
+            </class>
+            <class>
+                <name>Test51I</name>
+                <abbreviation>Tes</abbreviation>
+                <level>1</level>
+                <bonuslist>Test51I</bonuslist>
+                <sequence>3</sequence>
+            </class>
+            <levels_total>5</levels_total>
+            <levels_ecl>5</levels_ecl>
+            <!-- shortform below should be removed - it can be derived from class info above -->
+            <shortform>Dom1,Mon1,Tes2,Tes1</shortform>
+            <!-- CLASSLIST is not extracted because we can derive it from the information above -->
+        </classes>
+        <deity>
+            <name></name>
+            <alignment></alignment>
+            <description></description>
+            <domainlist></domainlist>
+            <favoredweapon></favoredweapon>
+            <holyitem></holyitem>
+            <pantheonlist></pantheonlist>
+            <source></source>
+            <special_abilities></special_abilities>
+            <appearance></appearance>
+            <title></title>
+            <worshippers></worshippers>
+        </deity>
+        <description></description>
+        <experience>
+            <current>10000</current>
+            <next_level>15000</next_level>
+            <factor>100%</factor>
+            <penalty>0%</penalty>
+        </experience>
+        <eyes>
+            <color></color>
+        </eyes>
+        <hair>
+            <color></color>
+            <length></length>
+        </hair>
+        <skin>
+            <color></color>
+        </skin>
+        <cr>2</cr>
+        <face>
+            <face>5 ft.</face>
+            <short>5 ft.</short>
+            <squares>1</squares>
+        </face>
+        <favoredlist></favoredlist>
+        <followerlist></followerlist>
+        <gender>
+            <long>Male</long>
+            <short>Male</short>
+        </gender>
+        <handed>Right</handed>
+        <height>
+            <total>0&#39; 0&quot;</total>
+            <feet>0</feet>
+            <inches>0</inches>
+        </height>
+        <hitdice>(1d4)+(1d12)</hitdice>
+        <interests></interests>
+        <languages>
+            <all></all>
+        </languages>
+        <location></location>
+        <move>
+            <all></all>
+        </move>
+        <personality>
+            <trait></trait>
+            <trait></trait>
+        </personality>
+        <portrait></portrait>
+        <phobias></phobias>
+        <race>Hughpert Case Won</race>
+        <reach>
+            <reach>5 ft.</reach>
+            <squares>1</squares>
+        </reach>
+        <region>None</region>
+        <reputation>0</reputation>
+        <residence></residence>
+        <size>
+            <long>Tiny</long>
+            <short>T</short>
+        </size>
+        <speechtendency></speechtendency>
+        <type>Fey</type>
+        <vision>
+            <all></all>
+        </vision>
+        <wealth>0</wealth>
+        <weight>
+            <weight_unit>0 lbs.</weight_unit>
+            <weight_nounit>0</weight_nounit>
+        </weight>
+        <poolpoints>
+            <cost>0</cost>
+            <current>0</current>
+        </poolpoints>
+        <notes>
+        </notes>
+    </basics>
+    <!--
+      ====================================
+      ====================================
+            ABILITIES
+      ====================================
+      ====================================-->
+    <abilities>
+        <ability>
+            <name>
+                <long>Strength</long>
+                <short>STR</short>
+            </name>
+            <score>3</score>
+            <modifier>-4</modifier>
+            <base>11</base>
+            <basemod>+0</basemod>
+            <noequip>3</noequip>
+            <noequip_mod>-4</noequip_mod>
+            <no_temp_score>3</no_temp_score>
+            <no_temp_modifier>-4</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Dexterity</long>
+                <short>DEX</short>
+            </name>
+            <score>34</score>
+            <modifier>+12</modifier>
+            <base>10</base>
+            <basemod>+0</basemod>
+            <noequip>34</noequip>
+            <noequip_mod>+12</noequip_mod>
+            <no_temp_score>34</no_temp_score>
+            <no_temp_modifier>+12</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Constitution</long>
+                <short>CON</short>
+            </name>
+            <score>10</score>
+            <modifier>+0</modifier>
+            <base>10</base>
+            <basemod>+0</basemod>
+            <noequip>10</noequip>
+            <noequip_mod>+0</noequip_mod>
+            <no_temp_score>10</no_temp_score>
+            <no_temp_modifier>+0</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Intelligence</long>
+                <short>INT</short>
+            </name>
+            <score>10</score>
+            <modifier>+0</modifier>
+            <base>10</base>
+            <basemod>+0</basemod>
+            <noequip>10</noequip>
+            <noequip_mod>+0</noequip_mod>
+            <no_temp_score>10</no_temp_score>
+            <no_temp_modifier>+0</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Wisdom</long>
+                <short>WIS</short>
+            </name>
+            <score>10</score>
+            <modifier>+0</modifier>
+            <base>10</base>
+            <basemod>+0</basemod>
+            <noequip>10</noequip>
+            <noequip_mod>+0</noequip_mod>
+            <no_temp_score>10</no_temp_score>
+            <no_temp_modifier>+0</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Charisma</long>
+                <short>CHA</short>
+            </name>
+            <score>44</score>
+            <modifier>+17</modifier>
+            <base>10</base>
+            <basemod>+0</basemod>
+            <noequip>44</noequip>
+            <noequip_mod>+17</noequip_mod>
+            <no_temp_score>44</no_temp_score>
+            <no_temp_modifier>+17</no_temp_modifier>
+        </ability>
+    </abilities>
+    <!--
+      ====================================
+      ====================================
+            HIT POINTS
+      ====================================
+      ====================================-->
+    <hit_points>
+        <points>10</points>
+        <alternate>10</alternate>
+        <die>(1d4)+(1d12)</die>
+        <current/>
+        <subdual/>
+        <damage_reduction></damage_reduction>
+        <damage_threshold>0</damage_threshold>
+        <history>
+            <roll>
+                <level>1</level>
+                <roll>4</roll>
+                <stat>0</stat>
+                <total>4</total>
+            </roll>
+            <roll>
+                <level>2</level>
+                <roll>6</roll>
+                <stat>0</stat>
+                <total>6</total>
+            </roll>
+            <roll>
+                <level>3</level>
+                <roll>0</roll>
+                <stat>0</stat>
+                <total>0</total>
+            </roll>
+            <roll>
+                <level>4</level>
+                <roll>0</roll>
+                <stat>0</stat>
+                <total>0</total>
+            </roll>
+            <roll>
+                <level>5</level>
+                <roll>0</roll>
+                <stat>0</stat>
+                <total>0</total>
+            </roll>
+        </history>
+    </hit_points>
+    <!--
+      ====================================
+      ====================================
+            ARMOR CLASS
+      ====================================
+      ====================================-->
+    <armor_class>
+        <total>29</total>
+        <listing>+5, ABILITY +12, BASE +10, SIZE +2</listing>
+        <flat>17</flat>
+        <touch>29</touch>
+        <base>10</base>
+        <armor_bonus>0</armor_bonus>
+        <shield_bonus>0</shield_bonus>
+        <stat_mod>12</stat_mod>
+        <size_mod>2</size_mod>
+        <natural>0</natural>
+        <class_bonus>0</class_bonus>
+        <dodge_bonus>0</dodge_bonus>
+        <misc>5</misc>
+        <miss_chance/>
+        <max_dex></max_dex>
+        <spell_failure>0</spell_failure>
+        <check_penalty>+0</check_penalty>
+        <spell_resistance>0</spell_resistance>
+    </armor_class>
+    <!--
+      ====================================
+      ====================================
+            INITIATIVE
+      ====================================
+      ====================================-->
+    <initiative>
+        <total>+12</total>
+        <dex_mod>+12</dex_mod>
+        <misc_mod>+0</misc_mod>
+    </initiative>
+    <!--
+      ====================================
+      ====================================
+            SKILLS
+      ====================================
+      ====================================-->
+    <skills>
+        <skillpoints>
+            <total>8</total>
+            <used>0</used>
+            <unused>8</unused>
+        </skillpoints>
+        <list_mods>Uber Scripting from five ranks in Test Coding Script +17</list_mods>
+        <max_class_skill_level>8</max_class_skill_level>
+        <max_cross_class_skill_level>4</max_cross_class_skill_level>
+        <skill>
+            <name>Acrobatics</name>
+            <ranks>0.0</ranks>
+            <mod>12<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>12</skill_mod>
+            <ability_mod>12<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Acrobatics</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>12</trained_total>
+            <exclusive_total>12</exclusive_total>
+        </skill>
+        <skill>
+            <name>Athletics</name>
+            <ranks>0.0</ranks>
+            <mod>-4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>-4</skill_mod>
+            <ability_mod>-4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Athletics</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>-4</trained_total>
+            <exclusive_total>-4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Combat Focus</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CON</ability>
+            <synergy>Combat Focus</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Craft (One)</name>
+            <ranks>0.0</ranks>
+            <mod>12<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>12</skill_mod>
+            <ability_mod>12<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Craft (One)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>12</trained_total>
+            <exclusive_total>12</exclusive_total>
+        </skill>
+        <skill>
+            <name>Craft (Two)</name>
+            <ranks>0.0</ranks>
+            <mod>12<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>12</skill_mod>
+            <ability_mod>12<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Craft (Two)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>12</trained_total>
+            <exclusive_total>12</exclusive_total>
+        </skill>
+        <skill>
+            <name>Knowledge</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Knowledge</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Linguistics</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability></ability>
+            <synergy>Linguistics</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Monkey Building</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability></ability>
+            <synergy>Monkey Building</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Monkey Building Sensation</name>
+            <ranks>0.0</ranks>
+            <mod>17<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>17</skill_mod>
+            <ability_mod>17<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Monkey Building Sensation</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>17</trained_total>
+            <exclusive_total>17</exclusive_total>
+        </skill>
+        <skill>
+            <name>Perception</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Perception</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Persuasion</name>
+            <ranks>0.0</ranks>
+            <mod>17<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>17</skill_mod>
+            <ability_mod>17<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Persuasion</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>17</trained_total>
+            <exclusive_total>17</exclusive_total>
+        </skill>
+        <skill>
+            <name>Poetry</name>
+            <ranks>0.0</ranks>
+            <mod>17<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>17</skill_mod>
+            <ability_mod>17<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Poetry</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>17</trained_total>
+            <exclusive_total>17</exclusive_total>
+        </skill>
+        <skill>
+            <name>Poetry Recitation Specialty</name>
+            <ranks>0.0</ranks>
+            <mod>17<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>17</skill_mod>
+            <ability_mod>17<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Poetry Recitation Specialty</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>17</trained_total>
+            <exclusive_total>17</exclusive_total>
+        </skill>
+        <skill>
+            <name>Stealth</name>
+            <ranks>0.0</ranks>
+            <mod>12<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>12</skill_mod>
+            <ability_mod>12<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Stealth</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>12</trained_total>
+            <exclusive_total>12</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test Coding Script</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Test Coding Script</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test Crafting</name>
+            <ranks>0.0</ranks>
+            <mod>12<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>12</skill_mod>
+            <ability_mod>12<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Test Crafting</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>12</trained_total>
+            <exclusive_total>12</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test Skill (Class Level)</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability></ability>
+            <synergy>Test Skill (Class Level)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test Skill Chooser_1</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Test Skill Chooser_1</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test Skill Chooser_2</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Test Skill Chooser_2</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test Skill Chooser_3</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Test Skill Chooser_3</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test Skill Chooser_4</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Test Skill Chooser_4</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test Skill Chooser_5</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Test Skill Chooser_5</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test96d</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability></ability>
+            <synergy>Test96d</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test96g</name>
+            <ranks>0.0</ranks>
+            <mod>-4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>-4</skill_mod>
+            <ability_mod>-4<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Test96g</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>-4</trained_total>
+            <exclusive_total>-4</exclusive_total>
+        </skill>
+        <skill>
+            <name>Test96h</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability></ability>
+            <synergy>Test96h</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Uber Scripting from five ranks in Test Coding Script</name>
+            <ranks>0.0</ranks>
+            <mod>17<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>17</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>17<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Uber Scripting from five ranks in Test Coding Script</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>17</trained_total>
+            <exclusive_total>17</exclusive_total>
+        </skill>
+    </skills>
+    <!--
+      ====================================
+      ====================================
+            SAVING THROWS
+      ====================================
+      ====================================-->
+    <saving_throws>
+        <conditional_modifiers/>
+        <saving_throw>
+            <name>
+                <long>fortitude</long>
+                <short>fort</short>
+            </name>
+            <ability>constitution</ability>
+            <total>+5</total>
+            <base>+5</base>
+            <abil_mod>+0</abil_mod>
+            <feats>+0</feats>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>reflex</long>
+                <short>ref</short>
+            </name>
+            <ability>dexterity</ability>
+            <total>+12</total>
+            <base>+0</base>
+            <feats>+0</feats>
+            <abil_mod>+12</abil_mod>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>will</long>
+                <short>will</short>
+            </name>
+            <ability>wisdom</ability>
+            <total>+0</total>
+            <base>+0</base>
+            <abil_mod>+0</abil_mod>
+            <feats>+0</feats>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+    </saving_throws>
+    <!--
+      ====================================
+      ====================================
+            ATTACK
+      ====================================
+      ====================================-->
+    <attack>
+        <melee>
+            <total>+2</total>
+            <bab>+4</bab>
+            <base_attack_bonus>+4</base_attack_bonus>
+            <stat_mod>-4</stat_mod>
+            <size_mod>+2</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </melee>
+        <ranged>
+            <total>+18</total>
+            <bab>+4</bab>
+            <base_attack_bonus>+4</base_attack_bonus>
+            <stat_mod>+12</stat_mod>
+            <size_mod>+2</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </ranged>
+        <grapple>
+            <total>-8</total>
+            <bab>+4</bab>
+            <base_attack_bonus>+4</base_attack_bonus>
+            <stat_mod>-4</stat_mod>
+            <size_mod>-8</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </grapple>
+    </attack>
+    <!--
+      ====================================
+      ====================================
+            WEAPONS
+      ====================================
+      ====================================-->
+    <weapons>
+        <unarmed>
+            <total>-2</total>
+            <damage>1d2-4</damage>
+            <critical>20/x2</critical>
+            <!-- Should be changed to a variable due to improved crit -->
+        </unarmed>
+
+        <weapon>
+            <common>
+                <name>
+                    <short>*Tentacles of the Fey</short>
+                    <long>*Tentacles of the Fey (Natural/Primary)</long>
+                </name>
+                <category>Natural-Natural,Both (Melee)</category>
+                <critical>
+                    <range>20</range>
+                    <multiplier>2</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>+2/+2/+2/+2/+2/+2</hit>
+                    <magic_hit>+0</magic_hit>
+                    <total_hit>+2/+2/+2/+2/+2/+2</total_hit>
+                </to_hit>
+                <feat></feat>
+                <hand>Primary</hand>
+                <num_attacks>6</num_attacks>
+                <reach>5</reach>
+                <size>M</size>
+                <special_properties></special_properties>
+                <template></template>
+                <type>BPS</type>
+                <weight>0</weight>
+                <sequence>0</sequence>
+            </common>
+            <melee>
+                <w1_h1_p>
+                    <!-- One weapon, 1 hand, primary hand -->
+                    <to_hit>+2/+2/+2/+2/+2/+2</to_hit>
+                    <damage>1d3-4</damage>
+                </w1_h1_p>
+                <w1_h1_o>
+                    <!-- One weapon, 1 handed, offhand -->
+                    <to_hit>+2/+2/+2/+2/+2/+2</to_hit>
+                    <damage>1d3-4</damage>
+                </w1_h1_o>
+                <w1_h2>
+                    <!-- One weapon, 2 handed -->
+                    <to_hit>+2/+2/+2/+2/+2/+2</to_hit>
+                    <damage>1d3-4</damage>
+                </w1_h2>
+                <w2_p_oh>
+                    <!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+                    <to_hit>+2/+2/+2/+2/+2/+2</to_hit>
+                    <damage>1d3-4</damage>
+                </w2_p_oh>
+                <w2_p_ol>
+                    <!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+                    <to_hit>+2/+2/+2/+2/+2/+2</to_hit>
+                    <damage>1d3-4</damage>
+                </w2_p_ol>
+                <w2_o>
+                    <!-- Two weapons, this weapon in off-hand -->
+                    <to_hit>+2</to_hit>
+                    <damage>1d3-4</damage>
+                </w2_o>
+            </melee>
+            <ranges>
+                <range>
+                    <distance>0 ft.</distance>
+                    <to_hit>+14/+14/+14/+14/+14/+14</to_hit>
+                    <damage>1d3-4</damage>
+                </range>
+                <range>
+                    <distance>0 ft.</distance>
+                    <to_hit>+14/+14/+14/+14/+14/+14</to_hit>
+                    <damage>1d3-4</damage>
+                </range>
+                <range>
+                    <distance>0 ft.</distance>
+                    <to_hit>+14/+14/+14/+14/+14/+14</to_hit>
+                    <damage>1d3-4</damage>
+                </range>
+                <range>
+                    <distance>0 ft.</distance>
+                    <to_hit>+14/+14/+14/+14/+14/+14</to_hit>
+                    <damage>1d3-4</damage>
+                </range>
+                <range>
+                    <distance>0 ft.</distance>
+                    <to_hit>+14/+14/+14/+14/+14/+14</to_hit>
+                    <damage>1d3-4</damage>
+                </range>
+            </ranges>
+        </weapon>
+    </weapons>
+    <!--
+      ====================================
+      ====================================
+            ARMOR
+      ====================================
+      ====================================-->
+    <protection>
+    </protection>
+    <!--
+      ====================================
+      ====================================
+            CLASS-DEPENDANT FEATURES
+      ====================================
+      ====================================-->
+    <class_features>
+        <!-- Bard -->
 
 
-	<!-- Pathfinder -->
-		<!-- Character Rage -->
-		<!-- Character Rage -->
+        <!-- Pathfinder -->
+        <!-- Character Rage -->
+        <!-- Character Rage -->
 
-	<!-- Turning ability -->
+        <!-- Turning ability -->
 
-	<!-- 3.0 stunning fist -->
+        <!-- 3.0 stunning fist -->
 
-	<!-- 3.5 stunning fist -->
+        <!-- 3.5 stunning fist -->
 
-	<!-- 3.0 wholeness of body -->
+        <!-- 3.0 wholeness of body -->
 
-	<!-- 3.5 wholeness of body -->
+        <!-- 3.5 wholeness of body -->
 
-	<!-- Psionics -->
-
-
+        <!-- Psionics -->
 
 
-	</class_features>
-	<!--
-	  ====================================
-	  ====================================
-			EQUIPMENT
-	  ====================================
-	  ====================================-->
-	<equipment>
-		<item>
-			<longname>Tentacles of the Fey (Natural/Primary)</longname>
-			<id></id>
-			<name>Tentacles of the Fey</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>WEAPON.MELEE.RANGED.SLASHING.BLUDGEONING.PIERCING.NATURAL</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<total>
-			<weight>0 lbs.</weight>
-			<value>0 gp</value>
-			<load>Light</load>
-			<capacity>15</capacity>
-		</total>
-		<equipmentsets>
-		<equipmentset name="Default Set">
-			<item>
-				<name>Tentacles of the Fey</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>0</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>WEAPON.MELEE.RANGED.SLASHING.BLUDGEONING.PIERCING.NATURAL</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			</equipmentset>
-      </equipmentsets>
-	</equipment>
-	<weight_allowance>
-		<light>5</light>
-		<medium>10</medium>
-		<heavy>15</heavy>
-		<lift_over_head>15</lift_over_head>
-		<lift_off_ground>30</lift_off_ground>
-		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>75</push_drag>
-	</weight_allowance>
-	<!--
-	  ====================================
-	  ====================================
-			SPECIAL ABILITIES
-	  ====================================
-	  ====================================-->
-	<special_abilities>
-		<race></race>
-		<class>
-			<class>Domain Test</class>
-			<ability></ability>
-		</class>
-		<class>
-			<class>MonKee</class>
-			<ability></ability>
-		</class>
-		<class>
-			<class>Test46c</class>
-			<ability></ability>
-		</class>
-		<class>
-			<class>Test51I</class>
-			<ability></ability>
-		</class>
-	</special_abilities>
-	<!--
-	  ====================================
-	  ====================================
-			FEATS
-	  ====================================
-	  ====================================-->
-	<feats>
-		<!-- Visible standard feats (not including the auto feats) -->
-		<feat>
-			<name>AutoFeat_ParentThingyType6</name>
-			<description></description>
-			<type>TEST48.C</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>AutoFeat_ParentThingyType7</name>
-			<description></description>
-			<type>TEST48.C</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Choose Feat Selection (ChooseSelection_NoStackChoiceFeat (Ride), ChooseSelection_NoStackChoiceFeat (Ride), ChooseSelection_NoStackChoiceFeat (Tumble), ChooseSelection_StackNoChoiceFeat, ChooseSelection_StackNoChoiceFeat)</name>
-			<description></description>
-			<type>TEST45</type>
-			<associated>ChooseSelection_NoStackChoiceFeat (Ride),ChooseSelection_NoStackChoiceFeat (Ride),ChooseSelection_NoStackChoiceFeat (Tumble),ChooseSelection_StackNoChoiceFeat,ChooseSelection_StackNoChoiceFeat</associated>
-			<count>5</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>ParentThingyType6</name>
-			<description></description>
-			<type>TEST47</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>ParentThingyType7</name>
-			<description></description>
-			<type>TEST47</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
+    </class_features>
+    <!--
+      ====================================
+      ====================================
+            EQUIPMENT
+      ====================================
+      ====================================-->
+    <equipment>
+        <item>
+            <longname>Tentacles of the Fey (Natural/Primary)</longname>
+            <id></id>
+            <name>Tentacles of the Fey</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>0</cost>
+            <equipped>Y</equipped>
+            <location>Equipped</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties></special_properties>
+            <type>WEAPON.MELEE.RANGED.SLASHING.BLUDGEONING.PIERCING.NATURAL</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <total>
+            <weight>0 lbs.</weight>
+            <value>0 gp</value>
+            <load>Light</load>
+            <capacity>15</capacity>
+        </total>
+        <equipmentsets>
+            <equipmentset name="Default Set">
+                <item>
+                    <name>Tentacles of the Fey</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>0</cost>
+                    <equipped>Y</equipped>
+                    <location>Equipped</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>WEAPON.MELEE.RANGED.SLASHING.BLUDGEONING.PIERCING.NATURAL</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+            </equipmentset>
+        </equipmentsets>
+    </equipment>
+    <weight_allowance>
+        <light>5</light>
+        <medium>10</medium>
+        <heavy>15</heavy>
+        <lift_over_head>15</lift_over_head>
+        <lift_off_ground>30</lift_off_ground>
+        <!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
+        <push_drag>75</push_drag>
+    </weight_allowance>
+    <!--
+      ====================================
+      ====================================
+            SPECIAL ABILITIES
+      ====================================
+      ====================================-->
+    <special_abilities>
+        <race></race>
+        <class>
+            <class>Domain Test</class>
+            <ability></ability>
+        </class>
+        <class>
+            <class>MonKee</class>
+            <ability></ability>
+        </class>
+        <class>
+            <class>Test46c</class>
+            <ability></ability>
+        </class>
+        <class>
+            <class>Test51I</class>
+            <ability></ability>
+        </class>
+    </special_abilities>
+    <!--
+      ====================================
+      ====================================
+            FEATS
+      ====================================
+      ====================================-->
+    <feats>
+        <!-- Visible standard feats (not including the auto feats) -->
+        <feat>
+            <name>AutoFeat_ParentThingyType6</name>
+            <description></description>
+            <type>TEST48.C</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>AutoFeat_ParentThingyType7</name>
+            <description></description>
+            <type>TEST48.C</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Choose Feat Selection (ChooseSelection_NoStackChoiceFeat (Ride), ChooseSelection_NoStackChoiceFeat
+                (Ride), ChooseSelection_NoStackChoiceFeat (Tumble), ChooseSelection_StackNoChoiceFeat,
+                ChooseSelection_StackNoChoiceFeat)
+            </name>
+            <description></description>
+            <type>TEST45</type>
+            <associated>ChooseSelection_NoStackChoiceFeat (Ride),ChooseSelection_NoStackChoiceFeat
+                (Ride),ChooseSelection_NoStackChoiceFeat
+                (Tumble),ChooseSelection_StackNoChoiceFeat,ChooseSelection_StackNoChoiceFeat
+            </associated>
+            <count>5</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>ParentThingyType6</name>
+            <description></description>
+            <type>TEST47</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>ParentThingyType7</name>
+            <description></description>
+            <type>TEST47</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
 
-		<!-- Auto feats -->
-		<feat>
-			<name>AutoFeat_GivingThingy (AutoFeat_StackChoiceFeat (Ride), AutoFeat_StackChoiceFeat (Ride), AutoFeat_StackChoiceFeat (Tumble), AutoFeat_StackNoChoiceFeat, AutoFeat_StackNoChoiceFeat)</name>
-			<description></description>
-			<type>TEST48</type>
-			<associated>AutoFeat_StackChoiceFeat (Ride),AutoFeat_StackChoiceFeat (Ride),AutoFeat_StackChoiceFeat (Tumble),AutoFeat_StackNoChoiceFeat,AutoFeat_StackNoChoiceFeat</associated>
-			<count>5</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>AutoFeat_StackChoiceFeat (Ride, Ride, Tumble)</name>
-			<description></description>
-			<type>TEST48.AUTOFEAT_TESTTHING</type>
-			<associated>Ride,Ride,Tumble</associated>
-			<count>3</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>AutoFeat_StackNoChoiceFeat (2x)</name>
-			<description></description>
-			<type>TEST48.AUTOFEAT_TESTTHING</type>
-			<associated>,</associated>
-			<count>2</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>ChooseSelection_NoStackChoiceFeat (Ride, Tumble)</name>
-			<description></description>
-			<type>TEST45.CHOOSESELECTION_TESTTHING</type>
-			<associated>Ride,Tumble</associated>
-			<count>2</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>ChooseSelection_StackNoChoiceFeat (2x)</name>
-			<description></description>
-			<type>TEST45.CHOOSESELECTION_TESTTHING</type>
-			<associated>,</associated>
-			<count>2</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>DirectApplication_StackChoiceFeat (Ride, Ride, Ride)</name>
-			<description></description>
-			<type>TEST45.DIRECTAPPLICATION_TESTTHING</type>
-			<associated>Ride,Ride,Ride</associated>
-			<count>3</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>GivingThingy (StackNoChoiceFeatAuto)</name>
-			<description></description>
-			<type>TEST47</type>
-			<associated>StackNoChoiceFeatAuto</associated>
-			<count>1</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>GivingThingyAuto (StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackChoiceFeatAuto (Ride), StackNoChoiceFeatAuto)</name>
-			<description></description>
-			<type>TEST46</type>
-			<associated>StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackChoiceFeatAuto (Ride),StackNoChoiceFeatAuto</associated>
-			<count>4</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>StackChoiceFeat (Ride, Ride, Ride, Tumble, Tumble)</name>
-			<description></description>
-			<type>TEST47.TESTTHING</type>
-			<associated>Ride,Ride,Ride,Tumble,Tumble</associated>
-			<count>5</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>StackChoiceFeatAuto (Ride)</name>
-			<description></description>
-			<type>TEST46.TESTTHING46</type>
-			<associated>Ride</associated>
-			<count>1</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>StackNoChoiceFeat (2x)</name>
-			<description></description>
-			<type>TEST47.TESTTHING</type>
-			<associated>,</associated>
-			<count>2</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>StackNoChoiceFeatAuto (2x)</name>
-			<description></description>
-			<type>TEST46.TESTTHING46</type>
-			<associated>,</associated>
-			<count>2</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
+        <!-- Auto feats -->
+        <feat>
+            <name>AutoFeat_GivingThingy (AutoFeat_StackChoiceFeat (Ride), AutoFeat_StackChoiceFeat (Ride),
+                AutoFeat_StackChoiceFeat (Tumble), AutoFeat_StackNoChoiceFeat, AutoFeat_StackNoChoiceFeat)
+            </name>
+            <description></description>
+            <type>TEST48</type>
+            <associated>AutoFeat_StackChoiceFeat (Ride),AutoFeat_StackChoiceFeat (Ride),AutoFeat_StackChoiceFeat
+                (Tumble),AutoFeat_StackNoChoiceFeat,AutoFeat_StackNoChoiceFeat
+            </associated>
+            <count>5</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>AutoFeat_StackChoiceFeat (Ride, Ride, Tumble)</name>
+            <description></description>
+            <type>TEST48.AUTOFEAT_TESTTHING</type>
+            <associated>Ride,Ride,Tumble</associated>
+            <count>3</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>AutoFeat_StackNoChoiceFeat (2x)</name>
+            <description></description>
+            <type>TEST48.AUTOFEAT_TESTTHING</type>
+            <associated>,</associated>
+            <count>2</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>ChooseSelection_NoStackChoiceFeat (Ride, Tumble)</name>
+            <description></description>
+            <type>TEST45.CHOOSESELECTION_TESTTHING</type>
+            <associated>Ride,Tumble</associated>
+            <count>2</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>ChooseSelection_StackNoChoiceFeat (2x)</name>
+            <description></description>
+            <type>TEST45.CHOOSESELECTION_TESTTHING</type>
+            <associated>,</associated>
+            <count>2</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>DirectApplication_StackChoiceFeat (Ride, Ride, Ride)</name>
+            <description></description>
+            <type>TEST45.DIRECTAPPLICATION_TESTTHING</type>
+            <associated>Ride,Ride,Ride</associated>
+            <count>3</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>GivingThingy (StackNoChoiceFeatAuto)</name>
+            <description></description>
+            <type>TEST47</type>
+            <associated>StackNoChoiceFeatAuto</associated>
+            <count>1</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>GivingThingyAuto (StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackChoiceFeatAuto (Ride),
+                StackNoChoiceFeatAuto)
+            </name>
+            <description></description>
+            <type>TEST46</type>
+            <associated>StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackChoiceFeatAuto
+                (Ride),StackNoChoiceFeatAuto
+            </associated>
+            <count>4</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>StackChoiceFeat (Ride, Ride, Ride, Tumble, Tumble)</name>
+            <description></description>
+            <type>TEST47.TESTTHING</type>
+            <associated>Ride,Ride,Ride,Tumble,Tumble</associated>
+            <count>5</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>StackChoiceFeatAuto (Ride)</name>
+            <description></description>
+            <type>TEST46.TESTTHING46</type>
+            <associated>Ride</associated>
+            <count>1</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>StackNoChoiceFeat (2x)</name>
+            <description></description>
+            <type>TEST47.TESTTHING</type>
+            <associated>,</associated>
+            <count>2</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>StackNoChoiceFeatAuto (2x)</name>
+            <description></description>
+            <type>TEST46.TESTTHING46</type>
+            <associated>,</associated>
+            <count>2</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
 
-		<!-- Virtual Feats -->
-		<feat>
-			<name>GivingThingy (StackChoiceFeat (Ride), StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackNoChoiceFeat, StackNoChoiceFeat)</name>
-			<description></description>
-			<type>TEST47</type>
-			<associated>StackChoiceFeat (Ride),StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackNoChoiceFeat,StackNoChoiceFeat</associated>
-			<count>5</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<!-- End Virtual Feats -->
-		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-<!-- Hidden VFEATS -->
-<!-- END Hidden VFEATS -->
-	</feats>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITY OBJECTS
-	  ====================================
-	  ====================================-->
+        <!-- Virtual Feats -->
+        <feat>
+            <name>GivingThingy (StackChoiceFeat (Ride), StackChoiceFeat (Ride), StackChoiceFeat (Tumble),
+                StackNoChoiceFeat, StackNoChoiceFeat)
+            </name>
+            <description></description>
+            <type>TEST47</type>
+            <associated>StackChoiceFeat (Ride),StackChoiceFeat (Ride),StackChoiceFeat
+                (Tumble),StackNoChoiceFeat,StackNoChoiceFeat
+            </associated>
+            <count>5</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>T</virtual>
+        </feat>
+        <!-- End Virtual Feats -->
+        <!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
+        <!-- Hidden VFEATS -->
+        <!-- END Hidden VFEATS -->
+    </feats>
+    <!--
+      ====================================
+      ====================================
+            ABILITY OBJECTS
+      ====================================
+      ====================================-->
 
-	<ability_objects>
-		<!-- Visible Automatic "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>Fey Dust Test</name>
-			<description>Fey Dust Test ~ Grants the ability to fly, no aspect granted</description>
-			<type>RACIAL.SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Tentacles of the Fey</name>
-			<description>Grants Six Attacks 1d3 each [Display should be 1d3]</description>
-			<type>ALICETESTADDITIONAL.RACIAL.SPECIALATTACK</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<!-- Visible Automatic "Internal" Ability Objects -->
-		<ability_object>
-			<name>Default</name>
-			<description></description>
-			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-	</ability_objects>
-	<!--
-	  ====================================
-	  ====================================
-			MISCELLANEOUS
-	  ====================================
-	  ====================================-->
+    <ability_objects>
+        <!-- Visible Automatic "Special Ability" Ability Objects -->
+        <ability_object>
+            <name>Fey Dust Test</name>
+            <description>Fey Dust Test ~ Grants the ability to fly, no aspect granted</description>
+            <type>RACIAL.SPECIALQUALITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Tentacles of the Fey</name>
+            <description>Grants Six Attacks 1d3 each [Display should be 1d3]</description>
+            <type>ALICETESTADDITIONAL.RACIAL.SPECIALATTACK</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <!-- Visible Automatic "Internal" Ability Objects -->
+        <ability_object>
+            <name>Default</name>
+            <description></description>
+            <type>INTERNAL</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+    </ability_objects>
+    <!--
+      ====================================
+      ====================================
+            MISCELLANEOUS
+      ====================================
+      ====================================-->
 
-	<weapon_proficiencies>Light Blades, Tentacles of the Fey</weapon_proficiencies>
-	<languages></languages>
+    <weapon_proficiencies>Light Blades, Tentacles of the Fey</weapon_proficiencies>
+    <languages></languages>
 
-	<templates>
-		<list>Test One Situation</list>
-		<template>
-			<name>Test One Situation</name>
-			<strmod>0</strmod>
-			<dexmod>0</dexmod>
-			<conmod>0</conmod>
-			<intmod>0</intmod>
-			<wismod>0</wismod>
-			<chamod>0</chamod>
-			<cr>0</cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
-	</templates>
+    <templates>
+        <list>Test One Situation</list>
+        <template>
+            <name>Test One Situation</name>
+            <strmod>0</strmod>
+            <dexmod>0</dexmod>
+            <conmod>0</conmod>
+            <intmod>0</intmod>
+            <wismod>0</wismod>
+            <chamod>0</chamod>
+            <cr>0</cr>
+            <dr></dr>
+            <feat></feat>
+            <sa></sa>
+            <sr>0</sr>
+            <bonuslist></bonuslist>
+        </template>
+    </templates>
 
-	<misc>
-	</misc>
-	<!--
-	  ====================================
-	  ====================================
-			COMPANIONS
-	  ====================================
-	  ====================================-->
+    <misc>
+    </misc>
+    <!--
+      ====================================
+      ====================================
+            COMPANIONS
+      ====================================
+      ====================================-->
 
-	<companions>
-	</companions>
-	<!--
-	  ====================================
-	  ====================================
-			SPELLS
-	  ====================================
-	  ====================================-->
-	<spells>
-		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate number="none"/>
-<!-- ### END Innate spells ### -->
-		<!-- ### BEGIN Known spells ### -->
-		<known_spells>
-		<class number="0" spelllistclass="MonKee" spellcastertype="Arcane">
-			<level number="0" known="0" cast="0"/>
-			<level number="1" known="0" cast="0"/>
-			<level number="2" known="0" cast="0"/>
-			<level number="3" known="0" cast="0"/>
-			<level number="4" known="0" cast="0"/>
-			<level number="5" known="0" cast="0"/>
-			<level number="6" known="0" cast="0"/>
-			<level number="7" known="0" cast="0"/>
-			<level number="8" known="0" cast="0"/>
-			<level number="9" known="0" cast="0"/>
-		</class>
-
-
+    <companions>
+    </companions>
+    <!--
+      ====================================
+      ====================================
+            SPELLS
+      ====================================
+      ====================================-->
+    <spells>
+        <!-- ### BEGIN Innate spells ### -->
+        <spells_innate number="none"/>
+        <!-- ### END Innate spells ### -->
+        <!-- ### BEGIN Known spells ### -->
+        <known_spells>
+            <class number="0" spelllistclass="MonKee" spellcastertype="Arcane">
+                <level number="0" known="0" cast="0"/>
+                <level number="1" known="0" cast="0"/>
+                <level number="2" known="0" cast="0"/>
+                <level number="3" known="0" cast="0"/>
+                <level number="4" known="0" cast="0"/>
+                <level number="5" known="0" cast="0"/>
+                <level number="6" known="0" cast="0"/>
+                <level number="7" known="0" cast="0"/>
+                <level number="8" known="0" cast="0"/>
+                <level number="9" known="0" cast="0"/>
+            </class>
 
 
-	</known_spells>
-		<!-- ### END Known spells ### -->
-		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells/>
-<!-- ### END class Spellbook memorized spells ### -->
-	</spells>
+        </known_spells>
+        <!-- ### END Known spells ### -->
+        <!-- ### BEGIN memorized spells ### -->
+        <memorized_spells/>
+        <!-- ### END class Spellbook memorized spells ### -->
+    </spells>
 </character>

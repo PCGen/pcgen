@@ -32,38 +32,40 @@ import pcgen.io.exporttoken.SpellListToken;
 
 public class SpellListDcToken extends SpellListToken
 {
-	/** token name */
-	public static final String TOKENNAME = "SPELLLISTDC";
+    /**
+     * token name
+     */
+    public static final String TOKENNAME = "SPELLLISTDC";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringBuilder retValue = new StringBuilder();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_DC);
+        SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_DC);
 
-		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+        final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
-		if (aObject != null)
-		{
-			PCClass aClass = null;
+        if (aObject != null)
+        {
+            PCClass aClass = null;
 
-			if (aObject instanceof PCClass)
-			{
-				aClass = (PCClass) aObject;
-			}
+            if (aObject instanceof PCClass)
+            {
+                aClass = (PCClass) aObject;
+            }
 
-			int DC = pc.getDC(new Spell(), aClass, params.getLevel(), 0, aClass);
+            int DC = pc.getDC(new Spell(), aClass, params.getLevel(), 0, aClass);
 
-			retValue.append(Integer.toString(DC));
-		}
+            retValue.append(Integer.toString(DC));
+        }
 
-		return retValue.toString();
-	}
+        return retValue.toString();
+    }
 }

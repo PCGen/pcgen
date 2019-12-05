@@ -32,44 +32,44 @@ import pcgen.rules.context.LoadContext;
 
 public class HiddenTypeFacet extends AbstractScopeFacet<DataSetID, Class<?>, Type> implements DataSetInitializedFacet
 {
-	private DataSetInitializationFacet datasetInitializationFacet;
+    private DataSetInitializationFacet datasetInitializationFacet;
 
-	@Override
-	public void initialize(LoadContext context)
-	{
-		for (Campaign c : context.getLoadedCampaigns())
-		{
-			loadCampaignHiddenTypes(context.getDataSetID(), c);
-		}
-	}
+    @Override
+    public void initialize(LoadContext context)
+    {
+        for (Campaign c : context.getLoadedCampaigns())
+        {
+            loadCampaignHiddenTypes(context.getDataSetID(), c);
+        }
+    }
 
-	private void loadCampaignHiddenTypes(DataSetID id, Campaign c)
-	{
-		loadHiddenTypes(id, ListKey.HIDDEN_Equipment, Equipment.class, c);
-		loadHiddenTypes(id, ListKey.HIDDEN_Ability, Ability.class, c);
-		loadHiddenTypes(id, ListKey.HIDDEN_Skill, Skill.class, c);
-		for (Campaign subCamp : c.getSubCampaigns())
-		{
-			loadCampaignHiddenTypes(id, subCamp);
-		}
-	}
+    private void loadCampaignHiddenTypes(DataSetID id, Campaign c)
+    {
+        loadHiddenTypes(id, ListKey.HIDDEN_Equipment, Equipment.class, c);
+        loadHiddenTypes(id, ListKey.HIDDEN_Ability, Ability.class, c);
+        loadHiddenTypes(id, ListKey.HIDDEN_Skill, Skill.class, c);
+        for (Campaign subCamp : c.getSubCampaigns())
+        {
+            loadCampaignHiddenTypes(id, subCamp);
+        }
+    }
 
-	private void loadHiddenTypes(DataSetID id, ListKey<String> listKey, Class<?> cl, Campaign c)
-	{
-		List<String> hiddentypes = c.getSafeListFor(listKey);
-		for (String s : hiddentypes)
-		{
-			add(id, cl, Type.getConstant(s), c);
-		}
-	}
+    private void loadHiddenTypes(DataSetID id, ListKey<String> listKey, Class<?> cl, Campaign c)
+    {
+        List<String> hiddentypes = c.getSafeListFor(listKey);
+        for (String s : hiddentypes)
+        {
+            add(id, cl, Type.getConstant(s), c);
+        }
+    }
 
-	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
-	{
-		this.datasetInitializationFacet = datasetInitializationFacet;
-	}
+    public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
+    {
+        this.datasetInitializationFacet = datasetInitializationFacet;
+    }
 
-	public void init()
-	{
-		datasetInitializationFacet.addDataSetInitializedFacet(this);
-	}
+    public void init()
+    {
+        datasetInitializationFacet.addDataSetInitializedFacet(this);
+    }
 }

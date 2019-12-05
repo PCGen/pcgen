@@ -28,76 +28,73 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * {@code LoadToken}
- * 
  */
 public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements CDOMPrimaryToken<LoadInfo>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "LOAD";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LOAD";
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, LoadInfo info, String value)
-	{
-		int pipeLoc = value.indexOf('|');
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail(getTokenName() + " requires a pipe, found : " + value);
-		}
-		if (pipeLoc != value.lastIndexOf('|'))
-		{
-			return new ParseResult.Fail(getTokenName() + " requires only one pipe, found : " + value);
-		}
-		String strengthString = value.substring(0, pipeLoc);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, LoadInfo info, String value)
+    {
+        int pipeLoc = value.indexOf('|');
+        if (pipeLoc == -1)
+        {
+            return new ParseResult.Fail(getTokenName() + " requires a pipe, found : " + value);
+        }
+        if (pipeLoc != value.lastIndexOf('|'))
+        {
+            return new ParseResult.Fail(getTokenName() + " requires only one pipe, found : " + value);
+        }
+        String strengthString = value.substring(0, pipeLoc);
 
-		int strength;
-		try
-		{
-			strength = Integer.parseInt(strengthString);
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " expected an Integer strength value : " + strengthString + " in value: " + value);
-		}
-		String loadString = value.substring(pipeLoc + 1);
-		try
-		{
-			BigDecimal load = new BigDecimal(loadString);
-			if (load.compareTo(BigDecimal.ZERO) < 0)
-			{
-				return new ParseResult.Fail(
-					getTokenName() + " requires a non-negative load value, found : " + loadString);
-			}
-			info.addLoadScoreValue(strength, load);
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " misunderstood load value : " + loadString + " in value: " + value);
-		}
-		return ParseResult.SUCCESS;
-	}
+        int strength;
+        try
+        {
+            strength = Integer.parseInt(strengthString);
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " expected an Integer strength value : " + strengthString + " in value: " + value);
+        }
+        String loadString = value.substring(pipeLoc + 1);
+        try
+        {
+            BigDecimal load = new BigDecimal(loadString);
+            if (load.compareTo(BigDecimal.ZERO) < 0)
+            {
+                return new ParseResult.Fail(
+                        getTokenName() + " requires a non-negative load value, found : " + loadString);
+            }
+            info.addLoadScoreValue(strength, load);
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " misunderstood load value : " + loadString + " in value: " + value);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, LoadInfo info)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public String[] unparse(LoadContext context, LoadInfo info)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Class<LoadInfo> getTokenClass()
-	{
-		return LoadInfo.class;
-	}
+    @Override
+    public Class<LoadInfo> getTokenClass()
+    {
+        return LoadInfo.class;
+    }
 }

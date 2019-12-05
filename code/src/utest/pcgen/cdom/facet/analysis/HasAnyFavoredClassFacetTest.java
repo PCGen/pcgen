@@ -31,101 +31,101 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public class HasAnyFavoredClassFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, Boolean>
+        AbstractExtractingFacetTest<CDOMObject, Boolean>
 {
-	private HasAnyFavoredClassFacet facet = new HasAnyFavoredClassFacet();
-	private Boolean[] target;
-	private CDOMObject[] source;
+    private HasAnyFavoredClassFacet facet = new HasAnyFavoredClassFacet();
+    private Boolean[] target;
+    private CDOMObject[] source;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Templ");
-		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race");
-		PCStat pcs1 = new PCStat();
-		pcs1.setName("Stat1");
-		PCStat pcs2 = new PCStat();
-		pcs2.setName("Stat2");
-		Boolean st1 = Boolean.TRUE;
-		Boolean st2 = Boolean.FALSE;
-		cdo1.put(ObjectKey.ANY_FAVORED_CLASS, st1);
-		cdo2.put(ObjectKey.ANY_FAVORED_CLASS, st2);
-		source = new CDOMObject[]{cdo1, cdo2};
-		target = new Boolean[]{st1, st2};
-	}
-
-	@Override
-	protected CDOMObject getContainingObject(int i)
-	{
-		return source[i];
-	}
-
-	@Override
-	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
-	{
-		return facet;
-	}
-
-	@Override
-	protected Boolean getTargetObject(int i)
-	{
-		return target[i];
-	}
-
-	@Override
-	protected AbstractSourcedListFacet<CharID, Boolean> getFacet()
-	{
-		return facet;
-	}
-
-	@Override
-	protected Boolean getObject()
-	{
-		return Boolean.TRUE;
-	}
-
-	@Override
-	protected Boolean getAltObject()
-	{
-		return Boolean.FALSE;
-	}
-
-	@Test
+    @BeforeEach
     @Override
-	public void testTypeAddAllSecondSource()
-	{
-		// TODO Override due to Boolean only having 2 values
-	}
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        CDOMObject cdo1 = new PCTemplate();
+        cdo1.setName("Templ");
+        CDOMObject cdo2 = new Race();
+        cdo2.setName("Race");
+        PCStat pcs1 = new PCStat();
+        pcs1.setName("Stat1");
+        PCStat pcs2 = new PCStat();
+        pcs2.setName("Stat2");
+        Boolean st1 = Boolean.TRUE;
+        Boolean st2 = Boolean.FALSE;
+        cdo1.put(ObjectKey.ANY_FAVORED_CLASS, st1);
+        cdo2.put(ObjectKey.ANY_FAVORED_CLASS, st2);
+        source = new CDOMObject[]{cdo1, cdo2};
+        target = new Boolean[]{st1, st2};
+    }
 
-	@Test
     @Override
-	public void testTypeRemoveAllList()
-	{
-		// TODO Override due to Boolean only having 2 values
-	}
+    protected CDOMObject getContainingObject(int i)
+    {
+        return source[i];
+    }
 
-	@Test
     @Override
-	public void testTypeRemoveAllSource()
-	{
-		// TODO Override due to Boolean only having 2 values
-	}
+    protected DataFacetChangeListener<CharID, CDOMObject> getListener()
+    {
+        return facet;
+    }
 
-	@Test
     @Override
-	public void testTypeGetSetSource()
-	{
-		// TODO Override due to Boolean only having 2 values
-	}
+    protected Boolean getTargetObject(int i)
+    {
+        return target[i];
+    }
 
-	@Test
     @Override
-	public void testTypeContainsFrom()
-	{
-		// TODO Override due to Boolean only having 2 values
-	}
+    protected AbstractSourcedListFacet<CharID, Boolean> getFacet()
+    {
+        return facet;
+    }
+
+    @Override
+    protected Boolean getObject()
+    {
+        return Boolean.TRUE;
+    }
+
+    @Override
+    protected Boolean getAltObject()
+    {
+        return Boolean.FALSE;
+    }
+
+    @Test
+    @Override
+    public void testTypeAddAllSecondSource()
+    {
+        // TODO Override due to Boolean only having 2 values
+    }
+
+    @Test
+    @Override
+    public void testTypeRemoveAllList()
+    {
+        // TODO Override due to Boolean only having 2 values
+    }
+
+    @Test
+    @Override
+    public void testTypeRemoveAllSource()
+    {
+        // TODO Override due to Boolean only having 2 values
+    }
+
+    @Test
+    @Override
+    public void testTypeGetSetSource()
+    {
+        // TODO Override due to Boolean only having 2 values
+    }
+
+    @Test
+    @Override
+    public void testTypeContainsFrom()
+    {
+        // TODO Override due to Boolean only having 2 values
+    }
 }

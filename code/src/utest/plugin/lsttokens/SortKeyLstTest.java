@@ -27,41 +27,41 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 /**
  * The Class {@code SortKeyLstTest} is a round robin test for the SORTKEY tag.
- * It checks that the parse and unparse are working correctly and that a parsed 
+ * It checks that the parse and unparse are working correctly and that a parsed
  * result can be unparsed back to the original input.
  */
 public class SortKeyLstTest extends AbstractGlobalStringTokenTestCase
 {
-	static CDOMPrimaryToken<CDOMObject> token = new SortKeyLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+    static CDOMPrimaryToken<CDOMObject> token = new SortKeyLst();
+    static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	@Override
-	public CDOMLoader<PCTemplate> getLoader()
-	{
-		return loader;
-	}
+    @Override
+    public CDOMLoader<PCTemplate> getLoader()
+    {
+        return loader;
+    }
 
-	@Override
-	public Class<PCTemplate> getCDOMClass()
-	{
-		return PCTemplate.class;
-	}
+    @Override
+    public Class<PCTemplate> getCDOMClass()
+    {
+        return PCTemplate.class;
+    }
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getReadToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getReadToken()
+    {
+        return token;
+    }
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getWriteToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getWriteToken()
+    {
+        return token;
+    }
 
-	@Override
-	public StringKey getStringKey()
-	{
-		return StringKey.SORT_KEY;
-	}
+    @Override
+    public StringKey getStringKey()
+    {
+        return StringKey.SORT_KEY;
+    }
 }

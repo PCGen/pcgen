@@ -29,21 +29,21 @@ import org.junit.jupiter.api.Test;
 
 class PreVariableParserTest extends EnUsLocaleDependentTestCase
 {
-	
-	/**
-	 * Test not equal.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testNotEqual() throws PersistenceLayerException
-	{
-		PreVariableParser parser = new PreVariableParser();
 
-		Prerequisite prereq = parser.parse("VARNEQ", "Enraged,1", false, false);
+    /**
+     * Test not equal.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testNotEqual() throws PersistenceLayerException
+    {
+        PreVariableParser parser = new PreVariableParser();
 
-		assertEquals(
-			"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" >\n</prereq>\n",
-			prereq.toString());
-	}
+        Prerequisite prereq = parser.parse("VARNEQ", "Enraged,1", false, false);
+
+        assertEquals(
+                "<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" >\n</prereq>\n",
+                prereq.toString());
+    }
 }

@@ -30,37 +30,36 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class SkillRankTextToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SKILLRANKTEXT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SKILLRANKTEXT";
+    }
 
-	//
-	// SKILLRANKTEXT:<rank_val> <tab> <display_text>
-	//
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		final StringTokenizer tok = new StringTokenizer(value, "\t");
-		if (tok.countTokens() == 2)
-		{
-			try
-			{
-				final int rankValue = Integer.parseInt(tok.nextToken());
-				String rankText = tok.nextToken();
-				if ("&nbsp;".equals(rankText))
-				{
-					rankText = "";
-				}
-				gameMode.addSkillRankDisplayText(rankValue, rankText);
-				return true;
-			}
-			catch (NumberFormatException exc)
-			{
-				//returns false
-			}
-		}
-		return false;
-	}
+    //
+    // SKILLRANKTEXT:<rank_val> <tab> <display_text>
+    //
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        final StringTokenizer tok = new StringTokenizer(value, "\t");
+        if (tok.countTokens() == 2)
+        {
+            try
+            {
+                final int rankValue = Integer.parseInt(tok.nextToken());
+                String rankText = tok.nextToken();
+                if ("&nbsp;".equals(rankText))
+                {
+                    rankText = "";
+                }
+                gameMode.addSkillRankDisplayText(rankValue, rankText);
+                return true;
+            } catch (NumberFormatException exc)
+            {
+                //returns false
+            }
+        }
+        return false;
+    }
 }

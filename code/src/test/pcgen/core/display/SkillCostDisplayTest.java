@@ -42,105 +42,103 @@ import org.junit.jupiter.api.Test;
 /**
  * The Class {@code SkillModifierTest} is responsible for checking that the
  * SkillModifier class is operating correctly.
- * 
- * 
  */
 public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {
 
-	private PCClass pcClass;
-	private boolean firstTime = true;
-	private Ability skillFocus = new Ability();
-	private Ability persuasive = new Ability();
-	private Skill bluff;
+    private PCClass pcClass;
+    private boolean firstTime = true;
+    private Ability skillFocus = new Ability();
+    private Ability persuasive = new Ability();
+    private Skill bluff;
 
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		LoadContext context = Globals.getContext();
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        LoadContext context = Globals.getContext();
 
-		if (firstTime)
-		{
-			firstTime = false;
+        if (firstTime)
+        {
+            firstTime = false;
 
-			pcClass = new PCClass();
+            pcClass = new PCClass();
 
-			TestHelper.makeSkill("Bluff", "Charisma", cha, true,
-				SkillArmorCheck.NONE);
-			TestHelper.makeSkill("Listen", "Wisdom", wis, true,
-				SkillArmorCheck.NONE);
+            TestHelper.makeSkill("Bluff", "Charisma", cha, true,
+                    SkillArmorCheck.NONE);
+            TestHelper.makeSkill("Listen", "Wisdom", wis, true,
+                    SkillArmorCheck.NONE);
 
-			skillFocus =
-					TestHelper.makeAbility("Skill Focus", BuildUtilities.getFeatCat(), "General");
-			BonusObj aBonus = Bonus.newBonus(context, "SKILL|LIST|3");
-			
-			if (aBonus != null)
-			{
-				skillFocus.addToListFor(ListKey.BONUS, aBonus);
-			}
-			skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
-			Globals
-				.getContext()
-				.unconditionallyProcess(
-					skillFocus,
-					"CHOOSE",
-					"SKILL|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
+            skillFocus =
+                    TestHelper.makeAbility("Skill Focus", BuildUtilities.getFeatCat(), "General");
+            BonusObj aBonus = Bonus.newBonus(context, "SKILL|LIST|3");
 
-			persuasive =
-					TestHelper.makeAbility("Persuasive", BuildUtilities.getFeatCat(), "General");
-			aBonus = Bonus.newBonus(context, "SKILL|KEY_Bluff,KEY_Listen|2");
-			
-			if (aBonus != null)
-			{
-				persuasive.addToListFor(ListKey.BONUS, aBonus);
-			}
-			persuasive.put(ObjectKey.MULTIPLE_ALLOWED, false);
+            if (aBonus != null)
+            {
+                skillFocus.addToListFor(ListKey.BONUS, aBonus);
+            }
+            skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
+            Globals
+                    .getContext()
+                    .unconditionallyProcess(
+                            skillFocus,
+                            "CHOOSE",
+                            "SKILL|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
 
-		}
+            persuasive =
+                    TestHelper.makeAbility("Persuasive", BuildUtilities.getFeatCat(), "General");
+            aBonus = Bonus.newBonus(context, "SKILL|KEY_Bluff,KEY_Listen|2");
 
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(1, pcClass);
-	}
+            if (aBonus != null)
+            {
+                persuasive.addToListFor(ListKey.BONUS, aBonus);
+            }
+            persuasive.put(ObjectKey.MULTIPLE_ALLOWED, false);
 
-	@AfterEach
-	@Override
-	protected void tearDown() throws Exception
-	{
-		pcClass = null;
-		super.tearDown();
-	}
+        }
 
-	/**
-	 * Test getModifierExplanation for both lists and multiple 
-	 * bonus feats.
-	 */
-	@Test
-	public void testGetModifierExplanation()
-	{
-		bluff =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					Skill.class, "KEY_bluff");
-		PlayerCharacter pc = getCharacter();
-		setPCStat(pc, cha, 10);
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(1, pcClass);
+    }
 
-		assertEquals("", SkillCostDisplay.getModifierExplanation(
-			bluff, pc, false), "Initial state");
+    @AfterEach
+    @Override
+    protected void tearDown() throws Exception
+    {
+        pcClass = null;
+        super.tearDown();
+    }
 
-		AbstractCharacterTestCase.applyAbility(pc, BuildUtilities.getFeatCat(), skillFocus, "KEY_Bluff");
-		pc.calcActiveBonuses();
-		assertEquals("+3[Skill Focus]",
-			SkillCostDisplay.getModifierExplanation(bluff, pc, false), "Bonus after skill focus"
-		);
+    /**
+     * Test getModifierExplanation for both lists and multiple
+     * bonus feats.
+     */
+    @Test
+    public void testGetModifierExplanation()
+    {
+        bluff =
+                Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+                        Skill.class, "KEY_bluff");
+        PlayerCharacter pc = getCharacter();
+        setPCStat(pc, cha, 10);
 
-		addAbility(BuildUtilities.getFeatCat(), persuasive);
-		String modifierExplanation = SkillCostDisplay
-			.getModifierExplanation(bluff, pc, false);
-		// Have to account for random order of the bonuses. 
-		assertTrue(
-				modifierExplanation.equals("+2[Persuasive] +3[Skill Focus]")
-			|| modifierExplanation.equals("+3[Skill Focus] +2[Persuasive]"), "Bonus after persuasive");
-	}
+        assertEquals("", SkillCostDisplay.getModifierExplanation(
+                bluff, pc, false), "Initial state");
+
+        AbstractCharacterTestCase.applyAbility(pc, BuildUtilities.getFeatCat(), skillFocus, "KEY_Bluff");
+        pc.calcActiveBonuses();
+        assertEquals("+3[Skill Focus]",
+                SkillCostDisplay.getModifierExplanation(bluff, pc, false), "Bonus after skill focus"
+        );
+
+        addAbility(BuildUtilities.getFeatCat(), persuasive);
+        String modifierExplanation = SkillCostDisplay
+                .getModifierExplanation(bluff, pc, false);
+        // Have to account for random order of the bonuses.
+        assertTrue(
+                modifierExplanation.equals("+2[Persuasive] +3[Skill Focus]")
+                        || modifierExplanation.equals("+3[Skill Focus] +2[Persuasive]"), "Bonus after persuasive");
+    }
 
 }

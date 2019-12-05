@@ -19,23 +19,24 @@ package pcgen.io;
 
 /**
  * The Class {@code ExportException} indicates an export action failed.
- * This is normally the result of a problem in the export template or in 
- * the system configuration. 
+ * This is normally the result of a problem in the export template or in
+ * the system configuration.
  */
 @SuppressWarnings("serial")
 public class ExportException extends Exception
 {
 
-	/**
-	 * Constructs an instance of {@code ExportException}
-	 *  with the specified {@link Throwable rootCause}
-	 * and the specified detail message.
-	 * @param msg the detail message.
-	 * @param rootCause the root cause of the exception.
-	 */
-	ExportException(String msg, Throwable rootCause)
-	{
-		super(msg, rootCause);
-	}
+    /**
+     * Constructs an instance of {@code ExportException}
+     * with the specified {@link Throwable rootCause}
+     * and the specified detail message.
+     *
+     * @param msg       the detail message.
+     * @param rootCause the root cause of the exception.
+     */
+    ExportException(String msg, Throwable rootCause)
+    {
+        super(msg, rootCause);
+    }
 
 }

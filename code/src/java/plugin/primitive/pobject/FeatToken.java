@@ -36,116 +36,115 @@ import pcgen.util.Logging;
 
 /**
  * FeatToken is a Primitive that includes the selections of a different Feat.
- * 
+ *
  * @param <T> The underlying format of object selected (CHOOSE) by the target Feat
  */
 @Deprecated
 public class FeatToken<T> implements PrimitiveToken<T>
 {
 
-	private CDOMSingleRef<Ability> ref;
+    private CDOMSingleRef<Ability> ref;
 
-	private Class<T> refClass;
+    private Class<T> refClass;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<T> cl, String value, String args)
-	{
-		Logging.deprecationPrint("FEAT=x is deprecated in CHOOSE, " + "please use ABILITY=FEAT[x]");
-		if (args != null)
-		{
-			return false;
-		}
-		ref = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT).getReference(value);
-		refClass = cl;
-		return true;
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<T> cl, String value, String args)
+    {
+        Logging.deprecationPrint("FEAT=x is deprecated in CHOOSE, " + "please use ABILITY=FEAT[x]");
+        if (args != null)
+        {
+            return false;
+        }
+        ref = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT).getReference(value);
+        refClass = cl;
+        return true;
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "FEAT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FEAT";
+    }
 
-	@Override
-	public Class<? super T> getReferenceClass()
-	{
-		if (refClass == null)
-		{
-			return Object.class;
-		}
-		else
-		{
-			return refClass;
-		}
-	}
+    @Override
+    public Class<? super T> getReferenceClass()
+    {
+        if (refClass == null)
+        {
+            return Object.class;
+        } else
+        {
+            return refClass;
+        }
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + ']';
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + ']';
+    }
 
-	private <R> List<R> getList(PlayerCharacter pc, Ability a)
-	{
-		// workaround for cloning issue
-		List<R> availableList = new ArrayList<>();
-		List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
-		for (CNAbility ability : theFeats)
-		{
-			@SuppressWarnings("unchecked")
-			List<? extends R> list = (List<? extends R>) pc.getDetailedAssociations(ability);
-			if (list != null)
-			{
-				availableList.addAll(list);
-			}
-		}
-		return availableList;
-	}
+    private <R> List<R> getList(PlayerCharacter pc, Ability a)
+    {
+        // workaround for cloning issue
+        List<R> availableList = new ArrayList<>();
+        List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
+        for (CNAbility ability : theFeats)
+        {
+            @SuppressWarnings("unchecked")
+            List<? extends R> list = (List<? extends R>) pc.getDetailedAssociations(ability);
+            if (list != null)
+            {
+                availableList.addAll(list);
+            }
+        }
+        return availableList;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof FeatToken)
-		{
-			FeatToken<?> other = (FeatToken<?>) obj;
-			if (ref == null)
-			{
-				return (other.ref == null) && (refClass == null) && (other.refClass == null);
-			}
-			return refClass.equals(other.refClass) && ref.equals(other.ref);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof FeatToken)
+        {
+            FeatToken<?> other = (FeatToken<?>) obj;
+            if (ref == null)
+            {
+                return (other.ref == null) && (refClass == null) && (other.refClass == null);
+            }
+            return refClass.equals(other.refClass) && ref.equals(other.ref);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return ref == null ? -57 : ref.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return ref == null ? -57 : ref.hashCode();
+    }
 
-	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
-	{
-		/*
-		 * In theory the converter can be ignored here, since an equivalent
-		 * would exist within the ChooseInformation below
-		 */
-		List<R> currentItems = getList(pc, ref.get());
-		if (currentItems == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<>(currentItems);
-	}
+    @Override
+    public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+    {
+        /*
+         * In theory the converter can be ignored here, since an equivalent
+         * would exist within the ChooseInformation below
+         */
+        List<R> currentItems = getList(pc, ref.get());
+        if (currentItems == null)
+        {
+            return Collections.emptySet();
+        }
+        return new HashSet<>(currentItems);
+    }
 
 }

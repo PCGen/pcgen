@@ -11,23 +11,22 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class ShortrangeToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SHORTRANGE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SHORTRANGE";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			gameMode.setShortRangeDistance(Integer.parseInt(value));
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            gameMode.setShortRangeDistance(Integer.parseInt(value));
+            return true;
+        } catch (NumberFormatException nfe)
+        {
+            return false;
+        }
+    }
 }

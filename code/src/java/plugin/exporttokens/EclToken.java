@@ -23,20 +23,21 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 //ECL
+
 /**
  * Handle the EclToken which outputs the characters ECL.
  */
 public class EclToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "ECL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ECL";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return Integer.toString(display.getECL());
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return Integer.toString(display.getECL());
+    }
 }

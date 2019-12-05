@@ -36,52 +36,52 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements CDOMPrimaryToken<KitProf>
 {
-	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+    private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "PROF";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "PROF";
+    }
 
-	@Override
-	public Class<KitProf> getTokenClass()
-	{
-		return KitProf.class;
-	}
+    @Override
+    public Class<KitProf> getTokenClass()
+    {
+        return KitProf.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitProf obj, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		while (tok.hasMoreTokens())
-		{
-			String tokText = tok.nextToken();
-			CDOMSingleRef<WeaponProf> ref = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, tokText);
-			obj.addProficiency(ref);
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitProf obj, String value)
+    {
+        StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+        while (tok.hasMoreTokens())
+        {
+            String tokText = tok.nextToken();
+            CDOMSingleRef<WeaponProf> ref = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, tokText);
+            obj.addProficiency(ref);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitProf obj)
-	{
-		Collection<CDOMSingleRef<WeaponProf>> ref = obj.getProficiencies();
-		if (ref == null || ref.isEmpty())
-		{
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitProf obj)
+    {
+        Collection<CDOMSingleRef<WeaponProf>> ref = obj.getProficiencies();
+        if (ref == null || ref.isEmpty())
+        {
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
+    }
 }

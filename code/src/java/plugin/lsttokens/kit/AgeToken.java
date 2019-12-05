@@ -29,46 +29,45 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class AgeToken extends AbstractNonEmptyToken<KitBio> implements CDOMPrimaryToken<KitBio>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "AGE";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "AGE";
+    }
 
-	@Override
-	public Class<KitBio> getTokenClass()
-	{
-		return KitBio.class;
-	}
+    @Override
+    public Class<KitBio> getTokenClass()
+    {
+        return KitBio.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitBio kitName, String value)
-	{
-		try
-		{
-			kitName.setCharacterAge(Integer.valueOf(value));
-		}
-		catch (NumberFormatException e)
-		{
-			return new ParseResult.Fail("Illegal value for AGE: " + value);
-		}
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitBio kitName, String value)
+    {
+        try
+        {
+            kitName.setCharacterAge(Integer.valueOf(value));
+        } catch (NumberFormatException e)
+        {
+            return new ParseResult.Fail("Illegal value for AGE: " + value);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitBio kitName)
-	{
-		Integer bd = kitName.getCharacterAge();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitBio kitName)
+    {
+        Integer bd = kitName.getCharacterAge();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd.toString()};
+    }
 
 }

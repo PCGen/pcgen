@@ -30,65 +30,64 @@ import org.junit.jupiter.api.Test;
 
 /**
  * MinDevVerTokenTest checks the function of the MinDevVerToken class.
- * 
- * 
  */
 class MinDevVerTokenTest
 {
-	private MigrationRule migrationRule;
-	private MinDevVerToken token;
-	private String gameModeName;
+    private MigrationRule migrationRule;
+    private MinDevVerToken token;
+    private String gameModeName;
 
-	@BeforeEach
-	void setUp() {
-		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
-		token = new MinDevVerToken();
-		gameModeName = "Pathfinder";
-	}
+    @BeforeEach
+    void setUp()
+    {
+        migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
+        token = new MinDevVerToken();
+        gameModeName = "Pathfinder";
+    }
 
-	/**
-	 * Test method for {@link MinDevVerToken#parse(MigrationRule, String, String)}.
-	 */
-	@Test
-	public void testParseValidVer()
-	{
-		assertTrue(token.parse(migrationRule, "6.01.03", gameModeName), "Parse should have been successful");
-		assertEquals("6.01.03", migrationRule.getMinDevVer(), "MinDevVer");
-	}
-	
-	@Test
-	public void testParseValidVerNumbers()
-	{
-		String[] goodVersions =
-				{"5.17.12", "6.0.0", "6.0.1 RC2", "6.0.1-RC2", "6.01.02", "6.01.02-dev"};
-		for (String verString : goodVersions)
-		{
-			assertTrue(token.parse(migrationRule, verString, gameModeName), "Valid version " + verString
-				+ " should have been accepted");
-			assertEquals(verString, migrationRule.getMinDevVer(), "MinDevVer");
-		}
-	}
+    /**
+     * Test method for {@link MinDevVerToken#parse(MigrationRule, String, String)}.
+     */
+    @Test
+    public void testParseValidVer()
+    {
+        assertTrue(token.parse(migrationRule, "6.01.03", gameModeName), "Parse should have been successful");
+        assertEquals("6.01.03", migrationRule.getMinDevVer(), "MinDevVer");
+    }
 
-	@Test
-	public void testParseInvalidVerEmpty()
-	{
-		assertFalse(token.parse(migrationRule, "", gameModeName),
-				"Empty version should not have been accepted");
-		assertNull(migrationRule.getMinDevVer(), "MinDevVer");
-	}
+    @Test
+    public void testParseValidVerNumbers()
+    {
+        String[] goodVersions =
+                {"5.17.12", "6.0.0", "6.0.1 RC2", "6.0.1-RC2", "6.01.02", "6.01.02-dev"};
+        for (String verString : goodVersions)
+        {
+            assertTrue(token.parse(migrationRule, verString, gameModeName), "Valid version " + verString
+                    + " should have been accepted");
+            assertEquals(verString, migrationRule.getMinDevVer(), "MinDevVer");
+        }
+    }
 
-	@Test
-	public void testParseInvalidVerFormat()
-	{
-		String[] badVersions =
-				{"text", "a.b.c", "6.1", "6_0_1", "6.0.1d", "3.rc2", "6.0.1RC2"};
-		for (String verString : badVersions)
-		{
-			assertFalse(
-					token.parse(migrationRule, verString, gameModeName), "Invalid version " + verString
-						+ " should not have been accepted");
-			assertNull(migrationRule.getMinDevVer(), "MinDevVer");
-		}
-	}
+    @Test
+    public void testParseInvalidVerEmpty()
+    {
+        assertFalse(token.parse(migrationRule, "", gameModeName),
+                "Empty version should not have been accepted");
+        assertNull(migrationRule.getMinDevVer(), "MinDevVer");
+    }
+
+    @Test
+    public void testParseInvalidVerFormat()
+    {
+        String[] badVersions =
+                {"text", "a.b.c", "6.1", "6_0_1", "6.0.1d", "3.rc2", "6.0.1RC2"};
+        for (String verString : badVersions)
+        {
+            assertFalse(
+                    token.parse(migrationRule, verString, gameModeName), "Invalid version " + verString
+                            + " should not have been accepted");
+            assertNull(migrationRule.getMinDevVer(), "MinDevVer");
+        }
+    }
 
 }

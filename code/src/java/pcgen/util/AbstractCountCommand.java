@@ -25,67 +25,63 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 
 /**
- * AbstractCountCommand is the base for the CountCommand and 
- * CountDistinctCommand. It is a container for common behavior between the 
+ * AbstractCountCommand is the base for the CountCommand and
+ * CountDistinctCommand. It is a container for common behavior between the
  * two commands.
- * 
- * 
  */
 public abstract class AbstractCountCommand extends PCGenCommand
 {
 
-	public enum JepAbilityCountEnum
-	{
-		CATEGORY, NAME, NATURE, TYPE, EXCLUDETYPE, VISIBILITY, ASPECT, CAT, NAM, NAT, TYP, VIS, KEY
-	}
+    public enum JepAbilityCountEnum
+    {
+        CATEGORY, NAME, NATURE, TYPE, EXCLUDETYPE, VISIBILITY, ASPECT, CAT, NAM, NAT, TYP, VIS, KEY
+    }
 
-	public enum JepEquipmentCountEnum
-	{
-		TYPE, WIELDCATEGORY, LOCATION, TYP, WDC, LOC
-	}
+    public enum JepEquipmentCountEnum
+    {
+        TYPE, WIELDCATEGORY, LOCATION, TYP, WDC, LOC
+    }
 
-	/**
-	 * Get the PC that will be used to do the counting.
-	 *
-	 * @return the pc
-	 */
-	protected PlayerCharacter getPC()
-	{
-		PlayerCharacter pc = null;
-		if (parent instanceof VariableProcessor)
-		{
-			pc = ((VariableProcessor) parent).getPc();
-		}
-		else if (parent instanceof PlayerCharacter)
-		{
-			pc = (PlayerCharacter) parent;
-		}
-		return pc;
-	}
+    /**
+     * Get the PC that will be used to do the counting.
+     *
+     * @return the pc
+     */
+    protected PlayerCharacter getPC()
+    {
+        PlayerCharacter pc = null;
+        if (parent instanceof VariableProcessor)
+        {
+            pc = ((VariableProcessor) parent).getPc();
+        } else if (parent instanceof PlayerCharacter)
+        {
+            pc = (PlayerCharacter) parent;
+        }
+        return pc;
+    }
 
-	/**
-	 * pop maxParam parameters off the stack and populate the array.  Note, this method
-	 * leaves one parameter on the stack
-	 *
-	 * @param inStack  the stack of Objects
-	 * @param maxParam number of entries to pop from the stack
-	 *
-	 * @return an array of Objects in reverse order, i.e. the last param popped is element
-	 *         0 of the array.
-	 */
-	protected static Object[] paramStackToArray(final Stack inStack, final int maxParam)
-	{
-		final Object[] par = new Object[maxParam];
+    /**
+     * pop maxParam parameters off the stack and populate the array.  Note, this method
+     * leaves one parameter on the stack
+     *
+     * @param inStack  the stack of Objects
+     * @param maxParam number of entries to pop from the stack
+     * @return an array of Objects in reverse order, i.e. the last param popped is element
+     * 0 of the array.
+     */
+    protected static Object[] paramStackToArray(final Stack inStack, final int maxParam)
+    {
+        final Object[] par = new Object[maxParam];
 
-		if (maxParam > 0)
-		{
-			for (int i = maxParam - 1; i >= 0; i--)
-			{
-				par[i] = inStack.pop();
-			}
-		}
+        if (maxParam > 0)
+        {
+            for (int i = maxParam - 1;i >= 0;i--)
+            {
+                par[i] = inStack.pop();
+            }
+        }
 
-		return par;
-	}
+        return par;
+    }
 
 }

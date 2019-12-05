@@ -23,35 +23,34 @@ import java.net.URISyntaxException;
  */
 public final class TestURI
 {
-	/**
-	 * The (lazily instantiated) Test URI
-	 */
-	private static URI uri;
-	
-	private TestURI()
-	{
-		//Private for Utility Class
-	}
+    /**
+     * The (lazily instantiated) Test URI
+     */
+    private static URI uri;
 
-	/**
-	 * Returns the test URI.
-	 * 
-	 * @return The test URI
-	 */
-	public static URI getURI()
-	{
-		if (uri == null)
-		{
-			try
-			{
-				uri = new URI("file:/TESTCASE");
-			}
-			catch (URISyntaxException e)
-			{
-				throw new IllegalStateException(e);
-			}
-		}
-		return uri;
-	}
-	
+    private TestURI()
+    {
+        //Private for Utility Class
+    }
+
+    /**
+     * Returns the test URI.
+     *
+     * @return The test URI
+     */
+    public static URI getURI()
+    {
+        if (uri == null)
+        {
+            try
+            {
+                uri = new URI("file:/TESTCASE");
+            } catch (URISyntaxException e)
+            {
+                throw new IllegalStateException(e);
+            }
+        }
+        return uri;
+    }
+
 }

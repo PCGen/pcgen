@@ -35,85 +35,85 @@ import org.junit.jupiter.api.Test;
 
 public class InitiativeFacetTest
 {
-	/*
-	 * NOTE: This is not literal unit testing - it is leveraging the existing
-	 * RaceFacet and TemplateFacet frameworks. This class trusts that
-	 * RaceFacetTest and TemplateFacetTest has fully vetted RaceFacet and
-	 * TemplateFacet. PLEASE ensure all tests there are working before
-	 * investigating tests here.
-	 */
-	private CharID id;
-	private CharID altid;
-	private InitiativeFacet facet;
-	private Map<CharID, Double> bonusInfo;
+    /*
+     * NOTE: This is not literal unit testing - it is leveraging the existing
+     * RaceFacet and TemplateFacet frameworks. This class trusts that
+     * RaceFacetTest and TemplateFacetTest has fully vetted RaceFacet and
+     * TemplateFacet. PLEASE ensure all tests there are working before
+     * investigating tests here.
+     */
+    private CharID id;
+    private CharID altid;
+    private InitiativeFacet facet;
+    private Map<CharID, Double> bonusInfo;
 
-	@BeforeEach
-	public void setUp() throws Exception
-	{
-		DataSetID cid = DataSetID.getID();
-		id = CharID.getID(cid);
-		altid = CharID.getID(cid);
-		facet = getMockFacet();
-		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
-		bonusInfo = new HashMap<>();
-	}
+    @BeforeEach
+    public void setUp() throws Exception
+    {
+        DataSetID cid = DataSetID.getID();
+        id = CharID.getID(cid);
+        altid = CharID.getID(cid);
+        facet = getMockFacet();
+        facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
+        bonusInfo = new HashMap<>();
+    }
 
-	@AfterEach
-	public void tearDown()
-	{
-		id = null;
-		altid = null;
-		facet = null;
-		bonusInfo = null;
-	}
+    @AfterEach
+    public void tearDown()
+    {
+        id = null;
+        altid = null;
+        facet = null;
+        bonusInfo = null;
+    }
 
-	@Test
-	public void testReachUnset()
-	{
-		assertEquals(2, facet.getInitiative(id));
-	}
+    @Test
+    public void testReachUnset()
+    {
+        assertEquals(2, facet.getInitiative(id));
+    }
 
-	@Test
-	public void testGetWithBonus()
-	{
-		assertEquals(2, facet.getInitiative(id));
-		bonusInfo.put(altid, 4.0);
-		// No pollution
-		assertEquals(2, facet.getInitiative(id));
-		bonusInfo.put(id, 6.0);
-		assertEquals(8, facet.getInitiative(id));
-		bonusInfo.clear();
-		assertEquals(2, facet.getInitiative(id));
-	}
+    @Test
+    public void testGetWithBonus()
+    {
+        assertEquals(2, facet.getInitiative(id));
+        bonusInfo.put(altid, 4.0);
+        // No pollution
+        assertEquals(2, facet.getInitiative(id));
+        bonusInfo.put(id, 6.0);
+        assertEquals(8, facet.getInitiative(id));
+        bonusInfo.clear();
+        assertEquals(2, facet.getInitiative(id));
+    }
 
-	public InitiativeFacet getMockFacet() throws SecurityException,
-			NoSuchFieldException, IllegalArgumentException,
-			IllegalAccessException
-	{
-		InitiativeFacet f = new InitiativeFacet();
-		Field field = InitiativeFacet.class.getDeclaredField("bonusCheckingFacet");
-		field.setAccessible(true);
-		BonusCheckingFacet fakeFacet = new BonusCheckingFacet()
-		{
+    public InitiativeFacet getMockFacet() throws SecurityException,
+            NoSuchFieldException, IllegalArgumentException,
+            IllegalAccessException
+    {
+        InitiativeFacet f = new InitiativeFacet();
+        Field field = InitiativeFacet.class.getDeclaredField("bonusCheckingFacet");
+        field.setAccessible(true);
+        BonusCheckingFacet fakeFacet = new BonusCheckingFacet()
+        {
 
-			@Override
-			public double getBonus(CharID cid, String bonusType,
-					String bonusName)
-			{
-				if ("COMBAT".equals(bonusType)
-						&& "Initiative".equals(bonusName))
-				{
-					Double d = bonusInfo.get(cid);
-					return d == null ? 0 : d;
-				}
-				return 0;
-			}
+            @Override
+            public double getBonus(CharID cid, String bonusType,
+                    String bonusName)
+            {
+                if ("COMBAT".equals(bonusType)
+                        && "Initiative".equals(bonusName))
+                {
+                    Double d = bonusInfo.get(cid);
+                    return d == null ? 0 : d;
+                }
+                return 0;
+            }
 
-		};
-		field.set(f, fakeFacet);
-		Field field2 = InitiativeFacet.class.getDeclaredField("initcomp");
-		field2.setAccessible(true);
-		field2.set(f, FormulaFactory.getFormulaFor("2"));
-		return f;
-	}
+        };
+        field.set(f, fakeFacet);
+        Field field2 = InitiativeFacet.class.getDeclaredField("initcomp");
+        field2.setAccessible(true);
+        field2.set(f, FormulaFactory.getFormulaFor("2"));
+        return f;
+    }
 }

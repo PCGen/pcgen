@@ -31,43 +31,43 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements CDOMPrimaryToken<KitFunds>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "QTY";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "QTY";
+    }
 
-	@Override
-	public Class<KitFunds> getTokenClass()
-	{
-		return KitFunds.class;
-	}
+    @Override
+    public Class<KitFunds> getTokenClass()
+    {
+        return KitFunds.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds, String value)
-	{
-		Formula formula = FormulaFactory.getFormulaFor(value);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		kitFunds.setQuantity(formula);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds, String value)
+    {
+        Formula formula = FormulaFactory.getFormulaFor(value);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        kitFunds.setQuantity(formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitFunds kitFunds)
-	{
-		Formula f = kitFunds.getQuantity();
-		if (f == null)
-		{
-			return null;
-		}
-		return new String[]{f.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitFunds kitFunds)
+    {
+        Formula f = kitFunds.getQuantity();
+        if (f == null)
+        {
+            return null;
+        }
+        return new String[]{f.toString()};
+    }
 }

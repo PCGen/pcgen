@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -34,57 +34,57 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 
 public class LangBonusTokenTest extends
-		AbstractPrimitiveTokenTestCase<CDOMObject, Language>
+        AbstractPrimitiveTokenTestCase<CDOMObject, Language>
 {
 
-	static ChooseLst token = new ChooseLst();
-	static LangToken subtoken = new LangToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-	private static final LangBonusToken LANGBONUS_TOKEN = new LangBonusToken();
+    static ChooseLst token = new ChooseLst();
+    static LangToken subtoken = new LangToken();
+    static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+    private static final LangBonusToken LANGBONUS_TOKEN = new LangBonusToken();
 
-	public LangBonusTokenTest()
-	{
-		super("LANGBONUS", null);
-	}
+    public LangBonusTokenTest()
+    {
+        super("LANGBONUS", null);
+    }
 
-	@BeforeEach
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(LANGBONUS_TOKEN);
-		primaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
-		secondaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws PersistenceLayerException, URISyntaxException
+    {
+        super.setUp();
+        TokenRegistration.register(LANGBONUS_TOKEN);
+        primaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
+        secondaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
+    }
 
-	@Override
-	public CDOMSecondaryToken<?> getSubToken()
-	{
-		return subtoken;
-	}
+    @Override
+    public CDOMSecondaryToken<?> getSubToken()
+    {
+        return subtoken;
+    }
 
-	@Override
-	public Class<Language> getTargetClass()
-	{
-		return Language.class;
-	}
+    @Override
+    public Class<Language> getTargetClass()
+    {
+        return Language.class;
+    }
 
-	@Override
-	public Class<Race> getCDOMClass()
-	{
-		return Race.class;
-	}
+    @Override
+    public Class<Race> getCDOMClass()
+    {
+        return Race.class;
+    }
 
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
+    @Override
+    public CDOMLoader<CDOMObject> getLoader()
+    {
+        return loader;
+    }
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getToken()
+    {
+        return token;
+    }
 
 }

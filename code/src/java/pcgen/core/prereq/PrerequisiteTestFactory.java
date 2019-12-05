@@ -27,85 +27,88 @@ import pcgen.util.Logging;
 
 public final class PrerequisiteTestFactory implements PluginLoader
 {
-	private static PrerequisiteTestFactory instance = null;
-	private final Map<String, PrerequisiteTest> TEST_LOOKUP = new HashMap<>();
+    private static PrerequisiteTestFactory instance = null;
+    private final Map<String, PrerequisiteTest> TEST_LOOKUP = new HashMap<>();
 
-	/**
-	 * @return Returns the instance.
-	 */
-	public static PrerequisiteTestFactory getInstance()
-	{
-		if (instance == null)
-		{
-			instance = new PrerequisiteTestFactory();
-		}
-		return instance;
-	}
+    /**
+     * @return Returns the instance.
+     */
+    public static PrerequisiteTestFactory getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new PrerequisiteTestFactory();
+        }
+        return instance;
+    }
 
-	/** Private default constructor */
-	private PrerequisiteTestFactory()
-	{
-		// Do Nothing
-	}
+    /**
+     * Private default constructor
+     */
+    private PrerequisiteTestFactory()
+    {
+        // Do Nothing
+    }
 
-	/**
-	 * Registers this PrerequisiteTest as handling a kind of prereq
-	 * @param testClass PrerequisiteTest to register.
-	 */
-	public void register(final PrerequisiteTest testClass)
-	{
-		final String kindHandled = testClass.kindHandled();
-		final PrerequisiteTest test = TEST_LOOKUP.get(kindHandled);
-		if (test != null)
-		{
-			Logging.errorPrint(
-				LanguageBundle.getFormattedString("PrerequisiteTestFactory.error.already_registered", //$NON-NLS-1$
-				testClass.getClass().getName(), kindHandled, test.getClass().getName()));
-		}
-		TEST_LOOKUP.put(kindHandled.toUpperCase(), testClass);
-	}
+    /**
+     * Registers this PrerequisiteTest as handling a kind of prereq
+     *
+     * @param testClass PrerequisiteTest to register.
+     */
+    public void register(final PrerequisiteTest testClass)
+    {
+        final String kindHandled = testClass.kindHandled();
+        final PrerequisiteTest test = TEST_LOOKUP.get(kindHandled);
+        if (test != null)
+        {
+            Logging.errorPrint(
+                    LanguageBundle.getFormattedString("PrerequisiteTestFactory.error.already_registered", //$NON-NLS-1$
+                            testClass.getClass().getName(), kindHandled, test.getClass().getName()));
+        }
+        TEST_LOOKUP.put(kindHandled.toUpperCase(), testClass);
+    }
 
-	/**
-	 * Returns the appropriate PrerequisiteTest class for the kind of prereq
-	 * passed in.
-	 * @param kind The kind of prereq this is (e.g. CLASS)
-	 * @return PrerequisiteTest for this kind
-	 */
-	public PrerequisiteTest getTest(final String kind)
-	{
-		PrerequisiteTest test;
-		if (kind == null)
-		{
-			test = new PreMult();
-		}
-		else
-		{
-			test = TEST_LOOKUP.get(kind.toUpperCase());
-			if (test == null)
-			{
-				Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
-			}
-		}
-		return test;
-	}
+    /**
+     * Returns the appropriate PrerequisiteTest class for the kind of prereq
+     * passed in.
+     *
+     * @param kind The kind of prereq this is (e.g. CLASS)
+     * @return PrerequisiteTest for this kind
+     */
+    public PrerequisiteTest getTest(final String kind)
+    {
+        PrerequisiteTest test;
+        if (kind == null)
+        {
+            test = new PreMult();
+        } else
+        {
+            test = TEST_LOOKUP.get(kind.toUpperCase());
+            if (test == null)
+            {
+                Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
+            }
+        }
+        return test;
+    }
 
-	@Override
-	public void loadPlugin(Class<?> clazz) throws Exception
-	{
-		register((PrerequisiteTest) clazz.newInstance());
-	}
+    @Override
+    public void loadPlugin(Class<?> clazz) throws Exception
+    {
+        register((PrerequisiteTest) clazz.newInstance());
+    }
 
-	@Override
-	public Class<?>[] getPluginClasses()
-	{
-		return new Class[]{PrerequisiteTest.class};
-	}
+    @Override
+    public Class<?>[] getPluginClasses()
+    {
+        return new Class[]{PrerequisiteTest.class};
+    }
 
-	public static void clear()
-	{
-		if (instance != null)
-		{
-			instance.TEST_LOOKUP.clear();
-		}
-	}
+    public static void clear()
+    {
+        if (instance != null)
+        {
+            instance.TEST_LOOKUP.clear();
+        }
+    }
 }

@@ -19,7 +19,7 @@ package gmgen.plugin.dice;
 
 interface DiceConfig
 {
-	int roll();
+    int roll();
 
-	String toFormula();
+    String toFormula();
 }

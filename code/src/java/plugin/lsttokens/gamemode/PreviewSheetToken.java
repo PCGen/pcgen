@@ -25,26 +25,24 @@ import pcgen.persistence.lst.GameModeLstToken;
 
 /**
  * This class handles the PREVIEWSHEET game mode token.
- * 
- * 
  */
 public class PreviewSheetToken implements GameModeLstToken
 {
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		gameMode.setDefaultPreviewSheet(value);
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        gameMode.setDefaultPreviewSheet(value);
+        return true;
+    }
 
-	/**
-	 * Returns the name of the token this class handles.
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "PREVIEWSHEET"; //$NON-NLS-1$
-	}
+    /**
+     * Returns the name of the token this class handles.
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "PREVIEWSHEET"; //$NON-NLS-1$
+    }
 
 }

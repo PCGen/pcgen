@@ -21,10 +21,10 @@ package pcgen.cdom.base;
  */
 public interface SortKeyRequired
 {
-	/**
-	 * Returns the Sort Key for this object.
-	 * 
-	 * @return The Sort Key for this object
-	 */
+    /**
+     * Returns the Sort Key for this object.
+     *
+     * @return The Sort Key for this object
+     */
     String getSortKey();
 }

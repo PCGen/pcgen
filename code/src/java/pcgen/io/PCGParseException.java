@@ -22,52 +22,50 @@ import pcgen.cdom.base.Constants;
 
 /**
  * {@code ParseException}<br>
- *
- *
  */
 final class PCGParseException extends Exception
 {
-	private final String errorLine;
-	private final String errorMessage;
-	private final String errorMethod;
+    private final String errorLine;
+    private final String errorMessage;
+    private final String errorMethod;
 
-	PCGParseException(String errorMethod, String errorLine, String errorMessage)
-	{
-		this(errorMethod, errorLine, errorMessage, null);
-	}
+    PCGParseException(String errorMethod, String errorLine, String errorMessage)
+    {
+        this(errorMethod, errorLine, errorMessage, null);
+    }
 
-	PCGParseException(String errorMethod, String errorLine, String errorMessage, Throwable cause)
-	{
-		super("Method: " + errorMethod + Constants.LINE_SEPARATOR + "Line: " + errorLine + Constants.LINE_SEPARATOR
-			+ "Message: " + errorMessage, cause);
+    PCGParseException(String errorMethod, String errorLine, String errorMessage, Throwable cause)
+    {
+        super("Method: " + errorMethod + Constants.LINE_SEPARATOR + "Line: " + errorLine + Constants.LINE_SEPARATOR
+                + "Message: " + errorMessage, cause);
 
-		this.errorMethod = errorMethod;
-		this.errorLine = errorLine;
-		this.errorMessage = errorMessage;
-	}
+        this.errorMethod = errorMethod;
+        this.errorLine = errorLine;
+        this.errorMessage = errorMessage;
+    }
 
-	/**
-	 * @return error line
-	 */
-	public String getLine()
-	{
-		return errorLine;
-	}
+    /**
+     * @return error line
+     */
+    public String getLine()
+    {
+        return errorLine;
+    }
 
-	/**
-	 * @return error message
-	 */
-	@Override
-	public String getMessage()
-	{
-		return errorMessage;
-	}
+    /**
+     * @return error message
+     */
+    @Override
+    public String getMessage()
+    {
+        return errorMessage;
+    }
 
-	/**
-	 * @return error method
-	 */
-	public String getMethod()
-	{
-		return errorMethod;
-	}
+    /**
+     * @return error method
+     */
+    public String getMethod()
+    {
+        return errorMethod;
+    }
 }

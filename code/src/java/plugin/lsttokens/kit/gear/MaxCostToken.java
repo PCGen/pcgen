@@ -29,51 +29,50 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class MaxCostToken extends AbstractToken implements CDOMPrimaryToken<KitGear>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "MAXCOST";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "MAXCOST";
+    }
 
-	@Override
-	public Class<KitGear> getTokenClass()
-	{
-		return KitGear.class;
-	}
+    @Override
+    public Class<KitGear> getTokenClass()
+    {
+        return KitGear.class;
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
-	{
-		try
-		{
-			int quan = Integer.parseInt(value);
-			if (quan <= 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
-			}
-			kitGear.setMaxCost(quan);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
-		}
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
+    {
+        try
+        {
+            int quan = Integer.parseInt(value);
+            if (quan <= 0)
+            {
+                return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
+            }
+            kitGear.setMaxCost(quan);
+            return ParseResult.SUCCESS;
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
+        }
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitGear kitGear)
-	{
-		Integer bd = kitGear.getMaxCost();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitGear kitGear)
+    {
+        Integer bd = kitGear.getMaxCost();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd.toString()};
+    }
 }

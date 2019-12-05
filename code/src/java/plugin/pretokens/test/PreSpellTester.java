@@ -38,75 +38,75 @@ import pcgen.util.Logging;
 public class PreSpellTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-	{
-		CharacterDisplay display = character.getDisplay();
-		int requiredNumber = 0;
-		try
-		{
-			requiredNumber = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException e)
-		{
-			Logging.errorPrint(
-				LanguageBundle.getString("PreSpell.error.badly_formed_attribute") + prereq.toString()); //$NON-NLS-1$
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+    {
+        CharacterDisplay display = character.getDisplay();
+        int requiredNumber = 0;
+        try
+        {
+            requiredNumber = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException e)
+        {
+            Logging.errorPrint(
+                    LanguageBundle.getString("PreSpell.error.badly_formed_attribute") + prereq.toString()); //$NON-NLS-1$
+        }
 
-		// Build a list of all possible spells
-		final List<Spell> aArrayList =
-				character.aggregateSpellList("", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        // Build a list of all possible spells
+        final List<Spell> aArrayList =
+                character.aggregateSpellList("", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
-		//Needs to add domain spells as well
-		for (Domain d : display.getDomainSet())
-		{
-			aArrayList
-				.addAll(character.getAllSpellsInLists(Collections.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
-		}
+        //Needs to add domain spells as well
+        for (Domain d : display.getDomainSet())
+        {
+            aArrayList
+                    .addAll(character.getAllSpellsInLists(Collections.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
+        }
 
-		//Are there Innate Spell-like abilities?
-		if (character.getAutoSpells())
-		{
-			Collection<CDOMReference<Spell>> mods = display.getRace().getListMods(Spell.SPELLS);
-			if (mods != null)
-			{
-				for (CDOMReference<Spell> ref : mods)
-				{
-					aArrayList.addAll(ref.getContainedObjects());
-				}
-			}
-		}
+        //Are there Innate Spell-like abilities?
+        if (character.getAutoSpells())
+        {
+            Collection<CDOMReference<Spell>> mods = display.getRace().getListMods(Spell.SPELLS);
+            if (mods != null)
+            {
+                for (CDOMReference<Spell> ref : mods)
+                {
+                    aArrayList.addAll(ref.getContainedObjects());
+                }
+            }
+        }
 
-		final String spellName = prereq.getKey();
-		int runningTotal = 0;
+        final String spellName = prereq.getKey();
+        int runningTotal = 0;
 
-		for (Spell aSpell : aArrayList)
-		{
-			if (aSpell != null && aSpell.getKeyName() != null && aSpell.getKeyName().equalsIgnoreCase(spellName))
-			{
-				runningTotal++;
-			}
-		}
-		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
-		return countedTotal(prereq, runningTotal);
-	}
+        for (Spell aSpell : aArrayList)
+        {
+            if (aSpell != null && aSpell.getKeyName() != null && aSpell.getKeyName().equalsIgnoreCase(spellName))
+            {
+                runningTotal++;
+            }
+        }
+        runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "SPELL"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "SPELL"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey()};
-		return LanguageBundle.getFormattedString("PreSpell.toHtml", args); //$NON-NLS-1$
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        final Object[] args =
+                new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey()};
+        return LanguageBundle.getFormattedString("PreSpell.toHtml", args); //$NON-NLS-1$
+    }
 
 }

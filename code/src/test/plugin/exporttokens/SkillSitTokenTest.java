@@ -47,203 +47,203 @@ import org.junit.jupiter.api.Test;
 
 public class SkillSitTokenTest extends AbstractCharacterTestCase
 {
-	private Skill balance = null;
-	private Skill[] knowledge = null;
-	private Skill tumble = null;
+    private Skill balance = null;
+    private Skill[] knowledge = null;
+    private Skill tumble = null;
 
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
 
-		final LevelInfo levelInfo = new LevelInfo();
-		levelInfo.setLevelString("LEVEL");
-		levelInfo.setMaxClassSkillString("LEVEL+3");
-		levelInfo.setMaxCrossClassSkillString("(LEVEL+3)/2");
-		GameMode gamemode = SettingsHandler.getGame();
-		gamemode.addLevelInfo("Default", levelInfo);
+        final LevelInfo levelInfo = new LevelInfo();
+        levelInfo.setLevelString("LEVEL");
+        levelInfo.setMaxClassSkillString("LEVEL+3");
+        levelInfo.setMaxCrossClassSkillString("(LEVEL+3)/2");
+        GameMode gamemode = SettingsHandler.getGame();
+        gamemode.addLevelInfo("Default", levelInfo);
 
-		LoadContext context = Globals.getContext();
-		BonusObj aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
-		
-		if (aBonus != null)
-		{
-			intel.addToListFor(ListKey.BONUS, aBonus);
-		}
+        LoadContext context = Globals.getContext();
+        BonusObj aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
 
-		// Race
-		Race testRace = new Race();
-		testRace.setName("TestRace");
-		context.getReferenceContext().importObject(testRace);
+        if (aBonus != null)
+        {
+            intel.addToListFor(ListKey.BONUS, aBonus);
+        }
 
-		// Class
-		PCClass myClass = new PCClass();
-		myClass.setName("MyClass");
-		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		context.getReferenceContext().importObject(myClass);
+        // Race
+        Race testRace = new Race();
+        testRace.setName("TestRace");
+        context.getReferenceContext().importObject(testRace);
 
-		//Skills
-		knowledge = new Skill[2];
-		knowledge[0] = new Skill();
-		context.unconditionallyProcess(knowledge[0], "CLASSES", "MyClass");
-		knowledge[0].setName("KNOWLEDGE (ARCANA)");
-		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
-		CDOMDirectSingleRef<PCStat> intelRef = CDOMDirectSingleRef.getRef(intel);
-		knowledge[0].put(ObjectKey.KEY_STAT, intelRef);
-		context.getReferenceContext().importObject(knowledge[0]);
-		aBonus = Bonus.newBonus(context, "SITUATION|Tumble=On Hot Concrete|2");
-		if (aBonus != null)
-		{
-			knowledge[0].addToListFor(ListKey.BONUS, aBonus);
-		}
+        // Class
+        PCClass myClass = new PCClass();
+        myClass.setName("MyClass");
+        myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
+        context.getReferenceContext().importObject(myClass);
 
-		knowledge[1] = new Skill();
-		context.unconditionallyProcess(knowledge[1], "CLASSES", "MyClass");
-		knowledge[1].setName("KNOWLEDGE (RELIGION)");
-		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
-		knowledge[1].put(ObjectKey.KEY_STAT, intelRef);
-		aBonus = Bonus.newBonus(context, "SITUATION|Balance=On a Ball|2");
-		if (aBonus != null)
-		{
-			knowledge[1].addToListFor(ListKey.BONUS, aBonus);
-		}
-		context.getReferenceContext().importObject(knowledge[1]);
+        //Skills
+        knowledge = new Skill[2];
+        knowledge[0] = new Skill();
+        context.unconditionallyProcess(knowledge[0], "CLASSES", "MyClass");
+        knowledge[0].setName("KNOWLEDGE (ARCANA)");
+        TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
+        CDOMDirectSingleRef<PCStat> intelRef = CDOMDirectSingleRef.getRef(intel);
+        knowledge[0].put(ObjectKey.KEY_STAT, intelRef);
+        context.getReferenceContext().importObject(knowledge[0]);
+        aBonus = Bonus.newBonus(context, "SITUATION|Tumble=On Hot Concrete|2");
+        if (aBonus != null)
+        {
+            knowledge[0].addToListFor(ListKey.BONUS, aBonus);
+        }
 
-		tumble = new Skill();
-		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
-		tumble.setName("Tumble");
-		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		tumble.addToListFor(ListKey.SITUATION, "On Hot Concrete");
-		tumble.addToListFor(ListKey.SITUATION, "Down a Mountain");
-		CDOMDirectSingleRef<PCStat> dexRef = CDOMDirectSingleRef.getRef(dex);
-		tumble.put(ObjectKey.KEY_STAT, dexRef);
-		context.getReferenceContext().importObject(tumble);
+        knowledge[1] = new Skill();
+        context.unconditionallyProcess(knowledge[1], "CLASSES", "MyClass");
+        knowledge[1].setName("KNOWLEDGE (RELIGION)");
+        TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
+        knowledge[1].put(ObjectKey.KEY_STAT, intelRef);
+        aBonus = Bonus.newBonus(context, "SITUATION|Balance=On a Ball|2");
+        if (aBonus != null)
+        {
+            knowledge[1].addToListFor(ListKey.BONUS, aBonus);
+        }
+        context.getReferenceContext().importObject(knowledge[1]);
 
-		balance = new Skill();
-		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
-		balance.setName("Balance");
-		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		balance.addToListFor(ListKey.SITUATION, "On a Ball");
-		balance.put(ObjectKey.KEY_STAT, dexRef);
-		aBonus = Bonus.newBonus(context, "SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
-		
-		if (aBonus != null)
-		{
-			balance.addToListFor(ListKey.BONUS, aBonus);
-		}
-		context.getReferenceContext().importObject(balance);
+        tumble = new Skill();
+        context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
+        tumble.setName("Tumble");
+        tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
+        tumble.addToListFor(ListKey.SITUATION, "On Hot Concrete");
+        tumble.addToListFor(ListKey.SITUATION, "Down a Mountain");
+        CDOMDirectSingleRef<PCStat> dexRef = CDOMDirectSingleRef.getRef(dex);
+        tumble.put(ObjectKey.KEY_STAT, dexRef);
+        context.getReferenceContext().importObject(tumble);
 
-		finishLoad();
+        balance = new Skill();
+        context.unconditionallyProcess(balance, "CLASSES", "MyClass");
+        balance.setName("Balance");
+        balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
+        balance.addToListFor(ListKey.SITUATION, "On a Ball");
+        balance.put(ObjectKey.KEY_STAT, dexRef);
+        aBonus = Bonus.newBonus(context, "SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 
-		PlayerCharacter character = getCharacter();
+        if (aBonus != null)
+        {
+            balance.addToListFor(ListKey.BONUS, aBonus);
+        }
+        context.getReferenceContext().importObject(balance);
 
-		//Stats
-		setPCStat(character, dex, 16);
-		setPCStat(character, intel, 17);
-		
-		character.setRace(testRace);
-		character.incrementClassLevel(5, myClass, true);
-		
-		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
-		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
-		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
-		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
+        finishLoad();
 
-		character.calcActiveBonuses();
-	}
+        PlayerCharacter character = getCharacter();
 
-	@AfterEach
-	@Override
-	protected void tearDown() throws Exception
-	{
-		knowledge = null;
-		balance = null;
-		tumble = null;
-		intel.removeListFor(ListKey.BONUS);
+        //Stats
+        setPCStat(character, dex, 16);
+        setPCStat(character, intel, 17);
 
-		super.tearDown();
-	}
+        character.setRace(testRace);
+        character.incrementClassLevel(5, myClass, true);
 
-	/**
-	 * Test the SKILL token.
-	 */
-	@Test
-	public void testSkillToken()
-	{
-		PlayerCharacter character = getCharacter();
+        SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
+        SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
+        SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
+        SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
-		SkillSitToken token = new SkillSitToken();
+        character.calcActiveBonuses();
+    }
 
-		// First test each sub token
-		assertEquals("SkillToken", "Balance", token.getToken("SKILLSIT.0",
-			character, null));
-		assertEquals("SkillToken", "DEX", token.getToken("SKILLSIT.0.ABILITY",
-			character, null));
-		assertEquals("SkillToken", "9", token.getToken("SKILLSIT.0.TOTAL",
-				character, null));
-		assertEquals("SkillToken", "3", token.getToken("SKILLSIT.0.ABMOD",
-			character, null));
-		assertEquals("SkillToken", "4.0", token.getToken("SKILLSIT.0.RANK",
-			character, null));
-		assertEquals("SkillToken", "2", token.getToken("SKILLSIT.0.MISC",
-			character, null));
-		assertEquals("SkillToken", "N", token.getToken("SKILLSIT.0.EXCLUSIVE",
-			character, null));
-		assertEquals("SkillToken", "Y", token.getToken("SKILLSIT.0.UNTRAINED",
-			character, null));
-		assertEquals("SkillToken", "9", token.getToken(
-			"SKILLSIT.0.EXCLUSIVE_TOTAL", character, null));
-		assertEquals("SkillToken", "9", token.getToken("SKILLSIT.0.TRAINED_TOTAL",
-			character, null));
-		assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT]", token.getToken(
-			"SKILLSIT.0.EXPLAIN", character, null));
+    @AfterEach
+    @Override
+    protected void tearDown() throws Exception
+    {
+        knowledge = null;
+        balance = null;
+        tumble = null;
+        intel.removeListFor(ListKey.BONUS);
 
-		// Test the indexed retrieval
-		assertEquals("SkillToken", "Balance (On a Ball)", token.getToken("SKILLSIT.1",
-			character, null));
-		assertEquals("SkillToken", "DEX", token.getToken("SKILLSIT.1.ABILITY",
-			character, null));
-		assertEquals("SkillToken", "11", token.getToken("SKILLSIT.1.TOTAL",
-				character, null));
-		assertEquals("SkillToken", "3", token.getToken("SKILLSIT.1.ABMOD",
-			character, null));
-		assertEquals("SkillToken", "4.0", token.getToken("SKILLSIT.1.RANK",
-			character, null));
-		assertEquals("SkillToken", "4", token.getToken("SKILLSIT.1.MISC",
-			character, null));
-		assertEquals("SkillToken", "N", token.getToken("SKILLSIT.1.EXCLUSIVE",
-			character, null));
-		assertEquals("SkillToken", "Y", token.getToken("SKILLSIT.1.UNTRAINED",
-			character, null));
-		assertEquals("SkillToken", "11", token.getToken(
-			"SKILLSIT.1.EXCLUSIVE_TOTAL", character, null));
-		assertEquals("SkillToken", "11", token.getToken("SKILLSIT.1.TRAINED_TOTAL",
-			character, null));
-		assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT] situational: +2[KNOWLEDGE (RELIGION)]", token.getToken(
-			"SKILLSIT.1.EXPLAIN", character, null));
+        super.tearDown();
+    }
 
-		
-		assertEquals("SkillToken", "KNOWLEDGE (ARCANA)", token.getToken("SKILLSIT.2",
-			character, null));
-		assertEquals("SkillToken", "KNOWLEDGE (RELIGION)", token.getToken("SKILLSIT.3",
-			character, null));
-		assertEquals("SkillToken", "Tumble", token.getToken("SKILLSIT.4",
-			character, null));
-		//Alphabetical!
-		assertEquals("SkillToken", "Tumble (On Hot Concrete)", token.getToken("SKILLSIT.5",
-			character, null));
+    /**
+     * Test the SKILL token.
+     */
+    @Test
+    public void testSkillToken()
+    {
+        PlayerCharacter character = getCharacter();
 
-		// Test the named retrieval
-		assertEquals("SkillToken", "Tumble", token.getToken("SKILLSIT.TUMBLE",
-			character, null));
-		assertEquals("SkillToken", "Tumble (On Hot Concrete)",
-			token.getToken("SKILLSIT.TUMBLE=On Hot Concrete", character, null));
-	}
+        SkillSitToken token = new SkillSitToken();
 
-	@Override
-	protected void defaultSetupEnd()
-	{
-		//We will handle this locally
-	}
+        // First test each sub token
+        assertEquals("SkillToken", "Balance", token.getToken("SKILLSIT.0",
+                character, null));
+        assertEquals("SkillToken", "DEX", token.getToken("SKILLSIT.0.ABILITY",
+                character, null));
+        assertEquals("SkillToken", "9", token.getToken("SKILLSIT.0.TOTAL",
+                character, null));
+        assertEquals("SkillToken", "3", token.getToken("SKILLSIT.0.ABMOD",
+                character, null));
+        assertEquals("SkillToken", "4.0", token.getToken("SKILLSIT.0.RANK",
+                character, null));
+        assertEquals("SkillToken", "2", token.getToken("SKILLSIT.0.MISC",
+                character, null));
+        assertEquals("SkillToken", "N", token.getToken("SKILLSIT.0.EXCLUSIVE",
+                character, null));
+        assertEquals("SkillToken", "Y", token.getToken("SKILLSIT.0.UNTRAINED",
+                character, null));
+        assertEquals("SkillToken", "9", token.getToken(
+                "SKILLSIT.0.EXCLUSIVE_TOTAL", character, null));
+        assertEquals("SkillToken", "9", token.getToken("SKILLSIT.0.TRAINED_TOTAL",
+                character, null));
+        assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT]", token.getToken(
+                "SKILLSIT.0.EXPLAIN", character, null));
+
+        // Test the indexed retrieval
+        assertEquals("SkillToken", "Balance (On a Ball)", token.getToken("SKILLSIT.1",
+                character, null));
+        assertEquals("SkillToken", "DEX", token.getToken("SKILLSIT.1.ABILITY",
+                character, null));
+        assertEquals("SkillToken", "11", token.getToken("SKILLSIT.1.TOTAL",
+                character, null));
+        assertEquals("SkillToken", "3", token.getToken("SKILLSIT.1.ABMOD",
+                character, null));
+        assertEquals("SkillToken", "4.0", token.getToken("SKILLSIT.1.RANK",
+                character, null));
+        assertEquals("SkillToken", "4", token.getToken("SKILLSIT.1.MISC",
+                character, null));
+        assertEquals("SkillToken", "N", token.getToken("SKILLSIT.1.EXCLUSIVE",
+                character, null));
+        assertEquals("SkillToken", "Y", token.getToken("SKILLSIT.1.UNTRAINED",
+                character, null));
+        assertEquals("SkillToken", "11", token.getToken(
+                "SKILLSIT.1.EXCLUSIVE_TOTAL", character, null));
+        assertEquals("SkillToken", "11", token.getToken("SKILLSIT.1.TRAINED_TOTAL",
+                character, null));
+        assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT] situational: +2[KNOWLEDGE (RELIGION)]", token.getToken(
+                "SKILLSIT.1.EXPLAIN", character, null));
+
+
+        assertEquals("SkillToken", "KNOWLEDGE (ARCANA)", token.getToken("SKILLSIT.2",
+                character, null));
+        assertEquals("SkillToken", "KNOWLEDGE (RELIGION)", token.getToken("SKILLSIT.3",
+                character, null));
+        assertEquals("SkillToken", "Tumble", token.getToken("SKILLSIT.4",
+                character, null));
+        //Alphabetical!
+        assertEquals("SkillToken", "Tumble (On Hot Concrete)", token.getToken("SKILLSIT.5",
+                character, null));
+
+        // Test the named retrieval
+        assertEquals("SkillToken", "Tumble", token.getToken("SKILLSIT.TUMBLE",
+                character, null));
+        assertEquals("SkillToken", "Tumble (On Hot Concrete)",
+                token.getToken("SKILLSIT.TUMBLE=On Hot Concrete", character, null));
+    }
+
+    @Override
+    protected void defaultSetupEnd()
+    {
+        //We will handle this locally
+    }
 }

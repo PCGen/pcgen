@@ -32,75 +32,71 @@ import pcgen.system.LanguageBundle;
 
 /**
  * {@code PreArmorProfTester} does the testing of armor proficiency
- * prerequisites. 
+ * prerequisites.
  */
 public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
 
-		final int number;
-		try
-		{
-			number = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException exceptn)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString(
-					"Prereq.error", "PREARMOR", prereq.toString()), exceptn); //$NON-NLS-1$ //$NON-NLS-2$
-		}
+        final int number;
+        try
+        {
+            number = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException exceptn)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString(
+                            "Prereq.error", "PREARMOR", prereq.toString()), exceptn); //$NON-NLS-1$ //$NON-NLS-2$
+        }
 
-		final String aString = prereq.getKey();
-		Equipment keyEquip =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, aString);
-		final boolean isType = aString.startsWith("TYPE") && aString.length() > 5;
-		final boolean isArmorType = aString.startsWith("ARMORTYPE") && aString.length() > 11;
-		String typeString = null;
-		if (isType)
-		{
-			typeString = "ARMOR." + aString.substring(5);
-		}
-		else if (isArmorType)
-		{
-			typeString = "ARMOR." + aString.substring(10);
-		}
-		for (ProfProvider<ArmorProf> spp : display.getArmorProfList())
-		{
-			if (keyEquip != null && spp.providesProficiency(keyEquip.getArmorProf()))
-			{
-				runningTotal++;
-			}
-			else if (keyEquip != null && spp.providesEquipmentType(keyEquip.getType()))
-			{
-				runningTotal++;
-			}
-			else if (isType && spp.providesEquipmentType(typeString))
-			{
-				runningTotal++;
-			}
-			else if (isArmorType && spp.providesEquipmentType(typeString))
-			{
-				runningTotal++;
-			}
-		}
+        final String aString = prereq.getKey();
+        Equipment keyEquip =
+                Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, aString);
+        final boolean isType = aString.startsWith("TYPE") && aString.length() > 5;
+        final boolean isArmorType = aString.startsWith("ARMORTYPE") && aString.length() > 11;
+        String typeString = null;
+        if (isType)
+        {
+            typeString = "ARMOR." + aString.substring(5);
+        } else if (isArmorType)
+        {
+            typeString = "ARMOR." + aString.substring(10);
+        }
+        for (ProfProvider<ArmorProf> spp : display.getArmorProfList())
+        {
+            if (keyEquip != null && spp.providesProficiency(keyEquip.getArmorProf()))
+            {
+                runningTotal++;
+            } else if (keyEquip != null && spp.providesEquipmentType(keyEquip.getType()))
+            {
+                runningTotal++;
+            } else if (isType && spp.providesEquipmentType(typeString))
+            {
+                runningTotal++;
+            } else if (isArmorType && spp.providesEquipmentType(typeString))
+            {
+                runningTotal++;
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, number);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, number);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "profwitharmor"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "profwitharmor"; //$NON-NLS-1$
+    }
 
 }

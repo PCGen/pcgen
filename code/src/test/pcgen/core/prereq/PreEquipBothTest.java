@@ -44,136 +44,136 @@ import org.junit.jupiter.api.Test;
 public class PreEquipBothTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 * Class under test for int passes(Prerequisite, PlayerCharacter)
-	 */
-	@Test
-	public void testPassesPrerequisitePlayerCharacter()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Class under test for int passes(Prerequisite, PlayerCharacter)
+     */
+    @Test
+    public void testPassesPrerequisitePlayerCharacter()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Equipment longsword = new Equipment();
-		longsword.setName("Longsword");
+        final Equipment longsword = new Equipment();
+        longsword.setName("Longsword");
 
-		character.addEquipment(longsword);
-		longsword.setIsEquipped(true, character);
-		longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
-		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+        character.addEquipment(longsword);
+        longsword.setIsEquipped(true, character);
+        longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
+        character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equipboth");
-		prereq.setKey("LONGSWORD");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("equipboth");
+        prereq.setKey("LONGSWORD");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+        final boolean passes = PrereqHandler.passes(prereq, character, null);
+        assertTrue(passes);
 
-		longsword.setName("Longsword (Large/Masterwork)");
+        longsword.setName("Longsword (Large/Masterwork)");
 
-		assertFalse(PrereqHandler.passes(
-			prereq, character, null), "Should be an exact match only");
+        assertFalse(PrereqHandler.passes(
+                prereq, character, null), "Should be an exact match only");
 
-		prereq.setKey("LONGSWORD (LARGE%");
+        prereq.setKey("LONGSWORD (LARGE%");
 
-		assertTrue(PrereqHandler.passes(prereq,
-			character, null), "Should allow wildcard match");
-	}
+        assertTrue(PrereqHandler.passes(prereq,
+                character, null), "Should allow wildcard match");
+    }
 
-	/**
-	 * Test equipment type tests.
-	 */
-	@Test
-	public void testType()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test equipment type tests.
+     */
+    @Test
+    public void testType()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Equipment longsword = new Equipment();
-		longsword.setName("Longsword");
+        final Equipment longsword = new Equipment();
+        longsword.setName("Longsword");
 
-		character.addEquipment(longsword);
-		longsword.setIsEquipped(true, character);
-		longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
-		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+        character.addEquipment(longsword);
+        longsword.setIsEquipped(true, character);
+        longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
+        character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
-		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equipboth");
-		prereq.setKey("TYPE=Weapon");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        Prerequisite prereq = new Prerequisite();
+        prereq.setKind("equipboth");
+        prereq.setKey("TYPE=Weapon");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse(PrereqHandler.passes(prereq,
-			character, null), "Equipment has no type");
+        assertFalse(PrereqHandler.passes(prereq,
+                character, null), "Equipment has no type");
 
-		longsword.addType(Type.WEAPON);
+        longsword.addType(Type.WEAPON);
 
-		assertTrue(PrereqHandler.passes(prereq,
-			character, null), "Equipment is weapon");
+        assertTrue(PrereqHandler.passes(prereq,
+                character, null), "Equipment is weapon");
 
-		prereq.setKey("TYPE.Armor");
+        prereq.setKey("TYPE.Armor");
 
-		assertFalse(PrereqHandler.passes(prereq,
-			character, null), "Equipment is not armor");
-	}
+        assertFalse(PrereqHandler.passes(prereq,
+                character, null), "Equipment is not armor");
+    }
 
-	/**
-	 * Test wield category tests.
-	 */
-	@Test
-	public void testWield()
-	{
-		final PlayerCharacter character = getCharacter();
+    /**
+     * Test wield category tests.
+     */
+    @Test
+    public void testWield()
+    {
+        final PlayerCharacter character = getCharacter();
 
-		final Race race = new Race();
-		race.setName("Test Race");
-		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
-		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
-		race.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
+        final Race race = new Race();
+        race.setName("Test Race");
+        CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+        CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
+        race.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
 
-		character.setRace(race);
-		LoadContext context = Globals.getContext();
+        character.setRace(race);
+        LoadContext context = Globals.getContext();
 
-		final Equipment longsword = new Equipment();
-		longsword.setName("Longsword");
+        final Equipment longsword = new Equipment();
+        longsword.setName("Longsword");
 
-		character.addEquipment(longsword);
-		longsword.setIsEquipped(true, character);
-		longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
-		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+        character.addEquipment(longsword);
+        longsword.setIsEquipped(true, character);
+        longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
+        character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
-		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equipboth");
-		prereq.setKey("WIELDCATEGORY=OneHanded");
-		prereq.setOperand("1");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        Prerequisite prereq = new Prerequisite();
+        prereq.setKind("equipboth");
+        prereq.setKey("WIELDCATEGORY=OneHanded");
+        prereq.setOperand("1");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		// Test 3.0 Style
-		longsword.put(ObjectKey.SIZE, mediumRef);
-		longsword.put(ObjectKey.BASESIZE, mediumRef);
+        // Test 3.0 Style
+        longsword.put(ObjectKey.SIZE, mediumRef);
+        longsword.put(ObjectKey.BASESIZE, mediumRef);
 
-		assertTrue(PrereqHandler.passes(
-			prereq, character, null), "Weapon is M therefore OneHanded");
+        assertTrue(PrereqHandler.passes(
+                prereq, character, null), "Weapon is M therefore OneHanded");
 
-		longsword.put(ObjectKey.SIZE, largeRef);
-		longsword.put(ObjectKey.BASESIZE, largeRef);
+        longsword.put(ObjectKey.SIZE, largeRef);
+        longsword.put(ObjectKey.BASESIZE, largeRef);
 
-		assertFalse(PrereqHandler.passes(
-			prereq, character, null), "Weapon is L therefore TwoHanded");
+        assertFalse(PrereqHandler.passes(
+                prereq, character, null), "Weapon is L therefore TwoHanded");
 
-		// Test 3.5 style
-		longsword.put(ObjectKey.SIZE, mediumRef);
-		longsword.put(ObjectKey.BASESIZE, mediumRef);
-		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				WieldCategory.class, "TwoHanded"));
+        // Test 3.5 style
+        longsword.put(ObjectKey.SIZE, mediumRef);
+        longsword.put(ObjectKey.BASESIZE, mediumRef);
+        longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
+                WieldCategory.class, "TwoHanded"));
 
-		assertFalse(PrereqHandler.passes(prereq,
-			character, null), "Weapon is TwoHanded");
+        assertFalse(PrereqHandler.passes(prereq,
+                character, null), "Weapon is TwoHanded");
 
-		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				WieldCategory.class, "OneHanded"));
+        longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
+                WieldCategory.class, "OneHanded"));
 
-		assertTrue(PrereqHandler.passes(prereq,
-			character, null), "Weapon is OneHanded");
+        assertTrue(PrereqHandler.passes(prereq,
+                character, null), "Weapon is OneHanded");
 
-	}
+    }
 }

@@ -24,37 +24,40 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Vision extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"NORMAL", "LOW-LIGHT", "DARKVISION", "BLINDSIGHT", "TREMORSENSE", "ECHOSENSE", "X-RAY"};
+    private static final String[] BONUS_TAGS =
+            {"NORMAL", "LOW-LIGHT", "DARKVISION", "BLINDSIGHT", "TREMORSENSE", "ECHOSENSE", "X-RAY"};
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "VISION";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "VISION";
+    }
 
-	/**
-	 * Get by index, an individual type of vision that may be bonused.
-	 * @param tagNumber the index of the vision type.
-	 * @return The type of vision.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual type of vision that may be bonused.
+     *
+     * @param tagNumber the index of the vision type.
+     * @return The type of vision.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of types of vision that may be bonused.
-	 * @return The number of vision types.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of types of vision that may be bonused.
+     *
+     * @return The number of vision types.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 }

@@ -32,46 +32,46 @@ import pcgen.system.LanguageBundle;
 public class PreMoveTester extends AbstractDisplayPrereqTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
-		int moveAmount = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
+        int moveAmount = 0;
 
-		if ((display != null) && display.hasMovement())
-		{
-			final String moveType = prereq.getKey();
+        if ((display != null) && display.hasMovement())
+        {
+            final String moveType = prereq.getKey();
 
-			try
-			{
-				moveAmount = Integer.parseInt(prereq.getOperand());
-			}
-			catch (NumberFormatException e)
-			{
-				throw new PrerequisiteException(
-					LanguageBundle.getFormattedString("PreMove.error.bad_operand", prereq.toString()), e);
-			}
+            try
+            {
+                moveAmount = Integer.parseInt(prereq.getOperand());
+            } catch (NumberFormatException e)
+            {
+                throw new PrerequisiteException(
+                        LanguageBundle.getFormattedString("PreMove.error.bad_operand", prereq.toString()), e);
+            }
 
-			int speed = (int) display.getMovementOfType(MovementType.getConstant(moveType));
-			if (speed >= moveAmount)
-			{
-				runningTotal += speed;
-			}
-		}
+            int speed = (int) display.getMovementOfType(MovementType.getConstant(moveType));
+            if (speed >= moveAmount)
+            {
+                runningTotal += speed;
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, moveAmount);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, moveAmount);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "MOVE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "MOVE"; //$NON-NLS-1$
+    }
 
 }

@@ -30,96 +30,98 @@ import pcgen.util.Delta;
 
 /**
  * Deal with token:
- *
+ * <p>
  * CHECK.x.y.y.z
  * x = FORTITUDE|WILL|REFLEX|0|1|2
  * y = TOTAL|BASE|MISC|EPIC|MAGIC|RACE|FEATS|STATMOD|NOEPIC|NOMAGIC|NORACE|NOFEATS|NOSTAT|NOSTATMOD
  */
 public class CheckToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "CHECK";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "CHECK";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		// If there is a .NOSIGN then replace that with an empty String
-		boolean isNosign = (tokenSource.lastIndexOf(".NOSIGN") >= 0);
-		tokenSource = tokenSource.replaceAll(".NOSIGN", "");
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        // If there is a .NOSIGN then replace that with an empty String
+        boolean isNosign = (tokenSource.lastIndexOf(".NOSIGN") >= 0);
+        tokenSource = tokenSource.replaceAll(".NOSIGN", "");
 
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
-		aTok.nextToken();
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
+        aTok.nextToken();
 
-		// Get the Save type (x)
-		String saveType = aTok.nextToken();
+        // Get the Save type (x)
+        String saveType = aTok.nextToken();
 
-		// Gather up the modifications (y, y, z) 
-		StringBuilder saveModsBuf = new StringBuilder();
-		while (aTok.hasMoreTokens())
-		{
-			if (saveModsBuf.length() > 0)
-			{
-				saveModsBuf.append('.');
-			}
-			saveModsBuf.append(aTok.nextToken());
-		}
-		String saveMods = saveModsBuf.toString();
+        // Gather up the modifications (y, y, z)
+        StringBuilder saveModsBuf = new StringBuilder();
+        while (aTok.hasMoreTokens())
+        {
+            if (saveModsBuf.length() > 0)
+            {
+                saveModsBuf.append('.');
+            }
+            saveModsBuf.append(aTok.nextToken());
+        }
+        String saveMods = saveModsBuf.toString();
 
-		// If its just the name then return that
-		if ("NAME".equals(saveMods))
-		{
-			return getNameToken(saveType).toString();
-		}
-		if (isNosign)
-		{
-			return String.valueOf(getCheckToken(pc, saveType, saveMods));
-		}
-		return Delta.toString(getCheckToken(pc, saveType, saveMods));
-	}
+        // If its just the name then return that
+        if ("NAME".equals(saveMods))
+        {
+            return getNameToken(saveType).toString();
+        }
+        if (isNosign)
+        {
+            return String.valueOf(getCheckToken(pc, saveType, saveMods));
+        }
+        return Delta.toString(getCheckToken(pc, saveType, saveMods));
+    }
 
-	/**
-	 * Get the token.  If no Save Mods (y.y.z) are supplied then a TOTAL is calculated.
-	 * 
-	 * @param pc
-	 * @param saveType
-	 * @param saveMods
-	 * @return int
-	 */
-	public static int getCheckToken(PlayerCharacter pc, String saveType, String saveMods)
-	{
-		PCCheck check = getNameToken(saveType);
-		return pc.calculateSaveBonus(check, "".equals(saveMods) ? "TOTAL" : saveMods);
-	}
+    /**
+     * Get the token.  If no Save Mods (y.y.z) are supplied then a TOTAL is calculated.
+     *
+     * @param pc
+     * @param saveType
+     * @param saveMods
+     * @return int
+     */
+    public static int getCheckToken(PlayerCharacter pc, String saveType, String saveMods)
+    {
+        PCCheck check = getNameToken(saveType);
+        return pc.calculateSaveBonus(check, "".equals(saveMods) ? "TOTAL" : saveMods);
+    }
 
-	/**
-	 * Get the token name
-	 * @param saveType
-	 * @return token name
-	 */
-	public static PCCheck getNameToken(String saveType)
-	{
-		try
-		{
-			int i = Integer.parseInt(saveType);
+    /**
+     * Get the token name
+     *
+     * @param saveType
+     * @return token name
+     */
+    public static PCCheck getNameToken(String saveType)
+    {
+        try
+        {
+            int i = Integer.parseInt(saveType);
 
-			List<PCCheck> checkList =
-					Globals.getContext().getReferenceContext().getSortkeySortedCDOMObjects(PCCheck.class);
-			if ((i >= 0) && (i < checkList.size()))
-			{
-				return checkList.get(i);
-			}
-		}
-		catch (NumberFormatException e)
-		{
-			// just means it's a name, not a number
-			return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCCheck.class, saveType);
-		}
-		return null;
-	}
+            List<PCCheck> checkList =
+                    Globals.getContext().getReferenceContext().getSortkeySortedCDOMObjects(PCCheck.class);
+            if ((i >= 0) && (i < checkList.size()))
+            {
+                return checkList.get(i);
+            }
+        } catch (NumberFormatException e)
+        {
+            // just means it's a name, not a number
+            return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCCheck.class, saveType);
+        }
+        return null;
+    }
 }

@@ -28,21 +28,21 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class ValidfordeityToken extends AbstractYesNoToken<PCAlignment> implements CDOMPrimaryToken<PCAlignment>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "VALIDFORDEITY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VALIDFORDEITY";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.VALID_FOR_DEITY;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.VALID_FOR_DEITY;
+    }
 
-	@Override
-	public Class<PCAlignment> getTokenClass()
-	{
-		return PCAlignment.class;
-	}
+    @Override
+    public Class<PCAlignment> getTokenClass()
+    {
+        return PCAlignment.class;
+    }
 }

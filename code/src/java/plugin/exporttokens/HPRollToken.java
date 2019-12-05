@@ -29,7 +29,7 @@ import pcgen.io.exporttoken.Token;
 
 /**
  * Deals with:
- * 
+ * <p>
  * HPROLL.x
  * HPROLL.x.ROLL
  * HPROLL.x.STAT
@@ -37,41 +37,44 @@ import pcgen.io.exporttoken.Token;
  */
 public class HPRollToken extends Token
 {
-	/** Token name */
-	public static final String TOKENNAME = "HPROLL";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "HPROLL";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		String bString;
-		String retString = "";
-		bString = aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        String bString;
+        String retString = "";
+        bString = aTok.nextToken();
 
-		int levelOffset = Integer.parseInt(aTok.nextToken()) - 1;
+        int levelOffset = Integer.parseInt(aTok.nextToken()) - 1;
 
-		if (aTok.hasMoreTokens())
-		{
-			bString = aTok.nextToken();
-		}
+        if (aTok.hasMoreTokens())
+        {
+            bString = aTok.nextToken();
+        }
 
-		if (bString.startsWith("HPROLL"))
-		{
-			bString = "ROLL";
-		}
+        if (bString.startsWith("HPROLL"))
+        {
+            bString = "ROLL";
+        }
 
-		if ((levelOffset >= pc.getDisplay().getLevelInfoSize()) || (levelOffset < 0))
-		{
-			return "0";
-		}
+        if ((levelOffset >= pc.getDisplay().getLevelInfoSize()) || (levelOffset < 0))
+        {
+            return "0";
+        }
 
-        switch (bString) {
+        switch (bString)
+        {
             case "ROLL":
                 retString = Integer.toString(getRollToken(pc, levelOffset));
                 break;
@@ -83,51 +86,54 @@ public class HPRollToken extends Token
                 break;
         }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get the HPROLL.ROLL token
-	 * @param pc
-	 * @param level
-	 * @return the HPROLL.ROLL token
-	 */
-	public static int getRollToken(PlayerCharacter pc, int level)
-	{
-		CharacterDisplay display = pc.getDisplay();
-		int classLevel = display.getLevelInfoClassLevel(level) - 1;
-		int hpRoll = 0;
+    /**
+     * Get the HPROLL.ROLL token
+     *
+     * @param pc
+     * @param level
+     * @return the HPROLL.ROLL token
+     */
+    public static int getRollToken(PlayerCharacter pc, int level)
+    {
+        CharacterDisplay display = pc.getDisplay();
+        int classLevel = display.getLevelInfoClassLevel(level) - 1;
+        int hpRoll = 0;
 
-		PCClass pcClass = pc.getClassKeyed(display.getLevelInfoClassKeyName(level));
+        PCClass pcClass = pc.getClassKeyed(display.getLevelInfoClassKeyName(level));
 
-		if (pcClass != null)
-		{
-			PCClassLevel pcl = display.getActiveClassLevel(pcClass, classLevel);
-			Integer hp = display.getHP(pcl);
-			hpRoll = hp == null ? 0 : hp;
-		}
+        if (pcClass != null)
+        {
+            PCClassLevel pcl = display.getActiveClassLevel(pcClass, classLevel);
+            Integer hp = display.getHP(pcl);
+            hpRoll = hp == null ? 0 : hp;
+        }
 
-		return hpRoll;
-	}
+        return hpRoll;
+    }
 
-	/**
-	 * Get the HPROLL.STAT token
-	 * @param display
-	 * @return the HPROLL.STAT token
-	 */
-	public static int getStatToken(CharacterDisplay display)
-	{
-		return (int) display.getStatBonusTo("HP", "BONUS");
-	}
+    /**
+     * Get the HPROLL.STAT token
+     *
+     * @param display
+     * @return the HPROLL.STAT token
+     */
+    public static int getStatToken(CharacterDisplay display)
+    {
+        return (int) display.getStatBonusTo("HP", "BONUS");
+    }
 
-	/**
-	 * Get the HPROLL.TOTAL token
-	 * @param pc
-	 * @param level
-	 * @return the HPROLL.TOTAL token
-	 */
-	public static int getTotalToken(PlayerCharacter pc, int level)
-	{
-		return getRollToken(pc, level) + getStatToken(pc.getDisplay());
-	}
+    /**
+     * Get the HPROLL.TOTAL token
+     *
+     * @param pc
+     * @param level
+     * @return the HPROLL.TOTAL token
+     */
+    public static int getTotalToken(PlayerCharacter pc, int level)
+    {
+        return getRollToken(pc, level) + getStatToken(pc.getDisplay());
+    }
 }

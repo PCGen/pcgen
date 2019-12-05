@@ -26,12 +26,12 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
  */
 public final class Deity extends PObject
 {
-	public static final CDOMReference<DomainList> DOMAINLIST;
+    public static final CDOMReference<DomainList> DOMAINLIST;
 
-	static
-	{
-		DomainList wpl = new DomainList();
-		wpl.setName("*Domains");
-		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
-	}
+    static
+    {
+        DomainList wpl = new DomainList();
+        wpl.setName("*Domains");
+        DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
+    }
 }

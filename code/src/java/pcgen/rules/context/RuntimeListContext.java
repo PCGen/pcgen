@@ -24,18 +24,18 @@ import java.util.Objects;
 class RuntimeListContext extends AbstractListContext
 {
 
-	private final ListCommitStrategy commit;
+    private final ListCommitStrategy commit;
 
-	protected RuntimeListContext(ListCommitStrategy commitStrategy)
-	{
-		Objects.requireNonNull(commitStrategy, "Commit Strategy cannot be null");
-		commit = commitStrategy;
-	}
+    protected RuntimeListContext(ListCommitStrategy commitStrategy)
+    {
+        Objects.requireNonNull(commitStrategy, "Commit Strategy cannot be null");
+        commit = commitStrategy;
+    }
 
-	@Override
-	protected ListCommitStrategy getCommitStrategy()
-	{
-		return commit;
-	}
+    @Override
+    protected ListCommitStrategy getCommitStrategy()
+    {
+        return commit;
+    }
 
 }

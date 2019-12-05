@@ -26,13 +26,14 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreCharactertypeParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"CHARACTERTYPE"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"CHARACTERTYPE"};
+    }
 }

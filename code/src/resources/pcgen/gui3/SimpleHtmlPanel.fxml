@@ -23,7 +23,8 @@
   -->
 
 <?import javafx.scene.layout.StackPane?>
-<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.SimpleHtmlPanelController">
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+       fx:controller="pcgen.gui3.SimpleHtmlPanelController">
     <StackPane>
         <WebView fx:id="browser"/>
     </StackPane>

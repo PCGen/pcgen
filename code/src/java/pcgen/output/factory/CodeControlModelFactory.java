@@ -14,16 +14,16 @@ import freemarker.template.TemplateModel;
 public class CodeControlModelFactory implements ModeModelFactory
 {
 
-	@Override
-	public TemplateModel generate(GameMode mode)
-	{
-		CodeControl controller = mode.getModeContext().getReferenceContext()
-			.silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
-		if (controller == null)
-		{
-			return null;
-		}
-		return new CodeControlModel(controller);
-	}
+    @Override
+    public TemplateModel generate(GameMode mode)
+    {
+        CodeControl controller = mode.getModeContext().getReferenceContext()
+                .silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
+        if (controller == null)
+        {
+            return null;
+        }
+        return new CodeControlModel(controller);
+    }
 
 }

@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -46,139 +46,141 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AnyQualifierTokenTest extends
-		AbstractQualifierTokenTestCase<CDOMObject, Race>
+        AbstractQualifierTokenTestCase<CDOMObject, Race>
 {
 
-	private static final CDOMPrimaryToken TOKEN = new ChooseLst();
-	private static final CDOMSecondaryToken SUBTOKEN = new RaceToken();
-	private static final CDOMLoader<CDOMObject> LOADER = new CDOMTokenLoader<>();
-	private Race s1, s2, s3;
+    private static final CDOMPrimaryToken TOKEN = new ChooseLst();
+    private static final CDOMSecondaryToken SUBTOKEN = new RaceToken();
+    private static final CDOMLoader<CDOMObject> LOADER = new CDOMTokenLoader<>();
+    private Race s1, s2, s3;
 
-	private static final LstToken ANY_TOKEN = new AnyToken();
+    private static final LstToken ANY_TOKEN = new AnyToken();
 
-	public AnyQualifierTokenTest()
-	{
-		super("ANY", null);
-	}
+    public AnyQualifierTokenTest()
+    {
+        super("ANY", null);
+    }
 
-	@BeforeEach
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(ANY_TOKEN);
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws PersistenceLayerException, URISyntaxException
+    {
+        super.setUp();
+        TokenRegistration.register(ANY_TOKEN);
+    }
 
-	@Override
-	public CDOMSecondaryToken<?> getSubToken()
-	{
-		return SUBTOKEN;
-	}
+    @Override
+    public CDOMSecondaryToken<?> getSubToken()
+    {
+        return SUBTOKEN;
+    }
 
-	@Override
-	public Class<Race> getTargetClass()
-	{
-		return Race.class;
-	}
+    @Override
+    public Class<Race> getTargetClass()
+    {
+        return Race.class;
+    }
 
-	@Override
-	public Class<Race> getCDOMClass()
-	{
-		return Race.class;
-	}
+    @Override
+    public Class<Race> getCDOMClass()
+    {
+        return Race.class;
+    }
 
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return LOADER;
-	}
+    @Override
+    public CDOMLoader<CDOMObject> getLoader()
+    {
+        return LOADER;
+    }
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return TOKEN;
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getToken()
+    {
+        return TOKEN;
+    }
 
-	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return true;
-	}
+    @Override
+    protected boolean allowsNotQualifier()
+    {
+        return true;
+    }
 
-	@Override
-	protected Class<? extends QualifierToken> getQualifierClass()
-	{
-		return AnyToken.class;
-	}
+    @Override
+    protected Class<? extends QualifierToken> getQualifierClass()
+    {
+        return AnyToken.class;
+    }
 
-	@Test
-	public void testGetSet()
-	{
-		setUpPC();
-		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|ANY[ALL]"));
-		finishLoad();
-		PlayerCharacter pc = new TransparentPlayerCharacter();
+    @Test
+    public void testGetSet()
+    {
+        setUpPC();
+        initializeObjects();
+        assertTrue(parse(getSubTokenName() + "|ANY[ALL]"));
+        finishLoad();
+        PlayerCharacter pc = new TransparentPlayerCharacter();
 
-		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		Collection<?> set = info.getSet(pc);
-		assertEquals(5, set.size());
-		assertTrue(set.contains(s1));
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(primaryProf));
-		assertTrue(set.contains(RaceUtilities.getUnselectedRace()));
-	}
+        ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+        Collection<?> set = info.getSet(pc);
+        assertEquals(5, set.size());
+        assertTrue(set.contains(s1));
+        assertTrue(set.contains(s2));
+        assertTrue(set.contains(s3));
+        assertTrue(set.contains(primaryProf));
+        assertTrue(set.contains(RaceUtilities.getUnselectedRace()));
+    }
 
-	@Test
-	public void testGetSetFiltered()
-	{
-		setUpPC();
-		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|ANY[TYPE=Masterful]"));
-		finishLoad();
-		PlayerCharacter pc = new TransparentPlayerCharacter();
+    @Test
+    public void testGetSetFiltered()
+    {
+        setUpPC();
+        initializeObjects();
+        assertTrue(parse(getSubTokenName() + "|ANY[TYPE=Masterful]"));
+        finishLoad();
+        PlayerCharacter pc = new TransparentPlayerCharacter();
 
-		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		Collection<?> set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
-	}
+        ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+        Collection<?> set = info.getSet(pc);
+        assertFalse(set.isEmpty());
+        assertEquals(2, set.size());
+        assertTrue(set.contains(s2));
+        assertTrue(set.contains(s3));
+    }
 
-	private void initializeObjects()
-	{
-		s1 = new Race();
-		s1.setName("s1");
-		primaryContext.getReferenceContext().importObject(s1);
+    private void initializeObjects()
+    {
+        s1 = new Race();
+        s1.setName("s1");
+        primaryContext.getReferenceContext().importObject(s1);
 
-		s2 = new Race();
-		s2.setName("s2");
-		primaryContext.getReferenceContext().importObject(s2);
-		primaryContext.unconditionallyProcess(s2, "TYPE", "Masterful");
+        s2 = new Race();
+        s2.setName("s2");
+        primaryContext.getReferenceContext().importObject(s2);
+        primaryContext.unconditionallyProcess(s2, "TYPE", "Masterful");
 
-		s3 = new Race();
-		s3.setName("s3");
-		primaryContext.getReferenceContext().importObject(s3);
-		primaryContext.unconditionallyProcess(s3, "TYPE", "Masterful");
-	}
+        s3 = new Race();
+        s3.setName("s3");
+        primaryContext.getReferenceContext().importObject(s3);
+        primaryContext.unconditionallyProcess(s3, "TYPE", "Masterful");
+    }
 
-	@Override
-	@Test
-	public void testRoundRobinTestNotQualifierAll() {
-		//Not any is empty, so the loader should reject
-		assertFalse(parse(getSubTokenName() + "|!" + "ANY" + "[ALL]"));
-		assertNoSideEffects();
-	}
+    @Override
+    @Test
+    public void testRoundRobinTestNotQualifierAll()
+    {
+        //Not any is empty, so the loader should reject
+        assertFalse(parse(getSubTokenName() + "|!" + "ANY" + "[ALL]"));
+        assertNoSideEffects();
+    }
 
-	@Override
-	@Test
-	public void testRoundRobinTestNotQualifierRaw() {
-		//Not any is empty, so the loader should reject
-		assertFalse(parse(getSubTokenName() + "|!" + "ANY"));
-		assertNoSideEffects();
-	}
-	
-	
+    @Override
+    @Test
+    public void testRoundRobinTestNotQualifierRaw()
+    {
+        //Not any is empty, so the loader should reject
+        assertFalse(parse(getSubTokenName() + "|!" + "ANY"));
+        assertNoSideEffects();
+    }
+
+
 }

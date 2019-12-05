@@ -30,48 +30,48 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 {
 
-	private static final Class<Skill> SKILL_CLASS = Skill.class;
+    private static final Class<Skill> SKILL_CLASS = Skill.class;
 
-	@Override
-	public String getTokenName()
-	{
-		return "SKILL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SKILL";
+    }
 
-	@Override
-	protected String getDefaultTitle()
-	{
-		return "Skill choice";
-	}
+    @Override
+    protected String getDefaultTitle()
+    {
+        return "Skill choice";
+    }
 
-	@Override
-	public Skill decodeChoice(LoadContext context, String s)
-	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SKILL_CLASS, s);
-	}
+    @Override
+    public Skill decodeChoice(LoadContext context, String s)
+    {
+        return context.getReferenceContext().silentlyGetConstructedCDOMObject(SKILL_CLASS, s);
+    }
 
-	@Override
-	public String encodeChoice(Skill choice)
-	{
-		return choice.getKeyName();
-	}
+    @Override
+    public String encodeChoice(Skill choice)
+    {
+        return choice.getKeyName();
+    }
 
-	@Override
-	protected AssociationListKey<Skill> getListKey()
-	{
-		return AssociationListKey.getKeyFor(SKILL_CLASS, "CHOOSE*SKILL");
-	}
+    @Override
+    protected AssociationListKey<Skill> getListKey()
+    {
+        return AssociationListKey.getKeyFor(SKILL_CLASS, "CHOOSE*SKILL");
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(SKILL_CLASS), obj,
-			value);
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(SKILL_CLASS), obj,
+                value);
+    }
 
-	@Override
-	protected String getPersistentFormat()
-	{
-		return "SKILL";
-	}
+    @Override
+    protected String getPersistentFormat()
+    {
+        return "SKILL";
+    }
 }

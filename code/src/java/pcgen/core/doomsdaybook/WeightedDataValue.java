@@ -19,30 +19,30 @@ package pcgen.core.doomsdaybook;
 
 /**
  * {@code WeightedDataValue}.
- * 
  */
 public class WeightedDataValue extends DataValue
 {
-	private final int weight;
+    private final int weight;
 
-	/**
-	 * Constructor
-	 * 
-	 * @param value
-	 * @param weight
-	 */
-	public WeightedDataValue(String value, int weight)
-	{
-		super(value);
-		this.weight = weight;
-	}
+    /**
+     * Constructor
+     *
+     * @param value
+     * @param weight
+     */
+    public WeightedDataValue(String value, int weight)
+    {
+        super(value);
+        this.weight = weight;
+    }
 
-	/**
-	 * Get weight.
-	 * @return weight
-	 */
-	public int getWeight()
-	{
-		return weight;
-	}
+    /**
+     * Get weight.
+     *
+     * @return weight
+     */
+    public int getWeight()
+    {
+        return weight;
+    }
 }

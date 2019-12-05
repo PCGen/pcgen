@@ -35,76 +35,76 @@ import pcgen.rules.persistence.token.PrimitiveToken;
  */
 public class RaceTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race>
 {
-	private static final Class<Race> RACE_CLASS = Race.class;
-	private RaceType racetype;
-	private CDOMReference<Race> allRaces;
+    private static final Class<Race> RACE_CLASS = Race.class;
+    private RaceType racetype;
+    private CDOMReference<Race> allRaces;
 
-	@Override
-	public boolean initialize(LoadContext context, Class<Race> cl, String value, String args)
-	{
-		if (args != null)
-		{
-			return false;
-		}
-		racetype = RaceType.getConstant(value);
-		allRaces = context.getReferenceContext().getCDOMAllReference(RACE_CLASS);
-		return true;
-	}
+    @Override
+    public boolean initialize(LoadContext context, Class<Race> cl, String value, String args)
+    {
+        if (args != null)
+        {
+            return false;
+        }
+        racetype = RaceType.getConstant(value);
+        allRaces = context.getReferenceContext().getCDOMAllReference(RACE_CLASS);
+        return true;
+    }
 
-	@Override
-	public String getTokenName()
-	{
-		return "RACETYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "RACETYPE";
+    }
 
-	@Override
-	public Class<Race> getReferenceClass()
-	{
-		return RACE_CLASS;
-	}
+    @Override
+    public Class<Race> getReferenceClass()
+    {
+        return RACE_CLASS;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return getTokenName() + '=' + racetype.toString();
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return getTokenName() + '=' + racetype.toString();
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, Race race)
-	{
-		return racetype.equals(race.get(ObjectKey.RACETYPE));
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, Race race)
+    {
+        return racetype.equals(race.get(ObjectKey.RACETYPE));
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof RaceTypeToken)
-		{
-			RaceTypeToken other = (RaceTypeToken) obj;
-			return racetype.equals(other.racetype);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof RaceTypeToken)
+        {
+            RaceTypeToken other = (RaceTypeToken) obj;
+            return racetype.equals(other.racetype);
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return racetype == null ? -7 : racetype.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return racetype == null ? -7 : racetype.hashCode();
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
-	{
-		return c.convert(allRaces, this);
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
+    {
+        return c.convert(allRaces, this);
+    }
 }

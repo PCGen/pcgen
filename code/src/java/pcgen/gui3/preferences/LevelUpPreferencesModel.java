@@ -25,16 +25,16 @@ import javafx.beans.property.SimpleBooleanProperty;
  */
 class LevelUpPreferencesModel
 {
-	private final SimpleBooleanProperty statWindow = new SimpleBooleanProperty();
-	private final SimpleBooleanProperty warnFirstLevelUp = new SimpleBooleanProperty();
+    private final SimpleBooleanProperty statWindow = new SimpleBooleanProperty();
+    private final SimpleBooleanProperty warnFirstLevelUp = new SimpleBooleanProperty();
 
-	SimpleBooleanProperty statWindowProperty()
-	{
-		return statWindow;
-	}
+    SimpleBooleanProperty statWindowProperty()
+    {
+        return statWindow;
+    }
 
-	SimpleBooleanProperty warnFirstLevelUpProperty()
-	{
-		return warnFirstLevelUp;
-	}
+    SimpleBooleanProperty warnFirstLevelUpProperty()
+    {
+        return warnFirstLevelUp;
+    }
 }

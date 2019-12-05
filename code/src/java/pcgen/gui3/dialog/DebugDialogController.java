@@ -49,129 +49,129 @@ import javafx.scene.control.TextArea;
 public class DebugDialogController
 {
 
-	private static final MemoryMXBean MEMORY_BEAN = ManagementFactory.getMemoryMXBean();
-	@FXML
-	private TableView<Map<String, String>> memoryTable;
+    private static final MemoryMXBean MEMORY_BEAN = ManagementFactory.getMemoryMXBean();
+    @FXML
+    private TableView<Map<String, String>> memoryTable;
 
-	private final ObservableList<Map<String, String>> memoryTableData = FXCollections.observableArrayList();
-	@FXML
-	private TextArea logText;
+    private final ObservableList<Map<String, String>> memoryTableData = FXCollections.observableArrayList();
+    @FXML
+    private TextArea logText;
 
-	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
-	@FXML
-	void initialize()
-	{
-		memoryTable.setItems(memoryTableData);
-		setMemoryTableData();
-		logText.setText(LoggingRecorder.getLogs());
-		Logging.registerHandler(new LogHandler());
-	}
+    @FXML
+    void initialize()
+    {
+        memoryTable.setItems(memoryTableData);
+        setMemoryTableData();
+        logText.setText(LoggingRecorder.getLogs());
+        Logging.registerHandler(new LogHandler());
+    }
 
-	private void setMemoryTableData()
-	{
-		// posible optimization: get the rows rather than clear and re-add
-		memoryTableData.clear();
-		for (int row = 0; row < 2; ++row)
-		{
-			Map<String, String> dataRow = new HashMap<>();
-			for (int column = 0; column < memoryTable.getColumns().size(); column++)
-			{
-				String id = memoryTable.getColumns().get(column).getId();
-				dataRow.put(id, getMemoryTableValue(row, column));
-			}
-			memoryTableData.add(dataRow);
-		}
+    private void setMemoryTableData()
+    {
+        // posible optimization: get the rows rather than clear and re-add
+        memoryTableData.clear();
+        for (int row = 0;row < 2;++row)
+        {
+            Map<String, String> dataRow = new HashMap<>();
+            for (int column = 0;column < memoryTable.getColumns().size();column++)
+            {
+                String id = memoryTable.getColumns().get(column).getId();
+                dataRow.put(id, getMemoryTableValue(row, column));
+            }
+            memoryTableData.add(dataRow);
+        }
 
-		memoryTable.setItems(memoryTableData);
-		memoryTable.refresh();
-	}
+        memoryTable.setItems(memoryTableData);
+        memoryTable.refresh();
+    }
 
-	private static String getMemoryTableValue(int rowIndex, int columnIndex)
-	{
-		final long MEGABYTE = 1024 * 1024;
+    private static String getMemoryTableValue(int rowIndex, int columnIndex)
+    {
+        final long MEGABYTE = 1024 * 1024;
 
-		MemoryUsage usage;
-		if (rowIndex == 0)
-		{
-			usage = MEMORY_BEAN.getHeapMemoryUsage();
-		}
-		else
-		{
-			usage = MEMORY_BEAN.getNonHeapMemoryUsage();
-		}
-		final NumberFormat format = new DecimalFormat("###,###,###");
-		switch (columnIndex)
-		{
-			case 0:
-				return (rowIndex == 0) ? "Heap" : "Non-Heap";
-			case 1:
-				return format.format(usage.getInit() / MEGABYTE);
-			case 2:
-				return format.format(usage.getUsed() / MEGABYTE);
-			case 3:
-				return format.format(usage.getCommitted() / MEGABYTE);
-			case 4:
-				return format.format(usage.getMax() / MEGABYTE);
-			case 5:
-				return String.valueOf(100 * (usage.getUsed() / usage.getMax()));
-			default:
-				throw new IllegalStateException("Unexpected column index: " + columnIndex);
-		}
-	}
+        MemoryUsage usage;
+        if (rowIndex == 0)
+        {
+            usage = MEMORY_BEAN.getHeapMemoryUsage();
+        } else
+        {
+            usage = MEMORY_BEAN.getNonHeapMemoryUsage();
+        }
+        final NumberFormat format = new DecimalFormat("###,###,###");
+        switch (columnIndex)
+        {
+            case 0:
+                return (rowIndex == 0) ? "Heap" : "Non-Heap";
+            case 1:
+                return format.format(usage.getInit() / MEGABYTE);
+            case 2:
+                return format.format(usage.getUsed() / MEGABYTE);
+            case 3:
+                return format.format(usage.getCommitted() / MEGABYTE);
+            case 4:
+                return format.format(usage.getMax() / MEGABYTE);
+            case 5:
+                return String.valueOf(100 * (usage.getUsed() / usage.getMax()));
+            default:
+                throw new IllegalStateException("Unexpected column index: " + columnIndex);
+        }
+    }
 
-	@FXML
-	private void clearLogs(final ActionEvent actionEvent)
-	{
-		LoggingRecorder.clearLogs();
-		logText.setText(LoggingRecorder.getLogs());
-	}
+    @FXML
+    private void clearLogs(final ActionEvent actionEvent)
+    {
+        LoggingRecorder.clearLogs();
+        logText.setText(LoggingRecorder.getLogs());
+    }
 
-	void initTimer()
-	{
-		scheduler.scheduleAtFixedRate(this::setMemoryTableData, 0, 30, TimeUnit.SECONDS);
-	}
+    void initTimer()
+    {
+        scheduler.scheduleAtFixedRate(this::setMemoryTableData, 0, 30, TimeUnit.SECONDS);
+    }
 
-	private final class LogHandler extends Handler implements Runnable
-	{
+    private final class LogHandler extends Handler implements Runnable
+    {
 
-		private LogHandler()
-		{
-			setLevel(Logging.DEBUG);
-		}
+        private LogHandler()
+        {
+            setLevel(Logging.DEBUG);
+        }
 
-		@Override
-		public void publish(LogRecord record)
-		{
-		}
+        @Override
+        public void publish(LogRecord record)
+        {
+        }
 
-		@Override
-		public void flush()
-		{
-		}
+        @Override
+        public void flush()
+        {
+        }
 
-		@Override
-		public void close()
-		{
-		}
+        @Override
+        public void close()
+        {
+        }
 
-		@Override
-		public void run()
-		{
-			logText.setText(LoggingRecorder.getLogs());
-		}
-	}
+        @Override
+        public void run()
+        {
+            logText.setText(LoggingRecorder.getLogs());
+        }
+    }
 
 
-	@FXML
-	private void runGC(final ActionEvent actionEvent)
-	{
-		MEMORY_BEAN.gc();
-		Logging.log(Logging.INFO, MessageFormat.format("Memory used after manual GC, Heap: {0}, Non heap: {1}",
-				MEMORY_BEAN.getHeapMemoryUsage().getUsed(), MEMORY_BEAN.getNonHeapMemoryUsage().getUsed()));
-	}
-	void shutdown()
-	{
-		scheduler.shutdown();
-	}
+    @FXML
+    private void runGC(final ActionEvent actionEvent)
+    {
+        MEMORY_BEAN.gc();
+        Logging.log(Logging.INFO, MessageFormat.format("Memory used after manual GC, Heap: {0}, Non heap: {1}",
+                MEMORY_BEAN.getHeapMemoryUsage().getUsed(), MEMORY_BEAN.getNonHeapMemoryUsage().getUsed()));
+    }
+
+    void shutdown()
+    {
+        scheduler.shutdown();
+    }
 }

@@ -37,52 +37,52 @@ import pcgen.util.Logging;
 public class GamemodeToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "GAMEMODE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "GAMEMODE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String gameMode)
-	{
-		context.getObjectContext().removeList(campaign, ListKey.GAME_MODE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String gameMode)
+    {
+        context.getObjectContext().removeList(campaign, ListKey.GAME_MODE);
 
-		StringTokenizer aTok = new StringTokenizer(gameMode, Constants.PIPE);
-		while (aTok.hasMoreTokens())
-		{
-			context.getObjectContext().addToList(campaign, ListKey.GAME_MODE, aTok.nextToken());
-		}
-		return ParseResult.SUCCESS;
-	}
+        StringTokenizer aTok = new StringTokenizer(gameMode, Constants.PIPE);
+        while (aTok.hasMoreTokens())
+        {
+            context.getObjectContext().addToList(campaign, ListKey.GAME_MODE, aTok.nextToken());
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Changes<String> changes = context.getObjectContext().getListChanges(campaign, ListKey.GAME_MODE);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		Collection<String> added = changes.getAdded();
-		if (added == null || added.isEmpty())
-		{
-			Logging.errorPrint("Found Game Mode changes in " + campaign.getKeyName() + " but none were added");
-			return null;
-		}
-		return new String[]{StringUtil.join(added, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        Changes<String> changes = context.getObjectContext().getListChanges(campaign, ListKey.GAME_MODE);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        Collection<String> added = changes.getAdded();
+        if (added == null || added.isEmpty())
+        {
+            Logging.errorPrint("Found Game Mode changes in " + campaign.getKeyName() + " but none were added");
+            return null;
+        }
+        return new String[]{StringUtil.join(added, Constants.PIPE)};
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 
 }

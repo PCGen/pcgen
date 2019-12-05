@@ -26,9 +26,9 @@ import pcgen.util.Logging;
  */
 public class LoggingUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler
 {
-	@Override
-	public void uncaughtException(Thread t, Throwable e)
-	{
-		Logging.errorPrint("Uncaught error on thread  " + t + " - ignoring", e);
-	}
+    @Override
+    public void uncaughtException(Thread t, Throwable e)
+    {
+        Logging.errorPrint("Uncaught error on thread  " + t + " - ignoring", e);
+    }
 }

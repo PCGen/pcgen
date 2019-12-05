@@ -30,78 +30,77 @@ import pcgen.util.Logging;
 /**
  * Processes the SORTKEY token for RollMethod objects (Game Mode), loading it into the
  * SortKey field of the RollMethod.
- * 
+ * <p>
  * Note: While the intent is the same, this is necessary as a separate token from the
  * "Global" SortKey since RollMethod does not extend CDOMObject.
  */
 public class SortKeyToken extends AbstractNonEmptyToken<RollMethod>
-		implements CDOMPrimaryToken<RollMethod>, PostValidationToken<RollMethod>
+        implements CDOMPrimaryToken<RollMethod>, PostValidationToken<RollMethod>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SORTKEY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SORTKEY";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, RollMethod rollMethod, String value)
-	{
-		rollMethod.setSortKey(value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, RollMethod rollMethod, String value)
+    {
+        rollMethod.setSortKey(value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, RollMethod rollMethod)
-	{
-		String info = rollMethod.getSortKey();
-		if (info == null)
-		{
-			// Probably an error
-			return null;
-		}
-		return new String[]{info};
-	}
+    @Override
+    public String[] unparse(LoadContext context, RollMethod rollMethod)
+    {
+        String info = rollMethod.getSortKey();
+        if (info == null)
+        {
+            // Probably an error
+            return null;
+        }
+        return new String[]{info};
+    }
 
-	@Override
-	public Class<RollMethod> getTokenClass()
-	{
-		return RollMethod.class;
-	}
+    @Override
+    public Class<RollMethod> getTokenClass()
+    {
+        return RollMethod.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, Collection<? extends RollMethod> c)
-	{
-		boolean returnValue = true;
-		Map<String, RollMethod> keys = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-		for (RollMethod rollMethod : c)
-		{
-			String keyName = rollMethod.getKeyName();
-			if (keyName == null)
-			{
-				Logging.errorPrint("RollMethod: " + rollMethod.getDisplayName() + " requires a SortKey, but was null",
-					context);
-				returnValue = false;
-			}
-			else if (keys.put(keyName, rollMethod) != null)
-			{
-				Logging.errorPrint("Found more than one RollMethod with (case insensitive) Sort Key: " + keyName,
-					context);
-				returnValue = false;
-			}
-		}
-		return returnValue;
-	}
+    @Override
+    public boolean process(LoadContext context, Collection<? extends RollMethod> c)
+    {
+        boolean returnValue = true;
+        Map<String, RollMethod> keys = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        for (RollMethod rollMethod : c)
+        {
+            String keyName = rollMethod.getKeyName();
+            if (keyName == null)
+            {
+                Logging.errorPrint("RollMethod: " + rollMethod.getDisplayName() + " requires a SortKey, but was null",
+                        context);
+                returnValue = false;
+            } else if (keys.put(keyName, rollMethod) != null)
+            {
+                Logging.errorPrint("Found more than one RollMethod with (case insensitive) Sort Key: " + keyName,
+                        context);
+                returnValue = false;
+            }
+        }
+        return returnValue;
+    }
 
-	@Override
-	public Class<RollMethod> getValidationTokenClass()
-	{
-		return RollMethod.class;
-	}
+    @Override
+    public Class<RollMethod> getValidationTokenClass()
+    {
+        return RollMethod.class;
+    }
 
-	@Override
-	public int getPriority()
-	{
-		return 0;
-	}
+    @Override
+    public int getPriority()
+    {
+        return 0;
+    }
 }

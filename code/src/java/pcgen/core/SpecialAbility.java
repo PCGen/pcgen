@@ -20,101 +20,99 @@ package pcgen.core;
 
 /**
  * {@code SpecialAbility}.
- * 
  */
 public final class SpecialAbility extends TextProperty
 {
-	private String propDesc = "";
+    private String propDesc = "";
 
-	/** Default constructor */
-	public SpecialAbility()
-	{
-		super();
-	}
+    /**
+     * Default constructor
+     */
+    public SpecialAbility()
+    {
+        super();
+    }
 
-	/**
-	 * Constructor - with name
-	 * 
-	 * @param name
-	 */
-	public SpecialAbility(final String name)
-	{
-		super(name);
-	}
+    /**
+     * Constructor - with name
+     *
+     * @param name
+     */
+    public SpecialAbility(final String name)
+    {
+        super(name);
+    }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param name
-	 *            The name of the Special Ability
-	 * @param propDesc
-	 *            NEEDDOC
-	 * 
-	 */
-	public SpecialAbility(final String name, final String propDesc)
-	{
-		super(name);
-		this.propDesc = propDesc;
-	}
+    /**
+     * Constructor
+     *
+     * @param name     The name of the Special Ability
+     * @param propDesc NEEDDOC
+     */
+    public SpecialAbility(final String name, final String propDesc)
+    {
+        super(name);
+        this.propDesc = propDesc;
+    }
 
-	/**
-	 * Set the description of the Special Ability
-	 * 
-	 * @param saDesc
-	 */
-	public void setSADesc(final String saDesc)
-	{
-		setPropDesc(saDesc);
-	}
+    /**
+     * Set the description of the Special Ability
+     *
+     * @param saDesc
+     */
+    public void setSADesc(final String saDesc)
+    {
+        setPropDesc(saDesc);
+    }
 
-	/**
-	 * Get the description of the Special Ability
-	 * 
-	 * @return the description of the Special Ability
-	 */
-	public String getSADesc()
-	{
-		return getPropDesc();
-	}
+    /**
+     * Get the description of the Special Ability
+     *
+     * @return the description of the Special Ability
+     */
+    public String getSADesc()
+    {
+        return getPropDesc();
+    }
 
-	@Override
-	public int compareTo(final Object obj)
-	{
-		return getKeyName().compareToIgnoreCase(obj.toString());
-	}
+    @Override
+    public int compareTo(final Object obj)
+    {
+        return getKeyName().compareToIgnoreCase(obj.toString());
+    }
 
-	@Override
-	public String toString()
-	{
-		return getDisplayName();
-	}
+    @Override
+    public String toString()
+    {
+        return getDisplayName();
+    }
 
-	/**
-	 * Set the property description
-	 * @param propDesc
-	 */
-	public void setPropDesc(final String propDesc)
-	{
-		this.propDesc = propDesc;
-	}
+    /**
+     * Set the property description
+     *
+     * @param propDesc
+     */
+    public void setPropDesc(final String propDesc)
+    {
+        this.propDesc = propDesc;
+    }
 
-	String getPropDesc()
-	{
-		return propDesc;
-	}
+    String getPropDesc()
+    {
+        return propDesc;
+    }
 
-	@Override
-	public String getText()
-	{
-		final String text;
-		if ((getPropDesc() == null) || "".equals(getPropDesc()))
-		{
-			text = super.getText();
-		}
-		else
-		{
-			text = super.getText() + " (" + getPropDesc() + ")";
-		}
-		return text;
-	}
+    @Override
+    public String getText()
+    {
+        final String text;
+        if ((getPropDesc() == null) || "".equals(getPropDesc()))
+        {
+            text = super.getText();
+        } else
+        {
+            text = super.getText() + " (" + getPropDesc() + ")";
+        }
+        return text;
+    }
 }

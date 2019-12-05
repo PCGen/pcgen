@@ -22,21 +22,21 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
-/** 
+/**
  * Deal with returning value of LOCATION Token
  */
 public class LocationToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "LOCATION";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LOCATION";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return display.getLocation();
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return display.getLocation();
+    }
 
 }

@@ -39,108 +39,108 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements CDOMPrimaryToken<KitAbilities>
 {
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
-	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
+    private static final Class<Ability> ABILITY_CLASS = Ability.class;
+    private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 *
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "ABILITY";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "ABILITY";
+    }
 
-	@Override
-	public Class<KitAbilities> getTokenClass()
-	{
-		return KitAbilities.class;
-	}
+    @Override
+    public Class<KitAbilities> getTokenClass()
+    {
+        return KitAbilities.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitAbilities kitAbil, String value)
-	{
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail(
-				"No pipe found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<ability>,<ability>");
-		}
-		String catString = value.substring(0, pipeLoc);
-		if (!catString.startsWith("CATEGORY="))
-		{
-			return new ParseResult.Fail(
-				"No CATEGORY= found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
-		}
-		if (catString.length() < 10)
-		{
-			return new ParseResult.Fail(
-				"No category found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
-		}
-		String acName = catString.substring(9);
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitAbilities kitAbil, String value)
+    {
+        int pipeLoc = value.indexOf(Constants.PIPE);
+        if (pipeLoc == -1)
+        {
+            return new ParseResult.Fail(
+                    "No pipe found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<ability>,<ability>");
+        }
+        String catString = value.substring(0, pipeLoc);
+        if (!catString.startsWith("CATEGORY="))
+        {
+            return new ParseResult.Fail(
+                    "No CATEGORY= found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
+        }
+        if (catString.length() < 10)
+        {
+            return new ParseResult.Fail(
+                    "No category found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
+        }
+        String acName = catString.substring(9);
 
-		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(ABILITY_CATEGORY_CLASS, acName);
-		/*
-		 * CONSIDER In the future it would be nice to not have to do this cast,
-		 * but that should be reserved for the time when the Pool nature of
-		 * AbilityCategory is separated from the Organizational nature of
-		 * AbilityCategory
-		 */
-		kitAbil.setCategory(acRef);
+        CDOMSingleRef<AbilityCategory> acRef =
+                context.getReferenceContext().getCDOMReference(ABILITY_CATEGORY_CLASS, acName);
+        /*
+         * CONSIDER In the future it would be nice to not have to do this cast,
+         * but that should be reserved for the time when the Pool nature of
+         * AbilityCategory is separated from the Organizational nature of
+         * AbilityCategory
+         */
+        kitAbil.setCategory(acRef);
 
-		String rest = value.substring(pipeLoc + 1);
-		ParseResult pr = checkSeparatorsAndNonEmpty('|', rest);
-		if (!pr.passed())
-		{
-			return new ParseResult.Fail(
-				"No abilities found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
-		}
-		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
+        String rest = value.substring(pipeLoc + 1);
+        ParseResult pr = checkSeparatorsAndNonEmpty('|', rest);
+        if (!pr.passed())
+        {
+            return new ParseResult.Fail(
+                    "No abilities found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
+        }
+        StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
-		ReferenceManufacturer<Ability> rm =
-				context.getReferenceContext().getManufacturerByFormatName("ABILITY=" + acName, ABILITY_CLASS);
-		if (rm == null)
-		{
-			return new ParseResult.Fail("Could not get Reference Manufacturer for Category: " + acName);
-		}
+        ReferenceManufacturer<Ability> rm =
+                context.getReferenceContext().getManufacturerByFormatName("ABILITY=" + acName, ABILITY_CLASS);
+        if (rm == null)
+        {
+            return new ParseResult.Fail("Could not get Reference Manufacturer for Category: " + acName);
+        }
 
-		while (st.hasMoreTokens())
-		{
-			String token = st.nextToken();
+        while (st.hasMoreTokens())
+        {
+            String token = st.nextToken();
 
-			if (token.startsWith("CATEGORY="))
-			{
-				return new ParseResult.Fail("Attempting to change the Category to '" + token + "': " + value);
-			}
-			CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, token);
-			if (ref == null)
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
-			kitAbil.addAbility(ref);
-		}
-		return ParseResult.SUCCESS;
-	}
+            if (token.startsWith("CATEGORY="))
+            {
+                return new ParseResult.Fail("Attempting to change the Category to '" + token + "': " + value);
+            }
+            CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, token);
+            if (ref == null)
+            {
+                return ParseResult.INTERNAL_ERROR;
+            }
+            kitAbil.addAbility(ref);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitAbilities kitAbil)
-	{
-		Collection<CDOMReference<Ability>> references = kitAbil.getAbilityKeys();
-		if ((references == null) || references.isEmpty())
-		{
-			return null;
-		}
-		StringBuilder result = new StringBuilder();
-		result.append("CATEGORY=");
-		result.append(kitAbil.getCategory().getLSTformat(false));
-		for (CDOMReference<Ability> ref : references)
-		{
-			result.append(Constants.PIPE);
-			result.append(ref.getLSTformat(false));
-		}
-		return new String[]{result.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitAbilities kitAbil)
+    {
+        Collection<CDOMReference<Ability>> references = kitAbil.getAbilityKeys();
+        if ((references == null) || references.isEmpty())
+        {
+            return null;
+        }
+        StringBuilder result = new StringBuilder();
+        result.append("CATEGORY=");
+        result.append(kitAbil.getCategory().getLSTformat(false));
+        for (CDOMReference<Ability> ref : references)
+        {
+            result.append(Constants.PIPE);
+            result.append(ref.getLSTformat(false));
+        }
+        return new String[]{result.toString()};
+    }
 }

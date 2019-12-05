@@ -30,56 +30,57 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class ClassAbbToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "CLASSABB";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CLASSABB";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		int i = 0;
+        int i = 0;
 
-		if (aTok.hasMoreTokens())
-		{
-			i = Integer.parseInt(aTok.nextToken());
-		}
+        if (aTok.hasMoreTokens())
+        {
+            i = Integer.parseInt(aTok.nextToken());
+        }
 
-		return getClassAbbToken(display, i);
-	}
+        return getClassAbbToken(display, i);
+    }
 
-	/**
-	 * Get the token
-	 * @param display
-	 * @param classNumber
-	 * @return token
-	 */
-	public static String getClassAbbToken(CharacterDisplay display, int classNumber)
-	{
-		String retString = "";
+    /**
+     * Get the token
+     *
+     * @param display
+     * @param classNumber
+     * @return token
+     */
+    public static String getClassAbbToken(CharacterDisplay display, int classNumber)
+    {
+        String retString = "";
 
-		if (display.getClassCount() > classNumber)
-		{
-			PCClass pcClass = display.getClassList().get(classNumber);
-			String subClassKey = display.getDisplayClassName(pcClass);
+        if (display.getClassCount() > classNumber)
+        {
+            PCClass pcClass = display.getClassList().get(classNumber);
+            String subClassKey = display.getDisplayClassName(pcClass);
 
-			if (!pcClass.getKeyName().equals(subClassKey))
-			{
-				PCClass subClass = pcClass.getSubClassKeyed(subClassKey);
+            if (!pcClass.getKeyName().equals(subClassKey))
+            {
+                PCClass subClass = pcClass.getSubClassKeyed(subClassKey);
 
-				if (subClass != null)
-				{
-					pcClass = subClass;
-				}
-			}
+                if (subClass != null)
+                {
+                    pcClass = subClass;
+                }
+            }
 
-			retString = pcClass.getAbbrev();
-		}
+            retString = pcClass.getAbbrev();
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 }

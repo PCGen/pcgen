@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbilityListToken;
 /**
  * {@code AbilityAutoListToken} handles the output of a comma separated
  * list of automatic ability information.
- * 
+ * <p>
  * The format is ABILITYAUTOLIST.y.z where
  * y is the category (FEAT, FIGHTER etc, or ALL)
  * {@literal z is an option list of TYPE=<type> - type filter - may be negated}
@@ -41,27 +41,27 @@ import pcgen.io.exporttoken.AbilityListToken;
 public class AbilityAutoListToken extends AbilityListToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ABILITYAUTOLIST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ABILITYAUTOLIST";
+    }
 
-	@Override
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
-	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
-		Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
-		return listOfAbilities;
-	}
+    @Override
+    protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
+    {
+        final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
+        Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
+        for (AbilityCategory aCat : allCats)
+        {
+            if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+            {
+                for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
+                {
+                    listOfAbilities.addToListFor(cna.getAbility(), cna);
+                }
+            }
+        }
+        return listOfAbilities;
+    }
 }

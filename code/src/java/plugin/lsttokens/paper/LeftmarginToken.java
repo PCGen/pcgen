@@ -26,39 +26,38 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * {@code LeftmarginToken}
- * 
  */
 public class LeftmarginToken extends AbstractNonEmptyToken<PaperInfo> implements CDOMPrimaryToken<PaperInfo>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "LEFTMARGIN";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "LEFTMARGIN";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
-	{
-		pi.setPaperInfo(PaperInfo.LEFTMARGIN, value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
+    {
+        pi.setPaperInfo(PaperInfo.LEFTMARGIN, value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, PaperInfo pi)
-	{
-		String info = pi.getPaperInfo(PaperInfo.LEFTMARGIN);
-		if (info == null)
-		{
-			// Probably an error
-			return null;
-		}
-		return new String[]{info};
-	}
+    @Override
+    public String[] unparse(LoadContext context, PaperInfo pi)
+    {
+        String info = pi.getPaperInfo(PaperInfo.LEFTMARGIN);
+        if (info == null)
+        {
+            // Probably an error
+            return null;
+        }
+        return new String[]{info};
+    }
 
-	@Override
-	public Class<PaperInfo> getTokenClass()
-	{
-		return PaperInfo.class;
-	}
+    @Override
+    public Class<PaperInfo> getTokenClass()
+    {
+        return PaperInfo.class;
+    }
 }

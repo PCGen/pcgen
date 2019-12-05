@@ -19,10 +19,8 @@ package pcgen.gui2.tabs;
 
 /**
  * {@code TodoHandler} defines a tab that is capable of advising the user
- * of which field should be used to action a todo. This may be by highlighting 
- * the field, or changing focus to the field.   
- *
- * 
+ * of which field should be used to action a todo. This may be by highlighting
+ * the field, or changing focus to the field.
  */
 
 @FunctionalInterface
@@ -30,9 +28,10 @@ package pcgen.gui2.tabs;
 public interface TodoHandler
 {
 
-	/**
-	 * Advise the user of where to action a todo item.
-	 * @param fieldName The field to be actioned.
-	 */
+    /**
+     * Advise the user of where to action a todo item.
+     *
+     * @param fieldName The field to be actioned.
+     */
     void adviseTodo(String fieldName);
 }

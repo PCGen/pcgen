@@ -29,51 +29,50 @@ import pcgen.rules.persistence.token.ParseResult;
 public class CtToken implements CDOMPrimaryToken<Spell>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "CT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "CT";
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Spell spell)
-	{
-		Integer i = context.getObjectContext().getInteger(spell, IntegerKey.CASTING_THRESHOLD);
-		if (i == null)
-		{
-			return null;
-		}
-		if (i < 0)
-		{
-			context.addWriteMessage(getTokenName() + " requires a positive Integer");
-			return null;
-		}
-		return new String[]{i.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Spell spell)
+    {
+        Integer i = context.getObjectContext().getInteger(spell, IntegerKey.CASTING_THRESHOLD);
+        if (i == null)
+        {
+            return null;
+        }
+        if (i < 0)
+        {
+            context.addWriteMessage(getTokenName() + " requires a positive Integer");
+            return null;
+        }
+        return new String[]{i.toString()};
+    }
 
-	@Override
-	public Class<Spell> getTokenClass()
-	{
-		return Spell.class;
-	}
+    @Override
+    public Class<Spell> getTokenClass()
+    {
+        return Spell.class;
+    }
 
-	@Override
-	public ParseResult parseToken(LoadContext context, Spell spell, String value)
-	{
-		try
-		{
-			int ct = Integer.parseInt(value);
-			if (ct < 0)
-			{
-				return new ParseResult.Fail(getTokenName() + " requires a positive Integer");
-			}
-			context.getObjectContext().put(spell, IntegerKey.CASTING_THRESHOLD, ct);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
-		}
-	}
+    @Override
+    public ParseResult parseToken(LoadContext context, Spell spell, String value)
+    {
+        try
+        {
+            int ct = Integer.parseInt(value);
+            if (ct < 0)
+            {
+                return new ParseResult.Fail(getTokenName() + " requires a positive Integer");
+            }
+            context.getObjectContext().put(spell, IntegerKey.CASTING_THRESHOLD, ct);
+            return ParseResult.SUCCESS;
+        } catch (NumberFormatException nfe)
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
+        }
+    }
 }

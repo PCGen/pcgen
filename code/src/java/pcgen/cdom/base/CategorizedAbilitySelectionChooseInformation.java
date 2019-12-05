@@ -23,37 +23,33 @@ import pcgen.core.AbilityCategory;
 
 /**
  * CategorizedAbilitySelectionChooseInformation
- * 
- * 
  */
 public class CategorizedAbilitySelectionChooseInformation extends BasicChooseInformation<AbilitySelection>
 {
 
-	private CollectionToAbilitySelection casChoiceSet;
+    private CollectionToAbilitySelection casChoiceSet;
 
-	/**
-	 * Create a new CategorizedAbilitySelectionChooseInformation instance
-	 * indicating the name of the choice and the objects to be chosen from. 
-	 * @param name
-	 *            The name of this ChoiceSet
-	 * @param choice
-	 *            The PrimitiveChoiceSet indicating the Collection of objects
-	 *            for this ChoiceSet
-	 * @throws IllegalArgumentException
-	 *             if the given name or PrimitiveChoiceSet is null
-	 */
-	public CategorizedAbilitySelectionChooseInformation(String name, CollectionToAbilitySelection choice)
-	{
-		super(name, choice, choice.getCategory().getPersistentFormat());
-		this.casChoiceSet = choice;
-	}
+    /**
+     * Create a new CategorizedAbilitySelectionChooseInformation instance
+     * indicating the name of the choice and the objects to be chosen from.
+     *
+     * @param name   The name of this ChoiceSet
+     * @param choice The PrimitiveChoiceSet indicating the Collection of objects
+     *               for this ChoiceSet
+     * @throws IllegalArgumentException if the given name or PrimitiveChoiceSet is null
+     */
+    public CategorizedAbilitySelectionChooseInformation(String name, CollectionToAbilitySelection choice)
+    {
+        super(name, choice, choice.getCategory().getPersistentFormat());
+        this.casChoiceSet = choice;
+    }
 
-	/**
-	 * @return The ability category of the choices. 
-	 */
-	public AbilityCategory getCategory()
-	{
-		return casChoiceSet.getCategory();
-	}
+    /**
+     * @return The ability category of the choices.
+     */
+    public AbilityCategory getCategory()
+    {
+        return casChoiceSet.getCategory();
+    }
 
 }

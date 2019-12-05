@@ -25,16 +25,16 @@ import javafx.beans.property.SimpleBooleanProperty;
  */
 class InputPreferencesModel
 {
-	private final SimpleBooleanProperty formatDeprecationMessage = new SimpleBooleanProperty();
-	private final SimpleBooleanProperty detailUnconstructedReferences = new SimpleBooleanProperty();
+    private final SimpleBooleanProperty formatDeprecationMessage = new SimpleBooleanProperty();
+    private final SimpleBooleanProperty detailUnconstructedReferences = new SimpleBooleanProperty();
 
-	SimpleBooleanProperty formatDeprecationMessageProperty()
-	{
-		return formatDeprecationMessage;
-	}
+    SimpleBooleanProperty formatDeprecationMessageProperty()
+    {
+        return formatDeprecationMessage;
+    }
 
-	SimpleBooleanProperty detailUnconstructedReferencesProperty()
-	{
-		return detailUnconstructedReferences;
-	}
+    SimpleBooleanProperty detailUnconstructedReferencesProperty()
+    {
+        return detailUnconstructedReferences;
+    }
 }

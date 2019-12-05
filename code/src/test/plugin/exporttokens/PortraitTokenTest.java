@@ -42,72 +42,75 @@ import org.junit.jupiter.api.Test;
 public class PortraitTokenTest extends AbstractCharacterTestCase
 {
 
-	private PortraitToken portraitToken = new PortraitToken();
+    private PortraitToken portraitToken = new PortraitToken();
 
-	/**
-	 * Check the generation of a thumbnail file for valid, no scaling conditions.
-	 * @throws Exception Not expected.
-	 */
-	@Test
-	public void testThumb() throws Exception
-	{
-		PlayerCharacter pc = getCharacter();
-		pc.setName("PortraitTokenTest");
-		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
-		pc.setPortraitThumbnailRect(new Rectangle(160, 70, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE));
-		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNotNull("THUMB should not be null ", thumbResult);
-		assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
-		File thumbFile = new File(thumbResult);
-		assertTrue("File should exist", thumbFile.exists());
-		BufferedImage image = ImageIO.read(thumbFile);
-		assertNotNull("THUMB image should not be null ", image);
-	}
-
-	/**
-	 * Check the generation of a thumbnail file for valid conditions with scaling required.
-	 * @throws Exception Not expected.
-	 */
-	@Test
-	public void testThumbScaling() throws Exception
-	{
-		PlayerCharacter pc = getCharacter();
-		pc.setName("PortraitTokenTest");
-		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
-		pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
-		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNotNull("THUMB should not be null ", thumbResult);
-		assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
-		File thumbFile = new File(thumbResult);
-		assertTrue("File should exist", thumbFile.exists());
-		BufferedImage image = ImageIO.read(thumbFile);
-		assertNotNull("THUMB image should not be null ", image);
-		assertEquals("Incorrect scaled width",  Constants.THUMBNAIL_SIZE, image.getWidth());
-		assertEquals("Incorrect scaled height",  Constants.THUMBNAIL_SIZE, image.getHeight());
-	}
-
-	/**
-	 * Check the generation of a thumbnail file for invalid conditions.
+    /**
+     * Check the generation of a thumbnail file for valid, no scaling conditions.
+     *
+     * @throws Exception Not expected.
      */
-	@Test
-	public void testThumbInvalid() {
-		PlayerCharacter pc = getCharacter();
-		pc.setName("PortraitTokenTest");
-		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNull("No image or rect should be null", thumbResult);
-		
-		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
-		thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNull("No rect should be null", thumbResult);
+    @Test
+    public void testThumb() throws Exception
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setName("PortraitTokenTest");
+        pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
+        pc.setPortraitThumbnailRect(new Rectangle(160, 70, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE));
+        String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
+        assertNotNull("THUMB should not be null ", thumbResult);
+        assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
+        File thumbFile = new File(thumbResult);
+        assertTrue("File should exist", thumbFile.exists());
+        BufferedImage image = ImageIO.read(thumbFile);
+        assertNotNull("THUMB image should not be null ", image);
+    }
 
-		pc.setPortraitPath("");
-		pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
-		thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNull("No image should be null", thumbResult);
+    /**
+     * Check the generation of a thumbnail file for valid conditions with scaling required.
+     *
+     * @throws Exception Not expected.
+     */
+    @Test
+    public void testThumbScaling() throws Exception
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setName("PortraitTokenTest");
+        pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
+        pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
+        String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
+        assertNotNull("THUMB should not be null ", thumbResult);
+        assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
+        File thumbFile = new File(thumbResult);
+        assertTrue("File should exist", thumbFile.exists());
+        BufferedImage image = ImageIO.read(thumbFile);
+        assertNotNull("THUMB image should not be null ", image);
+        assertEquals("Incorrect scaled width", Constants.THUMBNAIL_SIZE, image.getWidth());
+        assertEquals("Incorrect scaled height", Constants.THUMBNAIL_SIZE, image.getHeight());
+    }
 
-		pc.setPortraitPath("foo1gghas");
-		thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNull("Invalid image should be null", thumbResult);
-	}
+    /**
+     * Check the generation of a thumbnail file for invalid conditions.
+     */
+    @Test
+    public void testThumbInvalid()
+    {
+        PlayerCharacter pc = getCharacter();
+        pc.setName("PortraitTokenTest");
+        String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
+        assertNull("No image or rect should be null", thumbResult);
+
+        pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
+        thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
+        assertNull("No rect should be null", thumbResult);
+
+        pc.setPortraitPath("");
+        pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
+        thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
+        assertNull("No image should be null", thumbResult);
+
+        pc.setPortraitPath("foo1gghas");
+        thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
+        assertNull("Invalid image should be null", thumbResult);
+    }
 
 }

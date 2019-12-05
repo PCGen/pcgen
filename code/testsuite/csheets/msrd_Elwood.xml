@@ -1,1985 +1,2026 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-<!--========================================================================
-BIO
-========================================================================-->
-	<basics>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<bonuses></bonuses>
-		<name>Elwood Oates</name>
-		<followerof></followerof>
-		<playername></playername>
-		<action_points>42</action_points>
-		<age>20</age>
-		<alignment>
-			<long></long>
-			<short></short>
-		</alignment>
-		<bab>+3</bab>
-		<bio></bio>
-		<birthplace></birthplace>
-		<catchphrase></catchphrase>
-		<classes>
-			<class>
-				<name>Fast Hero</name>
-				<abbreviation>Fas</abbreviation>
-				<level>3</level>
-				<bonuslist>Fast Hero</bonuslist>
-				<sequence>0</sequence>
-			</class>
-			<class>
-				<name>Infiltrator</name>
-				<abbreviation>Infi</abbreviation>
-				<level>3</level>
-				<bonuslist>Infiltrator</bonuslist>
-				<sequence>1</sequence>
-			</class>
-			<levels_total>6</levels_total>
-			<levels_ecl>6</levels_ecl>
-			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform>Fas3,Infi3</shortform>
-			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
-		</classes>
-		<deity>
-			<name></name>
-			<alignment></alignment>
-			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
-			<holyitem></holyitem>
-			<pantheonlist></pantheonlist>
-			<source></source>
-			<special_abilities></special_abilities>
-			<appearance></appearance>
-			<title></title>
-			<worshippers></worshippers>
-		</deity>
-		<description></description>
-		<experience>
-			<current>15000</current>
-			<next_level>21000</next_level>
-			<factor>100%</factor>
-			<penalty>0%</penalty>
-		</experience>
-		<eyes>
-			<color></color>
-		</eyes>
-		<hair>
-			<color></color>
-			<length></length>
-		</hair>
-		<skin>
-			<color></color>
-		</skin>
-		<cr>6</cr>
-		<face>
-		<face>5 ft. by 5 ft.</face>
-			<short>5 ft. x 5 ft.</short>
-			<squares>1 x 1</squares>
-		</face>
-		<favoredlist>Any</favoredlist>
-		<followerlist></followerlist>
-		<gender>
-			<long>Male</long>
-			<short>Male</short>
-		</gender>
-		<handed>Right</handed>
-		<height>
-			<total>5&#39; 5&quot;</total>
-			<feet>5</feet>
-			<inches>5</inches>
-		</height>
-		<hitdice>(3d8)+(3d8)+3</hitdice>
-		<interests></interests>
-		<languages>
-			<language>English</language>
-			<language>German</language>
-			<all>English, German</all>
-		</languages>
-		<location></location>
-		<move>
-			<move>
-				<name>Walk</name>
-				<rate>30 ft.</rate>
-				<squares>6</squares>
-			</move>
-			<all>Walk 30 ft.</all>
-		</move>
-		<personality>
-			<trait></trait>
-			<trait></trait>
-		</personality>
-		<portrait></portrait>
-		<phobias></phobias>
-		<race>Human</race>
-		<reach>
-		<reach>5 ft.</reach>
-			<squares>1</squares>
-		</reach>
-		<region>None</region>
-		<reputation>2</reputation>
-		<residence></residence>
-		<size>
-			<long>Medium</long>
-			<short>M</short>
-		</size>
-		<speechtendency></speechtendency>
-		<type>Humanoid</type>
-		<vision>
-			<all></all>
-		</vision>
-		<wealth>7</wealth>
-		<weight>
-			<weight_unit>162 lbs.</weight_unit>
-			<weight_nounit>162</weight_nounit>
-		</weight>
-		<poolpoints>
-			<cost>0</cost>
-			<current>0</current>
-		</poolpoints>
-		<notes>
-			<note>
-				<name>Character Sheet Notes</name>
-				<value></value>
-			</note>
-		</notes>
-	</basics>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITIES
-	  ====================================
-	  ====================================-->
-	<abilities>
-		<ability>
-			<name>
-				<long>Strength</long>
-				<short>STR</short>
-			</name>
-			<score>11</score>
-			<modifier>+0</modifier>
-			<base>11</base>
-			<basemod>+0</basemod>
-			<noequip>11</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>11</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Dexterity</long>
-				<short>DEX</short>
-			</name>
-			<score>16</score>
-			<modifier>+3</modifier>
-			<base>16</base>
-			<basemod>+3</basemod>
-			<noequip>16</noequip>
-			<noequip_mod>+3</noequip_mod>
-			<no_temp_score>16</no_temp_score>
-			<no_temp_modifier>+3</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Constitution</long>
-				<short>CON</short>
-			</name>
-			<score>11</score>
-			<modifier>+0</modifier>
-			<base>11</base>
-			<basemod>+0</basemod>
-			<noequip>11</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>11</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Intelligence</long>
-				<short>INT</short>
-			</name>
-			<score>13</score>
-			<modifier>+1</modifier>
-			<base>13</base>
-			<basemod>+1</basemod>
-			<noequip>13</noequip>
-			<noequip_mod>+1</noequip_mod>
-			<no_temp_score>13</no_temp_score>
-			<no_temp_modifier>+1</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Wisdom</long>
-				<short>WIS</short>
-			</name>
-			<score>16</score>
-			<modifier>+3</modifier>
-			<base>16</base>
-			<basemod>+3</basemod>
-			<noequip>16</noequip>
-			<noequip_mod>+3</noequip_mod>
-			<no_temp_score>16</no_temp_score>
-			<no_temp_modifier>+3</no_temp_modifier>
-		</ability>
-		<ability>
-			<name>
-				<long>Charisma</long>
-				<short>CHA</short>
-			</name>
-			<score>13</score>
-			<modifier>+1</modifier>
-			<base>13</base>
-			<basemod>+1</basemod>
-			<noequip>13</noequip>
-			<noequip_mod>+1</noequip_mod>
-			<no_temp_score>13</no_temp_score>
-			<no_temp_modifier>+1</no_temp_modifier>
-		</ability>
-	</abilities>
-	<!--
-	  ====================================
-	  ====================================
-			HIT POINTS
-	  ====================================
-	  ====================================-->
-	<hit_points>
-		<points>35</points>
-		<alternate>11</alternate>
-		<die>(3d8)+(3d8)+3</die>
-		<current/>
-		<subdual/>
-		<damage_reduction></damage_reduction>
-		<damage_threshold>11</damage_threshold>
-		<history>
-			<roll>
-				<level>1</level>
-				<roll>8</roll>
-				<stat>0</stat>
-				<total>8</total>
-			</roll>
-			<roll>
-				<level>2</level>
-				<roll>4</roll>
-				<stat>0</stat>
-				<total>4</total>
-			</roll>
-			<roll>
-				<level>3</level>
-				<roll>5</roll>
-				<stat>0</stat>
-				<total>5</total>
-			</roll>
-			<roll>
-				<level>4</level>
-				<roll>2</roll>
-				<stat>0</stat>
-				<total>2</total>
-			</roll>
-			<roll>
-				<level>5</level>
-				<roll>6</roll>
-				<stat>0</stat>
-				<total>6</total>
-			</roll>
-			<roll>
-				<level>6</level>
-				<roll>7</roll>
-				<stat>0</stat>
-				<total>7</total>
-			</roll>
-		</history>
-	</hit_points>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR CLASS
-	  ====================================
-	  ====================================-->
-	<armor_class>
-		<total>19</total>
-		<listing>ABILITY +3, BASE +10, CLASSDEFENSE +6</listing>
-		<flat>16</flat>
-		<touch>19</touch>
-		<base>10</base>
-		<armor_bonus>0</armor_bonus>
-		<shield_bonus>0</shield_bonus>
-		<stat_mod>3</stat_mod>
-		<size_mod>0</size_mod>
-		<natural>0</natural>
-		<class_bonus>6</class_bonus>
-		<dodge_bonus>0</dodge_bonus>
-		<misc>0</misc>
-		<miss_chance/>
-		<max_dex></max_dex>
-		<spell_failure>0</spell_failure>
-		<check_penalty>+0</check_penalty>
-		<spell_resistance>0</spell_resistance>
-	</armor_class>
-	<!--
-	  ====================================
-	  ====================================
-			INITIATIVE
-	  ====================================
-	  ====================================-->
-	<initiative>
-		<total>+3</total>
-		<dex_mod>+3</dex_mod>
-		<misc_mod>+0</misc_mod>
-	</initiative>
-	<!--
-	  ====================================
-	  ====================================
-			SKILLS
-	  ====================================
-	  ====================================-->
-	<skills>
-		<skillpoints>
-			<total>60</total>
-			<used>44</used>
-			<unused>16</unused>
-		</skillpoints>
-		<list_mods>Climb +1, Disguise +2, Drive +7, Escape Artist +5, Hide +11, Knowledge (Art) +2, Knowledge (Current Events) +7, Knowledge (Popular Culture) +6, Knowledge (Streetwise) +2, Move Silently +9, Read/Write Language +1, Ride +7, Search +2, Sleight of Hand +7</list_mods>
-		<max_class_skill_level>9</max_class_skill_level>
-		<max_cross_class_skill_level>4.5</max_cross_class_skill_level>
-		<skill>
-			<name>Balance</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Balance</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Bluff</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Bluff</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Climb</name>
-			<ranks>1.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Climb</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Computer Use</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Computer Use</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Concentration</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CON</ability>
-			<synergy>Concentration</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Craft (Structural)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Craft (Structural)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Craft (Visual Art)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Craft (Visual Art)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Craft (Writing)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Craft (Writing)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Diplomacy</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Diplomacy</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Disguise</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Disguise</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
-		</skill>
-		<skill>
-			<name>Drive</name>
-			<ranks>4.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>7</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Drive</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>7</trained_total>
-			<exclusive_total>7</exclusive_total>
-		</skill>
-		<skill>
-			<name>Escape Artist</name>
-			<ranks>2.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Escape Artist</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
-		</skill>
-		<skill>
-			<name>Forgery</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Forgery</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Gamble</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Gamble</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Gather Information</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Gather Information</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Hide</name>
-			<ranks>7.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>11</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>1<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Hide</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>11</trained_total>
-			<exclusive_total>11</exclusive_total>
-		</skill>
-		<skill>
-			<name>Intimidate</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Intimidate</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Jump</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Jump</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Knowledge (Art)</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge (Art)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
-		</skill>
-		<skill>
-			<name>Knowledge (Current Events)</name>
-			<ranks>6.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>7</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge (Current Events)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>7</trained_total>
-			<exclusive_total>7</exclusive_total>
-		</skill>
-		<skill>
-			<name>Knowledge (Popular Culture)</name>
-			<ranks>5.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>6</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge (Popular Culture)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>6</trained_total>
-			<exclusive_total>6</exclusive_total>
-		</skill>
-		<skill>
-			<name>Knowledge (Streetwise)</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge (Streetwise)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
-		</skill>
-		<skill>
-			<name>Listen</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Listen</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Move Silently</name>
-			<ranks>6.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>9</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Move Silently</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>9</trained_total>
-			<exclusive_total>9</exclusive_total>
-		</skill>
-		<skill>
-			<name>Navigate</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Navigate</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Untrained)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Untrained)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Profession</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Profession</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Read/Write Language(German)</name>
-			<ranks>1.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability></ability>
-			<synergy>Read/Write Language(German)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Research</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Research</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Ride</name>
-			<ranks>4.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>7</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Ride</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>7</trained_total>
-			<exclusive_total>7</exclusive_total>
-		</skill>
-		<skill>
-			<name>Search</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Search</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
-		</skill>
-		<skill>
-			<name>Sense Motive</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Sense Motive</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Sleight of Hand</name>
-			<ranks>4.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>7</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Sleight of Hand</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>7</trained_total>
-			<exclusive_total>7</exclusive_total>
-		</skill>
-		<skill>
-			<name>Spot</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Spot</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Survival</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Survival</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Swim</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Swim</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Treat Injury</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Treat Injury</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-	</skills>
-	<!--
-	  ====================================
-	  ====================================
-			SAVING THROWS
-	  ====================================
-	  ====================================-->
-	<saving_throws>
-		<conditional_modifiers/>
-		<saving_throw>
-			<name>
-				<long>fortitude</long>
-				<short>fort</short>
-			</name>
-			<ability>constitution</ability>
-			<total>+2</total>
-			<base>+2</base>
-			<abil_mod>+0</abil_mod>
-			<feats>+0</feats>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>reflex</long>
-				<short>ref</short>
-			</name>
-			<ability>dexterity</ability>
-			<total>+11</total>
-			<base>+8</base>
-			<feats>+0</feats>
-			<abil_mod>+3</abil_mod>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>will</long>
-				<short>will</short>
-			</name>
-			<ability>wisdom</ability>
-			<total>+5</total>
-			<base>+2</base>
-			<abil_mod>+3</abil_mod>
-			<feats>+0</feats>
-			<magic_mod>+0</magic_mod>
-			<misc_mod>+0</misc_mod>
-			<race>+0</race>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-	</saving_throws>
-	<!--
-	  ====================================
-	  ====================================
-			ATTACK
-	  ====================================
-	  ====================================-->
-	<attack>
-		<melee>
-			<total>+3</total>
-			<bab>+3</bab>
-			<base_attack_bonus>+3</base_attack_bonus>
-			<stat_mod>+0</stat_mod>
-			<size_mod>+0</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</melee>
-		<ranged>
-			<total>+6</total>
-			<bab>+3</bab>
-			<base_attack_bonus>+3</base_attack_bonus>
-			<stat_mod>+3</stat_mod>
-			<size_mod>+0</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</ranged>
-		<grapple>
-			<total>+3</total>
-			<bab>+3</bab>
-			<base_attack_bonus>+3</base_attack_bonus>
-			<stat_mod>+0</stat_mod>
-			<size_mod>+0</size_mod>
-			<misc_mod>+0</misc_mod>
-			<epic_mod>+0</epic_mod>
-			<temp_mod/>
-		</grapple>
-	</attack>
-	<!--
-	  ====================================
-	  ====================================
-			WEAPONS
-	  ====================================
-	  ====================================-->
-	<weapons>
-		<unarmed>
-			<total>+3</total>
-			<damage>1d4</damage>
-			<critical>20/x2</critical>
-			<!-- Should be changed to a variable due to improved crit -->
-		</unarmed>
-		
-		<weapon>
-			<common>
-				<name>
-					<short>*Colt Python (.357 revolver)</short>
-					<long>*Colt Python (.357 revolver)</long>
-				</name>
-				<category>Non-Standard-Ranged</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+7</hit>
-					<magic_hit>+1</magic_hit>
-					<total_hit>+7</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Primary</hand>
-				<num_attacks>1</num_attacks>
-				<reach>5</reach>
-				<size>M</size>
-				<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-				<template></template>
-				<type>Ba</type>
-				<weight>3</weight>
-				<sequence>0</sequence>
-			</common>
-			<ranges>
-				<ammunition>
-					<name>Bullet (.357)</name>
-					<special_properties></special_properties>
-				</ammunition>
-				<range>
-					<distance>30 ft.</distance>
-					<to_hit>+7</to_hit>
-					<damage>2d6</damage>
-				</range>
-				<range>
-					<distance>40 ft.</distance>
-					<to_hit>+7</to_hit>
-					<damage>2d6</damage>
-				</range>
-				<range>
-					<distance>80 ft.</distance>
-					<to_hit>+5</to_hit>
-					<damage>2d6</damage>
-				</range>
-				<range>
-					<distance>120 ft.</distance>
-					<to_hit>+3</to_hit>
-					<damage>2d6</damage>
-				</range>
-				<range>
-					<distance>160 ft.</distance>
-					<to_hit>+1</to_hit>
-					<damage>2d6</damage>
-				</range>
-			</ranges>
-		</weapon>
-		<weapon>
-			<common>
-				<name>
-					<short>*Brawl</short>
-					<long>*Brawl (Natural/Primary)</long>
-				</name>
-				<category>Natural-Natural,Melee</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+4</hit>
-					<magic_hit>+0</magic_hit>
-					<total_hit>+4</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Primary</hand>
-				<num_attacks>1</num_attacks>
-				<reach>5</reach>
-				<size>M</size>
-				<special_properties>Non-Lethal</special_properties>
-				<template></template>
-				<type></type>
-				<weight>0</weight>
-				<sequence>1</sequence>
-			</common>
-			<simple>
-				<to_hit>+4</to_hit>
-				<damage>1d6</damage>
-				<range>0 ft.</range>
-			</simple>
-		</weapon>
-	</weapons>
-	<!--
-	  ====================================
-	  ====================================
-			ARMOR
-	  ====================================
-	  ====================================-->
-	<protection>
-	</protection>
-	<!--
-	  ====================================
-	  ====================================
-			CLASS-DEPENDANT FEATURES
-	  ====================================
-	  ====================================-->
-	<class_features>
-	<!-- Bard -->
+    <!--========================================================================
+    BIO
+    ========================================================================-->
+    <basics>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <bonuses></bonuses>
+        <name>Elwood Oates</name>
+        <followerof></followerof>
+        <playername></playername>
+        <action_points>42</action_points>
+        <age>20</age>
+        <alignment>
+            <long></long>
+            <short></short>
+        </alignment>
+        <bab>+3</bab>
+        <bio></bio>
+        <birthplace></birthplace>
+        <catchphrase></catchphrase>
+        <classes>
+            <class>
+                <name>Fast Hero</name>
+                <abbreviation>Fas</abbreviation>
+                <level>3</level>
+                <bonuslist>Fast Hero</bonuslist>
+                <sequence>0</sequence>
+            </class>
+            <class>
+                <name>Infiltrator</name>
+                <abbreviation>Infi</abbreviation>
+                <level>3</level>
+                <bonuslist>Infiltrator</bonuslist>
+                <sequence>1</sequence>
+            </class>
+            <levels_total>6</levels_total>
+            <levels_ecl>6</levels_ecl>
+            <!-- shortform below should be removed - it can be derived from class info above -->
+            <shortform>Fas3,Infi3</shortform>
+            <!-- CLASSLIST is not extracted because we can derive it from the information above -->
+        </classes>
+        <deity>
+            <name></name>
+            <alignment></alignment>
+            <description></description>
+            <domainlist></domainlist>
+            <favoredweapon></favoredweapon>
+            <holyitem></holyitem>
+            <pantheonlist></pantheonlist>
+            <source></source>
+            <special_abilities></special_abilities>
+            <appearance></appearance>
+            <title></title>
+            <worshippers></worshippers>
+        </deity>
+        <description></description>
+        <experience>
+            <current>15000</current>
+            <next_level>21000</next_level>
+            <factor>100%</factor>
+            <penalty>0%</penalty>
+        </experience>
+        <eyes>
+            <color></color>
+        </eyes>
+        <hair>
+            <color></color>
+            <length></length>
+        </hair>
+        <skin>
+            <color></color>
+        </skin>
+        <cr>6</cr>
+        <face>
+            <face>5 ft. by 5 ft.</face>
+            <short>5 ft. x 5 ft.</short>
+            <squares>1 x 1</squares>
+        </face>
+        <favoredlist>Any</favoredlist>
+        <followerlist></followerlist>
+        <gender>
+            <long>Male</long>
+            <short>Male</short>
+        </gender>
+        <handed>Right</handed>
+        <height>
+            <total>5&#39; 5&quot;</total>
+            <feet>5</feet>
+            <inches>5</inches>
+        </height>
+        <hitdice>(3d8)+(3d8)+3</hitdice>
+        <interests></interests>
+        <languages>
+            <language>English</language>
+            <language>German</language>
+            <all>English, German</all>
+        </languages>
+        <location></location>
+        <move>
+            <move>
+                <name>Walk</name>
+                <rate>30 ft.</rate>
+                <squares>6</squares>
+            </move>
+            <all>Walk 30 ft.</all>
+        </move>
+        <personality>
+            <trait></trait>
+            <trait></trait>
+        </personality>
+        <portrait></portrait>
+        <phobias></phobias>
+        <race>Human</race>
+        <reach>
+            <reach>5 ft.</reach>
+            <squares>1</squares>
+        </reach>
+        <region>None</region>
+        <reputation>2</reputation>
+        <residence></residence>
+        <size>
+            <long>Medium</long>
+            <short>M</short>
+        </size>
+        <speechtendency></speechtendency>
+        <type>Humanoid</type>
+        <vision>
+            <all></all>
+        </vision>
+        <wealth>7</wealth>
+        <weight>
+            <weight_unit>162 lbs.</weight_unit>
+            <weight_nounit>162</weight_nounit>
+        </weight>
+        <poolpoints>
+            <cost>0</cost>
+            <current>0</current>
+        </poolpoints>
+        <notes>
+            <note>
+                <name>Character Sheet Notes</name>
+                <value></value>
+            </note>
+        </notes>
+    </basics>
+    <!--
+      ====================================
+      ====================================
+            ABILITIES
+      ====================================
+      ====================================-->
+    <abilities>
+        <ability>
+            <name>
+                <long>Strength</long>
+                <short>STR</short>
+            </name>
+            <score>11</score>
+            <modifier>+0</modifier>
+            <base>11</base>
+            <basemod>+0</basemod>
+            <noequip>11</noequip>
+            <noequip_mod>+0</noequip_mod>
+            <no_temp_score>11</no_temp_score>
+            <no_temp_modifier>+0</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Dexterity</long>
+                <short>DEX</short>
+            </name>
+            <score>16</score>
+            <modifier>+3</modifier>
+            <base>16</base>
+            <basemod>+3</basemod>
+            <noequip>16</noequip>
+            <noequip_mod>+3</noequip_mod>
+            <no_temp_score>16</no_temp_score>
+            <no_temp_modifier>+3</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Constitution</long>
+                <short>CON</short>
+            </name>
+            <score>11</score>
+            <modifier>+0</modifier>
+            <base>11</base>
+            <basemod>+0</basemod>
+            <noequip>11</noequip>
+            <noequip_mod>+0</noequip_mod>
+            <no_temp_score>11</no_temp_score>
+            <no_temp_modifier>+0</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Intelligence</long>
+                <short>INT</short>
+            </name>
+            <score>13</score>
+            <modifier>+1</modifier>
+            <base>13</base>
+            <basemod>+1</basemod>
+            <noequip>13</noequip>
+            <noequip_mod>+1</noequip_mod>
+            <no_temp_score>13</no_temp_score>
+            <no_temp_modifier>+1</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Wisdom</long>
+                <short>WIS</short>
+            </name>
+            <score>16</score>
+            <modifier>+3</modifier>
+            <base>16</base>
+            <basemod>+3</basemod>
+            <noequip>16</noequip>
+            <noequip_mod>+3</noequip_mod>
+            <no_temp_score>16</no_temp_score>
+            <no_temp_modifier>+3</no_temp_modifier>
+        </ability>
+        <ability>
+            <name>
+                <long>Charisma</long>
+                <short>CHA</short>
+            </name>
+            <score>13</score>
+            <modifier>+1</modifier>
+            <base>13</base>
+            <basemod>+1</basemod>
+            <noequip>13</noequip>
+            <noequip_mod>+1</noequip_mod>
+            <no_temp_score>13</no_temp_score>
+            <no_temp_modifier>+1</no_temp_modifier>
+        </ability>
+    </abilities>
+    <!--
+      ====================================
+      ====================================
+            HIT POINTS
+      ====================================
+      ====================================-->
+    <hit_points>
+        <points>35</points>
+        <alternate>11</alternate>
+        <die>(3d8)+(3d8)+3</die>
+        <current/>
+        <subdual/>
+        <damage_reduction></damage_reduction>
+        <damage_threshold>11</damage_threshold>
+        <history>
+            <roll>
+                <level>1</level>
+                <roll>8</roll>
+                <stat>0</stat>
+                <total>8</total>
+            </roll>
+            <roll>
+                <level>2</level>
+                <roll>4</roll>
+                <stat>0</stat>
+                <total>4</total>
+            </roll>
+            <roll>
+                <level>3</level>
+                <roll>5</roll>
+                <stat>0</stat>
+                <total>5</total>
+            </roll>
+            <roll>
+                <level>4</level>
+                <roll>2</roll>
+                <stat>0</stat>
+                <total>2</total>
+            </roll>
+            <roll>
+                <level>5</level>
+                <roll>6</roll>
+                <stat>0</stat>
+                <total>6</total>
+            </roll>
+            <roll>
+                <level>6</level>
+                <roll>7</roll>
+                <stat>0</stat>
+                <total>7</total>
+            </roll>
+        </history>
+    </hit_points>
+    <!--
+      ====================================
+      ====================================
+            ARMOR CLASS
+      ====================================
+      ====================================-->
+    <armor_class>
+        <total>19</total>
+        <listing>ABILITY +3, BASE +10, CLASSDEFENSE +6</listing>
+        <flat>16</flat>
+        <touch>19</touch>
+        <base>10</base>
+        <armor_bonus>0</armor_bonus>
+        <shield_bonus>0</shield_bonus>
+        <stat_mod>3</stat_mod>
+        <size_mod>0</size_mod>
+        <natural>0</natural>
+        <class_bonus>6</class_bonus>
+        <dodge_bonus>0</dodge_bonus>
+        <misc>0</misc>
+        <miss_chance/>
+        <max_dex></max_dex>
+        <spell_failure>0</spell_failure>
+        <check_penalty>+0</check_penalty>
+        <spell_resistance>0</spell_resistance>
+    </armor_class>
+    <!--
+      ====================================
+      ====================================
+            INITIATIVE
+      ====================================
+      ====================================-->
+    <initiative>
+        <total>+3</total>
+        <dex_mod>+3</dex_mod>
+        <misc_mod>+0</misc_mod>
+    </initiative>
+    <!--
+      ====================================
+      ====================================
+            SKILLS
+      ====================================
+      ====================================-->
+    <skills>
+        <skillpoints>
+            <total>60</total>
+            <used>44</used>
+            <unused>16</unused>
+        </skillpoints>
+        <list_mods>Climb +1, Disguise +2, Drive +7, Escape Artist +5, Hide +11, Knowledge (Art) +2, Knowledge (Current
+            Events) +7, Knowledge (Popular Culture) +6, Knowledge (Streetwise) +2, Move Silently +9, Read/Write Language
+            +1, Ride +7, Search +2, Sleight of Hand +7
+        </list_mods>
+        <max_class_skill_level>9</max_class_skill_level>
+        <max_cross_class_skill_level>4.5</max_cross_class_skill_level>
+        <skill>
+            <name>Balance</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Balance</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Bluff</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Bluff</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Climb</name>
+            <ranks>1.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Climb</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Computer Use</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Computer Use</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Concentration</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CON</ability>
+            <synergy>Concentration</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Craft (Structural)</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Craft (Structural)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Craft (Visual Art)</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Craft (Visual Art)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Craft (Writing)</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Craft (Writing)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Diplomacy</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Diplomacy</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Disguise</name>
+            <ranks>1.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>2</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Disguise</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>2</trained_total>
+            <exclusive_total>2</exclusive_total>
+        </skill>
+        <skill>
+            <name>Drive</name>
+            <ranks>4.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>7</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Drive</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>7</trained_total>
+            <exclusive_total>7</exclusive_total>
+        </skill>
+        <skill>
+            <name>Escape Artist</name>
+            <ranks>2.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>5</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Escape Artist</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>5</trained_total>
+            <exclusive_total>5</exclusive_total>
+        </skill>
+        <skill>
+            <name>Forgery</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Forgery</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Gamble</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Gamble</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Gather Information</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Gather Information</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Hide</name>
+            <ranks>7.0</ranks>
+            <mod>4<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>11</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>1<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Hide</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>11</trained_total>
+            <exclusive_total>11</exclusive_total>
+        </skill>
+        <skill>
+            <name>Intimidate</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Intimidate</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Jump</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Jump</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Knowledge (Art)</name>
+            <ranks>1.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>2</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Knowledge (Art)</synergy>
+            <untrained>NO</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>2</trained_total>
+            <exclusive_total>2</exclusive_total>
+        </skill>
+        <skill>
+            <name>Knowledge (Current Events)</name>
+            <ranks>6.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>7</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Knowledge (Current Events)</synergy>
+            <untrained>NO</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>7</trained_total>
+            <exclusive_total>7</exclusive_total>
+        </skill>
+        <skill>
+            <name>Knowledge (Popular Culture)</name>
+            <ranks>5.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>6</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Knowledge (Popular Culture)</synergy>
+            <untrained>NO</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>6</trained_total>
+            <exclusive_total>6</exclusive_total>
+        </skill>
+        <skill>
+            <name>Knowledge (Streetwise)</name>
+            <ranks>1.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>2</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Knowledge (Streetwise)</synergy>
+            <untrained>NO</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>2</trained_total>
+            <exclusive_total>2</exclusive_total>
+        </skill>
+        <skill>
+            <name>Listen</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Listen</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Move Silently</name>
+            <ranks>6.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>9</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Move Silently</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>9</trained_total>
+            <exclusive_total>9</exclusive_total>
+        </skill>
+        <skill>
+            <name>Navigate</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Navigate</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Perform (Untrained)</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>CHA</ability>
+            <synergy>Perform (Untrained)</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Profession</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Profession</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Read/Write Language(German)</name>
+            <ranks>1.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability></ability>
+            <synergy>Read/Write Language(German)</synergy>
+            <untrained>NO</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Research</name>
+            <ranks>0.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>1</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Research</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>1</trained_total>
+            <exclusive_total>1</exclusive_total>
+        </skill>
+        <skill>
+            <name>Ride</name>
+            <ranks>4.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>7</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Ride</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>7</trained_total>
+            <exclusive_total>7</exclusive_total>
+        </skill>
+        <skill>
+            <name>Search</name>
+            <ranks>1.0</ranks>
+            <mod>1<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>2</skill_mod>
+            <ability_mod>1<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>INT</ability>
+            <synergy>Search</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>2</trained_total>
+            <exclusive_total>2</exclusive_total>
+        </skill>
+        <skill>
+            <name>Sense Motive</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Sense Motive</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Sleight of Hand</name>
+            <ranks>4.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>7</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>DEX</ability>
+            <synergy>Sleight of Hand</synergy>
+            <untrained>NO</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>7</trained_total>
+            <exclusive_total>7</exclusive_total>
+        </skill>
+        <skill>
+            <name>Spot</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Spot</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Survival</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Survival</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+        <skill>
+            <name>Swim</name>
+            <ranks>0.0</ranks>
+            <mod>0<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>0</skill_mod>
+            <ability_mod>0<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>STR</ability>
+            <synergy>Swim</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>0</trained_total>
+            <exclusive_total>0</exclusive_total>
+        </skill>
+        <skill>
+            <name>Treat Injury</name>
+            <ranks>0.0</ranks>
+            <mod>3<!-- Mods from abilities, equipment, etc -->
+            </mod>
+            <skill_mod>3</skill_mod>
+            <ability_mod>3<!-- Mod from the key ability -->
+            </ability_mod>
+            <misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+            </misc_mod>
+            <ability>WIS</ability>
+            <synergy>Treat Injury</synergy>
+            <untrained>Y</untrained>
+            <exclusive>N</exclusive>
+            <trained_total>3</trained_total>
+            <exclusive_total>3</exclusive_total>
+        </skill>
+    </skills>
+    <!--
+      ====================================
+      ====================================
+            SAVING THROWS
+      ====================================
+      ====================================-->
+    <saving_throws>
+        <conditional_modifiers/>
+        <saving_throw>
+            <name>
+                <long>fortitude</long>
+                <short>fort</short>
+            </name>
+            <ability>constitution</ability>
+            <total>+2</total>
+            <base>+2</base>
+            <abil_mod>+0</abil_mod>
+            <feats>+0</feats>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>reflex</long>
+                <short>ref</short>
+            </name>
+            <ability>dexterity</ability>
+            <total>+11</total>
+            <base>+8</base>
+            <feats>+0</feats>
+            <abil_mod>+3</abil_mod>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+        <saving_throw>
+            <name>
+                <long>will</long>
+                <short>will</short>
+            </name>
+            <ability>wisdom</ability>
+            <total>+5</total>
+            <base>+2</base>
+            <abil_mod>+3</abil_mod>
+            <feats>+0</feats>
+            <magic_mod>+0</magic_mod>
+            <misc_mod>+0</misc_mod>
+            <race>+0</race>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </saving_throw>
+    </saving_throws>
+    <!--
+      ====================================
+      ====================================
+            ATTACK
+      ====================================
+      ====================================-->
+    <attack>
+        <melee>
+            <total>+3</total>
+            <bab>+3</bab>
+            <base_attack_bonus>+3</base_attack_bonus>
+            <stat_mod>+0</stat_mod>
+            <size_mod>+0</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </melee>
+        <ranged>
+            <total>+6</total>
+            <bab>+3</bab>
+            <base_attack_bonus>+3</base_attack_bonus>
+            <stat_mod>+3</stat_mod>
+            <size_mod>+0</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </ranged>
+        <grapple>
+            <total>+3</total>
+            <bab>+3</bab>
+            <base_attack_bonus>+3</base_attack_bonus>
+            <stat_mod>+0</stat_mod>
+            <size_mod>+0</size_mod>
+            <misc_mod>+0</misc_mod>
+            <epic_mod>+0</epic_mod>
+            <temp_mod/>
+        </grapple>
+    </attack>
+    <!--
+      ====================================
+      ====================================
+            WEAPONS
+      ====================================
+      ====================================-->
+    <weapons>
+        <unarmed>
+            <total>+3</total>
+            <damage>1d4</damage>
+            <critical>20/x2</critical>
+            <!-- Should be changed to a variable due to improved crit -->
+        </unarmed>
+
+        <weapon>
+            <common>
+                <name>
+                    <short>*Colt Python (.357 revolver)</short>
+                    <long>*Colt Python (.357 revolver)</long>
+                </name>
+                <category>Non-Standard-Ranged</category>
+                <critical>
+                    <range>20</range>
+                    <multiplier>2</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>+7</hit>
+                    <magic_hit>+1</magic_hit>
+                    <total_hit>+7</total_hit>
+                </to_hit>
+                <feat></feat>
+                <hand>Primary</hand>
+                <num_attacks>1</num_attacks>
+                <reach>5</reach>
+                <size>M</size>
+                <special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
+                <template></template>
+                <type>Ba</type>
+                <weight>3</weight>
+                <sequence>0</sequence>
+            </common>
+            <ranges>
+                <ammunition>
+                    <name>Bullet (.357)</name>
+                    <special_properties></special_properties>
+                </ammunition>
+                <range>
+                    <distance>30 ft.</distance>
+                    <to_hit>+7</to_hit>
+                    <damage>2d6</damage>
+                </range>
+                <range>
+                    <distance>40 ft.</distance>
+                    <to_hit>+7</to_hit>
+                    <damage>2d6</damage>
+                </range>
+                <range>
+                    <distance>80 ft.</distance>
+                    <to_hit>+5</to_hit>
+                    <damage>2d6</damage>
+                </range>
+                <range>
+                    <distance>120 ft.</distance>
+                    <to_hit>+3</to_hit>
+                    <damage>2d6</damage>
+                </range>
+                <range>
+                    <distance>160 ft.</distance>
+                    <to_hit>+1</to_hit>
+                    <damage>2d6</damage>
+                </range>
+            </ranges>
+        </weapon>
+        <weapon>
+            <common>
+                <name>
+                    <short>*Brawl</short>
+                    <long>*Brawl (Natural/Primary)</long>
+                </name>
+                <category>Natural-Natural,Melee</category>
+                <critical>
+                    <range>20</range>
+                    <multiplier>2</multiplier>
+                </critical>
+                <to_hit>
+                    <hit>+4</hit>
+                    <magic_hit>+0</magic_hit>
+                    <total_hit>+4</total_hit>
+                </to_hit>
+                <feat></feat>
+                <hand>Primary</hand>
+                <num_attacks>1</num_attacks>
+                <reach>5</reach>
+                <size>M</size>
+                <special_properties>Non-Lethal</special_properties>
+                <template></template>
+                <type></type>
+                <weight>0</weight>
+                <sequence>1</sequence>
+            </common>
+            <simple>
+                <to_hit>+4</to_hit>
+                <damage>1d6</damage>
+                <range>0 ft.</range>
+            </simple>
+        </weapon>
+    </weapons>
+    <!--
+      ====================================
+      ====================================
+            ARMOR
+      ====================================
+      ====================================-->
+    <protection>
+    </protection>
+    <!--
+      ====================================
+      ====================================
+            CLASS-DEPENDANT FEATURES
+      ====================================
+      ====================================-->
+    <class_features>
+        <!-- Bard -->
 
 
-	<!-- Pathfinder -->
-		<!-- Character Rage -->
-		<!-- Character Rage -->
+        <!-- Pathfinder -->
+        <!-- Character Rage -->
+        <!-- Character Rage -->
 
-	<!-- Turning ability -->
+        <!-- Turning ability -->
 
-	<!-- 3.0 stunning fist -->
+        <!-- 3.0 stunning fist -->
 
-	<!-- 3.5 stunning fist -->
+        <!-- 3.5 stunning fist -->
 
-	<!-- 3.0 wholeness of body -->
+        <!-- 3.0 wholeness of body -->
 
-	<!-- 3.5 wholeness of body -->
+        <!-- 3.5 wholeness of body -->
 
-	<!-- Psionics -->
-
-
+        <!-- Psionics -->
 
 
-	</class_features>
-	<!--
-	  ====================================
-	  ====================================
-			EQUIPMENT
-	  ====================================
-	  ====================================-->
-	<equipment>
-		<item>
-			<longname>Colt Python (.357 revolver)</longname>
-			<id></id>
-			<name>Colt Python (.357 revolver)</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents>0 lbs., 6 .357 Bullet</contents>
-			<contents_num>1</contents_num>
-			<content_weight>0</content_weight>
-			<cost>5</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-			<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
-			<weight>3</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Bullet (.357)</longname>
-			<id></id>
-			<name>.357 Bullet</name>
-			<carried>6.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>5</cost>
-			<equipped>N</equipped>
-			<location>Colt Python (.357 revolver)</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>6</quantity>
-			<checkbox>6</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>AMMUNITION.STANDARD.METAL.BULLET.INDIVIDUAL</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Brawl (Natural/Primary)</longname>
-			<id></id>
-			<name>Brawl</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties>Non-Lethal</special_properties>
-			<type>WEAPON.NATURAL.MELEE.BRAWL</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Clothing Outfit (Normal Everday)</longname>
-			<id></id>
-			<name>Normal Everday Clothing</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.CLOTHING.RESIZABLE</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Aluminum Travel Case (75 lb)</longname>
-			<id></id>
-			<name>Aluminum Travel Case (75 lb)</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents>1 lbs., 1 Camera, Digital, 1 PDA (Satellite Datalink Gadget)</contents>
-			<contents_num>2</contents_num>
-			<content_weight>1</content_weight>
-			<cost>12</cost>
-			<equipped>N</equipped>
-			<location>Carried</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.CONTAINER.GENERAL</type>
-			<weight>15</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Mercedes E55 AMG</longname>
-			<id></id>
-			<name>Mercedes E55 AMG</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents>0 lbs.</contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>32</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-			<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Camera (Digital)</longname>
-			<id></id>
-			<name>Camera, Digital</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>14</cost>
-			<equipped>N</equipped>
-			<location>Aluminum Travel Case (75 lb)</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.TOOLS.ELECTRONIC.PHOTO</type>
-			<weight>0.5</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>PDA (Satellite Datalink Gadget)</longname>
-			<id></id>
-			<name>PDA (Satellite Datalink Gadget)</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>17</cost>
-			<equipped>N</equipped>
-			<location>Aluminum Travel Case (75 lb)</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties>can connect to a global (or, if in place, galactic) satellite network</special_properties>
-			<type>GOODS.TOOLS.ELECTRONIC.SPELLBOOK.CUSTOM</type>
-			<weight>0.5</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Bullet (.357/50)</longname>
-			<id></id>
-			<name>.357 Bullets, 50 pack</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>5</cost>
-			<equipped>N</equipped>
-			<location>Carried</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>AMMUNITION.STANDARD.METAL.BULLET</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<total>
-			<weight>19 lbs.</weight>
-			<value>115 Wlth</value>
-			<load>Light</load>
-			<capacity>115</capacity>
-		</total>
-		<equipmentsets>
-		<equipmentset name="Default Set">
-			<item>
-				<name>Colt Python (.357 revolver)</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents>0 lbs., 6 .357 Bullet</contents>
-				<cost>5</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-				<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
-				<weight>3</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>.357 Bullet</name>
-				<carried>6.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>5</cost>
-				<equipped>N</equipped>
-				<location>Colt Python (.357 revolver)</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>6</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>AMMUNITION.STANDARD.METAL.BULLET.INDIVIDUAL</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Brawl</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>0</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties>Non-Lethal</special_properties>
-				<type>WEAPON.NATURAL.MELEE.BRAWL</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Normal Everday Clothing</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>0</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>GOODS.CLOTHING.RESIZABLE</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Aluminum Travel Case (75 lb)</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents>1 lbs., 1 Camera, Digital, 1 PDA (Satellite Datalink Gadget)</contents>
-				<cost>12</cost>
-				<equipped>N</equipped>
-				<location>Carried</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>GOODS.CONTAINER.GENERAL</type>
-				<weight>15</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Mercedes E55 AMG</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents>0 lbs.</contents>
-				<cost>32</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-				<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Camera, Digital</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>14</cost>
-				<equipped>N</equipped>
-				<location>Aluminum Travel Case (75 lb)</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>GOODS.TOOLS.ELECTRONIC.PHOTO</type>
-				<weight>0.5</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>PDA (Satellite Datalink Gadget)</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>17</cost>
-				<equipped>N</equipped>
-				<location>Aluminum Travel Case (75 lb)</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties>can connect to a global (or, if in place, galactic) satellite network</special_properties>
-				<type>GOODS.TOOLS.ELECTRONIC.SPELLBOOK.CUSTOM</type>
-				<weight>0.5</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>.357 Bullets, 50 pack</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>5</cost>
-				<equipped>N</equipped>
-				<location>Carried</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>AMMUNITION.STANDARD.METAL.BULLET</type>
-				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			</equipmentset>
-      </equipmentsets>
-	</equipment>
-	<weight_allowance>
-		<light>38</light>
-		<medium>76</medium>
-		<heavy>115</heavy>
-		<lift_over_head>115</lift_over_head>
-		<lift_off_ground>230</lift_off_ground>
-		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>575</push_drag>
-	</weight_allowance>
-	<!--
-	  ====================================
-	  ====================================
-			SPECIAL ABILITIES
-	  ====================================
-	  ====================================-->
-	<special_abilities>
-		<ability>
-			<name>Improvised Implements</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Sweep</name>
-			<description></description>
-		</ability>
-		<race></race>
-		<class>
-			<class>Fast Hero</class>
-			<ability></ability>
-		</class>
-		<class>
-			<class>Infiltrator</class>
-			<ability></ability>
-		</class>
-	</special_abilities>
-	<!--
-	  ====================================
-	  ====================================
-			FEATS
-	  ====================================
-	  ====================================-->
-	<feats>
-		<!-- Visible standard feats (not including the auto feats) -->
-		<feat>
-			<name>Advanced Firearms Proficiency</name>
-			<description>The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an auto-fire setting)</description>
-			<type>GENERAL.DEDICATED.SOLDIER.GUNSLINGER.BODYGUARD.INVESTIGATOR.NEGOTIATOR.STREETWARRIOR.DREADNOUGHT.FIELDOFFICER.HELIXWARRIOR.SPACEMONKEY.TRACER</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Brawl</name>
-			<description>When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier</description>
-			<type>GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.SHADOWHUNTER.SPEEDDEMON.THRASHER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Combat Martial Arts</name>
-			<description>With an unarmed strike, the character deals lethal or nonlethal damage (the character&#39;s choice) equal to 1d4 + the character&#39;s Strength modifier. The character&#39;s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks. [1d4+0]</description>
-			<type>BATTLEMIND.GENERAL.LAW_ENFORCEMENT.MILITARY.STRONG.DREADNOUGHT.GLADIATOR</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Personal Firearms Proficiency</name>
-			<description>The character can fire any personal firearm without penalty</description>
-			<type>GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENT.MILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.STREETWARRIOR.TECHNOMAGE.WILDLORD.MECHAJOCKEY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Toughness</name>
-			<description>The character gains +3 hit points</description>
-			<type>GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY.OUTCAST</type>
-			<associated></associated>
-			<count>1</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Weapon Finesse (Pistol Whip)</name>
-			<description>Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain</description>
-			<type>BATTLEMIND.GENERAL.FAST</type>
-			<associated>Pistol Whip</associated>
-			<count>1</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
+    </class_features>
+    <!--
+      ====================================
+      ====================================
+            EQUIPMENT
+      ====================================
+      ====================================-->
+    <equipment>
+        <item>
+            <longname>Colt Python (.357 revolver)</longname>
+            <id></id>
+            <name>Colt Python (.357 revolver)</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents>0 lbs., 6 .357 Bullet</contents>
+            <contents_num>1</contents_num>
+            <content_weight>0</content_weight>
+            <cost>5</cost>
+            <equipped>Y</equipped>
+            <location>Equipped</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
+            <type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT
+            </type>
+            <weight>3</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Bullet (.357)</longname>
+            <id></id>
+            <name>.357 Bullet</name>
+            <carried>6.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>5</cost>
+            <equipped>N</equipped>
+            <location>Colt Python (.357 revolver)</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>6</quantity>
+            <checkbox>6</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties></special_properties>
+            <type>AMMUNITION.STANDARD.METAL.BULLET.INDIVIDUAL</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Brawl (Natural/Primary)</longname>
+            <id></id>
+            <name>Brawl</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>0</cost>
+            <equipped>Y</equipped>
+            <location>Equipped</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties>Non-Lethal</special_properties>
+            <type>WEAPON.NATURAL.MELEE.BRAWL</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Clothing Outfit (Normal Everday)</longname>
+            <id></id>
+            <name>Normal Everday Clothing</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>0</cost>
+            <equipped>Y</equipped>
+            <location>Equipped</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties></special_properties>
+            <type>GOODS.CLOTHING.RESIZABLE</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Aluminum Travel Case (75 lb)</longname>
+            <id></id>
+            <name>Aluminum Travel Case (75 lb)</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents>1 lbs., 1 Camera, Digital, 1 PDA (Satellite Datalink Gadget)</contents>
+            <contents_num>2</contents_num>
+            <content_weight>1</content_weight>
+            <cost>12</cost>
+            <equipped>N</equipped>
+            <location>Carried</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties></special_properties>
+            <type>GOODS.CONTAINER.GENERAL</type>
+            <weight>15</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Mercedes E55 AMG</longname>
+            <id></id>
+            <name>Mercedes E55 AMG</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents>0 lbs.</contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>32</cost>
+            <equipped>Y</equipped>
+            <location>Equipped</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense:
+                8, Hardness: 5, hp 34, Size:H
+            </special_properties>
+            <type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Camera (Digital)</longname>
+            <id></id>
+            <name>Camera, Digital</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>14</cost>
+            <equipped>N</equipped>
+            <location>Aluminum Travel Case (75 lb)</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties></special_properties>
+            <type>GOODS.TOOLS.ELECTRONIC.PHOTO</type>
+            <weight>0.5</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>PDA (Satellite Datalink Gadget)</longname>
+            <id></id>
+            <name>PDA (Satellite Datalink Gadget)</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>17</cost>
+            <equipped>N</equipped>
+            <location>Aluminum Travel Case (75 lb)</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties>can connect to a global (or, if in place, galactic) satellite network
+            </special_properties>
+            <type>GOODS.TOOLS.ELECTRONIC.SPELLBOOK.CUSTOM</type>
+            <weight>0.5</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <item>
+            <longname>Bullet (.357/50)</longname>
+            <id></id>
+            <name>.357 Bullets, 50 pack</name>
+            <carried>1.0</carried>
+            <charges></charges>
+            <charges_used></charges_used>
+            <contents></contents>
+            <contents_num>0</contents_num>
+            <content_weight>0</content_weight>
+            <cost>5</cost>
+            <equipped>N</equipped>
+            <location>Carried</location>
+            <maxcharges>0</maxcharges>
+            <note></note>
+            <quantity>1</quantity>
+            <checkbox>1</checkbox>
+            <size>
+                <long>Medium</long>
+                <short>M</short>
+            </size>
+            <special_properties></special_properties>
+            <type>AMMUNITION.STANDARD.METAL.BULLET</type>
+            <weight>0</weight>
+            <bonuslist></bonuslist>
+        </item>
+        <total>
+            <weight>19 lbs.</weight>
+            <value>115 Wlth</value>
+            <load>Light</load>
+            <capacity>115</capacity>
+        </total>
+        <equipmentsets>
+            <equipmentset name="Default Set">
+                <item>
+                    <name>Colt Python (.357 revolver)</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents>0 lbs., 6 .357 Bullet</contents>
+                    <cost>5</cost>
+                    <equipped>Y</equipped>
+                    <location>Equipped</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
+                    <type>
+                        WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT
+                    </type>
+                    <weight>3</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>.357 Bullet</name>
+                    <carried>6.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>5</cost>
+                    <equipped>N</equipped>
+                    <location>Colt Python (.357 revolver)</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>6</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>AMMUNITION.STANDARD.METAL.BULLET.INDIVIDUAL</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>Brawl</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>0</cost>
+                    <equipped>Y</equipped>
+                    <location>Equipped</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties>Non-Lethal</special_properties>
+                    <type>WEAPON.NATURAL.MELEE.BRAWL</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>Normal Everday Clothing</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>0</cost>
+                    <equipped>Y</equipped>
+                    <location>Equipped</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>GOODS.CLOTHING.RESIZABLE</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>Aluminum Travel Case (75 lb)</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents>1 lbs., 1 Camera, Digital, 1 PDA (Satellite Datalink Gadget)</contents>
+                    <cost>12</cost>
+                    <equipped>N</equipped>
+                    <location>Carried</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>GOODS.CONTAINER.GENERAL</type>
+                    <weight>15</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>Mercedes E55 AMG</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents>0 lbs.</contents>
+                    <cost>32</cost>
+                    <equipped>Y</equipped>
+                    <location>Equipped</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28),
+                        Defense: 8, Hardness: 5, hp 34, Size:H
+                    </special_properties>
+                    <type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>Camera, Digital</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>14</cost>
+                    <equipped>N</equipped>
+                    <location>Aluminum Travel Case (75 lb)</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>GOODS.TOOLS.ELECTRONIC.PHOTO</type>
+                    <weight>0.5</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>PDA (Satellite Datalink Gadget)</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>17</cost>
+                    <equipped>N</equipped>
+                    <location>Aluminum Travel Case (75 lb)</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties>can connect to a global (or, if in place, galactic) satellite network
+                    </special_properties>
+                    <type>GOODS.TOOLS.ELECTRONIC.SPELLBOOK.CUSTOM</type>
+                    <weight>0.5</weight>
+                    <bonuslist></bonuslist>
+                </item>
+                <item>
+                    <name>.357 Bullets, 50 pack</name>
+                    <carried>1.0</carried>
+                    <charges></charges>
+                    <charges_used></charges_used>
+                    <contents></contents>
+                    <cost>5</cost>
+                    <equipped>N</equipped>
+                    <location>Carried</location>
+                    <maxcharges>0</maxcharges>
+                    <note></note>
+                    <quantity>1</quantity>
+                    <size>
+                        <long>Medium</long>
+                        <short>M</short>
+                    </size>
+                    <special_properties></special_properties>
+                    <type>AMMUNITION.STANDARD.METAL.BULLET</type>
+                    <weight>0</weight>
+                    <bonuslist></bonuslist>
+                </item>
+            </equipmentset>
+        </equipmentsets>
+    </equipment>
+    <weight_allowance>
+        <light>38</light>
+        <medium>76</medium>
+        <heavy>115</heavy>
+        <lift_over_head>115</lift_over_head>
+        <lift_off_ground>230</lift_off_ground>
+        <!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
+        <push_drag>575</push_drag>
+    </weight_allowance>
+    <!--
+      ====================================
+      ====================================
+            SPECIAL ABILITIES
+      ====================================
+      ====================================-->
+    <special_abilities>
+        <ability>
+            <name>Improvised Implements</name>
+            <description></description>
+        </ability>
+        <ability>
+            <name>Sweep</name>
+            <description></description>
+        </ability>
+        <race></race>
+        <class>
+            <class>Fast Hero</class>
+            <ability></ability>
+        </class>
+        <class>
+            <class>Infiltrator</class>
+            <ability></ability>
+        </class>
+    </special_abilities>
+    <!--
+      ====================================
+      ====================================
+            FEATS
+      ====================================
+      ====================================-->
+    <feats>
+        <!-- Visible standard feats (not including the auto feats) -->
+        <feat>
+            <name>Advanced Firearms Proficiency</name>
+            <description>The character can fire any personal firearm on autofire without penalty (provided, of course,
+                that it has an auto-fire setting)
+            </description>
+            <type>
+                GENERAL.DEDICATED.SOLDIER.GUNSLINGER.BODYGUARD.INVESTIGATOR.NEGOTIATOR.STREETWARRIOR.DREADNOUGHT.FIELDOFFICER.HELIXWARRIOR.SPACEMONKEY.TRACER
+            </type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Brawl</name>
+            <description>When making an unarmed attack, the character receives a +1 competence bonus on attack rolls,
+                and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier
+            </description>
+            <type>
+                GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.SHADOWHUNTER.SPEEDDEMON.THRASHER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR
+            </type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Combat Martial Arts</name>
+            <description>With an unarmed strike, the character deals lethal or nonlethal damage (the character&#39;s
+                choice) equal to 1d4 + the character&#39;s Strength modifier. The character&#39;s unarmed attacks count
+                as armed, which means that opponents do not get attacks of opportunity when the character attacks them
+                unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.
+                [1d4+0]
+            </description>
+            <type>BATTLEMIND.GENERAL.LAW_ENFORCEMENT.MILITARY.STRONG.DREADNOUGHT.GLADIATOR</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Personal Firearms Proficiency</name>
+            <description>The character can fire any personal firearm without penalty</description>
+            <type>
+                GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENT.MILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.STREETWARRIOR.TECHNOMAGE.WILDLORD.MECHAJOCKEY
+            </type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Toughness</name>
+            <description>The character gains +3 hit points</description>
+            <type>GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY.OUTCAST</type>
+            <associated></associated>
+            <count>1</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
+        <feat>
+            <name>Weapon Finesse (Pistol Whip)</name>
+            <description>Choose one light melee weapon, a rapier (if the character can use it with one hand), or a
+                chain
+            </description>
+            <type>BATTLEMIND.GENERAL.FAST</type>
+            <associated>Pistol Whip</associated>
+            <count>1</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
 
-		<!-- Auto feats -->
-		<feat>
-			<name>Simple Weapons Proficiency</name>
-			<description>The character makes attack rolls with simple weapons normally</description>
-			<type>GENERAL.ABERRATIONPROFICIENCY.FEYPROFICIENCY.GIANTPROFICIENCY.HUMANOIDPROFICIENCY.MONSTROUSHUMANOIDPROFICIENCY.OUTSIDERPROFICIENCY.UNDEADPROFICIENCY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
+        <!-- Auto feats -->
+        <feat>
+            <name>Simple Weapons Proficiency</name>
+            <description>The character makes attack rolls with simple weapons normally</description>
+            <type>
+                GENERAL.ABERRATIONPROFICIENCY.FEYPROFICIENCY.GIANTPROFICIENCY.HUMANOIDPROFICIENCY.MONSTROUSHUMANOIDPROFICIENCY.OUTSIDERPROFICIENCY.UNDEADPROFICIENCY
+            </type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+        </feat>
 
-		<!-- Virtual Feats -->
-		<!-- End Virtual Feats -->
-		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-<!-- Hidden VFEATS -->
-<!-- END Hidden VFEATS -->
-	</feats>
-	<!--
-	  ====================================
-	  ====================================
-			ABILITY OBJECTS
-	  ====================================
-	  ====================================-->
+        <!-- Virtual Feats -->
+        <!-- End Virtual Feats -->
+        <!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
+        <!-- Hidden VFEATS -->
+        <!-- END Hidden VFEATS -->
+    </feats>
+    <!--
+      ====================================
+      ====================================
+            ABILITY OBJECTS
+      ====================================
+      ====================================-->
 
-	<ability_objects>
-		<!-- Hidden Automatic "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>All Automatic Proficiencies</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Improvised Implements</name>
-			<description></description>
-			<type>CLASS.SPECIALABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Sweep</name>
-			<description></description>
-			<type>CLASS.SPECIALABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<!-- Visible Normal "Talent" Ability Objects -->
-		<ability_object>
-			<name>Evasion</name>
-			<description>See text</description>
-			<type>TALENT.FASTTALENT.DEFENSIVE</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-		<ability_object>
-			<name>Uncanny Dodge I</name>
-			<description>See text</description>
-			<type>TALENT.FASTTALENT.DEFENSIVE.FASTPLUS</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Talent</category>
-		</ability_object>
-		<!-- Visible Automatic "Internal" Ability Objects -->
-		<ability_object>
-			<name>Brawl</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Brawl Damage ~ d6</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Default</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Template First Class Select</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Unarmed Damage</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Unarmed Damage ~ d4</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-	</ability_objects>
-	<!--
-	  ====================================
-	  ====================================
-			MISCELLANEOUS
-	  ====================================
-	  ====================================-->
+    <ability_objects>
+        <!-- Hidden Automatic "Special Ability" Ability Objects -->
+        <ability_object>
+            <name>All Automatic Proficiencies</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Improvised Implements</name>
+            <description></description>
+            <type>CLASS.SPECIALABILITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <ability_object>
+            <name>Sweep</name>
+            <description></description>
+            <type>CLASS.SPECIALABILITY</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>T</hidden>
+            <virtual>F</virtual>
+            <category>Special Ability</category>
+        </ability_object>
+        <!-- Visible Normal "Talent" Ability Objects -->
+        <ability_object>
+            <name>Evasion</name>
+            <description>See text</description>
+            <type>TALENT.FASTTALENT.DEFENSIVE</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Talent</category>
+        </ability_object>
+        <ability_object>
+            <name>Uncanny Dodge I</name>
+            <description>See text</description>
+            <type>TALENT.FASTTALENT.DEFENSIVE.FASTPLUS</type>
+            <associated></associated>
+            <count>0</count>
+            <auto>F</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Talent</category>
+        </ability_object>
+        <!-- Visible Automatic "Internal" Ability Objects -->
+        <ability_object>
+            <name>Brawl</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Brawl Damage ~ d6</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Default</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Template First Class Select</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Unarmed Damage</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+        <ability_object>
+            <name>Unarmed Damage ~ d4</name>
+            <description></description>
+            <type></type>
+            <associated></associated>
+            <count>0</count>
+            <auto>T</auto>
+            <hidden>F</hidden>
+            <virtual>F</virtual>
+            <category>Internal</category>
+        </ability_object>
+    </ability_objects>
+    <!--
+      ====================================
+      ====================================
+            MISCELLANEOUS
+      ====================================
+      ====================================-->
 
-	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Brawl, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
-	<languages>English, German</languages>
-
-
-	<misc>
-	</misc>
-	<!--
-	  ====================================
-	  ====================================
-			COMPANIONS
-	  ====================================
-	  ====================================-->
-
-	<companions>
-	</companions>
-	<!--
-	  ====================================
-	  ====================================
-			SPELLS
-	  ====================================
-	  ====================================-->
-	<spells>
-		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate number="none"/>
-<!-- ### END Innate spells ### -->
-		<!-- ### BEGIN Known spells ### -->
-		<known_spells>
+    <weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta
+        92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Brawl, Browning BPS, Cleaver, Club, Colt Double Eagle,
+        Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer,
+        Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare,
+        Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics,
+        Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram
+        M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun,
+        Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff,
+        Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle,
+        SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton,
+        Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun,
+        Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94
+    </weapon_proficiencies>
+    <languages>English, German</languages>
 
 
-	</known_spells>
-		<!-- ### END Known spells ### -->
-		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells>
-		<!-- ### BEGIN innate memorized spell section -->	
-		<!-- ### END innate memorized spell section -->
-	
-		<!-- ### BEGIN class Spellbook memorized spells ### -->
-<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-		<spellbook number="2" name="PDA (Satellite Datalink Gadget)">
-			<class number="0" spelllistclass="">
-				<level number="0" spellcount="0"/>
-				<level number="1" spellcount="0"/>
-				<level number="2" spellcount="0"/>
-				<level number="3" spellcount="0"/>
-				<level number="4" spellcount="0"/>
-				<level number="5" spellcount="0"/>
-				<level number="6" spellcount="0"/>
-				<level number="7" spellcount="0"/>
-				<level number="8" spellcount="0"/>
-				<level number="9" spellcount="0"/>
-			</class>
-			<class number="1" spelllistclass="">
-				<level number="0" spellcount="0"/>
-				<level number="1" spellcount="0"/>
-				<level number="2" spellcount="0"/>
-				<level number="3" spellcount="0"/>
-				<level number="4" spellcount="0"/>
-				<level number="5" spellcount="0"/>
-				<level number="6" spellcount="0"/>
-				<level number="7" spellcount="0"/>
-				<level number="8" spellcount="0"/>
-				<level number="9" spellcount="0"/>
-			</class>
-		</spellbook>
-	</memorized_spells>
-<!-- ### END class Spellbook memorized spells ### -->
-	</spells>
+    <misc>
+    </misc>
+    <!--
+      ====================================
+      ====================================
+            COMPANIONS
+      ====================================
+      ====================================-->
+
+    <companions>
+    </companions>
+    <!--
+      ====================================
+      ====================================
+            SPELLS
+      ====================================
+      ====================================-->
+    <spells>
+        <!-- ### BEGIN Innate spells ### -->
+        <spells_innate number="none"/>
+        <!-- ### END Innate spells ### -->
+        <!-- ### BEGIN Known spells ### -->
+        <known_spells>
+
+
+        </known_spells>
+        <!-- ### END Known spells ### -->
+        <!-- ### BEGIN memorized spells ### -->
+        <memorized_spells>
+            <!-- ### BEGIN innate memorized spell section -->
+            <!-- ### END innate memorized spell section -->
+
+            <!-- ### BEGIN class Spellbook memorized spells ### -->
+            <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
+            <spellbook number="2" name="PDA (Satellite Datalink Gadget)">
+                <class number="0" spelllistclass="">
+                    <level number="0" spellcount="0"/>
+                    <level number="1" spellcount="0"/>
+                    <level number="2" spellcount="0"/>
+                    <level number="3" spellcount="0"/>
+                    <level number="4" spellcount="0"/>
+                    <level number="5" spellcount="0"/>
+                    <level number="6" spellcount="0"/>
+                    <level number="7" spellcount="0"/>
+                    <level number="8" spellcount="0"/>
+                    <level number="9" spellcount="0"/>
+                </class>
+                <class number="1" spelllistclass="">
+                    <level number="0" spellcount="0"/>
+                    <level number="1" spellcount="0"/>
+                    <level number="2" spellcount="0"/>
+                    <level number="3" spellcount="0"/>
+                    <level number="4" spellcount="0"/>
+                    <level number="5" spellcount="0"/>
+                    <level number="6" spellcount="0"/>
+                    <level number="7" spellcount="0"/>
+                    <level number="8" spellcount="0"/>
+                    <level number="9" spellcount="0"/>
+                </class>
+            </spellbook>
+        </memorized_spells>
+        <!-- ### END class Spellbook memorized spells ### -->
+    </spells>
 </character>

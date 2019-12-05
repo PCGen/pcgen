@@ -53,105 +53,105 @@ import pcgen.util.StringPClassUtil;
 public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SERVESAS";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SERVESAS";
+    }
 
-	public List<Class<? extends PObject>> getLegalTypes()
-	{
-		return Arrays.asList(PCClass.class, Ability.class, Skill.class, Race.class
-		// Ability.class, Deity.class, Domain.class,Equipment.class,
-		// Race.class, Skill.class,Spell.class, PCTemplate.class,
-		// WeaponProf.class
-		);
-	}
+    public List<Class<? extends PObject>> getLegalTypes()
+    {
+        return Arrays.asList(PCClass.class, Ability.class, Skill.class, Race.class
+                // Ability.class, Deity.class, Domain.class,Equipment.class,
+                // Race.class, Skill.class,Spell.class, PCTemplate.class,
+                // WeaponProf.class
+        );
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (!getLegalTypes().contains(obj.getClass()))
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Cannot use SERVESAS on a " + obj.getClass());
-			cpr.addErrorMessage("   bad use found in " + obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
-			return cpr;
-		}
-		return super.parseNonEmptyToken(context, obj, value);
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (!getLegalTypes().contains(obj.getClass()))
+        {
+            ComplexParseResult cpr = new ComplexParseResult();
+            cpr.addErrorMessage("Cannot use SERVESAS on a " + obj.getClass());
+            cpr.addErrorMessage("   bad use found in " + obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
+            return cpr;
+        }
+        return super.parseNonEmptyToken(context, obj, value);
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		String firstToken = st.nextToken();
-		ReferenceManufacturer<? extends Loadable> rm = context.getManufacturer(firstToken);
-		if (rm == null)
-		{
-			return new ParseResult.Fail(getTokenName() + " unable to generate manufacturer for type: " + value);
-		}
-		if (!st.hasMoreTokens())
-		{
-			return new ParseResult.Fail(getTokenName() + " must include at least one target object");
-		}
-		if (!rm.getReferenceClass().equals(obj.getClass()))
-		{
-			return new ParseResult.Fail(getTokenName() + " expecting a POBJECT Type valid for "
-				+ obj.getClass().getSimpleName() + ", found: " + firstToken);
-		}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+        String firstToken = st.nextToken();
+        ReferenceManufacturer<? extends Loadable> rm = context.getManufacturer(firstToken);
+        if (rm == null)
+        {
+            return new ParseResult.Fail(getTokenName() + " unable to generate manufacturer for type: " + value);
+        }
+        if (!st.hasMoreTokens())
+        {
+            return new ParseResult.Fail(getTokenName() + " must include at least one target object");
+        }
+        if (!rm.getReferenceClass().equals(obj.getClass()))
+        {
+            return new ParseResult.Fail(getTokenName() + " expecting a POBJECT Type valid for "
+                    + obj.getClass().getSimpleName() + ", found: " + firstToken);
+        }
 
-		String servekey = StringPClassUtil.getStringFor(obj.getClass());
-		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class, "SERVES_AS_" + servekey);
-		while (st.hasMoreTokens())
-		{
-			CDOMSingleRef<?> ref = rm.getReference(st.nextToken());
-			context.getObjectContext().addToList(obj, listkey, ref);
-		}
+        String servekey = StringPClassUtil.getStringFor(obj.getClass());
+        ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class, "SERVES_AS_" + servekey);
+        while (st.hasMoreTokens())
+        {
+            CDOMSingleRef<?> ref = rm.getReference(st.nextToken());
+            context.getObjectContext().addToList(obj, listkey, ref);
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		String key = StringPClassUtil.getStringFor(obj.getClass());
-		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class, "SERVES_AS_" + key);
-		Changes<CDOMReference> changes = context.getObjectContext().getListChanges(obj, listkey);
-		Collection<CDOMReference> removedItems = changes.getRemoved();
-		if (removedItems != null && !removedItems.isEmpty() || changes.includesGlobalClear())
-		{
-			context.addWriteMessage(getTokenName() + " does not support .CLEAR");
-			return null;
-		}
-		if (!changes.hasAddedItems())
-		{
-			// Zero indicates no Token (and no global clear, so nothing to do)
-			return null;
-		}
-		TreeMapToList<String, String> map = new TreeMapToList<>();
-		for (CDOMReference<?> ref : changes.getAdded())
-		{
-			map.addToListFor(ref.getPersistentFormat(), ref.getLSTformat(false));
-		}
-		List<String> returnList = new ArrayList<>();
-		for (String mapKey : map.getKeySet())
-		{
-			Set<String> set = new TreeSet<>(map.getListFor(mapKey));
-			returnList.add(mapKey + '|' + StringUtil.join(set, Constants.PIPE));
-		}
-		return returnList.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        String key = StringPClassUtil.getStringFor(obj.getClass());
+        ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class, "SERVES_AS_" + key);
+        Changes<CDOMReference> changes = context.getObjectContext().getListChanges(obj, listkey);
+        Collection<CDOMReference> removedItems = changes.getRemoved();
+        if (removedItems != null && !removedItems.isEmpty() || changes.includesGlobalClear())
+        {
+            context.addWriteMessage(getTokenName() + " does not support .CLEAR");
+            return null;
+        }
+        if (!changes.hasAddedItems())
+        {
+            // Zero indicates no Token (and no global clear, so nothing to do)
+            return null;
+        }
+        TreeMapToList<String, String> map = new TreeMapToList<>();
+        for (CDOMReference<?> ref : changes.getAdded())
+        {
+            map.addToListFor(ref.getPersistentFormat(), ref.getLSTformat(false));
+        }
+        List<String> returnList = new ArrayList<>();
+        for (String mapKey : map.getKeySet())
+        {
+            Set<String> set = new TreeSet<>(map.getListFor(mapKey));
+            returnList.add(mapKey + '|' + StringUtil.join(set, Constants.PIPE));
+        }
+        return returnList.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

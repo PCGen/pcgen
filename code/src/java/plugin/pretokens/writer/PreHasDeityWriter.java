@@ -30,41 +30,40 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreHasDeityWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "has.deity";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "has.deity";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT,
-			PrerequisiteOperator.NEQ};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT,
+                PrerequisiteOperator.NEQ};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
 
-		try
-		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
-				|| prereq.getOperator().equals(PrerequisiteOperator.LT))
-			{
-				writer.write('!');
-			}
+        try
+        {
+            if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
+                    || prereq.getOperator().equals(PrerequisiteOperator.LT))
+            {
+                writer.write('!');
+            }
 
-			writer.write("PREDEITY:" + (prereq.isOverrideQualify() ? "Q:" : ""));
-			writer.write(prereq.getOperand());
-			writer.write(",");
-			writer.write(prereq.getKey());
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+            writer.write("PREDEITY:" + (prereq.isOverrideQualify() ? "Q:" : ""));
+            writer.write(prereq.getOperand());
+            writer.write(",");
+            writer.write(prereq.getKey());
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
 }

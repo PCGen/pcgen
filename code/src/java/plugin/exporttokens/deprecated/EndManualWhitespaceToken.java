@@ -27,17 +27,17 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class EndManualWhitespaceToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "ENDMANUALWHITESPACE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ENDMANUALWHITESPACE";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		eh.setManualWhitespace(false);
-		return "";
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        eh.setManualWhitespace(false);
+        return "";
+    }
 
 }

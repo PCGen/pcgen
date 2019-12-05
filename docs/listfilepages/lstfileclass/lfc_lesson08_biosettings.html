@@ -1,506 +1,506 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #8: .lst - Biosettings
-  </h1>
-  <p>
-   By Professor Chris Chandler (Barak).
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *biosettings.lst
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../systemfilestagpages/systemfilesbiosettingslist.html#ageset">
-     AGESET
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #8: .lst - Biosettings
+</h1>
+<p>
+    By Professor Chris Chandler (Barak).
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    *biosettings.lst
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../systemfilestagpages/systemfilesbiosettingslist.html#ageset">
+        AGESET
     </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#racename">
-     RACENAME
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#baseageadd">
-     BASEAGEADD
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#class">
-     CLASS
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#sex">
-     SEX
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#baseht">
-     BASEHT
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#htdieroll">
-     HTDIEROLL
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#basewt">
-     BASEWT
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#wtdieroll">
-     WTDIEROLL
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#totalwt">
-     TOTALWT
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#baseage">
-     BASEAGE
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#maxage">
-     MAXAGE
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#agedieroll">
-     AGEDIEROLL
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#hair">
-     HAIR
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#eyes">
-     EYES
-    </a>
-    ,
-    <a href="../systemfilestagpages/systemfilesbiosettingslist.html#skintone">
-     SKINTONE
-    </a></code>
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>AGESET</code>
-   </strong>
-  </p>
-  <p>
-   The first tag you will see in a biosetting file is the AGESET
-tag. These tags are used to define the age ranges for each
-category. It takes the format of AGESET:#|name. The numbers should
-start with 0 (for the youngest ageset) and go up sequentially from
-there for each grouping you have. So if your game starts at
-adulthood, your first ageset tag would probably look like this:
-  </p>
-  <blockquote>
-   <p>
-    <code>AGESET:0|Adult</code>
-   </p>
-  </blockquote>
-  <p>
-   One other thing may appear in the AGESET line, and that would be
-BONUS tags where you enter any modifiers that affect the
-character's ability scores due to age. A good example of this would
-be the next set up the age line when you hit Middle Age. The AGESET
-line for that age group looks like this:
-  </p>
-  <blockquote>
-   <p>
-    <code>AGESET:1|Middle Age &lt;tab&gt;
-     <br/>
-     BONUS:STAT|STR,CON,DEX|-1 &lt;tab&gt;
-     <br/>
-     BONUS:STAT|INT,WIS,CHA|1</code>
-   </p>
-  </blockquote>
-  <p>
-   When you choose middle age or change your age to where it falls
-in the middle age category on the description tab in the UI these
-bonuses and penalties (-1 to Strength, Dexterity and Constitution
-and +1 to Intelligence, Wisdom and Charisma) will be applied to
-your character.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>RACENAME</code>
-   </strong>
-  </p>
-  <p>
-   Under the Ageset tag will be the first RACENAME tag. This is
-used to define the race (or races) that the rest of the information
-on the racename line will affect. You may have multiple RACENAME
-lines with the same name as long as they contain different types of
-information (more on this later). As a matter of fact, other than
-the AGESET tag, this is the only other tag that may begin a line in
-a biosettings .lst file.
-  </p>
-  <p>
-   The way that a RACENAME line can be made to affect multiple
-races is by use of the "%" character with the name, which acts as a
-wildcard character. We use this when there is a race with sub-races
-that all have the same progressions and effects as they age. A
-couple of examples: RACENAME:Dwarf (would affect only races with
-the name of "Dwarf"). "RACENAME:Dwarf%" would affect any race that
-started with the word Dwarf, so "Dwarf (Duergar)" would also be
-affected by whatever information follows this RACENAME tag.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>BASEAGEADD</code>
-   </strong>
-  </p>
-  <p>
-   The BASEAGEADD tag is used inside of the CLASS tag to define the
-spread for randomization in the number that is added to your base
-age for the class(es) it is paired with.
-  </p>
-  <p>
-   It takes the format of [BASEAGEADD:#d#]. The standard practice
-(since that's how it's done in most books) is to notate this in
-standard dice format. 1d4 would generate a random number between 1
-and 4 to add to the base age, 3d8 would generate a number between 3
-and 24 to add to the base age, etc.
-  </p>
-  <p>
-   It is possible to enter it such that the full range would be
-covered (say 1-24 instead of 3-24). To do this you would simply
-change the entry to 1d24 and it will generate a random number
-between 1 and 24 to add to the character's base age.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>CLASS</code>
-   </strong>
-  </p>
-  <p>
-   The CLASS tag is somewhat complicated to explain, especially
-because it embeds one of the other tags we'll be discussing within
-it. We use this tag to define the names of the classes that affect
-the age of the character and how much should be added to their base
-age for the class they've chosen. There will only be one
-RACENAME/CLASS line combo for each race represented in the
-biosetting file.
-  </p>
-  <p>
-   The CLASS tag takes the format of
-  </p>
-  <p>
-   CLASS:class name1,class name2[BASEAGEADD:#d#]|class name3,class
-name4[BASEAGEADD:#d3]|etc.
-  </p>
-  <p>
-   So, from the SRD, for a Human the RACENAME/CLASS line would look
-like:
-  </p>
-  <blockquote>
-   <p>
-    <code>RACENAME:Human% &lt;tab&gt;
-     <br/>
-     CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[B
-ASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <strong>
-    <code>BASEHT</code>
-   </strong>
-  </p>
-  <p>
-   The BASEHT tag is used inside of the SEX tag to define the
-starting point for the height of the race. There will normally be
-two of these for each race. One for the female and one for the
-male.
-  </p>
-  <p>
-   It takes the format of BASEHT:#. This number needs to be in the
-base units set in the game mode. If you set the base unit to the
-centimeter then a race with a starting height of 160 centimeteres
-would have BASEHT:160. If you set it for meters, it would be
-BASEHT:1.6.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>HTDIEROLL</code>
-   </strong>
-  </p>
-  <p>
-   The HTDIEROLL tag is used inside of the SEX tag to define the
-spread for randomization in the number that is added to your base
-height for the race/sex it is paired with. It also acts as a
-variable name that contains the result of this randomization.
-  </p>
-  <p>
-   It takes the format of HTDIEROLL:#d#. This is usually expressed
-in standard dice notation (2d6, 3d4, etc.) but like the other
-randomization tags, you can get the full range by using expressions
-like 1d12, etc.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>BASEWT</code>
-   </strong>
-  </p>
-  <p>
-   The BASEWT tag is used inside of the SEX tag to define the
-starting point for the weight of the race. There will normally be
-two of these for each race. One for the female and one for the
-male.
-  </p>
-  <p>
-   It takes the format of BASEWT:#. Like the BASEHT, this number
-needs to be in the base units set in the game mode for it to output
-properly.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>WTDIEROLL</code>
-   </strong>
-  </p>
-  <p>
-   The WTDIEROLL tag is used inside of the SEX tag to define the
-spread for randomization in the number that is added to your base
-weight for the race/sex it is paired with. It also acts as a
-variable name that contains the result of this randomization.
-  </p>
-  <p>
-   It takes the format of WTDIEROLL:#d#. This is usually expressed
-in standard dice notation (2d6, 3d4, etc.) but like the other
-randomization tags, you can get the full range by using expressions
-like 1d12, etc.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>TOTALWT</code>
-   </strong>
-  </p>
-  <p>
-   The TOTALWT tag is used inside of the SEX tag to define the
-total weight of your character. It can use standard numbers, as
-well as the BASEWT, WTDIEROLL and HTDIEROLL variables.
-  </p>
-  <p>
-   An example of the use of this tag from the SRD for the human
-race is TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL). It would set your
-total weight to the value of your base weight, plus the product of
-the random height and weight rolls.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>SEX</code>
-   </strong>
-  </p>
-  <p>
-   This tag uses the previous five tags listed above to define the
-height and weight of a character based on their sex. The tag takes
-the format of SEX:&lt;gender&gt;[sub-tags]&lt;gender&gt;[sub-tags].
-The sub-tags are separated by pipes within the brackets.
-  </p>
-  <p>
-   An example (again from the SRD):
-  </p>
-  <blockquote>
-   <p>
-    <code>RACENAME:Human%
-     <br/>
-     SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL
-:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <strong>
-    <code>BASEAGE</code>
-   </strong>
-  </p>
-  <p>
-   This tag sets the bottom of the AGESET it is listed under. The
-format is BASEAGE:#. This number also controls the change in
-bonuses if you set your characters age manually. If you go below
-this number, it removes the current bonus for the AGESET you were
-in and applies the previous AGESET bonus statements.
-  </p>
-  <p>
-   For a race that starts a certain ageset at 35 years, you would
-see:
-  </p>
-  <blockquote>
-   <p>
-    <code>BASEAGE:35</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <strong>
-    <code>MAXAGE</code>
-   </strong>
-  </p>
-  <p>
-   This tag sets the top of the AGESET it is listed under. The
-format is MAXAGE:#. This number also controls the change in bonuses
-if you set your characters age manually. If you go above this
-number, it removes the current bonus for the AGESET you were in and
-applies the next AGESET bonus statements.
-  </p>
-  <p>
-   For a race that ends a certain ageset at 55 years, you would
-see:
-  </p>
-  <blockquote>
-   <p>
-    <code>MAXAGE:55</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <strong>
-    <code>AGEDIEROLL</code>
-   </strong>
-  </p>
-  <p>
-   This tag sets the randomization scale for the AGESET it is
-under. The format is AGEDIEROLL:#d#.
-  </p>
-  <p>
-   Standard practice is to try and fill the range between the
-BASEAGE value and the MAXAGE value in dice notation. So for the
-values of those given above we see the we need a range of 20, so
-our tag would look like:
-  </p>
-  <blockquote>
-   <p>
-    <code>AGEDIEROLL:1d20</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <strong>
-    <code>HAIR</code>
-   </strong>
-  </p>
-  <p>
-   This tag determines the hair colors used by the randomizer. It
-takes the format of HAIR:color1|color2|color3|etc. Any text you
-wish may be used as a hair color.
-  </p>
-  <blockquote>
-   <p>
-    <code>RACENAME:Human% &lt;tab&gt;
-EYES:Hazel|Blue|Brown|Grey|Violet</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   <strong>
-    <code>SKINTONE</code>
-   </strong>
-  </p>
-  <p>
-   This tag determines the skintone colors used by the randomizer.
-It takes the format of SKINTONE:color1|color2|color3|etc. Any text
-you wish may be used as a skintone color.
-  </p>
-  <blockquote>
-   <p>
-    <code>RACENAME:Human% &lt;tab&gt;
-SKINTONE:Bronze|Yellow|Red|Pink|Vermillion</code>
-   </p>
-  </blockquote>
-  <p>
-   Note that the last six may be combined on the same RACENAME line
-(and usually are) like so:
-  </p>
-  <blockquote>
-   <p>
-    <code>RACENAME:Human% &lt;tab&gt; HAIR:Blonde|White|Salt &amp;
-Pepper|Plaid
-     <br/>
-     EYES:Hazel|Blue|Brown|Grey|Violet
-     <br/>
-     SKINTONE:Bronze|Yellow|Red|Pink|Vermillion</code>
-   </p>
-  </blockquote>
-  <p>
-   After the first ageset where you set all the other randomization
-information, the other agesets are entered. The only things
-contained in these areas should be AGESET (and associated BONUS
-statements), RACENAME, BASEAGE, MAXAGE and AGEDIEROLL. And example
-from the SRD would be:
-  </p>
-  <blockquote>
-   <p>
-    <code>AGESET:1|Middle Age BONUS:STAT|STR,CON,DEX|-1
-     <br/>
-     BONUS:STAT|INT,WIS,CHA|1
-     <br/>
-     RACENAME:Human% BASEAGE:35 MAXAGE:52 AGEDIEROLL:3d6
-     <br/>
-     RACENAME:Dwarf% BASEAGE:125 MAXAGE:187 AGEDIEROLL:(7d8+1d6)
-     <br/>
-     RACENAME:Elf% BASEAGE:175 MAXAGE:262 AGEDIEROLL:11d8
-     <br/>
-     RACENAME:Gnome% BASEAGE:100 MAXAGE:149 AGEDIEROLL:(8d6+1)
-     <br/>
-     RACENAME:Half-Elf% BASEAGE:62 MAXAGE:92 AGEDIEROLL:5d6
-     <br/>
-     RACENAME:Half-Orc% BASEAGE:30 MAXAGE:44
-     <br/>
-     AGEDIEROLL:(1d10+1d4)
-     <br/>
-     RACENAME:Halfling% BASEAGE:50 MAXAGE:74 AGEDIEROLL:4d6</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   Well now.... isn't that a monster dissertation?!!! I hope
-everyone finds it helpful in creating biosettings files for
-whatever sources you choose to work on. Between this lesson and the
-examples in the PCGen distribution you should have it made.
-  </p>
-  <p>
-   Best of luck!
-  </p>
-  <p>
-   Barak
-   <br/>
-   LST Chimp
-  </p>
-  <p>
-  </p>
- </body>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#racename">
+            RACENAME
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#baseageadd">
+            BASEAGEADD
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#class">
+            CLASS
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#sex">
+            SEX
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#baseht">
+            BASEHT
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#htdieroll">
+            HTDIEROLL
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#basewt">
+            BASEWT
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#wtdieroll">
+            WTDIEROLL
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#totalwt">
+            TOTALWT
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#baseage">
+            BASEAGE
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#maxage">
+            MAXAGE
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#agedieroll">
+            AGEDIEROLL
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#hair">
+            HAIR
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#eyes">
+            EYES
+        </a>
+        ,
+        <a href="../systemfilestagpages/systemfilesbiosettingslist.html#skintone">
+            SKINTONE
+        </a></code>
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>AGESET</code>
+    </strong>
+</p>
+<p>
+    The first tag you will see in a biosetting file is the AGESET
+    tag. These tags are used to define the age ranges for each
+    category. It takes the format of AGESET:#|name. The numbers should
+    start with 0 (for the youngest ageset) and go up sequentially from
+    there for each grouping you have. So if your game starts at
+    adulthood, your first ageset tag would probably look like this:
+</p>
+<blockquote>
+    <p>
+        <code>AGESET:0|Adult</code>
+    </p>
+</blockquote>
+<p>
+    One other thing may appear in the AGESET line, and that would be
+    BONUS tags where you enter any modifiers that affect the
+    character's ability scores due to age. A good example of this would
+    be the next set up the age line when you hit Middle Age. The AGESET
+    line for that age group looks like this:
+</p>
+<blockquote>
+    <p>
+        <code>AGESET:1|Middle Age &lt;tab&gt;
+            <br/>
+            BONUS:STAT|STR,CON,DEX|-1 &lt;tab&gt;
+            <br/>
+            BONUS:STAT|INT,WIS,CHA|1</code>
+    </p>
+</blockquote>
+<p>
+    When you choose middle age or change your age to where it falls
+    in the middle age category on the description tab in the UI these
+    bonuses and penalties (-1 to Strength, Dexterity and Constitution
+    and +1 to Intelligence, Wisdom and Charisma) will be applied to
+    your character.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>RACENAME</code>
+    </strong>
+</p>
+<p>
+    Under the Ageset tag will be the first RACENAME tag. This is
+    used to define the race (or races) that the rest of the information
+    on the racename line will affect. You may have multiple RACENAME
+    lines with the same name as long as they contain different types of
+    information (more on this later). As a matter of fact, other than
+    the AGESET tag, this is the only other tag that may begin a line in
+    a biosettings .lst file.
+</p>
+<p>
+    The way that a RACENAME line can be made to affect multiple
+    races is by use of the "%" character with the name, which acts as a
+    wildcard character. We use this when there is a race with sub-races
+    that all have the same progressions and effects as they age. A
+    couple of examples: RACENAME:Dwarf (would affect only races with
+    the name of "Dwarf"). "RACENAME:Dwarf%" would affect any race that
+    started with the word Dwarf, so "Dwarf (Duergar)" would also be
+    affected by whatever information follows this RACENAME tag.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>BASEAGEADD</code>
+    </strong>
+</p>
+<p>
+    The BASEAGEADD tag is used inside of the CLASS tag to define the
+    spread for randomization in the number that is added to your base
+    age for the class(es) it is paired with.
+</p>
+<p>
+    It takes the format of [BASEAGEADD:#d#]. The standard practice
+    (since that's how it's done in most books) is to notate this in
+    standard dice format. 1d4 would generate a random number between 1
+    and 4 to add to the base age, 3d8 would generate a number between 3
+    and 24 to add to the base age, etc.
+</p>
+<p>
+    It is possible to enter it such that the full range would be
+    covered (say 1-24 instead of 3-24). To do this you would simply
+    change the entry to 1d24 and it will generate a random number
+    between 1 and 24 to add to the character's base age.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>CLASS</code>
+    </strong>
+</p>
+<p>
+    The CLASS tag is somewhat complicated to explain, especially
+    because it embeds one of the other tags we'll be discussing within
+    it. We use this tag to define the names of the classes that affect
+    the age of the character and how much should be added to their base
+    age for the class they've chosen. There will only be one
+    RACENAME/CLASS line combo for each race represented in the
+    biosetting file.
+</p>
+<p>
+    The CLASS tag takes the format of
+</p>
+<p>
+    CLASS:class name1,class name2[BASEAGEADD:#d#]|class name3,class
+    name4[BASEAGEADD:#d3]|etc.
+</p>
+<p>
+    So, from the SRD, for a Human the RACENAME/CLASS line would look
+    like:
+</p>
+<blockquote>
+    <p>
+        <code>RACENAME:Human% &lt;tab&gt;
+            <br/>
+            CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[B
+            ASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <strong>
+        <code>BASEHT</code>
+    </strong>
+</p>
+<p>
+    The BASEHT tag is used inside of the SEX tag to define the
+    starting point for the height of the race. There will normally be
+    two of these for each race. One for the female and one for the
+    male.
+</p>
+<p>
+    It takes the format of BASEHT:#. This number needs to be in the
+    base units set in the game mode. If you set the base unit to the
+    centimeter then a race with a starting height of 160 centimeteres
+    would have BASEHT:160. If you set it for meters, it would be
+    BASEHT:1.6.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>HTDIEROLL</code>
+    </strong>
+</p>
+<p>
+    The HTDIEROLL tag is used inside of the SEX tag to define the
+    spread for randomization in the number that is added to your base
+    height for the race/sex it is paired with. It also acts as a
+    variable name that contains the result of this randomization.
+</p>
+<p>
+    It takes the format of HTDIEROLL:#d#. This is usually expressed
+    in standard dice notation (2d6, 3d4, etc.) but like the other
+    randomization tags, you can get the full range by using expressions
+    like 1d12, etc.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>BASEWT</code>
+    </strong>
+</p>
+<p>
+    The BASEWT tag is used inside of the SEX tag to define the
+    starting point for the weight of the race. There will normally be
+    two of these for each race. One for the female and one for the
+    male.
+</p>
+<p>
+    It takes the format of BASEWT:#. Like the BASEHT, this number
+    needs to be in the base units set in the game mode for it to output
+    properly.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>WTDIEROLL</code>
+    </strong>
+</p>
+<p>
+    The WTDIEROLL tag is used inside of the SEX tag to define the
+    spread for randomization in the number that is added to your base
+    weight for the race/sex it is paired with. It also acts as a
+    variable name that contains the result of this randomization.
+</p>
+<p>
+    It takes the format of WTDIEROLL:#d#. This is usually expressed
+    in standard dice notation (2d6, 3d4, etc.) but like the other
+    randomization tags, you can get the full range by using expressions
+    like 1d12, etc.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>TOTALWT</code>
+    </strong>
+</p>
+<p>
+    The TOTALWT tag is used inside of the SEX tag to define the
+    total weight of your character. It can use standard numbers, as
+    well as the BASEWT, WTDIEROLL and HTDIEROLL variables.
+</p>
+<p>
+    An example of the use of this tag from the SRD for the human
+    race is TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL). It would set your
+    total weight to the value of your base weight, plus the product of
+    the random height and weight rolls.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>SEX</code>
+    </strong>
+</p>
+<p>
+    This tag uses the previous five tags listed above to define the
+    height and weight of a character based on their sex. The tag takes
+    the format of SEX:&lt;gender&gt;[sub-tags]&lt;gender&gt;[sub-tags].
+    The sub-tags are separated by pipes within the brackets.
+</p>
+<p>
+    An example (again from the SRD):
+</p>
+<blockquote>
+    <p>
+        <code>RACENAME:Human%
+            <br/>
+            SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL
+            :2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <strong>
+        <code>BASEAGE</code>
+    </strong>
+</p>
+<p>
+    This tag sets the bottom of the AGESET it is listed under. The
+    format is BASEAGE:#. This number also controls the change in
+    bonuses if you set your characters age manually. If you go below
+    this number, it removes the current bonus for the AGESET you were
+    in and applies the previous AGESET bonus statements.
+</p>
+<p>
+    For a race that starts a certain ageset at 35 years, you would
+    see:
+</p>
+<blockquote>
+    <p>
+        <code>BASEAGE:35</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <strong>
+        <code>MAXAGE</code>
+    </strong>
+</p>
+<p>
+    This tag sets the top of the AGESET it is listed under. The
+    format is MAXAGE:#. This number also controls the change in bonuses
+    if you set your characters age manually. If you go above this
+    number, it removes the current bonus for the AGESET you were in and
+    applies the next AGESET bonus statements.
+</p>
+<p>
+    For a race that ends a certain ageset at 55 years, you would
+    see:
+</p>
+<blockquote>
+    <p>
+        <code>MAXAGE:55</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <strong>
+        <code>AGEDIEROLL</code>
+    </strong>
+</p>
+<p>
+    This tag sets the randomization scale for the AGESET it is
+    under. The format is AGEDIEROLL:#d#.
+</p>
+<p>
+    Standard practice is to try and fill the range between the
+    BASEAGE value and the MAXAGE value in dice notation. So for the
+    values of those given above we see the we need a range of 20, so
+    our tag would look like:
+</p>
+<blockquote>
+    <p>
+        <code>AGEDIEROLL:1d20</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <strong>
+        <code>HAIR</code>
+    </strong>
+</p>
+<p>
+    This tag determines the hair colors used by the randomizer. It
+    takes the format of HAIR:color1|color2|color3|etc. Any text you
+    wish may be used as a hair color.
+</p>
+<blockquote>
+    <p>
+        <code>RACENAME:Human% &lt;tab&gt;
+            EYES:Hazel|Blue|Brown|Grey|Violet</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    <strong>
+        <code>SKINTONE</code>
+    </strong>
+</p>
+<p>
+    This tag determines the skintone colors used by the randomizer.
+    It takes the format of SKINTONE:color1|color2|color3|etc. Any text
+    you wish may be used as a skintone color.
+</p>
+<blockquote>
+    <p>
+        <code>RACENAME:Human% &lt;tab&gt;
+            SKINTONE:Bronze|Yellow|Red|Pink|Vermillion</code>
+    </p>
+</blockquote>
+<p>
+    Note that the last six may be combined on the same RACENAME line
+    (and usually are) like so:
+</p>
+<blockquote>
+    <p>
+        <code>RACENAME:Human% &lt;tab&gt; HAIR:Blonde|White|Salt &amp;
+            Pepper|Plaid
+            <br/>
+            EYES:Hazel|Blue|Brown|Grey|Violet
+            <br/>
+            SKINTONE:Bronze|Yellow|Red|Pink|Vermillion</code>
+    </p>
+</blockquote>
+<p>
+    After the first ageset where you set all the other randomization
+    information, the other agesets are entered. The only things
+    contained in these areas should be AGESET (and associated BONUS
+    statements), RACENAME, BASEAGE, MAXAGE and AGEDIEROLL. And example
+    from the SRD would be:
+</p>
+<blockquote>
+    <p>
+        <code>AGESET:1|Middle Age BONUS:STAT|STR,CON,DEX|-1
+            <br/>
+            BONUS:STAT|INT,WIS,CHA|1
+            <br/>
+            RACENAME:Human% BASEAGE:35 MAXAGE:52 AGEDIEROLL:3d6
+            <br/>
+            RACENAME:Dwarf% BASEAGE:125 MAXAGE:187 AGEDIEROLL:(7d8+1d6)
+            <br/>
+            RACENAME:Elf% BASEAGE:175 MAXAGE:262 AGEDIEROLL:11d8
+            <br/>
+            RACENAME:Gnome% BASEAGE:100 MAXAGE:149 AGEDIEROLL:(8d6+1)
+            <br/>
+            RACENAME:Half-Elf% BASEAGE:62 MAXAGE:92 AGEDIEROLL:5d6
+            <br/>
+            RACENAME:Half-Orc% BASEAGE:30 MAXAGE:44
+            <br/>
+            AGEDIEROLL:(1d10+1d4)
+            <br/>
+            RACENAME:Halfling% BASEAGE:50 MAXAGE:74 AGEDIEROLL:4d6</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    Well now.... isn't that a monster dissertation?!!! I hope
+    everyone finds it helpful in creating biosettings files for
+    whatever sources you choose to work on. Between this lesson and the
+    examples in the PCGen distribution you should have it made.
+</p>
+<p>
+    Best of luck!
+</p>
+<p>
+    Barak
+    <br/>
+    LST Chimp
+</p>
+<p>
+</p>
+</body>
 </html>

@@ -1,465 +1,465 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Sigurdur H. Olafsson - shoATtnDOTis
+<!--
+               PCGen Documentation Project
 
-                Description:
-                PCGen FAQ Output and Printing Issues.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Output and Printing Issues
-  </title>
-  <link href="../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Output and Printing Issues
-  </h1>
-  <ol>
-   <li>
-    <p class="indent0">
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Sigurdur H. Olafsson - shoATtnDOTis
+
+               Description:
+               PCGen FAQ Output and Printing Issues.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Output and Printing Issues
+    </title>
+    <link href="../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Output and Printing Issues
+</h1>
+<ol>
+    <li>
+        <p class="indent0">
      <span class="underline">
       How do I get the
 character sheets to only print out the skills my character
 has?
      </span>
-    </p>
-    <p class="indent0">
-     There is a list box in the lower right hand
-corner of the Skills tab that determines which skills show up on
-the character sheet (called "Include skills").
-    </p>
-    <ul>
-     <li>
-      <strong>
-       All
-      </strong>
-      - includes all skills.
-     </li>
-     <li>
-      <strong>
-       Untrained
-      </strong>
-      - includes skills with ranks and
-untrained.
-     </li>
-     <li>
-      <strong>
-       None
-      </strong>
-      - should include only those with
-ranks.
-     </li>
-    </ul>
-   </li>
-   <li>
-    <p class="indent0">
+        </p>
+        <p class="indent0">
+            There is a list box in the lower right hand
+            corner of the Skills tab that determines which skills show up on
+            the character sheet (called "Include skills").
+        </p>
+        <ul>
+            <li>
+                <strong>
+                    All
+                </strong>
+                - includes all skills.
+            </li>
+            <li>
+                <strong>
+                    Untrained
+                </strong>
+                - includes skills with ranks and
+                untrained.
+            </li>
+            <li>
+                <strong>
+                    None
+                </strong>
+                - should include only those with
+                ranks.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p class="indent0">
      <span class="underline">
       How do I get my
 familiar's stat-block to appear on my wizard's character
 sheet?
      </span>
-    </p>
-    <p class="indent0">
-     The OS block for familiars is only activated
-when both the familiar's and the master's files are loaded.
-    </p>
-   </li>
-   <li>
-    <p class="indent0">
+        </p>
+        <p class="indent0">
+            The OS block for familiars is only activated
+            when both the familiar's and the master's files are loaded.
+        </p>
+    </li>
+    <li>
+        <p class="indent0">
      <span class="underline">
       How do I get the natural
 attacks block to show up on my character sheet?
      </span>
-    </p>
-    <p class="indent0">
-     To activate the "Natural Attack" OS block on the
-character sheet You will need to make an
-     <strong>
-      ABILITY
-     </strong>
-     for that attack. Your new ability will look something like the
-following:
-    </p>
-    <blockquote>
-     <p class="indent2">
-      <code>Bite</code>
-     </p>
-     <p class="indent2">
-      <code>CATEGORY:Natural Attack</code>
-     </p>
-     <p class="indent2">
-      <code>TYPE:NaturalAttack</code>
-     </p>
-     <p class="indent2">
-      <code>ASPECT:NaturalAttackName|Bite</code>
-     </p>
-     <p class="indent3">
-      <i>
-       This is the name of the Attack that will be
-displayed.
-      </i>
-     </p>
-     <p class="indent2">
-      <code>ASPECT:NaturalAttackToHit|%1|BAB+STR+BiteAdditional</code>
-     </p>
-     <p class="indent3">
-      <i>
-       Formula to give the correct attack, will need
-a special set up if you want Weapon Focus or Greater Weapon Focus
-to work, there is NO proficiency associated with this
-"attack".
-      </i>
-     </p>
-     <p class="indent2">
-      <i>
-       <code>ASPECT:NaturalAttackDamage|%1d%2|BiteDamageDice|BiteDamageSize</code>
-      </i>
-     </p>
-     <p class="indent3">
-      <i>
-       Sets your damage, the nice thing is these are
-variable, however, these are NOT size dependent. But you can adjust
-the damage
-      </i>
-     </p>
-     <p class="indent2">
-      <code>ASPECT:NaturalAttackDamageBonus|%1|STR</code>
-     </p>
-     <p class="indent3">
-      <i>
-       Sets your bonus damage
-      </i>
-     </p>
-     <p class="indent2">
-      <code>ASPECT:NaturalAttackReach|%1|REACH.VAL</code>
-     </p>
-     <p class="indent3">
-      <i>
-       Sets your reach - "REACH.VAL" uses the PC's
-natural Reach value
-      </i>
-     </p>
-     <p class="indent2">
-      <code>ASPECT:NaturalAttackType|Bludgeoning</code>
-     </p>
-     <p class="indent3">
-      <i>
-       Sets your damage type - Bludgeoning,
-Slashing, Piercing, Energy Type, Element Type
-      </i>
-     </p>
-     <p class="indent2">
-      <code>ASPECT:NaturalAttackThreatRange|%1|BiteThreatRange</code>
-     </p>
-     <p class="indent3">
-      <i>
-       Sets your natural weapon threat range -
-typically '20'
-      </i>
-     </p>
-     <p class="indent2">
-      <code>ASPECT:NaturalAttackThreatRange|x%1|BiteCritMult</code>
-     </p>
-     <p class="indent3">
-      <i>
-       Sets your Critical Multiplier value
-      </i>
-     </p>
-     <p class="indent2">
-      <code>ASPECT:NaturalAttackNotes|x</code>
-     </p>
-     <p class="indent3">
-      <i>
-       Allows special notes, like a poison
-attack
-      </i>
-     </p>
-     <p class="indent2">
-      <code>DESC:x</code>
-     </p>
-     <p class="indent3">
-      <i>
-       Allows additional special notes, like a
-improved poison attack
-      </i>
-     </p>
-     <p class="indent1">
-      <i>
-       These Set the Values. NOTE: they are all
-variables and you may alter however you wish.
-      </i>
-     </p>
-     <p class="indent2">
-      <code>DEFINE:BiteDamageDice|0</code>
-     </p>
-     <p class="indent2">
-      <code>DEFINE:BiteDamageSize|0</code>
-     </p>
-     <p class="indent2">
-      <code>DEFINE:BiteCritMult|2</code>
-     </p>
-     <p class="indent2">
-      <code>BONUS:VAR|BiteDamageDice|1</code>
-     </p>
-     <p class="indent2">
-      <code>BONUS:VAR|BiteDamageSize|6</code>
-     </p>
-     <p class="indent2">
-      <code>DEFINE:BiteAdditional|0</code>
-     </p>
-     <p class="indent2">
-      <code>DEFINE:BiteThreatRange|0</code>
-     </p>
-     <p class="indent2">
-      <code>BONUS:VAR|BiteThreatRange|20</code>
-     </p>
-    </blockquote>
-    <p class="indent0">
-     For Special Attack Notes, you may either use
-     <code>DESC:x</code>
-     , or
-     <code>ASPECT:NaturalAttackNotes|x</code>
-     .
-     <code>ASPECT</code>
-     is used for just one note while
-     <code>DESC</code>
-     can take PRExxx tags and are ideal if your attack
-can be given to other creatures whose attacks vary by level based
-increases.
-    </p>
-    <p class="indent0">
-     What this solution will not do is handle
-iterative attacks unless you set up the ability with an
-     <code>ASPECT</code>
-     with all the iterative attacks. Unfortunately,
-ASPECT needs work in order to fully support any Alternative
-Iterative Attacks, or partial Iterative Attacks.
-    </p>
-    <p class="indent0">
-     Suggested Method to add Bonus to Hit by
-proficiency would be to do
-     <code>BONUS:VAR|BiteAdditional|1|PREFEAT:1,Weapon
-Focus(Bite)</code>
-     <i>
-      and make sure you add
-      <b>
-       Bite
-      </b>
-      to the
-      <u>
-       weaponprof.lst
-      </u>
-      file and append
-      <code>AUTO:WEAPONPROF|Bite</code>
-      to the ability. This will allow
-the character to take the Proficiency in Weapon Focus. Repeat for
-other methods you desire.
-     </i>
-    </p>
-   </li>
-   <li>
-    <p class="indent0">
-     <i>
+        </p>
+        <p class="indent0">
+            To activate the "Natural Attack" OS block on the
+            character sheet You will need to make an
+            <strong>
+                ABILITY
+            </strong>
+            for that attack. Your new ability will look something like the
+            following:
+        </p>
+        <blockquote>
+            <p class="indent2">
+                <code>Bite</code>
+            </p>
+            <p class="indent2">
+                <code>CATEGORY:Natural Attack</code>
+            </p>
+            <p class="indent2">
+                <code>TYPE:NaturalAttack</code>
+            </p>
+            <p class="indent2">
+                <code>ASPECT:NaturalAttackName|Bite</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    This is the name of the Attack that will be
+                    displayed.
+                </i>
+            </p>
+            <p class="indent2">
+                <code>ASPECT:NaturalAttackToHit|%1|BAB+STR+BiteAdditional</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    Formula to give the correct attack, will need
+                    a special set up if you want Weapon Focus or Greater Weapon Focus
+                    to work, there is NO proficiency associated with this
+                    "attack".
+                </i>
+            </p>
+            <p class="indent2">
+                <i>
+                    <code>ASPECT:NaturalAttackDamage|%1d%2|BiteDamageDice|BiteDamageSize</code>
+                </i>
+            </p>
+            <p class="indent3">
+                <i>
+                    Sets your damage, the nice thing is these are
+                    variable, however, these are NOT size dependent. But you can adjust
+                    the damage
+                </i>
+            </p>
+            <p class="indent2">
+                <code>ASPECT:NaturalAttackDamageBonus|%1|STR</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    Sets your bonus damage
+                </i>
+            </p>
+            <p class="indent2">
+                <code>ASPECT:NaturalAttackReach|%1|REACH.VAL</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    Sets your reach - "REACH.VAL" uses the PC's
+                    natural Reach value
+                </i>
+            </p>
+            <p class="indent2">
+                <code>ASPECT:NaturalAttackType|Bludgeoning</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    Sets your damage type - Bludgeoning,
+                    Slashing, Piercing, Energy Type, Element Type
+                </i>
+            </p>
+            <p class="indent2">
+                <code>ASPECT:NaturalAttackThreatRange|%1|BiteThreatRange</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    Sets your natural weapon threat range -
+                    typically '20'
+                </i>
+            </p>
+            <p class="indent2">
+                <code>ASPECT:NaturalAttackThreatRange|x%1|BiteCritMult</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    Sets your Critical Multiplier value
+                </i>
+            </p>
+            <p class="indent2">
+                <code>ASPECT:NaturalAttackNotes|x</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    Allows special notes, like a poison
+                    attack
+                </i>
+            </p>
+            <p class="indent2">
+                <code>DESC:x</code>
+            </p>
+            <p class="indent3">
+                <i>
+                    Allows additional special notes, like a
+                    improved poison attack
+                </i>
+            </p>
+            <p class="indent1">
+                <i>
+                    These Set the Values. NOTE: they are all
+                    variables and you may alter however you wish.
+                </i>
+            </p>
+            <p class="indent2">
+                <code>DEFINE:BiteDamageDice|0</code>
+            </p>
+            <p class="indent2">
+                <code>DEFINE:BiteDamageSize|0</code>
+            </p>
+            <p class="indent2">
+                <code>DEFINE:BiteCritMult|2</code>
+            </p>
+            <p class="indent2">
+                <code>BONUS:VAR|BiteDamageDice|1</code>
+            </p>
+            <p class="indent2">
+                <code>BONUS:VAR|BiteDamageSize|6</code>
+            </p>
+            <p class="indent2">
+                <code>DEFINE:BiteAdditional|0</code>
+            </p>
+            <p class="indent2">
+                <code>DEFINE:BiteThreatRange|0</code>
+            </p>
+            <p class="indent2">
+                <code>BONUS:VAR|BiteThreatRange|20</code>
+            </p>
+        </blockquote>
+        <p class="indent0">
+            For Special Attack Notes, you may either use
+            <code>DESC:x</code>
+            , or
+            <code>ASPECT:NaturalAttackNotes|x</code>
+            .
+            <code>ASPECT</code>
+            is used for just one note while
+            <code>DESC</code>
+            can take PRExxx tags and are ideal if your attack
+            can be given to other creatures whose attacks vary by level based
+            increases.
+        </p>
+        <p class="indent0">
+            What this solution will not do is handle
+            iterative attacks unless you set up the ability with an
+            <code>ASPECT</code>
+            with all the iterative attacks. Unfortunately,
+            ASPECT needs work in order to fully support any Alternative
+            Iterative Attacks, or partial Iterative Attacks.
+        </p>
+        <p class="indent0">
+            Suggested Method to add Bonus to Hit by
+            proficiency would be to do
+            <code>BONUS:VAR|BiteAdditional|1|PREFEAT:1,Weapon
+                Focus(Bite)</code>
+            <i>
+                and make sure you add
+                <b>
+                    Bite
+                </b>
+                to the
+                <u>
+                    weaponprof.lst
+                </u>
+                file and append
+                <code>AUTO:WEAPONPROF|Bite</code>
+                to the ability. This will allow
+                the character to take the Proficiency in Weapon Focus. Repeat for
+                other methods you desire.
+            </i>
+        </p>
+    </li>
+    <li>
+        <p class="indent0">
+            <i>
       <span class="underline">
        How do I get
 checkboxes to show up on my character sheet for my homebrew
 abilitiy?
       </span>
-     </i>
-    </p>
-    <p class="indent0">
-     <i>
-      To activate the "Checkboxe" block on your
-character sheet for your homebrew Special Ability you will need to
-include the following in your ability:
-     </i>
-    </p>
-    <ol class="indent1">
-     <li>
-      <i>
-       Include the "Checklist" type in the abilities list of types.
-       <strong>
-        Example:
-       </strong>
-       <code>TYPE:SpecialAttack.Supernatural.Checklist</code>
-      </i>
-     </li>
-     <li>
-      <i>
-       Include the following
-       <code>ASPECT</code>
-       tags:
-      </i>
-      <p class="indent2">
-       <i>
-        <code>ASPECT:CheckList|Yes</code>
-       </i>
-      </p>
-      <p class="indent2">
-       <i>
-        <code>ASPECT:CheckCount|x</code>
-        [x can be a
-number, variable or formula.]
-       </i>
-      </p>
-      <p class="indent2">
-       <code>ASPECT:CheckType|y</code>
-       [
-       <i>
-        y is simple
-text that is displayed next to the Check Boxes.
-       </i>
-       ]
-      </p>
-     </li>
-    </ol>
-   </li>
-   <li>
-    <p class="indent0">
+            </i>
+        </p>
+        <p class="indent0">
+            <i>
+                To activate the "Checkboxe" block on your
+                character sheet for your homebrew Special Ability you will need to
+                include the following in your ability:
+            </i>
+        </p>
+        <ol class="indent1">
+            <li>
+                <i>
+                    Include the "Checklist" type in the abilities list of types.
+                    <strong>
+                        Example:
+                    </strong>
+                    <code>TYPE:SpecialAttack.Supernatural.Checklist</code>
+                </i>
+            </li>
+            <li>
+                <i>
+                    Include the following
+                    <code>ASPECT</code>
+                    tags:
+                </i>
+                <p class="indent2">
+                    <i>
+                        <code>ASPECT:CheckList|Yes</code>
+                    </i>
+                </p>
+                <p class="indent2">
+                    <i>
+                        <code>ASPECT:CheckCount|x</code>
+                        [x can be a
+                        number, variable or formula.]
+                    </i>
+                </p>
+                <p class="indent2">
+                    <code>ASPECT:CheckType|y</code>
+                    [
+                    <i>
+                        y is simple
+                        text that is displayed next to the Check Boxes.
+                    </i>
+                    ]
+                </p>
+            </li>
+        </ol>
+    </li>
+    <li>
+        <p class="indent0">
      <span class="underline">
       How do I get conditional
 skill bonuses to show up on my character sheet?
      </span>
-    </p>
-    <p class="indent0">
-     To activate the "Skill Info Block" on your
-character sheet the character must have been granted an ability or
-feat with the following included in it:
-    </p>
-    <ol class="indent1">
-     <li>
-      The "SkillBonus" type included in the type list.
-      <strong>
-       Example:
-      </strong>
-      <code>TYPE:SpecialQuality.RacialBonus.SkillBonus</code>
-     </li>
-     <li>
-      <code>ASPECT:SkillBonus|x</code>
-      tag must be included in the
-granted ability or feat. The quot;xquot; is simple text as per the
-      <code>DESC</code>
-      tag.
-     </li>
-    </ol>
-    <p class="inent0">
-     This will display the included aspect text under
-the skills block.
-    </p>
-   </li>
-   <li>
-    <p class="indent0">
+        </p>
+        <p class="indent0">
+            To activate the "Skill Info Block" on your
+            character sheet the character must have been granted an ability or
+            feat with the following included in it:
+        </p>
+        <ol class="indent1">
+            <li>
+                The "SkillBonus" type included in the type list.
+                <strong>
+                    Example:
+                </strong>
+                <code>TYPE:SpecialQuality.RacialBonus.SkillBonus</code>
+            </li>
+            <li>
+                <code>ASPECT:SkillBonus|x</code>
+                tag must be included in the
+                granted ability or feat. The quot;xquot; is simple text as per the
+                <code>DESC</code>
+                tag.
+            </li>
+        </ol>
+        <p class="inent0">
+            This will display the included aspect text under
+            the skills block.
+        </p>
+    </li>
+    <li>
+        <p class="indent0">
      <span class="underline">
       I try to preview a
 character or bring up the Doc, and nothing happens.
      </span>
-    </p>
-    <p>
-     Since PCGen is cross-platform it's hard to assume what browser
-you're using. Click on the menu item Settings-&gt;Preferences and a
-dialog box will appear.
-    </p>
-    <p class="indent0">
-     One of the options under Locations is to set
-your Browser Path, just navigate to the executable of your
-favourite browser.
-    </p>
-   </li>
-   <li>
-    <p class="indent0">
+        </p>
+        <p>
+            Since PCGen is cross-platform it's hard to assume what browser
+            you're using. Click on the menu item Settings-&gt;Preferences and a
+            dialog box will appear.
+        </p>
+        <p class="indent0">
+            One of the options under Locations is to set
+            your Browser Path, just navigate to the executable of your
+            favourite browser.
+        </p>
+    </li>
+    <li>
+        <p class="indent0">
      <span class="underline">
       I click on the print
 icon and get a warning about missing files.
      </span>
-    </p>
-    <p class="indent0">
-     The pdf_new.zip library is required if you want
-to print directly from PCGen - otherwise you can view the files in
-your browser or adobe acrobat (pdf files) and print from there. The
-pdf_new.zip file is located
-     <a href="http://prdownloads.sourceforge.net/pcgen/pdf_new.zip">
-      here
-     </a>
-     ,
-unzip it into the lib subdirectory where you installed PCGen. Then
-you'll need to re-launch PCGen for it to find it properly.
-    </p>
-   </li>
-   <li>
-    <p class="indent0">
+        </p>
+        <p class="indent0">
+            The pdf_new.zip library is required if you want
+            to print directly from PCGen - otherwise you can view the files in
+            your browser or adobe acrobat (pdf files) and print from there. The
+            pdf_new.zip file is located
+            <a href="http://prdownloads.sourceforge.net/pcgen/pdf_new.zip">
+                here
+            </a>
+            ,
+            unzip it into the lib subdirectory where you installed PCGen. Then
+            you'll need to re-launch PCGen for it to find it properly.
+        </p>
+    </li>
+    <li>
+        <p class="indent0">
      <span class="underline">
       Does PCGen support any
 command line exporting functionality?
      </span>
-    </p>
-    <p class="indent0">
-     PCGen does support command line exporting of
-characters through its
-     <strong>
-      Command Line Interface
-(CLI)
-     </strong>
-     . For a complete description of all options available
-see the
-     <a href="../walkthroughpages/walkthroughheadingstartup.html#cli">
-      PCGen
-CLI
-     </a>
-     page.
-    </p>
-    <!--
-                                <p class="indent0">PCGen does support command line exporting of characters by both HTML and PDF but both require
-                                        the 'Load Campaign Data with character' box in the preferences to be checked.</p>
-                                <p class="indent0"><strong>Command Line HTML Export:</strong></p>
-                                <p class="indent0">The general form to export the HTML character sheets is shown below.</p>
-                                <p class="indent1"><em>java -Dpcgen.template=&lt;path to OS&gt; -Dpcgen.inputefile=&lt;path to input file&gt; 
-                                        -Dpcgen.outputfile=&lt;path to output file&gt; -jar pcgen.jar</em></p>
-                                <p class="indent0">An example of what the final line may look like is as follows:</p>
-                                <p class="indent1"><code>java -Dpcgen.templatefile=C:\Pcgen\outputsheets\d20\fantasy\htmlxml\csheet_fantasy_std.htm 
-                                        -Dpcgen.inputfile=C:\Pcgen\characters\aaa.pcg -Dpcgen.outputfile=C:\Pcgen\characters\aaa.htm -jar pcgen.jar</code></p>                          
-                                <p class="indent0"><strong>Command line exporting to a PDF is a two step process.</strong></p>
-                                <ol>
-                                        <li>
-                                                <p class="indent0">Export the <span class="lstfile">base.xml</span> file.</p>
-                                                <p class="indent1"><em>/pcgen.sh -Dpcgen.templatefile=outputsheets/base.xml 
-                                                        -Dpcgen.inputfile=&lt;path to character file&gt; 
-                                                        -Dpcgen.outputfile=&lt;path to character output xml file&gt;</em></p>
-                                                <p class="indent0">An example of what the final line may look like is as follows:</p>
-                                                <p class="indent1"><code>/pcgen.sh -Dpcgen.templatefile=outputsheets/base.xml 
-                                                        -Dpcgen.inputfile=characters/FOO.pcg 
-                                                        -Dpcgen.outputfile=characters/FOO.xml</code></p>
-                                        </li>
-                                        
-                                        <li>
-                                                <p class="indent0">Run fop</p>
-                                                <p class="indent1"><em>java -classpath $(echo lib/fop/*.jar | sed -e 's/ /:/g') org.apache.fop.apps.Fop 
-                                                        -xml &lt;path to character output xml file&gt; -xsl &lt;path to character sheet xslt file&gt; 
-                                                        -pdf &lt;path to character output pdf file&gt;</em></p>
-                                                <p class="indent0">An example of what the final line may look like is as follows:</p>
-                                                <p class="indent1"><code>java -classpath $(echo lib/fop/*.jar | sed -e 's/ /:/g') org.apache.fop.apps.Fop 
-                                                        -xml characters/FOO.xml -xsl outputsheets/d20/fantasy/pdf/csheet_fantasy_std_blackandwhite.xslt 
-                                                        -pdf characters/FOO.pdf</code></p>
-                                        </li>
-                                </ol>   
-                        </li>
--->
-   </li>
-  </ol>
-  <hr/>
-  <p>
-  </p>
- </body>
+        </p>
+        <p class="indent0">
+            PCGen does support command line exporting of
+            characters through its
+            <strong>
+                Command Line Interface
+                (CLI)
+            </strong>
+            . For a complete description of all options available
+            see the
+            <a href="../walkthroughpages/walkthroughheadingstartup.html#cli">
+                PCGen
+                CLI
+            </a>
+            page.
+        </p>
+        <!--
+                                    <p class="indent0">PCGen does support command line exporting of characters by both HTML and PDF but both require
+                                            the 'Load Campaign Data with character' box in the preferences to be checked.</p>
+                                    <p class="indent0"><strong>Command Line HTML Export:</strong></p>
+                                    <p class="indent0">The general form to export the HTML character sheets is shown below.</p>
+                                    <p class="indent1"><em>java -Dpcgen.template=&lt;path to OS&gt; -Dpcgen.inputefile=&lt;path to input file&gt;
+                                            -Dpcgen.outputfile=&lt;path to output file&gt; -jar pcgen.jar</em></p>
+                                    <p class="indent0">An example of what the final line may look like is as follows:</p>
+                                    <p class="indent1"><code>java -Dpcgen.templatefile=C:\Pcgen\outputsheets\d20\fantasy\htmlxml\csheet_fantasy_std.htm
+                                            -Dpcgen.inputfile=C:\Pcgen\characters\aaa.pcg -Dpcgen.outputfile=C:\Pcgen\characters\aaa.htm -jar pcgen.jar</code></p>
+                                    <p class="indent0"><strong>Command line exporting to a PDF is a two step process.</strong></p>
+                                    <ol>
+                                            <li>
+                                                    <p class="indent0">Export the <span class="lstfile">base.xml</span> file.</p>
+                                                    <p class="indent1"><em>/pcgen.sh -Dpcgen.templatefile=outputsheets/base.xml
+                                                            -Dpcgen.inputfile=&lt;path to character file&gt;
+                                                            -Dpcgen.outputfile=&lt;path to character output xml file&gt;</em></p>
+                                                    <p class="indent0">An example of what the final line may look like is as follows:</p>
+                                                    <p class="indent1"><code>/pcgen.sh -Dpcgen.templatefile=outputsheets/base.xml
+                                                            -Dpcgen.inputfile=characters/FOO.pcg
+                                                            -Dpcgen.outputfile=characters/FOO.xml</code></p>
+                                            </li>
+
+                                            <li>
+                                                    <p class="indent0">Run fop</p>
+                                                    <p class="indent1"><em>java -classpath $(echo lib/fop/*.jar | sed -e 's/ /:/g') org.apache.fop.apps.Fop
+                                                            -xml &lt;path to character output xml file&gt; -xsl &lt;path to character sheet xslt file&gt;
+                                                            -pdf &lt;path to character output pdf file&gt;</em></p>
+                                                    <p class="indent0">An example of what the final line may look like is as follows:</p>
+                                                    <p class="indent1"><code>java -classpath $(echo lib/fop/*.jar | sed -e 's/ /:/g') org.apache.fop.apps.Fop
+                                                            -xml characters/FOO.xml -xsl outputsheets/d20/fantasy/pdf/csheet_fantasy_std_blackandwhite.xslt
+                                                            -pdf characters/FOO.pdf</code></p>
+                                            </li>
+                                    </ol>
+                            </li>
+    -->
+    </li>
+</ol>
+<hr/>
+<p>
+</p>
+</body>
 </html>

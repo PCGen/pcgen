@@ -33,149 +33,144 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreAbilityWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "ability";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "ability";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
-		try
-		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-			{
-				writer.write('!');
-			}
-			writer.write("PREABILITY:" + (prereq.isOverrideQualify() ? "Q:" : ""));
-			writer.write(prereq.getOperand());
-			writer.write(',');
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
+        try
+        {
+            if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+            {
+                writer.write('!');
+            }
+            writer.write("PREABILITY:" + (prereq.isOverrideQualify() ? "Q:" : ""));
+            writer.write(prereq.getOperand());
+            writer.write(',');
 
-			if (prereq.isOriginalCheckMult())
-			{
-				writer.write("CHECKMULT,");
-			}
-			String cat = prereq.getCategoryName();
-			if (cat == null)
-			{
-				writer.write("CATEGORY=ANY,");
-			}
-			else
-			{
-				writer.write("CATEGORY=" + cat + ',');
-			}
+            if (prereq.isOriginalCheckMult())
+            {
+                writer.write("CHECKMULT,");
+            }
+            String cat = prereq.getCategoryName();
+            if (cat == null)
+            {
+                writer.write("CATEGORY=ANY,");
+            } else
+            {
+                writer.write("CATEGORY=" + cat + ',');
+            }
 
-			writer.write(prereq.getKey());
-			if (prereq.getSubKey() != null)
-			{
-				writer.write(" (");
-				writer.write(prereq.getSubKey());
-				writer.write(")");
-			}
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+            writer.write(prereq.getKey());
+            if (prereq.getSubKey() != null)
+            {
+                writer.write(" (");
+                writer.write(prereq.getSubKey());
+                writer.write(")");
+            }
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
-	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
-	{
-		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
-		if (po == null)
-		{
-			return false;
-		}
-		if (hasSubordinateCheckMult(prereq))
-		{
-			return false;
-		}
-		String cat = null;
-		boolean foundCat = false;
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			if (foundCat)
-			{
-				String thiscat = p.getCategoryName();
-				if (thiscat == null)
-				{
-					if (cat != null)
-					{
-						return false;
-					}
-				}
-				else
-				{
-					if (!thiscat.equals(cat))
-					{
-						return false;
-					}
-				}
-			}
-			else
-			{
-				cat = p.getCategoryName();
-				foundCat = true;
-			}
-		}
-		if (!po.equals(prereq.getOperator()))
-		{
-			writer.write('!');
-		}
+    @Override
+    public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+    {
+        PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
+        if (po == null)
+        {
+            return false;
+        }
+        if (hasSubordinateCheckMult(prereq))
+        {
+            return false;
+        }
+        String cat = null;
+        boolean foundCat = false;
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            if (foundCat)
+            {
+                String thiscat = p.getCategoryName();
+                if (thiscat == null)
+                {
+                    if (cat != null)
+                    {
+                        return false;
+                    }
+                } else
+                {
+                    if (!thiscat.equals(cat))
+                    {
+                        return false;
+                    }
+                }
+            } else
+            {
+                cat = p.getCategoryName();
+                foundCat = true;
+            }
+        }
+        if (!po.equals(prereq.getOperator()))
+        {
+            writer.write('!');
+        }
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : "1");
-		if (prereq.isOriginalCheckMult())
-		{
-			writer.write(",CHECKMULT");
-		}
-		if (cat == null)
-		{
-			writer.write(",CATEGORY=ANY");
-		}
-		else
-		{
-			writer.write(",CATEGORY=" + cat);
-		}
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			writer.write(',');
-			writer.write(p.getKey());
-			if (p.getSubKey() != null)
-			{
-				writer.write(" (");
-				writer.write(p.getSubKey());
-				writer.write(")");
-			}
-		}
-		return true;
-	}
+        writer.write("PRE" + kindHandled().toUpperCase() + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+        writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : "1");
+        if (prereq.isOriginalCheckMult())
+        {
+            writer.write(",CHECKMULT");
+        }
+        if (cat == null)
+        {
+            writer.write(",CATEGORY=ANY");
+        } else
+        {
+            writer.write(",CATEGORY=" + cat);
+        }
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            writer.write(',');
+            writer.write(p.getKey());
+            if (p.getSubKey() != null)
+            {
+                writer.write(" (");
+                writer.write(p.getSubKey());
+                writer.write(")");
+            }
+        }
+        return true;
+    }
 
-	private boolean hasSubordinateCheckMult(Prerequisite prereq)
-	{
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			if (p.isOriginalCheckMult())
-			{
-				return true;
-			}
-			for (Prerequisite sub : p.getPrerequisites())
-			{
-				if (hasSubordinateCheckMult(sub))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+    private boolean hasSubordinateCheckMult(Prerequisite prereq)
+    {
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            if (p.isOriginalCheckMult())
+            {
+                return true;
+            }
+            for (Prerequisite sub : p.getPrerequisites())
+            {
+                if (hasSubordinateCheckMult(sub))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

@@ -34,63 +34,62 @@ import pcgen.system.LanguageBundle;
 public class PreTemplateTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
+    private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal = 0;
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal = 0;
 
-		final int number;
-		try
-		{
-			number = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException exceptn)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreTemplate.error", prereq.toString()), exceptn); //$NON-NLS-1$
-		}
+        final int number;
+        try
+        {
+            number = Integer.parseInt(prereq.getOperand());
+        } catch (NumberFormatException exceptn)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreTemplate.error", prereq.toString()), exceptn); //$NON-NLS-1$
+        }
 
-		if (display.hasTemplates())
-		{
-			String templateKey = prereq.getKey().toUpperCase();
-			final int wildCard = templateKey.indexOf('%');
-			//handle wildcards (always assume they end the line)
-			if (wildCard >= 0)
-			{
-				templateKey = templateKey.substring(0, wildCard);
-				for (PCTemplate aTemplate : display.getTemplateSet())
-				{
-					if (aTemplate.getKeyName().toUpperCase().startsWith(templateKey))
-					{
-						runningTotal++;
-					}
-				}
-			}
-			else
-			{
-				PCTemplate template = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, templateKey);
-				if (display.hasTemplate(template))
-				{
-					runningTotal++;
-				}
-			}
-		}
-		runningTotal = prereq.getOperator().compare(runningTotal, number);
-		return countedTotal(prereq, runningTotal);
-	}
+        if (display.hasTemplates())
+        {
+            String templateKey = prereq.getKey().toUpperCase();
+            final int wildCard = templateKey.indexOf('%');
+            //handle wildcards (always assume they end the line)
+            if (wildCard >= 0)
+            {
+                templateKey = templateKey.substring(0, wildCard);
+                for (PCTemplate aTemplate : display.getTemplateSet())
+                {
+                    if (aTemplate.getKeyName().toUpperCase().startsWith(templateKey))
+                    {
+                        runningTotal++;
+                    }
+                }
+            } else
+            {
+                PCTemplate template = Globals.getContext().getReferenceContext()
+                        .silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, templateKey);
+                if (display.hasTemplate(template))
+                {
+                    runningTotal++;
+                }
+            }
+        }
+        runningTotal = prereq.getOperator().compare(runningTotal, number);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "TEMPLATE"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "TEMPLATE"; //$NON-NLS-1$
+    }
 
 }

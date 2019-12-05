@@ -25,26 +25,26 @@ import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.StringKey;
 
 public final class PCStat extends PObject
-		implements NonInteractive, SortKeyRequired, VarScoped
+        implements NonInteractive, SortKeyRequired, VarScoped
 {
-	/*
-	 * This is what the UI displays for the CHOOSE:PCSTAT.
-	 */
-	@Override
-	public String toString()
-	{
-		return getKeyName();
-	}
+    /*
+     * This is what the UI displays for the CHOOSE:PCSTAT.
+     */
+    @Override
+    public String toString()
+    {
+        return getKeyName();
+    }
 
-	@Override
-	public Optional<String> getLocalScopeName()
-	{
-		return Optional.of("PC.STAT");
-	}
+    @Override
+    public Optional<String> getLocalScopeName()
+    {
+        return Optional.of("PC.STAT");
+    }
 
-	@Override
-	public String getSortKey()
-	{
-		return get(StringKey.SORT_KEY);
-	}
+    @Override
+    public String getSortKey()
+    {
+        return get(StringKey.SORT_KEY);
+    }
 }

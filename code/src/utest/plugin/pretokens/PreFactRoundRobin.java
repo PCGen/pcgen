@@ -26,48 +26,47 @@ import plugin.pretokens.writer.PreFactWriter;
 
 /**
  * The Class {@code PreFactRoundRobin} tests the parsing and unparsing of
- * PREFACTs. 
-
+ * PREFACTs.
  */
 public class PreFactRoundRobin extends AbstractPreRoundRobin
 {
-	private static boolean initialised = false;
-	private static final StringManager STR_MGR = new StringManager();
+    private static boolean initialised = false;
+    private static final StringManager STR_MGR = new StringManager();
 
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		TokenRegistration.register(new PreFactParser());
-		TokenRegistration.register(new PreFactWriter());
-		FactKey.getConstant("Foo", STR_MGR);
-		FactKey.getConstant("Bard_Archetype_BardicKnowledge", STR_MGR);
-		FactKey.getConstant("Bard_Archetype_Countersong", STR_MGR);
-		FactKey.getConstant("Bard_Archetype_BardicPerformance", STR_MGR);
-		
-		if (!initialised)
-		{
-			FacetInitialization.initialize();
-			initialised = true;
-		}
-	}
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        TokenRegistration.register(new PreFactParser());
+        TokenRegistration.register(new PreFactWriter());
+        FactKey.getConstant("Foo", STR_MGR);
+        FactKey.getConstant("Bard_Archetype_BardicKnowledge", STR_MGR);
+        FactKey.getConstant("Bard_Archetype_Countersong", STR_MGR);
+        FactKey.getConstant("Bard_Archetype_BardicPerformance", STR_MGR);
 
-	public void testBoolean()
-	{
-		runPositiveRoundRobin("PREFACT:1,RACE,Foo=true");
-	}
+        if (!initialised)
+        {
+            FacetInitialization.initialize();
+            initialised = true;
+        }
+    }
 
-	public void testString()
-	{
-		runPositiveRoundRobin("PREFACT:1,RACE,Foo=Bar");
-	}
-	
-	public void testMultipleBoolean()
-	{
-		runPositiveRoundRobin("PREFACT:1,RACE,"
-			+ "Bard_Archetype_BardicKnowledge=True,"
-			+ "Bard_Archetype_Countersong=True,"
-			+ "Bard_Archetype_BardicPerformance=True");
-	}
+    public void testBoolean()
+    {
+        runPositiveRoundRobin("PREFACT:1,RACE,Foo=true");
+    }
+
+    public void testString()
+    {
+        runPositiveRoundRobin("PREFACT:1,RACE,Foo=Bar");
+    }
+
+    public void testMultipleBoolean()
+    {
+        runPositiveRoundRobin("PREFACT:1,RACE,"
+                + "Bard_Archetype_BardicKnowledge=True,"
+                + "Bard_Archetype_Countersong=True,"
+                + "Bard_Archetype_BardicPerformance=True");
+    }
 
 }

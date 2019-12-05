@@ -36,22 +36,22 @@ import org.testfx.matcher.base.NodeMatchers;
 @ExtendWith(ApplicationExtension.class)
 class PCGenPreloaderTest
 {
-	@Start
-	private void Start(Stage stage) throws IOException
-	{
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(PCGenPreloader.class.getResource("PCGenPreloader.fxml"));
-		loader.setResources(LanguageBundle.getBundle());
-		Scene scene = loader.load();
-		stage.setScene(scene);
-		stage.show();
-	}
+    @Start
+    private void Start(Stage stage) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(PCGenPreloader.class.getResource("PCGenPreloader.fxml"));
+        loader.setResources(LanguageBundle.getBundle());
+        Scene scene = loader.load();
+        stage.setScene(scene);
+        stage.show();
+    }
 
-	@Test
-	void test_preloader_has_a_image_and_progress_bar(final FxRobotInterface robot)
-	{
-		FxAssert.verifyThat("#styleImage", NodeMatchers.isVisible());
-		FxAssert.verifyThat("#pcGenStatusBar", NodeMatchers.isVisible());
-	}
+    @Test
+    void test_preloader_has_a_image_and_progress_bar(final FxRobotInterface robot)
+    {
+        FxAssert.verifyThat("#styleImage", NodeMatchers.isVisible());
+        FxAssert.verifyThat("#pcGenStatusBar", NodeMatchers.isVisible());
+    }
 
 }

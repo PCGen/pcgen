@@ -26,82 +26,82 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- *
  * This is a utility class related to BonusObj objects.
  */
 public final class BonusUtilities
 {
 
-	private BonusUtilities()
-	{
-		//Don't allow instantiation of utility class
-	}
+    private BonusUtilities()
+    {
+        //Don't allow instantiation of utility class
+    }
 
-	/**
-	 * Get the bonus from a list
-	 * @param bonusList
-	 * @param aType
-	 * @param aName
-	 * @return List
-	 */
-	public static List<BonusObj> getBonusFromList(final Collection<BonusObj> bonusList, final String aType,
-		final String aName)
-	{
-		final List<BonusObj> aList = new ArrayList<>();
+    /**
+     * Get the bonus from a list
+     *
+     * @param bonusList
+     * @param aType
+     * @param aName
+     * @return List
+     */
+    public static List<BonusObj> getBonusFromList(final Collection<BonusObj> bonusList, final String aType,
+            final String aName)
+    {
+        final List<BonusObj> aList = new ArrayList<>();
 
-		if (bonusList != null)
-		{
-			for (BonusObj aBonus : bonusList)
-			{
-				if (!aBonus.getTypeOfBonus().equals(aType))
-				{
-					continue;
-				}
+        if (bonusList != null)
+        {
+            for (BonusObj aBonus : bonusList)
+            {
+                if (!aBonus.getTypeOfBonus().equals(aType))
+                {
+                    continue;
+                }
 
-				if (aBonus.getBonusInfoList().size() > 1)
-				{
-					final StringTokenizer aTok = new StringTokenizer(aBonus.getBonusInfo(), ",");
+                if (aBonus.getBonusInfoList().size() > 1)
+                {
+                    final StringTokenizer aTok = new StringTokenizer(aBonus.getBonusInfo(), ",");
 
-					while (aTok.hasMoreTokens())
-					{
-						final String aBI = aTok.nextToken();
+                    while (aTok.hasMoreTokens())
+                    {
+                        final String aBI = aTok.nextToken();
 
-						if (aBI.equals(aName))
-						{
-							aList.add(aBonus);
-						}
-					}
-				}
-				else if (aBonus.getBonusInfo().equals(aName))
-				{
-					aList.add(aBonus);
-				}
-			}
-		}
+                        if (aBI.equals(aName))
+                        {
+                            aList.add(aBonus);
+                        }
+                    }
+                } else if (aBonus.getBonusInfo().equals(aName))
+                {
+                    aList.add(aBonus);
+                }
+            }
+        }
 
-		return aList;
-	}
+        return aList;
+    }
 
-	/**
-	 * Get Bonus from list
-	 * @param bonusList
-	 * @param type
-	 * @return List
-	 */
-	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String type)
-	{
-		final List<BonusObj> aList = new ArrayList<>(bonusList.size());
+    /**
+     * Get Bonus from list
+     *
+     * @param bonusList
+     * @param type
+     * @return List
+     */
+    public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String type)
+    {
+        final List<BonusObj> aList = new ArrayList<>(bonusList.size());
 
-		// Analysis reveals that bonusList is never null
-		for (BonusObj bonus : bonusList)
-		{
-			if (bonus.getTypeOfBonus().equals(type))
-			{
-				continue;
-			}
-			aList.add(bonus);
-		}
+        // Analysis reveals that bonusList is never null
+        for (BonusObj bonus : bonusList)
+        {
+            if (bonus.getTypeOfBonus().equals(type))
+            {
+                continue;
+            }
+            aList.add(bonus);
+        }
 
-		return aList;
-	}
+        return aList;
+    }
 }

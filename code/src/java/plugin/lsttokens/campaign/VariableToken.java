@@ -36,65 +36,65 @@ import pcgen.rules.persistence.token.ParseResult;
 public class VariableToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "VARIABLE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VARIABLE";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
-	{
-		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
-		if (cse == null)
-		{
-			//Error
-			return ParseResult.INTERNAL_ERROR;
-		}
-		if (!cse.getIncludeItems().isEmpty())
-		{
-			return new ParseResult.Fail(getTokenName() + " does not support Include");
-		}
-		if (!cse.getExcludeItems().isEmpty())
-		{
-			return new ParseResult.Fail(getTokenName() + " does not support Exclude");
-		}
-		if (!cse.getPrerequisites().isEmpty())
-		{
-			return new ParseResult.Fail(getTokenName() + " does not support Prerequisites");
-		}
-		context.getObjectContext().addToList(campaign, ListKey.FILE_VARIABLE, cse);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
+    {
+        CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
+        if (cse == null)
+        {
+            //Error
+            return ParseResult.INTERNAL_ERROR;
+        }
+        if (!cse.getIncludeItems().isEmpty())
+        {
+            return new ParseResult.Fail(getTokenName() + " does not support Include");
+        }
+        if (!cse.getExcludeItems().isEmpty())
+        {
+            return new ParseResult.Fail(getTokenName() + " does not support Exclude");
+        }
+        if (!cse.getPrerequisites().isEmpty())
+        {
+            return new ParseResult.Fail(getTokenName() + " does not support Prerequisites");
+        }
+        context.getObjectContext().addToList(campaign, ListKey.FILE_VARIABLE, cse);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Changes<CampaignSourceEntry> cseChanges =
-				context.getObjectContext().getListChanges(campaign, ListKey.FILE_VARIABLE);
-		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
-		if (added == null)
-		{
-			//empty indicates no token
-			return null;
-		}
-		Set<String> set = new TreeSet<>();
-		for (CampaignSourceEntry cse : added)
-		{
-			set.add(cse.getLSTformat());
-		}
-		return set.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        Changes<CampaignSourceEntry> cseChanges =
+                context.getObjectContext().getListChanges(campaign, ListKey.FILE_VARIABLE);
+        Collection<CampaignSourceEntry> added = cseChanges.getAdded();
+        if (added == null)
+        {
+            //empty indicates no token
+            return null;
+        }
+        Set<String> set = new TreeSet<>();
+        for (CampaignSourceEntry cse : added)
+        {
+            set.add(cse.getLSTformat());
+        }
+        return set.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

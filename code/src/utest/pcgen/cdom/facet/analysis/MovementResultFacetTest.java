@@ -7,10 +7,12 @@ import pcgen.cdom.enumeration.MovementType;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MovementResultFacetTest {
+class MovementResultFacetTest
+{
 
     @Test
-    void getMovementOfTypeHasZeroDefault() {
+    void getMovementOfTypeHasZeroDefault()
+    {
         MovementResultFacet movementResultFacet = new MovementResultFacet();
         MovementType movementType = MovementType.getConstant("CRAWL");
         DataSetID datasetID = DataSetID.getID();

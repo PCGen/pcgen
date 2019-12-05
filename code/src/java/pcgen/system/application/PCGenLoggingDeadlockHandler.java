@@ -25,10 +25,10 @@ import pcgen.util.Logging;
 
 public class PCGenLoggingDeadlockHandler implements DeadlockHandler
 {
-	@Override
-	public void handleDeadlock(final ThreadInfo[] deadlockedThreads)
-	{
-			Logging.errorPrint("Deadlock detected for threads:" + Arrays.toString(deadlockedThreads));
-			Logging.reportAllThreads();
-	}
+    @Override
+    public void handleDeadlock(final ThreadInfo[] deadlockedThreads)
+    {
+        Logging.errorPrint("Deadlock detected for threads:" + Arrays.toString(deadlockedThreads));
+        Logging.reportAllThreads();
+    }
 }

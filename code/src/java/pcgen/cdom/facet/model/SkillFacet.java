@@ -1,16 +1,16 @@
 /*
  * Copyright (c) Thomas Parker, 2009-14.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -35,71 +35,69 @@ import pcgen.output.publish.OutputDB;
  * SkillFacet is a Facet that tracks the Skills possessed by a Player Character.
  */
 public class SkillFacet extends AbstractSourcedListFacet<CharID, Skill> implements SkillRankChangeListener,
-		DataFacetChangeListener<CharID, Skill>, AssociationChangeListener, SetFacet<CharID, Skill>
+        DataFacetChangeListener<CharID, Skill>, AssociationChangeListener, SetFacet<CharID, Skill>
 {
 
-	private TotalSkillRankFacet totalSkillRankFacet;
+    private TotalSkillRankFacet totalSkillRankFacet;
 
-	private UsableSkillsFacet usableSkillsFacet;
+    private UsableSkillsFacet usableSkillsFacet;
 
-	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, Skill> dfce)
-	{
-		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
-	}
+    @Override
+    public void dataAdded(DataFacetChangeEvent<CharID, Skill> dfce)
+    {
+        add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+    }
 
-	@Override
-	public void dataRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
-	{
-		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
-	}
+    @Override
+    public void dataRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
+    {
+        remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+    }
 
-	@Override
-	public void rankChanged(SkillRankChangeEvent lce)
-	{
-		CharID id = lce.getCharID();
-		Skill skill = lce.getSkill();
-		if (lce.getNewRank() == 0.0f)
-		{
-			remove(id, skill, lce.getSource());
-		}
-		else
-		{
-			add(id, skill, lce.getSource());
-		}
-	}
+    @Override
+    public void rankChanged(SkillRankChangeEvent lce)
+    {
+        CharID id = lce.getCharID();
+        Skill skill = lce.getSkill();
+        if (lce.getNewRank() == 0.0f)
+        {
+            remove(id, skill, lce.getSource());
+        } else
+        {
+            add(id, skill, lce.getSource());
+        }
+    }
 
-	public void setTotalSkillRankFacet(TotalSkillRankFacet totalSkillRankFacet)
-	{
-		this.totalSkillRankFacet = totalSkillRankFacet;
-	}
+    public void setTotalSkillRankFacet(TotalSkillRankFacet totalSkillRankFacet)
+    {
+        this.totalSkillRankFacet = totalSkillRankFacet;
+    }
 
-	public void setUsableSkillsFacet(UsableSkillsFacet usableSkillsFacet)
-	{
-		this.usableSkillsFacet = usableSkillsFacet;
-	}
+    public void setUsableSkillsFacet(UsableSkillsFacet usableSkillsFacet)
+    {
+        this.usableSkillsFacet = usableSkillsFacet;
+    }
 
-	public void init()
-	{
-		totalSkillRankFacet.addAssociationChangeListener(this);
-		usableSkillsFacet.addDataFacetChangeListener(this);
-		OutputDB.register("skills", this);
-	}
+    public void init()
+    {
+        totalSkillRankFacet.addAssociationChangeListener(this);
+        usableSkillsFacet.addDataFacetChangeListener(this);
+        OutputDB.register("skills", this);
+    }
 
-	@Override
-	public void bonusChange(AssociationChangeEvent dfce)
-	{
-		CharID id = dfce.getCharID();
-		Skill sk = dfce.getSkill();
-		Number ranks = dfce.getNewVal();
-		if (ranks.doubleValue() > 0)
-		{
-			add(id, sk, dfce.getSource());
-		}
-		else
-		{
-			remove(id, sk, dfce.getSource());
-		}
-	}
+    @Override
+    public void bonusChange(AssociationChangeEvent dfce)
+    {
+        CharID id = dfce.getCharID();
+        Skill sk = dfce.getSkill();
+        Number ranks = dfce.getNewVal();
+        if (ranks.doubleValue() > 0)
+        {
+            add(id, sk, dfce.getSource());
+        } else
+        {
+            remove(id, sk, dfce.getSource());
+        }
+    }
 
 }

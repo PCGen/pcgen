@@ -29,44 +29,46 @@ import pcgen.io.exporttoken.Token;
  */
 public class FollowerOfToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "FOLLOWEROF";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "FOLLOWEROF";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		return getFollowerOfToken(pc);
-	}
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        return getFollowerOfToken(pc);
+    }
 
-	/**
-	 * Get FOLLOWEROF Token
-	 *
-	 * @param pc
-	 * @return Token
-	 */
-	public static String getFollowerOfToken(PlayerCharacter pc)
-	{
-		String retString = "";
-		PlayerCharacter masterPC = pc.getMasterPC();
+    /**
+     * Get FOLLOWEROF Token
+     *
+     * @param pc
+     * @return Token
+     */
+    public static String getFollowerOfToken(PlayerCharacter pc)
+    {
+        String retString = "";
+        PlayerCharacter masterPC = pc.getMasterPC();
 
-		if (masterPC != null)
-		{
-			CharacterDisplay masterDisplay = masterPC.getDisplay();
-			for (Follower aFollower : masterDisplay.getFollowerList())
-			{
-				if (aFollower.getFileName().equals(pc.getDisplay().getFileName()))
-				{
-					retString = aFollower.getType() + " of " + masterDisplay.getName();
-				}
-			}
-		}
+        if (masterPC != null)
+        {
+            CharacterDisplay masterDisplay = masterPC.getDisplay();
+            for (Follower aFollower : masterDisplay.getFollowerList())
+            {
+                if (aFollower.getFileName().equals(pc.getDisplay().getFileName()))
+                {
+                    retString = aFollower.getType() + " of " + masterDisplay.getName();
+                }
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 }

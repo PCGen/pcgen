@@ -1,1211 +1,1211 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Sigurdur H. Olafsson - shoATtnDOTis
-                Eric C Smith - mareduddATblackrootDOTorg
-                
-                Description:
-                Provides information on the use of Output Sheet Tokens: Equipment Related.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Equipment Related Output Sheet Tokens
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Equipment Related Output Sheet Tokens
-  </h1>
-  <p class="indent0">
-   The following tags are used to provide equipment
-related data to the various output sheets used by PCGen.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eq" name="eq">
-     Token
-Name:
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Sigurdur H. Olafsson - shoATtnDOTis
+               Eric C Smith - mareduddATblackrootDOTorg
+
+               Description:
+               Provides information on the use of Output Sheet Tokens: Equipment Related.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Equipment Related Output Sheet Tokens
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Equipment Related Output Sheet Tokens
+</h1>
+<p class="indent0">
+    The following tags are used to provide equipment
+    related data to the various output sheets used by PCGen.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eq" name="eq">
+            Token
+            Name:
+        </a>
+    </strong>
+    EQ.%.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Property)
+</p>
+<p class="indent1">
+    <strong>
+        What it Does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Used in loops, this token will output the included equipment
+        property (x).
+    </li>
+    <li>
+        Valid equipment properties for this tag are:
+        <ul>
+            <li>
+                LONGNAME
+            </li>
+            <li>
+                NAME
+            </li>
+            <li>
+                OUTPUTNAME
+            </li>
+            <li>
+                NAME.MAGIC~a~b
+                <ul>
+                    <li>
+                        "a" represents text to be place before the name
+                    </li>
+                    <li>
+                        "b" represents text to be placed after the name
+                    </li>
+                </ul>
+            </li>
+            <li>
+                WT
+            </li>
+            <li>
+                ITEMWEIGHT
+            </li>
+            <li>
+                TOTALWT
+            </li>
+            <li>
+                TOTALWEIGHT
+            </li>
+            <li>
+                ISTYPE
+            </li>
+            <li>
+                CHECKBOXES
+            </li>
+            <li>
+                CONTENTWEIGHT
+            </li>
+            <li>
+                COST
+            </li>
+            <li>
+                DESC
+            </li>
+            <li>
+                FUMBLERANGE
+            </li>
+            <li>
+                QTY
+            </li>
+            <li>
+                EQUIPPED
+            </li>
+            <li>
+                CARRIED
+            </li>
+            <li>
+                CONTENTSUM
+            </li>
+            <li>
+                LOCATION
+            </li>
+            <li>
+                ACMOD
+            </li>
+            <li>
+                MAXDEX
+            </li>
+            <li>
+                ACCHECK
+            </li>
+            <li>
+                EDR
+            </li>
+            <li>
+                MOVE
+            </li>
+            <li>
+                TYPE
+            </li>
+            <li>
+                QUALITY
+            </li>
+            <li>
+                SPELLFAILURE
+            </li>
+            <li>
+                SIZE
+            </li>
+            <li>
+                SIZELONG
+            </li>
+            <li>
+                DAMAGE
+            </li>
+            <li>
+                CRITRANGE
+            </li>
+            <li>
+                CRITMULT
+            </li>
+            <li>
+                ALTDAMAGE
+            </li>
+            <li>
+                ALTCRITMULT
+            </li>
+            <li>
+                ALTCRIT
+            </li>
+            <li>
+                ALTCRITRANGE
+            </li>
+            <li>
+                RANGE
+            </li>
+            <li>
+                ATTACKS
+            </li>
+            <li>
+                PROF
+            </li>
+            <li>
+                SLOT
+            </li>
+            <li>
+                SPROP
+            </li>
+            <li>
+                CHARGES
+            </li>
+            <li>
+                CHARGESUSED
+            </li>
+            <li>
+                MAXCHARGES
+            </li>
+            <li>
+                CONTENTS
+            </li>
+            <li>
+                SOURCE
+            </li>
+        </ul>
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQ.%.NAME</code>
+</p>
+<p class="indent3">
+    Displays a list of equipment names.
+</p>
+<p class="indent2">
+    <code>EQ.%.NAME.MAGIC~&lt;b&gt;~&lt;/b&gt;</code>
+</p>
+<p class="indent3">
+    Displays a list of equipment names in
+    <strong>
+        BOLD
+    </strong>
+    , by placing &lt;b&gt; before the name, and
+    &lt;/b&gt; after the name of magic items.
+</p>
+<p class="indent2">
+    <code>EQ.%.SPROP</code>
+</p>
+<p class="indent3">
+    Displays a list of equipment special
+    properties.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eq.add" name="eq.add">
+            Token
+            Name:
+        </a>
+    </strong>
+    EQ.ADD.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Subtype or "CONTAINED").
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Adds items containing that subtype to the
+    returned list of equipment.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQ.ADD.Armor</code>
+</p>
+<p class="indent3">
+    Displays all armor type items.
+</p>
+<p class="indent2">
+    <code>EQ.ADD.CONTAINED</code>
+</p>
+<p class="indent3">
+    Displays all items contained in another.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eq.is" name="eq.is">
+            Token
+            Name:
+        </a>
+    </strong>
+    EQ.IS.x.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Subtype or "CONTAINED").
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text
+    (property).
+</p>
+<ul class="indent2">
+    <li>
+        CARRIED - Total number carried.
+    </li>
+    <li>
+        CHARGES - Number of remaining charges.
+    </li>
+    <li>
+        CONTAINS.w - Where w is an integer, returns NAME of the w-th
+        piece of equipment contained in equipment item y
+    </li>
+    <li>
+        CONTAINS.w.alpha - w is an integer, returns the requested
+        information for the w-th piece of equipment stored in equipment
+        item y.
+    </li>
+</ul>
+<p class="indent3">
+    <strong>
+        Variable Used (alpha):
+    </strong>
+    Text
+    (Any valid tag for EQ.IS. Examples: NAME, QTY, CONTAINS,
+    LOCATION).
+</p>
+<ul class="indent2">
+    <li>
+        CONTENTS.type
+    </li>
+    <li>
+        CHARGESUSED - Displays the number of charges used.
+    </li>
+    <li>
+        CHECKBOXES - Displays the number of checkboxes to be displayed
+        for consumables. If the preferences option is checked, will have
+        baseqty * qty as the number of checkboxes.
+    </li>
+    <li>
+        CONTENTS - Displays the contents of a container and weight of
+        the contents or nothing if not a container.
+    </li>
+    <li>
+        CONTENTS.type&lt;w&gt; - Displays the name of the w-th object
+        contained (optional).
+    </li>
+</ul>
+<p class="indent3">
+    <strong>
+        Variable Used (type):
+    </strong>
+    Text
+    (Item type).
+</p>
+<p class="indent3">
+    <strong>
+        Variable Used (w):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<ul class="indent2">
+    <li>
+        CONTENTS.type&lt;w&gt;.SPROP - Displays the special properties
+        of the y-th object contained (optional).
+    </li>
+</ul>
+<p class="indent3">
+    <strong>
+        Variable Used (type):
+    </strong>
+    Text
+    (Item type).
+</p>
+<p class="indent3">
+    <strong>
+        Variable Used (w):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<ul class="indent2">
+    <li>
+        CONTENTSNUM - Returns number of items contained in the
+        specified piece of equipment. If empty, or not a container, returns
+        0.
+    </li>
+    <li>
+        COST - Displays the cost of the item in gold.
+    </li>
+    <li>
+        DESC - Displays the description of the item.
+    </li>
+    <li>
+        EQUIPPED - Displays Y (Yes) or N (No) as appropriate.
+    </li>
+    <li>
+        FUMBLERANGE - Displays the text from the FUMBLERANGE tag.
+    </li>
+    <li>
+        LOCATION - Displays blank if not carried, else "Equipped" if
+        equipped, the name of its container if inside a container, or
+        "Carried" if just carried.
+    </li>
+    <li>
+        MAXCHARGES - Displays the starting number of charges.
+    </li>
+    <li>
+        NAME.type~a~b~c~d - Displays the short version of the item name
+        (type~a~b~c~d is optional)
+    </li>
+</ul>
+<p class="indent3">
+    <strong>
+        Variable Used (type):
+    </strong>
+    Text
+    (Item Type)
+</p>
+<p class="indent3">
+    <strong>
+        Variable Used (a/b/c/d):
+    </strong>
+    Text
+    (a = prepended if type matches, b = appended if type matches, c =
+    prepended if type doesn't match, d = appended if type doesn't
+    match).
+</p>
+<ul class="indent2">
+    <li>
+        NOTE - Displays the player added note of the item owned.
+    </li>
+    <li>
+        QTY - Displays the number of the item owned.
+    </li>
+    <li>
+        SIZE - Displays a one-letter description of the size of the
+        item (e.g. "M" for Medium).
+    </li>
+    <li>
+        SIZELONG - Displays the whole word description of the size of
+        the item (e.g. "Medium").
+    </li>
+    <li>
+        SOURCE - Displays the Source.
+    </li>
+    <li>
+        SPROP - Displays the Special Properties.
+    </li>
+    <li>
+        TOTALWT - Displays WT * QTY in lbs.
+    </li>
+    <li>
+        TYPE - Displays the Item Type.
+    </li>
+    <li>
+        TYPE.n - Displays the nth type from the type list.
+    </li>
+</ul>
+<p class="indent3">
+    <strong>
+        Variable Used (n):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<ul class="indent2">
+    <li>
+        WT - Displays the weight in pounds (lbs) of the item.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays equipment information.
+    </li>
+    <li>
+        Depending on the type of EQ, you can also use all the tokens
+        from the ARMOR and WEAPONS tokens (ACMOD, MAXDEX, DAMAGE,
+        etc).
+    </li>
+    <li>
+        EQTYPE and all options can also be used in a COUNT[]
+        statements.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQ.IS.Metal.1.TYPE1</code>
+</p>
+<p class="indent3">
+    If the item was type
+    "MAGIC.WEAPON.MARTIAL.METAL", then "WEAPON" would be displayed.
+</p>
+<p class="indent2">
+    <code>EQ.IS.ROD.5.NAME.MAGIC~&lt;b&gt;~&lt;/b&gt;</code>
+</p>
+<p class="indent3">
+    Would display the name of the 6th rod in the
+    equipment list and bold it if it was magical.
+</p>
+<p class="indent2">
+    <code>EQ.IS.0.CONTAINS.0.LONGNAME</code>
+</p>
+<p class="indent3">
+    Returns Longbow +1 (Flaming).
+</p>
+<p class="indent2">
+    <code>EQ.IS.2.CONTAINS.4.QTY</code>
+</p>
+<p class="indent3">
+    Returns the quantity of the 5
+    <sup>
+        th
+    </sup>
+    item
+    contained in 3
+    <sup>
+        rd
+    </sup>
+    Equipment.
+</p>
+<p class="indent2">
+    <code>EQ.IS.ROD.0.NOTE</code>
+</p>
+<p class="indent3">
+    Would display a player added note on the
+    1
+    <sup>
+        st
+    </sup>
+    rod in the equipment list. (If available).
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eq.merge" name="eq.merge">
+            Token
+            Name:
+        </a>
+    </strong>
+    EQ.MERGEx.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Merge
+    Code).
+</p>
+<ul class="indent2">
+    <li>
+        ALL - Causes all items with the same name to be merged (default
+        behavior).
+    </li>
+    <li>
+        LOC - Causes all items with the same name and in the same
+        location to be merged.
+    </li>
+    <li>
+        NONE - No items with the same name are merged.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text
+    (property as per EQ.IS.x.y.z).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays equipment information.
+    </li>
+    <li>
+        Depending on the type of EQ, you can also use all the tokens
+        from the ARMOR and WEAPONS tokens (ACMOD, MAXDEX, DAMAGE,
+        etc).
+    </li>
+    <li>
+        The merge variable is optional.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQ.MERGEALL.0.CHARGES</code>
+</p>
+<p class="indent3">
+    Displays the number of charges of all items of
+    the same name as the 1
+    <sup>
+        st
+    </sup>
+    item.
+</p>
+<p class="indent2">
+    <code>EQ.MERGELOC.3.LOCATION</code>
+</p>
+<p class="indent3">
+    Displays blank if not carried, "Equipped", the
+    name of the container if inside a container or "Carried" for all
+    items with the same name in the same container as the
+    4
+    <sup>
+        th
+    </sup>
+    item.
+</p>
+<p class="indent2">
+    <code>EQ.MERGE.NONE.1.SIZE</code>
+</p>
+<p class="indent3">
+    Displays a one letter description of the size of
+    the 2
+    <sup>
+        nd
+    </sup>
+    item (eg. "M" for Medium).
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eq.not" name="eq.not">
+            Token
+            Name:
+        </a>
+    </strong>
+    EQ.NOT.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Subtype or "CONTAINED").
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Removes all equipment not containing that
+    subtype from the returned list of equipment.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQ.NOT.Metal</code>
+</p>
+<p class="indent3">
+    Displays all items that are not metal type
+    items.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eq.quality" name="eq.quality">
+            Token Name:
+        </a>
+    </strong>
+    EQ.x.QUALITY.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Name
+    of quality).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number (The
+    quality position number - 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Returns the value set by the
+    <a href="../../listfilepages/datafilestagpages/datafilesequipment.html#quality">
+        QUALITY
     </a>
-   </strong>
-   EQ.%.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Property)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it Does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Used in loops, this token will output the included equipment
-property (x).
-   </li>
-   <li>
-    Valid equipment properties for this tag are:
-    <ul>
-     <li>
-      LONGNAME
-     </li>
-     <li>
-      NAME
-     </li>
-     <li>
-      OUTPUTNAME
-     </li>
-     <li>
-      NAME.MAGIC~a~b
-      <ul>
-       <li>
-        "a" represents text to be place before the name
-       </li>
-       <li>
-        "b" represents text to be placed after the name
-       </li>
-      </ul>
-     </li>
-     <li>
-      WT
-     </li>
-     <li>
-      ITEMWEIGHT
-     </li>
-     <li>
-      TOTALWT
-     </li>
-     <li>
-      TOTALWEIGHT
-     </li>
-     <li>
-      ISTYPE
-     </li>
-     <li>
-      CHECKBOXES
-     </li>
-     <li>
-      CONTENTWEIGHT
-     </li>
-     <li>
-      COST
-     </li>
-     <li>
-      DESC
-     </li>
-     <li>
-      FUMBLERANGE
-     </li>
-     <li>
-      QTY
-     </li>
-     <li>
-      EQUIPPED
-     </li>
-     <li>
-      CARRIED
-     </li>
-     <li>
-      CONTENTSUM
-     </li>
-     <li>
-      LOCATION
-     </li>
-     <li>
-      ACMOD
-     </li>
-     <li>
-      MAXDEX
-     </li>
-     <li>
-      ACCHECK
-     </li>
-     <li>
-      EDR
-     </li>
-     <li>
-      MOVE
-     </li>
-     <li>
-      TYPE
-     </li>
-     <li>
-      QUALITY
-     </li>
-     <li>
-      SPELLFAILURE
-     </li>
-     <li>
-      SIZE
-     </li>
-     <li>
-      SIZELONG
-     </li>
-     <li>
-      DAMAGE
-     </li>
-     <li>
-      CRITRANGE
-     </li>
-     <li>
-      CRITMULT
-     </li>
-     <li>
-      ALTDAMAGE
-     </li>
-     <li>
-      ALTCRITMULT
-     </li>
-     <li>
-      ALTCRIT
-     </li>
-     <li>
-      ALTCRITRANGE
-     </li>
-     <li>
-      RANGE
-     </li>
-     <li>
-      ATTACKS
-     </li>
-     <li>
-      PROF
-     </li>
-     <li>
-      SLOT
-     </li>
-     <li>
-      SPROP
-     </li>
-     <li>
-      CHARGES
-     </li>
-     <li>
-      CHARGESUSED
-     </li>
-     <li>
-      MAXCHARGES
-     </li>
-     <li>
-      CONTENTS
-     </li>
-     <li>
-      SOURCE
-     </li>
+    equipment tag.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQ.0.QUALITY</code>
+</p>
+<p class="indent3">
+    Displays all the Name/Value pairs of
+    qualities.
+</p>
+<p class="indent2">
+    <code>EQ.0.QUALITY.Restriction</code>
+</p>
+<p class="indent3">
+    Displays the Value of the Restriction quality
+    (if the equipment has this quality).
+</p>
+<p class="indent2">
+    <code>EQ.0.QUALITY.0</code>
+</p>
+<p class="indent3">
+    Displays the Name/Value of the first quality the
+    equipment has.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eqcontainer" name="eqcontainer">
+            Token Name:
+        </a>
+    </strong>
+    EQCONTAINER.x.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (property).
+</p>
+<ul class="indent2">
+    <li>
+        ITEMWEIGHT - The weight of the container itself.
+    </li>
+    <li>
+        CONTENTWEIGHT - The weight of the contents of the
+        container.
+    </li>
+    <li>
+        TOTALWEIGHT - The weight of the container and it's
+        contents.
+    </li>
+    <li>
+        TYPE.n - Displays the nth type from the type list.
+    </li>
+</ul>
+<p class="indent3">
+    <strong>
+        Variable Used (n):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<ul class="indent2">
+    <li>
+        TYPE.n.SPROP - Displays the Special Properties of the nth type
+        from the type list.
+    </li>
+</ul>
+<p class="indent3">
+    <strong>
+        Variable Used (n):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays various weight information about
+    container type equipment.
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQCONTAINER.0.ITEMWEIGHT</code>
+</p>
+<p class="indent3">
+    Displays the weight of the 1
+    <sup>
+        st
+    </sup>
+    container itself.
+</p>
+<p class="indent2">
+    <code>EQCONTAINER.3.CONTENTWEIGHT</code>
+</p>
+<p class="indent3">
+    Displays the weight of the contents of the
+    4
+    <sup>
+        th
+    </sup>
+    container.
+</p>
+<p class="indent2">
+    <code>EQCONTAINER.1.TOTALWEIGHT</code>
+</p>
+<p class="indent3">
+    Displays the total weight of the 2
+    <sup>
+        nd
+    </sup>
+    container.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eqcontainers" name="eqcontainers">
+            Token Name:
+        </a>
+    </strong>
+    EQCONTAINERS.x.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (property as EQ.IS.x.y.z).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays the equipment in a preformatted list format, indenting
+        the LONGNAME of the contents of a container with a couple of
+        tabs.
+    </li>
+    <li>
+        Depending on the type of EQ, you can also use all the tokens
+        from the ARMOR and ATTACK tokens (ACMOD, MAXDEX, DAMAGE, etc).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQCONTAINERS.0.COST</code>
+</p>
+<p class="indent3">
+    Display the cost in gold of the 1
+    <sup>
+        st
+    </sup>
+    container.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eqcontainerw" name="eqcontainerw">
+            Token Name:
+        </a>
+    </strong>
+    EQCONTAINERW.x.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    equipment position number - 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (property as per EQ.IS.x.y.z).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays the equipment in a preformatted list format, indenting
+        the LONGNAME of the contents of a container with a few non-breaking
+        spaces.
+    </li>
+    <li>
+        Depending on the type of EQ, you can also use all the tokens
+        from the ARMOR and ATTACK tokens (ACMOD, MAXDEX, DAMAGE, etc).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQCONTAINERW.0.SPROP</code>
+</p>
+<p class="indent3">
+    Displays the special properties of the
+    1
+    <sup>
+        st
+    </sup>
+    container.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eqset" name="eqset">
+            Token
+            Name:
+        </a>
+    </strong>
+    EQSET.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    text
+    (Option).
+</p>
+<ul class="indent2">
+    <li>
+        START - Start of equipment set section
+    </li>
+    <li>
+        NAME - Outputs the name of the currently looping equipment
+        set.
+    </li>
+    <li>
+        END - End of equipment set section
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Used to output equipment sets to csheets or
+    eqsheets.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQSET.START
+        <br/>
+        EQSET.NAME
+        <br/>
+        FOR,%num,0,10,1,1
+        <br/>
+        ARMOR%num.NAME
+        <br/>
+        ENDFOR
+        <br/>
+        EQSET.END</code>
+</p>
+<p class="indent3">
+    The above code would loop once for each
+    Equipment Set created on the Equipping tab.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="eqtype" name="eqtype">
+            Token
+            Name:
+        </a>
+    </strong>
+    EQTYPE.w.x.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    MERGE.ALL
+    (Optional. Default behavior.)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    MERGE.LOC
+    (Optional)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    MERGE.NONE
+    (Optional)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Subtype or "CONTAINED").
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Equipment position. Not used with MERGE.).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    ADD.Text
+    (Subtype or "CONTAINED").
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    IS.Text
+    (Options as per EQ.IS.x.y.z).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    NOT.Text
+    (Subtype or "CONTAINED").
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    NOTE.Text
+    (Miscelaneous notes on sub-type. Used only with MERGE.
+    Optional)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<blockquote class="indent2">
+    <ul class="tagindent0">
+        <li>
+            Displays equipment type information.
+        </li>
+        <li>
+            Equipment of like type is merged by default prior to
+            display.
+        </li>
+        <li>
+            MERGE.ALL - Causes all items with the same name to be merged
+            (default behavior).
+        </li>
+        <li>
+            MERGE.LOC - Causes all items with the same name and in the same
+            location to be merged.
+        </li>
+        <li>
+            MERGE.NONE - No items with the same name are merged.
+        </li>
+        <li>
+            Equipment position is a zero-based index.
+        </li>
+        <li>
+            ADD - Adds items containing that subtype to the returned list
+            of equipment (Options as per EQ.NOT.x).
+        </li>
+        <li>
+            IS - Removes all equipment not containing that subtype from the
+            returned list of equipment (Options as per EQ.IS.x.y.z).
+        </li>
+        <li>
+            NOT - Removes items containing that subtype from the returned
+            list of equipment (Options as per EQ.NOT.x).
+        </li>
+        <li>
+            NOTE - Displays the player added notes (if any) of the items
+            containing that subtype.
+        </li>
+        <li>
+            Depending on the type of EQ, you can also use all the tokens
+            from the ARMOR and ATTACK tokens (ACMOD, MAXDEX, DAMAGE, etc).
+        </li>
+        <li>
+            EQTYPE and all options can also be used in a COUNT[]
+            statement.
+        </li>
     </ul>
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQ.%.NAME</code>
-  </p>
-  <p class="indent3">
-   Displays a list of equipment names.
-  </p>
-  <p class="indent2">
-   <code>EQ.%.NAME.MAGIC~&lt;b&gt;~&lt;/b&gt;</code>
-  </p>
-  <p class="indent3">
-   Displays a list of equipment names in
-   <strong>
-    BOLD
-   </strong>
-   , by placing &lt;b&gt; before the name, and
-&lt;/b&gt; after the name of magic items.
-  </p>
-  <p class="indent2">
-   <code>EQ.%.SPROP</code>
-  </p>
-  <p class="indent3">
-   Displays a list of equipment special
-properties.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eq.add" name="eq.add">
-     Token
-Name:
-    </a>
-   </strong>
-   EQ.ADD.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Subtype or "CONTAINED").
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Adds items containing that subtype to the
-returned list of equipment.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQ.ADD.Armor</code>
-  </p>
-  <p class="indent3">
-   Displays all armor type items.
-  </p>
-  <p class="indent2">
-   <code>EQ.ADD.CONTAINED</code>
-  </p>
-  <p class="indent3">
-   Displays all items contained in another.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eq.is" name="eq.is">
-     Token
-Name:
-    </a>
-   </strong>
-   EQ.IS.x.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Subtype or "CONTAINED").
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text
-(property).
-  </p>
-  <ul class="indent2">
-   <li>
-    CARRIED - Total number carried.
-   </li>
-   <li>
-    CHARGES - Number of remaining charges.
-   </li>
-   <li>
-    CONTAINS.w - Where w is an integer, returns NAME of the w-th
-piece of equipment contained in equipment item y
-   </li>
-   <li>
-    CONTAINS.w.alpha - w is an integer, returns the requested
-information for the w-th piece of equipment stored in equipment
-item y.
-   </li>
-  </ul>
-  <p class="indent3">
-   <strong>
-    Variable Used (alpha):
-   </strong>
-   Text
-(Any valid tag for EQ.IS. Examples: NAME, QTY, CONTAINS,
-LOCATION).
-  </p>
-  <ul class="indent2">
-   <li>
-    CONTENTS.type
-   </li>
-   <li>
-    CHARGESUSED - Displays the number of charges used.
-   </li>
-   <li>
-    CHECKBOXES - Displays the number of checkboxes to be displayed
-for consumables. If the preferences option is checked, will have
-baseqty * qty as the number of checkboxes.
-   </li>
-   <li>
-    CONTENTS - Displays the contents of a container and weight of
-the contents or nothing if not a container.
-   </li>
-   <li>
-    CONTENTS.type&lt;w&gt; - Displays the name of the w-th object
-contained (optional).
-   </li>
-  </ul>
-  <p class="indent3">
-   <strong>
-    Variable Used (type):
-   </strong>
-   Text
-(Item type).
-  </p>
-  <p class="indent3">
-   <strong>
-    Variable Used (w):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <ul class="indent2">
-   <li>
-    CONTENTS.type&lt;w&gt;.SPROP - Displays the special properties
-of the y-th object contained (optional).
-   </li>
-  </ul>
-  <p class="indent3">
-   <strong>
-    Variable Used (type):
-   </strong>
-   Text
-(Item type).
-  </p>
-  <p class="indent3">
-   <strong>
-    Variable Used (w):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <ul class="indent2">
-   <li>
-    CONTENTSNUM - Returns number of items contained in the
-specified piece of equipment. If empty, or not a container, returns
-0.
-   </li>
-   <li>
-    COST - Displays the cost of the item in gold.
-   </li>
-   <li>
-    DESC - Displays the description of the item.
-   </li>
-   <li>
-    EQUIPPED - Displays Y (Yes) or N (No) as appropriate.
-   </li>
-   <li>
-    FUMBLERANGE - Displays the text from the FUMBLERANGE tag.
-   </li>
-   <li>
-    LOCATION - Displays blank if not carried, else "Equipped" if
-equipped, the name of its container if inside a container, or
-"Carried" if just carried.
-   </li>
-   <li>
-    MAXCHARGES - Displays the starting number of charges.
-   </li>
-   <li>
-    NAME.type~a~b~c~d - Displays the short version of the item name
-(type~a~b~c~d is optional)
-   </li>
-  </ul>
-  <p class="indent3">
-   <strong>
-    Variable Used (type):
-   </strong>
-   Text
-(Item Type)
-  </p>
-  <p class="indent3">
-   <strong>
-    Variable Used (a/b/c/d):
-   </strong>
-   Text
-(a = prepended if type matches, b = appended if type matches, c =
-prepended if type doesn't match, d = appended if type doesn't
-match).
-  </p>
-  <ul class="indent2">
-   <li>
-    NOTE - Displays the player added note of the item owned.
-   </li>
-   <li>
-    QTY - Displays the number of the item owned.
-   </li>
-   <li>
-    SIZE - Displays a one-letter description of the size of the
-item (e.g. "M" for Medium).
-   </li>
-   <li>
-    SIZELONG - Displays the whole word description of the size of
-the item (e.g. "Medium").
-   </li>
-   <li>
-    SOURCE - Displays the Source.
-   </li>
-   <li>
-    SPROP - Displays the Special Properties.
-   </li>
-   <li>
-    TOTALWT - Displays WT * QTY in lbs.
-   </li>
-   <li>
-    TYPE - Displays the Item Type.
-   </li>
-   <li>
-    TYPE.n - Displays the nth type from the type list.
-   </li>
-  </ul>
-  <p class="indent3">
-   <strong>
-    Variable Used (n):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <ul class="indent2">
-   <li>
-    WT - Displays the weight in pounds (lbs) of the item.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays equipment information.
-   </li>
-   <li>
-    Depending on the type of EQ, you can also use all the tokens
-from the ARMOR and WEAPONS tokens (ACMOD, MAXDEX, DAMAGE,
-etc).
-   </li>
-   <li>
-    EQTYPE and all options can also be used in a COUNT[]
-statements.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQ.IS.Metal.1.TYPE1</code>
-  </p>
-  <p class="indent3">
-   If the item was type
-"MAGIC.WEAPON.MARTIAL.METAL", then "WEAPON" would be displayed.
-  </p>
-  <p class="indent2">
-   <code>EQ.IS.ROD.5.NAME.MAGIC~&lt;b&gt;~&lt;/b&gt;</code>
-  </p>
-  <p class="indent3">
-   Would display the name of the 6th rod in the
-equipment list and bold it if it was magical.
-  </p>
-  <p class="indent2">
-   <code>EQ.IS.0.CONTAINS.0.LONGNAME</code>
-  </p>
-  <p class="indent3">
-   Returns Longbow +1 (Flaming).
-  </p>
-  <p class="indent2">
-   <code>EQ.IS.2.CONTAINS.4.QTY</code>
-  </p>
-  <p class="indent3">
-   Returns the quantity of the 5
-   <sup>
-    th
-   </sup>
-   item
-contained in 3
-   <sup>
-    rd
-   </sup>
-   Equipment.
-  </p>
-  <p class="indent2">
-   <code>EQ.IS.ROD.0.NOTE</code>
-  </p>
-  <p class="indent3">
-   Would display a player added note on the
-1
-   <sup>
-    st
-   </sup>
-   rod in the equipment list. (If available).
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eq.merge" name="eq.merge">
-     Token
-Name:
-    </a>
-   </strong>
-   EQ.MERGEx.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Merge
-Code).
-  </p>
-  <ul class="indent2">
-   <li>
-    ALL - Causes all items with the same name to be merged (default
-behavior).
-   </li>
-   <li>
-    LOC - Causes all items with the same name and in the same
-location to be merged.
-   </li>
-   <li>
-    NONE - No items with the same name are merged.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text
-(property as per EQ.IS.x.y.z).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays equipment information.
-   </li>
-   <li>
-    Depending on the type of EQ, you can also use all the tokens
-from the ARMOR and WEAPONS tokens (ACMOD, MAXDEX, DAMAGE,
-etc).
-   </li>
-   <li>
-    The merge variable is optional.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQ.MERGEALL.0.CHARGES</code>
-  </p>
-  <p class="indent3">
-   Displays the number of charges of all items of
-the same name as the 1
-   <sup>
-    st
-   </sup>
-   item.
-  </p>
-  <p class="indent2">
-   <code>EQ.MERGELOC.3.LOCATION</code>
-  </p>
-  <p class="indent3">
-   Displays blank if not carried, "Equipped", the
-name of the container if inside a container or "Carried" for all
-items with the same name in the same container as the
-4
-   <sup>
-    th
-   </sup>
-   item.
-  </p>
-  <p class="indent2">
-   <code>EQ.MERGE.NONE.1.SIZE</code>
-  </p>
-  <p class="indent3">
-   Displays a one letter description of the size of
-the 2
-   <sup>
-    nd
-   </sup>
-   item (eg. "M" for Medium).
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eq.not" name="eq.not">
-     Token
-Name:
-    </a>
-   </strong>
-   EQ.NOT.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Subtype or "CONTAINED").
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Removes all equipment not containing that
-subtype from the returned list of equipment.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQ.NOT.Metal</code>
-  </p>
-  <p class="indent3">
-   Displays all items that are not metal type
-items.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eq.quality" name="eq.quality">
-     Token Name:
-    </a>
-   </strong>
-   EQ.x.QUALITY.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Name
-of quality).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number (The
-quality position number - 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Returns the value set by the
-   <a href="../../listfilepages/datafilestagpages/datafilesequipment.html#quality">
-    QUALITY
-   </a>
-   equipment tag.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQ.0.QUALITY</code>
-  </p>
-  <p class="indent3">
-   Displays all the Name/Value pairs of
-qualities.
-  </p>
-  <p class="indent2">
-   <code>EQ.0.QUALITY.Restriction</code>
-  </p>
-  <p class="indent3">
-   Displays the Value of the Restriction quality
-(if the equipment has this quality).
-  </p>
-  <p class="indent2">
-   <code>EQ.0.QUALITY.0</code>
-  </p>
-  <p class="indent3">
-   Displays the Name/Value of the first quality the
-equipment has.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eqcontainer" name="eqcontainer">
-     Token Name:
-    </a>
-   </strong>
-   EQCONTAINER.x.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(property).
-  </p>
-  <ul class="indent2">
-   <li>
-    ITEMWEIGHT - The weight of the container itself.
-   </li>
-   <li>
-    CONTENTWEIGHT - The weight of the contents of the
-container.
-   </li>
-   <li>
-    TOTALWEIGHT - The weight of the container and it's
-contents.
-   </li>
-   <li>
-    TYPE.n - Displays the nth type from the type list.
-   </li>
-  </ul>
-  <p class="indent3">
-   <strong>
-    Variable Used (n):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <ul class="indent2">
-   <li>
-    TYPE.n.SPROP - Displays the Special Properties of the nth type
-from the type list.
-   </li>
-  </ul>
-  <p class="indent3">
-   <strong>
-    Variable Used (n):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays various weight information about
-container type equipment.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQCONTAINER.0.ITEMWEIGHT</code>
-  </p>
-  <p class="indent3">
-   Displays the weight of the 1
-   <sup>
-    st
-   </sup>
-   container itself.
-  </p>
-  <p class="indent2">
-   <code>EQCONTAINER.3.CONTENTWEIGHT</code>
-  </p>
-  <p class="indent3">
-   Displays the weight of the contents of the
-4
-   <sup>
-    th
-   </sup>
-   container.
-  </p>
-  <p class="indent2">
-   <code>EQCONTAINER.1.TOTALWEIGHT</code>
-  </p>
-  <p class="indent3">
-   Displays the total weight of the 2
-   <sup>
-    nd
-   </sup>
-   container.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eqcontainers" name="eqcontainers">
-     Token Name:
-    </a>
-   </strong>
-   EQCONTAINERS.x.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(property as EQ.IS.x.y.z).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays the equipment in a preformatted list format, indenting
-the LONGNAME of the contents of a container with a couple of
-tabs.
-   </li>
-   <li>
-    Depending on the type of EQ, you can also use all the tokens
-from the ARMOR and ATTACK tokens (ACMOD, MAXDEX, DAMAGE, etc).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQCONTAINERS.0.COST</code>
-  </p>
-  <p class="indent3">
-   Display the cost in gold of the 1
-   <sup>
-    st
-   </sup>
-   container.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eqcontainerw" name="eqcontainerw">
-     Token Name:
-    </a>
-   </strong>
-   EQCONTAINERW.x.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-equipment position number - 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(property as per EQ.IS.x.y.z).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays the equipment in a preformatted list format, indenting
-the LONGNAME of the contents of a container with a few non-breaking
-spaces.
-   </li>
-   <li>
-    Depending on the type of EQ, you can also use all the tokens
-from the ARMOR and ATTACK tokens (ACMOD, MAXDEX, DAMAGE, etc).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQCONTAINERW.0.SPROP</code>
-  </p>
-  <p class="indent3">
-   Displays the special properties of the
-1
-   <sup>
-    st
-   </sup>
-   container.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eqset" name="eqset">
-     Token
-Name:
-    </a>
-   </strong>
-   EQSET.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   text
-(Option).
-  </p>
-  <ul class="indent2">
-   <li>
-    START - Start of equipment set section
-   </li>
-   <li>
-    NAME - Outputs the name of the currently looping equipment
-set.
-   </li>
-   <li>
-    END - End of equipment set section
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Used to output equipment sets to csheets or
-eqsheets.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQSET.START
-    <br/>
-    EQSET.NAME
-    <br/>
-    FOR,%num,0,10,1,1
-    <br/>
-    ARMOR%num.NAME
-    <br/>
-    ENDFOR
-    <br/>
-    EQSET.END</code>
-  </p>
-  <p class="indent3">
-   The above code would loop once for each
-Equipment Set created on the Equipping tab.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="eqtype" name="eqtype">
-     Token
-Name:
-    </a>
-   </strong>
-   EQTYPE.w.x.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   MERGE.ALL
-(Optional. Default behavior.)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   MERGE.LOC
-(Optional)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   MERGE.NONE
-(Optional)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Subtype or "CONTAINED").
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Equipment position. Not used with MERGE.).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   ADD.Text
-(Subtype or "CONTAINED").
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   IS.Text
-(Options as per EQ.IS.x.y.z).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   NOT.Text
-(Subtype or "CONTAINED").
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   NOTE.Text
-(Miscelaneous notes on sub-type. Used only with MERGE.
-Optional)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <blockquote class="indent2">
-   <ul class="tagindent0">
-    <li>
-     Displays equipment type information.
-    </li>
-    <li>
-     Equipment of like type is merged by default prior to
-display.
-    </li>
-    <li>
-     MERGE.ALL - Causes all items with the same name to be merged
-(default behavior).
-    </li>
-    <li>
-     MERGE.LOC - Causes all items with the same name and in the same
-location to be merged.
-    </li>
-    <li>
-     MERGE.NONE - No items with the same name are merged.
-    </li>
-    <li>
-     Equipment position is a zero-based index.
-    </li>
-    <li>
-     ADD - Adds items containing that subtype to the returned list
-of equipment (Options as per EQ.NOT.x).
-    </li>
-    <li>
-     IS - Removes all equipment not containing that subtype from the
-returned list of equipment (Options as per EQ.IS.x.y.z).
-    </li>
-    <li>
-     NOT - Removes items containing that subtype from the returned
-list of equipment (Options as per EQ.NOT.x).
-    </li>
-    <li>
-     NOTE - Displays the player added notes (if any) of the items
-containing that subtype.
-    </li>
-    <li>
-     Depending on the type of EQ, you can also use all the tokens
-from the ARMOR and ATTACK tokens (ACMOD, MAXDEX, DAMAGE, etc).
-    </li>
-    <li>
-     EQTYPE and all options can also be used in a COUNT[]
-statement.
-    </li>
-   </ul>
-  </blockquote>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQTYPE.GEM.5.COST</code>
-  </p>
-  <p class="indent3">
-   Would display the cost of the 4
-   <sup>
-    th
-   </sup>
-   gem
-in the equipment list.
-  </p>
-  <p class="indent2">
-   <code>EQTYPE.GEM.1.NOTE</code>
-  </p>
-  <p class="indent3">
-   Would display a player added note on the
-2
-   <sup>
-    nd
-   </sup>
-   gem in the equipment list. (If available)
-  </p>
-  <p class="indent2">
-   <code>EQTYPE.MAGIC.IS.STAFF.ADD.ROD.x.NAME</code>
-  </p>
-  <p class="indent3">
-   Would display the name of the x-th magical staff
-or rod in the equipment list.
-  </p>
-  <p class="indent2">
-   <code>EQTYPE.MERGE.NONE.MAGIC.IS.STAFF.ADD.ROD.NAME</code>
-  </p>
-  <p class="indent3">
-   Would display the name of all magical staves or
-rods in the equipment list.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+</blockquote>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQTYPE.GEM.5.COST</code>
+</p>
+<p class="indent3">
+    Would display the cost of the 4
+    <sup>
+        th
+    </sup>
+    gem
+    in the equipment list.
+</p>
+<p class="indent2">
+    <code>EQTYPE.GEM.1.NOTE</code>
+</p>
+<p class="indent3">
+    Would display a player added note on the
+    2
+    <sup>
+        nd
+    </sup>
+    gem in the equipment list. (If available)
+</p>
+<p class="indent2">
+    <code>EQTYPE.MAGIC.IS.STAFF.ADD.ROD.x.NAME</code>
+</p>
+<p class="indent3">
+    Would display the name of the x-th magical staff
+    or rod in the equipment list.
+</p>
+<p class="indent2">
+    <code>EQTYPE.MERGE.NONE.MAGIC.IS.STAFF.ADD.ROD.NAME</code>
+</p>
+<p class="indent3">
+    Would display the name of all magical staves or
+    rods in the equipment list.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

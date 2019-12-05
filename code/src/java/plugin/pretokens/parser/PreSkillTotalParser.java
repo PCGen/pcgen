@@ -27,61 +27,61 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreSkillTotalParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"SKILLTOT"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"SKILLTOT"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
 
-		// PRESKILLTOT:Spot,Listen,Search=30
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		int total = 0;
+        // PRESKILLTOT:Spot,Listen,Search=30
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        int total = 0;
 
-		String[] tokens = formula.split(",");
-		for (String token1 : tokens)
-		{
-			String token = token1;
-			if (token.contains("="))
-			{
-				String[] subTokens = token.split("=");
-				token = subTokens[0];
-				total = Integer.parseInt(subTokens[1]);
-			}
+        String[] tokens = formula.split(",");
+        for (String token1 : tokens)
+        {
+            String token = token1;
+            if (token.contains("="))
+            {
+                String[] subTokens = token.split("=");
+                token = subTokens[0];
+                total = Integer.parseInt(subTokens[1]);
+            }
 
-			Prerequisite subreq = new Prerequisite();
-			subreq.setKind("skill");
-			subreq.setKey(token);
-			subreq.setTotalValues(true);
-			prereq.addPrerequisite(subreq);
-		}
+            Prerequisite subreq = new Prerequisite();
+            subreq.setKind("skill");
+            subreq.setKey(token);
+            subreq.setTotalValues(true);
+            prereq.addPrerequisite(subreq);
+        }
 
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
-		prereq.setOperand(Integer.toString(total));
-		prereq.setKind(null);
-		return prereq;
-	}
+        if (invertResult)
+        {
+            prereq.setOperator(prereq.getOperator().invert());
+        }
+        prereq.setOperand(Integer.toString(total));
+        prereq.setKind(null);
+        return prereq;
+    }
 }

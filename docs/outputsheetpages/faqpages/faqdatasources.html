@@ -1,128 +1,128 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Sigurdur H. Olafsson - shoATtnDOTis
+<!--
+               PCGen Documentation Project
 
-                Description:
-                PCGen FAQ Output and Printing Issues.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Data Sources Questions
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Data Sources Questions
-  </h1>
-  <ol>
-   <li>
-    <p>
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Sigurdur H. Olafsson - shoATtnDOTis
+
+               Description:
+               PCGen FAQ Output and Printing Issues.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Data Sources Questions
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Data Sources Questions
+</h1>
+<ol>
+    <li>
+        <p>
      <span class="underline">
       Where are Wizard's of the Coast's books
 and modules?
      </span>
-    </p>
-    <p>
-     Those are handled under a special license by the gang at
-     <a href="http://www.codemonkeypublishing.com">
-      Code Monkey
-Publishing.
-     </a>
-    </p>
-   </li>
-   <li>
-    <p>
+        </p>
+        <p>
+            Those are handled under a special license by the gang at
+            <a href="http://www.codemonkeypublishing.com">
+                Code Monkey
+                Publishing.
+            </a>
+        </p>
+    </li>
+    <li>
+        <p>
      <span class="underline">
       Where are the Star Wars/Call of
 Cthulhu/Wheel of Time files?
      </span>
-    </p>
-    <p>
-     Even though Wizards of the Coast produces those books, they
-don't own exclusive rights to that material. We'll need to get
-permission from both Wizards and the other copyright owner(s) of
-said material before we can include them in PCGen. It is our
-intention to acquire this permission, but we're being very careful
-about how we proceed to maximize our chance of success. We'll keep
-everyone informed when anything worthy of reporting occurs. :)
-    </p>
-   </li>
-   <li>
-    <p>
+        </p>
+        <p>
+            Even though Wizards of the Coast produces those books, they
+            don't own exclusive rights to that material. We'll need to get
+            permission from both Wizards and the other copyright owner(s) of
+            said material before we can include them in PCGen. It is our
+            intention to acquire this permission, but we're being very careful
+            about how we proceed to maximize our chance of success. We'll keep
+            everyone informed when anything worthy of reporting occurs. :)
+        </p>
+    </li>
+    <li>
+        <p>
      <span class="underline">
       How do I include sources from Game Mode
 X in Game Mode Y that I currently use?
      </span>
-    </p>
-    <p>
-     It is possible to do this, but you need to understand that this
-will, more than likely, cause errors due to incompatibility of the
-game modes..
-    </p>
-    <p>
-     To include all of Game Mode X's sources in Game Mode Y.
-    </p>
-    <ol>
-     <li>
-      Go to the system/gamemode folder.
-     </li>
-     <li>
-      Choose the Y game mode folder.
-     </li>
-     <li>
-      Open miscinfo.lst.
-     </li>
-     <li>
-      Find the ALLOWEDMODES tag.
-     </li>
-     <li>
-      Append '|X' to this line.
-     </li>
-    </ol>
-    <p>
-     Now, all of the sources associated with Game Mode X will show up
-in Y. Remember, errors are likely doing this.
-    </p>
-    <p>
-     To include specific sources from game mode X in game mode Y.
-    </p>
-    <ol>
-     <li>
-      Go to the *.pcc of the game mode X source in question.
-     </li>
-     <li>
-      Find the GAMEMODE tag.
-     </li>
-     <li>
-      Open miscinfo.lst.
-     </li>
-     <li>
-      Append '|Y' to this line.
-     </li>
-     <li>
-      Repeat for every source wanted.
-     </li>
-    </ol>
-    <p>
-     Now, all of these specific sources from game mode X will show up
-in Y. Remember, errors are likely for doing this.
-    </p>
-   </li>
-  </ol>
-  <p>
-  </p>
- </body>
+        </p>
+        <p>
+            It is possible to do this, but you need to understand that this
+            will, more than likely, cause errors due to incompatibility of the
+            game modes..
+        </p>
+        <p>
+            To include all of Game Mode X's sources in Game Mode Y.
+        </p>
+        <ol>
+            <li>
+                Go to the system/gamemode folder.
+            </li>
+            <li>
+                Choose the Y game mode folder.
+            </li>
+            <li>
+                Open miscinfo.lst.
+            </li>
+            <li>
+                Find the ALLOWEDMODES tag.
+            </li>
+            <li>
+                Append '|X' to this line.
+            </li>
+        </ol>
+        <p>
+            Now, all of the sources associated with Game Mode X will show up
+            in Y. Remember, errors are likely doing this.
+        </p>
+        <p>
+            To include specific sources from game mode X in game mode Y.
+        </p>
+        <ol>
+            <li>
+                Go to the *.pcc of the game mode X source in question.
+            </li>
+            <li>
+                Find the GAMEMODE tag.
+            </li>
+            <li>
+                Open miscinfo.lst.
+            </li>
+            <li>
+                Append '|Y' to this line.
+            </li>
+            <li>
+                Repeat for every source wanted.
+            </li>
+        </ol>
+        <p>
+            Now, all of these specific sources from game mode X will show up
+            in Y. Remember, errors are likely for doing this.
+        </p>
+    </li>
+</ol>
+<p>
+</p>
+</body>
 </html>

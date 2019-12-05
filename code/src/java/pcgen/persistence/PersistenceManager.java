@@ -26,62 +26,64 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.LstSystemLoader;
 
-/** {@code PersistenceManager} is a factory class that hides
+/**
+ * {@code PersistenceManager} is a factory class that hides
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls methods to
  * do the loading of system files.
- *
  */
 public final class PersistenceManager
 {
-	private static final SystemLoader INSTANCE = new LstSystemLoader();
-	private static final PersistenceManager MANAGER_INSTANCE = new PersistenceManager();
+    private static final SystemLoader INSTANCE = new LstSystemLoader();
+    private static final PersistenceManager MANAGER_INSTANCE = new PersistenceManager();
 
-	private PersistenceManager()
-	{
-	}
+    private PersistenceManager()
+    {
+    }
 
-	/**
-	 * Get an instance of this manager
-	 * @return an instance of this manager
-	 */
-	public static PersistenceManager getInstance()
-	{
-		return MANAGER_INSTANCE;
-	}
+    /**
+     * Get an instance of this manager
+     *
+     * @return an instance of this manager
+     */
+    public static PersistenceManager getInstance()
+    {
+        return MANAGER_INSTANCE;
+    }
 
-	/**
-	 * Set the source files for the chosen campaign for the current game mode.
-	 * @param l
-	 * 
-	 * CODE-1889 to remove use of this method
-	 */
-	public void setChosenCampaignSourcefiles(List<URI> l)
-	{
-		INSTANCE.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
-	}
+    /**
+     * Set the source files for the chosen campaign for the current game mode.
+     *
+     * @param l CODE-1889 to remove use of this method
+     */
+    public void setChosenCampaignSourcefiles(List<URI> l)
+    {
+        INSTANCE.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
+    }
 
-	/**
-	 * Set the source files for the chosen campaign for the specific game mode.
-	 * @param l
-	 * @param game The game mode.
-	 * 
-	 * CODE-1889 to remove use of this method
-	 */
-	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
-	{
-		INSTANCE.setChosenCampaignSourcefiles(l, game);
-	}
+    /**
+     * Set the source files for the chosen campaign for the specific game mode.
+     *
+     * @param l
+     * @param game The game mode.
+     *             <p>
+     *             CODE-1889 to remove use of this method
+     */
+    public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
+    {
+        INSTANCE.setChosenCampaignSourcefiles(l, game);
+    }
 
-	/**
-	 * Get the chosen campaign source files for the current game mode.
-	 * @return the chosen campaign source files
-	 * 
-	 * CODE-1889 to remove use of this method
-	 */
-	public List<URI> getChosenCampaignSourcefiles()
-	{
-		return INSTANCE.getChosenCampaignSourcefiles(SettingsHandler.getGame());
-	}
+    /**
+     * Get the chosen campaign source files for the current game mode.
+     *
+     * @return the chosen campaign source files
+     * <p>
+     * CODE-1889 to remove use of this method
+     */
+    public List<URI> getChosenCampaignSourcefiles()
+    {
+        return INSTANCE.getChosenCampaignSourcefiles(SettingsHandler.getGame());
+    }
 
 }

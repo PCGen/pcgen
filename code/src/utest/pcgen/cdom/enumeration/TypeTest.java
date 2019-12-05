@@ -31,18 +31,18 @@ import org.junit.jupiter.api.Test;
  */
 class TypeTest
 {
-	/**
-	 * Test whether type can be sorted, by adding it to a hashset.
-	 * Added to check fix on Bug with tracker nr. 2413116 
-	 */
-	@Test
-	void testSortable()
-	{
-		assertDoesNotThrow( () -> {
-			Collection<Type> typeset = new HashSet<>();
-			typeset.add(Type.getConstant("testitem 1"));
-			typeset.add(Type.getConstant("testitem 2"));
-		}, "type can't be sorted by adding to hashset") ;
-	}
+    /**
+     * Test whether type can be sorted, by adding it to a hashset.
+     * Added to check fix on Bug with tracker nr. 2413116
+     */
+    @Test
+    void testSortable()
+    {
+        assertDoesNotThrow(() -> {
+            Collection<Type> typeset = new HashSet<>();
+            typeset.add(Type.getConstant("testitem 1"));
+            typeset.add(Type.getConstant("testitem 2"));
+        }, "type can't be sorted by adding to hashset");
+    }
 
 }

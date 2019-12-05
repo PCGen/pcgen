@@ -17,8 +17,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *
- * 
- * 
+ *
+ *
  */
 package pcgen.persistence.lst.prereq;
 
@@ -37,52 +37,52 @@ import org.junit.jupiter.api.Test;
 public class PreClassTest extends EnUsLocaleDependentTestCase
 {
 
-	@Test
-	public void testNoClassLevels() throws Exception
-	{
-		PreClassParser parser = new PreClassParser();
-		Prerequisite prereq = parser.parse("class", "1,Monk=1", true, false);
+    @Test
+    public void testNoClassLevels() throws Exception
+    {
+        PreClassParser parser = new PreClassParser();
+        Prerequisite prereq = parser.parse("class", "1,Monk=1", true, false);
 
-		assertEquals(
-			"<prereq kind=\"class\" key=\"Monk\" operator=\"LT\" operand=\"1\" >\n"
-				+ "</prereq>\n", prereq.toString());
+        assertEquals(
+                "<prereq kind=\"class\" key=\"Monk\" operator=\"LT\" operand=\"1\" >\n"
+                        + "</prereq>\n", prereq.toString());
 
-	}
-	
-	/**
-	 * Test that an error is produced if separators are incorrect
-	 */
-	@Test
-	public void testInvalidSeparators()
-	{
-		assertThrows(PersistenceLayerException.class, () -> {
-			PreClassParser parser = new PreClassParser();
-			parser.parse("class", "1,,Monk=1", false, false);
-		});
-	}
-	
-	/**
-	 * Test that an error is produced if separators are incorrect.
-	 */
-	@Test
-	public void testInvalidCharacter()
-	{
-		assertThrows(PersistenceLayerException.class, () -> {
-			PreClassParser parser = new PreClassParser();
-			parser.parse("class", "1,Monk=1|Cleric=1", false, false);
-		});
-	}
-	
-	/**
-	 * Test that an error is produced if separators are incorrect.
-	 */
-	@Test
-	public void testInvalidNegate()
-	{
-		assertThrows(PersistenceLayerException.class, () -> {
-			PrerequisiteParserInterface parser = new PreClassParser();
-			parser.parse("class", "1,Monk=1[Cleric=1]", false, false);
-		});
-	}
-	
+    }
+
+    /**
+     * Test that an error is produced if separators are incorrect
+     */
+    @Test
+    public void testInvalidSeparators()
+    {
+        assertThrows(PersistenceLayerException.class, () -> {
+            PreClassParser parser = new PreClassParser();
+            parser.parse("class", "1,,Monk=1", false, false);
+        });
+    }
+
+    /**
+     * Test that an error is produced if separators are incorrect.
+     */
+    @Test
+    public void testInvalidCharacter()
+    {
+        assertThrows(PersistenceLayerException.class, () -> {
+            PreClassParser parser = new PreClassParser();
+            parser.parse("class", "1,Monk=1|Cleric=1", false, false);
+        });
+    }
+
+    /**
+     * Test that an error is produced if separators are incorrect.
+     */
+    @Test
+    public void testInvalidNegate()
+    {
+        assertThrows(PersistenceLayerException.class, () -> {
+            PrerequisiteParserInterface parser = new PreClassParser();
+            parser.parse("class", "1,Monk=1[Cleric=1]", false, false);
+        });
+    }
+
 }

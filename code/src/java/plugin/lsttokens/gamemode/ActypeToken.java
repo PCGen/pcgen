@@ -35,113 +35,109 @@ import pcgen.util.Logging;
 
 /**
  * {@code ActypeToken}
- * 
  */
 public class ActypeToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ACTYPE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ACTYPE";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		final StringTokenizer aTok = new StringTokenizer(value, "\t");
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        final StringTokenizer aTok = new StringTokenizer(value, "\t");
 
-		if (!aTok.hasMoreTokens())
-		{
-			Logging.errorPrint("Empty tag in miscinfo.ACTYPE");
+        if (!aTok.hasMoreTokens())
+        {
+            Logging.errorPrint("Empty tag in miscinfo.ACTYPE");
 
-			return false;
-		}
+            return false;
+        }
 
-		final String acType = aTok.nextToken();
+        final String acType = aTok.nextToken();
 
-		while (aTok.hasMoreTokens())
-		{
-			final String aString = aTok.nextToken();
+        while (aTok.hasMoreTokens())
+        {
+            final String aString = aTok.nextToken();
 
-			if (aString.startsWith("ADD:"))
-			{
-				Collection<ACControl> controls = parseACControl(aString.substring(4));
-				if (controls == null)
-				{
-					return false;
-				}
-				gameMode.addACAdds(acType, controls);
-			}
-			else if (aString.startsWith("REMOVE:"))
-			{
-				Collection<ACControl> controls = parseACControl(aString.substring(7));
-				if (controls == null)
-				{
-					return false;
-				}
-				gameMode.addACRemoves(acType, controls);
-			}
-			else
-			{
-				Logging.errorPrint("Incorrect tag in miscinfo.ACTYPE: " + aString);
-				return false;
-			}
-		}
-		return true;
-	}
+            if (aString.startsWith("ADD:"))
+            {
+                Collection<ACControl> controls = parseACControl(aString.substring(4));
+                if (controls == null)
+                {
+                    return false;
+                }
+                gameMode.addACAdds(acType, controls);
+            } else if (aString.startsWith("REMOVE:"))
+            {
+                Collection<ACControl> controls = parseACControl(aString.substring(7));
+                if (controls == null)
+                {
+                    return false;
+                }
+                gameMode.addACRemoves(acType, controls);
+            } else
+            {
+                Logging.errorPrint("Incorrect tag in miscinfo.ACTYPE: " + aString);
+                return false;
+            }
+        }
+        return true;
+    }
 
-	private Collection<ACControl> parseACControl(String str)
-	{
-		StringTokenizer st = new StringTokenizer(str, Constants.PIPE);
-		List<ACControl> acTypes = new ArrayList<>();
-		String token;
-		while (true)
-		{
-			token = st.nextToken();
-			if (PreParserFactory.isPreReqString(token))
-			{
-				break;
-			}
-			acTypes.add(new ACControl(token));
-			if (!st.hasMoreTokens())
-			{
-				return acTypes;
-			}
-		}
-		if (acTypes.isEmpty())
-		{
-			Logging.errorPrint("No types found in actype control: " + str);
-			return null;
-		}
-		while (true)
-		{
-			try
-			{
-				PreParserFactory factory = PreParserFactory.getInstance();
-				Prerequisite prereq = factory.parse(token);
-				for (ACControl acc : acTypes)
-				{
-					acc.addPrerequisite(prereq);
-				}
-			}
-			catch (PersistenceLayerException ple)
-			{
-				Logging.errorPrint(ple.getMessage(), ple);
-				return null;
-			}
-			if (!st.hasMoreTokens())
-			{
-				break;
-			}
-			token = st.nextToken();
-			if (!PreParserFactory.isPreReqString(token))
-			{
-				Logging.errorPrint("ERROR: Type found after" + " PRExxx in actype control: " + str);
-				return null;
-			}
-		}
-		return acTypes;
-	}
+    private Collection<ACControl> parseACControl(String str)
+    {
+        StringTokenizer st = new StringTokenizer(str, Constants.PIPE);
+        List<ACControl> acTypes = new ArrayList<>();
+        String token;
+        while (true)
+        {
+            token = st.nextToken();
+            if (PreParserFactory.isPreReqString(token))
+            {
+                break;
+            }
+            acTypes.add(new ACControl(token));
+            if (!st.hasMoreTokens())
+            {
+                return acTypes;
+            }
+        }
+        if (acTypes.isEmpty())
+        {
+            Logging.errorPrint("No types found in actype control: " + str);
+            return null;
+        }
+        while (true)
+        {
+            try
+            {
+                PreParserFactory factory = PreParserFactory.getInstance();
+                Prerequisite prereq = factory.parse(token);
+                for (ACControl acc : acTypes)
+                {
+                    acc.addPrerequisite(prereq);
+                }
+            } catch (PersistenceLayerException ple)
+            {
+                Logging.errorPrint(ple.getMessage(), ple);
+                return null;
+            }
+            if (!st.hasMoreTokens())
+            {
+                break;
+            }
+            token = st.nextToken();
+            if (!PreParserFactory.isPreReqString(token))
+            {
+                Logging.errorPrint("ERROR: Type found after" + " PRExxx in actype control: " + str);
+                return null;
+            }
+        }
+        return acTypes;
+    }
 
 }

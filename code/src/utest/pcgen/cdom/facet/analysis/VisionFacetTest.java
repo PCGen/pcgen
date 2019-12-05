@@ -34,68 +34,68 @@ import pcgen.util.enumeration.VisionType;
 import org.junit.jupiter.api.BeforeEach;
 
 public class VisionFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, QualifiedObject<Vision>>
+        AbstractExtractingFacetTest<CDOMObject, QualifiedObject<Vision>>
 {
 
-	private VisionFacet facet = new VisionFacet();
-	private QualifiedObject<Vision>[] target;
-	private CDOMObject[] source;
+    private VisionFacet facet = new VisionFacet();
+    private QualifiedObject<Vision>[] target;
+    private CDOMObject[] source;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Template1");
-		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race1");
-		Vision vision1 = new Vision(VisionType.getVisionType("Normal"),
-				FormulaFactory.getFormulaFor(30));
-		Vision vision2 = new Vision(VisionType.getVisionType("Darkvision"),
-				FormulaFactory.getFormulaFor(20));
-		CDOMDirectSingleRef<Vision> ref1 = new CDOMDirectSingleRef<>(vision1);
-		SimpleAssociatedObject apo1 = new SimpleAssociatedObject();
-		cdo1.putToList(Vision.VISIONLIST, ref1, apo1);
-		CDOMDirectSingleRef<Vision> ref2 = new CDOMDirectSingleRef<>(vision2);
-		SimpleAssociatedObject apo2 = new SimpleAssociatedObject();
-		cdo2.putToList(Vision.VISIONLIST, ref2, apo2);
-		QualifiedObject<Vision> st1 = new QualifiedObject<>(vision1);
-		QualifiedObject<Vision> st2 = new QualifiedObject<>(vision2);
-		source = new CDOMObject[]{cdo1, cdo2};
-		target = new QualifiedObject[]{st1, st2};
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
+        CDOMObject cdo1 = new PCTemplate();
+        cdo1.setName("Template1");
+        CDOMObject cdo2 = new Race();
+        cdo2.setName("Race1");
+        Vision vision1 = new Vision(VisionType.getVisionType("Normal"),
+                FormulaFactory.getFormulaFor(30));
+        Vision vision2 = new Vision(VisionType.getVisionType("Darkvision"),
+                FormulaFactory.getFormulaFor(20));
+        CDOMDirectSingleRef<Vision> ref1 = new CDOMDirectSingleRef<>(vision1);
+        SimpleAssociatedObject apo1 = new SimpleAssociatedObject();
+        cdo1.putToList(Vision.VISIONLIST, ref1, apo1);
+        CDOMDirectSingleRef<Vision> ref2 = new CDOMDirectSingleRef<>(vision2);
+        SimpleAssociatedObject apo2 = new SimpleAssociatedObject();
+        cdo2.putToList(Vision.VISIONLIST, ref2, apo2);
+        QualifiedObject<Vision> st1 = new QualifiedObject<>(vision1);
+        QualifiedObject<Vision> st2 = new QualifiedObject<>(vision2);
+        source = new CDOMObject[]{cdo1, cdo2};
+        target = new QualifiedObject[]{st1, st2};
+    }
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, QualifiedObject<Vision>> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, QualifiedObject<Vision>> getFacet()
+    {
+        return facet;
+    }
 
-	public static int n = 0;
+    public static int n = 0;
 
-	@Override
-	protected QualifiedObject<Vision> getObject()
-	{
-		return new QualifiedObject<>(new Vision(VisionType
+    @Override
+    protected QualifiedObject<Vision> getObject()
+    {
+        return new QualifiedObject<>(new Vision(VisionType
                 .getVisionType("Normal" + n++), FormulaFactory.getFormulaFor(30)));
-	}
+    }
 
-	@Override
-	protected CDOMObject getContainingObject(int i)
-	{
-		return source[i];
-	}
+    @Override
+    protected CDOMObject getContainingObject(int i)
+    {
+        return source[i];
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, CDOMObject> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected QualifiedObject<Vision> getTargetObject(int i)
-	{
-		return target[i];
-	}
+    @Override
+    protected QualifiedObject<Vision> getTargetObject(int i)
+    {
+        return target[i];
+    }
 }

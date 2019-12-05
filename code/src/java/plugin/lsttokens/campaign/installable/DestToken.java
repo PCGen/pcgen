@@ -33,37 +33,35 @@ import pcgen.util.Logging;
 public class DestToken implements InstallLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "DEST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "DEST";
+    }
 
-	@Override
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
-	{
-		if (!(campaign instanceof InstallableCampaign))
-		{
-			Logging.log(Logging.ERROR, "Campaign " + campaign.getDisplayName() + " is not an installable campaign.");
-			return false;
-		}
-		InstallableCampaign ic = (InstallableCampaign) campaign;
+    @Override
+    public boolean parse(Campaign campaign, String value, URI sourceUri)
+    {
+        if (!(campaign instanceof InstallableCampaign))
+        {
+            Logging.log(Logging.ERROR, "Campaign " + campaign.getDisplayName() + " is not an installable campaign.");
+            return false;
+        }
+        InstallableCampaign ic = (InstallableCampaign) campaign;
 
-		if (value.equals("DATA"))
-		{
-			ic.put(ObjectKey.DESTINATION, Destination.DATA);
-		}
-		else if (value.equals("VENDORDATA"))
-		{
-			ic.put(ObjectKey.DESTINATION, Destination.VENDORDATA);
-		}
-		else
-		{
-			Logging.log(Logging.LST_ERROR,
-				"DEST value '" + value + "' not valid for campaign " + campaign.getDisplayName());
-			return false;
-		}
+        if (value.equals("DATA"))
+        {
+            ic.put(ObjectKey.DESTINATION, Destination.DATA);
+        } else if (value.equals("VENDORDATA"))
+        {
+            ic.put(ObjectKey.DESTINATION, Destination.VENDORDATA);
+        } else
+        {
+            Logging.log(Logging.LST_ERROR,
+                    "DEST value '" + value + "' not valid for campaign " + campaign.getDisplayName());
+            return false;
+        }
 
-		return true;
-	}
+        return true;
+    }
 }

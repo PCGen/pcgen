@@ -28,42 +28,37 @@ import pcgen.core.term.TermEvaluator;
  * associated with a character. This class converts formulas or
  * variables into values and is used extensively both in
  * definitions of objects and for output to output sheets.
- *
- *
  */
 public class VariableProcessorPC extends VariableProcessor
 {
 
-	/**
-	 * Create a new VariableProcessorPC instance for the character.
-	 *
-	 * @param pc The character to be processed.
-	 */
-	public VariableProcessorPC(PlayerCharacter pc)
-	{
-		super(pc);
-	}
+    /**
+     * Create a new VariableProcessorPC instance for the character.
+     *
+     * @param pc The character to be processed.
+     */
+    public VariableProcessorPC(PlayerCharacter pc)
+    {
+        super(pc);
+    }
 
-	/**
-	 * Retrieve a pre-coded variable for a PC. These are known
-	 * properties of all PCs.
-	 *
-	 * @param aSpell  
-	 *              This is specifically to compute bonuses to CASTERLEVEL
-	 *              for a specific spell.
-	 * @param valString
-	 *              The variable to be evaluated
-	 * @param src
-	 *              The source within which the variable is evaluated
-	 * @return The value of the variable
-	 */
+    /**
+     * Retrieve a pre-coded variable for a PC. These are known
+     * properties of all PCs.
+     *
+     * @param aSpell    This is specifically to compute bonuses to CASTERLEVEL
+     *                  for a specific spell.
+     * @param valString The variable to be evaluated
+     * @param src       The source within which the variable is evaluated
+     * @return The value of the variable
+     */
 
-	@Override
-	Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src)
-	{
-		TermEvaluator evaluator = EvaluatorFactory.PC.getTermEvaluator(valString, src);
+    @Override
+    Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src)
+    {
+        TermEvaluator evaluator = EvaluatorFactory.PC.getTermEvaluator(valString, src);
 
-		return (evaluator == null) ? null : evaluator.resolve(pc, aSpell);
-	}
+        return (evaluator == null) ? null : evaluator.resolve(pc, aSpell);
+    }
 
 }

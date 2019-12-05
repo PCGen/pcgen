@@ -23,23 +23,23 @@ import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.PCTemplate;
 
 public class ConditionalTemplateFacetTest extends
-		AbstractListFacetTest<PCTemplate>
+        AbstractListFacetTest<PCTemplate>
 {
-	private ConditionalTemplateFacet facet = new ConditionalTemplateFacet();
+    private ConditionalTemplateFacet facet = new ConditionalTemplateFacet();
 
-	@Override
-	protected AbstractListFacet<CharID, PCTemplate> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractListFacet<CharID, PCTemplate> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected PCTemplate getObject()
-	{
-		PCTemplate t = new PCTemplate();
-		t.setName("PCTemplate" + n++);
-		return t;
-	}
+    @Override
+    protected PCTemplate getObject()
+    {
+        PCTemplate t = new PCTemplate();
+        t.setName("PCTemplate" + n++);
+        return t;
+    }
 }

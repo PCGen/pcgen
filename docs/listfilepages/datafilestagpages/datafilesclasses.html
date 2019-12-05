@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
+<!--
                 PCGen Documentation Project
 
                 $Author$
@@ -19,1633 +19,1636 @@
                 Description:
                 Provides information on the content of PCGen Class files.
         -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Class Files
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-  <style type="text/css">
-   /*<![CDATA[*/
-<!--
-.style1 {font-family: Arial, Helvetica, sans-serif;}
--->
-/*]]>*/
-  </style>
- </head>
- <body>
-  <h1>
-   Class Files
-  </h1>
-  <p>
-   Class files are where each class is listed, given it's important
-information for the correct output and functioning of the
-class.
-  </p>
-  <p>
-   This section consists of two major sections:
-   <a href="#classbuilding">
-    Class Building 101
-   </a>
-   and the
-   <a href="#taglist">
-    Tag List
-   </a>
-   .
-  </p>
-  <hr/>
-  <h2>
-   <a id="classbuilding" name="classbuilding">
-    Class Building
-101
-   </a>
-  </h2>
-  <p>
-   Classes have three types of elements. These consist of the Class
-and Class Level Lines, the Sub-Class and Sub-Class Level Lines, and
-the Subsitution Class and Substitution Level Lines.
-  </p>
-  <h3>
-   Class and Class Level Lines
-  </h3>
-  <p>
-   The Class and Class Level Lines are mandatory for all
-classes.
-  </p>
-  <p>
-   <strong>
-    The Main Class Line
-   </strong>
-  </p>
-  <ul>
-   <li>
-    Begins with the
-    <code>CLASS:&lt;class name&gt;</code>
-    tag.
-   </li>
-   <li>
-    Multiple Class Lines may exist for each class being
-created.
-   </li>
-   <li>
-    Only tags identified as Class Line tags should be used on this
-line.
-   </li>
-  </ul>
-  <p>
-   <strong>
-    The Class Level Line
-   </strong>
-  </p>
-  <ul>
-   <li>
-    Begins with a numeric (i.e. 1, 2, 3, etc.) identifying the
-level that the line represents.
-   </li>
-   <li>
-    Only tags identified as Class Level Line tags may be used on
-ths line.
-   </li>
-  </ul>
-  <p>
-   <strong>
-    A Basic Class Example
-   </strong>
-  </p>
-  <blockquote>
-   <p>
-    <code>CLASS:Rogue . . .</code>
-    <br/>
-    <code>CLASS:Rogue . . .</code>
-    <br/>
-    <code>1 . . .</code>
-    <br/>
-    <code>2 . . .</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>19 . . .</code>
-    <br/>
-    <code>20 . . .</code>
-   </p>
-  </blockquote>
-  <h3>
-   Sub-Class and Sub-Class Level Lines
-  </h3>
-  <p>
-   The Subclass tags were designed to implement the wizard
-subclasses and has primary application in such rules mechanisms,
-i.e. take the subclass and gain 'spell' related advantages and
-disadvantages in comparison to the base class. You pick a subclass
-and your characters abilities are changed throughout as defined by
-the subclass tags;
-   <code><a href="#subclass">
-     SUBCLASS
-    </a></code>
-   and
-   <code><a href="#subclasslevel">
-     SUBCLASSLEVEL
-    </a></code>
-   tags.
-  </p>
-  <p>
-   <strong>
-    The Sub-Class Line
-   </strong>
-  </p>
-  <ul>
-   <li>
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Class Files
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <style type="text/css">
+        /*<![CDATA[*/
+        <!--
+        .style1 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        -->
+        /*]]>*/
+    </style>
+</head>
+<body>
+<h1>
+    Class Files
+</h1>
+<p>
+    Class files are where each class is listed, given it's important
+    information for the correct output and functioning of the
+    class.
+</p>
+<p>
+    This section consists of two major sections:
+    <a href="#classbuilding">
+        Class Building 101
+    </a>
+    and the
+    <a href="#taglist">
+        Tag List
+    </a>
+    .
+</p>
+<hr/>
+<h2>
+    <a id="classbuilding" name="classbuilding">
+        Class Building
+        101
+    </a>
+</h2>
+<p>
+    Classes have three types of elements. These consist of the Class
+    and Class Level Lines, the Sub-Class and Sub-Class Level Lines, and
+    the Subsitution Class and Substitution Level Lines.
+</p>
+<h3>
+    Class and Class Level Lines
+</h3>
+<p>
+    The Class and Class Level Lines are mandatory for all
+    classes.
+</p>
+<p>
     <strong>
-     NOTE:
+        The Main Class Line
     </strong>
-    <code>HASSUBCLASS</code>
-    is no longer
-required to create sub-classes.
-   </li>
-   <li>
-    Begins with the
-    <code>SUBCLASS:&lt;sub-class name&gt;</code>
-    tag.
-   </li>
-   <li>
-    Placed between the Class Lines and the Sub-Class Level Lines
-that define the levels for the sub- class.
-   </li>
-   <li>
-    Only tags identified as Sub-Class Line or Class Line tags
-should be used on this line.
-   </li>
-  </ul>
-  <p>
-   <strong>
-    The Sub-Class Level Line
-   </strong>
-  </p>
-  <ul>
-   <li>
-    Begins with the
-    <code>SUBCLASSLEVEL:&lt;level number&gt;</code>
-    tag.
-   </li>
-   <li>
-    Placed after the Sub-Class Level Lines that define the
-associated sub-class.
-   </li>
-   <li>
-    Only the Sub-Class Level Lines that contain tags need to be
-included.
-   </li>
-   <li>
-    Only tags identified as Sub-Class Line or Class Line tags
-should be used on this line.
-    <ul>
-     <li>
-      <code>SPELLLIST</code>
-      does not work on Class Line if a
-subclass or substitution class is present. In these cases, the
-      <code>SPELLLIST</code>
-      tag must be placed on each SubClass or
-Substitution Class Line (Not the SubClass/Substitution Level
-Line).
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <p>
-   <strong>
-    A Sub-Class Example
-   </strong>
-  </p>
-  <blockquote>
-   <p>
-    <code>CLASS:Wizard . . .</code>
-    <br/>
-    <code>CLASS:Wizard . . . ALLOWBASECLASS:NO</code>
-    <br/>
-    <code>CLASS:Wizard . . .</code>
-    <br/>
-    <code>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt;
-CHOICE:SCHOOL|Abjuration &lt;tab&gt;
-KNOWNSPELLSFROMSPECIALTY:1</code>
-    <br/>
-    <code>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning
-Bonus</code>
-    <br/>
-    <code>SUBCLASSLEVEL:10 &lt;tab&gt; SA:Immune to Acid</code>
-    <br/>
-    <code>1 . . .</code>
-    <br/>
-    <code>2 . . .</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>19 . . .</code>
-    <br/>
-    <code>20 . . .</code>
-   </p>
-  </blockquote>
-  <h3>
-   Substitution Class and Substitution Level Lines
-  </h3>
-  <p>
-   The Substitution Level tags were added to PCGen to support the
-substitution level mechanism used by WotC in their race books.
-Substitution levels are used to replace a standard levels, removing
-and replacing abilities with a different set without effecting any
-previous or subsequent levels. You can have as many substitution
-levels as you desire in your set and when your character reaches a
-level with a substitution level he/she will be able to select the
-substitution level or the standard level as he/she desires.
-Substitution levels can be implemented with the inclusion of the
-   <code><a href="#substitutionclass">
-     SUBSTITUTIONCLASS
-    </a></code>
-   and
-   <code><a href="#substitutionlevel">
-     SUBSTITUTIONLEVEL
-    </a></code>
-   tags.
-  </p>
-  <p>
-   <strong>
-    The Substitution Class Line
-   </strong>
-  </p>
-  <ul>
-   <li>
+</p>
+<ul>
+    <li>
+        Begins with the
+        <code>CLASS:&lt;class name&gt;</code>
+        tag.
+    </li>
+    <li>
+        Multiple Class Lines may exist for each class being
+        created.
+    </li>
+    <li>
+        Only tags identified as Class Line tags should be used on this
+        line.
+    </li>
+</ul>
+<p>
     <strong>
-     NOTE:
+        The Class Level Line
     </strong>
-    <code>HASSUBSTITUTIONLEVEL</code>
-    is no
-longer required to create a substitution level.
-   </li>
-   <li>
-    Begins with the
-    <code>SUBSTITUTIONCLASS:&lt;substitution class
-name&gt;</code>
-    tag.
-   </li>
-   <li>
-    Placed between the Class Lines and the Substitution Level Lines
-that define the levels for the substitution class.
-   </li>
-   <li>
-    Only tags identified as Substitution Class Line or Class Line
-tags should be used on this line.
-   </li>
-  </ul>
-  <p>
-   <strong>
-    The Substitution Level Line
-   </strong>
-  </p>
-  <ul>
-   <li>
-    Begins with the
-    <code>SUBSTITUTIONLEVEL:&lt;level
-number&gt;</code>
-    tag.
-   </li>
-   <li>
-    Placed after the Substitution Class Lines that define the
-associated substitution class.
-   </li>
-   <li>
-    Only the Substitution Level Lines that contain tags need to be
-included.
-   </li>
-   <li>
-    Only tags identified as Substitution Level Line or Class Level
-Line tags should be used on this line.
-    <ul>
-     <li>
-      SPELLLIST does not work on CLASS Line IF SUBCLASS or
-SUBSTITUTIONCLASS is present. In those cases, the SPELLLIST tag
-must be placed ON EACH SUBCLASS or SUBSTITUTION class line (Not
-Level Line).
-     </li>
-     <li>
-      Another noted behavior - mainly code bug: Such classes will NOT
-display their Known Spells OR cast information on the spells
-tab.
-     </li>
-     <li>
-      This behavior is expected to be fixed once CDOM is
-operational.
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <p>
-   <strong>
-    A Substitution Level Example: Part of a Base Class
-Entry
-   </strong>
-  </p>
-  <blockquote>
-   <p>
-    <code>CLASS:Ranger . . .</code>
-    <br/>
-    <code>CLASS:Ranger . . .</code>
-    <br/>
-    <code>SUBSTITUTIONCLASS:Orc Ranger</code>
-    <br/>
-    <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt;
-SA:Goblin Slave (Ex)</code>
-    <br/>
-    <code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code>
-    <br/>
-    <code>1 . . .</code>
-    <br/>
-    <code>2 . . .</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>.</code>
-    <br/>
-    <code>19 . . .</code>
-    <br/>
-    <code>20 . . .</code>
-   </p>
-  </blockquote>
-  <p>
-   <strong>
-    A Substitution Level Example: A .MODed Class
-Entry
-   </strong>
-  </p>
-  <blockquote>
-   <p>
-    <code>CLASS:Ranger.MOD</code>
-    <br/>
-    <code>SUBSTITUTIONCLASS:Orc Ranger</code>
-    <br/>
-    <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt;
-SA:Goblin Slave (Ex)</code>
-    <br/>
-    <code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code>
-    <br/>
-   </p>
-  </blockquote>
-  <hr/>
-  <h2>
-   <a id="taglist" name="taglist">
-    Tag List
-   </a>
-  </h2>
-  <p>
-   The tag list is broken down into six parts:
-  </p>
-  <ul>
-   <li>
-    <a href="#required">
-     Tags Required for all Classes
+</p>
+<ul>
+    <li>
+        Begins with a numeric (i.e. 1, 2, 3, etc.) identifying the
+        level that the line represents.
+    </li>
+    <li>
+        Only tags identified as Class Level Line tags may be used on
+        ths line.
+    </li>
+</ul>
+<p>
+    <strong>
+        A Basic Class Example
+    </strong>
+</p>
+<blockquote>
+    <p>
+        <code>CLASS:Rogue . . .</code>
+        <br/>
+        <code>CLASS:Rogue . . .</code>
+        <br/>
+        <code>1 . . .</code>
+        <br/>
+        <code>2 . . .</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>19 . . .</code>
+        <br/>
+        <code>20 . . .</code>
+    </p>
+</blockquote>
+<h3>
+    Sub-Class and Sub-Class Level Lines
+</h3>
+<p>
+    The Subclass tags were designed to implement the wizard
+    subclasses and has primary application in such rules mechanisms,
+    i.e. take the subclass and gain 'spell' related advantages and
+    disadvantages in comparison to the base class. You pick a subclass
+    and your characters abilities are changed throughout as defined by
+    the subclass tags;
+    <code><a href="#subclass">
+        SUBCLASS
+    </a></code>
+    and
+    <code><a href="#subclasslevel">
+        SUBCLASSLEVEL
+    </a></code>
+    tags.
+</p>
+<p>
+    <strong>
+        The Sub-Class Line
+    </strong>
+</p>
+<ul>
+    <li>
+        <strong>
+            NOTE:
+        </strong>
+        <code>HASSUBCLASS</code>
+        is no longer
+        required to create sub-classes.
+    </li>
+    <li>
+        Begins with the
+        <code>SUBCLASS:&lt;sub-class name&gt;</code>
+        tag.
+    </li>
+    <li>
+        Placed between the Class Lines and the Sub-Class Level Lines
+        that define the levels for the sub- class.
+    </li>
+    <li>
+        Only tags identified as Sub-Class Line or Class Line tags
+        should be used on this line.
+    </li>
+</ul>
+<p>
+    <strong>
+        The Sub-Class Level Line
+    </strong>
+</p>
+<ul>
+    <li>
+        Begins with the
+        <code>SUBCLASSLEVEL:&lt;level number&gt;</code>
+        tag.
+    </li>
+    <li>
+        Placed after the Sub-Class Level Lines that define the
+        associated sub-class.
+    </li>
+    <li>
+        Only the Sub-Class Level Lines that contain tags need to be
+        included.
+    </li>
+    <li>
+        Only tags identified as Sub-Class Line or Class Line tags
+        should be used on this line.
+        <ul>
+            <li>
+                <code>SPELLLIST</code>
+                does not work on Class Line if a
+                subclass or substitution class is present. In these cases, the
+                <code>SPELLLIST</code>
+                tag must be placed on each SubClass or
+                Substitution Class Line (Not the SubClass/Substitution Level
+                Line).
+            </li>
+        </ul>
+    </li>
+</ul>
+<p>
+    <strong>
+        A Sub-Class Example
+    </strong>
+</p>
+<blockquote>
+    <p>
+        <code>CLASS:Wizard . . .</code>
+        <br/>
+        <code>CLASS:Wizard . . . ALLOWBASECLASS:NO</code>
+        <br/>
+        <code>CLASS:Wizard . . .</code>
+        <br/>
+        <code>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt;
+            CHOICE:SCHOOL|Abjuration &lt;tab&gt;
+            KNOWNSPELLSFROMSPECIALTY:1</code>
+        <br/>
+        <code>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning
+            Bonus</code>
+        <br/>
+        <code>SUBCLASSLEVEL:10 &lt;tab&gt; SA:Immune to Acid</code>
+        <br/>
+        <code>1 . . .</code>
+        <br/>
+        <code>2 . . .</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>19 . . .</code>
+        <br/>
+        <code>20 . . .</code>
+    </p>
+</blockquote>
+<h3>
+    Substitution Class and Substitution Level Lines
+</h3>
+<p>
+    The Substitution Level tags were added to PCGen to support the
+    substitution level mechanism used by WotC in their race books.
+    Substitution levels are used to replace a standard levels, removing
+    and replacing abilities with a different set without effecting any
+    previous or subsequent levels. You can have as many substitution
+    levels as you desire in your set and when your character reaches a
+    level with a substitution level he/she will be able to select the
+    substitution level or the standard level as he/she desires.
+    Substitution levels can be implemented with the inclusion of the
+    <code><a href="#substitutionclass">
+        SUBSTITUTIONCLASS
+    </a></code>
+    and
+    <code><a href="#substitutionlevel">
+        SUBSTITUTIONLEVEL
+    </a></code>
+    tags.
+</p>
+<p>
+    <strong>
+        The Substitution Class Line
+    </strong>
+</p>
+<ul>
+    <li>
+        <strong>
+            NOTE:
+        </strong>
+        <code>HASSUBSTITUTIONLEVEL</code>
+        is no
+        longer required to create a substitution level.
+    </li>
+    <li>
+        Begins with the
+        <code>SUBSTITUTIONCLASS:&lt;substitution class
+            name&gt;</code>
+        tag.
+    </li>
+    <li>
+        Placed between the Class Lines and the Substitution Level Lines
+        that define the levels for the substitution class.
+    </li>
+    <li>
+        Only tags identified as Substitution Class Line or Class Line
+        tags should be used on this line.
+    </li>
+</ul>
+<p>
+    <strong>
+        The Substitution Level Line
+    </strong>
+</p>
+<ul>
+    <li>
+        Begins with the
+        <code>SUBSTITUTIONLEVEL:&lt;level
+            number&gt;</code>
+        tag.
+    </li>
+    <li>
+        Placed after the Substitution Class Lines that define the
+        associated substitution class.
+    </li>
+    <li>
+        Only the Substitution Level Lines that contain tags need to be
+        included.
+    </li>
+    <li>
+        Only tags identified as Substitution Level Line or Class Level
+        Line tags should be used on this line.
+        <ul>
+            <li>
+                SPELLLIST does not work on CLASS Line IF SUBCLASS or
+                SUBSTITUTIONCLASS is present. In those cases, the SPELLLIST tag
+                must be placed ON EACH SUBCLASS or SUBSTITUTION class line (Not
+                Level Line).
+            </li>
+            <li>
+                Another noted behavior - mainly code bug: Such classes will NOT
+                display their Known Spells OR cast information on the spells
+                tab.
+            </li>
+            <li>
+                This behavior is expected to be fixed once CDOM is
+                operational.
+            </li>
+        </ul>
+    </li>
+</ul>
+<p>
+    <strong>
+        A Substitution Level Example: Part of a Base Class
+        Entry
+    </strong>
+</p>
+<blockquote>
+    <p>
+        <code>CLASS:Ranger . . .</code>
+        <br/>
+        <code>CLASS:Ranger . . .</code>
+        <br/>
+        <code>SUBSTITUTIONCLASS:Orc Ranger</code>
+        <br/>
+        <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt;
+            SA:Goblin Slave (Ex)</code>
+        <br/>
+        <code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code>
+        <br/>
+        <code>1 . . .</code>
+        <br/>
+        <code>2 . . .</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>.</code>
+        <br/>
+        <code>19 . . .</code>
+        <br/>
+        <code>20 . . .</code>
+    </p>
+</blockquote>
+<p>
+    <strong>
+        A Substitution Level Example: A .MODed Class
+        Entry
+    </strong>
+</p>
+<blockquote>
+    <p>
+        <code>CLASS:Ranger.MOD</code>
+        <br/>
+        <code>SUBSTITUTIONCLASS:Orc Ranger</code>
+        <br/>
+        <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt;
+            SA:Goblin Slave (Ex)</code>
+        <br/>
+        <code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code>
+        <br/>
+    </p>
+</blockquote>
+<hr/>
+<h2>
+    <a id="taglist" name="taglist">
+        Tag List
     </a>
-   </li>
-   <li>
-    <a href="#spellcastertags">
-     Spellcaster Tags
+</h2>
+<p>
+    The tag list is broken down into six parts:
+</p>
+<ul>
+    <li>
+        <a href="#required">
+            Tags Required for all Classes
+        </a>
+    </li>
+    <li>
+        <a href="#spellcastertags">
+            Spellcaster Tags
+        </a>
+    </li>
+    <li>
+        <a href="#subclasstags">
+            Sub-Class Tags
+        </a>
+    </li>
+    <li>
+        <a href="#substitutionleveltags">
+            Substitution Level
+            Tags
+        </a>
+    </li>
+    <li>
+        <a href="#otheroptionaltags">
+            Other Optional Tags
+        </a>
+    </li>
+    <li>
+        <a href="#monsterspecifictags">
+            Monster Specific Tags.
+        </a>
+    </li>
+</ul>
+<hr/>
+<h3>
+    <a id="required" name="required">
+        Tags Required for all
+        Classes
     </a>
-   </li>
-   <li>
-    <a href="#subclasstags">
-     Sub-Class Tags
+</h3>
+<hr/>
+<p class="lstdep">
+    <a id="abb" name="abb">
+        *** DEPRECATED 6.05.01 -
+        use FACT
     </a>
-   </li>
-   <li>
-    <a href="#substitutionleveltags">
-     Substitution Level
-Tags
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ABB:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a 3-5 letter abbreviation of the class
+    name.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ABB:Rgr</code>
+</p>
+<p class="indent3">
+    The class abbreviation is "Rgr".
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="attackcycle" name="attackcycle">
+        ***
+        Updated 5.11.6
     </a>
-   </li>
-   <li>
-    <a href="#otheroptionaltags">
-     Other Optional Tags
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ATTACKCYCLE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    BAB, RAB,
+    or UAB
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This sets the Melee/Grapple (BAB - yes, misleading), Ranged
+        (RAB), or Unarmed Attack (UAB) cycles.
+    </li>
+    <li>
+        Default is 5 for all.
+    </li>
+    <li>
+        Once a Cycle is reached, the character gets another attack
+        (+6/+1 is one 5 cycle.)
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ATTACKCYCLE:UAB|3</code>
+</p>
+<p class="indent3">
+    Grants another attack ever 3 bonus points of BAB
+    from the class to the Unarmed attack cycle.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="class" name="class">
+        *** Updated
+        5.13.6
     </a>
-   </li>
-   <li>
-    <a href="#monsterspecifictags">
-     Monster Specific Tags.
-    </a>
-   </li>
-  </ul>
-  <hr/>
-  <h3>
-   <a id="required" name="required">
-    Tags Required for all
-Classes
-   </a>
-  </h3>
-  <hr/>
-  <p class="lstdep">
-   <a id="abb" name="abb">
-    *** DEPRECATED 6.05.01 -
-use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ABB:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a 3-5 letter abbreviation of the class
-name.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ABB:Rgr</code>
-  </p>
-  <p class="indent3">
-   The class abbreviation is "Rgr".
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="attackcycle" name="attackcycle">
-    ***
-Updated 5.11.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ATTACKCYCLE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   BAB, RAB,
-or UAB
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This sets the Melee/Grapple (BAB - yes, misleading), Ranged
-(RAB), or Unarmed Attack (UAB) cycles.
-   </li>
-   <li>
-    Default is 5 for all.
-   </li>
-   <li>
-    Once a Cycle is reached, the character gets another attack
-(+6/+1 is one 5 cycle.)
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ATTACKCYCLE:UAB|3</code>
-  </p>
-  <p class="indent3">
-   Grants another attack ever 3 bonus points of BAB
-from the class to the Unarmed attack cycle.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="class" name="class">
-    *** Updated
-5.13.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   CLASS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tells PCgen the class name and sets up the relationships
-with skills and spells.
-   </li>
-   <li>
-    This line can be entered twice in a single class entry (appear
-on 2 separate lines) for purposes of making the lines easier to
-read in an editor (so as to not have to scroll forever to reach the
-end of the class line).
-   </li>
-   <li>
-    THIS
-    <span class="underline">
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    CLASS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tells PCgen the class name and sets up the relationships
+        with skills and spells.
+    </li>
+    <li>
+        This line can be entered twice in a single class entry (appear
+        on 2 separate lines) for purposes of making the lines easier to
+        read in an editor (so as to not have to scroll forever to reach the
+        end of the class line).
+    </li>
+    <li>
+        THIS
+        <span class="underline">
      <strong>
       MUST
      </strong>
     </span>
-    BE
-THE FIRST TAG!!!
-   </li>
-   <li>
-    Symbols that should not be used: , / - + &amp; If you need to
-use those symbols, put them in an OUTPUTNAME tag.
-   </li>
-   <li>
-    For class variants from other sources, the norm seen is 'Base
-Class Name (Source)' ex. Cleric (Fey).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CLASS:Ranger</code>
-  </p>
-  <p class="indent3">
-   The full class name is "Ranger".
-  </p>
-  <p class="indent2">
-   <code>CLASS:Defender.MOD &lt;tab&gt;
-TEMPLATE:Maximum Spell Level</code>
-  </p>
-  <p class="indent3">
-   Adds the TEMPLATE:Maximum Spell Level to the
-class "Defender".
-  </p>
-  <p class="indent2">
-   <code>CLASS:Rogue.COPY=Rogueless</code>
-  </p>
-  <p class="indent3">
-   Copies the Class "Rogue" and renames to
-"Rogueless".
-  </p>
-  <p class="indent2">
-   <code>CLASS:Fighter.FORGET</code>
-  </p>
-  <p class="indent3">
-   Removes the Class "Fighter" from the
-dataset.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Beginning of Class Line.
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="classtype" name="classtype">
-    *** Deprecated
-6.05.1
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
+        BE
+        THE FIRST TAG!!!
+    </li>
+    <li>
+        Symbols that should not be used: , / - + &amp; If you need to
+        use those symbols, put them in an OUTPUTNAME tag.
+    </li>
+    <li>
+        For class variants from other sources, the norm seen is 'Base
+        Class Name (Source)' ex. Cleric (Fey).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CLASS:Ranger</code>
+</p>
+<p class="indent3">
+    The full class name is "Ranger".
+</p>
+<p class="indent2">
+    <code>CLASS:Defender.MOD &lt;tab&gt;
+        TEMPLATE:Maximum Spell Level</code>
+</p>
+<p class="indent3">
+    Adds the TEMPLATE:Maximum Spell Level to the
+    class "Defender".
+</p>
+<p class="indent2">
+    <code>CLASS:Rogue.COPY=Rogueless</code>
+</p>
+<p class="indent3">
+    Copies the Class "Rogue" and renames to
+    "Rogueless".
+</p>
+<p class="indent2">
+    <code>CLASS:Fighter.FORGET</code>
+</p>
+<p class="indent3">
+    Removes the Class "Fighter" from the
+    dataset.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Beginning of Class Line.
+</p>
+<hr/>
+<p class="lstdep">
     <a id="classtype" name="classtype">
-     Tag
-Name:
+        *** Deprecated
+        6.05.1
     </a>
-   </strong>
-   CLASSTYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (a
-class type as defined in the game mode).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Specifies a class type defined in the game mode
-that is used to determine CR for creatures with this class.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CLASSTYPE:PC</code>
-  </p>
-  <p class="indent3">
-   The PC class type is used to determine the CR
-for a creature with this class.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="hd" name="hd">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        <a id="classtype" name="classtype">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CLASSTYPE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (a
+    class type as defined in the game mode).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Specifies a class type defined in the game mode
+    that is used to determine CR for creatures with this class.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CLASSTYPE:PC</code>
+</p>
+<p class="indent3">
+    The PC class type is used to determine the CR
+    for a creature with this class.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="hd" name="hd">
+            Tag
+            Name:
+        </a>
+    </strong>
+    HD:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (4,
+    6, 8, 10, 12. default is 0)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is the Hit Die used to determine hit points
+    at each level gained.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>HD:10</code>
+</p>
+<p class="indent3">
+    The hit dice per level is 10.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="maxlevel" name="maxlevel">
+            Tag
+            Name:
+        </a>
+    </strong>
+    MAXLEVEL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Maximum allowed level of this class)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    NOLIMIT (No
+    upper limit to the number of levels in this class)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is maximum number of levels a character can take in this
+        class.
+    </li>
+    <li>
+        If no MAXLEVEL tag is supplied for a class, no limit is
+        imposed.
+    </li>
+    <li>
+        There is a checkbox in the Preferences|Character section of the
+        menu to allow this to be overridden.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MAXLEVEL:10</code>
+</p>
+<p class="indent3">
+    The maximum class level is 10.
+</p>
+<p class="indent2">
+    <code>CLASS:Barbarian.MOD &lt;tab&gt;
+        MAXLEVEL:100</code>
+</p>
+<p class="indent3">
+    The maximum class level is modified to 100.
+</p>
+<p class="indent2">
+    <code>CLASS:Barbarian.MOD &lt;tab&gt;
+        MAXLEVEL:NOLIMIT</code>
+</p>
+<p class="indent3">
+    Remove the previously specified maximum class
+    level for barbarian.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="startskillpts" name="startskillpts">
+            Tag Name:
+        </a>
+    </strong>
+    STARTSKILLPTS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is how many skill points a character gains
+    per level.
+</p>
+<p class="indent2">
+    Formulas can be used as well.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STARTSKILLPTS:4</code>
+</p>
+<p class="indent3">
+    Class gets 4 skill points per level, before any
+    modifiers.
+</p>
+<p class="indent2">
+    <code>STARTSKILLPTS:4+INT</code>
+</p>
+<p class="indent3">
+    Class gets 4 skill points per level plus the INT
+    Bonus points, before any modifiers.
+</p>
+<p class="indent2">
+    <code>STARTSKILLPTS:4/CHA</code>
+</p>
+<p class="indent3">
+    Class gets 4 skill points per level divided by
+    the CHA Bonus points, before any modifiers.
+</p>
+<p class="indent2">
+    <code>CLASS:Blackguard.MOD &lt;tab&gt;
+        STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride
+        &lt;tab&gt;
+        CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge
+        (Religion) |TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot
+        &lt;tab&gt; CCSKILL:Handle Animal|Ride</code>
+</p>
+<p class="indent3">
+    Modified Class that changes all of these Tags
+    from their starting values..
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="xtrafeats" name="xtrafeats">
+            Tag
+            Name:
+        </a>
+    </strong>
+    XTRAFEATS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is used to determine how many extra feats
+    the class will get at first level only.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>XTRAFEATS:1</code>
+</p>
+<p class="indent3">
+    The class will gets 1 extra feat.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<h2>
+    <a id="spellcastertags" name="spellcastertags">
+        Spell Casters
+        Tags
     </a>
-   </strong>
-   HD:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (4,
-6, 8, 10, 12. default is 0)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is the Hit Die used to determine hit points
-at each level gained.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>HD:10</code>
-  </p>
-  <p class="indent3">
-   The hit dice per level is 10.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="maxlevel" name="maxlevel">
-     Tag
-Name:
+</h2>
+<hr/>
+<p class="lstupnew">
+    <a id="adddomains" name="adddomains">
+        ***
+        Updated 6.03.x
     </a>
-   </strong>
-   MAXLEVEL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Maximum allowed level of this class)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   NOLIMIT (No
-upper limit to the number of levels in this class)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is maximum number of levels a character can take in this
-class.
-   </li>
-   <li>
-    If no MAXLEVEL tag is supplied for a class, no limit is
-imposed.
-   </li>
-   <li>
-    There is a checkbox in the Preferences|Character section of the
-menu to allow this to be overridden.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MAXLEVEL:10</code>
-  </p>
-  <p class="indent3">
-   The maximum class level is 10.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Barbarian.MOD &lt;tab&gt;
-MAXLEVEL:100</code>
-  </p>
-  <p class="indent3">
-   The maximum class level is modified to 100.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Barbarian.MOD &lt;tab&gt;
-MAXLEVEL:NOLIMIT</code>
-  </p>
-  <p class="indent3">
-   Remove the previously specified maximum class
-level for barbarian.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="startskillpts" name="startskillpts">
-     Tag Name:
-    </a>
-   </strong>
-   STARTSKILLPTS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is how many skill points a character gains
-per level.
-  </p>
-  <p class="indent2">
-   Formulas can be used as well.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STARTSKILLPTS:4</code>
-  </p>
-  <p class="indent3">
-   Class gets 4 skill points per level, before any
-modifiers.
-  </p>
-  <p class="indent2">
-   <code>STARTSKILLPTS:4+INT</code>
-  </p>
-  <p class="indent3">
-   Class gets 4 skill points per level plus the INT
-Bonus points, before any modifiers.
-  </p>
-  <p class="indent2">
-   <code>STARTSKILLPTS:4/CHA</code>
-  </p>
-  <p class="indent3">
-   Class gets 4 skill points per level divided by
-the CHA Bonus points, before any modifiers.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Blackguard.MOD &lt;tab&gt;
-STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride
-&lt;tab&gt;
-CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge
-(Religion) |TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot
-&lt;tab&gt; CCSKILL:Handle Animal|Ride</code>
-  </p>
-  <p class="indent3">
-   Modified Class that changes all of these Tags
-from their starting values..
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="xtrafeats" name="xtrafeats">
-     Tag
-Name:
-    </a>
-   </strong>
-   XTRAFEATS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is used to determine how many extra feats
-the class will get at first level only.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>XTRAFEATS:1</code>
-  </p>
-  <p class="indent3">
-   The class will gets 1 extra feat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <h2>
-   <a id="spellcastertags" name="spellcastertags">
-    Spell Casters
-Tags
-   </a>
-  </h2>
-  <hr/>
-  <p class="lstupnew">
-   <a id="adddomains" name="adddomains">
-    ***
-Updated 6.03.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ADDDOMAINS:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Domain Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This grants additional domain choices to the character, it is a
-decimal (.) delimited list of names.
-   </li>
-   <li>
-    It does not add them to the character's domains, but merely
-adds them to the list they can choose from.
-   </li>
-   <li>
-    If the character gets a choice for a bonus domain, it may need
-to be paired with a BONUS:DOMAIN|NUMBER|x tag.
-   </li>
-   <li>
-    If used in the Class Level block it should be put on the third
-line with the SPELLSTAT:and SPELLTYPE: entries.
-   </li>
-   <li>
-    It can contain PRExxx tags, in brackets ([PRExxx]), immediately
-after the domain name.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CLASS:Foo &lt;tab&gt;
-ADDDOMAINS:Travel|Sun &lt;tab&gt; SPELLSTAT:CHA &lt;tab&gt;
-SPELLTYPE:Arcane</code>
-  </p>
-  <p class="indent3">
-   The class gets the Travel and Sun domains as a
-choice regardless of the deity selected.
-  </p>
-  <p class="indent2">
-   <code>ADDDOMAINS:Sun</code>
-  </p>
-  <p class="indent3">
-   The class gets the Sun domain as a choice
-regardless of the deity selected.
-  </p>
-  <p class="indent2">
-   <code>ADDDOMAINS:Sun|Law</code>
-  </p>
-  <p class="indent3">
-   The class gets the Sun &amp; Law domains as a
-choice regardless of the deity selected.
-  </p>
-  <p class="indent2">
-   <code>ADDDOMAINS:Sun[PREDIETY:Ra]|Law</code>
-  </p>
-  <p class="indent3">
-   The class gets to choose between the Sun domain,
-if the character follows the diety Ra &amp; the Law domain
-regardless of the deity selected.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level and Class Level Line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Deprecated Syntax:
-   </strong>
-   <span class="lstdep">
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ADDDOMAINS:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Domain Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This grants additional domain choices to the character, it is a
+        decimal (.) delimited list of names.
+    </li>
+    <li>
+        It does not add them to the character's domains, but merely
+        adds them to the list they can choose from.
+    </li>
+    <li>
+        If the character gets a choice for a bonus domain, it may need
+        to be paired with a BONUS:DOMAIN|NUMBER|x tag.
+    </li>
+    <li>
+        If used in the Class Level block it should be put on the third
+        line with the SPELLSTAT:and SPELLTYPE: entries.
+    </li>
+    <li>
+        It can contain PRExxx tags, in brackets ([PRExxx]), immediately
+        after the domain name.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CLASS:Foo &lt;tab&gt;
+        ADDDOMAINS:Travel|Sun &lt;tab&gt; SPELLSTAT:CHA &lt;tab&gt;
+        SPELLTYPE:Arcane</code>
+</p>
+<p class="indent3">
+    The class gets the Travel and Sun domains as a
+    choice regardless of the deity selected.
+</p>
+<p class="indent2">
+    <code>ADDDOMAINS:Sun</code>
+</p>
+<p class="indent3">
+    The class gets the Sun domain as a choice
+    regardless of the deity selected.
+</p>
+<p class="indent2">
+    <code>ADDDOMAINS:Sun|Law</code>
+</p>
+<p class="indent3">
+    The class gets the Sun &amp; Law domains as a
+    choice regardless of the deity selected.
+</p>
+<p class="indent2">
+    <code>ADDDOMAINS:Sun[PREDIETY:Ra]|Law</code>
+</p>
+<p class="indent3">
+    The class gets to choose between the Sun domain,
+    if the character follows the diety Ra &amp; the Law domain
+    regardless of the deity selected.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level and Class Level Line.
+</p>
+<p class="indent1">
+    <strong>
+        Deprecated Syntax:
+    </strong>
+    <span class="lstdep">
     Remove for 6.6
    </span>
-  </p>
-  <p class="indent2">
-   <code>ADDDOMAINS:Travel.Sun</code>
-  </p>
-  <p class="indent3">
-   Becomes:
-   <code>ADDDOMAINS:Travel|Sun</code>
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="casterlevel" name="casterlevel">
-    *** Added
-5.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   BONUS:CASTERLEVEL|x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Class
-name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Number to add class level)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Each spellcasting class should have a CASTERLEVEL bonus
-associated with it.
-   </li>
-   <li>
-    If no CASTERLEVEL bonus is present for a spell casting class,
-it will default to class level.
-   </li>
-   <li>
-    This tag is listed here for this specific use but it is a
-Global tag and has wider uses including raising the caster level of
-racial spells. See the
-    <a href="../globalfilestagpages/globalfilesbonus.html#casterlevel">
-     BONUS:CASTERLEVEL
+</p>
+<p class="indent2">
+    <code>ADDDOMAINS:Travel.Sun</code>
+</p>
+<p class="indent3">
+    Becomes:
+    <code>ADDDOMAINS:Travel|Sun</code>
+</p>
+<hr/>
+<p class="status">
+    <a id="casterlevel" name="casterlevel">
+        *** Added
+        5.4
     </a>
-    entry in Global tags for more information.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS:CASTERLEVEL|Wizard|CL</code>
-  </p>
-  <p class="indent3">
-   Sets the Wizard's spell caster level to his
-class level.
-  </p>
-  <p class="indent2">
-   <code>BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASSLEVEL:Paladin=4</code>
-  </p>
-  <p class="indent3">
-   Sets the Paladin's spell caster level to half
-his class level after he reaches level 4.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="bonusspellstat" name="bonusspellstat">
-    ***
-Added 4.3.1
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   BONUSSPELLSTAT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Abbreviated name of stat from statsandchecks.lst or "None")
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Changes the Stat used to determine Bonus spells that a spell
-caster get from high ability score from the SPELLSTAT named
-Stat.
-   </li>
-   <li>
-    If not present, the SPELLSTAT will determine DCs and bonus
-spells.
-   </li>
-   <li>
-    If set to NONE no bonus spells will be granted.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUSSPELLSTAT:STR</code>
-  </p>
-  <p class="indent3">
-   The class uses Strength to determine bonus
-spells.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Defender.MOD &lt;tab&gt;
-SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
-SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
-BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler</code>
-  </p>
-  <p class="indent3">
-   Modifying the class Defender changes all of
-these tags to determine bonus spells and maximum casting level.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="cast" name="cast">
-    *** Updated 5.8
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   CAST:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number or
-Formula
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Tells PCGen how many spell per day the caster has (displayed on
-the Spells Tab).
-   </li>
-   <li>
-    If no Value is assigned at a given level, the tag defaults to
-0.
-   </li>
-   <li>
+</p>
+<p class="indent0">
     <strong>
-     Note:
+        Tag Name:
     </strong>
-    The formula used cannot have commas (,)
-embedded in it. If a formula requires a comma use a DEFINE to set a
-variable and use the variable in the CAST progression.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CAST:3,3,1</code>
-  </p>
-  <p class="indent3">
-   Class can cast 3 0th level spells, 3 1st level
-spells and 1 2nd level spell.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DEFINE:CastLvl0|min(6,4+CL) &lt;tab&gt;
-CAST:CastLvl0</code>
-  </p>
-  <p class="indent3">
-   Sets the cast progression to the value of the
-variable
-   <code>CastLvl0</code>
-   for 0 level spells.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="deity" name="deity">
-    </a>
-    Tag
-Name:
-   </strong>
-   DEITY:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The list that the character may follow, it is |
-(pipe) delimited and defaults to ANY if not present
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DEITY:Zeus</code>
-  </p>
-  <p class="indent3">
-   Class may only have "Zeus" as its Deity.
-  </p>
-  <p class="indent2">
-   <code>DEITY:Zeus|Athena</code>
-  </p>
-  <p class="indent3">
-   Class may have "Zeus" or "Athena" as its
-Deity.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="domain" name="domain">
-    *** Updated
-6.3.0
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   DOMAIN:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This grants additional domains, as listed, directly to the
-character.
-   </li>
-   <li>
-    It is a pipe-delimited (|) list of domain names.
-   </li>
-   <li>
-    If a domain is added on top of the character's other normal
-domains, it will need to be paired with a
-    <code>BONUS:DOMAIN|NUMBER|x</code>
-    .
-   </li>
-   <li>
-    This tag can use trailing PRExxx tags to provide prerequisites
-for the domains included in the associated
-    <code>DOMAIN</code>
-    tag.
-   </li>
-   <li>
-    Multiple
-    <code>DOMAIN</code>
-    tags may be used in a class
-object, allowing access to some domains without prerequisites and
-some with.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:s
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>7 &lt;tab&gt; DOMAIN:Sun</code>
-  </p>
-  <p class="indent3">
-   At the seventh level class gets the Sun domain
-added.
-  </p>
-  <p class="indent2">
-   <code>15 &lt;tab&gt; DOMAIN:Sun|Law</code>
-  </p>
-  <p class="indent3">
-   At fifteenth level class gets the Sun or law
-domain added.
-  </p>
-  <p class="indent2">
-   <code>11 &lt;tab&gt; DOMAIN:Sun|PREDEITY:Ra
-&lt;tab&gt; DOMAIN:Law</code>
-  </p>
-  <p class="indent3">
-   At eleventh level class gets the Sun or Law
-domain added if their deity is "Ra" or only Law if the deity is not
-"Ra".
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class and Class Level Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="itemcreate" name="itemcreate">
-     Tag
-Name:
-    </a>
-   </strong>
-   ITEMCREATE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used:
-   </strong>
-   Number or
-formula
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag provides a multiplier by which the class level of the
-character will be multiplied for calculating potions, scrolls, and
-wands.
-   </li>
-   <li>
-    This tag is optional and if not provided the multiplier used
-will default to a value of 1.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ITEMCREATE:2</code>
-  </p>
-  <p class="indent3">
-   The class level is doubled when calculating
-potions, scrolls and wands.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Paladin ITEMCREATE:CL/3.3</code>
-  </p>
-  <p class="indent3">
-   The class level is calculated to the following
-values at different Character Levels; 1=.3, 2=.6, 3=.9, 4=1.2,
-5=1.5, 6=1.8, 7=2.1, 8=2.4, 9=2.7, 10=3.0 when calculating potions,
-scrolls and wands.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="known" name="known">
-    *** Updated
-5.8
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   KNOWN:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Tells PCGen how many spell known the caster has (displayed on
-the Spells Tab).
-   </li>
-   <li>
-    If no Value is assigned at a given level, the tag defaults to
-0.
-   </li>
-   <li>
+    BONUS:CASTERLEVEL|x|y
+</p>
+<p class="indent1">
     <strong>
-     Note:
+        Variables Used (x):
     </strong>
-    The formula used cannot have commas (,)
-embedded in it. If a formula requires a comma use a DEFINE to set a
-variable and use the variable in the KNOWN progression.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>KNOWN:6,4,3</code>
-  </p>
-  <p class="indent3">
-   The class knows 6 0th level spells, 4 1st level
-spells and 3 2nd level spells.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DEFINE:KnownLvl0|min(9,4+(CL/2))
-&lt;tab&gt; KNOWN:KnownLvl0</code>
-  </p>
-  <p class="indent3">
-   Sets the known progression to the value of the
-variable
-   <code>KnownLvl0</code>
-   for 0 level spells.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="knownspells" name="knownspells">
-    ***
-Updated 5.11.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   KNOWNSPELLS:x,x|x,x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Spell
-name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TYPE=text
-(Spell type)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   LEVEL=Number (Spell level)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEARALL
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Provides a pipe-delimited (|) and comma-delimited list of
-spells, by name, level, or type that are automatically added to the
-spell caster.
-   </li>
-   <li>
-    Parameters included as a comma-delimited set must all be met by
-the spell for it to be granted to the spell caster.
-   </li>
-   <li>
-    Spells are granted only if the spell caster meets all
-prerequisites. (e.g. class level and required spell-stat
-score.)
-   </li>
-   <li>
-    <code>.CLEARALL</code>
-    will clear all spells awarded on Class
-or Class Level line 0.
-   </li>
-   <li>
-    NOTE: Level 0 Class Level Line acts as a Class Level Line,
-otherwise Class Level Lines are NOT allowed.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CLASS:Monkey Mage &lt;tab&gt;
-KNOWNSPELLS:Acid Fog</code>
-  </p>
-  <p class="indent3">
-   The class knows the spell "Acid Fog" at 6th
-Level.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Monkey Mage &lt;tab&gt;
-KNOWNSPELLS:Acid Fog|Alarm</code>
-  </p>
-  <p class="indent3">
-   The class knows the spell "Acid Fog" at 6th
-Level; and "Alarm" at 1st Level.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Monkey Mage &lt;tab&gt;
-KNOWNSPELLS:LEVEL=3</code>
-  </p>
-  <p class="indent3">
-   The class knows all level 3 spells
-available.
-  </p>
-  <!--
+    Text (Class
+    name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Number to add class level)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Each spellcasting class should have a CASTERLEVEL bonus
+        associated with it.
+    </li>
+    <li>
+        If no CASTERLEVEL bonus is present for a spell casting class,
+        it will default to class level.
+    </li>
+    <li>
+        This tag is listed here for this specific use but it is a
+        Global tag and has wider uses including raising the caster level of
+        racial spells. See the
+        <a href="../globalfilestagpages/globalfilesbonus.html#casterlevel">
+            BONUS:CASTERLEVEL
+        </a>
+        entry in Global tags for more information.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS:CASTERLEVEL|Wizard|CL</code>
+</p>
+<p class="indent3">
+    Sets the Wizard's spell caster level to his
+    class level.
+</p>
+<p class="indent2">
+    <code>BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASSLEVEL:Paladin=4</code>
+</p>
+<p class="indent3">
+    Sets the Paladin's spell caster level to half
+    his class level after he reaches level 4.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="bonusspellstat" name="bonusspellstat">
+        ***
+        Added 4.3.1
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    BONUSSPELLSTAT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Abbreviated name of stat from statsandchecks.lst or "None")
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Changes the Stat used to determine Bonus spells that a spell
+        caster get from high ability score from the SPELLSTAT named
+        Stat.
+    </li>
+    <li>
+        If not present, the SPELLSTAT will determine DCs and bonus
+        spells.
+    </li>
+    <li>
+        If set to NONE no bonus spells will be granted.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUSSPELLSTAT:STR</code>
+</p>
+<p class="indent3">
+    The class uses Strength to determine bonus
+    spells.
+</p>
+<p class="indent2">
+    <code>CLASS:Defender.MOD &lt;tab&gt;
+        SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
+        SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
+        BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
+        SPELLLIST:1|Channeler</code>
+</p>
+<p class="indent3">
+    Modifying the class Defender changes all of
+    these tags to determine bonus spells and maximum casting level.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="cast" name="cast">
+        *** Updated 5.8
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    CAST:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number or
+    Formula
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Tells PCGen how many spell per day the caster has (displayed on
+        the Spells Tab).
+    </li>
+    <li>
+        If no Value is assigned at a given level, the tag defaults to
+        0.
+    </li>
+    <li>
+        <strong>
+            Note:
+        </strong>
+        The formula used cannot have commas (,)
+        embedded in it. If a formula requires a comma use a DEFINE to set a
+        variable and use the variable in the CAST progression.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CAST:3,3,1</code>
+</p>
+<p class="indent3">
+    Class can cast 3 0th level spells, 3 1st level
+    spells and 1 2nd level spell.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DEFINE:CastLvl0|min(6,4+CL) &lt;tab&gt;
+        CAST:CastLvl0</code>
+</p>
+<p class="indent3">
+    Sets the cast progression to the value of the
+    variable
+    <code>CastLvl0</code>
+    for 0 level spells.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="deity" name="deity">
+        </a>
+        Tag
+        Name:
+    </strong>
+    DEITY:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The list that the character may follow, it is |
+    (pipe) delimited and defaults to ANY if not present
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DEITY:Zeus</code>
+</p>
+<p class="indent3">
+    Class may only have "Zeus" as its Deity.
+</p>
+<p class="indent2">
+    <code>DEITY:Zeus|Athena</code>
+</p>
+<p class="indent3">
+    Class may have "Zeus" or "Athena" as its
+    Deity.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="domain" name="domain">
+        *** Updated
+        6.3.0
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    DOMAIN:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This grants additional domains, as listed, directly to the
+        character.
+    </li>
+    <li>
+        It is a pipe-delimited (|) list of domain names.
+    </li>
+    <li>
+        If a domain is added on top of the character's other normal
+        domains, it will need to be paired with a
+        <code>BONUS:DOMAIN|NUMBER|x</code>
+        .
+    </li>
+    <li>
+        This tag can use trailing PRExxx tags to provide prerequisites
+        for the domains included in the associated
+        <code>DOMAIN</code>
+        tag.
+    </li>
+    <li>
+        Multiple
+        <code>DOMAIN</code>
+        tags may be used in a class
+        object, allowing access to some domains without prerequisites and
+        some with.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:s
+    </strong>
+</p>
+<p class="indent2">
+    <code>7 &lt;tab&gt; DOMAIN:Sun</code>
+</p>
+<p class="indent3">
+    At the seventh level class gets the Sun domain
+    added.
+</p>
+<p class="indent2">
+    <code>15 &lt;tab&gt; DOMAIN:Sun|Law</code>
+</p>
+<p class="indent3">
+    At fifteenth level class gets the Sun or law
+    domain added.
+</p>
+<p class="indent2">
+    <code>11 &lt;tab&gt; DOMAIN:Sun|PREDEITY:Ra
+        &lt;tab&gt; DOMAIN:Law</code>
+</p>
+<p class="indent3">
+    At eleventh level class gets the Sun or Law
+    domain added if their deity is "Ra" or only Law if the deity is not
+    "Ra".
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class and Class Level Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="itemcreate" name="itemcreate">
+            Tag
+            Name:
+        </a>
+    </strong>
+    ITEMCREATE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used:
+    </strong>
+    Number or
+    formula
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag provides a multiplier by which the class level of the
+        character will be multiplied for calculating potions, scrolls, and
+        wands.
+    </li>
+    <li>
+        This tag is optional and if not provided the multiplier used
+        will default to a value of 1.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ITEMCREATE:2</code>
+</p>
+<p class="indent3">
+    The class level is doubled when calculating
+    potions, scrolls and wands.
+</p>
+<p class="indent2">
+    <code>CLASS:Paladin ITEMCREATE:CL/3.3</code>
+</p>
+<p class="indent3">
+    The class level is calculated to the following
+    values at different Character Levels; 1=.3, 2=.6, 3=.9, 4=1.2,
+    5=1.5, 6=1.8, 7=2.1, 8=2.4, 9=2.7, 10=3.0 when calculating potions,
+    scrolls and wands.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="known" name="known">
+        *** Updated
+        5.8
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    KNOWN:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Tells PCGen how many spell known the caster has (displayed on
+        the Spells Tab).
+    </li>
+    <li>
+        If no Value is assigned at a given level, the tag defaults to
+        0.
+    </li>
+    <li>
+        <strong>
+            Note:
+        </strong>
+        The formula used cannot have commas (,)
+        embedded in it. If a formula requires a comma use a DEFINE to set a
+        variable and use the variable in the KNOWN progression.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>KNOWN:6,4,3</code>
+</p>
+<p class="indent3">
+    The class knows 6 0th level spells, 4 1st level
+    spells and 3 2nd level spells.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DEFINE:KnownLvl0|min(9,4+(CL/2))
+        &lt;tab&gt; KNOWN:KnownLvl0</code>
+</p>
+<p class="indent3">
+    Sets the known progression to the value of the
+    variable
+    <code>KnownLvl0</code>
+    for 0 level spells.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="knownspells" name="knownspells">
+        ***
+        Updated 5.11.4
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    KNOWNSPELLS:x,x|x,x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Spell
+    name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TYPE=text
+    (Spell type)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    LEVEL=Number (Spell level)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEARALL
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Provides a pipe-delimited (|) and comma-delimited list of
+        spells, by name, level, or type that are automatically added to the
+        spell caster.
+    </li>
+    <li>
+        Parameters included as a comma-delimited set must all be met by
+        the spell for it to be granted to the spell caster.
+    </li>
+    <li>
+        Spells are granted only if the spell caster meets all
+        prerequisites. (e.g. class level and required spell-stat
+        score.)
+    </li>
+    <li>
+        <code>.CLEARALL</code>
+        will clear all spells awarded on Class
+        or Class Level line 0.
+    </li>
+    <li>
+        NOTE: Level 0 Class Level Line acts as a Class Level Line,
+        otherwise Class Level Lines are NOT allowed.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CLASS:Monkey Mage &lt;tab&gt;
+        KNOWNSPELLS:Acid Fog</code>
+</p>
+<p class="indent3">
+    The class knows the spell "Acid Fog" at 6th
+    Level.
+</p>
+<p class="indent2">
+    <code>CLASS:Monkey Mage &lt;tab&gt;
+        KNOWNSPELLS:Acid Fog|Alarm</code>
+</p>
+<p class="indent3">
+    The class knows the spell "Acid Fog" at 6th
+    Level; and "Alarm" at 1st Level.
+</p>
+<p class="indent2">
+    <code>CLASS:Monkey Mage &lt;tab&gt;
+        KNOWNSPELLS:LEVEL=3</code>
+</p>
+<p class="indent3">
+    The class knows all level 3 spells
+    available.
+</p>
+<!--
         <p class="indent2"><code>0 &lt;tab&gt; KNOWNSPELLS:Acid Fog</code></p>
         <p class="indent3">The class knows the spell &quot;Acid Fog&quot; at 6th Level.</p>
         <p class="indent2"><code>0 &lt;tab&gt; KNOWNSPELLS:Acid Fog|Alarm</code></p>
@@ -1653,2872 +1656,2872 @@ available.
         <p class="indent2"><code>0 &lt;tab&gt; KNOWNSPELLS:LEVEL=3</code></p>
         <p class="indent3">The class knows all level 3 spells available.</p>
 -->
-  <p class="indent2">
-   <code>CLASS:Monkey Cleric &lt;tab&gt;
-KNOWNSPELLS:TYPE=Divine</code>
-  </p>
-  <p class="indent3">
-   The class knows all available divine spells.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Monkey Mage &lt;tab&gt;
-KNOWNSPELLS:LEVEL=3,TYPE=Arcane</code>
-  </p>
-  <p class="indent3">
-   The class Monkey Mage knows all level 3 arcane
-spells available.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line Only.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="memorize" name="memorize">
-     Tag
-Name:
+<p class="indent2">
+    <code>CLASS:Monkey Cleric &lt;tab&gt;
+        KNOWNSPELLS:TYPE=Divine</code>
+</p>
+<p class="indent3">
+    The class knows all available divine spells.
+</p>
+<p class="indent2">
+    <code>CLASS:Monkey Mage &lt;tab&gt;
+        KNOWNSPELLS:LEVEL=3,TYPE=Arcane</code>
+</p>
+<p class="indent3">
+    The class Monkey Mage knows all level 3 arcane
+    spells available.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line Only.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="memorize" name="memorize">
+            Tag
+            Name:
+        </a>
+    </strong>
+    MEMORIZE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used:
+    </strong>
+    YES
+    (Default)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used:
+    </strong>
+    NO
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Determines if the class is required to memorize
+    spells as a wizard does.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MEMORIZE:YES</code>
+</p>
+<p class="indent3">
+    The class memorizes spells as a wizard does.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="prohibited" name="prohibited">
+            Tag
+            Name:
+        </a>
+    </strong>
+    PROHIBITED:x,x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used:
+    </strong>
+    Text
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a comma delimited list of spell schools
+    that are prohibited to the class (no spells from that school can be
+    taken).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>PROHIBITED:Divination,Necromancy</code>
+</p>
+<p class="indent3">
+    The class cannot use Divination or
+    Necromancy.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="prohibitspell" name="prohibitspell">
+        ***
+        Updated 5.11.6
     </a>
-   </strong>
-   MEMORIZE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used:
-   </strong>
-   YES
-(Default)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used:
-   </strong>
-   NO
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Determines if the class is required to memorize
-spells as a wizard does.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MEMORIZE:YES</code>
-  </p>
-  <p class="indent3">
-   The class memorizes spells as a wizard does.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="prohibited" name="prohibited">
-     Tag
-Name:
-    </a>
-   </strong>
-   PROHIBITED:x,x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used:
-   </strong>
-   Text
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a comma delimited list of spell schools
-that are prohibited to the class (no spells from that school can be
-taken).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PROHIBITED:Divination,Necromancy</code>
-  </p>
-  <p class="indent3">
-   The class cannot use Divination or
-Necromancy.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="prohibitspell" name="prohibitspell">
-    ***
-Updated 5.11.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   PROHIBITSPELL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   ALIGNMENT.Text (Alignment name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   DESCRIPTOR.Text (Descriptor name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SCHOOL.Text
-(School name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SUBSCHOOL.Text (Subschool name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SPELL.Text
-(Spell name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Prohibits characters from using certain spells.
-   </li>
-   <li>
-    Alignment, descriptor, school, and subschool names are
-period-delimited (.) lists of the appropriate parameter.
-   </li>
-   <li>
-    Spell name is a comma-delimited (,) list of individual spell
-names.
-   </li>
-   <li>
-    Alignment restrictions imposed by this tag can be turned off by
-the PROHIBITSPELLS house rule preference.
-   </li>
-   <li>
-    This tag can be qualified with PRExxx statements using a pipe
-(|) as the delimiter.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PROHIBITSPELL:ALIGNMENT.Evil</code>
-  </p>
-  <p class="indent3">
-   Prohibits the character from taking spells with
-the "Evil" descriptor.
-  </p>
-  <p class="indent2">
-   <code>PROHIBITSPELL:ALIGNMENT.Chaotic.Evil</code>
-  </p>
-  <p class="indent3">
-   Prohibits the character from taking spells that
-have both the "Chaotic" and the "Evil" descriptors.
-  </p>
-  <p class="indent2">
-   <code>PROHIBITSPELL:DESCRIPTOR.Fear</code>
-  </p>
-  <p class="indent3">
-   Prohibits the character from taking spells with
-the "Fear" descriptor.
-  </p>
-  <p class="indent2">
-   <code>PROHIBITSPELL:SCHOOL.Illusion</code>
-  </p>
-  <p class="indent3">
-   Prohibits the character from taking spells from
-the "Illusion" school.
-  </p>
-  <p class="indent2">
-   <code>PROHIBITSPELL:SUBSCHOOL.Healing</code>
-  </p>
-  <p class="indent3">
-   Prohibits the character from taking spells from
-the "Healing" subschool.
-  </p>
-  <blockquote class="indent2">
-   <p class="tagindent2">
-    <code>1 &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE</code>
-   </p>
-  </blockquote>
-  <p class="indent3">
-   Prohibits the character from taking "Good"
-spells if alignment is LE,NE,CE; taking "evil" spells if alignment
-is LG,NG,CG; taking "Lawful" spells if alignment is CG,CN,CE;
-taking "Chaotic" spells if alignment is LG,LN,LE; taking "Good"
-spells if Deity alignment is LE,NE,CE; taking "evil" spells if
-Deity alignment is LG,NG,CG; taking "Lawful" spells if Deity
-alignment is CG,CN,CE; taking "Chaotic" spells if Deity alignment
-is LG,LN,LE.
-  </p>
-  <p class="indent2">
-   <code>PROHIBITSPELL:SPELL.Fireball,Lightning
-Bolt</code>
-  </p>
-  <p class="indent3">
-   Prohibits the character from taking either
-"Fireball" or "Lightening Bolt" spells.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line and Class Level Line.
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="role" name="role">
-    *** New 6.1.2
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    PROHIBITSPELL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    ALIGNMENT.Text (Alignment name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    DESCRIPTOR.Text (Descriptor name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SCHOOL.Text
+    (School name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SUBSCHOOL.Text (Subschool name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SPELL.Text
+    (Spell name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Prohibits characters from using certain spells.
+    </li>
+    <li>
+        Alignment, descriptor, school, and subschool names are
+        period-delimited (.) lists of the appropriate parameter.
+    </li>
+    <li>
+        Spell name is a comma-delimited (,) list of individual spell
+        names.
+    </li>
+    <li>
+        Alignment restrictions imposed by this tag can be turned off by
+        the PROHIBITSPELLS house rule preference.
+    </li>
+    <li>
+        This tag can be qualified with PRExxx statements using a pipe
+        (|) as the delimiter.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>PROHIBITSPELL:ALIGNMENT.Evil</code>
+</p>
+<p class="indent3">
+    Prohibits the character from taking spells with
+    the "Evil" descriptor.
+</p>
+<p class="indent2">
+    <code>PROHIBITSPELL:ALIGNMENT.Chaotic.Evil</code>
+</p>
+<p class="indent3">
+    Prohibits the character from taking spells that
+    have both the "Chaotic" and the "Evil" descriptors.
+</p>
+<p class="indent2">
+    <code>PROHIBITSPELL:DESCRIPTOR.Fear</code>
+</p>
+<p class="indent3">
+    Prohibits the character from taking spells with
+    the "Fear" descriptor.
+</p>
+<p class="indent2">
+    <code>PROHIBITSPELL:SCHOOL.Illusion</code>
+</p>
+<p class="indent3">
+    Prohibits the character from taking spells from
+    the "Illusion" school.
+</p>
+<p class="indent2">
+    <code>PROHIBITSPELL:SUBSCHOOL.Healing</code>
+</p>
+<p class="indent3">
+    Prohibits the character from taking spells from
+    the "Healing" subschool.
+</p>
+<blockquote class="indent2">
+    <p class="tagindent2">
+        <code>1 &lt;tab&gt;
+            PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE &lt;tab&gt;
+            PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG &lt;tab&gt;
+            PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE &lt;tab&gt;
+            PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE &lt;tab&gt;
+            PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE &lt;tab&gt;
+            PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG &lt;tab&gt;
+            PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE &lt;tab&gt;
+            PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE</code>
+    </p>
+</blockquote>
+<p class="indent3">
+    Prohibits the character from taking "Good"
+    spells if alignment is LE,NE,CE; taking "evil" spells if alignment
+    is LG,NG,CG; taking "Lawful" spells if alignment is CG,CN,CE;
+    taking "Chaotic" spells if alignment is LG,LN,LE; taking "Good"
+    spells if Deity alignment is LE,NE,CE; taking "evil" spells if
+    Deity alignment is LG,NG,CG; taking "Lawful" spells if Deity
+    alignment is CG,CN,CE; taking "Chaotic" spells if Deity alignment
+    is LG,LN,LE.
+</p>
+<p class="indent2">
+    <code>PROHIBITSPELL:SPELL.Fireball,Lightning
+        Bolt</code>
+</p>
+<p class="indent3">
+    Prohibits the character from taking either
+    "Fireball" or "Lightening Bolt" spells.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line and Class Level Line.
+</p>
+<hr/>
+<p class="lstnew">
     <a id="role" name="role">
-     Tag
-Name:
+        *** New 6.1.2
     </a>
-   </strong>
-   ROLE:x.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (a
-monster role as defined in the game mode).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Specifies the monster role or roles associated
-with a character class. Used to determine CR for creatures with
-both racial hit dice and class levels.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ROLE:Skill</code>
-  </p>
-  <p class="indent3">
-   Character levels in this class are key levels
-for CR calculation purposes for creatures with the Skill role.
-  </p>
-  <p class="indent2">
-   <code>ROLE:Combat.Skill</code>
-  </p>
-  <p class="indent3">
-   Character levels in this class are key levels
-for CR calculation purposes for creatures with either the Combat
-role or the Skill role.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="spellbook" name="spellbook">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        <a id="role" name="role">
+            Tag
+            Name:
+        </a>
+    </strong>
+    ROLE:x.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (a
+    monster role as defined in the game mode).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Specifies the monster role or roles associated
+    with a character class. Used to determine CR for creatures with
+    both racial hit dice and class levels.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ROLE:Skill</code>
+</p>
+<p class="indent3">
+    Character levels in this class are key levels
+    for CR calculation purposes for creatures with the Skill role.
+</p>
+<p class="indent2">
+    <code>ROLE:Combat.Skill</code>
+</p>
+<p class="indent3">
+    Character levels in this class are key levels
+    for CR calculation purposes for creatures with either the Combat
+    role or the Skill role.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="spellbook" name="spellbook">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SPELLBOOK:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used:
+    </strong>
+    YES or NO
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Means that the class is required to use a
+    spellbook as a wizard does.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLBOOK:YES</code>
+</p>
+<p class="indent3">
+    The class uses a spellbook.
+</p>
+<p class="indent2">
+    <code>CLASS:Defender.MOD &lt;tab&gt;
+        SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
+        SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
+        BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
+        SPELLLIST:1|Channeler</code>
+</p>
+<p class="indent3">
+    Modifying the class Defender changes all of
+    these tags to determine bonus spells and maximum casting level.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<p class="indent1">
+    <strong>
+        Default Value:
+    </strong>
+</p>
+<p class="indent2">
+    <code>NO</code>
+</p>
+<hr/>
+<p class="status">
+    <a id="spelllist" name="spelllist">
+        *** Updated
+        5.11.4 ***
     </a>
-   </strong>
-   SPELLBOOK:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used:
-   </strong>
-   YES or NO
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Means that the class is required to use a
-spellbook as a wizard does.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLBOOK:YES</code>
-  </p>
-  <p class="indent3">
-   The class uses a spellbook.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Defender.MOD &lt;tab&gt;
-SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
-SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
-BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler</code>
-  </p>
-  <p class="indent3">
-   Modifying the class Defender changes all of
-these tags to determine bonus spells and maximum casting level.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Default Value:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>NO</code>
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="spelllist" name="spelllist">
-    *** Updated
-5.11.4 ***
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SPELLLIST:x|y|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(number of choices)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Class
-Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   DOMAIN.Text
-(Domain Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is an optional tag with PCGen defaulting to the class name
-as the name of the spell list if this tag is not included.
-   </li>
-   <li>
-    Following the number of choices (x), this is a pipe-delimited
-(|) list of class names (y) that the class can choose from to
-duplicate spell casting ability.
-   </li>
-   <!--
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SPELLLIST:x|y|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (number of choices)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Class
+    Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    DOMAIN.Text
+    (Domain Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is an optional tag with PCGen defaulting to the class name
+        as the name of the spell list if this tag is not included.
+    </li>
+    <li>
+        Following the number of choices (x), this is a pipe-delimited
+        (|) list of class names (y) that the class can choose from to
+        duplicate spell casting ability.
+    </li>
+    <!--
         The next line item represents a work-around for a bug that may or may not get fixed. If it is then this LI will need to be removed.
 -->
-   <li>
-    For a spellcasting class with subclasses that have separate
-spell lists, the
-    <code>SPELLLIST</code>
-    tag should be included in
-the subclass line only.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CLASS:Faemancer &lt;tab&gt;
-SPELLLIST:1|Ranger</code>
-  </p>
-  <p class="indent3">
-   The class uses the ranger spell list.
-  </p>
-  <p class="indent2">
-   <code>SUBCLASS:Egoist &lt;tab&gt;
-SPELLLIST:1|Ranger|Druid</code>
-  </p>
-  <p class="indent3">
-   The subclass uses either the ranger or druid
-spell list.
-  </p>
-  <p class="indent2">
-   <code>CLASS:War Mind &lt;tab&gt;
-SPELLLIST:2|Ranger|Druid|Barabarian</code>
-  </p>
-  <p class="indent3">
-   The class uses 2 of the ranger, Druid or
-Barbarian spell lists.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Blood Witch &lt;tab&gt;
-SPELLLIST:1|DOMAIN.Animal</code>
-  </p>
-  <p class="indent3">
-   The class uses the Animal Domain spell list.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Rogue.COPY=Blood Witch &lt;tab&gt;
-SPELLLIST:1|DOMAIN.Animal</code>
-  </p>
-  <p class="indent3">
-   Copy class Rogue to Blood Witch useing the
-Animal Domain spell list.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Defender.MOD &lt;tab&gt;
-SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
-SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
-BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler</code>
-  </p>
-  <p class="indent3">
-   Modifying the class Defender changes all of
-these tags to determine bonus spells and maximum casting level.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line, SubClass line or SubstitutionClass
-line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="spellstat" name="spellstat">
-     Tag
-Name:
-    </a>
-   </strong>
-   SPELLSTAT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(abbreviated name of stat from statsandchecks.lst)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SPELL
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   OTHER
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Used to tell PCGen what attribute/stat to use for determining
-bonus spells and maximum level the character can cast
-   </li>
-   <li>
-    Used in a Subclass Line this tag overwrites any
-    <code>SPELLSTAT</code>
-    tag in the main Class Line.
-   </li>
-   <li>
-    The stat specified can be any stat defined in
-    <span class="lstfile">
+    <li>
+        For a spellcasting class with subclasses that have separate
+        spell lists, the
+        <code>SPELLLIST</code>
+        tag should be included in
+        the subclass line only.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CLASS:Faemancer &lt;tab&gt;
+        SPELLLIST:1|Ranger</code>
+</p>
+<p class="indent3">
+    The class uses the ranger spell list.
+</p>
+<p class="indent2">
+    <code>SUBCLASS:Egoist &lt;tab&gt;
+        SPELLLIST:1|Ranger|Druid</code>
+</p>
+<p class="indent3">
+    The subclass uses either the ranger or druid
+    spell list.
+</p>
+<p class="indent2">
+    <code>CLASS:War Mind &lt;tab&gt;
+        SPELLLIST:2|Ranger|Druid|Barabarian</code>
+</p>
+<p class="indent3">
+    The class uses 2 of the ranger, Druid or
+    Barbarian spell lists.
+</p>
+<p class="indent2">
+    <code>CLASS:Blood Witch &lt;tab&gt;
+        SPELLLIST:1|DOMAIN.Animal</code>
+</p>
+<p class="indent3">
+    The class uses the Animal Domain spell list.
+</p>
+<p class="indent2">
+    <code>CLASS:Rogue.COPY=Blood Witch &lt;tab&gt;
+        SPELLLIST:1|DOMAIN.Animal</code>
+</p>
+<p class="indent3">
+    Copy class Rogue to Blood Witch useing the
+    Animal Domain spell list.
+</p>
+<p class="indent2">
+    <code>CLASS:Defender.MOD &lt;tab&gt;
+        SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
+        SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
+        BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
+        SPELLLIST:1|Channeler</code>
+</p>
+<p class="indent3">
+    Modifying the class Defender changes all of
+    these tags to determine bonus spells and maximum casting level.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line, SubClass line or SubstitutionClass
+    line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="spellstat" name="spellstat">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SPELLSTAT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (abbreviated name of stat from statsandchecks.lst)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SPELL
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    OTHER
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Used to tell PCGen what attribute/stat to use for determining
+        bonus spells and maximum level the character can cast
+    </li>
+    <li>
+        Used in a Subclass Line this tag overwrites any
+        <code>SPELLSTAT</code>
+        tag in the main Class Line.
+    </li>
+    <li>
+        The stat specified can be any stat defined in
+        <span class="lstfile">
      statsandchecks.lst
     </span>
-    system file.
-   </li>
-   <li>
-    Use of the
-    <code>SPELL</code>
-    subtag tells PCGen to use the
-stat specified in the
-    <code>SPELLSTAT</code>
-    tag located in the
-class' individual spells.
-   </li>
-   <li>
-    Use of the
-    <code>OTHER</code>
-    subtag will result in no stat
-bonuses being granted.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLSTAT:INT</code>
-  </p>
-  <p class="indent3">
-   This class/subclass uses Intelligence to
-determine maximum level of spells.
-  </p>
-  <p class="indent2">
-   <code>SPELLSTAT:SPELL</code>
-  </p>
-  <p class="indent3">
-   This class/subclass uses the stat specified in
-the
-   <code>STAT:x</code>
-   tag in the spells the class/subclass
-uses.
-  </p>
-  <p class="indent2">
-   <code>SPELLSTAT:OTHER</code>
-  </p>
-  <p class="indent3">
-   Thia class/subclass does not recieve a stat
-bonus for spell casting.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Defender.MOD &lt;tab&gt;
-SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
-SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
-BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler</code>
-  </p>
-  <p class="indent3">
-   Modifies the
-   <strong>
-    Defender
-   </strong>
-   class's
-spell stat is changed to the intelligence stat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class or Subclass Line.
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <a id="spelltype" name="spelltype">
-    *** Deprecated
-6.05.1 - use FACT
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SPELLTYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Spell
-type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The type of spells the character casts
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLTYPE:Arcane</code>
-  </p>
-  <p class="indent3">
-   The class uses arcane spells.
-  </p>
-  <p class="indent2">
-   <code>CLASS:Defender.MOD &lt;tab&gt;
-SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
-SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
-BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler</code>
-  </p>
-  <p class="indent3">
-   Modifying the class Defender changes all of
-these tags to determine bonus spells and maximum casting level.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="specialtyknown" name="specialtyknown">
-    ***
-Updated 5.11.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SPECIALTYKNOWN:x,x,x,x,...
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Adds the numeric value given to the number of
-specialty school spells that the class can cast per spell level. If
-not listed, the default value is 0.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>19 &lt;tab&gt;
-SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1</code>
-  </p>
-  <p class="indent3">
-   At 19 level the specialist can prepare one
-additional Zero thru ninth level spell (of the school selected as a
-specialty) per spell level each day.
-  </p>
-  <p class="indent2">
-   <code>12 &lt;tab&gt;
-SPECIALTYKNOWN:1,1,1</code>
-  </p>
-  <p class="indent3">
-   At 12 level the Paladin can prepare one third
-level spell per spell level each day, he already had a first and
-second.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <hr/>
-  <h3>
-   <a id="subclasstags" name="subclasstags">
-    Sub-Class
-Tags
-   </a>
-  </h3>
-  <hr/>
-  <p class="status">
-   <a id="allowbaseclass" name="allowbaseclass">
-    ***
-Updated 5.13.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ALLOWBASECLASS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Boolean
-(Default "YES")
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Determies whether the base class will be presented as a choice
-when selecting a subclass.
-   </li>
-   <li>
-    Used with classes which have subclasses.
-   </li>
-   <li>
-    This tag is optional.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALLOWBASECLASS:NO</code>
-  </p>
-  <p class="indent3">
-   The base class cannot be selected, only
-subclasses are allowed.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="choice" name="choice">
-    *** Updated
-5.13.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   CHOICE:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   DESCRIPTOR
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SCHOOL
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SUBSCHOOL
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text
-(Descriptor, school, or subschool name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Indicates the specialty, by descriptor, school, or subschool,
-applicable to the subclass/specialty selected.
-   </li>
-   <li>
-    All descriptors, schools, and subschools used within the loaded
-lst files are valid choices.
-   </li>
-   <li>
+        system file.
+    </li>
+    <li>
+        Use of the
+        <code>SPELL</code>
+        subtag tells PCGen to use the
+        stat specified in the
+        <code>SPELLSTAT</code>
+        tag located in the
+        class' individual spells.
+    </li>
+    <li>
+        Use of the
+        <code>OTHER</code>
+        subtag will result in no stat
+        bonuses being granted.
+    </li>
+</ul>
+<p class="indent1">
     <strong>
-     Note:
+        Examples:
     </strong>
-    Due to the diversity of publishers and
-material we support, we cannot list all descriptors, schools, or
-subschools available.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SUBCLASS:Illusionist &lt;tab&gt;
-CHOICE:SCHOOL|Illusion</code>
-  </p>
-  <p class="indent3">
-   For an Illusionist.
-  </p>
-  <p class="indent2">
-   <code>SUBCLASS:Abjure &lt;tab&gt;
-CHOICE:SCHOOL|Abjuration</code>
-  </p>
-  <p class="indent3">
-   For an Abjurer.
-  </p>
-  <p class="indent2">
-   <code>SUBCLASS:Diviner &lt;tab&gt;
-CHOICE:SCHOOL|Divination</code>
-  </p>
-  <p class="indent3">
-   For a Diviner.
-  </p>
-  <p class="indent2">
-   <code>SUBCLASS:Savant &lt;tab&gt;
-CHOICE:SCHOOL|Psychokinesis</code>
-  </p>
-  <p class="indent3">
-   For a Psychokinesis.
-  </p>
-  <p class="indent2">
-   <code>SUBCLASS:Shaper &lt;tab&gt;
-CHOICE:SCHOOL|Illusion.CLEAR</code>
-  </p>
-  <p class="indent3">
-   Removes the choice for an Illusionist.
-  </p>
-  <p class="indent2">
-   <code>SUBCLASS:Nomad &lt;tab&gt;
-CHOICE:SCHOOL|Abjuration.MOD &lt;tab&gt;
-CHOICE:SCHOOL|Divination</code>
-  </p>
-  <p class="indent3">
-   Replaces the choice for an Abjurer with
-Diviner.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Subclass Line.
-  </p>
-  <p class="indent2">
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="cost" name="cost">
-    *** New 5.3.3
-   </a>
-  </p>
-  <p>
-   <strong>
-    Tag Name:
-   </strong>
-   COST:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Indicates the cost (how many prohibited schools
-must be selected) of this specialty or subclass (0 is default).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>COST:2</code>
-  </p>
-  <p class="indent3">
-   The subclass has a cost of 2.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Subclass Line (
-   <strong>
-    REQUIRED
-   </strong>
-   to be
-on each SUBCLASS line).
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="knownspellsfromspecialty" name="knownspellsfromspecialty">
-     Tag Name:
+</p>
+<p class="indent2">
+    <code>SPELLSTAT:INT</code>
+</p>
+<p class="indent3">
+    This class/subclass uses Intelligence to
+    determine maximum level of spells.
+</p>
+<p class="indent2">
+    <code>SPELLSTAT:SPELL</code>
+</p>
+<p class="indent3">
+    This class/subclass uses the stat specified in
+    the
+    <code>STAT:x</code>
+    tag in the spells the class/subclass
+    uses.
+</p>
+<p class="indent2">
+    <code>SPELLSTAT:OTHER</code>
+</p>
+<p class="indent3">
+    Thia class/subclass does not recieve a stat
+    bonus for spell casting.
+</p>
+<p class="indent2">
+    <code>CLASS:Defender.MOD &lt;tab&gt;
+        SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
+        SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
+        BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
+        SPELLLIST:1|Channeler</code>
+</p>
+<p class="indent3">
+    Modifies the
+    <strong>
+        Defender
+    </strong>
+    class's
+    spell stat is changed to the intelligence stat.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class or Subclass Line.
+</p>
+<hr/>
+<p class="lstdep">
+    <a id="spelltype" name="spelltype">
+        *** Deprecated
+        6.05.1 - use FACT
     </a>
-   </strong>
-   KNOWNSPELLSFROMSPECIALTY:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of spells)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Indicates the number of spells from their
-specialty this class gets in addition to their regular
-allotment.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>KNOWNSPELLSFROMSPECIALTY:1</code>
-  </p>
-  <p class="indent3">
-   The subclass has 1 spell from their specialty in
-addition to normal.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Subclass Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="prohibitcost" name="prohibitcost">
-    ***
-Added 5.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   PROHIBITCOST:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Integer
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Determines the redeemed value (against COST) of
-this school if selected as prohibited. Allows a prohibited cost to
-be set independently of the cost.
-  </p>
-  <p class="indent2">
-   Optional tag. If PROHIBITCOST is not present in
-the SUBCLASS line the value will default to COST. A value of 0
-prevents this school from being prohibited.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PROHIBITCOST:2</code>
-  </p>
-  <p class="indent3">
-   The subclass has a prohibited cost of 2.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Subclass Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="subclass" name="subclass">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SPELLTYPE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Spell
+    type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The type of spells the character casts
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLTYPE:Arcane</code>
+</p>
+<p class="indent3">
+    The class uses arcane spells.
+</p>
+<p class="indent2">
+    <code>CLASS:Defender.MOD &lt;tab&gt;
+        SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
+        SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
+        BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
+        SPELLLIST:1|Channeler</code>
+</p>
+<p class="indent3">
+    Modifying the class Defender changes all of
+    these tags to determine bonus spells and maximum casting level.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="specialtyknown" name="specialtyknown">
+        ***
+        Updated 5.11.4
     </a>
-   </strong>
-   SUBCLASS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (name
-of subclass or specialty)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent1">
-   <li>
-    Defines a subclass or specialty choice.
-   </li>
-   <li>
-    First tag of a line between the Class Lines and the level
-definition lines for the class which can choose these subclasses or
-specialties.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SUBCLASS:Illusionist</code>
-  </p>
-  <p class="indent3">
-   The class has Illusionist as a subclass.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Subclass Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="subclasslevel" name="subclasslevel">
-    ***
-Added 4.3.1
-   </a>
-  </p>
-  <p>
-   <strong>
-    Tag Name:
-   </strong>
-   SUBCLASSLEVEL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines a subclass level at which a particular Special Ability
-is granted.
-   </li>
-   <li>
-    This tag should MUST be the first tag on a line, and will
-define a Subclass level dependent ability for the SUBCLASS
-immediately above it.
-   </li>
-   <li>
-    Located before the Class Level Lines.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SUBCLASSLEVEL:3 &lt;tab&gt;
-SA:Angelfire</code>
-  </p>
-  <p class="indent3">
-   would add SA:Angelfire at level 3
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Subclass Line.
-  </p>
-  <hr/>
-  <h3>
-   <a id="substitutionleveltags" name="substitutionleveltags">
-    Substitution Level Tags
-   </a>
-  </h3>
-  <hr/>
-  <p class="status">
-   <a id="substitutionclass" name="substitutionclass">
-    *** Added 5.11.0
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SUBSTITUTIONCLASS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (name
-of substitution levels)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines a group of substitution levels.
-   </li>
-   <li>
-    First tag of a line between the Class Lines and the level
-definition lines for the class which can choose these substitution
-levels.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SUBSTITUTIONCLASS:Orc Ranger</code>
-  </p>
-  <p class="indent3">
-   The class has Orc Ranger substitution
-levels.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Substitutionclass Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="substitutionlevel" name="substitutionlevel">
-    *** Added 5.11.0
-   </a>
-  </p>
-  <p>
-   <strong>
-    Tag Name:
-   </strong>
-   SUBSTITUTIONLEVEL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Defines a substitution level at which a particular Special
-Ability is granted.
-   </li>
-   <li>
-    This tag MUST be the first tag on a line, and will define a
-substitution level dependent ability for the SUBSTITUTIONCLASS
-immediately above it.
-   </li>
-   <li>
-    Located before the Class Level Lines.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; SA:Goblin
-Slave (Ex)</code>
-  </p>
-  <p class="indent3">
-   would add SA:Goblin Slave (Ex) at level 4
-instead of the standard level 4 class abilities.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Substitutionclass Line.
-  </p>
-  <hr/>
-  <h3>
-   <a id="otheroptionaltags" name="otheroptionaltags">
-    Other
-Optional Tags
-   </a>
-  </h3>
-  <hr/>
-  <p class="status">
-   <a id="classskills" name="classskills">
-    *** Added
-5.11.11
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ADD:CLASSSKILLS|x|y,y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number,
-Variable or Formula (Number of choices granted. Optional)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Name
-of skill)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   TYPE=Text
-(Type of skill)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   ALL
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   ANY
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   CROSSCLASSSKILLS
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   UNTRAINED
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   TRAINED
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   EXCLUSIVE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   NONEXCLUSIVE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   AUTORANK=Number (Number of ranks)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Adds a number (x) of skills selected from the presented list
-(y) to the character's class skills list.
-   </li>
-   <li>
-    If a number (x) of choices allowed is not included, "1" is
-assumed.
-   </li>
-   <li>
-    The skills list (y) is a comma-delimited (",") list of
-skills.
-   </li>
-   <li>
-    If
-    <code>ANY</code>
-    or
-    <code>ALL</code>
-    are used, the list of
-skills to select from will include all skills.
-   </li>
-   <li>
-    If
-    <code>CROSSCLASSSKILLS</code>
-    is used, the list of skills to
-select from will include all cross-class skills.
-   </li>
-   <li>
-    If
-    <code>UNTRAINED</code>
-    is used, the list of skills to select
-from will include all untrained skills.
-   </li>
-   <li>
-    If
-    <code>TRAINED</code>
-    is used, the list of skills to select
-from will include all trained skills.
-   </li>
-   <li>
-    If
-    <code>EXCLUSIVE</code>
-    is used, the list of skills to select
-from will include all skills exclusive to the associated
-class.
-   </li>
-   <li>
-    If
-    <code>NONEXCLUSIVE</code>
-    is used, the list of skills to
-select from will include all skills that are not exclusive to the
-assiciated class.
-   </li>
-   <li>
-    AUTORANK will assign free ranks to any chosen skills.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|Knowledge
-(Reverie)</code>
-  </p>
-  <p class="indent3">
-   Add "Knowledge (Reverie)" skill to the
-character's list of class skills.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|Knowledge
-(nature),Survival,AUTORANK=3</code>
-  </p>
-  <p class="indent3">
-   Add "Knowledge (nature)" and "Survival" skills
-to the character's list of class skills and grant 2 free ranks in
-each.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|TYPE=Craft</code>
-  </p>
-  <p class="indent3">
-   Add one skill from the list of "Craft" type
-skills to the character's list of class skills.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|3|ANY</code>
-  </p>
-  <p class="indent3">
-   Add three skills from the full list of skills to
-the character's list of class skills.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|3|ALL</code>
-  </p>
-  <p class="indent3">
-   Add three skills from the full list of skills to
-the character's list of class skills.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|CROSSCLASSSKILLS</code>
-  </p>
-  <p class="indent3">
-   Add one skill from the list of cross-class
-skills to the character's list of class skills.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|UNTRAINED</code>
-  </p>
-  <p class="indent3">
-   Add one skill from the list of skills that can
-be used untrained to the character's list of class skills.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|3|TRAINED</code>
-  </p>
-  <p class="indent3">
-   Add three skills from the list of skills that
-require training to the character's list of class skills.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|2|EXCLUSIVE</code>
-  </p>
-  <p class="indent3">
-   Add two skills from the list of exclusive skills
-to the character's list of class skills.
-  </p>
-  <p class="indent2">
-   <code>ADD:CLASSSKILLS|2|NONEXCLUSIVE</code>
-  </p>
-  <p class="indent3">
-   Add two skills from the list of non-exclusive
-skills to the character's list of class skills.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="bonusskillpool" name="bonusskillpool">
-    ***
-Added 5.3.9
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   BONUS:SKILLPOOL|NUMBER|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number,
-variable or formula (Number to add to skill pool)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Adds to the number of skill points to the class at the level
-that the bonus appears in
-   </li>
-   <li>
-    PRExxx tags may be used with this tag.
-   </li>
-   <li>
-    This tag is valid in only class and class level lines.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS:SKILLPOOL|NUMBER|1</code>
-  </p>
-  <p class="indent3">
-   Adds one skill point to the skill pool.
-  </p>
-  <p class="indent2">
-   <code>BONUS:SKILLPOOL|NUMBER|1|PREFEAT:1,Scribe
-Scroll</code>
-  </p>
-  <p class="indent3">
-   Adds one skill point to the skill pool if the
-character has the Scribe Scroll Feat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="lststatus">
-   <a id="donotadd" name="donotadd">
-    *** Added
-5.17.x
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   DONOTADD:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   HITDIE
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   SKILLPOINTS
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Suppresses the hit die and/or skill points for
-the associated level.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>5 &lt;tab&gt; DONOTADD:HITDIE</code>
-  </p>
-  <p class="indent3">
-   The character will not receive an additional hit
-die when reaching fifth level.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="exclass" name="exclass">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SPECIALTYKNOWN:x,x,x,x,...
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Adds the numeric value given to the number of
+    specialty school spells that the class can cast per spell level. If
+    not listed, the default value is 0.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>19 &lt;tab&gt;
+        SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1</code>
+</p>
+<p class="indent3">
+    At 19 level the specialist can prepare one
+    additional Zero thru ninth level spell (of the school selected as a
+    specialty) per spell level each day.
+</p>
+<p class="indent2">
+    <code>12 &lt;tab&gt;
+        SPECIALTYKNOWN:1,1,1</code>
+</p>
+<p class="indent3">
+    At 12 level the Paladin can prepare one third
+    level spell per spell level each day, he already had a first and
+    second.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<hr/>
+<h3>
+    <a id="subclasstags" name="subclasstags">
+        Sub-Class
+        Tags
     </a>
-   </strong>
-   EXCLASS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Class
-Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is the class to which all current class
-levels are converted if the class prerequisites are no longer
-met.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EXCLASS:Ex Monk</code>
-  </p>
-  <p class="indent3">
-   If prerequisites are no longer met, the
-character becomes an "Ex Monk".
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="exchangelevel" name="exchangelevel">
-     Tag Name:
+</h3>
+<hr/>
+<p class="status">
+    <a id="allowbaseclass" name="allowbaseclass">
+        ***
+        Updated 5.13.x
     </a>
-   </strong>
-   EXCHANGELEVEL:w|x|y|z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text (Class
-Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Class level, minimum level required in donating class)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Class level, maximum levels donated from class)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Number
-(Class level, lowest that donation can lower donating class level
-to)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent1">
-   Allows the exchange of levels from the current
-class to the specified class.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EXCHANGELEVEL:Ex
-Paladin|11|10|1</code>
-  </p>
-  <p class="indent3">
-   Up to 10 levels of Ex Paladin can be exchanged
-as long as there were at least 11 levels of Ex Paladin
-available.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="hitdie" name="hitdie">
-    *** Updated
-5.13.6
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   HITDIE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (Hit
-Die size)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %+Number
-(Amount added to Hit Die)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %-Number
-(Amount subtracted from Hit Die)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %*Number
-(Amount Hit Die is multiplied by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %/Number
-(Amount Hit Die is divided by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %upNumber
-(Amount Hit Die size is stepped up by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %downNumber
-(Amount Hit Die size is stepped down by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %HupNumber
-(Amount Hit Die size is stepped up by)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   %HdownNumber (Amount Hit Die size is stepped down by)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag can be used on a Class level line, a
-    <a href="#subclasslevel">
-     SUBCLASSLEVEL
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ALLOWBASECLASS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Boolean
+    (Default "YES")
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Determies whether the base class will be presented as a choice
+        when selecting a subclass.
+    </li>
+    <li>
+        Used with classes which have subclasses.
+    </li>
+    <li>
+        This tag is optional.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALLOWBASECLASS:NO</code>
+</p>
+<p class="indent3">
+    The base class cannot be selected, only
+    subclasses are allowed.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line
+</p>
+<hr/>
+<p class="status">
+    <a id="choice" name="choice">
+        *** Updated
+        5.13.x
     </a>
-    line or a
-    <a href="#substitutionlevel">
-     SUBSTITUTIONLEVEL
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    CHOICE:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    DESCRIPTOR
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SCHOOL
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SUBSCHOOL
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text
+    (Descriptor, school, or subschool name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Indicates the specialty, by descriptor, school, or subschool,
+        applicable to the subclass/specialty selected.
+    </li>
+    <li>
+        All descriptors, schools, and subschools used within the loaded
+        lst files are valid choices.
+    </li>
+    <li>
+        <strong>
+            Note:
+        </strong>
+        Due to the diversity of publishers and
+        material we support, we cannot list all descriptors, schools, or
+        subschools available.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SUBCLASS:Illusionist &lt;tab&gt;
+        CHOICE:SCHOOL|Illusion</code>
+</p>
+<p class="indent3">
+    For an Illusionist.
+</p>
+<p class="indent2">
+    <code>SUBCLASS:Abjure &lt;tab&gt;
+        CHOICE:SCHOOL|Abjuration</code>
+</p>
+<p class="indent3">
+    For an Abjurer.
+</p>
+<p class="indent2">
+    <code>SUBCLASS:Diviner &lt;tab&gt;
+        CHOICE:SCHOOL|Divination</code>
+</p>
+<p class="indent3">
+    For a Diviner.
+</p>
+<p class="indent2">
+    <code>SUBCLASS:Savant &lt;tab&gt;
+        CHOICE:SCHOOL|Psychokinesis</code>
+</p>
+<p class="indent3">
+    For a Psychokinesis.
+</p>
+<p class="indent2">
+    <code>SUBCLASS:Shaper &lt;tab&gt;
+        CHOICE:SCHOOL|Illusion.CLEAR</code>
+</p>
+<p class="indent3">
+    Removes the choice for an Illusionist.
+</p>
+<p class="indent2">
+    <code>SUBCLASS:Nomad &lt;tab&gt;
+        CHOICE:SCHOOL|Abjuration.MOD &lt;tab&gt;
+        CHOICE:SCHOOL|Divination</code>
+</p>
+<p class="indent3">
+    Replaces the choice for an Abjurer with
+    Diviner.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Subclass Line.
+</p>
+<p class="indent2">
+</p>
+<hr/>
+<p class="status">
+    <a id="cost" name="cost">
+        *** New 5.3.3
     </a>
-    line to specify a Hit
-Die size which will be applied only that level.
-   </li>
-   <li>
-    The scale used by the functions which raise or lower Hit Die in
-steps is defined by the
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#diesizes">
-     DIESIZES
+</p>
+<p>
+    <strong>
+        Tag Name:
+    </strong>
+    COST:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Indicates the cost (how many prohibited schools
+    must be selected) of this specialty or subclass (0 is default).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>COST:2</code>
+</p>
+<p class="indent3">
+    The subclass has a cost of 2.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Subclass Line (
+    <strong>
+        REQUIRED
+    </strong>
+    to be
+    on each SUBCLASS line).
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="knownspellsfromspecialty" name="knownspellsfromspecialty">
+            Tag Name:
+        </a>
+    </strong>
+    KNOWNSPELLSFROMSPECIALTY:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of spells)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Indicates the number of spells from their
+    specialty this class gets in addition to their regular
+    allotment.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>KNOWNSPELLSFROMSPECIALTY:1</code>
+</p>
+<p class="indent3">
+    The subclass has 1 spell from their specialty in
+    addition to normal.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Subclass Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="prohibitcost" name="prohibitcost">
+        ***
+        Added 5.4
     </a>
-    gameMode tag.
-   </li>
-   <li>
-    The scale used in most gameModes is:
-1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
-   </li>
-   <li>
-    When using the step up function (%upNumber) or step down
-function (%downNumber) the minimum and maximum steps are set by the
-MIN and MAX tags in the DIESIZES tag.
-   </li>
-   <li>
-    The step up function (%Hup) and step down functions (%Hdown)
-will ignore the MIN and MAX settings and use the full range of die
-sizes specified by the DIESIZES tag.
-   </li>
-   <li>
-    Regardless of the number it will never allow a hit die below
-1.
-   </li>
-   <li>
-    HITDIE may also be used in
-    <a href="datafilesraces.html#hitdie">
-     Race
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    PROHIBITCOST:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Integer
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Determines the redeemed value (against COST) of
+    this school if selected as prohibited. Allows a prohibited cost to
+    be set independently of the cost.
+</p>
+<p class="indent2">
+    Optional tag. If PROHIBITCOST is not present in
+    the SUBCLASS line the value will default to COST. A value of 0
+    prevents this school from being prohibited.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>PROHIBITCOST:2</code>
+</p>
+<p class="indent3">
+    The subclass has a prohibited cost of 2.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Subclass Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="subclass" name="subclass">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SUBCLASS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (name
+    of subclass or specialty)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent1">
+    <li>
+        Defines a subclass or specialty choice.
+    </li>
+    <li>
+        First tag of a line between the Class Lines and the level
+        definition lines for the class which can choose these subclasses or
+        specialties.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SUBCLASS:Illusionist</code>
+</p>
+<p class="indent3">
+    The class has Illusionist as a subclass.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Subclass Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="subclasslevel" name="subclasslevel">
+        ***
+        Added 4.3.1
     </a>
-    and
-    <a href="datafilestemplates.html#hitdie">
-     Template
+</p>
+<p>
+    <strong>
+        Tag Name:
+    </strong>
+    SUBCLASSLEVEL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Defines a subclass level at which a particular Special Ability
+        is granted.
+    </li>
+    <li>
+        This tag should MUST be the first tag on a line, and will
+        define a Subclass level dependent ability for the SUBCLASS
+        immediately above it.
+    </li>
+    <li>
+        Located before the Class Level Lines.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SUBCLASSLEVEL:3 &lt;tab&gt;
+        SA:Angelfire</code>
+</p>
+<p class="indent3">
+    would add SA:Angelfire at level 3
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Subclass Line.
+</p>
+<hr/>
+<h3>
+    <a id="substitutionleveltags" name="substitutionleveltags">
+        Substitution Level Tags
     </a>
-    files.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>HITDIE:12</code>
-  </p>
-  <p class="indent3">
-   The character now has a Hit Dice of 12.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%+2</code>
-  </p>
-  <p class="indent3">
-   Adds 2 to the current Hit Dice size.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%-4</code>
-  </p>
-  <p class="indent3">
-   Subtracts 4 from the current Hit Dice size.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%*3</code>
-  </p>
-  <p class="indent3">
-   Multiplies the current Hit Dice size by 3.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%/2</code>
-  </p>
-  <p class="indent3">
-   Divides the current Hit Dice size by 2.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%up2</code>
-  </p>
-  <p class="indent3">
-   Steps up the Hit Dice size by two steps. If the
-class has a Hit Die of d6 it will be stepped up to d10.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%down1</code>
-  </p>
-  <p class="indent3">
-   Steps down the Hit Dice size by one step. If the
-class has a Hit Die of d6 it will be stepped down to d4.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%Hup4</code>
-  </p>
-  <p class="indent3">
-   Steps up the Hit Dice size by four steps. If the
-class has a Hit Die of d6 it will be stepped up to d20.
-  </p>
-  <p class="indent2">
-   <code>HITDIE:%Hdown3</code>
-  </p>
-  <p class="indent3">
-   Steps down the Hit Dice size by three step. If
-the class has a Hit Die of d6 it will be stepped down to d2.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="langbonus" name="langbonus">
-     Tag
-Name:
+</h3>
+<hr/>
+<p class="status">
+    <a id="substitutionclass" name="substitutionclass">
+        *** Added 5.11.0
     </a>
-   </strong>
-   LANGBONUS:x,x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Languages)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TYPE=Text
-(Language Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-('Any')
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   .CLEAR
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a comma (,) delimited list of the
-languages a character can choose from based upon their Intelligence
-stat.
-  </p>
-  <p class="indent2">
-   When using 'Any', no other language designation
-is necessary.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LANGBONUS:Draconic</code>
-  </p>
-  <p class="indent3">
-   The class can choose "Draconic" as one of their
-languages.
-  </p>
-  <p class="indent2">
-   <code>LANGBONUS:Draconic,Elven</code>
-  </p>
-  <p class="indent3">
-   The class can choose "Draconic" or "Elven" as
-one of their languages.
-  </p>
-  <p class="indent2">
-   <code>LANGBONUS:ALL</code>
-  </p>
-  <p class="indent3">
-   The class can choose any language loaded from
-sources as one of their languages.
-  </p>
-  <p class="indent2">
-   <code>LANGBONUS:TYPE=Written</code>
-  </p>
-  <p class="indent3">
-   The class can choose any written language as one
-of their languages.
-  </p>
-  <p class="indent2">
-   <code>LANGBONUS:TYPE=Spoken,Draconic</code>
-  </p>
-  <p class="indent3">
-   The class can choose any written language or
-"Draconic" as one of their languages.
-  </p>
-  <p class="indent2">
-   <code>LANGBONUS:.CLEAR,Dwarven,Gnomish,Orcish</code>
-  </p>
-  <p class="indent3">
-   The class has all bonus languages cleared then
-can choose "Dwarvish", "Gnomish" or "Orcish" as one of their
-languages.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="repeatlevel" name="repeatlevel">
-    *** Added
-5.13.3
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   w:REPEATLEVEL:x|y|z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Number
-(Class level)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   SUBCLASSLEVEL:Number (Class level)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   SUBSTITUTIONLEVEL:Number (Class level)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Level interval)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   SKIP=Number
-(Number of intervals before skipping one interval, use 0 for no
-skip, Optional)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   MAX=Number
-(Maximum level, Optional)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    When included, this tag must be the first tag on the line.
-   </li>
-   <li>
-    All the tags included on the line will be applied again at
-later levels at intervals specified by the tag.
-   </li>
-   <li>
-    The progression begins at the level the REPEATLEVEL tag is
-encountered in.
-   </li>
-   <li>
-    Variable x specifies the interval that the line will be
-repeated, so if you specified 3 at level one the line would repeat
-again at level 4, 7, 10, etc...
-   </li>
-   <li>
-    Variable y specifies the interval with the first interval where
-it will skip one interval, to continue the above example if you
-specified 3 (variable x) at level one and 2 for variable y the line
-would repeat again at level 4, 10, 13, 19, 22, 28, etc...
-   </li>
-   <li>
-    Variable z specifies the level at which the progression
-ends.
-   </li>
-   <li>
-    Variables y and z are optional but if you use z you must also
-use y which can be set to 0 if it is not otherwise used.
-   </li>
-   <li>
-    Any valid class tags may be used on the line to be
-repeated.
-   </li>
-   <li>
-    The REPEATLEVEL tag can be used on the SUBCLASSLEVEL and
-SUBSTITUTIONLEVEL lines.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>5:REPEATLEVEL:5 &lt;tab&gt;
-ADD:FEAT(ABonusFeat)</code>
-  </p>
-  <p class="indent3">
-   Would add at levels 5,10,15,20,... up to the
-MAXLEVEL defined by class.
-  </p>
-  <p class="indent2">
-   <code>1:REPEATLEVEL:1|SKIP=4 &lt;tab&gt;
-ADD:FEAT(ABonusFeat)</code>
-  </p>
-  <p class="indent3">
-   Would add at levels
-1,2,3,4,6,7,8,9,11,12,13,14,... up to the MAXLEVEL defined by
-class.
-  </p>
-  <p class="indent2">
-   <code>2:REPEATLEVEL:2|SKIP=0|MAX=20 &lt;tab&gt;
-ADD:FEAT(ABonusFeat)</code>
-  </p>
-  <p class="indent3">
-   Would add at levels 2,4,6,8,... up to level
-20.
-  </p>
-  <p class="indent1">
-   <strong>
-    Derecated Syntax:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;
-ADD:FEAT(ABonusFeat)</code>
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Lines, Sub-class Level Lines,
-Substitution Level Lines.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="skilllist" name="skilllist">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SUBSTITUTIONCLASS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (name
+    of substitution levels)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Defines a group of substitution levels.
+    </li>
+    <li>
+        First tag of a line between the Class Lines and the level
+        definition lines for the class which can choose these substitution
+        levels.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SUBSTITUTIONCLASS:Orc Ranger</code>
+</p>
+<p class="indent3">
+    The class has Orc Ranger substitution
+    levels.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Substitutionclass Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="substitutionlevel" name="substitutionlevel">
+        *** Added 5.11.0
     </a>
-   </strong>
-   SKILLLIST:x|y|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of choices)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Class
-Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a | (pipe) delimited list of class names
-that the class can choose from to duplicate class skills.
-  </p>
-  <p class="indent1">
-   <strong>
-    Examples:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SKILLLIST:1|Ranger</code>
-  </p>
-  <p class="indent3">
-   The class can choose from Ranger class
-skills.
-  </p>
-  <p class="indent2">
-   <code>SKILLLIST:1|Ranger|Druid</code>
-  </p>
-  <p class="indent3">
-   The class can choose either from Ranger or Druid
-class skills.
-  </p>
-  <p class="indent2">
-   <code>SKILLLIST:2|Ranger|Druid|Barabarian</code>
-  </p>
-  <p class="indent3">
-   The class can choose from 2 of Ranger, Druid or
-Barbarian class skills.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="template" name="template">
-     Tag
-Name:
+</p>
+<p>
+    <strong>
+        Tag Name:
+    </strong>
+    SUBSTITUTIONLEVEL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Defines a substitution level at which a particular Special
+        Ability is granted.
+    </li>
+    <li>
+        This tag MUST be the first tag on a line, and will define a
+        substitution level dependent ability for the SUBSTITUTIONCLASS
+        immediately above it.
+    </li>
+    <li>
+        Located before the Class Level Lines.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; SA:Goblin
+        Slave (Ex)</code>
+</p>
+<p class="indent3">
+    would add SA:Goblin Slave (Ex) at level 4
+    instead of the standard level 4 class abilities.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Substitutionclass Line.
+</p>
+<hr/>
+<h3>
+    <a id="otheroptionaltags" name="otheroptionaltags">
+        Other
+        Optional Tags
     </a>
-   </strong>
-   TEMPLATE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is a pipe-delimited (|) list of templates
-that are granted to the class.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
-  </p>
-  <p class="indent3">
-   The class uses the "Incorporeal", "Undead" and
-"Celestial" templates.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="templateaddchoice" name="templateaddchoice">
-     Tag Name:
+</h3>
+<hr/>
+<p class="status">
+    <a id="classskills" name="classskills">
+        *** Added
+        5.11.11
     </a>
-   </strong>
-   TEMPLATE:ADDCHOICE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a pipe-delimited list of template choices that are
-added to the list presented by the original TEMPLATE:CHOOSE
-tag.
-   </li>
-   <li>
-    When using the
-    <code>TEMPLATE:ADDCOICE</code>
-    tag as part of a
-    <code>.MOD</code>
-    of a class that containes multiple
-    <code>TEMPLATE:CHOOSE</code>
-    tags, all instances of the
-    <code>TEMPLATE:CHOOSE</code>
-    tag will be modified.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
-  </p>
-  <p class="indent3">
-   The class can choose previously defined
-templates plus the "Demihuman" or "Beast" templates.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="templatechoose" name="templatechoose">
-     Tag Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ADD:CLASSSKILLS|x|y,y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number,
+    Variable or Formula (Number of choices granted. Optional)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Name
+    of skill)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    TYPE=Text
+    (Type of skill)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    ALL
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    ANY
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    CROSSCLASSSKILLS
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    UNTRAINED
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    TRAINED
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    EXCLUSIVE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    NONEXCLUSIVE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    AUTORANK=Number (Number of ranks)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Adds a number (x) of skills selected from the presented list
+        (y) to the character's class skills list.
+    </li>
+    <li>
+        If a number (x) of choices allowed is not included, "1" is
+        assumed.
+    </li>
+    <li>
+        The skills list (y) is a comma-delimited (",") list of
+        skills.
+    </li>
+    <li>
+        If
+        <code>ANY</code>
+        or
+        <code>ALL</code>
+        are used, the list of
+        skills to select from will include all skills.
+    </li>
+    <li>
+        If
+        <code>CROSSCLASSSKILLS</code>
+        is used, the list of skills to
+        select from will include all cross-class skills.
+    </li>
+    <li>
+        If
+        <code>UNTRAINED</code>
+        is used, the list of skills to select
+        from will include all untrained skills.
+    </li>
+    <li>
+        If
+        <code>TRAINED</code>
+        is used, the list of skills to select
+        from will include all trained skills.
+    </li>
+    <li>
+        If
+        <code>EXCLUSIVE</code>
+        is used, the list of skills to select
+        from will include all skills exclusive to the associated
+        class.
+    </li>
+    <li>
+        If
+        <code>NONEXCLUSIVE</code>
+        is used, the list of skills to
+        select from will include all skills that are not exclusive to the
+        assiciated class.
+    </li>
+    <li>
+        AUTORANK will assign free ranks to any chosen skills.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|Knowledge
+        (Reverie)</code>
+</p>
+<p class="indent3">
+    Add "Knowledge (Reverie)" skill to the
+    character's list of class skills.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|Knowledge
+        (nature),Survival,AUTORANK=3</code>
+</p>
+<p class="indent3">
+    Add "Knowledge (nature)" and "Survival" skills
+    to the character's list of class skills and grant 2 free ranks in
+    each.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|TYPE=Craft</code>
+</p>
+<p class="indent3">
+    Add one skill from the list of "Craft" type
+    skills to the character's list of class skills.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|3|ANY</code>
+</p>
+<p class="indent3">
+    Add three skills from the full list of skills to
+    the character's list of class skills.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|3|ALL</code>
+</p>
+<p class="indent3">
+    Add three skills from the full list of skills to
+    the character's list of class skills.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|CROSSCLASSSKILLS</code>
+</p>
+<p class="indent3">
+    Add one skill from the list of cross-class
+    skills to the character's list of class skills.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|UNTRAINED</code>
+</p>
+<p class="indent3">
+    Add one skill from the list of skills that can
+    be used untrained to the character's list of class skills.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|3|TRAINED</code>
+</p>
+<p class="indent3">
+    Add three skills from the list of skills that
+    require training to the character's list of class skills.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|2|EXCLUSIVE</code>
+</p>
+<p class="indent3">
+    Add two skills from the list of exclusive skills
+    to the character's list of class skills.
+</p>
+<p class="indent2">
+    <code>ADD:CLASSSKILLS|2|NONEXCLUSIVE</code>
+</p>
+<p class="indent3">
+    Add two skills from the list of non-exclusive
+    skills to the character's list of class skills.
+</p>
+<hr/>
+<p class="status">
+    <a id="bonusskillpool" name="bonusskillpool">
+        ***
+        Added 5.3.9
     </a>
-   </strong>
-   TEMPLATE:CHOOSE:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Template Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Will present a popup window of the choices provided in the
-pipe-delimited (|) list, allowing the user to pick ONE from the
-list.
-   </li>
-   <li>
-    Multiple
-    <code>TEMPLATE:CHOOSE</code>
-    tags can be used in the
-same LST object but PCGen's current Data Standard is to include no
-more that one in each LST object.
-   </li>
-   <li>
-    Though the
-    <code>TEMPLATE:CHOOSE</code>
-    tag is not a gobal tag
-it can be used in the
-    <a href="datafilesability.html#templatechoose">
-     Ability
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    BONUS:SKILLPOOL|NUMBER|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number,
+    variable or formula (Number to add to skill pool)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Adds to the number of skill points to the class at the level
+        that the bonus appears in
+    </li>
+    <li>
+        PRExxx tags may be used with this tag.
+    </li>
+    <li>
+        This tag is valid in only class and class level lines.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS:SKILLPOOL|NUMBER|1</code>
+</p>
+<p class="indent3">
+    Adds one skill point to the skill pool.
+</p>
+<p class="indent2">
+    <code>BONUS:SKILLPOOL|NUMBER|1|PREFEAT:1,Scribe
+        Scroll</code>
+</p>
+<p class="indent3">
+    Adds one skill point to the skill pool if the
+    character has the Scribe Scroll Feat.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="lststatus">
+    <a id="donotadd" name="donotadd">
+        *** Added
+        5.17.x
     </a>
-    ,
-    <a href="datafilesraces.html#templatechoose">
-     Race
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    DONOTADD:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    HITDIE
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    SKILLPOINTS
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Suppresses the hit die and/or skill points for
+    the associated level.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>5 &lt;tab&gt; DONOTADD:HITDIE</code>
+</p>
+<p class="indent3">
+    The character will not receive an additional hit
+    die when reaching fifth level.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="exclass" name="exclass">
+            Tag
+            Name:
+        </a>
+    </strong>
+    EXCLASS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Class
+    Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is the class to which all current class
+    levels are converted if the class prerequisites are no longer
+    met.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EXCLASS:Ex Monk</code>
+</p>
+<p class="indent3">
+    If prerequisites are no longer met, the
+    character becomes an "Ex Monk".
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="exchangelevel" name="exchangelevel">
+            Tag Name:
+        </a>
+    </strong>
+    EXCHANGELEVEL:w|x|y|z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text (Class
+    Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Class level, minimum level required in donating class)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Class level, maximum levels donated from class)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Number
+    (Class level, lowest that donation can lower donating class level
+    to)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent1">
+    Allows the exchange of levels from the current
+    class to the specified class.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EXCHANGELEVEL:Ex
+        Paladin|11|10|1</code>
+</p>
+<p class="indent3">
+    Up to 10 levels of Ex Paladin can be exchanged
+    as long as there were at least 11 levels of Ex Paladin
+    available.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="hitdie" name="hitdie">
+        *** Updated
+        5.13.6
     </a>
-    , and
-    <a href="datafilestemplates.html#templatechoose">
-     Template
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    HITDIE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (Hit
+    Die size)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %+Number
+    (Amount added to Hit Die)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %-Number
+    (Amount subtracted from Hit Die)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %*Number
+    (Amount Hit Die is multiplied by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %/Number
+    (Amount Hit Die is divided by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %upNumber
+    (Amount Hit Die size is stepped up by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %downNumber
+    (Amount Hit Die size is stepped down by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %HupNumber
+    (Amount Hit Die size is stepped up by)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    %HdownNumber (Amount Hit Die size is stepped down by)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag can be used on a Class level line, a
+        <a href="#subclasslevel">
+            SUBCLASSLEVEL
+        </a>
+        line or a
+        <a href="#substitutionlevel">
+            SUBSTITUTIONLEVEL
+        </a>
+        line to specify a Hit
+        Die size which will be applied only that level.
+    </li>
+    <li>
+        The scale used by the functions which raise or lower Hit Die in
+        steps is defined by the
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#diesizes">
+            DIESIZES
+        </a>
+        gameMode tag.
+    </li>
+    <li>
+        The scale used in most gameModes is:
+        1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
+    </li>
+    <li>
+        When using the step up function (%upNumber) or step down
+        function (%downNumber) the minimum and maximum steps are set by the
+        MIN and MAX tags in the DIESIZES tag.
+    </li>
+    <li>
+        The step up function (%Hup) and step down functions (%Hdown)
+        will ignore the MIN and MAX settings and use the full range of die
+        sizes specified by the DIESIZES tag.
+    </li>
+    <li>
+        Regardless of the number it will never allow a hit die below
+        1.
+    </li>
+    <li>
+        HITDIE may also be used in
+        <a href="datafilesraces.html#hitdie">
+            Race
+        </a>
+        and
+        <a href="datafilestemplates.html#hitdie">
+            Template
+        </a>
+        files.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>HITDIE:12</code>
+</p>
+<p class="indent3">
+    The character now has a Hit Dice of 12.
+</p>
+<p class="indent2">
+    <code>HITDIE:%+2</code>
+</p>
+<p class="indent3">
+    Adds 2 to the current Hit Dice size.
+</p>
+<p class="indent2">
+    <code>HITDIE:%-4</code>
+</p>
+<p class="indent3">
+    Subtracts 4 from the current Hit Dice size.
+</p>
+<p class="indent2">
+    <code>HITDIE:%*3</code>
+</p>
+<p class="indent3">
+    Multiplies the current Hit Dice size by 3.
+</p>
+<p class="indent2">
+    <code>HITDIE:%/2</code>
+</p>
+<p class="indent3">
+    Divides the current Hit Dice size by 2.
+</p>
+<p class="indent2">
+    <code>HITDIE:%up2</code>
+</p>
+<p class="indent3">
+    Steps up the Hit Dice size by two steps. If the
+    class has a Hit Die of d6 it will be stepped up to d10.
+</p>
+<p class="indent2">
+    <code>HITDIE:%down1</code>
+</p>
+<p class="indent3">
+    Steps down the Hit Dice size by one step. If the
+    class has a Hit Die of d6 it will be stepped down to d4.
+</p>
+<p class="indent2">
+    <code>HITDIE:%Hup4</code>
+</p>
+<p class="indent3">
+    Steps up the Hit Dice size by four steps. If the
+    class has a Hit Die of d6 it will be stepped up to d20.
+</p>
+<p class="indent2">
+    <code>HITDIE:%Hdown3</code>
+</p>
+<p class="indent3">
+    Steps down the Hit Dice size by three step. If
+    the class has a Hit Die of d6 it will be stepped down to d2.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="langbonus" name="langbonus">
+            Tag
+            Name:
+        </a>
+    </strong>
+    LANGBONUS:x,x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Languages)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TYPE=Text
+    (Language Type)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    ('Any')
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    .CLEAR
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a comma (,) delimited list of the
+    languages a character can choose from based upon their Intelligence
+    stat.
+</p>
+<p class="indent2">
+    When using 'Any', no other language designation
+    is necessary.
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LANGBONUS:Draconic</code>
+</p>
+<p class="indent3">
+    The class can choose "Draconic" as one of their
+    languages.
+</p>
+<p class="indent2">
+    <code>LANGBONUS:Draconic,Elven</code>
+</p>
+<p class="indent3">
+    The class can choose "Draconic" or "Elven" as
+    one of their languages.
+</p>
+<p class="indent2">
+    <code>LANGBONUS:ALL</code>
+</p>
+<p class="indent3">
+    The class can choose any language loaded from
+    sources as one of their languages.
+</p>
+<p class="indent2">
+    <code>LANGBONUS:TYPE=Written</code>
+</p>
+<p class="indent3">
+    The class can choose any written language as one
+    of their languages.
+</p>
+<p class="indent2">
+    <code>LANGBONUS:TYPE=Spoken,Draconic</code>
+</p>
+<p class="indent3">
+    The class can choose any written language or
+    "Draconic" as one of their languages.
+</p>
+<p class="indent2">
+    <code>LANGBONUS:.CLEAR,Dwarven,Gnomish,Orcish</code>
+</p>
+<p class="indent3">
+    The class has all bonus languages cleared then
+    can choose "Dwarvish", "Gnomish" or "Orcish" as one of their
+    languages.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="repeatlevel" name="repeatlevel">
+        *** Added
+        5.13.3
     </a>
-    files.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
-  </p>
-  <p class="indent3">
-   The class can choose either the "Celestial" or
-"Outsider" template.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="visible" name="visible">
-    *** Added
-4.3.9
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   VISIBLE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Boolean
-(YES/NO)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This determines whether the class is shown on the Classes and
-Summary tabs as a valid choice for selection.
-   </li>
-   <li>
-    VISIBLE:NO is used mainly for EXCLASS classes.
-   </li>
-   <li>
-    Default is YES.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>VISIBLE:NO</code>
-  </p>
-  <p class="indent3">
-   The class is not visible for selection on the
-Classes and Summary tabs.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="weaponbonus" name="weaponbonus">
-    ***
-Updated 5.7.12
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   WEAPONBONUS:x|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Weapon Proficiency Name)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   TYPE.Text
-(Weapon Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This is a pipe-delimited (|) list of weapons or weapon types
-that are granted to the class as a choice of ONE of the listed
-weapons.
-   </li>
-   <li>
-    This tag does not use a CHOOSE pop-up to make a selection. You
-nust use the "Lang, Weapon, and SA" dialog found on the "Summary"
-tab.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WEAPONBONUS:Dagger|Staff|Club|Mace|Sword
-(Short)|Shortbow (Composite)</code>
-  </p>
-  <p class="indent3">
-   The class can choose from a weapon proficiency
-from "Dagger", "Staff", "Club", "Mace", "Sword (Short)" or
-"Shortbow (Composite)".
-  </p>
-  <p class="indent2">
-   <code>WEAPONBONUS:TYPE.Simple</code>
-  </p>
-  <p class="indent3">
-   The class receives bonus proficiency in any one
-Simple weapon.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Level Line.
-  </p>
-  <hr/>
-  <h3>
-   <a id="monsterspecifictags" name="monsterspecifictags">
-    Monster
-Specific Tags
-   </a>
-  </h3>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="levelsperfeat" name="levelsperfeat">
-     Tag Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    w:REPEATLEVEL:x|y|z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Number
+    (Class level)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    SUBCLASSLEVEL:Number (Class level)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    SUBSTITUTIONLEVEL:Number (Class level)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Level interval)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    SKIP=Number
+    (Number of intervals before skipping one interval, use 0 for no
+    skip, Optional)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    MAX=Number
+    (Maximum level, Optional)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        When included, this tag must be the first tag on the line.
+    </li>
+    <li>
+        All the tags included on the line will be applied again at
+        later levels at intervals specified by the tag.
+    </li>
+    <li>
+        The progression begins at the level the REPEATLEVEL tag is
+        encountered in.
+    </li>
+    <li>
+        Variable x specifies the interval that the line will be
+        repeated, so if you specified 3 at level one the line would repeat
+        again at level 4, 7, 10, etc...
+    </li>
+    <li>
+        Variable y specifies the interval with the first interval where
+        it will skip one interval, to continue the above example if you
+        specified 3 (variable x) at level one and 2 for variable y the line
+        would repeat again at level 4, 10, 13, 19, 22, 28, etc...
+    </li>
+    <li>
+        Variable z specifies the level at which the progression
+        ends.
+    </li>
+    <li>
+        Variables y and z are optional but if you use z you must also
+        use y which can be set to 0 if it is not otherwise used.
+    </li>
+    <li>
+        Any valid class tags may be used on the line to be
+        repeated.
+    </li>
+    <li>
+        The REPEATLEVEL tag can be used on the SUBCLASSLEVEL and
+        SUBSTITUTIONLEVEL lines.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>5:REPEATLEVEL:5 &lt;tab&gt;
+        ADD:FEAT(ABonusFeat)</code>
+</p>
+<p class="indent3">
+    Would add at levels 5,10,15,20,... up to the
+    MAXLEVEL defined by class.
+</p>
+<p class="indent2">
+    <code>1:REPEATLEVEL:1|SKIP=4 &lt;tab&gt;
+        ADD:FEAT(ABonusFeat)</code>
+</p>
+<p class="indent3">
+    Would add at levels
+    1,2,3,4,6,7,8,9,11,12,13,14,... up to the MAXLEVEL defined by
+    class.
+</p>
+<p class="indent2">
+    <code>2:REPEATLEVEL:2|SKIP=0|MAX=20 &lt;tab&gt;
+        ADD:FEAT(ABonusFeat)</code>
+</p>
+<p class="indent3">
+    Would add at levels 2,4,6,8,... up to level
+    20.
+</p>
+<p class="indent1">
+    <strong>
+        Derecated Syntax:
+    </strong>
+</p>
+<p class="indent2">
+    <code>5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;
+        ADD:FEAT(ABonusFeat)</code>
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Lines, Sub-class Level Lines,
+    Substitution Level Lines.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="skilllist" name="skilllist">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SKILLLIST:x|y|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of choices)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Class
+    Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a | (pipe) delimited list of class names
+    that the class can choose from to duplicate class skills.
+</p>
+<p class="indent1">
+    <strong>
+        Examples:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SKILLLIST:1|Ranger</code>
+</p>
+<p class="indent3">
+    The class can choose from Ranger class
+    skills.
+</p>
+<p class="indent2">
+    <code>SKILLLIST:1|Ranger|Druid</code>
+</p>
+<p class="indent3">
+    The class can choose either from Ranger or Druid
+    class skills.
+</p>
+<p class="indent2">
+    <code>SKILLLIST:2|Ranger|Druid|Barabarian</code>
+</p>
+<p class="indent3">
+    The class can choose from 2 of Ranger, Druid or
+    Barbarian class skills.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="template" name="template">
+            Tag
+            Name:
+        </a>
+    </strong>
+    TEMPLATE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is a pipe-delimited (|) list of templates
+    that are granted to the class.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
+</p>
+<p class="indent3">
+    The class uses the "Incorporeal", "Undead" and
+    "Celestial" templates.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="templateaddchoice" name="templateaddchoice">
+            Tag Name:
+        </a>
+    </strong>
+    TEMPLATE:ADDCHOICE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a pipe-delimited list of template choices that are
+        added to the list presented by the original TEMPLATE:CHOOSE
+        tag.
+    </li>
+    <li>
+        When using the
+        <code>TEMPLATE:ADDCOICE</code>
+        tag as part of a
+        <code>.MOD</code>
+        of a class that containes multiple
+        <code>TEMPLATE:CHOOSE</code>
+        tags, all instances of the
+        <code>TEMPLATE:CHOOSE</code>
+        tag will be modified.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
+</p>
+<p class="indent3">
+    The class can choose previously defined
+    templates plus the "Demihuman" or "Beast" templates.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="templatechoose" name="templatechoose">
+            Tag Name:
+        </a>
+    </strong>
+    TEMPLATE:CHOOSE:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Template Name)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Will present a popup window of the choices provided in the
+        pipe-delimited (|) list, allowing the user to pick ONE from the
+        list.
+    </li>
+    <li>
+        Multiple
+        <code>TEMPLATE:CHOOSE</code>
+        tags can be used in the
+        same LST object but PCGen's current Data Standard is to include no
+        more that one in each LST object.
+    </li>
+    <li>
+        Though the
+        <code>TEMPLATE:CHOOSE</code>
+        tag is not a gobal tag
+        it can be used in the
+        <a href="datafilesability.html#templatechoose">
+            Ability
+        </a>
+        ,
+        <a href="datafilesraces.html#templatechoose">
+            Race
+        </a>
+        , and
+        <a href="datafilestemplates.html#templatechoose">
+            Template
+        </a>
+        files.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
+</p>
+<p class="indent3">
+    The class can choose either the "Celestial" or
+    "Outsider" template.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line
+</p>
+<hr/>
+<p class="status">
+    <a id="visible" name="visible">
+        *** Added
+        4.3.9
     </a>
-   </strong>
-   LEVELSPERFEAT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is the number of levels it takes for a
-monster to gain a new feat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LEVELSPERFEAT:2</code>
-  </p>
-  <p class="indent3">
-   The class gets 1 feat per 2 levels.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="modtoskills" name="modtoskills">
-     Tag Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    VISIBLE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Boolean
+    (YES/NO)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This determines whether the class is shown on the Classes and
+        Summary tabs as a valid choice for selection.
+    </li>
+    <li>
+        VISIBLE:NO is used mainly for EXCLASS classes.
+    </li>
+    <li>
+        Default is YES.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>VISIBLE:NO</code>
+</p>
+<p class="indent3">
+    The class is not visible for selection on the
+    Classes and Summary tabs.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="weaponbonus" name="weaponbonus">
+        ***
+        Updated 5.7.12
     </a>
-   </strong>
-   MODTOSKILLS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   YES or
-NO
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This is either YES or NO for monster types that
-do not get their Intelligence modifiers for skills they get from
-gaining hit dice
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MODTOSKILLS:YES</code>
-  </p>
-  <p class="indent3">
-   The class gets the intelligence modifier for
-skills they get for gaining hit dice.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Default Value:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>YES</code>
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="monnonskillhd" name="monnonskillhd">
-    ***
-Added 5.7.9
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MONNONSKILLHD:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Number of hit dice)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the number of hit dice the monster does
-not get skill points for. This is normally defined by size, so the
-tag is normally seen with a PRESIZE requirement.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MONNONSKILLHD:32|PRESIZEEQ:C</code>
-  </p>
-  <p class="indent3">
-   A colossal monster would not get skill points
-for the first 32 levels/hit dice of this class.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="monskill" name="monskill">
-    *** Added
-5.7.9
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MONSKILL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number or
-Formula (Skill points per level/hit die)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the number of skill points a monster
-gets per level/hit die of this class. It can be either a formula or
-a number.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MONSKILL:6+INT</code>
-  </p>
-  <p class="indent3">
-   Each level the monster will receive 6 + int
-bonus skill points.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="preracetype" name="preracetype">
-    ***
-Updated 5.9.4
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   PRERACETYPE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Race
-Type)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag checks both the
-    <code>TYPE</code>
-    and
-    <code>RACETYPE</code>
-    tags in the original race file entry,
-ignoring any race types aquired outside of the original race file
-entry.
-   </li>
-   <li>
-    For monster classes the race must be of this type or they can
-not take the class.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   Class Line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>PRERACETYPE:Animal</code>
-  </p>
-  <p class="indent3">
-   This class can only be taken by "Animal"
-races.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    WEAPONBONUS:x|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Weapon Proficiency Name)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    TYPE.Text
+    (Weapon Type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This is a pipe-delimited (|) list of weapons or weapon types
+        that are granted to the class as a choice of ONE of the listed
+        weapons.
+    </li>
+    <li>
+        This tag does not use a CHOOSE pop-up to make a selection. You
+        nust use the "Lang, Weapon, and SA" dialog found on the "Summary"
+        tab.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WEAPONBONUS:Dagger|Staff|Club|Mace|Sword
+        (Short)|Shortbow (Composite)</code>
+</p>
+<p class="indent3">
+    The class can choose from a weapon proficiency
+    from "Dagger", "Staff", "Club", "Mace", "Sword (Short)" or
+    "Shortbow (Composite)".
+</p>
+<p class="indent2">
+    <code>WEAPONBONUS:TYPE.Simple</code>
+</p>
+<p class="indent3">
+    The class receives bonus proficiency in any one
+    Simple weapon.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Level Line.
+</p>
+<hr/>
+<h3>
+    <a id="monsterspecifictags" name="monsterspecifictags">
+        Monster
+        Specific Tags
+    </a>
+</h3>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="levelsperfeat" name="levelsperfeat">
+            Tag Name:
+        </a>
+    </strong>
+    LEVELSPERFEAT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is the number of levels it takes for a
+    monster to gain a new feat.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LEVELSPERFEAT:2</code>
+</p>
+<p class="indent3">
+    The class gets 1 feat per 2 levels.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="modtoskills" name="modtoskills">
+            Tag Name:
+        </a>
+    </strong>
+    MODTOSKILLS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    YES or
+    NO
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This is either YES or NO for monster types that
+    do not get their Intelligence modifiers for skills they get from
+    gaining hit dice
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MODTOSKILLS:YES</code>
+</p>
+<p class="indent3">
+    The class gets the intelligence modifier for
+    skills they get for gaining hit dice.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<p class="indent1">
+    <strong>
+        Default Value:
+    </strong>
+</p>
+<p class="indent2">
+    <code>YES</code>
+</p>
+<hr/>
+<p class="status">
+    <a id="monnonskillhd" name="monnonskillhd">
+        ***
+        Added 5.7.9
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MONNONSKILLHD:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Number of hit dice)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the number of hit dice the monster does
+    not get skill points for. This is normally defined by size, so the
+    tag is normally seen with a PRESIZE requirement.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MONNONSKILLHD:32|PRESIZEEQ:C</code>
+</p>
+<p class="indent3">
+    A colossal monster would not get skill points
+    for the first 32 levels/hit dice of this class.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="monskill" name="monskill">
+        *** Added
+        5.7.9
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MONSKILL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number or
+    Formula (Skill points per level/hit die)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the number of skill points a monster
+    gets per level/hit die of this class. It can be either a formula or
+    a number.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MONSKILL:6+INT</code>
+</p>
+<p class="indent3">
+    Each level the monster will receive 6 + int
+    bonus skill points.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="preracetype" name="preracetype">
+        ***
+        Updated 5.9.4
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    PRERACETYPE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Race
+    Type)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag checks both the
+        <code>TYPE</code>
+        and
+        <code>RACETYPE</code>
+        tags in the original race file entry,
+        ignoring any race types aquired outside of the original race file
+        entry.
+    </li>
+    <li>
+        For monster classes the race must be of this type or they can
+        not take the class.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    Class Line.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>PRERACETYPE:Animal</code>
+</p>
+<p class="indent3">
+    This class can only be taken by "Animal"
+    races.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

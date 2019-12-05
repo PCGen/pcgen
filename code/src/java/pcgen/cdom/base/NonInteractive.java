@@ -24,5 +24,5 @@ package pcgen.cdom.base;
  */
 public interface NonInteractive
 {
-	//Intentionally Empty Interface
+    //Intentionally Empty Interface
 }

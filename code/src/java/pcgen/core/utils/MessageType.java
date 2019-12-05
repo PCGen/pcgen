@@ -23,42 +23,50 @@ package pcgen.core.utils;
 public final class MessageType
 {
 
-	/** Singleton instance of Information message */
-	public static final MessageType INFORMATION = new MessageType("Information"); //$NON-NLS-1$
+    /**
+     * Singleton instance of Information message
+     */
+    public static final MessageType INFORMATION = new MessageType("Information"); //$NON-NLS-1$
 
-	/** Singleton instance of Warning message */
-	public static final MessageType WARNING = new MessageType("Warning"); //$NON-NLS-1$
+    /**
+     * Singleton instance of Warning message
+     */
+    public static final MessageType WARNING = new MessageType("Warning"); //$NON-NLS-1$
 
-	/** Singleton instance of Error message */
-	public static final MessageType ERROR = new MessageType("Error"); //$NON-NLS-1$
+    /**
+     * Singleton instance of Error message
+     */
+    public static final MessageType ERROR = new MessageType("Error"); //$NON-NLS-1$
 
-	/** Singleton instance of Question message */
-	public static final MessageType QUESTION = new MessageType("Question"); //$NON-NLS-1$
+    /**
+     * Singleton instance of Question message
+     */
+    public static final MessageType QUESTION = new MessageType("Question"); //$NON-NLS-1$
 
-	private final String name;
+    private final String name;
 
-	private MessageType(final String name)
-	{
-		this.name = name;
-	}
+    private MessageType(final String name)
+    {
+        this.name = name;
+    }
 
-	@Override
-	public String toString()
-	{
-		return name;
-	}
+    @Override
+    public String toString()
+    {
+        return name;
+    }
 
-	// Prevent subclasses from overriding Object.equals
-	@Override
-	public boolean equals(final Object that)
-	{
-		return super.equals(that);
-	}
+    // Prevent subclasses from overriding Object.equals
+    @Override
+    public boolean equals(final Object that)
+    {
+        return super.equals(that);
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return super.hashCode();
+    }
 
 }

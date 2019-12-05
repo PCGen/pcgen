@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -32,43 +32,43 @@ import pcgen.rules.persistence.token.ParseResult;
 public class LevelToken extends AbstractNonEmptyToken<KitClass> implements CDOMPrimaryToken<KitClass>
 {
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "LEVEL";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "LEVEL";
+    }
 
-	@Override
-	public Class<KitClass> getTokenClass()
-	{
-		return KitClass.class;
-	}
+    @Override
+    public Class<KitClass> getTokenClass()
+    {
+        return KitClass.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass, String value)
-	{
-		Formula formula = FormulaFactory.getFormulaFor(value);
-		if (!formula.isValid())
-		{
-			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
-		}
-		kitClass.setLevel(formula);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass, String value)
+    {
+        Formula formula = FormulaFactory.getFormulaFor(value);
+        if (!formula.isValid())
+        {
+            return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
+        }
+        kitClass.setLevel(formula);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitClass kitClass)
-	{
-		Formula f = kitClass.getLevel();
-		if (f == null)
-		{
-			return null;
-		}
-		return new String[]{f.toString()};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitClass kitClass)
+    {
+        Formula f = kitClass.getLevel();
+        if (f == null)
+        {
+            return null;
+        }
+        return new String[]{f.toString()};
+    }
 }

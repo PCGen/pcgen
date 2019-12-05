@@ -33,55 +33,57 @@ import pcgen.io.exporttoken.SpellListToken;
 public class SpellListCastToken extends SpellListToken
 {
 
-	/** Token name */
-	public static final String TOKENNAME = "SPELLLISTCAST";
+    /**
+     * Token name
+     */
+    public static final String TOKENNAME = "SPELLLISTCAST";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		StringBuilder retValue = new StringBuilder();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_CAST);
+        SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_CAST);
 
-		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
+        final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
-		if (aObject != null)
-		{
-			retValue.append(getCastNum(aObject, params.getLevel(), pc));
-		}
+        if (aObject != null)
+        {
+            retValue.append(getCastNum(aObject, params.getLevel(), pc));
+        }
 
-		return retValue.toString();
-	}
+        return retValue.toString();
+    }
 
-	/**
-	 * Retrieve the number of spells the pc may cast of the specified
-	 * level of the supplied class, including bonus spells. eg 4+1
-	 *
-	 * @param aObject The class
-	 * @param level The spell level
-	 * @param pc The character being queried
-	 * @return The number of spells allowed to be cast.
-	 */
-	private String getCastNum(CDOMObject aObject, int level, PlayerCharacter pc)
-	{
-		String castNum = "--";
+    /**
+     * Retrieve the number of spells the pc may cast of the specified
+     * level of the supplied class, including bonus spells. eg 4+1
+     *
+     * @param aObject The class
+     * @param level   The spell level
+     * @param pc      The character being queried
+     * @return The number of spells allowed to be cast.
+     */
+    private String getCastNum(CDOMObject aObject, int level, PlayerCharacter pc)
+    {
+        String castNum = "--";
 
-		if (aObject instanceof PCClass)
-		{
-			PCClass aClass = (PCClass) aObject;
-			//			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc))
-			castNum = String.valueOf(
-				pc.getSpellSupport(aClass).getCastForLevel(level, Globals.getDefaultSpellBook(), true, false, pc))
-				+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, Globals.getDefaultSpellBook(), pc);
-		}
+        if (aObject instanceof PCClass)
+        {
+            PCClass aClass = (PCClass) aObject;
+            //			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc))
+            castNum = String.valueOf(
+                    pc.getSpellSupport(aClass).getCastForLevel(level, Globals.getDefaultSpellBook(), true, false, pc))
+                    + pc.getSpellSupport(aClass).getBonusCastForLevelString(level, Globals.getDefaultSpellBook(), pc);
+        }
 
-		return castNum;
-	}
+        return castNum;
+    }
 
 }

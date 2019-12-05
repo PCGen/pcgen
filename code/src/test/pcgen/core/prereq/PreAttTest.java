@@ -42,55 +42,55 @@ import org.junit.jupiter.api.Test;
  */
 public class PreAttTest extends AbstractCharacterTestCase
 {
-	PCClass myClass = new PCClass();
+    PCClass myClass = new PCClass();
 
-	/**
-	 * Test the PREATT code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testAtt() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		LoadContext context = Globals.getContext();
+    /**
+     * Test the PREATT code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testAtt() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        LoadContext context = Globals.getContext();
 
-		character.incrementClassLevel(1, myClass, true);
+        character.incrementClassLevel(1, myClass, true);
 
-		character.calcActiveBonuses();
+        character.calcActiveBonuses();
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREATT:6");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREATT:6");
 
-		assertTrue("Character's BAB should be 6", PrereqHandler.passes(prereq,
-			character, null));
+        assertTrue("Character's BAB should be 6", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREATT:7");
+        prereq = factory.parse("PREATT:7");
 
-		assertFalse("Character's BAB should be less than 7", PrereqHandler
-			.passes(prereq, character, null));
+        assertFalse("Character's BAB should be less than 7", PrereqHandler
+                .passes(prereq, character, null));
 
-		final BonusObj toHitBonus = Bonus.newBonus(context, "COMBAT|TOHIT|1");
-		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, toHitBonus);
-		character.calcActiveBonuses();
+        final BonusObj toHitBonus = Bonus.newBonus(context, "COMBAT|TOHIT|1");
+        myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, toHitBonus);
+        character.calcActiveBonuses();
 
-		assertFalse("Character's BAB should be less than 7", PrereqHandler
-			.passes(prereq, character, null));
-	}
+        assertFalse("Character's BAB should be less than 7", PrereqHandler
+                .passes(prereq, character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		LoadContext context = Globals.getContext();
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        LoadContext context = Globals.getContext();
 
-		myClass.setName("My Class");
-		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BASEAB|CL+5");
-		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
-		Globals.getContext().getReferenceContext().importObject(myClass);
-	}
+        myClass.setName("My Class");
+        myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
+        final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BASEAB|CL+5");
+        myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
+        Globals.getContext().getReferenceContext().importObject(myClass);
+    }
 }

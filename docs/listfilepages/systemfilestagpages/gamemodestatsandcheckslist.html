@@ -1,1029 +1,1029 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
 
-                Description:
-                Provides information on the use of PCGen Game Mode: Stats &amp; Checks List File.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Game Mode: statsandchecks.lst
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Game Mode: statsandchecks.lst
-  </h1>
-  <p class="indent0">
-   This page is broken down ito four sections:
-   <a href="#stats">
-    STATNAME Line
-   </a>
-   ,
-   <a href="#checks">
-    CHECKNAME
-Line
-   </a>
-   ,
-   <a href="#spells">
-    BONUSSPELLLEVEL Line
-   </a>
-   , and
-   <a href="#alignment">
-    ALIGNMENTNAME Line
-   </a>
-   .
-  </p>
-  <hr/>
-  <h2>
-   <a id="stats" name="stats">
-    STATNAME Line
-   </a>
-  </h2>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="statname" name="statname">
-     Tag
-Name:
+               Description:
+               Provides information on the use of PCGen Game Mode: Stats &amp; Checks List File.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Game Mode: statsandchecks.lst
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Game Mode: statsandchecks.lst
+</h1>
+<p class="indent0">
+    This page is broken down ito four sections:
+    <a href="#stats">
+        STATNAME Line
     </a>
-   </strong>
-   STATNAME:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-full name of the stat).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Used to create stats in the program for the
-character to build upon.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STATNAME:Awareness</code>
-  </p>
-  <p class="indent3">
-   Creates a Stat named "Awareness".
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="abb" name="abb">
-     Tag
-Name:
+    ,
+    <a href="#checks">
+        CHECKNAME
+        Line
     </a>
-   </strong>
-   ABB:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-abbreviation for the stat - usually three letters,
-capitalized).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the three letter Abbreviation for a
-statistic.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ABB:AWR</code>
-  </p>
-  <p class="indent3">
-   Example abbreviation of above example of
-"Awareness" stat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="abilityaddspelllevel" name="abilityaddspelllevel">
-    *** New 5.11.13
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ABILITY:ADDSPELLLEVEL|x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(with + or -)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Set the increase in spell level that this
-metamagic feat costs to apply.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ABILITY:ADDSPELLLEVEL|1</code>
-  </p>
-  <p class="indent3">
-   Adds 1 to the spell level.
-  </p>
-  <p class="indent2">
-   <code>ABILITY:ADDSPELLLEVEL|+2</code>
-  </p>
-  <p class="indent3">
-   Adds 2 to the spell level.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="bonus" name="bonus">
-     Tag
-Name:
+    ,
+    <a href="#spells">
+        BONUSSPELLLEVEL Line
     </a>
-   </strong>
-   BONUS:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (as
-per
-   <a href="../globalfilestagpages/globalfilesbonus.html">
-    global
-bonus tags
-   </a>
-   ).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Bonuses may be applied to stats as would be
-appropriate.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS:COMBAT|AC|1|TYPE=NaturalArmor</code>
-  </p>
-  <p class="indent3">
-   Bonus of +1 to Natural Armor.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="bonushp" name="bonushp">
-     Tag
-Name:
+    , and
+    <a href="#alignment">
+        ALIGNMENTNAME Line
     </a>
-   </strong>
-   BONUS:HP|x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (A
-defined HP type).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Formula
-(Amount to add to the HP type).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Sets a bonus to the HP type specified.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS:HP|WOUNDPOINTS|CON</code>
-  </p>
-  <p class="indent3">
-   Adds a characters CON bonus to the WOUNDPOINTS
-total at each level.
-  </p>
-  <p class="indent2">
-   <code>BONUS:HP|ALTHP|CONSCORE</code>
-  </p>
-  <p class="indent3">
-   Adds a characters CONSCORE to the ALTHP total as
-defined in miscinfo.lst.
-  </p>
-  <p class="indent2">
-   <code>BONUS:HP|BONUS|CON</code>
-  </p>
-  <p class="indent3">
-   Adds a characters CON bonus to the Primary HP
-total as defined in miscinfo.lst.
-  </p>
-  <p class="indent2">
-   <code>BONUS:HP|CON</code>
-  </p>
-  <p class="indent3">
-   Adds a characters CON bonus to the Primary HP
-total as defined in miscinfo.lst.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="lststatus">
-   <a id="bonuslang" name="bonuslang">
-    *** New
-5.10.1
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   BONUS:LANG|x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   defined
-variable
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number,
-variable or formula
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Adds to defined varaibles
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS:LANG|BONUS|INT</code>
-  </p>
-  <p class="indent3">
-   Adds the value of INT modifier to total the
-defined variable and language skill, as defined in miscinfo.lst and
-else where.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="bonusmodskillpoints" name="bonusmodskillpoints">
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   BONUS:MODSKILLPOINTS|x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   defined
-variable
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number,
-variable or formula
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Adds to defined variables
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS:MODSKILLPOINTS|NUMBER|INT</code>
-  </p>
-  <p class="indent3">
-   Adds the value of INT modifier to total the
-defined variable and skill points, as defined in miscinfo.lst and
-else where.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="definemaxlevelstat" name="definemaxlevelstat">
-     Tag Name:
+    .
+</p>
+<hr/>
+<h2>
+    <a id="stats" name="stats">
+        STATNAME Line
     </a>
-   </strong>
-   DEFINE:MAXLEVELSTAT:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (stat
-abbreviation).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   formula
-(formula that gives the desired maximum).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Determines the maximum level of spell/ability
-you can use based on the referenced stat.
-  </p>
-  <p class="indent2">
-   The only known hardcode VAR with a = in it.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>DEFINE:MAXLEVELSTAT:WIS|WISSCORE-10</code>
-  </p>
-  <p class="indent3">
-   Maximum spell level is Wisdom -10
-(&lt;ABB&gt;SCORE is the variable name for the stat value).
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="statmod" name="statmod">
-    *** Updated
-5.10.1
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   STATMOD:x or
-if(x,y,z)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Formula
-(Any valid formula).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Formula
-(Any valid formula).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Formula
-(Any valid formula).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the formula used to determine a stats
-modifiers.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STATMOD:floor(SCORE/2)-5</code>
-  </p>
-  <p class="indent3">
-   Would calculate a stat modification as STAT
-divided by 2, round down, minus 5 (SCORE is the variable name for
-the stat value). Note: the formula can only contain 1 SCORE
-variable.
-  </p>
-  <p class="indent2">
-   <code>STATMOD:if(CL&lt;10,1,2)</code>
-  </p>
-  <p class="indent3">
-   Would compare CL to 10 and return 1 or 2 as
-required.
-  </p>
-  <p class="indent2">
-   <code>STATMOD:if((CL&gt;5)||(TL&gt;5),2,-4)</code>
-  </p>
-  <p class="indent3">
-   Asks if Class Level or Total Level is greater
-than 5 then returns 2 or else returns -4.
-  </p>
-  <p class="indent2">
-   <code>STATMOD:if(STR&gt;DEX,STR,DEX)</code>
-  </p>
-  <p class="indent3">
-   Asks if STR is greater than DEX then returns STR
-or else returns DEX
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="statrange" name="statrange">
-     Tag
-Name:
-    </a>
-   </strong>
-   STATRANGE:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Defines the bottom of the stat range).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Defines the top of the stat range).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the available range for a particular
-stat.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STATRANGE:-100|100</code>
-  </p>
-  <p class="indent3">
-   Would allow a valid range for a stat of between
-negative 100 and positive 100.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   STATNAME Line.
-  </p>
-  <hr/>
-  <p class="lstdep">
-   <strong>
-    <a id="penaltyvar" name="penaltyvar">
-     ***
-deprecated 6.03 - Remove for 6.6
-    </a>
-   </strong>
-  </p>
-  <p class="indent0">
-   <strong>
+</h2>
+<hr/>
+<p class="indent0">
     <strong>
-     Tag Name:
+        <a id="statname" name="statname">
+            Tag
+            Name:
+        </a>
     </strong>
-    PENALTYVAR
-   </strong>
-  </p>
-  <hr/>
-  <h2>
-   <a id="checks" name="checks">
-    CHECKNAME Line
-   </a>
-  </h2>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="checkname" name="checkname">
-     Tag
-Name:
+    STATNAME:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    full name of the stat).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Used to create stats in the program for the
+    character to build upon.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STATNAME:Awareness</code>
+</p>
+<p class="indent3">
+    Creates a Stat named "Awareness".
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="abb" name="abb">
+            Tag
+            Name:
+        </a>
+    </strong>
+    ABB:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    abbreviation for the stat - usually three letters,
+    capitalized).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the three letter Abbreviation for a
+    statistic.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ABB:AWR</code>
+</p>
+<p class="indent3">
+    Example abbreviation of above example of
+    "Awareness" stat.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="abilityaddspelllevel" name="abilityaddspelllevel">
+        *** New 5.11.13
     </a>
-   </strong>
-   CHECKNAME:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-name for the check you wish to use).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines checks to later be used for saving
-throws.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CHECKNAME:Fortitude</code>
-  </p>
-  <p class="indent3">
-   Defines "Fortitude" as a valid check.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   CHECKNAME Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="bonuschecks" name="bonuschecks">
-     Tag Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ABILITY:ADDSPELLLEVEL|x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (with + or -)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Set the increase in spell level that this
+    metamagic feat costs to apply.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ABILITY:ADDSPELLLEVEL|1</code>
+</p>
+<p class="indent3">
+    Adds 1 to the spell level.
+</p>
+<p class="indent2">
+    <code>ABILITY:ADDSPELLLEVEL|+2</code>
+</p>
+<p class="indent3">
+    Adds 2 to the spell level.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="bonus" name="bonus">
+            Tag
+            Name:
+        </a>
+    </strong>
+    BONUS:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (as
+    per
+    <a href="../globalfilestagpages/globalfilesbonus.html">
+        global
+        bonus tags
     </a>
-   </strong>
-   BONUS:CHECKS|x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-name to be used for display on the character sheet - should be all
-caps).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (The
-three letter abbreviation of the stat that this save is based on -
-should be all caps).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines what stat gives a bonus to what check
-(BONUS:CHECKS is the ONLY statement that will work on CHECKNAME
-lines, besides the CHECKNAME tag itself).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUS:CHECKS|FORTITUDE|CON</code>
-  </p>
-  <p class="indent3">
-   Defines that "Constitution" gives a bonus to
-"Fortitude" checks.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   CHECKNAME Line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Complete Line Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>CHECKNAME:Fortitude
-BONUS:CHECKS|FORTITUDE|CON</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="spells" name="spells">
-    BONUSSPELLLEVEL Line
-   </a>
-  </h2>
-  <p>
-   This section is used to implement Bonus Spells by ability or
-level.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="bonusspelllevel" name="bonusspelllevel">
-     Tag Name:
+    ).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Bonuses may be applied to stats as would be
+    appropriate.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS:COMBAT|AC|1|TYPE=NaturalArmor</code>
+</p>
+<p class="indent3">
+    Bonus of +1 to Natural Armor.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="bonushp" name="bonushp">
+            Tag
+            Name:
+        </a>
+    </strong>
+    BONUS:HP|x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (A
+    defined HP type).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Formula
+    (Amount to add to the HP type).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Sets a bonus to the HP type specified.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS:HP|WOUNDPOINTS|CON</code>
+</p>
+<p class="indent3">
+    Adds a characters CON bonus to the WOUNDPOINTS
+    total at each level.
+</p>
+<p class="indent2">
+    <code>BONUS:HP|ALTHP|CONSCORE</code>
+</p>
+<p class="indent3">
+    Adds a characters CONSCORE to the ALTHP total as
+    defined in miscinfo.lst.
+</p>
+<p class="indent2">
+    <code>BONUS:HP|BONUS|CON</code>
+</p>
+<p class="indent3">
+    Adds a characters CON bonus to the Primary HP
+    total as defined in miscinfo.lst.
+</p>
+<p class="indent2">
+    <code>BONUS:HP|CON</code>
+</p>
+<p class="indent3">
+    Adds a characters CON bonus to the Primary HP
+    total as defined in miscinfo.lst.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="lststatus">
+    <a id="bonuslang" name="bonuslang">
+        *** New
+        5.10.1
     </a>
-   </strong>
-   BONUSSPELLLEVEL:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-level you are defining bonus spells for).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the level of bonus spells.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUSSPELLLEVEL:1</code>
-  </p>
-  <p class="indent3">
-   Defines that bonus spells are for level 1.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   BONUSSPELLLEVEL Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="basestatscore" name="basestatscore">
-     Tag Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    BONUS:LANG|x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    defined
+    variable
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number,
+    variable or formula
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Adds to defined varaibles
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS:LANG|BONUS|INT</code>
+</p>
+<p class="indent3">
+    Adds the value of INT modifier to total the
+    defined variable and language skill, as defined in miscinfo.lst and
+    else where.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="bonusmodskillpoints" name="bonusmodskillpoints">
     </a>
-   </strong>
-   BASESTATSCORE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-necessary minimum spellcasting ability score to receive the
-bonus).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Set's the minimum spellcasting ability score
-necessary to receive this bonus spell slot. (Spellcasting ability
-score is WIS for Sorcerers, INT for Wizards, etc.).
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BASESTATSCORE:12</code>
-  </p>
-  <p class="indent3">
-   Defines that a base stat of 12 is required for
-bonus spells.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   BONUSSPELLLEVEL Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="statrange2" name="statrange2">
-     Tag
-Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    BONUS:MODSKILLPOINTS|x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    defined
+    variable
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number,
+    variable or formula
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Adds to defined variables
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS:MODSKILLPOINTS|NUMBER|INT</code>
+</p>
+<p class="indent3">
+    Adds the value of INT modifier to total the
+    defined variable and skill points, as defined in miscinfo.lst and
+    else where.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="definemaxlevelstat" name="definemaxlevelstat">
+            Tag Name:
+        </a>
+    </strong>
+    DEFINE:MAXLEVELSTAT:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (stat
+    abbreviation).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    formula
+    (formula that gives the desired maximum).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Determines the maximum level of spell/ability
+    you can use based on the referenced stat.
+</p>
+<p class="indent2">
+    The only known hardcode VAR with a = in it.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>DEFINE:MAXLEVELSTAT:WIS|WISSCORE-10</code>
+</p>
+<p class="indent3">
+    Maximum spell level is Wisdom -10
+    (&lt;ABB&gt;SCORE is the variable name for the stat value).
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="status">
+    <a id="statmod" name="statmod">
+        *** Updated
+        5.10.1
     </a>
-   </strong>
-   STATRANGE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-increment in the score necessary to get another bonus spell slot of
-the indicated level).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Indicates the increment in the spellcasting
-ability score necessary for the bonus spell granted on this line to
-be given again.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>STATRANGE:8</code>
-  </p>
-  <p class="indent3">
-   Base stat score +8 is required before another
-spell is given.
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   BONUSSPELLLEVEL Line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Complete Line Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>BONUSSPELLLEVEL:1 BASESTATSCORE:12
-STATRANGE:8</code>
-  </p>
-  <hr/>
-  <h2>
-   <a id="alignment" name="alignment">
-    ALIGNMENTNAME Line
-   </a>
-  </h2>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="alignmentname" name="alignmentname">
-     Tag Name:
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    STATMOD:x or
+    if(x,y,z)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Formula
+    (Any valid formula).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Formula
+    (Any valid formula).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Formula
+    (Any valid formula).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the formula used to determine a stats
+    modifiers.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STATMOD:floor(SCORE/2)-5</code>
+</p>
+<p class="indent3">
+    Would calculate a stat modification as STAT
+    divided by 2, round down, minus 5 (SCORE is the variable name for
+    the stat value). Note: the formula can only contain 1 SCORE
+    variable.
+</p>
+<p class="indent2">
+    <code>STATMOD:if(CL&lt;10,1,2)</code>
+</p>
+<p class="indent3">
+    Would compare CL to 10 and return 1 or 2 as
+    required.
+</p>
+<p class="indent2">
+    <code>STATMOD:if((CL&gt;5)||(TL&gt;5),2,-4)</code>
+</p>
+<p class="indent3">
+    Asks if Class Level or Total Level is greater
+    than 5 then returns 2 or else returns -4.
+</p>
+<p class="indent2">
+    <code>STATMOD:if(STR&gt;DEX,STR,DEX)</code>
+</p>
+<p class="indent3">
+    Asks if STR is greater than DEX then returns STR
+    or else returns DEX
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="statrange" name="statrange">
+            Tag
+            Name:
+        </a>
+    </strong>
+    STATRANGE:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Defines the bottom of the stat range).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Defines the top of the stat range).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the available range for a particular
+    stat.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STATRANGE:-100|100</code>
+</p>
+<p class="indent3">
+    Would allow a valid range for a stat of between
+    negative 100 and positive 100.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    STATNAME Line.
+</p>
+<hr/>
+<p class="lstdep">
+    <strong>
+        <a id="penaltyvar" name="penaltyvar">
+            ***
+            deprecated 6.03 - Remove for 6.6
+        </a>
+    </strong>
+</p>
+<p class="indent0">
+    <strong>
+        <strong>
+            Tag Name:
+        </strong>
+        PENALTYVAR
+    </strong>
+</p>
+<hr/>
+<h2>
+    <a id="checks" name="checks">
+        CHECKNAME Line
     </a>
-   </strong>
-   ALIGNMENTNAME:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-name of the alignment).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Used to define the various alignments the
-program understands. New custom alignments, or changes to existing
-alignments are all possible.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALIGNMENTNAME: Lawful Good</code>
-  </p>
-  <p class="indent3">
-   Defines the alignment "Lawful Good".
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   ALIGNMENTNAME Line.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="abb2" name="abb2">
-     Tag
-Name:
+</h2>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="checkname" name="checkname">
+            Tag
+            Name:
+        </a>
+    </strong>
+    CHECKNAME:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    name for the check you wish to use).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines checks to later be used for saving
+    throws.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CHECKNAME:Fortitude</code>
+</p>
+<p class="indent3">
+    Defines "Fortitude" as a valid check.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    CHECKNAME Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="bonuschecks" name="bonuschecks">
+            Tag Name:
+        </a>
+    </strong>
+    BONUS:CHECKS|x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    name to be used for display on the character sheet - should be all
+    caps).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (The
+    three letter abbreviation of the stat that this save is based on -
+    should be all caps).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines what stat gives a bonus to what check
+    (BONUS:CHECKS is the ONLY statement that will work on CHECKNAME
+    lines, besides the CHECKNAME tag itself).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUS:CHECKS|FORTITUDE|CON</code>
+</p>
+<p class="indent3">
+    Defines that "Constitution" gives a bonus to
+    "Fortitude" checks.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    CHECKNAME Line.
+</p>
+<p class="indent1">
+    <strong>
+        Complete Line Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>CHECKNAME:Fortitude
+        BONUS:CHECKS|FORTITUDE|CON</code>
+</p>
+<hr/>
+<h2>
+    <a id="spells" name="spells">
+        BONUSSPELLLEVEL Line
     </a>
-   </strong>
-   ABB:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (The
-abbreviation for the alignment - usually 2 letters,
-capitalized).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Used to define the abbreviation displayed for
-each of the various defined alignments. The abbreviation does not
-necessarily have to be 2 letters, it can be longer.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ABB:LG</code>
-  </p>
-  <p class="indent3">
-   Defines the abbreviated alignment as "LG".
-  </p>
-  <p class="indent1">
-   <strong>
-    Where it is used:
-   </strong>
-  </p>
-  <p class="indent2">
-   ALIGNMENTNAME Line.
-  </p>
-  <p class="indent1">
-   <strong>
-    Complete Line Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ALIGNMENTNAME: Lawful Good
-ABB:LG</code>
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+</h2>
+<p>
+    This section is used to implement Bonus Spells by ability or
+    level.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="bonusspelllevel" name="bonusspelllevel">
+            Tag Name:
+        </a>
+    </strong>
+    BONUSSPELLLEVEL:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    level you are defining bonus spells for).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the level of bonus spells.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUSSPELLLEVEL:1</code>
+</p>
+<p class="indent3">
+    Defines that bonus spells are for level 1.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    BONUSSPELLLEVEL Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="basestatscore" name="basestatscore">
+            Tag Name:
+        </a>
+    </strong>
+    BASESTATSCORE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    necessary minimum spellcasting ability score to receive the
+    bonus).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Set's the minimum spellcasting ability score
+    necessary to receive this bonus spell slot. (Spellcasting ability
+    score is WIS for Sorcerers, INT for Wizards, etc.).
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BASESTATSCORE:12</code>
+</p>
+<p class="indent3">
+    Defines that a base stat of 12 is required for
+    bonus spells.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    BONUSSPELLLEVEL Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="statrange2" name="statrange2">
+            Tag
+            Name:
+        </a>
+    </strong>
+    STATRANGE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    increment in the score necessary to get another bonus spell slot of
+    the indicated level).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Indicates the increment in the spellcasting
+    ability score necessary for the bonus spell granted on this line to
+    be given again.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>STATRANGE:8</code>
+</p>
+<p class="indent3">
+    Base stat score +8 is required before another
+    spell is given.
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    BONUSSPELLLEVEL Line.
+</p>
+<p class="indent1">
+    <strong>
+        Complete Line Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>BONUSSPELLLEVEL:1 BASESTATSCORE:12
+        STATRANGE:8</code>
+</p>
+<hr/>
+<h2>
+    <a id="alignment" name="alignment">
+        ALIGNMENTNAME Line
+    </a>
+</h2>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="alignmentname" name="alignmentname">
+            Tag Name:
+        </a>
+    </strong>
+    ALIGNMENTNAME:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    name of the alignment).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Used to define the various alignments the
+    program understands. New custom alignments, or changes to existing
+    alignments are all possible.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALIGNMENTNAME: Lawful Good</code>
+</p>
+<p class="indent3">
+    Defines the alignment "Lawful Good".
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    ALIGNMENTNAME Line.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="abb2" name="abb2">
+            Tag
+            Name:
+        </a>
+    </strong>
+    ABB:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (The
+    abbreviation for the alignment - usually 2 letters,
+    capitalized).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Used to define the abbreviation displayed for
+    each of the various defined alignments. The abbreviation does not
+    necessarily have to be 2 letters, it can be longer.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ABB:LG</code>
+</p>
+<p class="indent3">
+    Defines the abbreviated alignment as "LG".
+</p>
+<p class="indent1">
+    <strong>
+        Where it is used:
+    </strong>
+</p>
+<p class="indent2">
+    ALIGNMENTNAME Line.
+</p>
+<p class="indent1">
+    <strong>
+        Complete Line Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ALIGNMENTNAME: Lawful Good
+        ABB:LG</code>
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

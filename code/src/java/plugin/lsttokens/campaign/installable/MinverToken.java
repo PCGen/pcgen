@@ -32,22 +32,22 @@ import pcgen.util.Logging;
 public class MinverToken implements InstallLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "MINVER";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "MINVER";
+    }
 
-	@Override
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
-	{
-		if (!(campaign instanceof InstallableCampaign))
-		{
-			Logging.log(Logging.ERROR, "Campaign " + campaign.getDisplayName() + " is not an installable campaign.");
-			return false;
-		}
-		InstallableCampaign ic = (InstallableCampaign) campaign;
-		ic.put(StringKey.MINVER, value != null ? value.trim() : "");
-		return true;
-	}
+    @Override
+    public boolean parse(Campaign campaign, String value, URI sourceUri)
+    {
+        if (!(campaign instanceof InstallableCampaign))
+        {
+            Logging.log(Logging.ERROR, "Campaign " + campaign.getDisplayName() + " is not an installable campaign.");
+            return false;
+        }
+        InstallableCampaign ic = (InstallableCampaign) campaign;
+        ic.put(StringKey.MINVER, value != null ? value.trim() : "");
+        return true;
+    }
 }

@@ -1,6 +1,6 @@
 /*
  * (c) Copyright 2019 Thomas Parker thpr@users.sourceforge.net
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
  * either version 2.1 of the License, or (at your option) any later version.
@@ -28,36 +28,33 @@ import pcgen.rules.context.VariableContext;
  */
 public class FormatSupport
 {
-	/**
-	 * Add an object called "None" as the default for the given format.
-	 * 
-	 * @param context
-	 *            The LoadContext in which the default should be set
-	 * @param fmtManager
-	 *            The FormatManager for the format to be set
-	 */
-	public static <T> void addNoneAsDefault(LoadContext context,
-		FormatManager<T> fmtManager)
-	{
-		T noneObject = fmtManager.convert("NONE");
-		Objects.requireNonNull(noneObject,
-			"NONE was never constructed for " + fmtManager.getIdentifierType());
-		context.getVariableContext().addDefault(fmtManager, () -> noneObject);
-	}
+    /**
+     * Add an object called "None" as the default for the given format.
+     *
+     * @param context    The LoadContext in which the default should be set
+     * @param fmtManager The FormatManager for the format to be set
+     */
+    public static <T> void addNoneAsDefault(LoadContext context,
+            FormatManager<T> fmtManager)
+    {
+        T noneObject = fmtManager.convert("NONE");
+        Objects.requireNonNull(noneObject,
+                "NONE was never constructed for " + fmtManager.getIdentifierType());
+        context.getVariableContext().addDefault(fmtManager, () -> noneObject);
+    }
 
-	/**
-	 * Adds the "basic" defaults so that tests can be safely run.
-	 * 
-	 * @param context
-	 *            The LoadContext in which the defaults should be set
-	 */
-	public static void addBasicDefaults(LoadContext context)
-	{
-		VariableContext varContext = context.getVariableContext();
-		varContext.addDefault(FormatUtilities.ORDEREDPAIR_MANAGER,
-			() -> new OrderedPair(0, 0));
-		varContext.addDefault(FormatUtilities.NUMBER_MANAGER, () -> 0);
-		varContext.addDefault(FormatUtilities.STRING_MANAGER, () -> "");
-	}
+    /**
+     * Adds the "basic" defaults so that tests can be safely run.
+     *
+     * @param context The LoadContext in which the defaults should be set
+     */
+    public static void addBasicDefaults(LoadContext context)
+    {
+        VariableContext varContext = context.getVariableContext();
+        varContext.addDefault(FormatUtilities.ORDEREDPAIR_MANAGER,
+                () -> new OrderedPair(0, 0));
+        varContext.addDefault(FormatUtilities.NUMBER_MANAGER, () -> 0);
+        varContext.addDefault(FormatUtilities.STRING_MANAGER, () -> "");
+    }
 
 }

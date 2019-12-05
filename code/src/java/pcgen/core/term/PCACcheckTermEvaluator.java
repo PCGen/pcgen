@@ -25,34 +25,34 @@ import pcgen.util.Logging;
 public class PCACcheckTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	PCACcheckTermEvaluator(final String originalText)
-	{
-		this.originalText = originalText;
-	}
+    PCACcheckTermEvaluator(final String originalText)
+    {
+        this.originalText = originalText;
+    }
 
-	@Override
-	public Float resolve(PlayerCharacter pc)
-	{
-		if (pc.hasControl(CControl.EQACCHECK))
-		{
-			Logging.errorPrint(
-				originalText + " term is deprecated (does not function)" + " when EQACCHECK CodeControl is used");
-		}
-		int maxCheck = pc.getEquipmentOfType("Armor", 1).stream().mapToInt(eq -> eq.preFormulaAcCheck(pc)).sum();
+    @Override
+    public Float resolve(PlayerCharacter pc)
+    {
+        if (pc.hasControl(CControl.EQACCHECK))
+        {
+            Logging.errorPrint(
+                    originalText + " term is deprecated (does not function)" + " when EQACCHECK CodeControl is used");
+        }
+        int maxCheck = pc.getEquipmentOfType("Armor", 1).stream().mapToInt(eq -> eq.preFormulaAcCheck(pc)).sum();
 
-		maxCheck += pc.getEquipmentOfType("Shield", 1).stream().mapToInt(eq -> eq.preFormulaAcCheck(pc)).sum();
+        maxCheck += pc.getEquipmentOfType("Shield", 1).stream().mapToInt(eq -> eq.preFormulaAcCheck(pc)).sum();
 
-		return (float) maxCheck;
-	}
+        return (float) maxCheck;
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return false;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return false;
+    }
 
-	public static boolean isStatic()
-	{
-		return false;
-	}
+    public static boolean isStatic()
+    {
+        return false;
+    }
 }

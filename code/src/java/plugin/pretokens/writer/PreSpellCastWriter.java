@@ -30,68 +30,67 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	@Override
-	public String kindHandled()
-	{
-		return "spellcast.type";
-	}
+    @Override
+    public String kindHandled()
+    {
+        return "spellcast.type";
+    }
 
-	@Override
-	public PrerequisiteOperator[] operatorsHandled()
-	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
-	}
+    @Override
+    public PrerequisiteOperator[] operatorsHandled()
+    {
+        return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
+    }
 
-	@Override
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
-	{
-		checkValidOperator(prereq, operatorsHandled());
+    @Override
+    public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+    {
+        checkValidOperator(prereq, operatorsHandled());
 
-		try
-		{
-			if (prereq.getOperator() == PrerequisiteOperator.LT)
-			{
-				writer.write('!');
-			}
+        try
+        {
+            if (prereq.getOperator() == PrerequisiteOperator.LT)
+            {
+                writer.write('!');
+            }
 
-			writer.write("PRESPELLCAST:" + (prereq.isOverrideQualify() ? "Q:" : "") + "TYPE=");
-			writer.write(prereq.getKey());
-		}
-		catch (IOException e)
-		{
-			throw new PersistenceLayerException(e);
-		}
-	}
+            writer.write("PRESPELLCAST:" + (prereq.isOverrideQualify() ? "Q:" : "") + "TYPE=");
+            writer.write(prereq.getKey());
+        } catch (IOException e)
+        {
+            throw new PersistenceLayerException(e);
+        }
+    }
 
-	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
-	{
-		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
-		if (po == null)
-		{
-			return false;
-		}
-		if (po == PrerequisiteOperator.GTEQ && !"1".equals(prereq.getOperand()))
-		{
-			return false;
-		}
-		if (po != prereq.getOperator())
-		{
-			writer.write('!');
-		}
+    @Override
+    public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+    {
+        PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
+        if (po == null)
+        {
+            return false;
+        }
+        if (po == PrerequisiteOperator.GTEQ && !"1".equals(prereq.getOperand()))
+        {
+            return false;
+        }
+        if (po != prereq.getOperator())
+        {
+            writer.write('!');
+        }
 
-		writer.write("PRESPELLCAST:" + (prereq.isOverrideQualify() ? "Q:" : ""));
-		boolean first = true;
-		for (Prerequisite p : prereq.getPrerequisites())
-		{
-			if (!first)
-			{
-				writer.write(',');
-			}
-			writer.write("TYPE=" + p.getKey());
-			first = false;
-		}
-		return true;
-	}
+        writer.write("PRESPELLCAST:" + (prereq.isOverrideQualify() ? "Q:" : ""));
+        boolean first = true;
+        for (Prerequisite p : prereq.getPrerequisites())
+        {
+            if (!first)
+            {
+                writer.write(',');
+            }
+            writer.write("TYPE=" + p.getKey());
+            first = false;
+        }
+        return true;
+    }
 
 }

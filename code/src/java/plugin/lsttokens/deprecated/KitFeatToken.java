@@ -42,72 +42,72 @@ import pcgen.rules.persistence.token.ParseResult;
  * FEAT Token for KitAbilities
  */
 public class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
-		implements CDOMPrimaryToken<KitAbilities>, DeprecatedToken
+        implements CDOMPrimaryToken<KitAbilities>, DeprecatedToken
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 *
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "FEAT";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "FEAT";
+    }
 
-	@Override
-	public Class<KitAbilities> getTokenClass()
-	{
-		return KitAbilities.class;
-	}
+    @Override
+    public Class<KitAbilities> getTokenClass()
+    {
+        return KitAbilities.class;
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, KitAbilities kitAbil, String value)
-	{
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, KitAbilities kitAbil, String value)
+    {
+        StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 
-		kitAbil.setCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
+        kitAbil.setCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
+        ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 
-		while (st.hasMoreTokens())
-		{
-			String token = st.nextToken();
+        while (st.hasMoreTokens())
+        {
+            String token = st.nextToken();
 
-			if (token.startsWith("CATEGORY="))
-			{
-				return new ParseResult.Fail("Attempting to change the Category of a Feat to '" + token + '\'');
-			}
-			CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, token);
-			if (ref == null)
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
-			kitAbil.addAbility(ref);
-		}
-		return ParseResult.SUCCESS;
-	}
+            if (token.startsWith("CATEGORY="))
+            {
+                return new ParseResult.Fail("Attempting to change the Category of a Feat to '" + token + '\'');
+            }
+            CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, token);
+            if (ref == null)
+            {
+                return ParseResult.INTERNAL_ERROR;
+            }
+            kitAbil.addAbility(ref);
+        }
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitAbilities kitAbilities)
-	{
-		Collection<CDOMReference<Ability>> ref = kitAbilities.getAbilityKeys();
-		if (ref == null || ref.isEmpty())
-		{
-			return null;
-		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitAbilities kitAbilities)
+    {
+        Collection<CDOMReference<Ability>> ref = kitAbilities.getAbilityKeys();
+        if (ref == null || ref.isEmpty())
+        {
+            return null;
+        }
+        return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
+    }
 
-	@Override
-	public String getMessage(CDOMObject obj, String value)
-	{
-		return "Feat-based tokens have been deprecated - use ABILITY based functions";
-	}
+    @Override
+    public String getMessage(CDOMObject obj, String value)
+    {
+        return "Feat-based tokens have been deprecated - use ABILITY based functions";
+    }
 }

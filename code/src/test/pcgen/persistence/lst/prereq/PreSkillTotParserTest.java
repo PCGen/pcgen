@@ -17,65 +17,65 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
 {
-	
 
-	@Test
-	public void test1() throws PersistenceLayerException
-	{
-		PreSkillTotalParser producer = new PreSkillTotalParser();
 
-		Prerequisite prereq =
-				producer.parse("SKILLTOT", "Spot,Listen,Search=30", false,
-					false);
+    @Test
+    public void test1() throws PersistenceLayerException
+    {
+        PreSkillTotalParser producer = new PreSkillTotalParser();
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"30\" >\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Spot\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Listen\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Search\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+        Prerequisite prereq =
+                producer.parse("SKILLTOT", "Spot,Listen,Search=30", false,
+                        false);
 
-	
-	/**
-	 * Test not.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testNot() throws PersistenceLayerException
-	{
-		PreSkillTotalParser producer = new PreSkillTotalParser();
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"30\" >\n"
+                        + "<prereq kind=\"skill\" total-values=\"true\" key=\"Spot\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"skill\" total-values=\"true\" key=\"Listen\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"skill\" total-values=\"true\" key=\"Search\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
-		Prerequisite prereq =
-				producer
-					.parse("SKILLTOT", "Spot,Listen,Search=30", true, false);
 
-		assertEquals(
-			"<prereq operator=\"LT\" operand=\"30\" >\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Spot\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Listen\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Search\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
-	}
+    /**
+     * Test not.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testNot() throws PersistenceLayerException
+    {
+        PreSkillTotalParser producer = new PreSkillTotalParser();
 
-	@Test
-	public void testTypeKnowledge() throws Exception
-	{
-		PreSkillTotalParser producer = new PreSkillTotalParser();
+        Prerequisite prereq =
+                producer
+                        .parse("SKILLTOT", "Spot,Listen,Search=30", true, false);
 
-		Prerequisite prereq =
-				producer.parse("SKILLTOT", "TYPE.Knowledge=20", false, false);
+        assertEquals(
+                "<prereq operator=\"LT\" operand=\"30\" >\n"
+                        + "<prereq kind=\"skill\" total-values=\"true\" key=\"Spot\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"skill\" total-values=\"true\" key=\"Listen\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n"
+                        + "<prereq kind=\"skill\" total-values=\"true\" key=\"Search\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+    }
 
-		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"20\" >\n"
-			+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
-			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+    @Test
+    public void testTypeKnowledge() throws Exception
+    {
+        PreSkillTotalParser producer = new PreSkillTotalParser();
 
-	}
+        Prerequisite prereq =
+                producer.parse("SKILLTOT", "TYPE.Knowledge=20", false, false);
+
+        assertEquals(
+                "<prereq operator=\"GTEQ\" operand=\"20\" >\n"
+                        + "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
+                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
+
+    }
 
 }

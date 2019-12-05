@@ -36,47 +36,48 @@ import org.junit.jupiter.api.Test;
 public class PreReqHandlerTest
 {
 
-	/**
-	 * Sets up the test case by loading the system plugins.
-	 */
-	@BeforeEach
-	void setUp() {
-		TestHelper.loadPlugins();
-	}
+    /**
+     * Sets up the test case by loading the system plugins.
+     */
+    @BeforeEach
+    void setUp()
+    {
+        TestHelper.loadPlugins();
+    }
 
-	@AfterEach
-	void tearDown()
-	{
-		LocaleDependentTestCase.after();
-		TokenRegistration.clearTokens();
-	}
+    @AfterEach
+    void tearDown()
+    {
+        LocaleDependentTestCase.after();
+        TokenRegistration.clearTokens();
+    }
 
-	/**
-	 * Print out as HTML.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testToHtml() throws PersistenceLayerException
-	{
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		final List<Prerequisite> list = new ArrayList<>();
-		list.add(factory.parse("PRESKILL:1,Spellcraft=15"));
-		list.add(factory.parse("PRESPELLTYPE:1,Arcane=8"));
-		list.add(factory.parse("PREFEAT:2,TYPE=Metamagic"));
-		list.add(factory.parse("PREFEAT:2,TYPE=ItemCreation"));
-		list.add(factory.parse("PRESKILLTOT:TYPE.Knowledge=20"));
+    /**
+     * Print out as HTML.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testToHtml() throws PersistenceLayerException
+    {
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        final List<Prerequisite> list = new ArrayList<>();
+        list.add(factory.parse("PRESKILL:1,Spellcraft=15"));
+        list.add(factory.parse("PRESPELLTYPE:1,Arcane=8"));
+        list.add(factory.parse("PREFEAT:2,TYPE=Metamagic"));
+        list.add(factory.parse("PREFEAT:2,TYPE=ItemCreation"));
+        list.add(factory.parse("PRESKILLTOT:TYPE.Knowledge=20"));
 
-		LocaleDependentTestCase.before(Locale.US);
-		final String htmlString = PrereqHandler.toHtmlString(list);
-		System.out.println(htmlString);
-		assertEquals(
-				"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of "
-						+ "type "
-						+ "Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of "
-						+ "( at least 1 ranks in TYPE.Knowledge )",
-				htmlString
-		);
+        LocaleDependentTestCase.before(Locale.US);
+        final String htmlString = PrereqHandler.toHtmlString(list);
+        System.out.println(htmlString);
+        assertEquals(
+                "at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of "
+                        + "type "
+                        + "Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of "
+                        + "( at least 1 ranks in TYPE.Knowledge )",
+                htmlString
+        );
 
-	}
+    }
 }

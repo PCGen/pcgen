@@ -24,21 +24,21 @@ import pcgen.core.PCStat;
 
 public class StatFacetTest extends AbstractListFacetTest<PCStat>
 {
-	private StatFacet facet = new StatFacet();
+    private StatFacet facet = new StatFacet();
 
-	@Override
-	protected AbstractListFacet<CharID, PCStat> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractListFacet<CharID, PCStat> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 0;
+    private int n = 0;
 
-	@Override
-	protected PCStat getObject()
-	{
-		PCStat t = new PCStat();
-		t.setName("Stat" + n++);
-		return t;
-	}
+    @Override
+    protected PCStat getObject()
+    {
+        PCStat t = new PCStat();
+        t.setName("Stat" + n++);
+        return t;
+    }
 }

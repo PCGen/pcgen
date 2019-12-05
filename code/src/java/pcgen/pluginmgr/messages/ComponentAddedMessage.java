@@ -24,27 +24,26 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 
 /**
  * The Class {@code ComponentAddedMessage} indicates that a plugin has
- * been added to the system. 
- *
- * 
+ * been added to the system.
  */
 public class ComponentAddedMessage extends PCGenMessage
 {
-	private final PCGenMessageHandler plugin;
+    private final PCGenMessageHandler plugin;
 
-	/**
-	 * Create a new instance of ComponentAddedMessage
-	 * @param source The source of the message.
-	 * @param plugin The plugin that was added.
-	 */
-	public ComponentAddedMessage(Object source, PCGenMessageHandler plugin)
-	{
-		super(source);
-		this.plugin = plugin;
-	}
+    /**
+     * Create a new instance of ComponentAddedMessage
+     *
+     * @param source The source of the message.
+     * @param plugin The plugin that was added.
+     */
+    public ComponentAddedMessage(Object source, PCGenMessageHandler plugin)
+    {
+        super(source);
+        this.plugin = plugin;
+    }
 
-	public PCGenMessageHandler getPlugin()
-	{
-		return plugin;
-	}
+    public PCGenMessageHandler getPlugin()
+    {
+        return plugin;
+    }
 }

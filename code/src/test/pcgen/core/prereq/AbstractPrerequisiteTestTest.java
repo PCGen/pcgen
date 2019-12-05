@@ -31,26 +31,25 @@ import org.junit.jupiter.api.Test;
 
 class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
-	@Test
-	void testVisionNotHandledFail()
-	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("wield");
+    @Test
+    void testVisionNotHandledFail()
+    {
+        final Prerequisite prereq = new Prerequisite();
+        prereq.setKind("wield");
 
-		LocaleDependentTestCase.before(Locale.US);
-		try
-		{
-			final PreWieldTester test = new PreWieldTester();
-			test.passes(prereq, getCharacter(), null);
-			fail("Should have thrown a PrerequisiteException here.");
-		}
-		catch (PrerequisiteException pe)
-		{
-			assertEquals(PreWieldTester.class.getName()
-				+ " does not support prerequisites for Characters.", pe
-				.getMessage());
-		}
-		LocaleDependentTestCase.after();
-	}
+        LocaleDependentTestCase.before(Locale.US);
+        try
+        {
+            final PreWieldTester test = new PreWieldTester();
+            test.passes(prereq, getCharacter(), null);
+            fail("Should have thrown a PrerequisiteException here.");
+        } catch (PrerequisiteException pe)
+        {
+            assertEquals(PreWieldTester.class.getName()
+                    + " does not support prerequisites for Characters.", pe
+                    .getMessage());
+        }
+        LocaleDependentTestCase.after();
+    }
 
 }

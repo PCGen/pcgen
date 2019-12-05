@@ -28,52 +28,51 @@ import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deal with FOLLOWERLIST Token
- * 
  */
 public class FollowerListToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "FOLLOWERLIST";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FOLLOWERLIST";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		return getFollowerListToken(display);
-	}
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        return getFollowerListToken(display);
+    }
 
-	/**
-	 * Get FOLLOWERLIST Token
-	 *
-	 * @param display The character to be queried
-	 * @return The list of followers.
-	 */
-	public static String getFollowerListToken(CharacterDisplay display)
-	{
-		StringBuilder buf = new StringBuilder();
+    /**
+     * Get FOLLOWERLIST Token
+     *
+     * @param display The character to be queried
+     * @return The list of followers.
+     */
+    public static String getFollowerListToken(CharacterDisplay display)
+    {
+        StringBuilder buf = new StringBuilder();
 
-		boolean needComma = false;
+        boolean needComma = false;
 
-		for (Follower aF : display.getFollowerList())
-		{
-			for (PlayerCharacter nPC : Globals.getPCList())
-			{
-				CharacterDisplay nDisplay = nPC.getDisplay();
-				if (aF.getFileName().equals(nDisplay.getFileName()))
-				{
-					if (needComma)
-					{
-						buf.append(", ");
-					}
+        for (Follower aF : display.getFollowerList())
+        {
+            for (PlayerCharacter nPC : Globals.getPCList())
+            {
+                CharacterDisplay nDisplay = nPC.getDisplay();
+                if (aF.getFileName().equals(nDisplay.getFileName()))
+                {
+                    if (needComma)
+                    {
+                        buf.append(", ");
+                    }
 
-					buf.append(FileAccess.filterString(nDisplay.getName()));
-					needComma = true;
-				}
-			}
-		}
+                    buf.append(FileAccess.filterString(nDisplay.getName()));
+                    needComma = true;
+                }
+            }
+        }
 
-		return buf.toString();
-	}
+        return buf.toString();
+    }
 }

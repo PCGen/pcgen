@@ -15,34 +15,44 @@
  */
 package pcgen.cdom.enumeration;
 
-/** An enum for the various types of ability options. */
+/**
+ * An enum for the various types of ability options.
+ */
 public enum Nature
 {
-	/** Ability is Normal */
-	NORMAL,
-	/** Ability is Automatic */
-	AUTOMATIC,
-	/** Ability is Virtual */
-	VIRTUAL,
-	/** Ability of any type */
-	ANY;
+    /**
+     * Ability is Normal
+     */
+    NORMAL,
+    /**
+     * Ability is Automatic
+     */
+    AUTOMATIC,
+    /**
+     * Ability is Virtual
+     */
+    VIRTUAL,
+    /**
+     * Ability of any type
+     */
+    ANY;
 
-	public static Nature getBestNature(Nature nature1, Nature nature2)
-	{
-		if (nature1 == null)
-		{
-			return nature2;
-		}
-		//n1 has a valid value
-		if (nature2 == null || nature2 == AUTOMATIC)
-		{
-			return nature1;
-		}
-		//n2 is VIRTUAL or NORMAL, can use VIRTUAL unless n1 == NORMAL
-		if (nature1 == NORMAL)
-		{
-			return nature1;
-		}
-		return nature2;
-	}
+    public static Nature getBestNature(Nature nature1, Nature nature2)
+    {
+        if (nature1 == null)
+        {
+            return nature2;
+        }
+        //n1 has a valid value
+        if (nature2 == null || nature2 == AUTOMATIC)
+        {
+            return nature1;
+        }
+        //n2 is VIRTUAL or NORMAL, can use VIRTUAL unless n1 == NORMAL
+        if (nature1 == NORMAL)
+        {
+            return nature1;
+        }
+        return nature2;
+    }
 }

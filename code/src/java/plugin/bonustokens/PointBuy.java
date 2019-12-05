@@ -25,36 +25,36 @@ import pcgen.rules.context.LoadContext;
  */
 public final class PointBuy extends BonusObj
 {
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		if ("POINTS".equals(token))
-		{
-			addBonusInfo(token);
-			return true;
-		}
-		else if ("SPENT".equals(token))
-		{
-			addBonusInfo(token);
-			return true;
-		}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        if ("POINTS".equals(token))
+        {
+            addBonusInfo(token);
+            return true;
+        } else if ("SPENT".equals(token))
+        {
+            addBonusInfo(token);
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "POINTBUY";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "POINTBUY";
+    }
 }

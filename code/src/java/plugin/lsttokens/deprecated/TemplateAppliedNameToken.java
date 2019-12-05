@@ -25,15 +25,15 @@ import pcgen.rules.persistence.token.AbstractToFactToken;
  */
 public class TemplateAppliedNameToken extends AbstractToFactToken<PCTemplate>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "APPLIEDNAME";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "APPLIEDNAME";
+    }
 
-	@Override
-	public Class<PCTemplate> getTokenClass()
-	{
-		return PCTemplate.class;
-	}
+    @Override
+    public Class<PCTemplate> getTokenClass()
+    {
+        return PCTemplate.class;
+    }
 }

@@ -19,7 +19,8 @@
   -->
 
 <?import javafx.scene.layout.BorderPane?><?import javafx.scene.Scene?><?import javafx.scene.text.Text?>
-<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.preferences.CenteredLabelPanelController">
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+       fx:controller="pcgen.gui3.preferences.CenteredLabelPanelController">
     <BorderPane>
         <center>
             <Text fx:id="label" BorderPane.alignment="CENTER"/>

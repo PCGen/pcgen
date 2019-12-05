@@ -1,135 +1,135 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                        
-                $Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/lstfileclass/rulesimplementation.html,v 1.3 2007/09/12 maredudd800 Exp $
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eric C. Smith - mareduddATblackrootDOTorg
-                
-                Description:
-                Provides explanations on the implementation of various game rules.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Game Rules Implementation Guide
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Game Rules Implementation Guide
-  </h1>
-  <p class="indent1">
-   The Game Rules Implementation Guide provides a
-series of rules implementation explanations, organized in two
-sections: The
-   <a href="#pcgendist">
+<!--
+               PCGen Documentation Project
+
+               $Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/lstfileclass/rulesimplementation.html,v 1.3 2007/09/12 maredudd800 Exp $
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eric C. Smith - mareduddATblackrootDOTorg
+
+               Description:
+               Provides explanations on the implementation of various game rules.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Game Rules Implementation Guide
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Game Rules Implementation Guide
+</h1>
+<p class="indent1">
+    The Game Rules Implementation Guide provides a
+    series of rules implementation explanations, organized in two
+    sections: The
+    <a href="#pcgendist">
+        PCGen Distributed Rules
+    </a>
+    and
+    the
+    <a href="#homebrew">
+        Rules for Homebrews
+    </a>
+    . The examples
+    provided are not the only way to implement the subject rules. They
+    are given here simply as examples of how different rules can be
+    implemented. For more general information on writing standard LST
+    files please visit the
+    <a href="../lstfileclass/lstfileclass_heading.html">
+        LST File Class
+    </a>
+    page.
+</p>
+<p class="indent1">
+    <a href="../rulesguide/game_rules_reading_instructions.html">
+        Instructions
+    </a>
+    on how to read these pages can be found below.
+</p>
+<hr/>
+<a id="pcgendist" name="pcgendist">
+</a>
+<h2>
     PCGen Distributed Rules
-   </a>
-   and
-the
-   <a href="#homebrew">
+</h2>
+<p class="indent1">
+    This section includes those rules that have been
+    implemented as part of the officially distributed datasets from
+    PCGen.
+</p>
+<blockquote>
+    <dl class="indent1">
+        <dt>
+            <a href="grig_negative_levels.html">
+                Negative Levels
+            </a>
+        </dt>
+        <dd>
+            Equipment/Items can now bestow negative levels upon a
+            character.
+        </dd>
+    </dl>
+</blockquote>
+<hr/>
+<a id="homebrew" name="homebrew">
+</a>
+<h2>
     Rules for Homebrews
-   </a>
-   . The examples
-provided are not the only way to implement the subject rules. They
-are given here simply as examples of how different rules can be
-implemented. For more general information on writing standard LST
-files please visit the
-   <a href="../lstfileclass/lstfileclass_heading.html">
-    LST File Class
-   </a>
-   page.
-  </p>
-  <p class="indent1">
-   <a href="../rulesguide/game_rules_reading_instructions.html">
-    Instructions
-   </a>
-   on how to read these pages can be found below.
-  </p>
-  <hr/>
-  <a id="pcgendist" name="pcgendist">
-  </a>
-  <h2>
-   PCGen Distributed Rules
-  </h2>
-  <p class="indent1">
-   This section includes those rules that have been
-implemented as part of the officially distributed datasets from
-PCGen.
-  </p>
-  <blockquote>
-   <dl class="indent1">
-    <dt>
-     <a href="grig_negative_levels.html">
-      Negative Levels
-     </a>
-    </dt>
-    <dd>
-     Equipment/Items can now bestow negative levels upon a
-character.
-    </dd>
-   </dl>
-  </blockquote>
-  <hr/>
-  <a id="homebrew" name="homebrew">
-  </a>
-  <h2>
-   Rules for Homebrews
-  </h2>
-  <p class="indent1">
-   This section includes rules implementation
-solutions aimed at homebrew datasets. As game rules can have many
-different implementations within PCGen, you will find
-implementations included below that address the same game rule. In
-these cases, each solution is presented on its own page for
-clarity.
-  </p>
-  <blockquote>
-   <dl class="indent1">
-    <dt>
-     <a href="grig_abilities_by_skill_ranks.html">
-      Buying Abilities
-with Skill Ranks
-     </a>
-    </dt>
-    <dd>
-     Abilities may be bought by skill ranks taken in the appropriate
-skill.
-     <br/>
-     by Andrew Maitland
-    </dd>
-    <dt>
-     <a href="grig_priesthoods1.html">
-      Priesthoods #1
-     </a>
-    </dt>
-    <dd>
-     Deities may have multiple priesthoods, each with their own
-powers and abilities.
-     <br/>
-     by Maredudd
-    </dd>
-    <dt>
-     Priesthoods #2 (forthcoming)
-    </dt>
-    <dd>
-     An alternative way to implement Priesthoods.
-     <br/>
-     by Tir Gwaith
-    </dd>
-   </dl>
-  </blockquote>
-  <hr/>
-  <p>
-  </p>
- </body>
+</h2>
+<p class="indent1">
+    This section includes rules implementation
+    solutions aimed at homebrew datasets. As game rules can have many
+    different implementations within PCGen, you will find
+    implementations included below that address the same game rule. In
+    these cases, each solution is presented on its own page for
+    clarity.
+</p>
+<blockquote>
+    <dl class="indent1">
+        <dt>
+            <a href="grig_abilities_by_skill_ranks.html">
+                Buying Abilities
+                with Skill Ranks
+            </a>
+        </dt>
+        <dd>
+            Abilities may be bought by skill ranks taken in the appropriate
+            skill.
+            <br/>
+            by Andrew Maitland
+        </dd>
+        <dt>
+            <a href="grig_priesthoods1.html">
+                Priesthoods #1
+            </a>
+        </dt>
+        <dd>
+            Deities may have multiple priesthoods, each with their own
+            powers and abilities.
+            <br/>
+            by Maredudd
+        </dd>
+        <dt>
+            Priesthoods #2 (forthcoming)
+        </dt>
+        <dd>
+            An alternative way to implement Priesthoods.
+            <br/>
+            by Tir Gwaith
+        </dd>
+    </dl>
+</blockquote>
+<hr/>
+<p>
+</p>
+</body>
 </html>

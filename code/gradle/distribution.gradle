@@ -13,12 +13,12 @@ ext {
 
     buildTimestamp = LocalDateTime.now(Clock.systemUTC())
 
-    autobuildSpec = copySpec{}
+    autobuildSpec = copySpec {}
 
     if (System.env.BUILD_NUMBER) {
         autobuildSpec = copySpec {
             from('code/gradle/autobuild.template')
-            rename('.+','autobuild.properties')
+            rename('.+', 'autobuild.properties')
             expand(buildnumber: System.env.BUILD_NUMBER, version: version, timestamp: buildTimestamp)
         }
     }
@@ -40,7 +40,7 @@ ext {
             include 'docs/**'
         }
     }
-    
+
     programDistsImage = copySpec {
         from("$buildDir/libs") {
             include 'pcgen-*.jar'
@@ -60,12 +60,12 @@ ext {
         }
         from('code') {
             include 'LICENSE'
-	    include 'pcgen.bat'
-	    include 'pcgen_JREx32.bat'
-	    include 'pcgen_JREx64.bat'
+            include 'pcgen.bat'
+            include 'pcgen_JREx32.bat'
+            include 'pcgen_JREx64.bat'
             include 'pcgen.sh'
-            eachFile{ file ->
-                if(file.getName().endsWith(".sh")) {
+            eachFile { file ->
+                if (file.getName().endsWith(".sh")) {
                     file.setMode(0755)
                 }
             }
@@ -92,8 +92,8 @@ ext {
     }
 }
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', \
-'downloadJRE']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput',   \
+  'downloadJRE']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -107,8 +107,8 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput'
     }
 }
 
-task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', \
-'copyToOutput']) {
+task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs',   \
+  'copyToOutput']) {
     classifier = 'test'
     into(zipRootFolder) {
         with dataDistsImage
@@ -153,7 +153,7 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', \
-'fullZip']) {
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip',   \
+  'fullZip']) {
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }

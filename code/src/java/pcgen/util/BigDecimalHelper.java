@@ -26,70 +26,72 @@ import java.math.BigDecimal;
 public final class BigDecimalHelper
 {
 
-	private BigDecimalHelper()
-	{
-	}
+    private BigDecimalHelper()
+    {
+    }
 
-	/**
-	 * trimBigDecimal ( (BigDecimal) a) to cut off all trailing zeros.
-	 * It's a terrible hack.
-	 * @param n the BigDecimal to trim all trailing zeros from
-	 * @return the trimmed BigDecimal
-	 */
-	public static BigDecimal trimBigDecimal(BigDecimal n)
-	{
-		if (n.unscaledValue().intValue() == 0)
-		{
-			// Java 1.5 will not throw an ArthmeticException if you change the
-			// scale of 0.0 to 0, so it will keep going through the loop below
-			// forever. To get around this we test for the special case here.
-			return BigDecimal.ZERO;
-		}
+    /**
+     * trimBigDecimal ( (BigDecimal) a) to cut off all trailing zeros.
+     * It's a terrible hack.
+     *
+     * @param n the BigDecimal to trim all trailing zeros from
+     * @return the trimmed BigDecimal
+     */
+    public static BigDecimal trimBigDecimal(BigDecimal n)
+    {
+        if (n.unscaledValue().intValue() == 0)
+        {
+            // Java 1.5 will not throw an ArthmeticException if you change the
+            // scale of 0.0 to 0, so it will keep going through the loop below
+            // forever. To get around this we test for the special case here.
+            return BigDecimal.ZERO;
+        }
 
-		if (n.scale() <= 0)
-		{
-			return n;
-		}
+        if (n.scale() <= 0)
+        {
+            return n;
+        }
 
-		BigDecimal stripped = n.stripTrailingZeros();
-		if (stripped.scale() < 0)
-		{
-			stripped = n.setScale(0);
-		}
+        BigDecimal stripped = n.stripTrailingZeros();
+        if (stripped.scale() < 0)
+        {
+            stripped = n.setScale(0);
+        }
 
-		return stripped;
-	}
+        return stripped;
+    }
 
-	/**
-	 * Returns a string with the trimmed number.
-	 * E.g. {@literal numberToTrim=3.1000 > 3.1 }
-	 * If numberToTrim is non-numeric, 0 is returned (should be changed.)
-	 * @param numberToTrim The value to trim.
-	 * @return String
-	 */
-	public static String trimZeros(String numberToTrim)
-	{
-		BigDecimal aBigD = BigDecimal.ZERO;
+    /**
+     * Returns a string with the trimmed number.
+     * E.g. {@literal numberToTrim=3.1000 > 3.1 }
+     * If numberToTrim is non-numeric, 0 is returned (should be changed.)
+     *
+     * @param numberToTrim The value to trim.
+     * @return String
+     */
+    public static String trimZeros(String numberToTrim)
+    {
+        BigDecimal aBigD = BigDecimal.ZERO;
 
-		try
-		{
-			aBigD = new BigDecimal(numberToTrim);
-		}
-		catch (NumberFormatException exc)
-		{
-			Logging.errorPrint("Cannot trim zeroes from " + numberToTrim + " as is not a number. Using 0 instead.");
-		}
+        try
+        {
+            aBigD = new BigDecimal(numberToTrim);
+        } catch (NumberFormatException exc)
+        {
+            Logging.errorPrint("Cannot trim zeroes from " + numberToTrim + " as is not a number. Using 0 instead.");
+        }
 
-		return trimBigDecimal(aBigD).toString();
-	}
+        return trimBigDecimal(aBigD).toString();
+    }
 
-	/**
-	 * Trims the zeros. 
-	 * @param n bigdecimal to trim
-	 * @return String without zeros
-	 */
-	public static String trimZeros(BigDecimal n)
-	{
-		return trimBigDecimal(n).toString();
-	}
+    /**
+     * Trims the zeros.
+     *
+     * @param n bigdecimal to trim
+     * @return String without zeros
+     */
+    public static String trimZeros(BigDecimal n)
+    {
+        return trimBigDecimal(n).toString();
+    }
 }

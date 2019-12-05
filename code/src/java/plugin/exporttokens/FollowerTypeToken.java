@@ -32,108 +32,107 @@ import pcgen.util.Logging;
 
 /**
  * Deal with FOLLOWERTYPE Token
- * 
  */
 public class FollowerTypeToken extends Token
 {
-	/** Token Name */
-	public static final String TOKENNAME = "FOLLOWERTYPE";
+    /**
+     * Token Name
+     */
+    public static final String TOKENNAME = "FOLLOWERTYPE";
 
-	@Override
-	public String getTokenName()
-	{
-		return TOKENNAME;
-	}
+    @Override
+    public String getTokenName()
+    {
+        return TOKENNAME;
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		// Handle FOLLOWERTYPE.<type>x.subtag stuff
-		// New token syntax FOLLOWERTYPE.<type>.x instead of FOLLOWERTYPE.<type>x
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken(); // FOLLOWERTYPE
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        // Handle FOLLOWERTYPE.<type>x.subtag stuff
+        // New token syntax FOLLOWERTYPE.<type>.x instead of FOLLOWERTYPE.<type>x
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken(); // FOLLOWERTYPE
 
-		String typeString = aTok.nextToken();
-		StringBuilder restString = new StringBuilder();
-		int followerIndex = -1;
+        String typeString = aTok.nextToken();
+        StringBuilder restString = new StringBuilder();
+        int followerIndex = -1;
 
-		if (aTok.hasMoreTokens())
-		{
-			String startString = aTok.nextToken();
+        if (aTok.hasMoreTokens())
+        {
+            String startString = aTok.nextToken();
 
-			// When removing old token syntax, remove the catch code
-			try
-			{
-				followerIndex = Integer.parseInt(startString);
-			}
-			catch (NumberFormatException exc)
-			{
-				// Error, not debug.  We want users to report
-				// use of the deprecated syntax so we can fix
-				// them as they are found.
-				Logging.errorPrint("Old syntax FOLLOWERTYPEx will be replaced for FOLLOWERTYPE.x");
+            // When removing old token syntax, remove the catch code
+            try
+            {
+                followerIndex = Integer.parseInt(startString);
+            } catch (NumberFormatException exc)
+            {
+                // Error, not debug.  We want users to report
+                // use of the deprecated syntax so we can fix
+                // them as they are found.
+                Logging.errorPrint("Old syntax FOLLOWERTYPEx will be replaced for FOLLOWERTYPE.x");
 
-				restString.append(startString);
+                restString.append(startString);
 
-				int numCharToRemove = 0;
+                int numCharToRemove = 0;
 
-				for (int i = typeString.length() - 1; i > 0; i--)
-				{
-					if ((typeString.charAt(i) >= '0') && (typeString.charAt(i) <= '9'))
-					{
-						followerIndex = Integer.parseInt(typeString.substring(i));
-						numCharToRemove++;
-					}
-					else
-					{
-						i = 0;
-					}
-				}
+                for (int i = typeString.length() - 1;i > 0;i--)
+                {
+                    if ((typeString.charAt(i) >= '0') && (typeString.charAt(i) <= '9'))
+                    {
+                        followerIndex = Integer.parseInt(typeString.substring(i));
+                        numCharToRemove++;
+                    } else
+                    {
+                        i = 0;
+                    }
+                }
 
-				if (numCharToRemove > 0)
-				{
-					typeString = typeString.substring(0, typeString.length() - numCharToRemove);
-				}
-			}
+                if (numCharToRemove > 0)
+                {
+                    typeString = typeString.substring(0, typeString.length() - numCharToRemove);
+                }
+            }
 
-			while (aTok.hasMoreTokens())
-			{
-				restString.append('.').append(aTok.nextToken());
-			}
+            while (aTok.hasMoreTokens())
+            {
+                restString.append('.').append(aTok.nextToken());
+            }
 
-			if (restString.indexOf(".") == 0)
-			{
-				restString.deleteCharAt(0);
-			}
-		}
+            if (restString.indexOf(".") == 0)
+            {
+                restString.deleteCharAt(0);
+            }
+        }
 
-		String result = "";
-		List<Follower> aList = getFollowersOfType(pc.getDisplay(), typeString);
-		if (followerIndex > -1 && followerIndex < aList.size())
-		{
-			result = FollowerToken.getFollowerOutput(eh, restString.toString(), aList.get(followerIndex));
-		}
+        String result = "";
+        List<Follower> aList = getFollowersOfType(pc.getDisplay(), typeString);
+        if (followerIndex > -1 && followerIndex < aList.size())
+        {
+            result = FollowerToken.getFollowerOutput(eh, restString.toString(), aList.get(followerIndex));
+        }
 
-		return result;
-	}
+        return result;
+    }
 
-	/**
-	 * Retrieve a list of followers of the desired type.
-	 * 
-	 * @param display The display for the target character 
-	 * @param typeString The follower type being looked for
-	 * @return The list of qualifying followers.
-	 */
-	private List<Follower> getFollowersOfType(CharacterDisplay display, String typeString)
-	{
-		List<Follower> aList = new ArrayList<>();
-		for (Follower fol : display.getFollowerList())
-		{
-			if (fol.getType().getKeyName().equalsIgnoreCase(typeString))
-			{
-				aList.add(fol);
-			}
-		}
-		return aList;
-	}
+    /**
+     * Retrieve a list of followers of the desired type.
+     *
+     * @param display    The display for the target character
+     * @param typeString The follower type being looked for
+     * @return The list of qualifying followers.
+     */
+    private List<Follower> getFollowersOfType(CharacterDisplay display, String typeString)
+    {
+        List<Follower> aList = new ArrayList<>();
+        for (Follower fol : display.getFollowerList())
+        {
+            if (fol.getType().getKeyName().equalsIgnoreCase(typeString))
+            {
+                aList.add(fol);
+            }
+        }
+        return aList;
+    }
 }

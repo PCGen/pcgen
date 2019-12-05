@@ -30,72 +30,71 @@ import pcgen.util.Logging;
 
 public class CDOMKitLoader
 {
-	private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap = new HashMap<>();
+    private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap = new HashMap<>();
 
-	private final Class<Kit> targetClass = Kit.class;
+    private final Class<Kit> targetClass = Kit.class;
 
-	public void addLineLoader(CDOMSubLineLoader<? extends BaseKit> loader)
-	{
-		// TODO check null
-		// TODO check duplicate!
-		loadMap.put(loader.getPrefix(), loader);
-	}
+    public void addLineLoader(CDOMSubLineLoader<? extends BaseKit> loader)
+    {
+        // TODO check null
+        // TODO check duplicate!
+        loadMap.put(loader.getPrefix(), loader);
+    }
 
-	public boolean parseSubLine(LoadContext context, Kit obj, String val, URI source)
-	{
-		int sepLoc = val.indexOf('\t');
-		String firstToken = (sepLoc == -1) ? val : val.substring(0, sepLoc);
-		int colonLoc = firstToken.indexOf(':');
-		if (colonLoc == -1)
-		{
-			Logging.addParseMessage(Logging.LST_ERROR,
-				"Unsure what to do with line without " + "a colon in first token: " + val + " in file: " + source);
-			return false;
-		}
+    public boolean parseSubLine(LoadContext context, Kit obj, String val, URI source)
+    {
+        int sepLoc = val.indexOf('\t');
+        String firstToken = (sepLoc == -1) ? val : val.substring(0, sepLoc);
+        int colonLoc = firstToken.indexOf(':');
+        if (colonLoc == -1)
+        {
+            Logging.addParseMessage(Logging.LST_ERROR,
+                    "Unsure what to do with line without " + "a colon in first token: " + val + " in file: " + source);
+            return false;
+        }
 
-		String prefix = firstToken.substring(0, colonLoc);
-		CDOMSubLineLoader<? extends BaseKit> loader = loadMap.get(prefix);
-		if (loader == null)
-		{
-			Logging.addParseMessage(Logging.LST_ERROR,
-				"Unsure what to do with line with prefix: " + prefix + ".  Line was: " + val + " in file: " + source);
-			return false;
-		}
-		try
-		{
-			if (!subParse(context, obj, loader, val))
-			{
-				return false;
-			}
-		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint("Exception in Load: ", ple);
-			return false;
-		}
-		return true;
-	}
+        String prefix = firstToken.substring(0, colonLoc);
+        CDOMSubLineLoader<? extends BaseKit> loader = loadMap.get(prefix);
+        if (loader == null)
+        {
+            Logging.addParseMessage(Logging.LST_ERROR,
+                    "Unsure what to do with line with prefix: " + prefix + ".  Line was: " + val + " in file: " + source);
+            return false;
+        }
+        try
+        {
+            if (!subParse(context, obj, loader, val))
+            {
+                return false;
+            }
+        } catch (PersistenceLayerException ple)
+        {
+            Logging.errorPrint("Exception in Load: ", ple);
+            return false;
+        }
+        return true;
+    }
 
-	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit, CDOMSubLineLoader<CC> loader,
-		String line) throws PersistenceLayerException
-	{
-		CC obj = loader.getCDOMObject();
-		context.getObjectContext().addToList(kit, ListKey.KIT_TASKS, obj);
-		return loader.parseLine(context, obj, line);
-	}
+    private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit, CDOMSubLineLoader<CC> loader,
+            String line) throws PersistenceLayerException
+    {
+        CC obj = loader.getCDOMObject();
+        context.getObjectContext().addToList(kit, ListKey.KIT_TASKS, obj);
+        return loader.parseLine(context, obj, line);
+    }
 
-	protected Kit getCDOMObject(LoadContext context, String name)
-	{
-		Kit obj = context.getReferenceContext().silentlyGetConstructedCDOMObject(targetClass, name);
-		if (obj == null)
-		{
-			obj = context.getReferenceContext().constructCDOMObject(targetClass, name);
-		}
-		return obj;
-	}
+    protected Kit getCDOMObject(LoadContext context, String name)
+    {
+        Kit obj = context.getReferenceContext().silentlyGetConstructedCDOMObject(targetClass, name);
+        if (obj == null)
+        {
+            obj = context.getReferenceContext().constructCDOMObject(targetClass, name);
+        }
+        return obj;
+    }
 
-	public Class<Kit> getTargetClass()
-	{
-		return targetClass;
-	}
+    public Class<Kit> getTargetClass()
+    {
+        return targetClass;
+    }
 }

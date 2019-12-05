@@ -32,41 +32,41 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class ClassToken extends AbstractNonEmptyToken<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
-	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+    private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "CLASS";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "CLASS";
+    }
 
-	@Override
-	public Class<KitSkill> getTokenClass()
-	{
-		return KitSkill.class;
-	}
+    @Override
+    public Class<KitSkill> getTokenClass()
+    {
+        return KitSkill.class;
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill, String value)
-	{
-		CDOMSingleRef<PCClass> ref = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, value);
-		kitSkill.setPcclass(ref);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill, String value)
+    {
+        CDOMSingleRef<PCClass> ref = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, value);
+        kitSkill.setPcclass(ref);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitSkill kitSkill)
-	{
-		CDOMReference<PCClass> ref = kitSkill.getPcclass();
-		if (ref == null)
-		{
-			return null;
-		}
-		return new String[]{ref.getLSTformat(false)};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitSkill kitSkill)
+    {
+        CDOMReference<PCClass> ref = kitSkill.getPcclass();
+        if (ref == null)
+        {
+            return null;
+        }
+        return new String[]{ref.getLSTformat(false)};
+    }
 }

@@ -31,35 +31,35 @@ import pcgen.system.LanguageBundle;
 public class PreHandsTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		int runningTotal;
-		try
-		{
-			final int targetHands = Integer.parseInt(prereq.getOperand());
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        int runningTotal;
+        try
+        {
+            final int targetHands = Integer.parseInt(prereq.getOperand());
 
-			int hands = FacetLibrary.getFacet(HandsFacet.class).getHands(display.getCharID());
+            int hands = FacetLibrary.getFacet(HandsFacet.class).getHands(display.getCharID());
 
-			runningTotal = prereq.getOperator().compare(hands, targetHands);
-		}
-		catch (NumberFormatException nfe)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreHands.error.badly_formed", prereq.getOperand()), nfe); //$NON
-			// -NLS-1$
-		}
-		return countedTotal(prereq, runningTotal);
-	}
+            runningTotal = prereq.getOperator().compare(hands, targetHands);
+        } catch (NumberFormatException nfe)
+        {
+            throw new PrerequisiteException(
+                    LanguageBundle.getFormattedString("PreHands.error.badly_formed", prereq.getOperand()), nfe); //$NON
+            // -NLS-1$
+        }
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "HANDS"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "HANDS"; //$NON-NLS-1$
+    }
 }

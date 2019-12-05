@@ -1,669 +1,669 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                        
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Aaron Divinsky - boomer70ATyahooDOTcom
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #3: .lst - Races (Part 1)
-  </h1>
-  <p>
-   By Professor Chris Chandler (Barak).
-   <br/>
-   Updated by Aaron Divinsky (boomer70).
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *races.lst
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../datafilestagpages/datafilesraces.html">
-     OUTPUTNAME
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesraces.html#size">
-     SIZE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesraces.html#racetype">
-     RACETYPE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesraces.html#racesubtype">
-     RACESUBTYPE
-    </a>
-    ,
+<!--
+               PCGen Documentation Project
 
-     TYPE (TYPE is deprecated: Replaced by RACETYPE and RACESUBTYPE)
+               $Author$
+               $Date$
+               $Revision$
 
-    ,
-    <a href="../datafilestagpages/datafilesraces.html#monsterclass">
-     MONSTERCLASS
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Aaron Divinsky - boomer70ATyahooDOTcom
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #3: .lst - Races (Part 1)
+</h1>
+<p>
+    By Professor Chris Chandler (Barak).
+    <br/>
+    Updated by Aaron Divinsky (boomer70).
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    *races.lst
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../datafilestagpages/datafilesraces.html">
+        OUTPUTNAME
     </a>
-    ,
-    <a href="../datafilestagpages/datafilesraces.html#hitdie">
-     HITDICE
-    </a>
-    ,
-    <a href="../globalfilestagpages/globalfilesother.html#move">
-     MOVE
-    </a></code>
-  </p>
-  <hr/>
-  <p>
-   This is the beginning of several lessons that will be necessary
-to cover the creation of a race file. There are many tags, and some
-of them will take some seriously long explanations, so get some
-munchies and a drink, get comfortable and we'll get started.
-  </p>
-  <p>
-   Since the race lines can get exceedingly long, and yahoo will
-wrap my lessons, I'll also post a file that may be perused as
-you're reading this. (Be sure to turn off word-wrap on your text
-file reader!)
-  </p>
-  <p>
-   I'm going to develop a file that contains two races. One will be
-from the System Reference Document (SRD) so you can see how 
-to do an already existing race and the other I'm going to make up
-on the fly and use to demonstrate every tag I can remember. :p
-  </p>
-  <p>
-   One thing to note is that these will be considered "monster"
-races. Towards the end of the lesson i'll go back through and
-create a player character only race.
-  </p>
-  <p>
-   We'll do a Solar and, ummm, I know! Ninja Monkeys! :) The
-lessons will follow the format of a standard monster write up. A
-sample monster write up for our Ninja Monkey race is presented
-below so you can follow along (in RSRD format)
-  </p>
-  <hr/>
-  <table class="w67">
-   <tr valign="top">
-    <td colspan="2">
-     <strong>
-      Ninja Monkey
-     </strong>
-    </td>
-   </tr>
-   <tr valign="top">
-    <td colspan="2">
-     Medium Monstrous Humanoid
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Hit Dice:
-     </strong>
-    </td>
-    <td align="left">
-     4d8+8 (26 hp)
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Initiative:
-     </strong>
-    </td>
-    <td>
-     +8
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Speed:
-     </strong>
-    </td>
-    <td>
-     30 ft. (6 squares), climb 20 ft.
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Armor Class:
-     </strong>
-    </td>
-    <td>
-     20 (+4 Dex, +2 Natural, +2 Divine, +2 Leather armor), touch 14,
-flat-footed 16
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Base Attack/Grapple:
-     </strong>
-    </td>
-    <td>
-     +4/+7
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Attack:
-     </strong>
-    </td>
-    <td>
-     Claw +7 melee (1d4+3) or dagger +7 melee (1d4+3)
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Full Attack:
-     </strong>
-    </td>
-    <td>
-     2 claws +7 melee (1d4+3) and bite +2 melee (1d8+1) or dagger +7
-melee (1d4+3)
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Space/Reach:
-     </strong>
-    </td>
-    <td>
-     5 ft./5 ft.
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Special Attacks:
-     </strong>
-    </td>
-    <td>
-     —
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Special Qualities:
-     </strong>
-    </td>
-    <td>
-     Darkvision (60'), DR 3/-, immunity to poison
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Saves:
-     </strong>
-    </td>
-    <td>
-     Fort +3, Ref +8, Will +6
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Abilities:
-     </strong>
-    </td>
-    <td>
-     Str 17, Dex 18, Con 14, Int 11, Wis 15, Cha 10
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Skills:
-     </strong>
-    </td>
-    <td>
-     Balance +8, Hide +8, Jump +7, Listen +7, Move Silently +8, Spot
-+7
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Feats:
-     </strong>
-    </td>
-    <td>
-     Alertness, Improved Initiative
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Environment:
-     </strong>
-    </td>
-    <td>
-     Forests
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Organization:
-     </strong>
-    </td>
-    <td>
-     Solitary or Gang (2-4)
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Challenge Rating:
-     </strong>
-    </td>
-    <td>
-     2
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Treasure:
-     </strong>
-    </td>
-    <td>
-     Standard (double bananas)
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Alignment:
-     </strong>
-    </td>
-    <td>
-     Usually Chaotic Good
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Advancement:
-     </strong>
-    </td>
-    <td>
-     By character class
-    </td>
-   </tr>
-   <tr valign="top">
-    <td class="w33">
-     <strong>
-      Level Adjustment:
-     </strong>
-    </td>
-    <td>
-     +2
-    </td>
-   </tr>
-  </table>
-  <p>
-   Skills: Ninja monkeys have a +4 racial bonus to Balance and Jump
-checks. Ninja monkeys have a +2 racial bonus in forested
-environments.
-  </p>
-  <p>
+        ,
+        <a href="../datafilestagpages/datafilesraces.html#size">
+            SIZE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesraces.html#racetype">
+            RACETYPE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesraces.html#racesubtype">
+            RACESUBTYPE
+        </a>
+        ,
+
+        TYPE (TYPE is deprecated: Replaced by RACETYPE and RACESUBTYPE)
+
+        ,
+        <a href="../datafilestagpages/datafilesraces.html#monsterclass">
+            MONSTERCLASS
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesraces.html#hitdie">
+            HITDICE
+        </a>
+        ,
+        <a href="../globalfilestagpages/globalfilesother.html#move">
+            MOVE
+        </a></code>
+</p>
+<hr/>
+<p>
+    This is the beginning of several lessons that will be necessary
+    to cover the creation of a race file. There are many tags, and some
+    of them will take some seriously long explanations, so get some
+    munchies and a drink, get comfortable and we'll get started.
+</p>
+<p>
+    Since the race lines can get exceedingly long, and yahoo will
+    wrap my lessons, I'll also post a file that may be perused as
+    you're reading this. (Be sure to turn off word-wrap on your text
+    file reader!)
+</p>
+<p>
+    I'm going to develop a file that contains two races. One will be
+    from the System Reference Document (SRD) so you can see how 
+    to do an already existing race and the other I'm going to make up
+    on the fly and use to demonstrate every tag I can remember. :p
+</p>
+<p>
+    One thing to note is that these will be considered "monster"
+    races. Towards the end of the lesson i'll go back through and
+    create a player character only race.
+</p>
+<p>
+    We'll do a Solar and, ummm, I know! Ninja Monkeys! :) The
+    lessons will follow the format of a standard monster write up. A
+    sample monster write up for our Ninja Monkey race is presented
+    below so you can follow along (in RSRD format)
+</p>
+<hr/>
+<table class="w67">
+    <tr valign="top">
+        <td colspan="2">
+            <strong>
+                Ninja Monkey
+            </strong>
+        </td>
+    </tr>
+    <tr valign="top">
+        <td colspan="2">
+            Medium Monstrous Humanoid
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Hit Dice:
+            </strong>
+        </td>
+        <td align="left">
+            4d8+8 (26 hp)
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Initiative:
+            </strong>
+        </td>
+        <td>
+            +8
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Speed:
+            </strong>
+        </td>
+        <td>
+            30 ft. (6 squares), climb 20 ft.
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Armor Class:
+            </strong>
+        </td>
+        <td>
+            20 (+4 Dex, +2 Natural, +2 Divine, +2 Leather armor), touch 14,
+            flat-footed 16
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Base Attack/Grapple:
+            </strong>
+        </td>
+        <td>
+            +4/+7
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Attack:
+            </strong>
+        </td>
+        <td>
+            Claw +7 melee (1d4+3) or dagger +7 melee (1d4+3)
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Full Attack:
+            </strong>
+        </td>
+        <td>
+            2 claws +7 melee (1d4+3) and bite +2 melee (1d8+1) or dagger +7
+            melee (1d4+3)
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Space/Reach:
+            </strong>
+        </td>
+        <td>
+            5 ft./5 ft.
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Special Attacks:
+            </strong>
+        </td>
+        <td>
+            —
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Special Qualities:
+            </strong>
+        </td>
+        <td>
+            Darkvision (60'), DR 3/-, immunity to poison
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Saves:
+            </strong>
+        </td>
+        <td>
+            Fort +3, Ref +8, Will +6
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Abilities:
+            </strong>
+        </td>
+        <td>
+            Str 17, Dex 18, Con 14, Int 11, Wis 15, Cha 10
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Skills:
+            </strong>
+        </td>
+        <td>
+            Balance +8, Hide +8, Jump +7, Listen +7, Move Silently +8, Spot
+            +7
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Feats:
+            </strong>
+        </td>
+        <td>
+            Alertness, Improved Initiative
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Environment:
+            </strong>
+        </td>
+        <td>
+            Forests
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Organization:
+            </strong>
+        </td>
+        <td>
+            Solitary or Gang (2-4)
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Challenge Rating:
+            </strong>
+        </td>
+        <td>
+            2
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Treasure:
+            </strong>
+        </td>
+        <td>
+            Standard (double bananas)
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Alignment:
+            </strong>
+        </td>
+        <td>
+            Usually Chaotic Good
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Advancement:
+            </strong>
+        </td>
+        <td>
+            By character class
+        </td>
+    </tr>
+    <tr valign="top">
+        <td class="w33">
+            <strong>
+                Level Adjustment:
+            </strong>
+        </td>
+        <td>
+            +2
+        </td>
+    </tr>
+</table>
+<p>
+    Skills: Ninja monkeys have a +4 racial bonus to Balance and Jump
+    checks. Ninja monkeys have a +2 racial bonus in forested
+    environments.
+</p>
+<p>
    <span class="s18">
     Ninja Monkey Characters
    </span>
-   <br/>
-   — Automatic Languages: Common and Monkey, Bonus Languages:
-Elven, Goblin, Sylvan.
-   <br/>
-   — Favored Class: Monk
-  </p>
-  <hr/>
-  <p>
-   First, a couple of general rules:  Every tag needs to be
-separated with tabs. Spaces may be used within names, etc, but
-never at the beginning or end. There should never be a space-tab or
-a tab-space combination as this will make the parser choke and
-die.
-  </p>
-  <p>
-   Although any text editor will do, a text editor that can do
-syntax colorization is also a good idea. I use a program called
-TextPad. You can also use UltraEdit and I believe there is one
-called Crimson. You can find a number of these syntax files on the
-Yahoo! Group
-   <a href="http://groups.yahoo.com/group/pcgen_experimental">
-    PCGen_experimental
-   </a>
-   .
-  </p>
-  <p>
-   I'll use "mystuff_races.lst" as the file name. This conforms to
-the new naming convention adopted by the PCGen lstmonkey crew
-recently. Basically it is in the format of
-"source_filetype.lst".
-  </p>
-  <p class="sidebar">
-   <strong>
-    Update to RSRD
-   </strong>
-   <br/>
-   These classes were originally written using the SRD (3.0 rules).
-Throughout you will find sidebars like this one with notes on the
-differences between the 3.0 rule set and the 3.5 rule set as found
-in the Revised System Reference Document (RSRD).
-  </p>
-  <hr/>
-  <p>
-   Race Name
-  </p>
-  <p>
-   The race file is currently a lst file that has one racial entry
-per line. The first thing on each line is the race name. There is
-no tag for it, the program assumes that whatever is there is the
-name of a race.
-  </p>
-  <p>
-   One thing to consider when entering the race name is grouping
-(all demons together, etc). A Solar is a celestial, and we'd like
-it to show up with other celestials, so the name I'm going to enter
-will be "Celestial (Solar)". On the next Line I'll enter "Ninja
-Monkey".
-  </p>
-  <p class="sidebar">
-   <strong>
-    Update to RSRD
-   </strong>
-   <br/>
-   In the RSRD the Solar is listed as an Angel not a Celestial.
-Therefore we would name it "Angel (Solar)".
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>OUTPUTNAME</code>
-   </strong>
-  </p>
-  <p>
-   Now, "Celestial (Solar)", while making it easy to find in the
-race list with the other celestials will look kind of funny on
-output, so we'll use the OUTPUTNAME tag to change what will appear
-on output (if the user has the preference checked to use it).
-  </p>
-  <p>
-   The OUTPUTNAME tag can be used in a couple of different manners.
-You can completely change the name of an object (as far as output
-is concerned) and not reference the real name at all, or you can
-use part of the real name. A special string was developed to grant
-access to only the text contained in parentheses. That string is
-"[NAME]" (no quotes).
-  </p>
-  <p>
-   So, if we wanted the name on output to be "Celestial, Solar", we
-could do it two different ways. 1) OUTPUTNAME:Celestial, Solar or
-2) OUTPUTNAME:Celestial, [NAME].  I don't like either one of
-those... I just want it to be called a "Solar" on output, so I'm
-entering the tag like this:
-  </p>
-  <blockquote>
-   <p>
-    <code>OUTPUTNAME:[NAME]</code>
-   </p>
-  </blockquote>
-  <p>
-   The name "Ninja Monkey" is just fine as it is, so we'll skip an
-OUTPUTNAME tag on this one.
-  </p>
-  <hr/>
-  <p>
-   <code><strong>
-     SIZE
+    <br/>
+    — Automatic Languages: Common and Monkey, Bonus Languages:
+    Elven, Goblin, Sylvan.
+    <br/>
+    — Favored Class: Monk
+</p>
+<hr/>
+<p>
+    First, a couple of general rules:  Every tag needs to be
+    separated with tabs. Spaces may be used within names, etc, but
+    never at the beginning or end. There should never be a space-tab or
+    a tab-space combination as this will make the parser choke and
+    die.
+</p>
+<p>
+    Although any text editor will do, a text editor that can do
+    syntax colorization is also a good idea. I use a program called
+    TextPad. You can also use UltraEdit and I believe there is one
+    called Crimson. You can find a number of these syntax files on the
+    Yahoo! Group
+    <a href="http://groups.yahoo.com/group/pcgen_experimental">
+        PCGen_experimental
+    </a>
+    .
+</p>
+<p>
+    I'll use "mystuff_races.lst" as the file name. This conforms to
+    the new naming convention adopted by the PCGen lstmonkey crew
+    recently. Basically it is in the format of
+    "source_filetype.lst".
+</p>
+<p class="sidebar">
+    <strong>
+        Update to RSRD
+    </strong>
+    <br/>
+    These classes were originally written using the SRD (3.0 rules).
+    Throughout you will find sidebars like this one with notes on the
+    differences between the 3.0 rule set and the 3.5 rule set as found
+    in the Revised System Reference Document (RSRD).
+</p>
+<hr/>
+<p>
+    Race Name
+</p>
+<p>
+    The race file is currently a lst file that has one racial entry
+    per line. The first thing on each line is the race name. There is
+    no tag for it, the program assumes that whatever is there is the
+    name of a race.
+</p>
+<p>
+    One thing to consider when entering the race name is grouping
+    (all demons together, etc). A Solar is a celestial, and we'd like
+    it to show up with other celestials, so the name I'm going to enter
+    will be "Celestial (Solar)". On the next Line I'll enter "Ninja
+    Monkey".
+</p>
+<p class="sidebar">
+    <strong>
+        Update to RSRD
+    </strong>
+    <br/>
+    In the RSRD the Solar is listed as an Angel not a Celestial.
+    Therefore we would name it "Angel (Solar)".
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>OUTPUTNAME</code>
+    </strong>
+</p>
+<p>
+    Now, "Celestial (Solar)", while making it easy to find in the
+    race list with the other celestials will look kind of funny on
+    output, so we'll use the OUTPUTNAME tag to change what will appear
+    on output (if the user has the preference checked to use it).
+</p>
+<p>
+    The OUTPUTNAME tag can be used in a couple of different manners.
+    You can completely change the name of an object (as far as output
+    is concerned) and not reference the real name at all, or you can
+    use part of the real name. A special string was developed to grant
+    access to only the text contained in parentheses. That string is
+    "[NAME]" (no quotes).
+</p>
+<p>
+    So, if we wanted the name on output to be "Celestial, Solar", we
+    could do it two different ways. 1) OUTPUTNAME:Celestial, Solar or
+    2) OUTPUTNAME:Celestial, [NAME].  I don't like either one of
+    those... I just want it to be called a "Solar" on output, so I'm
+    entering the tag like this:
+</p>
+<blockquote>
+    <p>
+        <code>OUTPUTNAME:[NAME]</code>
+    </p>
+</blockquote>
+<p>
+    The name "Ninja Monkey" is just fine as it is, so we'll skip an
+    OUTPUTNAME tag on this one.
+</p>
+<hr/>
+<p>
+    <code><strong>
+        SIZE
     </strong></code>
-  </p>
-  <p>
-   Every creature has a size.  The size tag uses the first
-letter of each size category, so the possible choices are F (Fine),
-D (Diminutive), T (Tiny), S (Small), M (Medium), L (Large), H
-(Huge), G (Gargantuan), and C (Colossal).
-  </p>
-  <p>
-   The Solar is a Large creature so on that line we'll enter a
-couple tabs and then put "
-   <code>SIZE:L</code>
-   ". The Ninja Monkey is
-man-sized (Medium), so we'll put "
-   <code>SIZE:M</code>
-   " on that
-line.
-  </p>
-  <hr/>
-  <p>
-   <code><strong>
-     RACETYPE/RACESUBTYPE
+</p>
+<p>
+    Every creature has a size.  The size tag uses the first
+    letter of each size category, so the possible choices are F (Fine),
+    D (Diminutive), T (Tiny), S (Small), M (Medium), L (Large), H
+    (Huge), G (Gargantuan), and C (Colossal).
+</p>
+<p>
+    The Solar is a Large creature so on that line we'll enter a
+    couple tabs and then put "
+    <code>SIZE:L</code>
+    ". The Ninja Monkey is
+    man-sized (Medium), so we'll put "
+    <code>SIZE:M</code>
+    " on that
+    line.
+</p>
+<hr/>
+<p>
+    <code><strong>
+        RACETYPE/RACESUBTYPE
     </strong></code>
-  </p>
-  <p>
-   After the creature's size the next information is the race type.
-For the Solar it is listed as Outsider (Good). The information in
-the brackets after the type lists all the subtypes for the monster,
-in this case Good. We will enter "
-   <code>RACETYPE:Outsider</code>
-   "
-put in a tab and enter "
-   <code>RACESUBTYPE:Good</code>
-   ".
-  </p>
-  <p>
-   For the Ninja Monkey we have to enter just the type with no
-subtypes.
-  </p>
-  <blockquote>
-   <p>
-    <code>RACETYPE:Monstrous Humanoid</code>
-   </p>
-  </blockquote>
-  <p class="sidebar">
-   <strong>
-    Update to RSRD
-   </strong>
-   <br/>
-   The Solar changes subtypes in the RSRD to Outsider (Angel,
-Extraplanar, Good). Therefore we need to change our subtype entry
-to read
-   <code>RACESUBTYPE:Angel|Extraplanar|Good</code>
-   .
-  </p>
-  <hr/>
-  <p>
-   <code><strong>
-     TYPE
+</p>
+<p>
+    After the creature's size the next information is the race type.
+    For the Solar it is listed as Outsider (Good). The information in
+    the brackets after the type lists all the subtypes for the monster,
+    in this case Good. We will enter "
+    <code>RACETYPE:Outsider</code>
+    "
+    put in a tab and enter "
+    <code>RACESUBTYPE:Good</code>
+    ".
+</p>
+<p>
+    For the Ninja Monkey we have to enter just the type with no
+    subtypes.
+</p>
+<blockquote>
+    <p>
+        <code>RACETYPE:Monstrous Humanoid</code>
+    </p>
+</blockquote>
+<p class="sidebar">
+    <strong>
+        Update to RSRD
+    </strong>
+    <br/>
+    The Solar changes subtypes in the RSRD to Outsider (Angel,
+    Extraplanar, Good). Therefore we need to change our subtype entry
+    to read
+    <code>RACESUBTYPE:Angel|Extraplanar|Good</code>
+    .
+</p>
+<hr/>
+<p>
+    <code><strong>
+        TYPE
     </strong></code>
-  </p>
-  <p>
-   <strong>
-    Note:
-   </strong>
-   This use of TYPE has been deprecated and
-is replaced with
-   <code>RACETYPE/RACESUBTYPE</code>
-   .
-  </p>
-  <p>
-   We use the TYPE tag to indicate what type of creature the race
-is (Aberration, Undead, Animal, Monstrous Humanoid, Magical Beast,
-etc.).
-  </p>
-  <p>
-   The Solar is an Outsider so our tag would read
-"
-   <code>TYPE:Outsider</code>
-   ".
-  </p>
-  <p>
-   The Ninja monkey is a Monstrous Humanoid so our tag would be
-"
-   <code>TYPE:Monstrous Humanoid</code>
-   ".
-  </p>
-  <hr/>
-  <p>
-   <code><strong>
-     MONSTERCLASS
+</p>
+<p>
+    <strong>
+        Note:
+    </strong>
+    This use of TYPE has been deprecated and
+    is replaced with
+    <code>RACETYPE/RACESUBTYPE</code>
+    .
+</p>
+<p>
+    We use the TYPE tag to indicate what type of creature the race
+    is (Aberration, Undead, Animal, Monstrous Humanoid, Magical Beast,
+    etc.).
+</p>
+<p>
+    The Solar is an Outsider so our tag would read
+    "
+    <code>TYPE:Outsider</code>
+    ".
+</p>
+<p>
+    The Ninja monkey is a Monstrous Humanoid so our tag would be
+    "
+    <code>TYPE:Monstrous Humanoid</code>
+    ".
+</p>
+<hr/>
+<p>
+    <code><strong>
+        MONSTERCLASS
     </strong></code>
-  </p>
-  <p>
-   The MONSTERCLASS tag is used by the program when the "Default
-Monster" setting is off. It tells it how many and which monster
-class levels to give the race (as opposed to using the HITDICE tag
-when in "Default Monster" mode).
-  </p>
-  <p>
-   The tag takes the format of
-MONSTERCLASS:&lt;monsterclassname&gt;:&lt;levels&gt;. For PCGen
-distribution files the class name is *usually* the type of creature
-and the number of levels is usually set equal to the number of HD
-the default creature has. An exception to this is when the racial
-description says they are spellcasters... "cast as 18th level
-sorcerers". In that case we create a special class (in a class.lst
-file) to grant the race the appropriate spellcasting levels.
-  </p>
-  <p>
-   The Solar is an Outsider with 22 HD, and he casts spells as a
-20th level cleric, so his tag would be
-"
-   <code>MONSTERCLASS:Solar:22</code>
-   "
-  </p>
-  <p>
-   For the Ninja Monkey, he's a Monstrous Humanoid and has 4 HD and
-no spellcasting ability, so the tag for him would read
-"
-   <code>MONSTERCLASS:Monstrous Humanoid:4</code>
-   ".
-  </p>
-  <hr/>
-  <p>
-   <code><strong>
-     HITDICE
+</p>
+<p>
+    The MONSTERCLASS tag is used by the program when the "Default
+    Monster" setting is off. It tells it how many and which monster
+    class levels to give the race (as opposed to using the HITDICE tag
+    when in "Default Monster" mode).
+</p>
+<p>
+    The tag takes the format of
+    MONSTERCLASS:&lt;monsterclassname&gt;:&lt;levels&gt;. For PCGen
+    distribution files the class name is *usually* the type of creature
+    and the number of levels is usually set equal to the number of HD
+    the default creature has. An exception to this is when the racial
+    description says they are spellcasters... "cast as 18th level
+    sorcerers". In that case we create a special class (in a class.lst
+    file) to grant the race the appropriate spellcasting levels.
+</p>
+<p>
+    The Solar is an Outsider with 22 HD, and he casts spells as a
+    20th level cleric, so his tag would be
+    "
+    <code>MONSTERCLASS:Solar:22</code>
+    "
+</p>
+<p>
+    For the Ninja Monkey, he's a Monstrous Humanoid and has 4 HD and
+    no spellcasting ability, so the tag for him would read
+    "
+    <code>MONSTERCLASS:Monstrous Humanoid:4</code>
+    ".
+</p>
+<hr/>
+<p>
+    <code><strong>
+        HITDICE
     </strong></code>
-  </p>
-  <p>
-   <strong>
-    Note:
-   </strong>
-   The PCGen data team is moving away from
-using the "Default Monster" setting. Default Monster Kits are being
-used instead.
-  </p>
-  <p>
-   This is the tag we use to indicate the die size and quantity of
-hit dice a race gets. The program uses this when the "Default
-Monster" setting in the preferences is on. It takes the format of
-HITDICE:&lt;quantity&gt;,&lt;size&gt;. This information is found at
-the top of each race listing.
-  </p>
-  <p>
-   The Solar has 22d8 hit points, so would have
-"
-   <code>HITDICE:22,8</code>
-   " for this tag.
-  </p>
-  <p>
-   The ninja monkey has 4d8 hit points, so would have
-"
-   <code>HITDICE:4,8</code>
-   " for this tag.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>MOVE</code>
-   </strong>
-  </p>
-  <p>
-   To define a race's movement modes and rates we use the MOVE tag.
-The format is "MOVE:mode,rate,mode,rate".   You can enter
-as many movement modes and rates as you want.
-  </p>
-  <p>
-   Looking at the Solar in the SRD, they list "SPEED:50ft,fly
-150ft". The first number is always their "Walk" (otherwise known as
-"Base") movement rate, except for those races that can't walk like
-some plants. So on the Solar's line we will enter (remember to put
-a tab or two between the last tag and this new one):
-  </p>
-  <blockquote>
-   <p>
-    <code>MOVE:Walk,50,Fly,150</code>
-   </p>
-  </blockquote>
-  <p>
-   I'm going to give the Ninja Monkey a walk rate of 30 and a climb
-rate of 20, so the tag for his line would be:
-  </p>
-  <blockquote>
-   <p>
-    <code>MOVE:Walk,30,Climb,20</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <p>
-   I'm going to end this lesson at this point. If you have
-questions, please post them to the Yahoo! group
-   <a href="http://groups.yahoo.com/group/PCGenListFileHelp">
-    PCGenListFileHelp
-   </a>
-   .
-  </p>
-  <p>
-   The example file for this lesson can be found at the
-   <a href="http://games.groups.yahoo.com/group/LSTfileclass/">
-    LSTfileclass
-Yahoo Group
-   </a>
-   in the files section
-   <a href="http://f2.grp.yahoofs.com/v1/EKxcQRSQkNqrtFjDTDyZ5ZvY6XxwOMY5DToAK4c8KwnppEP1vNZ7czz_HnUk-%20vVPAEAIj4d1fL_uy8smyJGnXeTZ1TeVuQ/Lesson%20Files/mystuff_races.lst">
-    here
-   </a>
-   .
-  </p>
-  <p>
-   Barak
-   <br/>
-   LST Chimp
-  </p>
-  <p>
-  </p>
- </body>
+</p>
+<p>
+    <strong>
+        Note:
+    </strong>
+    The PCGen data team is moving away from
+    using the "Default Monster" setting. Default Monster Kits are being
+    used instead.
+</p>
+<p>
+    This is the tag we use to indicate the die size and quantity of
+    hit dice a race gets. The program uses this when the "Default
+    Monster" setting in the preferences is on. It takes the format of
+    HITDICE:&lt;quantity&gt;,&lt;size&gt;. This information is found at
+    the top of each race listing.
+</p>
+<p>
+    The Solar has 22d8 hit points, so would have
+    "
+    <code>HITDICE:22,8</code>
+    " for this tag.
+</p>
+<p>
+    The ninja monkey has 4d8 hit points, so would have
+    "
+    <code>HITDICE:4,8</code>
+    " for this tag.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>MOVE</code>
+    </strong>
+</p>
+<p>
+    To define a race's movement modes and rates we use the MOVE tag.
+    The format is "MOVE:mode,rate,mode,rate".   You can enter
+    as many movement modes and rates as you want.
+</p>
+<p>
+    Looking at the Solar in the SRD, they list "SPEED:50ft,fly
+    150ft". The first number is always their "Walk" (otherwise known as
+    "Base") movement rate, except for those races that can't walk like
+    some plants. So on the Solar's line we will enter (remember to put
+    a tab or two between the last tag and this new one):
+</p>
+<blockquote>
+    <p>
+        <code>MOVE:Walk,50,Fly,150</code>
+    </p>
+</blockquote>
+<p>
+    I'm going to give the Ninja Monkey a walk rate of 30 and a climb
+    rate of 20, so the tag for his line would be:
+</p>
+<blockquote>
+    <p>
+        <code>MOVE:Walk,30,Climb,20</code>
+    </p>
+</blockquote>
+<hr/>
+<p>
+    I'm going to end this lesson at this point. If you have
+    questions, please post them to the Yahoo! group
+    <a href="http://groups.yahoo.com/group/PCGenListFileHelp">
+        PCGenListFileHelp
+    </a>
+    .
+</p>
+<p>
+    The example file for this lesson can be found at the
+    <a href="http://games.groups.yahoo.com/group/LSTfileclass/">
+        LSTfileclass
+        Yahoo Group
+    </a>
+    in the files section
+    <a href="http://f2.grp.yahoofs.com/v1/EKxcQRSQkNqrtFjDTDyZ5ZvY6XxwOMY5DToAK4c8KwnppEP1vNZ7czz_HnUk-%20vVPAEAIj4d1fL_uy8smyJGnXeTZ1TeVuQ/Lesson%20Files/mystuff_races.lst">
+        here
+    </a>
+    .
+</p>
+<p>
+    Barak
+    <br/>
+    LST Chimp
+</p>
+<p>
+</p>
+</body>
 </html>

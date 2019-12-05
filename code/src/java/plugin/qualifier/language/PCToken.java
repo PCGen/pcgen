@@ -26,16 +26,16 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 public class PCToken extends AbstractPCQualifierToken<Language>
 {
 
-	@Override
-	protected Collection<Language> getPossessed(PlayerCharacter pc)
-	{
-		return pc.getDisplay().getLanguageSet();
-	}
+    @Override
+    protected Collection<Language> getPossessed(PlayerCharacter pc)
+    {
+        return pc.getDisplay().getLanguageSet();
+    }
 
-	@Override
-	public Class<? super Language> getReferenceClass()
-	{
-		return Language.class;
-	}
+    @Override
+    public Class<? super Language> getReferenceClass()
+    {
+        return Language.class;
+    }
 
 }

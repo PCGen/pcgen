@@ -28,21 +28,21 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class ValidforfollowerToken extends AbstractYesNoToken<PCAlignment> implements CDOMPrimaryToken<PCAlignment>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "VALIDFORFOLLOWER";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VALIDFORFOLLOWER";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.VALID_FOR_FOLLOWER;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.VALID_FOR_FOLLOWER;
+    }
 
-	@Override
-	public Class<PCAlignment> getTokenClass()
-	{
-		return PCAlignment.class;
-	}
+    @Override
+    public Class<PCAlignment> getTokenClass()
+    {
+        return PCAlignment.class;
+    }
 }

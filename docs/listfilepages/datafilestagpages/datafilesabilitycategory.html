@@ -1,234 +1,234 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
+<!--
 
-                PCGen Documentation Project
-
-
-                $Author: eddyanthony $
-                $Date: 2007-11-09 21:10:15 -0500 (Fri, 09 Nov 2007) $
-                $Revision: 4494 $
+               PCGen Documentation Project
 
 
-                Contributors:
-                Eric C. Smith - mareduddATblackrootDOTorg
+               $Author: eddyanthony $
+               $Date: 2007-11-09 21:10:15 -0500 (Fri, 09 Nov 2007) $
+               $Revision: 4494 $
 
 
-                Description:
-                Provides information on the use of PCGen Ability Category Tags.
+               Contributors:
+               Eric C. Smith - mareduddATblackrootDOTorg
 
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   ABILITY Category Tags
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Ability Category Files
-  </h1>
-  <p class="indent1">
-   Ability Categories can be defined in either the
-active GameMode's
-   <em>
-    miscinfo.lst
-   </em>
-   file or in a loaded
-dataset's
-   <em>
-    abilitycategory.lst
-   </em>
-   file, with each ability
-category being defined in one or the other, but not both. Ability
-categories are defined, one per line, as per the
-   <a href="../systemfilestagpages/gamemodemiscinfolist.html#abilitycategory">
-    ABILITYCATEGORY
-   </a>
-   tag documentation in the
-   <em>
-    miscinfo.lst
-   </em>
-   file
-documentation.
-  </p>
-  <p class="indent1">
-   <strong>
+
+               Description:
+               Provides information on the use of PCGen Ability Category Tags.
+
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        ABILITY Category Tags
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Ability Category Files
+</h1>
+<p class="indent1">
+    Ability Categories can be defined in either the
+    active GameMode's
+    <em>
+        miscinfo.lst
+    </em>
+    file or in a loaded
+    dataset's
+    <em>
+        abilitycategory.lst
+    </em>
+    file, with each ability
+    category being defined in one or the other, but not both. Ability
+    categories are defined, one per line, as per the
+    <a href="../systemfilestagpages/gamemodemiscinfolist.html#abilitycategory">
+        ABILITYCATEGORY
+    </a>
+    tag documentation in the
+    <em>
+        miscinfo.lst
+    </em>
+    file
+    documentation.
+</p>
+<p class="indent1">
+    <strong>
     <span class="new">
      Warning:
     </span>
-   </strong>
-   <code>SOURCExxx</code>
-   tags must not
-be used in the abilitycategory list file, so source information
-must be listed in comments where required.
-  </p>
-  <hr/>
-  <h2>
-   Ability Category File Tags
-  </h2>
-  <hr/>
-  <p class="status">
-   *** Added 5.13.5
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="abilitycategory" name="abilitycategory">
-     Tag Name:
+    </strong>
+    <code>SOURCExxx</code>
+    tags must not
+    be used in the abilitycategory list file, so source information
+    must be listed in comments where required.
+</p>
+<hr/>
+<h2>
+    Ability Category File Tags
+</h2>
+<hr/>
+<p class="status">
+    *** Added 5.13.5
+</p>
+<p class="indent0">
+    <strong>
+        <a id="abilitycategory" name="abilitycategory">
+            Tag Name:
+        </a>
+    </strong>
+    ABILITYCATEGORY:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Name
+    of the Ability Category).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        The ABILITYCATEGORY tag begins a line which defines a category
+        of abilities.
+    </li>
+    <li>
+        The ABILITYCATEGORY tag is optional as PCGen will take the
+        first data element in each line as the name of the ability category
+        being defined.
+    </li>
+    <li>
+        Visible ability categories will show as a sub-tab on the
+        abilities tab.
+    </li>
+    <li>
+        If no extra parameters are provided on the line the category
+        will default to being visible, editable, with no types, a display
+        name and plural name matching the category name and an editable
+        whole number only pool with a starting value of 0.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+    <br/>
+</p>
+<p class="indent2">
+    <code>ABILITYCATEGORY:Special Attack</code>
+</p>
+<p class="indent3">
+    Defines a category named Special Attack.
+</p>
+<p class="indent2">
+    <code>Special Attack &lt;tab&gt;
+        PLURAL=Ambush</code>
+</p>
+<p class="indent3">
+    Defines a category named Special Attack and sets
+    the internationalized name to "Ambush".
+</p>
+<hr/>
+<p class="indent0">
+    The following tags are used in ABILITYCATEGORY
+    lines and are defined in the
+    <a href="../systemfilestagpages/gamemodemiscinfolist.html#abilitycategory">
+        <em>
+            miscinfo.lst
+        </em>
     </a>
-   </strong>
-   ABILITYCATEGORY:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Name
-of the Ability Category).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    The ABILITYCATEGORY tag begins a line which defines a category
-of abilities.
-   </li>
-   <li>
-    The ABILITYCATEGORY tag is optional as PCGen will take the
-first data element in each line as the name of the ability category
-being defined.
-   </li>
-   <li>
-    Visible ability categories will show as a sub-tab on the
-abilities tab.
-   </li>
-   <li>
-    If no extra parameters are provided on the line the category
-will default to being visible, editable, with no types, a display
-name and plural name matching the category name and an editable
-whole number only pool with a starting value of 0.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-   <br/>
-  </p>
-  <p class="indent2">
-   <code>ABILITYCATEGORY:Special Attack</code>
-  </p>
-  <p class="indent3">
-   Defines a category named Special Attack.
-  </p>
-  <p class="indent2">
-   <code>Special Attack &lt;tab&gt;
-PLURAL=Ambush</code>
-  </p>
-  <p class="indent3">
-   Defines a category named Special Attack and sets
-the internationalized name to "Ambush".
-  </p>
-  <hr/>
-  <p class="indent0">
-   The following tags are used in ABILITYCATEGORY
-lines and are defined in the
-   <a href="../systemfilestagpages/gamemodemiscinfolist.html#abilitycategory">
-    <em>
-     miscinfo.lst
-    </em>
-   </a>
-   file documentation:
-  </p>
-  <ul class="indent1">
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#abilitylist">
-     ABILITYLIST
-    </a>
-    - Defines a list of abilities that are included in the associated
-category.
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#category">
-     CATEGORY
-    </a>
-    - Defines the low-level ability category the category refers to.
-    <ul class="indent2">
-     <li>
-      Class Abilities, Racial Abilities, Special Attacks, Special
-Qualities, Feat, Skill, Supernatural, Extraordinary and Spell,
-etc...
-     </li>
-    </ul>
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#displaylocation">
-     DISPLAYLOCATION
-    </a>
-    - Define the name of the sub tab that the ability category will be
-displayed on.
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#displayname">
-     DISPLAYNAME
-    </a>
-    - Defines the display name of the category.
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#editable">
-     EDITABLE
-    </a>
-    - Defines whether this category of abilities is user-editable.
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#editpool">
-     EDITPOOL
-    </a>
-    - Sets the flag to allow/disallow user editing of the pool.
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#fractionalpool">
-     FRACTIONALPOOL
-    </a>
-    - Sets if the pool can use fractional amounts.
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#plural">
-     PLURAL
-    </a>
-    - Sets the internationalized plural name for this category.
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#pool">
-     POOL
-    </a>
-    -
-Sets the number, variable, or formula used to calculate the pool
-size for this category of ability.
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#type">
-     TYPE
-    </a>
-    -
-Defines the list of types included in this category
-   </li>
-   <li>
-    <a href="../systemfilestagpages/gamemodemiscinfolist.html#visible">
-     VISIBLE
-    </a>
-    - Defines whether this category of ability should be displayed in
-the UI.
-   </li>
-  </ul>
-  <hr/>
-  <p>
-  </p>
- </body>
+    file documentation:
+</p>
+<ul class="indent1">
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#abilitylist">
+            ABILITYLIST
+        </a>
+        - Defines a list of abilities that are included in the associated
+        category.
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#category">
+            CATEGORY
+        </a>
+        - Defines the low-level ability category the category refers to.
+        <ul class="indent2">
+            <li>
+                Class Abilities, Racial Abilities, Special Attacks, Special
+                Qualities, Feat, Skill, Supernatural, Extraordinary and Spell,
+                etc...
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#displaylocation">
+            DISPLAYLOCATION
+        </a>
+        - Define the name of the sub tab that the ability category will be
+        displayed on.
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#displayname">
+            DISPLAYNAME
+        </a>
+        - Defines the display name of the category.
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#editable">
+            EDITABLE
+        </a>
+        - Defines whether this category of abilities is user-editable.
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#editpool">
+            EDITPOOL
+        </a>
+        - Sets the flag to allow/disallow user editing of the pool.
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#fractionalpool">
+            FRACTIONALPOOL
+        </a>
+        - Sets if the pool can use fractional amounts.
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#plural">
+            PLURAL
+        </a>
+        - Sets the internationalized plural name for this category.
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#pool">
+            POOL
+        </a>
+        -
+        Sets the number, variable, or formula used to calculate the pool
+        size for this category of ability.
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#type">
+            TYPE
+        </a>
+        -
+        Defines the list of types included in this category
+    </li>
+    <li>
+        <a href="../systemfilestagpages/gamemodemiscinfolist.html#visible">
+            VISIBLE
+        </a>
+        - Defines whether this category of ability should be displayed in
+        the UI.
+    </li>
+</ul>
+<hr/>
+<p>
+</p>
+</body>
 </html>

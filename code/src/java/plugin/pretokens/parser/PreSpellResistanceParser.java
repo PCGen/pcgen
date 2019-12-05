@@ -28,57 +28,56 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  */
 public class PreSpellResistanceParser extends AbstractPrerequisiteIntegerParser implements PrerequisiteParserInterface
 {
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String[] kindsHandled()
-	{
-		return new String[]{"SR", "SREQ", "SRGT", "SRGTEQ", "SRLT", "SRLTEQ", "SRNEQ"};
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String[] kindsHandled()
+    {
+        return new String[]{"SR", "SREQ", "SRGT", "SRGTEQ", "SRLT", "SRLTEQ", "SRNEQ"};
+    }
 
-	/**
-	 * Parse the pre req list
-	 *
-	 * @param kind The kind of the prerequisite (less the "PRE" prefix)
-	 * @param formula The body of the prerequisite.
-	 * @param invertResult Whether the prerequisite should invert the result.
-	 * @param overrideQualify
-	 *           if set true, this prerequisite will be enforced in spite
-	 *           of any "QUALIFY" tag that may be present.
-	 * @return PreReq
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		try
-		{
-			prereq.setKind("sr");
+    /**
+     * Parse the pre req list
+     *
+     * @param kind            The kind of the prerequisite (less the "PRE" prefix)
+     * @param formula         The body of the prerequisite.
+     * @param invertResult    Whether the prerequisite should invert the result.
+     * @param overrideQualify if set true, this prerequisite will be enforced in spite
+     *                        of any "QUALIFY" tag that may be present.
+     * @return PreReq
+     * @throws PersistenceLayerException
+     */
+    @Override
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+            throws PersistenceLayerException
+    {
+        Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+        try
+        {
+            prereq.setKind("sr");
 
-			// Get the comparator type SRGTEQ, SR, SRNEQ etc.
-			String compType = kind.substring(2);
+            // Get the comparator type SRGTEQ, SR, SRNEQ etc.
+            String compType = kind.substring(2);
 
-			if (compType.isEmpty())
-			{
-				compType = "gteq";
-			}
+            if (compType.isEmpty())
+            {
+                compType = "gteq";
+            }
 
-			prereq.setOperator(compType);
-			if (invertResult)
-			{
-				prereq.setOperator(prereq.getOperator().invert());
-			}
-		}
-		catch (PrerequisiteException pe)
-		{
-			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
-		}
+            prereq.setOperator(compType);
+            if (invertResult)
+            {
+                prereq.setOperator(prereq.getOperator().invert());
+            }
+        } catch (PrerequisiteException pe)
+        {
+            throw new PersistenceLayerException(
+                    "Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
+        }
 
-		return prereq;
-	}
+        return prereq;
+    }
 }

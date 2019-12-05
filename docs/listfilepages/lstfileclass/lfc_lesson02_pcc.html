@@ -1,420 +1,420 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                        
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #2: PCC file calling
-  </h1>
-  <p>
-   By Professor Chris Chandler (Barak) and Professor Andrew
-McDougall (Tir Gwaith).
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *.pcc (File
-calling)
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../datafilestagpages/datafilespcc.html#deity">
-     DEITY
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #2: PCC file calling
+</h1>
+<p>
+    By Professor Chris Chandler (Barak) and Professor Andrew
+    McDougall (Tir Gwaith).
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    *.pcc (File
+    calling)
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../datafilestagpages/datafilespcc.html#deity">
+        DEITY
     </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#domain">
-     DOMAIN
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#spell">
-     SPELL
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#race">
-     RACE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#template">
-     TEMPLATE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#feat">
-     FEAT
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#skill">
-     SKILL
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#language">
-     LANGUAGE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#class">
-     CLASS
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#companionmod">
-     COMPANIONMOD
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#kit">
-     KIT
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#equipmod">
-     EQUIPMOD
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#equipment">
-     EQUIPMENT
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#weaponprof">
-     WEAPONPROF
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#pcc">
-     PCC
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#include">
-     INCLUDE
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilespcc.html#exclude">
-     EXCLUDE
-    </a>
-    ,
-#</code>
-  </p>
-  <hr/>
-  <h2>
-   Basic File type calls
-  </h2>
-  <p>
-   Ok, this part is going to go fast. If you want to add an object
-(coding term for how PCGen handles things), such as a Race, to your
-campaign, it needs to be in the correct LST file type to load
-correctly. To do this, you create that object in a LST file, and
-reference the file by one of the tags. Valid file types are, and
-I'm grouping them by file types that tend to go together (interact
-with others regularly in the same grouping): DEITY, DOMAIN, SPELL,
-RACE, TEMPLATE, FEAT, SKILL, LANGUAGE, CLASS, COMPANIONMOD, KIT,
-EQUIPMOD, EQUIPMENT, and WEAPONPROF
-  </p>
-  <p>
-   There can only be one of these tags per line, but one can have
-more than one line with the same reference (we tend to break
-monsters and equipment down into more than one file for official
-releases, so we often will have more than one EQUIPMENT or RACE
-line in the same campaign. All of these tags call LST files, each
-of which follow their own format and tags that can be used in them.
-We will get to that later.
-  </p>
-  <p>
-   For example, one of the lines for my classes is
-"CLASS:mystuffclassesbase.lst". Another one (entered on a new line)
-is "CLASS:mystuffclassesprestige.lst". My feat file is
-"FEAT:mystufffeats.lst".
-  </p>
-  <p>
-   Notice something about all the filenames I've chosen for the
-different types of data? They all start with "mystuff". This is the
-common naming convention and just makes it easy to determine at a
-glance what files belong together with what PCC.
-  </p>
-  <p>
-   So now the PCC file looks like this (and is complete; we are
-building on lesson #1 here.):
-  </p>
-  <blockquote>
-   <p>
-    <code>-------------------------------
-     <br/>
-     CAMPAIGN:My Stuff
-     <br/>
-     GAMEMODE:3e
-     <br/>
-     RANK:1
-     <br/>
-     TYPE:PCGenLstMonkey.Campaign Setting.My World
-     <br/>
-     SOURCELONG:PCGenLstMonkey SOURCESHORT:PCGLM
-     <br/>
-     SOURCEWEB:http://www.mystuffcampaign.com
-     <br/>
-     ISOGL:YES
-     <br/>
-     COPYRIGHT:PCGenLstMonkey Copyright 2003
-     <br/>
-     INFOTEXT:This data set contains all the information necessary
-to
-     <br/>
-     create a character for the mystuff campaign world.
-     <br/>
-     DEITY:mystuffdeities.lst
-     <br/>
-     FEAT:mystufffeats.lst
-     <br/>
-     TEMPLATE:mystufftemplates.lst
-     <br/>
-     CLASS:mystuffclassesbase.lst
-     <br/>
-     CLASS:mystuffclassesprestige.lst
-     <br/>
-     DOMAIN:mystuffdomains.lst
-     <br/>
-     LANGUAGE:mystufflanguages.lst
-     <br/>
-     RACE:mystuffraces.lst
-     <br/>
-     SKILL:mystuffskills.lst
-     <br/>
-     SPELL:mystuffspells.lst
-     <br/>
-     KIT:mystuffkits.lst
-     <br/>
-     COMPANIONMOD:mystuffkits.lst
-     <br/>
-     EQUIPMOD:mystuffequipmodsmundane.lst
-     <br/>
-     EQUIPMOD:mystuffequipmodsmagical.lst
-     <br/>
-     EQUIPMENT:mystuffequip.lst
-     <br/>
-     WEAPONPROF:mystuffweaponprofs.lst
-     <br/>
-     -------------------------------</code>
-   </p>
-  </blockquote>
-  <p>
-   That is ALL you need to include in a Campaign file to have
-objects load, so long as the files themselves exist and there isn't
-anything wrong with the files themselves (bad LST format, weird
-character, etc.). Note that you do not need all of those type.
-Several sources may only have two or three of them.
-  </p>
-  <p>
-   What we are going to go into now is some slightly more advanced
-items that will help with your custom datasets...
-  </p>
-  <hr/>
-  <h2>
-   PCC: calling other PCGen Campaign Configuration files.
-  </h2>
-  <p>
-   Let's say I want to have everything in the SRD, but I don't want
-to select the SRD every time on the sources screen. I and my
-players want to just load MyCampaign. To do this I can use a PCC
-tag in the mystuff.pcc. This works just like any of the other File
-Type loading tags, but it will load EVERYTHING from a given PCC
-file.
-  </p>
-  <p>
-   So I can load the complete SRD and my own stuff and I could do
-it just by clicking on MyCampaign and loading that. All the info in
-the SRD would be included! More specifically, what is mentioned in
-the PCC I call is loaded as if it were listed in the
-mystuff.pcc...
-  </p>
-  <p>
-   Since PCC's tend to be in the same folder as their files, and
-each campaign in its own folder, I've held this one off till after
-the calling from other directories, since you need that first. So,
-I need to know where the PCC in question is. In this case, it is
-(PCgenHome}/data/d20ogl/srd/srd.pcc. So I'm going to add
-PCC:@/data/d20ogl/srd/srd.pcc
-  </p>
-  <p>
-   The "@" character when used in a PCC file will be replaced when
-the program goes looking for the file by the path you have set in
-the preferences as the PCGen home directory.
-  </p>
-  <p>
-   You may also load a PCC using the full path/filename (useful if
-you keep your sources in places other than the normal PCGen path)
-such as PCC:C:/pcgen/data/d20ogl/srd/srd.pcc.
-  </p>
-  <hr/>
-  <h2>
-   LSTEXCLUDE: removing a file completely.
-  </h2>
-  <p>
-   I want to use the SRD materials but I have invented my own feats
-and wish to use them and *not* have the ones from the SRD
-available. I can use the LSTEXCLUDE tag to prevent them from being
-loaded. This tag will prevent the named files from being loaded
-even if they are referenced in another PCC that you have chosen to
-include. For this to work properly, it must come before any PCC
-listings to take effect in them.
-  </p>
-  <p>
-   So, for mystuff.pcc I will insert "LSTEXCLUDE:srdfeats.lst" on a
-line prior to my PCC call from the last section.
-  </p>
-  <hr/>
-  <h2>
-   INCLUDE/EXCLUDE: loading only parts of files
-  </h2>
-  <p>
-   Thinking about it some more I realize that I want to include a
-couple of bits from some other data sets. While I could re-enter
-them, why go to all that trouble. Looking through my stuff, I want
-to include the races from FFG's Mythic Races... but looking at
-them, I don't particularly like the Fairy race, nor the Anaema
-(that just sounds too close to something else :P) and would like to
-leave them out.
-  </p>
-  <p>
-   This is what we use the EXCLUDE tag for.  So I enter
-another race tag for that file, but on the end I put
-"|(EXCLUDE:Fairy|Anaema)". The complete entry reads:
-  </p>
-  <blockquote>
-   <p>
-    <code>RACE:@/data/d20ogl/fantasyflightgames/legendsandlairs/mythicraces/mythicracesraces.lst|
-(EXCLUDE:Fairy|Anaema)</code>
-   </p>
-  </blockquote>
-  <p>
-   On that same note, I really like the Hide Spell metamagic feat
-from Sword and Sorcery Studios book Relics and Rituals, but I don't
-want to include any of the other feats. To do this I'll use the
-INCLUDE tag. I enter another feat tag, and at the end I put
-"|(INCLUDE:Hide Spell)". The complete line would read:
-  </p>
-  <blockquote>
-   <p>
-    <code>FEAT:@/data/d20ogl/swordandsorcerystudios/scarredlands/relicsrituals/relicsritualsfeats.lst|
-(INCLUDE:Hide Spell)</code>
-   </p>
-  </blockquote>
-  <hr/>
-  <h2>
-   #: Comments
-  </h2>
-  <p>
-   Some PCC files can be complicated and might need some
-explanation for how things are being done or you may just wish to
-use have some reminders of how you've organized the file.  For
-that you enter a comment. A comment is indicated by using the "#"
-character as the first character on the line, followed by any text
-you wish to enter for the comment.
-  </p>
-  <p>
-   I think I'll just pop a note into the PCC indicating source
-material that is not from my setting. "# Non My Campaign setting
-files".
-  </p>
-  <p>
-   Our PCC file now looks like this:
-  </p>
-  <blockquote>
-   <p>
-    <code>-------------------------------
-     <br/>
-     CAMPAIGN:My Stuff
-     <br/>
-     GAMEMODE:3e
-     <br/>
-     RANK:1
-     <br/>
-     TYPE:PCGenLstMonkey.Campaign Setting.My World
-     <br/>
-     SOURCELONG:PCGenLstMonkey SOURCESHORT:PCGLM
-     <br/>
-     SOURCEWEB:http://www.mystuffcampaign.com
-     <br/>
-     ISOGL:YES
-     <br/>
-     COPYRIGHT:PCGenLstMonkey Copyright 2003
-     <br/>
-     INFOTEXT:This data set contains all the information necessary
-to
-     <br/>
-     create a character for the mystuff campaign world.
-     <br/>
-     DEITY:mystuffdeities.lst
-     <br/>
-     FEAT:mystufffeats.lst
-     <br/>
-     TEMPLATE:mystufftemplates.lst
-     <br/>
-     CLASS:mystuffclassesbase.lst
-     <br/>
-     CLASS:mystuffclassesprestige.lst
-     <br/>
-     DOMAIN:mystuffdomains.lst
-     <br/>
-     LANGUAGE:mystufflanguages.lst
-     <br/>
-     RACE:mystuffraces.lst
-     <br/>
-     SKILL:mystuffskills.lst
-     <br/>
-     SPELL:mystuffspells.lst
-     <br/>
-     KIT:mystuffkits.lst
-     <br/>
-     COMPANIONMOD:mystuffkits.lst
-     <br/>
-     EQUIPMOD:mystuffequipmodsmundane.lst
-     <br/>
-     EQUIPMOD:mystuffequipmodsmagical.lst
-     <br/>
-     EQUIPMENT:mystuffequip.lst
-     <br/>
-     WEAPONPROF:mystuffweaponprofs.lst
-     <br/>
-     # Non My Campaign setting files
-     <br/>
-     LSTEXCLUDE:srdfeats.lst
-     <br/>
-     PCC:@/data/d20ogl/srd/srd.pcc
-     <br/>
-     RACE:@/data/d20ogl/fantasyflightgames/legendsandlairs/mythicraces/myth
-     <br/>
-     icracesraces.lst|(EXCLUDE:Fairy|Anaema)
-     <br/>
-     FEAT:@/data/d20ogl/swordandsorcerystudios/scarredlands/relicsrituals/r
-     <br/>
-     elicsritualsfeats.lst|(INCLUDE:Hide Spell)
-     <br/>
-     -------------------------------</code>
-   </p>
-  </blockquote>
-  <p>
-   Barak, Tir Gwaith
-   <br/>
-   LST Chimps
-  </p>
-  <p>
-  </p>
- </body>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#domain">
+            DOMAIN
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#spell">
+            SPELL
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#race">
+            RACE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#template">
+            TEMPLATE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#feat">
+            FEAT
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#skill">
+            SKILL
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#language">
+            LANGUAGE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#class">
+            CLASS
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#companionmod">
+            COMPANIONMOD
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#kit">
+            KIT
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#equipmod">
+            EQUIPMOD
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#equipment">
+            EQUIPMENT
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#weaponprof">
+            WEAPONPROF
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#pcc">
+            PCC
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#include">
+            INCLUDE
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilespcc.html#exclude">
+            EXCLUDE
+        </a>
+        ,
+        #</code>
+</p>
+<hr/>
+<h2>
+    Basic File type calls
+</h2>
+<p>
+    Ok, this part is going to go fast. If you want to add an object
+    (coding term for how PCGen handles things), such as a Race, to your
+    campaign, it needs to be in the correct LST file type to load
+    correctly. To do this, you create that object in a LST file, and
+    reference the file by one of the tags. Valid file types are, and
+    I'm grouping them by file types that tend to go together (interact
+    with others regularly in the same grouping): DEITY, DOMAIN, SPELL,
+    RACE, TEMPLATE, FEAT, SKILL, LANGUAGE, CLASS, COMPANIONMOD, KIT,
+    EQUIPMOD, EQUIPMENT, and WEAPONPROF
+</p>
+<p>
+    There can only be one of these tags per line, but one can have
+    more than one line with the same reference (we tend to break
+    monsters and equipment down into more than one file for official
+    releases, so we often will have more than one EQUIPMENT or RACE
+    line in the same campaign. All of these tags call LST files, each
+    of which follow their own format and tags that can be used in them.
+    We will get to that later.
+</p>
+<p>
+    For example, one of the lines for my classes is
+    "CLASS:mystuffclassesbase.lst". Another one (entered on a new line)
+    is "CLASS:mystuffclassesprestige.lst". My feat file is
+    "FEAT:mystufffeats.lst".
+</p>
+<p>
+    Notice something about all the filenames I've chosen for the
+    different types of data? They all start with "mystuff". This is the
+    common naming convention and just makes it easy to determine at a
+    glance what files belong together with what PCC.
+</p>
+<p>
+    So now the PCC file looks like this (and is complete; we are
+    building on lesson #1 here.):
+</p>
+<blockquote>
+    <p>
+        <code>-------------------------------
+            <br/>
+            CAMPAIGN:My Stuff
+            <br/>
+            GAMEMODE:3e
+            <br/>
+            RANK:1
+            <br/>
+            TYPE:PCGenLstMonkey.Campaign Setting.My World
+            <br/>
+            SOURCELONG:PCGenLstMonkey SOURCESHORT:PCGLM
+            <br/>
+            SOURCEWEB:http://www.mystuffcampaign.com
+            <br/>
+            ISOGL:YES
+            <br/>
+            COPYRIGHT:PCGenLstMonkey Copyright 2003
+            <br/>
+            INFOTEXT:This data set contains all the information necessary
+            to
+            <br/>
+            create a character for the mystuff campaign world.
+            <br/>
+            DEITY:mystuffdeities.lst
+            <br/>
+            FEAT:mystufffeats.lst
+            <br/>
+            TEMPLATE:mystufftemplates.lst
+            <br/>
+            CLASS:mystuffclassesbase.lst
+            <br/>
+            CLASS:mystuffclassesprestige.lst
+            <br/>
+            DOMAIN:mystuffdomains.lst
+            <br/>
+            LANGUAGE:mystufflanguages.lst
+            <br/>
+            RACE:mystuffraces.lst
+            <br/>
+            SKILL:mystuffskills.lst
+            <br/>
+            SPELL:mystuffspells.lst
+            <br/>
+            KIT:mystuffkits.lst
+            <br/>
+            COMPANIONMOD:mystuffkits.lst
+            <br/>
+            EQUIPMOD:mystuffequipmodsmundane.lst
+            <br/>
+            EQUIPMOD:mystuffequipmodsmagical.lst
+            <br/>
+            EQUIPMENT:mystuffequip.lst
+            <br/>
+            WEAPONPROF:mystuffweaponprofs.lst
+            <br/>
+            -------------------------------</code>
+    </p>
+</blockquote>
+<p>
+    That is ALL you need to include in a Campaign file to have
+    objects load, so long as the files themselves exist and there isn't
+    anything wrong with the files themselves (bad LST format, weird
+    character, etc.). Note that you do not need all of those type.
+    Several sources may only have two or three of them.
+</p>
+<p>
+    What we are going to go into now is some slightly more advanced
+    items that will help with your custom datasets...
+</p>
+<hr/>
+<h2>
+    PCC: calling other PCGen Campaign Configuration files.
+</h2>
+<p>
+    Let's say I want to have everything in the SRD, but I don't want
+    to select the SRD every time on the sources screen. I and my
+    players want to just load MyCampaign. To do this I can use a PCC
+    tag in the mystuff.pcc. This works just like any of the other File
+    Type loading tags, but it will load EVERYTHING from a given PCC
+    file.
+</p>
+<p>
+    So I can load the complete SRD and my own stuff and I could do
+    it just by clicking on MyCampaign and loading that. All the info in
+    the SRD would be included! More specifically, what is mentioned in
+    the PCC I call is loaded as if it were listed in the
+    mystuff.pcc...
+</p>
+<p>
+    Since PCC's tend to be in the same folder as their files, and
+    each campaign in its own folder, I've held this one off till after
+    the calling from other directories, since you need that first. So,
+    I need to know where the PCC in question is. In this case, it is
+    (PCgenHome}/data/d20ogl/srd/srd.pcc. So I'm going to add
+    PCC:@/data/d20ogl/srd/srd.pcc
+</p>
+<p>
+    The "@" character when used in a PCC file will be replaced when
+    the program goes looking for the file by the path you have set in
+    the preferences as the PCGen home directory.
+</p>
+<p>
+    You may also load a PCC using the full path/filename (useful if
+    you keep your sources in places other than the normal PCGen path)
+    such as PCC:C:/pcgen/data/d20ogl/srd/srd.pcc.
+</p>
+<hr/>
+<h2>
+    LSTEXCLUDE: removing a file completely.
+</h2>
+<p>
+    I want to use the SRD materials but I have invented my own feats
+    and wish to use them and *not* have the ones from the SRD
+    available. I can use the LSTEXCLUDE tag to prevent them from being
+    loaded. This tag will prevent the named files from being loaded
+    even if they are referenced in another PCC that you have chosen to
+    include. For this to work properly, it must come before any PCC
+    listings to take effect in them.
+</p>
+<p>
+    So, for mystuff.pcc I will insert "LSTEXCLUDE:srdfeats.lst" on a
+    line prior to my PCC call from the last section.
+</p>
+<hr/>
+<h2>
+    INCLUDE/EXCLUDE: loading only parts of files
+</h2>
+<p>
+    Thinking about it some more I realize that I want to include a
+    couple of bits from some other data sets. While I could re-enter
+    them, why go to all that trouble. Looking through my stuff, I want
+    to include the races from FFG's Mythic Races... but looking at
+    them, I don't particularly like the Fairy race, nor the Anaema
+    (that just sounds too close to something else :P) and would like to
+    leave them out.
+</p>
+<p>
+    This is what we use the EXCLUDE tag for.  So I enter
+    another race tag for that file, but on the end I put
+    "|(EXCLUDE:Fairy|Anaema)". The complete entry reads:
+</p>
+<blockquote>
+    <p>
+        <code>RACE:@/data/d20ogl/fantasyflightgames/legendsandlairs/mythicraces/mythicracesraces.lst|
+            (EXCLUDE:Fairy|Anaema)</code>
+    </p>
+</blockquote>
+<p>
+    On that same note, I really like the Hide Spell metamagic feat
+    from Sword and Sorcery Studios book Relics and Rituals, but I don't
+    want to include any of the other feats. To do this I'll use the
+    INCLUDE tag. I enter another feat tag, and at the end I put
+    "|(INCLUDE:Hide Spell)". The complete line would read:
+</p>
+<blockquote>
+    <p>
+        <code>FEAT:@/data/d20ogl/swordandsorcerystudios/scarredlands/relicsrituals/relicsritualsfeats.lst|
+            (INCLUDE:Hide Spell)</code>
+    </p>
+</blockquote>
+<hr/>
+<h2>
+    #: Comments
+</h2>
+<p>
+    Some PCC files can be complicated and might need some
+    explanation for how things are being done or you may just wish to
+    use have some reminders of how you've organized the file.  For
+    that you enter a comment. A comment is indicated by using the "#"
+    character as the first character on the line, followed by any text
+    you wish to enter for the comment.
+</p>
+<p>
+    I think I'll just pop a note into the PCC indicating source
+    material that is not from my setting. "# Non My Campaign setting
+    files".
+</p>
+<p>
+    Our PCC file now looks like this:
+</p>
+<blockquote>
+    <p>
+        <code>-------------------------------
+            <br/>
+            CAMPAIGN:My Stuff
+            <br/>
+            GAMEMODE:3e
+            <br/>
+            RANK:1
+            <br/>
+            TYPE:PCGenLstMonkey.Campaign Setting.My World
+            <br/>
+            SOURCELONG:PCGenLstMonkey SOURCESHORT:PCGLM
+            <br/>
+            SOURCEWEB:http://www.mystuffcampaign.com
+            <br/>
+            ISOGL:YES
+            <br/>
+            COPYRIGHT:PCGenLstMonkey Copyright 2003
+            <br/>
+            INFOTEXT:This data set contains all the information necessary
+            to
+            <br/>
+            create a character for the mystuff campaign world.
+            <br/>
+            DEITY:mystuffdeities.lst
+            <br/>
+            FEAT:mystufffeats.lst
+            <br/>
+            TEMPLATE:mystufftemplates.lst
+            <br/>
+            CLASS:mystuffclassesbase.lst
+            <br/>
+            CLASS:mystuffclassesprestige.lst
+            <br/>
+            DOMAIN:mystuffdomains.lst
+            <br/>
+            LANGUAGE:mystufflanguages.lst
+            <br/>
+            RACE:mystuffraces.lst
+            <br/>
+            SKILL:mystuffskills.lst
+            <br/>
+            SPELL:mystuffspells.lst
+            <br/>
+            KIT:mystuffkits.lst
+            <br/>
+            COMPANIONMOD:mystuffkits.lst
+            <br/>
+            EQUIPMOD:mystuffequipmodsmundane.lst
+            <br/>
+            EQUIPMOD:mystuffequipmodsmagical.lst
+            <br/>
+            EQUIPMENT:mystuffequip.lst
+            <br/>
+            WEAPONPROF:mystuffweaponprofs.lst
+            <br/>
+            # Non My Campaign setting files
+            <br/>
+            LSTEXCLUDE:srdfeats.lst
+            <br/>
+            PCC:@/data/d20ogl/srd/srd.pcc
+            <br/>
+            RACE:@/data/d20ogl/fantasyflightgames/legendsandlairs/mythicraces/myth
+            <br/>
+            icracesraces.lst|(EXCLUDE:Fairy|Anaema)
+            <br/>
+            FEAT:@/data/d20ogl/swordandsorcerystudios/scarredlands/relicsrituals/r
+            <br/>
+            elicsritualsfeats.lst|(INCLUDE:Hide Spell)
+            <br/>
+            -------------------------------</code>
+    </p>
+</blockquote>
+<p>
+    Barak, Tir Gwaith
+    <br/>
+    LST Chimps
+</p>
+<p>
+</p>
+</body>
 </html>

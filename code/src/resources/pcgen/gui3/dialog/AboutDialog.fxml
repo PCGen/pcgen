@@ -38,77 +38,77 @@
                                 <Label text="%in_abt_version"
                                        labelFor="$pcgenVersion"
                                        GridPane.columnIndex="0"
-                                       GridPane.rowIndex="0" />
+                                       GridPane.rowIndex="0"/>
                                 <Text fx:id="pcgenVersion"
                                       GridPane.columnIndex="1"
                                       GridPane.rowIndex="0"
-                                      GridPane.fillWidth="true" />
+                                      GridPane.fillWidth="true"/>
                                 <Label text="%in_abt_release_date"
                                        labelFor="$releaseDate"
                                        GridPane.columnIndex="0"
-                                       GridPane.rowIndex="1" />
-                                <Text fx:id="releaseDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                       GridPane.rowIndex="1"/>
+                                <Text fx:id="releaseDate" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
                                 <Label text="%in_abt_java_version"
                                        labelFor="$javaVersion"
                                        GridPane.columnIndex="0"
                                        GridPane.rowIndex="2"
-                                       GridPane.fillWidth="true" />
+                                       GridPane.fillWidth="true"/>
                                 <Text fx:id="javaVersion"
                                       GridPane.columnIndex="1"
                                       GridPane.rowIndex="2"
-                                      GridPane.fillWidth="true" />
+                                      GridPane.fillWidth="true"/>
                                 <Label text="%in_abt_BD"
                                        labelFor="$projectLead"
                                        GridPane.columnIndex="0"
                                        GridPane.rowIndex="3"
-                                       GridPane.fillWidth="true" />
+                                       GridPane.fillWidth="true"/>
                                 <Text fx:id="projectLead"
                                       GridPane.columnIndex="1"
                                       GridPane.rowIndex="3"
-                                      GridPane.fillWidth="true" />
+                                      GridPane.fillWidth="true"/>
                                 <Label text="%in_abt_web"
                                        GridPane.columnIndex="0"
                                        GridPane.rowIndex="4"
-                                       labelFor="$wwwSite" />
+                                       labelFor="$wwwSite"/>
                                 <Button fx:id="wwwSite"
                                         mnemonicParsing="false"
                                         GridPane.columnIndex="1"
                                         GridPane.rowIndex="4"
                                         GridPane.fillWidth="true"
-                                        onAction="#openInBrowser" />
+                                        onAction="#openInBrowser"/>
                                 <Label text="%in_abt_email"
                                        GridPane.columnIndex="0"
                                        GridPane.rowIndex="5"
-                                       labelFor="$mailingList" />
+                                       labelFor="$mailingList"/>
                                 <Button fx:id="mailingList"
                                         mnemonicParsing="false"
                                         GridPane.columnIndex="1"
                                         GridPane.rowIndex="5"
                                         GridPane.fillWidth="true"
-                                        onAction="#openInBrowser" />
+                                        onAction="#openInBrowser"/>
                                 <Label text="%in_abt_monkeys"
                                        labelFor="$monkies"
                                        GridPane.columnIndex="0"
-                                       GridPane.rowIndex="6" />
+                                       GridPane.rowIndex="6"/>
                                 <TabPane fx:id="monkies"
                                          GridPane.columnIndex="0"
                                          GridPane.rowIndex="7"
                                          GridPane.columnSpan="2">
                                     <Tab text="%in_abt_code_mky">
-                                        <TextArea fx:id="monkeyList_code" wrapText="true" />
+                                        <TextArea fx:id="monkeyList_code" wrapText="true"/>
                                     </Tab>
                                     <Tab text="%in_abt_list_mky">
-                                        <TextArea fx:id="monkeyList_list" wrapText="true" />
+                                        <TextArea fx:id="monkeyList_list" wrapText="true"/>
                                     </Tab>
                                     <Tab text="%in_abt_test_mky">
                                         <tooltip>
-                                            <Tooltip text="%in_abt_easter_egg" />
+                                            <Tooltip text="%in_abt_easter_egg"/>
                                         </tooltip>
-                                        <TextArea fx:id="monkeyList_test" wrapText="true" />
+                                        <TextArea fx:id="monkeyList_test" wrapText="true"/>
                                     </Tab>
                                     <Tab text="%in_abt_eng_mky">
-                                        <TextArea fx:id="monkeyList_eng" wrapText="true" />
+                                        <TextArea fx:id="monkeyList_eng" wrapText="true"/>
                                     </Tab>
                                 </TabPane>
                             </GridPane>
@@ -116,14 +116,14 @@
                     </BorderPane>
                 </Tab>
                 <Tab id="abt_license" text="%in_abt_license">
-                    <TextArea fx:id="licenseArea" wrapText="true" />
+                    <TextArea fx:id="licenseArea" wrapText="true"/>
                 </Tab>
                 <Tab id="abt_libraries" text="%in_abt_libraries">
-                    <TextArea fx:id="librariesArea" wrapText="true" />
+                    <TextArea fx:id="librariesArea" wrapText="true"/>
                 </Tab>
                 <Tab id="abt_awards" text="%in_abt_awards">
                     <GridPane>
-                        <Label text="%in_abt_awards_2005_ennie" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label text="%in_abt_awards_2005_ennie" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
                         <ImageView fitHeight="150.0"
                                    fitWidth="200.0"
                                    pickOnBounds="true"
@@ -132,14 +132,14 @@
                                    GridPane.rowIndex="0">
                             <Image url="@ennie_award_2003.gif"></Image>
                         </ImageView>
-                        <Label text="%in_abt_awards_2003_ennie" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label text="%in_abt_awards_2003_ennie" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
                         <ImageView fitHeight="150.0"
                                    fitWidth="200.0"
                                    pickOnBounds="true"
                                    preserveRatio="true"
                                    GridPane.columnIndex="1"
                                    GridPane.rowIndex="1">
-                            <Image url="@ennie_award_2003.gif" />
+                            <Image url="@ennie_award_2003.gif"/>
 
                         </ImageView>
                     </GridPane>

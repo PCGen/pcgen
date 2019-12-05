@@ -32,89 +32,90 @@ import org.junit.jupiter.api.Test;
 
 public class NonProficiencyPenaltyFacetTest
 {
-	/*
-	 * NOTE: This is not literal unit testing - it is leveraging the existing
-	 * TemplateFacet framework. This class trusts that TemplateFacetTest has
-	 * fully vetted TemplateFacet. PLEASE ensure all tests there are working
-	 * before investigating tests here.
-	 */
-	private CharID id;
-	private CharID altid;
-	private NonProficiencyPenaltyFacet facet;
-	private TemplateFacet tfacet = new TemplateFacet();
+    /*
+     * NOTE: This is not literal unit testing - it is leveraging the existing
+     * TemplateFacet framework. This class trusts that TemplateFacetTest has
+     * fully vetted TemplateFacet. PLEASE ensure all tests there are working
+     * before investigating tests here.
+     */
+    private CharID id;
+    private CharID altid;
+    private NonProficiencyPenaltyFacet facet;
+    private TemplateFacet tfacet = new TemplateFacet();
 
-	@BeforeEach
-	public void setUp() {
-		facet = new NonProficiencyPenaltyFacet();
-		facet.setTemplateFacet(tfacet);
-		DataSetID cid = DataSetID.getID();
-		id = CharID.getID(cid);
-		altid = CharID.getID(cid);
-	}
+    @BeforeEach
+    public void setUp()
+    {
+        facet = new NonProficiencyPenaltyFacet();
+        facet.setTemplateFacet(tfacet);
+        DataSetID cid = DataSetID.getID();
+        id = CharID.getID(cid);
+        altid = CharID.getID(cid);
+    }
 
-	@AfterEach
-	public void tearDown()
-	{
-		id = null;
-		altid = null;
-		facet = null;
-		tfacet = null;
-	}
+    @AfterEach
+    public void tearDown()
+    {
+        id = null;
+        altid = null;
+        facet = null;
+        tfacet = null;
+    }
 
-	@Test
-	public void testGenderUnsetNull()
-	{
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
-	}
+    @Test
+    public void testGenderUnsetNull()
+    {
+        assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
+    }
 
-	@Test
-	public void testWithNothingInTemplates()
-	{
-		tfacet.add(id, new PCTemplate(), this);
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
-	}
+    @Test
+    public void testWithNothingInTemplates()
+    {
+        tfacet.add(id, new PCTemplate(), this);
+        assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
+    }
 
-	@Test
-	public void testAvoidPollution()
-	{
-		PCTemplate pct = new PCTemplate();
-		pct.put(IntegerKey.NONPP, -2);
-		tfacet.add(id, pct, this);
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(altid));
-	}
+    @Test
+    public void testAvoidPollution()
+    {
+        PCTemplate pct = new PCTemplate();
+        pct.put(IntegerKey.NONPP, -2);
+        tfacet.add(id, pct, this);
+        assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(altid));
+    }
 
-	@Test
-	public void testGenderLocked()
-	{
-		PCTemplate pct = new PCTemplate();
-		pct.put(IntegerKey.NONPP, -3);
-		tfacet.add(id, pct, this);
-		assertEquals(-3, facet.getPenalty(id));
-		tfacet.remove(id, pct, this);
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
-	}
+    @Test
+    public void testGenderLocked()
+    {
+        PCTemplate pct = new PCTemplate();
+        pct.put(IntegerKey.NONPP, -3);
+        tfacet.add(id, pct, this);
+        assertEquals(-3, facet.getPenalty(id));
+        tfacet.remove(id, pct, this);
+        assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
+    }
 
-	@Test
-	public void testMultipleGenderSetSecondDominatesGender()
-	{
-		PCTemplate pct = new PCTemplate();
-		pct.setName("PCT");
-		pct.put(IntegerKey.NONPP, -2);
-		tfacet.add(id, pct, this);
-		assertEquals(-2, facet.getPenalty(id));
-		PCTemplate pct2 = new PCTemplate();
-		pct2.setName("Other");
-		pct2.put(IntegerKey.NONPP, -3);
-		tfacet.add(id, pct2, this);
-		assertEquals(-3, facet.getPenalty(id));
-		tfacet.remove(id, pct, this);
-		assertEquals(-3, facet.getPenalty(id));
-		tfacet.add(id, pct, this);
-		assertEquals(-2, facet.getPenalty(id));
-		tfacet.remove(id, pct, this);
-		assertEquals(-3, facet.getPenalty(id));
-		tfacet.remove(id, pct2, this);
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
-	}
+    @Test
+    public void testMultipleGenderSetSecondDominatesGender()
+    {
+        PCTemplate pct = new PCTemplate();
+        pct.setName("PCT");
+        pct.put(IntegerKey.NONPP, -2);
+        tfacet.add(id, pct, this);
+        assertEquals(-2, facet.getPenalty(id));
+        PCTemplate pct2 = new PCTemplate();
+        pct2.setName("Other");
+        pct2.put(IntegerKey.NONPP, -3);
+        tfacet.add(id, pct2, this);
+        assertEquals(-3, facet.getPenalty(id));
+        tfacet.remove(id, pct, this);
+        assertEquals(-3, facet.getPenalty(id));
+        tfacet.add(id, pct, this);
+        assertEquals(-2, facet.getPenalty(id));
+        tfacet.remove(id, pct, this);
+        assertEquals(-3, facet.getPenalty(id));
+        tfacet.remove(id, pct2, this);
+        assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
+    }
 
 }

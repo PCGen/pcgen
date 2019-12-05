@@ -6,29 +6,29 @@
  */
 
 checkstyle {
-	configFile = new File('code/standards/checkstyle.xml')
-	configProperties = [samedir: "${rootDir}/code/standards"]
-	showViolations = true
-	toolVersion = '8.20'
-	sourceSets = []
+    configFile = new File('code/standards/checkstyle.xml')
+    configProperties = [samedir: "${rootDir}/code/standards"]
+    showViolations = true
+    toolVersion = '8.20'
+    sourceSets = []
 }
 
 pmd {
-	// turn off the default rules
-	ruleSets = []
-	ruleSetFiles = files('code/standards/ruleset.xml')
-	consoleOutput = true
-	sourceSets = []
-	toolVersion = "6.14.0"
-	incrementalAnalysis = true
+    // turn off the default rules
+    ruleSets = []
+    ruleSetFiles = files('code/standards/ruleset.xml')
+    consoleOutput = true
+    sourceSets = []
+    toolVersion = "6.14.0"
+    incrementalAnalysis = true
 }
 
 spotbugs {
-	excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
-	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
-	reportLevel = 'low'
-	ignoreFailures = 'true'
-	toolVersion = '3.1.12'
+    excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
+    omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
+    reportLevel = 'low'
+    ignoreFailures = 'true'
+    toolVersion = '3.1.12'
 }
 
 //See https://github.com/gradle/gradle-native/issues/742 for why this is broken.

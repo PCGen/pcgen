@@ -34,44 +34,44 @@ import util.TestURI;
  */
 public class IconTokenTest extends AbstractStringTokenTestCase<Equipment>
 {
-	static IconToken token = new IconToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+    static IconToken token = new IconToken();
+    static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
-	@Override
-	public Class<Equipment> getCDOMClass()
-	{
-		return Equipment.class;
-	}
+    @Override
+    public Class<Equipment> getCDOMClass()
+    {
+        return Equipment.class;
+    }
 
-	@Override
-	public CDOMLoader<Equipment> getLoader()
-	{
-		return loader;
-	}
+    @Override
+    public CDOMLoader<Equipment> getLoader()
+    {
+        return loader;
+    }
 
-	@Override
-	public CDOMPrimaryToken<Equipment> getToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<Equipment> getToken()
+    {
+        return token;
+    }
 
-	@Override
-	public StringKey getStringKey()
-	{
-		return StringKey.ICON;
-	}
+    @Override
+    public StringKey getStringKey()
+    {
+        return StringKey.ICON;
+    }
 
-	@Override
-	protected boolean isClearLegal()
-	{
-		return false;
-	}
+    @Override
+    protected boolean isClearLegal()
+    {
+        return false;
+    }
 
-	@Override
-	protected void additionalSetup(LoadContext context)
-	{
-		super.additionalSetup(context);
-		URI uri = TestURI.getURI();
-		context.setSourceURI(uri);
-	}
+    @Override
+    protected void additionalSetup(LoadContext context)
+    {
+        super.additionalSetup(context);
+        URI uri = TestURI.getURI();
+        context.setSourceURI(uri);
+    }
 }

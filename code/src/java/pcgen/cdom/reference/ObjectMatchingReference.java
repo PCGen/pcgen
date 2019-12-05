@@ -1,16 +1,16 @@
 /*
  * Copyright 2007, 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -30,243 +30,235 @@ import pcgen.cdom.enumeration.ObjectKey;
 /**
  * A ObjectMatchingReference is a CDOMReference that matches objects based on a
  * an ObjectKey and an expected value.
- * 
+ * <p>
  * An underlying start list is provided during construction of the
  * ObjectMatchingReference. Generally, this will be the CDOMAllRef for the class
  * of object underlying this ObjectMatchingReference.
- * 
- * @param <T>
- *            The class of object underlying this ObjectMatchingReference.
- * @param <V>
- *            The class of object stored by the Object Key used by this
+ *
+ * @param <T> The class of object underlying this ObjectMatchingReference.
+ * @param <V> The class of object stored by the Object Key used by this
  *            ObjectMatchingReference.
  */
 public class ObjectMatchingReference<T extends CDOMObject, V> extends CDOMReference<T>
 {
 
-	/**
-	 * The CDOMGroupRef containing the underlying list of objects from which
-	 * this ObjectMatchingReference will draw.
-	 */
-	private final CDOMGroupRef<T> all;
+    /**
+     * The CDOMGroupRef containing the underlying list of objects from which
+     * this ObjectMatchingReference will draw.
+     */
+    private final CDOMGroupRef<T> all;
 
-	private final ObjectKey<V> key;
+    private final ObjectKey<V> key;
 
-	private final V value;
+    private final V value;
 
-	private boolean allowNull = false;
+    private boolean allowNull = false;
 
-	/*
-	 * CONSIDER is it necessary/useful to cache the results of the pattern
-	 * match? If that is done, under what conditions does the cache need to be
-	 * invalidated (how can the underlying CDOMGroupRef be known to not have
-	 * been modified)?
-	 */
+    /*
+     * CONSIDER is it necessary/useful to cache the results of the pattern
+     * match? If that is done, under what conditions does the cache need to be
+     * invalidated (how can the underlying CDOMGroupRef be known to not have
+     * been modified)?
+     */
 
-	/**
-	 * Constructs a new ObjectMatchingReference
-	 * 
-	 * @param unparse
-	 *            The Class of the underlying objects contained by this
-	 *            reference.
-	 * @param startingGroup
-	 *            The underlying list of objects from which this
-	 *            ObjectMatchingReference will draw.
-	 * @throws IllegalArgumentException
-	 *             if the starting group is null or the provided pattern does
-	 *             not end with the PCGen pattern characters
-	 */
-	public ObjectMatchingReference(String unparse, CDOMGroupRef<T> startingGroup, ObjectKey<V> targetKey,
-		V expectedValue)
-	{
-		super(unparse);
-		Objects.requireNonNull(startingGroup, "Starting Group cannot be null in ObjectMatchingReference");
-		Objects.requireNonNull(targetKey, "Target Key cannot be null in ObjectMatchingReference");
-		all = startingGroup;
-		key = targetKey;
-		value = expectedValue;
-	}
+    /**
+     * Constructs a new ObjectMatchingReference
+     *
+     * @param unparse       The Class of the underlying objects contained by this
+     *                      reference.
+     * @param startingGroup The underlying list of objects from which this
+     *                      ObjectMatchingReference will draw.
+     * @throws IllegalArgumentException if the starting group is null or the provided pattern does
+     *                                  not end with the PCGen pattern characters
+     */
+    public ObjectMatchingReference(String unparse, CDOMGroupRef<T> startingGroup, ObjectKey<V> targetKey,
+            V expectedValue)
+    {
+        super(unparse);
+        Objects.requireNonNull(startingGroup, "Starting Group cannot be null in ObjectMatchingReference");
+        Objects.requireNonNull(targetKey, "Target Key cannot be null in ObjectMatchingReference");
+        all = startingGroup;
+        key = targetKey;
+        value = expectedValue;
+    }
 
-	/**
-	 * Throws an exception. This method may not be called because a
-	 * ObjectMatchingReference is resolved based on the pattern provided at
-	 * construction.
-	 * 
-	 * @param item
-	 *            ignored
-	 * @throws IllegalStateException
-	 *             because a ObjectMatchingReference is resolved based on the
-	 *             key/value pair provided at construction.
-	 */
-	@Override
-	public void addResolution(T item)
-	{
-		throw new IllegalStateException("Cannot add resolution to ObjectMatchingReference");
-	}
+    /**
+     * Throws an exception. This method may not be called because a
+     * ObjectMatchingReference is resolved based on the pattern provided at
+     * construction.
+     *
+     * @param item ignored
+     * @throws IllegalStateException because a ObjectMatchingReference is resolved based on the
+     *                               key/value pair provided at construction.
+     */
+    @Override
+    public void addResolution(T item)
+    {
+        throw new IllegalStateException("Cannot add resolution to ObjectMatchingReference");
+    }
 
-	/**
-	 * Returns true if the given Object is included in the Collection of Objects
-	 * to which this ObjectMatchingReference refers.
-	 * 
-	 * Note that the behavior of this class is undefined if the CDOMGroupRef
-	 * underlying this ObjectMatchingReference has not yet been resolved.
-	 * 
-	 * @param item
-	 *            The object to be tested to see if it is referred to by this
-	 *            ObjectMatchingReference.
-	 * @return true if the given Object is included in the Collection of Objects
-	 *         to which this ObjectMatchingReference refers; false otherwise.
-	 */
-	@Override
-	public boolean contains(T item)
-	{
-		if (!all.contains(item))
-		{
-			return false;
-		}
-		V actual = item.get(key);
-		if (actual == null)
-		{
-			return allowNull || value == null;
-		}
-		return value.equals(actual);
-	}
+    /**
+     * Returns true if the given Object is included in the Collection of Objects
+     * to which this ObjectMatchingReference refers.
+     * <p>
+     * Note that the behavior of this class is undefined if the CDOMGroupRef
+     * underlying this ObjectMatchingReference has not yet been resolved.
+     *
+     * @param item The object to be tested to see if it is referred to by this
+     *             ObjectMatchingReference.
+     * @return true if the given Object is included in the Collection of Objects
+     * to which this ObjectMatchingReference refers; false otherwise.
+     */
+    @Override
+    public boolean contains(T item)
+    {
+        if (!all.contains(item))
+        {
+            return false;
+        }
+        V actual = item.get(key);
+        if (actual == null)
+        {
+            return allowNull || value == null;
+        }
+        return value.equals(actual);
+    }
 
-	/**
-	 * Returns a Collection containing the Objects to which this
-	 * ObjectMatchingReference refers.
-	 * 
-	 * This method is reference-semantic, meaning that ownership of the
-	 * Collection returned by this method is transferred to the calling object.
-	 * Modification of the returned Collection should not result in modifying
-	 * the ObjectMatchingReference, and modifying the ObjectMatchingReference
-	 * after the Collection is returned should not modify the Collection.
-	 * 
-	 * Note that the behavior of this class is undefined if the CDOMGroupRef
-	 * underlying this ObjectMatchingReference has not yet been resolved.
-	 * 
-	 * @return A Collection containing the Objects to which this
-	 *         ObjectMatchingReference refers.
-	 */
-	@Override
-	public Collection<T> getContainedObjects()
-	{
-		List<T> list = new ArrayList<>();
-		for (T obj : all.getContainedObjects())
-		{
-			V actual = obj.get(key);
-			if (actual == null && (value == null || allowNull) || value != null && value.equals(actual))
-			{
-				list.add(obj);
-			}
-		}
-		return list;
-	}
+    /**
+     * Returns a Collection containing the Objects to which this
+     * ObjectMatchingReference refers.
+     * <p>
+     * This method is reference-semantic, meaning that ownership of the
+     * Collection returned by this method is transferred to the calling object.
+     * Modification of the returned Collection should not result in modifying
+     * the ObjectMatchingReference, and modifying the ObjectMatchingReference
+     * after the Collection is returned should not modify the Collection.
+     * <p>
+     * Note that the behavior of this class is undefined if the CDOMGroupRef
+     * underlying this ObjectMatchingReference has not yet been resolved.
+     *
+     * @return A Collection containing the Objects to which this
+     * ObjectMatchingReference refers.
+     */
+    @Override
+    public Collection<T> getContainedObjects()
+    {
+        List<T> list = new ArrayList<>();
+        for (T obj : all.getContainedObjects())
+        {
+            V actual = obj.get(key);
+            if (actual == null && (value == null || allowNull) || value != null && value.equals(actual))
+            {
+                list.add(obj);
+            }
+        }
+        return list;
+    }
 
-	/**
-	 * Returns a representation of this ObjectMatchingReference, suitable for
-	 * storing in an LST file.
-	 * 
-	 * Note that this will return the pattern String provided during
-	 * construction of the ObjectMatchingReference.
-	 * 
-	 * @return A representation of this ObjectMatchingReference, suitable for
-	 *         storing in an LST file.
-	 */
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return getName();
-	}
+    /**
+     * Returns a representation of this ObjectMatchingReference, suitable for
+     * storing in an LST file.
+     * <p>
+     * Note that this will return the pattern String provided during
+     * construction of the ObjectMatchingReference.
+     *
+     * @return A representation of this ObjectMatchingReference, suitable for
+     * storing in an LST file.
+     */
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return getName();
+    }
 
-	/**
-	 * Returns the count of the number of objects included in the Collection of
-	 * Objects to which this ObjectMatchingReference refers.
-	 * 
-	 * Note that the behavior of this class is undefined if the CDOMGroupRef
-	 * underlying this ObjectMatchingReference has not yet been resolved.
-	 * 
-	 * @return The count of the number of objects included in the Collection of
-	 *         Objects to which this ObjectMatchingReference refers.
-	 */
-	@Override
-	public int getObjectCount()
-	{
-		int count = 0;
-		for (T obj : all.getContainedObjects())
-		{
-			V actual = obj.get(key);
-			if (value == null && actual == null || value != null && value.equals(actual))
-			{
-				count++;
-			}
-		}
-		return count;
-	}
+    /**
+     * Returns the count of the number of objects included in the Collection of
+     * Objects to which this ObjectMatchingReference refers.
+     * <p>
+     * Note that the behavior of this class is undefined if the CDOMGroupRef
+     * underlying this ObjectMatchingReference has not yet been resolved.
+     *
+     * @return The count of the number of objects included in the Collection of
+     * Objects to which this ObjectMatchingReference refers.
+     */
+    @Override
+    public int getObjectCount()
+    {
+        int count = 0;
+        for (T obj : all.getContainedObjects())
+        {
+            V actual = obj.get(key);
+            if (value == null && actual == null || value != null && value.equals(actual))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
 
-	public void returnIncludesNulls(boolean includesNulls)
-	{
-		allowNull = includesNulls;
-	}
+    public void returnIncludesNulls(boolean includesNulls)
+    {
+        allowNull = includesNulls;
+    }
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj instanceof ObjectMatchingReference)
-		{
-			ObjectMatchingReference<?, ?> other = (ObjectMatchingReference<?, ?>) obj;
-			if (getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all) && key.equals(other.key))
-			{
-				if (value == null)
-				{
-					return other.value == null;
-				}
-				return value.equals(other.value);
-			}
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof ObjectMatchingReference)
+        {
+            ObjectMatchingReference<?, ?> other = (ObjectMatchingReference<?, ?>) obj;
+            if (getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all) && key.equals(other.key))
+            {
+                if (value == null)
+                {
+                    return other.value == null;
+                }
+                return value.equals(other.value);
+            }
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return getReferenceClass().hashCode() ^ key.hashCode() + (value == null ? -1 : value.hashCode());
-	}
+    @Override
+    public int hashCode()
+    {
+        return getReferenceClass().hashCode() ^ key.hashCode() + (value == null ? -1 : value.hashCode());
+    }
 
-	/**
-	 * Returns the GroupingState for this ObjectMatchingReference. The
-	 * GroupingState indicates how this ObjectMatchingReference can be combined
-	 * with other PrimitiveChoiceFilters.
-	 * 
-	 * @return The GroupingState for this ObjectMatchingReference.
-	 */
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return GroupingState.ANY;
-	}
+    /**
+     * Returns the GroupingState for this ObjectMatchingReference. The
+     * GroupingState indicates how this ObjectMatchingReference can be combined
+     * with other PrimitiveChoiceFilters.
+     *
+     * @return The GroupingState for this ObjectMatchingReference.
+     */
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return GroupingState.ANY;
+    }
 
-	@Override
-	public String getChoice()
-	{
-		return null;
-	}
+    @Override
+    public String getChoice()
+    {
+        return null;
+    }
 
-	@Override
-	public Class<T> getReferenceClass()
-	{
-		return all.getReferenceClass();
-	}
+    @Override
+    public Class<T> getReferenceClass()
+    {
+        return all.getReferenceClass();
+    }
 
-	@Override
-	public String getReferenceDescription()
-	{
-		return all.getReferenceDescription() + " (Object " + key + " = " + value + ")";
-	}
+    @Override
+    public String getReferenceDescription()
+    {
+        return all.getReferenceDescription() + " (Object " + key + " = " + value + ")";
+    }
 
-	@Override
-	public String getPersistentFormat()
-	{
-		return all.getPersistentFormat();
-	}
+    @Override
+    public String getPersistentFormat()
+    {
+        return all.getPersistentFormat();
+    }
 }

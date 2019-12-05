@@ -22,38 +22,36 @@ import pcgen.core.character.CharacterSpell;
 
 /**
  * The Class {@code PCCastTimesAtWillTermEvaluator} supplies the
- * times per day value of the ATWILL constant. 
- * 
- * 
+ * times per day value of the ATWILL constant.
  */
 public class PCCastTimesAtWillTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	public PCCastTimesAtWillTermEvaluator(String originalText)
-	{
-		this.originalText = originalText;
-	}
+    public PCCastTimesAtWillTermEvaluator(String originalText)
+    {
+        this.originalText = originalText;
+    }
 
-	@Override
-	public Float resolve(PlayerCharacter pc)
-	{
-		return -1.0f;
-	}
+    @Override
+    public Float resolve(PlayerCharacter pc)
+    {
+        return -1.0f;
+    }
 
-	@Override
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
-	{
-		return -1.0f;
-	}
+    @Override
+    public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
+    {
+        return -1.0f;
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return false;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return false;
+    }
 
-	public boolean isStatic()
-	{
-		return true;
-	}
+    public boolean isStatic()
+    {
+        return true;
+    }
 }

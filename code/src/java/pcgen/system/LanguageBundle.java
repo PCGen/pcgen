@@ -27,161 +27,165 @@ import pcgen.util.Logging;
 
 /**
  * {@code LanguageBundle} manages the localisation of the PCGen interface.
- * It provides a set of features to translate il8n keys into text in the 
+ * It provides a set of features to translate il8n keys into text in the
  * language chosen in preferences.
- *
  */
 public final class LanguageBundle
 {
-	/** Key primarily for use in IDE il8n tools. */
-	private static final String BUNDLE_NAME = "pcgen.lang"; //$NON-NLS-1$
+    /**
+     * Key primarily for use in IDE il8n tools.
+     */
+    private static final String BUNDLE_NAME = "pcgen.lang"; //$NON-NLS-1$
 
-	/** Undefined Property */
-	private static final String UNDEFINED = " not defined."; //$NON-NLS-1$
-	private static ResourceBundle bundle;
+    /**
+     * Undefined Property
+     */
+    private static final String UNDEFINED = " not defined."; //$NON-NLS-1$
+    private static ResourceBundle bundle;
 
-	private LanguageBundle()
-	{
-	}
+    private LanguageBundle()
+    {
+    }
 
-	/**
-	 * Get the Mnemonic
-	 * @param property The key of the property to lookup.
-	 * @return Mnemonic of the property
-	 */
-	public static int getMnemonic(String property)
-	{
-		return getMnemonic(property, '\0');
-	}
+    /**
+     * Get the Mnemonic
+     *
+     * @param property The key of the property to lookup.
+     * @return Mnemonic of the property
+     */
+    public static int getMnemonic(String property)
+    {
+        return getMnemonic(property, '\0');
+    }
 
-	/**
-	 * Convenience method to retrieve a localised string with no parameters.
-	 * author: Thomas Behr 03-01-02
-	 * @param key The key of the property to be retrieved.
-	 * @return String The localised string.
-	 */
-	public static String getString(String key)
-	{
-		return getProperty(key);
-	}
+    /**
+     * Convenience method to retrieve a localised string with no parameters.
+     * author: Thomas Behr 03-01-02
+     *
+     * @param key The key of the property to be retrieved.
+     * @return String The localised string.
+     */
+    public static String getString(String key)
+    {
+        return getProperty(key);
+    }
 
-	/**
-	 * Returns a localized string from the language bundle for the key passed.
-	 * This method accepts a variable number of parameters and will replace
-	 * {argno} in the string with each passed paracter in turn.
-	 * @param aKey The key of the string to retrieve
-	 * @param varargs A variable number of parameters to substitute into the
-	 * returned string.
-	 * @return A formatted localized string
-	 */
-	public static String getFormattedString(String aKey, Object... varargs)
-	{
-		String string = getString(aKey);
-		if (varargs != null && varargs.length > 0)
-		{
-			return MessageFormat.format(string, varargs);
-		}
-		return string;
-	}
+    /**
+     * Returns a localized string from the language bundle for the key passed.
+     * This method accepts a variable number of parameters and will replace
+     * {argno} in the string with each passed paracter in turn.
+     *
+     * @param aKey    The key of the string to retrieve
+     * @param varargs A variable number of parameters to substitute into the
+     *                returned string.
+     * @return A formatted localized string
+     */
+    public static String getFormattedString(String aKey, Object... varargs)
+    {
+        String string = getString(aKey);
+        if (varargs != null && varargs.length > 0)
+        {
+            return MessageFormat.format(string, varargs);
+        }
+        return string;
+    }
 
-	private static char getMnemonic(String property, char def)
-	{
-		final String mnemonic = getProperty(property);
+    private static char getMnemonic(String property, char def)
+    {
+        final String mnemonic = getProperty(property);
 
-		if (!mnemonic.isEmpty())
-		{
-			return mnemonic.charAt(0);
-		}
+        if (!mnemonic.isEmpty())
+        {
+            return mnemonic.charAt(0);
+        }
 
-		return def;
-	}
+        return def;
+    }
 
-	/**
-	 * author: Thomas Behr 03-01-02
-	 * @param key
-	 * @return property
-	 */
-	private static String getProperty(String key)
-	{
-		if (bundle == null)
-		{
-			init();
-		}
+    /**
+     * author: Thomas Behr 03-01-02
+     *
+     * @param key
+     * @return property
+     */
+    private static String getProperty(String key)
+    {
+        if (bundle == null)
+        {
+            init();
+        }
 
-		String value = null;
-		try
-		{
-			value = bundle.getString(key);
-		}
-		catch (MissingResourceException mre)
-		{
-			value = key + UNDEFINED;
-		}
-		return value;
-	}
+        String value = null;
+        try
+        {
+            value = bundle.getString(key);
+        } catch (MissingResourceException mre)
+        {
+            value = key + UNDEFINED;
+        }
+        return value;
+    }
 
-	/**
-	 * author: Thomas Behr 03-01-02
-	 * Initialises the LanguageBundle loading the appropriate bundles
-	 * depending on the system Locale and the option selected in preferences.
-	 */
-	static synchronized void init()
-	{
-		if (bundle != null)
-		{
-			Logging.log(Logging.WARNING, "Reinitialising the language bundle."); //$NON-NLS-1$
-		}
-		Logging.log(Logging.INFO, MessageFormat.format("Initialising language bundle with locale {0}.", //$NON-NLS-1$
-			Locale.getDefault()));
+    /**
+     * author: Thomas Behr 03-01-02
+     * Initialises the LanguageBundle loading the appropriate bundles
+     * depending on the system Locale and the option selected in preferences.
+     */
+    static synchronized void init()
+    {
+        if (bundle != null)
+        {
+            Logging.log(Logging.WARNING, "Reinitialising the language bundle."); //$NON-NLS-1$
+        }
+        Logging.log(Logging.INFO, MessageFormat.format("Initialising language bundle with locale {0}.", //$NON-NLS-1$
+                Locale.getDefault()));
 
-		bundle = ResourceBundle.getBundle(BUNDLE_NAME + ".LanguageBundle"); //$NON-NLS-1$
-	}
+        bundle = ResourceBundle.getBundle(BUNDLE_NAME + ".LanguageBundle"); //$NON-NLS-1$
+    }
 
-	/**
-	 * This method is meant to be used in tests to reload the bundle if the default locale has changed.
-	 */
-	public static void reload()
-	{
-		Locale l = Locale.getDefault();
-		if (bundle != null && ((l == null && bundle.getLocale() == null) || !l.equals(bundle.getLocale())))
-		{
-			bundle = null;
-		}
-	}
+    /**
+     * This method is meant to be used in tests to reload the bundle if the default locale has changed.
+     */
+    public static void reload()
+    {
+        Locale l = Locale.getDefault();
+        if (bundle != null && ((l == null && bundle.getLocale() == null) || !l.equals(bundle.getLocale())))
+        {
+            bundle = null;
+        }
+    }
 
-	/**
-	 * Standard bundle key prefix.
-	 */
-	public static final String KEY_PREFIX = "in_"; //$NON-NLS-1$
+    /**
+     * Standard bundle key prefix.
+     */
+    public static final String KEY_PREFIX = "in_"; //$NON-NLS-1$
 
-	/**
-	 * Allow pretty formatting of multiplier. For example, if d is 0.5d, it 
-	 * returns x 1/2 ( 
-	 * @param d a double value
-	 * @return a formated String
-	 */
-	public static String getPrettyMultiplier(double d)
-	{
-		if (d == 0.25d)
-		{
-			return getString("in_multQuarter"); //$NON-NLS-1$
-		}
-		else if (d == 0.5d)
-		{
-			return getString("in_multHalf"); //$NON-NLS-1$
-		}
-		else if (d == 0.75d)
-		{
-			return getString("in_multThreeQuarter"); //$NON-NLS-1$
-		}
-		else
-		{
-			return MessageFormat.format(getString("in_multiply"), d); //$NON-NLS-1$
-		}
-	}
+    /**
+     * Allow pretty formatting of multiplier. For example, if d is 0.5d, it
+     * returns x 1/2 (
+     *
+     * @param d a double value
+     * @return a formated String
+     */
+    public static String getPrettyMultiplier(double d)
+    {
+        if (d == 0.25d)
+        {
+            return getString("in_multQuarter"); //$NON-NLS-1$
+        } else if (d == 0.5d)
+        {
+            return getString("in_multHalf"); //$NON-NLS-1$
+        } else if (d == 0.75d)
+        {
+            return getString("in_multThreeQuarter"); //$NON-NLS-1$
+        } else
+        {
+            return MessageFormat.format(getString("in_multiply"), d); //$NON-NLS-1$
+        }
+    }
 
-	public static ResourceBundle getBundle()
-	{
-		return bundle;
-	}
+    public static ResourceBundle getBundle()
+    {
+        return bundle;
+    }
 }

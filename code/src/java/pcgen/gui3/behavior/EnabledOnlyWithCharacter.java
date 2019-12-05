@@ -30,50 +30,49 @@ import javafx.scene.Node;
 
 public final class EnabledOnlyWithCharacter implements ReferenceListener<CharacterFacade>
 {
-	private final ReferenceListener<File> fileListener = new FileRefListener();
-	private final Node node;
+    private final ReferenceListener<File> fileListener = new FileRefListener();
+    private final Node node;
 
-	public EnabledOnlyWithCharacter(Node node, PCGenFrame frame)
-		{
-			this.node = node;
-			ReferenceFacade<CharacterFacade> ref = frame.getSelectedCharacterRef();
-			ref.addReferenceListener(this);
-			checkEnabled(ref.get());
-		}
+    public EnabledOnlyWithCharacter(Node node, PCGenFrame frame)
+    {
+        this.node = node;
+        ReferenceFacade<CharacterFacade> ref = frame.getSelectedCharacterRef();
+        ref.addReferenceListener(this);
+        checkEnabled(ref.get());
+    }
 
-		@Override
-		public void referenceChanged(ReferenceEvent<CharacterFacade> e)
-		{
-			CharacterFacade oldRef = e.getOldReference();
-			if (oldRef != null)
-			{
-				oldRef.getFileRef().removeReferenceListener(fileListener);
-			}
-			checkEnabled(e.getNewReference());
-		}
+    @Override
+    public void referenceChanged(ReferenceEvent<CharacterFacade> e)
+    {
+        CharacterFacade oldRef = e.getOldReference();
+        if (oldRef != null)
+        {
+            oldRef.getFileRef().removeReferenceListener(fileListener);
+        }
+        checkEnabled(e.getNewReference());
+    }
 
-		private void checkEnabled(CharacterFacade character)
-		{
-			if (character != null)
-			{
-				ReferenceFacade<File> file = character.getFileRef();
-				file.addReferenceListener(fileListener);
-				node.setDisable(file.get() == null);
-			}
-			else
-			{
-				node.setDisable(true);
-			}
-		}
+    private void checkEnabled(CharacterFacade character)
+    {
+        if (character != null)
+        {
+            ReferenceFacade<File> file = character.getFileRef();
+            file.addReferenceListener(fileListener);
+            node.setDisable(file.get() == null);
+        } else
+        {
+            node.setDisable(true);
+        }
+    }
 
-		private class FileRefListener implements ReferenceListener<File>
-		{
+    private class FileRefListener implements ReferenceListener<File>
+    {
 
-			@Override
-			public void referenceChanged(ReferenceEvent<File> e)
-			{
-				node.setDisable(e.getNewReference() == null);
-			}
+        @Override
+        public void referenceChanged(ReferenceEvent<File> e)
+        {
+            node.setDisable(e.getNewReference() == null);
+        }
 
-		}
+    }
 }

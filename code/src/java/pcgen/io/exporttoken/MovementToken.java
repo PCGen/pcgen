@@ -32,68 +32,67 @@ import pcgen.io.ExportHandler;
 //MOVEMENT.movetype
 public class MovementToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "MOVEMENT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "MOVEMENT";
+    }
 
-	//TODO: Move the |MOVEMENT| results into MoveToken, and then Eliminate MovementToken
-	//      Also add .moveType to movement as a switchout replacement for .x
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    //TODO: Move the |MOVEMENT| results into MoveToken, and then Eliminate MovementToken
+    //      Also add .moveType to movement as a switchout replacement for .x
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		if (aTok.hasMoreTokens())
-		{
-			String moveType = aTok.nextToken();
-			retString = getMoveTypeToken(display, MovementType.getConstant(moveType));
-		}
-		else
-		{
-			retString = getMovementToken(display);
-		}
+        if (aTok.hasMoreTokens())
+        {
+            String moveType = aTok.nextToken();
+            retString = getMoveTypeToken(display, MovementType.getConstant(moveType));
+        } else
+        {
+            retString = getMovementToken(display);
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	public static String getMoveTypeToken(CharacterDisplay display, MovementType moveType)
-	{
-		String retString = "";
+    public static String getMoveTypeToken(CharacterDisplay display, MovementType moveType)
+    {
+        String retString = "";
 
-		if (display.hasMovement(moveType))
-		{
-			retString = getRateToken(display.getMovementOfType(moveType));
-		}
+        if (display.hasMovement(moveType))
+        {
+            retString = getRateToken(display.getMovementOfType(moveType));
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	public static String getMovementToken(CharacterDisplay display)
-	{
-		StringBuilder retString = new StringBuilder();
-		boolean firstLine = true;
+    public static String getMovementToken(CharacterDisplay display)
+    {
+        StringBuilder retString = new StringBuilder();
+        boolean firstLine = true;
 
-		for (NamedValue move : display.getMovementValues())
-		{
-			if (!firstLine)
-			{
-				retString.append(", ");
-			}
-			firstLine = false;
-			retString.append(move.getName()).append(" ");
-			retString.append(getRateToken(move.getWeight()));
-		}
+        for (NamedValue move : display.getMovementValues())
+        {
+            if (!firstLine)
+            {
+                retString.append(", ");
+            }
+            firstLine = false;
+            retString.append(move.getName()).append(" ");
+            retString.append(getRateToken(move.getWeight()));
+        }
 
-		return retString.toString();
-	}
+        return retString.toString();
+    }
 
-	public static String getRateToken(double movement)
-	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(movement)
-			+ Globals.getGameModeUnitSet().getDistanceUnit();
-	}
+    public static String getRateToken(double movement)
+    {
+        return Globals.getGameModeUnitSet().displayDistanceInUnitSet(movement)
+                + Globals.getGameModeUnitSet().getDistanceUnit();
+    }
 }

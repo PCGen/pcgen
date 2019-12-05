@@ -32,35 +32,33 @@ import pcgen.util.Logging;
  */
 public class AbilityCategoryLoader extends LstLineFileLoader
 {
-	private OverlapLoader<AbilityCategory> loader = new OverlapLoader<>(AbilityCategory.class);
+    private OverlapLoader<AbilityCategory> loader = new OverlapLoader<>(AbilityCategory.class);
 
-	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
-	{
-		final int colonLoc = lstLine.indexOf(':');
-		if (colonLoc == -1)
-		{
-			Logging.errorPrint("Invalid Line - does not contain a colon: '" + lstLine + "' in " + sourceURI);
-			return;
-		}
-		else if (colonLoc == 0)
-		{
-			Logging.errorPrint("Invalid Line - starts with a colon: '" + lstLine + "' in " + sourceURI);
-			return;
-		}
-		else if (colonLoc == (lstLine.length() - 1))
-		{
-			Logging.errorPrint("Invalid Line - ends with a colon: '" + lstLine + "' in " + sourceURI);
-			return;
-		}
-		String key = lstLine.substring(0, colonLoc);
-		String value = lstLine.substring(colonLoc + 1);
-		if (!"ABILITYCATEGORY".equals(key))
-		{
-			Logging.errorPrint("Invalid Line - " + "expected 'ABILITYCATEGORY' key to start the line: '" + lstLine
-				+ "' in " + sourceURI);
-			return;
-		}
-		loader.parseLine(context, value, sourceURI);
-	}
+    @Override
+    public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
+    {
+        final int colonLoc = lstLine.indexOf(':');
+        if (colonLoc == -1)
+        {
+            Logging.errorPrint("Invalid Line - does not contain a colon: '" + lstLine + "' in " + sourceURI);
+            return;
+        } else if (colonLoc == 0)
+        {
+            Logging.errorPrint("Invalid Line - starts with a colon: '" + lstLine + "' in " + sourceURI);
+            return;
+        } else if (colonLoc == (lstLine.length() - 1))
+        {
+            Logging.errorPrint("Invalid Line - ends with a colon: '" + lstLine + "' in " + sourceURI);
+            return;
+        }
+        String key = lstLine.substring(0, colonLoc);
+        String value = lstLine.substring(colonLoc + 1);
+        if (!"ABILITYCATEGORY".equals(key))
+        {
+            Logging.errorPrint("Invalid Line - " + "expected 'ABILITYCATEGORY' key to start the line: '" + lstLine
+                    + "' in " + sourceURI);
+            return;
+        }
+        loader.parseLine(context, value, sourceURI);
+    }
 }

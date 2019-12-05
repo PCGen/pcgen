@@ -31,62 +31,62 @@ import pcgen.util.Logging;
  * Class deals with ISDEFAULTSIZE Token
  */
 public class IsdefaultsizeToken extends AbstractYesNoToken<SizeAdjustment>
-		implements CDOMPrimaryToken<SizeAdjustment>, PostValidationToken<SizeAdjustment>
+        implements CDOMPrimaryToken<SizeAdjustment>, PostValidationToken<SizeAdjustment>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ISDEFAULTSIZE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ISDEFAULTSIZE";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.IS_DEFAULT_SIZE;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.IS_DEFAULT_SIZE;
+    }
 
-	@Override
-	public Class<SizeAdjustment> getTokenClass()
-	{
-		return SizeAdjustment.class;
-	}
+    @Override
+    public Class<SizeAdjustment> getTokenClass()
+    {
+        return SizeAdjustment.class;
+    }
 
-	@Override
-	public boolean process(LoadContext context, Collection<? extends SizeAdjustment> obj)
-	{
-		boolean returnValue = true;
-		SizeAdjustment found = null;
-		for (SizeAdjustment s : context.getReferenceContext().getConstructedCDOMObjects(SizeAdjustment.class))
-		{
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				if (found != null)
-				{
-					Logging.errorPrint("Found more than one size claiming to be default: " + found.getKeyName()
-						+ " and " + s.getKeyName());
-					returnValue = false;
-				}
-				found = s;
-			}
-		}
-		if (found == null)
-		{
-			Logging.errorPrint("Did not find a default size");
-			returnValue = false;
-		}
-		return returnValue;
-	}
+    @Override
+    public boolean process(LoadContext context, Collection<? extends SizeAdjustment> obj)
+    {
+        boolean returnValue = true;
+        SizeAdjustment found = null;
+        for (SizeAdjustment s : context.getReferenceContext().getConstructedCDOMObjects(SizeAdjustment.class))
+        {
+            if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
+            {
+                if (found != null)
+                {
+                    Logging.errorPrint("Found more than one size claiming to be default: " + found.getKeyName()
+                            + " and " + s.getKeyName());
+                    returnValue = false;
+                }
+                found = s;
+            }
+        }
+        if (found == null)
+        {
+            Logging.errorPrint("Did not find a default size");
+            returnValue = false;
+        }
+        return returnValue;
+    }
 
-	@Override
-	public Class<SizeAdjustment> getValidationTokenClass()
-	{
-		return SizeAdjustment.class;
-	}
+    @Override
+    public Class<SizeAdjustment> getValidationTokenClass()
+    {
+        return SizeAdjustment.class;
+    }
 
-	@Override
-	public int getPriority()
-	{
-		return 0;
-	}
+    @Override
+    public int getPriority()
+    {
+        return 0;
+    }
 }

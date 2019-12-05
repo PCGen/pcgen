@@ -1,169 +1,169 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Provides information on List files.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   LST File Class
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Lesson #9: .lst - Weapon Proficiencies
-  </h1>
-  <p>
-   By Professor Chris Chandler (Barak).
-  </p>
-  <p class="indent0">
-   <strong>
-    File(s) Covered:
-   </strong>
-   *weaponprof.lst
-  </p>
-  <p class="indent0">
-   <strong>
-    Tags used:
-   </strong>
-  </p>
-  <p class="indent1">
-   <code><a href="../datafilestagpages/datafilesweaponproficiencies.html#type">
-     TYPE
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Provides information on List files.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        LST File Class
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Lesson #9: .lst - Weapon Proficiencies
+</h1>
+<p>
+    By Professor Chris Chandler (Barak).
+</p>
+<p class="indent0">
+    <strong>
+        File(s) Covered:
+    </strong>
+    *weaponprof.lst
+</p>
+<p class="indent0">
+    <strong>
+        Tags used:
+    </strong>
+</p>
+<p class="indent1">
+    <code><a href="../datafilestagpages/datafilesweaponproficiencies.html#type">
+        TYPE
     </a>
-    ,
-    <a href="../datafilestagpages/datafilesweaponproficiencies.html#hands">
-     HANDS
-    </a>
-    ,
-    <a href="../datafilestagpages/datafilesweaponproficiencies.html#hands">
-     IFLARGERTHANWEAPON
-    </a>
-    .</code>
-  </p>
-  <p class="indent1">
-   The weapon proficiency files are used to set up
-weapon proficiency names and the associated TYPES of weapons that
-they go with.
-  </p>
-  <p class="indent1">
-   There is not that much to them so we'll dive
-right in.
-  </p>
-  <hr/>
-  <p>
-  </p>
-  <p>
-   Weapon proficiency name
-  </p>
-  <p>
-   The weapon proficiency file is currently a lst file that has one
-weapon proficiency entry per line. The first thing on each line is
-the name of the weapon proficiency. There is no tag for it, the
-program assumes that whatever is there at the beginning of the line
-is the name of a weapon proficiency.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>TYPE</code>
-   </strong>
-  </p>
-  <p>
-   The TYPE tag is used to set the type/group of the weapon
-proficiency. This defines for PCGen what type of weapon proficiency
-it takes for characters to be able to use the weapon. It may take
-multiple types delimited by periods, (although this is seldom
-done). The types used are usually Simple, Martial, Exotic or
-Natural (and are defined in the game mode files).
-  </p>
-  <p>
-   An example would be TYPE:Martial or TYPE.Exotic. If you wanted
-to get more specific you could do TYPE:Martial.Sword.
-  </p>
-  <p>
-   It is important to note that this is the TYPE line that is
-searched when you use a BONUS:WEAPONPROF=TYPE.yyyy tag. It grants a
-bonus to a weapon whose associated *weaponprof* has the listed
-TYPE.
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>HANDS</code>
-   </strong>
-  </p>
-  <p>
-   The HANDS tag sets the minimum number of hands required to use a
-weapon. This tag is optional. If it is not present, the default
-value assumed by PCGen is 1. While 1 and 2 are the standard
-entries, it would be possible to craft a weapon/weapon proficiency
-for a creature that had three hands and required all three to wield
-it properly.
-  </p>
-  <p>
-   <code>HANDS:1</code>
-   and
-   <code>HANDS:2</code>
-   are examples of
-the use of this tag.
-  </p>
-  <p>
-   In addition, there is a flag that you may use in this tag that
-changes it's behavior slightly. That flag is the IFLARGERTHANWEAPON
-flag, described below
-  </p>
-  <hr/>
-  <p>
-   <strong>
-    <code>IFLARGERTHANWEAPON</code>
-   </strong>
-  </p>
-  <p>
-   This is a flag to be used in conjunction with the hands tag. It
-basically acts as a yes/no switch. If you append this to the HANDS
-entry, PCGen will compare the size of the PC to the size of the
-weapon, and grant the proficiency if the pc size is larger than the
-weapon size, otherwise it will not apply.
-  </p>
-  <p>
-   This is used for certain weapons that are considered to be
-exotic proficiencies if used with one hand, but martial if used
-with both hands. Following is an example of this type of use
-(putting all of the above information together for you as
-well):
-  </p>
-  <blockquote>
-   <p>
+        ,
+        <a href="../datafilestagpages/datafilesweaponproficiencies.html#hands">
+            HANDS
+        </a>
+        ,
+        <a href="../datafilestagpages/datafilesweaponproficiencies.html#hands">
+            IFLARGERTHANWEAPON
+        </a>
+        .</code>
+</p>
+<p class="indent1">
+    The weapon proficiency files are used to set up
+    weapon proficiency names and the associated TYPES of weapons that
+    they go with.
+</p>
+<p class="indent1">
+    There is not that much to them so we'll dive
+    right in.
+</p>
+<hr/>
+<p>
+</p>
+<p>
+    Weapon proficiency name
+</p>
+<p>
+    The weapon proficiency file is currently a lst file that has one
+    weapon proficiency entry per line. The first thing on each line is
+    the name of the weapon proficiency. There is no tag for it, the
+    program assumes that whatever is there at the beginning of the line
+    is the name of a weapon proficiency.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>TYPE</code>
+    </strong>
+</p>
+<p>
+    The TYPE tag is used to set the type/group of the weapon
+    proficiency. This defines for PCGen what type of weapon proficiency
+    it takes for characters to be able to use the weapon. It may take
+    multiple types delimited by periods, (although this is seldom
+    done). The types used are usually Simple, Martial, Exotic or
+    Natural (and are defined in the game mode files).
+</p>
+<p>
+    An example would be TYPE:Martial or TYPE.Exotic. If you wanted
+    to get more specific you could do TYPE:Martial.Sword.
+</p>
+<p>
+    It is important to note that this is the TYPE line that is
+    searched when you use a BONUS:WEAPONPROF=TYPE.yyyy tag. It grants a
+    bonus to a weapon whose associated *weaponprof* has the listed
+    TYPE.
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>HANDS</code>
+    </strong>
+</p>
+<p>
+    The HANDS tag sets the minimum number of hands required to use a
+    weapon. This tag is optional. If it is not present, the default
+    value assumed by PCGen is 1. While 1 and 2 are the standard
+    entries, it would be possible to craft a weapon/weapon proficiency
+    for a creature that had three hands and required all three to wield
+    it properly.
+</p>
+<p>
+    <code>HANDS:1</code>
+    and
+    <code>HANDS:2</code>
+    are examples of
+    the use of this tag.
+</p>
+<p>
+    In addition, there is a flag that you may use in this tag that
+    changes it's behavior slightly. That flag is the IFLARGERTHANWEAPON
+    flag, described below
+</p>
+<hr/>
+<p>
+    <strong>
+        <code>IFLARGERTHANWEAPON</code>
+    </strong>
+</p>
+<p>
+    This is a flag to be used in conjunction with the hands tag. It
+    basically acts as a yes/no switch. If you append this to the HANDS
+    entry, PCGen will compare the size of the PC to the size of the
+    weapon, and grant the proficiency if the pc size is larger than the
+    weapon size, otherwise it will not apply.
+</p>
+<p>
+    This is used for certain weapons that are considered to be
+    exotic proficiencies if used with one hand, but martial if used
+    with both hands. Following is an example of this type of use
+    (putting all of the above information together for you as
+    well):
+</p>
+<blockquote>
+    <p>
+        <br/>
+        <code>Bastard Sword (Exotic) TYPE:Exotic
+            HANDS:1IFLARGERTHANWEAPON
+            <br/>
+            Bastard Sword (Martial) TYPE:Martial HANDS:2</code>
+    </p>
+</blockquote>
+<p>
+    That covers the weaponprof.lst files!
+</p>
+<p>
+    Barak
     <br/>
-    <code>Bastard Sword (Exotic) TYPE:Exotic
-HANDS:1IFLARGERTHANWEAPON
-     <br/>
-     Bastard Sword (Martial) TYPE:Martial HANDS:2</code>
-   </p>
-  </blockquote>
-  <p>
-   That covers the weaponprof.lst files!
-  </p>
-  <p>
-   Barak
-   <br/>
-   LST Chimp
-  </p>
-  <p>
-  </p>
- </body>
+    LST Chimp
+</p>
+<p>
+</p>
+</body>
 </html>

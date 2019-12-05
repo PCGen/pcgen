@@ -1,132 +1,132 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Eddy Anthony - eddybaATmindspringDOTcom
-                
-                Description:
-                Midnight Help
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Paizo: The Pathfinder Roleplaying Game help file
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Paizo: The Pathfinder Roleplaying Game help file
-  </h1>
-  <p class="indent1">
-   <strong>
-    Game Mode: Pathfinder_RPG
-   </strong>
-  </p>
-  <p class="indent1">
-   PAIZO PUBLISHING &gt; PATHFINDER ROLEPLAYING
-GAME
-  </p>
-  <p class="indent2">
-   <strong>
-    Paizo - Pathfinder Roleplaying Game Core
-Rulebook
-   </strong>
-  </p>
-  <h3>
-   Specialized Wizard
-  </h3>
-  <p class="indent1">
-   A wizard can choose to specialize in one school
-of magic but must select two other schools as his opposition
-schools. There are a couple of aspects of wizard specialization
-that PCGen does not handle at this time:
-  </p>
-  <p class="indent2">
-   <br/>
-   <em>
-    A wizard begins play with a spellbook containing all 0-level
-wizard spells (except those from his opposition schools, if
-any)
-   </em>
-  </p>
-  <p class="indent1">
-   Currently PCGen will add all 0-level spells to a
-wizard's known spells, you must manually remove the opposition
-school spells to comply with this rule.
-  </p>
-  <p class="indent2">
-   <br/>
-   <em>
-    A wizard who prepares spells from his opposition schools must
-use two spell slots of that level to prepare the spell.
-   </em>
-  </p>
-  <p class="indent1">
-   Currently PCGen cannot enforce this, you could
-add the spell twice to your prepared spells list to represent the
-two slots.
-  </p>
-  <h3>
-   Ability descriptions
-  </h3>
-  <p class="indent1">
-   Paizo has allowed the use of the full text in
-the descriptions of abilities. For some abilities this text can be
-quite long. In order to provide an option for those who don't want
-to have the full text filling up their character sheet we are
-utilizing a feature that has not been use previously in the Open
-Source datasets. The dataset can hold two versions of the
-description, a short description, which is usually the flavor text
-and an optional long description or benefit text which can contain
-the full text of the ability description. To set this option choose
-"
-   <a href="../../menupages/settings/settingspreferencesoption.html">
-    Preferences
-   </a>
-   "
-from the Settings menu. Click on
-   <a href="../../menupages/settings/appearance/appearancedisplay.html">
-    Display
-Options in the Appearance tree
-   </a>
-   and find the "
-   <a href="../../menupages/settings/appearance/appearancedisplay.html">
-    Display
-Feat Description
-   </a>
-   " option. When this is checked the short
-description is output, when it is unchecked the longer benefit text
-is displayed if there is such text available. If there is no
-benefit text the short description will be used by default.
-  </p>
-  <p class="indent1">
-   For those who wish to have a technical
-explanation of how this is done refer to the
-   <a href="../../listfilepages/datafilestagpages/datafilesability.html#benefit">
-    BENEFIT
-   </a>
-   tag. This tag allows the data to contain two versions
-of ability descriptions, the
-   <a href="../../listfilepages/globalfilestagpages/globalfilesother.html#desc">
-    DESC
-   </a>
-   generally holds a short version and
-   <a href="../../listfilepages/datafilestagpages/datafilesability.html#benefit">
-    BENEFIT
-   </a>
-   holds the longer version.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Eddy Anthony - eddybaATmindspringDOTcom
+
+               Description:
+               Midnight Help
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Paizo: The Pathfinder Roleplaying Game help file
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Paizo: The Pathfinder Roleplaying Game help file
+</h1>
+<p class="indent1">
+    <strong>
+        Game Mode: Pathfinder_RPG
+    </strong>
+</p>
+<p class="indent1">
+    PAIZO PUBLISHING &gt; PATHFINDER ROLEPLAYING
+    GAME
+</p>
+<p class="indent2">
+    <strong>
+        Paizo - Pathfinder Roleplaying Game Core
+        Rulebook
+    </strong>
+</p>
+<h3>
+    Specialized Wizard
+</h3>
+<p class="indent1">
+    A wizard can choose to specialize in one school
+    of magic but must select two other schools as his opposition
+    schools. There are a couple of aspects of wizard specialization
+    that PCGen does not handle at this time:
+</p>
+<p class="indent2">
+    <br/>
+    <em>
+        A wizard begins play with a spellbook containing all 0-level
+        wizard spells (except those from his opposition schools, if
+        any)
+    </em>
+</p>
+<p class="indent1">
+    Currently PCGen will add all 0-level spells to a
+    wizard's known spells, you must manually remove the opposition
+    school spells to comply with this rule.
+</p>
+<p class="indent2">
+    <br/>
+    <em>
+        A wizard who prepares spells from his opposition schools must
+        use two spell slots of that level to prepare the spell.
+    </em>
+</p>
+<p class="indent1">
+    Currently PCGen cannot enforce this, you could
+    add the spell twice to your prepared spells list to represent the
+    two slots.
+</p>
+<h3>
+    Ability descriptions
+</h3>
+<p class="indent1">
+    Paizo has allowed the use of the full text in
+    the descriptions of abilities. For some abilities this text can be
+    quite long. In order to provide an option for those who don't want
+    to have the full text filling up their character sheet we are
+    utilizing a feature that has not been use previously in the Open
+    Source datasets. The dataset can hold two versions of the
+    description, a short description, which is usually the flavor text
+    and an optional long description or benefit text which can contain
+    the full text of the ability description. To set this option choose
+    "
+    <a href="../../menupages/settings/settingspreferencesoption.html">
+        Preferences
+    </a>
+    "
+    from the Settings menu. Click on
+    <a href="../../menupages/settings/appearance/appearancedisplay.html">
+        Display
+        Options in the Appearance tree
+    </a>
+    and find the "
+    <a href="../../menupages/settings/appearance/appearancedisplay.html">
+        Display
+        Feat Description
+    </a>
+    " option. When this is checked the short
+    description is output, when it is unchecked the longer benefit text
+    is displayed if there is such text available. If there is no
+    benefit text the short description will be used by default.
+</p>
+<p class="indent1">
+    For those who wish to have a technical
+    explanation of how this is done refer to the
+    <a href="../../listfilepages/datafilestagpages/datafilesability.html#benefit">
+        BENEFIT
+    </a>
+    tag. This tag allows the data to contain two versions
+    of ability descriptions, the
+    <a href="../../listfilepages/globalfilestagpages/globalfilesother.html#desc">
+        DESC
+    </a>
+    generally holds a short version and
+    <a href="../../listfilepages/datafilestagpages/datafilesability.html#benefit">
+        BENEFIT
+    </a>
+    holds the longer version.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

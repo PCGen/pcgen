@@ -24,15 +24,14 @@ import pcgen.core.LevelInfo;
 
 /**
  * {@code LevelLstToken}
- *
  */
 public interface LevelLstToken extends LstToken
 {
 
-	/**
-	 * @param levelInfo
-	 * @param value
-	 * @return true if parse OK
-	 */
+    /**
+     * @param levelInfo
+     * @param value
+     * @return true if parse OK
+     */
     boolean parse(LevelInfo levelInfo, String value);
 }

@@ -23,39 +23,41 @@ import java.util.EventObject;
 
 /**
  * The Class {@code PCGenMessage} describes an event in PCGen which
- * listeners can respond to. 
+ * listeners can respond to.
  */
 
 public class PCGenMessage extends EventObject
 {
-	private boolean consumed;
+    private boolean consumed;
 
-	/**
-	 * Create a new instance of PCGenMessage
-	 * @param source The object which initiated the message.
-	 */
-	public PCGenMessage(Object source)
-	{
-		super(source);
-	}
+    /**
+     * Create a new instance of PCGenMessage
+     *
+     * @param source The object which initiated the message.
+     */
+    public PCGenMessage(Object source)
+    {
+        super(source);
+    }
 
-	/**
-	 * Flag the message as consumed. This will stop the message from being sent 
-	 * to further handlers. Note: Not all messages can be consumed. If this is not 
-	 * allowed the message class can return false. 
-	 * @return true of the message could be marked as consumed. 
-	 */
-	public boolean consume()
-	{
-		consumed = true;
-		return true;
-	}
+    /**
+     * Flag the message as consumed. This will stop the message from being sent
+     * to further handlers. Note: Not all messages can be consumed. If this is not
+     * allowed the message class can return false.
+     *
+     * @return true of the message could be marked as consumed.
+     */
+    public boolean consume()
+    {
+        consumed = true;
+        return true;
+    }
 
-	/**
-	 * @return the consumed flag
-	 */
-	boolean isConsumed()
-	{
-		return consumed;
-	}
+    /**
+     * @return the consumed flag
+     */
+    boolean isConsumed()
+    {
+        return consumed;
+    }
 }

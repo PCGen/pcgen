@@ -39,7 +39,7 @@
                             minorTickCount="9"
                             snapToTicks="true"
                             blockIncrement="1.0"
-                            />
+                    />
                     <Label text="${pointsEdit.value}" labelFor="$pointsEdit" fx:id="shownCount"/>
                 </HBox>
                 <ButtonBar>

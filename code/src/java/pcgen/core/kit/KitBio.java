@@ -37,151 +37,152 @@ import pcgen.core.PlayerCharacter;
  */
 public class KitBio extends BaseKit
 {
-	private String theCharacterName = null;
-	private Integer theCharacterAge = null;
-	private List<Indirect<Gender>> theGenders = null;
-	private List<String> theGenderNames = null;
-	private Gender selectedGender = null;
+    private String theCharacterName = null;
+    private Integer theCharacterAge = null;
+    private List<Indirect<Gender>> theGenders = null;
+    private List<String> theGenderNames = null;
+    private Gender selectedGender = null;
 
-	/**
-	 * Set the character name to set for this kit item.
-	 * @param aName Name to use.  Can be any string.
-	 */
-	public void setCharacterName(final String aName)
-	{
-		theCharacterName = aName;
-	}
+    /**
+     * Set the character name to set for this kit item.
+     *
+     * @param aName Name to use.  Can be any string.
+     */
+    public void setCharacterName(final String aName)
+    {
+        theCharacterName = aName;
+    }
 
-	public String getCharacterName()
-	{
-		return theCharacterName;
-	}
+    public String getCharacterName()
+    {
+        return theCharacterName;
+    }
 
-	/**
-	 * Set the character's age to set for this kit item.
-	 * @param age The age to use.
-	 */
-	public void setCharacterAge(final Integer age)
-	{
-		theCharacterAge = age;
-	}
+    /**
+     * Set the character's age to set for this kit item.
+     *
+     * @param age The age to use.
+     */
+    public void setCharacterAge(final Integer age)
+    {
+        theCharacterAge = age;
+    }
 
-	public Integer getCharacterAge()
-	{
-		return theCharacterAge;
-	}
+    public Integer getCharacterAge()
+    {
+        return theCharacterAge;
+    }
 
-	/**
-	 * This method actually applies any changes that can be made by the
-	 * kit to the specified PlayerCharacter.
-	 *
-	 * @param aPC The character to apply the kit to.
-	 */
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		if (theCharacterName != null)
-		{
-			aPC.setPCAttribute(PCStringKey.NAME, theCharacterName);
-		}
-		if (theCharacterAge != null)
-		{
-			aPC.setPCAttribute(NumericPCAttribute.AGE, theCharacterAge);
-		}
-		if (selectedGender != null)
-		{
-			aPC.setGender(selectedGender);
-		}
-	}
+    /**
+     * This method actually applies any changes that can be made by the
+     * kit to the specified PlayerCharacter.
+     *
+     * @param aPC The character to apply the kit to.
+     */
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        if (theCharacterName != null)
+        {
+            aPC.setPCAttribute(PCStringKey.NAME, theCharacterName);
+        }
+        if (theCharacterAge != null)
+        {
+            aPC.setPCAttribute(NumericPCAttribute.AGE, theCharacterAge);
+        }
+        if (selectedGender != null)
+        {
+            aPC.setGender(selectedGender);
+        }
+    }
 
-	/**
-	 * The display name to represent what this kit item represents.
-	 *
-	 * @return object name
-	 */
-	@Override
-	public String getObjectName()
-	{
-		return "Bio Settings";
-	}
+    /**
+     * The display name to represent what this kit item represents.
+     *
+     * @return object name
+     */
+    @Override
+    public String getObjectName()
+    {
+        return "Bio Settings";
+    }
 
-	/**
-	 * Try and apply the selected gender to the character.  Any problems
-	 * encountered should be logged as a string in the
-	 * {@code warnings} list.
-	 *
-	 * @param aKit The owning kit for this item
-	 * @param aPC The character the kit is being applied to
-	 * @param warnings A list of warnings generated while attempting to
-	 *   apply the kit
-	 * @return true if OK
-	 */
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		selectedGender = null;
-		if (theGenders != null && !theGenders.isEmpty())
-		{
-			if (theGenders.size() > 1)
-			{
-				List<Gender> selList = new ArrayList<>(1);
-				List<Gender> theGenderObjects = theGenders.stream().map(Supplier::get)
-						.collect(Collectors.toList());
-				selList = Globals.getChoiceFromList("Choose Gender", theGenderObjects,
-					selList, 1, aPC);
-				if (selList.size() == 1)
-				{
-					selectedGender = selList.get(0);
-				}
-			}
-			else
-			{
-				selectedGender = theGenders.get(0).get();
-			}
-		}
-		apply(aPC);
+    /**
+     * Try and apply the selected gender to the character.  Any problems
+     * encountered should be logged as a string in the
+     * {@code warnings} list.
+     *
+     * @param aKit     The owning kit for this item
+     * @param aPC      The character the kit is being applied to
+     * @param warnings A list of warnings generated while attempting to
+     *                 apply the kit
+     * @return true if OK
+     */
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        selectedGender = null;
+        if (theGenders != null && !theGenders.isEmpty())
+        {
+            if (theGenders.size() > 1)
+            {
+                List<Gender> selList = new ArrayList<>(1);
+                List<Gender> theGenderObjects = theGenders.stream().map(Supplier::get)
+                        .collect(Collectors.toList());
+                selList = Globals.getChoiceFromList("Choose Gender", theGenderObjects,
+                        selList, 1, aPC);
+                if (selList.size() == 1)
+                {
+                    selectedGender = selList.get(0);
+                }
+            } else
+            {
+                selectedGender = theGenders.get(0).get();
+            }
+        }
+        apply(aPC);
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	public String toString()
-	{
-		final StringBuilder info = new StringBuilder();
+    @Override
+    public String toString()
+    {
+        final StringBuilder info = new StringBuilder();
 
-		if (theCharacterName != null)
-		{
-			info.append(" Name: ").append(theCharacterName);
-		}
-		if (theGenders != null)
-		{
-			info.append(" Gender: ").append(StringUtil.join(theGenders, ", "));
-		}
-		if (theCharacterAge != null)
-		{
-			info.append(" Age: ").append(theCharacterAge);
-		}
+        if (theCharacterName != null)
+        {
+            info.append(" Name: ").append(theCharacterName);
+        }
+        if (theGenders != null)
+        {
+            info.append(" Gender: ").append(StringUtil.join(theGenders, ", "));
+        }
+        if (theCharacterAge != null)
+        {
+            info.append(" Age: ").append(theCharacterAge);
+        }
 
-		return info.toString();
-	}
+        return info.toString();
+    }
 
-	public void addGender(Indirect<Gender> gender)
-	{
-		if (theGenders == null)
-		{
-			theGenders = new ArrayList<>();
-			theGenderNames = new ArrayList<>();
-		}
-		if (theGenderNames.contains(gender.getUnconverted()))
-		{
-			throw new IllegalArgumentException("Cannot add Gender: " + gender + " twice");
-		}
-		theGenderNames.add(gender.getUnconverted());
-		theGenders.add(gender);
-	}
+    public void addGender(Indirect<Gender> gender)
+    {
+        if (theGenders == null)
+        {
+            theGenders = new ArrayList<>();
+            theGenderNames = new ArrayList<>();
+        }
+        if (theGenderNames.contains(gender.getUnconverted()))
+        {
+            throw new IllegalArgumentException("Cannot add Gender: " + gender + " twice");
+        }
+        theGenderNames.add(gender.getUnconverted());
+        theGenders.add(gender);
+    }
 
-	public Collection<Indirect<Gender>> getGenders()
-	{
-		return theGenders;
-	}
+    public Collection<Indirect<Gender>> getGenders()
+    {
+        return theGenders;
+    }
 }

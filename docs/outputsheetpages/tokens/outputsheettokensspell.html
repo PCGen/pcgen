@@ -1,682 +1,682 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Sigurdur H. Olafsson - shoATtnDOTis
-                Terry FitzSimons - fitzsimonsATmintelDOTnet
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Sigurdur H. Olafsson - shoATtnDOTis
+               Terry FitzSimons - fitzsimonsATmintelDOTnet
 
-                Description:
-                Provides information on the use of Output Sheet Tokens: Spell Related.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Spell Related Output Sheet Tokens
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Spell Related Output Sheet Tokens
-  </h1>
-  <hr/>
-  <p class="new">
-   *** new 5.7.12
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="maxspelllevel" name="maxspelllevel">
-     Token Name:
-    </a>
-   </strong>
-   MAXSPELLLEVEL.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-class number).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   The value returned is an integer containing the
-highest spell level that the class can cast (for most RSRD classes
-this will either be 9 (for Wizards) or 4 (for Rangers etc)).
-  </p>
-  <hr/>
-  <p class="new">
-   *** new 5.10.1
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="spellbook" name="spellbook">
-     Token
-Name:
-    </a>
-   </strong>
-   SPELLBOOK.x.y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-Spell book Number of the spell book you wish to display).
-  </p>
-  <p class="indent2">
-   * The known spell book is spell book number
-0.
-  </p>
-  <p class="indent2">
-   * The racial innate spell book is spell book
-number 1.
-  </p>
-  <p class="indent2">
-   * Other innate spell books are spell book number
-2 or up.
-  </p>
-  <p class="indent2">
-   * The innate spell books will not exist if the
-character does not have innate spells.
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (The
-property of the spell book you wish to display).
-  </p>
-  <p class="indent2">
-   * NAME - Display the name of the indicated spell
-book or list.
-  </p>
-  <p class="indent2">
-   * NUMPAGES - Display the total number of pages
-in the spell book (or 0 if there are no pages, such as in a
-prepared spell list).
-  </p>
-  <p class="indent2">
-   * NUMPAGESUSED - Display the number of pages
-currently in use for the spell book (or 0 if there are no pages,
-such as in a prepared spell list).
-  </p>
-  <p class="indent2">
-   * NUMSPELLS - Display the number of spells in
-the spell book or list.
-  </p>
-  <p class="indent2">
-   * PAGEFORMULA - Display the page formula for the
-spell book (or an empty string if there are no pages, such as in a
-prepared spell list).
-  </p>
-  <p class="indent2">
-   * TYPE - Display the type (e.g. Known Spells,
-Prepared List) of the spell book or list.
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays information about the character's spell
-book or spell list.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLBOOK.0.NAME</code>
-  </p>
-  <p class="indent3">
-   Displays the name of the 1st spell book for the
-character.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="spellbookname" name="spellbookname">
-     Token Name:
-    </a>
-   </strong>
-   SPELLBOOKNAME.x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number (The
-book number of the spellbook title you wish to display).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays the title of spellbook x in the character spellbook
-list.
-   </li>
-   <li>
-    The Known Spellbook is any class but 0, spellbook number
-0.
-   </li>
-   <li>
-    The Racial Innate Spellbook is class 0, spellbook number
-1.
-   </li>
-   <li>
-    Other Innate Spellbooks are class 0, spellbook number 2 or
-up.
-   </li>
-   <li>
-    The Innate spellbooks will not exist if the character does not
-have innate spells.
-   </li>
-   <li>
-    The -1 Spellbook should not be used any more.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLBOOKNAME.0</code>
-  </p>
-  <p class="indent3">
-   Display Spell Book 0 (the default
-spellbook).
-  </p>
-  <hr/>
-  <p class="new">
-   *** updated 5.17.7
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="spelllist" name="spelllist">
-     Token
-Name:
-    </a>
-   </strong>
-   SPELLLISTx.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Spellbook Option. See below)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Class Number - 0 index array).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Number
-(Spellcasting Level - 0-9).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Number
-(Book Number. Optional).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays information about spellcasting ability, and spells
-themselves.
-   </li>
-   <li>
-    Spellbook options include the following sub-tokens:
-    <ul>
-     <li>
-      <code>BOOK</code>
-      - Displays a comma delimited list of spells
-known to spellcaster class number y for level z of book w.
-     </li>
-     <li>
-      <code>CAST</code>
-      - Displays the number of spells you can cast
-for spellcaster class number y for level z.
-     </li>
-     <li>
-      <code>CLASS</code>
-      - Displays the spellcaster class
-information.
-      <ul>
-       <li>
-        <code>CLASS.y</code>
-        - Displays the spellcaster classname for
-class number y.
-       </li>
-       <li>
-        <code>CLASS.y.CASTERLEVEL</code>
-        - Displays the effective
-casting level for spells cast by spellcaster class y, including
-bonus levels from other classes.
-       </li>
-       <li>
-        <code>CLASS.y.CONCENTRATION</code>
-        - Displays the concentration
-check bonus for spells cast by spellcaster class y (empty if no
-formula is defined in the game mode).
-       </li>
-       <li>
-        <code>CLASS.y.LEVEL</code>
-        - Displays the spellcaster's class
-level for spellcasting class y.
-       </li>
-      </ul>
-     </li>
-     <li>
-      <code>DC</code>
-      - Displays the casting DC for a z level spell
-for spellcaster class y.
-     </li>
-     <li>
-      <code>DCSTAT</code>
-      - Displays the STAT used to figure out the
-DC of a z level spell cast by spallcaster class y.
-     </li>
-     <li>
-      <code>MEMORIZE</code>
-      - Returns a boolean "true" if the
-spellcaster class y needs to memorize spells, "false" if
-otherwise.
-     </li>
-     <li>
-      <code>TYPE</code>
-      - Displays the spell type (e.g. Arcane or
-Divine) of spellcaster class y.
-     </li>
-     <li>
-      <code>KNOWN</code>
-      - Displays how many spells spellcaster class
-y can know for level z. For Clerics with domains, this does not
-include domain spells.
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLLISTCAST.0.1</code>
-  </p>
-  <p class="indent3">
-   Displays how many spells the character can cast
-for the 1
-   <sup>
-    st
-   </sup>
-   level of the 1
-   <sup>
-    st
-   </sup>
-   spellcaster
-class the character has.
-  </p>
-  <p class="indent2">
-   <code>SPELLLISTTYPE.0.1</code>
-  </p>
-  <p class="indent3">
-   Displays the spell list type of the
-1
-   <sup>
-    st
-   </sup>
-   spellcaster class the character has.
-  </p>
-  <hr/>
-  <p class="lstnew">
-   *** updated 6.1.9
-  </p>
-  <p class="indent0">
-   <strong>
-    <a id="spellmem" name="spellmem">
-     Token
-Name:
-    </a>
-   </strong>
-   SPELLMEM.v.w.x.y.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Number
-(Spell class).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Number
-(Spellbook).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Spell level).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Number of the spell in known spells list).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text (Spell
-property).
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Displays information about the spells in the character
-spellbooks.
-   </li>
-   <li>
-    Standard Class/Spellbook combinations are as follows:
-    <ul>
-     <li>
-      The Known Spellbook is any class but 0, spellbook number
-0.
-     </li>
-     <li>
-      The Racial Innate Spellbook is class 0, spellbook number
-1.
-     </li>
-     <li>
-      Other Innate Spellbooks are class 0, spellbook number 2 or
-up.
-     </li>
-     <li>
-      The Innate spellbooks will not exist if the character does not
-have innate spells.
-     </li>
-     <li>
-      A spellbook number of "-1" should no longer be used.
-     </li>
-    </ul>
-   </li>
-   <li>
-    Spell properties are identified as follows:
-    <ul>
-     <li>
-      <code>APPLIEDNAME</code>
-      - Display a list of adjectives for
-metamagic feats or abilities modifying this spell.
-     </li>
-     <li>
-      <code>BASENAME</code>
-      - Display the name of the spell,
-unmodified by abilities such as metamagic feats or abilities.
-     </li>
-     <li>
-      <code>BASEPPCOST</code>
-      - Display the PPCOST for the a
-spell.
-     </li>
-     <li>
-      <code>BONUSSPELL</code>
-      - Display an * is the spell is a
-domain/specialty spell, display ** if it is ONLY a domain/specialty
-spell.
-     </li>
-     <li>
-      <code>COMPONENTS</code>
-      - Display the necessary components of
-the indicated spell.
-     </li>
-     <li>
-      <code>CASTERLEVEL</code>
-      - Display the caster level (including
-bonuses) of the indicated spell.
-     </li>
-     <li>
-      <code>CASTINGTIME</code>
-      - Display the casting time of the
-indicated spell.
-     </li>
-     <li>
-      <code>CLASS</code>
-      - Indicates spellcaster classname.
-     </li>
-     <li>
-      <code>CONCENTRATION</code>
-      - Displays the concentration check
-bonus for the indicated spell (empty if no formula is defined in
-the game mode).
-     </li>
-     <li>
-      <code>CT</code>
-      - Display the Casting Threshold of the
-indicated spell.
-     </li>
-     <li>
-      <code>DC</code>
-      - Display the DC of the indicated spell.
-     </li>
-     <li>
-      <code>DCSTAT</code>
-      - Display the STAT used to figure out DC of
-spell
-     </li>
-     <li>
-      <code>DESC</code>
-      - Display the description of the indicated
-spell.
-     </li>
-     <li>
-      <code>DESCRIPTION</code>
-      - Display the description of the
-indicated spell.
-     </li>
-     <li>
-      <code>DESCRIPTOR</code>
-      - Display the discriptor of the
-indicated spell.
-     </li>
-     <li>
-      <code>DURATION</code>
-      - Display the duration of the indicated
-spell.
-     </li>
-     <li>
-      <code>EFFECT</code>
-      - Display the effect of the indicated
-spell.
-     </li>
-     <li>
-      <code>EFFECTTYPE</code>
-      - Display the type of effect of the
-indicated spell.
-     </li>
-     <li>
-      <code>FULLSCHOOL</code>
-      - Display the school, if any, of the
-indicated spell in long form.
-     </li>
-     <li>
-      <code>NAME</code>
-      - Display the name of the indicated
-spell.
-     </li>
-     <li>
-      <code>RANGE</code>
-      - Display the range of the indicated
-spell.
-     </li>
-     <li>
-      <code>SAVEINFO</code>
-      - Display the save info of the indicated
-spell.
-     </li>
-     <li>
-      <code>SCHOOL</code>
-      - Display the school, if any, of the
-indicated spell in short form.
-     </li>
-     <li>
-      <code>SOURCE</code>
-      - Display the source of the indicated spell
-in long form.
-     </li>
-     <li>
-      <code>SOURCELEVEL</code>
-      - Display all the sources and levels
-of the indicated spell (Wiz3,Sor3).
-     </li>
-     <li>
-      <code>SOURCELINK</code>
-      - Display the URL of the online system
-reference document for the indicated spell.
-     </li>
-     <li>
-      <code>SOURCEPAGE</code>
-      - Display the source page of the
-indicated spell.
-     </li>
-     <li>
-      <code>SOURCESHORT</code>
-      - Display the source of the indicated
-spell in short form.
-     </li>
-     <li>
-      <code>SOURCEWEB</code>
-      - Display the URL of the source of the
-indicated spell.
-     </li>
-     <li>
-      <code>SUBSCHOOL</code>
-      - Display the subschool, if any, of the
-indicated spell.
-     </li>
-     <li>
-      <code>SR</code>
-      - Display the spell resistance properties of
-the indicated spell.
-     </li>
-     <li>
-      <code>SRSHORT</code>
-      - Returns an "N" if spell the spell
-ignores resistance, "Y" if it does not.
-     </li>
-     <li>
-      <code>TARGET</code>
-      - Display the target of the indicated spell
-(contents of the TARGETAREA lst tag).
-     </li>
-     <li>
-      <code>TIMES</code>
-      - Display the number of times the indicated
-spell is in the spellbook.
-     </li>
-     <li>
-      <code>TIMEUNIT</code>
-      - Display the unit of time (i.e.
-Encounter, Week, Month, etc.).
-     </li>
-     <li>
-      <code>TYPE</code>
-      - Display the type (i.e. Arcane or Divine) of
-spell class.
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLMEM.0.1.2.3.NAME</code>
-  </p>
-  <p class="indent3">
-   Displays the Name of the fourth 2
-   <sup>
-    nd
-   </sup>
-   level spell in the second spellbook for the first character
-class.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="spellpoints" name="spellpoints">
-     Token Name:
-    </a>
-   </strong>
-   SPELLPOINTS
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Use only for Deadlands. Gives the number of
-Spellpoints the character has.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SPELLPOINTS</code>
-  </p>
-  <p class="indent3">
-   Gives the number of Spellpoints the character
-has.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+               Description:
+               Provides information on the use of Output Sheet Tokens: Spell Related.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Spell Related Output Sheet Tokens
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Spell Related Output Sheet Tokens
+</h1>
+<hr/>
+<p class="new">
+    *** new 5.7.12
+</p>
+<p class="indent0">
+    <strong>
+        <a id="maxspelllevel" name="maxspelllevel">
+            Token Name:
+        </a>
+    </strong>
+    MAXSPELLLEVEL.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    class number).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    The value returned is an integer containing the
+    highest spell level that the class can cast (for most RSRD classes
+    this will either be 9 (for Wizards) or 4 (for Rangers etc)).
+</p>
+<hr/>
+<p class="new">
+    *** new 5.10.1
+</p>
+<p class="indent0">
+    <strong>
+        <a id="spellbook" name="spellbook">
+            Token
+            Name:
+        </a>
+    </strong>
+    SPELLBOOK.x.y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    Spell book Number of the spell book you wish to display).
+</p>
+<p class="indent2">
+    * The known spell book is spell book number
+    0.
+</p>
+<p class="indent2">
+    * The racial innate spell book is spell book
+    number 1.
+</p>
+<p class="indent2">
+    * Other innate spell books are spell book number
+    2 or up.
+</p>
+<p class="indent2">
+    * The innate spell books will not exist if the
+    character does not have innate spells.
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (The
+    property of the spell book you wish to display).
+</p>
+<p class="indent2">
+    * NAME - Display the name of the indicated spell
+    book or list.
+</p>
+<p class="indent2">
+    * NUMPAGES - Display the total number of pages
+    in the spell book (or 0 if there are no pages, such as in a
+    prepared spell list).
+</p>
+<p class="indent2">
+    * NUMPAGESUSED - Display the number of pages
+    currently in use for the spell book (or 0 if there are no pages,
+    such as in a prepared spell list).
+</p>
+<p class="indent2">
+    * NUMSPELLS - Display the number of spells in
+    the spell book or list.
+</p>
+<p class="indent2">
+    * PAGEFORMULA - Display the page formula for the
+    spell book (or an empty string if there are no pages, such as in a
+    prepared spell list).
+</p>
+<p class="indent2">
+    * TYPE - Display the type (e.g. Known Spells,
+    Prepared List) of the spell book or list.
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays information about the character's spell
+    book or spell list.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLBOOK.0.NAME</code>
+</p>
+<p class="indent3">
+    Displays the name of the 1st spell book for the
+    character.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="spellbookname" name="spellbookname">
+            Token Name:
+        </a>
+    </strong>
+    SPELLBOOKNAME.x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number (The
+    book number of the spellbook title you wish to display).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays the title of spellbook x in the character spellbook
+        list.
+    </li>
+    <li>
+        The Known Spellbook is any class but 0, spellbook number
+        0.
+    </li>
+    <li>
+        The Racial Innate Spellbook is class 0, spellbook number
+        1.
+    </li>
+    <li>
+        Other Innate Spellbooks are class 0, spellbook number 2 or
+        up.
+    </li>
+    <li>
+        The Innate spellbooks will not exist if the character does not
+        have innate spells.
+    </li>
+    <li>
+        The -1 Spellbook should not be used any more.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLBOOKNAME.0</code>
+</p>
+<p class="indent3">
+    Display Spell Book 0 (the default
+    spellbook).
+</p>
+<hr/>
+<p class="new">
+    *** updated 5.17.7
+</p>
+<p class="indent0">
+    <strong>
+        <a id="spelllist" name="spelllist">
+            Token
+            Name:
+        </a>
+    </strong>
+    SPELLLISTx.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Spellbook Option. See below)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Class Number - 0 index array).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Number
+    (Spellcasting Level - 0-9).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Number
+    (Book Number. Optional).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays information about spellcasting ability, and spells
+        themselves.
+    </li>
+    <li>
+        Spellbook options include the following sub-tokens:
+        <ul>
+            <li>
+                <code>BOOK</code>
+                - Displays a comma delimited list of spells
+                known to spellcaster class number y for level z of book w.
+            </li>
+            <li>
+                <code>CAST</code>
+                - Displays the number of spells you can cast
+                for spellcaster class number y for level z.
+            </li>
+            <li>
+                <code>CLASS</code>
+                - Displays the spellcaster class
+                information.
+                <ul>
+                    <li>
+                        <code>CLASS.y</code>
+                        - Displays the spellcaster classname for
+                        class number y.
+                    </li>
+                    <li>
+                        <code>CLASS.y.CASTERLEVEL</code>
+                        - Displays the effective
+                        casting level for spells cast by spellcaster class y, including
+                        bonus levels from other classes.
+                    </li>
+                    <li>
+                        <code>CLASS.y.CONCENTRATION</code>
+                        - Displays the concentration
+                        check bonus for spells cast by spellcaster class y (empty if no
+                        formula is defined in the game mode).
+                    </li>
+                    <li>
+                        <code>CLASS.y.LEVEL</code>
+                        - Displays the spellcaster's class
+                        level for spellcasting class y.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <code>DC</code>
+                - Displays the casting DC for a z level spell
+                for spellcaster class y.
+            </li>
+            <li>
+                <code>DCSTAT</code>
+                - Displays the STAT used to figure out the
+                DC of a z level spell cast by spallcaster class y.
+            </li>
+            <li>
+                <code>MEMORIZE</code>
+                - Returns a boolean "true" if the
+                spellcaster class y needs to memorize spells, "false" if
+                otherwise.
+            </li>
+            <li>
+                <code>TYPE</code>
+                - Displays the spell type (e.g. Arcane or
+                Divine) of spellcaster class y.
+            </li>
+            <li>
+                <code>KNOWN</code>
+                - Displays how many spells spellcaster class
+                y can know for level z. For Clerics with domains, this does not
+                include domain spells.
+            </li>
+        </ul>
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLLISTCAST.0.1</code>
+</p>
+<p class="indent3">
+    Displays how many spells the character can cast
+    for the 1
+    <sup>
+        st
+    </sup>
+    level of the 1
+    <sup>
+        st
+    </sup>
+    spellcaster
+    class the character has.
+</p>
+<p class="indent2">
+    <code>SPELLLISTTYPE.0.1</code>
+</p>
+<p class="indent3">
+    Displays the spell list type of the
+    1
+    <sup>
+        st
+    </sup>
+    spellcaster class the character has.
+</p>
+<hr/>
+<p class="lstnew">
+    *** updated 6.1.9
+</p>
+<p class="indent0">
+    <strong>
+        <a id="spellmem" name="spellmem">
+            Token
+            Name:
+        </a>
+    </strong>
+    SPELLMEM.v.w.x.y.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (v):
+    </strong>
+    Number
+    (Spell class).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Number
+    (Spellbook).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Spell level).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Number of the spell in known spells list).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text (Spell
+    property).
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Displays information about the spells in the character
+        spellbooks.
+    </li>
+    <li>
+        Standard Class/Spellbook combinations are as follows:
+        <ul>
+            <li>
+                The Known Spellbook is any class but 0, spellbook number
+                0.
+            </li>
+            <li>
+                The Racial Innate Spellbook is class 0, spellbook number
+                1.
+            </li>
+            <li>
+                Other Innate Spellbooks are class 0, spellbook number 2 or
+                up.
+            </li>
+            <li>
+                The Innate spellbooks will not exist if the character does not
+                have innate spells.
+            </li>
+            <li>
+                A spellbook number of "-1" should no longer be used.
+            </li>
+        </ul>
+    </li>
+    <li>
+        Spell properties are identified as follows:
+        <ul>
+            <li>
+                <code>APPLIEDNAME</code>
+                - Display a list of adjectives for
+                metamagic feats or abilities modifying this spell.
+            </li>
+            <li>
+                <code>BASENAME</code>
+                - Display the name of the spell,
+                unmodified by abilities such as metamagic feats or abilities.
+            </li>
+            <li>
+                <code>BASEPPCOST</code>
+                - Display the PPCOST for the a
+                spell.
+            </li>
+            <li>
+                <code>BONUSSPELL</code>
+                - Display an * is the spell is a
+                domain/specialty spell, display ** if it is ONLY a domain/specialty
+                spell.
+            </li>
+            <li>
+                <code>COMPONENTS</code>
+                - Display the necessary components of
+                the indicated spell.
+            </li>
+            <li>
+                <code>CASTERLEVEL</code>
+                - Display the caster level (including
+                bonuses) of the indicated spell.
+            </li>
+            <li>
+                <code>CASTINGTIME</code>
+                - Display the casting time of the
+                indicated spell.
+            </li>
+            <li>
+                <code>CLASS</code>
+                - Indicates spellcaster classname.
+            </li>
+            <li>
+                <code>CONCENTRATION</code>
+                - Displays the concentration check
+                bonus for the indicated spell (empty if no formula is defined in
+                the game mode).
+            </li>
+            <li>
+                <code>CT</code>
+                - Display the Casting Threshold of the
+                indicated spell.
+            </li>
+            <li>
+                <code>DC</code>
+                - Display the DC of the indicated spell.
+            </li>
+            <li>
+                <code>DCSTAT</code>
+                - Display the STAT used to figure out DC of
+                spell
+            </li>
+            <li>
+                <code>DESC</code>
+                - Display the description of the indicated
+                spell.
+            </li>
+            <li>
+                <code>DESCRIPTION</code>
+                - Display the description of the
+                indicated spell.
+            </li>
+            <li>
+                <code>DESCRIPTOR</code>
+                - Display the discriptor of the
+                indicated spell.
+            </li>
+            <li>
+                <code>DURATION</code>
+                - Display the duration of the indicated
+                spell.
+            </li>
+            <li>
+                <code>EFFECT</code>
+                - Display the effect of the indicated
+                spell.
+            </li>
+            <li>
+                <code>EFFECTTYPE</code>
+                - Display the type of effect of the
+                indicated spell.
+            </li>
+            <li>
+                <code>FULLSCHOOL</code>
+                - Display the school, if any, of the
+                indicated spell in long form.
+            </li>
+            <li>
+                <code>NAME</code>
+                - Display the name of the indicated
+                spell.
+            </li>
+            <li>
+                <code>RANGE</code>
+                - Display the range of the indicated
+                spell.
+            </li>
+            <li>
+                <code>SAVEINFO</code>
+                - Display the save info of the indicated
+                spell.
+            </li>
+            <li>
+                <code>SCHOOL</code>
+                - Display the school, if any, of the
+                indicated spell in short form.
+            </li>
+            <li>
+                <code>SOURCE</code>
+                - Display the source of the indicated spell
+                in long form.
+            </li>
+            <li>
+                <code>SOURCELEVEL</code>
+                - Display all the sources and levels
+                of the indicated spell (Wiz3,Sor3).
+            </li>
+            <li>
+                <code>SOURCELINK</code>
+                - Display the URL of the online system
+                reference document for the indicated spell.
+            </li>
+            <li>
+                <code>SOURCEPAGE</code>
+                - Display the source page of the
+                indicated spell.
+            </li>
+            <li>
+                <code>SOURCESHORT</code>
+                - Display the source of the indicated
+                spell in short form.
+            </li>
+            <li>
+                <code>SOURCEWEB</code>
+                - Display the URL of the source of the
+                indicated spell.
+            </li>
+            <li>
+                <code>SUBSCHOOL</code>
+                - Display the subschool, if any, of the
+                indicated spell.
+            </li>
+            <li>
+                <code>SR</code>
+                - Display the spell resistance properties of
+                the indicated spell.
+            </li>
+            <li>
+                <code>SRSHORT</code>
+                - Returns an "N" if spell the spell
+                ignores resistance, "Y" if it does not.
+            </li>
+            <li>
+                <code>TARGET</code>
+                - Display the target of the indicated spell
+                (contents of the TARGETAREA lst tag).
+            </li>
+            <li>
+                <code>TIMES</code>
+                - Display the number of times the indicated
+                spell is in the spellbook.
+            </li>
+            <li>
+                <code>TIMEUNIT</code>
+                - Display the unit of time (i.e.
+                Encounter, Week, Month, etc.).
+            </li>
+            <li>
+                <code>TYPE</code>
+                - Display the type (i.e. Arcane or Divine) of
+                spell class.
+            </li>
+        </ul>
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLMEM.0.1.2.3.NAME</code>
+</p>
+<p class="indent3">
+    Displays the Name of the fourth 2
+    <sup>
+        nd
+    </sup>
+    level spell in the second spellbook for the first character
+    class.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="spellpoints" name="spellpoints">
+            Token Name:
+        </a>
+    </strong>
+    SPELLPOINTS
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Use only for Deadlands. Gives the number of
+    Spellpoints the character has.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SPELLPOINTS</code>
+</p>
+<p class="indent3">
+    Gives the number of Spellpoints the character
+    has.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

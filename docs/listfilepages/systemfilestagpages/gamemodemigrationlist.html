@@ -1,707 +1,707 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                Contributors:
-                Eric C Smith - mareduddATblackrootDOTorg
+               Contributors:
+               Eric C Smith - mareduddATblackrootDOTorg
 
 
-                Description:
-                Provides information on the use of PCGen Game Mode:Migration List.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Game Mode:Character Migration List
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Game Mode: migration.lst
-  </h1>
-  <p class="indent0">
-   This file contains information on the tags used
-in, and how to build, a
-   <span class="lstfile">
+               Description:
+               Provides information on the use of PCGen Game Mode:Migration List.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Game Mode:Character Migration List
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Game Mode: migration.lst
+</h1>
+<p class="indent0">
+    This file contains information on the tags used
+    in, and how to build, a
+    <span class="lstfile">
     migration.lst
    </span>
-   file. Before we get to how you build such a file though, let's
-first answer a few questions on the migration file in general.
-  </p>
-  <h2>
-   What the Character Migration File Does
-  </h2>
-  <p class="indent0">
-   The character migration tool works behind the
-scenes to smoothly load characters from older versions of PCGen
-into the current version. The file's primary purpose is to allow a
-character to be automatically updated to reflect changes in the
-relevant data sets.
-  </p>
-  <hr/>
-  <h2>
-   Building a Character Migration File
-  </h2>
-  <p class="indent0">
-   The migration file consists of lines of lst
-code, each defining a separate and specific migration item. Each
-line begines with the LST Object tag followed by supporting tags.
-These tags are described below. The LST objects currently supported
-include Sources, Abilities, and Equipment. The syntax for a
-migration line is as follows:
-  </p>
-  <p class="indent1">
-   Migration Line Syntax
-  </p>
-  <p class="indent2">
-   <code>&lt;Old Object Key&gt;</code>
-   &lt;tab&gt;
-   <code>&lt;New Object Key&gt;</code>
-   &lt;tab&gt;
-   <code>&lt;Version
-Tags&gt;</code>
-  </p>
-  <hr/>
-  <h2>
-   Migration File Tags
-  </h2>
-  <p class="indent0">
-   The tags used in the
-   <span class="">
+    file. Before we get to how you build such a file though, let's
+    first answer a few questions on the migration file in general.
+</p>
+<h2>
+    What the Character Migration File Does
+</h2>
+<p class="indent0">
+    The character migration tool works behind the
+    scenes to smoothly load characters from older versions of PCGen
+    into the current version. The file's primary purpose is to allow a
+    character to be automatically updated to reflect changes in the
+    relevant data sets.
+</p>
+<hr/>
+<h2>
+    Building a Character Migration File
+</h2>
+<p class="indent0">
+    The migration file consists of lines of lst
+    code, each defining a separate and specific migration item. Each
+    line begines with the LST Object tag followed by supporting tags.
+    These tags are described below. The LST objects currently supported
+    include Sources, Abilities, and Equipment. The syntax for a
+    migration line is as follows:
+</p>
+<p class="indent1">
+    Migration Line Syntax
+</p>
+<p class="indent2">
+    <code>&lt;Old Object Key&gt;</code>
+    &lt;tab&gt;
+    <code>&lt;New Object Key&gt;</code>
+    &lt;tab&gt;
+    <code>&lt;Version
+        Tags&gt;</code>
+</p>
+<hr/>
+<h2>
+    Migration File Tags
+</h2>
+<p class="indent0">
+    The tags used in the
+    <span class="">
     migration.lst
    </span>
-   file consist of two sets of tags.
-  </p>
-  <p class="indent1">
-   <a href="#version">
-    Version Identification
-Tags
-   </a>
-  </p>
-  <p class="indent1">
-   <a href="#object">
-    Source and Object Migration
-Line Tags
-   </a>
-  </p>
-  <p class="indent1">
-   <a href="#examples">
-    Examples of Complete
-Migration Lines.
-   </a>
-  </p>
-  <hr/>
-  <h3>
-   <a id="version" name="version">
-    Version Identification
-Tags
-   </a>
-  </h3>
-  <p class="indent0">
-   The following tags identify the minimum and
-maximum versions for both the stable and developmental, of PCGen
-supported by the associated migration line.
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="maxdevver" name="maxdevver">
-   </a>
-   *** New
-6.01.03
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MAXDEVVER:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Version number)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Specifies the developmental version of PCGen (e.g. alpha, beta)
-when the associated lst object was last coded in the old
-format.
-   </li>
-   <li>
-    This tag is optional and if included must be later than
-    <code>MAXVER</code>
-    .
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MAXDEVVER:6.01.07</code>
-  </p>
-  <p class="indent3">
-   The associated lst object was coded for PCGen
-developmental version 6.01.07 or earlier.
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="maxver" name="maxver">
-   </a>
-   *** New
-6.01.03
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MAXVER:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Version number)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent3">
-   <li>
-    Specifies the production version of PCGen when the associated
-lst object was last coded in the old format.
-   </li>
-   <li>
-    This tag is mandatory.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MAXVER:6.0.1</code>
-  </p>
-  <p class="indent2">
-   The associated lst object was coded for PCGen
-production version 6.0.1 or earlier.
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="mindevver" name="mindevver">
-   </a>
-   *** New
-6.01.03
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MINDEVVER:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Version number)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Specifies the developmental version of PCGen (e.g. alpha, beta)
-when the associated lst object was first coded in the old
-format.
-   </li>
-   <li>
-    This tag is optional and if included must be later than
-    <code>MINVER</code>
-    .
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MINDEVVER:6.01.01</code>
-  </p>
-  <p class="indent3">
-   The associated lst object was coded for PCGen
-developmental version 6.01.01 or later.
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="minver" name="minver">
-   </a>
-   *** New
-6.01.03
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   MINVER:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text
-(Version number)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Specifies the production version of PCGen that the associated
-lst object was first coded in the old format.
-   </li>
-   <li>
-    This tag is optional and if included must be earlier than
-    <code>MAXVER</code>
-    .
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MINVER:6.0.0</code>
-  </p>
-  <p class="indent3">
-   The associated lst object was coded for PCGen
-production version 6.0.0 or later.
-  </p>
-  <hr/>
-  <h3>
-   <a id="object" name="object">
-    Source and Object Migration Line
-Tags
-   </a>
-  </h3>
-  <p class="">
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="ability" name="ability">
-    *** New
-6.01.03
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   ABILITY:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Old
-Ability Category)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Old
-Ability Key)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag begins an ability migration line and is used to
-identify the old ability key as part of the migration to a new
-ability key.
-   </li>
-   <li>
-    The
-    <code>ABILITY</code>
-    tag is used in conjunction with the
-    <a href="#newkey">
-     NEWKEY
+    file consist of two sets of tags.
+</p>
+<p class="indent1">
+    <a href="#version">
+        Version Identification
+        Tags
     </a>
-    ,
-    <a href="#newcategory">
-     NEWCATEGORY
+</p>
+<p class="indent1">
+    <a href="#object">
+        Source and Object Migration
+        Line Tags
     </a>
-    , and version tags.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ABILITY:Special Ability|Animal
-Fury</code>
-  </p>
-  <p class="indent3">
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="equipment" name="equipment">
-    *** New
-6.01.03
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   EQUIPMENT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Old
-Equipment Key)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag begins a equipment migration line and is used to
-identify the old equipment key as part of the migration to a new
-equipment key.
-   </li>
-   <li>
-    The
-    <code>EQUIPMENT</code>
-    tag is used in conjunction with the
-    <a href="#newkey">
-     NEWKEY
+</p>
+<p class="indent1">
+    <a href="#examples">
+        Examples of Complete
+        Migration Lines.
     </a>
-    and version tags.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>Kasari Gusoku</code>
-  </p>
-  <p class="indent3">
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="newcategory" name="newcategory">
-    *** New
-6.01.03
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   NEWCATEGORY:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (New
-Ability Category)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag is used in an ability migration line to identify the
-new category for the associated ability object when the ability
-category changes.
-   </li>
-   <li>
-    If this tag is not included in the ability migration line the
-ability category will not change for the associated ability.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>NEWCATEGORY:Spell-like Ability</code>
-  </p>
-  <p class="indent3">
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="newkey" name="newkey">
-    *** New
-6.01.03
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   NEWKEY:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (New
-Key)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   This tag is used in a migration line to identify
-the new key (i.e. Source, Ability, and Equipment) for the
-associated LST object.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>NEWKEY:Guide To Pathfinder Society
-Organised Play</code>
-  </p>
-  <p class="indent3">
-  </p>
-  <p class="indent2">
-   <code>NEWKEY:Animal Fury ~ Rage Power</code>
-  </p>
-  <p class="indent3">
-  </p>
-  <p class="indent2">
-   <code>NEWKEY:Kusari Gusoku</code>
-  </p>
-  <p class="indent3">
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="race" name="race">
-    *** New 6.02.01
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   RACE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Old
-Race Key)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag begins a race migration line and is used to identify
-the old race key as part of the migration to a new race key.
-   </li>
-   <li>
-    The
-    <code>RACE</code>
-    tag is used in conjunction with the
-    <a href="#newkey">
-     NEWKEY
+</p>
+<hr/>
+<h3>
+    <a id="version" name="version">
+        Version Identification
+        Tags
     </a>
-    and version tags.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>RACE:Misspelt Key</code>
-  </p>
-  <p class="indent3">
-  </p>
-  <hr/>
-  <p class="lstnew">
-   <a id="source" name="source">
-    *** New
-6.01.03
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   SOURCE:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Old
-Source key)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    This tag begins a source migration line and is used to identify
-the old source key as part of the migration to a new source
-key.
-   </li>
-   <li>
-    The
-    <code>SOURCE</code>
-    tag is used in conjunction with the
-    <a href="#newkey">
-     NEWKEY
+</h3>
+<p class="indent0">
+    The following tags identify the minimum and
+    maximum versions for both the stable and developmental, of PCGen
+    supported by the associated migration line.
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="maxdevver" name="maxdevver">
     </a>
-    and version tags.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SOURCE:Paizo - Guide To Pathfinder Society
-Organised Play 4.0</code>
-  </p>
-  <p class="indent3">
-  </p>
-  <hr/>
-  <h3>
-   <a id="examples" name="examples">
-    Migration Line
-Examples
-   </a>
-  </h3>
-  <p class="indent0">
-   The examples included below are displayed in
-multiple lines for easy readability. In the actual migration file
-all tags would be included on the same line and separated by
-tabs.
-  </p>
-  <p class="indent1">
-   <strong>
-    Ability Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ABILITY:Special Ability|Animal
-Fury</code>
-  </p>
-  <p class="indent3">
-   <code>NEWKEY:Animal Fury ~ Rage Power</code>
-  </p>
-  <p class="indent3">
-   <code>MAXVER:6.00.00</code>
-  </p>
-  <p class="indent3">
-   <code>MAXDEVVER:6.01.01</code>
-  </p>
-  <p class="indent3">
-   When any character last saved in v6.00.00 or
-earlier (or 6.01.01 in the dev line) is loaded if it has a "Special
-Ability" with the key "Animal Fury" the ability will be mapped to
-the new key "Animal Fury ~ Rage Power".
-  </p>
-  <p class="indent1">
-   <strong>
-    Equipment Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>EQUIPMENT:Kasari Gusoku</code>
-  </p>
-  <p class="indent3">
-   <code>NEWKEY:Kusari Gusoku</code>
-  </p>
-  <p class="indent3">
-   <code>MAXVER:6.1.8</code>
-  </p>
-  <p class="indent3">
-   If a character has the equipment "Kasari Gusoku"
-when last saved in PCGen 6.1.8 or earlier, it will instead load
-"Kusari Gusoku" now.
-  </p>
-  <p class="indent1">
-   <strong>
-    Source Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SOURCE:Paizo - Guide To Pathfinder Society
-Organised Play 4.0</code>
-  </p>
-  <p class="indent3">
-   <code>NEWKEY:Guide To Pathfinder Society
-Organised Play</code>
-  </p>
-  <p class="indent3">
-   <code>MAXVER:6.0.1</code>
-  </p>
-  <p class="indent3">
-   <code>MAXDEVVER:6.1.7</code>
-  </p>
-  <p class="indent3">
-   If a character used the source "Paizo - Guide To
-Pathfinder Society Organised Play 4.0" when last saved in PCGen
-6.0.1 or earlier (or 6.1.7 in the dev line) for it will instead
-load "Guide To Pathfinder Society Organised Play" now.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+    *** New
+    6.01.03
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MAXDEVVER:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Version number)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Specifies the developmental version of PCGen (e.g. alpha, beta)
+        when the associated lst object was last coded in the old
+        format.
+    </li>
+    <li>
+        This tag is optional and if included must be later than
+        <code>MAXVER</code>
+        .
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MAXDEVVER:6.01.07</code>
+</p>
+<p class="indent3">
+    The associated lst object was coded for PCGen
+    developmental version 6.01.07 or earlier.
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="maxver" name="maxver">
+    </a>
+    *** New
+    6.01.03
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MAXVER:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Version number)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent3">
+    <li>
+        Specifies the production version of PCGen when the associated
+        lst object was last coded in the old format.
+    </li>
+    <li>
+        This tag is mandatory.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MAXVER:6.0.1</code>
+</p>
+<p class="indent2">
+    The associated lst object was coded for PCGen
+    production version 6.0.1 or earlier.
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="mindevver" name="mindevver">
+    </a>
+    *** New
+    6.01.03
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MINDEVVER:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Version number)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Specifies the developmental version of PCGen (e.g. alpha, beta)
+        when the associated lst object was first coded in the old
+        format.
+    </li>
+    <li>
+        This tag is optional and if included must be later than
+        <code>MINVER</code>
+        .
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MINDEVVER:6.01.01</code>
+</p>
+<p class="indent3">
+    The associated lst object was coded for PCGen
+    developmental version 6.01.01 or later.
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="minver" name="minver">
+    </a>
+    *** New
+    6.01.03
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    MINVER:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text
+    (Version number)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Specifies the production version of PCGen that the associated
+        lst object was first coded in the old format.
+    </li>
+    <li>
+        This tag is optional and if included must be earlier than
+        <code>MAXVER</code>
+        .
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MINVER:6.0.0</code>
+</p>
+<p class="indent3">
+    The associated lst object was coded for PCGen
+    production version 6.0.0 or later.
+</p>
+<hr/>
+<h3>
+    <a id="object" name="object">
+        Source and Object Migration Line
+        Tags
+    </a>
+</h3>
+<p class="">
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="ability" name="ability">
+        *** New
+        6.01.03
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    ABILITY:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Old
+    Ability Category)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Old
+    Ability Key)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag begins an ability migration line and is used to
+        identify the old ability key as part of the migration to a new
+        ability key.
+    </li>
+    <li>
+        The
+        <code>ABILITY</code>
+        tag is used in conjunction with the
+        <a href="#newkey">
+            NEWKEY
+        </a>
+        ,
+        <a href="#newcategory">
+            NEWCATEGORY
+        </a>
+        , and version tags.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ABILITY:Special Ability|Animal
+        Fury</code>
+</p>
+<p class="indent3">
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="equipment" name="equipment">
+        *** New
+        6.01.03
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    EQUIPMENT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Old
+    Equipment Key)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag begins a equipment migration line and is used to
+        identify the old equipment key as part of the migration to a new
+        equipment key.
+    </li>
+    <li>
+        The
+        <code>EQUIPMENT</code>
+        tag is used in conjunction with the
+        <a href="#newkey">
+            NEWKEY
+        </a>
+        and version tags.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>Kasari Gusoku</code>
+</p>
+<p class="indent3">
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="newcategory" name="newcategory">
+        *** New
+        6.01.03
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    NEWCATEGORY:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (New
+    Ability Category)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag is used in an ability migration line to identify the
+        new category for the associated ability object when the ability
+        category changes.
+    </li>
+    <li>
+        If this tag is not included in the ability migration line the
+        ability category will not change for the associated ability.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>NEWCATEGORY:Spell-like Ability</code>
+</p>
+<p class="indent3">
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="newkey" name="newkey">
+        *** New
+        6.01.03
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    NEWKEY:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (New
+    Key)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    This tag is used in a migration line to identify
+    the new key (i.e. Source, Ability, and Equipment) for the
+    associated LST object.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>NEWKEY:Guide To Pathfinder Society
+        Organised Play</code>
+</p>
+<p class="indent3">
+</p>
+<p class="indent2">
+    <code>NEWKEY:Animal Fury ~ Rage Power</code>
+</p>
+<p class="indent3">
+</p>
+<p class="indent2">
+    <code>NEWKEY:Kusari Gusoku</code>
+</p>
+<p class="indent3">
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="race" name="race">
+        *** New 6.02.01
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    RACE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Old
+    Race Key)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag begins a race migration line and is used to identify
+        the old race key as part of the migration to a new race key.
+    </li>
+    <li>
+        The
+        <code>RACE</code>
+        tag is used in conjunction with the
+        <a href="#newkey">
+            NEWKEY
+        </a>
+        and version tags.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>RACE:Misspelt Key</code>
+</p>
+<p class="indent3">
+</p>
+<hr/>
+<p class="lstnew">
+    <a id="source" name="source">
+        *** New
+        6.01.03
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    SOURCE:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Old
+    Source key)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        This tag begins a source migration line and is used to identify
+        the old source key as part of the migration to a new source
+        key.
+    </li>
+    <li>
+        The
+        <code>SOURCE</code>
+        tag is used in conjunction with the
+        <a href="#newkey">
+            NEWKEY
+        </a>
+        and version tags.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SOURCE:Paizo - Guide To Pathfinder Society
+        Organised Play 4.0</code>
+</p>
+<p class="indent3">
+</p>
+<hr/>
+<h3>
+    <a id="examples" name="examples">
+        Migration Line
+        Examples
+    </a>
+</h3>
+<p class="indent0">
+    The examples included below are displayed in
+    multiple lines for easy readability. In the actual migration file
+    all tags would be included on the same line and separated by
+    tabs.
+</p>
+<p class="indent1">
+    <strong>
+        Ability Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ABILITY:Special Ability|Animal
+        Fury</code>
+</p>
+<p class="indent3">
+    <code>NEWKEY:Animal Fury ~ Rage Power</code>
+</p>
+<p class="indent3">
+    <code>MAXVER:6.00.00</code>
+</p>
+<p class="indent3">
+    <code>MAXDEVVER:6.01.01</code>
+</p>
+<p class="indent3">
+    When any character last saved in v6.00.00 or
+    earlier (or 6.01.01 in the dev line) is loaded if it has a "Special
+    Ability" with the key "Animal Fury" the ability will be mapped to
+    the new key "Animal Fury ~ Rage Power".
+</p>
+<p class="indent1">
+    <strong>
+        Equipment Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>EQUIPMENT:Kasari Gusoku</code>
+</p>
+<p class="indent3">
+    <code>NEWKEY:Kusari Gusoku</code>
+</p>
+<p class="indent3">
+    <code>MAXVER:6.1.8</code>
+</p>
+<p class="indent3">
+    If a character has the equipment "Kasari Gusoku"
+    when last saved in PCGen 6.1.8 or earlier, it will instead load
+    "Kusari Gusoku" now.
+</p>
+<p class="indent1">
+    <strong>
+        Source Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SOURCE:Paizo - Guide To Pathfinder Society
+        Organised Play 4.0</code>
+</p>
+<p class="indent3">
+    <code>NEWKEY:Guide To Pathfinder Society
+        Organised Play</code>
+</p>
+<p class="indent3">
+    <code>MAXVER:6.0.1</code>
+</p>
+<p class="indent3">
+    <code>MAXDEVVER:6.1.7</code>
+</p>
+<p class="indent3">
+    If a character used the source "Paizo - Guide To
+    Pathfinder Society Organised Play 4.0" when last saved in PCGen
+    6.0.1 or earlier (or 6.1.7 in the dev line) for it will instead
+    load "Guide To Pathfinder Society Organised Play" now.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

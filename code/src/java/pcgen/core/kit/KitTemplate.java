@@ -36,134 +36,135 @@ import pcgen.util.chooser.ChooserFactory;
  */
 public class KitTemplate extends BaseKit
 {
-	private final HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
-			new HashMapToList<>();
+    private final HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
+            new HashMapToList<>();
 
-	/**
-	 * Actually applies the templates to this PC.
-	 *
-	 * @param aPC The PlayerCharacter the alignment is applied to
-	 */
-	@Override
-	public void apply(PlayerCharacter aPC)
-	{
-		HashMapToList<PCTemplate, PCTemplate> selectedMap = buildSelectedTemplateMap(aPC, true);
+    /**
+     * Actually applies the templates to this PC.
+     *
+     * @param aPC The PlayerCharacter the alignment is applied to
+     */
+    @Override
+    public void apply(PlayerCharacter aPC)
+    {
+        HashMapToList<PCTemplate, PCTemplate> selectedMap = buildSelectedTemplateMap(aPC, true);
 
-		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
-		SettingsHandler.setShowHPDialogAtLevelUp(false);
+        boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+        SettingsHandler.setShowHPDialogAtLevelUp(false);
 
-		for (PCTemplate template : selectedMap.getKeySet())
-		{
-			List<PCTemplate> added = selectedMap.getListFor(template);
-			if (added != null)
-			{
-				for (PCTemplate subtemplate : added)
-				{
-					aPC.setTemplatesAdded(template, subtemplate);
-				}
-			}
-			aPC.addTemplate(template);
-		}
+        for (PCTemplate template : selectedMap.getKeySet())
+        {
+            List<PCTemplate> added = selectedMap.getListFor(template);
+            if (added != null)
+            {
+                for (PCTemplate subtemplate : added)
+                {
+                    aPC.setTemplatesAdded(template, subtemplate);
+                }
+            }
+            aPC.addTemplate(template);
+        }
 
-		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
-	}
+        SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+    }
 
-	/**
-	 * testApply
-	 *
-	 * @param aPC PlayerCharacter
-	 * @param aKit Kit
-	 * @param warnings List
-	 */
-	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		MapToList<PCTemplate, PCTemplate> selectedMap = buildSelectedTemplateMap(aPC, false);
+    /**
+     * testApply
+     *
+     * @param aPC      PlayerCharacter
+     * @param aKit     Kit
+     * @param warnings List
+     */
+    @Override
+    public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+    {
+        MapToList<PCTemplate, PCTemplate> selectedMap = buildSelectedTemplateMap(aPC, false);
 
-		return !selectedMap.isEmpty();
-	}
+        return !selectedMap.isEmpty();
+    }
 
-	/**
-	 * Extract the templates to be applied and their choices
-	 * @param aPC The PC the kit is being applied to.
-	 * @param apply Is this a real application, false if a test run. 
-	 * @return The map of templates and child templates to be added
-	 */
-	private HashMapToList<PCTemplate, PCTemplate> buildSelectedTemplateMap(PlayerCharacter aPC, boolean apply)
-	{
-		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
-		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		if (!apply)
-		{
-			ChooserFactory.useRandomChooser(); //$NON-NLS-1$
-		}
-		HashMapToList<PCTemplate, PCTemplate> selectedMap = new HashMapToList<>();
+    /**
+     * Extract the templates to be applied and their choices
+     *
+     * @param aPC   The PC the kit is being applied to.
+     * @param apply Is this a real application, false if a test run.
+     * @return The map of templates and child templates to be added
+     */
+    private HashMapToList<PCTemplate, PCTemplate> buildSelectedTemplateMap(PlayerCharacter aPC, boolean apply)
+    {
+        boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+        SettingsHandler.setShowHPDialogAtLevelUp(false);
+        if (!apply)
+        {
+            ChooserFactory.useRandomChooser(); //$NON-NLS-1$
+        }
+        HashMapToList<PCTemplate, PCTemplate> selectedMap = new HashMapToList<>();
 
-		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
-		{
-			PCTemplate templateToAdd = ref.get();
-			List<CDOMSingleRef<PCTemplate>> subList = templateList.getListFor(ref);
-			List<PCTemplate> subAdded = new ArrayList<>();
-			if (subList != null)
-			{
-				for (CDOMSingleRef<PCTemplate> subRef : subList)
-				{
-					PCTemplate ownedTemplate = subRef.get();
-					subAdded.add(ownedTemplate);
-					aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
-				}
-			}
+        for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
+        {
+            PCTemplate templateToAdd = ref.get();
+            List<CDOMSingleRef<PCTemplate>> subList = templateList.getListFor(ref);
+            List<PCTemplate> subAdded = new ArrayList<>();
+            if (subList != null)
+            {
+                for (CDOMSingleRef<PCTemplate> subRef : subList)
+                {
+                    PCTemplate ownedTemplate = subRef.get();
+                    subAdded.add(ownedTemplate);
+                    aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
+                }
+            }
 
-			aPC.addTemplate(templateToAdd);
-			selectedMap.initializeListFor(templateToAdd);
-			selectedMap.addAllToListFor(templateToAdd, subAdded);
-		}
+            aPC.addTemplate(templateToAdd);
+            selectedMap.initializeListFor(templateToAdd);
+            selectedMap.addAllToListFor(templateToAdd, subAdded);
+        }
 
-		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
-		return selectedMap;
-	}
+        SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+        return selectedMap;
+    }
 
-	@Override
-	public String getObjectName()
-	{
-		return "Templates";
-	}
+    @Override
+    public String getObjectName()
+    {
+        return "Templates";
+    }
 
-	@Override
-	public String toString()
-	{
-		StringBuilder sb = new StringBuilder();
-		boolean needsPipe = false;
-		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
-		{
-			if (needsPipe)
-			{
-				sb.append(Constants.PIPE);
-			}
-			needsPipe = true;
-			sb.append(ref.getLSTformat(false));
-			List<CDOMSingleRef<PCTemplate>> subList = templateList.getListFor(ref);
-			if (subList != null)
-			{
-				for (CDOMSingleRef<PCTemplate> subref : subList)
-				{
-					sb.append("[TEMPLATE:");
-					sb.append(subref.getLSTformat(false));
-					sb.append(']');
-				}
-			}
-		}
-		return sb.toString();
-	}
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        boolean needsPipe = false;
+        for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
+        {
+            if (needsPipe)
+            {
+                sb.append(Constants.PIPE);
+            }
+            needsPipe = true;
+            sb.append(ref.getLSTformat(false));
+            List<CDOMSingleRef<PCTemplate>> subList = templateList.getListFor(ref);
+            if (subList != null)
+            {
+                for (CDOMSingleRef<PCTemplate> subref : subList)
+                {
+                    sb.append("[TEMPLATE:");
+                    sb.append(subref.getLSTformat(false));
+                    sb.append(']');
+                }
+            }
+        }
+        return sb.toString();
+    }
 
-	public void addTemplate(CDOMSingleRef<PCTemplate> ref, Collection<CDOMSingleRef<PCTemplate>> subList)
-	{
-		templateList.initializeListFor(ref);
-		templateList.addAllToListFor(ref, subList);
-	}
+    public void addTemplate(CDOMSingleRef<PCTemplate> ref, Collection<CDOMSingleRef<PCTemplate>> subList)
+    {
+        templateList.initializeListFor(ref);
+        templateList.addAllToListFor(ref, subList);
+    }
 
-	public boolean isEmpty()
-	{
-		return templateList.isEmpty();
-	}
+    public boolean isEmpty()
+    {
+        return templateList.isEmpty();
+    }
 }

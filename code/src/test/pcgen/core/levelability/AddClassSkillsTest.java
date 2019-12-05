@@ -22,6 +22,7 @@
  * $$id$$
  */
 package pcgen.core.levelability;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -65,183 +66,181 @@ import org.junit.jupiter.api.Test;
 public class AddClassSkillsTest extends AbstractCharacterTestCase
 {
 
-	PCClass pcClass;
-	boolean firstTime = true;
+    PCClass pcClass;
+    boolean firstTime = true;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
+    @BeforeEach
+    @Override
+    public void setUp() throws Exception
+    {
+        super.setUp();
 
-		if (firstTime)
-		{
-			firstTime = false;
+        if (firstTime)
+        {
+            firstTime = false;
 
-			pcClass = new PCClass();
+            pcClass = new PCClass();
 
-			TestHelper.makeSkill("Bluff", "Charisma", cha, true, SkillArmorCheck.NONE);
-			TestHelper.makeSkill("Listen", "Wisdom", wis, true, SkillArmorCheck.NONE);
-			TestHelper.makeSkill("Move Silently", "Dexterity", dex, true,
-					SkillArmorCheck.YES);
-			TestHelper.makeSkill("Knowledge (Arcana)",
-				"Intelligence.Knowledge", intel, false, SkillArmorCheck.NONE);
-			TestHelper.makeSkill("Knowledge (Dungeoneering)",
-				"Intelligence.Knowledge", intel, false, SkillArmorCheck.NONE);
-		}
+            TestHelper.makeSkill("Bluff", "Charisma", cha, true, SkillArmorCheck.NONE);
+            TestHelper.makeSkill("Listen", "Wisdom", wis, true, SkillArmorCheck.NONE);
+            TestHelper.makeSkill("Move Silently", "Dexterity", dex, true,
+                    SkillArmorCheck.YES);
+            TestHelper.makeSkill("Knowledge (Arcana)",
+                    "Intelligence.Knowledge", intel, false, SkillArmorCheck.NONE);
+            TestHelper.makeSkill("Knowledge (Dungeoneering)",
+                    "Intelligence.Knowledge", intel, false, SkillArmorCheck.NONE);
+        }
 
-		final PlayerCharacter character = getCharacter();
-		character.incrementClassLevel(1, pcClass);
-	}
+        final PlayerCharacter character = getCharacter();
+        character.incrementClassLevel(1, pcClass);
+    }
 
-	@Override
-	@AfterEach
-	public void tearDown() throws Exception
-	{
-		pcClass = null;
-		super.tearDown();
-	}
+    @Override
+    @AfterEach
+    public void tearDown() throws Exception
+    {
+        pcClass = null;
+        super.tearDown();
+    }
 
-	/**
-	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
-	 */
-	@Test
-	public void testBasicChoicesList()
-	{
-		PCClass po = new PCClass();
-		PlayerCharacter pc = getCharacter();
-		
-		Globals.getContext().unconditionallyProcess(po, "ADD",
-				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Move Silently");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
-		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
-		assertEquals(1, choiceList.size());
-		TransitionChoice<?> choice = choiceList.get(0);
-		Collection<?> choiceSet = choice.getChoices().getSet(pc);
-		assertEquals(3, choiceSet.size());
-		assertEquals(2, choice.getCount().resolve(pc, ""));
-		
-		List<String> choiceStrings = new ArrayList<>();
-		for (Object o : choiceSet)
-		{
-			choiceStrings.add(o.toString());
-		}
-		assertTrue(choiceStrings.contains("Bluff"));
-		assertTrue(choiceStrings.contains("Listen"));
-		assertTrue(choiceStrings.contains("Move Silently"));
-	}
+    /**
+     * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
+     */
+    @Test
+    public void testBasicChoicesList()
+    {
+        PCClass po = new PCClass();
+        PlayerCharacter pc = getCharacter();
 
-	/**
-	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
-	 */
-	@Test
-	public void testGetChoicesListWithParens()
-	{
-		PCClass po = new PCClass();
+        Globals.getContext().unconditionallyProcess(po, "ADD",
+                "CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Move Silently");
+        assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+        List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
+        assertEquals(1, choiceList.size());
+        TransitionChoice<?> choice = choiceList.get(0);
+        Collection<?> choiceSet = choice.getChoices().getSet(pc);
+        assertEquals(3, choiceSet.size());
+        assertEquals(2, choice.getCount().resolve(pc, ""));
 
-		Globals.getContext().unconditionallyProcess(po, "ADD",
-				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+        List<String> choiceStrings = new ArrayList<>();
+        for (Object o : choiceSet)
+        {
+            choiceStrings.add(o.toString());
+        }
+        assertTrue(choiceStrings.contains("Bluff"));
+        assertTrue(choiceStrings.contains("Listen"));
+        assertTrue(choiceStrings.contains("Move Silently"));
+    }
 
-		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
-		assertEquals(1, choiceList.size());
-		TransitionChoice<?> choice = choiceList.get(0);
-		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
-		assertEquals(3, choiceSet.size());
-		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
-		
-		List<String> choiceStrings = new ArrayList<>();
-		for (Object o : choiceSet)
-		{
-			choiceStrings.add(o.toString());
-		}
-		assertTrue(choiceStrings.contains("Bluff"));
-		assertTrue(choiceStrings.contains("Listen"));
-		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
-	}
+    /**
+     * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
+     */
+    @Test
+    public void testGetChoicesListWithParens()
+    {
+        PCClass po = new PCClass();
 
-	/**
-	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
-	 */
-	@Test
-	public void testGetChoicesListWithClassSkill()
-	{
-		CampaignSourceEntry source;
-		try
-		{
-			source = new CampaignSourceEntry(new Campaign(),
-					new URI("file:/" + getClass().getName() + ".java"));
-		}
-		catch (URISyntaxException e)
-		{
-			throw new UnreachableError(e);
-		}
-		String classPCCText = "CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr\n"
-				+ "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:KEY_Knowledge (Dungeoneering)";
-		PCClass po;
-		try
-		{
-			po = parsePCClassText(classPCCText, source);
-		}
-		catch (PersistenceLayerException e)
-		{
-			throw new UnreachableError(e);
-		}
-		getCharacter().incrementClassLevel(1, po, false);
+        Globals.getContext().unconditionallyProcess(po, "ADD",
+                "CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
+        assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
-		PCTemplate pct = new PCTemplate();
-		Skill bluff = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Skill.class, "KEY_Bluff");
-		pct.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(bluff));
-		getCharacter().addTemplate(pct);
+        List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
+        assertEquals(1, choiceList.size());
+        TransitionChoice<?> choice = choiceList.get(0);
+        Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
+        assertEquals(3, choiceSet.size());
+        assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 
-		Globals.getContext().unconditionallyProcess(po, "ADD",
-				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+        List<String> choiceStrings = new ArrayList<>();
+        for (Object o : choiceSet)
+        {
+            choiceStrings.add(o.toString());
+        }
+        assertTrue(choiceStrings.contains("Bluff"));
+        assertTrue(choiceStrings.contains("Listen"));
+        assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
+    }
 
-		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
-		assertEquals(1, choiceList.size());
-		TransitionChoice<?> choice = choiceList.get(0);
-		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
-		assertEquals(3, choiceSet.size());
-		Set<Object> limitedSet = new HashSet<>();
-		ClassSkillChoiceActor csca = new ClassSkillChoiceActor(po, 0);
-		for (Object sc : choiceSet)
-		{
-			if (csca.allow((Skill) sc, getCharacter(), true))
-			{
-				limitedSet.add(sc);
-			}
-		}
-		assertEquals(2, limitedSet.size());
-		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
-		
-		List<String> choiceStrings = new ArrayList<>();
-		for (Object o : limitedSet)
-		{
-			choiceStrings.add(o.toString());
-		}
-		assertTrue(choiceStrings.contains("Listen"));
-		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
-	}
+    /**
+     * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
+     */
+    @Test
+    public void testGetChoicesListWithClassSkill()
+    {
+        CampaignSourceEntry source;
+        try
+        {
+            source = new CampaignSourceEntry(new Campaign(),
+                    new URI("file:/" + getClass().getName() + ".java"));
+        } catch (URISyntaxException e)
+        {
+            throw new UnreachableError(e);
+        }
+        String classPCCText = "CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr\n"
+                + "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:KEY_Knowledge (Dungeoneering)";
+        PCClass po;
+        try
+        {
+            po = parsePCClassText(classPCCText, source);
+        } catch (PersistenceLayerException e)
+        {
+            throw new UnreachableError(e);
+        }
+        getCharacter().incrementClassLevel(1, po, false);
 
-	private static PCClass parsePCClassText(String classPCCText,
-											CampaignSourceEntry source) throws PersistenceLayerException
-		{
-			PCClassLoader pcClassLoader = new PCClassLoader();
-			PCClass reconstClass = null;
-			StringTokenizer tok = new StringTokenizer(classPCCText, "\n");
-			while (tok.hasMoreTokens())
-			{
-				String line = tok.nextToken();
-				if (!line.trim().isEmpty())
-				{
-					System.out.println("Processing line:'" + line + "'.");
-					reconstClass =
-							pcClassLoader.parseLine(Globals.getContext(), reconstClass, line, source);
-				}
-			}
-			return reconstClass;
-		}
+        PCTemplate pct = new PCTemplate();
+        Skill bluff = Globals.getContext().getReferenceContext()
+                .silentlyGetConstructedCDOMObject(Skill.class, "KEY_Bluff");
+        pct.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(bluff));
+        getCharacter().addTemplate(pct);
+
+        Globals.getContext().unconditionallyProcess(po, "ADD",
+                "CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
+        assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+
+        List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
+        assertEquals(1, choiceList.size());
+        TransitionChoice<?> choice = choiceList.get(0);
+        Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
+        assertEquals(3, choiceSet.size());
+        Set<Object> limitedSet = new HashSet<>();
+        ClassSkillChoiceActor csca = new ClassSkillChoiceActor(po, 0);
+        for (Object sc : choiceSet)
+        {
+            if (csca.allow((Skill) sc, getCharacter(), true))
+            {
+                limitedSet.add(sc);
+            }
+        }
+        assertEquals(2, limitedSet.size());
+        assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
+
+        List<String> choiceStrings = new ArrayList<>();
+        for (Object o : limitedSet)
+        {
+            choiceStrings.add(o.toString());
+        }
+        assertTrue(choiceStrings.contains("Listen"));
+        assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
+    }
+
+    private static PCClass parsePCClassText(String classPCCText,
+            CampaignSourceEntry source) throws PersistenceLayerException
+    {
+        PCClassLoader pcClassLoader = new PCClassLoader();
+        PCClass reconstClass = null;
+        StringTokenizer tok = new StringTokenizer(classPCCText, "\n");
+        while (tok.hasMoreTokens())
+        {
+            String line = tok.nextToken();
+            if (!line.trim().isEmpty())
+            {
+                System.out.println("Processing line:'" + line + "'.");
+                reconstClass =
+                        pcClassLoader.parseLine(Globals.getContext(), reconstClass, line, source);
+            }
+        }
+        return reconstClass;
+    }
 
 }

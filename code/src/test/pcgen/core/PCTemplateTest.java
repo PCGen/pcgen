@@ -50,318 +50,322 @@ import org.junit.jupiter.api.Test;
  */
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
-	private PCClass testClass;
-	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
+    private PCClass testClass;
+    private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 
-	/**
-	 * Test the definition and application of abilities. 
-	 * @throws PersistenceLayerException
+    /**
+     * Test the definition and application of abilities.
+     *
+     * @throws PersistenceLayerException
      */
-	@Test
-	public void testAddAbility() throws PersistenceLayerException {
-		LoadContext context = Globals.getContext();
-		// Create some abilities to be added
-		AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
-				AbilityCategory.class, "TestCat");
-		Ability ab1 = new Ability();
-		ab1.setName("Ability1");
-		ab1.setCDOMCategory(cat);
-		context.getReferenceContext().importObject(ab1);
-		Ability ab2 = new Ability();
-		ab2.setName("Ability2");
-		ab2.setCDOMCategory(cat);
-		context.getReferenceContext().importObject(ab2);
+    @Test
+    public void testAddAbility() throws PersistenceLayerException
+    {
+        LoadContext context = Globals.getContext();
+        // Create some abilities to be added
+        AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
+                AbilityCategory.class, "TestCat");
+        Ability ab1 = new Ability();
+        ab1.setName("Ability1");
+        ab1.setCDOMCategory(cat);
+        context.getReferenceContext().importObject(ab1);
+        Ability ab2 = new Ability();
+        ab2.setName("Ability2");
+        ab2.setCDOMCategory(cat);
+        context.getReferenceContext().importObject(ab2);
 
-		CampaignSourceEntry source;
-		try
-		{
-			source = new CampaignSourceEntry(new Campaign(),
-					new URI("file:/" + getClass().getName() + ".java"));
-		}
-		catch (URISyntaxException e)
-		{
-			throw new UnreachableError(e);
-		}
-		loader
-			.parseLine(
-				context,
-				null,
-				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		PCTemplate template =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
-		context.getReferenceContext().importObject(ab1);
-		context.getReferenceContext().importObject(ab2);
-		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(
-					AbilityCategory.class, "TestCat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
-		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
-		assertEquals(2, listMods.size());
-		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
-		CDOMReference<Ability> ref1 = iterator.next();
-		CDOMReference<Ability> ref2 = iterator.next();
-		Collection<Ability> contained1 = ref1.getContainedObjects();
-		Collection<Ability> contained2 = ref2.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertEquals(1, contained2.size());
-		assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
-		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
+        CampaignSourceEntry source;
+        try
+        {
+            source = new CampaignSourceEntry(new Campaign(),
+                    new URI("file:/" + getClass().getName() + ".java"));
+        } catch (URISyntaxException e)
+        {
+            throw new UnreachableError(e);
+        }
+        loader
+                .parseLine(
+                        context,
+                        null,
+                        "Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
+        PCTemplate template =
+                context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+        context.getReferenceContext().importObject(ab1);
+        context.getReferenceContext().importObject(ab2);
+        CDOMSingleRef<AbilityCategory> acRef =
+                context.getReferenceContext().getCDOMReference(
+                        AbilityCategory.class, "TestCat");
+        assertTrue(context.getReferenceContext().resolveReferences(null));
+        CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
+        Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
+        assertEquals(2, listMods.size());
+        Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+        CDOMReference<Ability> ref1 = iterator.next();
+        CDOMReference<Ability> ref2 = iterator.next();
+        Collection<Ability> contained1 = ref1.getContainedObjects();
+        Collection<Ability> contained2 = ref2.getContainedObjects();
+        assertEquals(1, contained1.size());
+        assertEquals(1, contained2.size());
+        assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
+        assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
-		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
-		pc.addTemplate(template);
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab2));
-	}
+        // Add the template to the character
+        PlayerCharacter pc = getCharacter();
+        pc.addTemplate(template);
+        assertTrue("Character should have ability1.", hasAbility(pc, cat,
+                Nature.AUTOMATIC, ab1));
+        assertTrue("Character should have ability2.", hasAbility(pc, cat,
+                Nature.AUTOMATIC, ab2));
+    }
 
-	/**
-	 * Test the definition and application of abilities of category FEAT. 
-	 * @throws PersistenceLayerException
+    /**
+     * Test the definition and application of abilities of category FEAT.
+     *
+     * @throws PersistenceLayerException
      */
-	@Test
-	public void testAddFeatAbility() throws PersistenceLayerException {
-		LoadContext context = Globals.getContext();
-		// Create some abilities to be added
-		Ability ab1 = new Ability();
-		ab1.setName("Ability1");
-		ab1.setCDOMCategory(BuildUtilities.getFeatCat());
-		context.getReferenceContext().importObject(ab1);
-		Ability ab2 = new Ability();
-		ab2.setName("Ability2");
-		ab2.setCDOMCategory(BuildUtilities.getFeatCat());
-		context.getReferenceContext().importObject(ab2);
+    @Test
+    public void testAddFeatAbility() throws PersistenceLayerException
+    {
+        LoadContext context = Globals.getContext();
+        // Create some abilities to be added
+        Ability ab1 = new Ability();
+        ab1.setName("Ability1");
+        ab1.setCDOMCategory(BuildUtilities.getFeatCat());
+        context.getReferenceContext().importObject(ab1);
+        Ability ab2 = new Ability();
+        ab2.setName("Ability2");
+        ab2.setCDOMCategory(BuildUtilities.getFeatCat());
+        context.getReferenceContext().importObject(ab2);
 
-		CampaignSourceEntry source;
-		try
-		{
-			source = new CampaignSourceEntry(new Campaign(),
-					new URI("file:/" + getClass().getName() + ".java"));
-		}
-		catch (URISyntaxException e)
-		{
-			throw new UnreachableError(e);
-		}
-		loader
-			.parseLine(
-					context,
-					null,
-				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
-		PCTemplate template =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
-		context.getReferenceContext().importObject(ab1);
-		context.getReferenceContext().importObject(ab2);
-		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(
-					AbilityCategory.class, "Feat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
-		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
-		assertEquals(2, listMods.size());
-		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
-		CDOMReference<Ability> ref1 = iterator.next();
-		CDOMReference<Ability> ref2 = iterator.next();
-		Collection<Ability> contained1 = ref1.getContainedObjects();
-		Collection<Ability> contained2 = ref2.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertEquals(1, contained2.size());
-		assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
-		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
+        CampaignSourceEntry source;
+        try
+        {
+            source = new CampaignSourceEntry(new Campaign(),
+                    new URI("file:/" + getClass().getName() + ".java"));
+        } catch (URISyntaxException e)
+        {
+            throw new UnreachableError(e);
+        }
+        loader
+                .parseLine(
+                        context,
+                        null,
+                        "Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
+        PCTemplate template =
+                context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+        context.getReferenceContext().importObject(ab1);
+        context.getReferenceContext().importObject(ab2);
+        CDOMSingleRef<AbilityCategory> acRef =
+                context.getReferenceContext().getCDOMReference(
+                        AbilityCategory.class, "Feat");
+        assertTrue(context.getReferenceContext().resolveReferences(null));
+        CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
+        Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
+        assertEquals(2, listMods.size());
+        Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+        CDOMReference<Ability> ref1 = iterator.next();
+        CDOMReference<Ability> ref2 = iterator.next();
+        Collection<Ability> contained1 = ref1.getContainedObjects();
+        Collection<Ability> contained2 = ref2.getContainedObjects();
+        assertEquals(1, contained1.size());
+        assertEquals(1, contained2.size());
+        assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
+        assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
-		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
-		pc.addTemplate(template);
-		// Need to do this to populate the ability list
-		//pc.getAutomaticAbilityList(BuildUtilities.getFeatCat());
-		assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab2));
-	}
+        // Add the template to the character
+        PlayerCharacter pc = getCharacter();
+        pc.addTemplate(template);
+        // Need to do this to populate the ability list
+        //pc.getAutomaticAbilityList(BuildUtilities.getFeatCat());
+        assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
+                Nature.AUTOMATIC, ab1));
+        assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
+                Nature.AUTOMATIC, ab2));
+    }
 
-	/**
-	 * Test the definition and application of abilities. 
-	 * @throws PersistenceLayerException
+    /**
+     * Test the definition and application of abilities.
+     *
+     * @throws PersistenceLayerException
      */
-	@Test
-	public void testAddLevelAbility() throws PersistenceLayerException {
-		LoadContext context = Globals.getContext();
-		
-		AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
-				AbilityCategory.class, "TestCat");
-		// Create some abilities to be added
-		Ability ab1 = new Ability();
-		ab1.setName("Ability1");
-		ab1.setCDOMCategory(cat);
-		context.getReferenceContext().importObject(ab1);
-		Ability ab2 = new Ability();
-		ab2.setName("Ability2");
-		ab2.setCDOMCategory(cat);
-		context.getReferenceContext().importObject(ab2);
+    @Test
+    public void testAddLevelAbility() throws PersistenceLayerException
+    {
+        LoadContext context = Globals.getContext();
 
-		CampaignSourceEntry source;
-		try
-		{
-			source = new CampaignSourceEntry(new Campaign(),
-					new URI("file:/" + getClass().getName() + ".java"));
-		}
-		catch (URISyntaxException e)
-		{
-			throw new UnreachableError(e);
-		}
-		loader
-			.parseLine(
-					context,
-					null,
-				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		PCTemplate template =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
-		context.getReferenceContext().importObject(ab1);
-		context.getReferenceContext().importObject(ab2);
-		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(
-					AbilityCategory.class, "TestCat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
-		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
-		assertEquals(1, listMods.size());
-		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
-		CDOMReference<Ability> ref1 = iterator.next();
-		Collection<Ability> contained1 = ref1.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertTrue(contained1.contains(ab2));
+        AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
+                AbilityCategory.class, "TestCat");
+        // Create some abilities to be added
+        Ability ab1 = new Ability();
+        ab1.setName("Ability1");
+        ab1.setCDOMCategory(cat);
+        context.getReferenceContext().importObject(ab1);
+        Ability ab2 = new Ability();
+        ab2.setName("Ability2");
+        ab2.setCDOMCategory(cat);
+        context.getReferenceContext().importObject(ab2);
 
-		List<PCTemplate> lvlTemplates = template.getSafeListFor(ListKey.LEVEL_TEMPLATES);
-		assertEquals(1, lvlTemplates.size());
-		PCTemplate lvl2 = lvlTemplates.get(0);
-		assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
-		
-		listMods = lvl2.getListMods(autoList);
-		assertEquals(1, listMods.size());
-		iterator = listMods.iterator();
-		ref1 = iterator.next();
-		contained1 = ref1.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertTrue(contained1.contains(ab1));
+        CampaignSourceEntry source;
+        try
+        {
+            source = new CampaignSourceEntry(new Campaign(),
+                    new URI("file:/" + getClass().getName() + ".java"));
+        } catch (URISyntaxException e)
+        {
+            throw new UnreachableError(e);
+        }
+        loader
+                .parseLine(
+                        context,
+                        null,
+                        "Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
+        PCTemplate template =
+                context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+        context.getReferenceContext().importObject(ab1);
+        context.getReferenceContext().importObject(ab2);
+        CDOMSingleRef<AbilityCategory> acRef =
+                context.getReferenceContext().getCDOMReference(
+                        AbilityCategory.class, "TestCat");
+        assertTrue(context.getReferenceContext().resolveReferences(null));
+        CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
+        Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
+        assertEquals(1, listMods.size());
+        Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+        CDOMReference<Ability> ref1 = iterator.next();
+        Collection<Ability> contained1 = ref1.getContainedObjects();
+        assertEquals(1, contained1.size());
+        assertTrue(contained1.contains(ab2));
 
-		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
-		pc.addTemplate(template);
-		assertFalse("Character should not have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab2));
-		
-		// Level the character up, testing for when the level tag kicks in
-		pc.incrementClassLevel(1, testClass);
-		pc.calcActiveBonuses();
-		assertFalse("Character should not have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
+        List<PCTemplate> lvlTemplates = template.getSafeListFor(ListKey.LEVEL_TEMPLATES);
+        assertEquals(1, lvlTemplates.size());
+        PCTemplate lvl2 = lvlTemplates.get(0);
+        assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
 
-		pc.incrementClassLevel(1, testClass);
-		pc.calcActiveBonuses();
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
-		
-	}
+        listMods = lvl2.getListMods(autoList);
+        assertEquals(1, listMods.size());
+        iterator = listMods.iterator();
+        ref1 = iterator.next();
+        contained1 = ref1.getContainedObjects();
+        assertEquals(1, contained1.size());
+        assertTrue(contained1.contains(ab1));
 
-	/**
-	 * Test the definition and application of abilities of category FEAT. 
-	 * @throws PersistenceLayerException
+        // Add the template to the character
+        PlayerCharacter pc = getCharacter();
+        pc.addTemplate(template);
+        assertFalse("Character should not have ability1.", hasAbility(pc, cat,
+                Nature.AUTOMATIC, ab1));
+        assertTrue("Character should have ability2.", hasAbility(pc, cat,
+                Nature.AUTOMATIC, ab2));
+
+        // Level the character up, testing for when the level tag kicks in
+        pc.incrementClassLevel(1, testClass);
+        pc.calcActiveBonuses();
+        assertFalse("Character should not have ability1.", hasAbility(pc, cat,
+                Nature.AUTOMATIC, ab1));
+
+        pc.incrementClassLevel(1, testClass);
+        pc.calcActiveBonuses();
+        assertTrue("Character should have ability1.", hasAbility(pc, cat,
+                Nature.AUTOMATIC, ab1));
+
+    }
+
+    /**
+     * Test the definition and application of abilities of category FEAT.
+     *
+     * @throws PersistenceLayerException
      */
-	@Test
-	public void testAddLevelFeatAbility() throws PersistenceLayerException {
-		// Create some abilities to be added
-		LoadContext context = Globals.getContext();
-		Ability ab1 = new Ability();
-		ab1.setName("Ability1");
-		ab1.setCDOMCategory(BuildUtilities.getFeatCat());
-		context.getReferenceContext().importObject(ab1);
-		Ability ab2 = new Ability();
-		ab2.setName("Ability2");
-		ab2.setCDOMCategory(BuildUtilities.getFeatCat());
-		context.getReferenceContext().importObject(ab2);
+    @Test
+    public void testAddLevelFeatAbility() throws PersistenceLayerException
+    {
+        // Create some abilities to be added
+        LoadContext context = Globals.getContext();
+        Ability ab1 = new Ability();
+        ab1.setName("Ability1");
+        ab1.setCDOMCategory(BuildUtilities.getFeatCat());
+        context.getReferenceContext().importObject(ab1);
+        Ability ab2 = new Ability();
+        ab2.setName("Ability2");
+        ab2.setCDOMCategory(BuildUtilities.getFeatCat());
+        context.getReferenceContext().importObject(ab2);
 
-		CampaignSourceEntry source;
-		try
-		{
-			source = new CampaignSourceEntry(new Campaign(),
-					new URI("file:/" + getClass().getName() + ".java"));
-		}
-		catch (URISyntaxException e)
-		{
-			throw new UnreachableError(e);
-		}
-		loader
-			.parseLine(
-					context,
-				null,
-				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
-		PCTemplate template =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
-		context.getReferenceContext().importObject(ab1);
-		context.getReferenceContext().importObject(ab2);
-		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(
-					AbilityCategory.class, "Feat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
-		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
-		assertEquals(1, listMods.size());
-		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
-		CDOMReference<Ability> ref1 = iterator.next();
-		Collection<Ability> contained1 = ref1.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertTrue(contained1.contains(ab2));
+        CampaignSourceEntry source;
+        try
+        {
+            source = new CampaignSourceEntry(new Campaign(),
+                    new URI("file:/" + getClass().getName() + ".java"));
+        } catch (URISyntaxException e)
+        {
+            throw new UnreachableError(e);
+        }
+        loader
+                .parseLine(
+                        context,
+                        null,
+                        "Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
+        PCTemplate template =
+                context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+        context.getReferenceContext().importObject(ab1);
+        context.getReferenceContext().importObject(ab2);
+        CDOMSingleRef<AbilityCategory> acRef =
+                context.getReferenceContext().getCDOMReference(
+                        AbilityCategory.class, "Feat");
+        assertTrue(context.getReferenceContext().resolveReferences(null));
+        CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
+        Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
+        assertEquals(1, listMods.size());
+        Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+        CDOMReference<Ability> ref1 = iterator.next();
+        Collection<Ability> contained1 = ref1.getContainedObjects();
+        assertEquals(1, contained1.size());
+        assertTrue(contained1.contains(ab2));
 
-		List<PCTemplate> lvlTemplates = template.getSafeListFor(ListKey.LEVEL_TEMPLATES);
-		assertEquals(1, lvlTemplates.size());
-		PCTemplate lvl2 = lvlTemplates.get(0);
-		assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
-		
-		listMods = lvl2.getListMods(autoList);
-		assertEquals(1, listMods.size());
-		iterator = listMods.iterator();
-		ref1 = iterator.next();
-		contained1 = ref1.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertTrue(contained1.contains(ab1));
+        List<PCTemplate> lvlTemplates = template.getSafeListFor(ListKey.LEVEL_TEMPLATES);
+        assertEquals(1, lvlTemplates.size());
+        PCTemplate lvl2 = lvlTemplates.get(0);
+        assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
 
-		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
-		pc.addTemplate(template);
-		assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab2));
-		
-		// Level the character up, testing for when the level tag kicks in
-		pc.incrementClassLevel(1, testClass);
-		pc.calcActiveBonuses();
-		assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab1));
+        listMods = lvl2.getListMods(autoList);
+        assertEquals(1, listMods.size());
+        iterator = listMods.iterator();
+        ref1 = iterator.next();
+        contained1 = ref1.getContainedObjects();
+        assertEquals(1, contained1.size());
+        assertTrue(contained1.contains(ab1));
 
-		pc.incrementClassLevel(1, testClass);
-		pc.calcActiveBonuses();
-		assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab1));
-		
-	}
+        // Add the template to the character
+        PlayerCharacter pc = getCharacter();
+        pc.addTemplate(template);
+        assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
+                Nature.AUTOMATIC, ab1));
+        assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
+                Nature.AUTOMATIC, ab2));
 
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
+        // Level the character up, testing for when the level tag kicks in
+        pc.incrementClassLevel(1, testClass);
+        pc.calcActiveBonuses();
+        assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
+                Nature.AUTOMATIC, ab1));
 
-		// Create the test class
-		testClass = new PCClass();
-		testClass.setName("TestClass");
-		testClass.put(StringKey.KEY_NAME, "KEY_TestClass");
-		Globals.getContext().getReferenceContext().importObject(testClass);
+        pc.incrementClassLevel(1, testClass);
+        pc.calcActiveBonuses();
+        assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
+                Nature.AUTOMATIC, ab1));
 
-	}
+    }
+
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+
+        // Create the test class
+        testClass = new PCClass();
+        testClass.setName("TestClass");
+        testClass.put(StringKey.KEY_NAME, "KEY_TestClass");
+        Globals.getContext().getReferenceContext().importObject(testClass);
+
+    }
 
 }

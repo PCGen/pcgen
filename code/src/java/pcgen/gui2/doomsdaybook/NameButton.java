@@ -21,23 +21,26 @@ import pcgen.core.doomsdaybook.DataElement;
 
 class NameButton extends javax.swing.JButton
 {
-	private final DataElement element;
+    private final DataElement element;
 
-	/** Creates a new instance of NameButton 
-	 * @param element
-	 */
-	NameButton(DataElement element)
-	{
-		this.element = element;
-		super.setText(element.getTitle());
-	}
+    /**
+     * Creates a new instance of NameButton
+     *
+     * @param element
+     */
+    NameButton(DataElement element)
+    {
+        this.element = element;
+        super.setText(element.getTitle());
+    }
 
-	/**
-	 * Get the data element for the name button
-	 * @return the data element for the name button
-	 */
-	DataElement getDataElement()
-	{
-		return element;
-	}
+    /**
+     * Get the data element for the name button
+     *
+     * @return the data element for the name button
+     */
+    DataElement getDataElement()
+    {
+        return element;
+    }
 }

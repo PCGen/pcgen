@@ -28,24 +28,24 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code VisibleToken} handles the processing of the VISIBLE tag in the
  * definition of an Ability.
- * 
+ * <p>
  * (Sat, 10 Feb 2007) $
- * 
  */
 public class VisibleToken extends AbstractNonEmptyToken<Ability> implements CDOMPrimaryToken<Ability>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "VISIBLE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VISIBLE";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
-	{
-		Visibility vis;
-        switch (value) {
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
+    {
+        Visibility vis;
+        switch (value)
+        {
             case "YES":
                 vis = Visibility.DEFAULT;
                 break;
@@ -61,46 +61,42 @@ public class VisibleToken extends AbstractNonEmptyToken<Ability> implements CDOM
             default:
                 return new ParseResult.Fail("Unable to understand " + getTokenName() + " tag: " + value);
         }
-		context.getObjectContext().put(ability, ObjectKey.VISIBILITY, vis);
-		return ParseResult.SUCCESS;
-	}
+        context.getObjectContext().put(ability, ObjectKey.VISIBILITY, vis);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Ability ability)
-	{
-		Visibility vis = context.getObjectContext().getObject(ability, ObjectKey.VISIBILITY);
-		if (vis == null)
-		{
-			return null;
-		}
-		String visString;
-		if (vis.equals(Visibility.DEFAULT))
-		{
-			visString = "YES";
-		}
-		else if (vis.equals(Visibility.DISPLAY_ONLY))
-		{
-			visString = "DISPLAY";
-		}
-		else if (vis.equals(Visibility.OUTPUT_ONLY))
-		{
-			visString = "EXPORT";
-		}
-		else if (vis.equals(Visibility.HIDDEN))
-		{
-			visString = "NO";
-		}
-		else
-		{
-			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for an Ability");
-			return null;
-		}
-		return new String[]{visString};
-	}
+    @Override
+    public String[] unparse(LoadContext context, Ability ability)
+    {
+        Visibility vis = context.getObjectContext().getObject(ability, ObjectKey.VISIBILITY);
+        if (vis == null)
+        {
+            return null;
+        }
+        String visString;
+        if (vis.equals(Visibility.DEFAULT))
+        {
+            visString = "YES";
+        } else if (vis.equals(Visibility.DISPLAY_ONLY))
+        {
+            visString = "DISPLAY";
+        } else if (vis.equals(Visibility.OUTPUT_ONLY))
+        {
+            visString = "EXPORT";
+        } else if (vis.equals(Visibility.HIDDEN))
+        {
+            visString = "NO";
+        } else
+        {
+            context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for an Ability");
+            return null;
+        }
+        return new String[]{visString};
+    }
 
-	@Override
-	public Class<Ability> getTokenClass()
-	{
-		return Ability.class;
-	}
+    @Override
+    public Class<Ability> getTokenClass()
+    {
+        return Ability.class;
+    }
 }

@@ -26,24 +26,24 @@ import javax.swing.JPanel;
 public abstract class PCGenPrefsPanel extends JPanel
 {
 
-	/**
-	 * Returns the title of the panel.
-	 */
-	public abstract String getTitle();
+    /**
+     * Returns the title of the panel.
+     */
+    public abstract String getTitle();
 
-	/**
-	 * Initializes the panel's values based on the current preferences.
-	 */
-	public abstract void applyOptionValuesToControls();
+    /**
+     * Initializes the panel's values based on the current preferences.
+     */
+    public abstract void applyOptionValuesToControls();
 
-	/**
-	 * Updates the current preferences based on the panel's values.
-	 */
-	public abstract void setOptionsBasedOnControls();
+    /**
+     * Updates the current preferences based on the panel's values.
+     */
+    public abstract void setOptionsBasedOnControls();
 
-	@Override
-	public String toString()
-	{
-		return getTitle();
-	}
+    @Override
+    public String toString()
+    {
+        return getTitle();
+    }
 }

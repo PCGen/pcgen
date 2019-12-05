@@ -24,43 +24,43 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Campaign;
 
 public class ExpandedCampaignFacetTest extends
-		AbstractConsolidatingFacetTest<Campaign, Campaign>
+        AbstractConsolidatingFacetTest<Campaign, Campaign>
 {
 
-	private ExpandedCampaignFacet facet = new ExpandedCampaignFacet();
+    private ExpandedCampaignFacet facet = new ExpandedCampaignFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, Campaign> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractSourcedListFacet<CharID, Campaign> getFacet()
+    {
+        return facet;
+    }
 
-	public static int n = 0;
+    public static int n = 0;
 
-	@Override
-	protected Campaign getObject()
-	{
-		Campaign wp = new Campaign();
-		wp.setName("WP" + n++);
-		return wp;
-	}
+    @Override
+    protected Campaign getObject()
+    {
+        Campaign wp = new Campaign();
+        wp.setName("WP" + n++);
+        return wp;
+    }
 
-	@Override
-	protected DataFacetChangeListener<CharID, Campaign> getListener()
-	{
-		return facet;
-	}
+    @Override
+    protected DataFacetChangeListener<CharID, Campaign> getListener()
+    {
+        return facet;
+    }
 
-	@Override
-	protected Campaign getSourceObject()
-	{
-		return getObject();
-	}
+    @Override
+    protected Campaign getSourceObject()
+    {
+        return getObject();
+    }
 
-	@Override
-	protected Campaign getConverted(Campaign camp)
-	{
-		return camp;
-	}
+    @Override
+    protected Campaign getConverted(Campaign camp)
+    {
+        return camp;
+    }
 
 }

@@ -34,33 +34,33 @@ import org.junit.jupiter.api.Test;
  */
 public class PreGenderTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Test the PREGENDER code.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testGender() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		character.setGender(Gender.Male);
+    /**
+     * Test the PREGENDER code.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testGender() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        character.setGender(Gender.Male);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREGENDER:M");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREGENDER:M");
 
-		assertTrue("Character is Male", PrereqHandler.passes(prereq, character,
-			null));
+        assertTrue("Character is Male", PrereqHandler.passes(prereq, character,
+                null));
 
-		prereq = factory.parse("PREGENDER:m");
+        prereq = factory.parse("PREGENDER:m");
 
-		assertFalse("Case is significant", PrereqHandler.passes(prereq,
-			character, null));
+        assertFalse("Case is significant", PrereqHandler.passes(prereq,
+                character, null));
 
-		prereq = factory.parse("PREGENDER:Moose");
+        prereq = factory.parse("PREGENDER:Moose");
 
-		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
-			character, null));
-	}
+        assertFalse("Requires a full match", PrereqHandler.passes(prereq,
+                character, null));
+    }
 }

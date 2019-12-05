@@ -26,54 +26,51 @@ import pcgen.util.Logging;
 
 /**
  * The Class {@code BonusstatallowsstackToken} deals
- * with the BONUSSTATALLOWSSTACK tag. This tag is a boolean 
+ * with the BONUSSTATALLOWSSTACK tag. This tag is a boolean
  * tag that specifies if the user may select the same stat
- * multiple times when offered multiple stat boosts at the same 
+ * multiple times when offered multiple stat boosts at the same
  * level.
- * 
- * 
  */
 public class BonusstatallowsstackToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "BONUSSTATALLOWSSTACK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "BONUSSTATALLOWSSTACK";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
-					+ " in " + source.toString());
-				return false;
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
-					+ " in " + source.toString());
-				return false;
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
-					+ " in " + source.toString());
-				return false;
-			}
-			set = Boolean.FALSE;
-		}
-		gameMode.setBonusStatAllowsStack(set);
-		return true;
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        boolean set;
+        char firstChar = value.charAt(0);
+        if (firstChar == 'y' || firstChar == 'Y')
+        {
+            if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+            {
+                Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
+                        + " in " + source.toString());
+                return false;
+            }
+            set = Boolean.TRUE;
+        } else
+        {
+            if (firstChar != 'N' && firstChar != 'n')
+            {
+                Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
+                        + " in " + source.toString());
+                return false;
+            }
+            if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+            {
+                Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
+                        + " in " + source.toString());
+                return false;
+            }
+            set = Boolean.FALSE;
+        }
+        gameMode.setBonusStatAllowsStack(set);
+        return true;
+    }
 }

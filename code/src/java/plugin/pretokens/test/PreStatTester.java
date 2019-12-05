@@ -31,39 +31,40 @@ import pcgen.system.LanguageBundle;
 public class PreStatTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-		throws PrerequisiteException
-	{
-		final int targetNumber = Integer.parseInt(prereq.getOperand());
-		PCStat stat = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class,
-			prereq.getKey());
-		if (stat == null)
-		{
-			throw new PrerequisiteException("PRESTAT refers to invalid stat '" + stat + ". Prereq was " + prereq);
-		}
-		final int statValue = display.getTotalStatFor(stat);
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+            throws PrerequisiteException
+    {
+        final int targetNumber = Integer.parseInt(prereq.getOperand());
+        PCStat stat = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class,
+                prereq.getKey());
+        if (stat == null)
+        {
+            throw new PrerequisiteException("PRESTAT refers to invalid stat '" + stat + ". Prereq was " + prereq);
+        }
+        final int statValue = display.getTotalStatFor(stat);
 
-		final int runningTotal = prereq.getOperator().compare(statValue, targetNumber);
-		return countedTotal(prereq, runningTotal);
-	}
+        final int runningTotal = prereq.getOperator().compare(statValue, targetNumber);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "STAT"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "STAT"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString(
-			"PreStat.toHtml", prereq.getKey(), prereq.getOperator().toString(), //$NON-NLS-1$
-			prereq.getOperand());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString(
+                "PreStat.toHtml", prereq.getKey(), prereq.getOperator().toString(), //$NON-NLS-1$
+                prereq.getOperand());
+    }
 
 }

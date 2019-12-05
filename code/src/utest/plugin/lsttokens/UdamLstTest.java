@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -39,190 +39,190 @@ import org.junit.jupiter.api.Test;
 
 public class UdamLstTest extends AbstractGlobalTokenTestCase
 {
-	static UdamLst token = new UdamLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+    static UdamLst token = new UdamLst();
+    static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	protected SizeAdjustment colossal;
-	protected SizeAdjustment gargantuan;
-	protected SizeAdjustment huge;
-	protected SizeAdjustment large;
-	protected SizeAdjustment medium;
-	protected SizeAdjustment small;
-	protected SizeAdjustment tiny;
-	protected SizeAdjustment diminutive;
-	protected SizeAdjustment fine;
+    protected SizeAdjustment colossal;
+    protected SizeAdjustment gargantuan;
+    protected SizeAdjustment huge;
+    protected SizeAdjustment large;
+    protected SizeAdjustment medium;
+    protected SizeAdjustment small;
+    protected SizeAdjustment tiny;
+    protected SizeAdjustment diminutive;
+    protected SizeAdjustment fine;
 
-	@BeforeEach
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		fine = BuildUtilities.createSize("Fine", 0);
-		primaryContext.getReferenceContext().importObject(fine);
-		secondaryContext.getReferenceContext().importObject(fine);
+    @BeforeEach
+    @Override
+    public void setUp() throws PersistenceLayerException, URISyntaxException
+    {
+        super.setUp();
+        fine = BuildUtilities.createSize("Fine", 0);
+        primaryContext.getReferenceContext().importObject(fine);
+        secondaryContext.getReferenceContext().importObject(fine);
 
-		diminutive = BuildUtilities.createSize("Diminutive", 1);
-		primaryContext.getReferenceContext().importObject(diminutive);
-		secondaryContext.getReferenceContext().importObject(diminutive);
-		
-		tiny = BuildUtilities.createSize("Tiny", 2);
-		primaryContext.getReferenceContext().importObject(tiny);
-		secondaryContext.getReferenceContext().importObject(tiny);
-		
-		small = BuildUtilities.createSize("Small", 3);
-		primaryContext.getReferenceContext().importObject(small);
-		secondaryContext.getReferenceContext().importObject(small);
-		
-		medium = BuildUtilities.createSize("Medium", 4);		
-		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
-		primaryContext.getReferenceContext().importObject(medium);
-		secondaryContext.getReferenceContext().importObject(medium);
-		
-		large = BuildUtilities.createSize("Large", 5);
-		primaryContext.getReferenceContext().importObject(large);
-		secondaryContext.getReferenceContext().importObject(large);
-		
-		huge = BuildUtilities.createSize("Huge", 6);
-		primaryContext.getReferenceContext().importObject(huge);
-		secondaryContext.getReferenceContext().importObject(huge);
-		
-		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
-		primaryContext.getReferenceContext().importObject(gargantuan);
-		secondaryContext.getReferenceContext().importObject(gargantuan);
-		
-		colossal = BuildUtilities.createSize("Colossal", 8);
-		primaryContext.getReferenceContext().importObject(colossal);
-		secondaryContext.getReferenceContext().importObject(colossal);
-	}
+        diminutive = BuildUtilities.createSize("Diminutive", 1);
+        primaryContext.getReferenceContext().importObject(diminutive);
+        secondaryContext.getReferenceContext().importObject(diminutive);
 
-	@Override
-	public CDOMLoader<PCTemplate> getLoader()
-	{
-		return loader;
-	}
+        tiny = BuildUtilities.createSize("Tiny", 2);
+        primaryContext.getReferenceContext().importObject(tiny);
+        secondaryContext.getReferenceContext().importObject(tiny);
 
-	@Override
-	public Class<PCTemplate> getCDOMClass()
-	{
-		return PCTemplate.class;
-	}
+        small = BuildUtilities.createSize("Small", 3);
+        primaryContext.getReferenceContext().importObject(small);
+        secondaryContext.getReferenceContext().importObject(small);
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getReadToken()
-	{
-		return token;
-	}
+        medium = BuildUtilities.createSize("Medium", 4);
+        medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
+        primaryContext.getReferenceContext().importObject(medium);
+        secondaryContext.getReferenceContext().importObject(medium);
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getWriteToken()
-	{
-		return token;
-	}
+        large = BuildUtilities.createSize("Large", 5);
+        primaryContext.getReferenceContext().importObject(large);
+        secondaryContext.getReferenceContext().importObject(large);
 
-	@Test
-	public void testInvalidNotEnoughValues()
-	{
-		assertTrue(parse("1,2,3,4,5,6,7,8"));
-		assertFalse(token.process(primaryContext, primaryProf));
-	}
+        huge = BuildUtilities.createSize("Huge", 6);
+        primaryContext.getReferenceContext().importObject(huge);
+        secondaryContext.getReferenceContext().importObject(huge);
 
-	@Test
-	public void testInvalidTooManyValues()
-	{
-		assertTrue(parse("1,2,3,4,5,6,7,8,9,0"));
-		assertFalse(token.process(primaryContext, primaryProf));
-	}
+        gargantuan = BuildUtilities.createSize("Gargantuan", 7);
+        primaryContext.getReferenceContext().importObject(gargantuan);
+        secondaryContext.getReferenceContext().importObject(gargantuan);
 
-	@Test
-	public void testInvalidEmptyValue1()
-	{
-		assertFalse(parse(",2,3,4,5,6,7,8,9"));
-		assertNoSideEffects();
-	}
+        colossal = BuildUtilities.createSize("Colossal", 8);
+        primaryContext.getReferenceContext().importObject(colossal);
+        secondaryContext.getReferenceContext().importObject(colossal);
+    }
 
-	@Test
-	public void testInvalidEmptyValue2()
-	{
-		assertFalse(parse("1,,3,4,5,6,7,8,9"));
-		assertNoSideEffects();
-	}
+    @Override
+    public CDOMLoader<PCTemplate> getLoader()
+    {
+        return loader;
+    }
 
-	@Test
-	public void testInvalidEmptyValue3()
-	{
-		assertFalse(parse("1,2,,4,5,6,7,8,9"));
-		assertNoSideEffects();
-	}
+    @Override
+    public Class<PCTemplate> getCDOMClass()
+    {
+        return PCTemplate.class;
+    }
 
-	@Test
-	public void testInvalidEmptyValue4()
-	{
-		assertFalse(parse("1,2,3,,5,6,7,8,9"));
-		assertNoSideEffects();
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getReadToken()
+    {
+        return token;
+    }
 
-	@Test
-	public void testInvalidEmptyValue5()
-	{
-		assertFalse(parse("1,2,3,4,,6,7,8,9"));
-		assertNoSideEffects();
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getWriteToken()
+    {
+        return token;
+    }
 
-	@Test
-	public void testInvalidEmptyValue6()
-	{
-		assertFalse(parse("1,2,3,4,5,,7,8,9"));
-		assertNoSideEffects();
-	}
+    @Test
+    public void testInvalidNotEnoughValues()
+    {
+        assertTrue(parse("1,2,3,4,5,6,7,8"));
+        assertFalse(token.process(primaryContext, primaryProf));
+    }
 
-	@Test
-	public void testInvalidEmptyValue7()
-	{
-		assertFalse(parse("1,2,3,4,5,6,,8,9"));
-		assertNoSideEffects();
-	}
+    @Test
+    public void testInvalidTooManyValues()
+    {
+        assertTrue(parse("1,2,3,4,5,6,7,8,9,0"));
+        assertFalse(token.process(primaryContext, primaryProf));
+    }
 
-	@Test
-	public void testInvalidEmptyValue8()
-	{
-		assertFalse(parse("1,2,3,4,5,6,7,,9"));
-		assertNoSideEffects();
-	}
+    @Test
+    public void testInvalidEmptyValue1()
+    {
+        assertFalse(parse(",2,3,4,5,6,7,8,9"));
+        assertNoSideEffects();
+    }
 
-	@Test
-	public void testInvalidEmptyValue9()
-	{
-		assertFalse(parse("1,2,3,4,5,6,7,8,"));
-		assertNoSideEffects();
-	}
+    @Test
+    public void testInvalidEmptyValue2()
+    {
+        assertFalse(parse("1,,3,4,5,6,7,8,9"));
+        assertNoSideEffects();
+    }
 
-	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
-	{
-		this.runRoundRobin("1,2,3,4,5,6,7,8,9");
-	}
+    @Test
+    public void testInvalidEmptyValue3()
+    {
+        assertFalse(parse("1,2,,4,5,6,7,8,9"));
+        assertNoSideEffects();
+    }
 
-	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
-	{
-		this.runRoundRobin("1,2,3,4*form,5*form,6,7*form,8,9");
-	}
+    @Test
+    public void testInvalidEmptyValue4()
+    {
+        assertFalse(parse("1,2,3,,5,6,7,8,9"));
+        assertNoSideEffects();
+    }
 
-	@Override
-	protected String getLegalValue()
-	{
-		return "1,2,3,4,5,6,7,8,9";
-	}
+    @Test
+    public void testInvalidEmptyValue5()
+    {
+        assertFalse(parse("1,2,3,4,,6,7,8,9"));
+        assertNoSideEffects();
+    }
 
-	@Override
-	protected String getAlternateLegalValue()
-	{
-		return "1,2,3,4*form,5*form,6,7*form,8,9";
-	}
+    @Test
+    public void testInvalidEmptyValue6()
+    {
+        assertFalse(parse("1,2,3,4,5,,7,8,9"));
+        assertNoSideEffects();
+    }
 
-	@Override
-	protected ConsolidationRule getConsolidationRule()
-	{
-		return ConsolidationRule.OVERWRITE;
-	}
+    @Test
+    public void testInvalidEmptyValue7()
+    {
+        assertFalse(parse("1,2,3,4,5,6,,8,9"));
+        assertNoSideEffects();
+    }
+
+    @Test
+    public void testInvalidEmptyValue8()
+    {
+        assertFalse(parse("1,2,3,4,5,6,7,,9"));
+        assertNoSideEffects();
+    }
+
+    @Test
+    public void testInvalidEmptyValue9()
+    {
+        assertFalse(parse("1,2,3,4,5,6,7,8,"));
+        assertNoSideEffects();
+    }
+
+    @Test
+    public void testRoundRobinSimple() throws PersistenceLayerException
+    {
+        this.runRoundRobin("1,2,3,4,5,6,7,8,9");
+    }
+
+    @Test
+    public void testRoundRobinComplex() throws PersistenceLayerException
+    {
+        this.runRoundRobin("1,2,3,4*form,5*form,6,7*form,8,9");
+    }
+
+    @Override
+    protected String getLegalValue()
+    {
+        return "1,2,3,4,5,6,7,8,9";
+    }
+
+    @Override
+    protected String getAlternateLegalValue()
+    {
+        return "1,2,3,4*form,5*form,6,7*form,8,9";
+    }
+
+    @Override
+    protected ConsolidationRule getConsolidationRule()
+    {
+        return ConsolidationRule.OVERWRITE;
+    }
 }

@@ -40,85 +40,86 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class RandomNameDialog extends JDialog
 {
-	private final NameGenPanel nameGenPanel;
-	private boolean cancelled;
+    private final NameGenPanel nameGenPanel;
+    private boolean cancelled;
 
-	/**
-	 * Create a new Random Name Dialog
-	 * @param frame The parent frame. The dialog will be centred on this frame
-	 * @param gender The current gender of the character.
-	 */
-	public RandomNameDialog(JFrame frame, String gender)
-	{
-		super(frame, LanguageBundle.getString("in_rndNameTitle"), true); //$NON-NLS-1$
-		nameGenPanel = new NameGenPanel(new File(getDataDir()));
-		nameGenPanel.setGender(gender);
-		initUserInterface();
-		pack();
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		this.setLocationRelativeTo(frame);
-		cancelled = false;
+    /**
+     * Create a new Random Name Dialog
+     *
+     * @param frame  The parent frame. The dialog will be centred on this frame
+     * @param gender The current gender of the character.
+     */
+    public RandomNameDialog(JFrame frame, String gender)
+    {
+        super(frame, LanguageBundle.getString("in_rndNameTitle"), true); //$NON-NLS-1$
+        nameGenPanel = new NameGenPanel(new File(getDataDir()));
+        nameGenPanel.setGender(gender);
+        initUserInterface();
+        pack();
+        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        this.setLocationRelativeTo(frame);
+        cancelled = false;
 
-		Utility.installEscapeCloseOperation(this);
-	}
+        Utility.installEscapeCloseOperation(this);
+    }
 
-	private void initUserInterface()
-	{
-		getContentPane().setLayout(new BorderLayout());
+    private void initUserInterface()
+    {
+        getContentPane().setLayout(new BorderLayout());
 
-		getContentPane().add(nameGenPanel, BorderLayout.CENTER);
+        getContentPane().add(nameGenPanel, BorderLayout.CENTER);
 
-		ButtonBar buttonBar = new OKCloseButtonBar(
-				evt -> okButtonActionPerformed(),
-				evt -> cancelButtonActionPerformed()
-		);
+        ButtonBar buttonBar = new OKCloseButtonBar(
+                evt -> okButtonActionPerformed(),
+                evt -> cancelButtonActionPerformed()
+        );
 
-		getContentPane().add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
-	}
+        getContentPane().add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
+    }
 
-	private void okButtonActionPerformed()
-	{
-		setVisible(false);
-	}
+    private void okButtonActionPerformed()
+    {
+        setVisible(false);
+    }
 
-	private void cancelButtonActionPerformed()
-	{
-		cancelled = true;
-		setVisible(false);
-	}
+    private void cancelButtonActionPerformed()
+    {
+        cancelled = true;
+        setVisible(false);
+    }
 
-	/**
-	 * @return The directory where the random name data is held
-	 */
-	private String getDataDir()
-	{
-		String pluginDirectory = SettingsHandler.getGmgenPluginDir().toString();
+    /**
+     * @return The directory where the random name data is held
+     */
+    private String getDataDir()
+    {
+        String pluginDirectory = SettingsHandler.getGmgenPluginDir().toString();
 
-		return pluginDirectory + File.separator + "Random Names";
-	}
+        return pluginDirectory + File.separator + "Random Names";
+    }
 
-	/**
-	 * @return The name the user generated.
-	 */
-	public String getChosenName()
-	{
-		if (cancelled)
-		{
-			return StringUtils.EMPTY;
-		}
-		return nameGenPanel.getChosenName();
-	}
+    /**
+     * @return The name the user generated.
+     */
+    public String getChosenName()
+    {
+        if (cancelled)
+        {
+            return StringUtils.EMPTY;
+        }
+        return nameGenPanel.getChosenName();
+    }
 
-	/**
-	 * @return the gender
-	 */
-	public String getGender()
-	{
-		if (cancelled)
-		{
-			return StringUtils.EMPTY;
-		}
-		return nameGenPanel.getGender();
-	}
+    /**
+     * @return the gender
+     */
+    public String getGender()
+    {
+        if (cancelled)
+        {
+            return StringUtils.EMPTY;
+        }
+        return nameGenPanel.getGender();
+    }
 
 }

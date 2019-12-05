@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -44,142 +44,142 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class SpellcasterQualifierTokenTest extends
-		AbstractQualifierTokenTestCase<CDOMObject, WeaponProf>
+        AbstractQualifierTokenTestCase<CDOMObject, WeaponProf>
 {
 
-	static ChooseLst token = new ChooseLst();
-	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+    static ChooseLst token = new ChooseLst();
+    static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
+    static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
-	private static final plugin.qualifier.weaponprof.SpellCasterToken PC_TOKEN =
-			new plugin.qualifier.weaponprof.SpellCasterToken();
-	private WeaponProf wp1, wp2, wp3;
+    private static final plugin.qualifier.weaponprof.SpellCasterToken PC_TOKEN =
+            new plugin.qualifier.weaponprof.SpellCasterToken();
+    private WeaponProf wp1, wp2, wp3;
 
-	public SpellcasterQualifierTokenTest()
-	{
-		super("SPELLCASTER", null);
-	}
+    public SpellcasterQualifierTokenTest()
+    {
+        super("SPELLCASTER", null);
+    }
 
-	@BeforeEach
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(PC_TOKEN);
-	}
+    @BeforeEach
+    @Override
+    public void setUp() throws PersistenceLayerException, URISyntaxException
+    {
+        super.setUp();
+        TokenRegistration.register(PC_TOKEN);
+    }
 
-	@Override
-	public CDOMSecondaryToken<?> getSubToken()
-	{
-		return subtoken;
-	}
+    @Override
+    public CDOMSecondaryToken<?> getSubToken()
+    {
+        return subtoken;
+    }
 
-	@Override
-	public Class<WeaponProf> getTargetClass()
-	{
-		return WeaponProf.class;
-	}
+    @Override
+    public Class<WeaponProf> getTargetClass()
+    {
+        return WeaponProf.class;
+    }
 
-	@Override
-	public Class<Race> getCDOMClass()
-	{
-		return Race.class;
-	}
+    @Override
+    public Class<Race> getCDOMClass()
+    {
+        return Race.class;
+    }
 
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
+    @Override
+    public CDOMLoader<CDOMObject> getLoader()
+    {
+        return loader;
+    }
 
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
+    @Override
+    public CDOMPrimaryToken<CDOMObject> getToken()
+    {
+        return token;
+    }
 
-	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return false;
-	}
+    @Override
+    protected boolean allowsNotQualifier()
+    {
+        return false;
+    }
 
-	@Override
-	protected boolean allowsLoneQualifier()
-	{
-		return false;
-	}
+    @Override
+    protected boolean allowsLoneQualifier()
+    {
+        return false;
+    }
 
-	@Test
-	public void testGetSet()
-	{
-		setUpPC();
-		initializeObjects();		
-		assertTrue(parse(getSubTokenName() + "|SPELLCASTER[ALL]"));
-		finishLoad();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+    @Test
+    public void testGetSet()
+    {
+        setUpPC();
+        initializeObjects();
+        assertTrue(parse(getSubTokenName() + "|SPELLCASTER[ALL]"));
+        finishLoad();
+        TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
-		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
-		pc.weaponProfSet.add(wp1);
-		pc.weaponProfSet.add(wp2);
-		set = info.getSet(pc);
-		assertTrue(set.isEmpty());
-		pc.spellcastinglevel = 4;
-		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		//Note the INTENTIOANL effect here is to ADD ALL regardless of what the PC has
-		assertEquals(3, set.size());
-		assertTrue(set.contains(wp1));
-		assertTrue(set.contains(wp2));
-		assertTrue(set.contains(wp3));
-	}
+        ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+        Collection<?> set = info.getSet(pc);
+        assertTrue(set.isEmpty());
+        pc.weaponProfSet.add(wp1);
+        pc.weaponProfSet.add(wp2);
+        set = info.getSet(pc);
+        assertTrue(set.isEmpty());
+        pc.spellcastinglevel = 4;
+        set = info.getSet(pc);
+        assertFalse(set.isEmpty());
+        //Note the INTENTIOANL effect here is to ADD ALL regardless of what the PC has
+        assertEquals(3, set.size());
+        assertTrue(set.contains(wp1));
+        assertTrue(set.contains(wp2));
+        assertTrue(set.contains(wp3));
+    }
 
-	@Test
-	public void testGetSetFiltered()
-	{
-		setUpPC();
-		initializeObjects();		
-		assertTrue(parse(getSubTokenName() + "|SPELLCASTER[TYPE=Masterful]"));
-		finishLoad();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+    @Test
+    public void testGetSetFiltered()
+    {
+        setUpPC();
+        initializeObjects();
+        assertTrue(parse(getSubTokenName() + "|SPELLCASTER[TYPE=Masterful]"));
+        finishLoad();
+        TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
-		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
-		pc.spellcastinglevel = 3;
-		assertTrue(set.isEmpty());
-		pc.weaponProfSet.add(wp1);
-		pc.weaponProfSet.add(wp2);
-		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		//Note again the intentional effect of adding everything regardless of whether the PC has it
-		assertEquals(2, set.size());
-		assertTrue(set.contains(wp2));
-		assertTrue(set.contains(wp3));
-	}
+        ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+        Collection<?> set = info.getSet(pc);
+        assertTrue(set.isEmpty());
+        pc.spellcastinglevel = 3;
+        assertTrue(set.isEmpty());
+        pc.weaponProfSet.add(wp1);
+        pc.weaponProfSet.add(wp2);
+        set = info.getSet(pc);
+        assertFalse(set.isEmpty());
+        //Note again the intentional effect of adding everything regardless of whether the PC has it
+        assertEquals(2, set.size());
+        assertTrue(set.contains(wp2));
+        assertTrue(set.contains(wp3));
+    }
 
-	private void initializeObjects()
-	{
-		wp1 = new WeaponProf();
-		wp1.setName("Wp1");
-		primaryContext.getReferenceContext().importObject(wp1);
-		
-		wp2 = new WeaponProf();
-		wp2.setName("Wp2");
-		primaryContext.getReferenceContext().importObject(wp2);
-		primaryContext.unconditionallyProcess(wp2, "TYPE", "WEAPON.Masterful");
+    private void initializeObjects()
+    {
+        wp1 = new WeaponProf();
+        wp1.setName("Wp1");
+        primaryContext.getReferenceContext().importObject(wp1);
 
-		wp3 = new WeaponProf();
-		wp3.setName("Wp3");
-		primaryContext.getReferenceContext().importObject(wp3);
-		primaryContext.unconditionallyProcess(wp3, "TYPE", "WEAPON.Masterful");
-	}
+        wp2 = new WeaponProf();
+        wp2.setName("Wp2");
+        primaryContext.getReferenceContext().importObject(wp2);
+        primaryContext.unconditionallyProcess(wp2, "TYPE", "WEAPON.Masterful");
 
-	@Override
-	protected Class<? extends QualifierToken<?>> getQualifierClass()
-	{
-		return plugin.qualifier.weaponprof.SpellCasterToken.class;
-	}
+        wp3 = new WeaponProf();
+        wp3.setName("Wp3");
+        primaryContext.getReferenceContext().importObject(wp3);
+        primaryContext.unconditionallyProcess(wp3, "TYPE", "WEAPON.Masterful");
+    }
+
+    @Override
+    protected Class<? extends QualifierToken<?>> getQualifierClass()
+    {
+        return plugin.qualifier.weaponprof.SpellCasterToken.class;
+    }
 }

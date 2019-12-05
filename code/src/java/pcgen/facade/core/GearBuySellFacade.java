@@ -20,13 +20,11 @@ package pcgen.facade.core;
 /**
  * {@code GearBuySellFacade} defines the interface required for a buy / sell
  * rate scheme that can be used by the user interface.
- *
- * 
  */
 public interface GearBuySellFacade
 {
-	/**
-	 * @return The descriptive name of the scheme. 
-	 */
+    /**
+     * @return The descriptive name of the scheme.
+     */
     String getName();
 }

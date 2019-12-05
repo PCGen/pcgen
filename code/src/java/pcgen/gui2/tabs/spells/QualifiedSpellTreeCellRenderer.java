@@ -42,40 +42,39 @@ import pcgen.system.LanguageBundle;
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {
 
-	/**
-	 * Version for serialisation.
-	 */
-	private static final long serialVersionUID = -5763535370085434234L;
+    /**
+     * Version for serialisation.
+     */
+    private static final long serialVersionUID = -5763535370085434234L;
 
-	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf,
-		int row, boolean focus)
-	{
-		Object obj = ((DefaultMutableTreeNode) value).getUserObject();
-		if ("".equals(obj)) //$NON-NLS-1$
-		{
-			obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
-		}
-		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
-		if (obj instanceof SpellNode)
-		{
-			SpellNode spellNode = (SpellNode) obj;
-			SpellFacade spell = spellNode.getSpell();
-			PCClass pcClass = spellNode.getSpellcastingClass();
-			if (!character.isQualifiedFor(spell, pcClass))
-			{
-				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
-			}
-		}
-		if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())
-		{
-			setFont(FontManipulation.bold_italic(getFont()));
-		}
-		else
-		{
-			setFont(FontManipulation.plain(getFont()));
-		}
-		return this;
-	}
+    @Override
+    public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf,
+            int row, boolean focus)
+    {
+        Object obj = ((DefaultMutableTreeNode) value).getUserObject();
+        if ("".equals(obj)) //$NON-NLS-1$
+        {
+            obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
+        }
+        super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
+        if (obj instanceof SpellNode)
+        {
+            SpellNode spellNode = (SpellNode) obj;
+            SpellFacade spell = spellNode.getSpell();
+            PCClass pcClass = spellNode.getSpellcastingClass();
+            if (!character.isQualifiedFor(spell, pcClass))
+            {
+                setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
+            }
+        }
+        if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())
+        {
+            setFont(FontManipulation.bold_italic(getFont()));
+        } else
+        {
+            setFont(FontManipulation.plain(getFont()));
+        }
+        return this;
+    }
 
 }

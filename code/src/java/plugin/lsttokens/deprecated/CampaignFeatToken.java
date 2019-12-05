@@ -37,55 +37,55 @@ import pcgen.util.Logging;
 public class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "FEAT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "FEAT";
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
-	{
-		Logging
-			.deprecationPrint("FEAT has been deprecated, use ABILITY: " + "and put CATEGORY: entries in the LST file");
-		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
-		if (cse == null)
-		{
-			//Error
-			return ParseResult.INTERNAL_ERROR;
-		}
-		context.getObjectContext().addToList(campaign, ListKey.FILE_FEAT, cse);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
+    {
+        Logging
+                .deprecationPrint("FEAT has been deprecated, use ABILITY: " + "and put CATEGORY: entries in the LST file");
+        CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
+        if (cse == null)
+        {
+            //Error
+            return ParseResult.INTERNAL_ERROR;
+        }
+        context.getObjectContext().addToList(campaign, ListKey.FILE_FEAT, cse);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Changes<CampaignSourceEntry> cseChanges =
-				context.getObjectContext().getListChanges(campaign, ListKey.FILE_FEAT);
-		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
-		if (added == null)
-		{
-			//empty indicates no token
-			return null;
-		}
-		Set<String> set = new TreeSet<>();
-		for (CampaignSourceEntry cse : added)
-		{
-			set.add(cse.getLSTformat());
-		}
-		return set.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, Campaign campaign)
+    {
+        Changes<CampaignSourceEntry> cseChanges =
+                context.getObjectContext().getListChanges(campaign, ListKey.FILE_FEAT);
+        Collection<CampaignSourceEntry> added = cseChanges.getAdded();
+        if (added == null)
+        {
+            //empty indicates no token
+            return null;
+        }
+        Set<String> set = new TreeSet<>();
+        for (CampaignSourceEntry cse : added)
+        {
+            set.add(cse.getLSTformat());
+        }
+        return set.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}
+    @Override
+    public Class<Campaign> getTokenClass()
+    {
+        return Campaign.class;
+    }
 }

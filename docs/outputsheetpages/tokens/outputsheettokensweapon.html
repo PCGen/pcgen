@@ -1,875 +1,875 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
-                
-                $Author$
-                $Date$
-                $Revision$
-                
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-                Eddy Anthony - eddybaATmindspringDOTcom
-                Sigurdur H. Olafsson - shoATtnDOTis
-                
-                Description:
-                Provides information on the use of PCGen Outputsheet Tokens.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Weapon Output Sheet Tokens
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Weapon Output Sheet Tokens
-  </h1>
-  <p>
-   The below Tokens control how weapon and weapon proficency
-information is presented in Output Sheets (OS).
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weapon" name="weapon">
-     Token
-Name:
+<!--
+               PCGen Documentation Project
+
+               $Author$
+               $Date$
+               $Revision$
+
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Eddy Anthony - eddybaATmindspringDOTcom
+               Sigurdur H. Olafsson - shoATtnDOTis
+
+               Description:
+               Provides information on the use of PCGen Outputsheet Tokens.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Weapon Output Sheet Tokens
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Weapon Output Sheet Tokens
+</h1>
+<p>
+    The below Tokens control how weapon and weapon proficency
+    information is presented in Output Sheets (OS).
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weapon" name="weapon">
+            Token
+            Name:
+        </a>
+    </strong>
+    WEAPON.[q.][r.]s.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (q):
+    </strong>
+    Text (Merge
+    Type - Optional).
+</p>
+<ul class="indent2">
+    <li>
+        MERGEALL - Causes all weapons with the same name to be merged -
+        default behavior.
+    </li>
+    <li>
+        MERGELOC - Causes all weapons with the same name and in the
+        same location to be merged.
+    </li>
+    <li>
+        MERGENONE - No weapons with the same name are merged.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (r):
+    </strong>
+    Text
+    (Weapon Status - Optional).
+</p>
+<ul class="indent2">
+    <li>
+        CARRIED - Creates a 0-based index of carried or equipped
+        weapons.
+    </li>
+    <li>
+        EQUIPPED - Creates a 0-based index of equipped weapons.
+    </li>
+    <li>
+        NOT_CARRIED - Creates a 0-based index of weapons that are not
+        carried or equipped.
+    </li>
+    <li>
+        NOT_EQUIPPED - Creates a 0-based index of weapons that are not
+        equipped (although they may be carried).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (s):
+    </strong>
+    Number -
+    The weapons position in the character's weapon list - 0-based
+    index
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text (The
+    weapon property to be output).
+</p>
+<ul class="indent2">
+    <li>
+        ATTACKS - The number of attacks for weapon type (ie: 2 for
+        double headed, etc).
+    </li>
+    <li>
+        ATTACKS - The number of attacks for weapon type (ie: 2 for
+        double headed, etc).
+    </li>
+    <li>
+        BASEDAMAGE - The weapon's unadjusted damage (e.g. 1d8+3).
+    </li>
+    <li>
+        BASEDAMAGEBONUS - The weapon's unadjusted damage bonus (e.g.
+        +3).
+    </li>
+    <li>
+        BASEHIT - The weapon's to hit containing most adjustments (no
+        adjustment for two weapon fighting, even if weapons are equipped
+        that way in the program).
+    </li>
+    <li>
+        BASICDAMAGE - The weapon's damage including most adjustments
+        (no adjustment for which hand or hands are wielding the
+        weapon).
+    </li>
+    <li>
+        BONUSDAMAGE - The weapon's bonus to damage (+1, etc.).
+    </li>
+    <li>
+        CATEGORY - The weapons category, such as Mithril, Melee,
+        Slashing, etc.
+    </li>
+    <li>
+        CRIT - Weapon's Critical Range (ie 20 = 1, 19-20 = 2, 18-20 =
+        3, 17-20 = 4).
+    </li>
+    <li>
+        DAMAGE - The amount of damage the weapon does.
+    </li>
+    <li>
+        FEATDAMAGE - Bonus to damage, based on feats.
+    </li>
+    <li>
+        FEATHIT - Bonus to hit, based on feats.
+    </li>
+    <li>
+        HAND - Hand that weapon is currently equipped in, Else
+        none.
+    </li>
+    <li>
+        HEFT - Returns LIGHT, MEDIUM or HEAVY, looking for weapon size
+        and character size. If the weapon is smaller, then it is LIGHT.
+        This is not as useful in 3.5 mode because all weapons made for a
+        specific sized character are the same size as the character and
+        thus will always return MEDIUM. If the weapon is made for a smaller
+        sized creature it will return LIGHT and if larger, HEAVY.
+    </li>
+    <li>
+        HIT - Weapon's modified bonus to hit, from character's total to
+        hit bonus.
+    </li>
+    <li>
+        ISTYPE - Weapon's Type, for detecting if it is a Double Weapon
+        or not.
+    </li>
+    <li>
+        LONGNAME - A more descriptive name.
+    </li>
+    <li>
+        MAGICDAMAGE - Weapon's magical bonus to damage.
+    </li>
+    <li>
+        MAGICHIT - Weapon's magical bonus to hit.
+    </li>
+    <li>
+        MISC - Returns all miscellaneous to hit bonuses.
+    </li>
+    <li>
+        MULT - Multiplier of Critical.
+    </li>
+    <li>
+        NAME(.NOSTAR) - Weapon's name (which matches the entry from the
+        WEAPONPROF.LST file). If .NOSTAR is appended, the asterisk
+        indicating whether the weapon is equipped will be stripped from the
+        output.
+    </li>
+    <li>
+        NUMATTACKS - Displays the number of attacks the PC gets with
+        the selected weapon.
+    </li>
+    <li>
+        OHDAMAGE - Displays the damage done by an offhand attack with
+        the selected weapon (e.g. 1d8+1).
+    </li>
+    <li>
+        OHDAMAGEBONUS - Displays the damage bonus done by an offhand
+        attack with the selected weapon (e.g. +1).
+    </li>
+    <li>
+        RANGE - Range of weapon, in feet.
+    </li>
+    <li>
+        RANGE.NOUNITS - Range of weapon, in feet (no ' indicator).
+    </li>
+    <li>
+        RATEOFFIRE - Rate of fire of the weapon, displayed as listed in
+        the LST files following the RATEOFFIRE tag.
+    </li>
+    <li>
+        REACH - Reach of weapon, in feet.
+    </li>
+    <li>
+        SIZE - Size of weapon.
+    </li>
+    <li>
+        SIZEMOD - Returns the character size modifier.
+    </li>
+    <li>
+        SPROP - Special Properties of weapon.
+    </li>
+    <li>
+        TEMPLATEDAMAGE - Bonus to damage, from templates.
+    </li>
+    <li>
+        TEMPLATEHIT - Bonus to hit, from templates.
+    </li>
+    <li>
+        THDAMAGE - Displays the damage done by a two-handed attack with
+        the selected weapon (e.g. 2d6+4).
+    </li>
+    <li>
+        THDAMAGEBONUS - Displays the damage bonus done by a two-handed
+        attack with the selected weapon (e.g. +4).
+    </li>
+    <li>
+        TOTALHIT.x - The weapon's adjusted to hit bonuses for all
+        attacks, or for attack x if it is specified (0-based index).
+    </li>
+    <li>
+        TWOHIT - The weapon's to hit bonuses if used in the off
+        hand.
+    </li>
+    <li>
+        TWPHITH - The weapon's to hit bonuses if used in the primary
+        hand with a heavy weapon in the other hand.
+    </li>
+    <li>
+        TWPHITL - The weapon's to hit bonuses if used in the primary
+        hand with a light weapon in the other hand.
+    </li>
+    <li>
+        TYPE - Type of damage the weapon does.
+    </li>
+    <li>
+        WT - Weight of weapon in lbs.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays various information about a character's
+    weapons. Note: Use the WEAPON token with the RANGELIST option (see
+    below) if you want ammunition bonuses included.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WEAPON.0.SIZE</code>
+</p>
+<p class="indent3">
+    Displays the size of the first weapon.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weapon_rangelist" name="weapon_rangelist">
+            Token Name:
+        </a>
+    </strong>
+    WEAPON.[q.][r.]s.RANGELIST.n.u
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (q):
+    </strong>
+    Text (Merge
+    Type - Optional).
+</p>
+<ul class="indent2">
+    <li>
+        MERGEALL - Causes all weapons with the same name to be merged -
+        default behavior.
+    </li>
+    <li>
+        MERGELOC - Causes all weapons with the same name and in the
+        same location to be merged.
+    </li>
+    <li>
+        MERGENONE - No weapons with the same name are merged.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (r):
+    </strong>
+    Text
+    (Weapon Status - Optional).
+</p>
+<ul class="indent2">
+    <li>
+        CARRIED - Creates a 0-based index of carried or equipped
+        weapons.
+    </li>
+    <li>
+        EQUIPPED - Creates a 0-based index of equipped weapons.
+    </li>
+    <li>
+        NOT_CARRIED - Creates a 0-based index of weapons that are not
+        carried or equipped.
+    </li>
+    <li>
+        NOT_EQUIPPED - Creates a 0-based index of weapons that are not
+        equipped (although they may be carried).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (u):
+    </strong>
+    Text
+    (Weapon Property).
+</p>
+<ul class="indent2">
+    <li>
+        None - Displays n-th range increment of the selected
+        weapon.
+    </li>
+    <li>
+        DAMAGE - Displays the damage for the n-th range increment of
+        the selected weapon.
+    </li>
+    <li>
+        TOTALHIT - Displays the complete hit progression for the n-th
+        range increment of the selected weapon.
+    </li>
+    <li>
+        TOTALHIT.x - Displays the x-th attacks to hit modifier for the
+        n-th range increment of the selected weapon (0-based index).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Text (The
+    weapon property to be output).
+</p>
+<ul class="indent2">
+    <li>
+        ATTACKS - The number of attacks for weapon type (ie: 2 for
+        double headed, etc).
+    </li>
+    <li>
+        ATTACKS - The number of attacks for weapon type (ie: 2 for
+        double headed, etc).
+    </li>
+    <li>
+        BASEDAMAGE - The weapon's unadjusted damage (e.g. 1d8+3).
+    </li>
+    <li>
+        BASEDAMAGEBONUS - The weapon's unadjusted damage bonus (e.g.
+        +3).
+    </li>
+    <li>
+        BASEHIT - The weapon's to hit containing most adjustments (no
+        adjustment for two weapon fighting, even if weapons are equipped
+        that way in the program).
+    </li>
+    <li>
+        BASICDAMAGE - The weapon's damage including most adjustments
+        (no adjustment for which hand or hands are wielding the
+        weapon).
+    </li>
+    <li>
+        BONUSDAMAGE - The weapon's bonus to damage (+1, etc.).
+    </li>
+    <li>
+        CATEGORY - The weapons category, such as Mithril, Melee,
+        Slashing, etc.
+    </li>
+    <li>
+        CRIT - Weapon's Critical Range (ie 20 = 1, 19-20 = 2, 18-20 =
+        3, 17-20 = 4).
+    </li>
+    <li>
+        DAMAGE - The amount of damage the weapon does.
+    </li>
+    <li>
+        FEATHIT - Bonus to hit, based on feats.
+    </li>
+    <li>
+        HAND - Hand that weapon is currently equipped in, Else
+        none.
+    </li>
+    <li>
+        HEFT - Returns LIGHT, MEDIUM or HEAVY, looking for weapon size
+        and character size. If the weapon is smaller, then it is
+        LIGHT.
+    </li>
+    <li>
+        HIT - Weapon's modified bonus to hit, from character's total to
+        hit bonus.
+    </li>
+    <li>
+        LONGNAME - A more descriptive name.
+    </li>
+    <li>
+        MAGICDAMAGE - Weapon's magical bonus to damage.
+    </li>
+    <li>
+        MAGICHIT - Weapon's magical bonus to hit.
+    </li>
+    <li>
+        MISC - Returns all miscellaneous to hit bonuses.
+    </li>
+    <li>
+        MULT - Multiplier of Critical.
+    </li>
+    <li>
+        NAME(.NOSTAR) - Weapon's name (which matches the entry from the
+        WEAPONPROF.LST file). If .NOSTAR is appended, the asterisk
+        indicating whether the weapon is equipped will be stripped from the
+        output.
+    </li>
+    <li>
+        NUMATTACKS - Displays the number of attacks the PC gets with
+        the selected weapon.
+    </li>
+    <li>
+        OHDAMAGE - Displays the damage done by an offhand attack with
+        the selected weapon (e.g. 1d8+1).
+    </li>
+    <li>
+        OHDAMAGEBONUS - Displays the damage bonus done by an offhand
+        attack with the selected weapon (e.g. +1).
+    </li>
+    <li>
+        RANGE - Range of weapon, in feet.
+    </li>
+    <li>
+        RANGE.NOUNITS - Range of weapon, in feet (no ' indicator).
+    </li>
+    <li>
+        RATEOFFIRE - Rate of fire of the weapon, displayed as listed in
+        the LST files following the RATEOFFIRE tag.
+    </li>
+    <li>
+        REACH - Reach of weapon, in the selected unit set.
+    </li>
+    <li>
+        REACHUNIT - The unit that the reach is measured in (normally ft
+        or m)
+    </li>
+    <li>
+        SIZE - Size of weapon.
+    </li>
+    <li>
+        SIZEMOD - Returns the character size modifier.
+    </li>
+    <li>
+        SPROP - Special Properties of weapon.
+    </li>
+    <li>
+        TEMPLATE - Bonus to hit, from templates.
+    </li>
+    <li>
+        THDAMAGE - Displays the damage done by a two-handed attack with
+        the selected weapon (e.g. 2d6+4).
+    </li>
+    <li>
+        THDAMAGEBONUS - Displays the damage bonus done by a two-handed
+        attack with the selected weapon (e.g. +4).
+    </li>
+    <li>
+        TOTALHIT.x - The weapon's adjusted to hit bonuses for all
+        attacks, or for attack x if it is specified (0-based index).
+    </li>
+    <li>
+        TWOHIT - The weapon's to hit bonuses if used in the off
+        hand.
+    </li>
+    <li>
+        TWPHITH - The weapon's to hit bonuses if used in the primary
+        hand with a heavy weapon in the other hand.
+    </li>
+    <li>
+        TWPHITL - The weapon's to hit bonuses if used in the primary
+        hand with a light weapon in the other hand.
+    </li>
+    <li>
+        TYPE - Type of damage the weapon does.
+    </li>
+    <li>
+        WT - Weight of weapon in lbs.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays various attack information about a
+    weapon depending on the range increment. The SHORTRANGE (as defined
+    in the miscinfo.lst) is inserted into the range array if it is not
+    already one of the weapon's standard increments.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WEAPON.0.RANGELIST.0</code>
+</p>
+<p class="indent3">
+    Would display the damage for the 1st range
+    increment for the 1st weapon.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weapon_ammunition" name="weapon_ammunition">
+            Token Name:
+        </a>
+    </strong>
+    WEAPON.[q.][r.]s.RANGELIST.n.u.AMMUNITION.v.w
+</p>
+<p class="indent0">
+    <strong>
+        Suntoken Name:
+    </strong>
+    AMMUNITION (Can
+    only be used with RANGELIST)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (v):
+    </strong>
+    Number
+    (Displays the properties of the v-th ammunition that will fit the
+    s-th selected weapon at the n-th range increment, 0-based
+    index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text
+    (Weapon Property).
+</p>
+<ul class="indent2">
+    <li>
+        None - Displays y-th range increment of the selected
+        weapon.
+    </li>
+    <li>
+        DAMAGE - Displays the damage for the y-th range increment of
+        the selected weapon.
+    </li>
+    <li>
+        SPROP - Displays the special properties for the y-th ammunition
+        contained by the selected weapon.
+    </li>
+    <li>
+        TOTALHIT - Displays the complete hit progression for the y-th
+        range increment of the selected weapon.
+    </li>
+    <li>
+        TOTALHITx - Displays the x-th attacks to hit modifier for the
+        range increment of the selected weapon (0-based index).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays information about the ammunition types
+    that will fit the selected weapon at the selected range
+    increment.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WEAPON.0.RANGELIST.0.AMMUNITION.0.DAMAGE</code>
+</p>
+<p class="indent3">
+    Displays the damage from the 1st type of
+    compatible ammunition at point blank range for the 1st weapon.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weapon_contents" name="weapon_contents">
+            Token Name:
+        </a>
+    </strong>
+    WEAPON.[q.][r.]s.CONTENTS.v.w
+</p>
+<p class="indent0">
+    <strong>
+        Suntoken Name:
+    </strong>
+    CONTENTS
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (v):
+    </strong>
+    Number
+    (Displays the properties of the v-th ammunition contained by the
+    s-th selected weapon, 0-based index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text
+    (Weapon Property).
+</p>
+<ul class="indent2">
+    <li>
+        None - Displays name of the v-th selected contents of the s-th
+        selected weapon.
+    </li>
+    <li>
+        QTY - Displays the number of the for the v-th ammunition
+        contained by the s-th selected weapon.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays information about the contents the
+    selected weapon.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WEAPON.0.CONTENTS.0</code>
+</p>
+<p class="indent3">
+    Displays the name of the 1st type of contained
+    ammunition.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weapon_rangelist_contents" name="weapon_rangelist_contents">
+            Token Name:
+        </a>
+    </strong>
+    WEAPON.[q.][r.]s.RANGELIST.n.u.CONTENTS.v.w
+</p>
+<p class="indent0">
+    <strong>
+        Suntoken Name:
+    </strong>
+    CONTENTS
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (v):
+    </strong>
+    Number
+    (Displays the properties of the v-th ammunition contained by the
+    s-th selected weapon at the n-th range increment, 0-based
+    index).
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text
+    (Weapon Property).
+</p>
+<ul class="indent2">
+    <li>
+        None - Displays n-th range increment of the selected
+        weapon.
+    </li>
+    <li>
+        DAMAGE - Displays the damage for the n-th range increment of
+        the selected weapon.
+    </li>
+    <li>
+        SPROP - Displays the special properties for the n-th ammunition
+        contained by the selected weapon.
+    </li>
+    <li>
+        TOTALHIT - Displays the complete hit progression for the n-th
+        range increment of the selected weapon.
+    </li>
+    <li>
+        TOTALHITx - Displays the x-th attacks to hit modifier for the
+        n-th range increment of the selected weapon (0-based index).
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays information about the contents the
+    selected weapon at the selected range increment.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WEAPON.0.RANGELIST.0.CONTENTS.0.DAMAGE</code>
+</p>
+<p class="indent3">
+    Displays the damage from the 1st type of
+    contained ammunition at point blank range fired by the 1st
+    weapon.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weaponh" name="weaponh">
+            Token
+            Name:
+        </a>
+    </strong>
+    WEAPONH.[q.][r.]s.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used:
+    </strong>
+    The same
+    options available to the
+    <a href="#weapon">
+        WEAPON
     </a>
-   </strong>
-   WEAPON.[q.][r.]s.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (q):
-   </strong>
-   Text (Merge
-Type - Optional).
-  </p>
-  <ul class="indent2">
-   <li>
-    MERGEALL - Causes all weapons with the same name to be merged -
-default behavior.
-   </li>
-   <li>
-    MERGELOC - Causes all weapons with the same name and in the
-same location to be merged.
-   </li>
-   <li>
-    MERGENONE - No weapons with the same name are merged.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (r):
-   </strong>
-   Text
-(Weapon Status - Optional).
-  </p>
-  <ul class="indent2">
-   <li>
-    CARRIED - Creates a 0-based index of carried or equipped
-weapons.
-   </li>
-   <li>
-    EQUIPPED - Creates a 0-based index of equipped weapons.
-   </li>
-   <li>
-    NOT_CARRIED - Creates a 0-based index of weapons that are not
-carried or equipped.
-   </li>
-   <li>
-    NOT_EQUIPPED - Creates a 0-based index of weapons that are not
-equipped (although they may be carried).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (s):
-   </strong>
-   Number -
-The weapons position in the character's weapon list - 0-based
-index
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text (The
-weapon property to be output).
-  </p>
-  <ul class="indent2">
-   <li>
-    ATTACKS - The number of attacks for weapon type (ie: 2 for
-double headed, etc).
-   </li>
-   <li>
-    ATTACKS - The number of attacks for weapon type (ie: 2 for
-double headed, etc).
-   </li>
-   <li>
-    BASEDAMAGE - The weapon's unadjusted damage (e.g. 1d8+3).
-   </li>
-   <li>
-    BASEDAMAGEBONUS - The weapon's unadjusted damage bonus (e.g.
-+3).
-   </li>
-   <li>
-    BASEHIT - The weapon's to hit containing most adjustments (no
-adjustment for two weapon fighting, even if weapons are equipped
-that way in the program).
-   </li>
-   <li>
-    BASICDAMAGE - The weapon's damage including most adjustments
-(no adjustment for which hand or hands are wielding the
-weapon).
-   </li>
-   <li>
-    BONUSDAMAGE - The weapon's bonus to damage (+1, etc.).
-   </li>
-   <li>
-    CATEGORY - The weapons category, such as Mithril, Melee,
-Slashing, etc.
-   </li>
-   <li>
-    CRIT - Weapon's Critical Range (ie 20 = 1, 19-20 = 2, 18-20 =
-3, 17-20 = 4).
-   </li>
-   <li>
-    DAMAGE - The amount of damage the weapon does.
-   </li>
-   <li>
-    FEATDAMAGE - Bonus to damage, based on feats.
-   </li>
-   <li>
-    FEATHIT - Bonus to hit, based on feats.
-   </li>
-   <li>
-    HAND - Hand that weapon is currently equipped in, Else
-none.
-   </li>
-   <li>
-    HEFT - Returns LIGHT, MEDIUM or HEAVY, looking for weapon size
-and character size. If the weapon is smaller, then it is LIGHT.
-This is not as useful in 3.5 mode because all weapons made for a
-specific sized character are the same size as the character and
-thus will always return MEDIUM. If the weapon is made for a smaller
-sized creature it will return LIGHT and if larger, HEAVY.
-   </li>
-   <li>
-    HIT - Weapon's modified bonus to hit, from character's total to
-hit bonus.
-   </li>
-   <li>
-    ISTYPE - Weapon's Type, for detecting if it is a Double Weapon
-or not.
-   </li>
-   <li>
-    LONGNAME - A more descriptive name.
-   </li>
-   <li>
-    MAGICDAMAGE - Weapon's magical bonus to damage.
-   </li>
-   <li>
-    MAGICHIT - Weapon's magical bonus to hit.
-   </li>
-   <li>
-    MISC - Returns all miscellaneous to hit bonuses.
-   </li>
-   <li>
-    MULT - Multiplier of Critical.
-   </li>
-   <li>
-    NAME(.NOSTAR) - Weapon's name (which matches the entry from the
-WEAPONPROF.LST file). If .NOSTAR is appended, the asterisk
-indicating whether the weapon is equipped will be stripped from the
-output.
-   </li>
-   <li>
-    NUMATTACKS - Displays the number of attacks the PC gets with
-the selected weapon.
-   </li>
-   <li>
-    OHDAMAGE - Displays the damage done by an offhand attack with
-the selected weapon (e.g. 1d8+1).
-   </li>
-   <li>
-    OHDAMAGEBONUS - Displays the damage bonus done by an offhand
-attack with the selected weapon (e.g. +1).
-   </li>
-   <li>
-    RANGE - Range of weapon, in feet.
-   </li>
-   <li>
-    RANGE.NOUNITS - Range of weapon, in feet (no ' indicator).
-   </li>
-   <li>
-    RATEOFFIRE - Rate of fire of the weapon, displayed as listed in
-the LST files following the RATEOFFIRE tag.
-   </li>
-   <li>
-    REACH - Reach of weapon, in feet.
-   </li>
-   <li>
-    SIZE - Size of weapon.
-   </li>
-   <li>
-    SIZEMOD - Returns the character size modifier.
-   </li>
-   <li>
-    SPROP - Special Properties of weapon.
-   </li>
-   <li>
-    TEMPLATEDAMAGE - Bonus to damage, from templates.
-   </li>
-   <li>
-    TEMPLATEHIT - Bonus to hit, from templates.
-   </li>
-   <li>
-    THDAMAGE - Displays the damage done by a two-handed attack with
-the selected weapon (e.g. 2d6+4).
-   </li>
-   <li>
-    THDAMAGEBONUS - Displays the damage bonus done by a two-handed
-attack with the selected weapon (e.g. +4).
-   </li>
-   <li>
-    TOTALHIT.x - The weapon's adjusted to hit bonuses for all
-attacks, or for attack x if it is specified (0-based index).
-   </li>
-   <li>
-    TWOHIT - The weapon's to hit bonuses if used in the off
-hand.
-   </li>
-   <li>
-    TWPHITH - The weapon's to hit bonuses if used in the primary
-hand with a heavy weapon in the other hand.
-   </li>
-   <li>
-    TWPHITL - The weapon's to hit bonuses if used in the primary
-hand with a light weapon in the other hand.
-   </li>
-   <li>
-    TYPE - Type of damage the weapon does.
-   </li>
-   <li>
-    WT - Weight of weapon in lbs.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays various information about a character's
-weapons. Note: Use the WEAPON token with the RANGELIST option (see
-below) if you want ammunition bonuses included.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WEAPON.0.SIZE</code>
-  </p>
-  <p class="indent3">
-   Displays the size of the first weapon.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weapon_rangelist" name="weapon_rangelist">
-     Token Name:
+    token.
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays information about the "Unarmed"
+    Weapon.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weapono" name="weapono">
+            Token
+            Name:
+        </a>
+    </strong>
+    WEAPONO.[q.][r.]s.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used:
+    </strong>
+    The same
+    options available to the
+    <a href="#weapon">
+        WEAPON
     </a>
-   </strong>
-   WEAPON.[q.][r.]s.RANGELIST.n.u
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (q):
-   </strong>
-   Text (Merge
-Type - Optional).
-  </p>
-  <ul class="indent2">
-   <li>
-    MERGEALL - Causes all weapons with the same name to be merged -
-default behavior.
-   </li>
-   <li>
-    MERGELOC - Causes all weapons with the same name and in the
-same location to be merged.
-   </li>
-   <li>
-    MERGENONE - No weapons with the same name are merged.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (r):
-   </strong>
-   Text
-(Weapon Status - Optional).
-  </p>
-  <ul class="indent2">
-   <li>
-    CARRIED - Creates a 0-based index of carried or equipped
-weapons.
-   </li>
-   <li>
-    EQUIPPED - Creates a 0-based index of equipped weapons.
-   </li>
-   <li>
-    NOT_CARRIED - Creates a 0-based index of weapons that are not
-carried or equipped.
-   </li>
-   <li>
-    NOT_EQUIPPED - Creates a 0-based index of weapons that are not
-equipped (although they may be carried).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (u):
-   </strong>
-   Text
-(Weapon Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    None - Displays n-th range increment of the selected
-weapon.
-   </li>
-   <li>
-    DAMAGE - Displays the damage for the n-th range increment of
-the selected weapon.
-   </li>
-   <li>
-    TOTALHIT - Displays the complete hit progression for the n-th
-range increment of the selected weapon.
-   </li>
-   <li>
-    TOTALHIT.x - Displays the x-th attacks to hit modifier for the
-n-th range increment of the selected weapon (0-based index).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Text (The
-weapon property to be output).
-  </p>
-  <ul class="indent2">
-   <li>
-    ATTACKS - The number of attacks for weapon type (ie: 2 for
-double headed, etc).
-   </li>
-   <li>
-    ATTACKS - The number of attacks for weapon type (ie: 2 for
-double headed, etc).
-   </li>
-   <li>
-    BASEDAMAGE - The weapon's unadjusted damage (e.g. 1d8+3).
-   </li>
-   <li>
-    BASEDAMAGEBONUS - The weapon's unadjusted damage bonus (e.g.
-+3).
-   </li>
-   <li>
-    BASEHIT - The weapon's to hit containing most adjustments (no
-adjustment for two weapon fighting, even if weapons are equipped
-that way in the program).
-   </li>
-   <li>
-    BASICDAMAGE - The weapon's damage including most adjustments
-(no adjustment for which hand or hands are wielding the
-weapon).
-   </li>
-   <li>
-    BONUSDAMAGE - The weapon's bonus to damage (+1, etc.).
-   </li>
-   <li>
-    CATEGORY - The weapons category, such as Mithril, Melee,
-Slashing, etc.
-   </li>
-   <li>
-    CRIT - Weapon's Critical Range (ie 20 = 1, 19-20 = 2, 18-20 =
-3, 17-20 = 4).
-   </li>
-   <li>
-    DAMAGE - The amount of damage the weapon does.
-   </li>
-   <li>
-    FEATHIT - Bonus to hit, based on feats.
-   </li>
-   <li>
-    HAND - Hand that weapon is currently equipped in, Else
-none.
-   </li>
-   <li>
-    HEFT - Returns LIGHT, MEDIUM or HEAVY, looking for weapon size
-and character size. If the weapon is smaller, then it is
-LIGHT.
-   </li>
-   <li>
-    HIT - Weapon's modified bonus to hit, from character's total to
-hit bonus.
-   </li>
-   <li>
-    LONGNAME - A more descriptive name.
-   </li>
-   <li>
-    MAGICDAMAGE - Weapon's magical bonus to damage.
-   </li>
-   <li>
-    MAGICHIT - Weapon's magical bonus to hit.
-   </li>
-   <li>
-    MISC - Returns all miscellaneous to hit bonuses.
-   </li>
-   <li>
-    MULT - Multiplier of Critical.
-   </li>
-   <li>
-    NAME(.NOSTAR) - Weapon's name (which matches the entry from the
-WEAPONPROF.LST file). If .NOSTAR is appended, the asterisk
-indicating whether the weapon is equipped will be stripped from the
-output.
-   </li>
-   <li>
-    NUMATTACKS - Displays the number of attacks the PC gets with
-the selected weapon.
-   </li>
-   <li>
-    OHDAMAGE - Displays the damage done by an offhand attack with
-the selected weapon (e.g. 1d8+1).
-   </li>
-   <li>
-    OHDAMAGEBONUS - Displays the damage bonus done by an offhand
-attack with the selected weapon (e.g. +1).
-   </li>
-   <li>
-    RANGE - Range of weapon, in feet.
-   </li>
-   <li>
-    RANGE.NOUNITS - Range of weapon, in feet (no ' indicator).
-   </li>
-   <li>
-    RATEOFFIRE - Rate of fire of the weapon, displayed as listed in
-the LST files following the RATEOFFIRE tag.
-   </li>
-   <li>
-    REACH - Reach of weapon, in the selected unit set.
-   </li>
-   <li>
-    REACHUNIT - The unit that the reach is measured in (normally ft
-or m)
-   </li>
-   <li>
-    SIZE - Size of weapon.
-   </li>
-   <li>
-    SIZEMOD - Returns the character size modifier.
-   </li>
-   <li>
-    SPROP - Special Properties of weapon.
-   </li>
-   <li>
-    TEMPLATE - Bonus to hit, from templates.
-   </li>
-   <li>
-    THDAMAGE - Displays the damage done by a two-handed attack with
-the selected weapon (e.g. 2d6+4).
-   </li>
-   <li>
-    THDAMAGEBONUS - Displays the damage bonus done by a two-handed
-attack with the selected weapon (e.g. +4).
-   </li>
-   <li>
-    TOTALHIT.x - The weapon's adjusted to hit bonuses for all
-attacks, or for attack x if it is specified (0-based index).
-   </li>
-   <li>
-    TWOHIT - The weapon's to hit bonuses if used in the off
-hand.
-   </li>
-   <li>
-    TWPHITH - The weapon's to hit bonuses if used in the primary
-hand with a heavy weapon in the other hand.
-   </li>
-   <li>
-    TWPHITL - The weapon's to hit bonuses if used in the primary
-hand with a light weapon in the other hand.
-   </li>
-   <li>
-    TYPE - Type of damage the weapon does.
-   </li>
-   <li>
-    WT - Weight of weapon in lbs.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays various attack information about a
-weapon depending on the range increment. The SHORTRANGE (as defined
-in the miscinfo.lst) is inserted into the range array if it is not
-already one of the weapon's standard increments.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WEAPON.0.RANGELIST.0</code>
-  </p>
-  <p class="indent3">
-   Would display the damage for the 1st range
-increment for the 1st weapon.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weapon_ammunition" name="weapon_ammunition">
-     Token Name:
+    token.
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays information about the Weapon equipped
+    to the off-hand.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weaponp" name="weaponp">
+            Token
+            Name:
+        </a>
+    </strong>
+    WEAPONP.[q.][r.]s.z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used:
+    </strong>
+    The same
+    options available to the
+    <a href="#weapon">
+        WEAPON
     </a>
-   </strong>
-   WEAPON.[q.][r.]s.RANGELIST.n.u.AMMUNITION.v.w
-  </p>
-  <p class="indent0">
-   <strong>
-    Suntoken Name:
-   </strong>
-   AMMUNITION (Can
-only be used with RANGELIST)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Number
-(Displays the properties of the v-th ammunition that will fit the
-s-th selected weapon at the n-th range increment, 0-based
-index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text
-(Weapon Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    None - Displays y-th range increment of the selected
-weapon.
-   </li>
-   <li>
-    DAMAGE - Displays the damage for the y-th range increment of
-the selected weapon.
-   </li>
-   <li>
-    SPROP - Displays the special properties for the y-th ammunition
-contained by the selected weapon.
-   </li>
-   <li>
-    TOTALHIT - Displays the complete hit progression for the y-th
-range increment of the selected weapon.
-   </li>
-   <li>
-    TOTALHITx - Displays the x-th attacks to hit modifier for the
-range increment of the selected weapon (0-based index).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays information about the ammunition types
-that will fit the selected weapon at the selected range
-increment.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WEAPON.0.RANGELIST.0.AMMUNITION.0.DAMAGE</code>
-  </p>
-  <p class="indent3">
-   Displays the damage from the 1st type of
-compatible ammunition at point blank range for the 1st weapon.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weapon_contents" name="weapon_contents">
-     Token Name:
-    </a>
-   </strong>
-   WEAPON.[q.][r.]s.CONTENTS.v.w
-  </p>
-  <p class="indent0">
-   <strong>
-    Suntoken Name:
-   </strong>
-   CONTENTS
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Number
-(Displays the properties of the v-th ammunition contained by the
-s-th selected weapon, 0-based index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text
-(Weapon Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    None - Displays name of the v-th selected contents of the s-th
-selected weapon.
-   </li>
-   <li>
-    QTY - Displays the number of the for the v-th ammunition
-contained by the s-th selected weapon.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays information about the contents the
-selected weapon.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WEAPON.0.CONTENTS.0</code>
-  </p>
-  <p class="indent3">
-   Displays the name of the 1st type of contained
-ammunition.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weapon_rangelist_contents" name="weapon_rangelist_contents">
-     Token Name:
-    </a>
-   </strong>
-   WEAPON.[q.][r.]s.RANGELIST.n.u.CONTENTS.v.w
-  </p>
-  <p class="indent0">
-   <strong>
-    Suntoken Name:
-   </strong>
-   CONTENTS
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (v):
-   </strong>
-   Number
-(Displays the properties of the v-th ammunition contained by the
-s-th selected weapon at the n-th range increment, 0-based
-index).
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text
-(Weapon Property).
-  </p>
-  <ul class="indent2">
-   <li>
-    None - Displays n-th range increment of the selected
-weapon.
-   </li>
-   <li>
-    DAMAGE - Displays the damage for the n-th range increment of
-the selected weapon.
-   </li>
-   <li>
-    SPROP - Displays the special properties for the n-th ammunition
-contained by the selected weapon.
-   </li>
-   <li>
-    TOTALHIT - Displays the complete hit progression for the n-th
-range increment of the selected weapon.
-   </li>
-   <li>
-    TOTALHITx - Displays the x-th attacks to hit modifier for the
-n-th range increment of the selected weapon (0-based index).
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays information about the contents the
-selected weapon at the selected range increment.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WEAPON.0.RANGELIST.0.CONTENTS.0.DAMAGE</code>
-  </p>
-  <p class="indent3">
-   Displays the damage from the 1st type of
-contained ammunition at point blank range fired by the 1st
-weapon.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weaponh" name="weaponh">
-     Token
-Name:
-    </a>
-   </strong>
-   WEAPONH.[q.][r.]s.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used:
-   </strong>
-   The same
-options available to the
-   <a href="#weapon">
-    WEAPON
-   </a>
-   token.
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays information about the "Unarmed"
-Weapon.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weapono" name="weapono">
-     Token
-Name:
-    </a>
-   </strong>
-   WEAPONO.[q.][r.]s.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used:
-   </strong>
-   The same
-options available to the
-   <a href="#weapon">
-    WEAPON
-   </a>
-   token.
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays information about the Weapon equipped
-to the off-hand.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weaponp" name="weaponp">
-     Token
-Name:
-    </a>
-   </strong>
-   WEAPONP.[q.][r.]s.z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used:
-   </strong>
-   The same
-options available to the
-   <a href="#weapon">
-    WEAPON
-   </a>
-   token.
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays information about the Weapon equipped
-to the primary hand.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="weaponprofs" name="weaponprofs">
-     Token Name:
-    </a>
-   </strong>
-   WEAPONPROFS
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Displays the characters weapon
-proficiencies.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>WEAPONPROFS</code>
-  </p>
-  <p class="indent3">
-   Displays the characters weapon
-proficiencies.
-  </p>
-  <p>
-  </p>
- </body>
+    token.
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays information about the Weapon equipped
+    to the primary hand.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="weaponprofs" name="weaponprofs">
+            Token Name:
+        </a>
+    </strong>
+    WEAPONPROFS
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Displays the characters weapon
+    proficiencies.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>WEAPONPROFS</code>
+</p>
+<p class="indent3">
+    Displays the characters weapon
+    proficiencies.
+</p>
+<p>
+</p>
+</body>
 </html>

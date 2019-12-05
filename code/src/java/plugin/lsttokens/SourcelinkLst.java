@@ -11,31 +11,31 @@ import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 public class SourcelinkLst extends AbstractStringToken<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>, InstallLstToken
+        implements CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SOURCELINK";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SOURCELINK";
+    }
 
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.SOURCE_LINK;
-	}
+    @Override
+    protected StringKey stringKey()
+    {
+        return StringKey.SOURCE_LINK;
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 
-	@Override
-	public boolean parse(Campaign campaign, String value, URI sourceURI)
-	{
-		campaign.put(StringKey.SOURCE_LINK, value);
-		return true;
-	}
+    @Override
+    public boolean parse(Campaign campaign, String value, URI sourceURI)
+    {
+        campaign.put(StringKey.SOURCE_LINK, value);
+        return true;
+    }
 }

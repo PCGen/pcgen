@@ -24,38 +24,41 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class SizeMod extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {
-		"NUMBER"
-		};
+    private static final String[] BONUS_TAGS = {
+            "NUMBER"
+    };
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "SIZEMOD";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "SIZEMOD";
+    }
 
-	/**
-	 * Get by index, an individual type of SizeMOD that may be bonused.
-	 * @param tagNumber the index of the SizeMOD type.
-	 * @return The type of SizeMOD.
-	 */
-	@Override
-	protected String getBonusTag(final int tagNumber)
-	{
-		return BONUS_TAGS[tagNumber];
-	}
+    /**
+     * Get by index, an individual type of SizeMOD that may be bonused.
+     *
+     * @param tagNumber the index of the SizeMOD type.
+     * @return The type of SizeMOD.
+     */
+    @Override
+    protected String getBonusTag(final int tagNumber)
+    {
+        return BONUS_TAGS[tagNumber];
+    }
 
-	/**
-	 * Get the number of types of SizeMod that may be bonused.
-	 * @return The number of SizeMOD types.
-	 */
-	@Override
-	protected int getBonusTagLength()
-	{
-		return BONUS_TAGS.length;
-	}
+    /**
+     * Get the number of types of SizeMod that may be bonused.
+     *
+     * @return The number of SizeMOD types.
+     */
+    @Override
+    protected int getBonusTagLength()
+    {
+        return BONUS_TAGS.length;
+    }
 }

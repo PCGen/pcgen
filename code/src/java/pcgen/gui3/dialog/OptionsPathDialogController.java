@@ -39,103 +39,103 @@ import org.apache.commons.lang3.SystemUtils;
 
 public class OptionsPathDialogController
 {
-	private final OptionsPathDialogModel model = new OptionsPathDialogModel();
+    private final OptionsPathDialogModel model = new OptionsPathDialogModel();
 
-	@FXML
-	private RadioButton freedesktop;
+    @FXML
+    private RadioButton freedesktop;
 
-	@FXML
-	private RadioButton macUserDir;
+    @FXML
+    private RadioButton macUserDir;
 
-	@FXML
-	private TextField dirSelection;
+    @FXML
+    private TextField dirSelection;
 
-	@FXML
-	private Button selectButton;
+    @FXML
+    private Button selectButton;
 
-	@FXML
-	private ToggleGroup directoryGroup;
+    @FXML
+    private ToggleGroup directoryGroup;
 
-	@FXML
-	private ButtonBar ok;
+    @FXML
+    private ButtonBar ok;
 
-	@FXML
-	private RadioButton select;
+    @FXML
+    private RadioButton select;
 
-	@FXML
-	private Scene optionsPathDialogScene;
+    @FXML
+    private Scene optionsPathDialogScene;
 
-	@FXML
-	void initialize()
-	{
-		model.directoryProperty().bindBidirectional(dirSelection.textProperty());
-		select.selectedProperty().addListener((
-				(observable, oldValue, newValue) -> {
-					dirSelection.setDisable(!select.isSelected());
-					dirSelection.setEditable(select.isSelected());
-					selectButton.setDisable(!select.isSelected());
-				}));
+    @FXML
+    void initialize()
+    {
+        model.directoryProperty().bindBidirectional(dirSelection.textProperty());
+        select.selectedProperty().addListener((
+                (observable, oldValue, newValue) -> {
+                    dirSelection.setDisable(!select.isSelected());
+                    dirSelection.setEditable(select.isSelected());
+                    selectButton.setDisable(!select.isSelected());
+                }));
 
-		if (!SystemUtils.IS_OS_MAC_OSX)
-		{
-			macUserDir.setVisible(false);
-		}
-		if (!SystemUtils.IS_OS_UNIX)
-		{
-			freedesktop.setVisible(false);
-		}
+        if (!SystemUtils.IS_OS_MAC_OSX)
+        {
+            macUserDir.setVisible(false);
+        }
+        if (!SystemUtils.IS_OS_UNIX)
+        {
+            freedesktop.setVisible(false);
+        }
 
-		directoryGroup.selectedToggleProperty().addListener((observable, oldValue, newValue)  -> {
-			Logging.debugPrint("toggle changed " + observable);
-			if (newValue.getUserData() != null)
-			{
-				String userData = (String) newValue.getUserData();
-				Logging.debugPrint("user data is " + userData);
-				String newDir = ConfigurationSettings.getSettingsDirFromFilePath(userData);
-				model.directoryProperty().setValue(newDir);
-			}
-		});
-	}
+        directoryGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            Logging.debugPrint("toggle changed " + observable);
+            if (newValue.getUserData() != null)
+            {
+                String userData = (String) newValue.getUserData();
+                Logging.debugPrint("user data is " + userData);
+                String newDir = ConfigurationSettings.getSettingsDirFromFilePath(userData);
+                model.directoryProperty().setValue(newDir);
+            }
+        });
+    }
 
-	@FXML
-	private void onConfirm(final ActionEvent actionEvent)
-	{
-		ConfigurationSettings.setSystemProperty(
-				ConfigurationSettings.SETTINGS_FILES_PATH,
-				model.directoryProperty().getValue()
-		);
-		optionsPathDialogScene.getWindow().hide();
-	}
+    @FXML
+    private void onConfirm(final ActionEvent actionEvent)
+    {
+        ConfigurationSettings.setSystemProperty(
+                ConfigurationSettings.SETTINGS_FILES_PATH,
+                model.directoryProperty().getValue()
+        );
+        optionsPathDialogScene.getWindow().hide();
+    }
 
-	@FXML
-	private void doChooser(final ActionEvent actionEvent)
-	{
-		DirectoryChooser directoryChooser = new DirectoryChooser();
-		String modelDirectory = model.directoryProperty().getValue();
-		if (!modelDirectory.isBlank())
-		{
-			directoryChooser.setInitialDirectory(new File(model.directoryProperty().getValue()));
-		}
+    @FXML
+    private void doChooser(final ActionEvent actionEvent)
+    {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        String modelDirectory = model.directoryProperty().getValue();
+        if (!modelDirectory.isBlank())
+        {
+            directoryChooser.setInitialDirectory(new File(model.directoryProperty().getValue()));
+        }
 
-		File dir = directoryChooser.showDialog(optionsPathDialogScene.getWindow());
+        File dir = directoryChooser.showDialog(optionsPathDialogScene.getWindow());
 
-		if (dir != null)
-		{
-			if (dir.listFiles().length > 0)
-			{
-				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-				alert.setTitle("Directory Not Empty");
-				alert.setContentText("The folder " + dir.getAbsolutePath() + " is not empty.\n"
-						+ "All ini files in this directory may be overwritten. " + "Are you sure?");
-				Optional<ButtonType> buttonType = alert.showAndWait();
-				buttonType.ifPresent(option -> {
-					if (option != ButtonType.YES)
-					{
-						return;
-					}
-				});
-			}
-			model.directoryProperty().setValue(dir.getAbsolutePath());
-		}
-	}
+        if (dir != null)
+        {
+            if (dir.listFiles().length > 0)
+            {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Directory Not Empty");
+                alert.setContentText("The folder " + dir.getAbsolutePath() + " is not empty.\n"
+                        + "All ini files in this directory may be overwritten. " + "Are you sure?");
+                Optional<ButtonType> buttonType = alert.showAndWait();
+                buttonType.ifPresent(option -> {
+                    if (option != ButtonType.YES)
+                    {
+                        return;
+                    }
+                });
+            }
+            model.directoryProperty().setValue(dir.getAbsolutePath());
+        }
+    }
 }

@@ -24,39 +24,34 @@ import pcgen.rules.context.LoadContext;
 /**
  * A PrimitiveToken is an object that can select zero or more objects of a
  * specific type of object.
- * 
+ * <p>
  * This is typically processed as part of a CHOOSE. The syntax of a Primitive is
  * Key=Value[Args]. The Key is returned from the LstToken interface, the value
  * and args are provided to the initialize method.
- * 
- * @param <T>
- *            The Type of object processed by the PrimitiveToken
+ *
+ * @param <T> The Type of object processed by the PrimitiveToken
  */
 public interface PrimitiveToken<T> extends LstToken, PrimitiveCollection<T>
 {
 
-	/**
-	 * Initializes the PrimitiveToken with the content of the
-	 * PrimitiveCollection as defined by the arguments.
-	 * 
-	 * This method returns true if initialization was successful. If
-	 * initialization is not successful, then it should not be used as a
-	 * PrimitiveCollection.
-	 * 
-	 * Note that any qualifier may or may not support args; that is up to the
-	 * implementation. However, any non-support should be identified by
-	 * returning false, rather than throwing an exception.
-	 * 
-	 * @param context
-	 *            The LoadContext to be used to get necessary information to
-	 *            initialize the PrimitiveToken
-	 * @param cl
-	 *            The Class of object on which this PrimitiveToken is operating
-	 * @param value
-	 *            The value of the primitive
-	 * @param args
-	 *            The arguments to the primitive
-	 * @return true if initialization was successful; false otherwise
-	 */
+    /**
+     * Initializes the PrimitiveToken with the content of the
+     * PrimitiveCollection as defined by the arguments.
+     * <p>
+     * This method returns true if initialization was successful. If
+     * initialization is not successful, then it should not be used as a
+     * PrimitiveCollection.
+     * <p>
+     * Note that any qualifier may or may not support args; that is up to the
+     * implementation. However, any non-support should be identified by
+     * returning false, rather than throwing an exception.
+     *
+     * @param context The LoadContext to be used to get necessary information to
+     *                initialize the PrimitiveToken
+     * @param cl      The Class of object on which this PrimitiveToken is operating
+     * @param value   The value of the primitive
+     * @param args    The arguments to the primitive
+     * @return true if initialization was successful; false otherwise
+     */
     boolean initialize(LoadContext context, Class<T> cl, String value, String args);
 }

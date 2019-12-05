@@ -11,23 +11,22 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class SquaresizeToken implements GameModeLstToken
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "SQUARESIZE";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SQUARESIZE";
+    }
 
-	@Override
-	public boolean parse(GameMode gameMode, String value, URI source)
-	{
-		try
-		{
-			gameMode.setSquareSize(Double.parseDouble(value));
-			return true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return false;
-		}
-	}
+    @Override
+    public boolean parse(GameMode gameMode, String value, URI source)
+    {
+        try
+        {
+            gameMode.setSquareSize(Double.parseDouble(value));
+            return true;
+        } catch (NumberFormatException nfe)
+        {
+            return false;
+        }
+    }
 }

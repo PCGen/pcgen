@@ -27,42 +27,42 @@ import pcgen.rules.persistence.TokenUtilities;
  */
 public final class SkillRank extends BonusObj
 {
-	private static final Class<pcgen.core.Skill> SKILL_CLASS = pcgen.core.Skill.class;
+    private static final Class<pcgen.core.Skill> SKILL_CLASS = pcgen.core.Skill.class;
 
-	@Override
-	protected boolean parseToken(LoadContext context, final String token)
-	{
-		if (token.startsWith(Constants.LST_TYPE_EQUAL))
-		{
-			addBonusInfo(token.replace('=', '.'));
-		}
-		else
-		{
-			addBonusInfo(token);
-		}
+    @Override
+    protected boolean parseToken(LoadContext context, final String token)
+    {
+        if (token.startsWith(Constants.LST_TYPE_EQUAL))
+        {
+            addBonusInfo(token.replace('=', '.'));
+        } else
+        {
+            addBonusInfo(token);
+        }
 
-		if (!token.equals("LIST") && !token.equals("%LIST") && !token.equals("%CHOICE") && !token.equals("%VAR"))
-		{
-			//This is done entirely for the side effects
-			context.forgetMeNot(TokenUtilities.getReference(context, SKILL_CLASS, token));
-		}
+        if (!token.equals("LIST") && !token.equals("%LIST") && !token.equals("%CHOICE") && !token.equals("%VAR"))
+        {
+            //This is done entirely for the side effects
+            context.forgetMeNot(TokenUtilities.getReference(context, SKILL_CLASS, token));
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	protected String unparseToken(final Object obj)
-	{
-		return (String) obj;
-	}
+    @Override
+    protected String unparseToken(final Object obj)
+    {
+        return (String) obj;
+    }
 
-	/**
-	 * Return the bonus tag handled by this class.
-	 * @return The bonus handled by this class.
-	 */
-	@Override
-	public String getBonusHandled()
-	{
-		return "SKILLRANK";
-	}
+    /**
+     * Return the bonus tag handled by this class.
+     *
+     * @return The bonus handled by this class.
+     */
+    @Override
+    public String getBonusHandled()
+    {
+        return "SKILLRANK";
+    }
 }

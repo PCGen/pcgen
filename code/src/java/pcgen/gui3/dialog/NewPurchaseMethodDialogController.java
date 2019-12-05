@@ -38,75 +38,75 @@ import javafx.stage.Window;
  */
 public class NewPurchaseMethodDialogController
 {
-	private final NewPurchaseMethodModel model = new NewPurchaseMethodModel();
-	@FXML
-	private Scene newPurchaseDialog;
-	@FXML
-	private TextField nameEdit;
+    private final NewPurchaseMethodModel model = new NewPurchaseMethodModel();
+    @FXML
+    private Scene newPurchaseDialog;
+    @FXML
+    private TextField nameEdit;
 
-	// should this be a slider or other numeric thing?
-	@FXML
-	private Slider pointsEdit;
-	@FXML
-	private Label shownCount;
+    // should this be a slider or other numeric thing?
+    @FXML
+    private Slider pointsEdit;
+    @FXML
+    private Label shownCount;
 
-	@FXML
-	void initialize()
-	{
-		model.nameProperty().bind(nameEdit.textProperty());
-		model.pointsProperty().bind(pointsEdit.valueProperty());
-	}
+    @FXML
+    void initialize()
+    {
+        model.nameProperty().bind(nameEdit.textProperty());
+        model.pointsProperty().bind(pointsEdit.valueProperty());
+    }
 
-	@FXML
-	private void onOk(final ActionEvent actionEvent)
-	{
-		// possibly replace with ControlsFX validation framework
+    @FXML
+    private void onOk(final ActionEvent actionEvent)
+    {
+        // possibly replace with ControlsFX validation framework
 
-		if (getEnteredName().isEmpty())
-		{
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle(Constants.APPLICATION_NAME);
-			// todo: i18n
-			alert.setContentText("Please enter a name for this method.");
-			alert.initOwner(newPurchaseDialog.getWindow());
-			alert.showAndWait();
-			return;
-		}
+        if (getEnteredName().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(Constants.APPLICATION_NAME);
+            // todo: i18n
+            alert.setContentText("Please enter a name for this method.");
+            alert.initOwner(newPurchaseDialog.getWindow());
+            alert.showAndWait();
+            return;
+        }
 
-		model.setCancelled(false);
-		Platform.runLater(() -> {
-			Window window = newPurchaseDialog.getWindow();
-			window.hide();
-		});
-	}
+        model.setCancelled(false);
+        Platform.runLater(() -> {
+            Window window = newPurchaseDialog.getWindow();
+            window.hide();
+        });
+    }
 
-	@FXML
-	private void onCancel(final ActionEvent actionEvent)
-	{
-		model.setCancelled(true);
-		Platform.runLater(() -> {
-			Window window = newPurchaseDialog.getWindow();
-			window.hide();
-		});
-	}
+    @FXML
+    private void onCancel(final ActionEvent actionEvent)
+    {
+        model.setCancelled(true);
+        Platform.runLater(() -> {
+            Window window = newPurchaseDialog.getWindow();
+            window.hide();
+        });
+    }
 
-	public boolean isCancelled()
-	{
-		return model.isCancelled();
-	}
+    public boolean isCancelled()
+    {
+        return model.isCancelled();
+    }
 
-	public String getEnteredName()
-	{
-		// shouldn't this be part of the model - rather than have the controller modify
-		// and pass through
-		// should we just directly return the model and let the caller get it from
-		// the property ?
-		return model.nameProperty().get().trim();
-	}
+    public String getEnteredName()
+    {
+        // shouldn't this be part of the model - rather than have the controller modify
+        // and pass through
+        // should we just directly return the model and let the caller get it from
+        // the property ?
+        return model.nameProperty().get().trim();
+    }
 
-	public int getEnteredPoints()
-	{
-		return model.pointsProperty().get();
-	}
+    public int getEnteredPoints()
+    {
+        return model.pointsProperty().get();
+    }
 
 }

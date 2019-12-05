@@ -29,54 +29,53 @@ import pcgen.facade.core.UIDelegate;
 @Deprecated()
 public final class ChooserFactory
 {
-	private static UIDelegate delegate;
-	private static  boolean useRandomChooser = false;
+    private static UIDelegate delegate;
+    private static boolean useRandomChooser = false;
 
-	private ChooserFactory()
-	{
-	}
+    private ChooserFactory()
+    {
+    }
 
-	/**
-	 * Retrieve an optional handler for making choices. If no handler is 
-	 * currently registered, it is expected that the UI class caller will 
-	 * display an interactive dialog. If multiple handlers are currently 
-	 * registered the most recently registered (LIFO) will be returned.
-	 * 
-	 * @return The most recently registered ChoiceHandler, if any.
-	 */
-	public static Optional<RandomChooser> getChoiceHandler()
-	{
-		if (useRandomChooser)
-		{
-			return Optional.of(new RandomChooser());
-		}
-		else
-		{
-			return Optional.empty();
-		}
-	}
+    /**
+     * Retrieve an optional handler for making choices. If no handler is
+     * currently registered, it is expected that the UI class caller will
+     * display an interactive dialog. If multiple handlers are currently
+     * registered the most recently registered (LIFO) will be returned.
+     *
+     * @return The most recently registered ChoiceHandler, if any.
+     */
+    public static Optional<RandomChooser> getChoiceHandler()
+    {
+        if (useRandomChooser)
+        {
+            return Optional.of(new RandomChooser());
+        } else
+        {
+            return Optional.empty();
+        }
+    }
 
-	/**
-	 * Used by tests to use random choice.
-	 */
-	public static void useRandomChooser()
-	{
-		useRandomChooser = true;
-	}
+    /**
+     * Used by tests to use random choice.
+     */
+    public static void useRandomChooser()
+    {
+        useRandomChooser = true;
+    }
 
-	/**
-	 * @return the delegate
-	 */
-	public static UIDelegate getDelegate()
-	{
-		return delegate;
-	}
+    /**
+     * @return the delegate
+     */
+    public static UIDelegate getDelegate()
+    {
+        return delegate;
+    }
 
-	/**
-	 * @param delegate the delgate to set
-	 */
-	public static void setDelegate(UIDelegate delegate)
-	{
-		ChooserFactory.delegate = delegate;
-	}
+    /**
+     * @param delegate the delgate to set
+     */
+    public static void setDelegate(UIDelegate delegate)
+    {
+        ChooserFactory.delegate = delegate;
+    }
 }

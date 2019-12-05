@@ -26,24 +26,24 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Deals with SUBREGION export token 
+ * Deals with SUBREGION export token
  */
 public class SubRegionToken extends AbstractExportToken
 {
-	@Override
-	public String getTokenName()
-	{
-		return "SUBREGION";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SUBREGION";
+    }
 
-	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
-	{
-		StringBuilder sb = new StringBuilder(40);
-		sb.append(display.getRegionString());
-		Optional<SubRegion> subRegion = display.getSubRegion();
+    @Override
+    public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+    {
+        StringBuilder sb = new StringBuilder(40);
+        sb.append(display.getRegionString());
+        Optional<SubRegion> subRegion = display.getSubRegion();
         subRegion.ifPresent(region -> sb.append(" (").append(region.toString()).append(')'));
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 }

@@ -24,19 +24,19 @@ import pcgen.core.character.EquipSet;
 
 public class EquipSetFacetTest extends AbstractListFacetTest<EquipSet>
 {
-	private EquipSetFacet facet = new EquipSetFacet();
+    private EquipSetFacet facet = new EquipSetFacet();
 
-	@Override
-	protected AbstractListFacet<CharID, EquipSet> getFacet()
-	{
-		return facet;
-	}
+    @Override
+    protected AbstractListFacet<CharID, EquipSet> getFacet()
+    {
+        return facet;
+    }
 
-	private int n = 1;
+    private int n = 1;
 
-	@Override
-	protected EquipSet getObject()
-	{
-		return new EquipSet("0." + n++, "Start");
-	}
+    @Override
+    protected EquipSet getObject()
+    {
+        return new EquipSet("0." + n++, "Start");
+    }
 }

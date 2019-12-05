@@ -22,44 +22,42 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * The Class {@code EQPlusTotalTermEvaluator} is responsible for producing
- * the value of the PLUS token for use in equipment and eqmod cost formulas. 
- * 
- * 
+ * the value of the PLUS token for use in equipment and eqmod cost formulas.
  */
 public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
 
-	/**
-	 * Instantiates a new eQ plus term evaluator.
-	 * 
-	 * @param expressionString the expression string
-	 */
-	public EQPlusTotalTermEvaluator(String expressionString)
-	{
-		this.originalText = expressionString;
-	}
+    /**
+     * Instantiates a new eQ plus term evaluator.
+     *
+     * @param expressionString the expression string
+     */
+    public EQPlusTotalTermEvaluator(String expressionString)
+    {
+        this.originalText = expressionString;
+    }
 
-	@Override
-	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
-	{
-		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
-	}
+    @Override
+    public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
+    {
+        return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
+    }
 
-	@Override
-	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
-	{
-		return Integer.toString(eq.calcPlusForHead(true));
-	}
+    @Override
+    public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+    {
+        return Integer.toString(eq.calcPlusForHead(true));
+    }
 
-	@Override
-	public boolean isSourceDependant()
-	{
-		return false;
-	}
+    @Override
+    public boolean isSourceDependant()
+    {
+        return false;
+    }
 
-	public boolean isStatic()
-	{
-		return false;
-	}
+    public boolean isStatic()
+    {
+        return false;
+    }
 
 }

@@ -35,44 +35,46 @@ import org.junit.jupiter.api.Test;
 public class SourceEntryTest
 {
 
-	private Campaign campaign;
-	
-	@BeforeEach
-	public void setUp() {
+    private Campaign campaign;
 
-		campaign = new Campaign();
-		campaign.put(StringKey.PUB_NAME_WEB, "PubWeb");
-		campaign.put(StringKey.PUB_NAME_SHORT, "PubShort");
-		campaign.put(StringKey.PUB_NAME_LONG, "PubLong");
-		campaign.put(StringKey.SOURCE_LONG, "LongName");
-		campaign.put(StringKey.SOURCE_SHORT, "ShortName");
-		campaign.put(StringKey.SOURCE_WEB, "http://website");
-		campaign.put(ObjectKey.SOURCE_CAMPAIGN, campaign);
-	}
+    @BeforeEach
+    public void setUp()
+    {
 
-	@AfterEach
-	public void tearDown() {
-		campaign = null;
-	}
+        campaign = new Campaign();
+        campaign.put(StringKey.PUB_NAME_WEB, "PubWeb");
+        campaign.put(StringKey.PUB_NAME_SHORT, "PubShort");
+        campaign.put(StringKey.PUB_NAME_LONG, "PubLong");
+        campaign.put(StringKey.SOURCE_LONG, "LongName");
+        campaign.put(StringKey.SOURCE_SHORT, "ShortName");
+        campaign.put(StringKey.SOURCE_WEB, "http://website");
+        campaign.put(ObjectKey.SOURCE_CAMPAIGN, campaign);
+    }
 
-	/**
-	 * Test method for
-	 * {@link SourceFormat#getFormattedString(CDOMObject, SourceFormat, boolean)}.
-	 */
-	@Test
-	public void testGetFormattedString()
-	{
-		campaign.put(StringKey.SOURCE_PAGE, "42");
-		assertEquals("PubWeb - http://website", SourceFormat
-				.getFormattedString(campaign, SourceFormat.WEB, true), "Web");
-		assertEquals("ShortName, 42", SourceFormat.getFormattedString(
-				campaign, SourceFormat.SHORT, true), "Short");
-		assertEquals("LongName", SourceFormat.getFormattedString(
-				campaign, SourceFormat.MEDIUM, false), "Medium");
-		assertEquals("PubLong - LongName, 42", SourceFormat
-				.getFormattedString(campaign, SourceFormat.LONG, true), "Long");
-		campaign.put(StringKey.PUB_NAME_LONG, "");
-		assertEquals("LongName, 42", SourceFormat.getFormattedString(
-				campaign, SourceFormat.LONG, true), "Long");
-	}
+    @AfterEach
+    public void tearDown()
+    {
+        campaign = null;
+    }
+
+    /**
+     * Test method for
+     * {@link SourceFormat#getFormattedString(CDOMObject, SourceFormat, boolean)}.
+     */
+    @Test
+    public void testGetFormattedString()
+    {
+        campaign.put(StringKey.SOURCE_PAGE, "42");
+        assertEquals("PubWeb - http://website", SourceFormat
+                .getFormattedString(campaign, SourceFormat.WEB, true), "Web");
+        assertEquals("ShortName, 42", SourceFormat.getFormattedString(
+                campaign, SourceFormat.SHORT, true), "Short");
+        assertEquals("LongName", SourceFormat.getFormattedString(
+                campaign, SourceFormat.MEDIUM, false), "Medium");
+        assertEquals("PubLong - LongName, 42", SourceFormat
+                .getFormattedString(campaign, SourceFormat.LONG, true), "Long");
+        campaign.put(StringKey.PUB_NAME_LONG, "");
+        assertEquals("LongName, 42", SourceFormat.getFormattedString(
+                campaign, SourceFormat.LONG, true), "Long");
+    }
 }

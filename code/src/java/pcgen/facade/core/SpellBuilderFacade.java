@@ -21,82 +21,81 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 
 /**
- * SpellBuilderFacade defines the interface between the UI and the core to be 
- * used for selection of spells. 
- * 
- * 
+ * SpellBuilderFacade defines the interface between the UI and the core to be
+ * used for selection of spells.
  */
 public interface SpellBuilderFacade
 {
-	void setClass(InfoFacade classFacade);
+    void setClass(InfoFacade classFacade);
 
-	ReferenceFacade<InfoFacade> getClassRef();
+    ReferenceFacade<InfoFacade> getClassRef();
 
-	/**
-	 * @return The list of possible casting classes and domains.
-	 */
+    /**
+     * @return The list of possible casting classes and domains.
+     */
     ListFacade<InfoFacade> getClasses();
 
-	void setSpellLevel(Integer spellLevel);
+    void setSpellLevel(Integer spellLevel);
 
-	ReferenceFacade<Integer> getSpellLevelRef();
+    ReferenceFacade<Integer> getSpellLevelRef();
 
-	/**
-	 * @return The list of valid spell levels for this choice.
-	 */
+    /**
+     * @return The list of valid spell levels for this choice.
+     */
     ListFacade<Integer> getLevels();
 
-	void setSpell(InfoFacade spell);
+    void setSpell(InfoFacade spell);
 
-	ReferenceFacade<InfoFacade> getSpellRef();
+    ReferenceFacade<InfoFacade> getSpellRef();
 
-	/**
-	 * @return The list of spells the user can select from.
-	 */
+    /**
+     * @return The list of spells the user can select from.
+     */
     ListFacade<InfoFacade> getSpells();
 
-	void setVariant(String variant);
+    void setVariant(String variant);
 
-	ReferenceFacade<String> getVariantRef();
+    ReferenceFacade<String> getVariantRef();
 
-	/**
-	 * @return The list of variants (if any) of the spell.
-	 */
+    /**
+     * @return The list of variants (if any) of the spell.
+     */
     ListFacade<String> getVariants();
 
-	void setCasterLevel(Integer casterLevel);
+    void setCasterLevel(Integer casterLevel);
 
-	ReferenceFacade<Integer> getCasterLevelRef();
+    ReferenceFacade<Integer> getCasterLevelRef();
 
-	/**
-	 * @return The list of valid caster levels for the spell and class 
-	 * combination.
-	 */
+    /**
+     * @return The list of valid caster levels for the spell and class
+     * combination.
+     */
     ListFacade<Integer> getCasterLevels();
 
-	void setSpellType(String spellType);
+    void setSpellType(String spellType);
 
-	ReferenceFacade<String> getSpellTypeRef();
+    ReferenceFacade<String> getSpellTypeRef();
 
-	/**
-	 * @return The list of valid spell types for the current class or domain.
-	 */
+    /**
+     * @return The list of valid spell types for the current class or domain.
+     */
     ListFacade<String> getSpellTypes();
 
-	/**
-	 * @return The metamagic feats that the user has selected.
-	 */
+    /**
+     * @return The metamagic feats that the user has selected.
+     */
     ListFacade<AbilityFacade> getSelectedMetamagicFeats();
 
-	/**
-	 * Set a new set of metamagic feats.
-	 * @param newFeats The metamagic feats that the user has selected.
-	 */
+    /**
+     * Set a new set of metamagic feats.
+     *
+     * @param newFeats The metamagic feats that the user has selected.
+     */
     void setSelectedMetamagicFeats(Object[] newFeats);
 
-	/**
-	 * @return The list of metamagic feats that can be applied to spells.
-	 */
+    /**
+     * @return The list of metamagic feats that can be applied to spells.
+     */
     ListFacade<AbilityFacade> getAvailMetamagicFeats();
 
 }

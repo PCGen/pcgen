@@ -22,35 +22,34 @@ import java.util.List;
 /**
  * The interface {@code CoreViewNodeFacade} represents a node in the Core View
  * debugging tool. This exposes the objects within the core for inspection.
- *
- * 
  */
 public interface CoreViewNodeFacade
 {
 
-	/**
-	 * Retrieve a list of the nodes which grant this node.
-	 * @return The child nodes.
-	 */
+    /**
+     * Retrieve a list of the nodes which grant this node.
+     *
+     * @return The child nodes.
+     */
     List<CoreViewNodeFacade> getGrantedByNodes();
 
-	/**
-	 * @return The type of node that this is.
-	 */
+    /**
+     * @return The type of node that this is.
+     */
     String getNodeType();
 
-	/**
-	 * @return The key of this node, if any.
-	 */
+    /**
+     * @return The key of this node, if any.
+     */
     String getKey();
 
-	/**
-	 * @return The source (i.e. LST dataset) where this node is defined.
-	 */
+    /**
+     * @return The source (i.e. LST dataset) where this node is defined.
+     */
     String getSource();
 
-	/**
-	 * @return A description of the requirements needed to take this object.
-	 */
+    /**
+     * @return A description of the requirements needed to take this object.
+     */
     String getRequirements();
 }

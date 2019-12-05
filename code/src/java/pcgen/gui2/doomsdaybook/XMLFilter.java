@@ -22,16 +22,16 @@ import java.io.File;
 public class XMLFilter implements java.io.FilenameFilter
 {
 
-	/**
-	 * Returns true if file matches *.xml
-	 * 
-	 * @param file 
-	 * @param str 
-	 * @return true if filter matches *.xml
-	 */
-	@Override
-	public boolean accept(File file, String str)
-	{
-		return str.matches(".*\\.xml$");
-	}
+    /**
+     * Returns true if file matches *.xml
+     *
+     * @param file
+     * @param str
+     * @return true if filter matches *.xml
+     */
+    @Override
+    public boolean accept(File file, String str)
+    {
+        return str.matches(".*\\.xml$");
+    }
 }

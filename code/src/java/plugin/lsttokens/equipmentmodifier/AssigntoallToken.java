@@ -26,24 +26,24 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * Deals with ASSIGNTOALL token
  */
 public class AssigntoallToken extends AbstractYesNoToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+        implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "ASSIGNTOALL";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ASSIGNTOALL";
+    }
 
-	@Override
-	protected ObjectKey<Boolean> getObjectKey()
-	{
-		return ObjectKey.ASSIGN_TO_ALL;
-	}
+    @Override
+    protected ObjectKey<Boolean> getObjectKey()
+    {
+        return ObjectKey.ASSIGN_TO_ALL;
+    }
 
-	@Override
-	public Class<EquipmentModifier> getTokenClass()
-	{
-		return EquipmentModifier.class;
-	}
+    @Override
+    public Class<EquipmentModifier> getTokenClass()
+    {
+        return EquipmentModifier.class;
+    }
 }

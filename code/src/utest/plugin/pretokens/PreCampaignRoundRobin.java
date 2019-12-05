@@ -26,39 +26,37 @@ import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code PreCampaignRoundRobin} is responsible for testing
- * that PRECAMPAIGN tags can be read and written. 
- * 
- * 
+ * that PRECAMPAIGN tags can be read and written.
  */
 public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 {
-	@BeforeEach
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		TokenRegistration.register(new PreCampaignParser());
-		TokenRegistration.register(new PreCampaignWriter());
-	}
+    @BeforeEach
+    @Override
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        TokenRegistration.register(new PreCampaignParser());
+        TokenRegistration.register(new PreCampaignWriter());
+    }
 
-	@Override
-	public String getBaseString()
-	{
-		return "CAMPAIGN";
-	}
+    @Override
+    public String getBaseString()
+    {
+        return "CAMPAIGN";
+    }
 
-	@Override
-	public boolean isTypeAllowed()
-	{
-		return false;
-	}
+    @Override
+    public boolean isTypeAllowed()
+    {
+        return false;
+    }
 
-	@Test
-	public void testNegateItem()
-	{
-		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
-				"PREMULT:2,[PRE" + getBaseString() + ":1,Foo],[!PRE"
-						+ getBaseString() + ":1,TYPE=Bar]");
-	}
+    @Test
+    public void testNegateItem()
+    {
+        AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
+                "PREMULT:2,[PRE" + getBaseString() + ":1,Foo],[!PRE"
+                        + getBaseString() + ":1,TYPE=Bar]");
+    }
 
 }

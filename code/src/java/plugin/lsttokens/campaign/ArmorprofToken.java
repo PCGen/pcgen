@@ -28,15 +28,15 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  */
 public class ArmorprofToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "ARMORPROF";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "ARMORPROF";
+    }
 
-	@Override
-	protected ListKey<CampaignSourceEntry> getListKey()
-	{
-		return ListKey.FILE_ARMOR_PROF;
-	}
+    @Override
+    protected ListKey<CampaignSourceEntry> getListKey()
+    {
+        return ListKey.FILE_ARMOR_PROF;
+    }
 }

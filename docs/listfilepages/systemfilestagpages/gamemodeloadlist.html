@@ -1,455 +1,455 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- <!--
-                PCGen Documentation Project
+<!--
+               PCGen Documentation Project
 
-                $Author$
-                $Date$
-                $Revision$
+               $Author$
+               $Date$
+               $Revision$
 
-                Contributors:
-                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+               Contributors:
+               Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 
-                Description:
-                Provides information on the use of PCGen Game Mode:Load List.
-        -->
- <head>
-  <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
-  <title>
-   Game Mode:Load List
-  </title>
-  <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
- </head>
- <body>
-  <h1>
-   Game Mode: load.lst
-  </h1>
-  <p class="indent0">
-   The first line is a list of Size letters with a
-pipe-delimiter (|) separating it from its load limit
-multiplier.
-  </p>
-  <p class="indent0">
-   The second through next-to-last line contain a
-strength value (must be incremental starting at 1) and the last
-line indicates the multiplier and power escalation for every 10
-strength points beyond the end of the list.
-  </p>
-  <p class="indent0">
-   This is to represent the multiplier of 4 for the
-first 10 beyond the end of the strength list, 16 for the next 10 (4
-to the power of 2), 64 for the next 10 (4 to the power of 3) and so
-on.
-  </p>
-  <p class="indent0">
-   You can change the multiplier (4) if you wish or
-add to the list of strength/capacity lines, but they must be
-incremental (no skipping strength scores).
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="encumbrance" name="encumbrance">
-    *** New
-5.7.12
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag
-Name:
-   </strong>
-   ENCUMBRANCE:w|x|y|z
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (w):
-   </strong>
-   Text (Name
-of load category)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Multiplier - Portion of full load covered by encumbrance
-category)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Text (Move
-formula. Optional)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (z):
-   </strong>
-   Number
-(Check Penalty)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent1">
-   <li>
-    This tag defines the Load Categories used by the output sheets
-and is set by gameMode.
-   </li>
-   <li>
-    The
-    <code>ENCUMBRANCE</code>
-    tag expects either two or four
-parameters with parameters (y) and (z) being optional.
-   </li>
-   <li>
-    If the move formula, parameter (y), is not included the
-gameMode's default move formula will be used.
-   </li>
-   <li>
-    The following six load categories are hardcoded into PCGen and
-are required to be included in all
-    <span class="lstfile">
+               Description:
+               Provides information on the use of PCGen Game Mode:Load List.
+       -->
+<head>
+    <meta content="HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" name="generator"/>
+    <title>
+        Game Mode:Load List
+    </title>
+    <link href="../../pcgen.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>
+    Game Mode: load.lst
+</h1>
+<p class="indent0">
+    The first line is a list of Size letters with a
+    pipe-delimiter (|) separating it from its load limit
+    multiplier.
+</p>
+<p class="indent0">
+    The second through next-to-last line contain a
+    strength value (must be incremental starting at 1) and the last
+    line indicates the multiplier and power escalation for every 10
+    strength points beyond the end of the list.
+</p>
+<p class="indent0">
+    This is to represent the multiplier of 4 for the
+    first 10 beyond the end of the strength list, 16 for the next 10 (4
+    to the power of 2), 64 for the next 10 (4 to the power of 3) and so
+    on.
+</p>
+<p class="indent0">
+    You can change the multiplier (4) if you wish or
+    add to the list of strength/capacity lines, but they must be
+    incremental (no skipping strength scores).
+</p>
+<hr/>
+<p class="status">
+    <a id="encumbrance" name="encumbrance">
+        *** New
+        5.7.12
+    </a>
+</p>
+<p class="indent0">
+    <strong>
+        Tag
+        Name:
+    </strong>
+    ENCUMBRANCE:w|x|y|z
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (w):
+    </strong>
+    Text (Name
+    of load category)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Multiplier - Portion of full load covered by encumbrance
+    category)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Text (Move
+    formula. Optional)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (z):
+    </strong>
+    Number
+    (Check Penalty)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent1">
+    <li>
+        This tag defines the Load Categories used by the output sheets
+        and is set by gameMode.
+    </li>
+    <li>
+        The
+        <code>ENCUMBRANCE</code>
+        tag expects either two or four
+        parameters with parameters (y) and (z) being optional.
+    </li>
+    <li>
+        If the move formula, parameter (y), is not included the
+        gameMode's default move formula will be used.
+    </li>
+    <li>
+        The following six load categories are hardcoded into PCGen and
+        are required to be included in all
+        <span class="lstfile">
      load.lst
     </span>
-    files:
-    <ul>
-     <li>
-      Light
-     </li>
-     <li>
-      Medium
-     </li>
-     <li>
-      Heavy
-     </li>
-     <li>
-      OverHead
-     </li>
-     <li>
-      OffGround
-     </li>
-     <li>
-      PushDrag
-     </li>
-    </ul>
-   </li>
-   <li>
-    Additional categories may be defined as needed.
-   </li>
-   <li>
-    The
-    <code>ENCUMBRANCE</code>
-    tag defines the output token used.
-See the entry for the output token
-    <a href="../../outputsheetpages/tokens/outputsheettokensgeneral.html#weight">
-     WEIGHT
-    </a>
-   </li>
-  </ul>
-  <p class="sidebar0">
-   Note: Parameter (z) can be included without
-parameter (y) but you will need to include a double pipe (||) in
-its place as PCGen still expects 4 parameters. Examples are
-provided below.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>ENCUMBRANCE:Light|1/3||0</code>
-  </p>
-  <p class="indent2">
-   <code>ENCUMBRANCE:Medium|2/3||-3</code>
-  </p>
-  <p class="indent2">
-   <code>ENCUMBRANCE:Heavy|1||-6</code>
-  </p>
-  <p class="indent2">
-   <code>ENCUMBRANCE:OverHead|1||-6</code>
-  </p>
-  <p class="indent2">
-   <code>ENCUMBRANCE:OffGround|2||-6</code>
-  </p>
-  <p class="indent2">
-   <code>ENCUMBRANCE:PushDrag|5||-6</code>
-  </p>
-  <p class="indent3">
-   These six categories must be included in all
-gameModes.
-  </p>
-  <p class="indent2">
-   <code>ENCUMBRANCE:FooBar|8</code>
-  </p>
-  <p class="indent3">
-   The OS output token for this load category is
-   <code>WEIGHT.FOOBAR</code>
-   .
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="load" name="load">
-     Tag
-Name:
-    </a>
-   </strong>
-   LOAD:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Strength)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-((Heavy) Weight Carried)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the Weight Categories for the Strength
-of the Creature.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LOAD:0|0</code>
-   <br/>
-  </p>
-  <p class="indent3">
-   This give a strength of 0 a heavy load of 0.
-  </p>
-  <p class="indent2">
-   <code>LOAD:10|100</code>
-   <br/>
-  </p>
-  <p class="indent3">
-   This give a strength of 10 a heavy load of
-100.
-  </p>
-  <p class="indent2">
-   <code>LOAD:27|1040</code>
-   <br/>
-  </p>
-  <p class="indent3">
-   This give a strength of 27 a heavy load of
-1040.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="loadmult" name="loadmult">
-     Tag
-Name:
-    </a>
-   </strong>
-   LOADMULT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Set the original value that is changed in the
-   <span class="lstfile">
+        files:
+        <ul>
+            <li>
+                Light
+            </li>
+            <li>
+                Medium
+            </li>
+            <li>
+                Heavy
+            </li>
+            <li>
+                OverHead
+            </li>
+            <li>
+                OffGround
+            </li>
+            <li>
+                PushDrag
+            </li>
+        </ul>
+    </li>
+    <li>
+        Additional categories may be defined as needed.
+    </li>
+    <li>
+        The
+        <code>ENCUMBRANCE</code>
+        tag defines the output token used.
+        See the entry for the output token
+        <a href="../../outputsheetpages/tokens/outputsheettokensgeneral.html#weight">
+            WEIGHT
+        </a>
+    </li>
+</ul>
+<p class="sidebar0">
+    Note: Parameter (z) can be included without
+    parameter (y) but you will need to include a double pipe (||) in
+    its place as PCGen still expects 4 parameters. Examples are
+    provided below.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>ENCUMBRANCE:Light|1/3||0</code>
+</p>
+<p class="indent2">
+    <code>ENCUMBRANCE:Medium|2/3||-3</code>
+</p>
+<p class="indent2">
+    <code>ENCUMBRANCE:Heavy|1||-6</code>
+</p>
+<p class="indent2">
+    <code>ENCUMBRANCE:OverHead|1||-6</code>
+</p>
+<p class="indent2">
+    <code>ENCUMBRANCE:OffGround|2||-6</code>
+</p>
+<p class="indent2">
+    <code>ENCUMBRANCE:PushDrag|5||-6</code>
+</p>
+<p class="indent3">
+    These six categories must be included in all
+    gameModes.
+</p>
+<p class="indent2">
+    <code>ENCUMBRANCE:FooBar|8</code>
+</p>
+<p class="indent3">
+    The OS output token for this load category is
+    <code>WEIGHT.FOOBAR</code>
+    .
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="load" name="load">
+            Tag
+            Name:
+        </a>
+    </strong>
+    LOAD:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Strength)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    ((Heavy) Weight Carried)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the Weight Categories for the Strength
+    of the Creature.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LOAD:0|0</code>
+    <br/>
+</p>
+<p class="indent3">
+    This give a strength of 0 a heavy load of 0.
+</p>
+<p class="indent2">
+    <code>LOAD:10|100</code>
+    <br/>
+</p>
+<p class="indent3">
+    This give a strength of 10 a heavy load of
+    100.
+</p>
+<p class="indent2">
+    <code>LOAD:27|1040</code>
+    <br/>
+</p>
+<p class="indent3">
+    This give a strength of 27 a heavy load of
+    1040.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="loadmult" name="loadmult">
+            Tag
+            Name:
+        </a>
+    </strong>
+    LOADMULT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Set the original value that is changed in the
+    <span class="lstfile">
     SizeAdjustment.lst
    </span>
-   file.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LOADMULT:4</code>
-   <br/>
-  </p>
-  <p class="indent3">
-   Sets the original value to 4.
-  </p>
-  <hr/>
-  <p class="status">
-   <a id="loadstepmult" name="loadstepmult">
-    *** New
-5.11.11
-   </a>
-  </p>
-  <p class="indent0">
-   <strong>
-    Tag Name:
-   </strong>
-   LOADSTEPMULT:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number
-(Default number is 10)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Used for determining encumbrance limits for
-values outside the range defined by the
-   <code>LOAD</code>
-   tags
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>LOADSTEPMULT:4</code>
-   <br/>
-  </p>
-  <p class="indent3">
-   When the encumbrance limits are exceeded in the
-SIZEMULT:x|y the y value switched to 4.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="modifier" name="modifier">
-     Tag
-Name:
+    file.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LOADMULT:4</code>
+    <br/>
+</p>
+<p class="indent3">
+    Sets the original value to 4.
+</p>
+<hr/>
+<p class="status">
+    <a id="loadstepmult" name="loadstepmult">
+        *** New
+        5.11.11
     </a>
-   </strong>
-   MODIFIER:x
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Number,
-Variable or Formula
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <ul class="indent2">
-   <li>
-    Provides the maximum load value.
-   </li>
-   <li>
-    This tag is optional. If not included, the maximum load is the
-internally generated $$SCORE$$.
-   </li>
-  </ul>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>MODIFIER:$$SCORE$$*(1+EquipLoadBonusMult)</code>
-   <br/>
-  </p>
-  <p class="indent3">
-   The load score, $$SCORE$$, is modified by a
-multiplier of EquipLoadBonusMult+1.
-  </p>
-  <hr/>
-  <p class="indent0">
-   <strong>
-    <a id="sizemult" name="sizemult">
-     Tag
-Name:
-    </a>
-   </strong>
-   SIZEMULT:x|y
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   Text (Name
-of size category)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (y):
-   </strong>
-   Number
-(Decimal Fractions)
-  </p>
-  <p class="indent1">
-   <strong>
-    What it does:
-   </strong>
-  </p>
-  <p class="indent2">
-   Defines the Load Categories for the Size of the
-Creature.
-  </p>
-  <p class="indent1">
-   <strong>
-    Example:
-   </strong>
-  </p>
-  <p class="indent2">
-   <code>SIZEMULT:FINE|0.125</code>
-  </p>
-  <p class="indent2">
-   <code>SIZEMULT:Diminutive|0.25</code>
-  </p>
-  <p class="indent2">
-   <code>SIZEMULT:Tiny|0.5</code>
-  </p>
-  <p class="indent2">
-   <code>SIZEMULT:Small|0.75</code>
-  </p>
-  <p class="indent2">
-   <code>SIZEMULT:Large|2</code>
-  </p>
-  <p class="indent2">
-   <code>SIZEMULT:Huge|4</code>
-  </p>
-  <p class="indent2">
-   <code>SIZEMULT:Gargantuan|8</code>
-  </p>
-  <p class="indent2">
-   <code>SIZEMULT:Colossal|16</code>
-  </p>
-  <p class="indent3">
-   These six categories must be included in all
-gameModes.
-  </p>
-  <hr/>
-  <p>
-  </p>
- </body>
+</p>
+<p class="indent0">
+    <strong>
+        Tag Name:
+    </strong>
+    LOADSTEPMULT:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number
+    (Default number is 10)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Used for determining encumbrance limits for
+    values outside the range defined by the
+    <code>LOAD</code>
+    tags
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>LOADSTEPMULT:4</code>
+    <br/>
+</p>
+<p class="indent3">
+    When the encumbrance limits are exceeded in the
+    SIZEMULT:x|y the y value switched to 4.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="modifier" name="modifier">
+            Tag
+            Name:
+        </a>
+    </strong>
+    MODIFIER:x
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Number,
+    Variable or Formula
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<ul class="indent2">
+    <li>
+        Provides the maximum load value.
+    </li>
+    <li>
+        This tag is optional. If not included, the maximum load is the
+        internally generated $$SCORE$$.
+    </li>
+</ul>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>MODIFIER:$$SCORE$$*(1+EquipLoadBonusMult)</code>
+    <br/>
+</p>
+<p class="indent3">
+    The load score, $$SCORE$$, is modified by a
+    multiplier of EquipLoadBonusMult+1.
+</p>
+<hr/>
+<p class="indent0">
+    <strong>
+        <a id="sizemult" name="sizemult">
+            Tag
+            Name:
+        </a>
+    </strong>
+    SIZEMULT:x|y
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (x):
+    </strong>
+    Text (Name
+    of size category)
+</p>
+<p class="indent1">
+    <strong>
+        Variables Used (y):
+    </strong>
+    Number
+    (Decimal Fractions)
+</p>
+<p class="indent1">
+    <strong>
+        What it does:
+    </strong>
+</p>
+<p class="indent2">
+    Defines the Load Categories for the Size of the
+    Creature.
+</p>
+<p class="indent1">
+    <strong>
+        Example:
+    </strong>
+</p>
+<p class="indent2">
+    <code>SIZEMULT:FINE|0.125</code>
+</p>
+<p class="indent2">
+    <code>SIZEMULT:Diminutive|0.25</code>
+</p>
+<p class="indent2">
+    <code>SIZEMULT:Tiny|0.5</code>
+</p>
+<p class="indent2">
+    <code>SIZEMULT:Small|0.75</code>
+</p>
+<p class="indent2">
+    <code>SIZEMULT:Large|2</code>
+</p>
+<p class="indent2">
+    <code>SIZEMULT:Huge|4</code>
+</p>
+<p class="indent2">
+    <code>SIZEMULT:Gargantuan|8</code>
+</p>
+<p class="indent2">
+    <code>SIZEMULT:Colossal|16</code>
+</p>
+<p class="indent3">
+    These six categories must be included in all
+    gameModes.
+</p>
+<hr/>
+<p>
+</p>
+</body>
 </html>

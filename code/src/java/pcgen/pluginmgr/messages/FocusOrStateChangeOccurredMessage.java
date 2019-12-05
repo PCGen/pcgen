@@ -26,29 +26,28 @@ import pcgen.pluginmgr.PCGenMessage;
 /**
  * The Class {@code FocusOrStateChangeOccurredMessage} encapsulates a message
  * that the user has switched from gmgen to pcgen or vice versa.
- *
- * 
  */
 @SuppressWarnings("serial")
 public class FocusOrStateChangeOccurredMessage extends PCGenMessage
 {
 
-	private final JMenu editMenu;
+    private final JMenu editMenu;
 
-	/**
-	 * Create a new instance of FocusOrStateChangeOccurredMessage
-	 * @param source
-	 * @param editMenu
-	 */
-	public FocusOrStateChangeOccurredMessage(Object source, JMenu editMenu)
-	{
-		super(source);
-		this.editMenu = editMenu;
-	}
+    /**
+     * Create a new instance of FocusOrStateChangeOccurredMessage
+     *
+     * @param source
+     * @param editMenu
+     */
+    public FocusOrStateChangeOccurredMessage(Object source, JMenu editMenu)
+    {
+        super(source);
+        this.editMenu = editMenu;
+    }
 
-	public JMenu getEditMenu()
-	{
-		return editMenu;
-	}
+    public JMenu getEditMenu()
+    {
+        return editMenu;
+    }
 
 }

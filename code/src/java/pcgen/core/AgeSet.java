@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -34,251 +34,248 @@ import pcgen.core.bonus.BonusObj;
 public class AgeSet implements BonusContainer, Loadable
 {
 
-	/**
-	 * The (lazily instantiated) list of bonuses in this AgeSet.
-	 */
-	private List<BonusObj> bonuses = null;
-	
-	/**
-	 * The (lazily instantiated) list of kits in this AgeSet.
-	 */
-	private List<TransitionChoice<Kit>> kits = null;
-	
-	/**
-	 * The name of this AgeSet.
-	 */
-	private String name;
-	
-	/**
-	 * The AgeSet Index of this AgeSet.
-	 */
-	private int index;
-	
-	/**
-	 * The source URI of this AgeSet.
-	 */
-	private URI sourceURI;
+    /**
+     * The (lazily instantiated) list of bonuses in this AgeSet.
+     */
+    private List<BonusObj> bonuses = null;
 
-	/**
-	 * Returns true if this AgeSet has BONUS objects.
-	 * 
-	 * @return true if this AgeSet has BONUS objects; false otherwise
-	 */
-	public boolean hasBonuses()
-	{
-		return bonuses != null && !bonuses.isEmpty();
-	}
+    /**
+     * The (lazily instantiated) list of kits in this AgeSet.
+     */
+    private List<TransitionChoice<Kit>> kits = null;
 
-	/**
-	 * Returns the AgeSet Index of this AgeSet.
-	 * 
-	 * @return the AgeSet Index of this AgeSet
-	 */
-	public int getIndex()
-	{
-		return index;
-	}
+    /**
+     * The name of this AgeSet.
+     */
+    private String name;
 
-	/**
-	 * Sets the AgeSet Index on this AgeSet.
-	 * 
-	 * @param ageSetIndex
-	 *            The AgeSet Index to be placed on this AgeSet.
-	 */
-	public void setAgeIndex(int ageSetIndex)
-	{
-		index = ageSetIndex;
-	}
+    /**
+     * The AgeSet Index of this AgeSet.
+     */
+    private int index;
 
-	/**
-	 * Gets the List of Bonus objects on this AgeSet. Will not return null (returns empty
-	 * list for no Bonuses).
-	 * 
-	 * @return The List of Bonus objects on this AgeSet
-	 */
-	public List<BonusObj> getBonuses()
-	{
-		if (bonuses == null)
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(bonuses);
-	}
+    /**
+     * The source URI of this AgeSet.
+     */
+    private URI sourceURI;
 
-	/**
-	 * Adds the given Bonus to the list of Bonus objects on this AgeSet.
-	 * 
-	 * @param bon
-	 *            The Bonus to be added to the list of Bonus objects on this AgeSet
-	 */
-	public void addBonus(BonusObj bon)
-	{
-		if (bonuses == null)
-		{
-			bonuses = new ArrayList<>();
-		}
-		bonuses.add(bon);
-	}
+    /**
+     * Returns true if this AgeSet has BONUS objects.
+     *
+     * @return true if this AgeSet has BONUS objects; false otherwise
+     */
+    public boolean hasBonuses()
+    {
+        return bonuses != null && !bonuses.isEmpty();
+    }
 
-	/**
-	 * Gets the List of Kit objects on this AgeSet. Will not return null (returns empty
-	 * list for no Kits).
-	 * 
-	 * @return The List of Kit objects on this AgeSet
-	 */
-	public List<TransitionChoice<Kit>> getKits()
-	{
-		if (kits == null)
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(kits);
-	}
+    /**
+     * Returns the AgeSet Index of this AgeSet.
+     *
+     * @return the AgeSet Index of this AgeSet
+     */
+    public int getIndex()
+    {
+        return index;
+    }
 
-	/**
-	 * Adds the given Kit to the list of Kit objects on this AgeSet.
-	 * 
-	 * @param tc
-	 *            The Kit to be added to the list of Kit objects on this AgeSet
-	 */
-	public void addKit(TransitionChoice<Kit> tc)
-	{
-		if (kits == null)
-		{
-			kits = new ArrayList<>();
-		}
-		kits.add(tc);
-	}
+    /**
+     * Sets the AgeSet Index on this AgeSet.
+     *
+     * @param ageSetIndex The AgeSet Index to be placed on this AgeSet.
+     */
+    public void setAgeIndex(int ageSetIndex)
+    {
+        index = ageSetIndex;
+    }
 
-	public String getLSTformat()
-	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(index).append('|').append(name);
-		if (bonuses != null)
-		{
-			for (BonusObj bo : bonuses)
-			{
-				sb.append('\t').append(bo.getLSTformat());
-			}
-		}
-		if (kits != null)
-		{
-			for (TransitionChoice<Kit> tc : kits)
-			{
-				sb.append('\t').append(tc.getCount()).append(Constants.PIPE);
-				sb.append(tc.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
-			}
-		}
-		return sb.toString();
-	}
+    /**
+     * Gets the List of Bonus objects on this AgeSet. Will not return null (returns empty
+     * list for no Bonuses).
+     *
+     * @return The List of Bonus objects on this AgeSet
+     */
+    public List<BonusObj> getBonuses()
+    {
+        if (bonuses == null)
+        {
+            return Collections.emptyList();
+        }
+        return Collections.unmodifiableList(bonuses);
+    }
 
-	/*
-	 * Begin items implementing BonusContainer interface
-	 */
-	@Override
-	public void activateBonuses(PlayerCharacter pc)
-	{
-		if (bonuses != null)
-		{
-			for (BonusObj bo : bonuses)
-			{
-				pc.setApplied(bo, bo.qualifies(pc, null));
-			}
-		}
-	}
+    /**
+     * Adds the given Bonus to the list of Bonus objects on this AgeSet.
+     *
+     * @param bon The Bonus to be added to the list of Bonus objects on this AgeSet
+     */
+    public void addBonus(BonusObj bon)
+    {
+        if (bonuses == null)
+        {
+            bonuses = new ArrayList<>();
+        }
+        bonuses.add(bon);
+    }
 
-	@Override
-	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
-	{
-		if (bonuses == null)
-		{
-			return Collections.emptyList();
-		}
-		List<BonusObj> aList = new ArrayList<>();
+    /**
+     * Gets the List of Kit objects on this AgeSet. Will not return null (returns empty
+     * list for no Kits).
+     *
+     * @return The List of Kit objects on this AgeSet
+     */
+    public List<TransitionChoice<Kit>> getKits()
+    {
+        if (kits == null)
+        {
+            return Collections.emptyList();
+        }
+        return Collections.unmodifiableList(kits);
+    }
 
-		for (BonusObj bo : bonuses)
-		{
-			if (pc.isApplied(bo))
-			{
-				aList.add(bo);
-			}
-		}
+    /**
+     * Adds the given Kit to the list of Kit objects on this AgeSet.
+     *
+     * @param tc The Kit to be added to the list of Kit objects on this AgeSet
+     */
+    public void addKit(TransitionChoice<Kit> tc)
+    {
+        if (kits == null)
+        {
+            kits = new ArrayList<>();
+        }
+        kits.add(tc);
+    }
 
-		return aList;
-	}
-	/*
-	 * End items implementing BonusContainer interface
-	 */
+    public String getLSTformat()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(index).append('|').append(name);
+        if (bonuses != null)
+        {
+            for (BonusObj bo : bonuses)
+            {
+                sb.append('\t').append(bo.getLSTformat());
+            }
+        }
+        if (kits != null)
+        {
+            for (TransitionChoice<Kit> tc : kits)
+            {
+                sb.append('\t').append(tc.getCount()).append(Constants.PIPE);
+                sb.append(tc.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
+            }
+        }
+        return sb.toString();
+    }
 
-	/*
-	 * Begin items implementing the Loadable interface
-	 */
-	@Override
-	public String getKeyName()
-	{
-		return name;
-	}
+    /*
+     * Begin items implementing BonusContainer interface
+     */
+    @Override
+    public void activateBonuses(PlayerCharacter pc)
+    {
+        if (bonuses != null)
+        {
+            for (BonusObj bo : bonuses)
+            {
+                pc.setApplied(bo, bo.qualifies(pc, null));
+            }
+        }
+    }
 
-	@Override
-	public String getDisplayName()
-	{
-		return name;
-	}
+    @Override
+    public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
+    {
+        if (bonuses == null)
+        {
+            return Collections.emptyList();
+        }
+        List<BonusObj> aList = new ArrayList<>();
 
-	@Override
-	public void setName(String name)
-	{
-		this.name = name;
-	}
+        for (BonusObj bo : bonuses)
+        {
+            if (pc.isApplied(bo))
+            {
+                aList.add(bo);
+            }
+        }
 
-	@Override
-	public URI getSourceURI()
-	{
-		return sourceURI;
-	}
+        return aList;
+    }
+    /*
+     * End items implementing BonusContainer interface
+     */
 
-	@Override
-	public void setSourceURI(URI source)
-	{
-		this.sourceURI = source;
-	}
+    /*
+     * Begin items implementing the Loadable interface
+     */
+    @Override
+    public String getKeyName()
+    {
+        return name;
+    }
 
-	@Override
-	public boolean isInternal()
-	{
-		return false;
-	}
+    @Override
+    public String getDisplayName()
+    {
+        return name;
+    }
 
-	@Override
-	public boolean isType(String type)
-	{
-		return false;
-	}
-	/*
-	 * End items implementing the Loadable interface
-	 */
+    @Override
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return name.hashCode();
-	}
+    @Override
+    public URI getSourceURI()
+    {
+        return sourceURI;
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o == this)
-		{
-			return true;
-		}
-		if (o instanceof AgeSet)
-		{
-			AgeSet other = (AgeSet) o;
-			return (index == other.index) && name.equals(other.name)
-				&& Objects.equals(bonuses, other.bonuses)
-				&& Objects.equals(kits, other.kits);
-		}
-		return false;
-	}
+    @Override
+    public void setSourceURI(URI source)
+    {
+        this.sourceURI = source;
+    }
+
+    @Override
+    public boolean isInternal()
+    {
+        return false;
+    }
+
+    @Override
+    public boolean isType(String type)
+    {
+        return false;
+    }
+    /*
+     * End items implementing the Loadable interface
+     */
+
+    @Override
+    public int hashCode()
+    {
+        return name.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o == this)
+        {
+            return true;
+        }
+        if (o instanceof AgeSet)
+        {
+            AgeSet other = (AgeSet) o;
+            return (index == other.index) && name.equals(other.name)
+                    && Objects.equals(bonuses, other.bonuses)
+                    && Objects.equals(kits, other.kits);
+        }
+        return false;
+    }
 
 }

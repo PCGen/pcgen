@@ -29,35 +29,35 @@ import pcgen.rules.persistence.token.ParseResult;
 public class VarToken extends AbstractNonEmptyToken<RuleCheck> implements CDOMPrimaryToken<RuleCheck>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "VAR";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "VAR";
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
-	{
-		rule.setVariable(value);
-		context.getReferenceContext().reassociateKey(value, rule);
-		rule.setKeyName(value);
-		return ParseResult.SUCCESS;
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
+    {
+        rule.setVariable(value);
+        context.getReferenceContext().reassociateKey(value, rule);
+        rule.setKeyName(value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, RuleCheck rule)
-	{
-		String variable = rule.getVariable();
-		if (variable == null)
-		{
-			return null;
-		}
-		return new String[]{variable};
-	}
+    @Override
+    public String[] unparse(LoadContext context, RuleCheck rule)
+    {
+        String variable = rule.getVariable();
+        if (variable == null)
+        {
+            return null;
+        }
+        return new String[]{variable};
+    }
 
-	@Override
-	public Class<RuleCheck> getTokenClass()
-	{
-		return RuleCheck.class;
-	}
+    @Override
+    public Class<RuleCheck> getTokenClass()
+    {
+        return RuleCheck.class;
+    }
 }

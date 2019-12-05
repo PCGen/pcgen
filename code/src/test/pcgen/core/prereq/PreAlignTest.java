@@ -39,120 +39,120 @@ import org.junit.jupiter.api.Test;
  */
 public class PreAlignTest extends AbstractCharacterTestCase
 {
-	private Deity deity;
+    private Deity deity;
 
-	/**
-	 * Test that negative (!) alignment checks work correctly in Align tests.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testNegative() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+    /**
+     * Test that negative (!) alignment checks work correctly in Align tests.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testNegative() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 
-		Prerequisite prereq;
+        Prerequisite prereq;
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("!PREALIGN:TN");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("!PREALIGN:TN");
 
-		assertTrue("Not TN should match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+        assertTrue("Not TN should match character's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
 
-		prereq = factory.parse("!PREALIGN:NG");
+        prereq = factory.parse("!PREALIGN:NG");
 
-		assertFalse("Not TN should not match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-	}
+        assertFalse("Not TN should not match character's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
+    }
 
-	/**
-	 * Test that alignment abbreviation values work correctly in Align tests.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testAbbrev() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+    /**
+     * Test that alignment abbreviation values work correctly in Align tests.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testAbbrev() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 
-		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("align");
-		prereq.setKey("NG");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        Prerequisite prereq = new Prerequisite();
+        prereq.setKind("align");
+        prereq.setKey("NG");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertTrue("Abbrev NG should match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+        assertTrue("Abbrev NG should match character's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
 
-		prereq = new Prerequisite();
-		prereq.setKind("align");
-		prereq.setKey("LG");
-		prereq.setOperator(PrerequisiteOperator.EQ);
+        prereq = new Prerequisite();
+        prereq.setKind("align");
+        prereq.setKey("LG");
+        prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Abbrev LG should not match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+        assertFalse("Abbrev LG should not match character's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREALIGN:NG");
-		assertTrue("Abbrev NG should match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-		prereq = factory.parse("PREALIGN:LG");
-		assertFalse("Abbrev LG should not match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-	}
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        prereq = factory.parse("PREALIGN:NG");
+        assertTrue("Abbrev NG should match character's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
+        prereq = factory.parse("PREALIGN:LG");
+        assertFalse("Abbrev LG should not match character's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
+    }
 
-	/**
-	 * Tests that this only passes if the character's alignment matches his
-	 * diety's alignment.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Test
-	public void testDeity() throws PersistenceLayerException
-	{
-		final PlayerCharacter character = getCharacter();
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
-		assertEquals("Deity should have been set for character.", deity,
-			character.getDeity());
+    /**
+     * Tests that this only passes if the character's alignment matches his
+     * diety's alignment.
+     *
+     * @throws PersistenceLayerException the persistence layer exception
+     */
+    @Test
+    public void testDeity() throws PersistenceLayerException
+    {
+        final PlayerCharacter character = getCharacter();
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+        character.setDeity(deity);
+        assertEquals("Deity should have been set for character.", deity,
+                character.getDeity());
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory.parse("PREALIGN:Deity");
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        Prerequisite prereq = factory.parse("PREALIGN:Deity");
 
-		assertTrue("Number 3 should match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+        assertTrue("Number 3 should match deity's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
 
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), cg);
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), cg);
 
-		assertFalse("Number 6 should not match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-	}
+        assertFalse("Number 6 should not match deity's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
+    }
 
-	@Test
-	public void testMulti() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
-		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
+    @Test
+    public void testMulti() throws Exception
+    {
+        final PlayerCharacter character = getCharacter();
+        AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory.parse("PREALIGN:LE,NG,NE");
-		assertTrue("LE, NG, or NE should match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+        final PreParserFactory factory = PreParserFactory.getInstance();
+        Prerequisite prereq = factory.parse("PREALIGN:LE,NG,NE");
+        assertTrue("LE, NG, or NE should match character's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
 
-		prereq = factory.parse("PREALIGN:LE,NE,CE");
-		assertFalse(
-			"LE, NE, or CE should not match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-	}
+        prereq = factory.parse("PREALIGN:LE,NE,CE");
+        assertFalse(
+                "LE, NE, or CE should not match character's alignment of NG",
+                PrereqHandler.passes(prereq, character, null));
+    }
 
-	@BeforeEach
+    @BeforeEach
     @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		deity = new Deity();
-		deity.setName("TestDeity");
-		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
-	}
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+        deity = new Deity();
+        deity.setName("TestDeity");
+        deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
+    }
 }

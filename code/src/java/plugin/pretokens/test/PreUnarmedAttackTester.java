@@ -30,37 +30,38 @@ import pcgen.system.LanguageBundle;
 public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
-	{
-		CharacterDisplay display = character.getDisplay();
-		int att = 0;
-		for (PCClass aClass : display.getClassSet())
-		{
-			att = Math.max(att, aClass.baseAttackBonus(character));
-		}
+    @Override
+    public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+    {
+        CharacterDisplay display = character.getDisplay();
+        int att = 0;
+        for (PCClass aClass : display.getClassSet())
+        {
+            att = Math.max(att, aClass.baseAttackBonus(character));
+        }
 
-		final int requiredValue = Integer.parseInt(prereq.getOperand());
-		final int runningTotal = prereq.getOperator().compare(att, requiredValue);
-		return countedTotal(prereq, runningTotal);
-	}
+        final int requiredValue = Integer.parseInt(prereq.getOperand());
+        final int runningTotal = prereq.getOperator().compare(att, requiredValue);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "UATT"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "UATT"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		return LanguageBundle.getFormattedString(
-			"PreUnarmedAttack.toHtml", prereq.getOperator().toString(), //$NON-NLS-1$
-			prereq.getOperand());
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        return LanguageBundle.getFormattedString(
+                "PreUnarmedAttack.toHtml", prereq.getOperator().toString(), //$NON-NLS-1$
+                prereq.getOperand());
+    }
 
 }

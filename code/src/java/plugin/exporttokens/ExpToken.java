@@ -25,9 +25,9 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-/** 
+/**
  * Deal with Tokens:
- * 
+ * <p>
  * EXP.CURRENT
  * EXP.NEXT
  * EXP.FACTOR
@@ -35,68 +35,67 @@ import pcgen.io.exporttoken.Token;
  */
 public class ExpToken extends Token
 {
-	@Override
-	public String getTokenName()
-	{
-		return "EXP";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "EXP";
+    }
 
-	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
-	{
-		String retString = "";
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		aTok.nextToken();
+    @Override
+    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+    {
+        String retString = "";
+        StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+        aTok.nextToken();
 
-		CharacterDisplay display = pc.getDisplay();
-		if (aTok.hasMoreTokens())
-		{
-			String token = aTok.nextToken();
+        CharacterDisplay display = pc.getDisplay();
+        if (aTok.hasMoreTokens())
+        {
+            String token = aTok.nextToken();
 
-			if ("CURRENT".equals(token))
-			{
-				retString = Integer.toString(pc.getXP());
-			}
-			else if ("NEXT".equals(token))
-			{
-				retString = Integer.toString(display.minXPForNextECL());
-			}
-			else if ("FACTOR".equals(token))
-			{
-				retString = getFactorToken(display);
-			}
-			else if ("PENALTY".equals(token))
-			{
-				retString = getPenaltyToken(display);
-			}
-		}
+            if ("CURRENT".equals(token))
+            {
+                retString = Integer.toString(pc.getXP());
+            } else if ("NEXT".equals(token))
+            {
+                retString = Integer.toString(display.minXPForNextECL());
+            } else if ("FACTOR".equals(token))
+            {
+                retString = getFactorToken(display);
+            } else if ("PENALTY".equals(token))
+            {
+                retString = getPenaltyToken(display);
+            }
+        }
 
-		return retString;
-	}
+        return retString;
+    }
 
-	/**
-	 * Get Factor Sub Token
-	 * @param display
-	 * @return Factor Sub Token
-	 */
-	public static String getFactorToken(CharacterDisplay display)
-	{
+    /**
+     * Get Factor Sub Token
+     *
+     * @param display
+     * @return Factor Sub Token
+     */
+    public static String getFactorToken(CharacterDisplay display)
+    {
 
-		String xpFactor = String.valueOf((int) (display.multiclassXPMultiplier() * 100.0))
-				+ '%';
-		return xpFactor;
-	}
+        String xpFactor = String.valueOf((int) (display.multiclassXPMultiplier() * 100.0))
+                + '%';
+        return xpFactor;
+    }
 
-	/**
-	 * Get Penalty Sub Token
-	 * @param display
-	 * @return Penalty Sub Token
-	 */
-	public static String getPenaltyToken(CharacterDisplay display)
-	{
+    /**
+     * Get Penalty Sub Token
+     *
+     * @param display
+     * @return Penalty Sub Token
+     */
+    public static String getPenaltyToken(CharacterDisplay display)
+    {
 
-		String xpFactor = String.valueOf(100 - (int) (display.multiclassXPMultiplier() * 100.0))
-				+ '%';
-		return xpFactor;
-	}
+        String xpFactor = String.valueOf(100 - (int) (display.multiclassXPMultiplier() * 100.0))
+                + '%';
+        return xpFactor;
+    }
 }

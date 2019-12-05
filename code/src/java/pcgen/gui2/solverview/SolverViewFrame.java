@@ -1,16 +1,16 @@
 /*
  * Copyright (c) Thomas Parker, 2013-14.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -59,333 +59,330 @@ import pcgen.system.LanguageBundle;
 public final class SolverViewFrame extends JFrame
 {
 
-	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
-	private final SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
-	private final VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);
-	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
+    private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+    private final SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
+    private final VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);
+    private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
-	private final JComboBox<LegalScopeWrapper> scopeChooser;
-	private LegalScope selectedScope;
+    private final JComboBox<LegalScopeWrapper> scopeChooser;
+    private LegalScope selectedScope;
 
-	private final JTextField varName;
-	private String varNameText = "                               ";
+    private final JTextField varName;
+    private String varNameText = "                               ";
 
-	private final JComboBox<ObjectNameDisplayer> objectChooser;
-	private VarScoped activeObject;
+    private final JComboBox<ObjectNameDisplayer> objectChooser;
+    private VarScoped activeObject;
 
-	private final JComboBox<PCRef> identifierChooser;
-	private CharID activeIdentifier;
+    private final JComboBox<PCRef> identifierChooser;
+    private CharID activeIdentifier;
 
-	private JTable viewTable;
+    private JTable viewTable;
 
-	private SolverTableModel tableModel;
+    private SolverTableModel tableModel;
 
-	public SolverViewFrame()
-	{
-		identifierChooser = new JComboBox<>();
-		for (CharacterFacade pcf : CharacterManager.getCharacters())
-		{
-			String pcname = pcf.getNameRef().get();
-			CharID id = pcf.getCharID();
-			identifierChooser.addItem(new PCRef(pcname, id));
-		}
-		identifierChooser.addActionListener(new IdentifierActionListener());
+    public SolverViewFrame()
+    {
+        identifierChooser = new JComboBox<>();
+        for (CharacterFacade pcf : CharacterManager.getCharacters())
+        {
+            String pcname = pcf.getNameRef().get();
+            CharID id = pcf.getCharID();
+            identifierChooser.addItem(new PCRef(pcname, id));
+        }
+        identifierChooser.addActionListener(new IdentifierActionListener());
 
-		objectChooser = new JComboBox<>();
-		objectChooser.addActionListener(new ObjectActionListener());
+        objectChooser = new JComboBox<>();
+        objectChooser.addActionListener(new ObjectActionListener());
 
-		scopeChooser = new JComboBox<>();
-		scopeChooser.addActionListener(new ScopeActionListener());
+        scopeChooser = new JComboBox<>();
+        scopeChooser.addActionListener(new ScopeActionListener());
 
-		varName = new JTextField();
-		varName.setText(varNameText);
-		varName.getDocument().addDocumentListener(new VarNameListener());
+        varName = new JTextField();
+        varName.setText(varNameText);
+        varName.getDocument().addDocumentListener(new VarNameListener());
 
-		initialize();
+        initialize();
 
-		identifierChooser.setSelectedItem(identifierChooser.getItemAt(0));
-		scopeChooser.setSelectedItem(scopeChooser.getItemAt(0));
-		objectChooser.setSelectedItem(objectChooser.getItemAt(0));
-	}
+        identifierChooser.setSelectedItem(identifierChooser.getItemAt(0));
+        scopeChooser.setSelectedItem(scopeChooser.getItemAt(0));
+        objectChooser.setSelectedItem(objectChooser.getItemAt(0));
+    }
 
-	private void update()
-	{
-		updateObjects();
-		if ((activeObject == null) && (selectedScope.getParentScope().isPresent()))
-		{
-			//scopeFacet will error if we continue...
-			tableModel.setSteps(Collections.emptyList());
-			return;
-		}
-		ScopeInstance scope;
-		if (activeObject == null)
-		{
-			scope = scopeFacet.getGlobalScope(activeIdentifier);
-		}
-		else
-		{
-			scope = scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
-		}
-		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
-			.isLegalVariableID(scope.getLegalScope(), varNameText))
-		{
-			displayInfo(scope);
-		}
-		else
-		{
-			//TODO Update a status bar
-			System.err.println(selectedScope.getName() + " does not have a variable: " + varNameText);
-		}
-	}
+    private void update()
+    {
+        updateObjects();
+        if ((activeObject == null) && (selectedScope.getParentScope().isPresent()))
+        {
+            //scopeFacet will error if we continue...
+            tableModel.setSteps(Collections.emptyList());
+            return;
+        }
+        ScopeInstance scope;
+        if (activeObject == null)
+        {
+            scope = scopeFacet.getGlobalScope(activeIdentifier);
+        } else
+        {
+            scope = scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
+        }
+        if (loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
+                .isLegalVariableID(scope.getLegalScope(), varNameText))
+        {
+            displayInfo(scope);
+        } else
+        {
+            //TODO Update a status bar
+            System.err.println(selectedScope.getName() + " does not have a variable: " + varNameText);
+        }
+    }
 
-	private void displayInfo(ScopeInstance scope)
-	{
-		VariableID<?> varID = loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
-			.getVariableID(scope, varNameText);
-		setSteps(varID);
-	}
+    private void displayInfo(ScopeInstance scope)
+    {
+        VariableID<?> varID = loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
+                .getVariableID(scope, varNameText);
+        setSteps(varID);
+    }
 
-	private <T> void setSteps(VariableID<T> varID)
-	{
-		List<ProcessStep<T>> steps = solverManagerFacet.diagnose(activeIdentifier, varID);
-		tableModel.setSteps(steps);
-	}
+    private <T> void setSteps(VariableID<T> varID)
+    {
+        List<ProcessStep<T>> steps = solverManagerFacet.diagnose(activeIdentifier, varID);
+        tableModel.setSteps(steps);
+    }
 
-	private class ScopeActionListener implements ActionListener
-	{
+    private class ScopeActionListener implements ActionListener
+    {
 
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			LegalScopeWrapper wrap = (LegalScopeWrapper) scopeChooser.getSelectedItem();
-			selectedScope = wrap.getLegalScope();
-			update();
-		}
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            LegalScopeWrapper wrap = (LegalScopeWrapper) scopeChooser.getSelectedItem();
+            selectedScope = wrap.getLegalScope();
+            update();
+        }
 
-	}
+    }
 
-	private class ObjectActionListener implements ActionListener
-	{
+    private class ObjectActionListener implements ActionListener
+    {
 
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			ObjectNameDisplayer displayer = (ObjectNameDisplayer) objectChooser.getSelectedItem();
-			if (displayer == null)
-			{
-				activeObject = null;
-				tableModel.setSteps(Collections.emptyList());
-			}
-			else
-			{
-				activeObject = displayer.getObject();
-				update();
-			}
-		}
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            ObjectNameDisplayer displayer = (ObjectNameDisplayer) objectChooser.getSelectedItem();
+            if (displayer == null)
+            {
+                activeObject = null;
+                tableModel.setSteps(Collections.emptyList());
+            } else
+            {
+                activeObject = displayer.getObject();
+                update();
+            }
+        }
 
-	}
+    }
 
-	private class VarNameListener implements DocumentListener
-	{
+    private class VarNameListener implements DocumentListener
+    {
 
-		@Override
-		public void insertUpdate(DocumentEvent e)
-		{
-			varNameText = varName.getText().trim();
-			update();
-		}
+        @Override
+        public void insertUpdate(DocumentEvent e)
+        {
+            varNameText = varName.getText().trim();
+            update();
+        }
 
-		@Override
-		public void removeUpdate(DocumentEvent e)
-		{
-			varNameText = varName.getText().trim();
-			update();
-		}
+        @Override
+        public void removeUpdate(DocumentEvent e)
+        {
+            varNameText = varName.getText().trim();
+            update();
+        }
 
-		@Override
-		public void changedUpdate(DocumentEvent e)
-		{
-			varNameText = varName.getText().trim();
-			update();
-		}
+        @Override
+        public void changedUpdate(DocumentEvent e)
+        {
+            varNameText = varName.getText().trim();
+            update();
+        }
 
-	}
+    }
 
-	private class IdentifierActionListener implements ActionListener
-	{
+    private class IdentifierActionListener implements ActionListener
+    {
 
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			Object item = identifierChooser.getSelectedItem();
-			activeIdentifier = ((PCRef) item).id;
-			LoadContext loadContext = loadContextFacet.get(activeIdentifier.getDatasetID()).get();
-			for (LegalScope lvs : loadContext.getVariableContext().getScopes())
-			{
-				scopeChooser.addItem(new LegalScopeWrapper(lvs));
-			}
-			update();
-		}
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            Object item = identifierChooser.getSelectedItem();
+            activeIdentifier = ((PCRef) item).id;
+            LoadContext loadContext = loadContextFacet.get(activeIdentifier.getDatasetID()).get();
+            for (LegalScope lvs : loadContext.getVariableContext().getScopes())
+            {
+                scopeChooser.addItem(new LegalScopeWrapper(lvs));
+            }
+            update();
+        }
 
-	}
+    }
 
-	private void updateObjects()
-	{
-		if (activeIdentifier != null)
-		{
-			Collection<PCGenScoped> objects = varScopedFacet.getSet(activeIdentifier);
-			objectChooser.removeAllItems();
-			String scopeName = LegalScope.getFullName(selectedScope);
-			for (VarScoped cdo : objects)
-			{
-				Optional<String> localScopeName = cdo.getLocalScopeName();
-				if (localScopeName.isPresent() && scopeName.equals(localScopeName.get()))
-				{
-					if (scopeFacet.get(activeIdentifier, scopeName, cdo) != null)
-					{
-						objectChooser.addItem(new ObjectNameDisplayer(cdo));
-					}
-				}
-			}
-			if (objectChooser.getItemCount() != 0)
-			{
-				objectChooser.setSelectedIndex(0);
-			}
-		}
-	}
+    private void updateObjects()
+    {
+        if (activeIdentifier != null)
+        {
+            Collection<PCGenScoped> objects = varScopedFacet.getSet(activeIdentifier);
+            objectChooser.removeAllItems();
+            String scopeName = LegalScope.getFullName(selectedScope);
+            for (VarScoped cdo : objects)
+            {
+                Optional<String> localScopeName = cdo.getLocalScopeName();
+                if (localScopeName.isPresent() && scopeName.equals(localScopeName.get()))
+                {
+                    if (scopeFacet.get(activeIdentifier, scopeName, cdo) != null)
+                    {
+                        objectChooser.addItem(new ObjectNameDisplayer(cdo));
+                    }
+                }
+            }
+            if (objectChooser.getItemCount() != 0)
+            {
+                objectChooser.setSelectedIndex(0);
+            }
+        }
+    }
 
-	public void initialize()
-	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		getContentPane().setLayout(gridbag);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
-		c.insets = new Insets(2, 2, 2, 2);
+    public void initialize()
+    {
+        GridBagLayout gridbag = new GridBagLayout();
+        GridBagConstraints c = new GridBagConstraints();
+        getContentPane().setLayout(gridbag);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.NORTHWEST;
+        c.insets = new Insets(2, 2, 2, 2);
 
-		int col = 0;
-		Utility.buildConstraints(c, col, 0, 1, 1, 100, 20);
-		JLabel label = new JLabel(LanguageBundle.getFormattedString("in_SolverView_Perspective")); //$NON-NLS-1$
-		gridbag.setConstraints(label, c);
-		getContentPane().add(label);
+        int col = 0;
+        Utility.buildConstraints(c, col, 0, 1, 1, 100, 20);
+        JLabel label = new JLabel(LanguageBundle.getFormattedString("in_SolverView_Perspective")); //$NON-NLS-1$
+        gridbag.setConstraints(label, c);
+        getContentPane().add(label);
 
-		Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
-		gridbag.setConstraints(identifierChooser, c);
-		getContentPane().add(identifierChooser);
+        Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
+        gridbag.setConstraints(identifierChooser, c);
+        getContentPane().add(identifierChooser);
 
-		Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
-		gridbag.setConstraints(scopeChooser, c);
-		getContentPane().add(scopeChooser);
+        Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
+        gridbag.setConstraints(scopeChooser, c);
+        getContentPane().add(scopeChooser);
 
-		Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
-		gridbag.setConstraints(objectChooser, c);
-		getContentPane().add(objectChooser);
+        Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
+        gridbag.setConstraints(objectChooser, c);
+        getContentPane().add(objectChooser);
 
-		Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
-		label = new JLabel(LanguageBundle.getFormattedString("in_SolverView_VarName") //$NON-NLS-1$
-		);
-		gridbag.setConstraints(label, c);
-		getContentPane().add(label);
+        Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
+        label = new JLabel(LanguageBundle.getFormattedString("in_SolverView_VarName") //$NON-NLS-1$
+        );
+        gridbag.setConstraints(label, c);
+        getContentPane().add(label);
 
-		Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
-		gridbag.setConstraints(varName, c);
-		getContentPane().add(varName);
+        Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
+        gridbag.setConstraints(varName, c);
+        getContentPane().add(varName);
 
-		tableModel = new SolverTableModel<>();
-		viewTable = new JTable(tableModel);
+        tableModel = new SolverTableModel<>();
+        viewTable = new JTable(tableModel);
 
-		viewTable.getColumnModel().getColumn(0).setPreferredWidth(25);
-		viewTable.getColumnModel().getColumn(1).setPreferredWidth(50);
-		viewTable.getColumnModel().getColumn(2).setPreferredWidth(25);
-		viewTable.getColumnModel().getColumn(3).setPreferredWidth(50);
+        viewTable.getColumnModel().getColumn(0).setPreferredWidth(25);
+        viewTable.getColumnModel().getColumn(1).setPreferredWidth(50);
+        viewTable.getColumnModel().getColumn(2).setPreferredWidth(25);
+        viewTable.getColumnModel().getColumn(3).setPreferredWidth(50);
 
-		Utility.buildConstraints(c, 0, 2, col, 1, 0, 1000);
-		JScrollPane pane = new JScrollPane(viewTable);
-		viewTable.setFillsViewportHeight(true);
-		pane.setPreferredSize(new Dimension(500, 300));
-		gridbag.setConstraints(pane, c);
-		getContentPane().add(pane);
+        Utility.buildConstraints(c, 0, 2, col, 1, 0, 1000);
+        JScrollPane pane = new JScrollPane(viewTable);
+        viewTable.setFillsViewportHeight(true);
+        pane.setPreferredSize(new Dimension(500, 300));
+        gridbag.setConstraints(pane, c);
+        getContentPane().add(pane);
 
-		setTitle("Core Variable Debug View");
-		getContentPane().setSize(500, 400);
-		pack();
-		setLocationRelativeTo(null);
-	}
+        setTitle("Core Variable Debug View");
+        getContentPane().setSize(500, 400);
+        pack();
+        setLocationRelativeTo(null);
+    }
 
-	private static class SolverTableModel<T> extends AbstractTableModel
-	{
-		private final String[] columnNames =
-				{"Modification Type", "Modification", "Resulting Value", "Priority", "Source"};
+    private static class SolverTableModel<T> extends AbstractTableModel
+    {
+        private final String[] columnNames =
+                {"Modification Type", "Modification", "Resulting Value", "Priority", "Source"};
 
-		private List<ProcessStep<T>> steps = Collections.emptyList();
+        private List<ProcessStep<T>> steps = Collections.emptyList();
 
-		@Override
-		public String getColumnName(int column)
-		{
-			return columnNames[column];
-		}
+        @Override
+        public String getColumnName(int column)
+        {
+            return columnNames[column];
+        }
 
-		@Override
-		public int getRowCount()
-		{
-			return steps.size();
-		}
+        @Override
+        public int getRowCount()
+        {
+            return steps.size();
+        }
 
-		@Override
-		public int getColumnCount()
-		{
-			return columnNames.length;
-		}
+        @Override
+        public int getColumnCount()
+        {
+            return columnNames.length;
+        }
 
-		@Override
-		public Object getValueAt(int rowIndex, int columnIndex)
-		{
-			ProcessStep<T> ps = steps.get(rowIndex);
-			switch (columnIndex)
-			{
-				case 0:
-					return ps.getModifier().getIdentification();
-				case 1:
-					return ps.getModifier().getInstructions();
-				case 2:
-					return ps.getResult();
-				case 3:
-					return ps.getModifier().getPriority();
-				case 4:
-					return ps.getSourceInfo();
-				default:
-					return "";
-			}
-		}
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex)
+        {
+            ProcessStep<T> ps = steps.get(rowIndex);
+            switch (columnIndex)
+            {
+                case 0:
+                    return ps.getModifier().getIdentification();
+                case 1:
+                    return ps.getModifier().getInstructions();
+                case 2:
+                    return ps.getResult();
+                case 3:
+                    return ps.getModifier().getPriority();
+                case 4:
+                    return ps.getSourceInfo();
+                default:
+                    return "";
+            }
+        }
 
-		@Override
-		public boolean isCellEditable(int rowIndex, int columnIndex)
-		{
-			return false;
-		}
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex)
+        {
+            return false;
+        }
 
-		public void setSteps(List<ProcessStep<T>> steps)
-		{
-			this.steps = steps;
-			fireTableDataChanged();
-		}
-	}
+        public void setSteps(List<ProcessStep<T>> steps)
+        {
+            this.steps = steps;
+            fireTableDataChanged();
+        }
+    }
 
-	private static final class PCRef
-	{
-		public String name;
-		public CharID id;
+    private static final class PCRef
+    {
+        public String name;
+        public CharID id;
 
-		private PCRef(String pcname, CharID id)
-		{
-			this.name = pcname;
-			this.id = id;
-		}
+        private PCRef(String pcname, CharID id)
+        {
+            this.name = pcname;
+            this.id = id;
+        }
 
-		@Override
-		public String toString()
-		{
-			return name;
-		}
-	}
+        @Override
+        public String toString()
+        {
+            return name;
+        }
+    }
 }

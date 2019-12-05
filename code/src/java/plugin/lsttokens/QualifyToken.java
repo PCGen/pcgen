@@ -57,94 +57,94 @@ import pcgen.rules.persistence.token.ParseResult;
 public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	@Override
-	public String getTokenName()
-	{
-		return "QUALIFY";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "QUALIFY";
+    }
 
-	public List<Class<? extends CDOMObject>> getLegalTypes()
-	{
-		return Arrays.asList(PCClassLevel.class, Ability.class, Deity.class, Domain.class, Equipment.class,
-			PCClass.class, Race.class, Skill.class, Spell.class, PCTemplate.class, WeaponProf.class);
-	}
+    public List<Class<? extends CDOMObject>> getLegalTypes()
+    {
+        return Arrays.asList(PCClassLevel.class, Ability.class, Deity.class, Domain.class, Equipment.class,
+                PCClass.class, Race.class, Skill.class, Spell.class, PCTemplate.class, WeaponProf.class);
+    }
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
-	{
-		if (obj instanceof Ungranted)
-		{
-			return new ParseResult.Fail(
-				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
-		}
-		if (!getLegalTypes().contains(obj.getClass()))
-		{
-			return new ParseResult.Fail("Cannot use QUALIFY on a " + obj.getClass());
-		}
-		return super.parseNonEmptyToken(context, obj, value);
-	}
+    @Override
+    protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
+    {
+        if (obj instanceof Ungranted)
+        {
+            return new ParseResult.Fail(
+                    "Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
+        }
+        if (!getLegalTypes().contains(obj.getClass()))
+        {
+            return new ParseResult.Fail("Cannot use QUALIFY on a " + obj.getClass());
+        }
+        return super.parseNonEmptyToken(context, obj, value);
+    }
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
-	{
-		if (!value.contains(Constants.PIPE))
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " requires at least two arguments, QualifyType and Key: " + value);
-		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		String firstToken = st.nextToken();
-		ReferenceManufacturer<? extends Loadable> rm = context.getManufacturer(firstToken);
-		if (rm == null)
-		{
-			return new ParseResult.Fail(getTokenName() + " unable to generate manufacturer for type: " + value);
-		}
+    @Override
+    protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
+    {
+        if (!value.contains(Constants.PIPE))
+        {
+            return new ParseResult.Fail(
+                    getTokenName() + " requires at least two arguments, QualifyType and Key: " + value);
+        }
+        StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+        String firstToken = st.nextToken();
+        ReferenceManufacturer<? extends Loadable> rm = context.getManufacturer(firstToken);
+        if (rm == null)
+        {
+            return new ParseResult.Fail(getTokenName() + " unable to generate manufacturer for type: " + value);
+        }
 
-		while (st.hasMoreTokens())
-		{
-			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st.nextToken());
-			context.getObjectContext().addToList(obj, ListKey.QUALIFY, new Qualifier(ref));
-		}
+        while (st.hasMoreTokens())
+        {
+            CDOMSingleRef<? extends Loadable> ref = rm.getReference(st.nextToken());
+            context.getObjectContext().addToList(obj, ListKey.QUALIFY, new Qualifier(ref));
+        }
 
-		return ParseResult.SUCCESS;
-	}
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Changes<Qualifier> changes = context.getObjectContext().getListChanges(obj, ListKey.QUALIFY);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
-		Collection<Qualifier> quals = changes.getAdded();
-		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
-		for (Qualifier qual : quals)
-		{
-			CDOMSingleRef<?> ref = qual.getQualifiedReference();
-			String key = ref.getPersistentFormat();
-			map.addToListFor(key, ref);
-		}
-		Set<CDOMSingleRef<?>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
-		Set<String> returnSet = new TreeSet<>();
-		for (String key : map.getKeySet())
-		{
-			set.clear();
-			set.addAll(map.getListFor(key));
-			returnSet.add(key + Constants.PIPE + ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
-		}
-		return returnSet.toArray(new String[0]);
-	}
+    @Override
+    public String[] unparse(LoadContext context, CDOMObject obj)
+    {
+        Changes<Qualifier> changes = context.getObjectContext().getListChanges(obj, ListKey.QUALIFY);
+        if (changes == null || changes.isEmpty())
+        {
+            return null;
+        }
+        Collection<Qualifier> quals = changes.getAdded();
+        HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
+        for (Qualifier qual : quals)
+        {
+            CDOMSingleRef<?> ref = qual.getQualifiedReference();
+            String key = ref.getPersistentFormat();
+            map.addToListFor(key, ref);
+        }
+        Set<CDOMSingleRef<?>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
+        Set<String> returnSet = new TreeSet<>();
+        for (String key : map.getKeySet())
+        {
+            set.clear();
+            set.addAll(map.getListFor(key));
+            returnSet.add(key + Constants.PIPE + ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
+        }
+        return returnSet.toArray(new String[0]);
+    }
 
-	@Override
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
+    @Override
+    public Class<CDOMObject> getTokenClass()
+    {
+        return CDOMObject.class;
+    }
 }

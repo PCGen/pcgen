@@ -28,15 +28,15 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  */
 public class EquipmentToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
-	@Override
-	public String getTokenName()
-	{
-		return "EQUIPMENT";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "EQUIPMENT";
+    }
 
-	@Override
-	protected ListKey<CampaignSourceEntry> getListKey()
-	{
-		return ListKey.FILE_EQUIP;
-	}
+    @Override
+    protected ListKey<CampaignSourceEntry> getListKey()
+    {
+        return ListKey.FILE_EQUIP;
+    }
 }

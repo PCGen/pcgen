@@ -32,32 +32,32 @@ import javafx.scene.control.CheckBox;
  */
 public class InputPreferencesPanelController implements ResettableController
 {
-	private final InputPreferencesModel model = new InputPreferencesModel();
+    private final InputPreferencesModel model = new InputPreferencesModel();
 
-	@FXML
-	private CheckBox detailUnconstructed;
+    @FXML
+    private CheckBox detailUnconstructed;
 
-	@FXML
-	private CheckBox formatDeprecation;
+    @FXML
+    private CheckBox formatDeprecation;
 
-	@FXML
-	void initialize()
-	{
-		model.detailUnconstructedReferencesProperty().bind(detailUnconstructed.selectedProperty());
-		model.formatDeprecationMessageProperty().bind(formatDeprecation.selectedProperty());
-	}
+    @FXML
+    void initialize()
+    {
+        model.detailUnconstructedReferencesProperty().bind(detailUnconstructed.selectedProperty());
+        model.formatDeprecationMessageProperty().bind(formatDeprecation.selectedProperty());
+    }
 
-	@Override
-	public void reset()
-	{
-		detailUnconstructed.setSelected(SettingsHandler.inputUnconstructedMessages());
-		formatDeprecation.setSelected(SettingsHandler.outputDeprecationMessages());
-	}
+    @Override
+    public void reset()
+    {
+        detailUnconstructed.setSelected(SettingsHandler.inputUnconstructedMessages());
+        formatDeprecation.setSelected(SettingsHandler.outputDeprecationMessages());
+    }
 
-	@Override
-	public void apply()
-	{
-		SettingsHandler.setInputUnconstructedMessages(detailUnconstructed.isSelected());
-		SettingsHandler.setOutputDeprecationMessages(formatDeprecation.isSelected());
-	}
+    @Override
+    public void apply()
+    {
+        SettingsHandler.setInputUnconstructedMessages(detailUnconstructed.isSelected());
+        SettingsHandler.setOutputDeprecationMessages(formatDeprecation.isSelected());
+    }
 }

@@ -35,89 +35,89 @@ import pcgen.util.Logging;
 
 public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFilter<WeaponProf>
 {
-	private PrimitiveCollection<WeaponProf> pcs;
+    private PrimitiveCollection<WeaponProf> pcs;
 
-	@Override
-	public String getTokenName()
-	{
-		return "SPELLCASTER";
-	}
+    @Override
+    public String getTokenName()
+    {
+        return "SPELLCASTER";
+    }
 
-	@Override
-	public Class<WeaponProf> getReferenceClass()
-	{
-		return WeaponProf.class;
-	}
+    @Override
+    public Class<WeaponProf> getReferenceClass()
+    {
+        return WeaponProf.class;
+    }
 
-	@Override
-	public String getLSTformat(boolean useAny)
-	{
-		return getTokenName() + '[' + pcs.getLSTformat(useAny) + ']';
-	}
+    @Override
+    public String getLSTformat(boolean useAny)
+    {
+        return getTokenName() + '[' + pcs.getLSTformat(useAny) + ']';
+    }
 
-	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<WeaponProf> sc, String condition, String value,
-		boolean negate)
-	{
-		if (negate)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				"Cannot make " + getTokenName() + " into a negated Qualifier, remove !");
-			return false;
-		}
-		if (condition != null)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
-			return false;
-		}
-		if (value == null)
-		{
-			Logging.addParseMessage(Level.SEVERE,
-				"Cannot use " + getTokenName() + " as an unconditional Qualifier, requires brackets");
-			return false;
-		}
-		ReferenceManufacturer<WeaponProf> erm = context.getReferenceContext().getManufacturer(WeaponProf.class);
-		pcs = context.getPrimitiveChoiceFilter(erm, value);
-		return pcs != null;
-	}
+    @Override
+    public boolean initialize(LoadContext context, SelectionCreator<WeaponProf> sc, String condition, String value,
+            boolean negate)
+    {
+        if (negate)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    "Cannot make " + getTokenName() + " into a negated Qualifier, remove !");
+            return false;
+        }
+        if (condition != null)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    "Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
+            return false;
+        }
+        if (value == null)
+        {
+            Logging.addParseMessage(Level.SEVERE,
+                    "Cannot use " + getTokenName() + " as an unconditional Qualifier, requires brackets");
+            return false;
+        }
+        ReferenceManufacturer<WeaponProf> erm = context.getReferenceContext().getManufacturer(WeaponProf.class);
+        pcs = context.getPrimitiveChoiceFilter(erm, value);
+        return pcs != null;
+    }
 
-	@Override
-	public int hashCode()
-	{
-		return pcs == null ? 0 : pcs.hashCode();
-	}
+    @Override
+    public int hashCode()
+    {
+        return pcs == null ? 0 : pcs.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o instanceof SpellCasterToken)
-		{
-			SpellCasterToken other = (SpellCasterToken) o;
-			if (pcs == null)
-			{
-				return other.pcs == null;
-			}
-			return pcs.equals(other.pcs);
-		}
-		return false;
-	}
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o instanceof SpellCasterToken)
+        {
+            SpellCasterToken other = (SpellCasterToken) o;
+            if (pcs == null)
+            {
+                return other.pcs == null;
+            }
+            return pcs.equals(other.pcs);
+        }
+        return false;
+    }
 
-	@Override
-	public GroupingState getGroupingState()
-	{
-		return pcs.getGroupingState().reduce();
-	}
+    @Override
+    public GroupingState getGroupingState()
+    {
+        return pcs.getGroupingState().reduce();
+    }
 
-	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
-	{
-		return pcs.getCollection(pc, new AddFilterConverter<>(c, this));
-	}
+    @Override
+    public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
+    {
+        return pcs.getCollection(pc, new AddFilterConverter<>(c, this));
+    }
 
-	@Override
-	public boolean allow(PlayerCharacter pc, WeaponProf po)
-	{
-		return pc.isSpellCaster(1);
-	}
+    @Override
+    public boolean allow(PlayerCharacter pc, WeaponProf po)
+    {
+        return pc.isSpellCaster(1);
+    }
 }

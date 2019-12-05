@@ -33,67 +33,67 @@ import pcgen.util.Logging;
  * TABLE token for KitTable
  */
 public class TableToken extends AbstractNonEmptyToken<KitTable>
-		implements CDOMPrimaryToken<KitTable>, DeferredToken<Kit>
+        implements CDOMPrimaryToken<KitTable>, DeferredToken<Kit>
 {
-	/**
-	 * Gets the name of the tag this class will parse.
-	 * 
-	 * @return Name of the tag this class handles
-	 */
-	@Override
-	public String getTokenName()
-	{
-		return "TABLE";
-	}
+    /**
+     * Gets the name of the tag this class will parse.
+     *
+     * @return Name of the tag this class handles
+     */
+    @Override
+    public String getTokenName()
+    {
+        return "TABLE";
+    }
 
-	@Override
-	public Class<KitTable> getTokenClass()
-	{
-		return KitTable.class;
-	}
+    @Override
+    public Class<KitTable> getTokenClass()
+    {
+        return KitTable.class;
+    }
 
-	@Override
+    @Override
 
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable, String value)
-	{
-		kitTable.setTableName(value);
-		return ParseResult.SUCCESS;
-	}
+    protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable, String value)
+    {
+        kitTable.setTableName(value);
+        return ParseResult.SUCCESS;
+    }
 
-	@Override
-	public String[] unparse(LoadContext context, KitTable kitTable)
-	{
-		String bd = kitTable.getTableName();
-		if (bd == null)
-		{
-			return null;
-		}
-		return new String[]{bd};
-	}
+    @Override
+    public String[] unparse(LoadContext context, KitTable kitTable)
+    {
+        String bd = kitTable.getTableName();
+        if (bd == null)
+        {
+            return null;
+        }
+        return new String[]{bd};
+    }
 
-	@Override
-	public boolean process(LoadContext context, Kit obj)
-	{
-		for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
-		{
-			if (bk instanceof KitTable)
-			{
-				obj.removeFromListFor(ListKey.KIT_TASKS, bk);
-				KitTable kt = obj.addTable((KitTable) bk);
-				if (kt != null)
-				{
-					Logging.errorPrint("Kit Table: " + kt.getTableName() + " in Kit " + obj.getKeyName()
-						+ " was a duplicate, " + "Kit had more than one table with that name.");
-					return false;
-				}
-			}
-		}
-		return true;
-	}
+    @Override
+    public boolean process(LoadContext context, Kit obj)
+    {
+        for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
+        {
+            if (bk instanceof KitTable)
+            {
+                obj.removeFromListFor(ListKey.KIT_TASKS, bk);
+                KitTable kt = obj.addTable((KitTable) bk);
+                if (kt != null)
+                {
+                    Logging.errorPrint("Kit Table: " + kt.getTableName() + " in Kit " + obj.getKeyName()
+                            + " was a duplicate, " + "Kit had more than one table with that name.");
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
-	@Override
-	public Class<Kit> getDeferredTokenClass()
-	{
-		return Kit.class;
-	}
+    @Override
+    public Class<Kit> getDeferredTokenClass()
+    {
+        return Kit.class;
+    }
 }
