@@ -22,6 +22,7 @@ ABILITYCATEGORY:Spiritualist Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 
 # Kineticist class features
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object								Specific choices list						Plural description for UI					Display Location
+ABILITYCATEGORY:Kineticist Blast Type				VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Kineticist Blast Type
 ABILITYCATEGORY:Kineticist Wild Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES												CATEGORY:Special Ability	TYPE:Wild Talent																	PLURAL:Kineticist Wild Talents				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Kineticist Element					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_KineticistElementalFocus		CATEGORY:Special Ability	TYPE:Kineticist Element																PLURAL:Kineticist Elements					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Kineticist Blast					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability	TYPE:Simple Blast																	PLURAL:Simple Blasts						DISPLAYLOCATION:Class Features
