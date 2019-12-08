@@ -37,3 +37,16 @@ Starting Gold UM ~ Average	VISIBLE:NO																																	KIT:1|Star
 Magus Spellbook			VISIBLE:NO																																	KIT:1|Magus Spellbook
 
 Mindchemist Language		VISIBLE:NO																																							LANGBONUS:ALL
+
+
+
+Convert Slam to Ranged Slam x1		TEMPLATE:Slam Convert x1
+Convert Slam to Ranged Slam			TEMPLATE:CHOOSE:TYPE=SlamConverted
+
+Slam Convert x1	TYPE:SlamConverted	PREVAREQ:SlamAttacks,1	BONUS:VAR|SlamAttacks|-1	BONUS:VAR|RangedSlamAttacks|1
+Slam Convert x2	TYPE:SlamConverted	PREVAREQ:SlamAttacks,2	BONUS:VAR|SlamAttacks|-2	BONUS:VAR|RangedSlamAttacks|2
+Slam Convert x3	TYPE:SlamConverted	PREVAREQ:SlamAttacks,3	BONUS:VAR|SlamAttacks|-3	BONUS:VAR|RangedSlamAttacks|3
+Slam Convert x4	TYPE:SlamConverted	PREVAREQ:SlamAttacks,4	BONUS:VAR|SlamAttacks|-4	BONUS:VAR|RangedSlamAttacks|4
+Slam Convert x5	TYPE:SlamConverted	PREVAREQ:SlamAttacks,5	BONUS:VAR|SlamAttacks|-5	BONUS:VAR|RangedSlamAttacks|5
+Slam Convert x6	TYPE:SlamConverted	PREVAREQ:SlamAttacks,6	BONUS:VAR|SlamAttacks|-6	BONUS:VAR|RangedSlamAttacks|6
+Slam Convert x7	TYPE:SlamConverted	PREVAREQ:SlamAttacks,7	BONUS:VAR|SlamAttacks|-7	BONUS:VAR|RangedSlamAttacks|7
