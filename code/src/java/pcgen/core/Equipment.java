@@ -4010,21 +4010,20 @@ public final class Equipment extends PObject
 				BigDecimal maxCost = null;
 				final List<String> itemTypes = typeList();
 
-				for (int idx = 0; idx < itemTypes.size(); ++idx)
-				{
-					String typeMatched = itemTypes.get(idx);
-					costExpr = SettingsHandler.getGame().getPlusCalculation(Type.getConstant(typeMatched));
+                for (String typeMatched : itemTypes)
+                {
+                    costExpr = SettingsHandler.getGame().getPlusCalculation(Type.getConstant(typeMatched));
 
-					if (costExpr != null)
-					{
-						final BigDecimal thisCost = evaluateCost(myParser, costExpr);
+                    if (costExpr != null)
+                    {
+                        final BigDecimal thisCost = evaluateCost(myParser, costExpr);
 
-						if ((maxCost == null) || (thisCost.compareTo(maxCost) > 1))
-						{
-							maxCost = thisCost;
-						}
-					}
-				}
+                        if ((maxCost == null) || (thisCost.compareTo(maxCost) > 1))
+                        {
+                            maxCost = thisCost;
+                        }
+                    }
+                }
 
 				if (maxCost != null)
 				{

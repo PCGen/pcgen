@@ -499,9 +499,8 @@ public abstract class VariableProcessor
 				return null;
 			}
 
-			for (Iterator<String> iter = parser.getSymbolTable().keySet().iterator(); iter.hasNext();)
+			for (final String element : (Iterable<String>) parser.getSymbolTable().keySet())
 			{
-				final String element = iter.next();
 				if ("e".equals(element) || "FALSE".equals(element) || "pi".equals(element) || "TRUE".equals(element))
 				{
 					continue;
@@ -511,8 +510,7 @@ public abstract class VariableProcessor
 				if (d != null)
 				{
 					parser.addVariable(element, d.doubleValue());
-				}
-				else
+				} else
 				{
 					// we could not get a value for all of the variables, so it must not have been a JEP function
 					// after all...

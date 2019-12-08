@@ -102,24 +102,23 @@ public final class EquipmentChoice
 		if (getMinValue() < getMaxValue())
 		{
 			finalList = new ArrayList<>();
-			for (int i = 0; i < availableList.size(); i++)
-			{
-				final String choice = String.valueOf(availableList.get(i));
-				if (choice.indexOf('|') < 0)
-				{
-					for (int j = getMinValue(); j <= getMaxValue(); j += getIncValue())
-					{
-						if (!skipZero || j != 0)
-						{
-							finalList.add(choice + '|' + Delta.toString(j));
-						}
-					}
-				}
-				else
-				{
-					finalList.add(choice);
-				}
-			}
+            for (Object o : availableList)
+            {
+                final String choice = String.valueOf(o);
+                if (choice.indexOf('|') < 0)
+                {
+                    for (int j = getMinValue();j <= getMaxValue();j += getIncValue())
+                    {
+                        if (!skipZero || j != 0)
+                        {
+                            finalList.add(choice + '|' + Delta.toString(j));
+                        }
+                    }
+                } else
+                {
+                    finalList.add(choice);
+                }
+            }
 		}
 		else
 		{
