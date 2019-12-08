@@ -20,7 +20,6 @@ package pcgen.gui2.tabs.spells;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.List;
 

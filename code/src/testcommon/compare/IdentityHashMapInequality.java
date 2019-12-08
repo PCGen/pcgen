@@ -22,7 +22,6 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.base.test.InequalityTester;
 import pcgen.base.util.AbstractMapToList;
 import pcgen.base.util.HashMapToList;
