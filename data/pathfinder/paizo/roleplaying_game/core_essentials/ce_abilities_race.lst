@@ -249,6 +249,7 @@ Tail Slap		CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondar
 Hoof			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HoofAttacks|0																		BONUS:VAR|HoofAttacks|2	BONUS:VAR|NaturalAttacks|HoofAttacks										BONUS:WEAPONPROF=Hoof|TOHIT|-5|PREMULT:1,[PREABILITY:1,CATEGORY=Internal,TYPE.NaturalAttackPrimary],[PREABILITY:2,CATEGORY=Internal,TYPE.NaturalAttackSecondary],[PREVAREQ:UseWeaponsWithNaturalAttacks,1]	BONUS:WEAPONPROF=Hoof|DAMAGE|floor(STR/2)-STR|PREMULT:1,[PREABILITY:1,CATEGORY=Internal,TYPE.NaturalAttackPrimary],[PREABILITY:2,CATEGORY=Internal,TYPE.NaturalAttackSecondary],[PREVAREQ:UseWeaponsWithNaturalAttacks,1]	BONUS:WEAPONPROF=Hoof|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1|!PREVAREQ:UseWeaponsWithNaturalAttacks,1
 Tentacle		CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TentacleAttacks|0																	BONUS:VAR|TentacleAttacks|2	BONUS:VAR|NaturalAttacks|TentacleAttacks									BONUS:WEAPONPROF=Tentacle|TOHIT|-5|PREMULT:1,[PREABILITY:1,CATEGORY=Internal,TYPE.NaturalAttackPrimary],[PREABILITY:2,CATEGORY=Internal,TYPE.NaturalAttackSecondary],[PREVAREQ:UseWeaponsWithNaturalAttacks,1]	BONUS:WEAPONPROF=Tentacle|DAMAGE|floor(STR/2)-STR|PREMULT:1,[PREABILITY:1,CATEGORY=Internal,TYPE.NaturalAttackPrimary],[PREABILITY:2,CATEGORY=Internal,TYPE.NaturalAttackSecondary],[PREVAREQ:UseWeaponsWithNaturalAttacks,1]	BONUS:WEAPONPROF=Tentacle|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1|!PREVAREQ:UseWeaponsWithNaturalAttacks,1
 Wing			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:WingAttacks|0																		BONUS:VAR|WingAttacks|2	BONUS:VAR|NaturalAttacks|WingAttacks										BONUS:WEAPONPROF=Wing|TOHIT|-5|PREMULT:1,[PREABILITY:1,CATEGORY=Internal,TYPE.NaturalAttackPrimary],[PREABILITY:2,CATEGORY=Internal,TYPE.NaturalAttackSecondary],[PREVAREQ:UseWeaponsWithNaturalAttacks,1]	BONUS:WEAPONPROF=Wing|DAMAGE|floor(STR/2)-STR|PREMULT:1,[PREABILITY:1,CATEGORY=Internal,TYPE.NaturalAttackPrimary],[PREABILITY:2,CATEGORY=Internal,TYPE.NaturalAttackSecondary],[PREVAREQ:UseWeaponsWithNaturalAttacks,1]	BONUS:WEAPONPROF=Wing|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1|!PREVAREQ:UseWeaponsWithNaturalAttacks,1
+Ranged Slam		CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:RangedSlamAttacks|0																	BONUS:VAR|RangedSlamAttacks|1	BONUS:VAR|NaturalAttacks|1											BONUS:WEAPONPROF=Ranged Slam|TOHIT|-5|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Ranged Slam|DAMAGE|floor(STR/2)-STR|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Ranged Slam|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1|!PREVAREQ:UseWeaponsWithNaturalAttacks,1
 
 # Rake is a byproduct of Claws, does not count as a natural attack
 Rake			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:RakeAttacks|0																		BONUS:VAR|RakeAttacks|2	BONUS:VAR|NaturalAttacks|0												BONUS:WEAPONPROF=Rake|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
@@ -284,6 +285,7 @@ CATEGORY=Internal|Rake.MOD															BONUS:WEAPONPROF=Rake|WIELDCATEGORY|Siz
 CATEGORY=Internal|Tail Sweep.MOD														BONUS:WEAPONPROF=Tail Sweep|WIELDCATEGORY|SizeIncrease
 CATEGORY=Internal|Crush.MOD															BONUS:WEAPONPROF=Crush|WIELDCATEGORY|SizeIncrease
 CATEGORY=Internal|Hair.MOD															BONUS:WEAPONPROF=Hair|WIELDCATEGORY|SizeIncrease
+CATEGORY=Internal|Ranged Slam.MOD														BONUS:WEAPONPROF=Ranged Slam|WIELDCATEGORY|SizeIncrease
 
 CATEGORY=Internal|Default.MOD		DEFINE:NaturalAttackSize|0
 CATEGORY=Internal|Default.MOD							BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:F
@@ -312,6 +314,7 @@ CATEGORY=Internal|Rake.MOD		DEFINE:RakeSize|0			BONUS:VAR|RakeSize|NaturalAttack
 CATEGORY=Internal|Tail Sweep.MOD	DEFINE:TailSweepSize|0		BONUS:VAR|TailSweepSize|NaturalAttackSize
 CATEGORY=Internal|Crush.MOD		DEFINE:CrushSize|0		BONUS:VAR|CrushSize|NaturalAttackSize
 CATEGORY=Internal|Hair.MOD		DEFINE:HairSize|0			BONUS:VAR|HairSize|NaturalAttackSize
+CATEGORY=Internal|Ranged Slam.MOD	DEFINE:RangedSlamSize|0		BONUS:VAR|RangedSlamSize|NaturalAttackSize
 
 
 ###Block: The Grantors
@@ -331,6 +334,7 @@ CATEGORY=Internal|Rake.MOD		ABILITY:Internal|AUTOMATIC|Rake 2 (Diminutive)|PREVA
 CATEGORY=Internal|Tail Sweep.MOD	ABILITY:Internal|AUTOMATIC|Tail Sweep (Diminutive)|PREVAREQ:TailSweepSize,2	ABILITY:Internal|AUTOMATIC|Tail Sweep (Tiny)|PREVAREQ:TailSweepSize,3	ABILITY:Internal|AUTOMATIC|Tail Sweep (Small)|PREVAREQ:TailSweepSize,4	ABILITY:Internal|AUTOMATIC|Tail Sweep (Medium)|PREVAREQ:TailSweepSize,5	ABILITY:Internal|AUTOMATIC|Tail Sweep (Large)|PREVAREQ:TailSweepSize,6	ABILITY:Internal|AUTOMATIC|Tail Sweep (Huge)|PREVAREQ:TailSweepSize,7	ABILITY:Internal|AUTOMATIC|Tail Sweep (Gargantuan)|PREVAREQ:TailSweepSize,8	ABILITY:Internal|AUTOMATIC|Tail Sweep (Colossal)|PREVAREQ:TailSweepSize,9
 CATEGORY=Internal|Crush.MOD		ABILITY:Internal|AUTOMATIC|Crush (Diminutive)|PREVAREQ:CrushSize,2	ABILITY:Internal|AUTOMATIC|Crush (Tiny)|PREVAREQ:CrushSize,3	ABILITY:Internal|AUTOMATIC|Crush (Small)|PREVAREQ:CrushSize,4	ABILITY:Internal|AUTOMATIC|Crush (Medium)|PREVAREQ:CrushSize,5	ABILITY:Internal|AUTOMATIC|Crush (Large)|PREVAREQ:CrushSize,6	ABILITY:Internal|AUTOMATIC|Crush (Huge)|PREVAREQ:CrushSize,7	ABILITY:Internal|AUTOMATIC|Crush (Gargantuan)|PREVAREQ:CrushSize,8	ABILITY:Internal|AUTOMATIC|Crush (Colossal)|PREVAREQ:CrushSize,9
 CATEGORY=Internal|Hair.MOD		ABILITY:Internal|AUTOMATIC|Hair 1 (Tiny)|PREVAREQ:HairSize,3|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Small)|PREVAREQ:HairSize,4|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Medium)|PREVAREQ:HairSize,5|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Large)|PREVAREQ:HairSize,6|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Huge)|PREVAREQ:HairSize,7|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Gargantuan)|PREVAREQ:HairSize,8|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Colossal)|PREVAREQ:HairSize,9|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 2 (Tiny)|PREVAREQ:HairSize,3|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Small)|PREVAREQ:HairSize,4|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Medium)|PREVAREQ:HairSize,5|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Large)|PREVAREQ:HairSize,6|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Huge)|PREVAREQ:HairSize,7|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Gargantuan)|PREVAREQ:HairSize,8|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Colossal)|PREVAREQ:HairSize,9|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 3 (Tiny)|PREVAREQ:HairSize,3|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Small)|PREVAREQ:HairSize,4|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Medium)|PREVAREQ:HairSize,5|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Large)|PREVAREQ:HairSize,6|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Huge)|PREVAREQ:HairSize,7|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Gargantuan)|PREVAREQ:HairSize,8|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Colossal)|PREVAREQ:HairSize,9|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 4 (Tiny)|PREVAREQ:HairSize,3|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Small)|PREVAREQ:HairSize,4|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Medium)|PREVAREQ:HairSize,5|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Large)|PREVAREQ:HairSize,6|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Huge)|PREVAREQ:HairSize,7|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Gargantuan)|PREVAREQ:HairSize,8|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Colossal)|PREVAREQ:HairSize,9|PREVAREQ:HairAttacks,4
+CATEGORY=Internal|Ranged Slam.MOD	ABILITY:Internal|AUTOMATIC|Ranged Slam 1 (Diminutive)|PREVAREQ:RangedSlamSize,2|PREVAREQ:RangedSlamAttacks,1	ABILITY:Internal|AUTOMATIC|Ranged Slam 1 (Tiny)|PREVAREQ:RangedSlamSize,3|PREVAREQ:RangedSlamAttacks,1	ABILITY:Internal|AUTOMATIC|Ranged Slam 1 (Small)|PREVAREQ:RangedSlamSize,4|PREVAREQ:RangedSlamAttacks,1	ABILITY:Internal|AUTOMATIC|Ranged Slam 1 (Medium)|PREVAREQ:RangedSlamSize,5|PREVAREQ:RangedSlamAttacks,1	ABILITY:Internal|AUTOMATIC|Ranged Slam 1 (Large)|PREVAREQ:RangedSlamSize,6|PREVAREQ:RangedSlamAttacks,1	ABILITY:Internal|AUTOMATIC|Ranged Slam 1 (Huge)|PREVAREQ:RangedSlamSize,7|PREVAREQ:RangedSlamAttacks,1	ABILITY:Internal|AUTOMATIC|Ranged Slam 1 (Gargantuan)|PREVAREQ:RangedSlamSize,8|PREVAREQ:RangedSlamAttacks,1	ABILITY:Internal|AUTOMATIC|Ranged Slam 1 (Colossal)|PREVAREQ:RangedSlamSize,9|PREVAREQ:RangedSlamAttacks,1	ABILITY:Internal|AUTOMATIC|Ranged Slam 2 (Diminutive)|PREVAREQ:RangedSlamSize,2|PREVAREQ:RangedSlamAttacks,2	ABILITY:Internal|AUTOMATIC|Ranged Slam 2 (Tiny)|PREVAREQ:RangedSlamSize,3|PREVAREQ:RangedSlamAttacks,2	ABILITY:Internal|AUTOMATIC|Ranged Slam 2 (Small)|PREVAREQ:RangedSlamSize,4|PREVAREQ:RangedSlamAttacks,2	ABILITY:Internal|AUTOMATIC|Ranged Slam 2 (Medium)|PREVAREQ:RangedSlamSize,5|PREVAREQ:RangedSlamAttacks,2	ABILITY:Internal|AUTOMATIC|Ranged Slam 2 (Large)|PREVAREQ:RangedSlamSize,6|PREVAREQ:RangedSlamAttacks,2	ABILITY:Internal|AUTOMATIC|Ranged Slam 2 (Huge)|PREVAREQ:RangedSlamSize,7|PREVAREQ:RangedSlamAttacks,2	ABILITY:Internal|AUTOMATIC|Ranged Slam 2 (Gargantuan)|PREVAREQ:RangedSlamSize,8|PREVAREQ:RangedSlamAttacks,2	ABILITY:Internal|AUTOMATIC|Ranged Slam 2 (Colossal)|PREVAREQ:RangedSlamSize,9|PREVAREQ:RangedSlamAttacks,2	ABILITY:Internal|AUTOMATIC|Ranged Slam 3 (Diminutive)|PREVAREQ:RangedSlamSize,2|PREVAREQ:RangedSlamAttacks,3	ABILITY:Internal|AUTOMATIC|Ranged Slam 3 (Tiny)|PREVAREQ:RangedSlamSize,3|PREVAREQ:RangedSlamAttacks,3	ABILITY:Internal|AUTOMATIC|Ranged Slam 3 (Small)|PREVAREQ:RangedSlamSize,4|PREVAREQ:RangedSlamAttacks,3	ABILITY:Internal|AUTOMATIC|Ranged Slam 3 (Medium)|PREVAREQ:RangedSlamSize,5|PREVAREQ:RangedSlamAttacks,3	ABILITY:Internal|AUTOMATIC|Ranged Slam 3 (Large)|PREVAREQ:RangedSlamSize,6|PREVAREQ:RangedSlamAttacks,3	ABILITY:Internal|AUTOMATIC|Ranged Slam 3 (Huge)|PREVAREQ:RangedSlamSize,7|PREVAREQ:RangedSlamAttacks,3	ABILITY:Internal|AUTOMATIC|Ranged Slam 3 (Gargantuan)|PREVAREQ:RangedSlamSize,8|PREVAREQ:RangedSlamAttacks,3	ABILITY:Internal|AUTOMATIC|Ranged Slam 3 (Colossal)|PREVAREQ:RangedSlamSize,9|PREVAREQ:RangedSlamAttacks,3	ABILITY:Internal|AUTOMATIC|Ranged Slam 4 (Diminutive)|PREVAREQ:RangedSlamSize,2|PREVAREQ:RangedSlamAttacks,4	ABILITY:Internal|AUTOMATIC|Ranged Slam 4 (Tiny)|PREVAREQ:RangedSlamSize,3|PREVAREQ:RangedSlamAttacks,4	ABILITY:Internal|AUTOMATIC|Ranged Slam 4 (Small)|PREVAREQ:RangedSlamSize,4|PREVAREQ:RangedSlamAttacks,4	ABILITY:Internal|AUTOMATIC|Ranged Slam 4 (Medium)|PREVAREQ:RangedSlamSize,5|PREVAREQ:RangedSlamAttacks,4	ABILITY:Internal|AUTOMATIC|Ranged Slam 4 (Large)|PREVAREQ:RangedSlamSize,6|PREVAREQ:RangedSlamAttacks,4	ABILITY:Internal|AUTOMATIC|Ranged Slam 4 (Huge)|PREVAREQ:RangedSlamSize,7|PREVAREQ:RangedSlamAttacks,4	ABILITY:Internal|AUTOMATIC|Ranged Slam 4 (Gargantuan)|PREVAREQ:RangedSlamSize,8|PREVAREQ:RangedSlamAttacks,4	ABILITY:Internal|AUTOMATIC|Ranged Slam 4 (Colossal)|PREVAREQ:RangedSlamSize,9|PREVAREQ:RangedSlamAttacks,4	ABILITY:Internal|AUTOMATIC|Ranged Slam 5 (Diminutive)|PREVAREQ:RangedSlamSize,2|PREVAREQ:RangedSlamAttacks,5	ABILITY:Internal|AUTOMATIC|Ranged Slam 5 (Tiny)|PREVAREQ:RangedSlamSize,3|PREVAREQ:RangedSlamAttacks,5	ABILITY:Internal|AUTOMATIC|Ranged Slam 5 (Small)|PREVAREQ:RangedSlamSize,4|PREVAREQ:RangedSlamAttacks,5	ABILITY:Internal|AUTOMATIC|Ranged Slam 5 (Medium)|PREVAREQ:RangedSlamSize,5|PREVAREQ:RangedSlamAttacks,5	ABILITY:Internal|AUTOMATIC|Ranged Slam 5 (Large)|PREVAREQ:RangedSlamSize,6|PREVAREQ:RangedSlamAttacks,5	ABILITY:Internal|AUTOMATIC|Ranged Slam 5 (Huge)|PREVAREQ:RangedSlamSize,7|PREVAREQ:RangedSlamAttacks,5	ABILITY:Internal|AUTOMATIC|Ranged Slam 5 (Gargantuan)|PREVAREQ:RangedSlamSize,8|PREVAREQ:RangedSlamAttacks,5	ABILITY:Internal|AUTOMATIC|Ranged Slam 5 (Colossal)|PREVAREQ:RangedSlamSize,9|PREVAREQ:RangedSlamAttacks,5	ABILITY:Internal|AUTOMATIC|Ranged Slam 6 (Diminutive)|PREVAREQ:RangedSlamSize,2|PREVAREQ:RangedSlamAttacks,6	ABILITY:Internal|AUTOMATIC|Ranged Slam 6 (Tiny)|PREVAREQ:RangedSlamSize,3|PREVAREQ:RangedSlamAttacks,6	ABILITY:Internal|AUTOMATIC|Ranged Slam 6 (Small)|PREVAREQ:RangedSlamSize,4|PREVAREQ:RangedSlamAttacks,6	ABILITY:Internal|AUTOMATIC|Ranged Slam 6 (Medium)|PREVAREQ:RangedSlamSize,5|PREVAREQ:RangedSlamAttacks,6	ABILITY:Internal|AUTOMATIC|Ranged Slam 6 (Large)|PREVAREQ:RangedSlamSize,6|PREVAREQ:RangedSlamAttacks,6	ABILITY:Internal|AUTOMATIC|Ranged Slam 6 (Huge)|PREVAREQ:RangedSlamSize,7|PREVAREQ:RangedSlamAttacks,6	ABILITY:Internal|AUTOMATIC|Ranged Slam 6 (Gargantuan)|PREVAREQ:RangedSlamSize,8|PREVAREQ:RangedSlamAttacks,6	ABILITY:Internal|AUTOMATIC|Ranged Slam 6 (Colossal)|PREVAREQ:RangedSlamSize,9|PREVAREQ:RangedSlamAttacks,6	ABILITY:Internal|AUTOMATIC|Ranged Slam 7 (Diminutive)|PREVAREQ:RangedSlamSize,2|PREVAREQ:RangedSlamAttacks,7	ABILITY:Internal|AUTOMATIC|Ranged Slam 7 (Tiny)|PREVAREQ:RangedSlamSize,3|PREVAREQ:RangedSlamAttacks,7	ABILITY:Internal|AUTOMATIC|Ranged Slam 7 (Small)|PREVAREQ:RangedSlamSize,4|PREVAREQ:RangedSlamAttacks,7	ABILITY:Internal|AUTOMATIC|Ranged Slam 7 (Medium)|PREVAREQ:RangedSlamSize,5|PREVAREQ:RangedSlamAttacks,7	ABILITY:Internal|AUTOMATIC|Ranged Slam 7 (Large)|PREVAREQ:RangedSlamSize,6|PREVAREQ:RangedSlamAttacks,7	ABILITY:Internal|AUTOMATIC|Ranged Slam 7 (Huge)|PREVAREQ:RangedSlamSize,7|PREVAREQ:RangedSlamAttacks,7	ABILITY:Internal|AUTOMATIC|Ranged Slam 7 (Gargantuan)|PREVAREQ:RangedSlamSize,8|PREVAREQ:RangedSlamAttacks,7	ABILITY:Internal|AUTOMATIC|Ranged Slam 7 (Colossal)|PREVAREQ:RangedSlamSize,9|PREVAREQ:RangedSlamAttacks,7
 
 
 ###Block: Grants Natural Attacks
@@ -1138,6 +1142,73 @@ Hair 4 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE
 Hair 4 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 4 (Huge)
 Hair 4 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 4 (Gargantuan)
 Hair 4 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 4 (Colossal)
+
+# Ranged Slam Attack
+# Slam - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Primary
+# x1
+Ranged Slam 1 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Ranged Slam 1 (Diminutive)
+Ranged Slam 1 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Ranged Slam 1 (Tiny)
+Ranged Slam 1 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Ranged Slam 1 (Small)
+Ranged Slam 1 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Ranged Slam 1 (Medium)
+Ranged Slam 1 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Ranged Slam 1 (Large)
+Ranged Slam 1 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Ranged Slam 1 (Huge)
+Ranged Slam 1 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Ranged Slam 1 (Gargantuan)
+Ranged Slam 1 (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Ranged Slam 1 (Colossal)
+# x2
+Ranged Slam 2 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Ranged Slam 2 (Diminutive)
+Ranged Slam 2 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Ranged Slam 2 (Tiny)
+Ranged Slam 2 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Ranged Slam 2 (Small)
+Ranged Slam 2 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Ranged Slam 2 (Medium)
+Ranged Slam 2 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Ranged Slam 2 (Large)
+Ranged Slam 2 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Ranged Slam 2 (Huge)
+Ranged Slam 2 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Ranged Slam 2 (Gargantuan)
+Ranged Slam 2 (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Ranged Slam 2 (Colossal)
+# x3
+Ranged Slam 3 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Ranged Slam 3 (Diminutive)
+Ranged Slam 3 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Ranged Slam 3 (Tiny)
+Ranged Slam 3 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Ranged Slam 3 (Small)
+Ranged Slam 3 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Ranged Slam 3 (Medium)
+Ranged Slam 3 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Ranged Slam 3 (Large)
+Ranged Slam 3 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Ranged Slam 3 (Huge)
+Ranged Slam 3 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Ranged Slam 3 (Gargantuan)
+Ranged Slam 3 (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Ranged Slam 3 (Colossal)
+# x4
+Ranged Slam 4 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Ranged Slam 4 (Diminutive)
+Ranged Slam 4 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Ranged Slam 4 (Tiny)
+Ranged Slam 4 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Ranged Slam 4 (Small)
+Ranged Slam 4 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Ranged Slam 4 (Medium)
+Ranged Slam 4 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Ranged Slam 4 (Large)
+Ranged Slam 4 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Ranged Slam 4 (Huge)
+Ranged Slam 4 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Ranged Slam 4 (Gargantuan)
+Ranged Slam 4 (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Ranged Slam 4 (Colossal)
+# x5
+Ranged Slam 5 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Ranged Slam 5 (Diminutive)
+Ranged Slam 5 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Ranged Slam 5 (Tiny)
+Ranged Slam 5 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Ranged Slam 5 (Small)
+Ranged Slam 5 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Ranged Slam 5 (Medium)
+Ranged Slam 5 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Ranged Slam 5 (Large)
+Ranged Slam 5 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Ranged Slam 5 (Huge)
+Ranged Slam 5 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Ranged Slam 5 (Gargantuan)
+Ranged Slam 5 (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Ranged Slam 5 (Colossal)
+# x6
+Ranged Slam 6 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Ranged Slam 6 (Diminutive)
+Ranged Slam 6 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Ranged Slam 6 (Tiny)
+Ranged Slam 6 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Ranged Slam 6 (Small)
+Ranged Slam 6 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Ranged Slam 6 (Medium)
+Ranged Slam 6 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Ranged Slam 6 (Large)
+Ranged Slam 6 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Ranged Slam 6 (Huge)
+Ranged Slam 6 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Ranged Slam 6 (Gargantuan)
+Ranged Slam 6 (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Ranged Slam 6 (Colossal)
+# x7
+Ranged Slam 7 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Ranged Slam 7 (Diminutive)
+Ranged Slam 7 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Ranged Slam 7 (Tiny)
+Ranged Slam 7 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Ranged Slam 7 (Small)
+Ranged Slam 7 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Ranged Slam 7 (Medium)
+Ranged Slam 7 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Ranged Slam 7 (Large)
+Ranged Slam 7 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Ranged Slam 7 (Huge)
+Ranged Slam 7 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Ranged Slam 7 (Gargantuan)
+Ranged Slam 7 (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Ranged Slam 7 (Colossal)
+
 
 ###BLOCK: Dragons
 # Natural Armor For Wyrmling is a variable based upon type, but always increases by 3 thereafter
