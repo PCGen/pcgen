@@ -68,19 +68,16 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 					match = true;
 					continue;
 				}
-				if (!match)
-				{
-					for (Race mock : racesImitated)
-					{
-						if (mock.isType(type))
-						{
-							matchCount++;
-							match = true;
-							break;
-						}
-					}
-				}
-			}
+                for (Race mock : racesImitated)
+                {
+                    if (mock.isType(type))
+                    {
+                        matchCount++;
+                        match = true;
+                        break;
+                    }
+                }
+            }
 			if (count == matchCount)
 			{
 				++runningTotal;

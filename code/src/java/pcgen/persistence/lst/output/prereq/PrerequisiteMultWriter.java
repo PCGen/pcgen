@@ -167,7 +167,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 		}
 		if (allSkillTot)
 		{
-			return allSkillTot;
+			return true;
 		}
 
 		return false;

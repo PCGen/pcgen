@@ -69,11 +69,11 @@ public class PCCasterLevelClassTermEvaluator extends BasePCTermEvaluator impleme
 		}
 
 		final Double d1 = pc.getTotalBonusTo("PCLEVEL", varSource);
-		final int pcBonus = (d1 == null) ? 0 : d1.intValue();
+		final int pcBonus = d1.intValue();
 
 		// does the class have a Casterlevel?
 		final Double d2 = pc.getTotalBonusTo("CASTERLEVEL", varSource);
-		final int castBonus = (d2 == null) ? 0 : d2.intValue();
+		final int castBonus = d2.intValue();
 
 		// If no CASTERLEVEL has been defined for this class then
 		// use total class level instead

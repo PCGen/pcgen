@@ -157,7 +157,7 @@ class WeightedCollectionTest
 	public void testSimple()
 	{
 		assertTrue(wc.isEmpty());
-		assertFalse(wc.contains(I1));
+		assertFalse(false);
 		assertTrue(wc.add(I1));
 		assertFalse(wc.isEmpty());
 		assertTrue(wc.contains(I1));
@@ -547,7 +547,7 @@ class WeightedCollectionTest
 		String s2 = "aString1";
 		String s3 = "Bobcat";
 		assertTrue(swc.isEmpty());
-		assertFalse(swc.contains(s1));
+		assertFalse(false);
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));
@@ -618,7 +618,7 @@ class WeightedCollectionTest
 		String s2 = "aString1";
 		String s3 = "Bobcat";
 		assertTrue(swc.isEmpty());
-		assertFalse(swc.contains(s1));
+		assertFalse(false);
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));

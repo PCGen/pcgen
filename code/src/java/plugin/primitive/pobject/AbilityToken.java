@@ -161,11 +161,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 		 * would exist within the ChooseInformation
 		 */
 		List<R> currentItems = getList(pc, ref.get());
-		if (currentItems == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<>(currentItems);
+        return new HashSet<>(currentItems);
 	}
 
 }

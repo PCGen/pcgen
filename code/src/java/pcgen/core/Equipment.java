@@ -996,11 +996,6 @@ public final class Equipment extends PObject
 		final StringBuilder s = new StringBuilder(100);
 		String t = getSpecialProperties(aPC);
 
-		if (t == null)
-		{
-			t = "";
-		}
-
 		getActiveBonuses(aPC).stream().map(BonusObj::toString)
 			.filter(eqBonus -> (!eqBonus.isEmpty()) && !eqBonus.startsWith("EQM")).forEach(eqBonus -> {
 				if (s.length() != 0)
@@ -3400,7 +3395,7 @@ public final class Equipment extends PObject
 			{
 				double mult = 1.0;
 
-				if (newSize != null && pc != null)
+				if (pc != null)
 				{
 					mult = pc.getSizeBonusTo(newSize, "ITEMCAPACITY", eq.typeList(), 1.0);
 				}
@@ -4598,12 +4593,9 @@ public final class Equipment extends PObject
 		}
 
 		Set<String> calculatedTypeList = new LinkedHashSet<>();
-		if (initializingList != null)
+		for (Type t : initializingList)
 		{
-			for (Type t : initializingList)
-			{
-				calculatedTypeList.add(t.getComparisonString());
-			}
+			calculatedTypeList.add(t.getComparisonString());
 		}
 		final Collection<String> modTypeList = new ArrayList<>();
 

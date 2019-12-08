@@ -394,24 +394,21 @@ public abstract class VariableProcessor
 					valString = tmp.toString();
 				}
 
-				if (i < aString.length())
+				if (aString.charAt(i) == '+')
 				{
-					if (!aString.isEmpty() && aString.charAt(i) == '+')
-					{
-						nextMode = MATH_OP.PLUS;
-					}
-					else if (!aString.isEmpty() && aString.charAt(i) == '-')
-					{
-						nextMode = MATH_OP.MINUS;
-					}
-					else if (!aString.isEmpty() && aString.charAt(i) == '*')
-					{
-						nextMode = MATH_OP.MULTIPLY;
-					}
-					else if (!aString.isEmpty() && aString.charAt(i) == '/')
-					{
-						nextMode = MATH_OP.DIVIDE;
-					}
+					nextMode = MATH_OP.PLUS;
+				}
+				else if (aString.charAt(i) == '-')
+				{
+					nextMode = MATH_OP.MINUS;
+				}
+				else if (aString.charAt(i) == '*')
+				{
+					nextMode = MATH_OP.MULTIPLY;
+				}
+				else if (aString.charAt(i) == '/')
+				{
+					nextMode = MATH_OP.DIVIDE;
 				}
 
 				if (!valString.isEmpty())

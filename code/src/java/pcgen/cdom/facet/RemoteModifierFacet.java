@@ -122,15 +122,10 @@ public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, Remote
 			returnValue = new DefinedWrappingModifier<>(modifier, "source",
 				source, sourceFormatManager.get());
 		}
-		else if (sourceFormatManager.isPresent())
-		{
-			returnValue = new DefinedWrappingModifier<>(modifier, "target",
-				target, targetFormatManager.get());
-		}
 		else
-		{
-			returnValue = new ModifierDecoration<>(modifier);
-		}
+        {
+            returnValue = new ModifierDecoration<>(modifier);
+        }
 		return returnValue;
 	}
 

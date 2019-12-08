@@ -592,10 +592,6 @@ public final class EquipmentChoice
 				{
 					this.addStats();
 				}
-				else if ("SKILL".equals(kind) || originalkind.equals("SKILL") && "ANY".equals("SKILL"))
-				{
-					this.addSkills();
-				}
 				else if ("SKILL".equals(kind))
 				{
 					this.addSkills();

@@ -1663,8 +1663,7 @@ public class WeaponToken extends Token
 				baseBonus += pc.getOffHandLightBonus();
 			}
 
-			if ((hitMode == HITMODE_TWOHIT) || (hitMode == HITMODE_OHHIT) || (hitMode == HITMODE_TWFOHL)
-				|| (hitMode == HITMODE_TWFOHH))
+			if (hitMode == HITMODE_TWOHIT || hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWFOHL)
 			{
 				secondaryBonus = (int) pc.getTotalBonusTo("COMBAT", "TOHIT-SECONDARY");
 
@@ -1715,8 +1714,7 @@ public class WeaponToken extends Token
 			baseBonus += primaryBonus;
 		}
 
-		if (hitMode == HITMODE_TWOHIT || hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWFOHL
-			|| hitMode == HITMODE_TWFOHH)
+		if (hitMode == HITMODE_TWOHIT || hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWFOHL)
 		{
 			baseBonus += secondaryBonus;
 		}

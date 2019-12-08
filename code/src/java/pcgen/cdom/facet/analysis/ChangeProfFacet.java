@@ -129,10 +129,10 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<CharID, ChangeProf
 			{
 				aList.addAll(cp.getSource().getContainedObjects());
 			}
-			else if (weaponProfsOfType != null)
-			{
-				weaponProfsOfType.removeAll(cp.getSource().getContainedObjects());
-			}
+			else
+            {
+                weaponProfsOfType.removeAll(cp.getSource().getContainedObjects());
+            }
 		}
 		aList.addAll(weaponProfsOfType);
 		return aList;

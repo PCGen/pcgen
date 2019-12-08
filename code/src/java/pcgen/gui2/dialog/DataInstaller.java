@@ -295,8 +295,8 @@ public final class DataInstaller extends JFrame
 			}
 
 			// Validate that the campaign is compatible with our version
-			if (campaign.getSafe(StringKey.MINDEVVER) != null
-				&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
+            campaign.getSafe(StringKey.MINDEVVER);
+            if (!CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
 			{
 				if (CoreUtility.isCurrMinorVer(campaign.getSafe(StringKey.MINDEVVER)))
 				{
@@ -309,8 +309,8 @@ public final class DataInstaller extends JFrame
 					return false;
 				}
 			}
-			if (campaign.getSafe(StringKey.MINVER) != null
-				&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
+            campaign.getSafe(StringKey.MINVER);
+            if (!CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
 			{
 				Logging.errorPrint("Dataset " + campaign.getDisplayName() + " needs at least PCGen version "
 					+ campaign.getSafe(StringKey.MINVER) + " to run. It could not be installed.");

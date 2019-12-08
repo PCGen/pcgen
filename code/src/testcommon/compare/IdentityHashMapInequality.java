@@ -66,7 +66,7 @@ public class IdentityHashMapInequality implements
 			}
 			return processValues(location, m1.values(), m2.values(), matches);
 		}
-		return reasons.isEmpty() ? null : StringUtil.join(reasons, "\n");
+		return null;
 	}
 
 	private static String processKeys(String location, Iterable<?> k1, Iterable<?> k2,

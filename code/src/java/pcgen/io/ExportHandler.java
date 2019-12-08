@@ -1007,19 +1007,19 @@ public abstract class ExportHandler
 					}
 
 					// Set the next mode based on the mathematical sign
-					if ((!str.isEmpty()) && (str.charAt(i) == '+'))
+					if (str.charAt(i) == '+')
 					{
 						nextMode = ADDITION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '-'))
+					else if (str.charAt(i) == '-')
 					{
 						nextMode = SUBTRACTION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '*'))
+					else if (str.charAt(i) == '*')
 					{
 						nextMode = MULTIPLICATION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '/'))
+					else if (str.charAt(i) == '/')
 					{
 						nextMode = DIVISION_MODE;
 					}
@@ -2935,7 +2935,7 @@ public abstract class ExportHandler
 			{
 				intVal = true;
 			}
-			else if ("MINVAL".equals(bString))
+			else
 			{
 				maxVal = false;
 			}

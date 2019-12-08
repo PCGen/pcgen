@@ -62,7 +62,7 @@ public class NoteToken extends Token
 			{
 				token = "NAME";
 				beforeHeader = afterHeader = beforeValue = afterValue = "";
-				if (tok.hasMoreTokens() && !"ALL".equals(token))
+				if (tok.hasMoreTokens())
 				{
 					beforeHeader = tok.nextToken();
 				}
@@ -151,10 +151,7 @@ public class NoteToken extends Token
 			{
 				int i = Integer.parseInt(name);
 
-				if ((i >= 0) || (i < noteList.size()))
-				{
-					resultList.add(noteList.get(i));
-				}
+				resultList.add(noteList.get(i));
 			}
 			catch (NumberFormatException e)
 			{

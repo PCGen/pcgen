@@ -141,11 +141,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		 * would exist within the ChooseInformation below
 		 */
 		List<R> currentItems = getList(pc, ref.get());
-		if (currentItems == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<>(currentItems);
+        return new HashSet<>(currentItems);
 	}
 
 }

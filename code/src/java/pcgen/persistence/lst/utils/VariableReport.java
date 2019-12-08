@@ -138,17 +138,7 @@ public class VariableReport
 		}
 		finally
 		{
-			if (file != null)
-			{
-				try
-				{
-					file.close();
-				}
-				catch (Exception e2)
-				{
-				}
-			}
-		}
+        }
 	}
 
 	private List<Campaign> getCampaignsForGameMode(GameMode game)
@@ -260,7 +250,7 @@ public class VariableReport
 						{
 							String[] define = tok.split("[:|]");
 							String varName = define[1];
-							if (define.length > 1 && !varName.startsWith("LOCK.") && !varName.startsWith("UNLOCK."))
+							if (!varName.startsWith("LOCK.") && !varName.startsWith("UNLOCK."))
 							{
 								varList.add(new VarDefine(varName, object, file, varUseMap.get(varName)));
 								Integer count = varCountMap.get(varName);

@@ -185,24 +185,17 @@ public final class KitProf extends BaseKit
 
 		List<WeaponProf> xs;
 
-		if (numberOfChoices == aProfList.size())
+		//
+		// Force user to make enough selections
+		//
+		while (true)
 		{
-			xs = aProfList;
-		}
-		else
-		{
-			//
-			// Force user to make enough selections
-			//
-			while (true)
-			{
-				xs = Globals.getChoiceFromList("Choose Proficiencies", aProfList, new ArrayList<>(), numberOfChoices,
-					aPC);
+			xs = Globals.getChoiceFromList("Choose Proficiencies", aProfList, new ArrayList<>(), numberOfChoices,
+				aPC);
 
-				if (!xs.isEmpty())
-				{
-					break;
-				}
+			if (!xs.isEmpty())
+			{
+				break;
 			}
 		}
 

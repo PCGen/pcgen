@@ -86,7 +86,7 @@ public class StatsAndChecksLoader extends SimpleLoader<Loadable>
                 return null;
         }
 		String name = token.substring(colonLoc + 1);
-		if ((name == null) || (name.isEmpty()))
+		if (name.isEmpty())
 		{
 			Logging.errorPrint("Invalid Token '" + key + "' had no value in " + sourceURI);
 			return null;

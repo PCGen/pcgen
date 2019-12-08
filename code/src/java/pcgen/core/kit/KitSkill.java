@@ -115,7 +115,7 @@ public final class KitSkill extends BaseKit
 			info.append("/free");
 		}
 
-		if (selection != null && !selection.isEmpty())
+		if (!selection.isEmpty())
 		{
 			info.append("/");
 			info.append(StringUtil.join(selection, ", "));

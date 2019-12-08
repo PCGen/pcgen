@@ -123,24 +123,21 @@ public class SkillSitToken extends Token
 				}
 				i--; //wasn't the base skill
 				List<String> situations = new ArrayList<>(sk.getUniqueListFor(ListKey.SITUATION));
-				if (situations != null)
+				int numSits = situations.size();
+				if (i < numSits)
 				{
-					int numSits = situations.size();
-					if (i < numSits)
+					Collections.sort(situations);
+				}
+				for (String situation : situations)
+				{
+					double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName() + '=' + situation);
+					if (bonus > 0.01 || bonus < -0.01)
 					{
-						Collections.sort(situations);
-					}
-					for (String situation : situations)
-					{
-						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName() + '=' + situation);
-						if (bonus > 0.01 || bonus < -0.01)
+						if (i == 0)
 						{
-							if (i == 0)
-							{
-								return new SkillSituation(sk, situation, bonus);
-							}
-							i--; //Wasn't this situation
+							return new SkillSituation(sk, situation, bonus);
 						}
+						i--; //Wasn't this situation
 					}
 				}
 			}

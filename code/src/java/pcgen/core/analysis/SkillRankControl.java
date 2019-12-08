@@ -195,11 +195,8 @@ public final class SkillRankControl
 
 		if (!ignorePrereqs)
 		{
-			if (aClass != null)
-			{
-				aPC.setSkillPool(aClass, aClass.getSkillPool(aPC) - (int) (i * rankMod));
-			}
-		}
+            aPC.setSkillPool(aClass, aClass.getSkillPool(aPC) - (int) (i * rankMod));
+        }
 
 		return "";
 	}

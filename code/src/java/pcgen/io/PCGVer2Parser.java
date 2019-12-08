@@ -1646,10 +1646,7 @@ final class PCGVer2Parser implements PCGParser
 							catch (NumberFormatException e)
 							{
 								//OK (no level embedded in file)
-								if (level > 0)
-								{
-									target = thePC.getActiveClassLevel(aPCClass, level);
-								}
+								target = thePC.getActiveClassLevel(aPCClass, level);
 							}
 							BonusAddition.applyBonus(bonusString, "", thePC, target);
 						}
@@ -1683,10 +1680,7 @@ final class PCGVer2Parser implements PCGParser
 					}
 					SpecialAbility specialAbility = new SpecialAbility(specialAbilityName);
 					CDOMObject target = aPCClass;
-					if (level > 0)
-					{
-						target = thePC.getActiveClassLevel(aPCClass, level);
-					}
+					target = thePC.getActiveClassLevel(aPCClass, level);
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
 					{
@@ -1757,11 +1751,11 @@ final class PCGVer2Parser implements PCGParser
 					warnings.add(msg);
 				}
 			}
-			else if ((pcl != null) && IOConstants.TAG_SKILLPOINTSGAINED.equals(tag))
+			else if (IOConstants.TAG_SKILLPOINTSGAINED.equals(tag))
 			{
 				pcl.setFixedSkillPointsGained(Integer.parseInt(element.getText()));
 			}
-			else if ((pcl != null) && IOConstants.TAG_SKILLPOINTSREMAINING.equals(tag))
+			else if (IOConstants.TAG_SKILLPOINTSREMAINING.equals(tag))
 			{
 				pcl.setSkillPointsRemaining(Integer.parseInt(element.getText()));
 			}
@@ -2477,7 +2471,7 @@ final class PCGVer2Parser implements PCGParser
 				}
 			}
 		}
-		if (ability != null && category != null && nature != null)
+		if (ability != null && category != null)
 		{
 			CNAbility cna = null;
 			boolean needError = true;
@@ -2545,7 +2539,7 @@ final class PCGVer2Parser implements PCGParser
 				}
 				else
 				{
-					if (associations != null && !associations.isEmpty())
+					if (!associations.isEmpty())
 					{
 						warnings.add(cna + " found with selections: " + associations + " but is MULT:NO in the data");
 					}
@@ -4674,10 +4668,7 @@ final class PCGVer2Parser implements PCGParser
 
 		final String calcEQId = EntityEncoder.decode(tokens.getElements().get(0).getText());
 
-		if (calcEQId != null)
-		{
-			thePC.setCalcEquipSetId(calcEQId);
-		}
+		thePC.setCalcEquipSetId(calcEQId);
 	}
 
 	/*
@@ -5132,7 +5123,7 @@ final class PCGVer2Parser implements PCGParser
 				continue;
 			}
 
-			if ((bonus == null) || (bonus.length() <= 0))
+			if (bonus.length() <= 0)
 			{
 				continue;
 			}

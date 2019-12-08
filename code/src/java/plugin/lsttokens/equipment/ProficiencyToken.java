@@ -61,7 +61,7 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		}
 		String subtoken = value.substring(0, pipeLoc);
 		String prof = value.substring(pipeLoc + 1);
-		if (prof == null || prof.isEmpty())
+		if (prof.isEmpty())
 		{
 			return new ParseResult.Fail("PROFICIENCY cannot have " + "empty second argument: " + value);
 		}

@@ -57,11 +57,7 @@ public final class SkillInfoUtilities
 				boolean needSlash = false;
 				for (PCStat s : statList)
 				{
-					if (needSlash)
-					{
-						sb.append('/');
-					}
-					sb.append(s.getKeyName());
+                    sb.append(s.getKeyName());
 				}
 				return sb.toString();
 			}

@@ -324,20 +324,17 @@ public class EqToken extends Token
 
 		int postAdd = 0;
 
-		if (pc != null)
+		if (eq.isThrown())
 		{
-			if (eq.isThrown())
-			{
-				r += (int) pc.getTotalBonusTo("RANGEADD", "THROWN");
-				postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "THROWN");
-				rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
-			}
-			else if (eq.isProjectile())
-			{
-				r += (int) pc.getTotalBonusTo("RANGEADD", "PROJECTILE");
-				postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
-				rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
-			}
+			r += (int) pc.getTotalBonusTo("RANGEADD", "THROWN");
+			postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "THROWN");
+			rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
+		}
+		else if (eq.isProjectile())
+		{
+			r += (int) pc.getTotalBonusTo("RANGEADD", "PROJECTILE");
+			postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
+			rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
 		}
 
 		r *= rangeMult;

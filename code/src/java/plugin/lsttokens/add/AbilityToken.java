@@ -152,11 +152,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject>
 				context.getReferenceContext().getCDOMReference(ABILITY_CATEGORY_CLASS, first);
 
 		Nature nature = Nature.valueOf(second);
-		if (nature == null)
-		{
-			return new ParseResult.Fail(getFullName() + ": Invalid ability nature: " + second);
-		}
-		if (Nature.ANY.equals(nature))
+        if (Nature.ANY.equals(nature))
 		{
 			return new ParseResult.Fail(
 				getTokenName() + " refers to ANY Ability Nature, cannot be used in " + getTokenName() + ": " + value);

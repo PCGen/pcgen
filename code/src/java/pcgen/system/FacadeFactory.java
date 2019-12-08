@@ -388,7 +388,7 @@ public final class FacadeFactory
 			{
 				return name;
 			}
-			if (gameMode != null && gameMode.get() != null)
+			if (gameMode.get() != null)
 			{
 				return LanguageBundle.getFormattedString("in_source_gamemode", gameMode.get().getDisplayName());
 			}

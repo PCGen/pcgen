@@ -561,7 +561,7 @@ public class SkillToken extends Token
 		{
 			acpText[i] = aTok.nextToken();
 		}
-		return ((acp < numArgs) && (acp >= 0)) ? acpText[acp] : "";
+		return acp < numArgs ? acpText[acp] : "";
 	}
 
 	// ================== Inner class =======================
