@@ -172,17 +172,11 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		{
 			JRadioButton pathButton = new JRadioButton();
 			final SourceFolder buttonFolder = folder;
-			pathButton.addActionListener(new ActionListener()
-			{
-
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					PCGenSettings context = PCGenSettings.getInstance();
-					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, buttonFolder.getFile().getAbsolutePath());
-					pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
-				}
-			});
+			pathButton.addActionListener(e -> {
+                PCGenSettings context = PCGenSettings.getInstance();
+                context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, buttonFolder.getFile().getAbsolutePath());
+                pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
+            });
 
 			String path;
 			if (folder.getFile() == null)

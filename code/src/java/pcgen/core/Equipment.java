@@ -3306,24 +3306,18 @@ public final class Equipment extends PObject
 			//
 			replaces.stream().map(CDOMSingleRef::get).map(CDOMObject::getKeyName)
 				.forEach(key -> baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-					.filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod -> {
-						head.addToListFor(ListKey.EQMOD, baseMod);
-					}));
+					.filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod)));
 		}
 
 		if (eqMod.isType("BaseMaterial"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 	}
 

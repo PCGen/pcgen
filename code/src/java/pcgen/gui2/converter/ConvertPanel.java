@@ -106,35 +106,16 @@ public class ConvertPanel extends JPanel
 				nextButton.setEnabled(false);
 			}
 		};
-		nextButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
-				proceedToNextPanel();
-			}
-		});
+		nextButton.addActionListener(arg0 -> proceedToNextPanel());
 		buttonBox.add(nextButton);
 		cancelButton = new JButton("Cancel");
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
-				checkExit();
-			}
-		});
+		cancelButton.addActionListener(arg0 -> checkExit());
 		buttonBox.add(cancelButton);
 		finishButton = new JButton("Finish");
-		finishButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
-				PCGenDataConvert.savePrefs();
-				System.exit(0);
-			}
-		});
+		finishButton.addActionListener(arg0 -> {
+            PCGenDataConvert.savePrefs();
+            System.exit(0);
+        });
 		finishButton.setVisible(false);
 		buttonBox.add(finishButton);
 		basePanel.setPreferredSize(new Dimension(800, 500));

@@ -85,7 +85,7 @@ public class HitDiceToken extends Token
 			IntStream.range(0, display.getLevel(pcClass))
 					.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
 					.filter(hitDie -> hitDie != 0).forEach(hitDie ->
-						hdMap.merge(hitDie, 1, (a, b) -> a + b)
+						hdMap.merge(hitDie, 1, Integer::sum)
 			);
 
 			for (final Map.Entry<Integer, Integer> entry : hdMap.entrySet())
@@ -131,7 +131,7 @@ public class HitDiceToken extends Token
 				IntStream.range(0, display.getLevel(pcClass))
 						.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
 						.filter(hitDie -> hitDie != 0)
-						.forEach(hitDie -> hdMap.merge(hitDie, 1, (a, b) -> a + b)));
+						.forEach(hitDie -> hdMap.merge(hitDie, 1, Integer::sum)));
 
 		if (hdMap.size() > 1)
 		{
@@ -175,7 +175,7 @@ public class HitDiceToken extends Token
 								.boxed()
 								.collect(Collectors.toMap(Function.identity(),
 										hitDie -> 1,
-										(a, b) -> a + b,
+                                        Integer::sum,
 										LinkedHashMap::new)))
 				.mapToInt(hdMap -> hdMap.entrySet().stream().mapToInt(Map.Entry::getValue).sum())
 				.sum();

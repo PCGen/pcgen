@@ -120,30 +120,25 @@ public class CampaignPanel extends ConvertSubPanel
 				return tip;
 			}
 		};
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener()
-		{
-			@Override
-			public void valueChanged(ListSelectionEvent event)
-			{
-				pc.removeListFor(ListKey.CAMPAIGN);
-				int[] selRows = table.getSelectedRows();
-				if (selRows.length == 0)
-				{
-					saveSourceSelection(pc);
-					fireProgressEvent(ProgressEvent.NOT_ALLOWED);
-				}
-				else
-				{
-					for (int row : selRows)
-					{
-						Campaign selCampaign = (Campaign) model.getValueAt(row, 0);
-						pc.addToListFor(ListKey.CAMPAIGN, selCampaign);
-					}
-					saveSourceSelection(pc);
-					fireProgressEvent(ProgressEvent.ALLOWED);
-				}
-			}
-		});
+		table.getSelectionModel().addListSelectionListener(event -> {
+            pc.removeListFor(ListKey.CAMPAIGN);
+            int[] selRows = table.getSelectedRows();
+            if (selRows.length == 0)
+            {
+                saveSourceSelection(pc);
+                fireProgressEvent(ProgressEvent.NOT_ALLOWED);
+            }
+            else
+            {
+                for (int row : selRows)
+                {
+                    Campaign selCampaign = (Campaign) model.getValueAt(row, 0);
+                    pc.addToListFor(ListKey.CAMPAIGN, selCampaign);
+                }
+                saveSourceSelection(pc);
+                fireProgressEvent(ProgressEvent.ALLOWED);
+            }
+        });
 
 		JScrollPane listScroller = new JScrollPane(table);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0, 1.0);

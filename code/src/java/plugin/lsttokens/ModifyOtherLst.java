@@ -91,7 +91,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 			return new ParseResult.Fail(getTokenName() + " unable to build group from: " + groupingName);
 		}
 		StringJoiner sb = new StringJoiner("|");
-		sep.forEachRemaining(i -> sb.add(i));
+		sep.forEachRemaining(sb::add);
 		PCGenScope scope = subContext.getActiveScope();
 		try
 		{

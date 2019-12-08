@@ -35,20 +35,13 @@ public class SharedTabPane extends JTabbedPane
 	protected SharedTabPane()
 	{
 		final SingleSelectionModel selectionModel = getModel();
-		selectionModel.addChangeListener(new ChangeListener()
-		{
-
-			@Override
-			public void stateChanged(ChangeEvent e)
-			{
-				int index = selectionModel.getSelectedIndex();
-				if (index != -1)
-				{
-					setSharedComponentParent(index);
-				}
-			}
-
-		});
+		selectionModel.addChangeListener(e -> {
+            int index = selectionModel.getSelectedIndex();
+            if (index != -1)
+            {
+                setSharedComponentParent(index);
+            }
+        });
 
 	}
 

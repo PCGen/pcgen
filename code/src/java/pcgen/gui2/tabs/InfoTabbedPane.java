@@ -338,19 +338,12 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 
 		public TabModelService()
 		{
-			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new ThreadFactory()
-			{
-
-				@Override
-				public Thread newThread(Runnable r)
-				{
-					Thread thread = new Thread(r);
-					thread.setDaemon(true);
-					thread.setName("tab-info-thread"); //$NON-NLS-1$
-					return thread;
-				}
-
-			});
+			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), r -> {
+                Thread thread = new Thread(r);
+                thread.setDaemon(true);
+                thread.setName("tab-info-thread"); //$NON-NLS-1$
+                return thread;
+            });
 			this.timingMap = new HashMap<>();
 			storeQueue = new LinkedList<>();
 			restoreQueue = new LinkedList<>();

@@ -58,9 +58,7 @@ public class TipOfTheDayController
 		showTips.setSelected(
 			PROPERTY_CONTEXT.initBoolean("showTipOfTheDay", true)
 		);
-		showTips.selectedProperty().addListener((ov, old_val, new_val) -> {
-			PROPERTY_CONTEXT.setBoolean("showTipOfTheDay", showTips.isSelected());
-		});
+		showTips.selectedProperty().addListener((ov, old_val, new_val) -> PROPERTY_CONTEXT.setBoolean("showTipOfTheDay", showTips.isSelected()));
 		showNextTip();
 	}
 
