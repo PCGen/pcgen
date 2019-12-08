@@ -112,7 +112,7 @@ public class Rule extends ArrayList<String> implements DataElement
 
 				if (ele.getTitle() != null)
 				{
-					sb.append("[" + ele.getTitle() + "] ");
+					sb.append("[").append(ele.getTitle()).append("] ");
 				}
 			}
 			catch (Exception e)

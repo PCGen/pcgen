@@ -173,7 +173,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 			{
 				if ((i >= maxCampaigns) && (existingCampaigns.size() > maxCampaigns))
 				{
-					warning.append("<li>" + (existingCampaigns.size() - maxCampaigns + 1) + " more campaigns.</li>");
+					warning.append("<li>").append(existingCampaigns.size() - maxCampaigns + 1).append(" more campaigns.</li>");
 					break;
 				}
 				warning.append("<li>");

@@ -401,7 +401,7 @@ public class SkillSitToken extends Token
 					{
 						String sitDetails =
 								SkillCostDisplay.getSituationModifierExplanation(skill, situation, pc, shortFrom);
-						retValue.append(bonusDetails + " situational: " + sitDetails);
+						retValue.append(bonusDetails).append(" situational: ").append(sitDetails);
 					}
 					else
 					{

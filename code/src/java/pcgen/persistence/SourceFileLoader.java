@@ -992,8 +992,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 			if (campaign.getSafe(ObjectKey.IS_MATURE))
 			{
-				matureCampaigns.append(
-					SourceFormat.LONG.getField(campaign) + " (" + campaign.getSafe(StringKey.PUB_NAME_LONG) + ")<br>");
+				matureCampaigns.append(SourceFormat.LONG.getField(campaign)).append(" (").append(campaign.getSafe(StringKey.PUB_NAME_LONG)).append(")<br>");
 			}
 
 			// Load the LST files to be loaded for the campaign

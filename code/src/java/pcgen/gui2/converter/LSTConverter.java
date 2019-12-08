@@ -222,7 +222,7 @@ public class LSTConverter extends Observable
 				ensureParents(outFile.getParentFile());
 				try
 				{
-					changeLogWriter.append("\nProcessing " + in + "\n");
+					changeLogWriter.append("\nProcessing ").append(String.valueOf(in)).append("\n");
 					String result = load(uri, loader);
 					if (result != null)
 					{

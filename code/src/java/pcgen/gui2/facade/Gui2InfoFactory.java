@@ -1316,7 +1316,7 @@ public class Gui2InfoFactory implements InfoFactory
 				}
 				first = false;
 				String adj = ADJ_FMT.format(bonusObj.resolve(pc, "")); //$NON-NLS-1$
-				bonusValues.append(adj + " " + bonusObj.getDescription()); //$NON-NLS-1$
+				bonusValues.append(adj).append(" ").append(bonusObj.getDescription()); //$NON-NLS-1$
 			}
 			if (bonusValues.length() > 0)
 			{
@@ -1475,7 +1475,7 @@ public class Gui2InfoFactory implements InfoFactory
 					retString.append(' ');
 				}
 
-				retString.append(stat.getKeyName() + ":Nonability");
+				retString.append(stat.getKeyName()).append(":Nonability");
 			}
 			else
 			{
@@ -1486,7 +1486,7 @@ public class Gui2InfoFactory implements InfoFactory
 						retString.append(' ');
 					}
 
-					retString.append(stat.getKeyName() + ":" + BonusCalc.getStatMod(race, stat, pc));
+					retString.append(stat.getKeyName()).append(":").append(BonusCalc.getStatMod(race, stat, pc));
 				}
 			}
 		}

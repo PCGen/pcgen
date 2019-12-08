@@ -144,7 +144,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				               .append(" - conversion started at ")
 				               .append(startTime)
 				               .append("\n");
-				changeLogWriter.append("Outputting files to " + outDir.getAbsolutePath() + "\n");
+				changeLogWriter.append("Outputting files to ").append(outDir.getAbsolutePath()).append("\n");
 				converter = new LSTConverter(context, rootDir, outDir.getAbsolutePath(), this, changeLogWriter);
 				converter.addObserver(this);
 				int numFiles = totalCampaigns.stream()

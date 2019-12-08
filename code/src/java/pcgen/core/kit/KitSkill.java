@@ -95,7 +95,7 @@ public final class KitSkill extends BaseKit
 		if (skillList.size() > 1)
 		{
 			// This is a choice of skills.
-			info.append(getSafeCount() + " of (");
+			info.append(getSafeCount()).append(" of (");
 			info.append(ReferenceUtilities.joinLstFormat(skillList, ", "));
 			info.append(")");
 		}
