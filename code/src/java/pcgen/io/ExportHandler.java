@@ -1071,7 +1071,7 @@ public abstract class ExportHandler
 
 							if (bTok.countTokens() > 0)
 							{
-								String newAttackData = "";
+								StringBuilder newAttackData = new StringBuilder();
 								while (bTok.hasMoreTokens())
 								{
 									final String bString = bTok.nextToken();
@@ -1082,25 +1082,25 @@ public abstract class ExportHandler
 									{
 										case ADDITION_MODE:
 											float addf = bf + vf;
-											newAttackData += ("/+" + Integer.toString((int) addf));
+											newAttackData.append("/+").append(Integer.toString((int) addf));
 
 											break;
 
 										case SUBTRACTION_MODE:
 											float subf = bf - vf;
-											newAttackData += ("/+" + Integer.toString((int) subf));
+											newAttackData.append("/+").append(Integer.toString((int) subf));
 
 											break;
 
 										case MULTIPLICATION_MODE:
 											float multf = bf * vf;
-											newAttackData += ("/+" + Integer.toString((int) multf));
+											newAttackData.append("/+").append(Integer.toString((int) multf));
 
 											break;
 
 										case DIVISION_MODE:
 											float divf = bf / vf;
-											newAttackData += ("/+" + Integer.toString((int) divf));
+											newAttackData.append("/+").append(Integer.toString((int) divf));
 
 											break;
 

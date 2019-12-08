@@ -58,17 +58,17 @@ public class TextToken extends Token
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken(); //this should be VAR
 
-		String action = "";
+		StringBuilder action = new StringBuilder();
 		StringBuilder varName = new StringBuilder();
 		if (aTok.hasMoreElements())
 		{
-			action = aTok.nextToken();
-			if (action.startsWith("REPLACE"))
+			action = new StringBuilder(aTok.nextToken());
+			if (action.toString().startsWith("REPLACE"))
 			{
 				// Make sure that any "." in the token itself stay together
 				while (action.charAt(action.length() - 1) != '}')
 				{
-					action += '.' + aTok.nextToken();
+					action.append('.').append(aTok.nextToken());
 				}
 			}
 		}
@@ -94,36 +94,36 @@ public class TextToken extends Token
 		}
 		String retString = writer.getBuffer().toString();
 
-		if (action.equalsIgnoreCase("UPPER") || action.equalsIgnoreCase("UPPERCASE"))
+		if (action.toString().equalsIgnoreCase("UPPER") || action.toString().equalsIgnoreCase("UPPERCASE"))
 		{
 			retString = retString.toUpperCase(Locale.getDefault());
 		}
-		else if (action.equalsIgnoreCase("LOWER") || action.equalsIgnoreCase("LOWERCASE"))
+		else if (action.toString().equalsIgnoreCase("LOWER") || action.toString().equalsIgnoreCase("LOWERCASE"))
 		{
 			retString = retString.toLowerCase(Locale.getDefault());
 		}
-		else if (action.equalsIgnoreCase("SENTENCE") || action.equalsIgnoreCase("SENTENCECASE"))
+		else if (action.toString().equalsIgnoreCase("SENTENCE") || action.toString().equalsIgnoreCase("SENTENCECASE"))
 		{
 			retString = changeToSentenceCase(retString);
 		}
-		else if (action.equalsIgnoreCase("TITLE") || action.equalsIgnoreCase("TITLECASE"))
+		else if (action.toString().equalsIgnoreCase("TITLE") || action.toString().equalsIgnoreCase("TITLECASE"))
 		{
 			retString = changeToTitleCase(retString);
 		}
-		else if (action.equalsIgnoreCase("NUMSUFFIX"))
+		else if (action.toString().equalsIgnoreCase("NUMSUFFIX"))
 		{
 			retString = buildNumSuffix(retString);
 		}
-		else if (action.equalsIgnoreCase("LENGTH"))
+		else if (action.toString().equalsIgnoreCase("LENGTH"))
 		{
 			retString = String.valueOf(retString.length());
 		}
 		// TEXT.REPLACEALL{regex,newtext} or
 		// TEXT.REPLACEFIRST{regex,newtext}
-		else if (action.startsWith("REPLACE"))
+		else if (action.toString().startsWith("REPLACE"))
 		{
-			final String replaceType = action.substring(7, action.indexOf('{'));
-			String args = action.substring(action.indexOf('{') + 1, action.length() - 1);
+			final String replaceType = action.substring(7, action.toString().indexOf('{'));
+			String args = action.substring(action.toString().indexOf('{') + 1, action.length() - 1);
 			int patternEnd = 0;
 
 			for (;;)

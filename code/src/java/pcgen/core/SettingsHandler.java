@@ -1203,25 +1203,25 @@ public final class SettingsHandler
 	 **/
 	private static void setRuleChecksInOptions(final String optionName)
 	{
-		String value = ""; //$NON-NLS-1$
+		StringBuilder value = new StringBuilder(); //$NON-NLS-1$
 
 		for (final Map.Entry<String, String> entry : ruleCheckMap.entrySet())
 		{
 			final String aKey = entry.getKey();
 			final String aVal = entry.getValue();
 
-			if (value.isEmpty())
+			if (value.length() == 0)
 			{
-				value = aKey + "|" + aVal; //$NON-NLS-1$
+				value = new StringBuilder(aKey + "|" + aVal); //$NON-NLS-1$
 			}
 			else
 			{
-				value += ("," + aKey + "|" + aVal); //$NON-NLS-1$ //$NON-NLS-2$
+				value.append(",").append(aKey).append("|").append(aVal); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
 		//setPCGenOption(optionName, value);
-		getOptions().setProperty("pcgen.options." + optionName, value); //$NON-NLS-1$
+		getOptions().setProperty("pcgen.options." + optionName, value.toString()); //$NON-NLS-1$
 	}
 
 	private static void setSaveCustomInLst(final boolean aBool)

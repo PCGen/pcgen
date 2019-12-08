@@ -264,7 +264,7 @@ public class CampaignSourceEntry implements SourceEntry
 	static List<String> parseSuffix(String suffix, URI sourceUri, String value)
 	{
 		List<String> tagList = new ArrayList<>();
-		String currentTag = "";
+		StringBuilder currentTag = new StringBuilder();
 		int bracketLevel = 0;
 
 		StringTokenizer tokenizer = new StringTokenizer(suffix, "|()", true);
@@ -273,7 +273,7 @@ public class CampaignSourceEntry implements SourceEntry
 			String token = tokenizer.nextToken();
 			if (token.equals("("))
 			{
-				currentTag += token;
+				currentTag.append(token);
 				bracketLevel++;
 
 			}
@@ -283,28 +283,28 @@ public class CampaignSourceEntry implements SourceEntry
 				{
 					bracketLevel--;
 				}
-				currentTag += token;
+				currentTag.append(token);
 			}
 			else if (token.equals("|"))
 			{
 				if (bracketLevel > 0)
 				{
-					currentTag += token;
+					currentTag.append(token);
 				}
-				else if (!currentTag.isEmpty())
+				else if (currentTag.length() > 0)
 				{
-					tagList.add(currentTag);
-					currentTag = "";
+					tagList.add(currentTag.toString());
+					currentTag = new StringBuilder();
 				}
 			}
 			else
 			{
-				currentTag += token;
+				currentTag.append(token);
 			}
 		}
-		if (!currentTag.isEmpty())
+		if (currentTag.length() > 0)
 		{
-			tagList.add(currentTag);
+			tagList.add(currentTag.toString());
 		}
 
 		// Check for a bracket mismatch
