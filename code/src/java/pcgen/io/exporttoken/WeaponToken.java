@@ -128,51 +128,49 @@ public class WeaponToken extends Token
 
 		// First check to see if there is a MERGE token
 		String token = aTok.nextToken();
-		if (token.equals("MERGENONE"))
+		switch (token)
 		{
-			merge = Constants.MERGE_NONE;
-			token = aTok.nextToken();
-		}
-		else if (token.equals("MERGELOC"))
-		{
-			merge = Constants.MERGE_LOCATION;
-			token = aTok.nextToken();
-		}
-		else if (token.equals("MERGEALL"))
-		{
-			merge = Constants.MERGE_ALL;
-			token = aTok.nextToken();
+			case "MERGENONE":
+				merge = Constants.MERGE_NONE;
+				token = aTok.nextToken();
+				break;
+			case "MERGELOC":
+				merge = Constants.MERGE_LOCATION;
+				token = aTok.nextToken();
+				break;
+			case "MERGEALL":
+				merge = Constants.MERGE_ALL;
+				token = aTok.nextToken();
+				break;
 		}
 
 		List<Equipment> weaponList = pc.getExpandedWeapons(merge);
 
-		if (token.equals("ALL"))
+		switch (token)
 		{
-			token = aTok.nextToken();
-		}
-		else if (token.equals("EQUIPPED"))
-		{
-			// remove all weapons which are not equipped from list
-			weaponList.removeIf(equipment -> !equipment.isEquipped());
-			token = aTok.nextToken();
-		}
-		else if (token.equals("NOT_EQUIPPED"))
-		{
-			// remove all weapons which are equipped from list
-			weaponList.removeIf(Equipment::isEquipped);
-			token = aTok.nextToken();
-		}
-		else if (token.equals("CARRIED"))
-		{
-			// remove all weapons which are not carried from list
-			weaponList.removeIf(equipment -> equipment.numberCarried().intValue() == 0);
-			token = aTok.nextToken();
-		}
-		else if (token.equals("NOT_CARRIED"))
-		{
-			// remove all weapons which are carried from list
-			weaponList.removeIf(equipment -> equipment.numberCarried().intValue() > 0);
-			token = aTok.nextToken();
+			case "ALL":
+				token = aTok.nextToken();
+				break;
+			case "EQUIPPED":
+				// remove all weapons which are not equipped from list
+				weaponList.removeIf(equipment -> !equipment.isEquipped());
+				token = aTok.nextToken();
+				break;
+			case "NOT_EQUIPPED":
+				// remove all weapons which are equipped from list
+				weaponList.removeIf(Equipment::isEquipped);
+				token = aTok.nextToken();
+				break;
+			case "CARRIED":
+				// remove all weapons which are not carried from list
+				weaponList.removeIf(equipment -> equipment.numberCarried().intValue() == 0);
+				token = aTok.nextToken();
+				break;
+			case "NOT_CARRIED":
+				// remove all weapons which are carried from list
+				weaponList.removeIf(equipment -> equipment.numberCarried().intValue() > 0);
+				token = aTok.nextToken();
+				break;
 		}
 
 		weapon = getIntToken(token, 0);
@@ -273,280 +271,196 @@ public class WeaponToken extends Token
 			}
 		}
 
-		if (token.equals("NAME"))
+		switch (token)
 		{
-			boolean star = true;
-			if (aTok.hasMoreTokens())
-			{
-				if ("NOSTAR".equals(aTok.nextToken()))
-				{
-					star = false;
-				}
-			}
-			return getNameToken(eq, pc, star);
-		}
-		else if (token.equals("OUTPUTNAME"))
-		{
-			return getOutputNameToken(eq, pc);
-		}
-		else if (token.equals("LONGNAME"))
-		{
-			return getLongNameToken(eq);
-		}
-		else if (token.equals("ATTACKS"))
-		{
-			return String.valueOf(getAttacksToken(pc, eq));
-		}
-		else if (token.equals("AMMUNITIONCOUNT"))
-		{
-			return String.valueOf(getAmmunitionCountToken(pc, eq));
-		}
-		else if (token.equals("AMMUNITION"))
-		{
-			return getAmmunitionToken(pc, eq, ammo);
-		}
-		else if (token.equals("CONTENTSCOUNT"))
-		{
-			return String.valueOf(getContentsCountToken(eq));
-		}
-		else if (token.equals("CONTENTS"))
-		{
-			return getContentsToken(eq, content);
-		}
-		else if (token.equals("NUMATTACKS"))
-		{
-			return String.valueOf(getNumAttacksToken(pc, eq));
-		}
-		else if (token.equals("HEFT"))
-		{
-			return getHeft(pc, eq);
-		}
-		else if (token.equals("ISTYPE"))
-		{
-			if (aTok.hasMoreTokens())
-			{
-				return getIsTypeToken(eq, aTok.nextToken());
-			}
-			return "";
-		}
-		else if (token.equals("CRIT"))
-		{
-			return getCritToken(pc, eq);
-		}
-		else if (token.equals("MULT"))
-		{
-			return getMultToken(pc, eq);
-		}
-		else if (token.equals("RANGELIST"))
-		{
-			return getRangeListToken(eq, range, pc);
-		}
-		else if (token.equals("RANGE"))
-		{
-			boolean units = true;
-			if (aTok.hasMoreTokens())
-			{
-				if ("NOUNITS".equals(aTok.nextToken()))
-				{
-					units = false;
-				}
-			}
-			return getRangeToken(eq, pc, units);
-		}
-		else if (token.equals("SIZEMOD"))
-		{
-			return Delta.toString(getSizeModToken(pc));
-		}
-		else if (token.equals("TYPE"))
-		{
-			return getTypeToken(eq);
-		}
-		else if (token.equals("HIT") || token.equals("TOTALHIT"))
-		{
-			int attack = getIntToken(aTok, -1);
-			return getTotalHitToken(pc, eq, range, content, ammo, attack);
-		}
-		else if (token.equals("BASEHIT"))
-		{
-			int attack = getIntToken(aTok, -1);
-			return getBaseHitToken(pc, eq, range, content, ammo, attack);
-		}
-		else if (token.equals("TWPHITH"))
-		{
-			int attack = getIntToken(aTok, -1);
-			return getTwpHitHToken(pc, eq, range, content, ammo, attack);
-		}
-		else if (token.equals("TWPHITL"))
-		{
-			int attack = getIntToken(aTok, -1);
-			return getTwpHitLToken(pc, eq, range, content, ammo, attack);
-		}
-		else if (token.equals("TWOHIT"))
-		{
-			int attack = getIntToken(aTok, -1);
-			return getTwoHitToken(pc, eq, range, content, ammo, attack);
-		}
-		else if (token.equals("OHHIT"))
-		{
-			int attack = getIntToken(aTok, -1);
-			return getOHHitToken(pc, eq, range, content, ammo, attack);
-		}
-		else if (token.equals("THHIT"))
-		{
-			int attack = getIntToken(aTok, -1);
-			return getTHHitToken(pc, eq, range, content, ammo, attack);
-		}
-		else if (token.equals("CATEGORY"))
-		{
-			return getCategoryToken(eq);
-		}
-		else if (token.equals("HAND"))
-		{
-			return getHandToken(eq);
-		}
-		else if (token.equals("MAGICDAMAGE"))
-		{
-			return Delta.toString(getMagicDamageToken(pc, eq));
-		}
-		else if (token.equals("MAGICHIT"))
-		{
-			return Delta.toString(getMagicHitToken(pc, eq));
-		}
-		else if (token.equals("MISC"))
-		{
-			return Delta.toString(getMiscToken(pc, eq));
-		}
-		else if (token.equals("FEATDAMAGE"))
-		{
-			return Delta.toString(getFeatDamageToken(pc, eq));
-		}
-		else if (token.equals("FEATHIT"))
-		{
-			return Delta.toString(getFeatHitToken(pc, eq));
-		}
-		else if (token.equals("TEMPLATEDAMAGE"))
-		{
-			return Delta.toString(getTemplateDamageToken(pc, eq));
-		}
-		else if (token.equals("TEMPLATEHIT"))
-		{
-			return Delta.toString(getTemplateHitToken(pc, eq));
-		}
-		else if (token.equals("DAMAGE"))
-		{
-			return getDamageToken(pc, eq, range, content, ammo, false, false);
-		}
-		else if (token.equals("BASEDAMAGE"))
-		{
-			return getDamageToken(pc, eq, range, content, ammo, false, true);
-		}
-		else if (token.equals("BASICDAMAGE"))
-		{
-			return getBasicDamageToken(pc, eq, range, content, ammo, false);
-		}
-		else if (token.equals("THDAMAGE"))
-		{
-			return getTHDamageToken(pc, eq, range, content, ammo, false);
-		}
-		else if (token.equals("OHDAMAGE"))
-		{
-			return getOHDamageToken(pc, eq, range, content, ammo, false);
-		}
-		else if (token.equals("DAMAGEBONUS") || token.equals("BONUSDAMAGE"))
-		{
-			return getDamageToken(pc, eq, range, content, ammo, true, false);
-		}
-		else if (token.equals("BASEDAMAGEBONUS"))
-		{
-			return getDamageToken(pc, eq, range, content, ammo, true, true);
-		}
-		else if (token.equals("THDAMAGEBONUS"))
-		{
-			return getTHDamageToken(pc, eq, range, content, ammo, true);
-		}
-		else if (token.equals("OHDAMAGEBONUS"))
-		{
-			return getOHDamageToken(pc, eq, range, content, ammo, true);
-		}
-		else if (token.equals("SIZE"))
-		{
-			return getSizeToken(eq);
-		}
-		else if (token.equals("SPROP"))
-		{
-			return getSpropToken(pc, eq, content, ammo);
-		}
-		else if (token.equals("REACH"))
-		{
-			return getReachToken(pc, eq);
-		}
-		else if (token.equals("REACHUNIT"))
-		{
-			return Globals.getGameModeUnitSet().getDistanceUnit();
-		}
-		else if (token.equals("WT"))
-		{
-			return getWTToken(pc, eq);
-		}
-		else if (token.equals("RATEOFFIRE"))
-		{
-			FactKey<String> fk = FactKey.valueOf("RateOfFire");
-			String str = eq.getResolved(fk);
-			return (str == null) ? "" : str;
-		}
-		else if (token.equals("ISLIGHT"))
-		{
-			return getIsLightToken(pc, eq);
-		}
-		else if (token.equals("QUALITY"))
-		{
-			Map<String, String> qualityMap = eq.getMapFor(MapKey.QUALITY);
-			if (qualityMap != null)
-			{
+			case "NAME":
+				boolean star = true;
 				if (aTok.hasMoreTokens())
 				{
-					String next = aTok.nextToken();
-					try
+					if ("NOSTAR".equals(aTok.nextToken()))
 					{
-						int idx = Integer.parseInt(next);
-						for (String value : qualityMap.values())
+						star = false;
+					}
+				}
+				return getNameToken(eq, pc, star);
+			case "OUTPUTNAME":
+				return getOutputNameToken(eq, pc);
+			case "LONGNAME":
+				return getLongNameToken(eq);
+			case "ATTACKS":
+				return String.valueOf(getAttacksToken(pc, eq));
+			case "AMMUNITIONCOUNT":
+				return String.valueOf(getAmmunitionCountToken(pc, eq));
+			case "AMMUNITION":
+				return getAmmunitionToken(pc, eq, ammo);
+			case "CONTENTSCOUNT":
+				return String.valueOf(getContentsCountToken(eq));
+			case "CONTENTS":
+				return getContentsToken(eq, content);
+			case "NUMATTACKS":
+				return String.valueOf(getNumAttacksToken(pc, eq));
+			case "HEFT":
+				return getHeft(pc, eq);
+			case "ISTYPE":
+				if (aTok.hasMoreTokens())
+				{
+					return getIsTypeToken(eq, aTok.nextToken());
+				}
+				return "";
+			case "CRIT":
+				return getCritToken(pc, eq);
+			case "MULT":
+				return getMultToken(pc, eq);
+			case "RANGELIST":
+				return getRangeListToken(eq, range, pc);
+			case "RANGE":
+				boolean units = true;
+				if (aTok.hasMoreTokens())
+				{
+					if ("NOUNITS".equals(aTok.nextToken()))
+					{
+						units = false;
+					}
+				}
+				return getRangeToken(eq, pc, units);
+			case "SIZEMOD":
+				return Delta.toString(getSizeModToken(pc));
+			case "TYPE":
+				return getTypeToken(eq);
+			case "HIT":
+			case "TOTALHIT":
+			{
+				int attack = getIntToken(aTok, -1);
+				return getTotalHitToken(pc, eq, range, content, ammo, attack);
+			}
+			case "BASEHIT":
+			{
+				int attack = getIntToken(aTok, -1);
+				return getBaseHitToken(pc, eq, range, content, ammo, attack);
+			}
+			case "TWPHITH":
+			{
+				int attack = getIntToken(aTok, -1);
+				return getTwpHitHToken(pc, eq, range, content, ammo, attack);
+			}
+			case "TWPHITL":
+			{
+				int attack = getIntToken(aTok, -1);
+				return getTwpHitLToken(pc, eq, range, content, ammo, attack);
+			}
+			case "TWOHIT":
+			{
+				int attack = getIntToken(aTok, -1);
+				return getTwoHitToken(pc, eq, range, content, ammo, attack);
+			}
+			case "OHHIT":
+			{
+				int attack = getIntToken(aTok, -1);
+				return getOHHitToken(pc, eq, range, content, ammo, attack);
+			}
+			case "THHIT":
+			{
+				int attack = getIntToken(aTok, -1);
+				return getTHHitToken(pc, eq, range, content, ammo, attack);
+			}
+			case "CATEGORY":
+				return getCategoryToken(eq);
+			case "HAND":
+				return getHandToken(eq);
+			case "MAGICDAMAGE":
+				return Delta.toString(getMagicDamageToken(pc, eq));
+			case "MAGICHIT":
+				return Delta.toString(getMagicHitToken(pc, eq));
+			case "MISC":
+				return Delta.toString(getMiscToken(pc, eq));
+			case "FEATDAMAGE":
+				return Delta.toString(getFeatDamageToken(pc, eq));
+			case "FEATHIT":
+				return Delta.toString(getFeatHitToken(pc, eq));
+			case "TEMPLATEDAMAGE":
+				return Delta.toString(getTemplateDamageToken(pc, eq));
+			case "TEMPLATEHIT":
+				return Delta.toString(getTemplateHitToken(pc, eq));
+			case "DAMAGE":
+				return getDamageToken(pc, eq, range, content, ammo, false, false);
+			case "BASEDAMAGE":
+				return getDamageToken(pc, eq, range, content, ammo, false, true);
+			case "BASICDAMAGE":
+				return getBasicDamageToken(pc, eq, range, content, ammo, false);
+			case "THDAMAGE":
+				return getTHDamageToken(pc, eq, range, content, ammo, false);
+			case "OHDAMAGE":
+				return getOHDamageToken(pc, eq, range, content, ammo, false);
+			case "DAMAGEBONUS":
+			case "BONUSDAMAGE":
+				return getDamageToken(pc, eq, range, content, ammo, true, false);
+			case "BASEDAMAGEBONUS":
+				return getDamageToken(pc, eq, range, content, ammo, true, true);
+			case "THDAMAGEBONUS":
+				return getTHDamageToken(pc, eq, range, content, ammo, true);
+			case "OHDAMAGEBONUS":
+				return getOHDamageToken(pc, eq, range, content, ammo, true);
+			case "SIZE":
+				return getSizeToken(eq);
+			case "SPROP":
+				return getSpropToken(pc, eq, content, ammo);
+			case "REACH":
+				return getReachToken(pc, eq);
+			case "REACHUNIT":
+				return Globals.getGameModeUnitSet().getDistanceUnit();
+			case "WT":
+				return getWTToken(pc, eq);
+			case "RATEOFFIRE":
+				FactKey<String> fk = FactKey.valueOf("RateOfFire");
+				String str = eq.getResolved(fk);
+				return (str == null) ? "" : str;
+			case "ISLIGHT":
+				return getIsLightToken(pc, eq);
+			case "QUALITY":
+				Map<String, String> qualityMap = eq.getMapFor(MapKey.QUALITY);
+				if (qualityMap != null)
+				{
+					if (aTok.hasMoreTokens())
+					{
+						String next = aTok.nextToken();
+						try
 						{
-							idx--;
-							if (idx == 0)
+							int idx = Integer.parseInt(next);
+							for (String value : qualityMap.values())
+							{
+								idx--;
+								if (idx == 0)
+								{
+									return value;
+								}
+							}
+						} catch (NumberFormatException e)
+						{
+							String value = qualityMap.get(next);
+							if (value != null)
 							{
 								return value;
 							}
 						}
+						return "";
 					}
-					catch (NumberFormatException e)
+					Set<String> qualities = new TreeSet<>();
+					for (Map.Entry<String, String> me : qualityMap.entrySet())
 					{
-						String value = qualityMap.get(next);
-						if (value != null)
-						{
-							return value;
-						}
+						qualities
+								.add(me.getKey() + ": " + me.getValue());
 					}
-					return "";
+					return StringUtil.join(qualities, ", ");
 				}
-				Set<String> qualities = new TreeSet<>();
-				for (Map.Entry<String, String> me : qualityMap.entrySet())
+				return "";
+			case "CHARGES":
+				String retString = "";
+				int charges = eq.getRemainingCharges();
+				if (charges >= 0)
 				{
-					qualities
-						.add(me.getKey() + ": " + me.getValue());
+					retString = String.valueOf(charges);
 				}
-				return StringUtil.join(qualities, ", ");
-			}
-			return "";
-		}
-		else if (token.equals("CHARGES"))
-		{
-			String retString = "";
-			int charges = eq.getRemainingCharges();
-			if (charges >= 0)
-			{
-				retString = String.valueOf(charges);
-			}
-			return retString;
+				return retString;
 
 		}
 		Logging.errorPrint("Invalid WEAPON token: " + tokenSource, new Throwable());

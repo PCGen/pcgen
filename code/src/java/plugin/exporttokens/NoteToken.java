@@ -108,26 +108,26 @@ public class NoteToken extends Token
 
 		for (NoteItem ni : noteList)
 		{
-			if ("ALL".equals(token))
-			{
-				// TODO - Why doesn't this handle value the same as the VALUE token
-				sb.append(ni.getExportString(beforeHeader, afterHeader, beforeValue, afterValue));
-			}
-			else if ("NAME".equals(token))
-			{
-				sb.append(ni.getName());
-			}
-			else if ("VALUE".equals(token))
-			{
-				String internal = beforeValue + afterValue;
-				if ("".equals(internal))
-				{
-					internal = "$1";
-				}
-				sb.append(beforeValue);
-				sb.append(ni.getValue().replaceAll("(\n)", internal));
-				sb.append(afterValue);
-			}
+            switch (token)
+            {
+                case "ALL":
+                    // TODO - Why doesn't this handle value the same as the VALUE token
+                    sb.append(ni.getExportString(beforeHeader, afterHeader, beforeValue, afterValue));
+                    break;
+                case "NAME":
+                    sb.append(ni.getName());
+                    break;
+                case "VALUE":
+                    String internal = beforeValue + afterValue;
+                    if ("".equals(internal))
+                    {
+                        internal = "$1";
+                    }
+                    sb.append(beforeValue);
+                    sb.append(ni.getValue().replaceAll("(\n)", internal));
+                    sb.append(afterValue);
+                    break;
+            }
 		}
 
 		return sb.toString().trim();
