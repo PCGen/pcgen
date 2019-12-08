@@ -113,32 +113,26 @@ public class VariableReport
 		ReportFormat reportFormat, Writer outputWriter) throws IOException, TemplateException
 	{
 		// Configuration
-		Writer file = null;
 		Configuration cfg = new Configuration();
 		int dataPathLen = ConfigurationSettings.getPccFilesDir().length();
 
-		try
-		{
-			// Set Directory for templates
-			File codeDir = new File("code");
-			File templateDir = new File(codeDir, "templates");
-			cfg.setDirectoryForTemplateLoading(templateDir);
-			// load template
-			Template template = cfg.getTemplate(reportFormat.getTemplate());
+		// Set Directory for templates
+		File codeDir = new File("code");
+		File templateDir = new File(codeDir, "templates");
+		cfg.setDirectoryForTemplateLoading(templateDir);
+		// load template
+		Template template = cfg.getTemplate(reportFormat.getTemplate());
 
-			// data-model
-			Map<String, Object> input = new HashMap<>();
-			input.put("gameModeVarMap", gameModeVarMap);
-			input.put("gameModeVarCountMap", gameModeVarCountMap);
-			input.put("pathIgnoreLen", dataPathLen + 1);
+		// data-model
+		Map<String, Object> input = new HashMap<>();
+		input.put("gameModeVarMap", gameModeVarMap);
+		input.put("gameModeVarCountMap", gameModeVarCountMap);
+		input.put("pathIgnoreLen", dataPathLen + 1);
 
-			// Process the template
-			template.process(input, outputWriter);
-			outputWriter.flush();
-		}
-		finally
-		{
-        }
+		// Process the template
+		template.process(input, outputWriter);
+		outputWriter.flush();
+
 	}
 
 	private List<Campaign> getCampaignsForGameMode(GameMode game)

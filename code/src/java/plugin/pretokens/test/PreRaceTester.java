@@ -53,19 +53,16 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 			StringTokenizer tok = new StringTokenizer(requiredRace.substring(5), ".");
 
 			String type;
-			boolean match = false;
 			int count = 0;
 			int matchCount = 0;
 
 			while (tok.hasMoreTokens())
 			{
 				count++;
-				match = false;
 				type = tok.nextToken();
 				if (pcRace.isType(type))
 				{
 					matchCount++;
-					match = true;
 					continue;
 				}
                 for (Race mock : racesImitated)
@@ -73,7 +70,6 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
                     if (mock.isType(type))
                     {
                         matchCount++;
-                        match = true;
                         break;
                     }
                 }
