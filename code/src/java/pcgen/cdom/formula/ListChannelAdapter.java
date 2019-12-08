@@ -119,7 +119,7 @@ public class ListChannelAdapter<T> extends AbstractListFacade<T>
 		List<T> oldList = Arrays.asList(oldArray);
 		T[] newArray = e.getNewReference();
 		List<T> newList = Arrays.asList(newArray);
-		for (int i = oldArray.length;true;i--)
+		for (int i = oldArray.length;i>=0;i--)
 		{
 			if (!newList.contains(oldArray[i]))
 			{
