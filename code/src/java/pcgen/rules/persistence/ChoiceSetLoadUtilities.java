@@ -142,7 +142,7 @@ public final class ChoiceSetLoadUtilities
 				"Choice arguments may not end with " + separator + " : " + value);
 			return true;
 		}
-		if (value.indexOf(String.valueOf(new char[]{separator, separator})) != -1)
+		if (value.contains(String.valueOf(new char[]{separator, separator})))
 		{
 			Logging.addParseMessage(Logging.LST_ERROR,
 				"Choice arguments uses double separator " + separator + separator + " : " + value);

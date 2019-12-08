@@ -59,7 +59,7 @@ public class SkillToken implements CDOMSecondaryToken<EquipmentModifier>
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not end with | : " + value);
 		}
-		if (value.indexOf("||") != -1)
+		if (value.contains("||"))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments uses double separator || : " + value);
 		}
@@ -84,7 +84,7 @@ public class SkillToken implements CDOMSecondaryToken<EquipmentModifier>
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
 		String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);
-		if (chooseString == null || chooseString.indexOf(getTokenName() + '|') == -1)
+		if (chooseString == null || !chooseString.contains(getTokenName() + '|'))
 		{
 			return null;
 		}

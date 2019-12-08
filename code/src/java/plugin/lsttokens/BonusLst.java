@@ -64,7 +64,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDO
 			return new ParseResult.Fail(
 				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
-		if (value.indexOf("PREAPPLY:") != -1)
+		if (value.contains("PREAPPLY:"))
 		{
 			return new ParseResult.Fail(
 				"Use of PREAPPLY prohibited on a BONUS , " + "please use TEMPBONUS with: " + value);
