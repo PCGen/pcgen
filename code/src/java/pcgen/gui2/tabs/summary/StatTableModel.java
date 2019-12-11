@@ -486,7 +486,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	/**
 	 * Table renderer used for abilities/statistics.
 	 */
-	private class StatRenderer extends JLabel implements TableCellRenderer
+	private static class StatRenderer extends JLabel implements TableCellRenderer
 	{
 
 		@Override

@@ -359,8 +359,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		{
 			return Collections.emptyList();
 		}
-		List<InfoFacade> availableList = new ArrayList<>();
-		availableList.addAll(characterMetaMagicFeats);
+		List<InfoFacade> availableList = new ArrayList<>(characterMetaMagicFeats);
 		return availableList;
 	}
 
@@ -1137,7 +1136,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		}
 	}
 
-	public class RootNodeImpl implements RootNode
+	public static class RootNodeImpl implements RootNode
 	{
 
 		private final String name;
@@ -1488,7 +1487,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	 * is displayed.
 	 * 
 	 */
-	public class DummySpellNodeImpl implements SpellNode
+	public static class DummySpellNodeImpl implements SpellNode
 	{
 		private final RootNode rootNode;
 

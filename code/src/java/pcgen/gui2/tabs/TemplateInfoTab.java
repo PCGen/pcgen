@@ -364,7 +364,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 	}
 
-	private class TemplateDataView extends CachedDataView<PCTemplate>
+	private static class TemplateDataView extends CachedDataView<PCTemplate>
 	{
 
 		private final List<DefaultDataViewColumn> columns;
