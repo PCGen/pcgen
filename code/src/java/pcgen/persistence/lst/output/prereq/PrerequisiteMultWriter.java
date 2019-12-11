@@ -156,13 +156,10 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 		allSkillTot = true;
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			if (!allSkillTot)
-			{
-				break;
-			}
 			if (!"skill".equalsIgnoreCase(element.getKind()) || !element.isTotalValues())
 			{
 				allSkillTot = false;
+				break;
 			}
 		}
         return allSkillTot;
