@@ -5935,6 +5935,7 @@ public final class Equipment extends PObject
 
 				// if the 3rd token is "BASE" we have something like
 				// CHECKS.BASE.Fortitude
+				// Type: .DODGE
 				if ("BASE".equals(aString))
 				{
 					if (aTok.hasMoreTokens())
@@ -5943,19 +5944,11 @@ public final class Equipment extends PObject
 						aTok.nextToken();
 					}
 
-					if (aTok.hasMoreTokens())
-					{
-						// check for a TYPE
-						nextTok = aTok.nextToken();
-					}
 				}
-				else
+				if (aTok.hasMoreTokens())
 				{
-					if (aTok.hasMoreTokens())
-					{
-						// Type: .DODGE
-						nextTok = aTok.nextToken();
-					}
+					// check for a TYPE
+					nextTok = aTok.nextToken();
 				}
 
 				if (nextTok != null)

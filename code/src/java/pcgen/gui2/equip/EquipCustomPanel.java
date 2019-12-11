@@ -543,17 +543,14 @@ public final class EquipCustomPanel extends FlippingSplitPane
 			equipMods = new FilteredListFacade<>();
 			equipMods.setContext(builder);
 			equipMods.setFilter(this);
+			//$NON-NLS-1$
 			if (isAvailModel)
 			{
 				ListFacade<EquipmentModifier> eqModList = builder.getAvailList(head);
 				equipMods.setDelegate(eqModList);
 				builder.getAvailList(head).addListListener(this);
-				columns = Collections.singletonList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
-			else
-			{
-				columns = Collections.singletonList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
-			}
+			columns = Collections.singletonList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 		}
 
 		@Override

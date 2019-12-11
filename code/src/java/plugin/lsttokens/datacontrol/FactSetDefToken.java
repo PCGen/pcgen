@@ -83,15 +83,11 @@ public class FactSetDefToken extends AbstractTokenWithSeparator<FactSetDefinitio
 		String name = def.getFactSetName();
 		if (cl == null)
 		{
-			if (name == null)
-			{
-				return null;
-			}
-			else
+			if (name != null)
 			{
 				context.addWriteMessage("Found FactDefinition with location but no name");
-				return null;
 			}
+			return null;
 		}
 		else if (name == null)
 		{
