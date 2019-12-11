@@ -165,6 +165,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 
 		String lkString = "GA_CA_" + cat + '_' + natureKey;
+		ListKey glk = ListKey.getKeyFor(ChooseSelectionActor.class, lkString);
+		ListKey<ChooseSelectionActor<?>> lk = glk;
 
 		ArrayList<PrereqObject> edgeList = new ArrayList<>();
 
@@ -192,8 +194,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item: " + value);
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj, abilList);
-				context.getObjectContext().removeFromList(obj, ListKey.GA_CAKEYS, ListKey.getKeyFor(ChooseSelectionActor.class, lkString));
-				context.getObjectContext().removeList(obj, ListKey.getKeyFor(ChooseSelectionActor.class, lkString));
+				context.getObjectContext().removeFromList(obj, ListKey.GA_CAKEYS, lk);
+				context.getObjectContext().removeList(obj, lk);
 				removed = true;
 			}
 			else if (token.startsWith(Constants.LST_DOT_CLEAR_DOT))
@@ -236,8 +238,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 						{
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(getTokenName(), acRef, ref, nature);
-							context.getObjectContext().addToList(obj, ListKey.GA_CAKEYS, ListKey.getKeyFor(ChooseSelectionActor.class, lkString));
-							context.getObjectContext().addToList(obj, ListKey.getKeyFor(ChooseSelectionActor.class, lkString), ats);
+							context.getObjectContext().addToList(obj, ListKey.GA_CAKEYS, lk);
+							context.getObjectContext().addToList(obj, lk, ats);
 							edgeList.add(ats);
 							loadList = false;
 						}
