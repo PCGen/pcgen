@@ -173,11 +173,13 @@ public final class TokenLibrary implements PluginLoader
 
 	public static <T> ModifierFactory<T> getModifier(Class<T> cl, String tokKey)
 	{
-		for (Iterator<ModifierFactory<T>> it = new ModifierIterator<>(cl, tokKey); it.hasNext();)
+		Iterator<ModifierFactory<T>> it = new ModifierIterator<>(cl, tokKey);
+		if (it.hasNext())
 		{
 			return it.next();
+		} else {
+			return null;
 		}
-		return null;
 	}
 
 	public static Collection<PostValidationToken<? extends Loadable>> getPostValidationTokens()
