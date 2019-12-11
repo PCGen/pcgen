@@ -232,13 +232,11 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 
 	private DataViewColumn getDataColumn(int column)
 	{
-		switch (column)
+		if (column == 0)
 		{
-			case 0:
-				return namecolumn;
-			default:
-				return datacolumns.get(column - 1);
+			return namecolumn;
 		}
+		return datacolumns.get(column - 1);
 	}
 
 	@Override

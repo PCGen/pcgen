@@ -157,13 +157,11 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 						break;
 				}
 			case PHANTOM_SLOT:
-				switch (column)
+				if (column == 2)
 				{
-					case 2:
-						return equipSet.getLocation(pathNode);
-					default:
-						return null;
+					return equipSet.getLocation(pathNode);
 				}
+				return null;
 			case EQUIPMENT:
 				switch (column)
 				{

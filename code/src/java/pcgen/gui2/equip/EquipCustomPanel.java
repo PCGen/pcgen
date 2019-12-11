@@ -588,14 +588,12 @@ public final class EquipCustomPanel extends FlippingSplitPane
 		@Override
 		public Object getData(EquipmentModifier element, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return element.getSource();
-				default:
-					return null;
-			}
-		}
+            if (column == 0)
+            {
+                return element.getSource();
+            }
+            return null;
+        }
 
 		@Override
 		public void setData(Object value, EquipmentModifier element, int column)

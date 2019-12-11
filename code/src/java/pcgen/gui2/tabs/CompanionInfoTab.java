@@ -803,14 +803,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public List<TreeViewPath<CompanionStubFacade>> getPaths(CompanionStubFacade pobj)
 		{
-			switch (this)
-			{
-				case NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj));
-				default:
-					throw new InternalError();
-			}
-		}
+            if (this == CompanionTreeView.NAME)
+            {
+                return Collections.singletonList(new TreeViewPath<>(pobj));
+            }
+            throw new InternalError();
+        }
 
 	}
 
