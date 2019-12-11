@@ -177,7 +177,9 @@ public final class TokenLibrary implements PluginLoader
 		if (it.hasNext())
 		{
 			return it.next();
-		} else {
+		}
+		else
+		{
 			return null;
 		}
 	}

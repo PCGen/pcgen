@@ -193,7 +193,10 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 			{
                 return other.minLevel == null;
 			}
-			else return minLevel.equals(other.minLevel);
+			else
+			{
+				return minLevel.equals(other.minLevel);
+			}
         }
 	}
 

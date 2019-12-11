@@ -359,7 +359,10 @@ public class VariableReport
 			{
                 return other.definingObject == null;
 			}
-			else return definingObject.equals(other.definingObject);
+			else
+			{
+				return definingObject.equals(other.definingObject);
+			}
         }
 
 		@Override

@@ -534,7 +534,10 @@ public class AbilityCategory
 		{
 			return other.keyName == null;
 		}
-		else return keyName.equals(other.keyName);
+		else
+		{
+			return keyName.equals(other.keyName);
+		}
 	}
 
 	@Override

@@ -241,7 +241,10 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 		{
             return other.target == null;
 		}
-		else return target.equals(other.target);
+		else
+		{
+			return target.equals(other.target);
+		}
     }
 
 	@Override

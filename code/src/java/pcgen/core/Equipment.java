@@ -2765,7 +2765,10 @@ public final class Equipment extends PObject
 		{
 			return other.modifiedName == null;
 		}
-		else return modifiedName.equals(other.modifiedName);
+		else
+		{
+			return modifiedName.equals(other.modifiedName);
+		}
 	}
 
 	/**
@@ -6016,9 +6019,10 @@ public final class Equipment extends PObject
 
 	public void removeType(Type t)
 	{
-		while (removeFromListFor(ListKey.TYPE, t))
+		boolean moreToRemove = true;
+		while (moreToRemove)
 		{
-            // Using the while for side effects
+			moreToRemove = removeFromListFor(ListKey.TYPE, t);
 		}
 		dumpTypeCache();
 	}

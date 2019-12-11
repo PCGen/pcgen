@@ -515,7 +515,10 @@ public abstract class ExportHandler
 			{
 				return false;
 			}
-			else return aSkill.getSafe(ObjectKey.USE_UNTRAINED);
+			else
+			{
+				return aSkill.getSafe(ObjectKey.USE_UNTRAINED);
+			}
 
 		}
 

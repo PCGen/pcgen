@@ -233,7 +233,10 @@ public final class Kit extends PObject
 		{
 			return qualifies(aPC, this);
 		}
-		else return kitVisible.isVisibleTo(v);
+		else
+		{
+			return kitVisible.isVisibleTo(v);
+		}
 
     }
 

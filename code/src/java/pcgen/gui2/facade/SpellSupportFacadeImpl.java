@@ -1469,7 +1469,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			{
                 return other.rootNode == null;
 			}
-			else return rootNode.equals(other.rootNode);
+			else
+			{
+				return rootNode.equals(other.rootNode);
+			}
         }
 
 		private SpellSupportFacadeImpl getOuterType()

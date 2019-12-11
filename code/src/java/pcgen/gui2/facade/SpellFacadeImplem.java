@@ -232,7 +232,10 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		{
             return other.spellInfo == null;
 		}
-		else return spellInfo.equals(other.spellInfo);
+		else
+		{
+			return spellInfo.equals(other.spellInfo);
+		}
     }
 
 	@Override
