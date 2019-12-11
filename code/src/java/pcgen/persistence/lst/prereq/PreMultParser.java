@@ -70,7 +70,7 @@ public class PreMultParser extends AbstractPrerequisiteParser implements Prerequ
 	{
 		int nesting = 0;
 		int startIndex = 0;
-		int currIndex = 0;
+		int currIndex;
 		boolean expectComma = false;
 		boolean expectStart = true;
 		List<String> subList = new ArrayList<>();

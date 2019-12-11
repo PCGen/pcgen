@@ -155,7 +155,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		refreshLangListContents(selLangs, selectedList);
 		refreshLangListContents(selLangs, originalSelectedList);
 
-		int numSelections = 0;
+		int numSelections;
 		if (source instanceof Skill)
 		{
 			numSelections =

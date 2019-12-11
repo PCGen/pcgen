@@ -124,8 +124,8 @@ public class EqToken extends Token
 		// check to see if this was the same as the last list we were asked to export.
 		//
 		String comparatorString = tokenSource.split("[0-9]+")[0];
-		List<Equipment> eqList = null;
-		StringTokenizer aTok = null;
+		List<Equipment> eqList;
+		StringTokenizer aTok;
 		int temp = -1;
 		if (comparatorString.equals(cachedString) && pc == cachedPC && pc.getSerial() == cachedSerial)
 		{

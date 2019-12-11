@@ -123,7 +123,7 @@ public class WeaponToken extends Token
 		aTok.nextToken();
 
 		int merge = Constants.MERGE_ALL;
-		int weapon = 0;
+		int weapon;
 		Equipment eq;
 
 		// First check to see if there is a MERGE token
@@ -626,7 +626,7 @@ public class WeaponToken extends Token
 	 */
 	private static String getHeft(PlayerCharacter pc, Equipment eq)
 	{
-		String retString = "";
+		String retString;
 		if (pc.sizeInt() > eq.sizeInt())
 		{
 			retString = "LIGHT";
@@ -1220,7 +1220,7 @@ public class WeaponToken extends Token
 	{
 		boolean isDouble = (eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
-		int damageMode = DAMAGEMODE_NORMAL;
+		int damageMode;
 		int hands = 1;
 
 		if (eq.isNatural() && (eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY))
@@ -1345,7 +1345,7 @@ public class WeaponToken extends Token
 		CharacterDisplay display = pc.getDisplay();
 		boolean isDouble = (eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
-		int hitMode = HITMODE_TOTALHIT;
+		int hitMode;
 
 		// First do unarmed.
 		if (eq.isUnarmed())
@@ -1857,7 +1857,7 @@ public class WeaponToken extends Token
 		// or possibly the "Haste" spell cast on PC
 		extra_attacks += (int) pc.getTotalBonusTo("COMBAT", "ATTACKS");
 
-		String babProgression = null;
+		String babProgression;
 
 		/* The range == -1 here deals with the case where the weapon is both
 		 ranged and melee (e.g. a dagger).  The range == -1 indicates that
@@ -1968,7 +1968,7 @@ public class WeaponToken extends Token
 		// tokens
 		boolean considerEarlyExit = !isDouble && (hitMode == HITMODE_TWOHIT || display.isSecondaryWeapon(eq));
 
-		int toHit = 0;
+		int toHit;
 		int secondariesAdded = 0;
 
 		StringBuilder primaryAttack = new StringBuilder(20);

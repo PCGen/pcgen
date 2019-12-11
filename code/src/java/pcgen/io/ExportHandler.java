@@ -270,7 +270,7 @@ public abstract class ExportHandler
 					String aString = vString.substring(countIndex + 6, i);
 
 					// Either deal with an EQTYPE or a straight EQ token
-					EqToken token = null;
+					EqToken token;
 					if (aString.contains("EQTYPE"))
 					{
 						token = new EqTypeToken();
@@ -1245,7 +1245,7 @@ public abstract class ExportHandler
 		// Do nothing if something shouldn't be output.
 		if (canWrite && !nonToken.isEmpty())
 		{
-			String finalToken = null;
+			String finalToken;
 			// If we have manual white space then remove an tab characters
 			if (manualWhitespace)
 			{
@@ -2846,7 +2846,7 @@ public abstract class ExportHandler
 		else
 		{
 			remainder = aString.substring(iStart);
-			int i = 0;
+			int i;
 			if (evaluateExpression(tokenizedString[0], aPC))
 			{
 				i = 1;
@@ -3315,10 +3315,10 @@ public abstract class ExportHandler
 	 */
 	private static final class PStringTokenizer
 	{
-		private String _andThat = "";
-		private String _delimiter = "";
-		private String _forThisString = "";
-		private String _ignoreBetweenThis = "";
+		private String _andThat;
+		private String _delimiter;
+		private String _forThisString;
+		private String _ignoreBetweenThis;
 
 		PStringTokenizer(String forThisString, String delimiter, String ignoreBetweenThis, String andThat)
 		{

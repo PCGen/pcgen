@@ -240,8 +240,7 @@ public final class SkillRankControl
 					int maxLanguages = getTotalRank(aPC, sk).intValue();
 					if (selectedLanguages > maxLanguages)
 					{
-						newRank = curRank;
-					}
+                    }
 				}
 			}
 		}

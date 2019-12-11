@@ -790,7 +790,7 @@ public class BonusManager
 
 				// The bonus has been applied to the target stat
 				// Should it be included?
-				boolean addIt = false;
+				boolean addIt;
 				if (co instanceof Equipment || co instanceof EquipmentModifier)
 				{
 					addIt = useEquip;
@@ -1144,7 +1144,7 @@ public class BonusManager
 		Object creatorObj = getSourceObject(bo);
 
 		List<String> associatedList;
-		CDOMObject anObj = null;
+		CDOMObject anObj;
 		if (creatorObj instanceof CDOMObject)
 		{
 			anObj = (CDOMObject) creatorObj;

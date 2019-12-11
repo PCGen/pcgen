@@ -321,7 +321,7 @@ public final class RollingMethods
 				{
 					numToKeep = iRolls;
 				}
-				double result = 0;
+				double result;
 				if (keep == null)
 				{
 					result = roll(iRolls, iFaces, numToKeep, reroll);

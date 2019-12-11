@@ -83,7 +83,7 @@ public class SkillInfoCommand extends PCGenCommand
 			Skill aSkill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class,
 				param2.toString());
 
-			Object result = null;
+			Object result;
 			if (aSkill != null && pc.getDisplay().hasSkill(aSkill))
 			{
 				if ("modifier".equalsIgnoreCase((String) param1))

@@ -51,7 +51,7 @@ public final class EquipmentChoice
 
 	private boolean allowDuplicates = false;
 	private boolean noSign = false;
-	private boolean bAdd = false;
+	private boolean bAdd;
 	private boolean skipZero = false;
 
 	private int minValue = 0;
@@ -61,7 +61,7 @@ public final class EquipmentChoice
 	/*
 	 * CONSIDER This is never read, which is probably a bug - thpr Dec 6, 2008
 	 */
-	private int pool = 0;
+	private int pool;
 	private String title = null;
 
 	private List<Object> availableList = new ArrayList<>();

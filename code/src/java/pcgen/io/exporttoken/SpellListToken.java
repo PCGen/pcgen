@@ -46,7 +46,7 @@ public abstract class SpellListToken extends Token
 	 */
 	protected static final class SpellListTokenParams
 	{
-		private int classNum = 0;
+		private int classNum;
 		private int level = 0;
 		private int bookNum = 0;
 

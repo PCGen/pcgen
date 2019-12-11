@@ -29,10 +29,10 @@ import pcgen.util.Logging;
  */
 public final class NoteItem implements Cloneable
 {
-	private String name = "";
-	private String value = "";
-	private int id_parent = -1;
-	private int id_value = -1;
+	private String name;
+	private String value;
+	private int id_parent;
+	private int id_value;
 	private final Optional<PCStringKey> key;
 
 	public NoteItem(Optional<PCStringKey> key, final int my_id, final int my_parent, final String aName, final String aValue)

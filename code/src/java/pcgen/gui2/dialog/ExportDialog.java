@@ -112,7 +112,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	private final JProgressBar progressBar;
 	private final JButton exportButton;
 	private final JButton closeButton;
-	private Collection<File> allTemplates = null;
+	private Collection<File> allTemplates;
 
 	private ExportDialog(PCGenFrame parent)
 	{

@@ -541,7 +541,7 @@ public final class Globals
 		}
 		else
 		{
-			List<RollInfo> steps = null;
+			List<RollInfo> steps;
 			if (sizeDiff > 0)
 			{
 				steps = bd.getUpSteps();

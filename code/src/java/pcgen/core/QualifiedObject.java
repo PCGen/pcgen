@@ -36,7 +36,7 @@ import pcgen.core.prereq.Prerequisite;
 public class QualifiedObject<T> extends ConcretePrereqObject implements QualifyingObject
 {
 
-	private T theObject = null;
+	private T theObject;
 
 	/**
 	 * Constructor

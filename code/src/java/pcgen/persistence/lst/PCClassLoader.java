@@ -50,7 +50,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				Logging.errorPrint("Ignoring line: " + lstLine + " as SUBCLASS* type line appeared before CLASS: line");
 				return null;
 			}
-			SubClass subClass = null;
+			SubClass subClass;
 
 			if (lstLine.startsWith("SUBCLASS:"))
 			{
@@ -95,7 +95,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					"Ignoring line: " + lstLine + " as SUBSTITUTIONCLASS* type line appeared before CLASS: line");
 				return null;
 			}
-			SubstitutionClass substitutionClass = null;
+			SubstitutionClass substitutionClass;
 
 			if (lstLine.startsWith("SUBSTITUTIONCLASS:"))
 			{

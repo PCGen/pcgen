@@ -28,9 +28,9 @@ import pcgen.core.Skill;
  */
 public final class KitSkillAdd //implements java.io.Serializable
 {
-	private Skill skill = null;
-	private double ranks = 0.0;
-	private int cost = 0;
+	private Skill skill;
+	private double ranks;
+	private int cost;
 	private final List<Language> languages;
 	private final PCClass pcclass;
 

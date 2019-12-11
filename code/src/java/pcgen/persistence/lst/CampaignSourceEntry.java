@@ -44,11 +44,11 @@ import pcgen.util.Logging;
  */
 public class CampaignSourceEntry implements SourceEntry
 {
-	private Campaign campaign = null;
+	private Campaign campaign;
 	private List<String> excludeItems = new ArrayList<>();
 	private List<String> includeItems = new ArrayList<>();
 	private List<Prerequisite> prerequisites = new ArrayList<>();
-	private URIEntry uri = null;
+	private URIEntry uri;
 
 	/**
 	 * CampaignSourceEntry constructor.

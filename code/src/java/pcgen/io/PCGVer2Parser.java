@@ -1679,7 +1679,7 @@ final class PCGVer2Parser implements PCGParser
 						}
 					}
 					SpecialAbility specialAbility = new SpecialAbility(specialAbilityName);
-					CDOMObject target = aPCClass;
+					CDOMObject target;
 					target = thePC.getActiveClassLevel(aPCClass, level);
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
@@ -4789,8 +4789,7 @@ final class PCGVer2Parser implements PCGParser
 								// Make sure we are not getting a custom item
 								if (aEquip2.isType(Constants.TYPE_CUSTOM))
 								{
-									aEquip2 = null;
-								}
+                                }
 								else
 								{
 									// standard item
@@ -5625,7 +5624,7 @@ final class PCGVer2Parser implements PCGParser
 		{
 			final String dString = EntityEncoder.decode(it2.next().getText());
 
-			PersistentTransitionChoice<?> ptc = null;
+			PersistentTransitionChoice<?> ptc;
 			ptc = Compatibility.processOldAdd(Globals.getContext(), dString);
 
 			if (ptc == null)

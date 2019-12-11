@@ -64,7 +64,7 @@ public class Description extends ConcretePrereqObject
 	public Description(final String aString)
 	{
 		int currentInd = 0;
-		int percentInd = -1;
+		int percentInd;
 		while ((percentInd = aString.indexOf('%', currentInd)) != -1)
 		{
 			final String preText = aString.substring(currentInd, percentInd);

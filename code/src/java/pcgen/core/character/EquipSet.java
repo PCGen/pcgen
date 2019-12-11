@@ -82,8 +82,8 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	private Float qty = 1.0f;
 	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
 
-	private String id_path = Constants.EMPTY_STRING;
-	private String name = Constants.EMPTY_STRING;
+	private String id_path;
+	private String name;
 	private String note = Constants.EMPTY_STRING;
 	private String value = Constants.EMPTY_STRING;
 	private boolean useTempBonuses = true;

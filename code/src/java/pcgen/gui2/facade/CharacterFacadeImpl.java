@@ -1120,7 +1120,7 @@ public class CharacterFacadeImpl
 
 		// Allow selection of target for bonus affecting equipment
 		CDOMObject originObj = tempBonus.getOriginObj();
-		Equipment aEq = null;
+		Equipment aEq;
 		Object target = TempBonusHelper.getTempBonusTarget(originObj, theCharacter, delegate, infoFactory);
 		if (target == null)
 		{

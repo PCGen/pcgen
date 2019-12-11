@@ -39,7 +39,7 @@ public final class PCLevelInfo implements Cloneable
 {
 	private List<PCLevelInfoStat> statsPostModified = null;
 	private List<PCLevelInfoStat> statsPreModified = null;
-	private String classKeyName = "";
+	private String classKeyName;
 	private int classLevel = 0;
 	private int skillPointsGained = Integer.MIN_VALUE;
 	private int skillPointsRemaining = 0;

@@ -423,7 +423,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		PCClass reconstClass = null;
+		PCClass reconstClass;
 		System.out.println("Got text:" + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
 		assertEquals(
@@ -444,7 +444,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 		classPCCText = humanoidClass.getPCCText();
 		assertNotNull(classPCCText, "PCC Text for race should not be null");
 
-		reconstClass = null;
 		System.out.println("Got text:" + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
 		assertEquals(

@@ -1253,7 +1253,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private void updateTitle()
 	{
 		StringBuilder title = new StringBuilder(100);
-		File characterFile = null;
+		File characterFile;
 		String characterFileName = null;
 		String sourceName = null;
 		if (currentCharacterRef != null && currentCharacterRef.get() != null)
@@ -1346,7 +1346,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		cons.fill = GridBagConstraints.NONE;
 
 		int start = 0;
-		int sepPos = -1;
+		int sepPos;
 
 		do
 		{

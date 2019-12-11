@@ -3641,7 +3641,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		String aRange = aSpell.getSpell().getListAsString(ListKey.RANGE);
 		String aSpellClass = aSpell.getVariableSource(this);
-		int rangeInFeet = 0;
+		int rangeInFeet;
 		String aString = SettingsHandler.getGame().getSpellRangeFormula(aRange.toUpperCase());
 
 		if (aRange.equalsIgnoreCase("CLOSE") && (aString == null))
@@ -3868,7 +3868,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return getVariableValue(acs.getFixedCasterLevel(), Constants.EMPTY_STRING).intValue();
 		}
 
-		int tBonus = casterLev;
+		int tBonus;
 		boolean replaceCasterLevel = false;
 
 		String tType;
@@ -6259,7 +6259,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, this);
 				knownSpec = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, this);
-				knownTot = knownNon + knownSpec; // TODO: : value never used
 			}
 			else
 			{
@@ -6336,7 +6335,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, this);
 				knownSpec = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, this);
-				knownTot = knownNon + knownSpec; // for completeness
 			}
 			else
 			{
@@ -7094,7 +7092,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	@Override
 	public PlayerCharacter clone()
 	{
-		PlayerCharacter aClone = null;
+		PlayerCharacter aClone;
 
 		// calling super.clone won't work because it will not create
 		// new data instances for all the final variables and I won't
@@ -8427,8 +8425,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int getDC(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		CDOMObject ow = null;
-		int spellLevel = 0;
+		CDOMObject ow;
+		int spellLevel;
 		int metaDC = 0;
 
 		spellLevel = si.getActualLevel();
@@ -8577,8 +8575,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int getConcentration(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		CDOMObject ow = null;
-		int spellLevel = 0;
+		CDOMObject ow;
+		int spellLevel;
 		int metaConcentration = 0;
 
 		spellLevel = si.getActualLevel();

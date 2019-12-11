@@ -305,7 +305,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void addCustomFilesToStartOfList()
 	{
-		CampaignSourceEntry tempSource = null;
+		CampaignSourceEntry tempSource;
 
 		// The dummy campaign for custom data.
 		Campaign customCampaign = new Campaign();

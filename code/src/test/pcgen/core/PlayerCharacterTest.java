@@ -1376,7 +1376,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.setMaxNonEpicLevel(20);
-		PCClass fighterClass = null;
+		PCClass fighterClass;
 		fighterClass = new PCClass();
 		fighterClass.setName("Fighter");
 		BuildUtilities.setFact(fighterClass, "ClassType", "Base.PC");

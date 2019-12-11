@@ -84,10 +84,10 @@ public final class GameMode implements Comparable<Object>
 	private String defaultSpellBook = "Known Spells";
 	private String defaultUnitSet = Constants.STANDARD_UNITSET_NAME;
 	private UnitSet selectedUnitSet = null;
-	private String displayName = "";
+	private String displayName;
 	private final String folderName;
 	private String levelUpMessage = "";
-	private String name = "";
+	private String name;
 	private String spellBaseDC = "0";
 	private String spellBaseConcentration = "";
 	private List<Type> weaponCategories = new ArrayList<>();

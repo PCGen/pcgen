@@ -260,7 +260,7 @@ public class EqContainersToken extends Token
 	 */
 	public static String getContentsToken(Equipment eq, StringTokenizer aTok)
 	{
-		String retString = "";
+		String retString;
 		if (aTok.hasMoreTokens())
 		{
 			String aType = aTok.nextToken();

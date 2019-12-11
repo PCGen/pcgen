@@ -128,7 +128,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 					if (target.getDisplayName().equalsIgnoreCase(skillKey))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
 								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
@@ -137,7 +136,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 						&& aSkillKey.startsWith(skillKey.substring(0, percentageSignPosition))))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
 								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
@@ -160,7 +158,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 					if (target.isType(skillKey))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
 								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
