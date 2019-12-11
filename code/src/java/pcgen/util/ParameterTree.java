@@ -138,6 +138,7 @@ public class ParameterTree
 						final StringBuilder rNodeContents = new StringBuilder();
 						rNodeContents.append(t.getRightTree().getContents());
 						rNodeContents.append(source.substring(pM.start(), end));
+						//TODO rNodeContents is then thrown away?
 					}
 
 				}

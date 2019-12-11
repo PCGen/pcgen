@@ -128,6 +128,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 				sb.append(curl.getUri().toString());
 				sb.append(Constants.PIPE);
 				sb.append(curl.getUrlDesc());
+				//TODO sb is then thrown away?
 			}
 			return list.toArray(new String[0]);
 		}
