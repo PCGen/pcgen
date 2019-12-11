@@ -547,12 +547,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			return false;
 		}
 		//we use reference equality since GameModes come from a fixed database
-		if (source1.getGameMode().get() != source2.getGameMode().get())
-		{
-			return false;
-		}
-		return true;
-	}
+        return source1.getGameMode().get() == source2.getGameMode().get();
+    }
 
 	public boolean saveCharacter(CharacterFacade character)
 	{

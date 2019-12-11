@@ -2766,16 +2766,9 @@ public final class Equipment extends PObject
 
 		if (modifiedName == null)
 		{
-			if (other.modifiedName != null)
-			{
-				return false;
-			}
+			return other.modifiedName == null;
 		}
-		else if (!modifiedName.equals(other.modifiedName))
-		{
-			return false;
-		}
-		return true;
+		else return modifiedName.equals(other.modifiedName);
 	}
 
 	/**

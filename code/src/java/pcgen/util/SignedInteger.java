@@ -109,11 +109,7 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 			return false;
 		}
 		SignedInteger other = (SignedInteger) obj;
-		if (value != other.value)
-		{
-			return false;
-		}
-		return true;
-	}
+        return value == other.value;
+    }
 
 }

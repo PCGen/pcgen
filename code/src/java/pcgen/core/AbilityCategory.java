@@ -532,16 +532,9 @@ public class AbilityCategory
 		final AbilityCategory other = (AbilityCategory) obj;
 		if (keyName == null)
 		{
-			if (other.keyName != null)
-			{
-				return false;
-			}
+			return other.keyName == null;
 		}
-		else if (!keyName.equals(other.keyName))
-		{
-			return false;
-		}
-		return true;
+		else return keyName.equals(other.keyName);
 	}
 
 	@Override

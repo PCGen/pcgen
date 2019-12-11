@@ -239,17 +239,10 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 		}
 		if (target == null)
 		{
-			if (other.target != null)
-			{
-				return false;
-			}
+            return other.target == null;
 		}
-		else if (!target.equals(other.target))
-		{
-			return false;
-		}
-		return true;
-	}
+		else return target.equals(other.target);
+    }
 
 	@Override
 	public String getType()
