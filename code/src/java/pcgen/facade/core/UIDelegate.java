@@ -121,8 +121,8 @@ public interface UIDelegate
 	 */
 	public enum CustomEquipResult
 	{
-		CANCELLED, OK, PURCHASE;
-	}
+		CANCELLED, OK, PURCHASE
+    }
 
 	/**
 	 * Present a dialog to the user to allow them to build up a custom 

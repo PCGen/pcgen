@@ -3009,7 +3009,7 @@ public abstract class ExportHandler
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(
 				new FileInputStream(templateFile),
 				StandardCharsets.UTF_8
-		));)
+		)))
 		{
 			boolean betweenPipes = false;
 			StringBuilder textBetweenPipes = new StringBuilder();
