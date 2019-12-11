@@ -130,7 +130,7 @@ public abstract class VariableProcessor
 		{
 			result = processBrokenParser(aSpell, varString, src, spellLevelTemp);
 
-			String cacheString = makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
+			String cacheString = makeCacheString(aSpell, varString, src, spellLevelTemp);
 
 			addCachedVariable(cacheString, result);
 		}
@@ -161,7 +161,7 @@ public abstract class VariableProcessor
 			// number, If we got here it wasn't
 		}
 
-		String cacheString = makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
+		String cacheString = makeCacheString(aSpell, varString, src, spellLevelTemp);
 
 		Float total = getCachedVariable(cacheString);
 		if (total != null)
