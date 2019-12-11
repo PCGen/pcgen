@@ -849,7 +849,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			return 2;
 		}
 
-		private class CompanionNode extends DefaultTreeTableNode
+		private static class CompanionNode extends DefaultTreeTableNode
 		{
 
 			private final CompanionFacade companion;

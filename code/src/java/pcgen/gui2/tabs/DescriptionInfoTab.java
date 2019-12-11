@@ -419,7 +419,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	 * The Class {@code AddAction} acts on a user pressing the Add Note
 	 * button.
 	 */
-	private class AddAction extends AbstractAction
+	private static class AddAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;

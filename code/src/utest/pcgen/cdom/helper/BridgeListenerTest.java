@@ -216,7 +216,7 @@ public class BridgeListenerTest
 		assertTrue(target.getSet(id).contains(t2));
 	}
 
-	private class Target extends AbstractSourcedListFacet<CharID, PCGenScoped>
+	private static class Target extends AbstractSourcedListFacet<CharID, PCGenScoped>
 	{
 
 	}
