@@ -300,9 +300,8 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
 		pman.setChosenCampaignSourcefiles(oldList);
 
-		String sb = PrerequisiteUtilities.preReqHTMLStringsForList(null, null, campaign.getPrerequisiteList(), false)
-				+ AllowUtilities.getAllowInfo(null, campaign);
-		return sb;
+        return PrerequisiteUtilities.preReqHTMLStringsForList(null, null, campaign.getPrerequisiteList(), false)
+                + AllowUtilities.getAllowInfo(null, campaign);
 	}
 
 }

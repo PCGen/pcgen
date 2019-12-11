@@ -203,9 +203,8 @@ public final class BioSet extends PObject implements NonInteractive
 	public String toString()
 	{
 
-		String sb = "AgeMap: " + ageMap + "\n"
-				+ "UserMap: " + userMap + "\n";
-		return sb;
+        return "AgeMap: " + ageMap + "\n"
+                + "UserMap: " + userMap + "\n";
 	}
 
 	private static String replaceString(final String argInput, final String replacement, final int value)

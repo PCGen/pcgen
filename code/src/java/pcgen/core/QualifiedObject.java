@@ -109,11 +109,10 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 	public String toString()
 	{
 		// TODO Auto-generated method stub
-		String result = "Object:"
+		return "Object:"
 				+ theObject.toString()
 				+ ", Prereq:"
 				+ getPrerequisiteList().toString();
-		return result;
 	}
 
 	@Override

@@ -448,8 +448,7 @@ public class DataSet implements DataSetFacade
 
 			if (r1 == r2)
 			{
-				final int EQUAL = 0;
-				return EQUAL;
+				return 0;
 			}
 
 			boolean unselected1 = r1.isUnselected();
@@ -515,8 +514,7 @@ public class DataSet implements DataSetFacade
 
 			if (c1 == c2)
 			{
-				final int EQUAL = 0;
-				return EQUAL;
+				return 0;
 			}
 
 			final String BASE_TYPE = "BASE.PC";

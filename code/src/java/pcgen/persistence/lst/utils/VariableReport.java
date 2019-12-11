@@ -384,7 +384,7 @@ public class VariableReport
 		@Override
 		public String toString()
 		{
-			String builder = "VarDefine [varName="
+			return "VarDefine [varName="
 					+ varName
 					+ ", definingObject="
 					+ definingObject
@@ -393,7 +393,6 @@ public class VariableReport
 					+ ", use="
 					+ use
 					+ ']';
-			return builder;
 		}
 
 		/**

@@ -209,9 +209,8 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		ScopeInstance scopeInst = instFactory.get(localScopeName.get(), Optional.of(stat));
 		try
 		{
-			VariableID<Number> varID = (VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()
-				.getVariableContext().getVariableID(scopeInst, varName);
-			return varID;
+            return (VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()
+                .getVariableContext().getVariableID(scopeInst, varName);
 		}
 		catch (NullPointerException e)
 		{

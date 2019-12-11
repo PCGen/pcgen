@@ -449,13 +449,12 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		assertThat(s + " no choices", (double) character.getVariableValue(s, ""), closeTo(0.0, 0.1));
 
-		AbilityCategory category = gCat;
-		finalizeTest(ab, "munch", character, category);
+        finalizeTest(ab, "munch", character, gCat);
 
 		assertThat(s + " one choice", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 
-		finalizeTest(ab, "devour", character, category);
-		finalizeTest(ab, "nibble", character, category);
+		finalizeTest(ab, "devour", character, gCat);
+		finalizeTest(ab, "nibble", character, gCat);
 		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 

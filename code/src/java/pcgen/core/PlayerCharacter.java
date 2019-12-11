@@ -3392,8 +3392,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public int getOffHandLightBonus()
 	{
-		final int div = getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
-		return div;
+		return getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
 	}
 
 	public boolean isProficientWith(final Equipment eq)
@@ -3848,8 +3847,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	private Float getVariableValue(final CharacterSpell aSpell, String aString, String src)
 	{
-		VariableProcessor vp = variableProcessor;
-		return vp.getVariableValue(aSpell, aString, src, spellLevelTemp);
+		return variableProcessor.getVariableValue(aSpell, aString, src, spellLevelTemp);
 	}
 
 	/**
@@ -4076,9 +4074,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		int result = tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses);
-
-		return (result);
+		return (tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses));
 	}
 
 	private static int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
@@ -7946,8 +7942,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.VIRTUAL));
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.AUTOMATIC));
 
-		List<Ability> aggregate = new ArrayList<>(aHashMap.values());
-		return aggregate;
+		return new ArrayList<>(aHashMap.values());
 	}
 
 	/**
@@ -7971,8 +7966,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			if (list instanceof AbilityList)
 			{
-				CDOMReference r = ref;
-				processAbilityList(cdo, r);
+				processAbilityList(cdo, (CDOMReference) ref);
 				break; // Only do once
 			}
 		}
@@ -9849,8 +9843,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public Collection<CNAbility> getCNAbilities()
 	{
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
 	}
 
 	public Collection<CNAbility> getCNAbilities(Category<Ability> cat, Nature n)
@@ -9859,8 +9852,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			throw new IllegalArgumentException("Category for getCNAbilities must be parent category");
 		}
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
 	}
 
 	public List<?> getDetailedAssociations(ChooseDriver cd)
@@ -9871,8 +9863,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public List<CNAbility> getMatchingCNAbilities(Ability ability)
 	{
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
 	}
 
 	public List<CNAbility> getCNAbilities(Category<Ability> cat)
@@ -9881,20 +9872,17 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			throw new IllegalArgumentException("Category for getCNAbilities must be parent category, was: " + cat);
 		}
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
 	}
 
 	public List<CNAbility> getPoolAbilities(Category<Ability> cat)
 	{
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
 	}
 
 	public Collection<CNAbility> getPoolAbilities(Category<Ability> cat, Nature n)
 	{
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
 	}
 
 	public Collection<CNAbilitySelection> getSaveAbilities()

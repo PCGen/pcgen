@@ -1454,11 +1454,10 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getPreReqHTML(Race race)
 	{
-		String sb = "<html>"
+		return "<html>"
 				+ PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, race.getPrerequisiteList(), false)
 				+ AllowUtilities.getAllowInfo(pc, race)
 				+ "</html>";
-		return sb;
 	}
 
 	@Override
@@ -1536,11 +1535,10 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getPreReqHTML(PCTemplate template)
 	{
-		String sb = "<html>"
+		return "<html>"
 				+ PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, template.getPrerequisiteList(), false)
 				+ AllowUtilities.getAllowInfo(pc, template)
 				+ "</html>";
-		return sb;
 	}
 
 	@Override

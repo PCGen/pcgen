@@ -59,8 +59,7 @@ public interface CharacterExportAction
 			Logging.errorPrint("Couldn't flush the StringWriter used in " + "PCStringDirective.getExportVariable.", e);
 		}
 
-		final String bString = sWriter.toString();
-		return bString;
+        return sWriter.toString();
 	}
 
 }

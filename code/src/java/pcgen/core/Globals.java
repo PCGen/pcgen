@@ -671,15 +671,13 @@ public final class Globals
 	private static boolean checkListsHappy()
 	{
 		// NOTE: If you add something here be sure to update the log output in displayListsHappy above
-		final boolean listsHappy =
-				!((getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).isEmpty())
-					|| (getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).isEmpty())
-					//				|| (getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
-					//				|| (getContext().ref.getManufacturer(
-					//						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
-					|| (getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).isEmpty())
-					|| (getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).isEmpty()));
-		return listsHappy;
+		return !((getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).isEmpty())
+			|| (getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).isEmpty())
+			//				|| (getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
+			//				|| (getContext().ref.getManufacturer(
+			//						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
+			|| (getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).isEmpty())
+			|| (getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).isEmpty()));
 	}
 
 	/**

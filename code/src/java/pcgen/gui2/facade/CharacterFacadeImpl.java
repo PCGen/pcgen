@@ -476,9 +476,8 @@ public class CharacterFacadeImpl
 			}
 		}
 
-		GearBuySellScheme scheme = new GearBuySellScheme(LanguageBundle.getString("in_custom"), //$NON-NLS-1$
+		return new GearBuySellScheme(LanguageBundle.getString("in_custom"), //$NON-NLS-1$
 			new BigDecimal(buyRate), new BigDecimal(sellRate), new BigDecimal(100));
-		return scheme;
 	}
 
 	/**
@@ -4087,8 +4086,7 @@ public class CharacterFacadeImpl
 	@Override
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers)
 	{
-		List<CoreViewNodeFacade> coreDebugList = CoreUtils.buildCoreDebugList(theCharacter, pers);
-		return coreDebugList;
+		return CoreUtils.buildCoreDebugList(theCharacter, pers);
 	}
 
 	@Override

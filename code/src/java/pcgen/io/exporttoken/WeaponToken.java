@@ -711,10 +711,9 @@ public class WeaponToken extends Token
 		{
 			return critMult1.toString();
 		}
-		String sb = String.valueOf(critMult1)
+		return String.valueOf(critMult1)
 				+ '/'
 				+ critMult2;
-		return sb;
 	}
 
 	/**
@@ -875,10 +874,8 @@ public class WeaponToken extends Token
 	private static int getMagicDamageToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
-		int magicdamage =
-				eq.getBonusToDamage(pc, true) + (int) BonusCalc.charBonusTo(eq, "WEAPONPROF=" + profName, "DAMAGE", pc)
-					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_EQ);
-		return magicdamage;
+		return eq.getBonusToDamage(pc, true) + (int) BonusCalc.charBonusTo(eq, "WEAPONPROF=" + profName, "DAMAGE", pc)
+			+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_EQ);
 	}
 
 	/**
@@ -890,10 +887,8 @@ public class WeaponToken extends Token
 	private static int getMagicHitToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
-		int magichit =
-				eq.getBonusToHit(pc, true) + (int) BonusCalc.charBonusTo(eq, "WEAPONPROF=" + profName, "TOHIT", pc)
-					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_EQ);
-		return magichit;
+		return eq.getBonusToHit(pc, true) + (int) BonusCalc.charBonusTo(eq, "WEAPONPROF=" + profName, "TOHIT", pc)
+			+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_EQ);
 	}
 
 	/**
@@ -905,11 +900,10 @@ public class WeaponToken extends Token
 	private static int getMiscToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
-		int miscBonus = ((int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "TOHIT")
+		return ((int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "TOHIT")
 			+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_PC))
 			- (int) pc.getDisplay().getStatBonusTo("TOHIT", "TYPE.MELEE")
 			- (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
-		return miscBonus;
 	}
 
 	/**
@@ -921,11 +915,9 @@ public class WeaponToken extends Token
 	private static int getFeatDamageToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
-		int featBonus =
-				(int) pc.getFeatBonusTo("WEAPON", "DAMAGE") - (int) pc.getFeatBonusTo("WEAPON", "DAMAGE-SHORTRANGE")
-					+ (int) pc.getFeatBonusTo("WEAPONPROF=" + profName, "DAMAGE")
-					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_FEAT);
-		return featBonus;
+		return (int) pc.getFeatBonusTo("WEAPON", "DAMAGE") - (int) pc.getFeatBonusTo("WEAPON", "DAMAGE-SHORTRANGE")
+			+ (int) pc.getFeatBonusTo("WEAPONPROF=" + profName, "DAMAGE")
+			+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_FEAT);
 	}
 
 	/**
@@ -937,10 +929,8 @@ public class WeaponToken extends Token
 	private static int getFeatHitToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
-		int featBonus =
-				(int) pc.getFeatBonusTo("WEAPON", "TOHIT") + (int) pc.getFeatBonusTo("WEAPONPROF=" + profName, "TOHIT")
-					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_FEAT);
-		return featBonus;
+		return (int) pc.getFeatBonusTo("WEAPON", "TOHIT") + (int) pc.getFeatBonusTo("WEAPONPROF=" + profName, "TOHIT")
+			+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_FEAT);
 	}
 
 	/**
@@ -952,10 +942,9 @@ public class WeaponToken extends Token
 	private static int getTemplateDamageToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
-		int templateBonus = (int) pc.getTemplateBonusTo("WEAPON", "DAMAGE")
+		return (int) pc.getTemplateBonusTo("WEAPON", "DAMAGE")
 			+ (int) pc.getTemplateBonusTo("WEAPONPROF=" + profName, "DAMAGE")
 			+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_TEMPLATE);
-		return templateBonus;
 	}
 
 	/**
@@ -967,10 +956,9 @@ public class WeaponToken extends Token
 	private static int getTemplateHitToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
-		int templateBonus = (int) pc.getTemplateBonusTo("WEAPON", "TOHIT")
+		return (int) pc.getTemplateBonusTo("WEAPON", "TOHIT")
 			+ (int) pc.getTemplateBonusTo("WEAPONPROF=" + profName, "TOHIT")
 			+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_TEMPLATE);
-		return templateBonus;
 	}
 
 	/**
@@ -1288,9 +1276,8 @@ public class WeaponToken extends Token
 	private static String getBasicDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
 	                                          boolean bonusOnly)
 	{
-		int damageMode = DAMAGEMODE_BASIC;
 		int hands = 1;
-		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, damageMode, false);
+		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, DAMAGEMODE_BASIC, false);
 	}
 
 	/**
@@ -1306,9 +1293,8 @@ public class WeaponToken extends Token
 	private static String getTHDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
 	                                       boolean bonusOnly)
 	{
-		int damageMode = DAMAGEMODE_TWOHANDS;
 		int hands = 2;
-		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, damageMode, false);
+		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, DAMAGEMODE_TWOHANDS, false);
 	}
 
 	/**
@@ -1324,9 +1310,8 @@ public class WeaponToken extends Token
 	private static String getOHDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
 	                                       boolean bonusOnly)
 	{
-		int damageMode = DAMAGEMODE_OFFHAND;
 		int hands = 0;
-		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, damageMode, false);
+		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, DAMAGEMODE_OFFHAND, false);
 	}
 
 	/**
@@ -1449,8 +1434,7 @@ public class WeaponToken extends Token
 	private static String getBaseHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
 	                                      int attackNum)
 	{
-		int hitMode = HITMODE_BASEHIT;
-		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
+		return getToHit(pc, eq, range, content, ammo, HITMODE_BASEHIT, attackNum);
 	}
 
 	/**
@@ -1466,8 +1450,7 @@ public class WeaponToken extends Token
 	private static String getTwpHitHToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
 	                                      int attackNum)
 	{
-		int hitMode = HITMODE_TWPHITH;
-		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
+		return getToHit(pc, eq, range, content, ammo, HITMODE_TWPHITH, attackNum);
 	}
 
 	/**
@@ -1515,8 +1498,7 @@ public class WeaponToken extends Token
 	private static String getOHHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
 	                                    int attackNum)
 	{
-		int hitMode = HITMODE_OHHIT;
-		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
+		return getToHit(pc, eq, range, content, ammo, HITMODE_OHHIT, attackNum);
 	}
 
 	/**
@@ -1532,8 +1514,7 @@ public class WeaponToken extends Token
 	private static String getTHHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
 	                                    int attackNum)
 	{
-		int hitMode = HITMODE_THHIT;
-		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
+		return getToHit(pc, eq, range, content, ammo, HITMODE_THHIT, attackNum);
 	}
 
 	private static String getToHit(PlayerCharacter pc, Equipment eq, int range, int content, int ammo, int hitMode,

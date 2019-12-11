@@ -61,9 +61,8 @@ public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implement
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final String foo = LanguageBundle.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
-			prereq.getKey());
-		return foo;
+        return LanguageBundle.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
+            prereq.getKey());
 	}
 
 }

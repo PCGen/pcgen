@@ -710,10 +710,9 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	private static String getNumCast(PCClass aClass, int level, PlayerCharacter pc)
 	{
 		String sbook = Globals.getDefaultSpellBook();
-		final String cast = pc.getSpellSupport(aClass).getCastForLevel(level, sbook, true, false, pc)
-			+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, sbook, pc);
 
-		return cast;
+		return pc.getSpellSupport(aClass).getCastForLevel(level, sbook, true, false, pc)
+			+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, sbook, pc);
 	}
 
 	private static int getDC(PCClass aClass, int level, PlayerCharacter pc)
@@ -931,9 +930,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 
 		SpellInfo spellInfo = charSpell.getSpellInfoFor(bookName, level, metamagicFeats);
 		SpellFacadeImplem spellImplem = new SpellFacadeImplem(pc, charSpell.getSpell(), charSpell, spellInfo);
-		SpellNodeImpl node = new SpellNodeImpl(spellImplem, spell.getSpellcastingClass(),
+		return new SpellNodeImpl(spellImplem, spell.getSpellcastingClass(),
 			String.valueOf(spellInfo.getActualLevel()), getRootNode(bookName));
-		return node;
 	}
 
 	private RootNodeImpl getRootNode(String bookName)

@@ -1520,11 +1520,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			//now that the SourceFileLoader has finished
 			//handle licenses and whatnot
-			String sec15 = " "
+			section15 = " "
 					+ readTextFromFile(
 					ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt")
 					+ loader.getOGL();
-			section15 = sec15;
 			try
 			{
 				showLicenses();
@@ -1645,9 +1644,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		EquipCustomizerDialog eqDialog = new EquipCustomizerDialog(this, character, equipBuilder);
 		eqDialog.setLocationRelativeTo(this);
 		eqDialog.setVisible(true);
-		CustomEquipResult result = eqDialog.isCancelled() ? CustomEquipResult.CANCELLED
+		return eqDialog.isCancelled() ? CustomEquipResult.CANCELLED
 			: eqDialog.isPurchase() ? CustomEquipResult.PURCHASE : CustomEquipResult.OK;
-		return result;
 	}
 
 	@Override

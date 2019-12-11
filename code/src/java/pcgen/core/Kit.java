@@ -358,9 +358,8 @@ public final class Kit extends PObject
 
 	private String getPreReqHTMLStrings(PlayerCharacter aPC)
 	{
-		String sb = PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false)
+		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false)
 				+ AllowUtilities.getAllowInfo(aPC, this);
-		return sb;
 	}
 
 	public static void applyKit(final Kit aKit, final PlayerCharacter aPC)

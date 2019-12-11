@@ -185,8 +185,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		private ChroniclePane createNewChronicleEntry()
 		{
 			ChronicleEntry entry = descFacade.createChronicleEntry();
-			ChroniclePane pane = new ChroniclePane(this, entry);
-			return pane;
+            return new ChroniclePane(this, entry);
 		}
 
 		/**

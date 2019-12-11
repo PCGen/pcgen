@@ -113,8 +113,7 @@ public class CampaignPanel extends ConvertSubPanel
 				java.awt.Point p = e.getPoint();
 				int rowIndex = rowAtPoint(p);
 				int colIndex = columnAtPoint(p);
-				String tip = String.valueOf(getValueAt(rowIndex, colIndex));
-				return tip;
+				return String.valueOf(getValueAt(rowIndex, colIndex));
 			}
 		};
 		table.getSelectionModel().addListSelectionListener(event -> {

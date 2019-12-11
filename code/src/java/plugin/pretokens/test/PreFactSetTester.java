@@ -113,9 +113,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 			return prereq.getKey();
 		}
 
-		final String foo = LanguageBundle.getFormattedString("PreFactSet.toHtml", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
-		return foo;
+        return LanguageBundle.getFormattedString("PreFactSet.toHtml", //$NON-NLS-1$
+            prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
 	}
 
 }

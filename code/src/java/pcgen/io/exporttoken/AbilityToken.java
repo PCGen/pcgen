@@ -280,9 +280,8 @@ public class AbilityToken extends Token
 		}
 
 		// Build the return string to give to the OutputSheet
-		String retString = getRetString(tokenSource, pc, eh, abilityIndex, aList);
 
-		return retString;
+		return getRetString(tokenSource, pc, eh, abilityIndex, aList);
 	}
 
 	/**

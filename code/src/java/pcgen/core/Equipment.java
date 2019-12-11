@@ -893,8 +893,7 @@ public final class Equipment extends PObject
 				+ ")";
 		String s = mat.replaceAll(sB);
 
-		String v = getVariableValue(s, "", primaryHead, aPC).toString();
-		return v;
+		return getVariableValue(s, "", primaryHead, aPC).toString();
 	}
 
 	/**
@@ -2559,10 +2558,8 @@ public final class Equipment extends PObject
 			eqMod.bonusTo(aPC, aType, aName, this);
 		}
 
-		double iBonus = getBonusMap().keySet().stream().filter(key -> key.startsWith(aBonusKey))
+		return getBonusMap().keySet().stream().filter(key -> key.startsWith(aBonusKey))
 			.mapToDouble(key -> Float.parseFloat(getBonusMap().get(key))).sum();
-
-		return iBonus;
 	}
 
 	/**
@@ -4478,10 +4475,8 @@ public final class Equipment extends PObject
 	private List<List<EquipmentModifier>> initSplitModList()
 	{
 
-		List<List<EquipmentModifier>> modListArray = IntStream.range(0, EqModFormatCat.values().length)
+		return IntStream.range(0, EqModFormatCat.values().length)
 			.<List<EquipmentModifier>> mapToObj(i -> new ArrayList<>()).collect(Collectors.toList());
-
-		return modListArray;
 	}
 
 	/**
@@ -5622,10 +5617,8 @@ public final class Equipment extends PObject
 	public Collection<Equipment> getContents()
 	{
 
-		final Collection<Equipment> contents = IntStream.range(0, getContainedEquipmentCount())
+		return IntStream.range(0, getContainedEquipmentCount())
 			.mapToObj(this::getContainedEquipment).collect(Collectors.toList());
-
-		return contents;
 	}
 
 	// ---------------------------
