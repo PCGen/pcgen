@@ -1185,12 +1185,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 				return false;
 			}
 			final RootNodeImpl other = (RootNodeImpl) obj;
-			if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name))
-			{
-				return false;
-			}
-			return true;
-		}
+            return (this.name == null) ? (other.name == null) : this.name.equals(other.name);
+        }
 
 	}
 
@@ -1474,17 +1470,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			}
 			if (rootNode == null)
 			{
-				if (other.rootNode != null)
-				{
-					return false;
-				}
+                return other.rootNode == null;
 			}
-			else if (!rootNode.equals(other.rootNode))
-			{
-				return false;
-			}
-			return true;
-		}
+			else return rootNode.equals(other.rootNode);
+        }
 
 		private SpellSupportFacadeImpl getOuterType()
 		{

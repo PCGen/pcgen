@@ -191,17 +191,10 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 			}
 			if (minLevel == null)
 			{
-				if (other.minLevel != null)
-				{
-					return false;
-				}
+                return other.minLevel == null;
 			}
-			else if (!minLevel.equals(other.minLevel))
-			{
-				return false;
-			}
-			return true;
-		}
+			else return minLevel.equals(other.minLevel);
+        }
 	}
 
 	@Override
@@ -262,10 +255,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 						found = true;
 					}
 				}
-				if (found != known)
-				{
-					return false;
-				}
+                return found == known;
 			}
 		}
 		return true;
