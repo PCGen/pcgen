@@ -55,7 +55,7 @@ public class StattablehiddencolumnsToken extends AbstractTokenWithSeparator<TabI
 			String token = st.nextToken();
 			try
 			{
-				ti.hideColumn(Integer.valueOf(token));
+				ti.hideColumn(Integer.parseInt(token));
 			}
 			catch (NumberFormatException nfe)
 			{

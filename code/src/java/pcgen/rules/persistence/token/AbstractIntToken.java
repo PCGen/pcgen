@@ -56,21 +56,21 @@ public abstract class AbstractIntToken<T extends CDOMObject>
 		int min = minValue();
 		if (max == Integer.MAX_VALUE)
 		{
-			if (value.intValue() < min)
+			if (value < min)
 			{
 				return new ParseResult.Fail(getTokenName() + " must be an integer >= " + min);
 			}
 		}
 		else if (min == Integer.MIN_VALUE)
 		{
-			if (value.intValue() > max)
+			if (value > max)
 			{
 				return new ParseResult.Fail(getTokenName() + " must be an integer <= " + max);
 			}
 		}
 		else
 		{
-			if ((value.intValue() > max) || (value.intValue() < min))
+			if ((value > max) || (value < min))
 			{
 				return new ParseResult.Fail(getTokenName() + " must be an integer betwen " + min + " and " + max);
 			}

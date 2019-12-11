@@ -4213,10 +4213,10 @@ public final class Equipment extends PObject
 
 					if (iOffs > 10)
 					{
-						Integer acCombatBonus = Integer.valueOf(aString.substring(10, iOffs));
-						double d = acCombatBonus.doubleValue() * mult;
+						int acCombatBonus = Integer.parseInt(aString.substring(10, iOffs));
+						double d = (double) acCombatBonus * mult;
 						acCombatBonus = (int) d;
-						aString = aString.substring(0, 10) + acCombatBonus.toString() + aString.substring(iOffs);
+						aString = aString.substring(0, 10) + Integer.toString(acCombatBonus) + aString.substring(iOffs);
 						/*
 						 * TODO This is bad behavior to alter this list, 
 						 * which - theoretically - shouldn't be altered 
@@ -5466,7 +5466,7 @@ public final class Equipment extends PObject
 	public Float getBaseContainedWeight()
 	{
 
-		Float total = (float) 0;
+		float total = (float) 0;
 
 		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT)) || (getChildCount() == 0))
 		{
@@ -5508,7 +5508,7 @@ public final class Equipment extends PObject
 	 */
 	public Float getContainedWeight(final PlayerCharacter aPC, final boolean effective)
 	{
-		Float total = 0.0f;
+		float total = 0.0f;
 
 		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT) && !effective) || (getChildCount() == 0))
 		{
@@ -6038,8 +6038,8 @@ public final class Equipment extends PObject
 	 */
 	public void addWeaponToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
 	{
-		Float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2.0f : num;
-		setNumberEquipped(numEquipped.intValue());
+		float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2.0f : num;
+		setNumberEquipped((int) numEquipped);
 
 		setLocation(eLoc);
 

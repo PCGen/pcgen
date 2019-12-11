@@ -78,7 +78,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements CDOMPrim
 			return null;
 		}
 		String hands;
-		int intValue = i.intValue();
+		int intValue = i;
 		if (intValue == Constants.HANDS_SIZE_DEPENDENT)
 		{
 			hands = "1IFLARGERTHANWEAPON";

@@ -253,7 +253,7 @@ public class SkillSitToken extends Token
 
 				case SkillToken.SKILL_TOTAL:
 					int rank = SkillRankControl.getTotalRank(pc, skill).intValue()
-						+ SkillModifier.modifier(skill, pc).intValue();
+						+ SkillModifier.modifier(skill, pc);
 					if (isSituation)
 					{
 						rank += sit.getSituationBonus();
@@ -281,7 +281,7 @@ public class SkillSitToken extends Token
 					break;
 
 				case SkillToken.SKILL_MOD:
-					int mod = SkillModifier.modifier(skill, pc).intValue();
+					int mod = SkillModifier.modifier(skill, pc);
 					if (isSituation)
 					{
 						mod += sit.getSituationBonus();
@@ -298,7 +298,7 @@ public class SkillSitToken extends Token
 					break;
 
 				case SkillToken.SKILL_MISC:
-					int misc = SkillModifier.modifier(skill, pc).intValue();
+					int misc = SkillModifier.modifier(skill, pc);
 					if (isSituation)
 					{
 						misc += sit.getSituationBonus();
@@ -357,7 +357,7 @@ public class SkillSitToken extends Token
 					}
 					else
 					{
-						int mRank = etRank + SkillModifier.modifier(skill, pc).intValue();
+						int mRank = etRank + SkillModifier.modifier(skill, pc);
 						if (isSituation)
 						{
 							mRank += sit.getSituationBonus();
@@ -375,7 +375,7 @@ public class SkillSitToken extends Token
 					}
 					else
 					{
-						int mRank = tRank + SkillModifier.modifier(skill, pc).intValue();
+						int mRank = tRank + SkillModifier.modifier(skill, pc);
 						if (isSituation)
 						{
 							mRank += sit.getSituationBonus();

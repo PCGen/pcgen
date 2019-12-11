@@ -402,9 +402,9 @@ public class BonusManager
 			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 		}
 		String nonStackString = nonStackMap.get(fullyQualifiedBonusType);
-		Float nonStackVal = nonStackString == null ? 0.0f : Float.valueOf(nonStackString);
+		Float nonStackVal = nonStackString == null ? 0.0f : Float.parseFloat(nonStackString);
 		String stackString = stackMap.get(fullyQualifiedBonusType);
-		Float stackVal = stackString == null ? 0.0f : Float.valueOf(stackString);
+		Float stackVal = stackString == null ? 0.0f : Float.parseFloat(stackString);
 		Float FullValue = nonStackVal + stackVal;
 		putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(FullValue), targetMap);
 	}

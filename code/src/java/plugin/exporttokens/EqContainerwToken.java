@@ -176,7 +176,7 @@ public class EqContainerwToken extends Token
                     retString = BigDecimalHelper.trimZeros(Double.toString((getQuantityToken(eq))));
                     break;
                 case "RANGE":
-                    retString = Integer.toString(EqToken.getRange(pc, eq).intValue());
+                    retString = Integer.toString(EqToken.getRange(pc, eq));
                     break;
                 case "SIZE":
                     retString = getSizeToken(eq);
@@ -207,7 +207,7 @@ public class EqContainerwToken extends Token
 	 */
 	public static int getAcModToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getACMod(pc).intValue();
+		return eq.getACMod(pc);
 	}
 
 	/**
@@ -249,7 +249,7 @@ public class EqContainerwToken extends Token
 	 */
 	public static float getCarriedToken(Equipment eq)
 	{
-		return eq.numberCarried().floatValue();
+		return eq.numberCarried();
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class EqContainerwToken extends Token
 		{
 			return 0;
 		}
-		return eq.getContainedWeight(pc).floatValue();
+		return eq.getContainedWeight(pc);
 	}
 
 	/**
@@ -358,7 +358,7 @@ public class EqContainerwToken extends Token
 	 */
 	public static float getItemWeightToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getWeight(pc).floatValue();
+		return eq.getWeight(pc);
 	}
 
 	/**

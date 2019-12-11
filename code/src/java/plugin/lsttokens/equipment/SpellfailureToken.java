@@ -58,7 +58,7 @@ public class SpellfailureToken extends AbstractIntToken<Equipment> implements CD
 		{
 			return pr;
 		}
-		else if (value.intValue() == 0)
+		else if (value == 0)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addWarningMessage(getTokenName() + " should not be used if zero (default is zero)");

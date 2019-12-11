@@ -491,7 +491,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		Boolean mon = get(ObjectKey.IS_MONSTER);
 		if (mon != null)
 		{
-			return mon.booleanValue();
+			return mon;
 		}
 
 		ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(getClassType());

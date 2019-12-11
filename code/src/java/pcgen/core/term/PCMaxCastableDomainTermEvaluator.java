@@ -57,7 +57,7 @@ public class PCMaxCastableDomainTermEvaluator extends BasePCTermEvaluator implem
 		PCClass spClass = pc.getClassKeyed(classKey);
 		int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
 
-		Float max = 0.0f;
+		float max = 0.0f;
 
 		if (pc.getSpellSupport(spClass).hasCastList())
 		{

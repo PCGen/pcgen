@@ -297,7 +297,7 @@ public class LoadInfo implements Loadable
 		 */
 		public int getCheckPenalty()
 		{
-			return checkPenalty.intValue();
+			return checkPenalty;
 		}
 	}
 

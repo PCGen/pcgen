@@ -945,7 +945,7 @@ public abstract class ExportHandler
 		boolean attackRoutine = false;
 		String attackData = "";
 
-		Float total = 0.0f;
+		float total = 0.0f;
 		for (int i = 0; i < str.length(); ++i)
 		{
 			valString += str.substring(i, i + 1);
@@ -1115,22 +1115,22 @@ public abstract class ExportHandler
 							switch (mode)
 							{
 								case ADDITION_MODE:
-									total = (float) (total.doubleValue() + Double.parseDouble(valString));
+									total = (float) ((double) total + Double.parseDouble(valString));
 
 									break;
 
 								case SUBTRACTION_MODE:
-									total = (float) (total.doubleValue() - Double.parseDouble(valString));
+									total = (float) ((double) total - Double.parseDouble(valString));
 
 									break;
 
 								case MULTIPLICATION_MODE:
-									total = (float) (total.doubleValue() * Double.parseDouble(valString));
+									total = (float) ((double) total * Double.parseDouble(valString));
 
 									break;
 
 								case DIVISION_MODE:
-									total = (float) (total.doubleValue() / Double.parseDouble(valString));
+									total = (float) ((double) total / Double.parseDouble(valString));
 
 									break;
 
@@ -1174,17 +1174,17 @@ public abstract class ExportHandler
 		}
 		if (endMode == INTVAL_MODE)
 		{
-			return Integer.toString(total.intValue());
+			return Integer.toString((int) total);
 		}
 
 		if (endMode == SIGN_MODE)
 		{
-			return Delta.toString(total.intValue());
+			return Delta.toString((int) total);
 		}
 
 		if (endMode == NO_ZERO_MODE)
 		{
-			final int totalIntValue = total.intValue();
+			final int totalIntValue = (int) total;
 			if (totalIntValue == 0)
 			{
 				return "";
@@ -1193,7 +1193,7 @@ public abstract class ExportHandler
 			return Delta.toString(totalIntValue);
 		}
 
-		return total.toString();
+		return Float.toString(total);
 	}
 
 	/**
@@ -3403,7 +3403,7 @@ public abstract class ExportHandler
 
 			cMin = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 0;
 
-			Integer max = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 100;
+			int max = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 100;
 
 			cStep = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 1;
 

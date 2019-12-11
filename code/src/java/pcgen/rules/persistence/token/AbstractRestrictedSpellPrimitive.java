@@ -117,7 +117,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 			if (knownRequired != null)
 			{
 				sb.append("KNOWN=");
-				sb.append(knownRequired.booleanValue() ? "YES" : "NO");
+				sb.append(knownRequired ? "YES" : "NO");
 			}
 			if (maxLevel != null)
 			{
@@ -228,7 +228,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 			if (restriction.knownRequired != null)
 			{
 				String defaultbook = Globals.getDefaultSpellBook();
-				boolean known = restriction.knownRequired.booleanValue();
+				boolean known = restriction.knownRequired;
 				boolean found = false;
 				for (PCClass cl : pc.getClassSet())
 				{

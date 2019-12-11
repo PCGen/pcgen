@@ -50,7 +50,7 @@ public class ShowinmenuToken extends AbstractNonEmptyToken<Campaign> implements 
 			}
 			set = Boolean.TRUE;
 		}
-		else if (Boolean.valueOf(value).booleanValue())
+		else if (Boolean.valueOf(value))
 		{
 			Logging.deprecationPrint(
 				"You should use 'YES' as the " + getTokenName() + ": " + value + " in " + campaign.toString(), context);
@@ -86,7 +86,7 @@ public class ShowinmenuToken extends AbstractNonEmptyToken<Campaign> implements 
 		{
 			return null;
 		}
-		return new String[]{isM.booleanValue() ? "YES" : "NO"};
+		return new String[]{isM ? "YES" : "NO"};
 	}
 
 	@Override

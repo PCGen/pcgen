@@ -45,7 +45,7 @@ public class HandsToken extends AbstractNonEmptyToken<WieldCategory> implements 
 		//TODO zero and 999 are magical values :(
 		try
 		{
-			int intValue = Integer.valueOf(value).intValue();
+			int intValue = Integer.valueOf(value);
 			if (intValue < 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " must be an integer >= " + 0);
