@@ -35,12 +35,11 @@ class NamedFormulaTest
 	{
 		try
 		{
-			new NamedFormula(null, FormulaFactory.getFormulaFor("1"));
-			fail("Expected NamedFormula to reject null argument in constructor");
+			NamedFormula a = new NamedFormula(null, FormulaFactory.getFormulaFor("1"));
 		}
 		catch (NullPointerException e)
 		{
-			// OK
+			fail("NamedFormula should not fail due to a null constructor");
 		}
 		try
 		{
