@@ -17,8 +17,6 @@
  */
 package pcgen.base.util;
 
-import java.util.Objects;
-
 import pcgen.base.formula.Formula;
 
 /**

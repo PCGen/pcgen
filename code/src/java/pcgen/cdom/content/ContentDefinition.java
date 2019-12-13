@@ -96,7 +96,8 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	 */
 	public void setDisplayName(String name)
 	{
-		if (name==null) {
+		if (name==null)
+		{
 			System.out.println("display name should not be null!");
 			return;
 		}

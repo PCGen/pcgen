@@ -24,7 +24,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import javax.swing.Box;
@@ -196,7 +195,8 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		private BoxHandler(CharacterFacade character)
 		{
 			GuiAssertions.assertIsNotJavaFXThread();
-			if (character==null) {
+			if (character==null)
+			{
 			    System.out.println("Not expecting a null character in CharacterSheetInfoTab BoxHandler");
             }
 			this.character = character;
@@ -268,7 +268,9 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			csheet.setCharacterSheet(outputSheet);
 			csheet.refresh();
 			if (outputSheet!=null)
-    			character.setPreviewSheet(outputSheet.getName());
+			{
+				character.setPreviewSheet(outputSheet.getName());
+			}
 		}
 
 	}

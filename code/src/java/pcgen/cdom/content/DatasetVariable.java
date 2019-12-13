@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.content;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,7 +59,8 @@ public class DatasetVariable extends UserContent
 	 */
 	public void setScope(PCGenScope scope)
 	{
-		if (scope==null) {
+		if (scope==null)
+		{
 			System.out.println("Scope should not be null!");
 			return;
 		}
@@ -111,7 +111,8 @@ public class DatasetVariable extends UserContent
 	 */
 	public void setFormat(FormatManager<?> format)
 	{
-		if (format==null) {
+		if (format==null)
+		{
 			System.out.println("format should not be null!");
 			return;
 		}
