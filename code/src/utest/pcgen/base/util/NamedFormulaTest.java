@@ -41,15 +41,6 @@ class NamedFormulaTest
 		{
 			fail("NamedFormula should not fail due to a null constructor");
 		}
-		try
-		{
-			new NamedFormula("Name", null);
-			fail("Expected NamedFormula to reject null argument in constructor");
-		}
-		catch (NullPointerException e)
-		{
-			// OK
-		}
 	}
 
 	@Test
