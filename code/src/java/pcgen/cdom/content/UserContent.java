@@ -47,7 +47,8 @@ public abstract class UserContent implements Loadable
 	@Override
 	public void setName(String name)
 	{
-		if (name==null) {
+		if (name==null)
+		{
 			System.out.println("Name cannot be null!");
 			return;
 		}
