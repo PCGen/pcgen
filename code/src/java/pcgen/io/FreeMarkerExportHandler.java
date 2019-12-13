@@ -39,7 +39,11 @@ public class FreeMarkerExportHandler extends ExportHandler
 	@Override
 	public void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException
 	{
-		Objects.requireNonNull(getTemplateFile());
+		File tFile = getTemplateFile();
+		if (tFile==null) {
+			Logging.errorPrint("No template file selected - aborting.");
+			return;
+		}
 		FileAccess.setCurrentOutputFilter(getTemplateFile().getName().substring(0, getTemplateFile().getName().length() - 4));
 
 		exportCharacterUsingFreemarker(aPC, out);
