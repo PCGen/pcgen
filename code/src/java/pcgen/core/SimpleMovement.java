@@ -47,7 +47,7 @@ public class SimpleMovement
 	public SimpleMovement(MovementType movementType, int movement)
 	{
 		this.movementType = Objects.requireNonNull(movementType);
-		this.movement = Objects.requireNonNull(movement);
+		this.movement = movement;
 		if (movement < 0)
 		{
 			throw new IllegalArgumentException("Movement for type "
@@ -75,6 +75,11 @@ public class SimpleMovement
 	public int getMovement()
 	{
 		return movement;
+	}
+
+	public String toString()
+	{
+		return String.valueOf(movement);
 	}
 
 }
