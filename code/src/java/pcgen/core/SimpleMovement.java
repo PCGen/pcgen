@@ -80,7 +80,7 @@ public class SimpleMovement
 	@Override
 	public String toString()
 	{
-		return String.valueOf(movement);
+		return movementType+" "+movement;
 	}
 
 }
