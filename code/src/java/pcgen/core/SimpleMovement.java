@@ -77,6 +77,7 @@ public class SimpleMovement
 		return movement;
 	}
 
+	@Override
 	public String toString()
 	{
 		return String.valueOf(movement);
