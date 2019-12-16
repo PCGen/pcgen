@@ -161,17 +161,15 @@ public final class TokenLibrary implements PluginLoader
 
 	public static void addToModifierMap(ModifierFactory<?> m)
 	{
-		if (ModifierFactory.class.isAssignableFrom(m.getClass()))
-		{
-			String name = m.getIdentification();
-			Class<?> cl = m.getVariableFormat();
-			ModifierFactory<?> prev = MODIFIER_MAP.put(cl, name, m);
-			if (prev != null)
-			{
-				Logging.errorPrint("Found a second " + name + " Modifier for " + cl);
-			}
-		}
-	}
+        ModifierFactory.class.isAssignableFrom(m.getClass());
+        String name = m.getIdentification();
+        Class<?> cl = m.getVariableFormat();
+        ModifierFactory<?> prev = MODIFIER_MAP.put(cl, name, m);
+        if (prev != null)
+        {
+            Logging.errorPrint("Found a second " + name + " Modifier for " + cl);
+        }
+    }
 
 	public static <T> ModifierFactory<T> getModifier(Class<T> cl, String tokKey)
 	{

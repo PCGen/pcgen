@@ -63,7 +63,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 				foundMatch = true;
 				foundSkill = true;
 				runningTotal =
-						getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks, situation);
+						getRunningTotal(aSkill, character, prereq, true, runningTotal, requiredRanks, situation);
 			}
 
 			if (prereq.isCountMultiples() || prereq.isTotalValues())
@@ -93,7 +93,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 						foundSkill = true;
 						foundMatch = true;
 						int theTotal = getRunningTotal(
-								entry.getKey(), character, prereq, foundMatch, runningTotal, requiredRanks,
+								entry.getKey(), character, prereq, true, runningTotal, requiredRanks,
 							situation);
 						runningTotal += theTotal;
 

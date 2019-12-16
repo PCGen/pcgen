@@ -297,7 +297,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject>
 			if (cna.getAbilityKey().equals(choice.getAbilityKey()))
 			{
 				Boolean multYes = cna.getAbility().getSafe(ObjectKey.MULTIPLE_ALLOWED);
-				if (!multYes || multYes && hasAssoc(pc.getAssociationList(cna), choice))
+				if (!multYes || hasAssoc(pc.getAssociationList(cna), choice))
 				{
 					return true;
 				}

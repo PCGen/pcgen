@@ -3904,7 +3904,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (aSpell == null)
 		{
-			return tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses);
+			return tallyCasterlevelBonuses(casterLev, false, bonuses);
 		}
 
 		if (!spellType.equals(Constants.NONE))
@@ -7248,7 +7248,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		List<EquipSlot> eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
 
-		if ((eqSlotList == null) || eqSlotList.isEmpty())
+		if (eqSlotList.isEmpty())
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -7622,7 +7622,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			eqI.setNumberCarried(newQty);
 			setDirty(true);
 
-			if ((eqTarget != null) && eqTarget.isContainer())
+			if (eqTarget.isContainer())
 			{
 				eqTarget.updateContainerContentsString(this);
 			}
@@ -8063,7 +8063,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (CDOMObject po : getCDOMObjectList())
 		{
 			List<CharacterSpell> csl = getCharacterSpells(po, spell, spellbookname, -1);
-			if (csl != null && !csl.isEmpty())
+			if (!csl.isEmpty())
 			{
 				return true;
 			}

@@ -80,9 +80,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject> impleme
 					return new ParseResult.Fail(getTokenName() + " was expecting a Positive Integer "
 						+ "for dividing Movement, was : " + formulaString.substring(1));
 				}
-				conversion = moveRate -> {
-					return (moveRate / denom);
-				};
+				conversion = moveRate -> (moveRate / denom);
 			}
 			catch (NumberFormatException e)
 			{
@@ -100,9 +98,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject> impleme
 					return new ParseResult.Fail(getTokenName() + " was expecting a "
 						+ "Float >= 0 for multiplying Movement, was : " + formulaString.substring(1));
 				}
-				conversion = moveRate -> {
-					return (moveRate * mult);
-				};
+				conversion = moveRate -> (moveRate * mult);
 			}
 			catch (NumberFormatException e)
 			{
@@ -120,9 +116,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject> impleme
 					return new ParseResult.Fail(getTokenName() + " was expecting a Non-Negative "
 						+ "Integer for adding Movement, was : " + formulaString.substring(1));
 				}
-				conversion = moveRate -> {
-					return (moveRate + add);
-				};
+				conversion = moveRate -> (moveRate + add);
 			}
 			catch (NumberFormatException e)
 			{
@@ -135,9 +129,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject> impleme
 			try
 			{
 				int diff = Integer.parseInt(formulaString);
-				conversion = moveRate -> {
-					return (moveRate + diff);
-				};
+				conversion = moveRate -> (moveRate + diff);
 			}
 			catch (NumberFormatException e)
 			{

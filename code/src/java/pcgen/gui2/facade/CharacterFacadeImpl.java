@@ -2681,21 +2681,18 @@ public class CharacterFacadeImpl
 
 		if ((pcRace != null) && !pcRace.isUnselected())
 		{
-			if (selAgeCat != null)
-			{
-				final int idx = SettingsHandler.getGame().getBioSet().getAgeSetNamed(selAgeCat);
+            final int idx = SettingsHandler.getGame().getBioSet().getAgeSetNamed(selAgeCat);
 
-				if (idx >= 0)
-				{
-					ageCategory.set(ageCat);
-					SettingsHandler.getGame().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
-					age.set(charDisplay.getAge());
-					ageCategory.set(ageCat);
-					refreshStatScores();
-					refreshLanguageList();
-				}
-			}
-		}
+            if (idx >= 0)
+            {
+                ageCategory.set(ageCat);
+                SettingsHandler.getGame().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
+                age.set(charDisplay.getAge());
+                ageCategory.set(ageCat);
+                refreshStatScores();
+                refreshLanguageList();
+            }
+        }
 	}
 
 	@Override

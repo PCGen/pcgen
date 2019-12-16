@@ -233,27 +233,26 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	{
 		TYPE_MAP.clear();
 		Field[] fields = Type.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
-		{
-			int mod = fields[i].getModifiers();
+        for (Field field : fields)
+        {
+            int mod = field.getModifiers();
 
-			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
-				&& java.lang.reflect.Modifier.isPublic(mod))
-			{
-				try
-				{
-					Object obj = fields[i].get(null);
-					if (obj instanceof Type)
-					{
-						TYPE_MAP.put(fields[i].getName(), (Type) obj);
-					}
-				}
-				catch (IllegalArgumentException | IllegalAccessException e)
-				{
-					throw new UnreachableError(e);
-				}
-			}
-		}
+            if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
+                    && java.lang.reflect.Modifier.isPublic(mod))
+            {
+                try
+                {
+                    Object obj = field.get(null);
+                    if (obj instanceof Type)
+                    {
+                        TYPE_MAP.put(field.getName(), (Type) obj);
+                    }
+                } catch (IllegalArgumentException | IllegalAccessException e)
+                {
+                    throw new UnreachableError(e);
+                }
+            }
+        }
 	}
 
 }

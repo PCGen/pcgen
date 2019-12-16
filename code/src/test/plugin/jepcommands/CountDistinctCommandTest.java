@@ -457,12 +457,8 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 		// now the tests
 
-		final StringBuilder sB = new StringBuilder(100);
-
-		sB.append("countdistinct(\"ABILITIES\",");
-		sB.append("\"NAME=Eat Burger\")");
-
-		final String s = sB.toString();
+        final String s = "countdistinct(\"ABILITIES\","
+                + "\"NAME=Eat Burger\")";
 
 		assertThat(s + " no choices", (double) character.getVariableValue(s, ""), closeTo(0.0, 0.1));
 
@@ -496,12 +492,8 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 		// now the tests
 
-		final StringBuilder sB = new StringBuilder(100);
-
-		sB.append("countdistinct(\"ABILITIES\",");
-		sB.append("\"KEY=KEY_Eat Burger\")");
-
-		final String s = sB.toString();
+        final String s = "countdistinct(\"ABILITIES\","
+                + "\"KEY=KEY_Eat Burger\")";
 
 		assertThat(s + " no choices", (double) character.getVariableValue(s, ""), closeTo(0.0, 0.1));
 

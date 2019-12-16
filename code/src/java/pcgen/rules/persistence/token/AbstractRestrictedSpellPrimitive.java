@@ -253,7 +253,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 						}
 					}
 					List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell, defaultbook, -1);
-					if (csl != null && !csl.isEmpty())
+					if (!csl.isEmpty())
 					{
 						/*
 						 * Going to assume here that the level doesn't need to

@@ -20,7 +20,6 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -128,15 +127,15 @@ public final class KitProf extends BaseKit
 
 			// Search for a class that has bonusWeaponProfs.
 			PCClass pcClass = null;
-			for (Iterator<PCClass> i = pcClasses.iterator(); i.hasNext();)
-			{
-				pcClass = i.next();
-				wpPTC = getPTC(pcClass);
-				if (wpPTC != null)
-				{
-					break;
-				}
-			}
+            for (PCClass aClass : pcClasses)
+            {
+                pcClass = aClass;
+                wpPTC = getPTC(pcClass);
+                if (wpPTC != null)
+                {
+                    break;
+                }
+            }
 			if (wpPTC == null)
 			{
 				warnings.add("PROF: PC classes have no WEAPONBONUS");
@@ -185,24 +184,17 @@ public final class KitProf extends BaseKit
 
 		List<WeaponProf> xs;
 
-		if (numberOfChoices == aProfList.size())
+		//
+		// Force user to make enough selections
+		//
+		while (true)
 		{
-			xs = aProfList;
-		}
-		else
-		{
-			//
-			// Force user to make enough selections
-			//
-			while (true)
-			{
-				xs = Globals.getChoiceFromList("Choose Proficiencies", aProfList, new ArrayList<>(), numberOfChoices,
-					aPC);
+			xs = Globals.getChoiceFromList("Choose Proficiencies", aProfList, new ArrayList<>(), numberOfChoices,
+				aPC);
 
-				if (!xs.isEmpty())
-				{
-					break;
-				}
+			if (!xs.isEmpty())
+			{
+				break;
 			}
 		}
 

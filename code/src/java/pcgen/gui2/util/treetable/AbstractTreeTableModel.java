@@ -65,12 +65,12 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
 	@Override
 	public String getColumnName(int column)
 	{
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		for (; column >= 0; column = column / 26 - 1)
 		{
-			result = (char) ((char) (column % 26) + 'A') + result;
+			result.insert(0, (char) ((char) (column % 26) + 'A'));
 		}
-		return result;
+		return result.toString();
 	}
 
 	@Override

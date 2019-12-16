@@ -177,11 +177,8 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		List<String> info = aCamp.getListFor(ListKey.INFO_TEXT);
 		if (info != null)
 		{
-			if (!infoDisplayed)
-			{
-				infoText.appendLineBreak();
-			}
-			infoText.appendSmallTitleElement(LanguageBundle.getString("in_infInf")); //$NON-NLS-1$
+            infoText.appendLineBreak();
+            infoText.appendSmallTitleElement(LanguageBundle.getString("in_infInf")); //$NON-NLS-1$
 			infoText.appendLineBreak();
 			for (String infotext : info)
 			{

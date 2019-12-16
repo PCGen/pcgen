@@ -86,7 +86,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 				{
 					foundMatch = true;
 					foundSkill = true;
-					runningTotal = getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks);
+					runningTotal = getRunningTotal(aSkill, character, prereq, true, runningTotal, requiredRanks);
 				}
 				// If there wasn't a match, then check other skills of the type
 				if (runningTotal == 0)
@@ -99,7 +99,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 			{
 				foundMatch = true;
 				foundSkill = true;
-				runningTotal = getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks);
+				runningTotal = getRunningTotal(aSkill, character, prereq, true, runningTotal, requiredRanks);
 			}
 
 			if (prereq.isCountMultiples() || prereq.isTotalValues())
@@ -130,7 +130,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 						foundSkill = true;
 						foundMatch = true;
 						int theTotal =
-								getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
+								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
 					}
 					else if (aSkillKey.equals(skillKey) || ((percentageSignPosition >= 0)
@@ -139,7 +139,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 						foundSkill = true;
 						foundMatch = true;
 						int theTotal =
-								getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
+								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
 					}
 				}
@@ -162,7 +162,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 						foundSkill = true;
 						foundMatch = true;
 						int theTotal =
-								getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
+								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
 					}
 					else if ((percentageSignPosition >= 0))
@@ -170,7 +170,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 						List<Type> mockTypes = target.getTrueTypeList(true);
 						for (Type mockType : mockTypes)
 						{
-							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, target);
+							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, false, target);
 							foundSkill = foundMatch;
 							runningTotal =
 									getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);

@@ -63,7 +63,7 @@ public final class EqModCost
 				final String bType = aTok.nextToken();
 				aTok = new StringTokenizer(bType.substring(5), ".", false);
 
-				String typeString = "TYPE";
+				StringBuilder typeString = new StringBuilder("TYPE");
 
 				while (aTok.hasMoreTokens())
 				{
@@ -75,12 +75,12 @@ public final class EqModCost
 						break;
 					}
 
-					typeString += "." + sub_type;
+					typeString.append(".").append(sub_type);
 				}
 
 				if (meetsAll)
 				{
-					typesToGetBonusesFor.add(typeString);
+					typesToGetBonusesFor.add(typeString.toString());
 				}
 			}
 		}

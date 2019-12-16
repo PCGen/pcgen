@@ -73,20 +73,8 @@ public class WeaponhToken extends WeaponToken
 
 		Equipment eq = getWeaponEquipment(pc);
 
-		if (eq != null)
-		{
-			return getWeaponToken(pc, eq, aTok, tokenSource);
-		}
-		else if (eh != null && eh.getExistsOnly())
-		{
-			eh.setNoMoreItems(true);
-			if (eh.getCheckBefore())
-			{
-				eh.setCanWrite(false);
-			}
-		}
-		return "";
-	}
+        return getWeaponToken(pc, eq, aTok, tokenSource);
+    }
 
 	/**
 	 * Create a fake Unarmed Strike equipment so we don't need it in the .lst files anymore

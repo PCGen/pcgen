@@ -1007,19 +1007,19 @@ public abstract class ExportHandler
 					}
 
 					// Set the next mode based on the mathematical sign
-					if ((!str.isEmpty()) && (str.charAt(i) == '+'))
+					if (str.charAt(i) == '+')
 					{
 						nextMode = ADDITION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '-'))
+					else if (str.charAt(i) == '-')
 					{
 						nextMode = SUBTRACTION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '*'))
+					else if (str.charAt(i) == '*')
 					{
 						nextMode = MULTIPLICATION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '/'))
+					else if (str.charAt(i) == '/')
 					{
 						nextMode = DIVISION_MODE;
 					}
@@ -1071,7 +1071,7 @@ public abstract class ExportHandler
 
 							if (bTok.countTokens() > 0)
 							{
-								String newAttackData = "";
+								StringBuilder newAttackData = new StringBuilder();
 								while (bTok.hasMoreTokens())
 								{
 									final String bString = bTok.nextToken();
@@ -1082,25 +1082,25 @@ public abstract class ExportHandler
 									{
 										case ADDITION_MODE:
 											float addf = bf + vf;
-											newAttackData += ("/+" + Integer.toString((int) addf));
+											newAttackData.append("/+").append(Integer.toString((int) addf));
 
 											break;
 
 										case SUBTRACTION_MODE:
 											float subf = bf - vf;
-											newAttackData += ("/+" + Integer.toString((int) subf));
+											newAttackData.append("/+").append(Integer.toString((int) subf));
 
 											break;
 
 										case MULTIPLICATION_MODE:
 											float multf = bf * vf;
-											newAttackData += ("/+" + Integer.toString((int) multf));
+											newAttackData.append("/+").append(Integer.toString((int) multf));
 
 											break;
 
 										case DIVISION_MODE:
 											float divf = bf / vf;
-											newAttackData += ("/+" + Integer.toString((int) divf));
+											newAttackData.append("/+").append(Integer.toString((int) divf));
 
 											break;
 
@@ -2935,7 +2935,7 @@ public abstract class ExportHandler
 			{
 				intVal = true;
 			}
-			else if ("MINVAL".equals(bString))
+			else
 			{
 				maxVal = false;
 			}

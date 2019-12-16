@@ -95,7 +95,7 @@ public final class KitSkill extends BaseKit
 		if (skillList.size() > 1)
 		{
 			// This is a choice of skills.
-			info.append(getSafeCount() + " of (");
+			info.append(getSafeCount()).append(" of (");
 			info.append(ReferenceUtilities.joinLstFormat(skillList, ", "));
 			info.append(")");
 		}
@@ -115,7 +115,7 @@ public final class KitSkill extends BaseKit
 			info.append("/free");
 		}
 
-		if (selection != null && !selection.isEmpty())
+		if (!selection.isEmpty())
 		{
 			info.append("/");
 			info.append(StringUtil.join(selection, ", "));
@@ -372,7 +372,7 @@ public final class KitSkill extends BaseKit
 		String ret = SkillRankControl.modRanks(ranksToAdd, pcClass, false, pc, aSkill);
 		if (!ret.isEmpty())
 		{
-			if (isFree && ret.indexOf("You do not have enough skill points.") != -1)
+			if (isFree && ret.contains("You do not have enough skill points."))
 			{
 				SkillRankControl.modRanks(ranksToAdd, pcClass, true, pc, aSkill);
 			}

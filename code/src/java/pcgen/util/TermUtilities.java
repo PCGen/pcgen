@@ -48,11 +48,10 @@ public final class TermUtilities
 				cur++;
 				if (cur >= types.length)
 				{
-					StringBuilder sB = new StringBuilder();
-					sB.append(types[cur - 1]);
-					sB.append(" must be followed by a type in ");
-					sB.append(originalText);
-					throw new TermEvaulatorException(sB.toString());
+                    String sB = types[cur - 1]
+                            + " must be followed by a type in "
+                            + originalText;
+                    throw new TermEvaulatorException(sB);
 				}
 				cur++;
 			}
@@ -63,12 +62,11 @@ public final class TermUtilities
 			}
 			else
 			{
-				StringBuilder sB = new StringBuilder();
-				sB.append("Spurious type \"");
-				sB.append(types[cur]);
-				sB.append("\" in ");
-				sB.append(originalText);
-				throw new TermEvaulatorException(sB.toString());
+                String sB = "Spurious type \""
+                        + types[cur]
+                        + "\" in "
+                        + originalText;
+                throw new TermEvaulatorException(sB);
 			}
 		}
 	}
@@ -86,11 +84,10 @@ public final class TermUtilities
 				cur++;
 				if (cur >= types.length)
 				{
-					StringBuilder sB = new StringBuilder();
-					sB.append(types[cur - 1]);
-					sB.append(" must be followed by a type in ");
-					sB.append(originalText);
-					throw new TermEvaulatorException(sB.toString());
+                    String sB = types[cur - 1]
+                            + " must be followed by a type in "
+                            + originalText;
+                    throw new TermEvaulatorException(sB);
 				}
 				cur++;
 			}
@@ -100,12 +97,11 @@ public final class TermUtilities
 			}
 			else
 			{
-				StringBuilder sB = new StringBuilder();
-				sB.append("Spurious type \"");
-				sB.append(types[cur]);
-				sB.append("\" in ");
-				sB.append(originalText);
-				throw new TermEvaulatorException(sB.toString());
+                String sB = "Spurious type \""
+                        + types[cur]
+                        + "\" in "
+                        + originalText;
+                throw new TermEvaulatorException(sB);
 			}
 		}
 	}
@@ -140,15 +136,14 @@ public final class TermUtilities
 		final String[] sA = clause.split("\\.", numOfFields);
 		if (sA.length < numOfFields)
 		{
-			StringBuilder sB = new StringBuilder();
-			sB.append("Invalid string ");
-			sB.append(clause);
-			sB.append(" following ");
-			sB.append(expressionString);
-			sB.append(" should be ");
-			sB.append(numOfFields);
-			sB.append(" integers separated by dots");
-			throw new TermEvaulatorException(sB.toString());
+            String sB = "Invalid string "
+                    + clause
+                    + " following "
+                    + expressionString
+                    + " should be "
+                    + numOfFields
+                    + " integers separated by dots";
+            throw new TermEvaulatorException(sB);
 		}
 
 		int[] fields = new int[numOfFields];

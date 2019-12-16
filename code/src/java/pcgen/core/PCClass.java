@@ -520,7 +520,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		StringJoiner txt = new StringJoiner("\t");
 		txt.add("CLASS:" + getDisplayName());
 		txt.add(PrerequisiteWriter.prereqsToString(this));
-		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		Globals.getContext().unparse(this).forEach(txt::add);
 
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
@@ -529,7 +529,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		{
 			txt.add(lineSep + me.getKey());
 			txt.add(PrerequisiteWriter.prereqsToString(me.getValue()));
-			Globals.getContext().unparse(me.getValue()).forEach(item -> txt.add(item));
+			Globals.getContext().unparse(me.getValue()).forEach(txt::add);
 		}
 
 		return txt.toString();

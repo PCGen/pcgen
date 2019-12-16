@@ -141,7 +141,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 		{
 			String value = inputLine.substring(7);
 			context.clearStatefulInformation();
-			if (value != null && !value.isEmpty())
+			if (!value.isEmpty())
 			{
 				StringTokenizer st = new StringTokenizer(value, "\t");
 

@@ -23,7 +23,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -244,7 +243,7 @@ public abstract class VariableProcessor
 		if (aString.startsWith(".IF."))
 		{
 			final StringTokenizer aTok = new StringTokenizer(aString.substring(4), ".", true);
-			String bString = "";
+			StringBuilder bString = new StringBuilder();
 			Float val1 = null; // first value
 			Float val2 = null; // other value in comparison
 			Float valt = null; // value if comparison is true
@@ -261,7 +260,7 @@ public abstract class VariableProcessor
 					// Truncate final . character
 					val1 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); 
 					aTok.nextToken(); // discard next . character
-					bString = "";
+					bString = new StringBuilder();
 
 					if ("LT".equals(cString))
 					{
@@ -289,24 +288,24 @@ public abstract class VariableProcessor
 					// Truncate final . character
 					val2 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); 
 					aTok.nextToken(); // discard next . character
-					bString = "";
+					bString = new StringBuilder();
 				}
 				else if ("ELSE".equals(cString))
 				{
 					// Truncate final . character
 					valt = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp);
 					aTok.nextToken(); // discard next . character
-					bString = "";
+					bString = new StringBuilder();
 				}
 				else
 				{
-					bString += cString;
+					bString.append(cString);
 				}
 			}
 
 			if ((val1 != null) && (val2 != null) && (valt != null))
 			{
-				valf = getVariableValue(aSpell, bString, src, spellLevelTemp);
+				valf = getVariableValue(aSpell, bString.toString(), src, spellLevelTemp);
 				total = valt;
 
 				switch (comp)
@@ -394,24 +393,21 @@ public abstract class VariableProcessor
 					valString = tmp.toString();
 				}
 
-				if (i < aString.length())
+				if (aString.charAt(i) == '+')
 				{
-					if (!aString.isEmpty() && aString.charAt(i) == '+')
-					{
-						nextMode = MATH_OP.PLUS;
-					}
-					else if (!aString.isEmpty() && aString.charAt(i) == '-')
-					{
-						nextMode = MATH_OP.MINUS;
-					}
-					else if (!aString.isEmpty() && aString.charAt(i) == '*')
-					{
-						nextMode = MATH_OP.MULTIPLY;
-					}
-					else if (!aString.isEmpty() && aString.charAt(i) == '/')
-					{
-						nextMode = MATH_OP.DIVIDE;
-					}
+					nextMode = MATH_OP.PLUS;
+				}
+				else if (aString.charAt(i) == '-')
+				{
+					nextMode = MATH_OP.MINUS;
+				}
+				else if (aString.charAt(i) == '*')
+				{
+					nextMode = MATH_OP.MULTIPLY;
+				}
+				else if (aString.charAt(i) == '/')
+				{
+					nextMode = MATH_OP.DIVIDE;
 				}
 
 				if (!valString.isEmpty())
@@ -499,9 +495,8 @@ public abstract class VariableProcessor
 				return null;
 			}
 
-			for (Iterator<String> iter = parser.getSymbolTable().keySet().iterator(); iter.hasNext();)
+			for (final String element : (Iterable<String>) parser.getSymbolTable().keySet())
 			{
-				final String element = iter.next();
 				if ("e".equals(element) || "FALSE".equals(element) || "pi".equals(element) || "TRUE".equals(element))
 				{
 					continue;
@@ -511,8 +506,7 @@ public abstract class VariableProcessor
 				if (d != null)
 				{
 					parser.addVariable(element, d.doubleValue());
-				}
-				else
+				} else
 				{
 					// we could not get a value for all of the variables, so it must not have been a JEP function
 					// after all...

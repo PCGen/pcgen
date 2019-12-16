@@ -615,15 +615,7 @@ public class DataSet implements DataSetFacade
 			String ac1Display = category1.getDisplayLocation().toString().toUpperCase();
 			String ac2Display = category2.getDisplayLocation().toString().toUpperCase();
 
-			if (ac1Display == null && ac2Display != null)
-			{
-				return AFTER;
-			}
-			if (ac1Display != null && ac2Display == null)
-			{
-				return BEFORE;
-			}
-			if ((ac1Display != null && ac2Display != null) && !ac1Display.equals(ac2Display))
+            if (ac1Display != null && !ac1Display.equals(ac2Display))
 			{
 				final String[] ORDER = {"FEATS", "RACIAL ABILITIES", "TRAITS", "CLASS ABILITIES"};
 				for (String displayOrder : ORDER)
@@ -648,7 +640,7 @@ public class DataSet implements DataSetFacade
 			{
 				return BEFORE;
 			}
-			if ((ac1Key == null && ac2Key == null) || ac1Key.equals(ac2Key))
+			if (ac1Key == null || ac1Key.equals(ac2Key))
 			{
 				return EQUAL;
 			}

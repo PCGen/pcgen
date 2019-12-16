@@ -47,7 +47,7 @@ public abstract class VersionAwareToken
 			return false;
 		}
 
-		for (int idx = 0; idx < 3 && idx < tokens.length; idx++)
+		for (int idx = 0;idx < 3;idx++)
 		{
 			try
 			{

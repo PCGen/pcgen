@@ -81,7 +81,7 @@ public enum GroupingState
 					"Attempt to add '" + state + "' grouping state to " + "'ALLOWS_NONE' resulted in 'INVALID'.");
 				return INVALID;
 			}
-			return state == EMPTY ? ALLOWS_NONE : INVALID;
+			return ALLOWS_NONE;
 		}
 
 		@Override
@@ -213,7 +213,7 @@ public enum GroupingState
 				Logging.errorPrint("Attempt to add 'ALLOWS_NONE' " + "grouping state to 'ANY' resulted in 'INVALID'.");
 				return INVALID;
 			}
-			return state == EMPTY ? ANY : state == ALLOWS_NONE ? INVALID : state;
+			return state == EMPTY ? ANY : state;
 		}
 
 		@Override

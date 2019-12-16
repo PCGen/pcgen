@@ -43,30 +43,27 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment> implements CD
 	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		Visibility vis;
-		if (value.equals("YES"))
-		{
-			vis = Visibility.DEFAULT;
-		}
-		else if (value.equals("DISPLAY"))
-		{
-			vis = Visibility.DISPLAY_ONLY;
-		}
-		else if (value.equals("EXPORT"))
-		{
-			vis = Visibility.OUTPUT_ONLY;
-		}
-		else if (value.equals("NO"))
-		{
-			vis = Visibility.HIDDEN;
-		}
-		else
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Unexpected value used in " + getTokenName() + " in Equipment");
-			cpr.addErrorMessage(' ' + value + " is not a valid value for " + getTokenName());
-			cpr.addErrorMessage(" Valid values in Equipment are YES, NO, DISPLAY, EXPORT");
-			return cpr;
-		}
+        switch (value)
+        {
+            case "YES":
+                vis = Visibility.DEFAULT;
+                break;
+            case "DISPLAY":
+                vis = Visibility.DISPLAY_ONLY;
+                break;
+            case "EXPORT":
+                vis = Visibility.OUTPUT_ONLY;
+                break;
+            case "NO":
+                vis = Visibility.HIDDEN;
+                break;
+            default:
+                ComplexParseResult cpr = new ComplexParseResult();
+                cpr.addErrorMessage("Unexpected value used in " + getTokenName() + " in Equipment");
+                cpr.addErrorMessage(' ' + value + " is not a valid value for " + getTokenName());
+                cpr.addErrorMessage(" Valid values in Equipment are YES, NO, DISPLAY, EXPORT");
+                return cpr;
+        }
 		context.getObjectContext().put(eq, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;
 	}

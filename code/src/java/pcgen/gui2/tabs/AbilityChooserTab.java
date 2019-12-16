@@ -155,15 +155,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				new FilterButton<>("AbilityGained", true);
 		gainedFilterButton.setText(LanguageBundle.getString("in_gained")); //$NON-NLS-1$
 		gainedFilterButton.setEnabled(true);
-		gainedFilterButton.setFilter(new Filter<>()
-		{
-			@Override
-			public boolean accept(CharacterFacade context, AbilityCategory element)
-			{
-				return context.getActiveAbilityCategories().containsElement(element);
-			}
-
-		});
+		gainedFilterButton.setFilter((context, element) -> context.getActiveAbilityCategories().containsElement(element));
 		categoryBar.addDisplayableFilter(gainedFilterButton);
 
 		JPanel filterPanel = new JPanel(new BorderLayout());
@@ -272,12 +264,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			{
 				return "";
 			}
-			String ret = types.get(0);
+			StringBuilder ret = new StringBuilder(types.get(0));
 			for (int x = 1; x < types.size(); x++)
 			{
-				ret += ", " + types.get(x);
+				ret.append(", ").append(types.get(x));
 			}
-			return ret;
+			return ret.toString();
 		}
 
 		public void install()

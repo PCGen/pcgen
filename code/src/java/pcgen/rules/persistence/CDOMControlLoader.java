@@ -118,7 +118,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 			return false;
 		}
 		String name = lineIdentifier.substring(colonLoc + 1);
-		if ((name == null) || name.isEmpty())
+		if (name.isEmpty())
 		{
 			Logging.errorPrint("First token on line had no content: " + line, context);
 			return false;

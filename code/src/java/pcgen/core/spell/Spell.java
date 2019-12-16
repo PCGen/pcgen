@@ -51,7 +51,7 @@ public final class Spell extends PObject implements InfoFacade, Ungranted
 	{
 		StringJoiner txt = new StringJoiner("\t");
 		txt.add(getDisplayName());
-		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		Globals.getContext().unparse(this).forEach(txt::add);
 		txt.add(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}

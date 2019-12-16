@@ -22,7 +22,6 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.base.test.InequalityTester;
 import pcgen.base.util.AbstractMapToList;
 import pcgen.base.util.HashMapToList;
@@ -66,7 +65,7 @@ public class IdentityHashMapInequality implements
 			}
 			return processValues(location, m1.values(), m2.values(), matches);
 		}
-		return reasons.isEmpty() ? null : StringUtil.join(reasons, "\n");
+		return null;
 	}
 
 	private static String processKeys(String location, Iterable<?> k1, Iterable<?> k2,

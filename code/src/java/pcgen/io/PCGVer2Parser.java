@@ -1646,10 +1646,7 @@ final class PCGVer2Parser implements PCGParser
 							catch (NumberFormatException e)
 							{
 								//OK (no level embedded in file)
-								if (level > 0)
-								{
-									target = thePC.getActiveClassLevel(aPCClass, level);
-								}
+								target = thePC.getActiveClassLevel(aPCClass, level);
 							}
 							BonusAddition.applyBonus(bonusString, "", thePC, target);
 						}
@@ -1683,10 +1680,7 @@ final class PCGVer2Parser implements PCGParser
 					}
 					SpecialAbility specialAbility = new SpecialAbility(specialAbilityName);
 					CDOMObject target = aPCClass;
-					if (level > 0)
-					{
-						target = thePC.getActiveClassLevel(aPCClass, level);
-					}
+					target = thePC.getActiveClassLevel(aPCClass, level);
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
 					{
@@ -1757,11 +1751,11 @@ final class PCGVer2Parser implements PCGParser
 					warnings.add(msg);
 				}
 			}
-			else if ((pcl != null) && IOConstants.TAG_SKILLPOINTSGAINED.equals(tag))
+			else if (IOConstants.TAG_SKILLPOINTSGAINED.equals(tag))
 			{
 				pcl.setFixedSkillPointsGained(Integer.parseInt(element.getText()));
 			}
-			else if ((pcl != null) && IOConstants.TAG_SKILLPOINTSREMAINING.equals(tag))
+			else if (IOConstants.TAG_SKILLPOINTSREMAINING.equals(tag))
 			{
 				pcl.setSkillPointsRemaining(Integer.parseInt(element.getText()));
 			}
@@ -2477,7 +2471,7 @@ final class PCGVer2Parser implements PCGParser
 				}
 			}
 		}
-		if (ability != null && category != null && nature != null)
+		if (ability != null && category != null)
 		{
 			CNAbility cna = null;
 			boolean needError = true;
@@ -2545,7 +2539,7 @@ final class PCGVer2Parser implements PCGParser
 				}
 				else
 				{
-					if (associations != null && !associations.isEmpty())
+					if (!associations.isEmpty())
 					{
 						warnings.add(cna + " found with selections: " + associations + " but is MULT:NO in the data");
 					}
@@ -4546,27 +4540,26 @@ final class PCGVer2Parser implements PCGParser
 					return;
 				}
 
-				if (IOConstants.TAG_RACE.equals(type))
-				{
-					source = thePC.getRace();
-				}
-				else if (TAG_PCTEMPLATE.equals(type))
-				{
-					PCTemplate template = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(PCTemplate.class, key);
-					if (thePC.hasTemplate(template))
-					{
-						source = template;
-					}
-					else
-					{
-						warnings.add("PC does not have Template: " + key);
-					}
-				}
-				else if (IOConstants.TAG_PCCLASS.equals(type))
-				{
-					source = thePC.getClassKeyed(key);
-				}
+                switch (type)
+                {
+                    case IOConstants.TAG_RACE:
+                        source = thePC.getRace();
+                        break;
+                    case TAG_PCTEMPLATE:
+                        PCTemplate template = Globals.getContext().getReferenceContext()
+                                .silentlyGetConstructedCDOMObject(PCTemplate.class, key);
+                        if (thePC.hasTemplate(template))
+                        {
+                            source = template;
+                        } else
+                        {
+                            warnings.add("PC does not have Template: " + key);
+                        }
+                        break;
+                    case IOConstants.TAG_PCCLASS:
+                        source = thePC.getClassKeyed(key);
+                        break;
+                }
 
 				if (source == null)
 				{
@@ -4675,10 +4668,7 @@ final class PCGVer2Parser implements PCGParser
 
 		final String calcEQId = EntityEncoder.decode(tokens.getElements().get(0).getText());
 
-		if (calcEQId != null)
-		{
-			thePC.setCalcEquipSetId(calcEQId);
-		}
+		thePC.setCalcEquipSetId(calcEQId);
 	}
 
 	/*
@@ -5133,7 +5123,7 @@ final class PCGVer2Parser implements PCGParser
 				continue;
 			}
 
-			if ((bonus == null) || (bonus.length() <= 0))
+			if (bonus.length() <= 0)
 			{
 				continue;
 			}
@@ -5143,84 +5133,80 @@ final class PCGVer2Parser implements PCGParser
 			LoadContext context = Globals.getContext();
 			// Check the Creator type so we know what
 			// type of object to set as the creator
-			if (cType.equals(IOConstants.TAG_FEAT))
-			{
-				for (AbilityCategory aCat : SettingsHandler.getGame().getAllAbilityCategories())
-				{
-					Ability a =
-							Globals.getContext().getReferenceContext().getManufacturerId(aCat).getActiveObject(cKey);
-					if (a != null)
-					{
-						newB = Bonus.newBonus(context, bonus);
-						creator = a;
-						break;
-					}
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_EQUIPMENT))
-			{
-				Equipment aEquip = thePC.getEquipmentNamed(cKey);
+            switch (cType)
+            {
+                case IOConstants.TAG_FEAT:
+                    for (AbilityCategory aCat : SettingsHandler.getGame().getAllAbilityCategories())
+                    {
+                        Ability a =
+                                Globals.getContext().getReferenceContext().getManufacturerId(aCat).getActiveObject(cKey);
+                        if (a != null)
+                        {
+                            newB = Bonus.newBonus(context, bonus);
+                            creator = a;
+                            break;
+                        }
+                    }
+                    break;
+                case IOConstants.TAG_EQUIPMENT:
+                    Equipment aEquip = thePC.getEquipmentNamed(cKey);
 
-				if (aEquip == null)
-				{
-					aEquip = context.getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, cKey);
-				}
+                    if (aEquip == null)
+                    {
+                        aEquip = context.getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, cKey);
+                    }
 
-				if (aEquip != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aEquip;
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_CLASS))
-			{
-				final PCClass aClass = thePC.getClassKeyed(cKey);
+                    if (aEquip != null)
+                    {
+                        newB = Bonus.newBonus(context, bonus);
+                        creator = aEquip;
+                    }
+                    break;
+                case IOConstants.TAG_CLASS:
+                    final PCClass aClass = thePC.getClassKeyed(cKey);
 
-				if (aClass == null)
-				{
-					continue;
-				}
+                    if (aClass == null)
+                    {
+                        continue;
+                    }
 
-				int idx = bonus.indexOf('|');
-				newB = Bonus.newBonus(context, bonus.substring(idx + 1));
-				creator = aClass;
-			}
-			else if (cType.equals(IOConstants.TAG_TEMPLATE))
-			{
-				PCTemplate aTemplate =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, cKey);
+                    int idx = bonus.indexOf('|');
+                    newB = Bonus.newBonus(context, bonus.substring(idx + 1));
+                    creator = aClass;
+                    break;
+                case IOConstants.TAG_TEMPLATE:
+                    PCTemplate aTemplate =
+                            context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, cKey);
 
-				if (aTemplate != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aTemplate;
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_SKILL))
-			{
-				Skill aSkill = context.getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, cKey);
+                    if (aTemplate != null)
+                    {
+                        newB = Bonus.newBonus(context, bonus);
+                        creator = aTemplate;
+                    }
+                    break;
+                case IOConstants.TAG_SKILL:
+                    Skill aSkill = context.getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, cKey);
 
-				if (aSkill != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aSkill;
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_SPELL))
-			{
-				final Spell aSpell = context.getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class, cKey);
+                    if (aSkill != null)
+                    {
+                        newB = Bonus.newBonus(context, bonus);
+                        creator = aSkill;
+                    }
+                    break;
+                case IOConstants.TAG_SPELL:
+                    final Spell aSpell = context.getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class, cKey);
 
-				if (aSpell != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aSpell;
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_NAME))
-			{
-				newB = Bonus.newBonus(context, bonus);
-				//newB.setCreatorObject(thePC);
-			}
+                    if (aSpell != null)
+                    {
+                        newB = Bonus.newBonus(context, bonus);
+                        creator = aSpell;
+                    }
+                    break;
+                case IOConstants.TAG_NAME:
+                    newB = Bonus.newBonus(context, bonus);
+                    //newB.setCreatorObject(thePC);
+                    break;
+            }
 
 			if (newB == null)
 			{

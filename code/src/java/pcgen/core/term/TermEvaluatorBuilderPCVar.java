@@ -557,10 +557,9 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				return new PCMaxCastableAnyTermEvaluator(expressionString);
 			}
 
-			StringBuilder sB = new StringBuilder();
-			sB.append("MAXCASTABLE is not usable in ");
-			sB.append(src);
-			throw new TermEvaulatorException(sB.toString(), null);
+            String sB = "MAXCASTABLE is not usable in "
+                    + src;
+            throw new TermEvaulatorException(sB, null);
 		}
 	},
 
@@ -791,10 +790,9 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			if (!src.startsWith("CLASS:"))
 			{
-				StringBuilder sB = new StringBuilder();
-				sB.append(matchedSection);
-				sB.append(" may only be used in a Class");
-				throw new TermEvaulatorException(sB.toString());
+                String sB = matchedSection
+                        + " may only be used in a Class";
+                throw new TermEvaulatorException(sB);
 			}
 
 			int i;
@@ -860,10 +858,9 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			{
 				if (!src.startsWith("CLASS:"))
 				{
-					StringBuilder sB = new StringBuilder();
-					sB.append(matchedSection);
-					sB.append(" may only be used in a Class");
-					throw new TermEvaulatorException(sB.toString());
+                    String sB = matchedSection
+                            + " may only be used in a Class";
+                    throw new TermEvaulatorException(sB);
 				}
 
 				classString = (src.startsWith("CLASS:")) ? src.substring(6) : "";
@@ -972,12 +969,11 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			if (!subtokenMat.find())
 			{
-				StringBuilder sB = new StringBuilder();
-				sB.append("Impossible error while parsing \"");
-				sB.append(expressionString);
-				sB.append("\" in ");
-				sB.append(src);
-				throw new TermEvaulatorException(sB.toString());
+                String sB = "Impossible error while parsing \""
+                        + expressionString
+                        + "\" in "
+                        + src;
+                throw new TermEvaulatorException(sB);
 			}
 
 			int start =
@@ -1053,12 +1049,11 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			}
 			else if (types.length == 2)
 			{
-				StringBuilder sB = new StringBuilder();
-				sB.append("Badly formed formula ");
-				sB.append(expressionString);
-				sB.append(" in ");
-				sB.append(src);
-				throw new TermEvaulatorException(sB.toString());
+                String sB = "Badly formed formula "
+                        + expressionString
+                        + " in "
+                        + src;
+                throw new TermEvaulatorException(sB);
 			}
 			else
 			{
@@ -1066,12 +1061,11 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 				if (!numMat.find())
 				{
-					StringBuilder sB = new StringBuilder();
-					sB.append("Badly formed formula ");
-					sB.append(expressionString);
-					sB.append(" in ");
-					sB.append(src);
-					throw new TermEvaulatorException(sB.toString());
+                    String sB = "Badly formed formula "
+                            + expressionString
+                            + " in "
+                            + src;
+                    throw new TermEvaulatorException(sB);
 				}
 
 				String newCount = "COUNT[" + types[2] + "]";
@@ -1188,14 +1182,13 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			}
 			else
 			{
-				StringBuilder sB = new StringBuilder();
-				sB.append("Badly formed formula ");
-				sB.append(expressionString);
-				sB.append(" following ");
-				sB.append(matchedSection);
-				sB.append(" should be 2 ");
-				sB.append("integers separated by dots");
-				throw new TermEvaulatorException(sB.toString());
+                String sB = "Badly formed formula "
+                        + expressionString
+                        + " following "
+                        + matchedSection
+                        + " should be 2 "
+                        + "integers separated by dots";
+                throw new TermEvaulatorException(sB);
 			}
 
 			return new PCCountSpellsLevelsInBookTermEvaluator(expressionString, nums);
@@ -1230,14 +1223,13 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			}
 			else
 			{
-				StringBuilder sB = new StringBuilder();
-				sB.append("Badly formed formula ");
-				sB.append(expressionString);
-				sB.append(" following ");
-				sB.append(matchedSection);
-				sB.append(" should be 4 ");
-				sB.append("integers separated by dots");
-				throw new TermEvaulatorException(sB.toString());
+                String sB = "Badly formed formula "
+                        + expressionString
+                        + " following "
+                        + matchedSection
+                        + " should be 4 "
+                        + "integers separated by dots";
+                throw new TermEvaulatorException(sB);
 			}
 
 			return new PCCountSpellTimesTermEvaluator(expressionString, nums);
@@ -1404,30 +1396,23 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			// The type of weight we want the value for
 			String valString = expressionString.substring(7);
 
-			if ("CARRIED".equals(valString))
+			switch (valString)
 			{
-				return new PCCarriedWeightTermEvaluator(expressionString);
-			}
-			else if ("EQUIPPED".equals(valString))
-			{
-				// TODO: not carried, equipped!
-				return new PCCarriedWeightTermEvaluator(expressionString);
-			}
-			else if ("PC".equals(valString))
-			{
-				return new PCWeightTermEvaluator(expressionString);
-			}
-			else if ("TOTAL".equals(valString))
-			{
-				// total weight of PC and all carried equipment
-				return new PCTotalWeightTermEvaluator(expressionString);
+				case "CARRIED":
+					return new PCCarriedWeightTermEvaluator(expressionString);
+				case "EQUIPPED":
+					// TODO: not carried, equipped!
+					return new PCCarriedWeightTermEvaluator(expressionString);
+				case "PC":
+					return new PCWeightTermEvaluator(expressionString);
+				case "TOTAL":
+					// total weight of PC and all carried equipment
+					return new PCTotalWeightTermEvaluator(expressionString);
 			}
 
-			StringBuilder sB = new StringBuilder();
-			sB.append("invalid string following WEIGHT. in ");
-			sB.append(expressionString);
-
-			throw new TermEvaulatorException(sB.toString());
+            String sB = "invalid string following WEIGHT. in "
+                    + expressionString;
+            throw new TermEvaulatorException(sB);
 		}
 	},
 

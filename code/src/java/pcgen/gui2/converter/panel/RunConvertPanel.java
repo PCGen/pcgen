@@ -144,7 +144,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				               .append(" - conversion started at ")
 				               .append(startTime)
 				               .append("\n");
-				changeLogWriter.append("Outputting files to " + outDir.getAbsolutePath() + "\n");
+				changeLogWriter.append("Outputting files to ").append(outDir.getAbsolutePath()).append("\n");
 				converter = new LSTConverter(context, rootDir, outDir.getAbsolutePath(), this, changeLogWriter);
 				converter.addObserver(this);
 				int numFiles = totalCampaigns.stream()
@@ -426,9 +426,9 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		Logging.log(Logging.INFO, "Game mode: " + pc.get(ObjectKey.GAME_MODE).getDisplayName());
 		List<Campaign> campaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
 		StringBuilder campDisplay = new StringBuilder("");
-		for (int i = 0; i < campaigns.size(); i++)
+		for (Campaign campaign : campaigns)
 		{
-			campDisplay.append(campaigns.get(i).getDisplayName());
+			campDisplay.append(campaign.getDisplayName());
 			campDisplay.append("\n");
 		}
 		Logging.log(Logging.INFO, "Sources: " + campDisplay);

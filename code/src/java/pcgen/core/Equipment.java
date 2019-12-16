@@ -996,11 +996,6 @@ public final class Equipment extends PObject
 		final StringBuilder s = new StringBuilder(100);
 		String t = getSpecialProperties(aPC);
 
-		if (t == null)
-		{
-			t = "";
-		}
-
 		getActiveBonuses(aPC).stream().map(BonusObj::toString)
 			.filter(eqBonus -> (!eqBonus.isEmpty()) && !eqBonus.startsWith("EQM")).forEach(eqBonus -> {
 				if (s.length() != 0)
@@ -3306,24 +3301,18 @@ public final class Equipment extends PObject
 			//
 			replaces.stream().map(CDOMSingleRef::get).map(CDOMObject::getKeyName)
 				.forEach(key -> baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-					.filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod -> {
-						head.addToListFor(ListKey.EQMOD, baseMod);
-					}));
+					.filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod)));
 		}
 
 		if (eqMod.isType("BaseMaterial"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 	}
 
@@ -3406,7 +3395,7 @@ public final class Equipment extends PObject
 			{
 				double mult = 1.0;
 
-				if (newSize != null && pc != null)
+				if (pc != null)
 				{
 					mult = pc.getSizeBonusTo(newSize, "ITEMCAPACITY", eq.typeList(), 1.0);
 				}
@@ -4010,21 +3999,20 @@ public final class Equipment extends PObject
 				BigDecimal maxCost = null;
 				final List<String> itemTypes = typeList();
 
-				for (int idx = 0; idx < itemTypes.size(); ++idx)
-				{
-					String typeMatched = itemTypes.get(idx);
-					costExpr = SettingsHandler.getGame().getPlusCalculation(Type.getConstant(typeMatched));
+                for (String typeMatched : itemTypes)
+                {
+                    costExpr = SettingsHandler.getGame().getPlusCalculation(Type.getConstant(typeMatched));
 
-					if (costExpr != null)
-					{
-						final BigDecimal thisCost = evaluateCost(myParser, costExpr);
+                    if (costExpr != null)
+                    {
+                        final BigDecimal thisCost = evaluateCost(myParser, costExpr);
 
-						if ((maxCost == null) || (thisCost.compareTo(maxCost) > 1))
-						{
-							maxCost = thisCost;
-						}
-					}
-				}
+                        if ((maxCost == null) || (thisCost.compareTo(maxCost) > 1))
+                        {
+                            maxCost = thisCost;
+                        }
+                    }
+                }
 
 				if (maxCost != null)
 				{
@@ -4605,12 +4593,9 @@ public final class Equipment extends PObject
 		}
 
 		Set<String> calculatedTypeList = new LinkedHashSet<>();
-		if (initializingList != null)
+		for (Type t : initializingList)
 		{
-			for (Type t : initializingList)
-			{
-				calculatedTypeList.add(t.getComparisonString());
-			}
+			calculatedTypeList.add(t.getComparisonString());
 		}
 		final Collection<String> modTypeList = new ArrayList<>();
 

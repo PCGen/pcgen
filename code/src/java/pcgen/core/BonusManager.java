@@ -142,14 +142,7 @@ public class BonusManager
 						currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 8);
 			}
 
-			if (currentTypedBonusNameInfo == null)
-			{
-				Logging.errorPrint("Unable to process BONUS: " + fullyQualifedCurrentBonus + " when "
-					+ fullyQualifiedBonusType + " was requested");
-				continue;
-			}
-
-			// if prefix is of the form:
+            // if prefix is of the form:
 			// COMBAT.AC
 			// then is must match rstring:
 			// COMBAT.AC

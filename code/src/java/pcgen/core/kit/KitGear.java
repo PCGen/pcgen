@@ -300,27 +300,24 @@ public final class KitGear extends BaseKit
 		final BigDecimal eqCost = theEquipment.getCost(aPC);
 		if (aBuyRate != 0)
 		{
-			if (fixedTotalCost == null)
-			{
-				final BigDecimal bdBuyRate =
-						new BigDecimal(Integer.toString(aBuyRate)).multiply(new BigDecimal("0.01"));
+            final BigDecimal bdBuyRate =
+                    new BigDecimal(Integer.toString(aBuyRate)).multiply(new BigDecimal("0.01"));
 
-				// Check to see if the PC can afford to buy this equipment. If
-				// not, then decrement the quantity and try again.
-				theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty))).multiply(bdBuyRate);
+            // Check to see if the PC can afford to buy this equipment. If
+            // not, then decrement the quantity and try again.
+            theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty))).multiply(bdBuyRate);
 
-				while (theQty > 0)
-				{
-					if (theCost.compareTo(pcGold) <= 0) // PC has enough?
-					{
-						break;
-					}
+            while (theQty > 0)
+            {
+                if (theCost.compareTo(pcGold) <= 0) // PC has enough?
+                {
+                    break;
+                }
 
-					theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
-				}
-			}
+                theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
+            }
 
-			aPC.setGold(aPC.getGold().subtract(theCost));
+            aPC.setGold(aPC.getGold().subtract(theCost));
 		}
 
 		boolean outOfFunds = false;

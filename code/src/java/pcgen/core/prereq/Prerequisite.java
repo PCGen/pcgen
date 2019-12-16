@@ -392,7 +392,7 @@ public class Prerequisite implements Cloneable
 			buf.append(" ("); //$NON-NLS-1$
 			for (Prerequisite subreq : prerequisites)
 			{
-				buf.append(subreq.getDescription(shortForm));
+				buf.append(subreq.getDescription(false));
 			}
 			buf.append(')');
 		}
