@@ -1679,8 +1679,8 @@ final class PCGVer2Parser implements PCGParser
 						}
 					}
 					SpecialAbility specialAbility = new SpecialAbility(specialAbilityName);
-					CDOMObject target;
-					target = thePC.getActiveClassLevel(aPCClass, level);
+
+					CDOMObject target = thePC.getActiveClassLevel(aPCClass, level);
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
 					{

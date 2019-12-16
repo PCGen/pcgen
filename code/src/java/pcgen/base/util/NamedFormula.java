@@ -17,8 +17,6 @@
  */
 package pcgen.base.util;
 
-import java.util.Objects;
-
 import pcgen.base.formula.Formula;
 
 /**
@@ -48,8 +46,8 @@ public final class NamedFormula
 	 */
 	public NamedFormula(String formulaName, Formula value)
 	{
-		name = Objects.requireNonNull(formulaName, "Name for NamedFormula cannot be null");
-		formula = Objects.requireNonNull(value, "Formula for NamedFormula cannot be null");
+		name = formulaName;
+		formula = value;
 	}
 
 	/**

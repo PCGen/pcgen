@@ -318,6 +318,7 @@ public class WeaponToken extends Token
 				if (aTok.hasMoreTokens())
 				{
 					if ("NOUNITS".equals(aTok.nextToken()))
+
 					{
 						units = false;
 					}

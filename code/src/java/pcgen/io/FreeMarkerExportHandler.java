@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -39,7 +38,12 @@ public class FreeMarkerExportHandler extends ExportHandler
 	@Override
 	public void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException
 	{
-		Objects.requireNonNull(getTemplateFile());
+		File tFile = getTemplateFile();
+		if (tFile==null)
+		{
+			Logging.errorPrint("No template file selected - aborting.");
+			return;
+		}
 		FileAccess.setCurrentOutputFilter(getTemplateFile().getName().substring(0, getTemplateFile().getName().length() - 4));
 
 		exportCharacterUsingFreemarker(aPC, out);

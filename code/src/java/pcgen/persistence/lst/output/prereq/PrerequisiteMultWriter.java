@@ -162,8 +162,11 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 				break;
 			}
 		}
+
         return allSkillTot;
     }
+
+
 
 	/**
 	 * Identify if this is a PREABILITY which has been converted into a PREMULT 

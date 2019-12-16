@@ -147,6 +147,7 @@ public class ObjectInjector
 
 	private String getFileHeader()
 	{
+
         return "# This file was automatically created "
                 + "during dataset conversion by PCGen "
                 + PCGenPropBundle.getVersionNumber()

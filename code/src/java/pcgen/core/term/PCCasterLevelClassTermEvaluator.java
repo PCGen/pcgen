@@ -75,6 +75,7 @@ public class PCCasterLevelClassTermEvaluator extends BasePCTermEvaluator impleme
 		final double d2 = pc.getTotalBonusTo("CASTERLEVEL", varSource);
 		final int castBonus = (int) d2;
 
+
 		// If no CASTERLEVEL has been defined for this class then
 		// use total class level instead
 		final int iClass = (spClass != null && castBonus == 0) ? pc.getDisplay().getLevel(spClass) : 0;

@@ -92,6 +92,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 					{
 						foundSkill = true;
                         int theTotal = getRunningTotal(
+
 								entry.getKey(), character, prereq, true, runningTotal, requiredRanks,
 							situation);
 						runningTotal += theTotal;
