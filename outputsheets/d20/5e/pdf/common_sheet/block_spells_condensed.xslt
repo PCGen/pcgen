@@ -30,10 +30,10 @@
 					<xsl:if test="warlock &gt; 0">
 						<xsl:apply-templates select="spell_slots_warlock"/>
 					</xsl:if>
-					<xsl:apply-templates select="spells_innate/racial_innate"/>	
+					<xsl:apply-templates select="spells_innate/racial_innate"/>			
 					<xsl:apply-templates select="spells_innate/class_innate"/>	
 					<xsl:apply-templates select="known_spells"/>	
-					<xsl:apply-templates select="memorized_spells"/>	
+					<xsl:apply-templates select="memorized_spells"/>		
 				</fo:flow>
 			</fo:page-sequence>	
 		</xsl:if>
