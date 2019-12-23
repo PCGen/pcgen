@@ -182,7 +182,7 @@ Flail (Dire).MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Flail.MOD					TYPE:Flail.Weapon Group Flails
 Flail (Heavy).MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Morningstar.MOD				TYPE:Flail.Weapon Group Flails
-Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flails
+Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Whip.MOD					TYPE:Flail.Weapon Group Flails
 
 #Hammers:
