@@ -153,19 +153,23 @@ CLASSTYPE:Companion	CRFORMULA:NONE	ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
 ACTYPE:AC				ADD:TOTAL		REMOVE:ShieldTAC|TAC|ArmorTAC
-ACTYPE:TAC				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement|CMD	
-ACTYPE:ShieldTAC			ADD:ShieldTAC
-ACTYPE:ArmorTAC			ADD:ArmorTAC
+ACTYPE:ArmorProfBonus		ADD:ArmorProfBonus
 
-
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorEnhancement|Shield|ShieldEnhancement|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|TouchMisc|CMD|ShieldTAC|TAC|ArmorTAC
-
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorEnhancement|Shield|ShieldEnhancement|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|TouchMisc|CMD|ShieldTAC|TAC|ArmorTAC|ArmorProfBonus
 ACTYPE:ItemProf		ADD:ItemProf
 
 
 
 
+ACTYPE:ShieldTAC			ADD:ShieldTAC
+ACTYPE:TAC				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement|CMD	
+ACTYPE:ArmorTAC			ADD:ArmorTAC
+
+
+
 ACTYPE:Total				ADD:TOTAL		REMOVE:TouchMisc|CMD
+
+
 ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:TouchMisc|CMD	REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement|CMD	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
 ACTYPE:TouchMisc				ADD:TouchMisc
