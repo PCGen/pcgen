@@ -4,7 +4,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Original Entry by: gjorbjond
 
 # Ability Name						Unique Key								SORTKEY	Category of Ability		Type													Visible		Required Ability																													Restricted Ability							Required AL		Prohibited Class		Multiple Requirements																						Required Race			Minimum Size	Maximum Size	Required Var. value	Var. Min. Value																Var. Max. Value						Define																																Description																																																																																																																Stackable?	Multiple?	Choose														Template		Clone Movement			Auto Weapon Prof			Ability																																																																																																								Bonus Ability Pool																									Bonus DR			Bonus to HP							Add to base move																																																													Adjust PC Size														Bonus to skill				Bonus to skill rank	Stat bonus									Modify VAR																																																																																																										Add to vision			Weapon prof. bonus			Class Skill												Spell Res.							Damage Reduction	Cost		Source Page		Aspects
-Racial Traits ~ Eidolon																CATEGORY:Internal																																																																																																																																					DEFINE:EidolonDefault|0	DEFINE:EidArms|0	DEFINE:EidArmsUsed|0	DEFINE:EidLegs|0	DEFINE:EidLegsUsed|0	DEFINE:EidolonAspect|0
+Racial Traits ~ Eidolon																CATEGORY:Internal																																																																																																																																					DEFINE:EidolonDefault|0	DEFINE:EidArms|0	DEFINE:EidArmsUsed|0	DEFINE:EidLegs|0	DEFINE:EidLegsUsed|0	DEFINE:EidolonAspect|0	ABILITY:Internal|AUTOMATIC|Eidolon Size Tracker
 
 CATEGORY=Internal|Racial Traits ~ Eidolon.MOD																																																																																																																																																																																																																																																																																																																																					ABILITY:Internal|AUTOMATIC|Assign RaceType ~ Outsider|PREVAREQ:Eidolon_CF_RaceType,0
 CATEGORY=Internal|Racial Traits ~ Eidolon.MOD																																																																																																																																																			DEFINE:Eidolon_CF_BaseAB|0
@@ -180,11 +180,12 @@ Extra Line of Electricity				KEY:Evolution ~ Extra Breath Weapon Line Electricit
 
 ###Block:
 # Ability Name		Category of Ability	Define									Template		Ability																																								Stat bonus								Modify VAR
-Eidolon Size Tracker	CATEGORY:Internal		DEFINE:EidolonSizeIncrease|0	DEFINE:EidolonSizeDecrease|0				ABILITY:Internal|AUTOMATIC|Eidolon Size ~ Small|PREVAREQ:EidolonSizeDecrease,1	ABILITY:Internal|AUTOMATIC|Eidolon Size ~ Large|PREVAREQ:EidolonSizeIncrease,1	ABILITY:Internal|AUTOMATIC|Eidolon Size ~ Huge|PREVAREQ:EidolonSizeIncrease,2
+Eidolon Size Tracker	CATEGORY:Internal		DEFINE:EidolonSizeIncrease|0	DEFINE:EidolonSizeDecrease|0	DEFINE:EidolonBaseSize|0			ABILITY:Internal|AUTOMATIC|Eidolon Size ~ Small|PREVAREQ:EidolonSizeDecrease,1	ABILITY:Internal|AUTOMATIC|Eidolon Size ~ Medium|PREVAREQ:EidolonBaseSize,0	ABILITY:Internal|AUTOMATIC|Eidolon Size ~ Large|PREVAREQ:EidolonSizeIncrease,1	ABILITY:Internal|AUTOMATIC|Eidolon Size ~ Huge|PREVAREQ:EidolonSizeIncrease,2		BONUS:VAR|EidolonBaseSize|if(EidolonSizeDecrease>=1,1,0)+if(EidolonSizeIncrease>=1,1,0)|TYPE=Base
 #
-Eidolon Size ~ Large	CATEGORY:Internal												TEMPLATE:SIZE_L	ABILITY:Internal|AUTOMATIC|Eidolon Size Tracker																																		BONUS:STAT|DEX|-2	BONUS:STAT|STR|8	BONUS:STAT|CON|4	BONUS:VAR|EidolonSizeIncrease|1
-Eidolon Size ~ Huge	CATEGORY:Internal												TEMPLATE:SIZE_H																																										BONUS:STAT|DEX|-2	BONUS:STAT|STR|8	BONUS:STAT|CON|4	BONUS:VAR|EidolonSizeIncrease|1
-Eidolon Size ~ Small	CATEGORY:Internal												TEMPLATE:SIZE_S	ABILITY:Internal|AUTOMATIC|Eidolon Size Tracker																																		BONUS:STAT|STR|-4	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2	BONUS:VAR|EidolonSizeDecrease|1
+Eidolon Size ~ Huge	CATEGORY:Internal												TEMPLATE:SIZE_H																																			BONUS:STAT|DEX|-2	BONUS:STAT|STR|8	BONUS:STAT|CON|4	
+Eidolon Size ~ Large	CATEGORY:Internal												TEMPLATE:SIZE_L																																			BONUS:STAT|DEX|-2	BONUS:STAT|STR|4	BONUS:STAT|CON|2	
+Eidolon Size ~ Medium	CATEGORY:Internal												TEMPLATE:SIZE_M																																			
+Eidolon Size ~ Small	CATEGORY:Internal												TEMPLATE:SIZE_S																																			BONUS:STAT|STR|-4	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2	
 
 
 
