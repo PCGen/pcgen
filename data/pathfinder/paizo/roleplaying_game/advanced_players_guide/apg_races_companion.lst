@@ -4,4 +4,4 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Original Entry by: gjorbjond
 
 # Race Name	Starting Feats	Size		Move			Reach		Stat bonus					Modify VAR													Ability								Nb Legs	Nb Hands	Monster Class Name and Starting Level	Race Subtype		Source Page		Apply Kit		FACT
-Eidolon	STARTFEATS:1			MOVE:Walk,20	REACH:5	BONUS:STAT|CON|2	BONUS:STAT|INT|-4	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	BONUS:VAR|DisableRaceTypeGrantedProfs|1	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Eidolon	LEGS:0	HANDS:7	MONSTERCLASS:Eidolon:1				RACESUBTYPE:Eidolon	SOURCEPAGE:p.56	KIT:1|Eidolon	FACT:BaseSize|M
+Eidolon	STARTFEATS:1	SIZE:M	MOVE:Walk,20	REACH:5	BONUS:STAT|CON|2	BONUS:STAT|INT|-4	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	BONUS:VAR|DisableRaceTypeGrantedProfs|1	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Eidolon	LEGS:0	HANDS:7	MONSTERCLASS:Eidolon:1				RACESUBTYPE:Eidolon	SOURCEPAGE:p.56	KIT:1|Eidolon	FACT:BaseSize|M
