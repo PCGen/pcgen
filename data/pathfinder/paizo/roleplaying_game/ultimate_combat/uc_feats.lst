@@ -380,7 +380,7 @@ Improved Called Shot	CATEGORY:FEAT		TYPE:Called Shot	PREABILITY:1,CATEGORY=FEAT,
 Greater Called Shot	CATEGORY:FEAT		TYPE:Called Shot	PREABILITY:2,CATEGORY=FEAT,Combat Expertise,Improved Called Shot	PRETEXT:Prerequisites: Int 13, Combat Expertise, Improved Called Shot, base attack bonus +6.	PRETOTALAB:6	PREVARGTEQ:PreStatScore_INT,13	DESC:You can make multiple called shots where others could land but one.	SOURCEPAGE:p.195	BENEFIT:Whenever you make an attack, you can choose to replace that attack with a called shot. You can make multiple called shots in a single round. Each additional called shot after the first made in the same round takes a -5 penalty. In addition, a called shot that deals half the creature's hit points of damage (minimum 40) is a debilitating blow. Normal: You can make only one called shot in a round as a full-round action. A called shot that deals 50 points of damage is a debilitating blow.
 
 ###Block: Feat Support
-Non-Monk Levels Unarmed Damage Tracker		CATEGORY:Internal	BONUS:UDAM|CLASS.Monk|NonMonkClassLevels/2|TYPE=Base	BONUS:VAR|MonkUnarmedDamageLVL|NonMonkClassLevels/2|TYPE=Base	DEFINE:NonMonkClassLevels|0	BONUS:VAR|NonMonkClassLevels|(TL-MonkLVL-HD)|TYPE=Base
+Non-Monk Levels Unarmed Damage Tracker		CATEGORY:Internal	BONUS:UDAM|CLASS.Monk|NonMonkClassLevels/2|TYPE=Base	BONUS:VAR|MonkUnarmedDamageLVL|NonMonkClassLevels/2|TYPE=Base	DEFINE:NonMonkClassLevels|0	BONUS:VAR|NonMonkClassLevels|(TL-MonkLVL)|TYPE=Base
 
 ###Block: Guided Hand Choices
 Guided Hand ~ Melee								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Melee																	BONUS:WEAPONPROF=%LIST|TOHIT|WIS-STR
