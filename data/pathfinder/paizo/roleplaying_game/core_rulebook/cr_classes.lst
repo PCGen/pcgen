@@ -144,7 +144,7 @@ CLASS:Fighter	STARTSKILLPTS:2
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define															Modify VAR																Monster Role	FACT
-CLASS:Monk		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.56	DEFINE:FlurryOfBlows|0	DEFINE:MonkLVL|0	DEFINE:KiPoolWis|0	DEFINE:MonkFeatQualify|0	BONUS:VAR|FlurryOfBlows|1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|KiPoolWis|1	BONUS:VAR|KiPool|1	ROLE:None		FACT:ClassType|PC	FACT:Abb|Mnk
+CLASS:Monk		HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.56	DEFINE:FlurryOfBlows|0	DEFINE:MonkLVL|0	DEFINE:KiPoolWis|0	DEFINE:MonkFeatQualify|0	BONUS:VAR|FlurryOfBlows|1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|KiPoolWis|1	BONUS:VAR|KiPool|1	ROLE:None		FACT:ClassType|PC	FACT:Abb|Mnk
 # Class Name	Multiple Requirements
 CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREVAREQ:BypassClassAlignment_Monk,1]
 # Class Name	Skill Pts/Lvl

@@ -335,3 +335,7 @@ Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:X	TEMPDESC:When you use the att
 ###Block: Bloodline Abilities
 # Template Name					Visible	Source Page		Define				Modify VAR						Move
 Celestial Bloodline ~ Wings of Heaven	VISIBLE:NO	SOURCEPAGE:p.74	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|4|TYPE=Base	MOVE:Fly,60
+
+###Block: Monk Support
+Monk HD d8		HITDIE:8|CLASS=Monk	VISIBLE:NO
+
