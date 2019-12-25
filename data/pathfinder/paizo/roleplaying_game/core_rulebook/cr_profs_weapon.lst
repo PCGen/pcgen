@@ -126,8 +126,8 @@ Axe (Throwing).MOD			TYPE:Axe.Weapon Group Axes
 
 #Blades, Heavy:
 Sword (Bastard).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
-Curve Blade (Elven).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Falchion.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Curve Blade (Elven).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
+Falchion.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
 Greatsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
 Longsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Scimitar.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
@@ -182,7 +182,7 @@ Flail (Dire).MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Flail.MOD					TYPE:Flail.Weapon Group Flails
 Flail (Heavy).MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Morningstar.MOD				TYPE:Flail.Weapon Group Flails
-Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flails
+Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Whip.MOD					TYPE:Flail.Weapon Group Flails
 
 #Hammers:
