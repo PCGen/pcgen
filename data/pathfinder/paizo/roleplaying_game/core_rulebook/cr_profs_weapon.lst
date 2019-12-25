@@ -59,7 +59,7 @@ Heavy Pick				KEY:Pick (Heavy)				TYPE:Martial.OneHanded.Melee.Piercing.MeleePie
 Rapier										TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Sword.OneHandedMartial
 Scimitar										TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword.OneHandedMartial
 #Shieldbash (Heavy)		TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
-Trident										TYPE:Martial.OneHanded.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing.Spear.OneHandedMartial
+Trident										TYPE:Martial.OneHanded.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing.Spear.OneHandedMartial.Weapon Group Melee OneHanded Piercing
 Warhammer										TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning.Hammer.OneHandedMartial
 # 2-handers
 Falchion										TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword
