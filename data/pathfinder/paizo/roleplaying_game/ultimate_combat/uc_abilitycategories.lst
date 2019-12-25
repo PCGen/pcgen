@@ -61,7 +61,7 @@ ABILITYCATEGORY:Gendarme Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ABILITYCATEGORY:Tactician Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:Teamwork.Combat						ABILITYLIST:Skill Focus																																DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Swift Powder Choice					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Rapid Reload (musket)|Rapid Reload (pistol)																										DISPLAYLOCATION:Feats
 
-
+ABILITYCATEGORY:Grit Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:Grit																																											DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Amateur Gunslinger					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Amateur Gunslinger|Extra Grit																													DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Teamwork Feat Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:Teamwork																																										DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Spellbreaker Arcane Defense			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:SPELLBREAKER Arcane Defense Choice																												DISPLAYLOCATION:Class Features
