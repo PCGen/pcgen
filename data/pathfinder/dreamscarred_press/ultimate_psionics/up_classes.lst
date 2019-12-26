@@ -489,19 +489,20 @@ CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	MEMORIZE:NO	BONUS:CASTERLEVEL|V
 19	KNOWN:0,0,0,0,0,0,0,0,0,VitalistPowersKnown
 20	KNOWN:0,0,0,0,0,0,0,0,0,VitalistPowersKnown
 ###Block: Vitalist Class Abilities
-1																		ABILITY:Internal|AUTOMATIC|Vitalist Method|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMethod
-1																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Collective|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollective
-1																		ABILITY:Internal|AUTOMATIC|Vitalist Knacks|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistKnacks
-1																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Collective Healing|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollectiveHealing
-1																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Medic Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMedicPowers
-1																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Transfer Wounds|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTransferWounds
-2																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Health Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistHealthSense
-2																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Spirit of Many|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSpiritOfMany
-3																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Steal Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealHealth
-3																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Telepathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTelepathy
-5																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Request Aid|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistRequestAid
+1	ABILITY:Internal|AUTOMATIC|Vitalist Method|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMethod
+1	ABILITY:Internal|AUTOMATIC|Vitalist Knacks|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistKnacks
+1	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Collective|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollective
+1	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Collective Healing|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollectiveHealing
+1	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Medic Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMedicPowers
+1	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Transfer Wounds|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTransferWounds
+2	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Health Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistHealthSense
+2	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Spirit of Many|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSpiritOfMany
+3	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Steal Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealHealth
+3	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Telepathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTelepathy
+5	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Request Aid|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistRequestAid
+14	ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Steal Life|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealLife
+###Block:
 9	BONUS:ABILITYPOOL|Vitalist Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge9
-14																		ABILITY:Vitalist Class Feature|AUTOMATIC|Vitalist ~ Steal Life|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealLife
 18	BONUS:ABILITYPOOL|Vitalist Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge18
 
 
