@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v6.09.02 </title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v6.09.02 </h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v6.09.02 </a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 6.09.02 </a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v6.09.02 </a></h2>
+
+<p>PCGen v6.09.02  is released as an ALPHA from our development branch. This is the culmination release that we believe will be the next production release. This is technically an unstable release due to new features being introduced.
+Please give it a shot and let us know how it works for you. Some notable changes in the 6.09.02  release are listed below.
+
+<h3>Notable Changes</h3>
+<ul>
+	<li>Continued work on UI changes - Java Swing converting to JavaFX</li>
+	<li>53 Data Issues resolved</li>
+</ul>
+
+
+
+<!-- 
+<p>
+The new user interface does most of what you are used to, but does not currently provide  
+random NPC generation or LST editor functionality. 
+</p>
+ -->
+ 
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+</p>
+<p><i>Andrew Maitland aka LegacyKing</i> for the PCGEN Team -- 2019-09-15.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 11 aka Java 55 aka 18.09 or 18.10.
+
+PCGEN 6.09.02 is not compatible with Java 10 (or earlier) and it is NOT SUPPORTED. To get the latest version of Java, go to AdoptOpenJDK. PCGen has been tested with OpenJDK and AdoptOpenJDK Java 11 (including the JRE).
+
+Be aware that due to Oracle Licensing, and lack of availability we are recommending OpenJDK alternative. AdoptOpenJDK also have JREs (Normal Java) for the end users that is not installed and may take an extra couple of steps to make work. If this is not something you want to worry about, then please use the WINDOWS INSTALLER version of PCGen, as this comes with embedded JREs for both x86 and x64 Windows OS's.
+
+LINKS:
+			<ul>
+				<li>https://adoptopenjdk.net/archive.html?variant=openjdk11&jvmVariant=hotspot</li>
+				<li>https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/tag/jdk-11%2B28</li>
+				<li>https://jdk.java.net/11/</li>
+				<li>How to "Install" on Windows: https://stackoverflow.com/questions/52511778/how-to-install-openjdk-11-on-windows</li>
+				<li>How to "Install" the real JDK 11 on Linux Ubuntu - https://dzone.com/articles/installing-openjdk-11-on-ubuntu-1804-for-real - SIDE NOTE: Ubuntu made a conscious move to actually leave Java at 10. The work around is to use AdoptOpenJDK 11.</p></li>
+			</ul>
+
+		<h3>Instructions</h3>
+			<ul>
+			<li>Live chat support by volunteers <strong>DISCORD</strong>:<br />
+				<a href="https://discord.gg/A6hWjzw">DISCORD SUPPORT LINK</a></li>
+			<li>The Groups.io <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="https://pcgen.groups.io/g/main/topics">https://pcgen.groups.io/g/main/topics</a></li>
+			</ul>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the docs to 
+		familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="https://github.com/PCGen/pcgen/releases">DOWNLOAD PCGEN!</a>: <br />
+				Links to all of the available download options!</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<p>If you have custom data created be aware that you may need to update your data to be compatible with the changes.</p>
+
+		<h2><a name="Thanks">Thanks</a></h2>
+
+		<p>Thanks to the volunteers who contributed to the PCGen 6.09.02  release! Without volunteers, no releases would be possible.
+		
+		</p><p>
+		Thanks also to the many people who gave us feedback, reported bugs, contributed to the lists and 
+		helped other PCGen users out!</p>
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help jump on our Discord or Groups.io and simply post a message <strong>"I Want To Help"</strong> in one of those groups.</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>Live chat support by volunteers <strong>Discord</strong>:<br />
+				<a href="https://discord.gg/A6hWjzw">DISCORD SUPPORT LINK</a></li>
+			<li>The Groups.io <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="https://pcgen.groups.io/g/main/topics">https://pcgen.groups.io/g/main/topics</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 6.09.02 </a></h2>
+
+
+        Release notes - Export and Preview Character Sheets - Version 6.09.02
+            
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-534'>OS-534</a>] -         Adding spells to known spells and spell books causes character sheets to be unprintable
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-535'>OS-535</a>] -         5e - Cannot export to XML
+</li>
+</ul>
+        
+<h2>        New Feature
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-529'>OS-529</a>] -         Selectable printouts or condensed printouts
+</li>
+</ul>
+             
+
+
+        Release notes - Book Data - Version 6.09.02
+            
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3985'>DATA-3985</a>] -         Fetchling with &#39;Bound to Golarion&#39; (Bound to Here) not counted as &#39;Human&#39; subtype regarding of race.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3986'>DATA-3986</a>] -         Gifted Adept not seeing Mesmerist class
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4002'>DATA-4002</a>] -         [Pathfinder] Inner Sea Races replacement racial abilities
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4003'>DATA-4003</a>] -         Student of Philosophy doesn&#39;t add Intelligence bonus to Perception and Bluff
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4011'>DATA-4011</a>] -         Psychic Detective Spellblock incorrect
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4019'>DATA-4019</a>] -         Missing Subomains from Dragon Empire Gazetteers
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4030'>DATA-4030</a>] -         Shaman Archetype (Spirit Warden) is missing some key features
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4031'>DATA-4031</a>] -         &quot;replacement&quot; code for Nanite Surge not working
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4032'>DATA-4032</a>] -         Flight Maneuverability in PCGen possible bug
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4042'>DATA-4042</a>] -         Goblin Pirate trait unable to be selected even with Shackles selected as region
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4046'>DATA-4046</a>] -         6.09.01 Pathfinder &quot;Stoneskin&quot; spell TEMPBONUS does not add to the DR to the Character sheet
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4048'>DATA-4048</a>] -         Gloves of Marking has an extra &quot;1&quot; digit in its calculation for the Will Save DC
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4050'>DATA-4050</a>] -         Signature Deed appears to be a Gunslinger-only feat; I can&#39;t access it as a swashbuckler
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4051'>DATA-4051</a>] -         Dorn-Dergar Master not modifying the Dorn-Dergar Items to be usable one handed.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4054'>DATA-4054</a>] -         Antipaladin cruelty &amp; boons broken
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4056'>DATA-4056</a>] -         Magical Knack does not add +2 caster level to Antipaladin
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4058'>DATA-4058</a>] -         Weapon Special Ability Can Be Added To Shield Even If Shield As Weapon Doesn&#39;t Have +1
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4059'>DATA-4059</a>] -         Pathfinder 1st Ed Imp Kit Language Error
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4060'>DATA-4060</a>] -         Damnation feats from Champions of Corruption are not fully implemented
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4061'>DATA-4061</a>] -         Antipaladin unable to use Extra Lay on Hands  &amp;  Extra Mercy
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4064'>DATA-4064</a>] -         Archetypes in Weapon Master&#39;s Handbook reference wrong archetype key in prerequisites
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4065'>DATA-4065</a>] -         3.5 ed Shield of the Sun TYPE .... mistype 
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4066'>DATA-4066</a>] -         Incorrect data for Dawnflower Dervish (Pathfinder - Inner Sea Magic)
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4067'>DATA-4067</a>] -         Starfinder: SRO Racial modifiers
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4068'>DATA-4068</a>] -         Starfinder: SRO Size issue
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4069'>DATA-4069</a>] -         Samsaran Mystic Past Life alternate racial trait not allowing spells that are both arcane and divine to be selected
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4073'>DATA-4073</a>] -         Archmage and Hierophant have wrong capstone
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4074'>DATA-4074</a>] -         Pathfinder: Seekers of Secrets: Orange Prism (Cracked) Ioun Stone price is incorrect
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4075'>DATA-4075</a>] -         Missing Two-handed type indicators for Fighter weapon groups
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4076'>DATA-4076</a>] -         Can&#39;t take both Mouser and Musketeer swashbuckler archetypes
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4077'>DATA-4077</a>] -         Spellslinger doesn&#39;t get Gunsmithing feat
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4078'>DATA-4078</a>] -         Pathfinder Monk Ki mystic not getting a +2 to Ki pool
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4079'>DATA-4079</a>] -         Grit Rogue Talent doesn&#39;t give Grit feat
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4081'>DATA-4081</a>] -         Extra Focus Power and Extra Amplification feats from Occult Adventures are not coded to allow additional options
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4082'>DATA-4082</a>] -         SF: Baleful Polymorph false saving throw
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4084'>DATA-4084</a>] -         Possessed Hand Feat from Pathfinder &quot;Player Companion: Haunted Heroes Handbook&quot; Gives +3 to Monk instead of +1
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4085'>DATA-4085</a>] -         Dirty Fighting (Combat) Feat should be allow to use to qualify for the &quot;Greater&quot; feats as well as the &quot;Improved&quot; Combat Feats
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4087'>DATA-4087</a>] -         Avian Sizing From Small to Huge
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4089'>DATA-4089</a>] -         Pathfinder Swashbuckler Finesse does not work with Trident
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4091'>DATA-4091</a>] -         Implement Zealot Vigilantes ability to cast spells
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4095'>DATA-4095</a>] -         VItalist power count is incorrect
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4097'>DATA-4097</a>] -         Esoteric Magus Unarmed Damage calculation incorrect
+</li>
+</ul>
+        
+<h2>        New Feature
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3771'>DATA-3771</a>] -         Healer Handbook items need details added
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4033'>DATA-4033</a>] -         Skull and Shackles AP: Cleric of Besmara
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4035'>DATA-4035</a>] -         Missing Monster template from PF1e Monster Summoner Handbook
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4053'>DATA-4053</a>] -         Adding other Prestige Classes to Evangelist Aligned Classes
+</li>
+</ul>
+        
+<h2>        Task
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3999'>DATA-3999</a>] -         Quests and Campaigns - Multiple spelling errors throughout source
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4025'>DATA-4025</a>] -         Conditions are missing from Temp Bonus tab
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4029'>DATA-4029</a>] -         Elves of Golarion - Traits/Feats don&#39;t populate bonuses to the character sheet
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4063'>DATA-4063</a>] -         Enhancement types need to be broken out into WeaponEnhancement   ArmorEnhancement or ShieldEnhancement
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4071'>DATA-4071</a>] -         Animated Objects: Fully Implementing Ultimate Magic Options
+</li>
+</ul>
+    
+<h2>        Improvement
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4004'>DATA-4004</a>] -         Ascension Lunar Guardian Druid archetype for Pathfinder does not add granted spells to known spells, nor remove spells with &quot;Light&quot; descriptor
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4096'>DATA-4096</a>] -         Allow Unchained Monk d10 range to be editable (1-8 the base works fine)
+</li>
+</ul>
+                                
+
+
+
+
+
+
+
+	</body>
+</html>
