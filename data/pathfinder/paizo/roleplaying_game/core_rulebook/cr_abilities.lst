@@ -19,6 +19,7 @@ Negate Aging Penalties		CATEGORY:Internal		DEFINE:NegatedAgePenalty|0											
 # Ability Name				Category of Ability	Define					Modify VAR							Aspects
 Aspect Combat Bonus ~ Mobility	CATEGORY:Internal		DEFINE:Feat_Mobility_DodgeBonus|0	BONUS:VAR|Feat_Mobility_DodgeBonus|4|TYPE=Base	ASPECT:CombatBonus|+%1 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area. A condition that makes you lose your Dexterity bonus to Armor Class (if any) also makes you lose dodge bonuses. Dodge bonuses stack with each other, unlike most types of bonuses.|Feat_Mobility_DodgeBonus
 Aspect Combat Bonus ~ Encumbrance	CATEGORY:Internal																ASPECT:CombatBonus|Encumbrance rule effect, reduced speed and penalties applied, see - http://paizo.com/pathfinderRPG/prd/coreRulebook/additionalRules.html#carrying-capacity
+Aspect Combat Bonus ~ Buckler		CATEGORY:Internal																ASPECT:CombatBonus|Buckler: -1 attack penalty to off-hand and 2H attacks
 
 ###Block: Curses
 # Ability Name		Category of Ability	Type				Description																																										Cost		Source Page
