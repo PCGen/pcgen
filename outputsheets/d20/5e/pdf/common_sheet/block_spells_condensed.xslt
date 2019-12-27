@@ -30,10 +30,10 @@
 					<xsl:if test="warlock &gt; 0">
 						<xsl:apply-templates select="spell_slots_warlock"/>
 					</xsl:if>
-					<xsl:apply-templates select="spells_innate/racial_innate"/>	
-					<xsl:apply-templates select="spells_innate/class_innate"/>	
+					<xsl:apply-templates select="spells_innate/racial_innate"/>			
+					<xsl:apply-templates select="spells_innate/class_innate"/>			
 					<xsl:apply-templates select="known_spells"/>	
-					<xsl:apply-templates select="memorized_spells"/>	
+					<xsl:apply-templates select="memorized_spells"/>		
 				</fo:flow>
 			</fo:page-sequence>	
 		</xsl:if>
@@ -939,12 +939,6 @@
 						</xsl:if>
 						(<fo:inline font-weight="bold">Caster Level:</fo:inline>
 						<xsl:value-of select="casterlevel"/>)
-		<!-->			<xsl:if test="concentration != ''">	-->
-					<xsl:if test="concentration != $baseconcentration">
-						<fo:inline>; </fo:inline>
-						<fo:inline font-style="italic" font-weight="bold">Concentration:</fo:inline>
-						<xsl:value-of select="concentration"/>
-					</xsl:if>
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
@@ -1003,10 +997,10 @@
 			</xsl:call-template>
 			<fo:table table-layout="fixed" width="100%" space-after="5mm">
 				<fo:table-column>
-					<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $pagePrintableWidth div 5" />mm</xsl:attribute>
+					<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $pagePrintableWidth div 2" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-column>
-					<xsl:attribute name="column-width"><xsl:value-of select="0.80 * $pagePrintableWidth div 5" />mm</xsl:attribute>
+					<xsl:attribute name="column-width"><xsl:value-of select="0.80 * $pagePrintableWidth div 2" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-body>
 					<xsl:apply-templates mode="spells.memorized"/>
@@ -1057,21 +1051,24 @@
 ====================================-->
 	<xsl:template match="spellbook" mode="spells.memorized">
 		<xsl:if test="count(.//spell) &gt; 0">
-			<fo:table table-layout="fixed" width="100%" space-before="4mm">
+			<fo:table table-layout="fixed" width="100%" space-before="2mm">
 				<fo:table-column>
-					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
+					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 6" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-column>
-					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
+					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 6" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-column>
-					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
+					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 6" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-column>
-					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
+					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 6" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-column>
-					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
+					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 6" />mm</xsl:attribute>
+				</fo:table-column>
+				<fo:table-column>
+					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 6" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-body>
 					<fo:table-row>											<xsl:message>Test Spells Memorized Header</xsl:message>
@@ -1098,7 +1095,7 @@
 	<xsl:template match="class" mode="spells.memorized">
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:table-row>											<xsl:message>Test "Spells Memorized Section"</xsl:message>
-				<fo:table-cell padding-top="1pt" number-columns-spanned="5">
+				<fo:table-cell padding-top="1pt" number-columns-spanned="6">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spells.memorized.header'"/>
 					</xsl:call-template>
