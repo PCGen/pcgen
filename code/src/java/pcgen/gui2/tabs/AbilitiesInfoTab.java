@@ -96,7 +96,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		private final MapFacade<AbilityCategory, ListFacade<AbilityFacade>> categoryMap;
 		private final CharacterFacade character;
 		private boolean isInstalled = false;
-		private String selectedTitle = null;
+		private String selectedTitle;
 		private final ListFacade<AbilityCategory> activeCategories;
 
 		public AbilityTabsModel(CharacterFacade character)

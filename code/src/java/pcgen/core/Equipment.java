@@ -893,8 +893,7 @@ public final class Equipment extends PObject
 				+ ")";
 		String s = mat.replaceAll(sB);
 
-		String v = getVariableValue(s, "", primaryHead, aPC).toString();
-		return v;
+		return getVariableValue(s, "", primaryHead, aPC).toString();
 	}
 
 	/**
@@ -2559,10 +2558,8 @@ public final class Equipment extends PObject
 			eqMod.bonusTo(aPC, aType, aName, this);
 		}
 
-		double iBonus = getBonusMap().keySet().stream().filter(key -> key.startsWith(aBonusKey))
+		return getBonusMap().keySet().stream().filter(key -> key.startsWith(aBonusKey))
 			.mapToDouble(key -> Float.parseFloat(getBonusMap().get(key))).sum();
-
-		return iBonus;
 	}
 
 	/**
@@ -2766,16 +2763,12 @@ public final class Equipment extends PObject
 
 		if (modifiedName == null)
 		{
-			if (other.modifiedName != null)
-			{
-				return false;
-			}
+			return other.modifiedName == null;
 		}
-		else if (!modifiedName.equals(other.modifiedName))
+		else
 		{
-			return false;
+			return modifiedName.equals(other.modifiedName);
 		}
-		return true;
 	}
 
 	/**
@@ -4220,10 +4213,10 @@ public final class Equipment extends PObject
 
 					if (iOffs > 10)
 					{
-						Integer acCombatBonus = Integer.valueOf(aString.substring(10, iOffs));
-						double d = acCombatBonus.doubleValue() * mult;
+						int acCombatBonus = Integer.parseInt(aString.substring(10, iOffs));
+						double d = (double) acCombatBonus * mult;
 						acCombatBonus = (int) d;
-						aString = aString.substring(0, 10) + acCombatBonus.toString() + aString.substring(iOffs);
+						aString = aString.substring(0, 10) + Integer.toString(acCombatBonus) + aString.substring(iOffs);
 						/*
 						 * TODO This is bad behavior to alter this list, 
 						 * which - theoretically - shouldn't be altered 
@@ -4485,10 +4478,8 @@ public final class Equipment extends PObject
 	private List<List<EquipmentModifier>> initSplitModList()
 	{
 
-		List<List<EquipmentModifier>> modListArray = IntStream.range(0, EqModFormatCat.values().length)
+		return IntStream.range(0, EqModFormatCat.values().length)
 			.<List<EquipmentModifier>> mapToObj(i -> new ArrayList<>()).collect(Collectors.toList());
-
-		return modListArray;
 	}
 
 	/**
@@ -5473,7 +5464,7 @@ public final class Equipment extends PObject
 	public Float getBaseContainedWeight()
 	{
 
-		Float total = (float) 0;
+		float total = (float) 0;
 
 		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT)) || (getChildCount() == 0))
 		{
@@ -5515,7 +5506,7 @@ public final class Equipment extends PObject
 	 */
 	public Float getContainedWeight(final PlayerCharacter aPC, final boolean effective)
 	{
-		Float total = 0.0f;
+		float total = 0.0f;
 
 		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT) && !effective) || (getChildCount() == 0))
 		{
@@ -5629,10 +5620,8 @@ public final class Equipment extends PObject
 	public Collection<Equipment> getContents()
 	{
 
-		final Collection<Equipment> contents = IntStream.range(0, getContainedEquipmentCount())
+		return IntStream.range(0, getContainedEquipmentCount())
 			.mapToObj(this::getContainedEquipment).collect(Collectors.toList());
-
-		return contents;
 	}
 
 	// ---------------------------
@@ -5942,6 +5931,7 @@ public final class Equipment extends PObject
 
 				// if the 3rd token is "BASE" we have something like
 				// CHECKS.BASE.Fortitude
+				// Type: .DODGE
 				if ("BASE".equals(aString))
 				{
 					if (aTok.hasMoreTokens())
@@ -5950,19 +5940,11 @@ public final class Equipment extends PObject
 						aTok.nextToken();
 					}
 
-					if (aTok.hasMoreTokens())
-					{
-						// check for a TYPE
-						nextTok = aTok.nextToken();
-					}
 				}
-				else
+				if (aTok.hasMoreTokens())
 				{
-					if (aTok.hasMoreTokens())
-					{
-						// Type: .DODGE
-						nextTok = aTok.nextToken();
-					}
+					// check for a TYPE
+					nextTok = aTok.nextToken();
 				}
 
 				if (nextTok != null)
@@ -6037,9 +6019,10 @@ public final class Equipment extends PObject
 
 	public void removeType(Type t)
 	{
-		while (removeFromListFor(ListKey.TYPE, t))
+		boolean moreToRemove = true;
+		while (moreToRemove)
 		{
-			; // Using the while for side effects
+			moreToRemove = removeFromListFor(ListKey.TYPE, t);
 		}
 		dumpTypeCache();
 	}
@@ -6052,8 +6035,8 @@ public final class Equipment extends PObject
 	 */
 	public void addWeaponToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
 	{
-		Float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2.0f : num;
-		setNumberEquipped(numEquipped.intValue());
+		float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2.0f : num;
+		setNumberEquipped((int) numEquipped);
 
 		setLocation(eLoc);
 

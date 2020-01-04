@@ -233,13 +233,12 @@ public final class Kit extends PObject
 		{
 			return qualifies(aPC, this);
 		}
-		else if (kitVisible.isVisibleTo(v))
+		else
 		{
-			return true;
+			return kitVisible.isVisibleTo(v);
 		}
 
-		return false;
-	}
+    }
 
 	/**
 	 * Test applying the top level kit and record the choices made and any 
@@ -362,9 +361,8 @@ public final class Kit extends PObject
 
 	private String getPreReqHTMLStrings(PlayerCharacter aPC)
 	{
-		String sb = PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false)
+		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false)
 				+ AllowUtilities.getAllowInfo(aPC, this);
-		return sb;
 	}
 
 	public static void applyKit(final Kit aKit, final PlayerCharacter aPC)

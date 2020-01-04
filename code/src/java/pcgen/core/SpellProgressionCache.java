@@ -323,10 +323,7 @@ public class SpellProgressionCache implements Cloneable
 		if (knownProgression != null)
 		{
 			int lvl = knownProgression.getMinLevelForSpellLevel(spellLevel, allowBonus);
-			if (lvl != -1)
-			{
-				return lvl;
-			}
+            return lvl;
 		}
 
 		return -1;

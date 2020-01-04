@@ -230,17 +230,13 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		}
 		if (spellInfo == null)
 		{
-			if (other.spellInfo != null)
-			{
-				return false;
-			}
+            return other.spellInfo == null;
 		}
-		else if (!spellInfo.equals(other.spellInfo))
+		else
 		{
-			return false;
+			return spellInfo.equals(other.spellInfo);
 		}
-		return true;
-	}
+    }
 
 	@Override
 	public boolean isNamePI()

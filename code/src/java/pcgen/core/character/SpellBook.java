@@ -190,7 +190,7 @@ public class SpellBook implements Cloneable
 	 */
 	public final String getTypeName()
 	{
-		String retValue = "";
+		String retValue;
 		switch (getType())
 		{
 			case SpellBook.TYPE_KNOWN_SPELLS:

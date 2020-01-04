@@ -165,8 +165,7 @@ public final class PrerequisiteUtilities
 			}
 		}
 
-		String result = pString.toString().replaceAll("##BR##", "<br>");
-		return result;
+        return pString.toString().replaceAll("##BR##", "<br>");
 	}
 
 	/**

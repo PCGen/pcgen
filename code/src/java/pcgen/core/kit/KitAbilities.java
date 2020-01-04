@@ -179,7 +179,6 @@ public final class KitAbilities extends BaseKit
 		}
 		else
 		{
-			selected = new ArrayList<>();
 			// Force user to make enough selections
 			while (true)
 			{

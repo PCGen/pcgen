@@ -306,7 +306,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 				context.addWriteMessage(getTokenName() + " expected Equipment to know ATTACKS_PROGRESS state");
 				return null;
 			}
-			else if (!attProgress.booleanValue())
+			else if (!attProgress)
 			{
 				sb.append(Constants.CHAR_ASTERISK);
 			}

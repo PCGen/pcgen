@@ -249,12 +249,12 @@ public class PropertyContext implements PropertyChangeListener
 
 	public boolean getBoolean(String key)
 	{
-		return Boolean.valueOf(getProperty(key));
+		return Boolean.parseBoolean(getProperty(key));
 	}
 
 	public boolean getBoolean(String key, boolean defaultValue)
 	{
-		return Boolean.valueOf(getProperty(key, Boolean.toString(defaultValue)));
+		return Boolean.parseBoolean(getProperty(key, Boolean.toString(defaultValue)));
 	}
 
 	public void setBoolean(String key, boolean bool)
@@ -264,7 +264,7 @@ public class PropertyContext implements PropertyChangeListener
 
 	public boolean initBoolean(String key, boolean defaultValue)
 	{
-		return Boolean.valueOf(initProperty(key, Boolean.toString(defaultValue)));
+		return Boolean.parseBoolean(initProperty(key, Boolean.toString(defaultValue)));
 	}
 
 	@Override

@@ -402,9 +402,9 @@ public class BonusManager
 			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 		}
 		String nonStackString = nonStackMap.get(fullyQualifiedBonusType);
-		Float nonStackVal = nonStackString == null ? 0.0f : Float.valueOf(nonStackString);
+		Float nonStackVal = nonStackString == null ? 0.0f : Float.parseFloat(nonStackString);
 		String stackString = stackMap.get(fullyQualifiedBonusType);
-		Float stackVal = stackString == null ? 0.0f : Float.valueOf(stackString);
+		Float stackVal = stackString == null ? 0.0f : Float.parseFloat(stackString);
 		Float FullValue = nonStackVal + stackVal;
 		putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(FullValue), targetMap);
 	}
@@ -790,7 +790,7 @@ public class BonusManager
 
 				// The bonus has been applied to the target stat
 				// Should it be included?
-				boolean addIt = false;
+				boolean addIt;
 				if (co instanceof Equipment || co instanceof EquipmentModifier)
 				{
 					addIt = useEquip;
@@ -1144,7 +1144,7 @@ public class BonusManager
 		Object creatorObj = getSourceObject(bo);
 
 		List<String> associatedList;
-		CDOMObject anObj = null;
+		CDOMObject anObj;
 		if (creatorObj instanceof CDOMObject)
 		{
 			anObj = (CDOMObject) creatorObj;

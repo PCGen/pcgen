@@ -282,7 +282,7 @@ public class GameModeFileLoader extends PCGenTask
 			String aLine = fileLines[i];
 
 			// Ignore commented-out and empty lines
-			if (((!aLine.isEmpty()) && (aLine.charAt(0) == '#')) || (aLine.isEmpty()))
+			if (aLine.isEmpty() || (aLine.charAt(0) == '#'))
 			{
 				continue;
 			}
@@ -335,7 +335,7 @@ public class GameModeFileLoader extends PCGenTask
 			String aLine = fileLines[i];
 
 			// Ignore commented-out and empty lines
-			if (((!aLine.isEmpty()) && (aLine.charAt(0) == '#')) || aLine.isEmpty())
+			if (aLine.isEmpty() || (aLine.charAt(0) == '#'))
 			{
 				continue;
 			}

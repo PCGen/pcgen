@@ -271,7 +271,7 @@ public class EquipmentModel
 			else
 			{
 				setFont(normFont);
-				EquipmentFacade equip = null;
+				EquipmentFacade equip;
 				if (!selected)
 				{
 					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getQualifiedColor()));

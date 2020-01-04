@@ -76,9 +76,7 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 
 	private ParseResult runToken(CDOMObject source)
 	{
-		ParseResult result =
-				ADD_ABILITY_TOKEN.parseToken(context, source, "FEAT|VIRTUAL|STACKS,Granted");
-		return result;
+        return ADD_ABILITY_TOKEN.parseToken(context, source, "FEAT|VIRTUAL|STACKS,Granted");
 	}
 
 	@Override

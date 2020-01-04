@@ -424,7 +424,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		this.infoFactory = infoFactory;
 	}
 
-	private class CDOMInfoWrapper implements InfoFacade
+	private static class CDOMInfoWrapper implements InfoFacade
 	{
 		private final CDOMObject cdomObj;
 
@@ -480,7 +480,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		}
 	}
 
-	private class DelimitedStringInfoWrapper implements InfoFacade
+	private static class DelimitedStringInfoWrapper implements InfoFacade
 	{
 		private final String string;
 		private final String delimiter;

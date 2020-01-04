@@ -38,7 +38,7 @@ public class CostToken extends AbstractNonEmptyToken<PointBuyCost> implements CD
 	{
 		try
 		{
-			pbc.setBuyCost(Integer.valueOf(value));
+			pbc.setBuyCost(Integer.parseInt(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)

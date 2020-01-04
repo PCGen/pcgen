@@ -127,6 +127,6 @@ public class NoRankToken implements QualifierToken<Skill>, PrimitiveFilter<Skill
 	@Override
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
-		return (pc.getDisplay().getRank(sk).floatValue() == 0);
+		return (pc.getDisplay().getRank(sk) == 0);
 	}
 }

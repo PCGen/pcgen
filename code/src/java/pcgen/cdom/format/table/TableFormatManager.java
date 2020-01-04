@@ -92,10 +92,9 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	@Override
 	public String getIdentifierType()
 	{
-		String sb = "TABLE["
-				+ lookupFormat.getIdentifierType()
-				+ "]";
-		return sb;
+        return "TABLE["
+                + lookupFormat.getIdentifierType()
+                + "]";
 	}
 
 	@Override

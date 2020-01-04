@@ -118,7 +118,7 @@ public class DamageReductionFacet extends AbstractSourcedListFacet<CharID, Damag
 					if (OR_PATTERN.matcher(bypass).find())
 					{
 						Integer current = orMap.get(bypass);
-						if ((current == null) || (current.intValue() < rawDrValue))
+						if ((current == null) || (current < rawDrValue))
 						{
 							orMap.put(dr.getBypass(), rawDrValue);
 						}
@@ -133,7 +133,7 @@ public class DamageReductionFacet extends AbstractSourcedListFacet<CharID, Damag
 						if (splits.length == 1)
 						{
 							Integer current = andMap.get(dr.getBypass());
-							if ((current == null) || (current.intValue() < rawDrValue))
+							if ((current == null) || (current < rawDrValue))
 							{
 								andMap.put(dr.getBypass(), rawDrValue);
 							}
@@ -143,7 +143,7 @@ public class DamageReductionFacet extends AbstractSourcedListFacet<CharID, Damag
 							for (String split : splits)
 							{
 								Integer current = andMap.get(split);
-								if ((current == null) || (current.intValue() < rawDrValue))
+								if ((current == null) || (current < rawDrValue))
 								{
 									andMap.put(split, rawDrValue);
 								}

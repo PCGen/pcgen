@@ -90,7 +90,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 					Integer lvl = assoc.getAssociation(AssociationKey.SPELL_LEVEL);
 					String prereqString = getPrerequisiteString(context, assoc.getPrerequisiteList());
 					Boolean known = assoc.getAssociation(AssociationKey.KNOWN);
-					boolean isKnown = known != null && known.booleanValue();
+					boolean isKnown = known != null && known;
 					if (knownSpells == isKnown)
 					{
 						map.addToListFor(prereqString, lvl, listRef, added);

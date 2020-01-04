@@ -257,7 +257,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		return spellList;
 	}
 
-	private class SpellBookModel extends CharacterComboBoxModel<String>
+	private static class SpellBookModel extends CharacterComboBoxModel<String>
 	{
 
 		private final SpellSupportFacade spellSupport;

@@ -334,9 +334,8 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T> e
 	private Set<Object> getConstructingCachedSetFor(IDT id, T obj)
 	{
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
-		Set<Object> set = map.computeIfAbsent(obj, k -> Collections.newSetFromMap(new IdentityHashMap<>()));
 
-		return set;
+        return map.computeIfAbsent(obj, k -> Collections.newSetFromMap(new IdentityHashMap<>()));
 	}
 
 	/**

@@ -77,7 +77,7 @@ public class PreVisionParser extends AbstractPrerequisiteListParser implements P
 			{
 				Logging.deprecationPrint("Found PREVISION that is invalid (vision=0 is always true)");
 				Logging.deprecationPrint("  You should use =1 or =ANY");
-				returnValue &= false;
+				returnValue = false;
 			}
 		}
 

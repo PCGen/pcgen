@@ -48,9 +48,9 @@ public abstract class VariableProcessor
 	private enum MATH_OP
 	{
 		PLUS, MINUS, MULTIPLY, DIVIDE
-	};
+	}
 
-	/** The current indenting to be used for debug output of jep evaluations. */
+    /** The current indenting to be used for debug output of jep evaluations. */
 	private String jepIndent = "";
 	protected PlayerCharacter pc;
 
@@ -130,7 +130,7 @@ public abstract class VariableProcessor
 		{
 			result = processBrokenParser(aSpell, varString, src, spellLevelTemp);
 
-			String cacheString = makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
+			String cacheString = makeCacheString(aSpell, varString, src, spellLevelTemp);
 
 			addCachedVariable(cacheString, result);
 		}
@@ -161,7 +161,7 @@ public abstract class VariableProcessor
 			// number, If we got here it wasn't
 		}
 
-		String cacheString = makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
+		String cacheString = makeCacheString(aSpell, varString, src, spellLevelTemp);
 
 		Float total = getCachedVariable(cacheString);
 		if (total != null)

@@ -378,7 +378,7 @@ public final class KitGear extends BaseKit
 			else
 			{
 				EquipSet eqSet =
-						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, Float.valueOf(-1.0f));
+						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, -1.0f);
 				if (eqSet == null)
 				{
 					warnings.add("GEAR: Could not equip " + testApplyEquipment.getName() + " to " + theLocation);
@@ -430,7 +430,7 @@ public final class KitGear extends BaseKit
 		//
 		// Equip the item to the default EquipSet.
 		//
-		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, Float.valueOf(theQty));
+		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, (float) theQty);
 
 		aPC.setGold(aPC.getGold().subtract(theCost));
 	}

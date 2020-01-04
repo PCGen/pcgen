@@ -37,7 +37,7 @@ public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo> implement
 	{
 		try
 		{
-			int step = Integer.valueOf(value);
+			int step = Integer.parseInt(value);
 			if (step <= 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " expected a positive integer, found : " + value);

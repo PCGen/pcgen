@@ -111,7 +111,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race> im
 			}
 			needsComma = true;
 			Integer hd = it.next();
-			if (hd.intValue() == Integer.MAX_VALUE)
+			if (hd == Integer.MAX_VALUE)
 			{
 				if (it.hasNext())
 				{
@@ -123,13 +123,13 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race> im
 			}
 			else
 			{
-				if (hd.intValue() < last)
+				if (hd < last)
 				{
 					Logging.errorPrint("Found " + hd + " in " + getTokenName() + " but was <= zero "
 						+ "or the previous value in the list: " + list);
 					return null;
 				}
-				last = hd.intValue();
+				last = hd;
 				sb.append(hd);
 			}
 		}

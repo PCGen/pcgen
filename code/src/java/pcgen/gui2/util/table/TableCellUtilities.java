@@ -230,7 +230,7 @@ public final class TableCellUtilities
 		 * SwingConstants.CENTER
 		 * X.RIGHT
 		 **/
-		private int align = SwingConstants.LEFT;
+		private int align;
 		private final boolean showTooltips;
 
 		/**

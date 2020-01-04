@@ -113,7 +113,7 @@ public class RaceToken extends Token
 
 	private static String getRaceToken(PlayerCharacter pc)
 	{
-		String retString = Constants.EMPTY_STRING;
+		String retString;
 
 		Race race = pc.getDisplay().getRace();
 		String tempRaceName = OutputNameFormatting.getOutputName(race);

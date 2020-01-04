@@ -32,7 +32,7 @@ public class PreAgeSetTester extends AbstractDisplayPrereqTest implements Prereq
 	{
 		final int ageset = display.getAgeSetIndex();
 
-		int runningTotal = -1;
+		int runningTotal;
 		int anInt;
 
 		try

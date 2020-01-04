@@ -69,7 +69,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 			}
 
 			Double oldValue = map.get(s);
-			if ((oldValue == null) || (newValue != oldValue.doubleValue()))
+			if ((oldValue == null) || (newValue != oldValue))
 			{
 				map.put(s, newValue);
 				support.fireSkillRankChange(id, s, oldValue, newValue);
@@ -375,7 +375,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 			Double rank = map.get(skill);
 			if (rank != null)
 			{
-				return rank.doubleValue();
+				return rank;
 			}
 		}
 		return 0.0;

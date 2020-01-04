@@ -36,7 +36,7 @@ import pcgen.core.prereq.Prerequisite;
 public class QualifiedObject<T> extends ConcretePrereqObject implements QualifyingObject
 {
 
-	private T theObject = null;
+	private T theObject;
 
 	/**
 	 * Constructor
@@ -109,11 +109,10 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 	public String toString()
 	{
 		// TODO Auto-generated method stub
-		String result = "Object:"
+		return "Object:"
 				+ theObject.toString()
 				+ ", Prereq:"
 				+ getPrerequisiteList().toString();
-		return result;
 	}
 
 	@Override

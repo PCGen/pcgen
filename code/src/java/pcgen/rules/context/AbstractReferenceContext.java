@@ -311,7 +311,7 @@ public abstract class AbstractReferenceContext
 			if (pcc.containsListFor(ListKey.SUB_CLASS))
 			{
 				SubClassCategory cat = SubClassCategory.getConstant(key);
-				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS).booleanValue();
+				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS);
 				for (SubClass subcl : pcc.getListFor(ListKey.SUB_CLASS))
 				{
 					String subKey = subcl.getKeyName();

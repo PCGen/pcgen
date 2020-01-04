@@ -113,8 +113,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.htmlPane = new JFXPanelFromResource<>(
 				SimpleHtmlPanelController.class,
 				"SimpleHtmlPanel.fxml"
-		);;
-		this.skillFilterBox = new JComboBox<>();
+		);
+        this.skillFilterBox = new JComboBox<>();
 		initComponents();
 	}
 

@@ -396,7 +396,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		assertEquals("+7", evaluateToken(
 			"VAR.NegLevels.INTVAL.SIGN", pc), "Signed output");
 	
-		String tok = "";
+		String tok;
 	
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
 		// if this evaluates math wise, the values should be string "1.0"

@@ -52,7 +52,7 @@ public class CountToken extends AbstractToken implements CDOMPrimaryToken<KitAbi
 		try
 		{
 			Integer quan = Integer.valueOf(value);
-			if (quan.intValue() <= 0)
+			if (quan <= 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
 			}

@@ -112,10 +112,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		else if ((desiredAlignment.equalsIgnoreCase("Deity")) && (display.getDeity() != null))
 		{
 			final CDOMSingleRef<PCAlignment> deityAlign = display.getDeity().get(ObjectKey.ALIGNMENT);
-			if ((deityAlign != null) && charAlignment.equals(deityAlign.get()))
-			{
-				return true;
-			}
+            return (deityAlign != null) && charAlignment.equals(deityAlign.get());
 		}
 		return false;
 	}

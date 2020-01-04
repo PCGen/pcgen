@@ -69,7 +69,7 @@ public class StatToken extends Token
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		String retString = "";
+		String retString;
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		if (aTok.countTokens() < 2)
 		{
@@ -204,7 +204,7 @@ public class StatToken extends Token
 			return "*";
 		}
 
-		int aTotal = 0;
+		int aTotal;
 
 		if (useLevel)
 		{

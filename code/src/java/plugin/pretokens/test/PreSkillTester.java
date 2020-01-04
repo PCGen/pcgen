@@ -79,7 +79,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 				if (percentageSignPosition >= 0)
 				{
 					foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, aSkill);
-					foundSkill = (foundMatch) ? true : false;
+					foundSkill = foundMatch;
 					runningTotal = getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks);
 				}
 				else if (aSkill.isType(skillKey))
@@ -128,7 +128,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 					if (target.getDisplayName().equalsIgnoreCase(skillKey))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
 								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
@@ -137,7 +136,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 						&& aSkillKey.startsWith(skillKey.substring(0, percentageSignPosition))))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
 								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
@@ -160,7 +158,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 					if (target.isType(skillKey))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
 								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
@@ -235,9 +232,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 
 		}
 
-		final String foo = LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
 			prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
-		return foo;
 	}
 
 	/**

@@ -62,7 +62,7 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 	 */
 	public PrerequisiteWriterInterface getWriter(String kind)
 	{
-		PrerequisiteWriterInterface test = null;
+		PrerequisiteWriterInterface test;
 		if (kind == null)
 		{
 			test = new PrerequisiteMultWriter();

@@ -71,8 +71,7 @@ public class CampaignPanel extends ConvertSubPanel
 	public boolean performAnalysis(CDOMObject pc)
 	{
 		GameMode game = pc.get(ObjectKey.GAME_MODE);
-		List<String> gameModeList = new ArrayList<>();
-		gameModeList.addAll(game.getAllowedModes());
+		List<String> gameModeList = new ArrayList<>(game.getAllowedModes());
 
 		File sourceFolder = pc.get(ObjectKey.DIRECTORY);
 		folderName = sourceFolder.toURI().toString();
@@ -114,8 +113,7 @@ public class CampaignPanel extends ConvertSubPanel
 				java.awt.Point p = e.getPoint();
 				int rowIndex = rowAtPoint(p);
 				int colIndex = columnAtPoint(p);
-				String tip = String.valueOf(getValueAt(rowIndex, colIndex));
-				return tip;
+				return String.valueOf(getValueAt(rowIndex, colIndex));
 			}
 		};
 		table.getSelectionModel().addListSelectionListener(event -> {
@@ -183,7 +181,7 @@ public class CampaignPanel extends ConvertSubPanel
 	 * The model of the campaign table.
 	 */
 	@SuppressWarnings("serial")
-	public class CampaignTableModel extends AbstractTableModel
+	public static class CampaignTableModel extends AbstractTableModel
 	{
 
 		/** The column names. */

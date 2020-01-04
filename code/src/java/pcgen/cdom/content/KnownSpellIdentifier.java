@@ -69,7 +69,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	public KnownSpellIdentifier(CDOMReference<Spell> spellRef, Integer levelLimit)
 	{
 		Objects.requireNonNull(spellRef, "Known Spell Identifier cannot have null spell reference");
-		if (levelLimit != null && levelLimit.intValue() < 0)
+		if (levelLimit != null && levelLimit < 0)
 		{
 			throw new IllegalArgumentException("Known Spell Identifier level limit cannot be negative");
 		}
@@ -166,7 +166,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	@Override
 	public int hashCode()
 	{
-		return spellLevel == null ? ref.hashCode() : spellLevel.intValue() * ref.hashCode();
+		return spellLevel == null ? ref.hashCode() : spellLevel * ref.hashCode();
 	}
 
 	@Override

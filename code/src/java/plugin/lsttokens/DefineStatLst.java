@@ -54,7 +54,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 
 	public enum DefineStatSubToken
 	{
-		LOCK, UNLOCK, NONSTAT, STAT, MINVALUE, MAXVALUE;
+		LOCK, UNLOCK, NONSTAT, STAT, MINVALUE, MAXVALUE
 	}
 
 	@Override

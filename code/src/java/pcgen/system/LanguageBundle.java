@@ -108,7 +108,7 @@ public final class LanguageBundle
 			init();
 		}
 
-		String value = null;
+		String value;
 		try
 		{
 			value = bundle.getString(key);

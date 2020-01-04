@@ -42,7 +42,7 @@ public interface ChooserFacade
 		NAME,
 
 		/** A hierarchical display of choice names within their types. */
-		TYPE_NAME;
+		TYPE_NAME
 	}
 
 	/**

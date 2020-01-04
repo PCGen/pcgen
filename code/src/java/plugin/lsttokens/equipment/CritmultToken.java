@@ -52,7 +52,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements C
 			try
 			{
 				cm = Integer.valueOf(value.substring(1));
-				if (cm.intValue() <= 0)
+				if (cm <= 0)
 				{
 					return new ParseResult.Fail(getTokenName() + " cannot be <= 0");
 				}
@@ -89,7 +89,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements C
 		{
 			return null;
 		}
-		int multInt = mult.intValue();
+		int multInt = mult;
 		String retString;
 		if (multInt == -1)
 		{

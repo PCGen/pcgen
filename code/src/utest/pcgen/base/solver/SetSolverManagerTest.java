@@ -132,7 +132,7 @@ class SetSolverManagerTest
 				(VariableID<String[]>) sl.getVariableID(scopeInst, "Regions");
 		manager.createChannel(regions);
 		Object[] array = vc.get(regions);
-		List<Object> list = Arrays.asList(array);
+		List<Object> list;
 		assertEquals(0, array.length);
 		assertTrue(vc.set.contains(regions));
 		assertEquals(1, vc.set.size());

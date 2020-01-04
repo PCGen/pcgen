@@ -34,10 +34,9 @@ public class SpellLevel implements Comparable<SpellLevel>
 	@Override
 	public String toString()
 	{
-		String sb = pcclass
-				+ " "
-				+ level;
-		return sb;
+        return pcclass
+                + " "
+                + level;
 	}
 
 	/**
@@ -46,11 +45,10 @@ public class SpellLevel implements Comparable<SpellLevel>
 	 */
 	public String encodeChoice()
 	{
-		String sb = "CLASS."
-				+ pcclass.getKeyName()
-				+ ";LEVEL."
-				+ level;
-		return sb;
+        return "CLASS."
+                + pcclass.getKeyName()
+                + ";LEVEL."
+                + level;
 	}
 
 	public static SpellLevel decodeChoice(LoadContext context, String persistentFormat)

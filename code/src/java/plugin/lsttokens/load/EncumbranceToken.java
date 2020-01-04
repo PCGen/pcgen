@@ -77,13 +77,13 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo>
 		}
 
 		String moveFormula;
-		Integer checkPenalty;
+		int checkPenalty;
 		if (tokenCount == 4)
 		{
 			moveFormula = tokens[2];
 			try
 			{
-				checkPenalty = Integer.valueOf(tokens[3]);
+				checkPenalty = Integer.parseInt(tokens[3]);
 			}
 			catch (NumberFormatException e)
 			{
