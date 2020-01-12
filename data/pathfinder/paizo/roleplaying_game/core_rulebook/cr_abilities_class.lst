@@ -202,15 +202,15 @@ CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|
 CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Master Strike|PREVAREQ:Rogue_CF_MasterStrike,0|PREVARGTEQ:Rogue_CFP_Level,20
 
 ###Block: The rest of the classes
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|PREVAREQ:Bard_CF_BardicKnowledge,0|PREVARGTEQ:Cleric_CFP_Level,1
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong|PREVAREQ:Bard_CF_CounterSong,0|PREVARGTEQ:Cleric_CFP_Level,1
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance|PREVAREQ:Bard_CF_BardicPerformance,0|PREVARGTEQ:Cleric_CFP_Level,1
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting|PREVAREQ:Bard_CF_ArmoredCasting,0|PREVARGTEQ:Cleric_CFP_Level,1
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips|PREVAREQ:Bard_CF_Cantrips,0|PREVARGTEQ:Cleric_CFP_Level,1
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|PREVAREQ:Bard_CF_VersatilePerformance,0|PREVARGTEQ:Cleric_CFP_Level,2
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|PREVAREQ:Bard_CF_WellVersed,0|PREVARGTEQ:Cleric_CFP_Level,2
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|PREVAREQ:Bard_CF_LoreMaster,0|PREVARGTEQ:Cleric_CFP_Level,5
-CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|PREVAREQ:Bard_CF_JackOfAllTrades,0|PREVARGTEQ:Cleric_CFP_Level,10
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|PREVAREQ:Bard_CF_BardicKnowledge,0|PREVARGTEQ:Bard_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong|PREVAREQ:Bard_CF_CounterSong,0|PREVARGTEQ:Bard_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance|PREVAREQ:Bard_CF_BardicPerformance,0|PREVARGTEQ:Bard_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting|PREVAREQ:Bard_CF_ArmoredCasting,0|PREVARGTEQ:Bard_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips|PREVAREQ:Bard_CF_Cantrips,0|PREVARGTEQ:Bard_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|PREVAREQ:Bard_CF_VersatilePerformance,0|PREVARGTEQ:Bard_CFP_Level,2
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|PREVAREQ:Bard_CF_WellVersed,0|PREVARGTEQ:Bard_CFP_Level,2
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|PREVAREQ:Bard_CF_LoreMaster,0|PREVARGTEQ:Bard_CFP_Level,5
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|PREVAREQ:Bard_CF_JackOfAllTrades,0|PREVARGTEQ:Bard_CFP_Level,10
 
 CATEGORY=Class|Cleric.MOD	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|PREVARGTEQ:Cleric_CFP_Level,1
 CATEGORY=Class|Cleric.MOD	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura|PREVARGTEQ:Cleric_CFP_Level,1
