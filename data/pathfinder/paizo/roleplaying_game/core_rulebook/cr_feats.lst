@@ -227,4 +227,5 @@ Heighten Spell +9		CATEGORY:FEAT	TYPE:Heighten Spell.Metamagic	VISIBLE:EXPORT	AD
 
 
 
-
+###Block: Do not use Weapon Finesse as a Qualifier moving forward, use the VAR PREVAREQ:HasWeaponFinesseFeat,1
+CATEGORY=Feat|Weapon Finesse.MOD	DEFINE:HasWeaponFinesseFeat|0	BONUS:VAR|HasWeaponFinesseFeat|1|TYPE=Boolean
