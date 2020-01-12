@@ -158,10 +158,9 @@ public class TokenFamilySubIterator<C> implements Iterator<CDOMSecondaryToken<? 
 	private CDOMSecondaryToken<? super C> getNext()
 	{
 		needNewToken = false;
-		while (subIterator.hasNext())
+		if (subIterator.hasNext())
 		{
-			CDOMSecondaryToken<? super C> tok = subIterator.next();
-			return tok;
+			return subIterator.next();
 		}
 		if (OBJECT_CLASS.equals(actingClass))
 		{

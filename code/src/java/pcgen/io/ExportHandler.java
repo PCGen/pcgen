@@ -270,7 +270,7 @@ public abstract class ExportHandler
 					String aString = vString.substring(countIndex + 6, i);
 
 					// Either deal with an EQTYPE or a straight EQ token
-					EqToken token = null;
+					EqToken token;
 					if (aString.contains("EQTYPE"))
 					{
 						token = new EqTypeToken();
@@ -515,12 +515,11 @@ public abstract class ExportHandler
 			{
 				return false;
 			}
-			else if (aSkill.getSafe(ObjectKey.USE_UNTRAINED))
+			else
 			{
-				return true;
+				return aSkill.getSafe(ObjectKey.USE_UNTRAINED);
 			}
 
-			return false;
 		}
 
 		// Deal with JEP formula 
@@ -949,7 +948,7 @@ public abstract class ExportHandler
 		boolean attackRoutine = false;
 		String attackData = "";
 
-		Float total = 0.0f;
+		float total = 0.0f;
 		for (int i = 0; i < str.length(); ++i)
 		{
 			valString += str.substring(i, i + 1);
@@ -1119,22 +1118,22 @@ public abstract class ExportHandler
 							switch (mode)
 							{
 								case ADDITION_MODE:
-									total = (float) (total.doubleValue() + Double.parseDouble(valString));
+									total = (float) ((double) total + Double.parseDouble(valString));
 
 									break;
 
 								case SUBTRACTION_MODE:
-									total = (float) (total.doubleValue() - Double.parseDouble(valString));
+									total = (float) ((double) total - Double.parseDouble(valString));
 
 									break;
 
 								case MULTIPLICATION_MODE:
-									total = (float) (total.doubleValue() * Double.parseDouble(valString));
+									total = (float) ((double) total * Double.parseDouble(valString));
 
 									break;
 
 								case DIVISION_MODE:
-									total = (float) (total.doubleValue() / Double.parseDouble(valString));
+									total = (float) ((double) total / Double.parseDouble(valString));
 
 									break;
 
@@ -1178,17 +1177,17 @@ public abstract class ExportHandler
 		}
 		if (endMode == INTVAL_MODE)
 		{
-			return Integer.toString(total.intValue());
+			return Integer.toString((int) total);
 		}
 
 		if (endMode == SIGN_MODE)
 		{
-			return Delta.toString(total.intValue());
+			return Delta.toString((int) total);
 		}
 
 		if (endMode == NO_ZERO_MODE)
 		{
-			final int totalIntValue = total.intValue();
+			final int totalIntValue = (int) total;
 			if (totalIntValue == 0)
 			{
 				return "";
@@ -1197,7 +1196,7 @@ public abstract class ExportHandler
 			return Delta.toString(totalIntValue);
 		}
 
-		return total.toString();
+		return Float.toString(total);
 	}
 
 	/**
@@ -1249,7 +1248,7 @@ public abstract class ExportHandler
 		// Do nothing if something shouldn't be output.
 		if (canWrite && !nonToken.isEmpty())
 		{
-			String finalToken = null;
+			String finalToken;
 			// If we have manual white space then remove an tab characters
 			if (manualWhitespace)
 			{
@@ -2850,7 +2849,7 @@ public abstract class ExportHandler
 		else
 		{
 			remainder = aString.substring(iStart);
-			int i = 0;
+			int i;
 			if (evaluateExpression(tokenizedString[0], aPC))
 			{
 				i = 1;
@@ -3009,7 +3008,7 @@ public abstract class ExportHandler
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(
 				new FileInputStream(templateFile),
 				StandardCharsets.UTF_8
-		));)
+		)))
 		{
 			boolean betweenPipes = false;
 			StringBuilder textBetweenPipes = new StringBuilder();
@@ -3319,10 +3318,10 @@ public abstract class ExportHandler
 	 */
 	private static final class PStringTokenizer
 	{
-		private String _andThat = "";
-		private String _delimiter = "";
-		private String _forThisString = "";
-		private String _ignoreBetweenThis = "";
+		private String _andThat;
+		private String _delimiter;
+		private String _forThisString;
+		private String _ignoreBetweenThis;
 
 		PStringTokenizer(String forThisString, String delimiter, String ignoreBetweenThis, String andThat)
 		{
@@ -3407,7 +3406,7 @@ public abstract class ExportHandler
 
 			cMin = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 0;
 
-			Integer max = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 100;
+			int max = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 100;
 
 			cStep = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 1;
 

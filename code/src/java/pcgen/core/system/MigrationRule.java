@@ -224,11 +224,8 @@ public class MigrationRule
 			if (minDevVer != null)
 			{
 				int[] minDevVerInt = CoreUtility.convertVersionToNumber(minDevVer);
-				if (CoreUtility.compareVersions(pcgVer, minDevVerInt) < 0
-					&& CoreUtility.sameMajorMinorVer(pcgVer, minDevVerInt))
-				{
-					return false;
-				}
+                return CoreUtility.compareVersions(pcgVer, minDevVerInt) >= 0
+                        || !CoreUtility.sameMajorMinorVer(pcgVer, minDevVerInt);
 			}
 		}
 

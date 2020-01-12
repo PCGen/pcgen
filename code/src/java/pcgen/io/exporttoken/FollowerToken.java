@@ -112,8 +112,7 @@ public class FollowerToken extends Token
 			if (follower.getFileName().equals(eachDisplay.getFileName())
 				&& follower.getName().equals(eachDisplay.getName()))
 			{
-				PlayerCharacter newPC = eachPC;
-				eh.replaceToken(token, bw, newPC);
+                eh.replaceToken(token, bw, eachPC);
 			}
 		}
 		try

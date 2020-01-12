@@ -83,6 +83,6 @@ public class FreeToken extends AbstractNonEmptyToken<KitSkill> implements CDOMPr
 		{
 			return null;
 		}
-		return new String[]{mult.booleanValue() ? "YES" : "NO"};
+		return new String[]{mult ? "YES" : "NO"};
 	}
 }

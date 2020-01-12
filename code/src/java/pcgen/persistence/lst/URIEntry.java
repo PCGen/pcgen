@@ -124,11 +124,10 @@ public class URIEntry
 	@Override
 	public String toString()
 	{
-		String sBuff = "Campaign: "
-				+ campaignName
-				+ "; SourceFile: "
-				+ getURI();
-		return sBuff;
+        return "Campaign: "
+                + campaignName
+                + "; SourceFile: "
+                + getURI();
 	}
 
 	/**

@@ -29,8 +29,8 @@ public class SignIcon implements Icon
 
 	public enum Sign
 	{
-		Plus, Minus;
-	}
+		Plus, Minus
+    }
 
 	private final Sign sign;
 

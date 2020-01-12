@@ -48,12 +48,11 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 	@Override
 	public String toString()
 	{
-		String sb = filter.getLSTformat(false)
-				+ Constants.PIPE
-				+ minimumLevel
-				+ Constants.PIPE
-				+ maximumLevel;
-		return sb;
+        return filter.getLSTformat(false)
+                + Constants.PIPE
+                + minimumLevel
+                + Constants.PIPE
+                + maximumLevel;
 	}
 
 	public Collection<SpellLevel> getLevels(PlayerCharacter pc)

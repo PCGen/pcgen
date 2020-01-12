@@ -151,7 +151,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		});
 
 		radioButtons = new JRadioButton[SourceFolder.values().length];
-		String selectedPath = null;
+		String selectedPath;
 		File selectedFile = pc.get(ObjectKey.DIRECTORY);
 		if (selectedFile != null)
 		{

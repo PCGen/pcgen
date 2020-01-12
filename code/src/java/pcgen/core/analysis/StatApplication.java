@@ -99,15 +99,11 @@ public final class StatApplication
 
 				sStats.append(" (").append(formatter.format(aPC.getStatModFor(aStat))).append(")");
 
-				if (allowStacks || !statsAlreadyBonused.contains(aStat))
-				{
-					selectableStats.add(sStats.toString());
-				}
-				else
+				if (!allowStacks && statsAlreadyBonused.contains(aStat))
 				{
 					sStats.append(" * Already incremented.");
-					selectableStats.add(sStats.toString());
 				}
+				selectableStats.add(sStats.toString());
 			}
 
 			CDOMChooserFacadeImpl<String> chooserFacade = new CDOMChooserFacadeImpl<>(

@@ -35,7 +35,7 @@ public class FinessableToken extends AbstractNonEmptyToken<WieldCategory> implem
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, WieldCategory wc, String value)
 	{
-		Boolean set;
+		boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{

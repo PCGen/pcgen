@@ -101,11 +101,10 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements Qu
 	@Override
 	public String toString()
 	{
-		String sb = ability.get().getDisplayName()
-				+ '('
-				+ Constants.LST_PERCENT_LIST
-				+ ')';
-		return sb;
+        return ability.get().getDisplayName()
+                + '('
+                + Constants.LST_PERCENT_LIST
+                + ')';
 	}
 
 	/**

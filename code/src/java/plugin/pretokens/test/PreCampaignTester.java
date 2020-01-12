@@ -220,9 +220,8 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 			return prereq.getKey();
 		}
 
-		final String foo = LanguageBundle.getFormattedString("PreCampaign.toHtml", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
-		return foo;
+        return LanguageBundle.getFormattedString("PreCampaign.toHtml", //$NON-NLS-1$
+            prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
 	}
 
 }

@@ -68,7 +68,7 @@ public class RequiredToken extends AbstractNonEmptyToken<ContentDefinition>
 		{
 			return null;
 		}
-		return new String[]{required.booleanValue() ? "YES" : "NO"};
+		return new String[]{required ? "YES" : "NO"};
 	}
 
 	@Override

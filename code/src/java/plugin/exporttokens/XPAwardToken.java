@@ -37,7 +37,6 @@ public class XPAwardToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		int award = display.getXPAward();
-		String xpAward = String.format("%,d", award);
-		return xpAward;
+        return String.format("%,d", award);
 	}
 }

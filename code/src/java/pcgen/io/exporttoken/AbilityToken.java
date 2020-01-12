@@ -268,7 +268,7 @@ public class AbilityToken extends Token
 		}
 
 		// Ability List
-		MapToList<Ability, CNAbility> aList = null;
+		MapToList<Ability, CNAbility> aList;
 		// Build the list of abilities that we should display
 		if (key == null)
 		{
@@ -280,9 +280,8 @@ public class AbilityToken extends Token
 		}
 
 		// Build the return string to give to the OutputSheet
-		String retString = getRetString(tokenSource, pc, eh, abilityIndex, aList);
 
-		return retString;
+		return getRetString(tokenSource, pc, eh, abilityIndex, aList);
 	}
 
 	/**
@@ -306,9 +305,9 @@ public class AbilityToken extends Token
 		// Sort the ability list passed in
 		Globals.sortPObjectListByName(aList);
 
-		boolean matchTypeDef = false;
-		boolean matchVisibilityDef = false;
-		boolean matchAspectDef = false;
+		boolean matchTypeDef;
+		boolean matchVisibilityDef;
+		boolean matchAspectDef;
 
 		// List to build up
 		List<Ability> bList = new ArrayList<>();
@@ -355,8 +354,8 @@ public class AbilityToken extends Token
 		// Sort the ability list passed in
 		Globals.sortPObjectListByName(aList);
 
-		boolean matchKeyDef = false;
-		boolean matchVisibilityDef = false;
+		boolean matchKeyDef;
+		boolean matchVisibilityDef;
 
 		// List to build up
 		List<Ability> bList = new ArrayList<>();

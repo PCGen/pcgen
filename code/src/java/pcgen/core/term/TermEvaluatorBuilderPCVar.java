@@ -1073,7 +1073,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				// This will do COUNT[FOLLOWERTYPE.Animal Companions.0.xxx],
 				// returning the same as COUNT[xxx] if applied to the right follower
 				return new PCCountFollowerTypeTransitiveTermEvaluator(expressionString, types[0],
-					Integer.valueOf(numMat.group()), newCount);
+					Integer.parseInt(numMat.group()), newCount);
 			}
 		}
 	},

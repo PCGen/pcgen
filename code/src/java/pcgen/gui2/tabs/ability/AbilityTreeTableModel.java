@@ -207,8 +207,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 			List<Object> data = new ArrayList<>(2);
 			data.add(ability);
 			data.add(character.getInfoFactory().getChoices(ability));
-			DefaultTreeTableNode node = new DefaultSortableTreeTableNode(data);
-			return node;
+            return new DefaultSortableTreeTableNode(data);
 		}
 
 		@Override

@@ -72,8 +72,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			return new ParseResult.Fail(
 				getTokenName() + " varName|varFormula" + "or LOCK.<stat>|value syntax requires an argument");
 		}
-		String var = firstItem;
-		if (var.isEmpty())
+        if (firstItem.isEmpty())
 		{
 			return new ParseResult.Fail("Empty Variable Name found in " + getTokenName() + ": " + value);
 		}
@@ -84,7 +83,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + f.toString());
 			}
-			if ((!f.isStatic() || f.resolveStatic().intValue() != 0) && !(var.startsWith("MAXLEVELSTAT=")))
+			if ((!f.isStatic() || f.resolveStatic().intValue() != 0) && !(firstItem.startsWith("MAXLEVELSTAT=")))
 			{
 				Logging.deprecationPrint(
 					"DEFINE with a non zero value has been deprecated, "
@@ -103,7 +102,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			else
 			{
-				context.getObjectContext().put(obj, VariableKey.getConstant(var), f);
+				context.getObjectContext().put(obj, VariableKey.getConstant(firstItem), f);
 			}
 			return ParseResult.SUCCESS;
 		}

@@ -50,7 +50,7 @@ public final class TipOfTheDayHandler
 	private static TipOfTheDayHandler INSTANCE = null;
 
 	private List<String> tipList = null;
-	private int lastNumber = -1;
+	private int lastNumber;
 
 	/**
 	 * Create a new instance of TipOfTheDayHandler

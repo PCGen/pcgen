@@ -101,8 +101,7 @@ public class ObjectInjector
 		String relative = in.toString().substring(base.toString().length() + 1);
 		File actualRoot = generateCommonRoot(rootDir, outDir);
 		String outString = outDir.getAbsolutePath().substring(actualRoot.getAbsolutePath().length());
-		File outputFileSibling = new File(actualRoot, File.separator + outString + File.separator + relative);
-		return outputFileSibling;
+        return new File(actualRoot, File.separator + outString + File.separator + relative);
 	}
 
 	public void writeInjectedObjects(List<Campaign> list) throws IOException
@@ -148,12 +147,12 @@ public class ObjectInjector
 
 	private String getFileHeader()
 	{
-        String sb = "# This file was automatically created "
+
+        return "# This file was automatically created "
                 + "during dataset conversion by PCGen "
                 + PCGenPropBundle.getVersionNumber()
                 + " on " + LocalDateTime.now(Clock.systemUTC())
                 + "\n# This file does not contain SOURCE information\n";
-        return sb;
 	}
 
 	private String getFileFooter()

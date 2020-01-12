@@ -73,7 +73,7 @@ public class UseUntrainedToken implements PrimitiveToken<Skill>, PrimitiveFilter
 	@Override
 	public boolean allow(PlayerCharacter pc, Skill skill)
 	{
-		return skill.getSafe(ObjectKey.USE_UNTRAINED).booleanValue();
+		return skill.getSafe(ObjectKey.USE_UNTRAINED);
 	}
 
 	@Override

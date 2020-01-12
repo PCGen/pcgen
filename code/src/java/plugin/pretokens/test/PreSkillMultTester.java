@@ -127,9 +127,8 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 
 		}
 
-		final String foo = LanguageBundle.getFormattedString("PreSkillMult.toHtml", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
-		return foo;
+        return LanguageBundle.getFormattedString("PreSkillMult.toHtml", //$NON-NLS-1$
+            prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
 	}
 
 }

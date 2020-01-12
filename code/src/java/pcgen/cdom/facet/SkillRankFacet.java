@@ -91,7 +91,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 	public void set(CharID id, Skill skill, PCClass pcc, double value)
 	{
 		Objects.requireNonNull(skill, "Skill cannot be null in add");
-		Float oldRank = getRank(id, skill);
+		float oldRank = getRank(id, skill);
 		Map<Skill, Map<PCClass, Double>> map = getConstructingInfo(id);
 		Map<PCClass, Double> clMap = map.get(skill);
 		if (clMap == null)
@@ -101,7 +101,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		}
 		clMap.put(pcc, value);
 
-		Float newRank = getRank(id, skill);
+		float newRank = getRank(id, skill);
 		support.fireSkillRankChangeEvent(id, skill, oldRank, newRank);
 	}
 
@@ -184,9 +184,9 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 			Map<PCClass, Double> clMap = map.get(sk);
 			if (clMap != null)
 			{
-				Float oldRank = getRank(id, sk);
+				float oldRank = getRank(id, sk);
 				clMap.remove(pcc);
-				Float newRank = getRank(id, sk);
+				float newRank = getRank(id, sk);
 				support.fireSkillRankChangeEvent(id, sk, oldRank, newRank);
 			}
 		}

@@ -79,7 +79,7 @@ public class MasterVarCommand extends PCGenCommand
 
 		if (param1 instanceof String)
 		{
-			Float result = null;
+			Float result;
 			PlayerCharacter pc = getPC();
 			if (pc == null)
 			{

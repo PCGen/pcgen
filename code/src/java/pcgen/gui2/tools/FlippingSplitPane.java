@@ -651,7 +651,7 @@ public class FlippingSplitPane extends JSplitPane
 		@Override
 		public void showPopup(MouseEvent e)
 		{
-			JPopupMenu menu = null;
+			JPopupMenu menu;
 			if (!isLocked())
 			{
 				if (popupMenu == null)

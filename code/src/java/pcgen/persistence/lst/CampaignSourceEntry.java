@@ -44,11 +44,11 @@ import pcgen.util.Logging;
  */
 public class CampaignSourceEntry implements SourceEntry
 {
-	private Campaign campaign = null;
+	private Campaign campaign;
 	private List<String> excludeItems = new ArrayList<>();
 	private List<String> includeItems = new ArrayList<>();
 	private List<Prerequisite> prerequisites = new ArrayList<>();
-	private URIEntry uri = null;
+	private URIEntry uri;
 
 	/**
 	 * CampaignSourceEntry constructor.
@@ -142,11 +142,10 @@ public class CampaignSourceEntry implements SourceEntry
 	@Override
 	public String toString()
 	{
-		String sBuff = "Campaign: "
+		return "Campaign: "
 				+ campaign.getDisplayName()
 				+ "; SourceFile: "
 				+ getURI();
-		return sBuff;
 	}
 
 	public static CampaignSourceEntry getNewCSE(Campaign campaign2, URI sourceUri, String value)

@@ -55,7 +55,7 @@ public class CampaignHistoryToken extends Token
 	private static enum Visibility
 	{
 		ALL, HIDDEN, VISIBLE
-	};
+	}
 
 	@Override
 	public String getTokenName()

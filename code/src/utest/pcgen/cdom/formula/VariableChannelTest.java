@@ -139,7 +139,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 		assertEquals(6, getVariableStore().get(varID));
 	}
 	
-	private class TestingReferenceListener<T> implements ReferenceListener<T>
+	private static class TestingReferenceListener<T> implements ReferenceListener<T>
 	{
 
 		private int eventCount;

@@ -547,12 +547,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			return false;
 		}
 		//we use reference equality since GameModes come from a fixed database
-		if (source1.getGameMode().get() != source2.getGameMode().get())
-		{
-			return false;
-		}
-		return true;
-	}
+        return source1.getGameMode().get() == source2.getGameMode().get();
+    }
 
 	public boolean saveCharacter(CharacterFacade character)
 	{
@@ -1257,7 +1253,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private void updateTitle()
 	{
 		StringBuilder title = new StringBuilder(100);
-		File characterFile = null;
+		File characterFile;
 		String characterFileName = null;
 		String sourceName = null;
 		if (currentCharacterRef != null && currentCharacterRef.get() != null)
@@ -1350,7 +1346,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		cons.fill = GridBagConstraints.NONE;
 
 		int start = 0;
-		int sepPos = -1;
+		int sepPos;
 
 		do
 		{
@@ -1524,11 +1520,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			//now that the SourceFileLoader has finished
 			//handle licenses and whatnot
-			String sec15 = " "
+			section15 = " "
 					+ readTextFromFile(
 					ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt")
 					+ loader.getOGL();
-			section15 = sec15;
 			try
 			{
 				showLicenses();
@@ -1649,9 +1644,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		EquipCustomizerDialog eqDialog = new EquipCustomizerDialog(this, character, equipBuilder);
 		eqDialog.setLocationRelativeTo(this);
 		eqDialog.setVisible(true);
-		CustomEquipResult result = eqDialog.isCancelled() ? CustomEquipResult.CANCELLED
+		return eqDialog.isCancelled() ? CustomEquipResult.CANCELLED
 			: eqDialog.isPurchase() ? CustomEquipResult.PURCHASE : CustomEquipResult.OK;
-		return result;
 	}
 
 	@Override

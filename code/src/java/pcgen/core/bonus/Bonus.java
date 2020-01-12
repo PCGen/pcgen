@@ -111,7 +111,7 @@ public final class Bonus
 
 		bValue = bValue.toUpperCase(Locale.ENGLISH);
 
-		BonusObj aBonus = null;
+		BonusObj aBonus;
 		try
 		{
 			aBonus = bEntry.getConstructor().newInstance();

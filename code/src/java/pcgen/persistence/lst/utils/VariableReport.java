@@ -357,17 +357,13 @@ public class VariableReport
 			}
 			if (definingObject == null)
 			{
-				if (other.definingObject != null)
-				{
-					return false;
-				}
+                return other.definingObject == null;
 			}
-			else if (!definingObject.equals(other.definingObject))
+			else
 			{
-				return false;
+				return definingObject.equals(other.definingObject);
 			}
-			return true;
-		}
+        }
 
 		@Override
 		public int compareTo(VarDefine other)
@@ -391,7 +387,7 @@ public class VariableReport
 		@Override
 		public String toString()
 		{
-			String builder = "VarDefine [varName="
+			return "VarDefine [varName="
 					+ varName
 					+ ", definingObject="
 					+ definingObject
@@ -400,7 +396,6 @@ public class VariableReport
 					+ ", use="
 					+ use
 					+ ']';
-			return builder;
 		}
 
 		/**

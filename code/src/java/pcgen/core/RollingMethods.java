@@ -315,13 +315,13 @@ public final class RollingMethods
 				{
 					throw new ParseException("Values greater than " + Integer.MAX_VALUE + " not allowed.");
 				}
-				int iRolls = (int) Math.round(((Double) numberOfRolls).doubleValue());
-				int iFaces = (int) Math.round(((Double) faces).doubleValue());
+				int iRolls = (int) Math.round((Double) numberOfRolls);
+				int iFaces = (int) Math.round((Double) faces);
 				if (numToKeep == 0)
 				{
 					numToKeep = iRolls;
 				}
-				double result = 0;
+				double result;
 				if (keep == null)
 				{
 					result = roll(iRolls, iFaces, numToKeep, reroll);

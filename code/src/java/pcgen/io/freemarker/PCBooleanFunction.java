@@ -71,8 +71,7 @@ public class PCBooleanFunction implements TemplateMethodModelEx, CharacterExport
 			throw new TemplateModelException("Invalid export tag '" + tag + "'.");
 		}
 
-		Boolean valueOf = Boolean.valueOf(value);
-		return valueOf;
+        return Boolean.valueOf(value);
 	}
 
 }

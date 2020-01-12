@@ -228,7 +228,6 @@ class ScanForUnusedIl8nKeys
 	 */
 	private static List<File> buildFileList() throws IOException
 	{
-		List<File> allFiles = new ArrayList<>();
 
 		System.out.println("current working directory" + System.getProperty("user.dir"));
 		List<File> collect = Files.walk(Paths.get(CODE_PATH))
@@ -236,7 +235,7 @@ class ScanForUnusedIl8nKeys
 		                          .filter(e -> e.toString().endsWith(".java"))
 		                          .map(Path::toFile)
 		                          .collect(Collectors.toList());
-		allFiles.addAll(collect);
+		List<File> allFiles = new ArrayList<>(collect);
 
 		List<File> collect2 = Files.walk(Paths.get(RESOURCES_PATH))
 		                          .filter(Files::isRegularFile)

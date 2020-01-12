@@ -136,6 +136,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 				if (a == pcTemplate)
 				{
 					found = true;
+					break;
 				}
 			}
 			if (!found)

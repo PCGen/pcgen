@@ -68,7 +68,7 @@ public class SelectableToken extends AbstractNonEmptyToken<ContentDefinition>
 		{
 			return null;
 		}
-		return new String[]{selectable.booleanValue() ? "YES" : "NO"};
+		return new String[]{selectable ? "YES" : "NO"};
 	}
 
 	@Override

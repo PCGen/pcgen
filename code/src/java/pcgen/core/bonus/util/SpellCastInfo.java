@@ -23,7 +23,7 @@ package pcgen.core.bonus.util;
 public class SpellCastInfo
 {
 	private String classString = "";
-	private String level = "0";
+	private String level;
 	private String type;
 
 	/**

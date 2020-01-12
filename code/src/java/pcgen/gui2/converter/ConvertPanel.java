@@ -180,7 +180,7 @@ public class ConvertPanel extends JPanel
 
 	private void runNextPanel()
 	{
-		ConvertSubPanel nextpanel = null;
+		ConvertSubPanel nextpanel;
 		do
 		{
 			boolean allowPrev = false;
@@ -218,7 +218,7 @@ public class ConvertPanel extends JPanel
 		public void actionPerformed(ActionEvent e)
 		{
 			CursorControlUtilities.startWaitCursor(basePanel);
-			ConvertSubPanel prevpanel = null;
+			ConvertSubPanel prevpanel;
 			do
 			{
 				currentPanel--;

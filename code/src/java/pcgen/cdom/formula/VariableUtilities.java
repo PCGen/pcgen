@@ -75,9 +75,7 @@ public final class VariableUtilities
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
 		VariableContext varContext =
 				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext();
-		VariableID<T> varID =
-				(VariableID<T>) varContext.getVariableID(globalInstance, variableName);
-		return varID;
+        return (VariableID<T>) varContext.getVariableID(globalInstance, variableName);
 	}
 
 	/**

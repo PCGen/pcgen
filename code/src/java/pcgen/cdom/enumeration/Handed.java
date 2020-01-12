@@ -71,5 +71,5 @@ public enum Handed
 		{
 			return LanguageBundle.getString("in_comboOther");
 		}
-	};
+	}
 }

@@ -85,7 +85,7 @@ public class KnownSpellInputFacet implements DataFacetChangeListener<CharID, CDO
 			for (AssociatedPrereqObject apo : cdo.getListAssociations(listref, objref))
 			{
 				Boolean known = apo.getAssociation(AssociationKey.KNOWN);
-				if ((known == null) || !known.booleanValue())
+				if ((known == null) || !known)
 				{
 					continue;
 				}

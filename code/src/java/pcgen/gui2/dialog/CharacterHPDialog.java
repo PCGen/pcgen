@@ -164,7 +164,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 			for (int l = 0; l < levels.getSize(); l++)
 			{
 				CharacterLevelFacade level = levels.getElementAt(l);
-				Integer i = Integer.valueOf(levels.getClassTaken(level).getHD());
+				int i = Integer.parseInt(levels.getClassTaken(level).getHD());
 				int rolled = RollingMethods.roll(i);
 				levels.setHPRolled(level, rolled);
 			}
@@ -284,7 +284,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 
 	}
 
-	private class Renderer implements TableCellRenderer
+	private static class Renderer implements TableCellRenderer
 	{
 
 		private final JButton button = new JButton();
@@ -335,7 +335,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		public void actionPerformed(ActionEvent e)
 		{
 			CharacterLevelFacade level = levels.getElementAt(editingRow);
-			Integer i = Integer.valueOf(levels.getClassTaken(level).getHD());
+			int i = Integer.parseInt(levels.getClassTaken(level).getHD());
 			int rolled = RollingMethods.roll(i);
 			levels.setHPRolled(level, rolled);
 			cancelCellEditing();
