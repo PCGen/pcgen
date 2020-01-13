@@ -51,6 +51,7 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_4/_bestiary_4.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_intrigue/_ultimate_intrigue.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_wilderness/_ultimate_wilderness.pcc
 
 FORWARDREF:SPELL|Telepathy
 FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
