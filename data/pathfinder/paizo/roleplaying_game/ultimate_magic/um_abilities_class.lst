@@ -5,7 +5,7 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 # ORIGINAL ENTRY DATE: Unknown
 
 # Ability Name					Unique Key				SORTKEY	Category of Ability		Type								Required Class		Multiple Requirements									Define															Bonus Ability Pool													Modify VAR															Cost
-CATEGORY=Special Ability|Domains.MOD																																					DEFINE:DomainTaken|0	DEFINE:ClericInquisitionPool|0	DEFINE:PreventDruidInquisitions|0	BONUS:ABILITYPOOL|Domain Alternative ~ Inquisition|ClericInquisitionPool|PRECLASS:1,Cleric=1	BONUS:VAR|ClericInquisitionPool|1|PREVARLT:DomainTaken,ClericDomainCount|PRECLASS:1,Cleric=1
+CATEGORY=Special Ability|Domains.MOD																																					DEFINE:DomainTaken|0	DEFINE:ClericInquisitionPool|0	DEFINE:PreventDruidInquisitions|0	BONUS:ABILITYPOOL|Domain Alternative ~ Inquisition|ClericInquisitionPool|PRECLASS:1,Cleric=1|PREVAREQ:ClericInquisitionAllowed,1	BONUS:VAR|ClericInquisitionPool|1|PREVARLT:DomainTaken,ClericDomainCount|PRECLASS:1,Cleric=1	BONUS:VAR|ClericInquisitionAllowed|1|TYPE=Boolean	DEFINE:ClericInquisitionAllowed|0
 
 
 Take Inquisition					KEY:Take Inquisition ~ Cleric	SORTKEY:1	CATEGORY:Special Ability	TYPE:AltClassInquisition.ClericInquisition	PRECLASS:1,Cleric=1																													BONUS:ABILITYPOOL|Inquisition|1											BONUS:VAR|ClericDomainCount|-1											COST:0
