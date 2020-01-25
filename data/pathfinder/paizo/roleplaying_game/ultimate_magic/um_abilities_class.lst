@@ -1949,7 +1949,7 @@ Fused Eidolon Skills ~ Craft (Traps)			CATEGORY:Internal	TYPE:FusedEidolonTemps	
 Fused Eidolon Skills ~ Craft (Weapons)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Weapons)|8|PREVAREQ:FusedEidolonActive,1	
 
 
-Fused Eidolon Stats									CATEGORY:Internal			TYPE:FusedEidolonTemps																																																																																																																																																																																																																																																																																																																																																																																																																					ABILITY:Internal|AUTOMATIC|Fused Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1
+Fused Eidolon Stats									CATEGORY:Internal			TYPE:FusedEidolonTemps
 #TEMPBONUS:ANYPC|STAT|DEX|4|TYPE=Enhancement	
 Fused Eidolon Stats Str		CATEGORY:Internal	TYPE:FusedEidolonTemps.FusedEidolonStats	DEFINE:EidolonStatSTR|0		TEMPBONUS:PC|VAR|EidolonStatSTR|%CHOICE		TEMPVALUE:MIN=1|MAX=40|TITLE=Strength Score of Eidolon
 Fused Eidolon Stats Dex		CATEGORY:Internal	TYPE:FusedEidolonTemps.FusedEidolonStats	DEFINE:EidolonStatDEX|0		TEMPBONUS:PC|VAR|EidolonStatDEX|%CHOICE		TEMPVALUE:MIN=1|MAX=40|TITLE=Dexterity Score of Eidolon
