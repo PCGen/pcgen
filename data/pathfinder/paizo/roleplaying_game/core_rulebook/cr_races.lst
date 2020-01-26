@@ -1,19 +1,17 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-# Race Name	SORTKEY		Skills/Level				Starting Feats	Size		Move			Reach		Serves As			Bonus Languages								Bonus Ability Pool			Save bonus							Stat bonus								Auto Language			Ability								Define				Main Race Type	Race Subtype		Type				Source Page		FACT
-Dwarf		SORTKEY:a_base_pc							STARTFEATS:1	SIZE:M	MOVE:Walk,20	REACH:5						BONUS:STAT|CON,WIS|2	BONUS:STAT|CHA|-2															ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dwarf						RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.21	FACT:BaseSize|M	FACT:IsPC|true
-Elf		SORTKEY:a_base_pc							STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5						BONUS:STAT|DEX,INT|2	BONUS:STAT|CON|-2															ABILITY:Internal|AUTOMATIC|Racial Traits ~ Elf							RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.22	FACT:BaseSize|M	FACT:IsPC|true
-Gnome		SORTKEY:a_base_pc							STARTFEATS:1	SIZE:S	MOVE:Walk,20	REACH:5						BONUS:STAT|CON,CHA|2	BONUS:STAT|STR|-2															ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gnome						RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.23	FACT:BaseSize|S	FACT:IsPC|true
-Half-Elf	SORTKEY:a_base_pc							STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	SERVESAS:RACE|Elf|Human																	BONUS:ABILITYPOOL|Ability Bonus|1	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Half-Elf						RACETYPE:Humanoid	RACESUBTYPE:Elf|Human	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.24	FACT:BaseSize|M	FACT:IsPC|true
-Half-Orc	SORTKEY:a_base_pc	XTRASKILLPTSPERLVL:SkillPointBonus	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	SERVESAS:RACE|Human|Orc																	BONUS:ABILITYPOOL|Ability Bonus|1	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Half-Orc	DEFINE:SkillPointBonus|0	RACETYPE:Humanoid	RACESUBTYPE:Orc|Human	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.25	FACT:BaseSize|M	FACT:IsPC|true
-Halfling	SORTKEY:a_base_pc							STARTFEATS:1	SIZE:S	MOVE:Walk,20	REACH:5						BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2	BONUS:SAVE|ALL|HalflingSaveBonus|TYPE=Racial							ABILITY:Internal|AUTOMATIC|Racial Traits ~ Halfling						RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.26	FACT:BaseSize|S	FACT:IsPC|true
-Human		SORTKEY:a_base_pc	XTRASKILLPTSPERLVL:SkillPointBonus	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5																											ABILITY:Internal|AUTOMATIC|Racial Traits ~ Human	DEFINE:SkillPointBonus|0	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.27	FACT:BaseSize|M	FACT:IsPC|true
-#COMMENT: Need to change XTRASKILLPTSPERLVL to take a formula or variable
+###Block: Races
+# Race Name	SORTKEY		Starting Feats	Base size		Size		Move			Reach		Serves As			Ability								Main Race Type	Race Subtype		Type				Source Page		FACT
+Dwarf		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20	REACH:5					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dwarf	RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.21	FACT:IsPC|true
+Elf		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Elf		RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.22	FACT:IsPC|true
+Gnome		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	SIZE:S	MOVE:Walk,20	REACH:5					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gnome	RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.23	FACT:IsPC|true
+Half-Elf	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5	SERVESAS:RACE|Elf|Human	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Half-Elf	RACETYPE:Humanoid	RACESUBTYPE:Elf|Human	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.24	FACT:IsPC|true
+Half-Orc	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5	SERVESAS:RACE|Human|Orc	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Half-Orc	RACETYPE:Humanoid	RACESUBTYPE:Orc|Human	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.25	FACT:IsPC|true
+Halfling	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	SIZE:S	MOVE:Walk,20	REACH:5					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Halfling	RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.26	FACT:IsPC|true
+Human		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Human	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.27	FACT:IsPC|true
 
-# XTRASKILLPTSPERLVL:1
 
 # DEVELOPER NOTE: ABILITY:Internal|AUTOMATIC|Racial Traits ~ XXX assigns the Traits of the Race and allows them to be swapped out
-# The Base Ability is located in pfcr_abilities_race.lst
+# The Base Ability is located in cr_abilities_race.lst

@@ -62,6 +62,7 @@ EQUIPMENT:isr_equip_general.lst
 ABILITY:isr_feats.lst
 LANGUAGE:isr_languages.lst
 RACE:isr_races.lst
+SKILL:isr_skills.lst
 SPELL:isr_spells.lst
 TEMPLATE:isr_templates.lst
 

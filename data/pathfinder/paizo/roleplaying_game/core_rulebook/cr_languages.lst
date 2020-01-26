@@ -10,7 +10,7 @@ Auran		TYPE:Spoken.Written.Read.Elemental
 Celestial	TYPE:Spoken.Written.Read.Planar
 Common	TYPE:Spoken.Written.Read.ModernHumanLanguage
 Draconic	TYPE:Spoken.Written.Read
-Druidic	TYPE:Spoken.Written.Read				PREVAREQ:DruidSecretLanguage,1
+Druidic	TYPE:Spoken.Written.Read.Secret			PREVAREQ:DruidSecretLanguage,1
 Dwarven	TYPE:Spoken.Written.Read
 Elven		TYPE:Spoken.Written.Read
 Giant		TYPE:Spoken.Written.Read

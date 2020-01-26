@@ -113,7 +113,7 @@ BIO
 		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
-		<residence>Vericostial</residence>
+		<residence></residence>
 		<size>
 			<long>Medium</long>
 			<short>M</short>
@@ -270,7 +270,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>16</total>
-		<listing>ARMOR +5, BASE +10, SHIELD +1</listing>
+		<listing>BASE +10, ARMOR +5, SHIELD +1</listing>
 		<flat>16</flat>
 		<touch>10</touch>
 		<base>10</base>
@@ -313,7 +313,7 @@ BIO
 		</skillpoints>
 		<list_mods>Diplomacy +10, Heal +10, Intimidate +5, Knowledge (Planes) +4, Knowledge (Religion) +4, Linguistics +4, Sense Motive +8, Spellcraft +4</list_mods>
 		<max_class_skill_level>3</max_class_skill_level>
-		<max_cross_class_skill_level>3</max_cross_class_skill_level>
+		<max_cross_class_skill_level>3.0</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>
@@ -2051,7 +2051,7 @@ BIO
 		<feat>
 			<name>Persuasive</name>
 			<description>You are skilled at swaying attitudes and intimidating others into your way of thinking.</description>
-			<type>GENERAL.DREAMSPUNBLOODLINE.SERPENTINEBLOODLINE</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2071,7 +2071,7 @@ BIO
 		<feat>
 			<name>Spell Focus (Enchantment)</name>
 			<description>Any spells you cast of your chosen school of magic are more difficult to resist.</description>
-			<type>GENERAL.PROTEANBLOODLINE.ARCANEBLOODLINE.UNDEADBLOODLINE</type>
+			<type>GENERAL</type>
 			<associated>Enchantment</associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -2132,7 +2132,7 @@ BIO
 		<ability_object>
 			<name>Bonus Feat</name>
 			<description>Humans select one extra feat at 1st level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.BONUS FEAT</type>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2163,17 +2163,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Language</name>
-			<description>Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).</description>
-			<type>RACIALTRAITS.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Orisons</name>
 			<description>You can prepare a number of orisons, or 0-level spells. These spells are cast like any other spells, but they are not expended when used and may be used again.</description>
 			<type>CLERICCLASSFEATURES.SPECIALQUALITY</type>
@@ -2186,8 +2175,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Skilled</name>
-			<description>Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.SKILLED</type>
+			<description>Humans gain an additional skill rank at 1st level and one additional rank whenever they gain a level.</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2298,6 +2287,17 @@ BIO
 		</ability_object>
 		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>+2 to One Ability Score</name>
+			<description>Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY.RACIAL ABILITY SCORES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Channel Energy</name>
 			<description></description>
 			<type>CLERICCLASSFEATURES.INTERNAL.CLASSFEATURES</type>
@@ -2334,6 +2334,39 @@ BIO
 			<name>Human Traits</name>
 			<description></description>
 			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Languages</name>
+			<description>Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY.RACIAL LANGUAGE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Medium</name>
+			<description>Humans are Medium creatures and have no bonuses or penalties due to their size.</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY.RACIAL SIZE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Normal Speed</name>
+			<description>Humans have a base speed of 30 feet.</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY.RACIAL SPEED</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2475,9 +2508,9 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Human ~ Default</name>
+			<name>Racial Traits ~ Human</name>
 			<description></description>
-			<type>HUMANSUBRACE</type>
+			<type></type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2486,7 +2519,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Racial Traits ~ Human</name>
+			<name>Save Bonus Tracker</name>
 			<description></description>
 			<type></type>
 			<associated></associated>

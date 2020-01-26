@@ -4,5 +4,5 @@
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 14 May 2016
 
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
-ABILITYCATEGORY:Aasimar Lost Promise Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Aasimar Lost Promise Choice	PLURAL:Aasimar Lost Promise Choices	DISPLAYLOCATION:Racial Abilities
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Aasimar Lost Promise Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Aasimar Lost Promise Choice	PLURAL:Aasimar Lost Promise Choices		DISPLAYLOCATION:Racial Abilities
