@@ -30,6 +30,7 @@ import pcgen.gui2.tabs.models.HtmlSheetSupport;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * Manages the information pane of the summary tab. This is an output sheet 
@@ -74,21 +75,69 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 	 */
 	private void registerListeners()
 	{
-		character.getRaceRef().addReferenceListener(this);
-		character.getGenderRef().addReferenceListener(this);
-		if (!character.getDataSet().getAlignments().isEmpty())
+		if (character.getRaceRef()==null) 
 		{
-			character.getAlignmentRef().addReferenceListener(this);
+			Logging.debugPrint("ERROR:getRaceRef is null");
+		} 
+		else
+		{
+		character.getRaceRef().addReferenceListener(this);
+		}
+		if (character.getGenderRef()==null) 
+		{
+			Logging.debugPrint("ERROR:getGenderRef is null");
+		} 
+		else
+		{
+			character.getGenderRef().addReferenceListener(this);
+		}
+		if (character.getDataSet()==null || character.getDataSet().getAlignments()==null) 
+		{
+			Logging.debugPrint("ERROR:getDataSet or getDataSet.getAlignments is null");
+		} 
+		else
+		{
+			if (!character.getDataSet().getAlignments().isEmpty())
+			{
+				character.getAlignmentRef().addReferenceListener(this);
+			}
 		}
 		for (PCStat stat : character.getDataSet().getStats())
 		{
-			character.getScoreBaseRef(stat).addReferenceListener(this);
+			if (character.getScoreBaseRef(stat)==null) 
+			{
+				Logging.debugPrint("getScoreBaseRef is null");
+			} 
+			else
+			{
+				character.getScoreBaseRef(stat).addReferenceListener(this);
+			}
 		}
-		character.getCharacterLevelsFacade().addListListener(this);
-		character.getHandedRef().addReferenceListener(this);
-		character.getAgeRef().addReferenceListener(this);
+		if (character.getCharacterLevelsFacade()==null)
+		{
+			Logging.debugPrint("getCharacterLevelsFacade is null");
+		} 
+		else
+		{
+			character.getCharacterLevelsFacade().addListListener(this);
+		}
+		if (character.getHandedRef()==null)
+		{
+			Logging.debugPrint("getHandedRef is null");
+		} 
+		else
+		{
+			character.getHandedRef().addReferenceListener(this);
+		}
+		if (character.getAgeRef()==null)
+		{
+			Logging.debugPrint("getAgeRef is null");
+		} 
+		else
+		{
+			character.getAgeRef().addReferenceListener(this);
+		}
 	}
-
 	/**
 	 * Start an update of the contents of the info pane for this character. The
 	 * update will happen in a new thread and will not be started if one is 
