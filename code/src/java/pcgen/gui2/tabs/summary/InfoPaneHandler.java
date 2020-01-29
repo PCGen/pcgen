@@ -30,6 +30,7 @@ import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tabs.models.HtmlSheetSupport;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * Manages the information pane of the summary tab. This is an output sheet 
@@ -90,19 +91,68 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 	 */
 	private void registerListeners()
 	{
+		if (character.getRaceRef()==null) 
+		{
+			Logging.debugPrint("ERROR:getRaceRef is null");
+		} 
+		else
+		{
 		character.getRaceRef().addReferenceListener(this);
-		character.getGenderRef().addReferenceListener(this);
-		if (!character.getDataSet().getAlignments().isEmpty())
-		{
-			character.getAlignmentRef().addReferenceListener(this);
 		}
-		for (StatFacade stat : character.getDataSet().getStats())
+		if (character.getGenderRef()==null) 
 		{
-			character.getScoreBaseRef(stat).addReferenceListener(this);
+			Logging.debugPrint("ERROR:getGenderRef is null");
+		} 
+		else
+		{
+			character.getGenderRef().addReferenceListener(this);
 		}
-		character.getCharacterLevelsFacade().addListListener(this);
-		character.getHandedRef().addReferenceListener(this);
-		character.getAgeRef().addReferenceListener(this);
+		if (character.getDataSet()==null || character.getDataSet().getAlignments()==null) 
+		{
+			Logging.debugPrint("ERROR:getDataSet or getDataSet.getAlignments is null");
+		} 
+		else
+		{
+			if (!character.getDataSet().getAlignments().isEmpty())
+			{
+				character.getAlignmentRef().addReferenceListener(this);
+			}
+		}
+		for (PCStat stat : character.getDataSet().getStats())
+		{
+			if (character.getScoreBaseRef(stat)==null) 
+			{
+				Logging.debugPrint("getScoreBaseRef is null");
+			} 
+			else
+			{
+				character.getScoreBaseRef(stat).addReferenceListener(this);
+			}
+		}
+		if (character.getCharacterLevelsFacade()==null)
+		{
+			Logging.debugPrint("getCharacterLevelsFacade is null");
+		} 
+		else
+		{
+			character.getCharacterLevelsFacade().addListListener(this);
+		}
+		if (character.getHandedRef()==null)
+		{
+			Logging.debugPrint("getHandedRef is null");
+		} 
+		else
+		{
+			character.getHandedRef().addReferenceListener(this);
+		}
+		if (character.getAgeRef()==null)
+		{
+			Logging.debugPrint("getAgeRef is null");
+		} 
+		else
+		{
+			character.getAgeRef().addReferenceListener(this);
+		}
 	}
 
 	/**
