@@ -20,6 +20,7 @@ package pcgen.gui2.tabs.summary;
 
 import javax.swing.JEditorPane;
 
+
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.GameModeFacade;
@@ -90,19 +91,37 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 	 */
 	private void registerListeners()
 	{
-		character.getRaceRef().addReferenceListener(this);
-		character.getGenderRef().addReferenceListener(this);
-		if (!character.getDataSet().getAlignments().isEmpty())
+		if (character.getRaceRef()!=null)
+		{
+			character.getRaceRef().addReferenceListener(this);
+		}
+		if (character.getGenderRef()!=null)
+		{
+			character.getGenderRef().addReferenceListener(this);
+		}
+		if (character.getAlignmentRef()!=null)
 		{
 			character.getAlignmentRef().addReferenceListener(this);
 		}
-		for (StatFacade stat : character.getDataSet().getStats())
+		if (character.getCharacterLevelsFacade()!=null)
 		{
-			character.getScoreBaseRef(stat).addReferenceListener(this);
+			character.getCharacterLevelsFacade().addListListener(this);
 		}
-		character.getCharacterLevelsFacade().addListListener(this);
-		character.getHandedRef().addReferenceListener(this);
-		character.getAgeRef().addReferenceListener(this);
+		if (character.getDataSet()!=null && character.getDataSet().getStats()!=null)
+		{
+			for (StatFacade stat : character.getDataSet().getStats())
+			{
+				character.getScoreBaseRef(stat).addReferenceListener(this);
+			}
+		}
+		if (character.getHandedRef()!=null)
+		{
+			character.getHandedRef().addReferenceListener(this);
+		}
+		if (character.getAgeRef()!=null)
+		{
+			character.getAgeRef().addReferenceListener(this);
+		}
 	}
 
 	/**
