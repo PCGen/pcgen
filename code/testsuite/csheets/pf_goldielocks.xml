@@ -451,7 +451,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>40</total>
-		<listing>ABILITY -2, NATURALARMOR +40, BASE +10, SIZE -8</listing>
+		<listing>ABILITY -2, BASE +10, NATURALARMOR +40, SIZE -8</listing>
 		<flat>40</flat>
 		<touch>0</touch>
 		<base>10</base>
@@ -494,7 +494,7 @@ BIO
 		</skillpoints>
 		<list_mods>Acrobatics +0, Appraise +14, Bluff +13, Climb +22, Diplomacy +15, Fly +19, Heal +18, Intimidate +15, Knowledge (Arcana) +13, Sense Motive +13, Survival +28, Swim +24</list_mods>
 		<max_class_skill_level>30</max_class_skill_level>
-		<max_cross_class_skill_level>30.0</max_cross_class_skill_level>
+		<max_cross_class_skill_level>30</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>

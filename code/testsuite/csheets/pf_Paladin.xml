@@ -113,7 +113,7 @@ BIO
 		</reach>
 		<region>Ustalav</region>
 		<reputation>0</reputation>
-		<residence></residence>
+		<residence>Sturnidae</residence>
 		<size>
 			<long>Medium</long>
 			<short>M</short>
@@ -288,7 +288,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>22</total>
-		<listing>ABILITY +1, DEFLECTION +1, ARMORENHANCEMENT +1, BASE +10, ARMOR +9</listing>
+		<listing>ABILITY +1, ARMOR +9, ARMORENHANCEMENT +1, BASE +10, DEFLECTION +1</listing>
 		<flat>21</flat>
 		<touch>12</touch>
 		<base>10</base>
@@ -331,7 +331,7 @@ BIO
 		</skillpoints>
 		<list_mods>Diplomacy +14, Handle Animal +6, Knowledge (Nobility) +3, Knowledge (Religion) +3, Linguistics +0, Perception +3, Perform (Dance) +3, Profession (Merchant) +5, Ride +0, Sense Motive +5</list_mods>
 		<max_class_skill_level>6</max_class_skill_level>
-		<max_cross_class_skill_level>6.0</max_cross_class_skill_level>
+		<max_cross_class_skill_level>6</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>
@@ -849,7 +849,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 		<weapon>
 			<common>
 				<name>
@@ -880,13 +880,13 @@ BIO
 			<melee>
 				<w1_h1_p>
 					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w1_h1_p>
 				<w1_h1_o>
 					<!-- One weapon, 1 handed, offhand -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w1_h1_o>
 				<w1_h2>
 					<!-- One weapon, 2 handed -->
@@ -895,18 +895,18 @@ BIO
 				</w1_h2>
 				<w2_p_oh>
 					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w2_p_oh>
 				<w2_p_ol>
 					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w2_p_ol>
 				<w2_o>
 					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w2_o>
 			</melee>
 		</weapon>
@@ -940,13 +940,13 @@ BIO
 			<melee>
 				<w1_h1_p>
 					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w1_h1_p>
 				<w1_h1_o>
 					<!-- One weapon, 1 handed, offhand -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w1_h1_o>
 				<w1_h2>
 					<!-- One weapon, 2 handed -->
@@ -955,18 +955,18 @@ BIO
 				</w1_h2>
 				<w2_p_oh>
 					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w2_p_oh>
 				<w2_p_ol>
 					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w2_p_ol>
 				<w2_o>
 					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit>N/A</to_hit>
-					<damage>N/A</damage>
+					<to_hit></to_hit>
+					<damage></damage>
 				</w2_o>
 			</melee>
 		</weapon>
