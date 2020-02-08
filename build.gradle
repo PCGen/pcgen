@@ -21,7 +21,7 @@ plugins {
     id 'checkstyle'
     id "com.github.spotbugs" version '3.0.0'
     id 'java'
-    id 'maven'
+    id 'maven-publish'
     id 'pmd'
     id 'idea'
     id "de.undercouch.download" version '4.0.4'
