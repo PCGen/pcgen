@@ -29,10 +29,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.AbstractList;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -55,7 +53,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.facade.core.LoadableFacade.LoadingState;
@@ -67,7 +64,6 @@ import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIContext;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.DataInstaller;
-import pcgen.gui2.filter.FilteredListFacadeTableModel;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
@@ -353,90 +349,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 				!alwaysAdvancedCheck.isSelected());
 		}
 		super.setVisible(visible);
-	}
-
-	private static class SourcesTableModel extends FilteredListFacadeTableModel<SourceSelectionFacade>
-	{
-
-		private final List<SourceSelectionFacade> displayedSources;
-
-		public SourcesTableModel()
-		{
-			setDelegate(FacadeFactory.getSourceSelections());
-			displayedSources = new ArrayList<>();
-			displayedSources.addAll(ListFacades.wrap(FacadeFactory.getDisplayedSourceSelections()));
-		}
-
-		public void dispose()
-		{
-			//this detaches the listeners
-			setDelegate(null);
-		}
-
-		public SourceSelectionFacade[] getDisplayedSources()
-		{
-			return displayedSources.toArray(new SourceSelectionFacade[0]);
-		}
-
-		@Override
-		protected Object getValueAt(SourceSelectionFacade element, int column)
-		{
-			if (column == -1)
-			{
-				return displayedSources.contains(element);
-			}
-			else
-			{
-				return element;
-			}
-		}
-
-		@Override
-		public int getColumnCount()
-		{
-			return 1;
-		}
-
-		@Override
-		public Class<?> getColumnClass(int columnIndex)
-		{
-			if (columnIndex == -1)
-			{
-				return Boolean.class;
-			}
-			else
-			{
-				return Object.class;
-			}
-		}
-
-		@Override
-		public boolean isCellEditable(int rowIndex, int columnIndex)
-		{
-			return columnIndex == -1;
-		}
-
-		@Override
-		public String getColumnName(int column)
-		{
-			return "Sources";
-		}
-
-		@Override
-		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
-		{
-			Boolean bool = (Boolean) aValue;
-			SourceSelectionFacade source = sortedList.getElementAt(rowIndex);
-			if (bool)
-			{
-				displayedSources.add(source);
-			}
-			else
-			{
-				displayedSources.remove(source);
-			}
-		}
-
 	}
 
 	private class QuickSourceSelectionPanel extends JPanel implements ListSelectionListener
