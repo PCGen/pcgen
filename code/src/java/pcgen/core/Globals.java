@@ -80,9 +80,6 @@ public final class Globals
 	private static final Map<String, Campaign> CAMPAIGN_NAME_MAP = new HashMap<>();
 	private static final Map<String, String> EQ_SLOT_MAP = new HashMap<>();
 
-	/** We use lists for efficient iteration */
-	private static final List<Campaign> CAMPAIGN_LIST = new ArrayList<>(85);
-
 	// end of filter creation sets
 	private static JFrame rootFrame;
 	private static final StringBuilder SECTION_15 = new StringBuilder(30000);
@@ -154,7 +151,7 @@ public final class Globals
 	 */
 	public static List<Campaign> getCampaignList()
 	{
-		return CAMPAIGN_LIST;
+		return List.copyOf(CAMPAIGN_MAP.values());
 	}
 
 	/**
@@ -181,7 +178,7 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyedSilently(final String aKey)
 	{
-		return CAMPAIGN_LIST.stream()
+		return getCampaignList().stream()
 		                    .filter(campaign -> campaign.getKeyName().equalsIgnoreCase(aKey))
 		                    .findFirst()
 		                    .orElse(null);
@@ -486,7 +483,6 @@ public final class Globals
 	public static void addCampaign(final Campaign campaign)
 	{
 		CAMPAIGN_MAP.put(campaign.getSourceURI(), campaign);
-		CAMPAIGN_LIST.add(campaign);
 		final Campaign oldCampaign = CAMPAIGN_NAME_MAP.put(campaign.getKeyName(), campaign);
 		if (oldCampaign != null)
 		{
@@ -506,8 +502,6 @@ public final class Globals
 	/**
 	 * Adjust damage
 	 * @param aDamage
-	 * @param baseSize
-	 * @param finalSize
 	 * @return adjusted damage
 	 */
 	public static String adjustDamage(String aDamage, int sizeDiff)
@@ -629,7 +623,6 @@ public final class Globals
 	{
 		emptyLists();
 		CAMPAIGN_MAP.clear();
-		CAMPAIGN_LIST.clear();
 	}
 
 	/**
