@@ -20,7 +20,6 @@ package pcgen.core;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -43,7 +42,6 @@ import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
@@ -77,7 +75,6 @@ public final class Globals
 
 	/** we need maps for efficient lookups */
 	private static final Map<URI, Campaign> CAMPAIGN_MAP = new HashMap<>();
-	private static final Map<String, Campaign> CAMPAIGN_NAME_MAP = new HashMap<>();
 	private static final Map<String, String> EQ_SLOT_MAP = new HashMap<>();
 
 	// end of filter creation sets
@@ -86,35 +83,6 @@ public final class Globals
 
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
-
-	private static final Comparator<CDOMObject> P_OBJECT_COMP =
-			(o1, o2) -> o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
-
-	public static final Comparator<CDOMObject> P_OBJECT_NAME_COMP = (o1, o2) -> {
-		final Collator collator = Collator.getInstance();
-
-		// Check sort keys first
-		String key1 = o1.get(StringKey.SORT_KEY);
-		if (key1 == null)
-		{
-			key1 = o1.getDisplayName();
-		}
-		String key2 = o2.get(StringKey.SORT_KEY);
-		if (key2 == null)
-		{
-			key2 = o2.getDisplayName();
-		}
-		if (!key1.equals(key2))
-		{
-			return collator.compare(key1, key2);
-		}
-		if (!o1.getDisplayName().equals(o2.getDisplayName()))
-		{
-			return collator.compare(o1.getDisplayName(), o2.getDisplayName());
-		}
-		// Fall back to keyname if the displayname is the same
-		return collator.compare(o1.getKeyName(), o2.getKeyName());
-	};
 
 	// Optimizations used by any code needing empty arrays.  All empty arrays
 	// of the same type are idempotent.
@@ -483,20 +451,6 @@ public final class Globals
 	public static void addCampaign(final Campaign campaign)
 	{
 		CAMPAIGN_MAP.put(campaign.getSourceURI(), campaign);
-		final Campaign oldCampaign = CAMPAIGN_NAME_MAP.put(campaign.getKeyName(), campaign);
-		if (oldCampaign != null)
-		{
-			if (oldCampaign.getSourceURI().toString().equalsIgnoreCase(campaign.getSourceURI().toString()))
-			{
-				Logging.errorPrint("The campaign (" + campaign.getKeyName() + ") was referenced with the incorrect case: "
-					+ oldCampaign.getSourceURI() + " vs " + campaign.getSourceURI());
-			}
-			else
-			{
-				Logging.errorPrint("Loaded Campaigns with matching names (" + campaign.getKeyName()
-					+ ") at different Locations: " + oldCampaign.getSourceURI() + " " + campaign.getSourceURI());
-			}
-		}
 	}
 
 	/**
@@ -869,7 +823,7 @@ public final class Globals
 	 */
 	static List<? extends CDOMObject> sortPObjectList(final List<? extends CDOMObject> aList)
 	{
-		aList.sort(P_OBJECT_COMP);
+		aList.sort(CDOMObject.P_OBJECT_COMP);
 
 		return aList;
 	}
@@ -883,7 +837,7 @@ public final class Globals
 	 */
 	public static <T extends CDOMObject> List<T> sortPObjectListByName(final List<T> aList)
 	{
-		aList.sort(P_OBJECT_NAME_COMP);
+		aList.sort(CDOMObject.P_OBJECT_NAME_COMP);
 
 		return aList;
 	}
