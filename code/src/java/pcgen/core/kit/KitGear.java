@@ -235,14 +235,14 @@ public final class KitGear extends BaseKit
 			if (theEquipment.isType("Natural") || (sizeToPC != null && sizeToPC)
 				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
 			{
-				tryResize = Globals.canResizeHaveEffect(theEquipment, null);
+				tryResize = Globals.canResizeHaveEffect(theEquipment.typeList());
 			}
 		}
 		else
 		{
 			if (sizeToPC != null && sizeToPC)
 			{
-				tryResize = Globals.canResizeHaveEffect(theEquipment, null);
+				tryResize = Globals.canResizeHaveEffect(theEquipment.typeList());
 			}
 			else
 			{

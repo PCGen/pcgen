@@ -503,7 +503,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 			equipSlot.setContainNum(1);
 			equipSlot.setSlotNumType("HANDS");
 			SystemCollections.addToEquipSlotsList(equipSlot, SettingsHandler.getGame().getName());
-			Globals.setEquipSlotTypeCount("HANDS", "2");
+			Globals.setEquipSlotTypeCount("HANDS", 2);
 
 			equipSlot = new EquipSlot();
 			equipSlot.setSlotName(SLOT_RING);
@@ -511,7 +511,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 			equipSlot.setContainNum(2);
 			equipSlot.setSlotNumType("BODY");
 			SystemCollections.addToEquipSlotsList(equipSlot, SettingsHandler.getGame().getName());
-			Globals.setEquipSlotTypeCount("BODY", "1");
+			Globals.setEquipSlotTypeCount("BODY", 1);
 		}
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();
