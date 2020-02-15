@@ -17,25 +17,68 @@
  */
 package pcgen.util.enumeration;
 
+import java.awt.Font;
+import java.util.function.DoubleFunction;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import javafx.scene.paint.Color;
+import pcgen.core.utils.CoreUtility;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.util.FontManipulation;
+
 public enum Load
 {
+	LIGHT(FontManipulation::plain, UIPropertyContext::getQualifiedColor),
+	MEDIUM(FontManipulation::bold, UIPropertyContext::getAutomaticColor),
+	HEAVY(FontManipulation::bold_italic, UIPropertyContext::getVirtualColor),
+	OVERLOAD(FontManipulation::bold_italic, UIPropertyContext::getNotQualifiedColor);
 
-	LIGHT("LIGHT"), MEDIUM("MEDIUM"), HEAVY("HEAVY"), OVERLOAD("OVERLOAD");
 
-	private final String text;
+	private static final DoubleFunction<Double> LIGHT_ENCUMBERED_MOVE = unencumberedMove -> unencumberedMove;
+	private static final DoubleFunction<Double>  MEDIUM_HEAVY_ENCUMBERED_MOVE = unencumberedMove -> {
+		if (CoreUtility.doublesEqual(unencumberedMove, 5) || CoreUtility.doublesEqual(unencumberedMove, 10))
+		{
+			return 5.0;
+		}
+		else
+		{
+			return (Math.floor(unencumberedMove / 15) * 10) + (((int) unencumberedMove) % 15);
+		}
+	};
+	private static final DoubleFunction<Double>  OVERLOADED_ENCUMBERED_MOVE = unencumberedMove -> 0.0;
 
-	Load(String s)
-	{
-		text = s;
+	static {
+		LIGHT.encumberedMoveFunction = LIGHT_ENCUMBERED_MOVE;
+		MEDIUM.encumberedMoveFunction = MEDIUM_HEAVY_ENCUMBERED_MOVE;
+		HEAVY.encumberedMoveFunction = MEDIUM_HEAVY_ENCUMBERED_MOVE;
+		OVERLOAD.encumberedMoveFunction = OVERLOADED_ENCUMBERED_MOVE;
 	}
+
+	private final Function<Font, Font> fontFunction;
+	private final Supplier<Color> colorFunction;
+	private DoubleFunction<Double>  encumberedMoveFunction;
+
+	Load(Function<Font, Font> fontFunction, Supplier<Color> colorFunction) {
+		this.fontFunction = fontFunction;
+		this.colorFunction = colorFunction;
+	}
+
+	public Font getFont(Font font){
+		return fontFunction.apply(font);
+	}
+
+	public Color getColor(){
+		return colorFunction.get();
+	}
+
 
 	@Override
 	public String toString()
 	{
-		return text;
+		return name();
 	}
 
-	public boolean checkLtEq(Load x)
+	private boolean checkLtEq(Load x)
 	{
 		return ordinal() <= x.ordinal();
 	}
@@ -52,24 +95,11 @@ public enum Load
 	 */
 	public static Load getLoadType(String val)
 	{
-		Load r = null;
+		return valueOf(val.toUpperCase());
+	}
 
-		if (LIGHT.toString().equalsIgnoreCase(val))
-		{
-			r = LIGHT;
-		}
-		if (MEDIUM.toString().equalsIgnoreCase(val))
-		{
-			r = MEDIUM;
-		}
-		if (HEAVY.toString().equalsIgnoreCase(val))
-		{
-			r = HEAVY;
-		}
-		if (OVERLOAD.toString().equalsIgnoreCase(val))
-		{
-			r = OVERLOAD;
-		}
-		return r;
+
+	public double calcEncumberedMove(final double unencumberedMove){
+		return encumberedMoveFunction.apply(unencumberedMove);
 	}
 }

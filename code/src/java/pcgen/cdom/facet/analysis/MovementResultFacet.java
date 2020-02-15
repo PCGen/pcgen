@@ -40,7 +40,6 @@ import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.MoveClone;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -277,7 +276,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 				}
 			}
 
-			double armorMove = Globals.calcEncumberedMove(armorLoad, moveInFeet);
+			double armorMove = armorLoad.calcEncumberedMove(moveInFeet);
 
 			Load pcLoad = loadFacet.getLoadType(id);
 			double loadMove = calcEncumberedMove(id, pcLoad, moveInFeet);
@@ -381,7 +380,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 					return formulaResolvingFacet.resolve(id, FormulaFactory.getFormulaFor(formula), "").doubleValue();
 				}
 
-				return Globals.calcEncumberedMove(load, unencumberedMove);
+				return load.calcEncumberedMove(unencumberedMove);
 			}
 
 			return encumberedMove;

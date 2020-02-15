@@ -43,7 +43,6 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.utils.CoreUtility;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -52,7 +51,6 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.VisionType;
 
 /**
@@ -996,50 +994,6 @@ public final class Globals
 		}
 
 		return Integer.parseInt(sml.get(level - 1));
-	}
-
-	public static double calcEncumberedMove(final Load load, final double unencumberedMove)
-	{
-		final double encumberedMove;
-
-		switch (load)
-		{
-			case LIGHT:
-				encumberedMove = unencumberedMove;
-
-				break;
-
-			case MEDIUM:
-			case HEAVY:
-
-				if (CoreUtility.doublesEqual(unencumberedMove, 5))
-				{
-					encumberedMove = 5;
-				}
-				else if (CoreUtility.doublesEqual(unencumberedMove, 10))
-				{
-					encumberedMove = 5;
-				}
-				else
-				{
-					encumberedMove = (Math.floor(unencumberedMove / 15) * 10) + (((int) unencumberedMove) % 15);
-				}
-
-				break;
-
-			case OVERLOAD:
-				encumberedMove = 0;
-
-				break;
-
-			default:
-				Logging.errorPrint("The load " + load + " is not possible.");
-				encumberedMove = 0;
-
-				break;
-		}
-
-		return encumberedMove;
 	}
 
 	/**

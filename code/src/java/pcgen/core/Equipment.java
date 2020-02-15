@@ -3129,7 +3129,7 @@ public final class Equipment extends PObject
 						retString.append(',');
 					}
 
-					retString.append(Globals.calcEncumberedMove(eqLoad, baseMove));
+					retString.append(eqLoad.calcEncumberedMove(baseMove));
 					baseMove -= 10;
 				}
 
