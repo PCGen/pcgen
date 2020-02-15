@@ -30,9 +30,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
-
 import javax.swing.JFrame;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.content.BaseDice;
@@ -75,11 +73,10 @@ public final class Globals
 
 	/** we need maps for efficient lookups */
 	private static final Map<URI, Campaign> CAMPAIGN_MAP = new HashMap<>();
-	private static final Map<String, String> EQ_SLOT_MAP = new HashMap<>();
+	private static final Map<String, Integer> EQ_SLOT_MAP = new HashMap<>();
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
-	private static final StringBuilder SECTION_15 = new StringBuilder(30000);
 
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
@@ -129,7 +126,6 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyed(final String aKey)
 	{
-
 		final Campaign campaign = getCampaignKeyedSilently(aKey);
 		if (campaign == null)
 		{
@@ -173,27 +169,26 @@ public final class Globals
 
 		for (final T anObject : aPObjectList)
 		{
-			boolean match = false;
-			for (final String type : typeList)
-			{
-				final boolean sense = (type.charAt(0) != '!');
-				if (anObject.isType(type) == sense)
-				{
-					match = true;
-				}
-				else
-				{
-					match = false;
-					break;
-				}
-			}
-			if (match)
+			if (isMatch(typeList, anObject))
 			{
 				ret.add(anObject);
 			}
 		}
 		ret.trimToSize();
 		return ret;
+	}
+
+	private static <T extends CDOMObject> boolean isMatch(List<String> typeList, T anObject)
+	{
+		for (final String type : typeList)
+		{
+			final boolean sense = (type.charAt(0) != '!');
+			if (anObject.isType(type) != sense)
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	// END Game Modes Section.
@@ -222,14 +217,13 @@ public final class Globals
 	 */
 	public static String getDefaultSpellBook()
 	{
-		String book = null;
-
-		if (SettingsHandler.getGame() != null)
+		GameMode game = SettingsHandler.getGameAsProperty().get();
+		if (game != null)
 		{
-			book = SettingsHandler.getGame().getDefaultSpellBook();
+			return game.getDefaultSpellBook();
 		}
 
-		return book;
+		return null;
 	}
 
 	/**
@@ -251,7 +245,7 @@ public final class Globals
 	 * @param aString
 	 * @param aNum
 	 */
-	public static void setEquipSlotTypeCount(final String aString, final String aNum)
+	public static void setEquipSlotTypeCount(final String aString, final int aNum)
 	{
 		EQ_SLOT_MAP.put(aString, aNum);
 	}
@@ -265,13 +259,7 @@ public final class Globals
 	 */
 	public static int getEquipSlotTypeCount(final String aType)
 	{
-		final String aNum = EQ_SLOT_MAP.get(aType);
-
-		if (aNum != null)
-		{
-			return Integer.parseInt(aNum);
-		}
-		return 0;
+		return EQ_SLOT_MAP.computeIfAbsent(aType, s -> 0);
 	}
 
 	/**
@@ -280,7 +268,7 @@ public final class Globals
 	 */
 	public static String getGameModePointPoolName()
 	{
-		return SettingsHandler.getGame().getPointPoolName();
+		return SettingsHandler.getGameAsProperty().get().getPointPoolName();
 	}
 
 	/**
@@ -298,18 +286,7 @@ public final class Globals
 	 */
 	public static UnitSet getGameModeUnitSet()
 	{
-		return SettingsHandler.getGame().getUnitSet();
-	}
-
-	/**
-	 * Return TRUE if in a particular game mode
-	 * @param gameMode
-	 * @return TRUE if in a particular game mode
-	 */
-	public static boolean isInGameMode(final String gameMode)
-	{
-		return gameMode.isEmpty()
-			|| ((SettingsHandler.getGame() != null) && gameMode.equalsIgnoreCase(SettingsHandler.getGame().getName()));
+		return SettingsHandler.getGameAsProperty().get().getUnitSet();
 	}
 
 	/**
@@ -327,7 +304,7 @@ public final class Globals
 	 */
 	public static int getPaperCount()
 	{
-		return SettingsHandler.getGame().getModeContext().getReferenceContext()
+		return SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()
 			.getConstructedObjectCount(PaperInfo.class);
 	}
 
@@ -359,7 +336,7 @@ public final class Globals
 
 	private static List<PaperInfo> getSortedPaperInfo()
 	{
-		List<PaperInfo> items = new ArrayList<>(SettingsHandler.getGame().getModeContext().getReferenceContext()
+		List<PaperInfo> items = new ArrayList<>(SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()
 			.getConstructedCDOMObjects(PaperInfo.class));
 		items.sort(Comparator.comparing(SortKeyRequired::getSortKey));
 		return items;
@@ -385,15 +362,6 @@ public final class Globals
 	public static JFrame getRootFrame()
 	{
 		return rootFrame;
-	}
-
-	/**
-	 * Get the section 15
-	 * @return section 15
-	 */
-	public static StringBuilder getSection15()
-	{
-		return SECTION_15;
 	}
 
 	/**
@@ -529,19 +497,12 @@ public final class Globals
 	/**
 	 * Return true if resizing the equipment will have any "noticable" effect
 	 * checks for cost modification, armor bonus, weight, capacity
-	 * @param aEq
 	 * @param typeList
 	 * @return TRUE or FALSE
 	 */
-	public static boolean canResizeHaveEffect(final Equipment aEq, List<String> typeList)
+	public static boolean canResizeHaveEffect(List<String> typeList)
 	{
-		// cycle through typeList and see if it matches one in the BONUS:ITEMCOST|TYPE=etc on sizeadjustment
-		if (typeList == null)
-		{
-			typeList = aEq.typeList();
-		}
-
-		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList().stream()
+		final List<String> resizeTypeList = SettingsHandler.getGameAsProperty().get().getResizableTypeList().stream()
 			.map(Type::toString).map(String::toUpperCase).collect(Collectors.toList());
 		return typeList.stream().map(String::toUpperCase).anyMatch(resizeTypeList::contains);
 	}
@@ -553,7 +514,7 @@ public final class Globals
 	 */
 	public static boolean checkRule(final String aKey)
 	{
-		final RuleCheck rule = SettingsHandler.getGame().getModeContext().getReferenceContext()
+		final RuleCheck rule = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()
 			.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
 		if (rule == null)
 		{
@@ -667,7 +628,7 @@ public final class Globals
 
 		// Perform other special cleanup
 		Equipment.clearEquipmentTypes();
-		SettingsHandler.getGame().clearLoadContext();
+		SettingsHandler.getGameAsProperty().get().clearLoadContext();
 
 		RaceType.clearConstants();
 		CNAbilityFactory.reset();
@@ -844,7 +805,7 @@ public final class Globals
 
 	static String getBonusFeatString()
 	{
-		final List<String> bonusFeatLevels = SettingsHandler.getGame().getBonusFeatLevels();
+		final List<String> bonusFeatLevels = SettingsHandler.getGameAsProperty().get().getBonusFeatLevels();
 		if ((bonusFeatLevels == null) || bonusFeatLevels.isEmpty())
 		{
 			// Default to no bonus feats.
@@ -857,7 +818,7 @@ public final class Globals
 	{
 		int num = 0;
 
-		for (final String s : SettingsHandler.getGame().getBonusStatLevels())
+		for (final String s : SettingsHandler.getGameAsProperty().get().getBonusStatLevels())
 		{
 			num = bonusParsing(s, level, num, aPC);
 		}
@@ -1027,7 +988,7 @@ public final class Globals
 
 	public static int getSkillMultiplierForLevel(final int level)
 	{
-		final List<String> sml = SettingsHandler.getGame().getSkillMultiplierLevels();
+		final List<String> sml = SettingsHandler.getGameAsProperty().get().getSkillMultiplierLevels();
 
 		if ((level > sml.size()) || (level <= 0))
 		{
@@ -1079,14 +1040,6 @@ public final class Globals
 		}
 
 		return encumberedMove;
-	}
-
-	// Methods
-
-	static void initCustColumnWidth(final List<String> l)
-	{
-		CUST_COLUMN_WIDTH.clear();
-		CUST_COLUMN_WIDTH.addAll(l);
 	}
 
 	/**
@@ -1158,6 +1111,6 @@ public final class Globals
 
 	public static LoadContext getContext()
 	{
-		return SettingsHandler.getGame().getContext();
+		return SettingsHandler.getGameAsProperty().get().getContext();
 	}
 }

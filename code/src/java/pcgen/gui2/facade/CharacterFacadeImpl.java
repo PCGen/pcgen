@@ -3251,7 +3251,7 @@ public class CharacterFacadeImpl
 	{
 		final Equipment equip = (Equipment) equipment;
 		final SizeAdjustment newSize = theCharacter.getSizeAdjustment();
-		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip, null))
+		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip.typeList()))
 		{
 			return equipment;
 		}

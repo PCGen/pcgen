@@ -23,10 +23,8 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.prereq.Prerequisite;
@@ -157,19 +155,6 @@ public class CampaignLoader extends LstLineFileLoader
 		{
 			// Check the campaign's prerequisites, generating errors if any are not met but proceeding
 			validatePrereqs(campaign.getPrerequisiteList());
-			List<String> copyright = campaign.getListFor(ListKey.SECTION_15);
-			if (copyright != null)
-			{
-				StringBuilder sec15 = Globals.getSection15();
-				sec15.append("<br><b>Source Material:</b>");
-				sec15.append(SourceFormat.getFormattedString(campaign, SourceFormat.LONG, true));
-				sec15.append("<br>");
-				sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
-				for (String license : copyright)
-				{
-					sec15.append(license).append("<br>");
-				}
-			}
 
 			// Adds this campaign to the Global container.
 			Globals.addCampaign(campaign);
