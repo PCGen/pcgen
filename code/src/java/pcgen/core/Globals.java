@@ -178,11 +178,13 @@ public final class Globals
 		return ret;
 	}
 
-	private static <T extends CDOMObject> boolean isMatch(List<String> typeList, T anObject) {
+	private static <T extends CDOMObject> boolean isMatch(List<String> typeList, T anObject)
+	{
 		for (final String type : typeList)
 		{
 			final boolean sense = (type.charAt(0) != '!');
-			if (anObject.isType(type) != sense) {
+			if (anObject.isType(type) != sense)
+			{
 				return false;
 			}
 		}
