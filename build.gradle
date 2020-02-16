@@ -36,6 +36,7 @@ plugins {
 javafx {
     version = "14.0.1"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
+    configuration = "compileOnly"
 }
 
 group = 'net.sourceforge.pcgen'
@@ -77,6 +78,20 @@ applicationDistribution.from('system') {
 }
 applicationDistribution.from('preview') {
     into "preview"
+}
+
+application{
+    executableDir = ''
+}
+
+startScripts{
+    doLast {
+        unixScript.text =
+                unixScript.text.replaceAll("\\.\\.","")
+        windowsScript.text =
+                windowsScript.text.replaceAll("\\.\\.","")
+    }
+
 }
 
 repositories {
@@ -242,6 +257,7 @@ jar {
     }
 }
 
+
 runtime {
     options = ['--compress', '2']
     modules = [
@@ -260,7 +276,17 @@ runtime {
     'java.scripting',
     'jdk.jfr',
     'jdk.jsobject',
+    'javafx.controls',
+    'javafx.web',
+    'javafx.swing',
+    'javafx.fxml',
+    'javafx.graphics'
     ]
+
+    targetPlatform('linux-x64', "$projectDir/jre/linux/jre_x64")
+    targetPlatform('win-x64', "$projectDir/jre/windows/jre_x64")
+    //targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64")
+
 }
 
 task converterJar(type: Jar, dependsOn: jar) {

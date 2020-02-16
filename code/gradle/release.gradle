@@ -178,7 +178,7 @@ launch4j {
 task downloadJRE doLast {
     def major = 13
     def archs = ['x64','x32']
-    def osList = ['windows', 'mac']
+    def osList = ['windows', 'mac','linux']
     def extension = 'zip'
     osList.each{
         def os = "${it}"
@@ -187,7 +187,7 @@ task downloadJRE doLast {
         }
         archs.each {
             def arch = "${it}"
-            if(os == "mac" && arch == "x32"){
+            if(arch == "x32"){
                 return
             }
             def url = "https://api.adoptopenjdk.net/v2/binary/releases/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jdk"
