@@ -47,7 +47,8 @@ public enum Load
 	};
 	private static final DoubleFunction<Double>  OVERLOADED_ENCUMBERED_MOVE = unencumberedMove -> 0.0;
 
-	static {
+	static
+	{
 		LIGHT.encumberedMoveFunction = LIGHT_ENCUMBERED_MOVE;
 		MEDIUM.encumberedMoveFunction = MEDIUM_HEAVY_ENCUMBERED_MOVE;
 		HEAVY.encumberedMoveFunction = MEDIUM_HEAVY_ENCUMBERED_MOVE;
@@ -58,16 +59,19 @@ public enum Load
 	private final Supplier<Color> colorFunction;
 	private DoubleFunction<Double>  encumberedMoveFunction;
 
-	Load(Function<Font, Font> fontFunction, Supplier<Color> colorFunction) {
+	Load(Function<Font, Font> fontFunction, Supplier<Color> colorFunction)
+	{
 		this.fontFunction = fontFunction;
 		this.colorFunction = colorFunction;
 	}
 
-	public Font getFont(Font font){
+	public Font getFont(Font font)
+	{
 		return fontFunction.apply(font);
 	}
 
-	public Color getColor(){
+	public Color getColor()
+	{
 		return colorFunction.get();
 	}
 
@@ -99,7 +103,8 @@ public enum Load
 	}
 
 
-	public double calcEncumberedMove(final double unencumberedMove){
+	public double calcEncumberedMove(final double unencumberedMove)
+	{
 		return encumberedMoveFunction.apply(unencumberedMove);
 	}
 }
