@@ -160,10 +160,8 @@ launch4j {
     jdkPreference = 'preferJre'
     maxHeapPercent = 80
     stayAlive = false
-    dontWrapJar = true
-    bundledJrePath = 'jre'
-    jar = "pcgen.jar"
     jreRuntimeBits = "64/32"
+    bundledJrePath = '.'
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
