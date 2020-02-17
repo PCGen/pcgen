@@ -18,12 +18,8 @@
  */
 package pcgen.gui2.tabs;
 
-import static pcgen.gui2.facade.EquipNode.NodeType.EQUIPMENT;
-import static pcgen.gui2.tabs.equip.EquipmentSelection.EQUIPMENT_ARRAY_FLAVOR;
-
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Font;
 import java.awt.Insets;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -37,7 +33,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -61,7 +56,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
-
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentSetFacade;
@@ -70,12 +66,14 @@ import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.facade.EquipNode;
+import static pcgen.gui2.facade.EquipNode.NodeType.EQUIPMENT;
 import pcgen.gui2.filter.DisplayableFilter;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.equip.EquipmentModel;
 import pcgen.gui2.tabs.equip.EquipmentModels;
 import pcgen.gui2.tabs.equip.EquipmentModels.EquipView;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
+import static pcgen.gui2.tabs.equip.EquipmentSelection.EQUIPMENT_ARRAY_FLAVOR;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
@@ -90,10 +88,6 @@ import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
-
-import javafx.scene.paint.Color;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * EquipInfoTab is a character tab for managing where gear is distributed for a
@@ -384,36 +378,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		             .collect(Collectors.toList());
 	}
 
-	public void setLoadLabel(String text)
+	public void setLoadLabel(Load encumbrance)
 	{
-		// bold / highlight text based on encumbrance value
-		Font font = loadLabel.getFont();
-		Color color = UIPropertyContext.getQualifiedColor();
-		Load encumbrance = Load.getLoadType(text);
-
-		switch (encumbrance)
-		{
-			case MEDIUM:
-				font = FontManipulation.bold(font);
-				color = UIPropertyContext.getAutomaticColor();
-				break;
-			case HEAVY:
-				font = FontManipulation.bold_italic(font);
-				color = UIPropertyContext.getVirtualColor();
-				break;
-			case OVERLOAD:
-				font = FontManipulation.bold_italic(font);
-				color = UIPropertyContext.getNotQualifiedColor();
-				break;
-
-			default:
-				font = FontManipulation.plain(font);
-				break;
-		}
-
-		loadLabel.setText(text);
-		loadLabel.setFont(font);
-		loadLabel.setForeground(ColorUtilty.colorToAWTColor(color));
+		loadLabel.setText(encumbrance.name());
+		loadLabel.setFont(encumbrance.getFont(loadLabel.getFont()));
+		loadLabel.setForeground(ColorUtilty.colorToAWTColor(encumbrance.getColor()));
 	}
 
 	@Override
@@ -574,7 +543,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void install()
 		{
 			weightLabel.setText(weightRef.get());
-			setLoadLabel(loadRef.get());
+			setLoadLabel(Load.getLoadType(loadRef.get()));
 			limitLabel.setText(limitRef.get());
 
 			weightRef.addReferenceListener(this);
@@ -599,7 +568,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			else if (source == loadRef)
 			{
-				setLoadLabel(e.getNewReference());
+				setLoadLabel(Load.getLoadType(e.getNewReference()));
 			}
 			else
 			{
