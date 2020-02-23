@@ -7977,7 +7977,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		Collection<CDOMReference<Ability>> mods = cdo.getListMods(ref);
 		for (CDOMReference<Ability> objref : mods)
 		{
-			Collection<Ability> objs = objref.getContainedObjects();
+			Collection<Ability> objs = null;
+			try {
+				objs = objref.getContainedObjects();
+			} catch (Exception e) {
+				Logging.log(Logging.LST_ERROR, "Missing object referenced in the ability list for '" + cdo
+						+ "' list is " + ref + ". Source " + cdo.getSourceURI());
+				continue;
+			}
 			Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(ref, objref);
 			for (Ability ab : objs)
 			{
