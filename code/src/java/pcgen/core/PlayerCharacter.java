@@ -7981,7 +7981,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			try 
 			{
 				objs = objref.getContainedObjects();
-			} catch (Exception e) {
+			} catch (Exception e) 
+			{
 				Logging.log(Logging.LST_ERROR, "Missing object referenced in the ability list for '" + cdo
 						+ "' list is " + ref + ". Source " + cdo.getSourceURI());
 				continue;
