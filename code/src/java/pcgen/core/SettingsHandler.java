@@ -89,16 +89,22 @@ public final class SettingsHandler
 	private static boolean gearTab_AllowDebt = false;
 	private static int gearTab_SellRate = Constants.DEFAULT_GEAR_TAB_SELL_RATE;
 	private static int gearTab_BuyRate = Constants.DEFAULT_GEAR_TAB_BUY_RATE;
-
+	
 	private static final SortedProperties OPTIONS = new SortedProperties();
 	private static final Properties FILEPATHS = new Properties();
 	private static final String FILE_LOCATION = Globals.getFilepathsPath();
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
-
+	
 	private static File gmgenPluginDir = new File(Globals.getDefaultPath() + File.separator + "plugins"); //$NON-NLS-1$
-	private static int prereqQualifyColor = Constants.DEFAULT_PREREQ_QUALIFY_COLOUR;
-	private static int prereqFailColor = Constants.DEFAULT_PREREQ_FAIL_COLOUR;
+	/**
+	 * The default colour of items in the GUI which the character does qualify
+	 * for. 0xFFFFFF is black. */
+	private static int prereqQualifyColor = SystemColor.text.getRGB() & 0x00FFFFFF;
+	/**
+	 * The default colour of items in the GUI which the character does not qualify
+	 * for. 0xFF0000 is red. */
+	private static int prereqFailColor = 0xFF0000;
 
 	/////////////////////////////////////////////////
 	private static boolean saveCustomInLst = false;
