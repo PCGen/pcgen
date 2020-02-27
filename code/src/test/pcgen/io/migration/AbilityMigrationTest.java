@@ -40,7 +40,7 @@ public class AbilityMigrationTest
 	@BeforeEach
 	public void setUp() throws Exception
 	{
-		gameMode = SettingsHandler.getGame().getName();
+		gameMode = SettingsHandler.getGameAsProperty().get().getName();
 		MigrationRule abilityRule = new MigrationRule(ObjectType.ABILITY, "OldCat", "OldKey1");
 		abilityRule.setMaxVer("6.0.1");
 		abilityRule.setNewKey("NewKey1");

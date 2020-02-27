@@ -437,7 +437,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	private File getSelectedTemplate()
 	{
 		File osDir;
-		String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+		String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();
 		if (outputSheetDirectory == null)
 		{
 			osDir = new File(ConfigurationSettings.getOutputSheetsDir());
@@ -475,7 +475,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		IOFileFilter ioFilter = FileFilterUtils.asFileFilter(sheetFilter);
 		IOFileFilter prefixFilter;
 		String defaultSheet = null;
-		String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+		String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();
 		if (outputSheetDirectory == null)
 		{
 			outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + "/" + sheetFilter.getPath();
@@ -498,7 +498,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			if (StringUtils.isEmpty(defaultSheet))
 			{
 				defaultSheet = outputSheetsDir + "/"
-					+ SettingsHandler.getGame().getOutputSheetDefault(sheetFilter.getTag());
+					+ SettingsHandler.getGameAsProperty().get().getOutputSheetDefault(sheetFilter.getTag());
 			}
 		}
 		IOFileFilter filter = FileFilterUtils.and(prefixFilter, ioFilter);
@@ -595,10 +595,10 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		try
 		{
 			File dir;
-			String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+			String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();
 			if (outputSheetDirectory == null)
 			{
-				Logging.errorPrint("OUTPUTSHEET|DIRECTORY not defined for game mode " + SettingsHandler.getGame());
+				Logging.errorPrint("OUTPUTSHEET|DIRECTORY not defined for game mode " + SettingsHandler.getGameAsProperty().get());
 				dir = new File(ConfigurationSettings.getOutputSheetsDir());
 			}
 			else

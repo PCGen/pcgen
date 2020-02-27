@@ -128,7 +128,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().importObject(plus1);
 
 		// Load AC definitions - but only once
-		final GameMode gamemode = SettingsHandler.getGame();
+		final GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		if (!gamemode.isValidACType("Total"))
 		{
 			gamemode.addACAdds("Total", Collections.singletonList(new ACControl("TOTAL")));

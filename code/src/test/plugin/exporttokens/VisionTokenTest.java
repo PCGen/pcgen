@@ -96,7 +96,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 		metricUS.setDistanceUnit("m");
 		metricUS.setDistanceFactor(new BigDecimal("0.3"));
 		metricUS.setDistanceDisplayPattern(new DecimalFormat("#.##"));
-		SettingsHandler.getGame().getModeContext().getReferenceContext().importObject(metricUS);
+		SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext().importObject(metricUS);
 	}
 
 	@AfterEach
@@ -173,7 +173,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(darkvisionT);
 		pc.setDirty(true);
-		assertTrue(SettingsHandler.getGame().selectUnitSet(metricUS.getDisplayName()));
+		assertTrue(SettingsHandler.getGameAsProperty().get().selectUnitSet(metricUS.getDisplayName()));
 
 		assertEquals("Darkvision (18 m)", new VisionToken().getToken(
 			"VISION", pc, null), "Metric range of one vision method");

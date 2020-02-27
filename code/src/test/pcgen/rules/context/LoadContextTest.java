@@ -85,7 +85,7 @@ public class LoadContextTest
 		assertEquals("New Spell", newSpell.getDisplayName(), "New spell name incorrect");
 		
 		// Check associations
-		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGameAsProperty().get().getMasterLists();
 		Collection<AssociatedPrereqObject> assoc =
 				masterLists.getAssociations(ref, testSpell);
 		assertEquals(1, assoc.size(), "Incorrect size of assoc list for orig spell");

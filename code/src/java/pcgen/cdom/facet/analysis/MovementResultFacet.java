@@ -372,7 +372,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			}
 			else
 			{
-				String formula = SettingsHandler.getGame().getLoadInfo().getLoadMoveFormula(load.toString());
+				String formula = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadMoveFormula(load.toString());
 				if (!formula.isEmpty())
 				{
 					formula = formula.replaceAll(Pattern.quote("$$MOVE$$"),

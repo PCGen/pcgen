@@ -116,7 +116,7 @@ public final class SpellLevel
 	public static boolean isLevel(Spell sp, int aLevel, PlayerCharacter aPC)
 	{
 		Integer levelKey = aLevel;
-		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGameAsProperty().get().getMasterLists();
 		for (PCClass pcc : aPC.getClassSet())
 		{
 			ClassSpellList csl = pcc.get(ObjectKey.CLASS_SPELLLIST);

@@ -142,13 +142,13 @@ public abstract class AbstractSaveRestoreTest
 		TokenRegistration.register(new CskillmaxToken());
 		TokenRegistration.register(new CcskillmaxToken());
 		SettingsHandler.setGame("3.5");
-		GameMode mode = SettingsHandler.getGame();
-		mode.setBonusFeatLevels("3|3");
-		LevelLoader.parseLine(mode,
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
+		gameMode.setBonusFeatLevels("3|3");
+		LevelLoader.parseLine(gameMode,
 			"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		"
 		+ "CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
 			0, TestURI.getURI(), "Default");
-		ControlTestSupport.enableFeature(mode.getModeContext(), CControl.ALIGNMENTFEATURE);
+		ControlTestSupport.enableFeature(gameMode.getModeContext(), CControl.ALIGNMENTFEATURE);
 	}
 
 	protected <T extends Loadable> T create(Class<T> cl, String key)
@@ -259,8 +259,8 @@ public abstract class AbstractSaveRestoreTest
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 
-		GameMode gamemode = SettingsHandler.getGame();
-		gamemode.clearLoadContext();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
+		gameMode.clearLoadContext();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
@@ -356,9 +356,9 @@ public abstract class AbstractSaveRestoreTest
 
 	protected void runWriteRead(boolean dump)
 	{
-		GameMode mode = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		String pcgString =
-				(new PCGVer2Creator(pc, mode, null)).createPCGString();
+				(new PCGVer2Creator(pc, gameMode, null)).createPCGString();
 		if (dump)
 		{
 			System.err.println(pcgString);
@@ -372,9 +372,9 @@ public abstract class AbstractSaveRestoreTest
 	
 	protected void dumpPC(PlayerCharacter plchar)
 	{
-		GameMode mode = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		String pcgString =
-				(new PCGVer2Creator(plchar, mode, null)).createPCGString();
+				(new PCGVer2Creator(plchar, gameMode, null)).createPCGString();
 		System.err.println(pcgString);
 	}
 

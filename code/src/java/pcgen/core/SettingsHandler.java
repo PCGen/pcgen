@@ -305,16 +305,6 @@ public final class SettingsHandler
 		return game;
 	}
 
-	/**
-	 *
-	 * @deprecated use getGameAsProperty
-	 */
-	@Deprecated
-	public static GameMode getGame()
-	{
-		return game.get();
-	}
-
 	public static void setGearTab_AllowDebt(final boolean allowDebt)
 	{
 		gearTab_AllowDebt = allowDebt;
@@ -644,9 +634,9 @@ public final class SettingsHandler
 			getOptions().setProperty("gmgen.files.gmgenPluginDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		if (getGame() != null)
+		if (getGameAsProperty().get() != null)
 		{
-			setPCGenOption("game", getGame().getName()); //$NON-NLS-1$
+			setPCGenOption("game", getGameAsProperty().get().getName()); //$NON-NLS-1$
 		}
 		else
 		{

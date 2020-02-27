@@ -78,7 +78,7 @@ public final class StatApplication
 
 		int iCount = 0;
 		Set<PCStat> statsAlreadyBonused = new HashSet<>();
-		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
+		boolean allowStacks = SettingsHandler.getGameAsProperty().get().isBonusStatAllowsStack();
 		DecimalFormat formatter = PrettyIntegerFormat.getFormat();
 
 		for (int ix = 0; ix < statsToChoose; ++ix)

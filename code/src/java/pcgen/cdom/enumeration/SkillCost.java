@@ -33,7 +33,7 @@ public enum SkillCost
 		@Override
 		public int getCost()
 		{
-			return SettingsHandler.getGame().getSkillCost_Class();
+			return SettingsHandler.getGameAsProperty().get().getSkillCost_Class();
 		}
 	},
 
@@ -42,7 +42,7 @@ public enum SkillCost
 		@Override
 		public int getCost()
 		{
-			return SettingsHandler.getGame().getSkillCost_CrossClass();
+			return SettingsHandler.getGameAsProperty().get().getSkillCost_CrossClass();
 		}
 	},
 
@@ -51,7 +51,7 @@ public enum SkillCost
 		@Override
 		public int getCost()
 		{
-			return SettingsHandler.getGame().getSkillCost_Exclusive();
+			return SettingsHandler.getGameAsProperty().get().getSkillCost_Exclusive();
 		}
 	};
 

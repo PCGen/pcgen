@@ -92,6 +92,6 @@ public class MoveToken extends AbstractExportToken
 	public static String getSquaresToken(CharacterDisplay display, int moveIndex)
 	{
 		return Integer.toString(
-			(int) (display.getMovementValues().get(moveIndex).getWeight() / SettingsHandler.getGame().getSquareSize()));
+			(int) (display.getMovementValues().get(moveIndex).getWeight() / SettingsHandler.getGameAsProperty().get().getSquareSize()));
 	}
 }

@@ -50,6 +50,6 @@ public class GameModeToken extends Token
 	 */
 	public static String getGameModeToken()
 	{
-		return SettingsHandler.getGame().getName();
+		return SettingsHandler.getGameAsProperty().get().getName();
 	}
 }

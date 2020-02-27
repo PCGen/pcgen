@@ -653,7 +653,7 @@ public abstract class AbstractListContext
 	@SuppressWarnings("unchecked")
 	<T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
 	{
-		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGameAsProperty().get().getMasterLists();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			Collection<AssociatedPrereqObject> assocs = masterLists.getAssociations(ref, cdoOld);

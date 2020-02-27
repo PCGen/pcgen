@@ -75,7 +75,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown() throws Exception
 	{
-		SettingsHandler.getGame().getBioSet().clearUserMap();
+		SettingsHandler.getGameAsProperty().get().getBioSet().clearUserMap();
 
 		super.tearDown();
 	}
@@ -90,7 +90,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final int[] BASE_AGE = {15, 35, 53, 70};
 		final int[] MAX_AGE = {34, 52, 69, 110};
 
-		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
+		final BioSet currBioSet = SettingsHandler.getGameAsProperty().get().getBioSet();
 		final PlayerCharacter pc = getCharacter();
 		final Race human = new Race();
 		human.setName("NAME_Human");
@@ -156,7 +156,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		assertEquals(3, idx, "Ageset for " + display.getAge() + ".");
 
 		Optional<Region> region = pc.getDisplay().getRegion();
-		SettingsHandler.getGame().getBioSet().getAgeSet(region, idx);
+		SettingsHandler.getGameAsProperty().get().getBioSet().getAgeSet(region, idx);
 
 	}
 

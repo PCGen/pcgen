@@ -84,7 +84,7 @@ public final class TipOfTheDayHandler
 		String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
 		String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$
 		final String tipsFilePath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
-			+ SettingsHandler.getGame().getName() + File.separator;
+			+ SettingsHandler.getGameAsProperty().get().getName() + File.separator;
 		final String tipsDefaultPath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
 			+ "default" + File.separator; //$NON-NLS-1$
 		String[] tipFiles = {tipsFilePath + tipsFileName, tipsDefaultPath + tipsFileName,
@@ -111,7 +111,7 @@ public final class TipOfTheDayHandler
 
 		if (!loaded)
 		{
-			Logging.errorPrint("Warning: game mode " + SettingsHandler.getGame().getName()
+			Logging.errorPrint("Warning: game mode " + SettingsHandler.getGameAsProperty().get().getName()
 				+ " is missing tips. Tried all of " + StringUtils.join(tipFiles, "\n"));
 		}
 

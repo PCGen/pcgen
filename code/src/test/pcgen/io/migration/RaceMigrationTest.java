@@ -39,7 +39,7 @@ public class RaceMigrationTest
 	@BeforeEach
 	void setUp() throws Exception
 	{
-		gameMode = SettingsHandler.getGame().getName();
+		gameMode = SettingsHandler.getGameAsProperty().get().getName();
 		MigrationRule raceRule = new MigrationRule(ObjectType.RACE, "OldKey1");
 		raceRule.setMaxVer("6.0.1");
 		raceRule.setNewKey("NewKey1");

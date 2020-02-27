@@ -61,7 +61,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		SettingsHandler.getGame().clearLoadContext();
+		SettingsHandler.getGameAsProperty().get().clearLoadContext();
 		context = Globals.getContext();
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}

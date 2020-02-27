@@ -204,8 +204,8 @@ public abstract class AbstractTokenModelTest
 
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
-		GameMode gamemode = SettingsHandler.getGame();
-		gamemode.clearLoadContext();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
+		gameMode.clearLoadContext();
 
 		context = Globals.getContext();
 		AbstractReferenceContext ref = context.getReferenceContext();

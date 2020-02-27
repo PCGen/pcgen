@@ -42,7 +42,7 @@ public class EquipmentMigrationTest
 	@BeforeEach
 	public void setUp() throws Exception
 	{
-		gameMode = SettingsHandler.getGame().getName();
+		gameMode = SettingsHandler.getGameAsProperty().get().getName();
 		MigrationRule equipRule = new MigrationRule(ObjectType.EQUIPMENT, "OldKey1");
 		equipRule.setMaxVer("6.0.1");
 		equipRule.setNewKey("NewKey1");

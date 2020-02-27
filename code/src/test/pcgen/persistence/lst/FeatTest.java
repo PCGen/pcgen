@@ -40,7 +40,7 @@ public class FeatTest
 	@AfterEach
 	public void tearDown()
 	{
-		SettingsHandler.getGame().clearLoadContext();
+		SettingsHandler.getGameAsProperty().get().clearLoadContext();
 		TokenRegistration.clearTokens();
 	}
 

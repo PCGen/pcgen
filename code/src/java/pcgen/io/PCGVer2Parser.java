@@ -350,7 +350,7 @@ final class PCGVer2Parser implements PCGParser
 			oSource = thePC.getAbilityKeyed(AbilityCategory.FEAT, sourceStr);
 			if (oSource == null)
 			{
-				for (final AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
+				for (final AbilityCategory cat : SettingsHandler.getGameAsProperty().get().getAllAbilityCategories())
 				{
 					Ability abilSourceObj = Globals.getContext().getReferenceContext().getManufacturerId(cat)
 						.getActiveObject(sourceStr);
@@ -2283,10 +2283,10 @@ final class PCGVer2Parser implements PCGParser
 			IOConstants.TAG_END, false);
 
 		String characterType = stok.nextToken();
-		if (!SettingsHandler.getGame().getCharacterTypeList().contains(characterType))
+		if (!SettingsHandler.getGameAsProperty().get().getCharacterTypeList().contains(characterType))
 		{
 			String wantedType = characterType;
-			characterType = SettingsHandler.getGame().getDefaultCharacterType();
+			characterType = SettingsHandler.getGameAsProperty().get().getDefaultCharacterType();
 			final String message = "Character type " + wantedType + " not found. Using " + characterType; //$NON-NLS-1$
 			warnings.add(message);
 		}
@@ -2327,10 +2327,10 @@ final class PCGVer2Parser implements PCGParser
 			IOConstants.TAG_END, false);
 
 		String xpTableName = stok.nextToken();
-		if (!SettingsHandler.getGame().getXPTableNames().contains(xpTableName))
+		if (!SettingsHandler.getGameAsProperty().get().getXPTableNames().contains(xpTableName))
 		{
 			String wantedName = xpTableName;
-			xpTableName = SettingsHandler.getGame().getDefaultXPTableName();
+			xpTableName = SettingsHandler.getGameAsProperty().get().getDefaultXPTableName();
 			final String message = "XP table " + wantedName + " not found. Using " + xpTableName; //$NON-NLS-1$
 			warnings.add(message);
 		}
@@ -2379,7 +2379,7 @@ final class PCGVer2Parser implements PCGParser
 			final PCGElement element = it.next();
 
 			final String categoryKey = EntityEncoder.decode(element.getText());
-			category = SettingsHandler.getGame().getAbilityCategory(categoryKey);
+			category = SettingsHandler.getGameAsProperty().get().getAbilityCategory(categoryKey);
 			if (category == null)
 			{
 				missingCat = categoryKey;
@@ -2411,10 +2411,10 @@ final class PCGVer2Parser implements PCGParser
 			String abilityKey = EntityEncoder.decode(element.getText());
 			// Check for an ability that has been updated.
 			CategorisedKey categorisedKey = AbilityMigration.getNewAbilityKey(abilityCat, abilityKey, pcgenVersion,
-				SettingsHandler.getGame().getName());
+				SettingsHandler.getGameAsProperty().get().getName());
 			abilityCat = categorisedKey.getCategory();
 			abilityKey = categorisedKey.getKey();
-			AbilityCategory innateCategory = SettingsHandler.getGame().getAbilityCategory(abilityCat);
+			AbilityCategory innateCategory = SettingsHandler.getGameAsProperty().get().getAbilityCategory(abilityCat);
 			if (innateCategory == null)
 			{
 				missingCat = abilityCat;
@@ -2665,7 +2665,7 @@ final class PCGVer2Parser implements PCGParser
 
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
 		final String cat = EntityEncoder.decode(it.next().getText());
-		final AbilityCategory category = SettingsHandler.getGame().getAbilityCategory(cat);
+		final AbilityCategory category = SettingsHandler.getGameAsProperty().get().getAbilityCategory(cat);
 		try
 		{
 			thePC.setUserPoolBonus(category, new BigDecimal(it.next().getText()));
@@ -2842,7 +2842,7 @@ final class PCGVer2Parser implements PCGParser
 	{
 		final String requestedMode = line.substring(IOConstants.TAG_GAMEMODE.length() + 1);
 
-		final GameMode currentGameMode = SettingsHandler.getGame();
+		final GameMode currentGameMode = SettingsHandler.getGameAsProperty().get();
 		final String currentMode = currentGameMode.getName();
 
 		if (!requestedMode.equals(currentMode))
@@ -3420,7 +3420,7 @@ final class PCGVer2Parser implements PCGParser
 		PCGElement raceElement = elements.get(0);
 		String raceName = EntityEncoder.decode(raceElement.getText());
 		// Check for a race key that has been updated.
-		raceName = RaceMigration.getNewRaceKey(raceName, pcgenVersion, SettingsHandler.getGame().getName());
+		raceName = RaceMigration.getNewRaceKey(raceName, pcgenVersion, SettingsHandler.getGameAsProperty().get().getName());
 		final Race aRace =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, raceName);
 
@@ -3815,7 +3815,7 @@ final class PCGVer2Parser implements PCGParser
 			if (IOConstants.TAG_SPELLNAME.equals(tag))
 			{
 				String spellName = EntityEncoder.decode(element.getText());
-				spellName = SpellMigration.getNewSpellKey(spellName, pcgenVersion, SettingsHandler.getGame().getName());
+				spellName = SpellMigration.getNewSpellKey(spellName, pcgenVersion, SettingsHandler.getGameAsProperty().get().getName());
 
 				// either NULL (no spell) a Spell instance,
 				aSpell = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class,
@@ -4708,7 +4708,7 @@ final class PCGVer2Parser implements PCGParser
 		element = tokens.getElements().get(0);
 		itemKey = EntityEncoder.decode(element.getText());
 		// Check for an equipment key that has been updated.
-		itemKey = EquipmentMigration.getNewEquipmentKey(itemKey, pcgenVersion, SettingsHandler.getGame().getName());
+		itemKey = EquipmentMigration.getNewEquipmentKey(itemKey, pcgenVersion, SettingsHandler.getGameAsProperty().get().getName());
 
 		// might be dynamically created container
 		aEquip = thePC.getEquipmentNamed(itemKey);
@@ -4757,7 +4757,7 @@ final class PCGVer2Parser implements PCGParser
 								baseItemKey = EntityEncoder.decode(child.getText());
 								// Check for an equipment key that has been updated.
 								baseItemKey = EquipmentMigration.getNewEquipmentKey(baseItemKey, pcgenVersion,
-									SettingsHandler.getGame().getName());
+									SettingsHandler.getGameAsProperty().get().getName());
 							}
 							else if (IOConstants.TAG_DATA.equals(childTag))
 							{
@@ -5135,7 +5135,7 @@ final class PCGVer2Parser implements PCGParser
             switch (cType)
             {
                 case IOConstants.TAG_FEAT:
-                    for (AbilityCategory aCat : SettingsHandler.getGame().getAllAbilityCategories())
+                    for (AbilityCategory aCat : SettingsHandler.getGameAsProperty().get().getAllAbilityCategories())
                     {
                         Ability a =
                                 Globals.getContext().getReferenceContext().getManufacturerId(aCat).getActiveObject(cKey);

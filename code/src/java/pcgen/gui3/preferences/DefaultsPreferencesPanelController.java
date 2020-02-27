@@ -86,7 +86,7 @@ public class DefaultsPreferencesPanelController implements ResettableController
 		 * a observableList to attach.
 		 */
 
-		final GameMode gameMode = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 
 		final String xpTableName = gameMode.getDefaultXPTableName();
 		List<String> xpTableNames = gameMode.getXPTableNames();
@@ -113,7 +113,7 @@ public class DefaultsPreferencesPanelController implements ResettableController
 	@Override
 	public void apply()
 	{
-		final GameMode gameMode = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		gameMode.setDefaultXPTableName(xpTableCombo.getSelectionModel().getSelectedItem());
 		gameMode.setDefaultCharacterType(characterTypeCombo.getSelectionModel().getSelectedItem());
 		gameMode.setDefaultPreviewSheet(previewSheetCombo.getSelectionModel().getSelectedItem());

@@ -227,7 +227,7 @@ public final class CustomData
 	 */
 	private static void ensureCustomDirExists()
 	{
-		File customDir = new File(PCGenSettings.getCustomDir() + File.separator + SettingsHandler.getGame().getName());
+		File customDir = new File(PCGenSettings.getCustomDir() + File.separator + SettingsHandler.getGameAsProperty().get().getName());
 		if (!customDir.exists())
 		{
 			try
@@ -291,7 +291,7 @@ public final class CustomData
 	{
 		ensureCustomDirExists();
 		final BufferedWriter bw = getPurchaseModeWriter();
-		final Map<Integer, PointBuyCost> pbStatCosts = SettingsHandler.getGame().getPointBuyStatCostMap();
+		final Map<Integer, PointBuyCost> pbStatCosts = SettingsHandler.getGameAsProperty().get().getPointBuyStatCostMap();
 
 		if (bw == null || pbStatCosts == null)
 		{
@@ -349,7 +349,7 @@ public final class CustomData
 			bw.write("#");
 			bw.newLine();
 
-			for (PointBuyMethod pbm : SettingsHandler.getGame().getModeContext().getReferenceContext()
+			for (PointBuyMethod pbm : SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()
 				.getConstructedCDOMObjects(PointBuyMethod.class))
 			{
 				bw.write("METHOD:" + pbm.getDisplayName() + "\t\tPOINTS:" + pbm.getPointFormula());
@@ -392,12 +392,12 @@ public final class CustomData
 
 	private static String getCustomPath(final String type, final boolean usePath)
 	{
-		return getCustomPath(type, usePath, SettingsHandler.getGame().getName());
+		return getCustomPath(type, usePath, SettingsHandler.getGameAsProperty().get().getName());
 	}
 
 	private static BufferedWriter getPurchaseModeWriter()
 	{
-		return getWriter(customPurchaseModeFilePath(true, SettingsHandler.getGame().getName()));
+		return getWriter(customPurchaseModeFilePath(true, SettingsHandler.getGameAsProperty().get().getName()));
 	}
 
 	private static BufferedReader getReader(final String path)
@@ -458,7 +458,7 @@ public final class CustomData
 				if (race.isType(Constants.TYPE_CUSTOM))
 				{
 					final String key = race.getKeyName();
-					bw.write(SettingsHandler.getGame().getBioSet().getBaseRegionPCCText(key));
+					bw.write(SettingsHandler.getGameAsProperty().get().getBioSet().getBaseRegionPCCText(key));
 					bw.newLine();
 				}
 			}
@@ -506,7 +506,7 @@ public final class CustomData
 
 	private static void writeCustomAbilities()
 	{
-		for (AbilityCategory ac : SettingsHandler.getGame().getAllAbilityCategories())
+		for (AbilityCategory ac : SettingsHandler.getGameAsProperty().get().getAllAbilityCategories())
 		{
 			writeCustomPObjects(customAbilityFilePath(true),
 				Globals.getContext().getReferenceContext().getManufacturerId(ac).getAllObjects().iterator());

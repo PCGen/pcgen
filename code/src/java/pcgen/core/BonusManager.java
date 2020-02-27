@@ -662,7 +662,7 @@ public class BonusManager
 
 			if (aString != null)
 			{
-				index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(aString); // e.g.
+				index = SettingsHandler.getGameAsProperty().get().getUnmodifiableBonusStackList().indexOf(aString); // e.g.
 				// Dodge
 			}
 		}

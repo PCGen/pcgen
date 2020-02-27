@@ -57,7 +57,7 @@ class DataSetTest
 	 */
 	public static void getEquipmentLocationsDefaultOnly()
 	{
-		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<>());
+		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGameAsProperty().get(), new DefaultListFacade<>());
 		ListFacade<BodyStructure> locations = dataset.getEquipmentLocations();
 		assertNotNull(locations, "Body Structure should not be null");
 		assertTrue(
@@ -82,9 +82,9 @@ class DataSetTest
 	public static void getEquipmentLocations()
 	{
 		final String structName = "TestStruct";
-		SystemCollections.addToBodyStructureList(structName, SettingsHandler.getGame().getName());
+		SystemCollections.addToBodyStructureList(structName, SettingsHandler.getGameAsProperty().get().getName());
 		DataSet dataset =
-				new DataSet(Globals.getContext(), SettingsHandler.getGame(),
+				new DataSet(Globals.getContext(), SettingsHandler.getGameAsProperty().get(),
 						new DefaultListFacade<>());
 		ListFacade<BodyStructure> locations =
 				dataset.getEquipmentLocations();
@@ -127,7 +127,7 @@ class DataSetTest
 		springAttack.addPrerequisite(prereq);
 
 		DataSet dataset =
-			new DataSet(Globals.getContext(), SettingsHandler.getGame(),
+			new DataSet(Globals.getContext(), SettingsHandler.getGameAsProperty().get(),
 					new DefaultListFacade<>());
 		List<AbilityFacade> abilities = dataset.getPrereqAbilities(acrobatics);
 		assertEquals(0, abilities.size(), "Acrobatics prereq should be empty");
