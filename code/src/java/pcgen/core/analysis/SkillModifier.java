@@ -101,7 +101,7 @@ public final class SkillModifier
 		int aCheckBonus = sk.getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
 		bonus += aCheckBonus;
 
-		String aString = SettingsHandler.getGame().getRankModFormula();
+		String aString = SettingsHandler.getGameAsProperty().get().getRankModFormula();
 		if (!aString.isEmpty())
 		{
 			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());

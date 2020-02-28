@@ -82,7 +82,7 @@ public class SpellListClassToken extends SpellListToken
 				}
 				else if (tokenSource.endsWith(".CONCENTRATION"))
 				{
-					if (SettingsHandler.getGame().getSpellBaseConcentration().length() > 0)
+					if (SettingsHandler.getGameAsProperty().get().getSpellBaseConcentration().length() > 0)
 					{
 						Spell sp = new Spell();
 						CharacterSpell cs = new CharacterSpell(aClass, sp);

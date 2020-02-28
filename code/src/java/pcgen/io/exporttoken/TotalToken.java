@@ -122,7 +122,7 @@ public class TotalToken extends Token
 	 */
 	public static String getValueToken(PlayerCharacter pc)
 	{
-		return BigDecimalHelper.trimZeros(pc.totalValue()) + ' ' + SettingsHandler.getGame().getCurrencyDisplay();
+		return BigDecimalHelper.trimZeros(pc.totalValue()) + ' ' + SettingsHandler.getGameAsProperty().get().getCurrencyDisplay();
 	}
 
 	/**

@@ -252,7 +252,7 @@ public final class CharacterStatsPanel extends PCGenPrefsPanel
 		if (pmsFrame == null)
 		{
 			pmsFrame = new PurchaseModeFrame();
-			final GameMode gameMode = SettingsHandler.getGame();
+			final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 
 			pmsFrame.setStatMin(gameMode.getStatMin());
 			pmsFrame.setStatMax(gameMode.getStatMax());

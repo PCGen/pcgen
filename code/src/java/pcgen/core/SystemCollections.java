@@ -119,7 +119,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiableBirthplaceList()
 	{
-		List<String> birthplaceList = BIRTHPLACE_MAP.get(SettingsHandler.getGame().getName());
+		List<String> birthplaceList = BIRTHPLACE_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (birthplaceList == null)
 		{
 			birthplaceList = BIRTHPLACE_MAP.get("*");
@@ -137,7 +137,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiableCityList()
 	{
-		List<String> cityList = CITY_MAP.get(SettingsHandler.getGame().getName());
+		List<String> cityList = CITY_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (cityList == null)
 		{
 			cityList = CITY_MAP.get("*");
@@ -156,7 +156,7 @@ public final class SystemCollections
 	public static List<EquipSlot> getUnmodifiableEquipSlotList()
 	{
 		// Try getting an equipslotlist for the currently selected gamemode
-		List<EquipSlot> equipSlotList = EQUIP_SLOT_MAP.get(SettingsHandler.getGame().getName());
+		List<EquipSlot> equipSlotList = EQUIP_SLOT_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (equipSlotList == null)
 		{
 			// if that list doesn't exist, try the default equipslotmap
@@ -178,7 +178,7 @@ public final class SystemCollections
 	public static List<String> getUnmodifiableBodyStructureList()
 	{
 		// Try getting a body structure for the currently selected gamemode
-		List<String> bodyStructures = BODY_STRUCTURE_MAP.get(SettingsHandler.getGame().getName());
+		List<String> bodyStructures = BODY_STRUCTURE_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (bodyStructures == null)
 		{
 			// if that list doesn't exist, try the default body structure list
@@ -237,7 +237,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiableHairStyleList()
 	{
-		List<String> hairStyleList = HAIR_STYLE_MAP.get(SettingsHandler.getGame().getName());
+		List<String> hairStyleList = HAIR_STYLE_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (hairStyleList == null)
 		{
 			hairStyleList = HAIR_STYLE_MAP.get("*");
@@ -255,7 +255,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiableInterestsList()
 	{
-		List<String> interestsList = INTERESTS_MAP.get(SettingsHandler.getGame().getName());
+		List<String> interestsList = INTERESTS_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (interestsList == null)
 		{
 			interestsList = INTERESTS_MAP.get("*");
@@ -273,7 +273,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiableLocationList()
 	{
-		List<String> locationList = LOCATION_MAP.get(SettingsHandler.getGame().getName());
+		List<String> locationList = LOCATION_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (locationList == null)
 		{
 			locationList = LOCATION_MAP.get("*");
@@ -291,7 +291,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiablePhobiaList()
 	{
-		List<String> phobiaList = PHOBIA_MAP.get(SettingsHandler.getGame().getName());
+		List<String> phobiaList = PHOBIA_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (phobiaList == null)
 		{
 			phobiaList = PHOBIA_MAP.get("*");
@@ -309,7 +309,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiablePhraseList()
 	{
-		Set<String> phraseSet = PHRASE_MAP.get(SettingsHandler.getGame().getName());
+		Set<String> phraseSet = PHRASE_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (phraseSet == null)
 		{
 			phraseSet = PHRASE_MAP.get("*");
@@ -327,7 +327,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiableSpeechList()
 	{
-		List<String> speechList = SPEECH_MAP.get(SettingsHandler.getGame().getName());
+		List<String> speechList = SPEECH_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (speechList == null)
 		{
 			speechList = SPEECH_MAP.get("*");
@@ -345,7 +345,7 @@ public final class SystemCollections
 	 */
 	public static List<String> getUnmodifiableTraitList()
 	{
-		Set<String> traitList = TRAIT_MAP.get(SettingsHandler.getGame().getName());
+		Set<String> traitList = TRAIT_MAP.get(SettingsHandler.getGameAsProperty().get().getName());
 		if (traitList == null)
 		{
 			traitList = TRAIT_MAP.get("*");

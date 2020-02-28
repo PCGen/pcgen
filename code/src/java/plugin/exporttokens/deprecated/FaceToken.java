@@ -143,7 +143,7 @@ public class FaceToken extends AbstractExportToken
 	{
 		OrderedPair face = getFace(display.getCharID());
 		String retString;
-		double squareSize = SettingsHandler.getGame().getSquareSize();
+		double squareSize = SettingsHandler.getGameAsProperty().get().getSquareSize();
 		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
 		{
 			retString = new DecimalFormat("#.#").format(face.getPreciseX().doubleValue() / squareSize);

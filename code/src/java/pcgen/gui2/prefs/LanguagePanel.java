@@ -102,9 +102,9 @@ public final class LanguagePanel extends PCGenPrefsPanel
 	{
 		originalLanguage = ConfigurationSettings.getLanguage();
 
-		if ((SettingsHandler.getGame() != null) && (SettingsHandler.getGame().getUnitSet() != null))
+		if ((SettingsHandler.getGameAsProperty().get() != null) && (SettingsHandler.getGameAsProperty().get().getUnitSet() != null))
 		{
-			originalUnitSet = SettingsHandler.getGame().getUnitSet().getDisplayName();
+			originalUnitSet = SettingsHandler.getGameAsProperty().get().getUnitSet().getDisplayName();
 		}
 		else
 		{
@@ -122,7 +122,7 @@ public final class LanguagePanel extends PCGenPrefsPanel
 			vbox.getChildren().add(languageButton);
 		}
 
-		Collection<UnitSet> unitSets = SettingsHandler.getGame().getModeContext().getReferenceContext()
+		Collection<UnitSet> unitSets = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()
 		                                              .getConstructedCDOMObjects(UnitSet.class);
 		Collection<String> names = unitSets.stream()
 		                                   .filter(Objects::nonNull)
@@ -160,9 +160,9 @@ public final class LanguagePanel extends PCGenPrefsPanel
 
 
 		String currentUnitSet;
-		if ((SettingsHandler.getGame() != null) && (SettingsHandler.getGame().getUnitSet() != null))
+		if ((SettingsHandler.getGameAsProperty().get() != null) && (SettingsHandler.getGameAsProperty().get().getUnitSet() != null))
 		{
-			currentUnitSet = SettingsHandler.getGame().getUnitSet().getDisplayName();
+			currentUnitSet = SettingsHandler.getGameAsProperty().get().getUnitSet().getDisplayName();
 		}
 		else
 		{
@@ -193,7 +193,7 @@ public final class LanguagePanel extends PCGenPrefsPanel
 			ConfigurationSettings.setCountry(languageShortString.toUpperCase(Locale.ENGLISH));
 		}
 
-		SettingsHandler.getGame().selectUnitSet(unitSetType.getValue());
+		SettingsHandler.getGameAsProperty().get().selectUnitSet(unitSetType.getValue());
 		setNeedsRestart();
 	}
 

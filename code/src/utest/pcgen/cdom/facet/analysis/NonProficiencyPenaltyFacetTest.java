@@ -65,14 +65,14 @@ public class NonProficiencyPenaltyFacetTest
 	@Test
 	public void testGenderUnsetNull()
 	{
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
+		assertEquals(SettingsHandler.getGameAsProperty().get().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 	@Test
 	public void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
+		assertEquals(SettingsHandler.getGameAsProperty().get().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 	@Test
@@ -81,7 +81,7 @@ public class NonProficiencyPenaltyFacetTest
 		PCTemplate pct = new PCTemplate();
 		pct.put(IntegerKey.NONPP, -2);
 		tfacet.add(id, pct, this);
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(altid));
+		assertEquals(SettingsHandler.getGameAsProperty().get().getNonProfPenalty(), facet.getPenalty(altid));
 	}
 
 	@Test
@@ -92,7 +92,7 @@ public class NonProficiencyPenaltyFacetTest
 		tfacet.add(id, pct, this);
 		assertEquals(-3, facet.getPenalty(id));
 		tfacet.remove(id, pct, this);
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
+		assertEquals(SettingsHandler.getGameAsProperty().get().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 	@Test
@@ -115,7 +115,7 @@ public class NonProficiencyPenaltyFacetTest
 		tfacet.remove(id, pct, this);
 		assertEquals(-3, facet.getPenalty(id));
 		tfacet.remove(id, pct2, this);
-		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
+		assertEquals(SettingsHandler.getGameAsProperty().get().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 }

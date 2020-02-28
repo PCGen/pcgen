@@ -126,7 +126,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		AbilityCategory featCategory = 
-			SettingsHandler.getGame().getAbilityCategory("Feat");
+			SettingsHandler.getGameAsProperty().get().getAbilityCategory("Feat");
 
 		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)",
 			BuildUtilities.getFeatCat(), "General");

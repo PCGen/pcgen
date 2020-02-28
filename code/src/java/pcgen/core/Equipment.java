@@ -3994,7 +3994,7 @@ public final class Equipment extends PObject
 
                 for (String typeMatched : itemTypes)
                 {
-                    costExpr = SettingsHandler.getGame().getPlusCalculation(Type.getConstant(typeMatched));
+                    costExpr = SettingsHandler.getGameAsProperty().get().getPlusCalculation(Type.getConstant(typeMatched));
 
                     if (costExpr != null)
                     {
@@ -4015,7 +4015,7 @@ public final class Equipment extends PObject
 				//
 				// No cost formula found, check for catch-all definition
 				//
-				costExpr = SettingsHandler.getGame().getPlusCalculation(Type.ANY);
+				costExpr = SettingsHandler.getGameAsProperty().get().getPlusCalculation(Type.ANY);
 
 				if (costExpr != null)
 				{
@@ -5949,7 +5949,7 @@ public final class Equipment extends PObject
 
 				if (nextTok != null)
 				{
-					index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(nextTok); // e.g.
+					index = SettingsHandler.getGameAsProperty().get().getUnmodifiableBonusStackList().indexOf(nextTok); // e.g.
 					// Dodge
 				}
 
@@ -6158,16 +6158,16 @@ public final class Equipment extends PObject
 		}
 
 		// If not defined, then try the types 
-		GameMode game = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		List<String> typeList = typeList(true);
 		String iconPath = null;
 		int iconPriority = 0;
 		for (String type : typeList)
 		{
-			String path = game.getEquipTypeIcon(type);
+			String path = gameMode.getEquipTypeIcon(type);
 			if (path != null)
 			{
-				int priority = game.getEquipTypeIconPriority(type);
+				int priority = gameMode.getEquipTypeIconPriority(type);
 				// Later types will win priority ties
 				if (iconPath == null || priority >= iconPriority)
 				{
@@ -6182,7 +6182,7 @@ public final class Equipment extends PObject
 		}
 
 		// A default fallback
-		String path = game.getEquipTypeIcon(Constants.DEFAULT);
+		String path = gameMode.getEquipTypeIcon(Constants.DEFAULT);
 		if (path != null)
 		{
 			return new File(path);

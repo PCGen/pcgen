@@ -311,7 +311,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		appendFacts(b, aClass);
 
-		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
+		if (SettingsHandler.getGameAsProperty().get().getTabShown(Tab.SPELLS))
 		{
 			FactKey<String> fk = FactKey.valueOf("SpellType");
 			aString = aClass.getResolved(fk);
@@ -811,7 +811,7 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendLineBreak();
 			b.appendI18nElement("in_igEqModelColCost", COST_FMT.format(cost.doubleValue())); //$NON-NLS-1$
 			b.append(" ");
-			b.append(SettingsHandler.getGame().getCurrencyDisplay());
+			b.append(SettingsHandler.getGameAsProperty().get().getCurrencyDisplay());
 		}
 
 		String bString = Globals.getGameModeUnitSet().displayWeightInUnitSet(equip.getWeight(pc).doubleValue());
@@ -840,7 +840,7 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextAcCheck", Integer.toString(a)); //$NON-NLS-1$
 		}
 
-		if (!SettingsHandler.getGame().getACText().isEmpty())
+		if (!SettingsHandler.getGameAsProperty().get().getACText().isEmpty())
 		{
 			a = equip.getACMod(pc);
 
@@ -848,11 +848,11 @@ public class Gui2InfoFactory implements InfoFactory
 			{
 				b.appendSpacer();
 				b.appendElement(LanguageBundle.getFormattedString("in_igInfoLabelTextAcBonus", //$NON-NLS-1$
-					SettingsHandler.getGame().getACText()), Integer.toString(a));
+					SettingsHandler.getGameAsProperty().get().getACText()), Integer.toString(a));
 			}
 		}
 
-		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
+		if (SettingsHandler.getGameAsProperty().get().getTabShown(Tab.SPELLS))
 		{
 			a = EqToken.getSpellFailureTokenInt(pc, equip);
 
@@ -863,7 +863,7 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 		}
 
-		bString = SettingsHandler.getGame().getDamageResistanceText();
+		bString = SettingsHandler.getGameAsProperty().get().getDamageResistanceText();
 
 		if (!bString.isEmpty())
 		{
@@ -1241,7 +1241,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("in_kitInfo_TotalCost", //$NON-NLS-1$
-				COST_FMT.format(totalCost), SettingsHandler.getGame().getCurrencyDisplay());
+				COST_FMT.format(totalCost), SettingsHandler.getGameAsProperty().get().getCurrencyDisplay());
 		}
 
 		String desc = pc.getDescription(kit);

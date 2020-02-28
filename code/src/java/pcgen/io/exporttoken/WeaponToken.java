@@ -1051,7 +1051,7 @@ public class WeaponToken extends Token
 		int sum;
 		if (eqReach == null)
 		{
-			int dist = eq.getVariableValue(SettingsHandler.getGame().getWeaponReachFormula(), "", pc).intValue();
+			int dist = eq.getVariableValue(SettingsHandler.getGameAsProperty().get().getWeaponReachFormula(), "", pc).intValue();
 			String profName = getProfName(eq);
 			int iAdd = (int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "REACH")
 				+ getWeaponProfTypeBonuses(pc, eq, "REACH", WPTYPEBONUS_PC);
@@ -1770,7 +1770,7 @@ public class WeaponToken extends Token
 		if (range > -1)
 		{
 			int rangeSize = getRangeList(eq, true, pc).size();
-			int shortRange = SettingsHandler.getGame().getShortRangeDistance();
+			int shortRange = SettingsHandler.getGameAsProperty().get().getShortRangeDistance();
 
 			/* range here is an index that represents a number of range
 			 * increments, the actual distance is held in this range */
@@ -1790,7 +1790,7 @@ public class WeaponToken extends Token
 				}
 				// Long Range To-Hit Modifier
 				int defaultRange = Integer.parseInt(EqToken.getRange(pc, eq).toString());
-				int rangePenalty = SettingsHandler.getGame().getRangePenalty();
+				int rangePenalty = SettingsHandler.getGameAsProperty().get().getRangePenalty();
 				rangePenalty += pc.getTotalBonusTo("COMBAT", "RANGEPENALTY");
 
 				baseBonus += rangePenalty * (int) Math.max(Math.ceil(((float) thisRange / defaultRange)) - 1, 0);
@@ -2289,7 +2289,7 @@ public class WeaponToken extends Token
 			int rangeSize = getRangeList(eq, true, pc).size();
 
 			if ((range < rangeSize) && (Integer.parseInt(getRangeList(eq, true, pc).get(range)) <= SettingsHandler
-				.getGame().getShortRangeDistance()))
+				.getGameAsProperty().get().getShortRangeDistance()))
 			{
 				bonus += (int) eq.bonusTo(pc, "WEAPON", "DAMAGE-SHORTRANGE", true);
 				bonus += (int) pc.getTotalBonusTo("DAMAGE", "SHORTRANGE");
@@ -2317,7 +2317,7 @@ public class WeaponToken extends Token
 			int rangeSize = getRangeList(eq, true, pc).size();
 
 			if ((range < rangeSize) && (Integer.parseInt(getRangeList(eq, true, pc).get(range)) <= SettingsHandler
-				.getGame().getShortRangeDistance()))
+				.getGameAsProperty().get().getShortRangeDistance()))
 			{
 				weaponProfBonus += ((int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGE-SHORTRANGE")
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE-SHORTRANGE", WPTYPEBONUS_PC));
@@ -2523,7 +2523,7 @@ public class WeaponToken extends Token
 	private static String weaponCategories(Equipment eq)
 	{
 		StringBuilder wc = new StringBuilder(10);
-		List<Type> categories = SettingsHandler.getGame().getWeaponCategories();
+		List<Type> categories = SettingsHandler.getGameAsProperty().get().getWeaponCategories();
 
 		for (Type type : categories)
 		{
@@ -2549,7 +2549,7 @@ public class WeaponToken extends Token
 	private static String weaponTypes(Equipment eq, boolean primary)
 	{
 		StringBuilder wt = new StringBuilder(10);
-		StringTokenizer aTok = new StringTokenizer(SettingsHandler.getGame().getWeaponTypes(), "|", false);
+		StringTokenizer aTok = new StringTokenizer(SettingsHandler.getGameAsProperty().get().getWeaponTypes(), "|", false);
 
 		while (aTok.countTokens() >= 2)
 		{
@@ -2707,14 +2707,14 @@ public class WeaponToken extends Token
 
 		for (int numIncrements = 0; numIncrements < maxIncrements; ++numIncrements)
 		{
-			if (aRange == SettingsHandler.getGame().getShortRangeDistance())
+			if (aRange == SettingsHandler.getGameAsProperty().get().getShortRangeDistance())
 			{
 				addShortRange = false;
 			}
 
-			if ((aRange > SettingsHandler.getGame().getShortRangeDistance()) && addShortRange)
+			if ((aRange > SettingsHandler.getGameAsProperty().get().getShortRangeDistance()) && addShortRange)
 			{
-				aList.add(Integer.toString(SettingsHandler.getGame().getShortRangeDistance()));
+				aList.add(Integer.toString(SettingsHandler.getGameAsProperty().get().getShortRangeDistance()));
 				addShortRange = false;
 			}
 

@@ -115,7 +115,7 @@ public class AbilityToken extends Token
 		// Get the Ability Category from the Gamemode given the key
 		final String categoryString = aTok.nextToken();
 		final AbilityCategory aCategory = "ANY".equals(categoryString) ? AbilityCategory.ANY
-			: SettingsHandler.getGame().getAbilityCategory(categoryString);
+			: SettingsHandler.getGameAsProperty().get().getAbilityCategory(categoryString);
 
 		// Get the ABILITY token for the category
 		return getTokenForCategory(tokenSource, pc, eh, aTok, tokenString, aCategory);
@@ -723,7 +723,7 @@ public class AbilityToken extends Token
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
 	{
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
-		Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
+		Collection<AbilityCategory> allCats = SettingsHandler.getGameAsProperty().get().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
 			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))

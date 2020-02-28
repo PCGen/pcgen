@@ -59,7 +59,7 @@ public class RoleToken extends AbstractNonEmptyToken<Race> implements CDOMPrimar
 		while (aTok.hasMoreTokens())
 		{
 			String role = aTok.nextToken();
-			if (SettingsHandler.getGame().getMonsterRoleList().contains(role))
+			if (SettingsHandler.getGameAsProperty().get().getMonsterRoleList().contains(role))
 			{
 				context.getObjectContext().addToList(race, ListKey.MONSTER_ROLES, role);
 			}

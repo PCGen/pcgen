@@ -124,7 +124,7 @@ public final class FacadeFactory
 		for (GameMode mode : modes)
 		{
 			String title = mode.getDefaultSourceTitle();
-			if (SettingsHandler.getGame().equals(mode) && title == null && !mode.getDefaultDataSetList().isEmpty())
+			if (SettingsHandler.getGameAsProperty().get().equals(mode) && title == null && !mode.getDefaultDataSetList().isEmpty())
 			{
 				title = mode.getName();
 			}

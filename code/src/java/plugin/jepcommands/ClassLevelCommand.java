@@ -160,7 +160,7 @@ public class ClassLevelCommand extends PCGenCommand
 		{
 			if ("NONEPIC".equalsIgnoreCase(applied))
 			{
-				GameMode mode = SettingsHandler.getGame();
+				GameMode mode = SettingsHandler.getGameAsProperty().get();
 				//Add 1 since game mode is inclusive, but BEFORELEVEL is not!
 				int limit = mode.getMaxNonEpicLevel() + 1;
 				if (limit == Integer.MAX_VALUE)

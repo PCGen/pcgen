@@ -86,7 +86,7 @@ class SizeFacetTest
 	@BeforeAll
 	static void staticSetUp()
 	{
-		SettingsHandler.getGame().clearLoadContext();
+		SettingsHandler.getGameAsProperty().get().clearLoadContext();
 		context = Globals.getContext();
 		AbstractReferenceContext ref = context.getReferenceContext();
 		FacetLibrary.getFacet(LoadContextFacet.class).set(context.getDataSetID(),

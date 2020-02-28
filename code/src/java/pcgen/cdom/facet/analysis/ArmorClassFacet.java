@@ -63,8 +63,8 @@ public class ArmorClassFacet
 		/*
 		 * CONSIDER should AC types be a type safe list?
 		 */
-		final List<ACControl> addList = SettingsHandler.getGame().getACTypeAddString(type);
-		final List<ACControl> removeList = SettingsHandler.getGame().getACTypeRemoveString(type);
+		final List<ACControl> addList = SettingsHandler.getGameAsProperty().get().getACTypeAddString(type);
+		final List<ACControl> removeList = SettingsHandler.getGameAsProperty().get().getACTypeRemoveString(type);
 
 		if ((addList == null) && (removeList == null))
 		{

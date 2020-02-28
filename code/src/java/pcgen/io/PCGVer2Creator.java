@@ -522,7 +522,7 @@ public final class PCGVer2Creator
 		}
 		else
 		{
-			return SettingsHandler.getGame();
+			return SettingsHandler.getGameAsProperty().get();
 		}
 	}
 

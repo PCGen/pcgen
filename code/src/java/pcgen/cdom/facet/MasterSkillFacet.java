@@ -48,7 +48,7 @@ public class MasterSkillFacet extends AbstractScopeFacet<DataSetID, ClassSkillLi
 		DataSetID dsID = context.getDataSetID();
 		if (getCache(dsID) == null)
 		{
-			MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+			MasterListInterface masterLists = SettingsHandler.getGameAsProperty().get().getMasterLists();
 			for (CDOMReference ref : masterLists.getActiveLists())
 			{
 				Collection objects = masterLists.getObjects(ref);

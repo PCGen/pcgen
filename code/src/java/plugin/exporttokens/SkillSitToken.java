@@ -258,9 +258,9 @@ public class SkillSitToken extends Token
 					{
 						rank += sit.getSituationBonus();
 					}
-					if (SettingsHandler.getGame().hasSkillRankDisplayText())
+					if (SettingsHandler.getGameAsProperty().get().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(rank));
+						retValue.append(SettingsHandler.getGameAsProperty().get().getSkillRankDisplayText(rank));
 					}
 					else
 					{
@@ -270,9 +270,9 @@ public class SkillSitToken extends Token
 
 				case SkillToken.SKILL_RANK:
 					Float sRank = SkillRankControl.getTotalRank(pc, skill);
-					if (SettingsHandler.getGame().hasSkillRankDisplayText())
+					if (SettingsHandler.getGameAsProperty().get().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(sRank.intValue()));
+						retValue.append(SettingsHandler.getGameAsProperty().get().getSkillRankDisplayText(sRank.intValue()));
 					}
 					else
 					{

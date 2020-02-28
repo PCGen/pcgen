@@ -76,7 +76,7 @@ public class FreeMarkerExportHandler extends ExportHandler
 			cfg.setSharedVariable("loop", new LoopDirective());
 			cfg.setSharedVariable("equipsetloop", new EquipSetLoopDirective(aPC));
 
-			GameMode gamemode = SettingsHandler.getGame();
+			GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 			// data-model
 			Map<String, Object> pc = OutputDB.buildDataModel(aPC.getCharID());
 			Map<String, Object> mode = OutputDB.buildModeDataModel(gamemode);
