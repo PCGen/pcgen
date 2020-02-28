@@ -250,7 +250,7 @@ public abstract class AbstractTokenModelTest
 		ref.importObject(ce);
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
-		gamemode.setBonusFeatLevels("3|3");
+		gameMode.setBonusFeatLevels("3|3");
 
 		SettingsHandler.setGame("3.5");
 
