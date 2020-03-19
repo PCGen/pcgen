@@ -29,7 +29,6 @@ import pcgen.core.Ability;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
-import plugin.exporttokens.deprecated.TemplateToken;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.deprecated.TemplateFeatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -46,7 +45,6 @@ class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		//Represents CODE-2547
 		TokenRegistration.register(new TemplateFeatToken());
 		TokenRegistration.register(new StackToken());
-		TokenRegistration.register(new TemplateToken());
 		Language lang = context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		Ability a = BuildUtilities.buildAbility(context, BuildUtilities.getFeatCat(), "Ab");
 		PCTemplate pct = context.getReferenceContext().constructCDOMObject(PCTemplate.class, "Templ");
