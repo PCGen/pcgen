@@ -176,7 +176,7 @@ launch4j {
 }
 
 task downloadJRE doLast {
-    def major = 11
+    def major = 14
     def archs = ['x64','x32']
     def osList = ['windows', 'mac']
     def extension = 'zip'
