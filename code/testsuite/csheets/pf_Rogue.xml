@@ -335,7 +335,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>27</total>
-		<listing>ABILITY +6, ARMOR +4, ARMORENHANCEMENT +1, BASE +10, DEFLECTION +2, DODGE +1, NATURALARMORENHANCEMENT +2, SIZE +1</listing>
+		<listing>ABILITY +6, DEFLECTION +2, ARMORENHANCEMENT +1, BASE +10, NATURALARMORENHANCEMENT +2, ARMOR +4, DODGE +1, SIZE +1</listing>
 		<flat>27</flat>
 		<touch>20</touch>
 		<base>10</base>
@@ -378,7 +378,7 @@ BIO
 		</skillpoints>
 		<list_mods>Acrobatics +28, Appraise +6, Bluff +14, Climb +9, Craft (Traps) +6, Diplomacy +7, Disable Device +29, Disguise +16, Escape Artist +21, Fly +8, Handle Animal +4, Intimidate +6, Knowledge (Dungeoneering) +6, Knowledge (Engineering) +3, Knowledge (Geography) +14, Knowledge (Local) +9, Linguistics +6, Perception +18, Profession (Cook) +5, Sense Motive +7, Sleight of Hand +11, Stealth +25, Swim +11, Use Magic Device +13</list_mods>
 		<max_class_skill_level>12</max_class_skill_level>
-		<max_cross_class_skill_level>12</max_cross_class_skill_level>
+		<max_cross_class_skill_level>12.0</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>12.0</ranks>
@@ -893,7 +893,7 @@ BIO
 			<feats>+0</feats>
 			<magic_mod>+3</magic_mod>
 			<misc_mod>+1</misc_mod>
-			<race>+0</race>
+			<race>+1</race>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>
 		</saving_throw>
@@ -909,7 +909,7 @@ BIO
 			<abil_mod>+6</abil_mod>
 			<magic_mod>+3</magic_mod>
 			<misc_mod>+1</misc_mod>
-			<race>+0</race>
+			<race>+1</race>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>
 		</saving_throw>
@@ -925,7 +925,7 @@ BIO
 			<feats>+0</feats>
 			<magic_mod>+3</magic_mod>
 			<misc_mod>+1</misc_mod>
-			<race>+0</race>
+			<race>+1</race>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>
 		</saving_throw>

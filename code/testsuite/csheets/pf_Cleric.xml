@@ -270,7 +270,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>16</total>
-		<listing>ARMOR +5, BASE +10, SHIELD +1</listing>
+		<listing>BASE +10, ARMOR +5, SHIELD +1</listing>
 		<flat>16</flat>
 		<touch>10</touch>
 		<base>10</base>
@@ -313,7 +313,7 @@ BIO
 		</skillpoints>
 		<list_mods>Diplomacy +10, Heal +10, Intimidate +5, Knowledge (Planes) +4, Knowledge (Religion) +4, Linguistics +4, Sense Motive +8, Spellcraft +4</list_mods>
 		<max_class_skill_level>3</max_class_skill_level>
-		<max_cross_class_skill_level>3</max_cross_class_skill_level>
+		<max_cross_class_skill_level>3.0</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>
