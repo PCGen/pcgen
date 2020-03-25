@@ -19,6 +19,7 @@ package pcgen.cdom.content;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
@@ -136,7 +137,7 @@ public class AbilitySelection extends Selection<Ability, String> implements Comp
 			}
 			return new AbilitySelection(ability, choices.get(0));
 		}
-		else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		else if (Boolean.TRUE.equals(ability.getSafe(ObjectKey.MULTIPLE_ALLOWED)))
 		{
 			/*
 			 * MULT:YES, CHOOSE:NOCHOICE can land here
@@ -211,7 +212,7 @@ public class AbilitySelection extends Selection<Ability, String> implements Comp
 		}
 		String selection = getSelection();
 		String oselection = o.getSelection();
-		if (selection == oselection)
+		if (Objects.equals(selection, oselection))
 		{
 			return 0;
 		}
