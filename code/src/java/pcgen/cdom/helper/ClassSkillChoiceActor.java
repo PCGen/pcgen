@@ -34,8 +34,6 @@ import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
-
 /**
  * A ClassSkillChoiceActor is a PersistentChoiceActor that can apply skill
  * selections that are related to a specific PCClass (this adds the selected
@@ -113,11 +111,10 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 				int levelIndex = 1;
 				for (PCLevelInfo lvlInfo : pc.getLevelInfo())
 				{
-					if (Objects.equals(lvlInfo.getClassKeyName(), pcClass.getKeyName())
+					if (lvlInfo.getClassKeyName() == pcClass.getKeyName()
 						&& lvlInfo.getClassLevel() == classLevel.getSafe(IntegerKey.LEVEL))
 					{
-						levelIndex++;
-						pc.checkSkillModChangeForLevel(pcClass, lvlInfo, classLevel, levelIndex);
+						pc.checkSkillModChangeForLevel(pcClass, lvlInfo, classLevel, levelIndex++);
 						break;
 					}
 				}
