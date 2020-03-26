@@ -77,7 +77,7 @@ GEAR:Dagger	SIZE:S	LOCATION:Primary Hand
 
 STARTPACK:NPC (Hookshanks Gruller)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome]	SOURCEPAGE:p.17	NAMEISPI:YES
 RACE:Gnome	!PRERACE:1,%
-ABILITY:CATEGORY=Obsessive Bonus|Obsessive Profession Bonus(Profession (Gambler))
+ABILITY:CATEGORY=Gnome Obsessive Skill Bonus|Obsessive Profession Bonus(Profession (Gambler))
 NAME:Hookshanks Gruller
 ALIGN:NE
 CLASS:Rogue	LEVEL:1

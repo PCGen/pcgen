@@ -19,35 +19,52 @@ SOURCELONG:Pathfinder Player Companion: Bastards of Golarion	SOURCESHORT:BOG	SOU
 # Half-Elf Subraces
 # ==============================
 
-# Template Name				Unique Key				Product Identity?	Visible	Source Page		Ability																															Auto Language	Bonus Languages					Region		Subrace
-Half-Elf					KEY:Half-Elf ~ Default					VISIBLE:NO
-Aquatic Half-Elf				KEY:Half-Elf ~ Aquatic					VISIBLE:NO																																							LANGBONUS:Aquan								SUBRACE:Shoreborn
-Half-Drow					KEY:Half-Elf ~ Half-Drow				VISIBLE:NO																																							LANGBONUS:Undercommon							SUBRACE:DarkBorn
-Ekuaje Half-Elf				KEY:Half-Elf ~ Ekuaje		NAMEISPI:YES	VISIBLE:NO																																							LANGBONUS:Kelish,Osiriani,Polyglot					SUBRACE:Wildborn
-Mordant Spire Half-Elf			KEY:Half-Elf ~ Mordant Spire	NAMEISPI:YES	VISIBLE:NO																																				AUTO:LANG|Azlanti											SUBRACE:Spireborn
-Snowcaster Half-Elf			KEY:Half-Elf ~ Snowcaster				VISIBLE:NO																																							LANGBONUS:Erutaki,Hallit,Skald,Varki				SUBRACE:Snowborn
+###Block
+# Template Name		Unique Key				Product Identity?	Visible	Subrace
+# Ability Name		Unique Key				Product Identity?	Visible	Source Page		Subrace
+Aquatic Half-Elf		KEY:Half-Elf ~ Aquatic					VISIBLE:NO	SOURCEPAGE:p.5	SUBRACE:Shoreborn
+Half-Drow			KEY:Half-Elf ~ Half-Drow				VISIBLE:NO	SOURCEPAGE:p.6	SUBRACE:DarkBorn
+Ekuaje Half-Elf		KEY:Half-Elf ~ Ekuaje		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	SUBRACE:Wildborn
+Mordant Spire Half-Elf	KEY:Half-Elf ~ Mordant Spire	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.7	SUBRACE:Spireborn
+Snowcaster Half-Elf	KEY:Half-Elf ~ Snowcaster				VISIBLE:NO	SOURCEPAGE:p.7	SUBRACE:Snowborn
 
 # ==============================
 # Half-Orc Subraces
 # ==============================
 
-Half-Orc					KEY:Half-Orc ~ Default					VISIBLE:NO
-Darklands Half-Orc			KEY:Half-Orc ~ Darklands	NAMEISPI:YES	VISIBLE:NO																																							LANGBONUS:Undercommon							SUBRACE:Gloomkin
-Desert Half-Orc				KEY:Half-Orc ~ Desert					VISIBLE:NO																																							LANGBONUS:Kelish,Osiriani,Polyglot					SUBRACE:Sandkin
-Jungle Half-Orc				KEY:Half-Orc ~ Jungle					VISIBLE:NO																																							LANGBONUS:Polyglot							SUBRACE:Rainkin
-Mountain Half-Orc				KEY:Half-Orc ~ Mountain					VISIBLE:NO																																							LANGBONUS:Hallit,Shoanti,Skald,Varisian				SUBRACE:Cragkin
-Winter Half-Orc				KEY:Half-Orc ~ Winter					VISIBLE:NO																																							LANGBONUS:Erutaki,Skald,Varki						SUBRACE:Frostkin
+###Block
+# Template Name		Unique Key				Product Identity?	Visible	Source Page		Subrace
+Darklands Half-Orc	KEY:Half-Orc ~ Darklands	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.11	SUBRACE:Gloomkin
+Desert Half-Orc		KEY:Half-Orc ~ Desert					VISIBLE:NO	SOURCEPAGE:p.12	SUBRACE:Sandkin
+Jungle Half-Orc		KEY:Half-Orc ~ Jungle					VISIBLE:NO	SOURCEPAGE:p.12	SUBRACE:Rainkin
+Mountain Half-Orc		KEY:Half-Orc ~ Mountain					VISIBLE:NO	SOURCEPAGE:p.13	SUBRACE:Cragkin
+Winter Half-Orc		KEY:Half-Orc ~ Winter					VISIBLE:NO	SOURCEPAGE:p.13	SUBRACE:Frostkin
 
 # ==============================
 # New Regional Affinity
 # ==============================
 
-Regional Affinity (Erages)							NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8																																											REGION:Erages
-Regional Affinity (Averaka)							NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.14																																											REGION:Averaka
+###Block
+# Template Name			Product Identity?	Visible	Source Page		Region
+Regional Affinity (Erages)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	REGION:Erages
+Regional Affinity (Averaka)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.14	REGION:Averaka
 
 
 # ==============================
 # Bardic Masterpiece Activation
 # ==============================
 
-Masterpiece Activation Bastard									VISIBLE:NO				ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ The Canticle of Joy|PREMULT:1,[PRESPELL:1,Masterpiece (The Canticle of Joy)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (The Canticle of Joy)]
+###Block:
+# Template Name				Visible	Ability
+Masterpiece Activation Bastard	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ The Canticle of Joy|PREMULT:1,[PRESPELL:1,Masterpiece (The Canticle of Joy)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (The Canticle of Joy)]
+
+
+# ==============================
+# Languages
+# ==============================
+
+###Block: Bonus Languages
+# Template Name			Visible	Bonus Languages
+Race Bonus Language ~ Erutaki	VISIBLE:NO	LANGBONUS:Erutaki
+Race Bonus Language ~ Hallit	VISIBLE:NO	LANGBONUS:Hallit
+Race Bonus Language ~ Varki	VISIBLE:NO	LANGBONUS:Varki

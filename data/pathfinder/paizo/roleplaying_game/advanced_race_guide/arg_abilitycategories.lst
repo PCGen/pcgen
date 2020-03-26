@@ -6,24 +6,23 @@
 # ORIGINAL ENTRY DATE: 2012/07/28
 
 ###Block: Racial Traits ability categories
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list		Plural description for UI				Display Location
-ABILITYCATEGORY:Half Elf Elven Magic Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfMagic			ABILITYLIST:Elf ~ Elven Magic	PLURAL:Half Elf Elven Magic Traits			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Focused Study Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Skill Focus		PLURAL:Focused Study Bonus Feats			DISPLAYLOCATION:Feats
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI				Display Location
 ABILITYCATEGORY:Hag Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait							PLURAL:Hag Racial Traits				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Shards of the Past Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge						PLURAL:Shards of the Past Knowledge Skills	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Suli Language Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliLanguage								PLURAL:Suli Language Choices				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Vishkanya Perform Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaPerformSkill						PLURAL:Vishkanya Perform Skill Bonuses		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Umbral Scion Spell							PLURAL:Umbral Scion Spells				DISPLAYLOCATION:Feats
 
+###Block: Feats
+ABILITYCATEGORY:Elven Spirit Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elven Magic			PLURAL:Elven Spirit Choices				DISPLAYLOCATION:Feats
 
 ###Block: Core Races ability categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Bond of the Land Terrain		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeBondTerrain			PLURAL:Bond of the Land Terrain Choices	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Adoptive Parentage Race		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdoptiveParentageRace		PLURAL:Adoptive Parentage Races		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Heart Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeartAbility				PLURAL:Heart Abilities				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Focused Study Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanFocusedStudyFeat		PLURAL:Focused Study Feats			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Adoptive Parentage			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Adoptive Parentage
+ABILITYCATEGORY:Heart of the... Trait		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Heart of the... Trait
+ABILITYCATEGORY:Focused Study Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Focused Study Choice		PLURAL:Focused Study Choices			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Multitalented Mastery Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MultitalentedMasteryBonus	PLURAL:Multitalented Mastery Bonuses	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Elemental Resistance Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalResistanceChoice	PLURAL:Elemental Resistance Choices		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Elemental Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Elf Elemental Resistance		PLURAL:Elf Elemental Resistances		DISPLAYLOCATION:Racial Abilities
 
 ###Block: Featured Races ability categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
@@ -179,9 +178,6 @@ ABILITYCATEGORY:Human Racial Subtype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 ###Block: Builder Support
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list						Plural description for UI	Display Location
 ABILITYCATEGORY:Builder Racial Trait ~ Natural Attack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Builder Racial Trait ~ Natural Attack															DISPLAYLOCATION:Race Builder Design
-
-
-ABILITYCATEGORY:Elder Dwarf Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Dwarf ~ Magic resistant|Dwarf ~ Stubborn						DISPLAYLOCATION:Racial Abilities
 
 
 ABILITYCATEGORY:Gathlain Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gathlain Racial Trait													PLURAL:Gathlain Racial Traits	DISPLAYLOCATION:Racial Abilities

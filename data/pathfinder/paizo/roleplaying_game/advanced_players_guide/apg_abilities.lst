@@ -343,7 +343,6 @@ Spark			CATEGORY:Spell-Like Ability	TYPE:ClassAbility.SpellLike.SpecialQuality	V
 
 
 # Feat Support
-Aspect ~ Steel Soul					CATEGORY:Internal			TYPE:DwarfHardy																																																																																																							ASPECT:SaveBonus|+2 vs. poison; +4 vs. spells, and spell-like abilities
 
 
 

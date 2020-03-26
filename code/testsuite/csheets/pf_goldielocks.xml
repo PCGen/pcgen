@@ -2061,6 +2061,17 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
+			<name>Save Bonus Tracker</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Size Tracker</name>
 			<description></description>
 			<type></type>

@@ -59,7 +59,7 @@
 #FACTDEF:RACE|RACETYPE								DATAFORMAT:String	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:RaceType							EXPLANATION:Determines what the 'RACE TYPE' is.
 
 ###Block: Racial Traits
-#FACTDEF:ABILITY|Dwarf_Trait_DefensiveTraining				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+#FACTDEF:ABILITY|Dwarf_ReplaceDefensiveTraining				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
 
 ###Block: Saves File
 #FACTDEF:CHECK|MainStat	DATAFORMAT:STRING			EXPLANATION:Output the Stat a save uses to the OS

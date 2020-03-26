@@ -91,6 +91,7 @@ RACE:cr_races_companion.lst
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 HIDETYPE:FEAT|WizardBonus|SkillFocus|WeaponFocus
 HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodline|DestinedBloodline|DraconicBloodline|ElementalBloodline|FeyBloodline|InfernalBloodline|UndeadBloodline
+HIDETYPE:FEAT|Applied Bonus
 HIDETYPE:EQUIP|Amulet of Mighty Fists
 
 # Hide key stat types for skills

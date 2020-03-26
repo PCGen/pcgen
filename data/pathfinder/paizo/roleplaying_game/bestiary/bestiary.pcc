@@ -54,6 +54,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009-
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+DATACONTROL:b1__datacontrols.lst
 
 ABILITY:b1_abilities.lst
 ABILITY:b1_abilities_race.lst

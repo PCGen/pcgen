@@ -114,8 +114,7 @@ ABILITYCATEGORY:Aspect of the Beast Selection				VISIBLE:QUALIFY	EDITABLE:YES	ED
 ABILITYCATEGORY:Expanded Arcana Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedArcana														PLURAL:Expanded Arcana Selections					DISPLAYLOCATION:Feats
 
 # Racial Abilities
-ABILITYCATEGORY:Gnome Racial Knowledge					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Gnome Knowledge Selection					PLURAL:Gnome Knowledge Selections					DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Elf Bonus Weapon					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT									ABILITYLIST:Exotic Weapon Proficiency|Martial Weapon Proficiency	PLURAL:Half-Elf Bonus Weapon						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Half-Elf Ancestral Arms Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal									ABILITYLIST:Half-Elf Ancestral Arms ~ Exotic Weapon Proficiency|Half-Elf Ancestral Arms ~ Martial Weapon Proficiency	PLURAL:Half-Elf Ancestral Arms Proficiencies			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Alignment Selection						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Alignment Selection			PLURAL:Alignment Selections						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Saving Throw Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Bonus to Saving Throw		PLURAL:Saving Throw Selections					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Bonus CMD Choice						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FighterBonusCMDChoice													PLURAL:Bonus CMD Choices						DISPLAYLOCATION:Racial Abilities
@@ -232,8 +231,6 @@ ABILITYCATEGORY:Cavalier Mount Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:N
 
 ABILITYCATEGORY:Elemental Fist Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:ElementalFistChoice																		DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Additional Language					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal								ABILITYLIST:Additional Language Selection			PLURAL:Additional Languages				DISPLAYLOCATION:Racial Abilities
-
 ABILITYCATEGORY:Two-Handed Fighter Weapon Training I		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining1										PLURAL:Two-Handed Fighter Weapon Training I	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Two-Handed Fighter Weapon Training II		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining2										PLURAL:Two-Handed Fighter Weapon Training II	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Two-Handed Fighter Weapon Training III	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining3										PLURAL:Two-Handed Fighter Weapon Training III	DISPLAYLOCATION:Class Features
@@ -271,3 +268,6 @@ ABILITYCATEGORY:Temp Eidolon Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ABILITYCATEGORY:Summoner Class Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_Summoner_Class_Selection	CATEGORY:Class				TYPE:Summoner Class Selection									DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Multiple Companion Combination	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal				TYPE:Multiple Companions									DISPLAYLOCATION:Class Features
+
+###Block:
+ABILITYCATEGORY:Companion Ability Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:Companion Ability Bonus		PLURAL:Companion Ability Bonuses		DISPLAYLOCATION:Racial Abilities

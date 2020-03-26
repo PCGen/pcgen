@@ -33,7 +33,7 @@ Get Level Five Power			VISIBLE:NO												PRESPELL:1,Metamorphosis (Major)			
 # Template Name			Size		Visible	Ability								Move			Vision
 Failed Transformation Blue	SIZE:S	VISIBLE:NO													VISION:Darkvision (60')
 Failed Transformation Duergar			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|DuergarDSP ~ Steady	MOVE:Walk,20	VISION:Darkvision (60')
-Failed Transformation Dwarf			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Steady	MOVE:Walk,20	VISION:Darkvision (60')
+Failed Transformation Dwarf			VISIBLE:NO										MOVE:Walk,20	VISION:Darkvision (60')	UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor
 
 ###Block: Strengthened By Fear stat choices
 # Template Name				Visible	Template																																					Combat bonus										Stat bonus

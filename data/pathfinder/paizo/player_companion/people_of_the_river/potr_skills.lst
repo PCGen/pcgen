@@ -12,7 +12,7 @@ Intimidate.MOD			SITUATION:With commoners
 Knowledge (engineering).MOD	SITUATION:ID creatures with robot subtype
 Knowledge (engineering).MOD	SITUATION:ID relics of Numerian technology
 Perception.MOD			SITUATION:Opposed
-Sense Motive.MOD			SITUATION:Against fey.
+Sense Motive.MOD			SITUATION:against fey
 Stealth.MOD				SITUATION:In calm or rough water
 Survival.MOD			SITUATION:Forage in or near rivers and streams
 Swim.MOD				SITUATION:In calm or rough water

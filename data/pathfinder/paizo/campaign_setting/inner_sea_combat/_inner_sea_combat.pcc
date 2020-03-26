@@ -50,6 +50,7 @@ EQUIPMENT:isc_equip_arms_armor.lst
 EQUIPMENT:isc_equip_magic.lst
 KIT:isc_kits.lst
 RACE:isc_races_companion.lst
+TEMPLATE:isc_templates.lst
 
 # Includes
 RACE:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_races.lst|(INCLUDE:Hippocampus|Hippogriff)|!PRECAMPAIGN:1,INCLUDES=Bestiary 2
