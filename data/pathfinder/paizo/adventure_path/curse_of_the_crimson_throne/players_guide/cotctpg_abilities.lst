@@ -19,7 +19,7 @@ Unhappy Childhood (Tortured)							CATEGORY:Special Ability	TYPE:Trait.CampaignT
 ###Block: Addicted Friend Choice
 # Ability Name			Unique Key								Category of Ability		Type					Bonus to Situation							Bonus to skill						Class Skill
 Knowledge (Local)			KEY:Drug Addict Addicted Friend ~ Knowledge (Local)	CATEGORY:Special Ability	TYPE:AddictedFriendSkill											BONUS:SKILL|Knowledge (Local)|2|TYPE=Trait
-Gather Information		KEY:Drug Addict Addicted Friend ~ Gather Information	CATEGORY:Special Ability	TYPE:AddictedFriendSkill	BONUS:SITUATION|Diplomacy=Gather Information|2|TYPE=Trait
+Gather Information		KEY:Drug Addict Addicted Friend ~ Gather Information	CATEGORY:Special Ability	TYPE:AddictedFriendSkill	BONUS:SITUATION|Diplomacy=to gather information|2|TYPE=Trait
 
 Betrayed ~ Reformed Criminal										CATEGORY:Internal																		BONUS:SKILL|Diplomacy|1|TYPE=Trait			CSKILL:Diplomacy
 

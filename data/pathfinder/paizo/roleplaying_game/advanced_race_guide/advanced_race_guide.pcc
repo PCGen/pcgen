@@ -44,6 +44,8 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+DATACONTROL:arg__datacontrols.lst
+
 # support
 ABILITY:support/arg_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/arg_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
@@ -61,6 +63,7 @@ EQUIPMENT:arg_equip_magic_items.lst
 EQUIPMOD:arg_equipmods.lst
 ABILITY:arg_feats.lst
 RACE:arg_races.lst
+SKILL:arg_skills.lst
 SPELL:arg_spells.lst
 TEMPLATE:arg_templates.lst
 LANGUAGE:arg_languages.lst

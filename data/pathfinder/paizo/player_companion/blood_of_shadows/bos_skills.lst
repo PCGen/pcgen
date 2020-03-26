@@ -8,3 +8,6 @@ SOURCELONG:Pathfinder Player Companion: Blood of Shadows	SOURCESHORT:BOS	SOURCEW
 Bluff.MOD		SITUATION:Appear as Elf or Half-Elf
 Disguise.MOD	SITUATION:Appear as Elf or Half-Elf
 Escape Artist.MOD	SITUATION:In dim light or darkness
+
+Bluff.MOD		SITUATION:to pass as full-blooded drow, elf, or human
+Disguise.MOD	SITUATION:to pass as full-blooded drow, elf, or human

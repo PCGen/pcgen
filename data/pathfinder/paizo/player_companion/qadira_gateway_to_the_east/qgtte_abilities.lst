@@ -10,7 +10,7 @@ CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Backgrou
 
 ###Block: Human Ethnicities
 # Ability Name	Product Identity?	Category of Ability	Type			Visible		Template					Auto Language	Source Page
-Qadiran		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Qadiran)	AUTO:LANG|Kelish	SOURCEPAGE:p.14
+Qadiran		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Qadiran)	AUTO:LANG|Kelish	SOURCEPAGE:p.14
 
 ###Block: Regional Affinities
 # Ability Name	Product Identity?	Category of Ability	Type		Visible		Description				Template					Source Page

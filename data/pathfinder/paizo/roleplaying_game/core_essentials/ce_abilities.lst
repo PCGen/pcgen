@@ -956,3 +956,51 @@ Colossal					KEY:Race Size ~ C	SORTKEY:9	CATEGORY:Racial Size	TYPE:Race Size	PRE
 ###Block:
 # Ability Name									Category of Ability	Type				Define						Description												Modify VAR								Cost
 Rules ~ Preview Sheet - Use Alternative Spell Listing Method	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:UseAlternativeSpellListing_a|0	DESC:Sets the Standard Sheet to display MEMORIZED/PREPRARED Spells first.	BONUS:VAR|UseAlternativeSpellListing_a|1|TYPE=Bool	COST:0
+
+###Block: Track statblock save bonuses for stacking ~ AllSaveBonus/FortSaveBonus/RefSaveBonus/WillSaveBonus
+# Ability Name					Category of Ability	Define						Ability
+CATEGORY=Internal|Default.MOD														ABILITY:Internal|AUTOMATIC|Save Bonus Tracker
+Save Bonus Tracker				CATEGORY:Internal
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Poison|0			ABILITY:Save Bonus|AUTOMATIC|Poison|!PREVAREQ:SaveBonus_vs_Poison,0|!PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Spells|0			ABILITY:Save Bonus|AUTOMATIC|Spells|!PREVAREQ:SaveBonus_vs_Spells,0|!PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
+CATEGORY=Internal|Save Bonus Tracker.MOD												ABILITY:Save Bonus|AUTOMATIC|Poison and Spells|!PREVAREQ:SaveBonus_vs_Poison,0|!PREVAREQ:SaveBonus_vs_Spells,0|PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Enchantments|0		ABILITY:Save Bonus|AUTOMATIC|Enchantments|!PREVAREQ:SaveBonus_vs_Enchantments,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Illusions|0		ABILITY:Save Bonus|AUTOMATIC|Illusions|!PREVAREQ:SaveBonus_vs_Illusions,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Fear|0			ABILITY:Save Bonus|AUTOMATIC|Fear|!PREVAREQ:SaveBonus_vs_Fear,0
+# ARG
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Slipping|0		ABILITY:Save Bonus|AUTOMATIC|Slipping and Falling|!PREVAREQ:SaveBonus_vs_Slipping,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_ColdClimate|0		ABILITY:Save Bonus|AUTOMATIC|Climate (Cold)|PREVARGTEQ:FortSave_vs_ColdClimate,1
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_HotClimate|0		ABILITY:Save Bonus|AUTOMATIC|Climate (Hot)|PREVARGTEQ:FortSave_vs_HotClimate,1
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_SwarmsAndVermin|0	ABILITY:Save Bonus|AUTOMATIC|Swarms and Vermin|PREVARGTEQ:FortSave_vs_SwarmsAndVermin,1
+# BOS
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_NegativeLevels|0	ABILITY:Save Bonus|AUTOMATIC|Negative Levels|!PREVAREQ:SaveBonus_vs_NegativeLevels,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_TrapsUnderground|0	ABILITY:Save Bonus|AUTOMATIC|Traps (Underground)|!PREVAREQ:SaveBonus_vs_TrapsUnderground,0
+# HA
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_PsychicSpells|0		ABILITY:Save Bonus|AUTOMATIC|Psychic Spells|!PREVAREQ:SaveBonus_vs_PsychicSpells,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_SanityDamage|0		ABILITY:Save Bonus|AUTOMATIC|Sanity Damage|!PREVAREQ:SaveBonus_vs_SanityDamage,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_MindAffecting|0		ABILITY:Save Bonus|AUTOMATIC|Mind-Affecting|!PREVAREQ:SaveBonus_vs_MindAffecting,0
+# ISR
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DivineSpells|0		ABILITY:Save Bonus|AUTOMATIC|Divine Spells|!PREVAREQ:SaveBonus_vs_DivineSpells,0
+
+###Block
+# Ability Name		Category of Ability	Aspects
+Poison			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. poison|SaveBonus_vs_Poison
+Spells			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. spells and spell-like abilities|SaveBonus_vs_Spells
+Poison and Spells		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. poison, spells, and spell-like abilities|max(SaveBonus_vs_Poison,SaveBonus_vs_Spells)
+Enchantments		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. enchantments|SaveBonus_vs_Enchantments
+Illusions			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. illusions|SaveBonus_vs_Illusions
+Fear				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. fear|SaveBonus_vs_Fear|PREVARGTEQ:SaveBonus_vs_Fear,1	ASPECT:AllSaveBonus|%1 vs. fear|SaveBonus_vs_Fear|PREVARLT:SaveBonus_vs_Fear,0
+# ARG
+Slipping and Falling	CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to avoid slipping and falling|SaveBonus_vs_Slipping
+Climate (Cold)		CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. cold climate|FortSave_vs_ColdClimate
+Climate (Hot)		CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. hot climate|FortSave_vs_HotClimate
+Swarms and Vermin		CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. poison and distraction ability of swarms and vermin|FortSave_vs_SwarmsAndVermin
+# BOS
+Negative Levels		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to remove negative levels|SaveBonus_vs_NegativeLevels
+Traps (Underground)	CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. traps and hazards when underground|SaveBonus_vs_TrapsUnderground
+# HA
+Psychic Spells		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. psychic spells and spell-like abilities|SaveBonus_vs_PsychicSpells
+Sanity Damage		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. sanity damage|SaveBonus_vs_SanityDamage
+Mind-Affecting		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. mind-affecting effects|SaveBonus_vs_MindAffecting
+# ISR
+Divine Spells		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. divine spells and spell-like abilities|SaveBonus_vs_DivineSpells

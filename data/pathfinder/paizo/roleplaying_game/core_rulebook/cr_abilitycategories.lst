@@ -10,10 +10,10 @@ ABILITYCATEGORY:Class Skill		VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:
 ABILITYCATEGORY:Equipment		VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Equipment
 
 ###Block: Racial Ability Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
-ABILITYCATEGORY:Ability Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AbilityBonus		PLURAL:Ability Bonuses			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Obsessive Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ObsessiveBonus	PLURAL:Obsessive Bonuses		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Adaptability Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkillFocus		PLURAL:Adaptability Bonus Feats	DISPLAYLOCATION:Feats
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI				Display Location
+ABILITYCATEGORY:Ability Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AbilityBonus				PLURAL:Ability Bonuses					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gnome Obsessive Skill Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Gnome Obsessive Skill Bonus	PLURAL:Gnome Obsessive Skill Bonuses		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Adaptability Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkillFocus				PLURAL:Half-Elf Adaptability Bonus Feats		DISPLAYLOCATION:Racial Abilities
 
 ###Block:
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list					Plural description for UI	Display Location
