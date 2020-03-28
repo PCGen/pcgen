@@ -92,6 +92,9 @@ code/build.eclipse/
 out/
 pcgendev.iml
 
+# VSCode IDE
+.vscode/
+
 # pmd
 /.pmd
 /.ruleset
