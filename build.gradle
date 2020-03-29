@@ -13,6 +13,7 @@
 
 // import Ant helper static values to differ system families
 import org.apache.tools.ant.filters.FixCrLfFilter
+import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id 'eclipse'
@@ -284,7 +285,7 @@ runtime {
     ]
 
     targetPlatform('linux-x64', "$projectDir/jre/linux/jre_x64")
-    targetPlatform('win-x64', "$projectDir/jre/windows/jre_x64")
+    targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x64")
     //targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64")
 
 }
@@ -365,9 +366,118 @@ clean {
 //Ensures that clean is never run after build and when clean is called it is run before build so it doesn't delete the new build folder.
 build.mustRunAfter clean
 
+compileTestJava {
+    options.compilerArgs += ["--module-path ", "mods/lib/"]
+    options.compilerArgs += ["--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml"]
+}
+
+task downloadJavaFXModules {
+    def major = 13
+    def archs = ['x64', 'x86']
+    def osList = ["windows", "mac", "linux"]
+
+    //Downloads javafx .mods for custom runtime image. All platforms downloaded
+    osList.each {
+        def os = "${it}"
+        archs.each {
+            def arch = "$it"
+
+            def archAppend = ""
+            if ((arch == "x86")) {
+                if (os == "windows") {
+                    archAppend = "-x86"
+                } else {
+                    return
+                }
+            }
+
+            def url = "https://gluonhq.com/download/javafx-14-jmods-${os}${archAppend}/"
+            def jmodsDir = new File("${projectDir}/jre/${os}/jre_${arch}/jmods")
+            def jmodsZip = new File("${projectDir}/jre/${os}/jmods.zip")
+            if (!jmodsZip.exists()) {
+                println("Downloading Javafx mods ${major} ${arch} for ${os} from ${url}")
+                download {
+                    src url
+                    dest new File("${projectDir}/jre/${os}/", "jmods.zip")
+                    overwrite false
+                }
+                //fileTree(dir: "${projectDir}/jre/${os}/").include("*.zip").each { simLib ->
+                copy {
+                    println "Unzip jmods.zip"
+                    def zipFile = file("${projectDir}/jre/${os}/jmods.zip")
+                    def outputDir = "${projectDir}/jre/${os}/jre_${arch}/jmods"
+                    if (os=="mac")
+                    {
+                        outputDir = "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
+
+                    }
+                    from zipTree(zipFile)
+                    into outputDir
+                    eachFile { fcd ->
+                        def relPath = fcd.relativePath
+
+                        def segments = relPath.segments
+                        fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
+
+                    }
+                }
+                //new File("${projectDir}/jre/${os}/${simLib.name}").delete()
+                //}
+            }
+        }
+    }
+
+    //Downloads javafx sdk for local platform. Used for running tests.
+    def sdkDir = new File("${projectDir}/mods")
+    if (!sdkDir.exists()) {
+        def os=""
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            os = "windows"
+
+        } else if (Os.isFamily(Os.FAMILY_MAC)) {
+            os = "mac"
+        } else {
+            os = "linux"
+        }
+
+        def url = "https://gluonhq.com/download/javafx-14-sdk-${os}/"
+
+        println("Downloading JavaFX sdk for ${os} from ${url}")
+
+        download {
+            src url
+            dest new File("${projectDir}/mods", "javaFXSdk-${os}.zip")
+            overwrite false
+        }
+
+        copy {
+            println "Unzip javaFXSdk-${os}.zip"
+            def zipFile = file("${projectDir}/mods/javaFXSdk-${os}.zip")
+            def outputDir = "${projectDir}/mods"
+
+            from zipTree(zipFile)
+            into outputDir
+            eachFile { fcd ->
+                def relPath = fcd.relativePath
+
+                def segments = relPath.segments
+                fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
+
+            }
+        }
+    }
+}
+
+
+compileTestJava.dependsOn(downloadJavaFXModules)
+
 test {
     exclude 'pcgen/testsupport/**'
+
     useJUnitPlatform()
+    jvmArgs += ["--module-path ", "mods"]
+    jvmArgs += ["--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml"]
+
 }
 
 task itest(type: Test, dependsOn: [jar]) {
