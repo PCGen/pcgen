@@ -286,6 +286,7 @@ runtime {
 
     targetPlatform('linux-x64', "$projectDir/jre/linux/jre_x64")
     targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x64")
+    //targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x32")
     //targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64")
 
 }
@@ -365,11 +366,6 @@ clean {
 
 //Ensures that clean is never run after build and when clean is called it is run before build so it doesn't delete the new build folder.
 build.mustRunAfter clean
-
-compileTestJava {
-    options.compilerArgs += ["--module-path ", "mods/lib/"]
-    options.compilerArgs += ["--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml"]
-}
 
 task downloadJavaFXModules {
     def major = 13
@@ -469,14 +465,12 @@ task downloadJavaFXModules {
 }
 
 
-compileTestJava.dependsOn(downloadJavaFXModules)
+compileJava.dependsOn(downloadJavaFXModules)
 
 test {
     exclude 'pcgen/testsupport/**'
 
     useJUnitPlatform()
-    jvmArgs += ["--module-path ", "mods"]
-    jvmArgs += ["--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml"]
 
 }
 
@@ -570,7 +564,22 @@ allprojects {
                 '-Dprism.order=sw',
                 '-Dprism.verbose=true',
                 '-Djavafx.macosx.embedded=true',
+                
+                "--module-path", "${projectDir}/mods/lib/",
+                "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
+
+                //Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
+                '--add-exports','javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
+                '--add-opens','javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+
         ]
+    }
+    tasks.withType(JavaCompile) {
+        doFirst {
+            options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
+            options.compilerArgs << "--add-modules"<<"javafx.controls,javafx.web,javafx.swing,javafx.fxml"
+
+        }
     }
 }
 

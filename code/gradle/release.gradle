@@ -517,7 +517,7 @@ task checksum(dependsOn: assembleArtifacts) doLast {
 
 
 // genDataList removed as it causes release errors, 'genDataList'
-task prepareRelease (dependsOn: ['clean', 'build']) {
+task prepareRelease (dependsOn: ['clean', 'build', 'runtime']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 
