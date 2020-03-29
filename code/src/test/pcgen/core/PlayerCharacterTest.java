@@ -135,7 +135,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		// Create the monster class type
 		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
-		methodLoader.parseLine(SettingsHandler.getGame().getModeContext(),
+		methodLoader.parseLine(SettingsHandler.getGameAsProperty().get().getModeContext(),
 			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO",
 			TestURI.getURI());
 
@@ -1181,7 +1181,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			"Swim,10,Fly,30");
 		context.unconditionallyProcess(template, "MOVE", "Swim,30,Fly,10");
 		readyToRun();
-		GameMode game = SettingsHandler.getGame();
+		GameMode game = SettingsHandler.getGameAsProperty().get();
 		LoadInfo li = game.getModeContext().getReferenceContext().constructNowIfNecessary(
 				LoadInfo.class, game.getName());
 		li.addLoadScoreValue(0, new BigDecimal("100.0"));
@@ -1374,7 +1374,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		readyToRun();
 		LoadContext context = Globals.getContext();
-		GameMode gamemode = SettingsHandler.getGame();
+		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		gamemode.setMaxNonEpicLevel(20);
 		PCClass fighterClass;
 		fighterClass = new PCClass();

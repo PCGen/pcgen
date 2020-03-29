@@ -39,7 +39,7 @@ public class SourceMigrationTest
 	@BeforeEach
 	public void setUp() throws Exception
 	{
-		gameMode = SettingsHandler.getGame().getName();
+		gameMode = SettingsHandler.getGameAsProperty().get().getName();
 		MigrationRule sourceRule = new MigrationRule(ObjectType.SOURCE, "OldKey1");
 		sourceRule.setMaxVer("6.0.1");
 		sourceRule.setNewKey("NewKey1");

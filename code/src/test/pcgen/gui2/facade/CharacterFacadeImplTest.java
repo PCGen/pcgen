@@ -65,7 +65,7 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		dataset = new MockDataSetFacade(SettingsHandler.getGame());
+		dataset = new MockDataSetFacade(SettingsHandler.getGameAsProperty().get());
 		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
 		uiDelegate = new MockUIDelegate();
 	}

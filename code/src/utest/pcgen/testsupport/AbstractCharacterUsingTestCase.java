@@ -124,7 +124,7 @@ public abstract class AbstractCharacterUsingTestCase
 
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
-		GameMode gamemode = SettingsHandler.getGame();
+		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
 		LoadContext context = Globals.getContext();
 		

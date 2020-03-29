@@ -92,7 +92,7 @@ public final class BioSetLoaderTest
     @AfterEach
     public void tearDown() throws Exception
 	{
-		SettingsHandler.getGame().getBioSet().clearUserMap();
+		SettingsHandler.getGameAsProperty().get().getBioSet().clearUserMap();
 	}
 
 	/**
@@ -108,7 +108,7 @@ public final class BioSetLoaderTest
 		{
 			loader.parseLine(context, line, new URI("http://UNIT_TEST_CASE"));
 		}
-		SettingsHandler.getGame().setBioSet(loader.bioSet);
+		SettingsHandler.getGameAsProperty().get().setBioSet(loader.bioSet);
 	}
 
 	/**
@@ -152,7 +152,7 @@ public final class BioSetLoaderTest
 						"[Male[BASEHT:55|HTDIEROLL:2d8|BASEWT:100|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d8|BASEWT:80|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]]"}};
 
 		// Check the data loaded in setup to ensure that it has been loaded correctly.
-		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
+		final BioSet currBioSet = SettingsHandler.getGameAsProperty().get().getBioSet();
 		for (int i = 0; i < BASE_RACE_NAME.length; i++)
 		{
 			final String raceName = BASE_RACE_NAME[i];
@@ -188,7 +188,7 @@ public final class BioSetLoaderTest
 	public void testParseSecondBioSetGood() throws Exception
 	{
 		assertEquals("REGION:None\n\n", SettingsHandler
-				.getGame().getBioSet().getBaseRegionPCCText("Ogre"), "No ogre bio details expected before load");
+				.getGameAsProperty().get().getBioSet().getBaseRegionPCCText("Ogre"), "No ogre bio details expected before load");
 		String[] bioData2 = {
 			"AGESET:0|Adulthood",
 			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
@@ -204,7 +204,7 @@ public final class BioSetLoaderTest
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), bioData2, loader);
 
 		String racePCCText =
-				SettingsHandler.getGame().getBioSet()
+				SettingsHandler.getGameAsProperty().get().getBioSet()
 					.getBaseRegionPCCText("Ogre");
 		assertNotEquals("REGION:None\n\n", racePCCText, "Ogre bio details expected after load");
 		
@@ -220,7 +220,7 @@ public final class BioSetLoaderTest
 	public void testParseSecondBioSetBadName() throws Exception
 	{
 		assertEquals("REGION:None\n\n", SettingsHandler
-				.getGame().getBioSet().getBaseRegionPCCText("Ogre"), "No ogre bio details expected before load");
+				.getGameAsProperty().get().getBioSet().getBaseRegionPCCText("Ogre"), "No ogre bio details expected before load");
 		String[] bioData2 = {
 			"AGESET:0|Bad",
 			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
@@ -236,7 +236,7 @@ public final class BioSetLoaderTest
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), bioData2, loader);
 		
 		String racePCCText =
-				SettingsHandler.getGame().getBioSet()
+				SettingsHandler.getGameAsProperty().get().getBioSet()
 					.getBaseRegionPCCText("Ogre");
 		Assertions.assertTrue(
 				racePCCText

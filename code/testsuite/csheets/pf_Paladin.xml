@@ -288,7 +288,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>22</total>
-		<listing>ABILITY +1, ARMOR +9, ARMORENHANCEMENT +1, BASE +10, DEFLECTION +1</listing>
+		<listing>ABILITY +1, DEFLECTION +1, ARMORENHANCEMENT +1, BASE +10, ARMOR +9</listing>
 		<flat>21</flat>
 		<touch>12</touch>
 		<base>10</base>
@@ -331,7 +331,7 @@ BIO
 		</skillpoints>
 		<list_mods>Diplomacy +14, Handle Animal +6, Knowledge (Nobility) +3, Knowledge (Religion) +3, Linguistics +0, Perception +3, Perform (Dance) +3, Profession (Merchant) +5, Ride +0, Sense Motive +5</list_mods>
 		<max_class_skill_level>6</max_class_skill_level>
-		<max_cross_class_skill_level>6</max_cross_class_skill_level>
+		<max_cross_class_skill_level>6.0</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>
@@ -880,13 +880,13 @@ BIO
 			<melee>
 				<w1_h1_p>
 					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w1_h1_p>
 				<w1_h1_o>
 					<!-- One weapon, 1 handed, offhand -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w1_h1_o>
 				<w1_h2>
 					<!-- One weapon, 2 handed -->
@@ -895,18 +895,18 @@ BIO
 				</w1_h2>
 				<w2_p_oh>
 					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w2_p_oh>
 				<w2_p_ol>
 					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w2_p_ol>
 				<w2_o>
 					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w2_o>
 			</melee>
 		</weapon>
@@ -940,13 +940,13 @@ BIO
 			<melee>
 				<w1_h1_p>
 					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w1_h1_p>
 				<w1_h1_o>
 					<!-- One weapon, 1 handed, offhand -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w1_h1_o>
 				<w1_h2>
 					<!-- One weapon, 2 handed -->
@@ -955,18 +955,18 @@ BIO
 				</w1_h2>
 				<w2_p_oh>
 					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w2_p_oh>
 				<w2_p_ol>
 					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w2_p_ol>
 				<w2_o>
 					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit></to_hit>
-					<damage></damage>
+					<to_hit>N/A</to_hit>
+					<damage>N/A</damage>
 				</w2_o>
 			</melee>
 		</weapon>
@@ -1612,7 +1612,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>disarm, trip</special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.WEAPONENHANCEMENT.PLUS1</type>
 			<weight>10</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1638,7 +1638,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>disarm, trip</special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.WEAPONENHANCEMENT.PLUS1</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1716,7 +1716,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.CUSTOM.METAL.MASTERWORK.ARMORENHANCEMENT.PLUS1</type>
 			<weight>50</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1846,7 +1846,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>splash weapon</special_properties>
-			<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH</type>
+			<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH.NOATTACKPENALTY</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2369,7 +2369,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>disarm, trip</special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.WEAPONENHANCEMENT.PLUS1</type>
 				<weight>10</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2390,7 +2390,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>disarm, trip</special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.WEAPONENHANCEMENT.PLUS1</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2453,7 +2453,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.CUSTOM.METAL.MASTERWORK.ARMORENHANCEMENT.PLUS1</type>
 				<weight>50</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2558,7 +2558,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>splash weapon</special_properties>
-				<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH</type>
+				<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH.NOATTACKPENALTY</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2997,7 +2997,7 @@ BIO
 		<feat>
 			<name>Power Attack</name>
 			<description>You can make exceptionally deadly melee attacks by sacrificing accuracy for strength.</description>
-			<type>COMBAT.ATTACKOPTION.BOREALBLOODLINE.SAURIANSHAMANBONUS.DJINNIBLOODLINE.EFREETIBLOODLINE.MARIDBLOODLINE.SHAITANBLOODLINE.ABYSSALBLOODLINE.DRACONICBLOODLINE.ELEMENTALBLOODLINE</type>
+			<type>COMBAT.ATTACKOPTION.SAURIANSHAMANBONUS</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3027,7 +3027,7 @@ BIO
 		<feat>
 			<name>Weapon Focus (Heavy Flail)</name>
 			<description>You are especially good at using your chosen weapon.</description>
-			<type>COMBAT.WEAPONFOCUS.ORACLEWEAPONMASTERY.DESTINEDBLOODLINE</type>
+			<type>COMBAT.WEAPONFOCUS.ORACLEWEAPONMASTERY</type>
 			<associated>Heavy Flail</associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -3205,7 +3205,7 @@ BIO
 		<ability_object>
 			<name>Bonus Feat</name>
 			<description>Humans select one extra feat at 1st level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.BONUS FEAT</type>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3258,17 +3258,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Language</name>
-			<description>Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).</description>
-			<type>RACIALTRAITS.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Lay on Hands</name>
 			<description>You can heal wounds (your own or those of others) by touch. Each day you can use this ability 5 times per day. With one use of this ability, you can heal 3d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing 3d6 points of damage. Using Lay on Hands in this way requires a melee touch attack and doesn&#39;t provide an attack of opportunity. Undead do not receive a saving throw against this damage.</description>
 			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SUPERNATURAL.LAYONHANDS.LAY ON HANDS</type>
@@ -3281,8 +3270,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Skilled</name>
-			<description>Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.SKILLED</type>
+			<description>Humans gain an additional skill rank at 1st level and one additional rank whenever they gain a level.</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3337,6 +3326,17 @@ BIO
 		</ability_object>
 		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>+2 to One Ability Score</name>
+			<description>Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY.RACIAL ABILITY SCORES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Divine Bond</name>
 			<description></description>
 			<type>PALADINCLASSFEATURES.INTERNAL.CLASSFEATURES.DIVINE BOND</type>
@@ -3381,9 +3381,42 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Languages</name>
+			<description>Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY.RACIAL LANGUAGE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Medium</name>
+			<description>Humans are Medium creatures and have no bonuses or penalties due to their size.</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY.RACIAL SIZE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Mercy</name>
 			<description></description>
 			<type>PALADINCLASSFEATURES.INTERNAL.CLASSFEATURES.MERCY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Normal Speed</name>
+			<description>Humans have a base speed of 30 feet.</description>
+			<type>RACIALTRAITS.HUMAN RACIAL TRAIT.HUMAN RACIAL DEFAULT.SPECIALQUALITY.RACIAL SPEED</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3514,17 +3547,6 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Human ~ Default</name>
-			<description></description>
-			<type>HUMANSUBRACE</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
 			<name>Paladin Core Class Skills</name>
 			<description></description>
 			<type></type>
@@ -3548,6 +3570,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Racial Traits ~ Human</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Save Bonus Tracker</name>
 			<description></description>
 			<type></type>
 			<associated></associated>

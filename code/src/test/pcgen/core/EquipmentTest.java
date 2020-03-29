@@ -110,7 +110,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				+ "BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
 				source);
 
-		SettingsHandler.getGame().addPlusCalculation(Type.WEAPON,
+		SettingsHandler.getGameAsProperty().get().addPlusCalculation(Type.WEAPON,
 			"(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)");
 		
 		finishLoad();
@@ -324,7 +324,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().importObject(custEq);
 		Globals.getContext().getReferenceContext().importObject(eq);
 
-		GameMode gameMode = SettingsHandler.getGame();
+		GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		assertThat("size list initialised",
 				Globals.getContext().getReferenceContext().getConstructedObjectCount(SizeAdjustment.class),
 			Matchers.is(greaterThan(0)));

@@ -27,7 +27,7 @@ Vulpine Pounce			CATEGORY:FEAT		TYPE:Combat		PREABILITY:1,CATEGORY=FEAT,Swift Ki
 ###Block: New Feat for Oni Bloodline
 # Feat Name				Type		Multiple Requirements										Description																			Auto Weapon Prof		Benefits
 # Ability Name			Category of Ability	Type		Multiple Requirements										Description																			Auto Weapon Prof		Benefits
-Katana Weapon Proficiency	CATEGORY:FEAT		TYPE:Combat	PREMULT:1,[PRETOTALAB:1],[PREVARGTEQ:BypassExoticWeaponBABRequirement,1]	DESC:You understand how to use the katana in combat, and can utilize any special tricks or qualities the katana allows.	AUTO:WEAPONPROF|Katana	BENEFIT:You make attack rolls with the katana normally.
+Katana Weapon Proficiency	CATEGORY:FEAT		TYPE:Combat	PRETOTALAB:1	DESC:You understand how to use the katana in combat, and can utilize any special tricks or qualities the katana allows.	AUTO:WEAPONPROF|Katana	BENEFIT:You make attack rolls with the katana normally.
 #
 # End
 #

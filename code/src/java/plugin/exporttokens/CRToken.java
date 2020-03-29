@@ -51,7 +51,7 @@ public class CRToken extends AbstractExportToken
 		else
         {
             // If the CR is a fractional CR then we get the 1/x format from the map
-            retString = SettingsHandler.getGame().getCRSteps().get(cr);
+            retString = SettingsHandler.getGameAsProperty().get().getCRSteps().get(cr);
         }
 		return retString;
 	}

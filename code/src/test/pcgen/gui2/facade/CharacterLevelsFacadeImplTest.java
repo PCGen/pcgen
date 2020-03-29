@@ -71,7 +71,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	{
 		delegate = new MockUIDelegate();
 		todoManager = new TodoManager();
-		final GameMode gameMode = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		dataSetFacade = new MockDataSetFacade(gameMode);
 	}
 
@@ -474,7 +474,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 
 	private static void setGameSkillRankData(boolean crossClassCostTwo)
 	{
-		GameMode game = SettingsHandler.getGame();
+		GameMode game = SettingsHandler.getGameAsProperty().get();
 		final XPTable xpTable = game.getLevelInfo(game.getDefaultXPTableName());
 		LevelInfo levelInfo = xpTable.getLevelInfo(1);
 		levelInfo.setLevelString("LEVEL");

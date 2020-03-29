@@ -228,7 +228,7 @@ public class StatToken extends Token
 
 		if (checkGameMode)
 		{
-			return SettingsHandler.getGame().getStatDisplayText(aTotal);
+			return SettingsHandler.getGameAsProperty().get().getStatDisplayText(aTotal);
 		}
 		return Integer.toString(aTotal);
 	}

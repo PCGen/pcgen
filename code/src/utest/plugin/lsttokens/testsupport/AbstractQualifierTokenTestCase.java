@@ -78,7 +78,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Override
 	protected LoadContext getPrimaryContext()
 	{
-		GameMode game = SettingsHandler.getGame();
+		GameMode game = SettingsHandler.getGameAsProperty().get();
 		game.clearLoadContext();
 		return game.getContext();
 	}
@@ -1889,7 +1889,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		Globals.emptyLists();
 		resetContext();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
-		GameMode gamemode = SettingsHandler.getGame();
+		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"), FormulaFactory

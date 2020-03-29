@@ -523,7 +523,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		//		// The first thing we need to do is load the
 		//		// correct statsandchecks.lst file for this gameMode
-		//		GameMode gamemode = SettingsHandler.getGame();
+		//		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		//		if (gamemode == null)
 		//		{
 		//			// Autoload campaigns is set but there
@@ -787,7 +787,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void referenceAllCategories(LoadContext context)
 	{
-		GameMode gamemode = SettingsHandler.getGame();
+		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		for (AbilityCategory cat : gamemode.getAllAbilityCategories())
 		{
 			/*

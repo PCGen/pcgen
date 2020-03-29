@@ -258,7 +258,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.put(ObjectKey.BASESIZE, mediumRef);
 		longSpear.put(IntegerKey.REACH, 10);
 
-		GameMode gm = SettingsHandler.getGame();
+		GameMode gm = SettingsHandler.getGameAsProperty().get();
 		RuleCheck rc = new RuleCheck();
 		rc.setName(RuleConstants.SIZECAT);
 		gm.getModeContext().getReferenceContext().importObject(rc);

@@ -394,7 +394,7 @@ class GlobalsTest
 	@Test
 	public void testAdjustDamage()
 	{
-		GameMode gameMode = SettingsHandler.getGame();
+		GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		assertThat("size list initialised",
 				Globals.getContext().getReferenceContext().getConstructedObjectCount(SizeAdjustment.class),
 			is(greaterThan(0)));

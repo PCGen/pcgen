@@ -130,7 +130,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		new Thread(() -> {
 			Logging.registerHandler(getHandler());
 			SettingsHandler.setGame(pc.get(ObjectKey.GAME_MODE).getName());
-			GameMode mode = SettingsHandler.getGame();
+			GameMode mode = SettingsHandler.getGameAsProperty().get();
 			//Necessary for "good" behavior
 			mode.resolveInto(context.getReferenceContext());
 			//Necessary for those still using Globals.getContext

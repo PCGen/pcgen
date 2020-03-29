@@ -36,7 +36,7 @@ public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implement
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal = 0;
-		final GameMode gm = SettingsHandler.getGame();
+		final GameMode gm = SettingsHandler.getGameAsProperty().get();
 		if (gm != null)
 		{
 			final String purchaseMode = gm.getPurchaseModeMethodName();

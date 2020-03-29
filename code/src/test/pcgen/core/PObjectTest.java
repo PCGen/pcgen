@@ -325,10 +325,10 @@ public class PObjectTest extends AbstractCharacterTestCase
 		new AbilityCategoryLoader().parseLine(context, "TestCat\tCATEGORY:TestCat", null);
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
+		ab1.setCDOMCategory(SettingsHandler.getGameAsProperty().get().getAbilityCategory("TestCat"));
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
+		ab2.setCDOMCategory(SettingsHandler.getGameAsProperty().get().getAbilityCategory("TestCat"));
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 

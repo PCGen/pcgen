@@ -135,7 +135,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			Logging.log(Logging.LST_ERROR, message);
 			return null;
 		}
-		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(abilityCatName);
+		AbilityCategory ac = SettingsHandler.getGameAsProperty().get().getAbilityCategory(abilityCatName);
 		return context.getReferenceContext().getManufacturerId(ac).getActiveObject(abilityKey);
 	}
 

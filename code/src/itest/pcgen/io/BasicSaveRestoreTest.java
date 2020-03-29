@@ -124,8 +124,8 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	@Test
 	public void testCharacterType()
 	{
-		GameMode mode = SettingsHandler.getGame();
-		mode.setCharacterTypeList(Arrays.asList("Default",
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
+		gameMode.setCharacterTypeList(Arrays.asList("Default",
 				"MyType"));
 		finishLoad();
 		pc.setCharacterType("MyType");

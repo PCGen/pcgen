@@ -111,7 +111,7 @@ public final class ChooserUtilities
 			AbilityCategory cat;
 			if (category == null)
 			{
-				cat = SettingsHandler.getGame().getAbilityCategory(a.getCategory());
+				cat = SettingsHandler.getGameAsProperty().get().getAbilityCategory(a.getCategory());
 			}
 			else
 			{

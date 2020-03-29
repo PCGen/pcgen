@@ -53,6 +53,7 @@ EQUIPMENT:apg_equip_magic_items.lst
 EQUIPMOD:apg_equipmods.lst
 ABILITY:apg_feats.lst
 KIT:apg_kits.lst
+SKILL:apg_skills.lst
 SPELL:apg_spells.lst
 TEMPLATE:apg_templates.lst
 

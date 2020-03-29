@@ -175,7 +175,7 @@ public final class SkillCostDisplay
 		int aCheckMod = sk.getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
 		SkillCostDisplay.appendBonusDesc(bonusDetails, aCheckMod, "ARMOR");
 
-		String aString = SettingsHandler.getGame().getRankModFormula();
+		String aString = SettingsHandler.getGameAsProperty().get().getRankModFormula();
 		if (!aString.isEmpty())
 		{
 			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());

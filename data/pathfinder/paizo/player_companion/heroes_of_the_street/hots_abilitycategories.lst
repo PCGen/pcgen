@@ -4,7 +4,7 @@
 # Original Entry By: Gwen T. (evilpixie87)
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object								Plural description for UI			Display Location
-ABILITYCATEGORY:Illustrious Urbanite Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:IllustriousUrbaniteFeat													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Illustrious Urbanite Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Illustrious Urbanite Feat													DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Siegebreaker Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SiegebreakerBonusFeat						PLURAL:Siegebreaker Bonus Feats		DISPLAYLOCATION:Feats
 

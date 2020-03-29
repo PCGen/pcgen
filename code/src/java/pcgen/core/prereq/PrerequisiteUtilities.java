@@ -440,7 +440,7 @@ public final class PrerequisiteUtilities
 		final Set<Ability> abilityList = Collections.newSetFromMap(new IdentityHashMap<>());
 		if (character != null)
 		{
-			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(categoryName);
+			AbilityCategory cat = SettingsHandler.getGameAsProperty().get().getAbilityCategory(categoryName);
 			if (cat == null)
 			{
 				Logging.errorPrint("Invalid category " + categoryName + " in PREABILITY");
@@ -455,7 +455,7 @@ public final class PrerequisiteUtilities
 				abilityList.add(cna.getAbility());
 			}
 
-			Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
+			Collection<AbilityCategory> allCats = SettingsHandler.getGameAsProperty().get().getAllAbilityCategories();
 			// Now scan for relevant SERVESAS occurrences
 			for (AbilityCategory aCat : allCats)
 			{

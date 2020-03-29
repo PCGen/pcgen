@@ -96,7 +96,7 @@ public class ChallengeRating extends ConcretePrereqObject
 	 */
 	public Integer toInteger()
 	{
-		return SettingsHandler.getGame().getCRInteger(rating.toString());
+		return SettingsHandler.getGameAsProperty().get().getCRInteger(rating.toString());
 	}
 
 	@Override
