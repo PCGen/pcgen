@@ -83,6 +83,7 @@ repositories {
     mavenCentral()
     ivy {
         url "http://pcgen.sourceforge.net/mvnrepo"
+	allowInsecureProtocol = true
         patternLayout {
             artifact "[organisation]/jars/[artifact]-[revision].[ext]"
         }
@@ -90,6 +91,7 @@ repositories {
     ivy {
         name "fileRepo"
         url 'http://pc-gen.org/librepo/'
+	allowInsecureProtocol = true
     }
     maven {
         url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
@@ -201,8 +203,8 @@ dependencies {
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.6.1'
     testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
-    testCompile group: 'org.testfx', name: 'testfx-junit5', version: '4.0.16-alpha'
-    testCompile group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
+    testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.16-alpha'
+    testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
 
 
     testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.4'
@@ -225,7 +227,7 @@ ext {
 jar {
     it.dependsOn 'jar-all-plugins'
     manifest {
-        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version,
+        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
     }
     from {
@@ -256,7 +258,7 @@ runtime {
 
 task converterJar(type: Jar, dependsOn: jar) {
     manifest {
-        attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': version,
+        attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
     }
 
