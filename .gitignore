@@ -99,6 +99,7 @@ pcgen.iml
 
 # Misc
 jre/
+mods/
 code/manifest-tests
 .DS_Store
 

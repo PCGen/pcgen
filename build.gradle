@@ -367,7 +367,88 @@ clean {
 //Ensures that clean is never run after build and when clean is called it is run before build so it doesn't delete the new build folder.
 build.mustRunAfter clean
 
-task downloadJavaFXModules {
+task downloadJRE {
+    def major = 11
+    def archs = ['x64','x32']
+    def osList = ['windows', 'mac','linux']
+    def extension = 'zip'
+    osList.each{
+        def os = "${it}"
+        if(os != "windows") {
+            extension = 'tar.gz'
+        }
+        archs.each {
+            def arch = "${it}"
+            if (arch == "x32" && os != "windows") return
+
+            def url = "https://api.adoptopenjdk.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/adoptopenjdk"
+            def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
+            if(!jreDir.exists()){
+                //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
+                println("Downloading Java ${major} ${arch} for ${os} from ${url}")
+                download {
+                    src url
+                    dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
+                    overwrite false
+                }
+                //Now untar them
+                if(extension == "zip"){
+                    fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
+                        copy {
+                            println "Unzip $simLib.name"
+                            def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
+                            def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+
+                            from zipTree(zipFile)
+                            into outputDir
+                            eachFile { fcd ->
+                                def relPath = fcd.relativePath
+                                if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                    fcd.exclude()
+                                } else {
+                                    def segments = relPath.segments
+                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                }
+                            }
+                        }
+                        new File("${projectDir}/jre/${os}/${simLib.name}").delete()
+                    }
+                } else {
+                    fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
+                        copy {
+                            println "Unzip $simLib.name"
+                            def name = simLib.name - '.$extension'
+                            def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
+                            def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+
+                            from tarTree(zipFile)
+                            into outputDir
+                            eachFile { fcd ->
+                                def relPath = fcd.relativePath
+                                if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                    fcd.exclude()
+                                } else {
+                                    def segments = relPath.segments
+                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                }
+                            }
+                        }
+                        new File("${projectDir}/jre/${os}/${simLib.name}").delete()
+                    }
+                }
+                file("${projectDir}/jre/${os}/jre_${arch}").list().each { f->
+                    if(f.startsWith("jdk")) {
+                        file("${projectDir}/jre/${os}/jre_${arch}/"+f).deleteDir()
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+task downloadJavaFXModules(dependsOn: downloadJRE) {
     def major = 13
     def archs = ['x64', 'x86']
     def osList = ["windows", "mac", "linux"]
@@ -576,8 +657,11 @@ allprojects {
     }
     tasks.withType(JavaCompile) {
         doFirst {
-            options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
-            options.compilerArgs << "--add-modules"<<"javafx.controls,javafx.web,javafx.swing,javafx.fxml"
+
+            if (name.toLowerCase().contains("test")) {
+                options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
+                options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml"
+            }
 
         }
     }
