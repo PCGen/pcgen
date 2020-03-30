@@ -6,7 +6,7 @@ dist: xenial
 matrix:
   include:
   - os: linux
-    jdk: openjdk11
+    jdk: openjdk13
   allow_failures:
   - os: osx
     osx_image: xcode9
