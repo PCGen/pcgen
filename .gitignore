@@ -91,6 +91,7 @@ code/build.eclipse/
 .idea/
 out/
 pcgendev.iml
+pcgen.iml
 
 # pmd
 /.pmd
