@@ -126,7 +126,7 @@ public final class TempBonusHelper
 			Equipment aEq = ((Equipment) selectedList.get(0)).clone();
 			aEq.makeVirtual();
 			String currAppName = aEq.getAppliedName();
-			if (currAppName != null && currAppName.length() > 2)
+			if (currAppName.length() > 2)
 			{
 				if (theCharacter.hasTempApplied(originObj))
 				{

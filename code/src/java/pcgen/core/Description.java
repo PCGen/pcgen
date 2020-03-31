@@ -64,7 +64,7 @@ public class Description extends ConcretePrereqObject
 	public Description(final String aString)
 	{
 		int currentInd = 0;
-		int percentInd = -1;
+		int percentInd;
 		while ((percentInd = aString.indexOf('%', currentInd)) != -1)
 		{
 			final String preText = aString.substring(currentInd, percentInd);
@@ -321,7 +321,7 @@ public class Description extends ConcretePrereqObject
 			if (str.startsWith(VAR_MARKER))
 			{
 				final int ind = Integer.parseInt(str.substring(VAR_MARKER.length()));
-				buf.append('%' + String.valueOf(ind));
+				buf.append('%').append(String.valueOf(ind));
 			}
 			else if (str.equals("%"))
 			{

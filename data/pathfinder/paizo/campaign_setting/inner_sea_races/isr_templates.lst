@@ -29,3 +29,10 @@ Human Ethnicity (Varki)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.65					SUBRACE:Var
 
 Male Lashunta																		GENDERLOCK:Male
 Female Lashunta																		GENDERLOCK:Female
+
+# ==============================
+# Bonus Languages
+# ==============================
+
+###Block: Bonus Languages
+Race Bonus Language ~ Senzar							VISIBLE:NO				LANGBONUS:Senzar

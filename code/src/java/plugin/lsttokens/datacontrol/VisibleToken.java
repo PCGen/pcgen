@@ -36,26 +36,23 @@ public class VisibleToken extends AbstractNonEmptyToken<ContentDefinition>
 	protected ParseResult parseNonEmptyToken(LoadContext context, ContentDefinition factDef, String value)
 	{
 		Visibility vis;
-		if (value.equals("YES"))
-		{
-			vis = Visibility.DEFAULT;
-		}
-		else if (value.equals("DISPLAY"))
-		{
-			vis = Visibility.DISPLAY_ONLY;
-		}
-		else if (value.equals("EXPORT"))
-		{
-			vis = Visibility.OUTPUT_ONLY;
-		}
-		else if (value.equals("NO"))
-		{
-			vis = Visibility.HIDDEN;
-		}
-		else
-		{
-			return new ParseResult.Fail("Unable to understand " + getTokenName() + " tag: " + value);
-		}
+        switch (value)
+        {
+            case "YES":
+                vis = Visibility.DEFAULT;
+                break;
+            case "DISPLAY":
+                vis = Visibility.DISPLAY_ONLY;
+                break;
+            case "EXPORT":
+                vis = Visibility.OUTPUT_ONLY;
+                break;
+            case "NO":
+                vis = Visibility.HIDDEN;
+                break;
+            default:
+                return new ParseResult.Fail("Unable to understand " + getTokenName() + " tag: " + value);
+        }
 		factDef.setVisibility(vis);
 		return ParseResult.SUCCESS;
 	}

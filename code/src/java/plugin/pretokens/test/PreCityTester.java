@@ -31,7 +31,7 @@ public class PreCityTester extends AbstractDisplayPrereqTest implements Prerequi
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		if (display.getSafeStringFor(PCStringKey.RESIDENCE).equalsIgnoreCase(prereq.getKey()))
+		if (display.getSafeStringFor(PCStringKey.CITY).equalsIgnoreCase(prereq.getKey()))
 		{
 			return countedTotal(prereq, 1);
 		}

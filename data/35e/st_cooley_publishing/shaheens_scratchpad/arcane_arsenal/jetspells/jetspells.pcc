@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Wed Oct 19 10:34:46 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:S. T. Cooley Publishing - Arcane Arsenal - Jet Spells
 GAMEMODE:35e
-RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Fantasy
@@ -14,6 +13,7 @@ SOURCELONG:Arcane Arsenal - Jet Spells
 SOURCESHORT:JetSpells
 SOURCEWEB:http://www.stcooleypublishing.com
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

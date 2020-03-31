@@ -116,8 +116,7 @@ public class HitDieStep implements Processor<HitDie>
 			}
 			else
 			{
-				assert steps < 0;
-				currentDie = currentDie.getPrevious();
+                currentDie = currentDie.getPrevious();
 				steps++;
 			}
 		}

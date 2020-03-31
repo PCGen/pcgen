@@ -4,7 +4,6 @@ GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide
-RANK:5
 GENRE:Fantasy
 BOOKTYPE:Adventure
 PUBNAMELONG:Paizo Publishing
@@ -15,6 +14,7 @@ SOURCELONG:Second Darkness - Chapter 6: Descent Into Midnight
 SOURCESHORT:PF18
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84bc
 SOURCEDATE:2009-01
+RANK:200901
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.

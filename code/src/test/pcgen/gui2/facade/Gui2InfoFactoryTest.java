@@ -101,7 +101,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		MockDataSetFacade dataset = new MockDataSetFacade(SettingsHandler.getGame());
+		MockDataSetFacade dataset = new MockDataSetFacade(SettingsHandler.getGameAsProperty().get());
 		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
 	}
 

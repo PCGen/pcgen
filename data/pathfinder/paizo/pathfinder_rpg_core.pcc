@@ -3,7 +3,6 @@ CAMPAIGN:Pathfinder RPG Core Supplements
 KEY:Pathfinder RPG Core Supplements
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:MultiSet
@@ -17,6 +16,7 @@ SOURCELONG:Pathfinder Core
 SOURCESHORT:PC
 SOURCEWEB:http://paizo.com/pathfinderRPG
 SOURCEDATE:2013-10
+RANK:201310
 ISOGL:YES
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
@@ -51,6 +51,7 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_4/_bestiary_4.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_intrigue/_ultimate_intrigue.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_wilderness/_ultimate_wilderness.pcc
 
 FORWARDREF:SPELL|Telepathy
 FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist

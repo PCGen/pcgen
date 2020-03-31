@@ -95,9 +95,7 @@ public class SkillRankFacetTest
 	@Test
 	public void testAddCharIDNull()
 	{
-		assertThrows(NullPointerException.class, () -> {
-			facet.set(null, s1, cl1, 4.0);
-		});
+		assertThrows(NullPointerException.class, () -> facet.set(null, s1, cl1, 4.0));
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -106,9 +104,7 @@ public class SkillRankFacetTest
 	@Test
 	public void testAddSkillNull()
 	{
-		assertThrows(NullPointerException.class, () -> {
-			facet.set(id, null, cl1, 4.0);
-		});
+		assertThrows(NullPointerException.class, () -> facet.set(id, null, cl1, 4.0));
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -236,9 +232,7 @@ public class SkillRankFacetTest
 	@Test
 	public void testRemoveCharIDNull()
 	{
-		assertThrows(NullPointerException.class, () -> {
-			facet.remove(null, s1, cl1);
-		});
+		assertThrows(NullPointerException.class, () -> facet.remove(null, s1, cl1));
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -247,9 +241,7 @@ public class SkillRankFacetTest
 	@Test
 	public void testRemoveSkillNull()
 	{
-		assertThrows(NullPointerException.class, () -> {
-			facet.remove(id, null, cl1);
-		});
+		assertThrows(NullPointerException.class, () -> facet.remove(id, null, cl1));
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);

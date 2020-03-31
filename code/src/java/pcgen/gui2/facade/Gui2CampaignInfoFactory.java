@@ -177,11 +177,8 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		List<String> info = aCamp.getListFor(ListKey.INFO_TEXT);
 		if (info != null)
 		{
-			if (!infoDisplayed)
-			{
-				infoText.appendLineBreak();
-			}
-			infoText.appendSmallTitleElement(LanguageBundle.getString("in_infInf")); //$NON-NLS-1$
+            infoText.appendLineBreak();
+            infoText.appendSmallTitleElement(LanguageBundle.getString("in_infInf")); //$NON-NLS-1$
 			infoText.appendLineBreak();
 			for (String infotext : info)
 			{
@@ -303,9 +300,8 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
 		pman.setChosenCampaignSourcefiles(oldList);
 
-		String sb = PrerequisiteUtilities.preReqHTMLStringsForList(null, null, campaign.getPrerequisiteList(), false)
-				+ AllowUtilities.getAllowInfo(null, campaign);
-		return sb;
+        return PrerequisiteUtilities.preReqHTMLStringsForList(null, null, campaign.getPrerequisiteList(), false)
+                + AllowUtilities.getAllowInfo(null, campaign);
 	}
 
 }

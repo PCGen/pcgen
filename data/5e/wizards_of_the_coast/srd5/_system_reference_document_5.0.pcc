@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:System Reference Document 5.1
 KEY:5e - System Reference Document
-RANK:1
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[5e - System Reference Document]
 GAMEMODE:5e
@@ -11,6 +10,7 @@ TYPE:Wizards of the Coast.Core
 SOURCELONG:System Reference Document
 SOURCESHORT:SRD5
 SOURCEDATE:2016-01
+RANK:201601
 SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC

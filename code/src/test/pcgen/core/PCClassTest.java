@@ -204,7 +204,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PreVariableParser parser = new PreVariableParser();
 		final Prerequisite aPrereq =
 				parser.parse("VARGTEQ", "Foo,1", false, false);
-		final GameMode gameMode = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		RuleCheck aClassPreRule = gameMode.getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "CLASSPRE");
 		aClassPreRule.setDefault(false);
@@ -289,7 +289,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PreVariableParser parser = new PreVariableParser();
 		final Prerequisite aPrereq =
 				parser.parse("VARGTEQ", "Foo,1", false, false);
-		final GameMode gameMode = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		RuleCheck aClassPreRule = gameMode.getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "CLASSPRE");
 		aClassPreRule.setDefault(false);
@@ -423,7 +423,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		PCClass reconstClass = null;
+		PCClass reconstClass;
 		System.out.println("Got text:" + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
 		assertEquals(
@@ -444,7 +444,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 		classPCCText = humanoidClass.getPCCText();
 		assertNotNull(classPCCText, "PCC Text for race should not be null");
 
-		reconstClass = null;
 		System.out.println("Got text:" + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
 		assertEquals(
@@ -683,7 +682,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		RuleCheck bonusKnownRule = new RuleCheck();
 		bonusKnownRule.setName(RuleConstants.BONUSSPELLKNOWN);
 		bonusKnownRule.setDefault(true);
-		GameMode gameMode = SettingsHandler.getGame();
+		GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		gameMode.getModeContext().getReferenceContext().importObject(bonusKnownRule);
 		BonusSpellInfo bsi = new BonusSpellInfo();
 		bsi.setName("1");
@@ -779,7 +778,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		RuleCheck bonusKnownRule = new RuleCheck();
 		bonusKnownRule.setName(RuleConstants.BONUSSPELLKNOWN);
 		bonusKnownRule.setDefault(true);
-		GameMode gameMode = SettingsHandler.getGame();
+		GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		gameMode.getModeContext().getReferenceContext().importObject(bonusKnownRule);
 		BonusSpellInfo bsi = new BonusSpellInfo();
 		bsi.setName("1");
@@ -1035,7 +1034,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		}
 
 		// Create the monseter class type
-		GameMode gamemode = SettingsHandler.getGame();
+		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
 		methodLoader.parseLine(gamemode.getModeContext(),
 			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO",

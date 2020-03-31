@@ -123,24 +123,21 @@ public class SkillSitToken extends Token
 				}
 				i--; //wasn't the base skill
 				List<String> situations = new ArrayList<>(sk.getUniqueListFor(ListKey.SITUATION));
-				if (situations != null)
+				int numSits = situations.size();
+				if (i < numSits)
 				{
-					int numSits = situations.size();
-					if (i < numSits)
+					Collections.sort(situations);
+				}
+				for (String situation : situations)
+				{
+					double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName() + '=' + situation);
+					if (bonus > 0.01 || bonus < -0.01)
 					{
-						Collections.sort(situations);
-					}
-					for (String situation : situations)
-					{
-						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName() + '=' + situation);
-						if (bonus > 0.01 || bonus < -0.01)
+						if (i == 0)
 						{
-							if (i == 0)
-							{
-								return new SkillSituation(sk, situation, bonus);
-							}
-							i--; //Wasn't this situation
+							return new SkillSituation(sk, situation, bonus);
 						}
+						i--; //Wasn't this situation
 					}
 				}
 			}
@@ -219,13 +216,7 @@ public class SkillSitToken extends Token
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		if (((property == SkillToken.SKILL_ABMOD) || (property == SkillToken.SKILL_MISC)) && false)
-			//&& aSkill.get(ObjectKey.KEY_STAT) == null)
-		{
-			retValue.append("n/a");
-		}
-		else
-		{
+
 			Skill skill;
 			boolean isSituation;
 			String situation;
@@ -262,14 +253,14 @@ public class SkillSitToken extends Token
 
 				case SkillToken.SKILL_TOTAL:
 					int rank = SkillRankControl.getTotalRank(pc, skill).intValue()
-						+ SkillModifier.modifier(skill, pc).intValue();
+						+ SkillModifier.modifier(skill, pc);
 					if (isSituation)
 					{
 						rank += sit.getSituationBonus();
 					}
-					if (SettingsHandler.getGame().hasSkillRankDisplayText())
+					if (SettingsHandler.getGameAsProperty().get().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(rank));
+						retValue.append(SettingsHandler.getGameAsProperty().get().getSkillRankDisplayText(rank));
 					}
 					else
 					{
@@ -279,9 +270,9 @@ public class SkillSitToken extends Token
 
 				case SkillToken.SKILL_RANK:
 					Float sRank = SkillRankControl.getTotalRank(pc, skill);
-					if (SettingsHandler.getGame().hasSkillRankDisplayText())
+					if (SettingsHandler.getGameAsProperty().get().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(sRank.intValue()));
+						retValue.append(SettingsHandler.getGameAsProperty().get().getSkillRankDisplayText(sRank.intValue()));
 					}
 					else
 					{
@@ -290,7 +281,7 @@ public class SkillSitToken extends Token
 					break;
 
 				case SkillToken.SKILL_MOD:
-					int mod = SkillModifier.modifier(skill, pc).intValue();
+					int mod = SkillModifier.modifier(skill, pc);
 					if (isSituation)
 					{
 						mod += sit.getSituationBonus();
@@ -307,7 +298,7 @@ public class SkillSitToken extends Token
 					break;
 
 				case SkillToken.SKILL_MISC:
-					int misc = SkillModifier.modifier(skill, pc).intValue();
+					int misc = SkillModifier.modifier(skill, pc);
 					if (isSituation)
 					{
 						misc += sit.getSituationBonus();
@@ -366,7 +357,7 @@ public class SkillSitToken extends Token
 					}
 					else
 					{
-						int mRank = etRank + SkillModifier.modifier(skill, pc).intValue();
+						int mRank = etRank + SkillModifier.modifier(skill, pc);
 						if (isSituation)
 						{
 							mRank += sit.getSituationBonus();
@@ -384,7 +375,7 @@ public class SkillSitToken extends Token
 					}
 					else
 					{
-						int mRank = tRank + SkillModifier.modifier(skill, pc).intValue();
+						int mRank = tRank + SkillModifier.modifier(skill, pc);
 						if (isSituation)
 						{
 							mRank += sit.getSituationBonus();
@@ -401,7 +392,7 @@ public class SkillSitToken extends Token
 					{
 						String sitDetails =
 								SkillCostDisplay.getSituationModifierExplanation(skill, situation, pc, shortFrom);
-						retValue.append(bonusDetails + " situational: " + sitDetails);
+						retValue.append(bonusDetails).append(" situational: ").append(sitDetails);
 					}
 					else
 					{
@@ -441,7 +432,7 @@ public class SkillSitToken extends Token
 
 					break;
 			}
-		}
+
 		return retValue.toString();
 	}
 }

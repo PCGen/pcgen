@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:Eclipse - The Codex Persona (SRD)
-RANK:5
 GAMEMODE:3e
 GENRE:Any
 BOOKTYPE:EclipseCore
@@ -14,6 +13,7 @@ SOURCELONG:Eclipse - The Codex Persona
 SOURCESHORT:Eclipse
 SOURCEWEB:http://www.lulu.com/content/435647
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 

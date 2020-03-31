@@ -2,13 +2,15 @@
 CAMPAIGN:Bastards of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Player Companion
 STATUS:BETA
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -17,6 +19,7 @@ SOURCELONG:Pathfinder Player Companion: Bastards of Golarion
 SOURCESHORT:BOG
 SOURCEWEB:http://paizo.com/products/btpy93na
 SOURCEDATE:2014-02
+RANK:201402
 ISOGL:YES
 
 COVER:bastards_of_golarion.jpg
@@ -40,6 +43,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Bastards of
 
 # Data files
 
+CLASS:bog_classes_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+
 ABILITY:bog_abilities.lst
 ABILITY:bog_abilities_class.lst
 ABILITY:bog_abilities_race.lst
@@ -49,6 +54,7 @@ CLASS:bog_classes.lst
 EQUIPMENT:bog_equip_general.lst
 LANGUAGE:bog_languages.lst
 RACE:bog_races.lst
+SKILL:bog_skills.lst
 SPELL:bog_spells.lst
 TEMPLATE:bog_templates.lst
 

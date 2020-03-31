@@ -51,3 +51,5 @@ CLASS:Nightblade	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Nightblade|Caster_L
 20	KNOWN:6,6,6,6,6,5,5
 ###Block
 1	ABILITY:Class|AUTOMATIC|Nightblade
+CLASS:Druid.MOD	DEFINE:ProhibitSpell_Descriptor_Light|0
+1	PROHIBITSPELL:DESCRIPTOR.Light|PREVARGTEQ:ProhibitSpell_Descriptor_Light,1

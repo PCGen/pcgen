@@ -3,7 +3,6 @@ CAMPAIGN:Dragon Companion Handbook
 GAMEMODE:Pathfinder
 TYPE:Everyman Gaming
 STATUS:BETA
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -15,6 +14,7 @@ SOURCELONG:Dragon Companion Handbook
 SOURCESHORT:DCH
 SOURCEWEB:https://gamingeveryman.wordpress.com/
 SOURCEDATE:2014-04
+RANK:201404
 ISOGL:YES
 
 COVER:DCH_THUMB.jpg

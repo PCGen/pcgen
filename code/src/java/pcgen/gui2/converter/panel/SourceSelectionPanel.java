@@ -21,8 +21,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.AbstractButton;
@@ -153,7 +151,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		});
 
 		radioButtons = new JRadioButton[SourceFolder.values().length];
-		String selectedPath = null;
+		String selectedPath;
 		File selectedFile = pc.get(ObjectKey.DIRECTORY);
 		if (selectedFile != null)
 		{
@@ -172,17 +170,11 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		{
 			JRadioButton pathButton = new JRadioButton();
 			final SourceFolder buttonFolder = folder;
-			pathButton.addActionListener(new ActionListener()
-			{
-
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					PCGenSettings context = PCGenSettings.getInstance();
-					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, buttonFolder.getFile().getAbsolutePath());
-					pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
-				}
-			});
+			pathButton.addActionListener(e -> {
+                PCGenSettings context = PCGenSettings.getInstance();
+                context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, buttonFolder.getFile().getAbsolutePath());
+                pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
+            });
 
 			String path;
 			if (folder.getFile() == null)

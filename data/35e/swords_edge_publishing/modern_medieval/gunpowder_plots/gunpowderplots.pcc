@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sun Jul 30 05:38:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
 CAMPAIGN:Modern Medieval - Gunpowder Plots
 GAMEMODE:35e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Modern Medieval
@@ -14,6 +13,7 @@ SOURCELONG:Gunpowder Plots
 SOURCESHORT:GunPlots
 SOURCEWEB:http://www.enworld.org/shop/index.php?do=product&productid=1196
 SOURCEDATE:2006-01
+RANK:200601
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

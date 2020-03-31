@@ -55,7 +55,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		super.setUp();
 		LoadContext context = Globals.getContext();
 
-		SettingsHandler.getGame().setSpellBaseDC("10+SPELLLEVEL+BASESPELLSTAT");
+		SettingsHandler.getGameAsProperty().get().setSpellBaseDC("10+SPELLLEVEL+BASESPELLSTAT");
 
 		SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<>(
 				BonusSpellInfo.class);

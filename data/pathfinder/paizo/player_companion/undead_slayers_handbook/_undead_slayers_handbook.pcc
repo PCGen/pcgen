@@ -2,7 +2,6 @@
 CAMPAIGN:Undead Slayer's Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -19,6 +18,7 @@ SOURCELONG:Pathfinder Player Companion: Undead Slayer's Handbook
 SOURCESHORT:USH
 SOURCEWEB:http://paizo.com/products/btpy94vx
 SOURCEDATE:2014-04
+RANK:201404
 ISOGL:YES
 
 COVER:undead_slayers_handbook.jpg

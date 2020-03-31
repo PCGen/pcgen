@@ -444,22 +444,17 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		// now the tests
 
-		final StringBuilder sB = new StringBuilder(100);
-
-		sB.append("count(\"ABILITIES\",");
-		sB.append("\"NAME=Eat Burger\")");
-
-		final String s = sB.toString();
+        final String s = "count(\"ABILITIES\","
+                + "\"NAME=Eat Burger\")";
 
 		assertThat(s + " no choices", (double) character.getVariableValue(s, ""), closeTo(0.0, 0.1));
 
-		AbilityCategory category = gCat;
-		finalizeTest(ab, "munch", character, category);
+        finalizeTest(ab, "munch", character, gCat);
 
 		assertThat(s + " one choice", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 
-		finalizeTest(ab, "devour", character, category);
-		finalizeTest(ab, "nibble", character, category);
+		finalizeTest(ab, "devour", character, gCat);
+		finalizeTest(ab, "nibble", character, gCat);
 		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 
@@ -482,12 +477,8 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		// now the tests
 
-		final StringBuilder sB = new StringBuilder(100);
-
-		sB.append("count(\"ABILITIES\",");
-		sB.append("\"KEY=KEY_Eat Burger\")");
-
-		final String countByKey = sB.toString();
+        final String countByKey = "count(\"ABILITIES\","
+                + "\"KEY=KEY_Eat Burger\")";
 
 		assertThat(countByKey + " no choices", (double) character.getVariableValue(countByKey, ""), closeTo(0.0, 0.1));
 

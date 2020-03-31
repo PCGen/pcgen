@@ -62,9 +62,8 @@ public class PreHDTester extends AbstractDisplayPrereqTest implements Prerequisi
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final String foo = LanguageBundle.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
-			prereq.getKind().toUpperCase() + ':', prereq.getOperator().toDisplayString(), prereq.getOperand());
-		return foo;
+        return LanguageBundle.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
+            prereq.getKind().toUpperCase() + ':', prereq.getOperator().toDisplayString(), prereq.getOperand());
 	}
 
 }

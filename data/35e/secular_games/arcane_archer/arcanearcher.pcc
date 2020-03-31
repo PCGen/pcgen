@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Jun 21 08:24:30 2006 -- reformated by prettylst.pl v1.35 (build 561)
 CAMPAIGN:Secular Games - Advanced Character Guide - Arcane Archer
-RANK:6
 GAMEMODE:35e
 GENRE:Generic
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Advanced Character Guide - Arcane Archer
 SOURCESHORT:ArcaneArcher
 SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

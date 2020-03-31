@@ -311,7 +311,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		appendFacts(b, aClass);
 
-		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
+		if (SettingsHandler.getGameAsProperty().get().getTabShown(Tab.SPELLS))
 		{
 			FactKey<String> fk = FactKey.valueOf("SpellType");
 			aString = aClass.getResolved(fk);
@@ -811,7 +811,7 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendLineBreak();
 			b.appendI18nElement("in_igEqModelColCost", COST_FMT.format(cost.doubleValue())); //$NON-NLS-1$
 			b.append(" ");
-			b.append(SettingsHandler.getGame().getCurrencyDisplay());
+			b.append(SettingsHandler.getGameAsProperty().get().getCurrencyDisplay());
 		}
 
 		String bString = Globals.getGameModeUnitSet().displayWeightInUnitSet(equip.getWeight(pc).doubleValue());
@@ -824,55 +824,55 @@ public class Gui2InfoFactory implements InfoFactory
 
 		}
 
-		Integer a = EqToken.getMaxDexTokenInt(pc, equip);
+		int a = EqToken.getMaxDexTokenInt(pc, equip);
 
-		if (a.intValue() != Constants.MAX_MAXDEX)
+		if ((int) a != Constants.MAX_MAXDEX)
 		{
 			b.appendSpacer();
-			b.appendI18nElement("in_igInfoLabelTextMaxDex", a.toString()); //$NON-NLS-1$
+			b.appendI18nElement("in_igInfoLabelTextMaxDex", Integer.toString(a)); //$NON-NLS-1$
 		}
 
 		a = EqToken.getAcCheckTokenInt(pc, equip);
 
-		if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
+		if (equip.isArmor() || equip.isShield() || ((int) a != 0))
 		{
 			b.appendSpacer();
-			b.appendI18nElement("in_igInfoLabelTextAcCheck", a.toString()); //$NON-NLS-1$
+			b.appendI18nElement("in_igInfoLabelTextAcCheck", Integer.toString(a)); //$NON-NLS-1$
 		}
 
-		if (!SettingsHandler.getGame().getACText().isEmpty())
+		if (!SettingsHandler.getGameAsProperty().get().getACText().isEmpty())
 		{
 			a = equip.getACMod(pc);
 
-			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
+			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
 			{
 				b.appendSpacer();
 				b.appendElement(LanguageBundle.getFormattedString("in_igInfoLabelTextAcBonus", //$NON-NLS-1$
-					SettingsHandler.getGame().getACText()), a.toString());
+					SettingsHandler.getGameAsProperty().get().getACText()), Integer.toString(a));
 			}
 		}
 
-		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
+		if (SettingsHandler.getGameAsProperty().get().getTabShown(Tab.SPELLS))
 		{
 			a = EqToken.getSpellFailureTokenInt(pc, equip);
 
-			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
+			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
 			{
 				b.appendSpacer();
-				b.appendI18nElement("in_igInfoLabelTextArcaneFailure", a.toString()); //$NON-NLS-1$
+				b.appendI18nElement("in_igInfoLabelTextArcaneFailure", Integer.toString(a)); //$NON-NLS-1$
 			}
 		}
 
-		bString = SettingsHandler.getGame().getDamageResistanceText();
+		bString = SettingsHandler.getGameAsProperty().get().getDamageResistanceText();
 
 		if (!bString.isEmpty())
 		{
 			a = EqToken.getEdrTokenInt(pc, equip);
 
-			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
+			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
 			{
 				b.appendSpacer();
-				b.appendElement(bString, a.toString());
+				b.appendElement(bString, Integer.toString(a));
 			}
 		}
 
@@ -951,7 +951,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (equip.isWeapon())
 		{
-			bString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(EqToken.getRange(pc, equip).intValue());
+			bString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(EqToken.getRange(pc, equip));
 
 			if (!bString.isEmpty())
 			{
@@ -1241,7 +1241,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("in_kitInfo_TotalCost", //$NON-NLS-1$
-				COST_FMT.format(totalCost), SettingsHandler.getGame().getCurrencyDisplay());
+				COST_FMT.format(totalCost), SettingsHandler.getGameAsProperty().get().getCurrencyDisplay());
 		}
 
 		String desc = pc.getDescription(kit);
@@ -1316,7 +1316,7 @@ public class Gui2InfoFactory implements InfoFactory
 				}
 				first = false;
 				String adj = ADJ_FMT.format(bonusObj.resolve(pc, "")); //$NON-NLS-1$
-				bonusValues.append(adj + " " + bonusObj.getDescription()); //$NON-NLS-1$
+				bonusValues.append(adj).append(" ").append(bonusObj.getDescription()); //$NON-NLS-1$
 			}
 			if (bonusValues.length() > 0)
 			{
@@ -1454,11 +1454,10 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getPreReqHTML(Race race)
 	{
-		String sb = "<html>"
+		return "<html>"
 				+ PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, race.getPrerequisiteList(), false)
 				+ AllowUtilities.getAllowInfo(pc, race)
 				+ "</html>";
-		return sb;
 	}
 
 	@Override
@@ -1475,7 +1474,7 @@ public class Gui2InfoFactory implements InfoFactory
 					retString.append(' ');
 				}
 
-				retString.append(stat.getKeyName() + ":Nonability");
+				retString.append(stat.getKeyName()).append(":Nonability");
 			}
 			else
 			{
@@ -1486,7 +1485,7 @@ public class Gui2InfoFactory implements InfoFactory
 						retString.append(' ');
 					}
 
-					retString.append(stat.getKeyName() + ":" + BonusCalc.getStatMod(race, stat, pc));
+					retString.append(stat.getKeyName()).append(":").append(BonusCalc.getStatMod(race, stat, pc));
 				}
 			}
 		}
@@ -1536,11 +1535,10 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getPreReqHTML(PCTemplate template)
 	{
-		String sb = "<html>"
+		return "<html>"
 				+ PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, template.getPrerequisiteList(), false)
 				+ AllowUtilities.getAllowInfo(pc, template)
 				+ "</html>";
-		return sb;
 	}
 
 	@Override

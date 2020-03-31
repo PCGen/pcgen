@@ -3,7 +3,6 @@ CAMPAIGN:Paizo - Pathfinder Campaign Setting
 GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 STATUS:BETA
-RANK:2
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Campaign Setting
 SOURCESHORT:PFCS
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search
 SOURCEDATE:2008-08
+RANK:200808
 ISOGL:YES
 ISLICENSED:NO
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

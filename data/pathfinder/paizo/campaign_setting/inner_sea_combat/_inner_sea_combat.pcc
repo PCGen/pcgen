@@ -2,7 +2,6 @@
 CAMPAIGN:Inner Sea Combat
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -19,6 +18,7 @@ SOURCELONG:Inner Sea Combat
 SOURCESHORT:ISC
 SOURCEWEB:http://paizo.com/products/btpy95b1?Pathfinder-Campaign-Setting-Inner-Sea-Combat
 SOURCEDATE:2014-08
+RANK:201408
 ISOGL:YES
 
 COVER:PZO9268_180.jpeg
@@ -50,6 +50,7 @@ EQUIPMENT:isc_equip_arms_armor.lst
 EQUIPMENT:isc_equip_magic.lst
 KIT:isc_kits.lst
 RACE:isc_races_companion.lst
+TEMPLATE:isc_templates.lst
 
 # Includes
 RACE:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_races.lst|(INCLUDE:Hippocampus|Hippogriff)|!PRECAMPAIGN:1,INCLUDES=Bestiary 2

@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Skirmisher - Nuisances: Director's Cut
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -12,6 +11,7 @@ SOURCELONG:Nuisances - Director's Cut
 SOURCESHORT:Nuisances
 SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download
 SOURCEDATE:2007-08
+RANK:200708
 ISOGL:YES
 ISMATURE:YES
 

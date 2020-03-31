@@ -217,7 +217,6 @@ public final class OutputPanel extends PCGenPrefsPanel
 	public void setOptionsBasedOnControls()
 	{
 		UIPropertyContext context = UIPropertyContext.getInstance();
-		GuiAssertions.assertIsNotJavaFXThread();
 		Globals.selectPaper(paperType.getSelectionModel().getSelectedItem());
 
 		context.setBoolean(UIPropertyContext.CLEANUP_TEMP_FILES, removeTempFiles.isSelected());

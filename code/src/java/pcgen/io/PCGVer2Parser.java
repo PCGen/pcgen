@@ -350,7 +350,7 @@ final class PCGVer2Parser implements PCGParser
 			oSource = thePC.getAbilityKeyed(AbilityCategory.FEAT, sourceStr);
 			if (oSource == null)
 			{
-				for (final AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
+				for (final AbilityCategory cat : SettingsHandler.getGameAsProperty().get().getAllAbilityCategories())
 				{
 					Ability abilSourceObj = Globals.getContext().getReferenceContext().getManufacturerId(cat)
 						.getActiveObject(sourceStr);
@@ -1473,7 +1473,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseCityLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.RESIDENCE,
+		thePC.setPCAttribute(PCStringKey.CITY,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_CITY.length() + 1)));
 	}
 
@@ -1646,10 +1646,7 @@ final class PCGVer2Parser implements PCGParser
 							catch (NumberFormatException e)
 							{
 								//OK (no level embedded in file)
-								if (level > 0)
-								{
-									target = thePC.getActiveClassLevel(aPCClass, level);
-								}
+								target = thePC.getActiveClassLevel(aPCClass, level);
 							}
 							BonusAddition.applyBonus(bonusString, "", thePC, target);
 						}
@@ -1682,11 +1679,8 @@ final class PCGVer2Parser implements PCGParser
 						}
 					}
 					SpecialAbility specialAbility = new SpecialAbility(specialAbilityName);
-					CDOMObject target = aPCClass;
-					if (level > 0)
-					{
-						target = thePC.getActiveClassLevel(aPCClass, level);
-					}
+
+					CDOMObject target = thePC.getActiveClassLevel(aPCClass, level);
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
 					{
@@ -1757,11 +1751,11 @@ final class PCGVer2Parser implements PCGParser
 					warnings.add(msg);
 				}
 			}
-			else if ((pcl != null) && IOConstants.TAG_SKILLPOINTSGAINED.equals(tag))
+			else if (IOConstants.TAG_SKILLPOINTSGAINED.equals(tag))
 			{
 				pcl.setFixedSkillPointsGained(Integer.parseInt(element.getText()));
 			}
-			else if ((pcl != null) && IOConstants.TAG_SKILLPOINTSREMAINING.equals(tag))
+			else if (IOConstants.TAG_SKILLPOINTSREMAINING.equals(tag))
 			{
 				pcl.setSkillPointsRemaining(Integer.parseInt(element.getText()));
 			}
@@ -2289,10 +2283,10 @@ final class PCGVer2Parser implements PCGParser
 			IOConstants.TAG_END, false);
 
 		String characterType = stok.nextToken();
-		if (!SettingsHandler.getGame().getCharacterTypeList().contains(characterType))
+		if (!SettingsHandler.getGameAsProperty().get().getCharacterTypeList().contains(characterType))
 		{
 			String wantedType = characterType;
-			characterType = SettingsHandler.getGame().getDefaultCharacterType();
+			characterType = SettingsHandler.getGameAsProperty().get().getDefaultCharacterType();
 			final String message = "Character type " + wantedType + " not found. Using " + characterType; //$NON-NLS-1$
 			warnings.add(message);
 		}
@@ -2333,10 +2327,10 @@ final class PCGVer2Parser implements PCGParser
 			IOConstants.TAG_END, false);
 
 		String xpTableName = stok.nextToken();
-		if (!SettingsHandler.getGame().getXPTableNames().contains(xpTableName))
+		if (!SettingsHandler.getGameAsProperty().get().getXPTableNames().contains(xpTableName))
 		{
 			String wantedName = xpTableName;
-			xpTableName = SettingsHandler.getGame().getDefaultXPTableName();
+			xpTableName = SettingsHandler.getGameAsProperty().get().getDefaultXPTableName();
 			final String message = "XP table " + wantedName + " not found. Using " + xpTableName; //$NON-NLS-1$
 			warnings.add(message);
 		}
@@ -2385,7 +2379,7 @@ final class PCGVer2Parser implements PCGParser
 			final PCGElement element = it.next();
 
 			final String categoryKey = EntityEncoder.decode(element.getText());
-			category = SettingsHandler.getGame().getAbilityCategory(categoryKey);
+			category = SettingsHandler.getGameAsProperty().get().getAbilityCategory(categoryKey);
 			if (category == null)
 			{
 				missingCat = categoryKey;
@@ -2417,10 +2411,10 @@ final class PCGVer2Parser implements PCGParser
 			String abilityKey = EntityEncoder.decode(element.getText());
 			// Check for an ability that has been updated.
 			CategorisedKey categorisedKey = AbilityMigration.getNewAbilityKey(abilityCat, abilityKey, pcgenVersion,
-				SettingsHandler.getGame().getName());
+				SettingsHandler.getGameAsProperty().get().getName());
 			abilityCat = categorisedKey.getCategory();
 			abilityKey = categorisedKey.getKey();
-			AbilityCategory innateCategory = SettingsHandler.getGame().getAbilityCategory(abilityCat);
+			AbilityCategory innateCategory = SettingsHandler.getGameAsProperty().get().getAbilityCategory(abilityCat);
 			if (innateCategory == null)
 			{
 				missingCat = abilityCat;
@@ -2477,7 +2471,7 @@ final class PCGVer2Parser implements PCGParser
 				}
 			}
 		}
-		if (ability != null && category != null && nature != null)
+		if (ability != null && category != null)
 		{
 			CNAbility cna = null;
 			boolean needError = true;
@@ -2545,7 +2539,7 @@ final class PCGVer2Parser implements PCGParser
 				}
 				else
 				{
-					if (associations != null && !associations.isEmpty())
+					if (!associations.isEmpty())
 					{
 						warnings.add(cna + " found with selections: " + associations + " but is MULT:NO in the data");
 					}
@@ -2671,7 +2665,7 @@ final class PCGVer2Parser implements PCGParser
 
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
 		final String cat = EntityEncoder.decode(it.next().getText());
-		final AbilityCategory category = SettingsHandler.getGame().getAbilityCategory(cat);
+		final AbilityCategory category = SettingsHandler.getGameAsProperty().get().getAbilityCategory(cat);
 		try
 		{
 			thePC.setUserPoolBonus(category, new BigDecimal(it.next().getText()));
@@ -2848,7 +2842,7 @@ final class PCGVer2Parser implements PCGParser
 	{
 		final String requestedMode = line.substring(IOConstants.TAG_GAMEMODE.length() + 1);
 
-		final GameMode currentGameMode = SettingsHandler.getGame();
+		final GameMode currentGameMode = SettingsHandler.getGameAsProperty().get();
 		final String currentMode = currentGameMode.getName();
 
 		if (!requestedMode.equals(currentMode))
@@ -3426,7 +3420,7 @@ final class PCGVer2Parser implements PCGParser
 		PCGElement raceElement = elements.get(0);
 		String raceName = EntityEncoder.decode(raceElement.getText());
 		// Check for a race key that has been updated.
-		raceName = RaceMigration.getNewRaceKey(raceName, pcgenVersion, SettingsHandler.getGame().getName());
+		raceName = RaceMigration.getNewRaceKey(raceName, pcgenVersion, SettingsHandler.getGameAsProperty().get().getName());
 		final Race aRace =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, raceName);
 
@@ -3821,7 +3815,7 @@ final class PCGVer2Parser implements PCGParser
 			if (IOConstants.TAG_SPELLNAME.equals(tag))
 			{
 				String spellName = EntityEncoder.decode(element.getText());
-				spellName = SpellMigration.getNewSpellKey(spellName, pcgenVersion, SettingsHandler.getGame().getName());
+				spellName = SpellMigration.getNewSpellKey(spellName, pcgenVersion, SettingsHandler.getGameAsProperty().get().getName());
 
 				// either NULL (no spell) a Spell instance,
 				aSpell = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class,
@@ -4546,27 +4540,26 @@ final class PCGVer2Parser implements PCGParser
 					return;
 				}
 
-				if (IOConstants.TAG_RACE.equals(type))
-				{
-					source = thePC.getRace();
-				}
-				else if (TAG_PCTEMPLATE.equals(type))
-				{
-					PCTemplate template = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(PCTemplate.class, key);
-					if (thePC.hasTemplate(template))
-					{
-						source = template;
-					}
-					else
-					{
-						warnings.add("PC does not have Template: " + key);
-					}
-				}
-				else if (IOConstants.TAG_PCCLASS.equals(type))
-				{
-					source = thePC.getClassKeyed(key);
-				}
+                switch (type)
+                {
+                    case IOConstants.TAG_RACE:
+                        source = thePC.getRace();
+                        break;
+                    case TAG_PCTEMPLATE:
+                        PCTemplate template = Globals.getContext().getReferenceContext()
+                                .silentlyGetConstructedCDOMObject(PCTemplate.class, key);
+                        if (thePC.hasTemplate(template))
+                        {
+                            source = template;
+                        } else
+                        {
+                            warnings.add("PC does not have Template: " + key);
+                        }
+                        break;
+                    case IOConstants.TAG_PCCLASS:
+                        source = thePC.getClassKeyed(key);
+                        break;
+                }
 
 				if (source == null)
 				{
@@ -4675,10 +4668,7 @@ final class PCGVer2Parser implements PCGParser
 
 		final String calcEQId = EntityEncoder.decode(tokens.getElements().get(0).getText());
 
-		if (calcEQId != null)
-		{
-			thePC.setCalcEquipSetId(calcEQId);
-		}
+		thePC.setCalcEquipSetId(calcEQId);
 	}
 
 	/*
@@ -4718,7 +4708,7 @@ final class PCGVer2Parser implements PCGParser
 		element = tokens.getElements().get(0);
 		itemKey = EntityEncoder.decode(element.getText());
 		// Check for an equipment key that has been updated.
-		itemKey = EquipmentMigration.getNewEquipmentKey(itemKey, pcgenVersion, SettingsHandler.getGame().getName());
+		itemKey = EquipmentMigration.getNewEquipmentKey(itemKey, pcgenVersion, SettingsHandler.getGameAsProperty().get().getName());
 
 		// might be dynamically created container
 		aEquip = thePC.getEquipmentNamed(itemKey);
@@ -4767,7 +4757,7 @@ final class PCGVer2Parser implements PCGParser
 								baseItemKey = EntityEncoder.decode(child.getText());
 								// Check for an equipment key that has been updated.
 								baseItemKey = EquipmentMigration.getNewEquipmentKey(baseItemKey, pcgenVersion,
-									SettingsHandler.getGame().getName());
+									SettingsHandler.getGameAsProperty().get().getName());
 							}
 							else if (IOConstants.TAG_DATA.equals(childTag))
 							{
@@ -4799,8 +4789,7 @@ final class PCGVer2Parser implements PCGParser
 								// Make sure we are not getting a custom item
 								if (aEquip2.isType(Constants.TYPE_CUSTOM))
 								{
-									aEquip2 = null;
-								}
+                                }
 								else
 								{
 									// standard item
@@ -5133,7 +5122,7 @@ final class PCGVer2Parser implements PCGParser
 				continue;
 			}
 
-			if ((bonus == null) || (bonus.length() <= 0))
+			if (bonus.length() <= 0)
 			{
 				continue;
 			}
@@ -5143,84 +5132,80 @@ final class PCGVer2Parser implements PCGParser
 			LoadContext context = Globals.getContext();
 			// Check the Creator type so we know what
 			// type of object to set as the creator
-			if (cType.equals(IOConstants.TAG_FEAT))
-			{
-				for (AbilityCategory aCat : SettingsHandler.getGame().getAllAbilityCategories())
-				{
-					Ability a =
-							Globals.getContext().getReferenceContext().getManufacturerId(aCat).getActiveObject(cKey);
-					if (a != null)
-					{
-						newB = Bonus.newBonus(context, bonus);
-						creator = a;
-						break;
-					}
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_EQUIPMENT))
-			{
-				Equipment aEquip = thePC.getEquipmentNamed(cKey);
+            switch (cType)
+            {
+                case IOConstants.TAG_FEAT:
+                    for (AbilityCategory aCat : SettingsHandler.getGameAsProperty().get().getAllAbilityCategories())
+                    {
+                        Ability a =
+                                Globals.getContext().getReferenceContext().getManufacturerId(aCat).getActiveObject(cKey);
+                        if (a != null)
+                        {
+                            newB = Bonus.newBonus(context, bonus);
+                            creator = a;
+                            break;
+                        }
+                    }
+                    break;
+                case IOConstants.TAG_EQUIPMENT:
+                    Equipment aEquip = thePC.getEquipmentNamed(cKey);
 
-				if (aEquip == null)
-				{
-					aEquip = context.getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, cKey);
-				}
+                    if (aEquip == null)
+                    {
+                        aEquip = context.getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, cKey);
+                    }
 
-				if (aEquip != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aEquip;
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_CLASS))
-			{
-				final PCClass aClass = thePC.getClassKeyed(cKey);
+                    if (aEquip != null)
+                    {
+                        newB = Bonus.newBonus(context, bonus);
+                        creator = aEquip;
+                    }
+                    break;
+                case IOConstants.TAG_CLASS:
+                    final PCClass aClass = thePC.getClassKeyed(cKey);
 
-				if (aClass == null)
-				{
-					continue;
-				}
+                    if (aClass == null)
+                    {
+                        continue;
+                    }
 
-				int idx = bonus.indexOf('|');
-				newB = Bonus.newBonus(context, bonus.substring(idx + 1));
-				creator = aClass;
-			}
-			else if (cType.equals(IOConstants.TAG_TEMPLATE))
-			{
-				PCTemplate aTemplate =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, cKey);
+                    int idx = bonus.indexOf('|');
+                    newB = Bonus.newBonus(context, bonus.substring(idx + 1));
+                    creator = aClass;
+                    break;
+                case IOConstants.TAG_TEMPLATE:
+                    PCTemplate aTemplate =
+                            context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, cKey);
 
-				if (aTemplate != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aTemplate;
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_SKILL))
-			{
-				Skill aSkill = context.getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, cKey);
+                    if (aTemplate != null)
+                    {
+                        newB = Bonus.newBonus(context, bonus);
+                        creator = aTemplate;
+                    }
+                    break;
+                case IOConstants.TAG_SKILL:
+                    Skill aSkill = context.getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, cKey);
 
-				if (aSkill != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aSkill;
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_SPELL))
-			{
-				final Spell aSpell = context.getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class, cKey);
+                    if (aSkill != null)
+                    {
+                        newB = Bonus.newBonus(context, bonus);
+                        creator = aSkill;
+                    }
+                    break;
+                case IOConstants.TAG_SPELL:
+                    final Spell aSpell = context.getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class, cKey);
 
-				if (aSpell != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aSpell;
-				}
-			}
-			else if (cType.equals(IOConstants.TAG_NAME))
-			{
-				newB = Bonus.newBonus(context, bonus);
-				//newB.setCreatorObject(thePC);
-			}
+                    if (aSpell != null)
+                    {
+                        newB = Bonus.newBonus(context, bonus);
+                        creator = aSpell;
+                    }
+                    break;
+                case IOConstants.TAG_NAME:
+                    newB = Bonus.newBonus(context, bonus);
+                    //newB.setCreatorObject(thePC);
+                    break;
+            }
 
 			if (newB == null)
 			{
@@ -5639,7 +5624,7 @@ final class PCGVer2Parser implements PCGParser
 		{
 			final String dString = EntityEncoder.decode(it2.next().getText());
 
-			PersistentTransitionChoice<?> ptc = null;
+			PersistentTransitionChoice<?> ptc;
 			ptc = Compatibility.processOldAdd(Globals.getContext(), dString);
 
 			if (ptc == null)

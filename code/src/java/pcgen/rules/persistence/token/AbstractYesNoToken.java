@@ -78,7 +78,7 @@ public abstract class AbstractYesNoToken<T extends CDOMObject> extends AbstractN
 		{
 			return null;
 		}
-		return new String[]{b.booleanValue() ? "YES" : "NO"};
+		return new String[]{b ? "YES" : "NO"};
 	}
 
 	protected abstract ObjectKey<Boolean> getObjectKey();

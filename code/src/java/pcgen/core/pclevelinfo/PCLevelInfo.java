@@ -39,7 +39,7 @@ public final class PCLevelInfo implements Cloneable
 {
 	private List<PCLevelInfoStat> statsPostModified = null;
 	private List<PCLevelInfoStat> statsPreModified = null;
-	private String classKeyName = "";
+	private String classKeyName;
 	private int classLevel = 0;
 	private int skillPointsGained = Integer.MIN_VALUE;
 	private int skillPointsRemaining = 0;
@@ -264,10 +264,10 @@ public final class PCLevelInfo implements Cloneable
 		int returnValue = 0;
 		final PCClass aClass = aPC.getClassKeyed(classKeyName);
 
-		final String purchaseName = SettingsHandler.getGame().getPurchaseModeMethodName();
+		final String purchaseName = SettingsHandler.getGameAsProperty().get().getPurchaseModeMethodName();
 		if (purchaseName != null)
 		{
-			PointBuyMethod pbm = SettingsHandler.getGame().getContext().getReferenceContext()
+			PointBuyMethod pbm = SettingsHandler.getGameAsProperty().get().getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, purchaseName);
 
 			List<BonusObj> bonusList = BonusUtilities.getBonusFromList(pbm.getBonuses(), "SKILLPOOL", "NUMBER");

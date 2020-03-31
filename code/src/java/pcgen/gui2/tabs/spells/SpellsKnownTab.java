@@ -20,7 +20,6 @@ package pcgen.gui2.tabs.spells;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.List;
 
@@ -160,16 +159,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			hbox.add(Box.createHorizontalStrut(10));
 
 			JButton spellSheetButton = new JButton(LanguageBundle.getString("InfoSpells.select.spellsheet"));
-			spellSheetButton.addActionListener(new ActionListener()
-			{
-
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					selectSpellSheetButton();
-				}
-
-			});
+			spellSheetButton.addActionListener(e -> selectSpellSheetButton());
 			hbox.add(spellSheetButton);
 			hbox.add(Box.createHorizontalStrut(3));
 
@@ -399,7 +389,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	}
 
-	private class PreviewSpellsAction extends AbstractAction
+	private static class PreviewSpellsAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;
@@ -418,7 +408,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	}
 
-	private class ExportSpellsAction extends AbstractAction
+	private static class ExportSpellsAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;

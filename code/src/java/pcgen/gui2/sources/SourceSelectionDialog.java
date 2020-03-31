@@ -29,10 +29,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.AbstractList;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -55,7 +53,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.facade.core.LoadableFacade.LoadingState;
@@ -67,7 +64,6 @@ import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIContext;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.DataInstaller;
-import pcgen.gui2.filter.FilteredListFacadeTableModel;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
@@ -225,6 +221,18 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		buttonPanel.revalidate();
 	}
 
+	/**
+	 * Set the selected advanced sources for a particular game mode and
+	 * remember them. Overrides existing selections.
+	 *
+	 * @param sourceSel A selection facade of the sources to set.
+	 */
+	public void setAdvancedSources(final SourceSelectionFacade sourceSel)
+	{
+		advancedPanel.setSourceSelection(sourceSel);
+		advancedPanel.rememberSelectedSources();
+	}
+
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{
@@ -242,63 +250,61 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 	public void actionPerformed(ActionEvent e)
 	{
 		String command = e.getActionCommand();
-		if (command.equals(SAVE_COMMAND))
-		{
-			final JList sourcesList = new JList<>();
-			final JTextField nameField = new JTextField();
-			ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
-				FacadeFactory.getCustomSourceSelections());
-			sourcesList.setModel(new FacadeListModel<>(sources));
-			sourcesList.addListSelectionListener(lse -> nameField.setText(sourcesList.getSelectedValue().toString()));
-			JPanel panel = new JPanel(new BorderLayout());
-			panel.add(new JScrollPane(sourcesList), BorderLayout.CENTER);
-			panel.add(nameField, BorderLayout.SOUTH);
-			int ret = JOptionPane.showOptionDialog(this, panel, "Save the source selection as...",
-				JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
-			if (ret == JOptionPane.OK_OPTION)
-			{
-				String name = nameField.getText();
-				List<Campaign> selectedCampaigns = advancedPanel.getSelectedCampaigns();
-				GameMode selectedGameMode = advancedPanel.getSelectedGameMode();
+        switch (command)
+        {
+            case SAVE_COMMAND:
+                final JList sourcesList = new JList<>();
+                final JTextField nameField = new JTextField();
+                ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
+                        FacadeFactory.getCustomSourceSelections());
+                sourcesList.setModel(new FacadeListModel<>(sources));
+                sourcesList.addListSelectionListener(lse -> nameField.setText(sourcesList.getSelectedValue().toString()));
+                JPanel panel = new JPanel(new BorderLayout());
+                panel.add(new JScrollPane(sourcesList), BorderLayout.CENTER);
+                panel.add(nameField, BorderLayout.SOUTH);
+                int ret = JOptionPane.showOptionDialog(this, panel, "Save the source selection as...",
+                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
+                if (ret == JOptionPane.OK_OPTION)
+                {
+                    String name = nameField.getText();
+                    List<Campaign> selectedCampaigns = advancedPanel.getSelectedCampaigns();
+                    GameMode selectedGameMode = advancedPanel.getSelectedGameMode();
 
-				SourceSelectionFacade selection = null;
-				for (SourceSelectionFacade sourceSelectionFacade : sources)
-				{
-					if (sourceSelectionFacade.toString().equals(name))
-					{
-						selection = sourceSelectionFacade;
-						break;
+                    SourceSelectionFacade selection = null;
+                    for (SourceSelectionFacade sourceSelectionFacade : sources)
+                    {
+                        if (sourceSelectionFacade.toString().equals(name))
+                        {
+                            selection = sourceSelectionFacade;
+                            break;
 
-					}
-				}
-				if (selection == null)
-				{
-					selection = FacadeFactory.createCustomSourceSelection(name);
-				}
-				selection.setCampaigns(selectedCampaigns);
-				selection.setGameMode(selectedGameMode);
-				basicPanel.setSourceSelection(selection);
-			}
-		}
-		else if (command.equals(DELETE_COMMAND))
-		{
-			FacadeFactory.deleteCustomSourceSelection(basicPanel.getSourceSelection());
-		}
-		else if (command.equals(LOAD_COMMAND))
-		{
-			fireSourceLoad();
-		}
-		else if (command.equals(INSTALLDATA_COMMAND))
-		{
-			// Swap to the install data dialog.
-			setVisible(false);
-			DataInstaller di = new DataInstaller();
-			di.setVisible(true);
-		}
-		else
-		{//must be the cancel command
-			setVisible(false);
-		}
+                        }
+                    }
+                    if (selection == null)
+                    {
+                        selection = FacadeFactory.createCustomSourceSelection(name);
+                    }
+                    selection.setCampaigns(selectedCampaigns);
+                    selection.setGameMode(selectedGameMode);
+                    basicPanel.setSourceSelection(selection);
+                }
+                break;
+            case DELETE_COMMAND:
+                FacadeFactory.deleteCustomSourceSelection(basicPanel.getSourceSelection());
+                break;
+            case LOAD_COMMAND:
+                fireSourceLoad();
+                break;
+            case INSTALLDATA_COMMAND:
+                // Swap to the install data dialog.
+                setVisible(false);
+                DataInstaller di = new DataInstaller();
+                di.setVisible(true);
+                break;
+            default: //must be the cancel command
+                setVisible(false);
+                break;
+        }
 	}
 
 	private void fireSourceLoad()
@@ -343,90 +349,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 				!alwaysAdvancedCheck.isSelected());
 		}
 		super.setVisible(visible);
-	}
-
-	private static class SourcesTableModel extends FilteredListFacadeTableModel<SourceSelectionFacade>
-	{
-
-		private final List<SourceSelectionFacade> displayedSources;
-
-		public SourcesTableModel()
-		{
-			setDelegate(FacadeFactory.getSourceSelections());
-			displayedSources = new ArrayList<>();
-			displayedSources.addAll(ListFacades.wrap(FacadeFactory.getDisplayedSourceSelections()));
-		}
-
-		public void dispose()
-		{
-			//this detaches the listeners
-			setDelegate(null);
-		}
-
-		public SourceSelectionFacade[] getDisplayedSources()
-		{
-			return displayedSources.toArray(new SourceSelectionFacade[0]);
-		}
-
-		@Override
-		protected Object getValueAt(SourceSelectionFacade element, int column)
-		{
-			if (column == -1)
-			{
-				return displayedSources.contains(element);
-			}
-			else
-			{
-				return element;
-			}
-		}
-
-		@Override
-		public int getColumnCount()
-		{
-			return 1;
-		}
-
-		@Override
-		public Class<?> getColumnClass(int columnIndex)
-		{
-			if (columnIndex == -1)
-			{
-				return Boolean.class;
-			}
-			else
-			{
-				return Object.class;
-			}
-		}
-
-		@Override
-		public boolean isCellEditable(int rowIndex, int columnIndex)
-		{
-			return columnIndex == -1;
-		}
-
-		@Override
-		public String getColumnName(int column)
-		{
-			return "Sources";
-		}
-
-		@Override
-		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
-		{
-			Boolean bool = (Boolean) aValue;
-			SourceSelectionFacade source = sortedList.getElementAt(rowIndex);
-			if (bool)
-			{
-				displayedSources.add(source);
-			}
-			else
-			{
-				displayedSources.remove(source);
-			}
-		}
-
 	}
 
 	private class QuickSourceSelectionPanel extends JPanel implements ListSelectionListener

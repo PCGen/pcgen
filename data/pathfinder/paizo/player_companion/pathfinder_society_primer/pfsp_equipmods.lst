@@ -9,7 +9,7 @@ SOURCELONG:Pathfinder Player Companion: Pathfinder Society Primer	SOURCESHORT:PF
 # ==============================
 
 # Modifier Name										Unique Key									Type					Plus		Visible		Source Page		Required Type									Special Property																		SORTKEY
-Deceptive											KEY:Special Ability ~ Deceptive ~ Weapon				TYPE:Weapon.Melee.Ranged	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.14	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged			SPROP:Add enhancement bonus to Bluff checks to feint, feint as an immediate action when critical hit is confirmed.
+Deceptive											KEY:Special Ability ~ Deceptive ~ Weapon				TYPE:Weapon.Melee.Ranged	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.14	PRETYPE:1,WeaponEnhancement	PRETYPE:2,Weapon,Melee,Ranged			SPROP:Add enhancement bonus to Bluff checks to feint, feint as an immediate action when critical hit is confirmed.
 
 
 Deceptive											KEY:Special Ability ~ Deceptive ~ Amulet of Mighty Fists	TYPE:Amulet of Mighty Fists	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.14	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base	SPROP:Add enhancement bonus to Bluff checks to feint, feint as an immediate action when critical hit is confirmed.	SORTKEY:+1

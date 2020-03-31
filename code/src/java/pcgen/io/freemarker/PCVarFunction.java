@@ -55,8 +55,7 @@ public class PCVarFunction implements TemplateMethodModelEx
 
 		String formula = arg0.get(0).toString();
 
-		Float result = pc.getVariableValue(formula, "");
-		return result;
+        return pc.getVariableValue(formula, "");
 	}
 
 }

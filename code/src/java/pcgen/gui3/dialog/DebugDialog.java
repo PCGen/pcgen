@@ -35,14 +35,15 @@ import javafx.stage.Stage;
  */
 public class DebugDialog
 {
-	private final FXMLLoader loader = new FXMLLoader();
+	private final Stage primaryStage;
 
 	public DebugDialog()
 	{
 		GuiAssertions.assertIsJavaFXThread();
+		FXMLLoader loader = new FXMLLoader();
 		loader.setResources(LanguageBundle.getBundle());
 		loader.setLocation(getClass().getResource("DebugDialog.fxml"));
-		Stage primaryStage = new Stage();
+		primaryStage = new Stage();
 		final Scene scene;
 		try
 		{
@@ -54,8 +55,11 @@ public class DebugDialog
 		}
 		primaryStage.setScene(scene);
 		DebugDialogController controller = loader.getController();
-		primaryStage.setOnHidden(e -> controller.shutdown());
 		primaryStage.setOnShown(e -> controller.initTimer());
+	}
+
+	public void show()
+	{
 		primaryStage.show();
 	}
 }

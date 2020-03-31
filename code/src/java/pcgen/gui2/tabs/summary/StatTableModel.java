@@ -262,7 +262,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setBackground(table.getBackground());
 			setForeground(table.getForeground());
 			Integer mod = (Integer) value;
-			if (mod.intValue() == 0 && column > 3)
+			if (mod == 0 && column > 3)
 			{
 				// let's use a pretty em dash instead of hyphen/minus.
 				setText("\u2014");
@@ -486,7 +486,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	/**
 	 * Table renderer used for abilities/statistics.
 	 */
-	private class StatRenderer extends JLabel implements TableCellRenderer
+	private static class StatRenderer extends JLabel implements TableCellRenderer
 	{
 
 		@Override

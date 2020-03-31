@@ -242,7 +242,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel>
 				Integer rank = actor.getApplyRank();
 				if (rank != null)
 				{
-					sb.append(Constants.COMMA).append("AUTORANK=" + rank);
+					sb.append(Constants.COMMA).append("AUTORANK=").append(rank);
 				}
 				addStrings.add(sb.toString());
 			}

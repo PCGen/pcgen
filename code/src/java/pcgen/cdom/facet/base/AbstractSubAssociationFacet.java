@@ -105,8 +105,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 			map = getComponentMap();
 			setCache(id, map);
 		}
-		Map<S2, A> subMap = map.computeIfAbsent(obj1, k -> getSubComponentMap());
-		return subMap;
+        return map.computeIfAbsent(obj1, k -> getSubComponentMap());
 	}
 
 	protected <MV> Map<S1, MV> getComponentMap()

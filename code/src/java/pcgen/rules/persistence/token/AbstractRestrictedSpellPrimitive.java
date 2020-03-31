@@ -117,7 +117,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 			if (knownRequired != null)
 			{
 				sb.append("KNOWN=");
-				sb.append(knownRequired.booleanValue() ? "YES" : "NO");
+				sb.append(knownRequired ? "YES" : "NO");
 			}
 			if (maxLevel != null)
 			{
@@ -191,17 +191,13 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 			}
 			if (minLevel == null)
 			{
-				if (other.minLevel != null)
-				{
-					return false;
-				}
+                return other.minLevel == null;
 			}
-			else if (!minLevel.equals(other.minLevel))
+			else
 			{
-				return false;
+				return minLevel.equals(other.minLevel);
 			}
-			return true;
-		}
+        }
 	}
 
 	@Override
@@ -235,7 +231,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 			if (restriction.knownRequired != null)
 			{
 				String defaultbook = Globals.getDefaultSpellBook();
-				boolean known = restriction.knownRequired.booleanValue();
+				boolean known = restriction.knownRequired;
 				boolean found = false;
 				for (PCClass cl : pc.getClassSet())
 				{
@@ -253,7 +249,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 						}
 					}
 					List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell, defaultbook, -1);
-					if (csl != null && !csl.isEmpty())
+					if (!csl.isEmpty())
 					{
 						/*
 						 * Going to assume here that the level doesn't need to
@@ -262,10 +258,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 						found = true;
 					}
 				}
-				if (found != known)
-				{
-					return false;
-				}
+                return found == known;
 			}
 		}
 		return true;

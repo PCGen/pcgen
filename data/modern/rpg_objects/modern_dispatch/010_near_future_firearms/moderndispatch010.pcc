@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sun Jan 22 22:41:02 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Modern Dispatch - #10 - Near-Future Firearms
 GAMEMODE:Modern
-RANK:6
 GENRE:Modern
 BOOKTYPE:Magazine
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Modern Dispatch #10 - Near-Future Firearms
 SOURCESHORT:MD10-NFF
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3994
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

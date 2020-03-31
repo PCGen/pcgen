@@ -6,6 +6,6 @@ SOURCELONG:Pathfinder Player Companion: Legacy of Dragons	SOURCESHORT:LoD	SOURCE
 # Skill Name		Situational Skill
 Diplomacy.MOD		SITUATION:Influence Dragon
 Diplomacy.MOD		SITUATION:Make requests
-Knowledge (Arcana).MOD	SITUATION:Regarding Dragons
+Knowledge (Arcana).MOD	SITUATION:checks related to dragons
 Sleight of Hand.MOD	SITUATION:Take items from others
 Survival.MOD		SITUATION:Track Dragon

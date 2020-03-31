@@ -26,6 +26,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -86,15 +87,15 @@ public final class DesktopBrowserLauncher
 		if (Desktop.isDesktopSupported() && DESKTOP.isSupported(Action.BROWSE))
 		{
 			DESKTOP.browse(uri);
-		} else
+		}
+		else
 		{
-			Dialog<ButtonType> alert = new Alert(Alert.AlertType.WARNING);
+			Dialog<ButtonType> alert = GuiUtility.runOnJavaFXThreadNow(() ->  new Alert(Alert.AlertType.WARNING));
 			Logging.debugPrint("unable to browse to " + uri);
 			alert.setTitle(LanguageBundle.getString("in_err_browser_err"));
 			alert.setContentText(LanguageBundle.getFormattedString("in_err_browser_uri", uri));
-			alert.showAndWait();
+			GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 		}
-
 	}
 
 }

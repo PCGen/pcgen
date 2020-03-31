@@ -84,7 +84,7 @@ public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements CD
 			}
 			return null;
 		}
-		if (useStat.booleanValue())
+		if (useStat)
 		{
 			/*
 			 * Don't test pcs != null or otherCaster != null due to .MOD behavior
@@ -97,7 +97,7 @@ public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements CD
 				getTokenName() + " expected CASTER_WITHOUT_SPELL_STAT to exist " + "if USE_SPELL_SPELL_STAT was false");
 			return null;
 		}
-		else if (otherCaster.booleanValue())
+		else if (otherCaster)
 		{
 			/*
 			 * Don't test pcs != null due to .MOD behavior

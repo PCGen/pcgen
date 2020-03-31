@@ -168,7 +168,7 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
-		float pcRanks = pc.getDisplay().getRank(sk).floatValue();
+		float pcRanks = pc.getDisplay().getRank(sk);
 		if (maxRank)
 		{
 			/*

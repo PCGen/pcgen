@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
 CAMPAIGN:RPGObjects - Blood and Guts - Modern Military
-RANK:6
 GAMEMODE:Modern
 BOOKTYPE:Supplement
 GENRE:Modern
@@ -14,6 +13,7 @@ SOURCELONG:Blood and Guts - Modern Military
 SOURCESHORT:BnG-MM
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

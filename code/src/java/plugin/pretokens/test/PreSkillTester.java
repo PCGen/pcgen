@@ -79,14 +79,14 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 				if (percentageSignPosition >= 0)
 				{
 					foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, aSkill);
-					foundSkill = (foundMatch) ? true : false;
+					foundSkill = foundMatch;
 					runningTotal = getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks);
 				}
 				else if (aSkill.isType(skillKey))
 				{
 					foundMatch = true;
 					foundSkill = true;
-					runningTotal = getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks);
+					runningTotal = getRunningTotal(aSkill, character, prereq, true, runningTotal, requiredRanks);
 				}
 				// If there wasn't a match, then check other skills of the type
 				if (runningTotal == 0)
@@ -99,7 +99,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 			{
 				foundMatch = true;
 				foundSkill = true;
-				runningTotal = getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks);
+				runningTotal = getRunningTotal(aSkill, character, prereq, true, runningTotal, requiredRanks);
 			}
 
 			if (prereq.isCountMultiples() || prereq.isTotalValues())
@@ -128,18 +128,16 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 					if (target.getDisplayName().equalsIgnoreCase(skillKey))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
-								getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
+								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
 					}
 					else if (aSkillKey.equals(skillKey) || ((percentageSignPosition >= 0)
 						&& aSkillKey.startsWith(skillKey.substring(0, percentageSignPosition))))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
-								getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
+								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
 					}
 				}
@@ -160,9 +158,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 					if (target.isType(skillKey))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
-								getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
+								getRunningTotal(mock, character, prereq, true, runningTotal, requiredRanks);
 						runningTotal += theTotal;
 					}
 					else if ((percentageSignPosition >= 0))
@@ -170,7 +167,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 						List<Type> mockTypes = target.getTrueTypeList(true);
 						for (Type mockType : mockTypes)
 						{
-							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, target);
+							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, false, target);
 							foundSkill = foundMatch;
 							runningTotal =
 									getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
@@ -235,9 +232,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 
 		}
 
-		final String foo = LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
 			prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
-		return foo;
 	}
 
 	/**

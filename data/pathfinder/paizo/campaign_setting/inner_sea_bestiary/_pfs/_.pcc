@@ -3,7 +3,6 @@ CAMPAIGN:Inner Sea Bestiary (PFS)
 KEY:PFS ~ Inner Sea Bestiary
 #GAMEMODE:Pathfinder|Pathinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -18,6 +17,7 @@ SOURCELONG:Inner Sea Bestiary
 SOURCESHORT:ISB
 SOURCEWEB:http://paizo.com/products/btpy8v2x
 SOURCEDATE:2013-06
+RANK:201306
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/inner_sea_bestiary.jpg

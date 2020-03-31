@@ -144,7 +144,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Class<? super T> getChoiceClass()
 	{
-		return pcsSet == null ? null : pcsSet.iterator().next().getChoiceClass();
+		return pcsSet.iterator().next().getChoiceClass();
 	}
 
 	@Override

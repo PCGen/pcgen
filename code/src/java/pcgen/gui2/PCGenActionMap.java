@@ -40,6 +40,7 @@ import pcgen.gui2.solverview.SolverViewFrame;
 import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.dialog.CalculatorDialogController;
 import pcgen.gui3.dialog.DebugDialog;
@@ -47,6 +48,8 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import javafx.application.Platform;
 
 /**
  * The PCGenActionMap is the action map for the PCGenFrame, and as such
@@ -170,7 +173,7 @@ public final class PCGenActionMap extends ActionMap
 		put(HELP_ABOUT_COMMAND, new AboutHelpAction());
 	}
 
-	private final class EditAction extends PCGenAction
+	private static final class EditAction extends PCGenAction
 	{
 
 		private EditAction()
@@ -199,7 +202,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class EquipmentSetAction extends PCGenAction
+	private static final class EquipmentSetAction extends PCGenAction
 	{
 
 		private EquipmentSetAction()
@@ -209,7 +212,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class TempBonusAction extends PCGenAction
+	private static final class TempBonusAction extends PCGenAction
 	{
 
 		private TempBonusAction()
@@ -219,7 +222,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class PreferencesAction extends PCGenAction
+	private static final class PreferencesAction extends PCGenAction
 	{
 
 		private PreferencesAction()
@@ -248,10 +251,14 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			if (dialog == null)
-			{
-				dialog = new DebugDialog();
-			}
+			GuiAssertions.assertIsNotJavaFXThread();
+			Platform.runLater(() -> {
+				if (dialog == null)
+				{
+					dialog = new DebugDialog();
+				}
+				dialog.show();
+			});
 		}
 
 	}
@@ -312,7 +319,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class LoggingLevelAction extends PCGenAction
+	private static final class LoggingLevelAction extends PCGenAction
 	{
 
 		private LoggingLevelAction()
@@ -325,7 +332,7 @@ public final class PCGenActionMap extends ActionMap
 	/**
 	 * The tools menu action to open the install data dialog.
 	 */
-	private final class InstallDataAction extends PCGenAction
+	private static final class InstallDataAction extends PCGenAction
 	{
 
 		private InstallDataAction()
@@ -342,7 +349,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class FileAction extends PCGenAction
+	private static final class FileAction extends PCGenAction
 	{
 
 		private FileAction()
@@ -400,7 +407,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class OpenRecentAction extends PCGenAction
+	private static final class OpenRecentAction extends PCGenAction
 	{
 
 		private OpenRecentAction()
@@ -552,7 +559,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class PartyAction extends PCGenAction
+	private static final class PartyAction extends PCGenAction
 	{
 
 		private PartyAction()
@@ -661,7 +668,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class ExitAction extends PCGenAction
+	private static final class ExitAction extends PCGenAction
 	{
 
 		private ExitAction()
@@ -761,7 +768,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class HelpAction extends PCGenAction
+	private static final class HelpAction extends PCGenAction
 	{
 
 		private HelpAction()
@@ -812,7 +819,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class TipOfTheDayHelpAction extends PCGenAction
+	private static final class TipOfTheDayHelpAction extends PCGenAction
 	{
 
 		private TipOfTheDayHelpAction()
@@ -828,7 +835,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private final class AboutHelpAction extends PCGenAction
+	private static final class AboutHelpAction extends PCGenAction
 	{
 
 		private AboutHelpAction()

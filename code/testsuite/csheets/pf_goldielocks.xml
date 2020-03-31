@@ -1352,7 +1352,7 @@ BIO
 		<feat>
 			<name>Combat Casting</name>
 			<description>You are adept at spellcasting when threatened or distracted.</description>
-			<type>GENERAL.ABERRANTBLOODLINE.ARCANEBLOODLINE.UNDEADBLOODLINE</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1422,7 +1422,7 @@ BIO
 		<feat>
 			<name>Extend Spell</name>
 			<description>You can make your spells last twice as long.</description>
-			<type>METAMAGIC.CELESTIALBLOODLINE.INFERNALBLOODLINE</type>
+			<type>METAMAGIC</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2051,6 +2051,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Racial Traits ~ Gold Dragon</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Save Bonus Tracker</name>
 			<description></description>
 			<type></type>
 			<associated></associated>

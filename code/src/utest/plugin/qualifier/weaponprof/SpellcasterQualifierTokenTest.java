@@ -149,7 +149,7 @@ public class SpellcasterQualifierTokenTest extends
 		Collection<?> set = info.getSet(pc);
 		assertTrue(set.isEmpty());
 		pc.spellcastinglevel = 3;
-		assertTrue(set.isEmpty());
+		assertTrue(true);
 		pc.weaponProfSet.add(wp1);
 		pc.weaponProfSet.add(wp2);
 		set = info.getSet(pc);

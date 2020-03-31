@@ -38,7 +38,7 @@ public class CRModPriorityToken extends AbstractNonEmptyToken<ClassType> impleme
 	{
 		try
 		{
-			classType.setCRModPriority(Integer.valueOf(value));
+			classType.setCRModPriority(Integer.parseInt(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException e)

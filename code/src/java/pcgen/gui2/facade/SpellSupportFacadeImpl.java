@@ -359,8 +359,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		{
 			return Collections.emptyList();
 		}
-		List<InfoFacade> availableList = new ArrayList<>();
-		availableList.addAll(characterMetaMagicFeats);
+		List<InfoFacade> availableList = new ArrayList<>(characterMetaMagicFeats);
 		return availableList;
 	}
 
@@ -711,10 +710,9 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	private static String getNumCast(PCClass aClass, int level, PlayerCharacter pc)
 	{
 		String sbook = Globals.getDefaultSpellBook();
-		final String cast = pc.getSpellSupport(aClass).getCastForLevel(level, sbook, true, false, pc)
-			+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, sbook, pc);
 
-		return cast;
+		return pc.getSpellSupport(aClass).getCastForLevel(level, sbook, true, false, pc)
+			+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, sbook, pc);
 	}
 
 	private static int getDC(PCClass aClass, int level, PlayerCharacter pc)
@@ -932,9 +930,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 
 		SpellInfo spellInfo = charSpell.getSpellInfoFor(bookName, level, metamagicFeats);
 		SpellFacadeImplem spellImplem = new SpellFacadeImplem(pc, charSpell.getSpell(), charSpell, spellInfo);
-		SpellNodeImpl node = new SpellNodeImpl(spellImplem, spell.getSpellcastingClass(),
+		return new SpellNodeImpl(spellImplem, spell.getSpellcastingClass(),
 			String.valueOf(spellInfo.getActualLevel()), getRootNode(bookName));
-		return node;
 	}
 
 	private RootNodeImpl getRootNode(String bookName)
@@ -1137,7 +1134,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		}
 	}
 
-	public class RootNodeImpl implements RootNode
+	public static class RootNodeImpl implements RootNode
 	{
 
 		private final String name;
@@ -1185,12 +1182,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 				return false;
 			}
 			final RootNodeImpl other = (RootNodeImpl) obj;
-			if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name))
-			{
-				return false;
-			}
-			return true;
-		}
+            return (this.name == null) ? (other.name == null) : this.name.equals(other.name);
+        }
 
 	}
 
@@ -1474,17 +1467,13 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			}
 			if (rootNode == null)
 			{
-				if (other.rootNode != null)
-				{
-					return false;
-				}
+                return other.rootNode == null;
 			}
-			else if (!rootNode.equals(other.rootNode))
+			else
 			{
-				return false;
+				return rootNode.equals(other.rootNode);
 			}
-			return true;
-		}
+        }
 
 		private SpellSupportFacadeImpl getOuterType()
 		{
@@ -1499,7 +1488,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	 * is displayed.
 	 * 
 	 */
-	public class DummySpellNodeImpl implements SpellNode
+	public static class DummySpellNodeImpl implements SpellNode
 	{
 		private final RootNode rootNode;
 

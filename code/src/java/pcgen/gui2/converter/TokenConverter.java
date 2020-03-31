@@ -95,14 +95,14 @@ public final class TokenConverter
 		ensureCategoryExists(tpe);
 
 		List<TokenProcessorPlugin> tokens = getTokens(cl, key);
-		String error = "";
+		StringBuilder error = new StringBuilder();
 		try
 		{
 			if (tokens != null)
 			{
 				for (TokenProcessorPlugin converter : tokens)
 				{
-					error += converter.process(tpe);
+					error.append(converter.process(tpe));
 					if (tpe.isConsumed())
 					{
 						break;
@@ -111,14 +111,14 @@ public final class TokenConverter
 			}
 			if (!tpe.isConsumed())
 			{
-				error += DEFAULT_PROC.process(tpe);
+				error.append(DEFAULT_PROC.process(tpe));
 			}
 		}
 		catch (Exception ex)
 		{
 			Logging.errorPrint("Parse of " + tpe.getKey() + ':' + tpe.getValue() + " failed", ex);
 		}
-		return tpe.isConsumed() ? null : error;
+		return tpe.isConsumed() ? null : error.toString();
 	}
 
 	/**

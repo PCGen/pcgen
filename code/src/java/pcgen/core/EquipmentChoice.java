@@ -51,7 +51,7 @@ public final class EquipmentChoice
 
 	private boolean allowDuplicates = false;
 	private boolean noSign = false;
-	private boolean bAdd = false;
+	private boolean bAdd;
 	private boolean skipZero = false;
 
 	private int minValue = 0;
@@ -61,7 +61,7 @@ public final class EquipmentChoice
 	/*
 	 * CONSIDER This is never read, which is probably a bug - thpr Dec 6, 2008
 	 */
-	private int pool = 0;
+	private int pool;
 	private String title = null;
 
 	private List<Object> availableList = new ArrayList<>();
@@ -102,24 +102,23 @@ public final class EquipmentChoice
 		if (getMinValue() < getMaxValue())
 		{
 			finalList = new ArrayList<>();
-			for (int i = 0; i < availableList.size(); i++)
-			{
-				final String choice = String.valueOf(availableList.get(i));
-				if (choice.indexOf('|') < 0)
-				{
-					for (int j = getMinValue(); j <= getMaxValue(); j += getIncValue())
-					{
-						if (!skipZero || j != 0)
-						{
-							finalList.add(choice + '|' + Delta.toString(j));
-						}
-					}
-				}
-				else
-				{
-					finalList.add(choice);
-				}
-			}
+            for (Object o : availableList)
+            {
+                final String choice = String.valueOf(o);
+                if (choice.indexOf('|') < 0)
+                {
+                    for (int j = getMinValue();j <= getMaxValue();j += getIncValue())
+                    {
+                        if (!skipZero || j != 0)
+                        {
+                            finalList.add(choice + '|' + Delta.toString(j));
+                        }
+                    }
+                } else
+                {
+                    finalList.add(choice);
+                }
+            }
 		}
 		else
 		{
@@ -592,10 +591,6 @@ public final class EquipmentChoice
 				else if ("STAT".equals(kind))
 				{
 					this.addStats();
-				}
-				else if ("SKILL".equals(kind) || originalkind.equals("SKILL") && "ANY".equals("SKILL"))
-				{
-					this.addSkills();
 				}
 				else if ("SKILL".equals(kind))
 				{

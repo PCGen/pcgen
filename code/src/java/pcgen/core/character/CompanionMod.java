@@ -51,7 +51,7 @@ public final class CompanionMod extends PObject implements Categorized<Companion
 
 		Map<String, Integer> varmap = getMapFor(MapKey.APPLIED_VARIABLE);
 
-		if (varmap != null && result == -1 && varmap.get(var) != null)
+		if (varmap != null && varmap.get(var) != null)
 		{
 			result = varmap.get(var);
 		}

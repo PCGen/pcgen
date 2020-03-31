@@ -63,7 +63,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 				foundMatch = true;
 				foundSkill = true;
 				runningTotal =
-						getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks, situation);
+						getRunningTotal(aSkill, character, prereq, true, runningTotal, requiredRanks, situation);
 			}
 
 			if (prereq.isCountMultiples() || prereq.isTotalValues())
@@ -91,9 +91,9 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 					if (aSkillKey.equals(requiredSkill))
 					{
 						foundSkill = true;
-						foundMatch = true;
-						int theTotal = getRunningTotal(
-								entry.getKey(), character, prereq, foundMatch, runningTotal, requiredRanks,
+                        int theTotal = getRunningTotal(
+
+								entry.getKey(), character, prereq, true, runningTotal, requiredRanks,
 							situation);
 						runningTotal += theTotal;
 
@@ -155,9 +155,8 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 
 		}
 
-		final String foo = LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
 			prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
-		return foo;
 	}
 
 	private int getRunningTotal(Skill aSkill, PlayerCharacter character, Prerequisite prereq, boolean foundMatch,

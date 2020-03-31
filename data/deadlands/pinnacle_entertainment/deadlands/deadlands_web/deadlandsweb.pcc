@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:PE - Deadlands Web Enhancements
 GAMEMODE:Deadlands
-RANK:4
 GENRE:Western
 BOOKTYPE:Web Enhancement
 SETTING:Deadlands
@@ -15,6 +14,7 @@ SOURCELONG:Deadlands Web Enhancements
 SOURCESHORT:DeadlndWeb
 SOURCEWEB:http://www.peginc.com
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 #COPYRIGHT:Missing Section 15 Information

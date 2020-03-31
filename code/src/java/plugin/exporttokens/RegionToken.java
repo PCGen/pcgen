@@ -40,10 +40,7 @@ public class RegionToken extends AbstractExportToken
 		StringBuilder sb = new StringBuilder(40);
 		sb.append(display.getRegionString());
 		Optional<SubRegion> subRegion = display.getSubRegion();
-		if (subRegion.isPresent())
-		{
-			sb.append(" (").append(subRegion.get().toString()).append(')');
-		}
+		subRegion.ifPresent(region -> sb.append(" (").append(region.toString()).append(')'));
 
 		return sb.toString();
 	}

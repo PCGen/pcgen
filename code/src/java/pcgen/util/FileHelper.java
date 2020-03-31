@@ -89,7 +89,7 @@ public final class FileHelper
 
 				return dots.append(pieceToKeep).toString();
 			}
-			dots.append(".." + File.separator);
+			dots.append("..").append(File.separator);
 
 			testFile = testFile.getParentFile();
 		}

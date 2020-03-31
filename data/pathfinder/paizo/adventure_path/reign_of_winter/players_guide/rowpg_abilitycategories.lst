@@ -5,3 +5,6 @@
 
 # Ability Category					Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Winter Witch Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WinterWitchClassFeatures	PLURAL:Winter Witch Class Features	DISPLAYLOCATION:Class Features
+
+###Block: Archetype Support
+ABILITYCATEGORY:Winter Witch Patron					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WinterWitchPatron			PLURAL:Winter Witch Patrons					DISPLAYLOCATION:Class Features

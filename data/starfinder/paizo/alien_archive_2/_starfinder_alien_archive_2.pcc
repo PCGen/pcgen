@@ -1,6 +1,5 @@
 CAMPAIGN:Starfinder Alien Archive 2
 KEY:Starfinder Alien Archive 2
-RANK:1
 BOOKTYPE:Supplement
 GAMEMODE:Starfinder
 STATUS:BETA
@@ -9,6 +8,7 @@ PRECAMPAIGN:1,INCLUDES=Starfinder Core Rulebook
 SOURCELONG:Starfinder Alien Archive 2
 SOURCESHORT:SAA2
 SOURCEDATE:2019-01
+RANK:201901
 PUBNAMELONG:Paizo
 PUBNAMESHORT:PZO
 PUBNAMEWEB:http://www.paizo.com

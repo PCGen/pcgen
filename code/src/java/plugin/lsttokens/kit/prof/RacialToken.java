@@ -80,6 +80,6 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements CDOMP
 		{
 			return null;
 		}
-		return new String[]{mult.booleanValue() ? "YES" : "NO"};
+		return new String[]{mult ? "YES" : "NO"};
 	}
 }

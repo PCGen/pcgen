@@ -52,8 +52,7 @@ public final class FacetBehavior
 		{
 			buildMap();
 		}
-		FacetBehavior key = map.computeIfAbsent(type, k -> new FacetBehavior(type));
-		return key;
+        return map.computeIfAbsent(type, k -> new FacetBehavior(type));
 	}
 
 	private static void buildMap()

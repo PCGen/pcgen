@@ -133,8 +133,8 @@ public class GameModePanel extends ConvertSubPanel
 		});
 		PCGenSettings context = PCGenSettings.getInstance();
 		SettingsHandler
-			.setGame(context.initProperty(PCGenSettings.CONVERT_GAMEMODE, SettingsHandler.getGame().getName()));
-		GameMode currGame = SettingsHandler.getGame();
+			.setGame(context.initProperty(PCGenSettings.CONVERT_GAMEMODE, SettingsHandler.getGameAsProperty().get().getName()));
+		GameMode currGame = SettingsHandler.getGameAsProperty().get();
 		if (pc.get(ObjectKey.GAME_MODE) != null)
 		{
 			currGame = pc.get(ObjectKey.GAME_MODE);

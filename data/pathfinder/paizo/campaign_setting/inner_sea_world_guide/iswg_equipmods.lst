@@ -5,7 +5,7 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 
 # Modifier Name					Unique Key				Naming Option	Type														Cost		Visible		Type granted				Keys to replace												Source Page		Required Type	Prohibited Type							Bonus Equip Mods		Bonus Armor Mods								Modify the item cost															Weapon prop. bonus							Special Property			Apply to both heads
 Leaf							KEY:Material ~ Leaf		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Leaf																									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
-Stone							KEY:Material ~ Stone		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Stone																									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Stone							KEY:Material ~ Stone		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Armor.Weapon								COST:0	VISIBLE:QUALIFY	ITYPE:Stone																									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden	!PRETYPE:1,Artisan,Spell Component
 Paueliel Wood					KEY:Material ~ Paueliel Wood				TYPE:BaseMaterial.MasterworkQuality.Ammunition.Weapon.Shield				COST:WT*15	VISIBLE:QUALIFY	ITYPE:Wooden.Paueliel.Masterwork	REPLACES:Special Quality ~ Masterwork ~ Armor,Special Quality ~ Masterwork ~ Weapon	SOURCEPAGE:p.255	PRETYPE:1,Wooden										BONUS:EQM|WEIGHTDIV|2	BONUS:EQMARMOR|ACCHECK|2|TYPE=Enhancement|PRETYPE:1,Shield	BONUS:ITEMCOST|TYPE.Ammunition|6	BONUS:ITEMCOST|TYPE.Weapon|300	BONUS:ITEMCOST|TYPE.Shield|150	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement|PRETYPE:1,Weapon	SPROP:10 hp/inch, hardness 7	ASSIGNTOALL:YES
 
 

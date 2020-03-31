@@ -466,12 +466,12 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				// now Check for MIN or MAX
 				while (!found)
 				{
-					if (newString.indexOf("MAX") >= 0)
+					if (newString.contains("MAX"))
 					{
 						testString = newString.substring(0, newString.indexOf("MAX"));
 						newString = newString.substring(newString.indexOf("MAX") + 3);
 					}
-					else if (newString.indexOf("MIN") >= 0)
+					else if (newString.contains("MIN"))
 					{
 						testString = newString.substring(0, newString.indexOf("MIN"));
 						newString = newString.substring(newString.indexOf("MIN") + 3);
@@ -511,19 +511,19 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	private void addImpliedDependenciesFor(String aString)
 	{
-		if (aString.indexOf("SKILLINFO(") >= 0)
+		if (aString.contains("SKILLINFO("))
 		{
 			dependMap.put("JEPFORMULA", "1");
 		}
-		if (aString.indexOf("HP") >= 0)
+		if (aString.contains("HP"))
 		{
 			dependMap.put("CURRENTMAX", "1");
 		}
-		if (aString.indexOf("SKILL.") >= 0 || aString.indexOf("SKILLINFO") >= 0)
+		if (aString.contains("SKILL.") || aString.contains("SKILLINFO"))
 		{
 			dependMap.put("NAME|STAT", "1");
 		}
-		if (aString.indexOf("MODEQUIPMAXDEX") >= 0)
+		if (aString.contains("MODEQUIPMAXDEX"))
 		{
 			dependMap.put("MAXDEX", "1");
 		}

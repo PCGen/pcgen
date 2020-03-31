@@ -6,7 +6,6 @@ BOOKTYPE:Supplement
 SETTING:Scarred Lands
 TYPE:Sword and Sorcery Studios.Scarred Lands
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-RANK:4
 PUBNAMELONG:Sword and Sorcery Studios
 PUBNAMESHORT:SSS
 PUBNAMEWEB:http://www.swordsorcery.com
@@ -14,6 +13,7 @@ SOURCELONG:Relics and Rituals
 SOURCESHORT:RelicRitual
 SOURCEWEB:http://www.swordsorcery.com
 SOURCEDATE:2001-01
+RANK:200101
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

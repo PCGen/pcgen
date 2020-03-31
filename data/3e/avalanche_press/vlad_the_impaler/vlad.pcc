@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sun Jun 20 16:02:08 2004 -- reformated by prettylst.pl v1.32 (build 363)
 CAMPAIGN:Avalanche - Vlad the Impaler
 GAMEMODE:3e
-RANK:9
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia
 SOURCESHORT:Vlad
 SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

@@ -491,7 +491,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		dataset = new MockDataSetFacade(SettingsHandler.getGame());
+		dataset = new MockDataSetFacade(SettingsHandler.getGameAsProperty().get());
 		dataset.addEquipmentLocation(new BodyStructure(Constants.EQUIP_LOCATION_EQUIPPED, true));
 		dataset.addEquipmentLocation(new BodyStructure(LOC_HANDS, false));
 		dataset.addEquipmentLocation(new BodyStructure(LOC_BODY, false));
@@ -502,16 +502,16 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 			equipSlot.addContainedType("Weapon");
 			equipSlot.setContainNum(1);
 			equipSlot.setSlotNumType("HANDS");
-			SystemCollections.addToEquipSlotsList(equipSlot, SettingsHandler.getGame().getName());
-			Globals.setEquipSlotTypeCount("HANDS", "2");
+			SystemCollections.addToEquipSlotsList(equipSlot, SettingsHandler.getGameAsProperty().get().getName());
+			Globals.setEquipSlotTypeCount("HANDS", 2);
 
 			equipSlot = new EquipSlot();
 			equipSlot.setSlotName(SLOT_RING);
 			equipSlot.addContainedType("Ring");
 			equipSlot.setContainNum(2);
 			equipSlot.setSlotNumType("BODY");
-			SystemCollections.addToEquipSlotsList(equipSlot, SettingsHandler.getGame().getName());
-			Globals.setEquipSlotTypeCount("BODY", "1");
+			SystemCollections.addToEquipSlotsList(equipSlot, SettingsHandler.getGameAsProperty().get().getName());
+			Globals.setEquipSlotTypeCount("BODY", 1);
 		}
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();

@@ -10,7 +10,7 @@ CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Backgrou
 
 ###Block: Human Ethnicities
 # Ability Name	Product Identity?	Category of Ability	Type			Visible		Template						Auto Language	Source Page
-Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)	AUTO:LANG|Taldane	SOURCEPAGE:p.20
+Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)	AUTO:LANG|Taldane	SOURCEPAGE:p.20
 
 ###Block: Regional Affinities
 # Ability Name	Product Identity?	Category of Ability	Type		Visible		Description					Template						Source Page

@@ -109,11 +109,10 @@ public class Capacity
 	@Override
 	public String toString()
 	{
-		String sb = "Capacity: "
-				+ (type == null ? "Total" : type)
-				+ '='
-				+ (UNLIMITED.equals(limit) ? "UNLIMITED" : limit);
-		return sb;
+        return "Capacity: "
+                + (type == null ? "Total" : type)
+                + '='
+                + (UNLIMITED.equals(limit) ? "UNLIMITED" : limit);
 	}
 
 	@Override

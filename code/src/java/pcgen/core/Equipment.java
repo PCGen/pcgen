@@ -893,8 +893,7 @@ public final class Equipment extends PObject
 				+ ")";
 		String s = mat.replaceAll(sB);
 
-		String v = getVariableValue(s, "", primaryHead, aPC).toString();
-		return v;
+		return getVariableValue(s, "", primaryHead, aPC).toString();
 	}
 
 	/**
@@ -995,11 +994,6 @@ public final class Equipment extends PObject
 	{
 		final StringBuilder s = new StringBuilder(100);
 		String t = getSpecialProperties(aPC);
-
-		if (t == null)
-		{
-			t = "";
-		}
 
 		getActiveBonuses(aPC).stream().map(BonusObj::toString)
 			.filter(eqBonus -> (!eqBonus.isEmpty()) && !eqBonus.startsWith("EQM")).forEach(eqBonus -> {
@@ -2564,10 +2558,8 @@ public final class Equipment extends PObject
 			eqMod.bonusTo(aPC, aType, aName, this);
 		}
 
-		double iBonus = getBonusMap().keySet().stream().filter(key -> key.startsWith(aBonusKey))
+		return getBonusMap().keySet().stream().filter(key -> key.startsWith(aBonusKey))
 			.mapToDouble(key -> Float.parseFloat(getBonusMap().get(key))).sum();
-
-		return iBonus;
 	}
 
 	/**
@@ -2771,16 +2763,12 @@ public final class Equipment extends PObject
 
 		if (modifiedName == null)
 		{
-			if (other.modifiedName != null)
-			{
-				return false;
-			}
+			return other.modifiedName == null;
 		}
-		else if (!modifiedName.equals(other.modifiedName))
+		else
 		{
-			return false;
+			return modifiedName.equals(other.modifiedName);
 		}
-		return true;
 	}
 
 	/**
@@ -3141,7 +3129,7 @@ public final class Equipment extends PObject
 						retString.append(',');
 					}
 
-					retString.append(Globals.calcEncumberedMove(eqLoad, baseMove));
+					retString.append(eqLoad.calcEncumberedMove(baseMove));
 					baseMove -= 10;
 				}
 
@@ -3306,24 +3294,18 @@ public final class Equipment extends PObject
 			//
 			replaces.stream().map(CDOMSingleRef::get).map(CDOMObject::getKeyName)
 				.forEach(key -> baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-					.filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod -> {
-						head.addToListFor(ListKey.EQMOD, baseMod);
-					}));
+					.filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod)));
 		}
 
 		if (eqMod.isType("BaseMaterial"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 	}
 
@@ -3406,7 +3388,7 @@ public final class Equipment extends PObject
 			{
 				double mult = 1.0;
 
-				if (newSize != null && pc != null)
+				if (pc != null)
 				{
 					mult = pc.getSizeBonusTo(newSize, "ITEMCAPACITY", eq.typeList(), 1.0);
 				}
@@ -4010,21 +3992,20 @@ public final class Equipment extends PObject
 				BigDecimal maxCost = null;
 				final List<String> itemTypes = typeList();
 
-				for (int idx = 0; idx < itemTypes.size(); ++idx)
-				{
-					String typeMatched = itemTypes.get(idx);
-					costExpr = SettingsHandler.getGame().getPlusCalculation(Type.getConstant(typeMatched));
+                for (String typeMatched : itemTypes)
+                {
+                    costExpr = SettingsHandler.getGameAsProperty().get().getPlusCalculation(Type.getConstant(typeMatched));
 
-					if (costExpr != null)
-					{
-						final BigDecimal thisCost = evaluateCost(myParser, costExpr);
+                    if (costExpr != null)
+                    {
+                        final BigDecimal thisCost = evaluateCost(myParser, costExpr);
 
-						if ((maxCost == null) || (thisCost.compareTo(maxCost) > 1))
-						{
-							maxCost = thisCost;
-						}
-					}
-				}
+                        if ((maxCost == null) || (thisCost.compareTo(maxCost) > 1))
+                        {
+                            maxCost = thisCost;
+                        }
+                    }
+                }
 
 				if (maxCost != null)
 				{
@@ -4034,7 +4015,7 @@ public final class Equipment extends PObject
 				//
 				// No cost formula found, check for catch-all definition
 				//
-				costExpr = SettingsHandler.getGame().getPlusCalculation(Type.ANY);
+				costExpr = SettingsHandler.getGameAsProperty().get().getPlusCalculation(Type.ANY);
 
 				if (costExpr != null)
 				{
@@ -4232,10 +4213,10 @@ public final class Equipment extends PObject
 
 					if (iOffs > 10)
 					{
-						Integer acCombatBonus = Integer.valueOf(aString.substring(10, iOffs));
-						double d = acCombatBonus.doubleValue() * mult;
+						int acCombatBonus = Integer.parseInt(aString.substring(10, iOffs));
+						double d = (double) acCombatBonus * mult;
 						acCombatBonus = (int) d;
-						aString = aString.substring(0, 10) + acCombatBonus.toString() + aString.substring(iOffs);
+						aString = aString.substring(0, 10) + Integer.toString(acCombatBonus) + aString.substring(iOffs);
 						/*
 						 * TODO This is bad behavior to alter this list, 
 						 * which - theoretically - shouldn't be altered 
@@ -4497,10 +4478,8 @@ public final class Equipment extends PObject
 	private List<List<EquipmentModifier>> initSplitModList()
 	{
 
-		List<List<EquipmentModifier>> modListArray = IntStream.range(0, EqModFormatCat.values().length)
+		return IntStream.range(0, EqModFormatCat.values().length)
 			.<List<EquipmentModifier>> mapToObj(i -> new ArrayList<>()).collect(Collectors.toList());
-
-		return modListArray;
 	}
 
 	/**
@@ -4605,12 +4584,9 @@ public final class Equipment extends PObject
 		}
 
 		Set<String> calculatedTypeList = new LinkedHashSet<>();
-		if (initializingList != null)
+		for (Type t : initializingList)
 		{
-			for (Type t : initializingList)
-			{
-				calculatedTypeList.add(t.getComparisonString());
-			}
+			calculatedTypeList.add(t.getComparisonString());
 		}
 		final Collection<String> modTypeList = new ArrayList<>();
 
@@ -5488,7 +5464,7 @@ public final class Equipment extends PObject
 	public Float getBaseContainedWeight()
 	{
 
-		Float total = (float) 0;
+		float total = (float) 0;
 
 		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT)) || (getChildCount() == 0))
 		{
@@ -5530,7 +5506,7 @@ public final class Equipment extends PObject
 	 */
 	public Float getContainedWeight(final PlayerCharacter aPC, final boolean effective)
 	{
-		Float total = 0.0f;
+		float total = 0.0f;
 
 		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT) && !effective) || (getChildCount() == 0))
 		{
@@ -5644,10 +5620,8 @@ public final class Equipment extends PObject
 	public Collection<Equipment> getContents()
 	{
 
-		final Collection<Equipment> contents = IntStream.range(0, getContainedEquipmentCount())
+		return IntStream.range(0, getContainedEquipmentCount())
 			.mapToObj(this::getContainedEquipment).collect(Collectors.toList());
-
-		return contents;
 	}
 
 	// ---------------------------
@@ -5957,6 +5931,7 @@ public final class Equipment extends PObject
 
 				// if the 3rd token is "BASE" we have something like
 				// CHECKS.BASE.Fortitude
+				// Type: .DODGE
 				if ("BASE".equals(aString))
 				{
 					if (aTok.hasMoreTokens())
@@ -5965,24 +5940,16 @@ public final class Equipment extends PObject
 						aTok.nextToken();
 					}
 
-					if (aTok.hasMoreTokens())
-					{
-						// check for a TYPE
-						nextTok = aTok.nextToken();
-					}
 				}
-				else
+				if (aTok.hasMoreTokens())
 				{
-					if (aTok.hasMoreTokens())
-					{
-						// Type: .DODGE
-						nextTok = aTok.nextToken();
-					}
+					// check for a TYPE
+					nextTok = aTok.nextToken();
 				}
 
 				if (nextTok != null)
 				{
-					index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(nextTok); // e.g.
+					index = SettingsHandler.getGameAsProperty().get().getUnmodifiableBonusStackList().indexOf(nextTok); // e.g.
 					// Dodge
 				}
 
@@ -6052,9 +6019,10 @@ public final class Equipment extends PObject
 
 	public void removeType(Type t)
 	{
-		while (removeFromListFor(ListKey.TYPE, t))
+		boolean moreToRemove = true;
+		while (moreToRemove)
 		{
-			; // Using the while for side effects
+			moreToRemove = removeFromListFor(ListKey.TYPE, t);
 		}
 		dumpTypeCache();
 	}
@@ -6067,8 +6035,8 @@ public final class Equipment extends PObject
 	 */
 	public void addWeaponToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
 	{
-		Float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2.0f : num;
-		setNumberEquipped(numEquipped.intValue());
+		float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2.0f : num;
+		setNumberEquipped((int) numEquipped);
 
 		setLocation(eLoc);
 
@@ -6190,16 +6158,16 @@ public final class Equipment extends PObject
 		}
 
 		// If not defined, then try the types 
-		GameMode game = SettingsHandler.getGame();
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		List<String> typeList = typeList(true);
 		String iconPath = null;
 		int iconPriority = 0;
 		for (String type : typeList)
 		{
-			String path = game.getEquipTypeIcon(type);
+			String path = gameMode.getEquipTypeIcon(type);
 			if (path != null)
 			{
-				int priority = game.getEquipTypeIconPriority(type);
+				int priority = gameMode.getEquipTypeIconPriority(type);
 				// Later types will win priority ties
 				if (iconPath == null || priority >= iconPriority)
 				{
@@ -6214,7 +6182,7 @@ public final class Equipment extends PObject
 		}
 
 		// A default fallback
-		String path = game.getEquipTypeIcon(Constants.DEFAULT);
+		String path = gameMode.getEquipTypeIcon(Constants.DEFAULT);
 		if (path != null)
 		{
 			return new File(path);

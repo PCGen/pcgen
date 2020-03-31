@@ -46,7 +46,7 @@ public class ACToken extends Token
 		}
 		else
 		{
-			String acTypeKey = SettingsHandler.getGame().getACTypeName(tokenSource.substring(3));
+			String acTypeKey = SettingsHandler.getGameAsProperty().get().getACTypeName(tokenSource.substring(3));
 			intValue = pc.getDisplay().calcACOfType(acTypeKey);
 		}
 		return Integer.toString(intValue);

@@ -83,7 +83,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	 */
 	public HitDie getNext()
 	{
-		int[] dieSizes = SettingsHandler.getGame().getDieSizes();
+		int[] dieSizes = SettingsHandler.getGameAsProperty().get().getDieSizes();
 		int length = dieSizes.length;
 		for (int i = 0; i < length; ++i)
 		{
@@ -121,7 +121,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	 */
 	public HitDie getPrevious()
 	{
-		int[] dieSizes = SettingsHandler.getGame().getDieSizes();
+		int[] dieSizes = SettingsHandler.getGameAsProperty().get().getDieSizes();
 		int length = dieSizes.length;
 		for (int i = 0; i < length; ++i)
 		{

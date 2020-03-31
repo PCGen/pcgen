@@ -662,18 +662,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				final ListSelectionModel selectionModel = raceTable.getSelectionModel();
 				selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				selectionModel.addListSelectionListener(new ListSelectionListener()
-				{
-					@Override
-					public void valueChanged(ListSelectionEvent e)
-					{
-						if (!e.getValueIsAdjusting())
-						{
-							selectButton.setEnabled(!selectionModel.isSelectionEmpty());
-						}
-					}
-
-				});
+				selectionModel.addListSelectionListener(e -> {
+                    if (!e.getValueIsAdjusting())
+                    {
+                        selectButton.setEnabled(!selectionModel.isSelectionEmpty());
+                    }
+                });
 			}
 			SearchFilterPanel searchBar = new SearchFilterPanel();
 			container.add(searchBar, BorderLayout.NORTH);
@@ -809,14 +803,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public List<TreeViewPath<CompanionStubFacade>> getPaths(CompanionStubFacade pobj)
 		{
-			switch (this)
-			{
-				case NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj));
-				default:
-					throw new InternalError();
-			}
-		}
+            if (this == CompanionTreeView.NAME)
+            {
+                return Collections.singletonList(new TreeViewPath<>(pobj));
+            }
+            throw new InternalError();
+        }
 
 	}
 
@@ -857,7 +849,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			return 2;
 		}
 
-		private class CompanionNode extends DefaultTreeTableNode
+		private static class CompanionNode extends DefaultTreeTableNode
 		{
 
 			private final CompanionFacade companion;

@@ -176,7 +176,7 @@ launch4j {
 }
 
 task downloadJRE doLast {
-    def major = 11
+    def major = 13
     def archs = ['x64','x32']
     def osList = ['windows', 'mac']
     def extension = 'zip'
@@ -190,7 +190,7 @@ task downloadJRE doLast {
             if(os == "mac" && arch == "x32"){
                 return
             }
-            def url = "https://api.adoptopenjdk.net/v2/binary/nightly/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jre"
+            def url = "https://api.adoptopenjdk.net/v2/binary/releases/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jdk"
             def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
             if(!jreDir.exists()){
                 //Only download Windows libraries. Need to add more OS if we go multi OS at any time.

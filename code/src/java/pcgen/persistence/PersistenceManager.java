@@ -58,7 +58,7 @@ public final class PersistenceManager
 	 */
 	public void setChosenCampaignSourcefiles(List<URI> l)
 	{
-		INSTANCE.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
+		INSTANCE.setChosenCampaignSourcefiles(l, SettingsHandler.getGameAsProperty().get());
 	}
 
 	/**
@@ -81,7 +81,7 @@ public final class PersistenceManager
 	 */
 	public List<URI> getChosenCampaignSourcefiles()
 	{
-		return INSTANCE.getChosenCampaignSourcefiles(SettingsHandler.getGame());
+		return INSTANCE.getChosenCampaignSourcefiles(SettingsHandler.getGameAsProperty().get());
 	}
 
 }

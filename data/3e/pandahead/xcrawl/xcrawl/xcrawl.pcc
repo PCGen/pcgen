@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Sun Nov 30 23:39:49 2003 -- reformated by prettylst.pl v1.32 (build 336)
 CAMPAIGN:Pandahead - XCrawl
-RANK:2
 GAMEMODE:Xcrawl
 GENRE:Modern
 BOOKTYPE:Campaign Setting
@@ -15,6 +14,7 @@ SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League
 SOURCESHORT:XCrawl
 SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

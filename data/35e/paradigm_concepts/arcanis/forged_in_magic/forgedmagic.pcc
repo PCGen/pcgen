@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Thu Nov 29 22:57:25 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 CAMPAIGN:PCI - Forged in Magic
 GAMEMODE:35e
-RANK:6
 STATUS:RELEASE
 TYPE:Paradigm Concepts.Arcanis
 BOOKTYPE:Supplement
@@ -11,6 +10,7 @@ SOURCELONG:Forged in Magic
 SOURCESHORT:FiM
 SOURCEWEB:http://www.paradigmconcepts.com
 SOURCEDATE:2006-06
+RANK:200606
 PUBNAMELONG:Paradigm Concepts, Inc.
 PUBNAMESHORT:PCI
 PUBNAMEWEB:http://www.paradigmconcepts.com

@@ -25,8 +25,6 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -187,8 +185,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		private ChroniclePane createNewChronicleEntry()
 		{
 			ChronicleEntry entry = descFacade.createChronicleEntry();
-			ChroniclePane pane = new ChroniclePane(this, entry);
-			return pane;
+            return new ChroniclePane(this, entry);
 		}
 
 		/**
@@ -432,16 +429,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			textArea.setText(entry.getChronicle());
 
 			// Listeners to write any entered values back to the character
-			ActionListener actionListener = new ActionListener()
-			{
-
-				@Override
-				public void actionPerformed(ActionEvent actionEvent)
-				{
-					entry.setOutputEntry(checkBox.getModel().isSelected());
-				}
-
-			};
+			ActionListener actionListener = actionEvent -> entry.setOutputEntry(checkBox.getModel().isSelected());
 			checkBox.addActionListener(actionListener);
 			campaignField.getDocument().addDocumentListener(new TextFieldListener(campaignField)
 			{
@@ -483,16 +471,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 				}
 
 			});
-			xpField.addPropertyChangeListener("value", new PropertyChangeListener()
-			{
-
-				@Override
-				public void propertyChange(PropertyChangeEvent evt)
-				{
-					entry.setXpField(((Number) xpField.getValue()).intValue());
-				}
-
-			});
+			xpField.addPropertyChangeListener("value", evt -> entry.setXpField(((Number) xpField.getValue()).intValue()));
 			gmField.getDocument().addDocumentListener(new TextFieldListener(gmField)
 			{
 

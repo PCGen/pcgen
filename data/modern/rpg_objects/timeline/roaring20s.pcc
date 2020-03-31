@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Mar 15 13:27:18 2006 -- reformated by prettylst.pl v1.35 (build 561)
 CAMPAIGN:RPGObjects - Timeline - The Roaring 20s
-RANK:6
 GAMEMODE:Modern
 BOOKTYPE:Supplement
 GENRE:Modern
@@ -11,6 +10,7 @@ SOURCELONG:Timeline: The Roaring 20s
 SOURCESHORT:R20
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

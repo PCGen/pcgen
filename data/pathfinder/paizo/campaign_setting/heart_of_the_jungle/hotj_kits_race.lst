@@ -38,9 +38,9 @@ NAME:Botfly Swarm
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 
-STARTPACK:Hippopotamus Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]	SOURCEPAGE:p.60
-RACE:Hippopotamus	!PRERACE:1,%
-NAME:Hippopotamus
+STARTPACK:Pygmy Hippopotamus Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pygmy Hippopotamus]	SOURCEPAGE:p.60
+RACE:Pygmy Hippopotamus	!PRERACE:1,%
+NAME:Pygmy Hippopotamus
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Intimidate	RANK:4

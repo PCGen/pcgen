@@ -3,7 +3,6 @@ CAMPAIGN:Skull and Shackles, Chapter 1 - The Wormwood Mutiny (PFS)
 KEY:PFS ~ Skull and Shackles (The Wormwood Mutiny)
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Skull & Shackles
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -18,6 +17,7 @@ SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny
 SOURCESHORT:AP55
 SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny
 SOURCEDATE:2012-04
+RANK:201204
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55.jpeg

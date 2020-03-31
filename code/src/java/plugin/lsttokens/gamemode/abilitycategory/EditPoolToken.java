@@ -34,7 +34,7 @@ public class EditPoolToken extends AbstractNonEmptyToken<AbilityCategory> implem
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, final AbilityCategory ac, final String value)
 	{
-		Boolean set;
+		boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{

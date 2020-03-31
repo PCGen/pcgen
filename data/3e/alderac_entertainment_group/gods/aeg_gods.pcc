@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:AEG - Gods Source Book
 GAMEMODE:3e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -15,6 +14,7 @@ SOURCELONG:Gods
 SOURCESHORT:Gods
 SOURCEWEB:http://alderac.com/d20
 SOURCEDATE:2002-05
+RANK:200205
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for Gods Copyright 2007, PCGen Data Team (including, but not limited to: Eric (Maredudd) Smith)

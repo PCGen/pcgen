@@ -394,7 +394,7 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 		}
 	}
 
-	private final class RaceDataView extends CachedDataView<Race>
+	private static final class RaceDataView extends CachedDataView<Race>
 	{
 
 		private final List<DefaultDataViewColumn> columns;

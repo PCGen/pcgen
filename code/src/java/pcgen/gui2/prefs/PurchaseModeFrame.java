@@ -115,7 +115,7 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			final String methodName = npmd.getController().getEnteredName();
 
-			if (SettingsHandler.getGame().getModeContext().getReferenceContext()
+			if (SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, methodName) == null)
 			{
 				PointBuyMethod pbm = new PointBuyMethod();
@@ -429,7 +429,7 @@ public final class PurchaseModeFrame extends JDialog
 		//
 		// Set up the current methods combo's contents
 		//
-		Collection<PointBuyMethod> methods = SettingsHandler.getGame().getModeContext().getReferenceContext()
+		Collection<PointBuyMethod> methods = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()
 			.getConstructedCDOMObjects(PointBuyMethod.class);
 		if (!methods.isEmpty())
 		{
@@ -848,13 +848,13 @@ public final class PurchaseModeFrame extends JDialog
 		private void initValues()
 		{
 			// get the ability score costs from settings
-			int[] scoreCosts = SettingsHandler.getGame().getAbilityScoreCost();
+			int[] scoreCosts = SettingsHandler.getGameAsProperty().get().getAbilityScoreCost();
 
 			if (scoreCosts != null)
 			{
 				// get the save values from the settings
-				savedPurchaseScoreMin = SettingsHandler.getGame().getPurchaseScoreMin();
-				savedPurchaseScoreMax = SettingsHandler.getGame().getPurchaseScoreMax();
+				savedPurchaseScoreMin = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMin();
+				savedPurchaseScoreMax = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMax();
 
 				savedValues = new Object[scoreCosts.length][2];
 
@@ -995,17 +995,17 @@ public final class PurchaseModeFrame extends JDialog
 		private void keepNewValues()
 		{
 			// set the current values into the settings
-			SettingsHandler.getGame().clearPointBuyStatCosts();
+			SettingsHandler.getGameAsProperty().get().clearPointBuyStatCosts();
 
 			for (int i = currentPurchaseScoreMin; i <= currentPurchaseScoreMax; ++i)
 			{
 				PointBuyCost pbc = new PointBuyCost();
 				pbc.setName(Integer.toString(i));
 				pbc.setBuyCost((Integer) currentValues[i - currentPurchaseScoreMin][1]);
-				SettingsHandler.getGame().addPointBuyStatCost(pbc);
+				SettingsHandler.getGameAsProperty().get().addPointBuyStatCost(pbc);
 			}
 
-			AbstractReferenceContext ref = SettingsHandler.getGame().getModeContext().getReferenceContext();
+			AbstractReferenceContext ref = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext();
 			Collection<PointBuyMethod> methods = new ArrayList<>(ref.getConstructedCDOMObjects(PointBuyMethod.class));
 			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i < x; ++i)
 			{

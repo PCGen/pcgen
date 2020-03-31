@@ -37,7 +37,7 @@ public class CRToken extends AbstractExportToken
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
-		String retString = "";
+		String retString;
 		Integer cr = display.calcCR();
 
 		if (cr == null)
@@ -48,11 +48,11 @@ public class CRToken extends AbstractExportToken
 		{
 			retString = cr.toString();
 		}
-		else if (cr < 1)
-		{
-			// If the CR is a fractional CR then we get the 1/x format from the map
-			retString = SettingsHandler.getGame().getCRSteps().get(cr);
-		}
+		else
+        {
+            // If the CR is a fractional CR then we get the 1/x format from the map
+            retString = SettingsHandler.getGameAsProperty().get().getCRSteps().get(cr);
+        }
 		return retString;
 	}
 }

@@ -1301,7 +1301,7 @@ public class CharacterDisplay
 	 */
 	public double getLoadToken(String type)
 	{
-		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(type.toUpperCase());
+		Float mult = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadMultiplier(type.toUpperCase());
 		if (mult != null)
 		{
 			return getMaxLoad(mult).intValue();

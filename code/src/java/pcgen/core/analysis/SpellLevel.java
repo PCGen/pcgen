@@ -116,7 +116,7 @@ public final class SpellLevel
 	public static boolean isLevel(Spell sp, int aLevel, PlayerCharacter aPC)
 	{
 		Integer levelKey = aLevel;
-		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGameAsProperty().get().getMasterLists();
 		for (PCClass pcc : aPC.getClassSet())
 		{
 			ClassSpellList csl = pcc.get(ObjectKey.CLASS_SPELLLIST);
@@ -163,13 +163,13 @@ public final class SpellLevel
 
 		if (levelInt.length > 0)
 		{
-			for (int i = 0; i < levelInt.length; i++)
-			{
-				if (levelInt[i] > -1)
-				{
-					return levelInt[i];
-				}
-			}
+            for (Integer integer : levelInt)
+            {
+                if (integer > -1)
+                {
+                    return integer;
+                }
+            }
 		}
 
 		return result;

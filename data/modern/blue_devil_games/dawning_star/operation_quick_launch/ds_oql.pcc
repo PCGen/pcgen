@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Thu Aug  3 13:27:56 2006 -- reformated by prettylst.pl v1.35 (build 561)
 CAMPAIGN:Dawning Star - Operation Quick Launch
 GAMEMODE:Modern
-RANK:6
 GENRE:Science Fiction
 BOOKTYPE:Supplement
 SETTING:Space Opera
@@ -15,6 +14,7 @@ SOURCELONG:Dawning Star-Operation Quick Launch
 SOURCESHORT:DS-OQL
 SOURCEWEB:http://www.dawningstar.com/oql.htm
 SOURCEDATE:2006-01
+RANK:200601
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

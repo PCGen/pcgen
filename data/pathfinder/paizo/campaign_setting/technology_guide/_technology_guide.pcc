@@ -3,7 +3,6 @@ CAMPAIGN:Technology Guide
 KEY:Technology Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -16,6 +15,7 @@ SOURCELONG:Technology Guide
 SOURCESHORT:TG
 SOURCEWEB:http://paizo.com/products/btpy98i0?Pathfinder-Campaign-Setting-Technology-Guide
 SOURCEDATE:2014-08
+RANK:201408
 ISOGL:YES
 
 COVER:PZO9272_180.jpeg

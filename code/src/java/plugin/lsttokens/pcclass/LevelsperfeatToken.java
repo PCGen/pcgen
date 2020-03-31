@@ -77,7 +77,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass> impl
 						+ ":<int>|LEVELTYPE=<string>" + " Got " + getTokenName() + Constants.COLON + value);
 			}
 			String levelType = levelTypeTag.substring(10);
-			if (levelType == null || levelType.isEmpty())
+			if (levelType.isEmpty())
 			{
 				return new ParseResult.Fail("If " + getTokenName() + " has a | it must be of the form: "
 					+ getTokenName() + ":<int>|LEVELTYPE=<string>" + " Got an empty leveltype");
@@ -88,7 +88,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass> impl
 		try
 		{
 			Integer in = Integer.valueOf(numLevels);
-			if (in.intValue() < 0)
+			if (in < 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " must be an integer >= 0");
 			}
@@ -116,7 +116,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass> impl
 			}
 			return null;
 		}
-		if (lpf.intValue() < 0)
+		if (lpf < 0)
 		{
 			context.addWriteMessage(getTokenName() + " must be an integer >= 0");
 			return null;

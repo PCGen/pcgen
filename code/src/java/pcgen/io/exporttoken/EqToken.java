@@ -68,7 +68,7 @@ public class EqToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse reading
-		String bFilter = "";
+		StringBuilder bFilter = new StringBuilder();
 		String befTrue = "";
 		String aftTrue = "";
 		String befFalse = "";
@@ -82,7 +82,7 @@ public class EqToken extends Token
 		 */
 		if (bTok.countTokens() >= 3)
 		{
-			bFilter = bTok.nextToken();
+			bFilter = new StringBuilder(bTok.nextToken());
 			befTrue = bTok.nextToken();
 			aftTrue = bTok.nextToken();
 
@@ -92,10 +92,10 @@ public class EqToken extends Token
 				aftFalse = bTok.nextToken();
 			}
 
-			tokenSource = tokenSource.substring(0, bFilter.lastIndexOf('.'));
+			tokenSource = tokenSource.substring(0, bFilter.toString().lastIndexOf('.'));
 		}
 
-		bTok = new StringTokenizer(bFilter, ".");
+		bTok = new StringTokenizer(bFilter.toString(), ".");
 
 		boolean if_detected = false;
 
@@ -111,11 +111,11 @@ public class EqToken extends Token
 			{
 				if (if_detected)
 				{
-					bFilter = bFilter + "." + bString;
+					bFilter.append(".").append(bString);
 				}
 				else
 				{
-					bFilter = bString;
+					bFilter = new StringBuilder(bString);
 				}
 			}
 		}
@@ -124,8 +124,8 @@ public class EqToken extends Token
 		// check to see if this was the same as the last list we were asked to export.
 		//
 		String comparatorString = tokenSource.split("[0-9]+")[0];
-		List<Equipment> eqList = null;
-		StringTokenizer aTok = null;
+		List<Equipment> eqList;
+		StringTokenizer aTok;
 		int temp = -1;
 		if (comparatorString.equals(cachedString) && pc == cachedPC && pc.getSerial() == cachedSerial)
 		{
@@ -231,9 +231,9 @@ public class EqToken extends Token
 				retString = FileAccess.filterString(getEqToken(pc, eq, tempString, aTok));
 
 				// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
-				if (bFilter != null && !bFilter.isEmpty())
+				if (bFilter != null && (bFilter.length() > 0))
 				{
-					aTok = new StringTokenizer(bFilter, ".");
+					aTok = new StringTokenizer(bFilter.toString(), ".");
 
 					boolean result = false;
 					boolean and_operation = false;
@@ -309,7 +309,7 @@ public class EqToken extends Token
 
 			if (!aRange.isEmpty())
 			{
-				range = Integer.valueOf(aRange);
+				range = Integer.parseInt(aRange);
 			}
 		}
 
@@ -324,20 +324,17 @@ public class EqToken extends Token
 
 		int postAdd = 0;
 
-		if (pc != null)
+		if (eq.isThrown())
 		{
-			if (eq.isThrown())
-			{
-				r += (int) pc.getTotalBonusTo("RANGEADD", "THROWN");
-				postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "THROWN");
-				rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
-			}
-			else if (eq.isProjectile())
-			{
-				r += (int) pc.getTotalBonusTo("RANGEADD", "PROJECTILE");
-				postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
-				rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
-			}
+			r += (int) pc.getTotalBonusTo("RANGEADD", "THROWN");
+			postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "THROWN");
+			rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
+		}
+		else if (eq.isProjectile())
+		{
+			r += (int) pc.getTotalBonusTo("RANGEADD", "PROJECTILE");
+			postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
+			rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
 		}
 
 		r *= rangeMult;

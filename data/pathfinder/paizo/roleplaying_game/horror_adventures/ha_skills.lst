@@ -1,31 +1,31 @@
 SOURCELONG:Horror Adventures	SOURCESHORT:HA	SOURCEWEB:http://paizo.com/products/btpy9n5a	SOURCEDATE:2016-08
 
-Appraise.MOD			SITUATION:Determine most valuable item visible
+Appraise.MOD			SITUATION:to determine most valuable item
 Bluff.MOD				SITUATION:Against devils
 Bluff.MOD				SITUATION:Against evil creatures
 Bluff.MOD				SITUATION:Against humanoids
-Bluff.MOD				SITUATION:Omit or cover up facts
+Bluff.MOD				SITUATION:to omit or cover up facts
 Diplomacy.MOD			SITUATION:Against devils
 Diplomacy.MOD			SITUATION:Against evil creatures
 Diplomacy.MOD			SITUATION:Against humanoids
 Diplomacy.MOD			SITUATION:Creatures able to see you
 Handle Animal.MOD			SITUATION:Creatures able to see you
-Knowledge (Religion).MOD	SITUATION:ID undead
+Knowledge (Religion).MOD	SITUATION:to identify undead
 Linguistics.MOD			SITUATION:Decipher unusual handwriting
-Linguistics.MOD			SITUATION:Omit or cover up facts
+Linguistics.MOD			SITUATION:to omit or cover up facts
 Perception.MOD			SITUATION:Against devils
-Perception.MOD			SITUATION:Against fey
-Perception.MOD			SITUATION:Notice disguised or hidden aberrations
-Perception.MOD			SITUATION:Notice Slight of Hand
+Perception.MOD			SITUATION:against fey
+Perception.MOD			SITUATION:to notice disguised or hidden aberrations
+Perception.MOD			SITUATION:to notice Sleight of Hand attempts
 Perception.MOD			SITUATION:Out of water
 Perception.MOD			SITUATION:Pinpoint invisible creatures
 Perception.MOD			SITUATION:See through magical disguises
 Sense Motive.MOD			SITUATION:Against devils
 Sense Motive.MOD			SITUATION:Against evil creatures
-Sense Motive.MOD			SITUATION:Against fey
+Sense Motive.MOD			SITUATION:against fey
 Sense Motive.MOD			SITUATION:Against humanoids
-Sense Motive.MOD			SITUATION:Notice enchantment or possession
+Sense Motive.MOD			SITUATION:to notice enchantment or possession
 Sense Motive.MOD			SITUATION:Notice natural or magical insanity
 Spellcraft.MOD			SITUATION:Identify cursed items
-Survival.MOD			SITUATION:Against fey
+Survival.MOD			SITUATION:against fey
 

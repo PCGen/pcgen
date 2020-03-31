@@ -35,7 +35,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
@@ -76,8 +75,6 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
@@ -115,7 +112,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	private final JProgressBar progressBar;
 	private final JButton exportButton;
 	private final JButton closeButton;
-	private Collection<File> allTemplates = null;
+	private Collection<File> allTemplates;
 
 	private ExportDialog(PCGenFrame parent)
 	{
@@ -374,17 +371,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			context.setProperty(HTML_EXPORT_DIR_PROP, outFile.getParent());
 		}
 
-		if (outFile.exists() && !SettingsHandler.getAlwaysOverwrite())
-		{
-			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-			alert.setTitle("Confirm overwriting " + outFile.getName());
-			alert.setContentText("The file " + outFile.getName() + " already exists, are you sure you want to overwrite it?");
-			Optional<ButtonType> buttonType = alert.showAndWait();
-			if (!buttonType.orElse(ButtonType.NO).equals(ButtonType.YES))
-			{
-				return;
-			}
-		}
 		if (pdf)
 		{
 			new PDFExporter(outFile, name).execute();
@@ -451,7 +437,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	private File getSelectedTemplate()
 	{
 		File osDir;
-		String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+		String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();
 		if (outputSheetDirectory == null)
 		{
 			osDir = new File(ConfigurationSettings.getOutputSheetsDir());
@@ -489,7 +475,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		IOFileFilter ioFilter = FileFilterUtils.asFileFilter(sheetFilter);
 		IOFileFilter prefixFilter;
 		String defaultSheet = null;
-		String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+		String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();
 		if (outputSheetDirectory == null)
 		{
 			outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + "/" + sheetFilter.getPath();
@@ -512,7 +498,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			if (StringUtils.isEmpty(defaultSheet))
 			{
 				defaultSheet = outputSheetsDir + "/"
-					+ SettingsHandler.getGame().getOutputSheetDefault(sheetFilter.getTag());
+					+ SettingsHandler.getGameAsProperty().get().getOutputSheetDefault(sheetFilter.getTag());
 			}
 		}
 		IOFileFilter filter = FileFilterUtils.and(prefixFilter, ioFilter);
@@ -609,10 +595,10 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		try
 		{
 			File dir;
-			String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+			String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();
 			if (outputSheetDirectory == null)
 			{
-				Logging.errorPrint("OUTPUTSHEET|DIRECTORY not defined for game mode " + SettingsHandler.getGame());
+				Logging.errorPrint("OUTPUTSHEET|DIRECTORY not defined for game mode " + SettingsHandler.getGameAsProperty().get());
 				dir = new File(ConfigurationSettings.getOutputSheetsDir());
 			}
 			else

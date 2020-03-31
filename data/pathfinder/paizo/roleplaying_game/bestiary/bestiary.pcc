@@ -2,7 +2,6 @@
 CAMPAIGN:Bestiary
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:1
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Bestiary
 SOURCESHORT:B1
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu
 SOURCEDATE:2009-10
+RANK:200910
 ISOGL:YES
 
 COVER:bestiary.jpg
@@ -54,6 +54,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009-
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+DATACONTROL:b1__datacontrols.lst
 
 ABILITY:b1_abilities.lst
 ABILITY:b1_abilities_race.lst

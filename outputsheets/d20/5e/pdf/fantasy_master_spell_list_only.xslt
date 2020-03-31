@@ -14,20 +14,7 @@
 
 
 <!-- Blocks to put together PC Sheet -->
-	<xsl:import href="common_sheet/block_attack.xslt"/>
-	<xsl:import href="common_sheet/block_bio_condensed.xslt"/>
-	<xsl:import href="common_sheet/block_class_features.xslt"/>
-	<xsl:import href="common_sheet/block_equipment.xslt"/>
-	<xsl:import href="common_sheet/block_features.xslt"/>
-	<xsl:import href="common_sheet/block_hp_defense.xslt"/>
-	<xsl:import href="common_sheet/block_misc.xslt"/>
-	<xsl:import href="common_sheet/block_pc_header_row.xslt"/>
-	<xsl:import href="common_sheet/block_protection.xslt"/>
-	<xsl:import href="common_sheet/block_psionics.xslt"/>
-	<xsl:import href="common_sheet/block_skills.xslt"/>
 	<xsl:import href="common_sheet/block_spells_list.xslt"/>	
-	<xsl:import href="common_sheet/block_stat_block.xslt"/>
-	<xsl:import href="common_sheet/block_weapons.xslt"/>
 <!-- END -->
 
 	<xsl:output indent="yes"/>

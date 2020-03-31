@@ -77,9 +77,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 	{
 		VariableID<Number> varID = new VariableID<>(globalInstance,
 			FormatUtilities.NUMBER_MANAGER, "MyNumber");
-		assertThrows(NullPointerException.class, () -> {
-			VariableChannel.construct(null, getVariableStore(), varID);
-		});
+		assertThrows(NullPointerException.class, () -> VariableChannel.construct(null, getVariableStore(), varID));
 	}
 
 	@SuppressWarnings("unused")
@@ -90,9 +88,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 				FormatUtilities.NUMBER_MANAGER, "MyNumber");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		assertThrows(NullPointerException.class, () -> {
-			VariableChannel.construct(manager, null, varID);
-		});
+		assertThrows(NullPointerException.class, () -> VariableChannel.construct(manager, null, varID));
 	}
 
 	@SuppressWarnings("unused")
@@ -101,9 +97,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 	{
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		assertThrows(NullPointerException.class, () -> {
-			VariableChannel.construct(manager, getVariableStore(), null);
-		});
+		assertThrows(NullPointerException.class, () -> VariableChannel.construct(manager, getVariableStore(), null));
 	}
 
 	@Test
@@ -145,7 +139,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 		assertEquals(6, getVariableStore().get(varID));
 	}
 	
-	private class TestingReferenceListener<T> implements ReferenceListener<T>
+	private static class TestingReferenceListener<T> implements ReferenceListener<T>
 	{
 
 		private int eventCount;

@@ -235,14 +235,14 @@ public final class KitGear extends BaseKit
 			if (theEquipment.isType("Natural") || (sizeToPC != null && sizeToPC)
 				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
 			{
-				tryResize = Globals.canResizeHaveEffect(theEquipment, null);
+				tryResize = Globals.canResizeHaveEffect(theEquipment.typeList());
 			}
 		}
 		else
 		{
 			if (sizeToPC != null && sizeToPC)
 			{
-				tryResize = Globals.canResizeHaveEffect(theEquipment, null);
+				tryResize = Globals.canResizeHaveEffect(theEquipment.typeList());
 			}
 			else
 			{
@@ -300,27 +300,24 @@ public final class KitGear extends BaseKit
 		final BigDecimal eqCost = theEquipment.getCost(aPC);
 		if (aBuyRate != 0)
 		{
-			if (fixedTotalCost == null)
-			{
-				final BigDecimal bdBuyRate =
-						new BigDecimal(Integer.toString(aBuyRate)).multiply(new BigDecimal("0.01"));
+            final BigDecimal bdBuyRate =
+                    new BigDecimal(Integer.toString(aBuyRate)).multiply(new BigDecimal("0.01"));
 
-				// Check to see if the PC can afford to buy this equipment. If
-				// not, then decrement the quantity and try again.
-				theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty))).multiply(bdBuyRate);
+            // Check to see if the PC can afford to buy this equipment. If
+            // not, then decrement the quantity and try again.
+            theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty))).multiply(bdBuyRate);
 
-				while (theQty > 0)
-				{
-					if (theCost.compareTo(pcGold) <= 0) // PC has enough?
-					{
-						break;
-					}
+            while (theQty > 0)
+            {
+                if (theCost.compareTo(pcGold) <= 0) // PC has enough?
+                {
+                    break;
+                }
 
-					theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
-				}
-			}
+                theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
+            }
 
-			aPC.setGold(aPC.getGold().subtract(theCost));
+            aPC.setGold(aPC.getGold().subtract(theCost));
 		}
 
 		boolean outOfFunds = false;
@@ -381,7 +378,7 @@ public final class KitGear extends BaseKit
 			else
 			{
 				EquipSet eqSet =
-						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, Float.valueOf(-1.0f));
+						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, -1.0f);
 				if (eqSet == null)
 				{
 					warnings.add("GEAR: Could not equip " + testApplyEquipment.getName() + " to " + theLocation);
@@ -433,7 +430,7 @@ public final class KitGear extends BaseKit
 		//
 		// Equip the item to the default EquipSet.
 		//
-		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, Float.valueOf(theQty));
+		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, (float) theQty);
 
 		aPC.setGold(aPC.getGold().subtract(theCost));
 	}

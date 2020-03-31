@@ -669,9 +669,9 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 */
 	public static final class ModEntry
 	{
-		private CampaignSourceEntry source = null;
-		private String lstLine = null;
-		private int lineNumber = 0;
+		private CampaignSourceEntry source;
+		private String lstLine;
+		private int lineNumber;
 
 		/**
 		 * ModEntry constructor.

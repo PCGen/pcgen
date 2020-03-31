@@ -148,17 +148,17 @@ public class SpellMemToken extends Token
 						aSpell = selectedCSpell.getSpell();
 					}
 				}
-				else if (aObject != null)
-				{
-					// List of spells provided by this PObject
-					final List<CharacterSpell> charSpells = aPC.getCharacterSpells(aObject, null, bookName, spellLevel);
+				else
+                {
+                    // List of spells provided by this PObject
+                    final List<CharacterSpell> charSpells = aPC.getCharacterSpells(aObject, null, bookName, spellLevel);
 
-					if (spellNumber < charSpells.size())
-					{
-						selectedCSpell = charSpells.get(spellNumber);
-						aSpell = selectedCSpell.getSpell();
-					}
-				}
+                    if (spellNumber < charSpells.size())
+                    {
+                        selectedCSpell = charSpells.get(spellNumber);
+                        aSpell = selectedCSpell.getSpell();
+                    }
+                }
 
 				// We never found the requested spell
 				if (selectedCSpell == null)
@@ -231,7 +231,7 @@ public class SpellMemToken extends Token
 						}
 						else if ("CONCENTRATION".equals(aLabel))
 						{
-							if (!SettingsHandler.getGame().getSpellBaseConcentration().isEmpty())
+							if (!SettingsHandler.getGameAsProperty().get().getSpellBaseConcentration().isEmpty())
 							{
 								int concentration = aPC.getConcentration(aSpell, selectedCSpell, si);
 								retValue.append(Delta.toString(concentration));

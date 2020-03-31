@@ -85,7 +85,7 @@ public class CompanionList extends CDOMListObject<Race> implements Category<Comp
 	@Override
 	public boolean isMember(CompanionMod item)
 	{
-		return CompanionMod.class.equals(item.getClass()) && this.equals(item.getCDOMCategory());
+		return this.equals(item.getCDOMCategory());
 	}
 
 	@Override

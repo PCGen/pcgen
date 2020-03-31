@@ -103,7 +103,7 @@ public final class QualifiedName
 		StringJoiner joiner = new StringJoiner(", ", outputName + "(", ")");
 		List<String> associationList = pc.getAssociationList(s);
 		Collections.sort(associationList);
-		associationList.forEach(assoc -> joiner.add(assoc));
+		associationList.forEach(joiner::add);
 		return joiner.toString();
 	}
 

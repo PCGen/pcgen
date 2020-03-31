@@ -83,7 +83,7 @@ public class SelectableTokenIntegrationTest
 		assertNull(cd.getSelectable());
 		assertTrue(TOKEN.parseToken(context, cd, "YES").passed());
 		assertNotNull(cd.getSelectable());
-		assertTrue(cd.getSelectable().booleanValue());
+		assertTrue(cd.getSelectable());
 		context.getReferenceContext().importObject(cd);
 		SourceFileLoader.processFactDefinitions(context);
 		//Now check for group!!

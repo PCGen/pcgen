@@ -4,7 +4,6 @@ GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PRECAMPAIGN:1,Paizo - Rise of the Runelords - Player's Guide
-RANK:5
 GENRE:Fantasy
 BOOKTYPE:Adventure
 PUBNAMELONG:Paizo Publishing
@@ -15,6 +14,7 @@ SOURCELONG:Rise of the Runelords - Chapter 3: The Hook Mountain Massacre
 SOURCESHORT:PF3
 SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80e8
 SOURCEDATE:2007-08
+RANK:200708
 ISOGL:YES
 ISLICENSED:NO
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

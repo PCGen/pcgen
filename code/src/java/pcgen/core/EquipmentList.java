@@ -527,8 +527,7 @@ public final class EquipmentList
 
 		if (preNameList != null)
 		{
-			final List<String> nameList = preNameList;
-			appendNameParts(nameList, omitString, newName);
+            appendNameParts(preNameList, omitString, newName);
 		}
 
 		if (sizList != null)
@@ -555,10 +554,8 @@ public final class EquipmentList
 			newName.append(')');
 		}
 
-		final Equipment eq = Globals.getContext().getReferenceContext()
-			.silentlyGetConstructedCDOMObject(Equipment.class, aName + newName);
-
-		return eq;
+        return Globals.getContext().getReferenceContext()
+            .silentlyGetConstructedCDOMObject(Equipment.class, aName + newName);
 	}
 
 }

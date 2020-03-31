@@ -57,16 +57,10 @@ public class CampaignFileLoader extends PCGenTask
 		{
 			recursiveFileFinder.findFiles(new File(ConfigurationSettings.getPccFilesDir()), campaignFiles);
 			final String vendorDataDir = PCGenSettings.getVendorDataDir();
-			if (vendorDataDir != null)
-			{
-				recursiveFileFinder.findFiles(new File(vendorDataDir), campaignFiles);
-			}
-			final String homebrewDataDir = PCGenSettings.getHomebrewDataDir();
-			if (homebrewDataDir != null)
-			{
-				recursiveFileFinder.findFiles(new File(homebrewDataDir), campaignFiles);
-			}
-		}
+            recursiveFileFinder.findFiles(new File(vendorDataDir), campaignFiles);
+            final String homebrewDataDir = PCGenSettings.getHomebrewDataDir();
+            recursiveFileFinder.findFiles(new File(homebrewDataDir), campaignFiles);
+        }
 		setMaximum(campaignFiles.size());
 		loadCampaigns(campaignFiles);
 		CampaignFileLoader.initCampaigns();

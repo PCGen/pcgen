@@ -2,7 +2,6 @@
 CAMPAIGN:Reign of Winter Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Reign of Winter
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Reign of Winter Player's Guide
 SOURCESHORT:ROWPG
 SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide
 SOURCEDATE:2013-02
+RANK:201302
 ISOGL:YES
 
 COVER:reign_of_winter_players_guide.jpg
@@ -42,6 +42,7 @@ COMPANIONMOD:rowpg_companionmods.lst
 EQUIPMENT:rowpg_equip_magic_items.lst
 KIT:rowpg_kits.lst
 RACE:rowpg_races.lst
+SPELL:rowpg_spells.lst
 
 #
 # End

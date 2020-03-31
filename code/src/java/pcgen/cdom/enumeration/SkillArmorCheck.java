@@ -116,16 +116,16 @@ public enum SkillArmorCheck
 			switch (load)
 			{
 				case LIGHT:
-					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("LIGHT");
+					penalty = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadCheckPenalty("LIGHT");
 					break;
 
 				case MEDIUM:
-					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("MEDIUM");
+					penalty = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadCheckPenalty("MEDIUM");
 					break;
 
 				case HEAVY:
 				case OVERLOAD:
-					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("HEAVY");
+					penalty = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadCheckPenalty("HEAVY");
 					break;
 
 				default:

@@ -138,7 +138,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements CDO
 					String filterString = subTok.nextToken();
 
 					// must satisfy all elements in a comma delimited list
-					CDOMReference<Spell> sp = null;
+					CDOMReference<Spell> sp;
 
 					sp = TokenUtilities.getTypeOrPrimitive(context, SPELL_CLASS, filterString);
 					if (sp == null)

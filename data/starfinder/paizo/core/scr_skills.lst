@@ -63,119 +63,62 @@ Survival															KEYSTAT:WIS	USEUNTRAINED:YES									TYPE:Base.Wisdom				
 
 ###Block: Skill Focus Support
 Acrobatics.MOD																																																																																								BONUS:SKILL|Acrobatics|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Acrobatics)
-#	BONUS:SKILL|Acrobatics|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Acrobatics)|PRESKILL:1,Acrobatics=10
 Athletics.MOD																																																																																								BONUS:SKILL|Athletics|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Athletics)
-#	BONUS:SKILL|Athletics|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Athletics)|PRESKILL:1,Athletics=10
 Bluff.MOD																																																																																									BONUS:SKILL|Bluff|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Bluff)
-#	BONUS:SKILL|Bluff|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Bluff)|PRESKILL:1,Bluff=10
 Computers.MOD																																																																																								BONUS:SKILL|Computers|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Computers)
-#	BONUS:SKILL|Computers|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Computers)|PRESKILL:1,Computers=10
 Culture.MOD																																																																																									BONUS:SKILL|Culture|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Culture)
-#	BONUS:SKILL|Culture|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Culture)|PRESKILL:1,Culture=10
 Diplomacy.MOD																																																																																								BONUS:SKILL|Diplomacy|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Diplomacy)
-#	BONUS:SKILL|Diplomacy|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Diplomacy)|PRESKILL:1,Diplomacy=10
 Disguise.MOD																																																																																								BONUS:SKILL|Disguise|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Disguise)
-#	BONUS:SKILL|Disguise|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Disguise)|PRESKILL:1,Disguise=10
 Engineering.MOD																																																																																								BONUS:SKILL|Engineering|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Engineering)
-#	BONUS:SKILL|Engineering|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Engineering)|PRESKILL:1,Engineering=10
 Intimidate.MOD																																																																																								BONUS:SKILL|Intimidate|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Intimidate)
-#	BONUS:SKILL|Intimidate|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Intimidate)|PRESKILL:1,Intimidate=10
 Life Science.MOD																																																																																								BONUS:SKILL|Life Science|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Life Science)
-#	BONUS:SKILL|Life Science|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Life Science)|PRESKILL:1,Life Science=10
 Medicine.MOD																																																																																								BONUS:SKILL|Medicine|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Medicine)
-#	BONUS:SKILL|Medicine|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Medicine)|PRESKILL:1,Medicine=10
 Mysticism.MOD																																																																																								BONUS:SKILL|Mysticism|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Mysticism)
-#	BONUS:SKILL|Mysticism|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Mysticism)|PRESKILL:1,Mysticism=10
 Perception.MOD																																																																																								BONUS:SKILL|Perception|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Perception)
-#	BONUS:SKILL|Perception|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Perception)|PRESKILL:1,Perception=10
 Physical Science.MOD																																																																																							BONUS:SKILL|Physical Science|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Physical Science)
-#	BONUS:SKILL|Physical Science|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Physical Science)|PRESKILL:1,Physical Science=10
 Piloting.MOD																																																																																								BONUS:SKILL|Piloting|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Piloting)
-#	BONUS:SKILL|Piloting|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Piloting)|PRESKILL:1,Piloting=10
 Profession (Accountant).MOD																																																																																						BONUS:SKILL|Profession (Accountant)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Accountant))
-#	BONUS:SKILL|Profession (Accountant)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Accountant))|PRESKILL:1,Profession (Accountant)=10
 Profession (Actor).MOD																																																																																							BONUS:SKILL|Profession (Actor)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Actor))
-#	BONUS:SKILL|Profession (Actor)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Actor))|PRESKILL:1,Profession (Actor)=10
 Profession (Archaeologist).MOD																																																																																					BONUS:SKILL|Profession (Archaeologist)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Archaeologist))
-#	BONUS:SKILL|Profession (Archaeologist)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Archaeologist))|PRESKILL:1,Profession (Archaeologist)=10
 Profession (Architect).MOD																																																																																						BONUS:SKILL|Profession (Architect)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Architect))
-#	BONUS:SKILL|Profession (Architect)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Architect))|PRESKILL:1,Profession (Architect)=10
 Profession (Artist).MOD																																																																																							BONUS:SKILL|Profession (Artist)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Artist))
-#	BONUS:SKILL|Profession (Artist)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Artist))|PRESKILL:1,Profession (Artist)=10
 Profession (Bounty Hunter).MOD																																																																																					BONUS:SKILL|Profession (Bounty Hunter)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Bounty Hunter))
-#	BONUS:SKILL|Profession (Bounty Hunter)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Bounty Hunter))|PRESKILL:1,Profession (Bounty Hunter)=10
 Profession (Comedian).MOD																																																																																						BONUS:SKILL|Profession (Comedian)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Comedian))
-#	BONUS:SKILL|Profession (Comedian)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Comedian))|PRESKILL:1,Profession (Comedian)=10
 Profession (Con Artist).MOD																																																																																						BONUS:SKILL|Profession (Con Artist)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Con Artist))
-#	BONUS:SKILL|Profession (Con Artist)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Con Artist))|PRESKILL:1,Profession (Con Artist)=10
 Profession (Cook).MOD																																																																																							BONUS:SKILL|Profession (Cook)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Cook))
-#	BONUS:SKILL|Profession (Cook)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Cook))|PRESKILL:1,Profession (Cook)=10
 Profession (Corporate Professional).MOD																																																																																				BONUS:SKILL|Profession (Corporate Professional)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Corporate Professional))
-#	BONUS:SKILL|Profession (Corporate Professional)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Corporate Professional))|PRESKILL:1,Profession (Corporate Professional)=10
 Profession (Courtesan).MOD																																																																																						BONUS:SKILL|Profession (Courtesan)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Courtesan))
-#	BONUS:SKILL|Profession (Courtesan)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Courtesan))|PRESKILL:1,Profession (Courtesan)=10
 Profession (Counselor).MOD																																																																																						BONUS:SKILL|Profession (Counselor)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Counselor))
-#	BONUS:SKILL|Profession (Counselor)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Counselor))|PRESKILL:1,Profession (Counselor)=10
 Profession (Dancer).MOD																																																																																							BONUS:SKILL|Profession (Dancer)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Dancer))
-#	BONUS:SKILL|Profession (Dancer)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Dancer))|PRESKILL:1,Profession (Dancer)=10
 Profession (Dockworker).MOD																																																																																						BONUS:SKILL|Profession (Dockworker)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Dockworker))
-#	BONUS:SKILL|Profession (Dockworker)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Dockworker))|PRESKILL:1,Profession (Dockworker)=10
 Profession (Electrician).MOD																																																																																						BONUS:SKILL|Profession (Electrician)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Electrician))
-#	BONUS:SKILL|Profession (Electrician)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Electrician))|PRESKILL:1,Profession (Electrician)=10
 Profession (Farmer).MOD																																																																																							BONUS:SKILL|Profession (Farmer)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Farmer))
-#	BONUS:SKILL|Profession (Farmer)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Farmer))|PRESKILL:1,Profession (Farmer)=10
 Profession (Gambler).MOD																																																																																						BONUS:SKILL|Profession (Gambler)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Gambler))
-#	BONUS:SKILL|Profession (Gambler)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Gambler))|PRESKILL:1,Profession (Gambler)=10
 Profession (General Contractor).MOD																																																																																					BONUS:SKILL|Profession (General Contractor)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (General Contractor))
-#	BONUS:SKILL|Profession (General Contractor)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (General Contractor))|PRESKILL:1,Profession (General Contractor)=10
 Profession (Herbalist).MOD																																																																																						BONUS:SKILL|Profession (Herbalist)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Herbalist))
-#	BONUS:SKILL|Profession (Herbalist)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Herbalist))|PRESKILL:1,Profession (Herbalist)=10
 Profession (Lab Technician).MOD																																																																																					BONUS:SKILL|Profession (Lab Technician)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Lab Technician))
-#	BONUS:SKILL|Profession (Lab Technician)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Lab Technician))|PRESKILL:1,Profession (Lab Technician)=10
 Profession (Lawyer).MOD																																																																																							BONUS:SKILL|Profession (Lawyer)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Lawyer))
-#	BONUS:SKILL|Profession (Lawyer)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Lawyer))|PRESKILL:1,Profession (Lawyer)=10
 Profession (Maintenance Worker).MOD																																																																																					BONUS:SKILL|Profession (Maintenance Worker)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Maintenance Worker))
-#	BONUS:SKILL|Profession (Maintenance Worker)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Maintenance Worker))|PRESKILL:1,Profession (Maintenance Worker)=10
 Profession (Manager).MOD																																																																																						BONUS:SKILL|Profession (Manager)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Manager))
-#	BONUS:SKILL|Profession (Manager)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Manager))|PRESKILL:1,Profession (Manager)=10
 Profession (Mathematician).MOD																																																																																					BONUS:SKILL|Profession (Mathematician)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Mathematician))
-#	BONUS:SKILL|Profession (Mathematician)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Mathematician))|PRESKILL:1,Profession (Mathematician)=10
 Profession (Mercenary).MOD																																																																																						BONUS:SKILL|Profession (Mercenary)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Mercenary))
-#	BONUS:SKILL|Profession (Mercenary)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Mercenary))|PRESKILL:1,Profession (Mercenary)=10
 Profession (Merchant).MOD																																																																																						BONUS:SKILL|Profession (Merchant)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Merchant))
-#	BONUS:SKILL|Profession (Merchant)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Merchant))|PRESKILL:1,Profession (Merchant)=10
 Profession (Miner).MOD																																																																																							BONUS:SKILL|Profession (Miner)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Miner))
-#	BONUS:SKILL|Profession (Miner)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Miner))|PRESKILL:1,Profession (Miner)=10
 Profession (Musician).MOD																																																																																						BONUS:SKILL|Profession (Musician)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Musician))
-#	BONUS:SKILL|Profession (Musician)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Musician))|PRESKILL:1,Profession (Musician)=10
 Profession (Orator).MOD																																																																																							BONUS:SKILL|Profession (Orator)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Orator))
-#	BONUS:SKILL|Profession (Orator)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Orator))|PRESKILL:1,Profession (Orator)=10
 Profession (Philosopher).MOD																																																																																						BONUS:SKILL|Profession (Philosopher)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Philosopher))
-#	BONUS:SKILL|Profession (Philosopher)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Philosopher))|PRESKILL:1,Profession (Philosopher)=10
 Profession (Poet).MOD																																																																																							BONUS:SKILL|Profession (Poet)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Poet))
-#	BONUS:SKILL|Profession (Poet)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Poet))|PRESKILL:1,Profession (Poet)=10
 Profession (Politician).MOD																																																																																						BONUS:SKILL|Profession (Politician)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Politician))
-#	BONUS:SKILL|Profession (Politician)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Politician))|PRESKILL:1,Profession (Politician)=10
 Profession (Professor).MOD																																																																																						BONUS:SKILL|Profession (Professor)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Professor))
-#	BONUS:SKILL|Profession (Professor)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Professor))|PRESKILL:1,Profession (Professor)=10
 Profession (Psychologist).MOD																																																																																						BONUS:SKILL|Profession (Psychologist)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Psychologist))
-#	BONUS:SKILL|Profession (Psychologist)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Psychologist))|PRESKILL:1,Profession (Psychologist)=10
 Profession (Smuggler).MOD																																																																																						BONUS:SKILL|Profession (Smuggler)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Smuggler))
-#	BONUS:SKILL|Profession (Smuggler)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Smuggler))|PRESKILL:1,Profession (Smuggler)=10
 Profession (Video Personality).MOD																																																																																					BONUS:SKILL|Profession (Video Personality)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Video Personality))
-#	BONUS:SKILL|Profession (Video Personality)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Video Personality))|PRESKILL:1,Profession (Video Personality)=10
 Profession (Vidgamer).MOD																																																																																						BONUS:SKILL|Profession (Vidgamer)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Vidgamer))
-#	BONUS:SKILL|Profession (Vidgamer)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Vidgamer))|PRESKILL:1,Profession (Vidgamer)=10
 Profession (Writer).MOD																																																																																							BONUS:SKILL|Profession (Writer)|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Writer))
-#	BONUS:SKILL|Profession (Writer)|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Writer))|PRESKILL:1,Profession (Writer)=10
 Sense Motive.MOD																																																																																								BONUS:SKILL|Sense Motive|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Sense Motive)
-#	BONUS:SKILL|Sense Motive|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Sense Motive)|PRESKILL:1,Sense Motive=10
 Sleight of Hand.MOD																																																																																							BONUS:SKILL|Sleight of Hand|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Sleight of Hand)
-#	BONUS:SKILL|Sleight of Hand|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Sleight of Hand)|PRESKILL:1,Sleight of Hand=10
 Stealth.MOD																																																																																									BONUS:SKILL|Stealth|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Stealth)
-#	BONUS:SKILL|Stealth|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Stealth)|PRESKILL:1,Stealth=10
 Survival.MOD																																																																																								BONUS:SKILL|Survival|3|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Survival)
-#	BONUS:SKILL|Survival|6|TYPE=Insight|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Survival)|PRESKILL:1,Survival=10
 
 
 ###Situational Bonuses###

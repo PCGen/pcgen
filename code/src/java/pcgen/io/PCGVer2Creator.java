@@ -232,7 +232,7 @@ public final class PCGVer2Creator
 		appendHairColorLine(buffer);
 		appendHairStyleLine(buffer);
 		appendLocationLine(buffer);
-		appendResidenceLine(buffer);
+		appendCityLine(buffer);
 		appendBirthdayLine(buffer);
 		appendBirthplaceLine(buffer);
 		appendPersonalityTrait1Line(buffer);
@@ -522,7 +522,7 @@ public final class PCGVer2Creator
 		}
 		else
 		{
-			return SettingsHandler.getGame();
+			return SettingsHandler.getGameAsProperty().get();
 		}
 	}
 
@@ -1797,10 +1797,10 @@ public final class PCGVer2Creator
 		}
 	}
 
-	private void appendResidenceLine(StringBuilder buffer)
+	private void appendCityLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_CITY).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.CITY)));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -1963,7 +1963,7 @@ public final class PCGVer2Creator
 				if (outputIndex != null && outputIndex != 0)
 				{
 					buffer.append(IOConstants.TAG_OUTPUTORDER).append(':');
-					buffer.append(outputIndex == null ? 0 : outputIndex);
+					buffer.append(outputIndex);
 					buffer.append('|');
 				}
 
@@ -1975,7 +1975,7 @@ public final class PCGVer2Creator
 						buffer.append(IOConstants.TAG_CLASSBOUGHT).append(':');
 						buffer.append('[');
 						buffer.append(IOConstants.TAG_CLASS).append(':');
-						buffer.append(EntityEncoder.encode(pcc == null ? "None" : pcc.getKeyName()));
+						buffer.append(EntityEncoder.encode(pcc.getKeyName()));
 						buffer.append('|');
 						buffer.append(IOConstants.TAG_RANKS).append(':');
 						buffer.append(rank);

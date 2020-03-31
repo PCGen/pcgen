@@ -1,7 +1,6 @@
 CAMPAIGN:Haunted Heroes Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Haunted Heroes Handbook
 SOURCESHORT:HHH
 SOURCEWEB:https://paizo.com/products/btpy9nft
 SOURCEDATE:2016-08
+RANK:201608
 ISOGL:YES
 
 COVER:haunted_heroes_handbook.jpg

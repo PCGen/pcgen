@@ -44,11 +44,11 @@ import pcgen.util.Logging;
  */
 public class CampaignSourceEntry implements SourceEntry
 {
-	private Campaign campaign = null;
+	private Campaign campaign;
 	private List<String> excludeItems = new ArrayList<>();
 	private List<String> includeItems = new ArrayList<>();
 	private List<Prerequisite> prerequisites = new ArrayList<>();
-	private URIEntry uri = null;
+	private URIEntry uri;
 
 	/**
 	 * CampaignSourceEntry constructor.
@@ -142,11 +142,10 @@ public class CampaignSourceEntry implements SourceEntry
 	@Override
 	public String toString()
 	{
-		String sBuff = "Campaign: "
+		return "Campaign: "
 				+ campaign.getDisplayName()
 				+ "; SourceFile: "
 				+ getURI();
-		return sBuff;
 	}
 
 	public static CampaignSourceEntry getNewCSE(Campaign campaign2, URI sourceUri, String value)
@@ -264,47 +263,45 @@ public class CampaignSourceEntry implements SourceEntry
 	static List<String> parseSuffix(String suffix, URI sourceUri, String value)
 	{
 		List<String> tagList = new ArrayList<>();
-		String currentTag = "";
+		StringBuilder currentTag = new StringBuilder();
 		int bracketLevel = 0;
 
 		StringTokenizer tokenizer = new StringTokenizer(suffix, "|()", true);
 		while (tokenizer.hasMoreTokens())
 		{
 			String token = tokenizer.nextToken();
-			if (token.equals("("))
+			switch (token)
 			{
-				currentTag += token;
-				bracketLevel++;
+				case "(":
+					currentTag.append(token);
+					bracketLevel++;
 
-			}
-			else if (token.equals(")"))
-			{
-				if (bracketLevel > 0)
-				{
-					bracketLevel--;
-				}
-				currentTag += token;
-			}
-			else if (token.equals("|"))
-			{
-				if (bracketLevel > 0)
-				{
-					currentTag += token;
-				}
-				else if (!currentTag.isEmpty())
-				{
-					tagList.add(currentTag);
-					currentTag = "";
-				}
-			}
-			else
-			{
-				currentTag += token;
+					break;
+				case ")":
+					if (bracketLevel > 0)
+					{
+						bracketLevel--;
+					}
+					currentTag.append(token);
+					break;
+				case "|":
+					if (bracketLevel > 0)
+					{
+						currentTag.append(token);
+					} else if (currentTag.length() > 0)
+					{
+						tagList.add(currentTag.toString());
+						currentTag = new StringBuilder();
+					}
+					break;
+				default:
+					currentTag.append(token);
+					break;
 			}
 		}
-		if (!currentTag.isEmpty())
+		if (currentTag.length() > 0)
 		{
-			tagList.add(currentTag);
+			tagList.add(currentTag.toString());
 		}
 
 		// Check for a bracket mismatch
@@ -363,7 +360,7 @@ public class CampaignSourceEntry implements SourceEntry
 		boolean hasKeyOnly = false;
 		List<String> catKeyList = new ArrayList<>();
 		String target = inExString.substring(8);
-		if (target == null || target.isEmpty())
+		if (target.isEmpty())
 		{
 			Logging.errorPrint("Must Specify Items after :");
 			return null;

@@ -2,7 +2,6 @@
 CAMPAIGN:Demon Hunter's Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Demon Hunter's Handbook
 SOURCESHORT:DHH
 SOURCEWEB:http://paizo.com/products/btpy8ywa
 SOURCEDATE:2014-02
+RANK:201402
 ISOGL:YES
 
 COVER:PZO9437_180.jpeg

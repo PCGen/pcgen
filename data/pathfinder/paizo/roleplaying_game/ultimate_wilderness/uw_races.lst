@@ -1,9 +1,9 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
 
-# Race Name	Starting Feats	Move				Reach		Ability								Nb Legs	Nb Hands	Main Race Type	Race Subtype	Type			Source Page		FACT
-Gathlain	STARTFEATS:1	MOVE:Walk,30,Fly,40	REACH:5	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gathlain	LEGS:2	HANDS:2	RACETYPE:Fey				TYPE:Fey.PC		SOURCEPAGE:p.9	FACT:BaseSize|S	FACT:Hands|2	FACT:Legs|2
-Ghoran	STARTFEATS:1	MOVE:Walk,30		REACH:5	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Ghoran		LEGS:2	HANDS:2	RACETYPE:Plant				TYPE:Plant.PC	SOURCEPAGE:p.15	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2
-Vine Leshy	STARTFEATS:1	MOVE:Walk,20		REACH:5	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Vine Leshy	LEGS:2	HANDS:2	RACETYPE:Plant	RACESUBTYPE:Leshy	TYPE:Plant.PC	SOURCEPAGE:p.20	FACT:BaseSize|S	FACT:Hands|2	FACT:Legs|2
+# Race Name	Starting Feats	Move				Reach		Ability								Nb Legs	Nb Hands	Main Race Type	Race Subtype	Type			Source Page				FACT
+Gathlain	STARTFEATS:1	MOVE:Walk,30,Fly,40	REACH:5	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gathlain	LEGS:2	HANDS:2	RACETYPE:Fey				TYPE:Fey.PC		SOURCEPAGE:p.9	SIZE:S	FACT:BaseSize|S	FACT:Hands|2	FACT:Legs|2
+Ghoran	STARTFEATS:1	MOVE:Walk,30		REACH:5	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Ghoran	LEGS:2	HANDS:2	RACETYPE:Plant				TYPE:Plant.PC	SOURCEPAGE:p.15	SIZE:M	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2
+Vine Leshy	STARTFEATS:1	MOVE:Walk,20		REACH:5	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Vine Leshy	LEGS:2	HANDS:2	RACETYPE:Plant	RACESUBTYPE:Leshy	TYPE:Plant.PC	SOURCEPAGE:p.20	SIZE:S	FACT:BaseSize|S	FACT:Hands|2	FACT:Legs|2
 # As per the Gathlain entry in Bestiary 4 122, Gathlains do not have a subtype.
 # As per the Ghoran entry in Bestiary 5 119, Ghorans do not have a subtype and their base speed is 30 ft.

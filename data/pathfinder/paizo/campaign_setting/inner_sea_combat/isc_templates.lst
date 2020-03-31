@@ -1,0 +1,3 @@
+SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC	SOURCEWEB:http://paizo.com/products/btpy95b1?Pathfinder-Campaign-Setting-Inner-Sea-Combat	SOURCEDATE:2014-08
+
+Ouat Weapon Proficiency	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Monk]	AUTO:WEAPONPROF|%LIST

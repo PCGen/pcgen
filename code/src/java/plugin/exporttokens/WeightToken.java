@@ -56,7 +56,7 @@ public class WeightToken extends AbstractExportToken
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
-		String retString = "";
+		String retString;
 
 		boolean suppressPcWeight = display.getSuppressBioField(BiographyField.WEIGHT);
 		if ("WEIGHT".equals(tokenSource))

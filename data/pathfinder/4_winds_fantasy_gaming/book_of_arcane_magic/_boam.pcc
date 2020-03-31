@@ -4,7 +4,6 @@
 CAMPAIGN:Book of Arcane Magic
 KEY:Book of Arcane Magic
 GAMEMODE:Pathfinder
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -17,6 +16,7 @@ SOURCELONG:Book of Arcane Magic
 SOURCESHORT:boam
 SOURCEWEB:http://www.4windsfantasygaming.com
 SOURCEDATE:2009-01
+RANK:200901
 ISOGL:YES
 
 COVER:boam.jpg

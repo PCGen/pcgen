@@ -54,14 +54,9 @@ public final class SkillInfoUtilities
 			{
 				List<PCStat> statList = SkillInfoUtilities.getKeyStatList(pc, sk, null);
 				StringBuilder sb = new StringBuilder(50);
-				boolean needSlash = false;
 				for (PCStat s : statList)
 				{
-					if (needSlash)
-					{
-						sb.append('/');
-					}
-					sb.append(s.getKeyName());
+                    sb.append(s.getKeyName());
 				}
 				return sb.toString();
 			}

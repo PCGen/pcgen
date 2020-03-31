@@ -82,9 +82,8 @@ public class ExpToken extends Token
 	public static String getFactorToken(CharacterDisplay display)
 	{
 
-		String xpFactor = String.valueOf((int) (display.multiclassXPMultiplier() * 100.0))
-				+ '%';
-		return xpFactor;
+        return String.valueOf((int) (display.multiclassXPMultiplier() * 100.0))
+                + '%';
 	}
 
 	/**
@@ -95,8 +94,7 @@ public class ExpToken extends Token
 	public static String getPenaltyToken(CharacterDisplay display)
 	{
 
-		String xpFactor = String.valueOf(100 - (int) (display.multiclassXPMultiplier() * 100.0))
-				+ '%';
-		return xpFactor;
+        return String.valueOf(100 - (int) (display.multiclassXPMultiplier() * 100.0))
+                + '%';
 	}
 }

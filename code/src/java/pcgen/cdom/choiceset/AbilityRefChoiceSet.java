@@ -173,7 +173,7 @@ public class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelectio
 		{
 			for (Ability a : ref.getContainedObjects())
 			{
-				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue())
+				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					returnSet.addAll(addMultiplySelectableAbility(pc, a, ref.getChoice()));
 				}
@@ -214,8 +214,7 @@ public class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelectio
 		/*
 		 * TODO Need a general solution for this special assignment in parens
 		 */
-		if ("DEITYWEAPON".equals(nameRoot) && (chooseInfo != null)
-			&& chooseInfo.getReferenceClass().equals(WeaponProf.class))
+		if ("DEITYWEAPON".equals(nameRoot) && chooseInfo.getReferenceClass().equals(WeaponProf.class))
 		{
 			Deity deity = aPC.getDeity();
 			if (deity == null)

@@ -19,18 +19,25 @@ package pcgen.base.formula;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 
 class DividingFormulaTest
 {
 
+    private DividingFormula divByTwo;
+
+	@BeforeEach
+	void setUp()
+	{
+        divByTwo = new DividingFormula(2);
+	}
+
 	@Test
-	public void testToString()
+    void testToString()
 	{
 		assertEquals("/1", new DividingFormula(1).toString());
 		assertEquals("/3", new DividingFormula(3).toString());
@@ -38,25 +45,22 @@ class DividingFormulaTest
 	}
 	
 	@Test
-	public void testIdentity()
+    void testIdentity()
 	{
 		DividingFormula f = new DividingFormula(1);
-		assertEquals(2, f.resolve(2).intValue());
-		assertEquals(2, f.resolve(2.5).intValue());
-		testBrokenCalls(f);
+        assertEquals(2, f.resolve(2));
+        assertEquals(2, f.resolve(2.5));
 	}
 
 	@Test
-	public void testEquality()
+    void testEquality()
 	{
 		DividingFormula f1 = new DividingFormula(1);
 		DividingFormula f2 = new DividingFormula(1);
 		DividingFormula f3 = new DividingFormula(2);
 		DividingFormula f4 = new DividingFormula(-1);
-		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
-		assertNotNull(f1);
 		assertNotEquals(f1.hashCode(), f3.hashCode());
 		assertNotEquals(f1, f3);
 		assertNotEquals(f1.hashCode(), f4.hashCode());
@@ -64,78 +68,54 @@ class DividingFormulaTest
 	}
 
 	@Test
-	public void testPositive()
+    void testPositive()
 	{
 		DividingFormula f = new DividingFormula(3);
-		assertEquals(1, f.resolve(5).intValue());
-		assertEquals(2, f.resolve(6).intValue());
-		assertEquals(2, f.resolve(7).intValue());
-		assertEquals(2, f.resolve(6.5).intValue());
-		testBrokenCalls(f);
+        assertEquals(1, f.resolve(5));
+        assertEquals(2, f.resolve(6));
+        assertEquals(2, f.resolve(7));
+        assertEquals(2, f.resolve(6.5));
 	}
 
 	@SuppressWarnings("unused")
 	@Test
-	public void testZero()
+    void testZero()
 	{
-		try
-		{
-			new DividingFormula(0);
-			fail("DividingFormula should not allow build with zero (will always fail)");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
+		assertThrows(IllegalArgumentException.class, () -> new DividingFormula(0));
 	}
 
 	@Test
-	public void testNegative()
+    void testNegative()
 	{
 		DividingFormula f = new DividingFormula(-2);
-		assertEquals(-2, f.resolve(5).intValue());
-		assertEquals(3, f.resolve(-6.7).intValue());
-		testBrokenCalls(f);
+        assertEquals(-2, f.resolve(5));
+        assertEquals(3, f.resolve(-6.7));
+		assertEquals(2, f.resolve(-4));
 	}
 
-	private void testBrokenCalls(DividingFormula f)
+	@Test
+    void testStackedFormulas()
 	{
-		try
-		{
-			f.resolve((Number[]) null);
-			fail("null should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
-			f.resolve();
-			fail("empty array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
-			f.resolve(4, 2.5);
-			fail("two arguments in array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
-			f.resolve(4, 2.5);
-			fail("two arguments should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
+        assertEquals(2, divByTwo.resolve(divByTwo.resolve(8)));
+        assertEquals(2, divByTwo.resolve(divByTwo.resolve(8.74)));
+	}
+
+	@Test
+	void testInputNotNull()
+	{
+        assertThrows(IllegalArgumentException.class, () -> divByTwo.resolve((Number[]) null));
+	}
+
+	@Test
+	void testInputNotEmpty()
+	{
+        assertThrows(IllegalArgumentException.class, () -> divByTwo.resolve());
+	}
+
+	@Test
+	void testInputNotLongerThan1()
+	{
+        assertThrows(IllegalArgumentException.class, () -> divByTwo.resolve(4, 2.5));
 	}
 
 }

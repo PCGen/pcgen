@@ -62,7 +62,6 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.output.channel.compat.HandedCompat;
@@ -311,7 +310,7 @@ public abstract class AbstractReferenceContext
 			if (pcc.containsListFor(ListKey.SUB_CLASS))
 			{
 				SubClassCategory cat = SubClassCategory.getConstant(key);
-				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS).booleanValue();
+				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS);
 				for (SubClass subcl : pcc.getListFor(ListKey.SUB_CLASS))
 				{
 					String subKey = subcl.getKeyName();
@@ -458,7 +457,7 @@ public abstract class AbstractReferenceContext
 	public <T extends CDOMObject> List<T> getSortOrderedList(Class<T> cl)
 	{
 		List<T> returnList;
-		Comparator<CDOMObject> comp = Globals.P_OBJECT_NAME_COMP;
+		Comparator<CDOMObject> comp = CDOMObject.P_OBJECT_NAME_COMP;
 		//We arbitrarily use the sort order comparator as the second key
 		WeakReference<List<?>> wr = sortedMap.get(cl, comp);
 		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))

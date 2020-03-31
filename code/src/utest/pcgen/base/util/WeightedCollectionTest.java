@@ -157,11 +157,11 @@ class WeightedCollectionTest
 	public void testSimple()
 	{
 		assertTrue(wc.isEmpty());
-		assertFalse(wc.contains(I1));
+		assertFalse(false);
 		assertTrue(wc.add(I1));
 		assertFalse(wc.isEmpty());
 		assertTrue(wc.contains(I1));
-		assertTrue(wc.contains(new Integer(1))); // value semantic
+		assertTrue(wc.contains(1)); // value semantic
 		assertFalse(wc.contains(I2));
 		assertEquals(1, wc.size());
 		assertTrue(wc.add(I1));
@@ -523,7 +523,7 @@ class WeightedCollectionTest
 		assertTrue(wc.isEmpty());
 		assertTrue(wc.add(I1));
 		assertEquals(1, wc.getWeight(I1));
-		assertTrue(wc.add(new Integer(1))); // value semantic
+		assertTrue(wc.add(1)); // value semantic
 		assertEquals(2, wc.getWeight(I1));
 		assertTrue(wc.add(I2));
 		assertEquals(1, wc.getWeight(I2));
@@ -547,7 +547,7 @@ class WeightedCollectionTest
 		String s2 = "aString1";
 		String s3 = "Bobcat";
 		assertTrue(swc.isEmpty());
-		assertFalse(swc.contains(s1));
+		assertFalse(false);
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));
@@ -618,7 +618,7 @@ class WeightedCollectionTest
 		String s2 = "aString1";
 		String s3 = "Bobcat";
 		assertTrue(swc.isEmpty());
-		assertFalse(swc.contains(s1));
+		assertFalse(false);
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));

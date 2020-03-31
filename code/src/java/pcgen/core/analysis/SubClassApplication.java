@@ -174,9 +174,8 @@ public final class SubClassApplication
 				chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
 				chooserFacade.setRequireCompleteSelection(true);
 				ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
-				selectedSubClasses = chooserFacade.getFinalSelected();
 
-				for (PCClass choice : chooserFacade.getFinalSelected())
+                for (PCClass choice : chooserFacade.getFinalSelected())
 				{
 					sc = (SubClass) choice;
 					SpellProhibitor prohibSchool = new SpellProhibitor();

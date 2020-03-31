@@ -246,9 +246,8 @@ public final class UnitSet implements Loadable
 	 */
 	public double convertWeightFromUnitSet(final double weight)
 	{
-		final double weightInPounds = weight / weightFactor.doubleValue();
 
-		return weightInPounds;
+        return weight / weightFactor.doubleValue();
 	}
 
 	/**

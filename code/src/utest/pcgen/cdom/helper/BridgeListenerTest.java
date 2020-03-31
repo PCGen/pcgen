@@ -49,9 +49,7 @@ public class BridgeListenerTest
 	void testBadConstructionFirstArg()
 	{
 		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
-		assertThrows(NullPointerException.class, () -> {
-			new BridgeListener(null, target);
-		});
+		assertThrows(NullPointerException.class, () -> new BridgeListener(null, target));
 	}
 
 	@SuppressWarnings("unused")
@@ -60,9 +58,7 @@ public class BridgeListenerTest
 	{
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		assertThrows(NullPointerException.class, () -> {
-			new BridgeListener(id, null);
-		});
+		assertThrows(NullPointerException.class, () -> new BridgeListener(id, null));
 	}
 
 	@Test
@@ -83,7 +79,7 @@ public class BridgeListenerTest
 		assertFalse(bridge1.equals(bridge3));
 		assertFalse(bridge3.equals(bridge1));
 		//Should not fail with an exception (should check before casting)
-		assertFalse(bridge3.equals(Integer.valueOf(1)));
+		assertFalse(bridge3.equals(1));
 	}
 
 	@Test
@@ -220,7 +216,7 @@ public class BridgeListenerTest
 		assertTrue(target.getSet(id).contains(t2));
 	}
 
-	private class Target extends AbstractSourcedListFacet<CharID, PCGenScoped>
+	private static class Target extends AbstractSourcedListFacet<CharID, PCGenScoped>
 	{
 
 	}

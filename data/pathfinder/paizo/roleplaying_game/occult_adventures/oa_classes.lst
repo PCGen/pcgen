@@ -191,24 +191,24 @@ CLASS:Homunculus Companion	STARTSKILLPTS:2
 # Class Name		Visible	Define																						Modify VAR																																																															FACT
 CLASS:Psychic Detective	VISIBLE:NO	DEFINE:Caster_Level_PsychicDetective|0	DEFINE:CasterLevelBLPsychicDetective|0	DEFINE:Caster_Level_BL_Stripped_PsychicDetective|0	BONUS:VAR|Caster_Level_BL_Stripped_PsychicDetective|Caster_Level_PsychicDetective-CasterLevelBLPsychicDetective	BONUS:VAR|Caster_Level_PsychicDetective|PsychicDetectiveLVL+Caster_Level_Bonus+CasterLevelBLPsychicDetective	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_PsychicDetective|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_PsychicDetective	FACT:SpellType|Arcane
 # Class Name		Spell Stat		Spellbook		Caster level											Use Spell List
-CLASS:Psychic Detective	SPELLSTAT:INT	SPELLBOOK:YES	BONUS:CASTERLEVEL|Psychic Detective|Caster_Level_BL_Stripped_PsychicDetective	SPELLLIST:2|Psychic|Psychic Detective
-1	CAST:0,1
-2	CAST:0,2
-3	CAST:0,3
-4	CAST:0,3,1
-5	CAST:0,4,2
-6	CAST:0,4,3
-7	CAST:0,4,3,1
-8	CAST:0,4,4,2
-9	CAST:0,5,4,3
-10	CAST:0,5,4,3,1
-11	CAST:0,5,4,4,2
-12	CAST:0,5,5,4,3
-13	CAST:0,5,5,4,3,1
-14	CAST:0,5,5,4,4,2
-15	CAST:0,5,5,5,4,3
-16	CAST:0,5,5,5,4,3,1
-17	CAST:0,5,5,5,4,4,2
-18	CAST:0,5,5,5,5,4,3
-19	CAST:0,5,5,5,5,5,4
-20	CAST:0,5,5,5,5,5,5
+CLASS:Psychic Detective	SPELLSTAT:INT	SPELLBOOK:YES	MEMORIZE:NO		BONUS:CASTERLEVEL|Psychic Detective|Caster_Level_BL_Stripped_PsychicDetective	SPELLLIST:2|Psychic|Psychic Detective
+1	CAST:0,1			KNOWN:4,2
+2	CAST:0,2			KNOWN:5,3
+3	CAST:0,3			KNOWN:6,4
+4	CAST:0,3,1			KNOWN:6,4,2
+5	CAST:0,4,2			KNOWN:6,4,3
+6	CAST:0,4,3			KNOWN:6,4,4
+7	CAST:0,4,3,1		KNOWN:6,5,4,2
+8	CAST:0,4,4,2		KNOWN:6,5,4,3
+9	CAST:0,5,4,3		KNOWN:6,5,4,4
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2
+11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
+13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3
+15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5

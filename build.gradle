@@ -19,22 +19,22 @@ plugins {
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '2.0.0'
+    id "com.github.spotbugs" version '4.0.5'
     id 'java'
-    id 'maven'
+    id 'maven-publish'
     id 'pmd'
     id 'idea'
-    id "de.undercouch.download" version '3.4.3'
+    id "de.undercouch.download" version '4.0.4'
     id 'edu.sc.seis.launch4j' version '2.4.6'
-    id 'com.github.ben-manes.versions' version '0.21.0'
-    id "com.dorongold.task-tree" version '1.4'
+    id 'com.github.ben-manes.versions' version '0.28.0'
+    id "com.dorongold.task-tree" version '1.5'
     id "edu.sc.seis.macAppBundle" version "2.3.0"
-    id 'org.openjfx.javafxplugin' version '0.0.7'
-    id 'org.beryx.runtime' version '1.1.7'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.beryx.runtime' version '1.8.0'
 }
 
 javafx {
-    version = "12.0.1"
+    version = "13.0.2"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 }
 
@@ -83,6 +83,7 @@ repositories {
     mavenCentral()
     ivy {
         url "http://pcgen.sourceforge.net/mvnrepo"
+        allowInsecureProtocol = true
         patternLayout {
             artifact "[organisation]/jars/[artifact]-[revision].[ext]"
         }
@@ -90,6 +91,10 @@ repositories {
     ivy {
         name "fileRepo"
         url 'http://pc-gen.org/librepo/'
+        allowInsecureProtocol = true
+    }
+    maven {
+        url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
     }
     jcenter()
 }
@@ -167,21 +172,22 @@ compileJava {
 }
 
 dependencies {
-    compile group: 'commons-io', name: 'commons-io', version:'2.6'
-    compile group: 'org.springframework', name: 'spring-web', version:'5.1.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-core', version:'5.1.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.8.RELEASE'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.9'
-    compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
-    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.3'
-    compile group: 'jep', name: 'jep', version:'2.4.1'
-    compile group: 'org.freemarker', name: 'freemarker', version:'2.3.28'
-    compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
-    compile group: 'xalan', name: 'xalan', version:'2.7.2'
-    compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
-    compile group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
-    compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.3'
-    compile group: 'org.controlsfx', name: 'controlsfx', version:'11.0.0'
+    implementation group: 'commons-io', name: 'commons-io', version:'2.6'
+
+    implementation group: 'org.springframework', name: 'spring-web', version:'5.2.5.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-core', version:'5.2.5.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-beans', version:'5.2.5.RELEASE'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.10'
+    implementation group: 'org.apache.xmlgraphics', name: 'fop', version:'2.4'
+    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
+    implementation group: 'org.scijava', name: 'jep', version:'2.4.2'
+    implementation group: 'org.freemarker', name: 'freemarker', version:'2.3.30'
+    implementation group: 'org.jdom', name: 'jdom2', version:'2.0.6'
+    implementation group: 'xalan', name: 'xalan', version:'2.7.2'
+    implementation group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
+    implementation group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
+    implementation group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.4'
+    implementation group: 'org.controlsfx', name: 'controlsfx', version:'11.0.1'
 
     //compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
     compile files("../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")
@@ -189,22 +195,22 @@ dependencies {
     //compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.200'
     compile files("../pcgen-formula/PCGen-formula/build/libs/PCgen-formula-1.0.jar")
 
-    compileOnly group: 'org.jetbrains', name: 'annotations', version:'17.0.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version:'19.0.0'
+
     compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
     compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '3.1.12'
 
-    testCompile group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.4.2'
-    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.4.2'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.4.2'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.4.2'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.4.2'
-    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.2'
-    testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
-    testCompile group: 'org.testfx', name: 'testfx-junit5', version: '4.0.15-alpha'
-    testCompile group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
-
-
-    testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.3'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.6.1'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.1'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.6.1'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.6.1'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.6.1'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
+    testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
+    testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.16-alpha'
+    testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
+    
+    testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.4'
 }
 
 ant.importBuild 'build-gradle.xml'
@@ -218,13 +224,13 @@ configure('jar-all-plugins') {
 
 ext {
     classpath = ""
-    configurations.runtime.each { lib -> classpath += " libs/${lib.name} "}
+    configurations.runtimeClasspath.each { lib -> classpath += " libs/${lib.name} "}
 }
 
 jar {
     it.dependsOn 'jar-all-plugins'
     manifest {
-        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version,
+        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
     }
     from {
@@ -255,7 +261,7 @@ runtime {
 
 task converterJar(type: Jar, dependsOn: jar) {
     manifest {
-        attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': version,
+        attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
     }
 
@@ -325,6 +331,9 @@ clean {
     it.dependsOn 'clean-plugins'
     it.dependsOn 'cleanOutput'
 }
+
+//Ensures that clean is never run after build and when clean is called it is run before build so it doesn't delete the new build folder.
+build.mustRunAfter clean
 
 test {
     exclude 'pcgen/testsupport/**'
@@ -426,7 +435,7 @@ allprojects {
 dependencyUpdates {
     revision='release'
 }
-dependencyUpdates.resolutionStrategy = {
+dependencyUpdates.resolutionStrategy {
     componentSelection { rules ->
         rules.all { ComponentSelection selection ->
             if (['atlassian'].any { qualifier ->
@@ -474,4 +483,3 @@ apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
-

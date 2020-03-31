@@ -1,7 +1,6 @@
 CAMPAIGN:Spymaster's Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Spymaster's Handbook
 SOURCESHORT:SMH
 SOURCEWEB:http://paizo.com/products/btpy9l2w
 SOURCEDATE:2016-07
+RANK:201607
 ISOGL:YES
 
 COVER:spymasters_handbook.jpg

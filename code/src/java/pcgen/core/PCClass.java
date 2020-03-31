@@ -491,10 +491,10 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		Boolean mon = get(ObjectKey.IS_MONSTER);
 		if (mon != null)
 		{
-			return mon.booleanValue();
+			return mon;
 		}
 
-		ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(getClassType());
+		ClassType aClassType = SettingsHandler.getGameAsProperty().get().getClassTypeByName(getClassType());
 
 		if ((aClassType != null) && aClassType.isMonster())
 		{
@@ -504,7 +504,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		{
 			for (Type type : getTrueTypeList(false))
 			{
-				aClassType = SettingsHandler.getGame().getClassTypeByName(type.toString());
+				aClassType = SettingsHandler.getGameAsProperty().get().getClassTypeByName(type.toString());
 				if ((aClassType != null) && aClassType.isMonster())
 				{
 					return true;
@@ -520,7 +520,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		StringJoiner txt = new StringJoiner("\t");
 		txt.add("CLASS:" + getDisplayName());
 		txt.add(PrerequisiteWriter.prereqsToString(this));
-		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		Globals.getContext().unparse(this).forEach(txt::add);
 
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
@@ -529,7 +529,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		{
 			txt.add(lineSep + me.getKey());
 			txt.add(PrerequisiteWriter.prereqsToString(me.getValue()));
-			Globals.getContext().unparse(me.getValue()).forEach(item -> txt.add(item));
+			Globals.getContext().unparse(me.getValue()).forEach(txt::add);
 		}
 
 		return txt.toString();
@@ -581,7 +581,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 				return me.getValue();
 			}
 		}
-		return SettingsHandler.getGame().getBabAttCyc();
+		return SettingsHandler.getGameAsProperty().get().getBabAttCyc();
 	}
 
 	public int baseAttackBonus(final PlayerCharacter aPC)
@@ -712,7 +712,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 	{
 		for (Type type : getTrueTypeList(false))
 		{
-			final ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(type.toString());
+			final ClassType aClassType = SettingsHandler.getGameAsProperty().get().getClassTypeByName(type.toString());
 			if ((aClassType != null) && !aClassType.getXPPenalty())
 			{
 				return false;
@@ -1042,7 +1042,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 			{
 				if (!bSilent)
 				{
-					ShowMessageDelegate.showMessageDialog(SettingsHandler.getGame().getLevelUpMessage(),
+					ShowMessageDelegate.showMessageDialog(SettingsHandler.getGameAsProperty().get().getLevelUpMessage(),
 						Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				}
 			}

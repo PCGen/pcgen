@@ -53,8 +53,7 @@ public final class StatAnalysis
 			}
 		}
 
-		int y = aPC.getPartialStatFor(stat, useTemp, useEquip);
-		return y;
+        return aPC.getPartialStatFor(stat, useTemp, useEquip);
 	}
 
 }

@@ -1,7 +1,6 @@
 CAMPAIGN:The Harrow Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: The Harrow Handbook
 SOURCESHORT:HH
 SOURCEWEB:http://paizo.com/products/btpy95zm
 SOURCEDATE:2014-07
+RANK:201407
 ISOGL:YES
 
 COVER:harrow_handbook.jpg

@@ -61,35 +61,32 @@ public class StatsAndChecksLoader extends SimpleLoader<Loadable>
 		}
 		String key = token.substring(0, colonLoc);
 		Class<? extends Loadable> loadClass;
-		if ("STATNAME".equals(key))
-		{
-			Logging.deprecationPrint(
-				"Loading Stats in Game Mode is deprecated, " + "please use the STAT: token in a PCC file");
-			loadClass = PCStat.class;
-		}
-		else if ("CHECKNAME".equals(key))
-		{
-			Logging.deprecationPrint(
-				"Loading Checks/Saves in Game Mode is deprecated, " + "please use the SAVE: token in a PCC file");
-			loadClass = PCCheck.class;
-		}
-		else if ("BONUSSPELLLEVEL".equals(key))
-		{
-			loadClass = BonusSpellInfo.class;
-		}
-		else if ("ALIGNMENTNAME".equals(key))
-		{
-			Logging.deprecationPrint(
-				"Loading Alignments in Game Mode is deprecated, " + "please use the ALIGNMENT: token in a PCC file");
-			loadClass = PCAlignment.class;
-		}
-		else
-		{
-			Logging.errorPrint("Invalid Token '" + key + "' as the first key in " + sourceURI);
-			return null;
-		}
+        switch (key)
+        {
+            case "STATNAME":
+                Logging.deprecationPrint(
+                        "Loading Stats in Game Mode is deprecated, " + "please use the STAT: token in a PCC file");
+                loadClass = PCStat.class;
+                break;
+            case "CHECKNAME":
+                Logging.deprecationPrint(
+                        "Loading Checks/Saves in Game Mode is deprecated, " + "please use the SAVE: token in a PCC file");
+                loadClass = PCCheck.class;
+                break;
+            case "BONUSSPELLLEVEL":
+                loadClass = BonusSpellInfo.class;
+                break;
+            case "ALIGNMENTNAME":
+                Logging.deprecationPrint(
+                        "Loading Alignments in Game Mode is deprecated, " + "please use the ALIGNMENT: token in a PCC file");
+                loadClass = PCAlignment.class;
+                break;
+            default:
+                Logging.errorPrint("Invalid Token '" + key + "' as the first key in " + sourceURI);
+                return null;
+        }
 		String name = token.substring(colonLoc + 1);
-		if ((name == null) || (name.isEmpty()))
+		if (name.isEmpty())
 		{
 			Logging.errorPrint("Invalid Token '" + key + "' had no value in " + sourceURI);
 			return null;

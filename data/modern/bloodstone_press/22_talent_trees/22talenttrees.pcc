@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Jan 30 22:27:38 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Bloodstone Press - 22 Talent Trees
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:22 Talent Trees
 SOURCESHORT:22TT
 SOURCEWEB:http://www.bloodstone-press.com/22tt.html
 SOURCEDATE:2003-11
+RANK:200311
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.

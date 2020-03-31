@@ -113,7 +113,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testAspect()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -128,7 +128,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testAspectCount()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("5", tok.getToken("ABILITY.FEAT.0.ASPECTCOUNT", character,
@@ -142,7 +142,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testSingleAspect()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -167,7 +167,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testNonExistantSingleAspect()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("", tok
@@ -188,7 +188,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testHasAspect()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("N", tok.getToken("ABILITY.FEAT.0.HASASPECT.3", character,
@@ -210,7 +210,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testName()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -228,7 +228,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testKey()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -247,7 +247,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testAssociated()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("",
@@ -267,7 +267,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	public void testAssociatedCount()
 	{
 		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("0",

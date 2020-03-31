@@ -129,7 +129,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 	public String[] unparse(LoadContext context, KitAbilities kitAbil)
 	{
 		Collection<CDOMReference<Ability>> references = kitAbil.getAbilityKeys();
-		if ((references == null) || references.isEmpty())
+		if (references.isEmpty())
 		{
 			return null;
 		}

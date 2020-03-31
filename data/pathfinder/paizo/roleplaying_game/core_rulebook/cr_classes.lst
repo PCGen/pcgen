@@ -49,15 +49,6 @@ CLASS:Bard		SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|Caster_Level_BL_Str
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
 ###Block:
 1	ABILITY:Class|AUTOMATIC|Bard
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|PREVAREQ:Bard_CF_BardicKnowledge,0
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong|PREVAREQ:Bard_CF_CounterSong,0
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance|PREVAREQ:Bard_CF_BardicPerformance,0
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting|PREVAREQ:Bard_CF_ArmoredCasting,0
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips|PREVAREQ:Bard_CF_Cantrips,0
-2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|PREVAREQ:Bard_CF_VersatilePerformance,0
-2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|PREVAREQ:Bard_CF_WellVersed,0
-5	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|PREVAREQ:Bard_CF_LoreMaster,0
-10	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|PREVAREQ:Bard_CF_JackOfAllTrades,0
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Bonus Languages					Define													Combat bonus																	Add domain number					Save bonus																																		Modify VAR																																																																																																																												Monster Role	FACT
@@ -73,12 +64,6 @@ CLASS:Cleric	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|L
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREVAREQ:ProhibitSpell_Alignment_Chaotic,1
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Cleric
-1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Channel Energy|PREVAREQ:Cleric_CF_ChannelEnergy,0
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Orisons|PREVAREQ:Cleric_CF_Orisons,0
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting|PREVAREQ:Cleric_CF_SpontaneousCasting,0
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Domains
 ###Block:
 1:REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|ClericSkillPts	DEFINE:ClericSkillPts|0
 ###Block: Level progression
@@ -119,19 +104,6 @@ CLASS:Druid		SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|L
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREVAREQ:ProhibitSpell_Alignment_Evil,1
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREVAREQ:ProhibitSpell_Alignment_Lawful,1
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREVAREQ:ProhibitSpell_Alignment_Chaotic,1
-###Block: Level Progression Abilities
-1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Orisons
-1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spontaneous Casting|PREVAREQ:Druid_CF_SpontaneousCasting,0
-1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature Sense|PREVAREQ:Druid_CF_NatureSense,0
-1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Empathy|PREVAREQ:Druid_CF_WildEmpathy,0
-1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature Bond|PREVAREQ:Druid_CF_NatureBond,0
-2	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Woodland Stride|PREVAREQ:Druid_CF_WoodlandStride,0
-3	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Trackless Step|PREVAREQ:Druid_CF_TracklessStep,0
-4	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Shape|PREVAREQ:Druid_CF_WildShape,0
-4	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Resist Nature's Lure|PREVAREQ:Druid_CF_ResistNaturesLure,0
-9	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Venom Immunity|PREVAREQ:Druid_CF_VenomImmunity,0
-13	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ A Thousand Faces|PREVAREQ:Druid_CF_AThousandFaces,0
-15	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Timeless Body|PREVAREQ:Druid_CF_TimelessBody,0
 ###Block: Domain Selections
 0	DOMAIN:Air|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Air
 0	DOMAIN:Animal|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Animal
@@ -169,41 +141,10 @@ CLASS:Fighter	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:FighterLVL|
 CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Fighter
-1	ABILITY:Fighter Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency,TYPE.FighterMediumArmorProficiency,TYPE.FighterLightArmorProficiency,TYPE.FighterShieldProficiency,TYPE.FighterTowerShieldProficiency
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterMediumArmorProficiency
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterLightArmorProficiency
-1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterShieldProficiency
-1	ABILITY:Internal|AUTOMATIC|Shield Prof ~ Tower|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterTowerShieldProficiency
-###Block: Advanced Weapon Feat qualifications - Why are these not CATEGORY:Internal???
-1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
-1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Disruptive Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Greater Shield Focus Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Spellbreaker Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Penetrating Strike Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify
-###Block: Level progression
-2	BONUS:VAR|BraveryLVL|FighterLVL|TYPE=Class
-3	BONUS:VAR|ArmorTrainingLVL|FighterLVL|TYPE=Class
-5	BONUS:VAR|FighterWeaponTrainingLVL|FighterLVL|TYPE=Class
-1	BONUS:VAR|FighterWeaponQualifyLVL|FighterLVL|TYPE=Class
-###Block:
-1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bonus Feats|PREVAREQ:Fighter_CF_BonusFeats,0
-2	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bravery|PREVAREQ:Fighter_CF_Bravery,0
-3	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Training|PREVAREQ:Fighter_CF_ArmorTraining,0
-5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training|PREVAREQ:Fighter_CF_WeaponTraining,0
-19	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Mastery|PREVAREQ:Fighter_CF_ArmorMastery,0
-###Block:
-20	BONUS:ABILITYPOOL|Weapon Mastery|1|PREVAREQ:FighterWeaponMastery,0|PREVAREQ:Fighter_CF_WeaponMastery,0
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define															Modify VAR																Monster Role	FACT
-CLASS:Monk		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.56	DEFINE:FlurryOfBlows|0	DEFINE:MonkLVL|0	DEFINE:KiPoolWis|0	DEFINE:MonkFeatQualify|0	BONUS:VAR|FlurryOfBlows|1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|KiPoolWis|1	BONUS:VAR|KiPool|1	ROLE:None		FACT:ClassType|PC	FACT:Abb|Mnk
+CLASS:Monk		HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.56	DEFINE:FlurryOfBlows|0	DEFINE:MonkLVL|0	DEFINE:KiPoolWis|0	DEFINE:MonkFeatQualify|0	BONUS:VAR|FlurryOfBlows|1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|KiPoolWis|1	BONUS:VAR|KiPool|1	ROLE:None		FACT:ClassType|PC	FACT:Abb|Mnk
 # Class Name	Multiple Requirements
 CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREVAREQ:BypassClassAlignment_Monk,1]
 # Class Name	Skill Pts/Lvl
@@ -229,28 +170,6 @@ CLASS:Paladin	STARTSKILLPTS:2
 CLASS:Paladin	SPELLSTAT:CHA	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|Caster_Level_BL_Stripped_Paladin|PRECLASS:1,Paladin=4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Paladin
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy,TYPE.PaladinArmorProficiencyLight,TYPE.PaladinArmorProficiencyMedium,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyLight
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyMedium
-1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
-###Block:
-1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Good|PREVAREQ:Paladin_CF_AuraOfGood,0
-1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Detect Evil|PREVAREQ:Paladin_CF_DetectEvil,0
-1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Smite Evil|PREVAREQ:Paladin_CF_SmiteEvil,0
-2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|PREVAREQ:Paladin_CF_DivineGrace,0
-2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Lay on Hands|PREVAREQ:Paladin_CF_LayOnHands,0
-3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Courage|PREVAREQ:Paladin_CF_AuraOfCourage,0
-3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health|PREVAREQ:Paladin_CF_DivineHealth,0
-3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Mercy|PREVAREQ:Paladin_CF_Mercy,0
-4	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Channel Positive Energy|PREVAREQ:Paladin_CF_ChannelPositiveEnergy,0
-5	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Bond|PREVAREQ:Paladin_CF_DivineBond,0
-8	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Resolve|PREVAREQ:Paladin_CF_AuraOfResolve,0
-11	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Justice|PREVAREQ:Paladin_CF_AuraOfJustice,0
-14	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Faith|PREVAREQ:Paladin_CF_AuraOfFaith,0
-17	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Righteousness|PREVAREQ:Paladin_CF_AuraOfRighteousness,0
-20	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Holy Champion|PREVAREQ:Paladin_CF_HolyChampion,0
 ###Block: Spell Level progression
 4	CAST:0,0
 5	CAST:0,1
@@ -291,24 +210,6 @@ CLASS:Ranger	STARTSKILLPTS:6
 CLASS:Ranger	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_Ranger|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Ranger
-###Block: Progression Abilities
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|PREVAREQ:Ranger_CF_FavoredEnemy,0
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Terrain|PREVAREQ:Ranger_CF_FavoredTerrain,0
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|PREVAREQ:Ranger_CF_Track,0
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|PREVAREQ:Ranger_CF_WildEmpathy,0
-2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style Feat|PREVAREQ:Ranger_CF_CombatStyleFeat,0
-4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hunter's Bond|PREVAREQ:Ranger_CF_HuntersBond,0
-7	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|PREVAREQ:Ranger_CF_WoodlandStride,0
-8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|PREVAREQ:Ranger_CF_SwiftTracker,0
-9	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Evasion|PREVAREQ:Ranger_CF_Evasion,0
-11	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Quarry|PREVAREQ:Ranger_CF_Quarry,0
-12	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|PREVAREQ:Ranger_CF_Camouflage,0
-16	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Evasion|PREVAREQ:Ranger_CF_Evasion,0
-17	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hide in Plain Sight|PREVAREQ:Ranger_CF_HideInPlainSight,0
-19	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Quarry|PREVAREQ:Ranger_CF_Quarry,0
-20	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Master Hunter|PREVAREQ:Ranger_CF_MasterHunter,0
-###Block:
-3	ABILITY:FEAT|AUTOMATIC|Endurance|PREVAREQ:Ranger_CF_Endurance,0
 ###Block: Level progression
 4	CAST:0,0
 5	CAST:0,1
@@ -349,12 +250,6 @@ CLASS:Sorcerer	STARTSKILLPTS:2
 CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_BL_Stripped_Sorcerer
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Sorcerer
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Weapon and Armor Proficiency|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
-###Block: Class Features
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Spells|PREVAREQ:Sorcerer_CF_Spells,0
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Standard Bloodline|PREVAREQ:Sorcerer_CF_Bloodline,0
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips|PREVAREQ:Sorcerer_CF_Cantrips,0
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Eschew Materials|PREVAREQ:Sorcerer_CF_EschewMaterials,0
 ###Block: Spell Level Progression
 1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2
@@ -404,17 +299,6 @@ SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School					
 SUBCLASS:Universalist	COST:0
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|PREVAREQ:Wizard_CF_ArcaneSchool,0|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
 1	ABILITY:Class|AUTOMATIC|Wizard
-###Block:Proficiencies
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Class Skills|PREVAREQ:Wizard_CF_ClassSkills,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Weapon and Armor Proficiency|PREVAREQ:Wizard_CF_WeaponProficiencies,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Spells|PREVAREQ:Wizard_CF_Spells,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Languages|PREVAREQ:Wizard_CF_BonusLanguages,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|PREVAREQ:Wizard_CF_ArcaneBond,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School|PREVAREQ:Wizard_CF_ArcaneSchool,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|PREVAREQ:Wizard_CF_Cantrips,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Scribe Scroll|PREVAREQ:Wizard_CF_ScribeScroll,0
-5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|PREVAREQ:Wizard_CF_BonusFeats,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Spellbooks|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]],[PREVAREQ:Wizard_CF_SpellBook,0]
 ###Block: Level progression
 1	CAST:3,1
 2	CAST:4,2
@@ -444,16 +328,8 @@ CLASS:Arcane Archer	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.374	DEFINE:
 CLASS:Arcane Archer	PREABILITY:2,CATEGORY=FEAT,Point-Blank Shot,Precise Shot	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRESPELLTYPE:1,Arcane=1	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:Perception|Ride|Stealth|Survival
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
-###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Enhance Arrow
-2	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Imbue Arrow
-4	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Seeker Arrow
-6	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Phase Arrow
-8	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Hail of Arrows
-10	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Arrow of Death
+###Block: Spell Improvement
+1	ABILITY:CLASS|AUTOMATIC|Arcane Archer
 ###Block: Spell Improvement
 2	ADD:SPELLCASTER|Arcane
 3	ADD:SPELLCASTER|Arcane
@@ -484,13 +360,6 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Di
 10	ADD:SPELLCASTER|ANY
 ###Block:
 1	ABILITY:Class|AUTOMATIC|Arcane Trickster
-1	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Ranged Legerdemain
-2	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Sneak Attack
-3	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Impromptu Sneak Attack
-5	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Tricky Spells
-9	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Invisible Thief
-10	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Surprise Spells
-
 
 ###Block: Assassin (Complete - review) --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -502,14 +371,6 @@ CLASS:Assassin	PREMULT:1,[PREALIGN:LE,NE,CE],[PREVAREQ:BypassClassAlignment_Assa
 CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 ###Block: Normal Level Progression
 1	ABILITY:Class|AUTOMATIC|Assassin
-1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Weapon and Armor Proficiency
-1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Death Attack|Assassin ~ Poison Use|Assassin ~ Sneak Attack
-2	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Save against Poisons|Assassin ~ Uncanny Dodge
-4	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Hidden Weapons|Assassin ~ True Death
-6	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Quiet Death
-8	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Hide in Plain Sight
-9	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Swift Death
-10	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Angel of Death
 
 
 ###Block: Dragon Disciple (Complete - review) ------------------------------------------------------------------------
@@ -529,15 +390,7 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Kn
 8	ADD:SPELLCASTER|Arcane
 10	ADD:SPELLCASTER|Arcane
 ###Block: Progression
-1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Weapon and Armor Proficiency
-1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Spells per Day
-1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blood of Dragons|Dragon Disciple ~ Natural Armor Increase
-2	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Ability Boost|Dragon Disciple ~ Dragon Bite|Dragon Disciple ~ Bloodline Feat
-3	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Breath Weapon
-5	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blindsense
-7	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Dragon Form
-9	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Wings
-
+1	ABILITY:Class|AUTOMATIC|Dragon Disciple
 
 ###Block: Duelist (Complete - review) --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -548,16 +401,7 @@ CLASS:Duelist	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Weapon Finesse	PRESKILL:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|TYPE=Perform|Sense Motive
 ###Block: Normal Level Progression
-1	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Weapon and Armor Proficiency
-1	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Canny Defense|Duelist ~ Precise Strike
-2	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Improved Reaction|Duelist ~ Parry
-3	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Enhanced Mobility
-4	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Combat Reflexes|Duelist ~ Grace
-5	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Riposte
-6	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Acrobatic Charge
-7	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Elaborate Defense
-9	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Deflect Arrows|Duelist ~ No Retreat
-10	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Crippling Critical
+1	ABILITY:Class|AUTOMATIC|Duelist
 
 ###Block: Eldritch Knight (Complete)
 
@@ -578,8 +422,7 @@ CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Climb|Knowledge (Arcana)|Knowledge 
 9	ADD:SPELLCASTER|Arcane
 10	ADD:SPELLCASTER|Arcane
 ###Block: Level Progression
-1	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Bonus Feat|Eldritch Knight ~ Diverse Training
-10	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Spell Critical
+1	ABILITY:Class|AUTOMATIC|Eldritch Knight
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																						Modify VAR																																																																	FACT
@@ -599,10 +442,7 @@ CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|TY
 9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 ###Block: Level Progression
-1	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Secret Lore
-2	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Lore
-6	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Greater Lore
-10	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ True Lore
+1	ABILITY:Class|AUTOMATIC|Loremaster
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																						Modify VAR																																																												FACT
 CLASS:Mystic Theurge	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.387	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Myt
@@ -622,8 +462,7 @@ CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Religi
 9	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 10	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 ###Block: Level Progression
-1	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Combined Spells
-10	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Spell Synthesis
+1	ABILITY:Class|AUTOMATIC|Mystic Theurge
 
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																						Modify VAR																																																																				FACT
@@ -632,15 +471,8 @@ CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.388	
 CLASS:Pathfinder Chronicler	PRESKILL:3,Linguistics=3,Perform (Oratory)=5,Profession (Scribe)=5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Pathfinder Chronicler	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|Ride|Sense Motive|Sleight of Hand|Survival|Use Magic Device
-1	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Bardic Knowledge|Pathfinder Chronicler ~ Deep Pockets|Pathfinder Chronicler ~ Master Scribe
-2	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Live to Tell the Tale|Pathfinder Chronicler ~ Pathfinding
-3	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Bardic Performance|Pathfinder Chronicler ~ Improved Aid
-4	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Epic Tales
-5	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Whispering Campaign
-6	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Inspire Action
-7	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Call down the Legends
-8	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Greater Epic Tales
-10	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Lay of the Exalted Dead
+###Block: Level Progression
+1	ABILITY:Class|AUTOMATIC|Pathfinder Chronicler
 
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																							Modify VAR																																																																		FACT
@@ -650,18 +482,7 @@ CLASS:Shadowdancer	PREABILITY:3,CATEGORY=FEAT,Combat Reflexes,Dodge,Mobility	PRE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disguise|Escape Artist|Perception|TYPE=Perform|Sleight of Hand|Stealth
 ###Block:
-1	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Weapon and Armor Proficiency
-1	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Hide in Plain Sight
-2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Darkvision
-2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Evasion
-2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Uncanny Dodge
-3	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Rogue Talents|Shadowdancer ~ Shadow Illusion|Shadowdancer ~ Summon Shadow
-4	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Call|Shadowdancer ~ Shadow Jump
-5	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Defensive Roll
-7	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Slippery Mind
-8	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Power
-10	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Improved Evasion|Shadowdancer ~ Shadow Master
-
+1	ABILITY:Class|AUTOMATIC|Shadowdancer
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define							Combat bonus																	Save bonus																																		Modify VAR																																																																																																																		FACT

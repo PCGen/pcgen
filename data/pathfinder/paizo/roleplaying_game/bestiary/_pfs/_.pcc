@@ -3,7 +3,6 @@ CAMPAIGN:Bestiary (PFS)
 KEY:PFS ~ Bestiary
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder RPG
-RANK:1
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Bestiary
 SOURCESHORT:B1
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu
 SOURCEDATE:2009-10
+RANK:200910
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.jpg

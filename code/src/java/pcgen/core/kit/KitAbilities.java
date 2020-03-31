@@ -179,7 +179,6 @@ public final class KitAbilities extends BaseKit
 		}
 		else
 		{
-			selected = new ArrayList<>();
 			// Force user to make enough selections
 			while (true)
 			{
@@ -200,11 +199,8 @@ public final class KitAbilities extends BaseKit
 			if (isFree())
 			{
 				// Need to pay for it first
-				if (free)
-				{
-					aPC.adjustAbilities(category, BigDecimal.ONE);
-				}
-			}
+                aPC.adjustAbilities(category, BigDecimal.ONE);
+            }
 			if (ability.getCost() > aPC.getAvailableAbilityPool(category).doubleValue())
 			{
 				tooManyAbilities = true;

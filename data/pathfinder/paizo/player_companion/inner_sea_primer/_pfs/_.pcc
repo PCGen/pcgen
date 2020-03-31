@@ -3,7 +3,6 @@ CAMPAIGN:Inner Sea Primer (PFS)
 KEY:PFS ~ Inner Sea Primer
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Player Companion: Inner Sea Primer
 SOURCESHORT:ISP
 SOURCEWEB:http://paizo.com/products/btpy8hih
 SOURCEDATE:2010-11
+RANK:201011
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/player_companion/inner_sea_primer/inner_sea_primer.jpg

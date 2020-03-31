@@ -85,7 +85,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		levelInfo.setLevelString("LEVEL");
 		levelInfo.setMaxClassSkillString("LEVEL+3");
 		levelInfo.setMaxCrossClassSkillString("(LEVEL+3)/2");
-		GameMode gamemode = SettingsHandler.getGame();
+		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		gamemode.addLevelInfo("Default", levelInfo);
 
 		LoadContext context = Globals.getContext();
@@ -396,7 +396,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		assertEquals("+7", evaluateToken(
 			"VAR.NegLevels.INTVAL.SIGN", pc), "Signed output");
 	
-		String tok = "";
+		String tok;
 	
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
 		// if this evaluates math wise, the values should be string "1.0"
@@ -451,7 +451,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	{
 		StringWriter retWriter = new StringWriter();
 		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = new ExportHandler(new File(""));
+		ExportHandler export = ExportHandler.createExportHandler(new File(""));
 		export.replaceToken(token, bufWriter, pc);
 		retWriter.flush();
 
@@ -476,7 +476,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 		StringWriter retWriter = new StringWriter();
 		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = new ExportHandler(temp);
+		ExportHandler export = ExportHandler.createExportHandler(temp);
 		export.write(pcs, bufWriter);
 		retWriter.flush();
 

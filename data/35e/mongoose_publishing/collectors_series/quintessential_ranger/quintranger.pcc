@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon May 19 13:27:21 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 CAMPAIGN:Mongoose - Quintessential Ranger
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger
 SOURCESHORT:QR
 SOURCEWEB:http://mongoosepublishing.com
 SOURCEDATE:2003-01
+RANK:200301
 ISOGL:YES
 
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

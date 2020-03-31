@@ -7,7 +7,6 @@
 CAMPAIGN:Blood of the Moon
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -21,6 +20,7 @@ SOURCELONG:Pathfinder Player Companion: Blood of the Moon
 SOURCESHORT:BotM
 SOURCEWEB:http://paizo.com/products/btpy91dq
 SOURCEDATE:2013-04
+RANK:201304
 ISOGL:YES
 
 COVER:PZO9439_180.jpeg

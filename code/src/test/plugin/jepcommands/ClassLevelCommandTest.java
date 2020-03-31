@@ -66,7 +66,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Unit Test data"));
 
 		// Create the monseter class type
-		GameMode gamemode = SettingsHandler.getGame();
+		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
 		methodLoader.parseLine(gamemode.getModeContext(),
 			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO",

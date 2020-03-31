@@ -36,7 +36,7 @@ public class PCMaxCastableSpellTypeTermEvaluator extends BasePCTermEvaluator imp
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float max = 0.0f;
+		float max = 0.0f;
 		for (PCClass spClass : pc.getDisplay().getClassSet())
 		{
 			if (typeKey.equalsIgnoreCase(spClass.getSpellType()))

@@ -18,6 +18,7 @@
  */
 package pcgen.gui2;
 
+import java.awt.Dimension;
 import java.util.List;
 import java.util.logging.LogRecord;
 
@@ -37,8 +38,11 @@ import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
 import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -47,7 +51,6 @@ import javafx.scene.image.ImageView;
  * This is the southern component of the PCGenFrame.
  * It will show source loading progress and a corresponding error icon
  * (if there are errors)
- * TODO: add support for concurrent task execution
  */
 public final class PCGenStatusBar extends JPanel
 {
@@ -62,11 +65,7 @@ public final class PCGenStatusBar extends JPanel
 		this.messageLabel = new JLabel();
 		this.progressBar = new JProgressBar();
 		this.loadStatusButton = new Button();
-		initComponents();
-	}
 
-	private void initComponents()
-	{
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		add(messageLabel);
 		add(Box.createHorizontalGlue());
@@ -74,7 +73,10 @@ public final class PCGenStatusBar extends JPanel
 		progressBar.setVisible(false);
 		add(progressBar);
 		add(Box.createHorizontalGlue());
-		add(GuiUtility.wrapParentAsJFXPanel(loadStatusButton));
+		JFXPanel wrappedButton = GuiUtility.wrapParentAsJFXPanel(loadStatusButton);
+		//todo: calculate this rather than hard code
+		wrappedButton.setMaximumSize(new Dimension(750, 20000000));
+		add(wrappedButton);
 		loadStatusButton.setOnAction(this::loadStatusLabelAction);
 	}
 
@@ -128,13 +130,16 @@ public final class PCGenStatusBar extends JPanel
 			int finalNerrors = nerrors;
 			int finalNwarnings = nwarnings;
 			Platform.runLater(() -> {
-				loadStatusButton.setGraphic(new ImageView(image));
 				Tooltip tooltip = new Tooltip(String.format(
 						"%d errors and %d warnings occurred while loading the sources",
 						finalNerrors,
 						finalNwarnings
 				));
 				loadStatusButton.setTooltip(tooltip);
+				loadStatusButton.setGraphicTextGap(0.0);
+				loadStatusButton.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+				loadStatusButton.setAlignment(Pos.CENTER_RIGHT);
+				loadStatusButton.setGraphic(new ImageView(image));
 			});
 		}
 	}

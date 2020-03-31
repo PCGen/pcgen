@@ -40,7 +40,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class PCGenPropBundle
 {
-	private static ResourceBundle d_properties = null;
+	private static ResourceBundle d_properties;
 	private static ResourceBundle autobuildProperties = null;
 
 	/*

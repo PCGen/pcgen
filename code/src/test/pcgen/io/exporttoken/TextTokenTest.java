@@ -53,7 +53,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	public void testTextFormatting()
 	{
 		TextToken tok = new TextToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("TEXT.LOWER.NAME",
@@ -86,7 +86,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	public void testNumSuffix()
 	{
 		TextToken tok = new TextToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		character.setPCAttribute(NumericPCAttribute.AGE, 1);
@@ -137,7 +137,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	public void testNumSuffixDirect()
 	{
 		TextToken tok = new TextToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 
 		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.1",
 			getCharacter(), eh));

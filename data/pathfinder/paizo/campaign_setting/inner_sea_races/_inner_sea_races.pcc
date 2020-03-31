@@ -2,7 +2,6 @@
 CAMPAIGN:Inner Sea Races
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -21,6 +20,7 @@ SOURCELONG:Inner Sea Races
 SOURCESHORT:ISR
 SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races
 SOURCEDATE:2015-09
+RANK:201509
 ISOGL:YES
 
 COVER:inner_sea_races.jpg
@@ -62,6 +62,7 @@ EQUIPMENT:isr_equip_general.lst
 ABILITY:isr_feats.lst
 LANGUAGE:isr_languages.lst
 RACE:isr_races.lst
+SKILL:isr_skills.lst
 SPELL:isr_spells.lst
 TEMPLATE:isr_templates.lst
 

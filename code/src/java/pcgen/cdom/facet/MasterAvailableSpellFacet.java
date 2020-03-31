@@ -56,7 +56,7 @@ public class MasterAvailableSpellFacet extends AbstractListFacet<DataSetID, Avai
 	public synchronized void initialize(LoadContext lc)
 	{
 		DataSetID dsID = lc.getDataSetID();
-		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGameAsProperty().get().getMasterLists();
 		List<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{

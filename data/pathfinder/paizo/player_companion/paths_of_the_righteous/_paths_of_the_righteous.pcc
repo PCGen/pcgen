@@ -1,0 +1,92 @@
+CAMPAIGN:Paths of the Righteous
+KEY:Paths of the Righteous
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:5,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Paths of the Righteous
+SOURCESHORT:PATHR
+SOURCEWEB:http://paizo.com/products/btpy9oo9
+SOURCEDATE:2016-12
+RANK:201612
+ISOGL:YES
+
+COVER:paths_of_the_righteous.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9oo9|Download this publication from Paizo Publishing!
+DESC:Walk the Path of Virtue! Those who serve honorable causes and worship the gods of goodness face dangerous and devious threats. To bolster them in their quests, their religions develop potent techniques and astonishing powers to reward those who follow the noble and devout course without fail. Pathfinder Player Companion: Paths of the Righteous presents more than a dozen prestige classes, each associated with a different good-aligned deity and customized to enhance your gameplay, whether your character's a member of a widespread religion or one that's relatively obscure.
+
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Angel, Monadic Deva from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Paths of the Righteous Copyright 2016, Paizo Inc.; Authors: Alexander Augunas, John Compton, Jenny Jarzabski, Isabelle Lee, Stephen Rowe, and Owen K.C. Stephens.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Paths of the Righteous" Copyright 2019, PCGen Data Team (including, but not limited to Gwen T. (evilpixie87), Paul Grosse, and Andrew Maitland).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+
+ABILITY:pathr_abilities_class.lst
+ABILITYCATEGORY:pathr_abilitycategories.lst
+CLASS:pathr_classes.lst
+EQUIPMENT:pathr_equip_arms_armor.lst
+ABILITY:pathr_feats.lst
+LANGUAGE:pathr_languages.lst
+SKILL:pathr_skills.lst
+SPELL:pathr_spells.lst
+#
+ABILITY:support/pathr_abilities_class_isg.lst|PRECAMPAIGN:2,INCLUDES=Inner Sea Gods,INCLUDES=Chronicle of the Righteous
+ABILITY:support/pathr_abilities_class_ism.lst|PRECAMPAIGN:2,INCLUDES=Inner Sea World Guide,INCLUDES=Inner Sea Magic
+ABILITY:support/pathr_abilities_class_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+ABILITY:support/pathr_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+ABILITY:support/pathr_abilities_class_oa_ui.lst|PRECAMPAIGN:2,INCLUDES=Occult Adventures,INCLUDES=Ultimate Intrigue
+ABILITY:support/pathr_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+CLASS:support/pathr_classes_isg.lst|PRECAMPAIGN:2,INCLUDES=Inner Sea Gods,INCLUDES=Chronicle of the Righteous
+CLASS:support/pathr_classes_ism.lst|PRECAMPAIGN:2,INCLUDES=Inner Sea World Guide,INCLUDES=Inner Sea Magic
+CLASS:support/pathr_classes_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+CLASS:support/pathr_classes_oa_ui.lst|PRECAMPAIGN:2,INCLUDES=Occult Adventures,INCLUDES=Ultimate Intrigue
+CLASS:support/pathr_classes_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+ABILITY:support/pathr_feats_ism.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Magic
+ABILITY:support/pathr_feats_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+SPELL:support/pathr_spells_ha.lst|PRECAMPAIGN:1,INCLUDES=Horror Adventures
+SPELL:support/pathr_spells_isg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+SPELL:support/pathr_spells_magtt.lst|PRECAMPAIGN:1,INCLUDES=Magic Tactics Toolbox
+TEMPLATE:support/pathr_templates_ism.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Magic
+TEMPLATE:support/pathr_templates_oa_ui.lst|PRECAMPAIGN:2,INCLUDES=Occult Adventures,INCLUDES=Ultimate Intrigue
+
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+
+# ENTRY DATE:
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY:
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.07.08
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:
+
+
+
+
+
+
+
+
+
+
+
+
+

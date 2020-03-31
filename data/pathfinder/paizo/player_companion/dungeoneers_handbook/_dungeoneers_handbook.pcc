@@ -2,7 +2,6 @@
 CAMPAIGN:Dungeoneer's Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Dungeoneer's Handbook
 SOURCESHORT:DH
 SOURCEWEB:http://paizo.com/products/btpy8wfn
 SOURCEDATE:2013-03
+RANK:201303
 ISOGL:YES
 
 COVER:dungeoneers_handbook.jpeg

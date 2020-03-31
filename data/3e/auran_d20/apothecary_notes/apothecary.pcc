@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Auran - Notes from the Apothercary
 GAMEMODE:3e
-RANK:7
 GENRE:Fantasy
 BOOKTYPE:Web Enhancement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Auran d20 - Web - Notes from the Apothecary, Vol. 1
 SOURCESHORT:Apothecary
 SOURCEWEB:http://www.auran.com/d20
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:No Section 15 information with product

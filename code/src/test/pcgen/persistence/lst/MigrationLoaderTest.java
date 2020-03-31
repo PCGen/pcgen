@@ -157,7 +157,7 @@ public class MigrationLoaderTest
 		boolean found = false;
 		List<MigrationRule> migrationRuleList =
 				SystemCollections
-					.getUnmodifiableMigrationRuleList(SettingsHandler.getGame()
+					.getUnmodifiableMigrationRuleList(SettingsHandler.getGameAsProperty().get()
 						.getName());
 		for (MigrationRule migrationRule : migrationRuleList)
 		{
@@ -184,7 +184,7 @@ public class MigrationLoaderTest
 		boolean found = false;
 		List<MigrationRule> migrationRuleList =
 				SystemCollections
-					.getUnmodifiableMigrationRuleList(SettingsHandler.getGame()
+					.getUnmodifiableMigrationRuleList(SettingsHandler.getGameAsProperty().get()
 						.getName());
 		for (MigrationRule migrationRule : migrationRuleList)
 		{
@@ -210,7 +210,7 @@ public class MigrationLoaderTest
 		boolean found = false;
 		List<MigrationRule> migrationRuleList =
 				SystemCollections
-					.getUnmodifiableMigrationRuleList(SettingsHandler.getGame()
+					.getUnmodifiableMigrationRuleList(SettingsHandler.getGameAsProperty().get()
 						.getName());
 		for (MigrationRule migrationRule : migrationRuleList)
 		{

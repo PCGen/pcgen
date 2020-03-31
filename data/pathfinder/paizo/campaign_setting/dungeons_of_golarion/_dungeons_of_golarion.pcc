@@ -2,7 +2,6 @@ CAMPAIGN:Dungeons of Golarion
 KEY:Dungeons of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -15,6 +14,7 @@ SOURCELONG:Dungeons of Golarion
 SOURCESHORT:DUNG
 SOURCEWEB:https://paizo.com/products/btpy8lv5
 SOURCEDATE:2011-07
+RANK:201107
 ISOGL:YES
 
 COVER:dungeons_of_golarion.jpg

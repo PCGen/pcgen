@@ -78,7 +78,7 @@ public final class StatApplication
 
 		int iCount = 0;
 		Set<PCStat> statsAlreadyBonused = new HashSet<>();
-		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
+		boolean allowStacks = SettingsHandler.getGameAsProperty().get().isBonusStatAllowsStack();
 		DecimalFormat formatter = PrettyIntegerFormat.getFormat();
 
 		for (int ix = 0; ix < statsToChoose; ++ix)
@@ -99,15 +99,11 @@ public final class StatApplication
 
 				sStats.append(" (").append(formatter.format(aPC.getStatModFor(aStat))).append(")");
 
-				if (allowStacks || !statsAlreadyBonused.contains(aStat))
-				{
-					selectableStats.add(sStats.toString());
-				}
-				else
+				if (!allowStacks && statsAlreadyBonused.contains(aStat))
 				{
 					sStats.append(" * Already incremented.");
-					selectableStats.add(sStats.toString());
 				}
+				selectableStats.add(sStats.toString());
 			}
 
 			CDOMChooserFacadeImpl<String> chooserFacade = new CDOMChooserFacadeImpl<>(

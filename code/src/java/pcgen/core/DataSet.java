@@ -437,7 +437,7 @@ public class DataSet implements DataSetFacade
 	 * The Class {@code RaceComparator} sorts races so that PC races come
 	 * at the top of the list, just after <None Selected>.
 	 */
-	class RaceComparator implements Comparator<Race>
+	static class RaceComparator implements Comparator<Race>
 	{
 
 		@Override
@@ -448,8 +448,7 @@ public class DataSet implements DataSetFacade
 
 			if (r1 == r2)
 			{
-				final int EQUAL = 0;
-				return EQUAL;
+				return 0;
 			}
 
 			boolean unselected1 = r1.isUnselected();
@@ -504,7 +503,7 @@ public class DataSet implements DataSetFacade
 	 * The Class {@code PCClassComparator} sorts classes so that base
 	 * classes come at the top of the list.
 	 */
-	class PCClassComparator implements Comparator<PCClass>
+	static class PCClassComparator implements Comparator<PCClass>
 	{
 
 		@Override
@@ -515,8 +514,7 @@ public class DataSet implements DataSetFacade
 
 			if (c1 == c2)
 			{
-				final int EQUAL = 0;
-				return EQUAL;
+				return 0;
 			}
 
 			final String BASE_TYPE = "BASE.PC";
@@ -595,7 +593,7 @@ public class DataSet implements DataSetFacade
 
 	}
 
-	class AbilityCategoryComparator implements Comparator<AbilityCategory>
+	static class AbilityCategoryComparator implements Comparator<AbilityCategory>
 	{
 
 		@Override
@@ -615,15 +613,7 @@ public class DataSet implements DataSetFacade
 			String ac1Display = category1.getDisplayLocation().toString().toUpperCase();
 			String ac2Display = category2.getDisplayLocation().toString().toUpperCase();
 
-			if (ac1Display == null && ac2Display != null)
-			{
-				return AFTER;
-			}
-			if (ac1Display != null && ac2Display == null)
-			{
-				return BEFORE;
-			}
-			if ((ac1Display != null && ac2Display != null) && !ac1Display.equals(ac2Display))
+            if (ac1Display != null && !ac1Display.equals(ac2Display))
 			{
 				final String[] ORDER = {"FEATS", "RACIAL ABILITIES", "TRAITS", "CLASS ABILITIES"};
 				for (String displayOrder : ORDER)
@@ -648,7 +638,7 @@ public class DataSet implements DataSetFacade
 			{
 				return BEFORE;
 			}
-			if ((ac1Key == null && ac2Key == null) || ac1Key.equals(ac2Key))
+			if (ac1Key == null || ac1Key.equals(ac2Key))
 			{
 				return EQUAL;
 			}

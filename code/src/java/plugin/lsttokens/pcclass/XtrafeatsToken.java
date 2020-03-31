@@ -73,7 +73,7 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 		{
 			return null;
 		}
-		if (feats.intValue() <= 0)
+		if (feats <= 0)
 		{
 			context.addWriteMessage(getTokenName() + " must be an integer > 0");
 			return null;

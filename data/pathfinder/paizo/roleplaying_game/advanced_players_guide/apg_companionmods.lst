@@ -555,6 +555,12 @@ FOLLOWER:AnimalCompanionLVLT=18	TYPE:Animal Companion 20	HD:1																			
 FOLLOWER:AnimalCompanionLVLT=19	TYPE:Animal Companion 20																																				BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVLT=20	TYPE:Animal Companion 20	HD:1																							BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
 
+###Block: Companion Ability Bonuses from Master Racial Traits
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	BONUS:ABILITYPOOL|Companion Ability Bonus|1|PREVARGTEQ:mastervar("Companion_MasterRacialTrait_AbilityBonus"),1
+FOLLOWER:FamiliarLVL=1		TYPE:Familiar		BONUS:ABILITYPOOL|Companion Ability Bonus|1|PREVARGTEQ:mastervar("Companion_MasterRacialTrait_AbilityBonus"),1
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	BONUS:ABILITYPOOL|Companion Ability Bonus|1|PREVARGTEQ:mastervar("Companion_MasterRacialTrait_AbilityBonus"),1
+FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount	BONUS:ABILITYPOOL|Companion Ability Bonus|1|PREVARGTEQ:mastervar("Companion_MasterRacialTrait_AbilityBonus"),1
+
 
 #
 # EOF

@@ -155,7 +155,7 @@ public class MigrationLoader extends LstLineFileLoader
 			return null;
 		}
 
-		String objTypeKey = "";
+		String objTypeKey;
 		try
 		{
 			objTypeKey = firstToken.substring(0, idxColon);
@@ -176,7 +176,7 @@ public class MigrationLoader extends LstLineFileLoader
 			return null;
 		}
 
-		String key = "";
+		String key;
 		try
 		{
 			key = firstToken.substring(idxColon + 1);

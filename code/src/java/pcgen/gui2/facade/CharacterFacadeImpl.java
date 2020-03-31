@@ -459,8 +459,7 @@ public class CharacterFacadeImpl
 	 */
 	private void refreshKitList()
 	{
-		List<Kit> kits = new ArrayList<>();
-		kits.addAll(charDisplay.getKitInfo());
+		List<Kit> kits = new ArrayList<>(charDisplay.getKitInfo());
 		kitList.updateContents(kits);
 	}
 
@@ -477,9 +476,8 @@ public class CharacterFacadeImpl
 			}
 		}
 
-		GearBuySellScheme scheme = new GearBuySellScheme(LanguageBundle.getString("in_custom"), //$NON-NLS-1$
+		return new GearBuySellScheme(LanguageBundle.getString("in_custom"), //$NON-NLS-1$
 			new BigDecimal(buyRate), new BigDecimal(sellRate), new BigDecimal(100));
-		return scheme;
 	}
 
 	/**
@@ -541,7 +539,7 @@ public class CharacterFacadeImpl
 	private void buildAgeCategories()
 	{
 		List<String> cats = new ArrayList<>();
-		for (String aString : SettingsHandler.getGame().getBioSet().getAgeCategories())
+		for (String aString : SettingsHandler.getGameAsProperty().get().getBioSet().getAgeCategories())
 		{
 			final int idx = aString.indexOf('\t');
 
@@ -902,22 +900,17 @@ public class CharacterFacadeImpl
 		// Check with the user on their first level up
 		if (charDisplay.getTotalLevels() == 0)
 		{
-			if (SettingsHandler.getGame().isPurchaseStatMode()
+			if (SettingsHandler.getGameAsProperty().get().isPurchaseStatMode()
 				&& (theCharacter.getPointBuyPoints() > getUsedStatPool()))
 			{
-				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"), //$NON-NLS-1$
-					LanguageBundle.getString("in_sumPoolWarning")))//$NON-NLS-1$
-				{
-					return false;
-				}
+                //$NON-NLS-1$
+                return delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"), //$NON-NLS-1$
+                        LanguageBundle.getString("in_sumPoolWarning"));
 			}
 			else if (allAbilitiesAreZero())
 			{
-				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),
-					LanguageBundle.getString("in_sumAbilitiesZeroWarning")))
-				{
-					return false;
-				}
+                return delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),
+                        LanguageBundle.getString("in_sumAbilitiesZeroWarning"));
 			}
 			else
 			{
@@ -925,10 +918,7 @@ public class CharacterFacadeImpl
 					LanguageBundle.getString("in_sumAbilitiesWarning"),
 					LanguageBundle.getString("in_sumAbilitiesWarningCheckBox"), PCGenSettings.OPTIONS_CONTEXT,
 					PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP);
-				if (Boolean.FALSE.equals(proceed))
-				{
-					return false;
-				}
+                return !Boolean.FALSE.equals(proceed);
 			}
 		}
 		return true;
@@ -978,8 +968,8 @@ public class CharacterFacadeImpl
 
 	private static int getPurchaseCostForStat(final PlayerCharacter aPC, int statValue)
 	{
-		final int iMax = SettingsHandler.getGame().getPurchaseScoreMax(aPC);
-		final int iMin = SettingsHandler.getGame().getPurchaseScoreMin(aPC);
+		final int iMax = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMax(aPC);
+		final int iMin = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMin(aPC);
 
 		if (statValue > iMax)
 		{
@@ -988,7 +978,7 @@ public class CharacterFacadeImpl
 
 		if (statValue >= iMin)
 		{
-			return SettingsHandler.getGame().getAbilityScoreCost(statValue - iMin);
+			return SettingsHandler.getGameAsProperty().get().getAbilityScoreCost(statValue - iMin);
 		}
 		return 0;
 	}
@@ -1129,7 +1119,7 @@ public class CharacterFacadeImpl
 
 		// Allow selection of target for bonus affecting equipment
 		CDOMObject originObj = tempBonus.getOriginObj();
-		Equipment aEq = null;
+		Equipment aEq;
 		Object target = TempBonusHelper.getTempBonusTarget(originObj, theCharacter, delegate, infoFactory);
 		if (target == null)
 		{
@@ -1412,7 +1402,7 @@ public class CharacterFacadeImpl
 			return "*"; //$NON-NLS-1$
 		}
 
-		return SettingsHandler.getGame().getStatDisplayText(theCharacter.getTotalStatFor(stat));
+		return SettingsHandler.getGameAsProperty().get().getStatDisplayText(theCharacter.getTotalStatFor(stat));
 	}
 
 	@Override
@@ -1546,33 +1536,33 @@ public class CharacterFacadeImpl
 		else if (score < pcStat.getSafe(IntegerKey.MIN_VALUE))
 		{
 			return LanguageBundle.getFormattedString(
-				"in_sumCannotLowerStatBelow", SettingsHandler.getGame() //$NON-NLS-1$
+				"in_sumCannotLowerStatBelow", SettingsHandler.getGameAsProperty().get() //$NON-NLS-1$
 				.getStatDisplayText(pcStat.getSafe(IntegerKey.MIN_VALUE)));
 		}
 		else if (score > pcStat.getSafe(IntegerKey.MAX_VALUE))
 		{
 			return LanguageBundle.getFormattedString(
-				"in_sumCannotRaiseStatAbove", SettingsHandler.getGame() //$NON-NLS-1$
+				"in_sumCannotRaiseStatAbove", SettingsHandler.getGameAsProperty().get() //$NON-NLS-1$
 				.getStatDisplayText(pcStat.getSafe(IntegerKey.MAX_VALUE)));
 		}
-		else if ((pcPlayerLevels < 2) && SettingsHandler.getGame().isPurchaseStatMode())
+		else if ((pcPlayerLevels < 2) && SettingsHandler.getGameAsProperty().get().isPurchaseStatMode())
 		{
-			final int maxPurchaseScore = SettingsHandler.getGame().getPurchaseScoreMax(theCharacter);
+			final int maxPurchaseScore = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMax(theCharacter);
 
 			if (score > maxPurchaseScore)
 			{
 				return LanguageBundle.getFormattedString(
 					"in_sumCannotRaiseStatAbovePurchase", SettingsHandler //$NON-NLS-1$
-					.getGame().getStatDisplayText(maxPurchaseScore));
+					.getGameAsProperty().get().getStatDisplayText(maxPurchaseScore));
 			}
 
-			final int minPurchaseScore = SettingsHandler.getGame().getPurchaseScoreMin(theCharacter);
+			final int minPurchaseScore = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMin(theCharacter);
 
 			if (score < minPurchaseScore)
 			{
 				return LanguageBundle.getFormattedString(
 					"in_sumCannotLowerStatBelowPurchase", SettingsHandler //$NON-NLS-1$
-					.getGame().getStatDisplayText(minPurchaseScore));
+					.getGameAsProperty().get().getStatDisplayText(minPurchaseScore));
 			}
 		}
 
@@ -2571,7 +2561,7 @@ public class CharacterFacadeImpl
 
 		if (theCharacter.getXP() >= charDisplay.minXPForNextECL())
 		{
-			delegate.showInfoMessage(Constants.APPLICATION_NAME, SettingsHandler.getGame().getLevelUpMessage());
+			delegate.showInfoMessage(Constants.APPLICATION_NAME, SettingsHandler.getGameAsProperty().get().getLevelUpMessage());
 		}
 		updateLevelTodo();
 	}
@@ -2681,21 +2671,18 @@ public class CharacterFacadeImpl
 
 		if ((pcRace != null) && !pcRace.isUnselected())
 		{
-			if (selAgeCat != null)
-			{
-				final int idx = SettingsHandler.getGame().getBioSet().getAgeSetNamed(selAgeCat);
+            final int idx = SettingsHandler.getGameAsProperty().get().getBioSet().getAgeSetNamed(selAgeCat);
 
-				if (idx >= 0)
-				{
-					ageCategory.set(ageCat);
-					SettingsHandler.getGame().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
-					age.set(charDisplay.getAge());
-					ageCategory.set(ageCat);
-					refreshStatScores();
-					refreshLanguageList();
-				}
-			}
-		}
+            if (idx >= 0)
+            {
+                ageCategory.set(ageCat);
+                SettingsHandler.getGameAsProperty().get().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
+                age.set(charDisplay.getAge());
+                ageCategory.set(ageCat);
+                refreshStatScores();
+                refreshLanguageList();
+            }
+        }
 	}
 
 	@Override
@@ -2716,7 +2703,7 @@ public class CharacterFacadeImpl
 		int usedStatPool = getUsedStatPool();
 
 		// Handle purchase mode for stats
-		if (SettingsHandler.getGame().isPurchaseStatMode())
+		if (SettingsHandler.getGameAsProperty().get().isPurchaseStatMode())
 		{
 			// Let them dink on stats at 0th or 1st PC levels
 			if (canChangePurchasePool())
@@ -2730,14 +2717,14 @@ public class CharacterFacadeImpl
 			int availablePool = theCharacter.getPointBuyPoints();
 			if (availablePool < 0)
 			{
-				availablePool = RollingMethods.roll(SettingsHandler.getGame().getPurchaseModeMethodPoolFormula());
+				availablePool = RollingMethods.roll(SettingsHandler.getGameAsProperty().get().getPurchaseModeMethodPoolFormula());
 				theCharacter.setPointBuyPoints(availablePool);
 			}
 
 			if (availablePool != 0)
 			{
 				statTotalLabelText.set(LanguageBundle.getFormattedString("in_sumStatCost", SettingsHandler //$NON-NLS-1$
-					.getGame().getPurchaseModeMethodName()));
+					.getGameAsProperty().get().getPurchaseModeMethodName()));
 				statTotalText.set(
 					LanguageBundle.getFormattedString(
 						"in_sumStatPurchaseDisplay", bString, availablePool)); //$NON-NLS-1$
@@ -2755,13 +2742,13 @@ public class CharacterFacadeImpl
 				{
 					delegate.showInfoMessage(Constants.APPLICATION_NAME,
 						LanguageBundle.getFormattedString("in_sumYouHaveExcededTheMaximumPointsOf", //$NON-NLS-1$
-							String.valueOf(availablePool), SettingsHandler.getGame().getPurchaseModeMethodName()));
+							String.valueOf(availablePool), SettingsHandler.getGameAsProperty().get().getPurchaseModeMethodName()));
 				}
 			}
 		}
 
 		// Non-purchase mode for stats
-		if (!SettingsHandler.getGame().isPurchaseStatMode() || (theCharacter.getPointBuyPoints() == 0))
+		if (!SettingsHandler.getGameAsProperty().get().isPurchaseStatMode() || (theCharacter.getPointBuyPoints() == 0))
 		{
 			int statTotal = 0;
 			int modTotal = 0;
@@ -2786,7 +2773,7 @@ public class CharacterFacadeImpl
 			modTotalText.set(LanguageBundle.getFormattedString("in_sumModTotal", Integer.toString(modTotal)));
 		}
 
-		if (charLevelsFacade.getSize() == 0 && (allAbilitiesAreZero() || (SettingsHandler.getGame().isPurchaseStatMode()
+		if (charLevelsFacade.getSize() == 0 && (allAbilitiesAreZero() || (SettingsHandler.getGameAsProperty().get().isPurchaseStatMode()
 			&& (theCharacter.getPointBuyPoints() != getUsedStatPool()))))
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Ability Scores", "in_sumTodoStats", 50));
@@ -2886,14 +2873,14 @@ public class CharacterFacadeImpl
 		}
 		GameMode game = dataSet.getGameMode();
 		rollMethodRef.set(game.getRollMethod());
-		if (SettingsHandler.getGame().isPurchaseStatMode())
+		if (SettingsHandler.getGameAsProperty().get().isPurchaseStatMode())
 		{
-			int availablePool = RollingMethods.roll(SettingsHandler.getGame().getPurchaseModeMethodPoolFormula());
+			int availablePool = RollingMethods.roll(SettingsHandler.getGameAsProperty().get().getPurchaseModeMethodPoolFormula());
 			theCharacter.setPointBuyPoints(availablePool);
 
 			// Make sure all scores are within the valid range
 			statScoreMap.forEach((key, score) -> {
-				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter))
+				if (score.get().intValue() < SettingsHandler.getGameAsProperty().get().getPurchaseScoreMin(theCharacter))
 				{
 					setStatToPurchaseNeutral(key, score);
 				}
@@ -2914,10 +2901,10 @@ public class CharacterFacadeImpl
 	 */
 	private void setStatToPurchaseNeutral(PCStat pcStat, WriteableReferenceFacade<Number> scoreRef)
 	{
-		int newScore = SettingsHandler.getGame().getPurchaseModeBaseStatScore(theCharacter);
+		int newScore = SettingsHandler.getGameAsProperty().get().getPurchaseModeBaseStatScore(theCharacter);
 		if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, charDisplay.totalNonMonsterLevels())))
 		{
-			newScore = SettingsHandler.getGame().getPurchaseScoreMin(theCharacter);
+			newScore = SettingsHandler.getGameAsProperty().get().getPurchaseScoreMin(theCharacter);
 			if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, charDisplay.totalNonMonsterLevels())))
 			{
 				return;
@@ -3264,7 +3251,7 @@ public class CharacterFacadeImpl
 	{
 		final Equipment equip = (Equipment) equipment;
 		final SizeAdjustment newSize = theCharacter.getSizeAdjustment();
-		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip, null))
+		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip.typeList()))
 		{
 			return equipment;
 		}
@@ -3429,7 +3416,7 @@ public class CharacterFacadeImpl
 		Load load = charDisplay.getLoadType();
 		loadRef.set(CoreUtility.capitalizeFirstLetter(load.toString()));
 
-		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(load.toString());
+		Float mult = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadMultiplier(load.toString());
 		double limit = 0.0f;
 		if (mult != null)
 		{
@@ -3479,13 +3466,8 @@ public class CharacterFacadeImpl
 		}
 
 		PObject pObj = (PObject) infoFacade;
-		if (!theCharacter.isQualified(pObj))
-		{
-			return false;
-		}
-
-		return true;
-	}
+        return theCharacter.isQualified(pObj);
+    }
 
 	@Override
 	public boolean isQualifiedFor(Deity aDeity)
@@ -3507,12 +3489,8 @@ public class CharacterFacadeImpl
 
 		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
 		Domain domain = domainFI.getRawObject();
-		if (!PrereqHandler.passesAll(domainFI, theCharacter, domain) || !theCharacter.isQualified(domain))
-		{
-			return false;
-		}
-		return true;
-	}
+        return PrereqHandler.passesAll(domainFI, theCharacter, domain) && theCharacter.isQualified(domain);
+    }
 
 	@Override
 	public boolean isQualifiedFor(TempBonusFacade tempBonusFacade)
@@ -3524,12 +3502,8 @@ public class CharacterFacadeImpl
 
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 		CDOMObject originObj = tempBonus.getOriginObj();
-		if (!theCharacter.isQualified(originObj))
-		{
-			return false;
-		}
-		return true;
-	}
+        return theCharacter.isQualified(originObj);
+    }
 
 	@Override
 	public boolean isQualifiedFor(SpellFacade spellFacade, PCClass pcClass)
@@ -3545,13 +3519,9 @@ public class CharacterFacadeImpl
 		{
 			return false;
 		}
-		if (!spellFI.getCharSpell().isSpecialtySpell(theCharacter)
-			&& SpellCountCalc.isProhibited(spellFI.getSpell(), pcClass, theCharacter))
-		{
-			return false;
-		}
-		return true;
-	}
+        return spellFI.getCharSpell().isSpecialtySpell(theCharacter)
+                || !SpellCountCalc.isProhibited(spellFI.getSpell(), pcClass, theCharacter);
+    }
 
 	@Override
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipmentModifier eqMod)
@@ -4116,8 +4086,7 @@ public class CharacterFacadeImpl
 	@Override
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers)
 	{
-		List<CoreViewNodeFacade> coreDebugList = CoreUtils.buildCoreDebugList(theCharacter, pers);
-		return coreDebugList;
+		return CoreUtils.buildCoreDebugList(theCharacter, pers);
 	}
 
 	@Override
@@ -4149,11 +4118,8 @@ public class CharacterFacadeImpl
 		BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
 		if (totalCost != null)
 		{
-			if (theCharacter.getGold().compareTo(totalCost) < 0)
-			{
-				// Character cannot afford the kit
-				return false;
-			}
+            // Character cannot afford the kit
+            return theCharacter.getGold().compareTo(totalCost) >= 0;
 		}
 		return true;
 	}

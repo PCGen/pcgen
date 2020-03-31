@@ -45,7 +45,7 @@ public class NonProficiencyPenaltyFacet
 	 */
 	public int getPenalty(CharID id)
 	{
-		int npp = SettingsHandler.getGame().getNonProfPenalty();
+		int npp = SettingsHandler.getGameAsProperty().get().getNonProfPenalty();
 
 		for (PCTemplate t : templateFacet.getSet(id))
 		{

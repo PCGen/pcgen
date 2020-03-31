@@ -86,7 +86,7 @@ public class FaceToken extends AbstractExportToken
 	public static String getFaceToken(CharacterDisplay display)
 	{
 		OrderedPair face = getFace(display.getCharID());
-		String retString = "";
+		String retString;
 		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
 		{
 			retString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(face.getPreciseX().doubleValue())
@@ -111,7 +111,7 @@ public class FaceToken extends AbstractExportToken
 	public static String getShortToken(CharacterDisplay display)
 	{
 		OrderedPair face = getFace(display.getCharID());
-		String retString = "";
+		String retString;
 		boolean endsWithZero = CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0);
 		if (endsWithZero || (hasFaceControl() && equalValues(face)))
 		{
@@ -142,8 +142,8 @@ public class FaceToken extends AbstractExportToken
 	public static String getSquaresToken(CharacterDisplay display)
 	{
 		OrderedPair face = getFace(display.getCharID());
-		String retString = "";
-		double squareSize = SettingsHandler.getGame().getSquareSize();
+		String retString;
+		double squareSize = SettingsHandler.getGameAsProperty().get().getSquareSize();
 		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
 		{
 			retString = new DecimalFormat("#.#").format(face.getPreciseX().doubleValue() / squareSize);

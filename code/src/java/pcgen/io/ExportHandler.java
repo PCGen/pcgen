@@ -20,8 +20,6 @@
  */
 package pcgen.io;
 
-import static freemarker.template.Configuration.VERSION_2_3_20;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -30,7 +28,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.io.StringWriter;
-import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -42,11 +39,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -55,7 +50,6 @@ import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -82,21 +76,10 @@ import pcgen.io.exporttoken.Token;
 import pcgen.io.exporttoken.TotalToken;
 import pcgen.io.exporttoken.WeaponToken;
 import pcgen.io.exporttoken.WeaponhToken;
-import pcgen.io.freemarker.EquipSetLoopDirective;
-import pcgen.io.freemarker.LoopDirective;
-import pcgen.io.freemarker.PCBooleanFunction;
-import pcgen.io.freemarker.PCHasVarFunction;
-import pcgen.io.freemarker.PCStringDirective;
-import pcgen.io.freemarker.PCVarFunction;
-import pcgen.output.publish.OutputDB;
 import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
-
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 
@@ -108,8 +91,20 @@ import freemarker.template.TemplateException;
  * constructs that can be found in the character sheet templates. 
  *
  */
-public final class ExportHandler
+public abstract class ExportHandler
 {
+	public static ExportHandler createExportHandler(File templateFile)
+	{
+		if(templateFile != null && templateFile.getName().toLowerCase().endsWith(".ftl"))
+		{
+			return new FreeMarkerExportHandler(templateFile);
+		}
+		else
+		{
+			return new PCGenExportHandler(templateFile);
+		}
+	}
+
 	/** A constant stating that we are using JEP parsing */
 	private static final Float JEP_TRUE = 1.0f;
 
@@ -122,34 +117,25 @@ public final class ExportHandler
 	 */
 	private static boolean tokenMapPopulated;
 
-	/**
-	 * ExportEngine describes a possible templating engine to be used to 
-	 * process a character and a template to produce the character output.
-	 */
-	private enum ExportEngine
-	{
-		PCGEN, FREEMARKER
-	}
-
 	// Processing state variables
 
 	/** TODO What is this used for? */
-	private boolean existsOnly;
+	boolean existsOnly;
 
 	/** A state variable to indicate whether there are more items to process */
-	private boolean noMoreItems;
+	boolean noMoreItems;
 
 	/** A state variable to indicate whether the OS author controls whitespace */
 	private boolean manualWhitespace;
 
 	/** The template file to use for exporting (effectively the sheet to use) */
-	private File templateFile;
+	private final File templateFile;
 
 	/**
 	 * These maps hold the loop variables and parameters of FOR constructs that 
 	 * will be replaced by their actual values when evaluated.
 	 */
-	private final Map<Object, Object> loopVariables = new HashMap<>();
+	protected final Map<Object, Object> loopVariables = new HashMap<>();
 	private final Map<Object, Object> loopParameters = new HashMap<>();
 
 	/** The delimiter used by embedded DFOR/FOR loops */
@@ -169,8 +155,6 @@ public final class ExportHandler
 	/** TODO What is this used for? */
 	private boolean checkBefore;
 
-	/** The templating engine we will be using for this export. */
-	private ExportEngine exportEngine;
 
 	/**
 	 * Constructor.  Populates the token map (a list of possible output tokens) and 
@@ -178,11 +162,10 @@ public final class ExportHandler
 	 *
 	 * @param templateFile the template to use while exporting.
 	 */
-	public ExportHandler(File templateFile)
+	protected ExportHandler(File templateFile)
 	{
 		populateTokenMap();
-		setTemplateFile(templateFile);
-		decideExportEngine();
+		this.templateFile = templateFile;
 	}
 
 	/**
@@ -210,155 +193,7 @@ public final class ExportHandler
 	 * @param out the Writer to be written to
 	 * @throws ExportException If the export fails.
 	 */
-	public void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException
-	{
-		Objects.requireNonNull(templateFile);
-
-		if (exportEngine == ExportEngine.FREEMARKER)
-		{
-			FileAccess.setCurrentOutputFilter(templateFile.getName().substring(0, templateFile.getName().length() - 4));
-
-			exportCharacterUsingFreemarker(aPC, out);
-			return;
-		}
-
-		// Set an output filter based on the type of template in use.
-		FileAccess.setCurrentOutputFilter(templateFile.getName());
-
-		try(FileInputStream fis = new FileInputStream(templateFile);
-		    InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-			BufferedReader br = new BufferedReader(isr);)
-		{
-			// A Buffer to hold the result of the preparation
-			CharSequence template = prepareTemplate(br);
-
-			// Create a tokenizer based on EOL characters
-			// 03-Nov-2008 Karianna, changed to use line separator instead of /r/n
-			final StringTokenizer tokenizer = new StringTokenizer(template.toString(), Constants.LINE_SEPARATOR, false);
-
-			// Get FOR loops and IIF statements
-			final FORNode root = parseFORsAndIIFs(tokenizer);
-
-			// TODO Not sure what these lines are for
-			loopVariables.put(null, "0");
-			existsOnly = false;
-
-			// Ensure that there 'are more items to process'
-			noMoreItems = false;
-
-			// Now actually process the FOR loops in the template
-			// and then clear the loop variables
-			loopFOR(root, 0, 0, 1, out, aPC);
-			loopVariables.clear();
-		}
-		catch (IOException exc)
-		{
-			Logging.errorPrint("Error in ExportHandler::write", exc);
-		}
-	}
-
-	/**
-	 * Produce an output file for a character using a FreeMarker template.
-	 * 
-	 * @param aPC The character being output.
-	 * @param outputWriter The destination for the output.
-	 * @throws ExportException If the export fails.
-	 */
-	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, Writer outputWriter) throws ExportException
-	{
-		try
-		{
-			// Set Directory for templates
-			Configuration cfg = new Configuration(VERSION_2_3_20);
-			cfg.setDirectoryForTemplateLoading(templateFile.getParentFile());
-
-			// load template
-			Template template = cfg.getTemplate(templateFile.getName());
-
-			// Configure our custom directives and functions.
-			cfg.setSharedVariable("pcstring", new PCStringDirective(aPC, this));
-			cfg.setSharedVariable("pcvar", new PCVarFunction(aPC));
-			cfg.setSharedVariable("pcboolean", new PCBooleanFunction(aPC, this));
-			cfg.setSharedVariable("pchasvar", new PCHasVarFunction(aPC, this));
-			cfg.setSharedVariable("loop", new LoopDirective());
-			cfg.setSharedVariable("equipsetloop", new EquipSetLoopDirective(aPC));
-
-			GameMode gamemode = SettingsHandler.getGame();
-			// data-model
-			Map<String, Object> pc = OutputDB.buildDataModel(aPC.getCharID());
-			Map<String, Object> mode = OutputDB.buildModeDataModel(gamemode);
-			Map<String, Object> input = new HashMap<>();
-			input.put("pcgen", OutputDB.getGlobal());
-			input.put("pc", ExportUtilities.getObjectWrapper().wrap(pc));
-			input.put("gamemode", mode);
-			input.put("gamemodename", gamemode.getName());
-
-			// Process the template
-			template.process(input, outputWriter);
-		}
-		catch (IOException | TemplateException exc)
-		{
-			String message = "Error exporting character using template " + templateFile;
-			Logging.errorPrint(message, exc);
-			throw new ExportException(message + " : " + exc.getLocalizedMessage(), exc);
-		}
-		finally
-		{
-			if (outputWriter != null)
-			{
-				try
-				{
-					outputWriter.flush();
-				}
-				catch (Exception ignored)
-				{
-				}
-			}
-		}
-	}
-
-	/**
-	 * A helper method to prepare the template for exporting
-	 * 
-	 * Read lines from the character sheet template and store them in a buffer 
-	 * with empty lines replaced by a space character and || replaced by | |
-	 *  
-	 * @param br The BufferedReader containing the template
-	 * @throws IOException
-	 */
-	private static StringBuilder prepareTemplate(BufferedReader br) throws IOException
-	{
-		// A pattern to replace || with | | to stop StringTokenizer from merging them
-		Pattern pat = Pattern.compile(Pattern.quote("||"));
-		String rep = Matcher.quoteReplacement("| |");
-
-		// Hold the results of the preparation 
-		StringBuilder inputLine = new StringBuilder();
-
-		String aString = br.readLine();
-		while (aString != null)
-		{
-			// Karianna 29/11/2008 - No Longer replace blank lines with spaces, 
-			// doesn't seem to be needed
-
-			// If the line is blank then append a space character
-			//if (aString.length() == 0)
-			//{
-			//inputLine.append(' ');
-			//}
-			//else
-			//{
-			// Adjacent separators get merged by StringTokenizer,
-			// so we break them up here, e.g. Change || to | |
-			Matcher mat = pat.matcher(aString);
-			inputLine.append(mat.replaceAll(rep));
-			//}
-
-			inputLine.append(Constants.LINE_SEPARATOR);
-			aString = br.readLine();
-		}
-		return inputLine;
-	}
+	public abstract void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException;
 
 	/**
 	 * Exports a PlayerCharacter-Party to a Writer
@@ -375,37 +210,12 @@ public final class ExportHandler
 	}
 
 	/**
-	 * Sets the template to use for export<br>
-	 * Use this method to reset this handler, if it should be used
-	 * to export to different/multiple templates
-	 *
-	 * @param templateFile the template to use while exporting.
-	 */
-	private void setTemplateFile(File templateFile)
-	{
-		this.templateFile = templateFile;
-	}
-
-	/**
 	 * Returns the current templateFile being used
 	 * @return templateFile
 	 */
 	public File getTemplateFile()
 	{
 		return templateFile;
-	}
-
-	/**
-	 * Determine which templating engine should be used for the template file.
-	 */
-	private void decideExportEngine()
-	{
-		exportEngine = ExportEngine.PCGEN;
-
-		if (templateFile != null && templateFile.getName().toLowerCase().endsWith(".ftl"))
-		{
-			exportEngine = ExportEngine.FREEMARKER;
-		}
 	}
 
 	/**
@@ -419,28 +229,21 @@ public final class ExportHandler
 	 */
 	private int getVarValue(String varString, PlayerCharacter aPC)
 	{
-		String vString = varString;
-
 		// While COUNT[EQ tokens exist, build up a string
-		vString = processCountEquipmentTokens(vString, aPC);
+		String vString = processCountEquipmentTokens(varString, aPC);
 
 		// While STRLEN[ tokens exist, build up a string
 		vString = processStringLengthTokens(vString, aPC);
 
 		// If it is the new JEP style variable then deal with that
-		String valueString;
+		String valueString = vString;
 		if (varString.startsWith("${") && varString.endsWith("}"))
 		{
 			String jepString = varString.substring(2, varString.length() - 1);
 			valueString = jepString.replace(';', ',');
 		}
-		else
-		{
-			valueString = vString;
-		}
 
-		Float floatValue = aPC.getVariableValue(valueString, "");
-		return floatValue.intValue();
+		return aPC.getVariableValue(valueString, "").intValue();
 	}
 
 	/**
@@ -467,7 +270,7 @@ public final class ExportHandler
 					String aString = vString.substring(countIndex + 6, i);
 
 					// Either deal with an EQTYPE or a straight EQ token
-					EqToken token = null;
+					EqToken token;
 					if (aString.contains("EQTYPE"))
 					{
 						token = new EqTypeToken();
@@ -712,12 +515,11 @@ public final class ExportHandler
 			{
 				return false;
 			}
-			else if (aSkill.getSafe(ObjectKey.USE_UNTRAINED))
+			else
 			{
-				return true;
+				return aSkill.getSafe(ObjectKey.USE_UNTRAINED);
 			}
 
-			return false;
 		}
 
 		// Deal with JEP formula 
@@ -1018,8 +820,8 @@ public final class ExportHandler
 	 * @param output The writer output is to be sent to.
 	 * @param aPC The character being processed.
 	 */
-	private void loopFOR(final FORNode node, final int start, final int end, final int step,
-		final BufferedWriter output, final PlayerCharacter aPC)
+	protected void loopFOR(final FORNode node, final int start, final int end, final int step,
+						   final BufferedWriter output, final PlayerCharacter aPC)
 	{
 		for (int x = start; ((step < 0) ? x >= end : x <= end); x += step)
 		{
@@ -1146,7 +948,7 @@ public final class ExportHandler
 		boolean attackRoutine = false;
 		String attackData = "";
 
-		Float total = 0.0f;
+		float total = 0.0f;
 		for (int i = 0; i < str.length(); ++i)
 		{
 			valString += str.substring(i, i + 1);
@@ -1204,19 +1006,19 @@ public final class ExportHandler
 					}
 
 					// Set the next mode based on the mathematical sign
-					if ((!str.isEmpty()) && (str.charAt(i) == '+'))
+					if (str.charAt(i) == '+')
 					{
 						nextMode = ADDITION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '-'))
+					else if (str.charAt(i) == '-')
 					{
 						nextMode = SUBTRACTION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '*'))
+					else if (str.charAt(i) == '*')
 					{
 						nextMode = MULTIPLICATION_MODE;
 					}
-					else if ((!str.isEmpty()) && (str.charAt(i) == '/'))
+					else if (str.charAt(i) == '/')
 					{
 						nextMode = DIVISION_MODE;
 					}
@@ -1268,7 +1070,7 @@ public final class ExportHandler
 
 							if (bTok.countTokens() > 0)
 							{
-								String newAttackData = "";
+								StringBuilder newAttackData = new StringBuilder();
 								while (bTok.hasMoreTokens())
 								{
 									final String bString = bTok.nextToken();
@@ -1279,25 +1081,25 @@ public final class ExportHandler
 									{
 										case ADDITION_MODE:
 											float addf = bf + vf;
-											newAttackData += ("/+" + Integer.toString((int) addf));
+											newAttackData.append("/+").append(Integer.toString((int) addf));
 
 											break;
 
 										case SUBTRACTION_MODE:
 											float subf = bf - vf;
-											newAttackData += ("/+" + Integer.toString((int) subf));
+											newAttackData.append("/+").append(Integer.toString((int) subf));
 
 											break;
 
 										case MULTIPLICATION_MODE:
 											float multf = bf * vf;
-											newAttackData += ("/+" + Integer.toString((int) multf));
+											newAttackData.append("/+").append(Integer.toString((int) multf));
 
 											break;
 
 										case DIVISION_MODE:
 											float divf = bf / vf;
-											newAttackData += ("/+" + Integer.toString((int) divf));
+											newAttackData.append("/+").append(Integer.toString((int) divf));
 
 											break;
 
@@ -1316,22 +1118,22 @@ public final class ExportHandler
 							switch (mode)
 							{
 								case ADDITION_MODE:
-									total = (float) (total.doubleValue() + Double.parseDouble(valString));
+									total = (float) ((double) total + Double.parseDouble(valString));
 
 									break;
 
 								case SUBTRACTION_MODE:
-									total = (float) (total.doubleValue() - Double.parseDouble(valString));
+									total = (float) ((double) total - Double.parseDouble(valString));
 
 									break;
 
 								case MULTIPLICATION_MODE:
-									total = (float) (total.doubleValue() * Double.parseDouble(valString));
+									total = (float) ((double) total * Double.parseDouble(valString));
 
 									break;
 
 								case DIVISION_MODE:
-									total = (float) (total.doubleValue() / Double.parseDouble(valString));
+									total = (float) ((double) total / Double.parseDouble(valString));
 
 									break;
 
@@ -1375,17 +1177,17 @@ public final class ExportHandler
 		}
 		if (endMode == INTVAL_MODE)
 		{
-			return Integer.toString(total.intValue());
+			return Integer.toString((int) total);
 		}
 
 		if (endMode == SIGN_MODE)
 		{
-			return Delta.toString(total.intValue());
+			return Delta.toString((int) total);
 		}
 
 		if (endMode == NO_ZERO_MODE)
 		{
-			final int totalIntValue = total.intValue();
+			final int totalIntValue = (int) total;
 			if (totalIntValue == 0)
 			{
 				return "";
@@ -1394,7 +1196,7 @@ public final class ExportHandler
 			return Delta.toString(totalIntValue);
 		}
 
-		return total.toString();
+		return Float.toString(total);
 	}
 
 	/**
@@ -1446,7 +1248,7 @@ public final class ExportHandler
 		// Do nothing if something shouldn't be output.
 		if (canWrite && !nonToken.isEmpty())
 		{
-			String finalToken = null;
+			String finalToken;
 			// If we have manual white space then remove an tab characters
 			if (manualWhitespace)
 			{
@@ -1462,69 +1264,13 @@ public final class ExportHandler
 	}
 
 	/**
-	 * Parse the tokens for |FOR and |IIF sections and plain text sections 
-	 * 
-	 * @param tokens
-	 * @return a FORNode object
-	 */
-	private FORNode parseFORsAndIIFs(StringTokenizer tokens)
-	{
-		// A FORNode that will hold a 'tree' of all of the FOR and IIF sections found
-		final FORNode root = new FORNode(null, "0", "0", "1", false);
-
-		while (tokens.hasMoreTokens())
-		{
-			final String line = tokens.nextToken();
-
-			// If we detect a |FOR then add it as a child, if it has its own children 
-			// then add those as well
-			if (line.startsWith("|FOR"))
-			{
-				StringTokenizer newFor = new StringTokenizer(line, ",");
-
-				if (newFor.countTokens() > 1)
-				{
-					newFor.nextToken();
-
-					if (newFor.nextToken().startsWith("%"))
-					{
-						root.addChild(parseFORs(line, tokens));
-					}
-					else
-					{
-						root.addChild(line);
-					}
-				}
-				else
-				{
-					root.addChild(line);
-				}
-			}
-			// If |IIF( is found and there is no ',' character on that line
-			// then add it as a child
-			else if (line.startsWith("|IIF(") && (line.lastIndexOf(',') == -1))
-			{
-				String expr = line.substring(5, line.lastIndexOf(')'));
-				root.addChild(parseIIFs(expr, tokens));
-			}
-			// Else it's plain text so then just add it
-			else
-			{
-				root.addChild(line);
-			}
-		}
-
-		return root;
-	}
-
-	/**
 	 * Helper method to parse |FOR tokens (pre-processing for a template)
 	 * 
 	 * @param forLine
 	 * @param tokens
 	 * @return A FORNode of the parsed tokens
 	 */
-	private FORNode parseFORs(String forLine, StringTokenizer tokens)
+	protected FORNode parseFORs(String forLine, StringTokenizer tokens)
 	{
 		final List<String> forVars = getParameters(forLine);
 		final String var = forVars.get(1);
@@ -1627,7 +1373,7 @@ public final class ExportHandler
 	 * @param tokens
 	 * @return IIFNode representing the parsed tokens
 	 */
-	private IIFNode parseIIFs(String expr, StringTokenizer tokens)
+	protected IIFNode parseIIFs(String expr, StringTokenizer tokens)
 	{
 		final IIFNode node = new IIFNode(expr);
 
@@ -1997,7 +1743,7 @@ public final class ExportHandler
 	 * @param tokenString token to check
 	 * @return true if it is a DFOR or FOR token 
 	 */
-	boolean isForOrDForToken(String tokenString)
+	private boolean isForOrDForToken(String tokenString)
 	{
 		return tokenString.startsWith("FOR.") || tokenString.startsWith("DFOR.");
 	}
@@ -3103,7 +2849,7 @@ public final class ExportHandler
 		else
 		{
 			remainder = aString.substring(iStart);
-			int i = 0;
+			int i;
 			if (evaluateExpression(tokenizedString[0], aPC))
 			{
 				i = 1;
@@ -3188,7 +2934,7 @@ public final class ExportHandler
 			{
 				intVal = true;
 			}
-			else if ("MINVAL".equals(bString))
+			else
 			{
 				maxVal = false;
 			}
@@ -3262,7 +3008,7 @@ public final class ExportHandler
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(
 				new FileInputStream(templateFile),
 				StandardCharsets.UTF_8
-		));)
+		)))
 		{
 			boolean betweenPipes = false;
 			StringBuilder textBetweenPipes = new StringBuilder();
@@ -3572,10 +3318,10 @@ public final class ExportHandler
 	 */
 	private static final class PStringTokenizer
 	{
-		private String _andThat = "";
-		private String _delimiter = "";
-		private String _forThisString = "";
-		private String _ignoreBetweenThis = "";
+		private String _andThat;
+		private String _delimiter;
+		private String _forThisString;
+		private String _ignoreBetweenThis;
 
 		PStringTokenizer(String forThisString, String delimiter, String ignoreBetweenThis, String andThat)
 		{
@@ -3660,7 +3406,7 @@ public final class ExportHandler
 
 			cMin = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 0;
 
-			Integer max = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 100;
+			int max = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 100;
 
 			cStep = pTok.hasMoreTokens() ? Delta.decode(pTok.nextToken()) : 1;
 

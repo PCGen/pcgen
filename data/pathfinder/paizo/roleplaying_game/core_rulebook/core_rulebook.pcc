@@ -3,7 +3,6 @@ CAMPAIGN:Core Rulebook
 KEY:Core Rulebook
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:0
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
@@ -16,6 +15,7 @@ SOURCELONG:Core Rulebook
 SOURCESHORT:CR
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj
 SOURCEDATE:2009-08
+RANK:200908
 ISOGL:YES
 
 # Errata: December 4, 2012 "Monkeying Around" Article - http://paizo.com/paizo/blog/v5748dyo5le61?Monkeying-Around (Andrew Maitland)
@@ -93,6 +93,7 @@ RACE:cr_races_companion.lst
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 HIDETYPE:FEAT|WizardBonus|SkillFocus|WeaponFocus
 HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodline|DestinedBloodline|DraconicBloodline|ElementalBloodline|FeyBloodline|InfernalBloodline|UndeadBloodline
+HIDETYPE:FEAT|Applied Bonus
 HIDETYPE:EQUIP|Amulet of Mighty Fists
 
 # Hide key stat types for skills

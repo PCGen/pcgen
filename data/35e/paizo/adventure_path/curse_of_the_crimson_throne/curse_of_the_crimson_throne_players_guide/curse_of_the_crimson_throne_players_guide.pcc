@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 CAMPAIGN:Paizo - Curse of the Crimson Throne - Player's Guide
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Curse of the Crimson Throne Player's Guide
 SOURCESHORT:CCTPG
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/v5748btpy806v
 SOURCEDATE:2008-02
+RANK:200802
 ISOGL:YES
 ISLICENSED:NO
 

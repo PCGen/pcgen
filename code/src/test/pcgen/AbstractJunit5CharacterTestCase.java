@@ -217,8 +217,8 @@ public abstract class AbstractJunit5CharacterTestCase
 
 		SourceFileLoader.createLangBonusObject(context);
 
-		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
-		SettingsHandler.getGame().selectDefaultUnitSet();
+		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGameAsProperty().get());
+		SettingsHandler.getGameAsProperty().get().selectDefaultUnitSet();
 		ref.importObject(BuildUtilities.getFeatCat());
 		SourceFileLoader.processFactDefinitions(context);
 		additionalSetUp();

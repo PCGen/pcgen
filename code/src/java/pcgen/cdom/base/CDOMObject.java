@@ -18,9 +18,11 @@
 package pcgen.cdom.base;
 
 import java.net.URI;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -65,6 +67,33 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		VarContainer
 {
 
+	public static final Comparator<CDOMObject> P_OBJECT_COMP =
+			(o1, o2) -> o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
+	public static final Comparator<CDOMObject> P_OBJECT_NAME_COMP = (o1, o2) -> {
+		final Collator collator = Collator.getInstance();
+
+		// Check sort keys first
+		String key1 = o1.get(StringKey.SORT_KEY);
+		if (key1 == null)
+		{
+			key1 = o1.getDisplayName();
+		}
+		String key2 = o2.get(StringKey.SORT_KEY);
+		if (key2 == null)
+		{
+			key2 = o2.getDisplayName();
+		}
+		if (!key1.equals(key2))
+		{
+			return collator.compare(key1, key2);
+		}
+		if (!o1.getDisplayName().equals(o2.getDisplayName()))
+		{
+			return collator.compare(o1.getDisplayName(), o2.getDisplayName());
+		}
+		// Fall back to keyname if the displayname is the same
+		return collator.compare(o1.getKeyName(), o2.getKeyName());
+	};
 	/**
 	 * The source URI for this CDOMObject.
 	 */
@@ -1352,6 +1381,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	public final boolean isUnselected()
 	{
 		return getSafeListFor(ListKey.GROUP).stream()
-			.filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst().isPresent();
+			.filter("Unselected"::equalsIgnoreCase).findFirst().isPresent();
 	}
 }

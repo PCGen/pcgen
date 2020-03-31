@@ -125,7 +125,6 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		models.put(PortraitHandler.class, new PortraitHandler(character));
 		models.put(LoadAction.class, new LoadAction(character));
 		models.put(ClearAction.class, new ClearAction(character));
-		//models.put(PurchaseAction.class, new PurchaseAction(character));
 		return models;
 	}
 
@@ -134,7 +133,6 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	{
 		loadButton.setAction(models.get(LoadAction.class));
 		clearButton.setAction(models.get(ClearAction.class));
-		//purchaseButton.setAction((Action) models.get(PurchaseAction.class));
 		models.get(PortraitHandler.class).install();
 	}
 

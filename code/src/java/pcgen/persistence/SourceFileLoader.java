@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Observable;
@@ -306,7 +305,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void addCustomFilesToStartOfList()
 	{
-		CampaignSourceEntry tempSource = null;
+		CampaignSourceEntry tempSource;
 
 		// The dummy campaign for custom data.
 		Campaign customCampaign = new Campaign();
@@ -524,7 +523,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		//		// The first thing we need to do is load the
 		//		// correct statsandchecks.lst file for this gameMode
-		//		GameMode gamemode = SettingsHandler.getGame();
+		//		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		//		if (gamemode == null)
 		//		{
 		//			// Autoload campaigns is set but there
@@ -788,7 +787,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void referenceAllCategories(LoadContext context)
 	{
-		GameMode gamemode = SettingsHandler.getGame();
+		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		for (AbilityCategory cat : gamemode.getAllAbilityCategories())
 		{
 			/*
@@ -903,16 +902,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	public static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
-		aSelectedCampaignsList.sort(new Comparator<>()
-		{
-
-			@Override
-			public int compare(Campaign c1, Campaign c2)
-			{
-				return c2.getSafe(IntegerKey.CAMPAIGN_RANK) - c1.getSafe(IntegerKey.CAMPAIGN_RANK);
-			}
-
-		});
+		aSelectedCampaignsList.sort((c1, c2) -> c2.getSafe(IntegerKey.CAMPAIGN_RANK) - c1.getSafe(IntegerKey.CAMPAIGN_RANK));
 
 	}
 
@@ -992,8 +982,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 			if (campaign.getSafe(ObjectKey.IS_MATURE))
 			{
-				matureCampaigns.append(
-					SourceFormat.LONG.getField(campaign) + " (" + campaign.getSafe(StringKey.PUB_NAME_LONG) + ")<br>");
+				matureCampaigns.append(SourceFormat.LONG.getField(campaign)).append(" (").append(campaign.getSafe(StringKey.PUB_NAME_LONG)).append(")<br>");
 			}
 
 			// Load the LST files to be loaded for the campaign

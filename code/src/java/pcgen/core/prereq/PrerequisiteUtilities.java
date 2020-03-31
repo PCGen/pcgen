@@ -124,22 +124,21 @@ public final class PrerequisiteUtilities
 			{
 				final String aString = aTok.nextToken();
 
-				if (aString.equals("<"))
-				{
-					pString.append("&lt;");
-				}
-				else if (aString.equals(">"))
-				{
-					pString.append("&gt;");
-				}
-				else if (aString.equals("&"))
-				{
-					pString.append("&amp;");
-				}
-				else
-				{
-					pString.append(aString);
-				}
+                switch (aString)
+                {
+                    case "<":
+                        pString.append("&lt;");
+                        break;
+                    case ">":
+                        pString.append("&gt;");
+                        break;
+                    case "&":
+                        pString.append("&amp;");
+                        break;
+                    default:
+                        pString.append(aString);
+                        break;
+                }
 			}
 
 			if (!passes)
@@ -166,8 +165,7 @@ public final class PrerequisiteUtilities
 			}
 		}
 
-		String result = pString.toString().replaceAll("##BR##", "<br>");
-		return result;
+        return pString.toString().replaceAll("##BR##", "<br>");
 	}
 
 	/**
@@ -442,7 +440,7 @@ public final class PrerequisiteUtilities
 		final Set<Ability> abilityList = Collections.newSetFromMap(new IdentityHashMap<>());
 		if (character != null)
 		{
-			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(categoryName);
+			AbilityCategory cat = SettingsHandler.getGameAsProperty().get().getAbilityCategory(categoryName);
 			if (cat == null)
 			{
 				Logging.errorPrint("Invalid category " + categoryName + " in PREABILITY");
@@ -457,7 +455,7 @@ public final class PrerequisiteUtilities
 				abilityList.add(cna.getAbility());
 			}
 
-			Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
+			Collection<AbilityCategory> allCats = SettingsHandler.getGameAsProperty().get().getAllAbilityCategories();
 			// Now scan for relevant SERVESAS occurrences
 			for (AbilityCategory aCat : allCats)
 			{

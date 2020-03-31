@@ -113,8 +113,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.htmlPane = new JFXPanelFromResource<>(
 				SimpleHtmlPanelController.class,
 				"SimpleHtmlPanel.fxml"
-		);;
-		this.skillFilterBox = new JComboBox<>();
+		);
+        this.skillFilterBox = new JComboBox<>();
 		initComponents();
 	}
 
@@ -406,21 +406,14 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		};
 
-		private final Filter<CharacterFacade, Skill> gainedFilter = new Filter<>()
-		{
-
-			@Override
-			public boolean accept(CharacterFacade context, Skill element)
-			{
-				if (context == null)
-				{
-					return false;
-				}
-				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
-				return levels.getSkillRanks(null, element) > 0.0f;
-			}
-
-		};
+		private final Filter<CharacterFacade, Skill> gainedFilter = (context, element) -> {
+            if (context == null)
+            {
+                return false;
+            }
+            CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
+            return levels.getSkillRanks(null, element) > 0.0f;
+        };
 		private final ListSelectionModel model;
 		private final CharacterFacade character;
 		private boolean installed = false;

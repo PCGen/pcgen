@@ -1,7 +1,6 @@
 CAMPAIGN:Cohorts and Companions
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -14,6 +13,7 @@ SOURCELONG:Cohorts and Companions
 SOURCESHORT:CAC
 SOURCEWEB:http://paizo.com/products/btpy9e1c
 SOURCEDATE:2015-06
+RANK:201506
 ISOGL:YES
 
 COVER:cohorts_and_companions.jpg

@@ -567,13 +567,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			ageSetKitSelections[i] = false;
 		}
-		GlobalModifiers gm =
+		GlobalModifiers gameMode =
 				refContext.constructNowIfNecessary(GlobalModifiers.class, GlobalModifierLoader.GLOBAL_MODIFIERS);
 		GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
-		globalModifierFacet.set(id, gm);
+		globalModifierFacet.set(id, gameMode);
 
 		//Do BioSet first, since required by Race
-		bioSetFacet.set(id, SettingsHandler.getGame().getBioSet());
+		bioSetFacet.set(id, SettingsHandler.getGameAsProperty().get().getBioSet());
 		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
 		setRace(RaceUtilities.getUnselectedRace());
 
@@ -582,13 +582,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		campaignFacet.addAll(id, loadedCampaigns);
 
 		setGold(BigDecimal.ZERO);
-		setXPTable(SettingsHandler.getGame().getDefaultXPTableName());
-		setCharacterType(SettingsHandler.getGame().getDefaultCharacterType());
-		setPreviewSheet(SettingsHandler.getGame().getDefaultPreviewSheet());
+		setXPTable(SettingsHandler.getGameAsProperty().get().getDefaultXPTableName());
+		setCharacterType(SettingsHandler.getGameAsProperty().get().getDefaultCharacterType());
+		setPreviewSheet(SettingsHandler.getGameAsProperty().get().getDefaultPreviewSheet());
 
 		setName(Constants.EMPTY_STRING);
 		setUserPoolBonus(AbilityCategory.FEAT, BigDecimal.ZERO);
-		rollStats(SettingsHandler.getGame().getRollMethod());
+		rollStats(SettingsHandler.getGameAsProperty().get().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
 	}
@@ -2307,7 +2307,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public final void setXPTable(final String xpTableName)
 	{
-		if (xpTableFacet.set(id, SettingsHandler.getGame().getLevelInfo(xpTableName)))
+		if (xpTableFacet.set(id, SettingsHandler.getGameAsProperty().get().getLevelInfo(xpTableName)))
 		{
 			setDirty(true);
 		}
@@ -2667,7 +2667,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// add to all other classes
 			if (c < ab.size())
 			{
-				final int d = ab.get(c).intValue() + b;
+				final int d = ab.get(c) + b;
 
 				// set new value for iteration
 				ab.set(c, d);
@@ -2683,8 +2683,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// and find the one with the highest attack value
 		for (int i = 2; i < 10; ++i)
 		{
-			final int newAttack = ab.get(i).intValue();
-			final int oldAttack = ab.get(attackCycle).intValue();
+			final int newAttack = ab.get(i);
+			final int oldAttack = ab.get(attackCycle);
 
 			if ((newAttack / i) > (oldAttack / attackCycle))
 			{
@@ -2692,10 +2692,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 		// total Number of Attacks for this PC
-		int attackTotal = ab.get(attackCycle).intValue();
+		int attackTotal = ab.get(attackCycle);
 
 		// Default cut-off before multiple attacks (e.g. 5)
-		final int defaultAttackCycle = SettingsHandler.getGame().getBabAttCyc();
+		final int defaultAttackCycle = SettingsHandler.getGameAsProperty().get().getBabAttCyc();
 
 		if (attackTotal == 0)
 		{
@@ -2721,8 +2721,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		int maxAttacks = SettingsHandler.getGame().getBabMaxAtt();
-		final int minMultiBab = SettingsHandler.getGame().getBabMinVal();
+		int maxAttacks = SettingsHandler.getGameAsProperty().get().getBabMaxAtt();
+		final int minMultiBab = SettingsHandler.getGameAsProperty().get().getBabMinVal();
 
 		// If there is a bonus to BAB, it needs to be added to ALL of
 		// the variables used to determine the number of attacks
@@ -3392,8 +3392,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public int getOffHandLightBonus()
 	{
-		final int div = getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
-		return div;
+		return getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
 	}
 
 	public boolean isProficientWith(final Equipment eq)
@@ -3641,8 +3640,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		String aRange = aSpell.getSpell().getListAsString(ListKey.RANGE);
 		String aSpellClass = aSpell.getVariableSource(this);
-		int rangeInFeet = 0;
-		String aString = SettingsHandler.getGame().getSpellRangeFormula(aRange.toUpperCase());
+		int rangeInFeet;
+		String aString = SettingsHandler.getGameAsProperty().get().getSpellRangeFormula(aRange.toUpperCase());
 
 		if (aRange.equalsIgnoreCase("CLOSE") && (aString == null))
 		{
@@ -3848,8 +3847,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	private Float getVariableValue(final CharacterSpell aSpell, String aString, String src)
 	{
-		VariableProcessor vp = variableProcessor;
-		return vp.getVariableValue(aSpell, aString, src, spellLevelTemp);
+		return variableProcessor.getVariableValue(aSpell, aString, src, spellLevelTemp);
 	}
 
 	/**
@@ -3868,7 +3866,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return getVariableValue(acs.getFixedCasterLevel(), Constants.EMPTY_STRING).intValue();
 		}
 
-		int tBonus = casterLev;
+		int tBonus;
 		boolean replaceCasterLevel = false;
 
 		String tType;
@@ -3904,7 +3902,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (aSpell == null)
 		{
-			return tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses);
+			return tallyCasterlevelBonuses(casterLev, false, bonuses);
 		}
 
 		if (!spellType.equals(Constants.NONE))
@@ -4076,9 +4074,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		int result = tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses);
-
-		return (result);
+		return (tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses));
 	}
 
 	private static int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
@@ -5540,7 +5536,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int bonus = 0;
 		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			bonus += eq.getACMod(this).intValue();
+			bonus += eq.getACMod(this);
 		}
 		return bonus;
 	}
@@ -5682,7 +5678,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			String replacement = "0";
 
 			final Float fVal = getVariableValue(aSpell, inCalc, aSpellClass);
-			if (!CoreUtility.doublesEqual(fVal.floatValue(), 0.0f) || (inCalc.contains("MIN"))
+			if (!CoreUtility.doublesEqual(fVal, 0.0f) || (inCalc.contains("MIN"))
 				|| (inCalc.contains("MAX")) || inCalc.toUpperCase().contains("MIN(")
 				|| inCalc.toUpperCase().contains("MAX("))
 			{
@@ -6170,7 +6166,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// Feats and abilities (virtual feats, auto feats)
-		for (AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
+		for (AbilityCategory cat : SettingsHandler.getGameAsProperty().get().getAllAbilityCategories())
 		{
 			list.addAll(getAggregateAbilityListNoDuplicates(cat));
 		}
@@ -6259,7 +6255,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, this);
 				knownSpec = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, this);
-				knownTot = knownNon + knownSpec; // TODO: : value never used
 			}
 			else
 			{
@@ -6336,7 +6331,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, this);
 				knownSpec = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, this);
-				knownTot = knownNon + knownSpec; // for completeness
 			}
 			else
 			{
@@ -6618,13 +6612,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		switch (filter)
 		{
 			case Ranks:
-				return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0);
+				return (SkillRankControl.getTotalRank(this, skill) > 0);
 			case NonDefault:
-				return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0
+				return (SkillRankControl.getTotalRank(this, skill) > 0
 					|| SkillModifier.modifier(skill, this) != SkillModifier.getStatMod(skill, this)
 						+ getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
 			case Usable:
-				return qualifySkill(skill) && (SkillRankControl.getTotalRank(this, skill).floatValue() > 0
+				return qualifySkill(skill) && (SkillRankControl.getTotalRank(this, skill) > 0
 					|| skill.getSafe(ObjectKey.USE_UNTRAINED));
 			default:
 				return qualifySkill(skill);
@@ -6812,11 +6806,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public final void rollStats(final int method)
 	{
 		int aMethod = method;
-		if (SettingsHandler.getGame().isPurchaseStatMode())
+		if (SettingsHandler.getGameAsProperty().get().isPurchaseStatMode())
 		{
 			aMethod = Constants.CHARACTER_STAT_METHOD_PURCHASE;
 		}
-		rollStats(aMethod, statFacet.getSet(id), SettingsHandler.getGame().getCurrentRollingMethod(), false);
+		rollStats(aMethod, statFacet.getSet(id), SettingsHandler.getGameAsProperty().get().getCurrentRollingMethod(), false);
 	}
 
 	public void rollStats(final int method, final Collection<PCStat> aStatList, final RollMethod rollMethod,
@@ -6829,10 +6823,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			switch (method)
 			{
 				case Constants.CHARACTER_STAT_METHOD_PURCHASE:
-					rolls[i] = SettingsHandler.getGame().getPurchaseModeBaseStatScore(this);
+					rolls[i] = SettingsHandler.getGameAsProperty().get().getPurchaseModeBaseStatScore(this);
 					break;
 				case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME:
-					rolls[i] = SettingsHandler.getGame().getAllStatsValue();
+					rolls[i] = SettingsHandler.getGameAsProperty().get().getAllStatsValue();
 					break;
 
 				case Constants.CHARACTER_STAT_METHOD_ROLLED:
@@ -7094,7 +7088,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	@Override
 	public PlayerCharacter clone()
 	{
-		PlayerCharacter aClone = null;
+		PlayerCharacter aClone;
 
 		// calling super.clone won't work because it will not create
 		// new data instances for all the final variables and I won't
@@ -7248,7 +7242,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		List<EquipSlot> eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
 
-		if ((eqSlotList == null) || eqSlotList.isEmpty())
+		if (eqSlotList.isEmpty())
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -7524,7 +7518,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		float tempQty = 1.0f;
 		if (newQty != null)
 		{
-			tempQty = newQty.floatValue();
+			tempQty = newQty;
 		}
 		else
 		{
@@ -7538,16 +7532,16 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			return null;
 		}
-		float diffQty = masterEq.getQty().floatValue() - getEquippedQty(eSet, eqI).floatValue();
+		float diffQty = masterEq.getQty() - getEquippedQty(eSet, eqI);
 
 		// if newQty is less than zero, we want to
 		// add all of this item to the EquipSet
 		// or all remaining items that havn't already
 		// been added to the EquipSet
-		if (newQty.floatValue() < 0.0f)
+		if (newQty < 0.0f)
 		{
 			tempQty = diffQty;
-			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
+			newQty = tempQty + getEquippedQty(eSet, eqI);
 			addAll = true;
 		}
 
@@ -7622,7 +7616,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			eqI.setNumberCarried(newQty);
 			setDirty(true);
 
-			if ((eqTarget != null) && eqTarget.isContainer())
+			if (eqTarget.isContainer())
 			{
 				eqTarget.updateContainerContentsString(this);
 			}
@@ -7948,8 +7942,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.VIRTUAL));
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.AUTOMATIC));
 
-		List<Ability> aggregate = new ArrayList<>(aHashMap.values());
-		return aggregate;
+		return new ArrayList<>(aHashMap.values());
 	}
 
 	/**
@@ -7973,8 +7966,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			if (list instanceof AbilityList)
 			{
-				CDOMReference r = ref;
-				processAbilityList(cdo, r);
+				processAbilityList(cdo, (CDOMReference) ref);
 				break; // Only do once
 			}
 		}
@@ -7985,7 +7977,16 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		Collection<CDOMReference<Ability>> mods = cdo.getListMods(ref);
 		for (CDOMReference<Ability> objref : mods)
 		{
-			Collection<Ability> objs = objref.getContainedObjects();
+			Collection<Ability> objs = null;
+			try 
+			{
+				objs = objref.getContainedObjects();
+			} catch (Exception e) 
+			{
+				Logging.log(Logging.LST_ERROR, "Missing object referenced in the ability list for '" + cdo
+						+ "' list is " + ref + ". Source " + cdo.getSourceURI());
+				continue;
+			}
 			Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(ref, objref);
 			for (Ability ab : objs)
 			{
@@ -8063,7 +8064,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (CDOMObject po : getCDOMObjectList())
 		{
 			List<CharacterSpell> csl = getCharacterSpells(po, spell, spellbookname, -1);
-			if (csl != null && !csl.isEmpty())
+			if (!csl.isEmpty())
 			{
 				return true;
 			}
@@ -8271,10 +8272,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Check for a non stat, but only if it hasn't been reset to a stat
 		if (!nonStatToStatFacet.contains(id, stat))
 		{
-			if (nonStatStatFacet.contains(id, stat))
-			{
-				return true;
-			}
+            return nonStatStatFacet.contains(id, stat);
 		}
 		return false;
 	}
@@ -8430,8 +8428,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int getDC(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		CDOMObject ow = null;
-		int spellLevel = 0;
+		CDOMObject ow;
+		int spellLevel;
 		int metaDC = 0;
 
 		spellLevel = si.getActualLevel();
@@ -8510,7 +8508,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		spellLevelTemp = spellLevel;
 
 		// must be done after spellLevel is set above
-		int dc = getVariableValue(SettingsHandler.getGame().getSpellBaseDC(), classKey).intValue() + metaDC;
+		int dc = getVariableValue(SettingsHandler.getGameAsProperty().get().getSpellBaseDC(), classKey).intValue() + metaDC;
 		dc += (int) getTotalBonusTo("DC", "ALLSPELLS");
 
 		if (useStatFromSpell)
@@ -8580,8 +8578,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int getConcentration(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		CDOMObject ow = null;
-		int spellLevel = 0;
+		CDOMObject ow;
+		int spellLevel;
 		int metaConcentration = 0;
 
 		spellLevel = si.getActualLevel();
@@ -8645,7 +8643,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		// must be done after spellLevel is set above
 		int concentration =
-				getVariableValue(aSpell, SettingsHandler.getGame().getSpellBaseConcentration(), classKey).intValue()
+				getVariableValue(aSpell, SettingsHandler.getGameAsProperty().get().getSpellBaseConcentration(), classKey).intValue()
 					+ metaConcentration;
 		concentration += (int) getTotalBonusTo("CONCENTRATION", "ALLSPELLS");
 
@@ -9205,11 +9203,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		List<BonusContainer> list = new ArrayList<>(getCDOMObjectList());
 		list.add(ageSetFacet.get(id));
-		GameMode gm = SettingsHandler.getGame();
-		if (gm.isPurchaseStatMode())
+		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
+		if (gameMode.isPurchaseStatMode())
 		{
-			PointBuyMethod pbm = gm.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, gm.getPurchaseModeMethodName());
+			PointBuyMethod pbm = gameMode.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, gameMode.getPurchaseModeMethodName());
 			list.add(pbm);
 		}
 		return list;
@@ -9526,7 +9524,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (characterLevel == 1)
 		{
-			if (!SettingsHandler.getGame().isPurchaseStatMode())
+			if (!SettingsHandler.getGameAsProperty().get().isPurchaseStatMode())
 			{
 				poolAmount = 0;
 			}
@@ -9854,8 +9852,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public Collection<CNAbility> getCNAbilities()
 	{
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
 	}
 
 	public Collection<CNAbility> getCNAbilities(Category<Ability> cat, Nature n)
@@ -9864,8 +9861,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			throw new IllegalArgumentException("Category for getCNAbilities must be parent category");
 		}
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
 	}
 
 	public List<?> getDetailedAssociations(ChooseDriver cd)
@@ -9876,8 +9872,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public List<CNAbility> getMatchingCNAbilities(Ability ability)
 	{
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
 	}
 
 	public List<CNAbility> getCNAbilities(Category<Ability> cat)
@@ -9886,20 +9881,17 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			throw new IllegalArgumentException("Category for getCNAbilities must be parent category, was: " + cat);
 		}
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
 	}
 
 	public List<CNAbility> getPoolAbilities(Category<Ability> cat)
 	{
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
 	}
 
 	public Collection<CNAbility> getPoolAbilities(Category<Ability> cat, Nature n)
 	{
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
 	}
 
 	public Collection<CNAbilitySelection> getSaveAbilities()

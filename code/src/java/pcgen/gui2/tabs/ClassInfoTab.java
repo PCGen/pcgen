@@ -44,8 +44,6 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
@@ -175,16 +173,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private void initListeners()
 	{
-		spinner.addChangeListener(new ChangeListener()
-		{
-
-			@Override
-			public void stateChanged(ChangeEvent e)
-			{
-				spinnerValue = (Integer) spinner.getValue();
-			}
-
-		});
+		spinner.addChangeListener(e -> spinnerValue = (Integer) spinner.getValue());
 		spinnerValue = (Integer) spinner.getValue();
 		classTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		availableTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -594,17 +583,17 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private String getTypes(PCClass obj)
 		{
-			String ret = ""; //$NON-NLS-1$
+			StringBuilder ret = new StringBuilder(); //$NON-NLS-1$
 			String[] types = obj.getTypes();
 			if (types != null && types.length > 0)
 			{
-				ret += types[0];
+				ret.append(types[0]);
 				for (int x = 1; x < types.length; x++)
 				{
-					ret += ", " + types[x]; //$NON-NLS-1$
+					ret.append(", ").append(types[x]); //$NON-NLS-1$
 				}
 			}
-			return ret;
+			return ret.toString();
 		}
 
 		@Override

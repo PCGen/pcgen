@@ -688,13 +688,13 @@ public class JTreeTable extends JTableEx
 
 					int count = 0;
 
-					for (int i = 0; i < sRows.length; i++)
-					{
-						if (tree.getPathForRow(sRows[i]) != null)
-						{
-							count++;
-						}
-					}
+                    for (int row : sRows)
+                    {
+                        if (tree.getPathForRow(row) != null)
+                        {
+                            count++;
+                        }
+                    }
 
 					if (count == 0)
 					{
@@ -704,15 +704,15 @@ public class JTreeTable extends JTableEx
 					TreePath[] tps = new TreePath[count];
 					count = 0;
 
-					for (int i = 0; i < sRows.length; i++)
-					{
-						TreePath tp = tree.getPathForRow(sRows[i]);
+                    for (int sRow : sRows)
+                    {
+                        TreePath tp = tree.getPathForRow(sRow);
 
-						if (tp != null)
-						{
-							tps[count++] = tp;
-						}
-					}
+                        if (tp != null)
+                        {
+                            tps[count++] = tp;
+                        }
+                    }
 
 					// don't ned a clear as we are
 					// using setSelectionPaths()

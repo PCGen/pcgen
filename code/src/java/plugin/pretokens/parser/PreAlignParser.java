@@ -61,7 +61,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements Prereq
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		String[] alignments = formula.split(",");
 
-		final GameMode gm = SettingsHandler.getGame();
+		final GameMode gm = SettingsHandler.getGameAsProperty().get();
 		if (gm == null)
 		{
 			prereq.setKey("");

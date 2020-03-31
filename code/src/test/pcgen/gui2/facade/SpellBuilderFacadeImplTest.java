@@ -82,7 +82,7 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 		
 		fighterCls = TestHelper.makeClass("Fighter");
 		
-		dataset = new MockDataSetFacade(SettingsHandler.getGame());
+		dataset = new MockDataSetFacade(SettingsHandler.getGameAsProperty().get());
 		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
 		dataset.addClass(wizardCls);
 		dataset.addClass(divineCls);

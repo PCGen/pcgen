@@ -103,48 +103,34 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	 */
 	private void addMasterListeners(ReferenceFacade<String> nameRef, ReferenceFacade<File> fileRef)
 	{
-		nameRef.addReferenceListener(new ReferenceListener<>()
-		{
+		nameRef.addReferenceListener(e -> {
+            String newName = e.getNewReference();
+            for (CompanionFacadeDelegate delegate : companionList)
+            {
+                CharacterFacade companion = CharacterManager.getCharacterMatching(delegate);
+                if (companion != null)
+                {
+                    CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
+                    Follower follower = compFacadeImpl.getTheCharacter().getDisplay().getMaster();
+                    follower.setName(newName);
+                }
+            }
 
-			@Override
-			public void referenceChanged(ReferenceEvent<String> e)
-			{
-				String newName = e.getNewReference();
-				for (CompanionFacadeDelegate delegate : companionList)
-				{
-					CharacterFacade companion = CharacterManager.getCharacterMatching(delegate);
-					if (companion != null)
-					{
-						CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
-						Follower follower = compFacadeImpl.getTheCharacter().getDisplay().getMaster();
-						follower.setName(newName);
-					}
-				}
+        });
+		fileRef.addReferenceListener(e -> {
+            File newFile = e.getNewReference();
+            for (CompanionFacadeDelegate delegate : companionList)
+            {
+                CharacterFacade companion = CharacterManager.getCharacterMatching(delegate);
+                if (companion != null)
+                {
+                    CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
+                    Follower follower = compFacadeImpl.getTheCharacter().getDisplay().getMaster();
+                    follower.setFileName(newFile.getAbsolutePath());
+                }
+            }
 
-			}
-
-		});
-		fileRef.addReferenceListener(new ReferenceListener<>()
-		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<File> e)
-			{
-				File newFile = e.getNewReference();
-				for (CompanionFacadeDelegate delegate : companionList)
-				{
-					CharacterFacade companion = CharacterManager.getCharacterMatching(delegate);
-					if (companion != null)
-					{
-						CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
-						Follower follower = compFacadeImpl.getTheCharacter().getDisplay().getMaster();
-						follower.setFileName(newFile.getAbsolutePath());
-					}
-				}
-
-			}
-
-		});
+        });
 	}
 
 	/**
@@ -478,7 +464,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	 * The Class {@code DelegateFileListener} tracks the file name of a companion and
 	 * keeps the associated Follower record up to date.
 	 */
-	private class DelegateFileListener implements ReferenceListener<File>
+	private static class DelegateFileListener implements ReferenceListener<File>
 	{
 		private final Follower follower;
 
@@ -498,7 +484,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	 * The Class {@code DelegateNameListener} tracks the name of a companion and
 	 * keeps the associated Follower record up to date.
 	 */
-	private class DelegateNameListener implements ReferenceListener<String>
+	private static class DelegateNameListener implements ReferenceListener<String>
 	{
 		private final Follower follower;
 

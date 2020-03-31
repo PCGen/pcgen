@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Oct 13 08:56:53 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 CAMPAIGN:AEG - Feats Source Book - 35e Conversion
 GAMEMODE:35e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -15,6 +14,7 @@ SOURCELONG:Alderac Entertainment Group (AEG) - Feats
 SOURCESHORT:Feats
 SOURCEWEB:http://alderac.com/d20
 SOURCEDATE:2003-07
+RANK:200307
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document (draft version) Copyright 1999, 2000 Wizards of the Coast, Inc. Authors Jonathan Tweet, Monty Cook, Skip Williams,  based on original material by E. Gary Gygax and Dave Arneson.

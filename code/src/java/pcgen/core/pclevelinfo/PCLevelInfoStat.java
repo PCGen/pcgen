@@ -27,7 +27,7 @@ import pcgen.core.PCStat;
 public final class PCLevelInfoStat implements Serializable
 {
 	private final PCStat stat;
-	private int mod = 0;
+	private int mod;
 
 	PCLevelInfoStat(final PCStat pcstat, final int argMod)
 	{

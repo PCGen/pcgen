@@ -32,6 +32,7 @@ import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui3.GuiUtility;
 
+import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
@@ -67,12 +68,14 @@ public class JDynamicTable extends JTableEx
 
 	};
 	private final Button cornerButton;
+	private final JFXPanel wrappedCornerButton;
 	private DynamicTableColumnModel dynamicColumnModel = null;
 	private final ContextMenu menu = new ContextMenu();
 
 	public JDynamicTable()
 	{
 		this.cornerButton = new JTableMenuButton(menu);
+		this.wrappedCornerButton = GuiUtility.wrapParentAsJFXPanel(cornerButton);
 	}
 
 	@Override
@@ -97,7 +100,7 @@ public class JDynamicTable extends JTableEx
 				scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 				scrollPane.setCorner(
 						ScrollPaneConstants.UPPER_TRAILING_CORNER,
-						GuiUtility.wrapParentAsJFXPanel(cornerButton));
+						wrappedCornerButton);
 			}
 		}
 	}

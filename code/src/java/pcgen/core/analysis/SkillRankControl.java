@@ -195,11 +195,8 @@ public final class SkillRankControl
 
 		if (!ignorePrereqs)
 		{
-			if (aClass != null)
-			{
-				aPC.setSkillPool(aClass, aClass.getSkillPool(aPC) - (int) (i * rankMod));
-			}
-		}
+            aPC.setSkillPool(aClass, aClass.getSkillPool(aPC) - (int) (i * rankMod));
+        }
 
 		return "";
 	}
@@ -243,8 +240,7 @@ public final class SkillRankControl
 					int maxLanguages = getTotalRank(aPC, sk).intValue();
 					if (selectedLanguages > maxLanguages)
 					{
-						newRank = curRank;
-					}
+                    }
 				}
 			}
 		}

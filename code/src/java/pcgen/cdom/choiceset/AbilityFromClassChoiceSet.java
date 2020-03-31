@@ -135,28 +135,22 @@ public class AbilityFromClassChoiceSet implements PrimitiveChoiceSet<CNAbilitySe
 		{
 			//TODO This is a bug -> it was not properly gathering before
 			List<Ability> abilityList = Collections.emptyList();
-			if (abilityList != null)
-			{
-				for (Ability aFeat : abilityList)
-				{
-					set.add(new CNAbilitySelection(
-						CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
-				}
-			}
-			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
+            for (Ability aFeat : abilityList)
+            {
+                set.add(new CNAbilitySelection(
+                    CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
+            }
+            for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
 			{
 				PCClassLevel pcl = pc.getActiveClassLevel(aClass, lvl);
 				//TODO This is a bug -> it was not properly gathering before
 				abilityList = Collections.emptyList();
-				if (abilityList != null)
-				{
-					for (Ability aFeat : abilityList)
-					{
-						set.add(new CNAbilitySelection(
-							CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
-					}
-				}
-			}
+                for (Ability aFeat : abilityList)
+                {
+                    set.add(new CNAbilitySelection(
+                        CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
+                }
+            }
 		}
 		return set;
 	}

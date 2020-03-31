@@ -9,18 +9,18 @@ SOURCELONG:Pathfinder Player Companion: Dirty Tactics Toolbox	SOURCESHORT:DTT	SO
 # ==============================
 
 # Modifier Name												Unique Key										Type					Plus		Visible		Source Page		Multiple Requirements							Required Type											Special Property
-Adamant													KEY:Special Ability ~ Adamant ~ Armor					TYPE:Armor				PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:3,Enhancement,Armor,Heavy								SPROP:Once per day grants DR 3/- for 9 rounds as a swift action.
-Ghost Spike													KEY:Special Ability ~ Ghost Spike ~ Armor					TYPE:Armor				PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:2,Enhancement,Armor									SPROP:Once per day as a standard action, grows +1 ghost touch armor spikes for 10 rounds.
-Spellsink													KEY:Special Ability ~ Spellsink ~ Armor					TYPE:Armor.Shield			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]														SPROP:Once per day can absorb targeted spell if caster fails DC 14 Will save.
+Adamant													KEY:Special Ability ~ Adamant ~ Armor					TYPE:Armor				PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:3,ArmorEnhancement,Armor,Heavy								SPROP:Once per day grants DR 3/- for 9 rounds as a swift action.
+Ghost Spike													KEY:Special Ability ~ Ghost Spike ~ Armor					TYPE:Armor				PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:2,ArmorEnhancement,Armor									SPROP:Once per day as a standard action, grows +1 ghost touch armor spikes for 10 rounds.
+Spellsink													KEY:Special Ability ~ Spellsink ~ Armor					TYPE:Armor.Shield			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24	PREMULT:2,[PRETYPE:1,ArmorEnhancement,ShieldEnhancement],[PRETYPE:1,Armor,Shield]														SPROP:Once per day can absorb targeted spell if caster fails DC 14 Will save.
 
 # ==============================
 # New Weapon Special Abilities
 # ==============================
 
-Bewildering													KEY:Special Ability ~ Bewildering ~ Weapon				TYPE:Weapon.Ammunition		PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:2,Enhancement,Weapon									SPROP:3/day struck enemy confused 1d6 rounds, Will 17 to end effect.
-Dazzling Radiance												KEY:Special Ability ~ Dazzling Radiance ~ Melee				TYPE:Weapon.Melee			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:3,Enhancement,Weapon,Melee								SPROP:When used with the Dazzling Display feat, creatures within 15 feet are blinded for 2 rounds, dazzled for an additional 1d4 rounds; Fort DC 17 to avoid blindness.
-Gory														KEY:Special Ability ~ Gory ~ Melee						TYPE:Weapon.Melee			PLUS:3	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Deals 1d2 points stackable of bleed damage, Intimidate to demoralize as immediate action with bonus equal to character level.
-Sapping													KEY:Special Ability ~ Sapping ~ Weapon					TYPE:Weapon.Ammunition		PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:2,Enhancement,Weapon	PRETYPE:1,EQMOD=Special Quality ~ Nonlethal	SPROP:Deals an additional 2d6 of nonlethal damage, target becomes fatigued for 5 rounds on a confirmed critical hit.
+Bewildering													KEY:Special Ability ~ Bewildering ~ Weapon				TYPE:Weapon.Ammunition		PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:2,WeaponEnhancement,Weapon									SPROP:3/day struck enemy confused 1d6 rounds, Will 17 to end effect.
+Dazzling Radiance												KEY:Special Ability ~ Dazzling Radiance ~ Melee				TYPE:Weapon.Melee			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:3,WeaponEnhancement,Weapon,Melee								SPROP:When used with the Dazzling Display feat, creatures within 15 feet are blinded for 2 rounds, dazzled for an additional 1d4 rounds; Fort DC 17 to avoid blindness.
+Gory														KEY:Special Ability ~ Gory ~ Melee						TYPE:Weapon.Melee			PLUS:3	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:3,WeaponEnhancement,Weapon,Melee								SPROP:Deals 1d2 points stackable of bleed damage, Intimidate to demoralize as immediate action with bonus equal to character level.
+Sapping													KEY:Special Ability ~ Sapping ~ Weapon					TYPE:Weapon.Ammunition		PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:2,WeaponEnhancement,Weapon	PRETYPE:1,EQMOD=Special Quality ~ Nonlethal	SPROP:Deals an additional 2d6 of nonlethal damage, target becomes fatigued for 5 rounds on a confirmed critical hit.
 
 # ==============================
 # Amulet of Mighty Fists Support

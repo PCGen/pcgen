@@ -2,7 +2,6 @@
 CAMPAIGN:Knights of the Inner Sea
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Player Companion: Knights of the Inner Sea
 SOURCESHORT:KOTIS
 SOURCEWEB:http://paizo.com/products/btpy8ufc
 SOURCEDATE:2012-09
+RANK:201209
 ISOGL:YES
 
 COVER:knights_of_the_inner_sea.jpg

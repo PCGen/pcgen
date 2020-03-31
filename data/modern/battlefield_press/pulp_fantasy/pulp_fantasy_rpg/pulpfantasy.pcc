@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri May  5 04:52:44 2006 -- reformated by prettylst.pl v1.35 (build 561)
 CAMPAIGN:Pulp Fantasy Roleplaying Game
-RANK:5
 GAMEMODE:Modern
 GENRE:Pulp
 BOOKTYPE:Core Rules
@@ -15,6 +14,7 @@ SOURCELONG:Pulp Fantasy Roleplaying Game
 SOURCESHORT:PulpFntasy
 SOURCEWEB:http://battlefieldpress.com
 SOURCEDATE:2006-01
+RANK:200601
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

@@ -85,7 +85,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		notes = new DefaultListFacade<>();
 		addDefaultNotes();
 
-		charDisplay.getNotesList().forEach(item -> notes.addElement(item));
+		charDisplay.getNotesList().forEach(notes::addElement);
 
 		bioData.put(BiographyField.BIRTHDAY, DescriptionFacadeImpl.newDefaultBioFieldFor(pc, PCStringKey.BIRTHDAY));
 		bioData.put(BiographyField.BIRTHPLACE,
@@ -93,7 +93,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		bioData.put(BiographyField.LOCATION,
 			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));
 		bioData.put(BiographyField.CITY,
-			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.CITY)));
 		bioData.put(BiographyField.REGION, new DefaultReferenceFacade<>(charDisplay.getRegionString()));
 		bioData.put(BiographyField.PERSONALITY_TRAIT_1,
 			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));
@@ -238,9 +238,10 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public void setBiographyField(PCStringKey attribute, final String newValue)
+	public void setBiographyField(final BiographyField field, final PCStringKey attribute, final String newValue)
 	{
 		Objects.requireNonNull(attribute);
 		theCharacter.setPCAttribute(attribute, newValue);
+		bioData.get(field).set(newValue);
 	}
 }

@@ -88,7 +88,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
-				if ((title == null) || title.isEmpty())
+				if (title.isEmpty())
 				{
 					return new ParseResult.Fail(
 						getParentToken() + Constants.COLON + getTokenName() + " had TITLE= but no title: " + value);
@@ -266,7 +266,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				"String in AbilityToken.decodeChoice " + "must start with CATEGORY=, found: " + s);
 		}
 		String cat = catString.substring(9);
-		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(cat);
+		AbilityCategory ac = SettingsHandler.getGameAsProperty().get().getAbilityCategory(cat);
 		if (ac == null)
 		{
 			throw new IllegalArgumentException("Category in AbilityToken.decodeChoice " + "must exist found: " + cat);
@@ -302,7 +302,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 					"Ability choice must be key name or CATEGORY=category|ability" + " found: " + encoded);
 			}
 			String cat = catString.substring(9);
-			abilityCat = SettingsHandler.getGame().getAbilityCategory(cat);
+			abilityCat = SettingsHandler.getGameAsProperty().get().getAbilityCategory(cat);
 			key = st.nextToken();
 		}
 		else

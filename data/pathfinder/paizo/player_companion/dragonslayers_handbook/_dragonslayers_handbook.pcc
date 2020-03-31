@@ -1,7 +1,6 @@
 CAMPAIGN:Dragonslayer's Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Dragonslayer's Handbook
 SOURCESHORT:DSH
 SOURCEWEB:http://paizo.com/products/btpy8yw4
 SOURCEDATE:2013-07
+RANK:201307
 ISOGL:YES
 
 COVER:dragonslayers_handbook.jpeg

@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:AEG - Dungeons Source Book
 GAMEMODE:3e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Alderac Entertainment Group - Dungeons
 SOURCESHORT:Dungeons
 SOURCEWEB:http://alderac.com/d20
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

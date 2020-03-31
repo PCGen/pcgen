@@ -29,8 +29,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 
 import pcgen.cdom.base.CDOMObject;
@@ -73,8 +71,7 @@ public class CampaignPanel extends ConvertSubPanel
 	public boolean performAnalysis(CDOMObject pc)
 	{
 		GameMode game = pc.get(ObjectKey.GAME_MODE);
-		List<String> gameModeList = new ArrayList<>();
-		gameModeList.addAll(game.getAllowedModes());
+		List<String> gameModeList = new ArrayList<>(game.getAllowedModes());
 
 		File sourceFolder = pc.get(ObjectKey.DIRECTORY);
 		folderName = sourceFolder.toURI().toString();
@@ -116,34 +113,28 @@ public class CampaignPanel extends ConvertSubPanel
 				java.awt.Point p = e.getPoint();
 				int rowIndex = rowAtPoint(p);
 				int colIndex = columnAtPoint(p);
-				String tip = String.valueOf(getValueAt(rowIndex, colIndex));
-				return tip;
+				return String.valueOf(getValueAt(rowIndex, colIndex));
 			}
 		};
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener()
-		{
-			@Override
-			public void valueChanged(ListSelectionEvent event)
-			{
-				pc.removeListFor(ListKey.CAMPAIGN);
-				int[] selRows = table.getSelectedRows();
-				if (selRows.length == 0)
-				{
-					saveSourceSelection(pc);
-					fireProgressEvent(ProgressEvent.NOT_ALLOWED);
-				}
-				else
-				{
-					for (int row : selRows)
-					{
-						Campaign selCampaign = (Campaign) model.getValueAt(row, 0);
-						pc.addToListFor(ListKey.CAMPAIGN, selCampaign);
-					}
-					saveSourceSelection(pc);
-					fireProgressEvent(ProgressEvent.ALLOWED);
-				}
-			}
-		});
+		table.getSelectionModel().addListSelectionListener(event -> {
+            pc.removeListFor(ListKey.CAMPAIGN);
+            int[] selRows = table.getSelectedRows();
+            if (selRows.length == 0)
+            {
+                saveSourceSelection(pc);
+                fireProgressEvent(ProgressEvent.NOT_ALLOWED);
+            }
+            else
+            {
+                for (int row : selRows)
+                {
+                    Campaign selCampaign = (Campaign) model.getValueAt(row, 0);
+                    pc.addToListFor(ListKey.CAMPAIGN, selCampaign);
+                }
+                saveSourceSelection(pc);
+                fireProgressEvent(ProgressEvent.ALLOWED);
+            }
+        });
 
 		JScrollPane listScroller = new JScrollPane(table);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0, 1.0);
@@ -190,7 +181,7 @@ public class CampaignPanel extends ConvertSubPanel
 	 * The model of the campaign table.
 	 */
 	@SuppressWarnings("serial")
-	public class CampaignTableModel extends AbstractTableModel
+	public static class CampaignTableModel extends AbstractTableModel
 	{
 
 		/** The column names. */

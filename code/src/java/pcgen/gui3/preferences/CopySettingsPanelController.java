@@ -68,12 +68,10 @@ public final class CopySettingsPanelController implements ResettableController
 	{
 		SettingsHandler.getGameAsProperty().addListener((observable, oldValue, newValue) -> {
 			GuiAssertions.assertIsNotJavaFXThread();
-			Platform.runLater(() -> {
-				copyButtonLabel.setText(LanguageBundle.getFormattedString(
-						"in_Prefs_copyTo",
-						newValue.getName()
-				));
-			});
+			Platform.runLater(() -> copyButtonLabel.setText(LanguageBundle.getFormattedString(
+                    "in_Prefs_copyTo",
+                    newValue.getName()
+            )));
 		});
 
 		GameMode[] unmodifiableGameModeList = SystemCollections.getUnmodifiableGameModeList().toArray(new GameMode[0]);

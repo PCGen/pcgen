@@ -295,8 +295,8 @@ public final class DataInstaller extends JFrame
 			}
 
 			// Validate that the campaign is compatible with our version
-			if (campaign.getSafe(StringKey.MINDEVVER) != null
-				&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
+            campaign.getSafe(StringKey.MINDEVVER);
+            if (!CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
 			{
 				if (CoreUtility.isCurrMinorVer(campaign.getSafe(StringKey.MINDEVVER)))
 				{
@@ -309,8 +309,8 @@ public final class DataInstaller extends JFrame
 					return false;
 				}
 			}
-			if (campaign.getSafe(StringKey.MINVER) != null
-				&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
+            campaign.getSafe(StringKey.MINVER);
+            if (!CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
 			{
 				Logging.errorPrint("Dataset " + campaign.getDisplayName() + " needs at least PCGen version "
 					+ campaign.getSafe(StringKey.MINVER) + " to run. It could not be installed.");
@@ -441,14 +441,14 @@ public final class DataInstaller extends JFrame
 				msg.append(' ').append(filename).append('\n');
 			}
 
-			Alert diWarningDialog = new Alert(Alert.AlertType.CONFIRMATION);
+			Alert diWarningDialog = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.CONFIRMATION));
 			ButtonType noButton = new ButtonType(LanguageBundle.getString("in_no"), ButtonBar.ButtonData.NO);
 			// default for confirm is yes/cancel
 			diWarningDialog.getButtonTypes().add(noButton);
 			diWarningDialog.setTitle(LanguageBundle.getString("in_dataInstaller"));
 			diWarningDialog.setHeaderText(LanguageBundle.getString("in_diNonStandardFiles"));
 			diWarningDialog.setContentText(msg.toString());
-			Optional<ButtonType> warningResult = diWarningDialog.showAndWait();
+			Optional<ButtonType> warningResult = GuiUtility.runOnJavaFXThreadNow(diWarningDialog::showAndWait);
 			if (warningResult.isPresent())
 			{
 				ButtonType buttonType = warningResult.get();

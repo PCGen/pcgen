@@ -79,7 +79,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends Abst
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
-				if (title == null || title.isEmpty())
+				if (title.isEmpty())
 				{
 					return new ParseResult.Fail(
 						getParentToken() + ':' + getTokenName() + " had TITLE= but no title: " + value);

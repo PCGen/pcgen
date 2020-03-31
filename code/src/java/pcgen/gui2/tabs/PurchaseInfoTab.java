@@ -1140,7 +1140,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 * The Class {@code EquipmentRenderer} displays the tree cells of the
 	 * available and purchased equipment tables.
 	 */
-	private class EquipmentRenderer extends CharacterTreeCellRenderer
+	private static class EquipmentRenderer extends CharacterTreeCellRenderer
 	{
 
 		@Override
@@ -1563,7 +1563,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private class ModifyChargesMenuItem extends JMenuItem implements ActionListener
+	private static class ModifyChargesMenuItem extends JMenuItem implements ActionListener
 	{
 
 		private final CharacterFacade character;
@@ -1589,7 +1589,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private class AddNoteMenuItem extends JMenuItem implements ActionListener
+	private static class AddNoteMenuItem extends JMenuItem implements ActionListener
 	{
 
 		private final CharacterFacade character;
@@ -1615,7 +1615,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private class MoveItemMenuItem extends JMenuItem implements ActionListener
+	private static class MoveItemMenuItem extends JMenuItem implements ActionListener
 	{
 
 		private final CharacterFacade character;
@@ -1647,7 +1647,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private class CopyItemMenuItem extends JMenuItem implements ActionListener
+	private static class CopyItemMenuItem extends JMenuItem implements ActionListener
 	{
 
 		private final CharacterFacade destination;

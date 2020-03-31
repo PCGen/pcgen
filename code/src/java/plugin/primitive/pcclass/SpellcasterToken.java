@@ -71,8 +71,8 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 
 	private boolean isSpellCaster(PCClass pcc)
 	{
-		return pcc.getSafe(ObjectKey.USE_SPELL_SPELL_STAT).booleanValue()
-			|| pcc.getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT).booleanValue()
+		return pcc.getSafe(ObjectKey.USE_SPELL_SPELL_STAT)
+			|| pcc.getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT)
 			|| (pcc.get(ObjectKey.SPELL_STAT) != null);
 	}
 

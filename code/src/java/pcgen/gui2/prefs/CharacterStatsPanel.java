@@ -195,7 +195,12 @@ public final class CharacterStatsPanel extends PCGenPrefsPanel
 				else
 				{
 					abilitiesRolledButton.setSelected(true);
-					abilityRolledModeCombo.getSelectionModel().select(gameMode.getRollMethodExpressionName());
+					GuiUtility.runOnJavaFXThreadNow(() ->
+					{
+						abilityRolledModeCombo.getSelectionModel().select(gameMode.getRollMethodExpressionName());
+						return true;
+					});
+
 				}
 
 				break;
@@ -216,9 +221,7 @@ public final class CharacterStatsPanel extends PCGenPrefsPanel
 		allStatsValue = Math.max(gameMode.getStatMin(), allStatsValue);
 		gameMode.setAllStatsValue(allStatsValue);
 		final int finalAllStatsValue = allStatsValue;
-		Platform.runLater(() -> {
-			abilityScoreCombo.getSelectionModel().select(finalAllStatsValue - gameMode.getStatMin());
-		});
+		Platform.runLater(() -> abilityScoreCombo.getSelectionModel().select(finalAllStatsValue - gameMode.getStatMin()));
 
 		if ((pMode != null) && (pModeMethodName != null))
 		{
@@ -228,7 +231,12 @@ public final class CharacterStatsPanel extends PCGenPrefsPanel
 			{
 				if (pModeMethodName[i].equals(methodName))
 				{
-					abilityPurchaseModeCombo.getSelectionModel().select(i);
+					final int iFinal = i;
+					GuiUtility.runOnJavaFXThreadNow(() ->
+					{
+						abilityPurchaseModeCombo.getSelectionModel().select(iFinal);
+						return true;
+					});
 				}
 			}
 		}
@@ -244,7 +252,7 @@ public final class CharacterStatsPanel extends PCGenPrefsPanel
 		if (pmsFrame == null)
 		{
 			pmsFrame = new PurchaseModeFrame();
-			final GameMode gameMode = SettingsHandler.getGame();
+			final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 
 			pmsFrame.setStatMin(gameMode.getStatMin());
 			pmsFrame.setStatMax(gameMode.getStatMax());

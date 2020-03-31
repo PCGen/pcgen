@@ -335,7 +335,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>27</total>
-		<listing>ABILITY +6, ARMOR +4, ARMORENHANCEMENT +1, BASE +10, DEFLECTION +2, DODGE +1, NATURALARMORENHANCEMENT +2, SIZE +1</listing>
+		<listing>ABILITY +6, DEFLECTION +2, ARMORENHANCEMENT +1, BASE +10, NATURALARMORENHANCEMENT +2, ARMOR +4, DODGE +1, SIZE +1</listing>
 		<flat>27</flat>
 		<touch>20</touch>
 		<base>10</base>
@@ -378,7 +378,7 @@ BIO
 		</skillpoints>
 		<list_mods>Acrobatics +28, Appraise +6, Bluff +14, Climb +9, Craft (Traps) +6, Diplomacy +7, Disable Device +29, Disguise +16, Escape Artist +21, Fly +8, Handle Animal +4, Intimidate +6, Knowledge (Dungeoneering) +6, Knowledge (Engineering) +3, Knowledge (Geography) +14, Knowledge (Local) +9, Linguistics +6, Perception +18, Profession (Cook) +5, Sense Motive +7, Sleight of Hand +11, Stealth +25, Swim +11, Use Magic Device +13</list_mods>
 		<max_class_skill_level>12</max_class_skill_level>
-		<max_cross_class_skill_level>12</max_cross_class_skill_level>
+		<max_cross_class_skill_level>12.0</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>12.0</ranks>
@@ -1668,7 +1668,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.WEAPONENHANCEMENT.PLUS1</type>
 			<weight>0.5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1694,7 +1694,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP MELEE ONEHANDED PIERCING.CUSTOM.METAL.MASTERWORK.WEAPONENHANCEMENT.PLUS1</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1798,7 +1798,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties>mithral</special_properties>
-			<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.CUSTOM.METAL.MITHRAL.MASTERWORK.ARMORENHANCEMENT.PLUS1</type>
 			<weight>6.25</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2526,7 +2526,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties>cold iron</special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
+			<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP MELEE ONEHANDED PIERCING.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2753,7 +2753,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.WEAPONENHANCEMENT.PLUS1</type>
 				<weight>0.5</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2774,7 +2774,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP MELEE ONEHANDED PIERCING.CUSTOM.METAL.MASTERWORK.WEAPONENHANCEMENT.PLUS1</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2858,7 +2858,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties>mithral</special_properties>
-				<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.CUSTOM.METAL.MITHRAL.MASTERWORK.ARMORENHANCEMENT.PLUS1</type>
 				<weight>6.25</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -3446,7 +3446,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties>cold iron</special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
+				<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP MELEE ONEHANDED PIERCING.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -3612,7 +3612,7 @@ BIO
 		<feat>
 			<name>Combat Expertise</name>
 			<description>You can increase your defense at the expense of your accuracy.</description>
-			<type>COMBAT.ATTACKOPTION.MODIFYAC.DREAMSPUNBLOODLINE.DRUIDSHAMANSERPENT.INFERNALBLOODLINE</type>
+			<type>COMBAT.ATTACKOPTION.MODIFYAC.DRUIDSHAMANSERPENT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3622,7 +3622,7 @@ BIO
 		<feat>
 			<name>Dodge</name>
 			<description>Your training and reflexes allow you to react swiftly to avoid an opponent&#39;s attack.</description>
-			<type>COMBAT.AQUATICBLOODLINE.SHADOWBLOODLINE.STARSOULBLOODLINE.STORMBORNBLOODLINE.DRUIDSHAMANLION.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.FEYBLOODLINE</type>
+			<type>COMBAT.DRUIDSHAMANLION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3632,7 +3632,7 @@ BIO
 		<feat>
 			<name>Fleet</name>
 			<description>You are faster than most.</description>
-			<type>GENERAL.VERDANTBLOODLINE</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -3652,7 +3652,7 @@ BIO
 		<feat>
 			<name>Quick Draw</name>
 			<description>You can draw weapons faster than most.</description>
-			<type>COMBAT.SHADOWBLOODLINE</type>
+			<type>COMBAT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3672,7 +3672,7 @@ BIO
 		<feat>
 			<name>Weapon Finesse</name>
 			<description>You are trained in using your agility in melee combat, as opposed to brute strength.</description>
-			<type>COMBAT.SHADOWBLOODLINE.CELESTIALBLOODLINE.ELEMENTALBLOODLINE</type>
+			<type>COMBAT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3798,8 +3798,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Fearless</name>
-			<description>Halflings receive a +2 racial bonus on saving throws against fear. This bonus stacks with the bonus granted by Halfling Luck.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.FEARLESS</type>
+			<description>Halflings receive a +2 racial bonus on all saving throws against fear. This bonus stacks with the bonus granted by halfling luck.</description>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3810,7 +3810,7 @@ BIO
 		<ability_object>
 			<name>Halfling Luck</name>
 			<description>Halflings receive a +1 racial bonus on all saving throws.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.HALFLING LUCK</type>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3842,19 +3842,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Keen Senses</name>
-			<description>Halflings receive a +2 bonus on Perception skill checks.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.KEEN SENSES.KEENSENSES</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Language</name>
-			<description>Halflings begin play speaking Common and Halfling. Halflings with high Intelligence scores can choose from the following: Dwarven, Elven, Gnome, and Goblin.</description>
-			<type>RACIALTRAITS.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<description>Halflings receive a +2 racial bonus on Perception skill checks.</description>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3887,7 +3876,7 @@ BIO
 		<ability_object>
 			<name>Sure-Footed</name>
 			<description>Halflings receive a +2 racial bonus on Acrobatics and Climb skill checks.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.SURE-FOOTED</type>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3931,7 +3920,7 @@ BIO
 		<ability_object>
 			<name>Weapon Familiarity</name>
 			<description>Halflings are proficient with slings and treat any weapon with the word &quot;halfling&quot; in its name as a martial weapon.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.WEAPON FAMILIARITY</type>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY.WEAPON FAMILIARITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3997,6 +3986,17 @@ BIO
 		</ability_object>
 		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>+2 Dexterity, +2 Charisma, -2 Strength</name>
+			<description>Halflings are nimble and strong-willed, but their small stature makes them weaker than other races.</description>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY.RACIAL ABILITY SCORES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Evasion</name>
 			<description></description>
 			<type>INTERNAL.CLASSFEATURES.RANGERCLASSFEATURES.ROGUECLASSFEATURES.MONKCLASSFEATURES</type>
@@ -4030,6 +4030,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Languages</name>
+			<description>Halflings begin play speaking Common and Halfling. Halflings with high Intelligence scores can choose from the following: Dwarven, Elven, Gnome, and Goblin.</description>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY.RACIAL LANGUAGE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Retain Dex To AC ~ Flat-footed</name>
 			<description>You retain your Dexterity bonus to AC even when flat-footed</description>
 			<type>INTERNAL.CLASSFEATURES</type>
@@ -4044,6 +4055,28 @@ BIO
 			<name>Rogue Talents</name>
 			<description></description>
 			<type>INTERNAL.ROGUECLASSFEATURES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Slow Speed</name>
+			<description>Halflings have a base speed of 20 feet.</description>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY.RACIAL SPEED</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Small</name>
+			<description>Halflings are Small creatures and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty to their Combat Maneuver Bonus and Combat Maneuver Defense, and a +4 size bonus on Stealth checks.</description>
+			<type>RACIALTRAITS.HALFLING RACIAL TRAIT.HALFLING RACIAL DEFAULT.SPECIALQUALITY.RACIAL SIZE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -4197,6 +4230,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Rogue Core Class Skills</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Save Bonus Tracker</name>
 			<description></description>
 			<type></type>
 			<associated></associated>

@@ -340,14 +340,6 @@ public class SkillToken extends Token
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		if (((property == SKILL_ABMOD)
-				|| (property == SKILL_MISC))
-				&& false) //&& aSkill.get(ObjectKey.KEY_STAT) == null)
-		{
-			retValue.append("n/a");
-		}
-		else
-		{
 			switch (property)
 			{
 				case SKILL_NAME:
@@ -355,9 +347,9 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_TOTAL:
-					if (SettingsHandler.getGame().hasSkillRankDisplayText())
+					if (SettingsHandler.getGameAsProperty().get().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(
+						retValue.append(SettingsHandler.getGameAsProperty().get().getSkillRankDisplayText(
 							SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc)));
 					}
 					else
@@ -368,9 +360,9 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_RANK:
-					if (SettingsHandler.getGame().hasSkillRankDisplayText())
+					if (SettingsHandler.getGameAsProperty().get().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame()
+						retValue.append(SettingsHandler.getGameAsProperty().get()
 							.getSkillRankDisplayText(SkillRankControl.getTotalRank(pc, aSkill).intValue()));
 					}
 					else
@@ -486,7 +478,6 @@ public class SkillToken extends Token
 
 					break;
 			}
-		}
 		return retValue.toString();
 	}
 
@@ -561,7 +552,7 @@ public class SkillToken extends Token
 		{
 			acpText[i] = aTok.nextToken();
 		}
-		return ((acp < numArgs) && (acp >= 0)) ? acpText[acp] : "";
+		return acp < numArgs ? acpText[acp] : "";
 	}
 
 	// ================== Inner class =======================

@@ -148,11 +148,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements Compara
 			{
 				return 0;
 			}
-			if (levels == other.levels)
-			{
-				return 0;
-			}
-			return levels.toString().compareTo(other.levels.toString());
+            return levels.toString().compareTo(other.levels.toString());
 		}
 		return compareResult;
 	}

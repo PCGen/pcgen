@@ -53,14 +53,13 @@ public enum View
 	 */
 	public static View getViewFromName(String name)
 	{
-		for (View view : View.values())
+		for (final View view : View.values())
 		{
 			if (view.text.equalsIgnoreCase(name))
 			{
 				return view;
 			}
 		}
-
 		return null;
 	}
 }

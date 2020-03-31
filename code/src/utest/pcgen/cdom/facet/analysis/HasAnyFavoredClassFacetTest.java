@@ -52,10 +52,10 @@ public class HasAnyFavoredClassFacetTest extends
 		pcs2.setName("Stat2");
 		Boolean st1 = Boolean.TRUE;
 		Boolean st2 = Boolean.FALSE;
-		cdo1.put(ObjectKey.ANY_FAVORED_CLASS, st1);
-		cdo2.put(ObjectKey.ANY_FAVORED_CLASS, st2);
+		cdo1.put(ObjectKey.ANY_FAVORED_CLASS, true);
+		cdo2.put(ObjectKey.ANY_FAVORED_CLASS, false);
 		source = new CDOMObject[]{cdo1, cdo2};
-		target = new Boolean[]{st1, st2};
+		target = new Boolean[]{true, false};
 	}
 
 	@Override

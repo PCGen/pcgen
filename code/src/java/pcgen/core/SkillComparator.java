@@ -30,8 +30,8 @@ public final class SkillComparator implements Comparator<Skill>
 	public static final int RESORT_TRAINED = 1;
 	public static final boolean RESORT_ASCENDING = true;
 	public static final boolean RESORT_DESCENDING = false;
-	private boolean sortOrder = RESORT_ASCENDING;
-	private int sort = RESORT_NAME;
+	private boolean sortOrder;
+	private int sort;
 	private final PlayerCharacter pc;
 
 	public SkillComparator(PlayerCharacter aPC, final int sort, final boolean sortOrder)

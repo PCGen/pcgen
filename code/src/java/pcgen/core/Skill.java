@@ -72,7 +72,7 @@ public final class Skill extends PObject implements ChooseDriver, VarScoped
 	 * bonuses to this skill, bonuses without prereqs, bonuses with prereqs.  
 	 *
 	 */
-	public final class SkillBonusComparator implements Comparator<BonusObj>
+	public static final class SkillBonusComparator implements Comparator<BonusObj>
 	{
 
 		private final Skill skill;

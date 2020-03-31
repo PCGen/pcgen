@@ -120,7 +120,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 
 	{
 		super.setUp();
-		dataset = new MockDataSetFacade(SettingsHandler.getGame());
+		dataset = new MockDataSetFacade(SettingsHandler.getGameAsProperty().get());
 		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();

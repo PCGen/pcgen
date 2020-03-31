@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sun Jan 22 04:43:36 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Modern Dispatch - #9 - Talking 'bout my Reputation
 GAMEMODE:Modern
-RANK:6
 GENRE:Modern
 BOOKTYPE:Magazine
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Modern Dispatch #9 - Talking 'bout my Reputation
 SOURCESHORT:MD09-TBMR
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3993
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

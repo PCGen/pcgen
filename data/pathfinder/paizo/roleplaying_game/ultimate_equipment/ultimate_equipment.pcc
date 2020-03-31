@@ -2,7 +2,6 @@
 CAMPAIGN:Ultimate Equipment
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Ultimate Equipment
 SOURCESHORT:UE
 SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment
 SOURCEDATE:2012-08
+RANK:201208
 ISOGL:YES
 
 COVER:ultimate_equipment.jpg

@@ -1,7 +1,6 @@
 CAMPAIGN:Treasury of the Pharaohs
 KEY:Legendary - Treasury of the Pharaohs
 GAMEMODE:Pathfinder
-RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement
 STATUS:BETA
@@ -15,6 +14,7 @@ SOURCELONG:Treasury of the Pharaohs
 SOURCESHORT:TotP
 SOURCEWEB:http://www.makeyourgamelegendary.com/
 SOURCEDATE:2015-04
+RANK:201504
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.

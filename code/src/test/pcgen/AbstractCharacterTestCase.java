@@ -203,8 +203,8 @@ public abstract class AbstractCharacterTestCase
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
-		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
-		SettingsHandler.getGame().selectDefaultUnitSet();
+		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGameAsProperty().get());
+		SettingsHandler.getGameAsProperty().get().selectDefaultUnitSet();
 		ref.importObject(BuildUtilities.getFeatCat());
 		defaultSetupEnd();
 	}

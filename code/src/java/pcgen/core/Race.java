@@ -43,7 +43,7 @@ public final class Race extends PObject implements ChooseDriver, LimitedVarHolde
 	public boolean isAdvancementUnlimited()
 	{
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
-		return hda == null || hda.get(hda.size() - 1).intValue() == Integer.MAX_VALUE;
+		return hda == null || hda.get(hda.size() - 1) == Integer.MAX_VALUE;
 	}
 
 	/**

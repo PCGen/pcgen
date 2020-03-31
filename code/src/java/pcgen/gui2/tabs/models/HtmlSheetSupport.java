@@ -159,7 +159,7 @@ public class HtmlSheetSupport
 		{
 			try (StringWriter writer = new StringWriter())
 			{
-				characterRef.get().export(new ExportHandler(templateFile), new BufferedWriter(writer));
+				characterRef.get().export(ExportHandler.createExportHandler(templateFile), new BufferedWriter(writer));
 				return writer.toString();
 			}
 		}

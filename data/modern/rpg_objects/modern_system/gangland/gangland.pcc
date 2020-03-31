@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Sep  5 16:29:17 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:RPGObjects - Modern System - Gangland
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Modern System - Gangland
 SOURCESHORT:Gangland
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

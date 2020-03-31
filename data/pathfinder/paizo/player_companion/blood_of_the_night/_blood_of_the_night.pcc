@@ -2,7 +2,6 @@
 CAMPAIGN:Blood of the Night
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Blood of the Night
 SOURCESHORT:BOTN
 SOURCEWEB:http://paizo.com/products/btpy8v33
 SOURCEDATE:2012-02
+RANK:201202
 ISOGL:YES
 
 COVER:blood_of_the_night.jpg

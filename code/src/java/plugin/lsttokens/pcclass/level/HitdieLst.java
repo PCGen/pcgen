@@ -49,66 +49,65 @@ public class HitdieLst extends AbstractToken implements CDOMPrimaryToken<PCClass
 	{
 		try
 		{
-			String lock = value;
-			int pipeLoc = lock.indexOf(Constants.PIPE);
+            int pipeLoc = value.indexOf(Constants.PIPE);
 			if (pipeLoc != -1)
 			{
 				return new ParseResult.Fail(getTokenName() + " is invalid has a pipe: " + value);
 			}
 			Processor<HitDie> hdm;
-			if (lock.startsWith("%/"))
+			if (value.startsWith("%/"))
 			{
 				// HITDIE:%/num --- divides the classes hit die by num.
-				int denom = Integer.parseInt(lock.substring(2));
+				int denom = Integer.parseInt(value.substring(2));
 				if (denom <= 0)
 				{
 					return new ParseResult.Fail(getTokenName() + " was expecting a Positive Integer "
-						+ "for dividing Lock, was : " + lock.substring(2));
+						+ "for dividing Lock, was : " + value.substring(2));
 				}
 				hdm = new HitDieFormula(new DividingFormula(denom));
 			}
-			else if (lock.startsWith("%*"))
+			else if (value.startsWith("%*"))
 			{
 				// HITDIE:%*num --- multiplies the classes hit die by num.
-				int mult = Integer.parseInt(lock.substring(2));
+				int mult = Integer.parseInt(value.substring(2));
 				if (mult <= 0)
 				{
 					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
-						+ "Integer for multiplying Lock, was : " + lock.substring(2));
+						+ "Integer for multiplying Lock, was : " + value.substring(2));
 				}
 				hdm = new HitDieFormula(new MultiplyingFormula(mult));
 			}
-			else if (lock.startsWith("%+"))
+			else if (value.startsWith("%+"))
 			{
 				// possibly redundant with BONUS:HD MAX|num
 				// HITDIE:%+num --- adds num to the classes hit die.
-				int add = Integer.parseInt(lock.substring(2));
+				int add = Integer.parseInt(value.substring(2));
 				if (add <= 0)
 				{
 					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
-						+ "Integer for adding Lock, was : " + lock.substring(2));
+						+ "Integer for adding Lock, was : " + value.substring(2));
 				}
 				hdm = new HitDieFormula(new AddingFormula(add));
 			}
-			else if (lock.startsWith("%-"))
+			else if (value.startsWith("%-"))
 			{
 				// HITDIE:%-num --- subtracts num from the classes hit die.
 				// possibly redundant with BONUS:HD MAX|num if that will
 				// take negative numbers.
-				int sub = Integer.parseInt(lock.substring(2));
+				int sub = Integer.parseInt(value.substring(2));
 				if (sub <= 0)
 				{
 					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
-						+ "Integer for subtracting Lock, was : " + lock.substring(2));
+						+ "Integer for subtracting Lock, was : " + value.substring(2));
 				}
 				hdm = new HitDieFormula(new SubtractingFormula(sub));
 			}
-			else if (lock.startsWith("%up"))
+			else if (value.startsWith("%up"))
 			{
 				// HITDIE:%upnum --- moves the hit die num steps up the die size
 				// list d4,d6,d8,d10,d12. Stops at d12.
 
-				int steps = Integer.parseInt(lock.substring(3));
+				int steps = Integer.parseInt(value.substring(3));
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail(
@@ -122,25 +121,25 @@ public class HitdieLst extends AbstractToken implements CDOMPrimaryToken<PCClass
 
 				hdm = new HitDieStep(steps, new HitDie(12));
 			}
-			else if (lock.startsWith("%Hup"))
+			else if (value.startsWith("%Hup"))
 			{
 				// HITDIE:%upnum --- moves the hit die num steps up the die size
 				// list d4,d6,d8,d10,d12. Stops at d12.
 
-				int steps = Integer.parseInt(lock.substring(4));
+				int steps = Integer.parseInt(value.substring(4));
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in " + getTokenName());
 				}
 				hdm = new HitDieStep(steps, null);
 			}
-			else if (lock.startsWith("%down"))
+			else if (value.startsWith("%down"))
 			{
 				// HITDIE:%downnum --- moves the hit die num steps down the die
 				// size
 				// list d4,d6,d8,d10,d12. Stops at d4.
 
-				int steps = Integer.parseInt(lock.substring(5));
+				int steps = Integer.parseInt(value.substring(5));
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail(
@@ -154,12 +153,12 @@ public class HitdieLst extends AbstractToken implements CDOMPrimaryToken<PCClass
 
 				hdm = new HitDieStep(-steps, new HitDie(4));
 			}
-			else if (lock.startsWith("%Hdown"))
+			else if (value.startsWith("%Hdown"))
 			{
 				// HITDIE:%downnum --- moves the hit die num steps down the die
 				// size
 				// list. No limit.
-				int steps = Integer.parseInt(lock.substring(6));
+				int steps = Integer.parseInt(value.substring(6));
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in " + getTokenName());
@@ -168,7 +167,7 @@ public class HitdieLst extends AbstractToken implements CDOMPrimaryToken<PCClass
 			}
 			else
 			{
-				int i = Integer.parseInt(lock);
+				int i = Integer.parseInt(value);
 				if (i <= 0)
 				{
 					return new ParseResult.Fail("Invalid HitDie: " + i + " in " + getTokenName());

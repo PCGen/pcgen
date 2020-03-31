@@ -53,14 +53,9 @@ public class FavoredListToken extends AbstractExportToken
 			return "Any";
 		}
 		StringBuilder sb = new StringBuilder();
-		boolean first = true;
 		for (PCClass pcc : display.getFavoredClasses())
 		{
-			if (!first)
-			{
-				sb.append(", ");
-			}
-			sb.append(pcc.getFullKey());
+            sb.append(pcc.getFullKey());
 		}
 		return sb.toString();
 	}

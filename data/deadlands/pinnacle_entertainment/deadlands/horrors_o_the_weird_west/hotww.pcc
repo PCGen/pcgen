@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:PE - Deadlands Core Rulebook - Horrors o' the Weird West
 GAMEMODE:Deadlands
-RANK:3
 GENRE:Western
 BOOKTYPE:Supplement
 SETTING:Deadlands
@@ -15,6 +14,7 @@ SOURCELONG:Horrors o' the Weird West
 SOURCESHORT:HotWW
 SOURCEWEB:http://www.peginc.com/index.htm
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

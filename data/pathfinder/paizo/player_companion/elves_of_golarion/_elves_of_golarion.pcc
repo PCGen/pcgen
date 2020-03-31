@@ -3,7 +3,6 @@ CAMPAIGN:Elves of Golarion
 KEY:Elves of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Companion: Elves of Golarion
 SOURCESHORT:EOG
 SOURCEWEB:http://paizo.com/products/btpy85el
 SOURCEDATE:2008-12
+RANK:200812
 ISOGL:YES
 
 COVER:PZO9402_180.jpeg

@@ -47,7 +47,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		RuleCheck preRule = new RuleCheck();
 		preRule.setName("PRERULE");
 		preRule.setDefault(false);
-		GameMode gameMode = SettingsHandler.getGame();
+		GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		gameMode.getModeContext().getReferenceContext().importObject(preRule);
 	}
 
@@ -87,7 +87,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	 */
 	private void ruleEnabled() throws PersistenceLayerException
 	{
-		RuleCheck preRule = SettingsHandler.getGame().getModeContext().getReferenceContext()
+		RuleCheck preRule = SettingsHandler.getGameAsProperty().get().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");
 		preRule.setDefault(true);
 		

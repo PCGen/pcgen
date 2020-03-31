@@ -2,7 +2,6 @@
 CAMPAIGN:Second Darkness, Chapter 6 - Descent into Midnight (Conversion)
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
-RANK:4
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -15,6 +14,7 @@ SOURCELONG:Second Darkness, Chapter 6 - Descent into Midnight
 SOURCESHORT:AP18
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86v1
 SOURCEDATE:2009-01
+RANK:200901
 ISOGL:YES
 
 COVER:ap18.jpg

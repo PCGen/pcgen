@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+ **/
 package pcgen.gui2.tabs;
 
 import java.awt.BorderLayout;
@@ -24,7 +24,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import javax.swing.Box;
@@ -196,7 +195,11 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		private BoxHandler(CharacterFacade character)
 		{
 			GuiAssertions.assertIsNotJavaFXThread();
-			this.character = Objects.requireNonNull(character);
+			if (character==null)
+			{
+			    System.out.println("Not expecting a null character in CharacterSheetInfoTab BoxHandler");
+            }
+			this.character = character;
 			// This is the model for ComboBox
 			this.sheetBoxItems = FXCollections.observableArrayList();
 			GameMode game = character.getDataSet().getGameMode();
@@ -262,10 +265,12 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		{
 			GuiAssertions.assertIsJavaFXThread();
 			File outputSheet = sheetBox.getSelectionModel().getSelectedItem();
-			Objects.requireNonNull(outputSheet);
 			csheet.setCharacterSheet(outputSheet);
 			csheet.refresh();
-			character.setPreviewSheet(outputSheet.getName());
+			if (outputSheet!=null)
+			{
+				character.setPreviewSheet(outputSheet.getName());
+			}
 		}
 
 	}

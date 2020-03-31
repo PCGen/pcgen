@@ -46,7 +46,7 @@ public class BonusSpellInfo implements Loadable
 	{
 		try
 		{
-			int intValue = Integer.valueOf(name).intValue();
+			int intValue = Integer.valueOf(name);
 			if (intValue < 1)
 			{
 				throw new IllegalArgumentException("Name must be an integer >= 1");
