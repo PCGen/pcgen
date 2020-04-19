@@ -22,8 +22,13 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assemble
-    - name: Upload artifact
+    - name: Upload pcgen zip artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: PCGen
-        path: ./build/distributions/
+        name: PCGen.zip
+        path: ./build/distributions/*.zip
+    - name: Upload pcgen tar artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: PCGen.tar
+        path: ./build/distributions/*.tar
