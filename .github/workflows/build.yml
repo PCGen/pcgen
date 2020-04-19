@@ -22,13 +22,18 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assemble
+    - id: getfilename
+      run: echo "::set-output name=zip::$(ls build/distributions/*.zip)" && echo "::set-output name=tar::$(ls build/distributions/*.tar)"
+    - uses: actions/upload-artifact@v1
+      with:
+        path: ${{ steps.getfilename.outputs.file }}
     - name: Upload pcgen zip artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: PCGen.zip
-        path: ./build/distributions/*.zip
+        path: ${{ steps.getfilename.outputs.zip }}
     - name: Upload pcgen tar artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: PCGen.tar
-        path: ./build/distributions/*.tar
+        path: ${{ steps.gettarfilename.outputs.tar }}
