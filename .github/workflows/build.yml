@@ -11,9 +11,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -24,8 +22,8 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assemble
-    - name: DUpload artifact
+    - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: PCGen
-        path: build/release/
+        path: build/distributions/*.zip
