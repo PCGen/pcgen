@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: PCGen
-        path: build/distributions/*.zip
+        path: ./build/distributions/
