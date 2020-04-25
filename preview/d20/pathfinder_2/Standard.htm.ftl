@@ -389,7 +389,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 			<td align="center" class="font7"><b></b></td>
           <td align="center" class="border9"><b>${pcvar('VAR.ArmorProf_HeavyArmor')}</b></td>
 			<td align="center" class="font7"><b></b></td>
-          <td align="center" class="border9"><b>${pcvar('VAR.ArmorProf_Unarmored')}</b></td>
+          <td align="center" class="border9"><b>${pcvar('VAR.ArmorProf_UnarmoredDefense')}</b></td>
 
 			<td align="center" class="font7"><b></b></td>
 		  <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>Resolve</b></font>
