@@ -427,4 +427,7 @@ CLASS:Alchemical Hedge Magician	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 
 
 
+# Class Name			Type			Max Level
+CLASS:Companion (Psicrystal)	TYPE:Monster	MAXLEVEL:1
+1	DONOTADD:HITDIE|SKILLPOINTS
 
