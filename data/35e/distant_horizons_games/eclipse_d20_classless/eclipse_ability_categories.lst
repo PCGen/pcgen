@@ -148,3 +148,5 @@ ABILITYCATEGORY:Eclipse Favored Enemy				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:N
 
 ABILITYCATEGORY:Eclipse Favored Foe					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredFoe					PLURAL:Favored Foe Choices				DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Eclipse Favored Foe Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredFoeBonus				PLURAL:Favored Foe Bonus Choices			DISPLAYLOCATION:Character Creation Pool
+
+ABILITYCATEGORY:Psicrystal Personality		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:PsicrystalPersonality										PLURAL:Psicrystal Personalities		DISPLAYLOCATION:Feats

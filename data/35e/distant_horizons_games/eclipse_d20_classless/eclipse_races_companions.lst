@@ -4,3 +4,8 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 # COMMENT: Need anything that gains "Bonus HD" to be renamed and use the Companion Class to get the proper benefits.
+
+
+###Block: P
+# Race Name				Starting Feats	Size		Move				Reach		Vision			Bonus to skill			Stat bonus								Racial HD Class Skills			Ability																			Nb Legs	Define Stat			Monster Class Name and Starting Level	Main Race Type		Type			Source Page				Apply Kit
+Psicrystal				STARTFEATS:1	SIZE:D	MOVE:Walk,30,Climb,20	REACH:0	VISION:Sighted (40')	BONUS:SKILL|Climb|DEX-STR	BONUS:STAT|STR|-9	BONUS:STAT|DEX|5	BONUS:STAT|INT|-4	MONCSKILL:Climb|Move Silently|Spot	ABILITY:FEAT|VIRTUAL|Alertness|PREHD:MAX=1	ABILITY:Internal|AUTOMATIC|Race Traits ~ Psicrystal				LEGS:0	DEFINESTAT:NONSTAT|CON	MONSTERCLASS:Companion (Psicrystal):1	RACETYPE:Construct	TYPE:Construct	SOURCEPAGE:PsionicMonsters	KIT:1|Race ~ Psicrystal
