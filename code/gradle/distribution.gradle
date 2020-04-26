@@ -7,7 +7,6 @@ import java.time.LocalDateTime
  *
  * Usage: gradle builddist
  */
-
 ext {
     zipRootFolder = "pcgen"
 
@@ -60,15 +59,12 @@ ext {
         }
         from('code') {
             include 'LICENSE'
-	    include 'pcgen.bat'
-	    include 'pcgen_JREx32.bat'
-	    include 'pcgen_JREx64.bat'
-            include 'pcgen.sh'
-            eachFile{ file ->
-                if(file.getName().endsWith(".sh")) {
-                    file.setMode(0755)
-                }
+
+        eachFile{ file ->
+            if(file.getName().endsWith(".sh")) {
+                file.setMode(0755)
             }
+        }
         }
     }
 
@@ -91,6 +87,26 @@ ext {
         }
     }
 }
+
+applicationDistribution.with(dataDistsImage)
+applicationDistribution.with(docsDistsImage)
+applicationDistribution.with(autobuildSpec)
+applicationDistribution.with(charactersImage)
+applicationDistribution.with(programScriptImage)
+
+application{
+    executableDir = ""
+}
+
+startScripts{
+    doLast {
+        unixScript.text =
+                unixScript.text.replaceAll("\\.\\.","")
+        windowsScript.text =
+                windowsScript.text.replaceAll("\\.\\.","")
+    }
+}
+
 
 task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', \
 'downloadJRE']) {
@@ -154,6 +170,6 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
 }
 
 task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', \
-'fullZip']) {
+'runtimeZip']) {
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }

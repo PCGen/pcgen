@@ -404,7 +404,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
-task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
+task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar',
      'buildNsis']) {
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
@@ -412,8 +412,13 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
     from ("${buildDir}/libs") {
         include 'pcgen*-sources.jar'
     }
-    from ("${buildDir}/distributions") {
-        include 'pcgen*-full.zip'
+    from ("${buildDir}") {
+        include 'image*.zip'
+    }
+    copy {
+        from "$buildDir/launch4j/pcgen.exe"
+        into "${buildDir}/image/pcgen-windows-x64"
+        into "${buildDir}/image/pcgen-windows-x32"
     }
 }
 

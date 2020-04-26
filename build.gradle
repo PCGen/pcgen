@@ -62,39 +62,6 @@ ext {
 //feel free to add them here.
 mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main';
 
-applicationDistribution.from('plugins') {
-    into "plugins"
-}
-applicationDistribution.from('docs') {
-    into "docs"
-}
-applicationDistribution.from('data') {
-    into "data"
-}
-applicationDistribution.from('outputsheets') {
-    into "outputsheets"
-}
-applicationDistribution.from('system') {
-    into "system"
-}
-applicationDistribution.from('preview') {
-    into "preview"
-}
-
-application{
-    executableDir = ''
-}
-
-startScripts{
-    doLast {
-        unixScript.text =
-                unixScript.text.replaceAll("\\.\\.","")
-        windowsScript.text =
-                windowsScript.text.replaceAll("\\.\\.","")
-    }
-
-}
-
 repositories {
     mavenCentral()
     ivy {
@@ -286,8 +253,21 @@ runtime {
 
     targetPlatform('linux-x64', "$projectDir/jre/linux/jre_x64")
     targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x64")
-    //targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x32")
+    targetPlatform('windows-x32', "$projectDir/jre/windows/jre_x32")
     //targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64")
+
+}
+
+tasks.runtime.doLast{
+    copy {
+        from "$buildDir/libs/pcgen-${version}.jar"
+        into "${buildDir}/image/pcgen-linux-x64"
+        into "${buildDir}/image/pcgen-windows-x64"
+        into "${buildDir}/image/pcgen-windows-x32"
+        //into "${buildDir}/image/pcgen-mac-x64"
+        rename "(.+)-$version(.+)", '$1$2'
+    }
+
 
 }
 
@@ -470,23 +450,27 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
 
             def url = "https://gluonhq.com/download/javafx-14-jmods-${os}${archAppend}/"
             def jmodsDir = new File("${projectDir}/jre/${os}/jre_${arch}/jmods")
-            def jmodsZip = new File("${projectDir}/jre/${os}/jmods.zip")
+            def jmodsZip = new File("${projectDir}/jre/${os}/jmods${arch}.zip")
             if (!jmodsZip.exists()) {
                 println("Downloading Javafx mods ${major} ${arch} for ${os} from ${url}")
                 download {
                     src url
-                    dest new File("${projectDir}/jre/${os}/", "jmods.zip")
+                    dest new File("${projectDir}/jre/${os}/", "jmods${arch}.zip")
                     overwrite false
                 }
                 //fileTree(dir: "${projectDir}/jre/${os}/").include("*.zip").each { simLib ->
                 copy {
-                    println "Unzip jmods.zip"
-                    def zipFile = file("${projectDir}/jre/${os}/jmods.zip")
+                    println "Unzip jmods${arch}.zip"
+                    def zipFile = file("${projectDir}/jre/${os}/jmods${arch}.zip")
                     def outputDir = "${projectDir}/jre/${os}/jre_${arch}/jmods"
                     if (os=="mac")
                     {
                         outputDir = "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
 
+                    }
+                    else if(os=="windows" && arch=="x86")
+                    {
+                        outputDir = "${projectDir}/jre/${os}/jre_x32/jmods"
                     }
                     from zipTree(zipFile)
                     into outputDir
@@ -662,6 +646,7 @@ allprojects {
                 options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
                 options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml"
             }
+            println "Args for for $name are $options.allCompilerArgs"
 
         }
     }
