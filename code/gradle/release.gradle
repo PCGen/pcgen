@@ -162,6 +162,7 @@ launch4j {
     stayAlive = false
     jreRuntimeBits = "64/32"
     bundledJrePath = '.'
+    dontWrapJar = true
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
@@ -414,11 +415,6 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJa
     }
     from ("${buildDir}") {
         include 'image*.zip'
-    }
-    copy {
-        from "$buildDir/launch4j/pcgen.exe"
-        into "${buildDir}/image/pcgen-windows-x64"
-        into "${buildDir}/image/pcgen-windows-x32"
     }
 }
 

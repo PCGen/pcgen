@@ -254,20 +254,7 @@ runtime {
     targetPlatform('linux-x64', "$projectDir/jre/linux/jre_x64")
     targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x64")
     targetPlatform('windows-x32', "$projectDir/jre/windows/jre_x32")
-    //targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64")
-
-}
-
-tasks.runtime.doLast{
-    copy {
-        from "$buildDir/libs/pcgen-${version}.jar"
-        into "${buildDir}/image/pcgen-linux-x64"
-        into "${buildDir}/image/pcgen-windows-x64"
-        into "${buildDir}/image/pcgen-windows-x32"
-        //into "${buildDir}/image/pcgen-mac-x64"
-        rename "(.+)-$version(.+)", '$1$2'
-    }
-
+    targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64/Contents/Home")
 
 }
 
@@ -348,7 +335,7 @@ clean {
 build.mustRunAfter clean
 
 task downloadJRE {
-    def major = 11
+    def major = 13
     def archs = ['x64','x32']
     def osList = ['windows', 'mac','linux']
     def extension = 'zip'

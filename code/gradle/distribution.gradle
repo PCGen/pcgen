@@ -93,6 +93,7 @@ applicationDistribution.with(docsDistsImage)
 applicationDistribution.with(autobuildSpec)
 applicationDistribution.with(charactersImage)
 applicationDistribution.with(programScriptImage)
+applicationDistribution.with(programDistsImage)
 
 application{
     executableDir = ""
