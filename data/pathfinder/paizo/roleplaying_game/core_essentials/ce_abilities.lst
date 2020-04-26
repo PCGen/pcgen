@@ -1008,4 +1008,7 @@ Divine Spells		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. divine spells and
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|No Intelligence Score|PREVAREQ:NoIntelligenceSetTrue,1	DEFINE:NoIntelligenceSetTrue|0	
 No Intelligence Score	CATEGORY:Internal	DEFINESTAT:NONSTAT|INT
 
-Grant Intelligence	CATEGORY:Internal	TYPE:OptionalRules.Misc	BONUS:VAR|NoIntelligenceSetTrue|-1	BONUS:VAR|Mindless|-1
+Grant Intelligence			CATEGORY:Internal	TYPE:OptionalRules.Misc	BONUS:VAR|NoIntelligenceSetTrue|-1	BONUS:VAR|Mindless|-1
+Grant Standard Feat Progression	CATEGORY:Internal	TYPE:OptionalRules.Misc	BONUS:ABILITYPOOL|FEAT|1+(TL/3)
+
+
