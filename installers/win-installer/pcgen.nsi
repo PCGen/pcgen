@@ -129,7 +129,7 @@ SubSection /e "PlugIns" Section3
 	Section "PDF"
 
 	SectionIn 1 2 3
-	SetOutPath "$INSTDIR\${APPDIR}\libs"
+	SetOutPath "$INSTDIR\${APPDIR}\lib"
 	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\plugin\pdf\libs\*.*"
 	SetOutPath "$INSTDIR\${APPDIR}\outputsheets"
 	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\plugin\pdf\outputsheets\*.*"
@@ -192,9 +192,11 @@ Section "Java 64 Bit" Section5
 
         ;Use the right java version
         DetailPrint "Java extraction..."
-        SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /r "${SrcDir}\..\..\jre\windows\jre_x64\*.*"
-	File /r "${SrcDir}\..\..\code\pcgen_JREx64.bat"
+        SetOutPath "$INSTDIR\${APPDIR}\bin"
+        File /r "${SrcDir}\..\image\pcgen-windows-x64\bin\*.*"
+
+        SetOutPath "$INSTDIR\${APPDIR}\lib"
+	    File /r "${SrcDir}\PCGen_${SIMPVER}_opt\lib64\*.*"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
@@ -203,9 +205,10 @@ Section "Java 32 Bit" Section6
 
         ;Use the right java version
         DetailPrint "Java extraction..."
-        SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /r "${SrcDir}\..\..\jre\windows\jre_x32\*.*"
-	File /r "${SrcDir}\..\..\code\pcgen_JREx32.bat"
+        SetOutPath "$INSTDIR\${APPDIR}\bin"
+        File /r "${SrcDir}\..\image\pcgen-windows-x32\bin\*.*"
+        SetOutPath "$INSTDIR\${APPDIR}\lib"
+	    File /r "${SrcDir}\PCGen_${SIMPVER}_opt\lib32\*.*"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
@@ -269,6 +272,8 @@ Section Uninstall
 
         ;Remove local JRE
         RMDir /r "$INSTDIR\${APPDIR}\jre"
+        RMDir /r "$INSTDIR\${APPDIR}\bin"
+        RMDir /r "$INSTDIR\${APPDIR}\lib"
 	RMDir /r "$INSTDIR\${APPDIR}\Local"
 	RMDir /r "$INSTDIR\${APPDIR}\outputsheets"
 	RMDir /r "$INSTDIR\${APPDIR}\plugins"
@@ -280,6 +285,7 @@ Section Uninstall
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.exe"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.sh"
+	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen"
 #	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_low_mem.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_JREx32.bat"

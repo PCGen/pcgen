@@ -41,11 +41,6 @@ ext {
     }
     
     programDistsImage = copySpec {
-        from("$buildDir/libs") {
-            include 'pcgen-*.jar'
-            // Use a regular expression to map the file name
-            rename "(.+)-$version(.+)", '$1$2'
-        }
         from("$buildDir/launch4j") {
             include 'pcgen.exe'
         }
@@ -108,6 +103,7 @@ startScripts{
     }
 }
 
+[distZip, distTar, installDist]*.dependsOn createExe
 
 task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', \
 'downloadJRE']) {

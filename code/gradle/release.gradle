@@ -44,6 +44,23 @@ ext {
         into ('/libs')
     }
 
+    lib32 = copySpec {
+        from("${buildDir}/image/pcgen-windows-x32/lib") {
+            exclude 'fop*.jar'
+            exclude 'batik*.jar'
+        }
+        into('/lib32')
+    }
+
+    lib64 = copySpec {
+        from("${buildDir}/image/pcgen-windows-x64/lib") {
+            exclude 'fop*.jar'
+            exclude 'batik*.jar'
+            exclude 'javafx*.jar'
+        }
+        into('/lib64')
+    }
+
     pdfLibs = copySpec {
         from("${buildDir}/libs") {
             include 'fop*.jar'
@@ -104,7 +121,7 @@ ext {
 	installerVerNum = result[0].toInteger() + "." + result[1].toInteger() + "." + result[2].take(2).toInteger() + ".0"
 	}
 
-task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs,
+task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs,
         jar, converterJar]) {
     description="Assemble the required files for all PCGen installations"
     //doFirst {
@@ -120,16 +137,6 @@ task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs,
         into "/docs/acknowledgments/"
         include "PCGenLicense.txt"
     }
-    from ("${buildDir}/libs") {
-        into "./libs/"
-        exclude "pcgen-${version}.jar"
-        exclude "pcgen-${version}-batch-convert.jar"
-    }
-    from ("${buildDir}/libs") {
-        include "pcgen-${version}.jar"
-        include "pcgen-${version}-batch-convert.jar"
-        rename "(.+)-$version(.+)", '$1$2'
-    }
     from ("${projectDir}") {
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
@@ -140,14 +147,12 @@ task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs,
     from ("${buildDir}/launch4j") {
         include 'pcgen.exe'
     }
-    from ("${projectDir}/code") {
+    from ("${buildDir}/install/pcgen") {
         include 'pcgen.bat'
-        include 'pcgen.sh'
+        include 'pcgen'
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
     }
-
-    with baseLibs
     with basePlugins
     with nonPdfOutput
     with baseData
@@ -182,6 +187,8 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToOutput) {
     with gmgenPlugins
     with pdfOutput
     with optionalData
+    with lib32
+    with lib64
 }
 
 // Generate the publisher/data list for the Windows installer script
@@ -415,6 +422,9 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJa
     }
     from ("${buildDir}") {
         include 'image*.zip'
+    }
+    delete fileTree(buildDir).matching {
+        include "image*.zip"
     }
 }
 
