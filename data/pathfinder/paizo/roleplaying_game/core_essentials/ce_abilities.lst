@@ -1004,3 +1004,8 @@ Sanity Damage		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. sanity damage|Sav
 Mind-Affecting		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. mind-affecting effects|SaveBonus_vs_MindAffecting
 # ISR
 Divine Spells		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. divine spells and spell-like abilities|SaveBonus_vs_DivineSpells
+
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|No Intelligence Score|PREVAREQ:NoIntelligenceSetTrue,1	DEFINE:NoIntelligenceSetTrue|0	
+No Intelligence Score	CATEGORY:Internal	DEFINESTAT:NONSTAT|INT
+
+Grant Intelligence	CATEGORY:Internal	TYPE:OptionalRules.Misc	BONUS:VAR|NoIntelligenceSetTrue|-1	BONUS:VAR|Mindless|-1
