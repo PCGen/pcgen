@@ -34,5 +34,5 @@ Estoc				TYPE:Exotic.OneHanded.Martial.TwoHanded.Melee.Bladeheavy.Weapon Group B
 Tongi				TYPE:Exotic.OneHanded.Melee.Axe.Weapon Group Axes
 # -- 2-handers
 Crook				TYPE:Exotic.TwoHanded.Melee.Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded										HANDS:2
-Elven Branched Spear	TYPE:Exotic.Finessable.Elven.TwoHanded.Melee.Spear.Weapon Group Spears.Weapon Group Spears TwoHanded									HANDS:2
+Elven Branched Spear	TYPE:Exotic.Finesseable.Elven.TwoHanded.Melee.Spear.Weapon Group Spears.Weapon Group Spears TwoHanded									HANDS:2
 Orc Skull Ram		TYPE:Exotic.TwoHanded.Melee.Spear.Weapon Group Spears.Weapon Group Spears TwoHanded												HANDS:2
