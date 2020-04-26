@@ -493,7 +493,7 @@ Dissolution's Child					KEY:Wayang ~ Dissolution's Child	CATEGORY:Special Abilit
 
 #Racial Traits ~ Gathlain
 # Ability Name						Unique Key					Category of Ability		Type										Multiple Requirements																					Description																																																													Ability																				Cost		Source Page
-Racial Traits ~ Gathlain										CATEGORY:Internal
+Racial Traits ~ Gathlain											CATEGORY:Internal	TEMPLATE:Race Bonus Language ~ Draconic|Race Bonus Language ~ Elven|Race Bonus Language ~ Goblin|Race Bonus Language ~ Halfling|Race Bonus Language ~ Orc	AUTO:LANG|Common|Sylvan
 
 CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Gathlain Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GathlainMagic
 CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalArmor
