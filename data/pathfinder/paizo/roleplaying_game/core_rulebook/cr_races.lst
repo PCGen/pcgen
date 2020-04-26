@@ -13,5 +13,7 @@ Halfling	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	SIZE:S	MOVE:Walk,20	REAC
 Human		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5															ABILITY:Internal|AUTOMATIC|Racial Traits ~ Human	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.27	FACT:IsPC|true
 
 
-# DEVELOPER NOTE: ABILITY:Internal|AUTOMATIC|Racial Traits ~ XXX assigns the Traits of the Race and allows them to be swapped out
-# The Base Ability is located in cr_abilities_race.lst
+
+
+
+A test	SORTKEY:a_base_pc							STARTFEATS:1	SIZE:T	MOVE:Walk,10	REACH:0	KIT:1|A Test
