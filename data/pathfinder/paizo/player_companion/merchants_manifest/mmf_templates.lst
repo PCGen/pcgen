@@ -1,0 +1,22 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Sat May  7 19:25:18 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Magical Marketplace	SOURCESHORT:MM	SOURCEWEB:http://paizo.com/products/btpy92lv	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 20 April 2016
+
+# ==============================
+# Masterpiece Activation
+# ==============================
+
+# Template Name					Visible		Ability
+Masterpiece Activation Manifest	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Lingering Leitmotif|PREMULT:1,[PRESPELL:1,Masterpiece (Lingering Leitmotif)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Lingering Leitmotif)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Song of the Stonebearers|PREMULT:1,[PRESPELL:1,Masterpiece (Song of the Stonebearers)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Song of the Stonebearers)]
+
+
+# ==============================
+# Temporary Bonuses
+# ==============================
+
+# Template Name				Visible	
+Blackwood Figurehead		VISIBLE:NO	SOURCEPAGE:p.9	TEMPDESC:Carved in the likeness of a sea creature or another form desired by the one commissioning it, this item grants its ship's crew a +2 morale bonus on Profession (sailor) checks while on board.			TEMPBONUS:ANYPC|SKILL|Profession (Sailor)|2|TYPE=Morale
+Neili Robes					VISIBLE:NO	SOURCEPAGE:p.9	TEMPDESC:1/round spend a ki point to increase your natural armor bonus to AC and Strength.		TEMPBONUS:ANYPC|STAT|STR|1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|AC|1*(%CHOICE)|TYPE=NaturalArmorEnhancement		TEMPVALUE:MIN=1|MAX=4|TITLE=Number of rounds
+Celwynvian Stone Fruit		VISIBLE:NO	SOURCEPAGE:p.20	TEMPDESC:+2 enhancement to natural armor for 1 minute								TEMPBONUS:ANYPC|COMBAT|AC|2|TYPE=NaturalArmorEnhancement

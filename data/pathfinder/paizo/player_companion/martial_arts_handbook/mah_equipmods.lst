@@ -1,0 +1,7 @@
+SOURCELONG:Pathfinder Player Companion: Martial Arts Handbook	SOURCESHORT:MAH	SOURCEWEB:http://paizo.com/products/btq01vb0	SOURCEDATE:2018-11
+# ORIGINAL ENTRY: Jason D. (GrimaceJD)
+# ORIGINAL ENTRY DATE: 01 March 2019
+
+# Special Abilities to support weapons
+Seax Strength			KEY:Special Quality ~ Seax Strength			TYPE:Weapon				VISIBLE:NO			BONUS:WEAPON|TOHIT|-2
+Split-blade Dexterity	KEY:Special Quality ~ Split-blade Dexterity	TYPE:Weapon				VISIBLE:NO			BONUS:WEAPON|TOHIT|-2

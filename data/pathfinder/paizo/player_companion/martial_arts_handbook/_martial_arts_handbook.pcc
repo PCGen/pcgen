@@ -1,0 +1,75 @@
+CAMPAIGN:Martial Arts Handbook
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+GENRE:Fantasy
+STATUS:BETA
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Player Companion: Martial Arts Handbook
+SOURCESHORT:MAH
+SOURCEWEB:http://paizo.com/products/btq01vb0
+SOURCEDATE:2018-11
+ISOGL:YES
+
+COVER:martial_arts_handbook.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btq01vb0|Buy this publication from Paizo Publishing!
+DESC:Combat is a way of life on Golarion - warriors across the world are constantly in search of the next fight, powerful technique, or weapon in order to improve their skills. Pathfinder Player Companion: Martial Arts Handbook offers new archetypes, feats, and equipment for adventurers of all kinds who rely on their physical prowess in combat, whether they turn themselves into living weapons with their punches and kicks or unleash their mastery with nunchaku and swords.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Martial Arts Handbook Copyright 2018, Paizo Inc.; Authors: Thurston Hillman, Mikko Kallio, Jacob W. Michaels, Matt Morris, Daniel Reed, Mikhail Rekun, Mark Seifter, and Jeffrey Swank
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Martial Arts Handbook" Copyright 2019, PCGen Data team (Including, but not limited to Jason D.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:mah_abilities_class.lst
+ABILITYCATEGORY:mah_abilitycategories.lst
+EQUIPMENT:mah_equipment.lst
+EQUIPMOD:mah_equipmods.lst
+ABILITY:mah_feats.lst
+WEAPONPROF:mah_profs_weapon.lst
+
+#support
+ABILITY:support/mah_abilities_class_oa.lst|PRECAMPAIGN:2,INCLUDES=Occult Adventures,INCLUDES=Pathfinder Unchained
+ABILITY:support/mah_feats_oa.lst|PRECAMPAIGN:2,INCLUDES=Occult Adventures,INCLUDES=Pathfinder Unchained
+ABILITYCATEGORY:support/mah_abilitycategories_oa.lst|PRECAMPAIGN:2,INCLUDES=Occult Adventures,INCLUDES=Pathfinder Unchained
+ABILITY:support/mah_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/mah_abilities_wmh.lst|PRECAMPAIGN:1,INCLUDES=Weapon Master's Handbook
+ABILITY:support/mah_abilities_class_uw.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Wilderness
+ABILITYCATEGORY:support/mah_abilitycategories_uw.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Wilderness
+ABILITY:support/mah_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+
+
+
+# ENTRY DATE: 2019-03-01
+# LST MONKEY: Jason D.
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:
+# MINDEVVER:
+# COMMENTS:
+
+
+
+
+
+
