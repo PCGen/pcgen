@@ -1,0 +1,10 @@
+SOURCELONG:Pathfinder Player Companion: Disciple's Doctrine	SOURCESHORT:DD	SOURCEWEB:http://paizo.com/products/btpy9xew	SOURCEDATE:2018-01
+# ORIGINAL ENTRY: Jason D. (GrimaceJD)
+# ORIGINAL ENTRY DATE: 27 June 2019
+
+# ==========================
+# Enabling Aquatic Adventures feat for Elemental Ranger Combat Style
+# ==========================
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Aquadynamic_Focus|0
+CATEGORY=Special Ability|Ranger Combat Style ~ Elemental.MOD	BONUS:VAR|Ranger_Combat_Style_Feat_Aquadynamic_Focus|1
+Aquadynamic Focus					KEY:Ranger Combat Style Feat ~ Aquadynamic Focus								CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY						!PREABILITY:1,CATEGORY=FEAT,Aquadynamic Focus	PREVARGTEQ:Ranger_Combat_Style_Feat_Aquadynamic_Focus,1																																																																																											DESC:Your skill with your chosen weapons is so great that you can use them underwater without impediment.																																																																																																																																																										ABILITY:FEAT|VIRTUAL|Aquadynamic Focus|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1

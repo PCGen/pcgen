@@ -1,0 +1,10 @@
+SOURCELONG:Pathfinder Player Companion: Disciple's Doctrine	SOURCESHORT:DD	SOURCEWEB:http://paizo.com/products/btpy9xew	SOURCEDATE:2018-01
+# ORIGINAL ENTRY: Jason D. (GrimaceJD)
+# ORIGINAL ENTRY DATE: 27 June 2019
+
+# ==============================
+# Bardic Masterpiece Feats
+# ==============================
+
+Masterpiece (Kaminari Drums)			OUTPUTNAME:Masterpiece (Kaminari Drums)			CATEGORY:FEAT			TYPE:Masterpiece																																							PRESKILL:1,Perform (Percussion Instruments)=10		PRETEXT:Perform (Percussion Instruments) 10 ranks.												PREVARGTEQ:MasterpieceLVL,1						DESC:You learn the masterpiece Kaminari Drums																																																	SOURCEPAGE:p.27
+Masterpiece (Spirit of the Horse)		OUTPUTNAME:Masterpiece (Spirit of the Horse)	CATEGORY:FEAT			TYPE:Masterpiece																																							PRESKILL:1,Perform (String Instruments)=7			PRETEXT:Perform (String Instruments) 7 ranks.													PREVARGTEQ:MasterpieceLVL,1						DESC:You learn the masterpiece Spirit of the Horse																																																SOURCEPAGE:p.27
