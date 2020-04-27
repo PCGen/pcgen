@@ -1,0 +1,6 @@
+#SOURCELONG:Pathfinder Player Companion: Disciple's Doctrine	SOURCESHORT:DD	SOURCEWEB:http://paizo.com/products/btpy9xew	SOURCEDATE:2018-01
+# ORIGINAL ENTRY: Jason D. (GrimaceJD)
+# ORIGINAL ENTRY DATE: 27 June 2019
+
+# Ability Category								Visible			Editable?			Change Pool?		Fractional values?			Category of Object					Type of Object							Specific choices list						Plural description for UI				Display Location
+ABILITYCATEGORY:Seeker Emotional Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:Seeker Emotional Focus												PLURAL:Emotional Focuses		DISPLAYLOCATION:Class Features
