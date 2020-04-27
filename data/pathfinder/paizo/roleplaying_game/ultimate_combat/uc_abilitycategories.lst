@@ -43,7 +43,6 @@ ABILITYCATEGORY:Ninja Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Crusader Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:CrusaderBonusFeat																																		PLURAL:Crusader Feats				DISPLAYLOCATION:Feats
 # Monk
 ABILITYCATEGORY:Flowing Monk Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:FlowingMonkBonusFeat																																								DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Maneuver Master Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat.MonkBonusFeat																																					DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Master Of Many Styles Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:MasterOfManyStylesBonusFeat																																							DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Sohei Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:SoheiBonusFeat.MonkBonusFeat																																							DISPLAYLOCATION:Feats
 #
