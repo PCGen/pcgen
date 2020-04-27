@@ -1,0 +1,17 @@
+SOURCELONG:Heroes of the High Court	SOURCESHORT:HOTHC	SOURCEWEB:http://paizo.com/products/btpy9qhp	SOURCEDATE:02-2017
+
+Bastion Crown									TYPE:Magic.Wondrous.Head.Crown														COST:4500		WT:2			SOURCEPAGE:p.30		SPROP:Wearer is immune to talents that add effects to a sneak attack, but not the extra damage from sneak attacks; +4 on saves vs. death effects and assassin death attack ability; wearer can cast neutralize poison on self 1/day.
+Booming Scepter			PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Resizable.Melee.Simple.Light.Finesseable.Bludgeoning.Mace.Hammer.Weapon Group Hammers		COST:25695		WT:4			SOURCEPAGE:p.30		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Thundering ~ Weapon.Material ~ Steel	WIELD:Light		MODS:NO			SIZE:M	SPELLS:Booming Scepter|TIMES=1|CASTERLEVEL=7|Shout,14+CHA		BONUS:SKILL|Intimidate|5|TYPE=Competence
+Chastising Baton									TYPE:Magic.Rod.Combat Gear															COST:5000		WT:3			SOURCEPAGE:p.30		SPROP:Adds pain descriptor to compulsion spells cast by wielder, dealing 1d6 nonlethal damage and sickening for 1 round vs. any creature that saves.		BONUS:DC|SUBSCHOOL.Compulsion|1
+Choker of Body Alteration							TYPE:Magic.Wondrous.Neck.Necklace														COST:2400					SOURCEPAGE:p.28		SPROP:Choker can make a minor physical alterations to wearer, granting +2 on Disguise checks.
+Crown of False Rule								TYPE:Magic.Wondrous.Head.Crown														COST:30000		WT:5			SOURCEPAGE:p.30		SPROP:Wearer is considered the rightful political ruler of wherever they are for the purposes of magical spells or effects.
+Headband of Social Competence							TYPE:Magic.Wondrous.Headband															COST:1000					SOURCEPAGE:p.28
+Kerchief of Remembrance								TYPE:Magic.Wondrous.Wrist.Favor														COST:600					SOURCEPAGE:p.13
+Laurel of the Champion								TYPE:Magic.Wondrous.Head.Favor														COST:2000					SOURCEPAGE:p.13
+Lucky Button									TYPE:Magic.Wondrous.Favor															COST:1200					SOURCEPAGE:p.13
+Paper Flower									TYPE:Magic.Wondrous.Headband.Favor														COST:800					SOURCEPAGE:p.13
+Phantom Entourage									TYPE:Magic.Wondrous.Shoulders.Cape														COST:9000					SOURCEPAGE:p.28
+Throne of Ardent Defense							TYPE:Magic.Wondrous.Throne															COST:16000		WT:350		SOURCEPAGE:p.31
+Throne of Fetters									TYPE:Magic.Wondrous.Throne															COST:16000		WT:500		SOURCEPAGE:p.31
+Throne of Pleasing Mien								TYPE:Magic.Wondrous.Throne															COST:8000		WT:350		SOURCEPAGE:p.31
+Token of Gallantry								TYPE:Magic.Wondrous.Favor															COST:2400					SOURCEPAGE:p.13

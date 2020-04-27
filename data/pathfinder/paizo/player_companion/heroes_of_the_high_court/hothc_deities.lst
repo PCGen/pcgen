@@ -1,0 +1,9 @@
+SOURCELONG:Heroes of the High Court	SOURCESHORT:HOTHC	SOURCEWEB:http://paizo.com/products/btpy9qhp	SOURCEDATE:02-2017
+
+Asmodeus.MOD			DOMAINS:Sovereignty Subdomain|PREALIGN:LN,LE,NE
+Iomedae.MOD				DOMAINS:Chivalry Subdomain,Sovereignty Subdomain|PREALIGN:LG,LN,NG
+Zon-Kuthon.MOD			DOMAINS:Sovereignty Subdomain|PREALIGN:LN,LE,NE
+
+Asmodeus.MOD			BONUS:VAR|InquisitorSovereigntySubdomain|1|PREALIGN:LN,LE,NE
+Iomedae.MOD				BONUS:VAR|InquisitorChivalrySubdomain,InquisitorSovereigntySubdomain|1|PREALIGN:LG,LN,NG
+Zon-Kuthon.MOD			BONUS:VAR|InquisitorSovereigntySubdomain|1|PREALIGN:LN,LE,NE

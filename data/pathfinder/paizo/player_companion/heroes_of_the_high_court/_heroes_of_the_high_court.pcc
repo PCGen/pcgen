@@ -1,0 +1,72 @@
+CAMPAIGN:Heroes of the High Court
+KEY:Heroes of the High Court
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:BETA
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:5,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Heroes of the High Court
+SOURCESHORT:HOTHC
+SOURCEWEB:http://paizo.com/products/btpy9qhp
+SOURCEDATE:2017-02
+ISOGL:YES
+
+COVER:heroes_of_the_high_court.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9qhp|Download this publication from Paizo Publishing!
+DESC:Discover Your Noble Side! Adventure is not limited to forbidding dungeons and grimy back alleys; sometimes the greatest risks and rewards are found in the gleaming halls of queens and emperors. Pathfinder Player Companion: Heroes of the High Court presents everything you need to take your escapades into the royal courts and noble houses of Golarion. Learn how to dress and act in high society, gain access to the echelons of political power, and take advantage of the privileges afforded to those who have mastered the arts of courtly intrigue!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Heroes of the High Court Copyright 2017, Paizo Inc.; Authors: Isabelle Lee, Luis Loza, Ron Lundeen, and Jacob W. Michaels.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Heroes of the High Court Copyright" Copyright 2019, PCGen Data Team (including, but not limited to Gwen T. (evilpixie87)).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+
+ABILITY:hothc_abilities.lst
+ABILITY:hothc_abilities_class.lst
+ABILITY:hothc_abilities_race.lst
+ABILITYCATEGORY:hothc_abilitycategories.lst
+CLASS:hothc_classes.lst
+COMPANIONMOD:hothc_companionmods.lst
+DEITY:hothc_deities.lst
+DOMAIN:hothc_domains.lst
+EQUIPMENT:hothc_equip_general.lst
+EQUIPMENT:hothc_equip_magic_items.lst
+ABILITY:hothc_feats.lst
+SPELL:hothc_spells.lst
+TEMPLATE:hothc_templates.lst
+
+ABILITY:support/hothc_abilities_class_iswg_ui.lst|PRECAMPAIGN:2,INCLUDES=Inner Sea World Guide,INCLUDES=Ultimate Intrigue
+ABILITY:support/hothc_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+ABILITY:support/hothc_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/hothc_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+DEITY:support/hothc_deities_deg.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
+DEITY:support/hothc_deities_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+
+
+# ENTRY DATE:
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:
+
