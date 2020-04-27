@@ -17,4 +17,4 @@ Human		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:
 
 
 
-A test	SORTKEY:a_base_pc							STARTFEATS:1	SIZE:T	MOVE:Walk,10	REACH:0	KIT:1|A Test
+A test	SORTKEY:a_base_pc		FACT:BaseSize|M	SIZE:M					STARTFEATS:1	SIZE:T	MOVE:Walk,10	REACH:0	KIT:1|A Test
