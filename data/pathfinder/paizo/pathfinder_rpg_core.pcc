@@ -50,6 +50,8 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_4/_bestiary_4.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_5/_bestiary_5.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_6/_bestiary_6.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_intrigue/_ultimate_intrigue.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_wilderness/_ultimate_wilderness.pcc
 
@@ -76,6 +78,8 @@ FORWARDREF:ABILITY=Special Ability|Mythic Power,Surge
 # Bestiary 2
 # Bestiary 3
 # Bestiary 4
+# Bestiary 5
+# Bestiary 6
 # Advanced Player's Guide
 # Advanced Race Guide
 # Advanced Class Guide
@@ -84,3 +88,4 @@ FORWARDREF:ABILITY=Special Ability|Mythic Power,Surge
 # Ultimate Campaign
 # Ultimate Equipment
 # Ultimate Intrigue
+# Ultimate Wilderness
