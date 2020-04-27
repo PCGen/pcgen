@@ -1,0 +1,15 @@
+SOURCELONG:Pathfinder Player Companion: Merchant's Manifest	SOURCESHORT:MMF	SOURCEWEB:https://paizo.com/products/btpya04y	SOURCEDATE:2018-03
+# ORIGINAL ENTRY: Jason D. (ding50)
+# ORIGINAL ENTRY DATE: 13 June 2019
+
+# ==============================
+# Masterpiece Support
+# ==============================
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation Manifest
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Manifest

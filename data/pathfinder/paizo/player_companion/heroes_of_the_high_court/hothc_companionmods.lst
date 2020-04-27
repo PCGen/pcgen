@@ -1,0 +1,4 @@
+SOURCELONG:Heroes of the High Court	SOURCESHORT:HOTHC	SOURCEWEB:http://paizo.com/products/btpy9qhp	SOURCEDATE:02-2017
+
+FOLLOWER:RidersBondTrait=1		TYPE:Animal Companion		PRERACE:1,Companion (Horse)		BONUS:ABILITYPOOL|Animal Trick|2
+FOLLOWER:RidersBondTrait=1		TYPE:Special Mount		PRERACE:1,Companion (Horse)		BONUS:ABILITYPOOL|Animal Trick|2
