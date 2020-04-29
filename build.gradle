@@ -34,7 +34,7 @@ plugins {
 }
 
 javafx {
-    version = "13.0.2"
+    version = "14.0.1"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 }
 
