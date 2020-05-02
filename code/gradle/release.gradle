@@ -413,7 +413,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 }
 
 task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar',
-     'buildNsis']) {
+     'buildNsis', 'createAppZip']) {
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
     // buildNsis puts the exe into the release folder directly
@@ -426,6 +426,7 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJa
     delete fileTree(buildDir).matching {
         include "image*.zip"
     }
+
 }
 
 // Produce SHA-256 checksums for each release artifact
@@ -471,18 +472,19 @@ macAppBundle {
     appName			= "PCGen"
     appStyle		= "universalJavaApplicationStub"
     icon 			= "installers/mac-installer/PCGenApp.icns"
-    bundleJRE 		= false
+    bundleJRE 		= true
+    jreHome         = "${buildDir}/image/pcgen-mac-x64"
     backgroundImage = "installers/mac-installer/PCGen_folder_background.png"
-    jvmVersion		= "+11.0"
+    jvmVersion		= "+13.0"
     appIconX		= "243"
     appIconY		= "270"
     appFolderX		= "370"
     appFolderY		= "270"
     javaProperties.put("apple.laf.useScreenMenuBar", "true")
-    bundleExtras.put("JVMVersion", "11.0")
+    bundleExtras.put("JVMVersion", "13.0")
 }
 
-task copyMacDataResources(type: Copy, dependsOn: copyToResourcesJava) {
+task copyMacDataResources(type: Copy, dependsOn: copyToResourcesJava ) {
 	from	"data"
 	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/data"
 }
@@ -507,12 +509,19 @@ task copyMacPreviewResources(type: Copy, dependsOn: copyMacPluginsResources) {
 	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/preview"
 }
 
-task copyMacSystemResources(type: Copy, dependsOn: copyMacPreviewResources) {
+task copyMacSystemResources(type: Copy, dependsOn: ["copyMacPreviewResources", "copyMacJava"]) {
 	from	"system"
 	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/system"
 }
 
+task copyMacJava(type: Copy, dependsOn: runtimeZip){
+    from "${buildDir}/image/pcgen-mac-x64"
+    include "bin/**"
+    include "lib/**"
+    into "$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/"
+}
+
 createApp {
-	it.dependsOn 	"copyMacSystemResources"
+	it.dependsOn "copyMacSystemResources"
 }
 

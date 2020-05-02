@@ -682,9 +682,6 @@ wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-run {
-    enableAssertions = true
-}
 
 apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'

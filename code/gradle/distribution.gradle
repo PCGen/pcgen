@@ -94,31 +94,20 @@ application{
     executableDir = ""
 }
 
-startScripts{
-    doLast {
-        unixScript.text =
-                unixScript.text.replaceAll("\\.\\.","")
-        windowsScript.text =
-                windowsScript.text.replaceAll("\\.\\.","")
-    }
+task runJar(type: JavaExec, dependsOn: jar) {
+    main = "-jar"
+
+    //-ea enables assertions
+    //The jar location must be last in the args list.
+    args = ["-ea",
+            "--module-path",
+            "${projectDir}/mods/lib/",
+            "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
+            "$buildDir/libs/pcgen-${version}.jar"
+    ]
 }
 
 [distZip, distTar, installDist]*.dependsOn createExe
-
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', \
-'downloadJRE']) {
-    classifier = 'full'
-    into(zipRootFolder) {
-        with dataDistsImage
-        with docsDistsImage
-        with programDistsImage
-        with programScriptImage
-        with libsDistsImage
-        with autobuildSpec
-        with charactersImage
-        with jreImage
-    }
-}
 
 task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', \
 'copyToOutput']) {
