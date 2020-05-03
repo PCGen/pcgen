@@ -8,7 +8,8 @@ matrix:
   - os: linux
     jdk: openjdk14
   - os: osx
-    osx_image: xcode9
+    osx_image: xcode11.3
+    jdk: openjdk14
 
 script: ./gradlew clean build copyToOutput test compileSlowtest datatest pfinttest allReports buildDist buildNsis pcgenRelease
 # Do not use itest, requires release notes
