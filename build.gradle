@@ -256,6 +256,10 @@ runtime {
     targetPlatform('windows-x32', "$projectDir/jre/windows/jre_x32")
     targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64/Contents/Home")
 
+    jpackage{
+        targetPlatformName = 'mac-x64'
+        installerType = 'dmg'
+    }
 }
 
 task converterJar(type: Jar, dependsOn: jar) {
@@ -335,7 +339,7 @@ clean {
 build.mustRunAfter clean
 
 task downloadJRE {
-    def major = 13
+    def major = 14
     def archs = ['x64','x32']
     def osList = ['windows', 'mac','linux']
     def extension = 'zip'
@@ -416,7 +420,7 @@ task downloadJRE {
 
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
-    def major = 13
+    def major = "14-0-1"
     def archs = ['x64', 'x86']
     def osList = ["windows", "mac", "linux"]
 
@@ -435,7 +439,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                 }
             }
 
-            def url = "https://gluonhq.com/download/javafx-14-jmods-${os}${archAppend}/"
+            def url = "https://gluonhq.com/download/javafx-${major}-jmods-${os}${archAppend}/"
             def jmodsDir = new File("${projectDir}/jre/${os}/jre_${arch}/jmods")
             def jmodsZip = new File("${projectDir}/jre/${os}/jmods${arch}.zip")
             if (!jmodsZip.exists()) {
@@ -488,7 +492,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             os = "linux"
         }
 
-        def url = "https://gluonhq.com/download/javafx-14-sdk-${os}/"
+        def url = "https://gluonhq.com/download/javafx-${major}-sdk-${os}/"
 
         println("Downloading JavaFX sdk for ${os} from ${url}")
 

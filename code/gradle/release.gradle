@@ -24,6 +24,7 @@ apply from: "code/gradle/releaseUtils.groovy"
 apply plugin: 'java'
 
 import org.apache.tools.ant.filters.FixCrLfFilter
+import org.apache.tools.ant.taskdefs.condition.Os
 
 ext {
     // Work out the path to the release notes for our current version.
@@ -413,20 +414,32 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 }
 
 task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar',
-     'buildNsis', 'createAppZip']) {
-    description = "Create the release artifacts and get them into the release folder."
-    into releaseDir
-    // buildNsis puts the exe into the release folder directly
-    from ("${buildDir}/libs") {
-        include 'pcgen*-sources.jar'
-    }
-    from ("${buildDir}") {
-        include 'image*.zip'
-    }
-    delete fileTree(buildDir).matching {
-        include "image*.zip"
-    }
+     'buildNsis']) {
+    doLast {
+        description = "Create the release artifacts and get them into the release folder."
+        into releaseDir
+        // buildNsis puts the exe into the release folder directly
+        from("${buildDir}/libs") {
+            include 'pcgen*-sources.jar'
+        }
+        from("${buildDir}") {
+            include 'image*.zip'
+        }
+        delete fileTree(buildDir).matching {
+            include "image*.zip"
+        }
+        if (Os.isFamily(Os.FAMILY_MAC)) {
+            from ("${buildDir}"){
+                include 'jpackage/**'
+            }
+        }
 
+    }
+}
+
+if (Os.isFamily(Os.FAMILY_MAC))
+{
+    assembleArtifacts.dependsOn jpackage
 }
 
 // Produce SHA-256 checksums for each release artifact
