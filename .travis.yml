@@ -14,9 +14,9 @@ script: ./gradlew clean build copyToOutput test compileSlowtest datatest pfintte
 # Do not use itest, requires release notes
 
 before_install:
-- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get update fi
-- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install lib32z1 lib32ncurses5 nsis fi
-- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; brew install nsis fi
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get update; fi
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install lib32z1 lib32ncurses5 nsis; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; brew install nsis; fi
 - export PERL_MM_USE_DEFAULT=1
 - chmod +x gradlew;
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install scons zlib1g-dev libcppunit-dev; fi
