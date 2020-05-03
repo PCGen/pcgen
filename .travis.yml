@@ -14,12 +14,13 @@ script: ./gradlew clean build copyToOutput test compileSlowtest datatest pfintte
 # Do not use itest, requires release notes
 
 before_install:
-- sudo apt-get update
-- sudo apt-get install lib32z1 lib32ncurses5 nsis
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get update fi
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install lib32z1 lib32ncurses5 nsis fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; brew install nsis fi
 - export PERL_MM_USE_DEFAULT=1
 - chmod +x gradlew;
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install scons zlib1g-dev libcppunit-dev; fi
-- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; brew install https://sourceforge.net/p/nsis/code/HEAD/tree/web-scripts/trunk/cppunit.rb?format=raw; brew install scons mingw-w64 zlib; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install https://sourceforge.net/p/nsis/code/HEAD/tree/web-scripts/trunk/cppunit.rb?format=raw; brew install scons mingw-w64 zlib; fi
 install:
 - wget -O /tmp/zlib.zip "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip?r=&ts=1403402496&use_mirror=hivelocity"
 - mkdir /tmp/zlib
