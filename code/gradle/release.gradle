@@ -428,8 +428,8 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJa
             include "image*.zip"
         }
         if (Os.isFamily(Os.FAMILY_MAC)) {
-            from ("${buildDir}"){
-                include 'jpackage/**'
+            from ("${buildDir}/jpackage/"){
+                include 'pcgen-*.*'
             }
         }
 }
