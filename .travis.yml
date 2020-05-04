@@ -50,9 +50,9 @@ deploy:
   provider: releases
   api_key:
     secure: eeugGaCu+S7SgEKro3nxHDkkgCPrMzDIw/O3sJyF3x7/rr8NE9aaDn8dwu/snPXfXi3k0D7hnP22WqhxHfe5lxnEu60zzgavizG+FB0q+qGlkSBp8vHrDccgRRrFJso/NwIwSK4mVKRMyZv1KPnI7PJ/FD1xVrJA3EvU73gIX4azHiOdMYTqwpZH6JugkIuijmelgHkGRQBFc+9BuZk2RmhUQssTI/gjlEyS5UUVxpr1Fp9mcZqawjKXC0u8Hm7Z7DanC6PG/I2/bO8kjARIiL3qtTwUwA4O9HKb1J6Ptl0uJ35+8zW0XVfJKRp9H7MLVLYtmKK2YEI/PODHZLnFpDiIf5e3rOWyDUZIlu8bIBxk/PDHVO2fq76R/9kIFhddY1cqbURAhIJUT9G5kWIXyKC1y9wackwLpMV/x7BWk8bE9BwBVNnx5js0XtzlA9SEyFB7Bbt+g2UJQHSp97H0h3ITGG/VFrMBU2YCQxjHtj3lnIRQwg6hSArX9+oRra4L26WMTNS2oxRN7VIz+4gg1Ag2rdIV0EiASDiFcn8c0ta7ZgJvsQNKMFMS3XDA2Geey73J6E7DJi0cembtZ1KxXPng8z1mswivZ2DCAiIwyJpW14fa21TjEfYUR1xeRyRHTUrMDB8QYqFazfQpb8VTSfjIzS73k1had8qqqAMgvnE=
-    file_glob: true
-    file: build/release/*
-    skip_cleanup: true
+  file_glob: true
+  file: build/release/*
+  skip_cleanup: true
   on:
     tags: true
     os: osx
