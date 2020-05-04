@@ -258,7 +258,7 @@ runtime {
     jpackage{
         targetPlatformName = 'mac-x64'
         imageName = "PcGen"
-        imageOptions = ["--app-version ${version.replaceAll('-SNAPSHOT', '')} --license-file ${projectDir}/code/LICENSE "]
+        installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}","--license-file", "${projectDir}/code/LICENSE"]
     }
 }
 
