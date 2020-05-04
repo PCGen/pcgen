@@ -257,7 +257,8 @@ runtime {
 
     jpackage{
         targetPlatformName = 'mac-x64'
-        installerType = 'dmg'
+        imageName = "PcGen"
+        imageOptions = ["--app-version ${version.replaceAll('-SNAPSHOT', '')} --license-file ${projectDir}/code/LICENSE "]
     }
 }
 
