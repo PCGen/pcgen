@@ -1,0 +1,15 @@
+SOURCELONG:Pathfinder Player Companion: Merchant's Manifest	SOURCESHORT:MMF	SOURCEWEB:https://paizo.com/products/btpya04y	SOURCEDATE:2018-03
+# ORIGINAL ENTRY: Jason D. (ding50)
+# ORIGINAL ENTRY DATE: 13 June 2019
+
+# ==============================
+# Bardic Masterpiece Feats
+# ==============================
+
+Masterpiece (Lingering Leitmotif)			OUTPUTNAME:Masterpiece (Lingering Leitmotif)		CATEGORY:FEAT			TYPE:Masterpiece																																							PRESKILL:1,Perform (Oratory)=4,Perform (Sing)=4		PRETEXT:Perform (oratory or sing) 4 ranks.												PREVARGTEQ:MasterpieceLVL,1						DESC:You learn the masterpiece The Lingering Leitmotif																																																	SOURCEPAGE:p.31
+Masterpiece (Song of the Stonebearers)		OUTPUTNAME:Masterpiece (Song of the Stonebearers)	CATEGORY:FEAT			TYPE:Masterpiece																																							PRESKILL:1,Perform (Percussion Instruments)=7,Perform (Sing)=7	PRETEXT:Perform (percussion or sing) 7 ranks.								PREVARGTEQ:MasterpieceLVL,1						DESC:You learn the masterpiece The Song of the Stonebearers																																																SOURCEPAGE:p.31
+
+# ==============================
+# Extra Mercy change for Knight of Coins
+# ==============================
+CATEGORY=FEAT|Extra Mercy.MOD				BONUS:ABILITYPOOL|Mercy|-1|PREABILITY:1,CATEGORY=Archetype,Paladin Archetype ~ Knight of Coins		BONUS:ABILITYPOOL|Extra Mercy Choice|1|PREABILITY:1,CATEGORY=Archetype,Paladin Archetype ~ Knight of Coins

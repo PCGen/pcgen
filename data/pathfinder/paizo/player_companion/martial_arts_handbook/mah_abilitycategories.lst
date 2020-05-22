@@ -1,0 +1,6 @@
+#SOURCELONG:Pathfinder Player Companion: Martial Arts Handbook	SOURCESHORT:MAH	SOURCEWEB:http://paizo.com/products/btq01vb0	SOURCEDATE:2018-11
+# ORIGINAL ENTRY: Jason D. (GrimaceJD)
+# ORIGINAL ENTRY DATE: 04 March 2019
+
+# Ability Category								Visible			Editable?			Change Pool?		Fractional values?			Category of Object					Type of Object							Specific choices list						Plural description for UI				Display Location
+ABILITYCATEGORY:Iron-Ring Striker Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:IronRingStrikerBonusFeat											PLURAL:Iron-Ring Striker Feats	DISPLAYLOCATION:Feats

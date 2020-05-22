@@ -1,0 +1,67 @@
+CAMPAIGN:Merchant's Manifest
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Merchant's Manifest
+SOURCESHORT:MMF
+SOURCEWEB:http://paizo.com/products/btpya04y
+SOURCEDATE:2018-03
+ISOGL:YES
+
+COVER:merchants_manifest.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpya04y|Buy this publication from Paizo Publishing!
+DESC:Some say that money makes the world go round, and Golarion's merchants make this a reality. Pathfinder Player Companion: Merchant's Manifest examines commerce through the lens of important trade hubs such as Absalom, Goka, and Katapesh, where smart shoppers can secure myriad fine wares. Whether you're aiming to purchase a rare item, hire on with a trade organization, or make your fortune on your own, this player-focused volume is your key to success.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Russet Mold from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Merchant's Manifest Copyright 2018, Paizo Publishing LLC; Authors: John Ling, Ron Lundeen, Patrick Renie, David Schwartz, and Jerome Virnich
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Merchant's Manifest" Copyright 2019, PCGen Data Team (including, but not limited to Gwen T., Paul Grosse, and Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+
+ABILITYCATEGORY:mmf_abilitycategories.lst
+#ABILITY:mm_abilities.lst
+ABILITY:mmf_abilities_class.lst
+ABILITY:mmf_feats.lst
+CLASS:mmf_classes.lst
+EQUIPMENT:mmf_equip_arms_armor.lst
+EQUIPMENT:mmf_equip_general.lst
+EQUIPMENT:mmf_equip_magic_items.lst
+EQUIPMOD:mmf_equipmods.lst
+SPELL:mmf_spells.lst
+TEMPLATE:mmf_templates.lst
+WEAPONPROF:mmf_profs_weapon.lst
+
+# Support
+EQUIPMENT:support/mmf_equip_arms_armor_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+
+
+# ENTRY DATE: 2016-04-20
+# LST MONKEY: Jason D. (ding50)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.08
+# MINDEVVER:6.08.00
+# COMMENTS:

@@ -5,6 +5,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDES=Second Darkness, Chapter 3 - The Armageddon Echo (Conversion),INCLUDES=Inner Sea Gods
 PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
 PRECAMPAIGN:2,INCLUDES=Advanced Class Guide,INCLUDES=Bestiary 2
 PUBNAMELONG:Paizo Inc.

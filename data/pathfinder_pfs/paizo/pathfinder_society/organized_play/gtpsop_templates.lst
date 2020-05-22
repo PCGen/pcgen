@@ -5,7 +5,7 @@ SOURCELONG:Guide To Pathfinder Society Organized Play	SOURCESHORT:GTPSOP	SOURCEW
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 # Template Name	Visible	Apply Kit
-PFS Starting Gold	VISIBLE:NO	KIT:1|Starting Gold PFS
+PFS Starting Gold	VISIBLE:NO	KIT:1|Starting Gold ~ PFS
 
 ### Starting Gold
 #Starting Gold ~ CRB.MOD		!PRECHARACTERTYPE:1,PC
