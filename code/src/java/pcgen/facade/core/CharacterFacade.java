@@ -873,4 +873,8 @@ public interface CharacterFacade extends CompanionFacade
 	 * otherwise.
 	 */
 	public boolean isFeatureEnabled(String feature);
+
+	public String getPreviewSheetVar(String key);
+
+	public void addPreviewSheetVar(String key, String value);
 }

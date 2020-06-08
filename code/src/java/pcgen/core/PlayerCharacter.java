@@ -511,6 +511,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext()
 				.getReferenceContext().getManufacturerId(AbilityCategory.LANGBONUS).getActiveObject("*LANGBONUS"));
 	private final CodeControl controller;
+	private Map<String, String> previewSheetVars = new HashMap<>();
 
 	/**
 	 * Constructor.
@@ -10087,5 +10088,22 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public Gender getGenderObject()
 	{
 		return genderFacet.getGender(id);
+	}
+
+
+	public void addPreviewSheetVar(String key, String value)
+	{
+		setDirty(true);
+		previewSheetVars.put(key, value);
+	}
+
+	public String getPreviewSheetVar(String key)
+	{
+		return previewSheetVars.get(key);
+	}
+
+	public Map<String, String> getPreviewSheetVars()
+	{
+		return previewSheetVars;
 	}
 }

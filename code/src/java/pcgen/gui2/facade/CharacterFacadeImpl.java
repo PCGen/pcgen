@@ -4129,4 +4129,16 @@ public class CharacterFacadeImpl
 	{
 		return theCharacter.isFeatureEnabled(feature);
 	}
+
+	@Override
+	public String getPreviewSheetVar(String key)
+	{
+		return theCharacter.getPreviewSheetVar(key);
+	}
+
+	@Override
+	public void addPreviewSheetVar(final String key, final String value)
+	{
+		theCharacter.addPreviewSheetVar(key, value);
+	}
 }

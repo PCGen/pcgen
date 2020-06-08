@@ -1363,6 +1363,14 @@ final class PCGVer2Parser implements PCGParser
 			}
 		}
 
+		if(cache.containsKey(IOConstants.TAG_PREVIEWSHEETVAR))
+		{
+			for(final String line : cache.get(IOConstants.TAG_PREVIEWSHEETVAR))
+			{
+				parsePreviewSheetVarLine(line);
+			}
+		}
+
 	}
 
 	/*
@@ -2296,9 +2304,17 @@ final class PCGVer2Parser implements PCGParser
 	private void parsePreviewSheetLine(final String line)
 	{
 		final StringTokenizer stok = new StringTokenizer(line.substring(IOConstants.TAG_PREVIEWSHEET.length() + 1),
-			IOConstants.TAG_END, false);
+				IOConstants.TAG_END, false);
 
 		thePC.setPreviewSheet(stok.nextToken());
+	}
+
+	private void parsePreviewSheetVarLine(final String line)
+	{
+		final String subLine = line.substring(IOConstants.TAG_PREVIEWSHEETVAR.length() + 1);
+		final StringTokenizer stok = new StringTokenizer(subLine, IOConstants.TAG_SEPARATOR, false);
+
+		thePC.addPreviewSheetVar(stok.nextToken(), stok.nextToken());
 	}
 
 	/*
