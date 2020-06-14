@@ -9,7 +9,7 @@
  */
 
 plugins {
-    id 'com.gradle.build-scan' version '3.3.2'
+    id 'com.gradle.build-scan' version '3.3.4'
     id 'java'
     id 'eclipse'
     id "jacoco"
