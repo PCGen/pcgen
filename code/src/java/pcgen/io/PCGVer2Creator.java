@@ -474,6 +474,7 @@ public final class PCGVer2Creator
 		 * #Preview Sheet Variables
 		 */
 		appendNewline(buffer);
+		appendComment("Preview Sheet Variables", buffer); //$NON-NLS-1$
 		appendPreviewSheetVarLines(buffer);
 
 		/*
