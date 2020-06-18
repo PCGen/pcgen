@@ -471,7 +471,7 @@ public final class PCGVer2Creator
 		appendSuppressBioFieldLines(buffer);
 
 		/*
-		 *
+		 * #Preview Sheet Variables
 		 */
 		appendNewline(buffer);
 		appendPreviewSheetVarLines(buffer);

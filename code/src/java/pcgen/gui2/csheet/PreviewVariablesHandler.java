@@ -39,8 +39,8 @@ public class PreviewVariablesHandler implements ChangeListener<Document>
             setInputValue(element, character.getPreviewSheetVar(key));
             element.addEventListener("change", evt ->
             {
-                HTMLInputElement input1 = (HTMLInputElement) evt.getCurrentTarget();
-                character.addPreviewSheetVar(getInputKey(input1), getInputValue(input1));
+                HTMLInputElement input = (HTMLInputElement) evt.getCurrentTarget();
+                character.addPreviewSheetVar(getInputKey(input), getInputValue(input));
             }, false);
         }
     }
