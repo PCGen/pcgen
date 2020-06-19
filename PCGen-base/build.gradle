@@ -16,7 +16,7 @@ plugins {
     id 'ivy-publish'
     id 'checkstyle'
     id 'pmd'
-    id "com.github.spotbugs" version '4.3.0'
+    id "com.github.spotbugs" version '4.4.1'
     id 'com.github.ben-manes.versions' version '0.28.0'
 }
 
