@@ -471,12 +471,36 @@ public final class PCGVer2Creator
 		appendSuppressBioFieldLines(buffer);
 
 		/*
+		 * #Preview Sheet Variables
+		 */
+		appendNewline(buffer);
+		appendComment("Preview Sheet Variables", buffer); //$NON-NLS-1$
+		appendPreviewSheetVarLines(buffer);
+
+		/*
 		 * Add one more newline at end of file
 		 */
 		appendNewline(buffer);
 
 		// All done!
 		return buffer.toString();
+	}
+
+	private void appendPreviewSheetVarLines(StringBuilder buffer)
+	{
+		for(Map.Entry<String, String> var : thePC.getPreviewSheetVars().entrySet())
+		{
+			if(var.getValue().isEmpty())
+			{
+				continue;
+			}
+			buffer.append(IOConstants.TAG_PREVIEWSHEETVAR)
+					.append(IOConstants.TAG_END)
+					.append(var.getKey())
+					.append(IOConstants.TAG_SEPARATOR)
+					.append(var.getValue())
+					.append(IOConstants.LINE_SEP);
+		}
 	}
 
 	private void appendCampaignLine(StringBuilder buffer)
