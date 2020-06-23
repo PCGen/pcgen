@@ -253,7 +253,7 @@
    <#else>
     <tr>
      <td align="right"><font style="font-size: medium">
-    <@loop from=1 to=pcvar("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES")>&#9744;</@loop></font>
+    <@loop from=1 to=pcvar("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES") ; slot_num , slot_num_has_next><input target_var="${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}_${slot_num}" type="checkbox"/></@loop></font>
      </td>
    </#if>
      <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</td>
@@ -307,7 +307,7 @@
 <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
     <tr>
      <td align="right"><font style="font-size: medium">
-	  <@loop from=1 to=pcvar("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES")>&#9744;</@loop></font>
+	  <@loop from=1 to=pcvar("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES") ; spell_slot , spell_slot_has_next><input target_var="${pcstring('SPELLBOOKNAME.${spellbook}')}_${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}+${spell_slot}" type="checkbox"/></@loop></font>
      </td>
      <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</td>
     </tr>
