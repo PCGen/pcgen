@@ -43,15 +43,15 @@ public class CampaignLoader extends LstLineFileLoader
 	private Campaign campaign = null;
 	private final List<Campaign> inittedCampaigns = new ArrayList<>();
 
-	public static final ListKey[] OTHER_FILE_LISTKEY = {ListKey.FILE_LST_EXCLUDE, ListKey.FILE_COVER};
+	public static final List<ListKey<CampaignSourceEntry>> OTHER_FILE_LISTKEY = List.of(ListKey.FILE_LST_EXCLUDE, ListKey.FILE_COVER);
 
-	public static final ListKey[] OBJECT_FILE_LISTKEY = {ListKey.FILE_RACE, ListKey.FILE_CLASS,
+	public static final List<ListKey<CampaignSourceEntry>> OBJECT_FILE_LISTKEY = List.of(ListKey.FILE_RACE, ListKey.FILE_CLASS,
 		ListKey.FILE_COMPANION_MOD, ListKey.FILE_SKILL, ListKey.FILE_ABILITY_CATEGORY, ListKey.FILE_ABILITY,
 		ListKey.FILE_FEAT, ListKey.FILE_DEITY, ListKey.FILE_DOMAIN, ListKey.FILE_ARMOR_PROF, ListKey.FILE_SHIELD_PROF,
 		ListKey.FILE_WEAPON_PROF, ListKey.FILE_EQUIP, ListKey.FILE_SPELL, ListKey.FILE_LANGUAGE, ListKey.FILE_TEMPLATE,
 		ListKey.FILE_EQUIP_MOD, ListKey.FILE_KIT, ListKey.FILE_BIO_SET, ListKey.FILE_ALIGNMENT, ListKey.FILE_STAT,
 		ListKey.FILE_SAVE, ListKey.FILE_SIZE, ListKey.FILE_DATACTRL, ListKey.FILE_VARIABLE, ListKey.FILE_DYNAMIC,
-		ListKey.FILE_DATATABLE, ListKey.FILE_GLOBALMOD};
+		ListKey.FILE_DATATABLE, ListKey.FILE_GLOBALMOD);
 
 	/**
 	 * This method initializes any campaigns that include other campaigns,
@@ -120,11 +120,11 @@ public class CampaignLoader extends LstLineFileLoader
 			return;
 		}
 
-		for (ListKey<?> lk : OBJECT_FILE_LISTKEY)
+		for (ListKey<CampaignSourceEntry> lk : OBJECT_FILE_LISTKEY)
 		{
 			addToBaseCampaign(baseCampaign, subCampaign, lk);
 		}
-		for (ListKey<?> lk : OTHER_FILE_LISTKEY)
+		for (ListKey<CampaignSourceEntry> lk : OTHER_FILE_LISTKEY)
 		{
 			addToBaseCampaign(baseCampaign, subCampaign, lk);
 		}
