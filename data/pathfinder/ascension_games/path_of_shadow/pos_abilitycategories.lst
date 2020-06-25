@@ -1,16 +1,16 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
-# Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Specific choices list			Plural description for UI			Display Location
-ABILITYCATEGORY:Nightblade Class Feature					VISIBLE:QUALIFY			EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Nightblade Class Feature																		DISPLAYLOCATION:Class Features
+# Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
+ABILITYCATEGORY:Nightblade Class Feature		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Nightblade Class Feature		PLURAL:Nightblade Class Features	DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Nightblade Art						VISIBLE:QUALIFY			EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Nightblade Art																			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Nightblade Path						VISIBLE:QUALIFY			EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Nightblade Path																			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Nightblade Art					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Nightblade Art		PLURAL:Nightblade Arts	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Nightblade Path					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Nightblade Path		PLURAL:Nightblade Paths	DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Nightblade Casting Art Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Metamagic													PLURAL:Nightblade Casting Art Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Nightblade Combat Art Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat														PLURAL:Nightblade Combat Art Feats		DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Shadow Bloodrager Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ShadowBloodragerBloodline				ABILITYLIST:Special Bloodline Feat	PLURAL:Shadow Bloodrager Bloodline Feats	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Nightblade Archetype					VISIBLE:QUALIFY			EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype		TYPE:NightbladeArchetype																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Nightblade Archetype						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype		TYPE:NightbladeArchetype																		DISPLAYLOCATION:Archetype
 
 ABILITYCATEGORY:Nightblade Increase Known Spells Level Choice	VISIBLE:QUALIFY			EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Nightblade Increase Known Spells Level Choice														DISPLAYLOCATION:Class Features
