@@ -20,7 +20,6 @@ package pcgen.output.model;
 import java.util.function.Supplier;
 
 import freemarker.template.TemplateBooleanModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A BooleanModel wraps a boolean object into a TemplateScalarModel
@@ -44,8 +43,8 @@ public class BooleanModel implements TemplateBooleanModel, Supplier<Boolean>
 	}
 
 	@Override
-	public boolean getAsBoolean() throws TemplateModelException
-	{
+	public boolean getAsBoolean()
+    {
 		return bool;
 	}
 

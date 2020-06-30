@@ -22,7 +22,6 @@ import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
@@ -100,8 +99,8 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		}
 
 		@Override
-		public void isValid(FormulaSemantics semantics) throws SemanticsException
-		{
+		public void isValid(FormulaSemantics semantics)
+        {
 			/*
 			 * Since this is direct (already has the object), it has no semantic issues
 			 * (barring someone violating Generics)
@@ -146,8 +145,8 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		}
 
 		@Override
-		public void isValid(FormulaSemantics semantics) throws SemanticsException
-		{
+		public void isValid(FormulaSemantics semantics)
+        {
 			/*
 			 * Since this is direct (already has a reference to the object), it has no
 			 * semantic issues (barring someone violating Generics)

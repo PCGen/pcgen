@@ -20,7 +20,6 @@ package pcgen.output.model;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateNumberModel;
 
 /**
@@ -46,8 +45,8 @@ public class NumberModel implements TemplateNumberModel, Supplier<Number>
 	}
 
 	@Override
-	public Number getAsNumber() throws TemplateModelException
-	{
+	public Number getAsNumber()
+    {
 		return number;
 	}
 

@@ -52,8 +52,8 @@ public class OrderedPairModel implements TemplateScalarModel, TemplateSequenceMo
 	}
 
 	@Override
-	public String getAsString() throws TemplateModelException
-	{
+	public String getAsString()
+    {
 		return point.toString();
 	}
 
@@ -78,8 +78,8 @@ public class OrderedPairModel implements TemplateScalarModel, TemplateSequenceMo
 	}
 
 	@Override
-	public int size() throws TemplateModelException
-	{
+	public int size()
+    {
 		return 2;
 	}
 

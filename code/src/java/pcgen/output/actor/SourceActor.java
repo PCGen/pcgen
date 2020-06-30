@@ -23,7 +23,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.SourceModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * An SourceActor is designed to process an interpolation and convert the source
@@ -36,8 +35,8 @@ import freemarker.template.TemplateModelException;
 public class SourceActor implements OutputActor<CDOMObject>
 {
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
-	{
+	public TemplateModel process(CharID id, CDOMObject d)
+    {
 		return new SourceModel(id, d);
 	}
 }

@@ -79,8 +79,8 @@ public class GlobalVarModel implements TemplateHashModel
 	}
 
 	@Override
-	public boolean isEmpty() throws TemplateModelException
-	{
+	public boolean isEmpty()
+    {
 		//Assume there is at least one global variable
 		return false;
 	}

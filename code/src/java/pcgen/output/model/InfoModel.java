@@ -94,8 +94,8 @@ public class InfoModel implements TemplateHashModel
 	}
 
 	@Override
-	public boolean isEmpty() throws TemplateModelException
-	{
+	public boolean isEmpty()
+    {
 		return cdo.getKeysFor(MapKey.INFO).isEmpty();
 	}
 }

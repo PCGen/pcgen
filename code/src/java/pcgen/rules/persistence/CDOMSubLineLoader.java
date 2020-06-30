@@ -21,7 +21,6 @@ import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Loadable;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -42,8 +41,8 @@ public class CDOMSubLineLoader<T extends Loadable>
 		// prefixLength = targetPrefixColon.length();
 	}
 
-	public boolean parseLine(LoadContext context, T obj, String val) throws PersistenceLayerException
-	{
+	public boolean parseLine(LoadContext context, T obj, String val)
+    {
 		if (val == null)
 		{
 			return true;

@@ -36,7 +36,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -239,8 +238,8 @@ public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMO
 	}
 
 	@Override
-	public String getLstFormat() throws PersistenceLayerException
-	{
+	public String getLstFormat()
+    {
 		return Constants.LST_PERCENT_LIST;
 	}
 

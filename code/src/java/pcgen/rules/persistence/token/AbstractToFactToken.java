@@ -18,7 +18,6 @@
 package pcgen.rules.persistence.token;
 
 import pcgen.cdom.base.Loadable;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -38,17 +37,10 @@ public abstract class AbstractToFactToken<T extends Loadable> extends AbstractNo
 	{
 		Logging.deprecationPrint(getTokenClass().getSimpleName() + " token " + getTokenName()
 			+ " has been deprecated and replaced by FACT. Token was " + getTokenName() + ':' + value, context);
-		try
+		if (!context.processToken(obj, "FACT", getTokenName() + '|' + value))
 		{
-			if (!context.processToken(obj, "FACT", getTokenName() + '|' + value))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error to FACT");
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getLocalizedMessage());
+			Logging.replayParsedMessages();
+			return new ParseResult.Fail("Delegation Error to FACT");
 		}
 		return ParseResult.SUCCESS;
 	}

@@ -23,7 +23,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.InfoModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * An InfoActor is designed to process an interpolation and convert that into a
@@ -36,8 +35,8 @@ import freemarker.template.TemplateModelException;
 public class InfoActor implements OutputActor<CDOMObject>
 {
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
-	{
+	public TemplateModel process(CharID id, CDOMObject d)
+    {
 		return new InfoModel(id, d);
 	}
 }

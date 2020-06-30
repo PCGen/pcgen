@@ -26,11 +26,9 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SubstitutionClass;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
-import pcgen.util.Logging;
 
 public final class SubstitutionLevelSupport
 {
@@ -45,14 +43,7 @@ public final class SubstitutionLevelSupport
 		final PCClassLoader classLoader = new PCClassLoader();
 		PCClass dummyClass = new PCClass();
 
-		try
-		{
-			classLoader.parseLine(Globals.getContext(), dummyClass, aLine, tempSource);
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Unable to parse line from levelArray: " + aLine);
-		}
+		classLoader.parseLine(Globals.getContext(), dummyClass, aLine, tempSource);
 		return dummyClass.getOriginalClassLevel(level).qualifies(pc, source);
 	}
 

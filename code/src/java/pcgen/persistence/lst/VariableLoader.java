@@ -38,8 +38,7 @@ public class VariableLoader extends Observable
 {
 
 	public final void parseLine(LoadContext context, String lstLine, SourceEntry source)
-		throws PersistenceLayerException
-	{
+    {
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		//Need the IF so that it is not an empty line causing issues
@@ -141,19 +140,7 @@ public class VariableLoader extends Observable
 				try
 				{
 					parseLine(context, line, sourceEntry);
-				}
-				catch (PersistenceLayerException ple)
-				{
-					String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-						uri, i + 1, ple.getMessage());
-					Logging.errorPrint(message);
-					setChanged();
-					if (Logging.isDebugMode())
-					{
-						Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
-					}
-				}
-				catch (Throwable t)
+				} catch (Throwable t)
 				{
 					String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ParseError", //$NON-NLS-1$
 						uri, i + 1, t.getMessage());

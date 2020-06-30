@@ -24,7 +24,6 @@ import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -106,8 +105,8 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	}
 
 	@Override
-	public void isValid(FormulaSemantics semantics) throws SemanticsException
-	{
+	public void isValid(FormulaSemantics semantics)
+    {
 		/*
 		 * Since this is direct (already has the object), it has no semantic issues
 		 * (barring someone violating Generics)

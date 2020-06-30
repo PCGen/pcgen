@@ -20,7 +20,6 @@ package pcgen.rules.persistence;
 import java.net.URI;
 
 import pcgen.cdom.inst.CodeControl;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstLineFileLoader;
 import pcgen.persistence.lst.LstUtils;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -33,8 +32,8 @@ import pcgen.util.Logging;
 public class CodeControlLoader extends LstLineFileLoader
 {
 	@Override
-	public void parseLine(LoadContext context, String inputLine, URI sourceURI) throws PersistenceLayerException
-	{
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
+    {
 		int sepLoc = inputLine.indexOf('\t');
 		if (sepLoc != -1)
 		{
@@ -43,15 +42,8 @@ public class CodeControlLoader extends LstLineFileLoader
 			return;
 		}
 
-		try
-		{
-			AbstractReferenceContext refContext = context.getReferenceContext();
-			CodeControl controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
-			LstUtils.processToken(context, controller, sourceURI, inputLine);
-		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint("Exception in Load: ", ple);
-		}
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		CodeControl controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
+		LstUtils.processToken(context, controller, sourceURI, inputLine);
 	}
 }

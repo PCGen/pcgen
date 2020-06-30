@@ -26,7 +26,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.character.CompanionMod;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
@@ -50,8 +49,8 @@ public class CompanionModLoader extends SimpleLoader<CompanionMod>
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
-	{
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+    {
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		List<String> allTokens = new ArrayList<>();

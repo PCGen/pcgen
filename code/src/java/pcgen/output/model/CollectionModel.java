@@ -80,8 +80,8 @@ public class CollectionModel implements TemplateSequenceModel
 	}
 
 	@Override
-	public int size() throws TemplateModelException
-	{
+	public int size()
+    {
 		return list.size();
 	}
 
