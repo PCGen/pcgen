@@ -44,7 +44,7 @@ public class PreSizeTester extends AbstractPrerequisiteTest implements Prerequis
 
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter pc)
-    {
+	{
 		final int targetSize = getTargetSizeInt(prereq.getOperand());
 
 		final int runningTotal = prereq.getOperator().compare(equipment.sizeInt(), targetSize);

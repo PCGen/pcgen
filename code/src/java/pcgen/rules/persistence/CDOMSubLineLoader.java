@@ -42,7 +42,7 @@ public class CDOMSubLineLoader<T extends Loadable>
 	}
 
 	public boolean parseLine(LoadContext context, T obj, String val)
-    {
+	{
 		if (val == null)
 		{
 			return true;

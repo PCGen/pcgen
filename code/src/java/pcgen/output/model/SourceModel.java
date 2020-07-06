@@ -129,7 +129,7 @@ public class SourceModel implements TemplateHashModel
 
 	@Override
 	public boolean isEmpty()
-    {
+	{
 		return false;
 	}
 }

@@ -38,7 +38,7 @@ public class VariableLoader extends Observable
 {
 
 	public final void parseLine(LoadContext context, String lstLine, SourceEntry source)
-    {
+	{
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		//Need the IF so that it is not an empty line causing issues

@@ -46,7 +46,7 @@ public class MigrationLoader extends LstLineFileLoader
 
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-    {
+	{
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 

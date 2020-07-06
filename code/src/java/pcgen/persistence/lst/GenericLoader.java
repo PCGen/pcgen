@@ -56,7 +56,7 @@ public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 
 	@Override
 	public final T parseLine(LoadContext context, T object, String lstLine, SourceEntry source)
-    {
+	{
 		T po;
 		boolean isnew = false;
 		if (object == null)

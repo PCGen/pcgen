@@ -36,7 +36,7 @@ public class InfoActor implements OutputActor<CDOMObject>
 {
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
-    {
+	{
 		return new InfoModel(id, d);
 	}
 }

@@ -81,7 +81,7 @@ public class CollectionModel implements TemplateSequenceModel
 
 	@Override
 	public int size()
-    {
+	{
 		return list.size();
 	}
 

@@ -36,7 +36,7 @@ public class GlobalModifierLoader extends LstLineFileLoader
 
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-    {
+	{
 		if (lstLine.indexOf('\t') != -1)
 		{
 			Logging.errorPrint(

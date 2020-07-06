@@ -94,7 +94,7 @@ public final class IndirectCalculation<T> extends AbstractNEPCalculation<T>
 
 	@Override
 	public void isValid(FormulaSemantics semantics)
-    {
+	{
 		/*
 		 * Since this is direct (already has a reference to the object), it has no
 		 * semantic issues (barring someone violating Generics)

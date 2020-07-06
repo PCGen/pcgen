@@ -94,7 +94,7 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 
 	@Override
 	public int size()
-    {
+	{
 		return facet.getCount(id);
 	}
 

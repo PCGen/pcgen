@@ -180,7 +180,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 	}
 
 	private static void setLocation(Prerequisite prereq, String location)
-    {
+	{
 		if (prereq.getPrerequisiteCount() == 0)
 		{
 			prereq.setCategoryName(location);

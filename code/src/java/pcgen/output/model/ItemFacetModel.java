@@ -120,7 +120,7 @@ public class ItemFacetModel<T> implements TemplateHashModel, TemplateScalarModel
 
 	@Override
 	public String getAsString()
-    {
+	{
 		T obj = facet.get(id);
 		if (obj == null)
 		{

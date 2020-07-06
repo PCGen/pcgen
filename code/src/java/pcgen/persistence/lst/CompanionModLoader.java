@@ -50,7 +50,7 @@ public class CompanionModLoader extends SimpleLoader<CompanionMod>
 
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-    {
+	{
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		List<String> allTokens = new ArrayList<>();

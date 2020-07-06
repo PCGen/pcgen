@@ -46,7 +46,7 @@ public class NumberModel implements TemplateNumberModel, Supplier<Number>
 
 	@Override
 	public Number getAsNumber()
-    {
+	{
 		return number;
 	}
 

@@ -54,7 +54,7 @@ public class ListKeyActor implements OutputActor<CDOMObject>
 
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
-    {
+	{
 		//Our own ListModel so that we end up wrapping subcontents on "our terms"
 		return new CollectionModel(id, d.getSafeListFor(lk));
 	}

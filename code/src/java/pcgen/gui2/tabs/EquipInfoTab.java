@@ -700,7 +700,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		@Override
 		public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException
-        {
+		{
 			if (flavor == EQUIP_NODE_ARRAY_FLAVOR)
 			{
 				return nodeArray;

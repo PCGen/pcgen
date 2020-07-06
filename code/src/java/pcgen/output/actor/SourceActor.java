@@ -36,7 +36,7 @@ public class SourceActor implements OutputActor<CDOMObject>
 {
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
-    {
+	{
 		return new SourceModel(id, d);
 	}
 }

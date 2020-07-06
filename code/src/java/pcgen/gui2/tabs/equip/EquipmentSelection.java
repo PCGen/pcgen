@@ -50,7 +50,7 @@ public class EquipmentSelection implements Transferable
 
 	@Override
 	public EquipmentFacade[] getTransferData(DataFlavor flavor) throws UnsupportedFlavorException
-    {
+	{
 		if (!isDataFlavorSupported(flavor))
 		{
 			throw new UnsupportedFlavorException(flavor);

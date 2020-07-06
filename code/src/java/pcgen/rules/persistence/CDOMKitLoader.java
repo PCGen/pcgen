@@ -65,7 +65,7 @@ public class CDOMKitLoader
 
 	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit, CDOMSubLineLoader<CC> loader,
 		String line)
-    {
+	{
 		CC obj = loader.getCDOMObject();
 		context.getObjectContext().addToList(kit, ListKey.KIT_TASKS, obj);
 		return loader.parseLine(context, obj, line);

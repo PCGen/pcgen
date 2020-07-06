@@ -64,7 +64,7 @@ public final class PJEP extends JEP
 
 			@Override
 			public void loadPlugin(Class clazz)
-            {
+			{
 				addCommand(clazz);
 			}
 

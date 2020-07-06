@@ -46,7 +46,7 @@ public class StringModel implements TemplateScalarModel, Supplier<String>
 
 	@Override
 	public String getAsString()
-    {
+	{
 		return string;
 	}
 

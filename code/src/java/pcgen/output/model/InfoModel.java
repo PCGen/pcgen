@@ -95,7 +95,7 @@ public class InfoModel implements TemplateHashModel
 
 	@Override
 	public boolean isEmpty()
-    {
+	{
 		return cdo.getKeysFor(MapKey.INFO).isEmpty();
 	}
 }

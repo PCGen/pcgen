@@ -194,7 +194,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 	private void parseFullClassLevelLine(LoadContext context, SourceEntry source, PCClass pcClass,
 		String lineIdentifier, String restOfLine)
-    {
+	{
 		try
 		{
 			String repeatTag = null;
@@ -245,7 +245,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 	public void parseClassLevelLine(LoadContext context, PCClass pcClass, int lvl, SourceEntry source,
 		String restOfLine)
-    {
+	{
 		if (restOfLine == null)
 		{
 			return;
@@ -287,7 +287,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	public void parseLineIntoClass(LoadContext context, PCClass pcClass, SourceEntry source, String restOfLine)
-    {
+	{
 		if (restOfLine == null)
 		{
 			return;

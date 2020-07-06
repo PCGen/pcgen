@@ -40,7 +40,7 @@ public class CodeControlModel implements TemplateHashModel
 
 	@Override
 	public boolean isEmpty()
-    {
+	{
 		return false;
 	}
 

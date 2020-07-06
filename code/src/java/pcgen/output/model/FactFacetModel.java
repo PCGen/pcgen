@@ -77,7 +77,7 @@ public class FactFacetModel implements TemplateHashModel
 
 	@Override
 	public boolean isEmpty()
-    {
+	{
 		return false;
 	}
 }

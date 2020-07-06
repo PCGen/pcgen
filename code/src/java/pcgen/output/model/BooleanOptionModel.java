@@ -57,7 +57,7 @@ public class BooleanOptionModel implements TemplateBooleanModel
 
 	@Override
 	public boolean getAsBoolean()
-    {
+	{
 		return PCGenSettings.OPTIONS_CONTEXT.getBoolean(prefName, defaultValue);
 	}
 }
