@@ -73,8 +73,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		int con = 3;
 		assertTrue(parse(Integer.toString(con)));
 		assertTrue(parseSecondary(Integer.toString(con)));
-		assertEquals((int) con, primaryProf.get(ObjectKey.LEVEL_HITDIE)
-			.getDie());
+		assertEquals(con, primaryProf.get(ObjectKey.LEVEL_HITDIE).getDie());
 		testInvalidInputs(new HitDie(con));
 		assertNoSideEffects();
 	}
