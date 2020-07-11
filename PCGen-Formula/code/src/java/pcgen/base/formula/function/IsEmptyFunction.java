@@ -15,7 +15,6 @@
  */
 package pcgen.base.formula.function;
 
-import java.util.Arrays;
 import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
@@ -47,13 +46,7 @@ public class IsEmptyFunction implements FormulaFunction
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
 	{
-		int argCount = args.length;
-		if (argCount != 1)
-		{
-			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 1 got " + argCount + " "
-				+ Arrays.asList(args));
-		}
+		FunctionUtilities.validateArgCount(this, args, 1);
 		Node node = args[0];
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> format = (FormatManager<?>) node.jjtAccept(visitor,

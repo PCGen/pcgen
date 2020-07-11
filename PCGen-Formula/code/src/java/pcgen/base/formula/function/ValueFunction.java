@@ -17,7 +17,6 @@
  */
 package pcgen.base.formula.function;
 
-import java.util.Arrays;
 import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
@@ -59,20 +58,15 @@ public class ValueFunction implements FormulaFunction
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
 		Node[] args, FormulaSemantics semantics)
 	{
-		if (args.length == 0)
+		FunctionUtilities.validateArgCount(this, args, 0);
+		Optional<FormatManager<?>> inputFormat =
+				semantics.get(FormulaSemantics.INPUT_FORMAT);
+		if (!inputFormat.isPresent())
 		{
-			Optional<FormatManager<?>> inputFormat =
-					semantics.get(FormulaSemantics.INPUT_FORMAT);
-			if (!inputFormat.isPresent())
-			{
-				throw new SemanticsFailureException("Function value()"
-					+ " unable to proceed without a known INPUT_FORMAT");
-			}
-			return inputFormat.get();
+			throw new SemanticsFailureException("Function value()"
+				+ " unable to proceed without a known INPUT_FORMAT");
 		}
-		throw new SemanticsFailureException("Function " + "value()"
-			+ " received incorrect # of arguments, expected: 0 got " + args.length + " "
-			+ Arrays.asList(args));
+		return inputFormat.get();
 	}
 
 	@Override

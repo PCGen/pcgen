@@ -57,21 +57,13 @@ public abstract class AbstractNaryFunction implements FormulaFunction
 		if (argCount < 2)
 		{
 			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 2 got " + args.length
-				+ " " + Arrays.asList(args));
+				+ " received incorrect # of arguments, expected at least 2, got "
+				+ args.length + " " + Arrays.asList(args));
 		}
 		for (Node n : args)
 		{
-			@SuppressWarnings("PMD.PrematureDeclaration")
-			FormatManager<?> format =
-					(FormatManager<?>) n.jjtAccept(visitor, semantics);
-			if (!format.equals(FormatUtilities.NUMBER_MANAGER))
-			{
-				throw new SemanticsFailureException(
-					"Parse Error: Invalid Value Format: " + format + " found in "
-						+ n.getClass().getName() + " found in location requiring a"
-						+ " Number (class cannot be evaluated)");
-			}
+			FunctionUtilities.ensureMatchingFormat(visitor, semantics, n,
+				FormatUtilities.NUMBER_MANAGER);
 		}
 		return FormatUtilities.NUMBER_MANAGER;
 	}
