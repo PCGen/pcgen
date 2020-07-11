@@ -22,6 +22,7 @@ import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTNum;
+import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.util.FormatManager;
@@ -145,4 +146,47 @@ public class FunctionUtilities
 					.getWith(FormulaSemantics.ASSERTED, Optional.of(expected)));
 		ensureMatchingFormat(node, format, expected);
 	}
+	
+	/**
+	 * Ensures the given node (located at the given argument number) is a Quoted String.
+	 * If not, throws a SemanticsFailureException.
+	 * 
+	 * @param node
+	 *            The node to be checked
+	 * @param arg
+	 *            The location of the node (for error reporting)
+	 */
+	public static void ensureQuotedString(Node node, int arg)
+	{
+		if (!(node instanceof ASTQuotString))
+		{
+			//Error
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid argument #" + arg + ": is a "
+					+ node.getClass().getName()
+					+ ", Must be a (Static) String");
+		}
+	}
+
+	/**
+	 * Returns the quoted string within the given node if the node is an ASTQuotString. If
+	 * not, throws a SemanticsFailureException.
+	 * 
+	 * @param node
+	 *            The node to be checked
+	 * @param arg
+	 *            The location of the node (for error reporting)
+	 * @return The text value of the node
+	 */
+	public static String getQuotedString(Node node, int arg)
+	{
+		if (node instanceof ASTQuotString)
+		{
+			return ((ASTQuotString) node).getText();
+		}
+		throw new SemanticsFailureException(
+			"Parse Error: Invalid argument #" + arg + ": is a "
+				+ node.getClass().getName() + ", Must be a (Static) String");
+	}
+
 }
