@@ -53,7 +53,7 @@ public class ArraySubtract implements OperatorAction
 		Optional<FormatManager<?>> assertedComponent = formatManager.getComponentManager();
 		if (assertedComponent.isEmpty())
 		{
-			return null;
+			return Optional.empty();
 		}
 		Class<?> firstComponent = format1.getComponentType();
 		Class<?> secondComponent =

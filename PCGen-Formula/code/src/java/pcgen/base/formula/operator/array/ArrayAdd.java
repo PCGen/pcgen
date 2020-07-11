@@ -51,7 +51,7 @@ public class ArrayAdd implements OperatorAction
 		Optional<FormatManager<?>> assertedComponent = formatManager.getComponentManager();
 		if (assertedComponent.isEmpty())
 		{
-			return null;
+			return Optional.empty();
 		}
 		if (!isCompatible(assertedComponent, format1)
 			|| !isCompatible(assertedComponent, format2))
