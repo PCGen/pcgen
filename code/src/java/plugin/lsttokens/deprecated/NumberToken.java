@@ -18,7 +18,6 @@
 package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -44,19 +43,10 @@ public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 			return new ParseResult.Fail("Incompatible with NUMBER|: " + value);
 		}
 		Logging.deprecationPrint("CHOOSE:NUMBER is deprecated, please use TEMPVALUE");
-		try
-		{
-			if (!context.processToken(obj, "TEMPVALUE", value.substring(7)))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE");
-			}
-		}
-		catch (PersistenceLayerException e)
+		if (!context.processToken(obj, "TEMPVALUE", value.substring(7)))
 		{
 			Logging.replayParsedMessages();
-			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:NUMBER to TEMPVALUE: " + e.getLocalizedMessage());
+			return new ParseResult.Fail("Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE");
 		}
 
 		return ParseResult.SUCCESS;

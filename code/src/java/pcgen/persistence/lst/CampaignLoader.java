@@ -162,7 +162,7 @@ public class CampaignLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String inputLine, URI sourceURI) throws PersistenceLayerException
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
 	{
 		LstUtils.processToken(context, campaign, sourceURI, inputLine);
 	}

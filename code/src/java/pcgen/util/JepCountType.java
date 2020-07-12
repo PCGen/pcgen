@@ -197,7 +197,7 @@ public abstract class JepCountType
 		}
 
 		@Override
-		protected Set<? extends Equipment> filterSetP(final String c, Collection<Equipment> coll) throws ParseException
+		protected Set<? extends Equipment> filterSetP(final String c, Collection<Equipment> coll)
 		{
 			final String[] keyValue = c.split("=");
 
@@ -282,7 +282,7 @@ public abstract class JepCountType
 	public static final JepCountType RACESUBTYPE = new JepCountType()
 	{
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params) throws ParseException
+		public Number count(PlayerCharacter pc, Object[] params)
 		{
 			return pc.getDisplay().getRacialSubTypeCount();
 		}
@@ -790,7 +790,7 @@ public abstract class JepCountType
 	{
 
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params) throws ParseException
+		public Number count(PlayerCharacter pc, Object[] params)
 		{
 			SkillFilter sf = null;
 			View v = View.ALL;

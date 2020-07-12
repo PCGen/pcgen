@@ -25,7 +25,6 @@ import pcgen.gui2.converter.ConversionDecider;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
@@ -95,42 +94,35 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 
 	private String processBonus(TokenProcessEvent tpe, String key, String value)
 	{
-		try
+		LoadContext context = tpe.getContext();
+		CDOMObject obj = tpe.getPrimary();
+		if (context.processToken(obj, key, value))
 		{
-			LoadContext context = tpe.getContext();
-			CDOMObject obj = tpe.getPrimary();
-			if (context.processToken(obj, key, value))
-			{
-				context.commit();
-			}
-			else
-			{
-				context.rollback();
-				Logging.replayParsedMessages();
-			}
-			Logging.clearParseMessages();
-			Collection<String> output = context.unparse(obj);
-			if (output == null || output.isEmpty())
-			{
-				// Uh Oh
-				return ("Unable to unparse: " + key + ':' + value);
-			}
-			boolean needTab = false;
-			for (String s : output)
-			{
-				if (needTab)
-				{
-					tpe.append('\t');
-				}
-				needTab = true;
-				tpe.append(s);
-			}
-			tpe.consume();
+			context.commit();
 		}
-		catch (PersistenceLayerException e)
+		else
 		{
-			Logging.errorPrint(e.getLocalizedMessage(), e);
+			context.rollback();
+			Logging.replayParsedMessages();
 		}
+		Logging.clearParseMessages();
+		Collection<String> output = context.unparse(obj);
+		if (output == null || output.isEmpty())
+		{
+			// Uh Oh
+			return ("Unable to unparse: " + key + ':' + value);
+		}
+		boolean needTab = false;
+		for (String s : output)
+		{
+			if (needTab)
+			{
+				tpe.append('\t');
+			}
+			needTab = true;
+			tpe.append(s);
+		}
+		tpe.consume();
 		return null;
 	}
 

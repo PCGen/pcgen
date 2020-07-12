@@ -2451,10 +2451,8 @@ public class CharacterFacadeImpl
 	 * Save the character to disc using its filename. Note this method is not 
 	 * part of the CharacterFacade and should only be used by the 
 	 * ChracterManager class.
-	 * 
-	 * @throws IOException If the write fails
 	 */
-	public void save() throws IOException
+	public void save()
 	{
 		GameMode mode = dataSet.getGameMode();
 		List<Campaign> campaigns = ListFacades.wrap(dataSet.getCampaigns());

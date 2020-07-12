@@ -19,7 +19,6 @@ package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -41,17 +40,10 @@ public class RaceFeatToken extends AbstractNonEmptyToken<Race> implements CDOMCo
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
-		try
+		if (!context.processToken(race, "ABILITY", "FEAT|AUTOMATIC|" + value))
 		{
-			if (!context.processToken(race, "ABILITY", "FEAT|AUTOMATIC|" + value))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error from Race's FEAT");
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from Race's FEAT: " + e.getLocalizedMessage());
+			Logging.replayParsedMessages();
+			return new ParseResult.Fail("Delegation Error from Race's FEAT");
 		}
 		return ParseResult.SUCCESS;
 	}

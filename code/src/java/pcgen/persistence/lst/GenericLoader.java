@@ -25,7 +25,6 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 
@@ -57,7 +56,6 @@ public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 
 	@Override
 	public final T parseLine(LoadContext context, T object, String lstLine, SourceEntry source)
-		throws PersistenceLayerException
 	{
 		T po;
 		boolean isnew = false;
