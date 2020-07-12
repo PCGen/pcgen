@@ -821,7 +821,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		int a = EqToken.getMaxDexTokenInt(pc, equip);
 
-		if ((int) a != Constants.MAX_MAXDEX)
+		if (a != Constants.MAX_MAXDEX)
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextMaxDex", Integer.toString(a)); //$NON-NLS-1$
@@ -829,7 +829,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		a = EqToken.getAcCheckTokenInt(pc, equip);
 
-		if (equip.isArmor() || equip.isShield() || ((int) a != 0))
+		if (equip.isArmor() || equip.isShield() || (a != 0))
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextAcCheck", Integer.toString(a)); //$NON-NLS-1$
@@ -839,7 +839,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = equip.getACMod(pc);
 
-			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendElement(LanguageBundle.getFormattedString("in_igInfoLabelTextAcBonus", //$NON-NLS-1$
@@ -851,7 +851,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = EqToken.getSpellFailureTokenInt(pc, equip);
 
-			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextArcaneFailure", Integer.toString(a)); //$NON-NLS-1$
@@ -864,7 +864,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = EqToken.getEdrTokenInt(pc, equip);
 
-			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendElement(bString, Integer.toString(a));
