@@ -171,6 +171,13 @@ compileJava {
     it.dependsOn 'copyMasterSheets'
 }
 
+/*
+* For information on the exclude group items in this section, and why these are necessary to have Eclipse properly compile PCGen, please see the following items:
+* https://bugs.openjdk.java.net/browse/JDK-8215739
+* https://bugs.eclipse.org/bugs/show_bug.cgi?id=536928
+* https://stackoverflow.com/questions/51094274/eclipse-cant-find-xml-related-classes-after-switching-build-path-to-jdk-10/53824670#53824670
+* https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
+*/
 dependencies {
     implementation group: 'commons-io', name: 'commons-io', version:'2.7'
 
@@ -178,14 +185,19 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-beans', version:'5.2.7.RELEASE'
     implementation group: 'org.springframework', name: 'spring-core', version:'5.2.7.RELEASE'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.10'
-    compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.5'
+    compile('org.apache.xmlgraphics:fop:2.5')
+    {
+        exclude group: 'xml-apis', module: 'xml-apis'
+    }
     implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
     implementation group: 'org.scijava', name: 'jep', version:'2.4.2'
     implementation group: 'org.freemarker', name: 'freemarker', version:'2.3.30'
     implementation group: 'org.jdom', name: 'jdom2', version:'2.0.6'
-    implementation group: 'xalan', name: 'xalan', version:'2.7.2'
+    implementation('xalan:xalan:2.7.2')
+    {
+        exclude group: 'xml-apis', module: 'xml-apis'
+    }
     implementation group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
-    implementation group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
     implementation group: 'org.xmlunit', name: 'xmlunit-core', version:'2.7.0'
     implementation group: 'org.controlsfx', name: 'controlsfx', version:'11.0.2'
 
