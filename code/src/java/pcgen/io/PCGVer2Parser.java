@@ -72,6 +72,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
@@ -132,6 +133,7 @@ import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -2924,8 +2926,10 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseHairStyleLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.HAIRSTYLE,
-			EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRSTYLE.length() + 1)));
+		String hairStyle = EntityEncoder
+			.decode(line.substring(IOConstants.TAG_HAIRSTYLE.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.HAIRSTYLEINPUT, hairStyle);
 	}
 
 	private void parseHandedLine(final String line)
