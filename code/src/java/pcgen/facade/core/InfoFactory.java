@@ -19,10 +19,12 @@
 package pcgen.facade.core;
 
 import pcgen.core.Deity;
+import pcgen.core.Domain;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 
@@ -74,7 +76,7 @@ public interface InfoFactory
 
 	public String getHTMLInfo(Deity deity);
 
-	public String getHTMLInfo(DomainFacade domain);
+	public String getHTMLInfo(QualifiedObject<Domain> domain);
 
 	/**
 	 * Produce the HTML information string for an item for equipment.
@@ -196,10 +198,10 @@ public interface InfoFactory
 	/**
 	 * Get the description for a domain for this character.
 	 *
-	 * @param domainFacade The domain to be described.
+	 * @param domain The domain to be described.
 	 * @return The description.
 	 */
-	public String getDescription(DomainFacade domainFacade);
+	public String getDescription(Domain domain);
 
 	/**
 	 * Get the description for a spell for this character.

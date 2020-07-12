@@ -23,18 +23,19 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
+import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -128,7 +129,7 @@ public class MockDataSetFacade implements DataSetFacade
 	/**
 	 * 
 	 */
-	public ListFacade<DomainFacade> getDomains()
+	public ListFacade<QualifiedObject<Domain>> getDomains()
 	{
 		// TODO Auto-generated method stub
 		return null;
