@@ -105,9 +105,7 @@ public class VariableManager implements VariableLibrary
 				+ currentFormat.getIdentifierType());
 		}
 		//Now, need to check for conflicts
-		boolean hasConflict = hasParentConflict(varName, legalScope)
-			|| hasChildConflict(varName, legalScope, formatManager);
-		if (hasConflict)
+		if (hasConflict(varName, legalScope))
 		{
 			throw new LegalVariableException(variableDefs.getSecondaryKeySet(varName)
 				.stream().map(ls -> LegalScope.getFullName(ls))
@@ -124,45 +122,13 @@ public class VariableManager implements VariableLibrary
 	}
 
 	/**
-	 * Returns true if there is a conflict the a parent Scope for the given variable name.
+	 * Returns true if there is a conflict with a related Scope for the given variable name.
 	 */
-	private boolean hasParentConflict(String varName, LegalScope legalScope)
+	private boolean hasConflict(String varName, LegalScope legalScope)
 	{
-		Optional<? extends LegalScope> potentialParent = legalScope.getParentScope();
-		while (potentialParent.isPresent())
-		{
-			LegalScope parent = potentialParent.get();
-			if (variableDefs.containsKey(varName, parent))
-			{
-				//Conflict with a higher level scope
-				return true;
-			}
-			potentialParent = parent.getParentScope();
-		}
-		return false;
-	}
-
-	/**
-	 * Returns true if there is a conflict the a child Scope for the given variable name.
-	 */
-	private boolean hasChildConflict(String varName, LegalScope legalScope,
-		FormatManager<?> formatManager)
-	{
-		List<? extends LegalScope> children =
-				legalScopeManager.getChildScopes(legalScope);
-		if (children == null)
-		{
-			return false;
-		}
-		for (LegalScope childScope : children)
-		{
-			if (variableDefs.containsKey(varName, childScope)
-				|| hasChildConflict(varName, childScope, formatManager))
-			{
-				return true;
-			}
-		}
-		return false;
+		return variableDefs.getSecondaryKeySet(varName).stream()
+			.filter(otherScope -> legalScopeManager.isRelated(otherScope, legalScope))
+			.anyMatch(otherScope -> !otherScope.equals(legalScope));
 	}
 
 	@Override
