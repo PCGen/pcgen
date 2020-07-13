@@ -27,15 +27,8 @@ spotbugs {
 	excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
 	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
 	reportLevel = 'low'
-	ignoreFailures = 'true'
+	ignoreFailures = true
 	toolVersion = "3.1.8"
-}
-
-tasks.withType(SpotBugsTask) {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
 }
 
 buildScan {

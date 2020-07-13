@@ -8,8 +8,6 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.formula.inst.SimpleLegalScope;
 
 public class ScopeManagerInstTest extends TestCase
 {

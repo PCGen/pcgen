@@ -135,11 +135,6 @@ jar {
     }
 }
 
-//Workaround, see: https://github.com/spotbugs/spotbugs-gradle-plugin/issues/32
-ext {
-    SpotBugsTask = com.github.spotbugs.SpotBugsTask
-}
-
 task sourceJar(type: Jar) {
     from sourceSets.main.java
     classifier "sources"
