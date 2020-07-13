@@ -71,7 +71,7 @@ public final class StringUtil
 	 */
 	public static String join(Collection<?> collection, char separator)
 	{
-		return join(collection, Character.toString(separator)).toString();
+		return join(collection, Character.toString(separator));
 	}
 	
 	/**
