@@ -17,6 +17,7 @@
 package pcgen.base.formatmanager;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
@@ -53,7 +54,7 @@ public class ArrayFormatFactoryTest extends TestCase
 	{
 		try
 		{
-			factory.build("NUM", library);
+			factory.build(Optional.empty(), Optional.of("NUM"), library);
 			fail("bad sub form should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -66,7 +67,7 @@ public class ArrayFormatFactoryTest extends TestCase
 	{
 		try
 		{
-			factory.build(null, library);
+			factory.build(Optional.empty(), Optional.empty(), library);
 			fail("null sub form should fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -79,7 +80,7 @@ public class ArrayFormatFactoryTest extends TestCase
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
-				(FormatManager<Number[]>) factory.build("NUMBER", library);
+				(FormatManager<Number[]>) factory.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert(null)));
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert("")));
 		assertTrue(Arrays.equals(ARR_1, manager.convert("1")));
@@ -91,25 +92,25 @@ public class ArrayFormatFactoryTest extends TestCase
 
 	public void testGetIdentifier()
 	{
-		FormatManager<?> manager = factory.build("NUMBER", library);
+		FormatManager<?> manager = factory.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals("ARRAY[NUMBER]", manager.getIdentifierType());
-		manager = factory.build("STRING", library);
+		manager = factory.build(Optional.empty(), Optional.of("STRING"), library);
 		assertEquals("ARRAY[STRING]", manager.getIdentifierType());
 	}
 
 	public void testManagedClass()
 	{
-		FormatManager<?> manager = factory.build("NUMBER", library);
+		FormatManager<?> manager = factory.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertSame(Number[].class, manager.getManagedClass());
-		manager = factory.build("STRING", library);
+		manager = factory.build(Optional.empty(), Optional.of("STRING"), library);
 		assertSame(String[].class, manager.getManagedClass());
 	}
 
 	public void testGetComponent()
 	{
-		FormatManager<?> manager = factory.build("NUMBER", library);
+		FormatManager<?> manager = factory.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals(new NumberManager(), manager.getComponentManager().get());
-		manager = factory.build("STRING", library);
+		manager = factory.build(Optional.empty(), Optional.of("STRING"), library);
 		assertEquals(new StringManager(), manager.getComponentManager().get());
 	}
 
@@ -120,10 +121,10 @@ public class ArrayFormatFactoryTest extends TestCase
 	 */
 	public void testFailInvalidSub()
 	{
+		assertFalse(library.hasFormatManager("ARRAY[ARRAY[NUMBER]]"));
 		try
 		{
-			assertFalse(library.hasFormatManager("ARRAY[ARRAY[NUMBER]]"));
-			library.getFormatManager("ARRAY[ARRAY[NUMBER]]");
+			library.getFormatManager(Optional.empty(), "ARRAY[ARRAY[NUMBER]]");
 			fail("bad input value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)

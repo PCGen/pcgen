@@ -44,7 +44,7 @@ public class OptionalFormatFactoryTest extends TestCase
 	{
 		try
 		{
-			factory.build("NUM", library);
+			factory.build(Optional.empty(), Optional.of("NUM"), library);
 			fail("bad sub form should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -53,11 +53,11 @@ public class OptionalFormatFactoryTest extends TestCase
 		}
 	}
 
-	public void testFailNullSubFormat()
+	public void testFailEmptySubFormat()
 	{
 		try
 		{
-			factory.build(null, library);
+			factory.build(Optional.empty(), Optional.empty(), library);
 			fail("null sub form should fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -70,8 +70,8 @@ public class OptionalFormatFactoryTest extends TestCase
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<Optional<Number>> manager =
-				(FormatManager<Optional<Number>>) factory.build("NUMBER",
-					library);
+				(FormatManager<Optional<Number>>) factory
+					.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals(Optional.empty(), manager.convert(null));
 		assertEquals(Optional.empty(), manager.convert(""));
 		assertEquals(1, manager.convert("1").get());
@@ -81,19 +81,23 @@ public class OptionalFormatFactoryTest extends TestCase
 
 	public void testGetIdentifier()
 	{
-		FormatManager<?> manager = factory.build("NUMBER", library);
+		FormatManager<?> manager =
+				factory.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals("OPTIONAL[NUMBER]", manager.getIdentifierType());
-		manager = factory.build("STRING", library);
+		manager =
+				factory.build(Optional.empty(), Optional.of("STRING"), library);
 		assertEquals("OPTIONAL[STRING]", manager.getIdentifierType());
 	}
 
 	public void testManagedClass()
 	{
-		FormatManager<?> manager = factory.build("NUMBER", library);
+		FormatManager<?> manager =
+				factory.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals(Optional.class, manager.getManagedClass());
 		assertTrue(manager.getComponentManager().isPresent());
 		assertEquals(new NumberManager(), manager.getComponentManager().get());
-		manager = factory.build("STRING", library);
+		manager =
+				factory.build(Optional.empty(), Optional.of("STRING"), library);
 		assertEquals(Optional.class, manager.getManagedClass());
 		assertTrue(manager.getComponentManager().isPresent());
 		assertEquals(new StringManager(), manager.getComponentManager().get());
@@ -101,9 +105,11 @@ public class OptionalFormatFactoryTest extends TestCase
 
 	public void testGetComponent()
 	{
-		FormatManager<?> manager = factory.build("NUMBER", library);
+		FormatManager<?> manager =
+				factory.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals(new NumberManager(), manager.getComponentManager().get());
-		manager = factory.build("STRING", library);
+		manager =
+				factory.build(Optional.empty(), Optional.of("STRING"), library);
 		assertEquals(new StringManager(), manager.getComponentManager().get());
 	}
 

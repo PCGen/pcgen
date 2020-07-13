@@ -17,6 +17,7 @@
 package pcgen.base.formatmanager;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
@@ -52,7 +53,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		try
 		{
 			assertFalse(library.hasFormatManager("NUMBER]"));
-			library.getFormatManager("NUMBER]");
+			library.getFormatManager(Optional.empty(), "NUMBER]");
 			fail("bad input value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -66,7 +67,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		try
 		{
 			assertFalse(library.hasFormatManager("NUMBER[NUMBER]"));
-			library.getFormatManager("NUMBER[NUMBER]");
+			library.getFormatManager(Optional.empty(), "NUMBER[NUMBER]");
 			fail("bad input value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -80,7 +81,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		try
 		{
 			assertFalse(library.hasFormatManager("NIMBLER"));
-			library.getFormatManager("NIMBLER");
+			library.getFormatManager(Optional.empty(), "NIMBLER");
 			fail("null bad bracket value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -94,7 +95,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		try
 		{
 			assertFalse(library.hasFormatManager("ARRAY[NUMBER"));
-			library.getFormatManager("ARRAY[NUMBER");
+			library.getFormatManager(Optional.empty(), "ARRAY[NUMBER");
 			fail("null bad bracket value should fail");
 		}
 		catch (IllegalArgumentException e)
@@ -131,7 +132,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		try
 		{
 			assertFalse(library.hasFormatManager("ARRAY[NIMBLER]"));
-			library.getFormatManager("ARRAY[NIMBLER]");
+			library.getFormatManager(Optional.empty(), "ARRAY[NIMBLER]");
 			fail("bad sub format should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -147,7 +148,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) library
-					.getFormatManager("ARRAY[NUMBER]");
+					.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert(null)));
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert("")));
 		assertTrue(Arrays.equals(ARR_1, manager.convert("1")));
@@ -162,7 +163,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) library
-					.getFormatManager("ARRAY[NUMBER]");
+					.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertEquals("1", manager.unconvert(ARR_1));
 		assertEquals("-3", manager.unconvert(ARR_N3));
 		assertEquals("-3,4,5", manager.unconvert(ARR_N3_4_5));
@@ -178,7 +179,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) library
-					.getFormatManager("ARRAY[NUMBER]");
+					.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertTrue(Arrays.equals(new Number[]{}, manager.convertIndirect(null)
 			.get()));
 		assertTrue(Arrays.equals(new Number[]{}, manager.convertIndirect("")
@@ -204,31 +205,31 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 
 	public void testGetIdentifier()
 	{
-		FormatManager<?> manager = library.getFormatManager("ARRAY[NUMBER]");
+		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertEquals("ARRAY[NUMBER]", manager.getIdentifierType());
-		manager = library.getFormatManager("ARRAY[STRING]");
+		manager = library.getFormatManager(Optional.empty(), "ARRAY[STRING]");
 		assertEquals("ARRAY[STRING]", manager.getIdentifierType());
-		manager = library.getFormatManager("STRING");
+		manager = library.getFormatManager(Optional.empty(), "STRING");
 		assertEquals("STRING", manager.getIdentifierType());
 	}
 
 	public void testManagedClass()
 	{
-		FormatManager<?> manager = library.getFormatManager("ARRAY[NUMBER]");
+		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertSame(Number[].class, manager.getManagedClass());
-		manager = library.getFormatManager("ARRAY[STRING]");
+		manager = library.getFormatManager(Optional.empty(), "ARRAY[STRING]");
 		assertSame(String[].class, manager.getManagedClass());
-		manager = library.getFormatManager("STRING");
+		manager = library.getFormatManager(Optional.empty(), "STRING");
 		assertSame(String.class, manager.getManagedClass());
 	}
 
 	public void testGetComponent()
 	{
-		FormatManager<?> manager = library.getFormatManager("ARRAY[NUMBER]");
+		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertEquals(new NumberManager(), manager.getComponentManager().get());
-		manager = library.getFormatManager("ARRAY[STRING]");
+		manager = library.getFormatManager(Optional.empty(), "ARRAY[STRING]");
 		assertEquals(new StringManager(), manager.getComponentManager().get());
-		manager = library.getFormatManager("STRING");
+		manager = library.getFormatManager(Optional.empty(), "STRING");
 		assertTrue(manager.getComponentManager().isEmpty());
 	}
 }

@@ -17,6 +17,8 @@
  */
 package pcgen.base.formatmanager;
 
+import java.util.Optional;
+
 import pcgen.base.util.FormatManager;
 
 /**
@@ -34,17 +36,18 @@ public interface FormatManagerFactory
 	 * Returns the FormatManager for the given format name based on the contents
 	 * of the given FormatManagerLibrary.
 	 * 
-	 * @param formatName
-	 *            The name of the format for which the FormatManager will be
-	 *            returned
+	 * @param parentFormat
+	 *            The name of the parent format if one exists
+	 * @param subFormat
+	 *            The name of the subformat if one exists
 	 * @param library
 	 *            The FormatManagerLibrary used to store valid FormatManager
 	 *            objects
 	 * @return The FormatManager for the given format name based on the contents
 	 *         of the given FormatManagerLibrary
 	 */
-	public FormatManager<?> build(String formatName,
-		FormatManagerLibrary library);
+	public FormatManager<?> build(Optional<String> parentFormat,
+		Optional<String> subFormat, FormatManagerLibrary library);
 
 	/**
 	 * Returns the first level format of the FormatManager this

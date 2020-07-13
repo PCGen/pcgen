@@ -314,7 +314,8 @@ public class CompoundFormatManagerTest extends TestCase
 		Compound c = manager.convert("3|LEVEL=Hard");
 		valueStore.addValueFor(numberManager.getIdentifierType(), 3);
 		valueStore.addValueFor(stringManager.getIdentifierType(), "Hard");
-		Object value = manager.initializeFrom(valueStore);
+		Compound value = manager.initializeFrom(valueStore);
+		assertEquals("Hard", value.getSecondary("LEVEL").getUnconverted());
 		assertEquals(c, value);
 		Compound c2 = manager.convert("4|LEVEL=Easy");
 		valueStore.addValueFor(numberManager.getIdentifierType(), 4);
