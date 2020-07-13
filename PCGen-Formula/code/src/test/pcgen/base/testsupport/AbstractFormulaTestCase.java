@@ -55,7 +55,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 {
 
 	private ManagerFactory managerFactory = new ManagerFactory(){};
-	private ScopeManagerInst legalScopeLibrary;
+	private ScopeManagerInst legalScopeManager;
 	private FormulaManager formulaManager;
 	private ScopeInstance globalInstance;
 	private SupplierValueStore valueStore;
@@ -65,9 +65,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		super.setUp();
 		FormulaSetupFactory setup = new FormulaSetupFactory();
-		legalScopeLibrary = new ScopeManagerInst();
-		legalScopeLibrary.registerScope(new SimpleLegalScope("Global"));
-		setup.setLegalScopeManagerSupplier(() -> legalScopeLibrary);
+		legalScopeManager = new ScopeManagerInst();
+		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		setup.setLegalScopeManagerSupplier(() -> legalScopeManager);
 		valueStore = new SupplierValueStore();
 		setup.setValueStoreSupplier(() -> valueStore);
 		SolverFactory solverFactory = new SimpleSolverFactory(valueStore);
@@ -242,9 +242,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		return formulaManager;
 	}
 
-	protected ScopeManagerInst getScopeLibrary()
+	protected ScopeManagerInst getScopeManager()
 	{
-		return legalScopeLibrary;
+		return legalScopeManager;
 	}
 
 	protected ManagerFactory getManagerFactory()

@@ -123,7 +123,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		assertEquals(0, store.get(str));
 
 		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
-		getScopeLibrary().registerScope(localScope);
+		getScopeManager().registerScope(localScope);
 
 		ScopeInstance strInst =
 				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));

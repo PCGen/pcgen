@@ -58,12 +58,12 @@ public interface ScopeInstanceFactory
 	public ScopeInstance get(String scopeName, Optional<VarScoped> obj);
 
 	/**
-	 * Returns the LegalScope for the given legal scope name, using the LegalScopeLibrary
+	 * Returns the LegalScope for the given legal scope name, using the LegalScopeManager
 	 * underlying this SimpleScopeInstanceFactory to resolve the name.
 	 * 
 	 * @param s
 	 *            The scope name to be used to find the LegalScope in the
-	 *            LegalScopeLibrary underlying this SimpleScopeInstanceFactory
+	 *            LegalScopeManager underlying this SimpleScopeInstanceFactory
 	 * @return The LegalScope for the given legal scope name
 	 */
 	public LegalScope getScope(String s);

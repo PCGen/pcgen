@@ -145,7 +145,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			//ok
 		}
 		//Invalid ID very bad
-		VariableLibrary alternateLibrary = new VariableManager(getScopeLibrary(), getValueStore());
+		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
@@ -189,7 +189,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(6, store.get(hitpoints));
 
 		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
-		getScopeLibrary().registerScope(localScope);
+		getScopeManager().registerScope(localScope);
 		ScopeInstance strInst =
 				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));
 
@@ -343,7 +343,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		//Not present is Harmless
 		getManager().removeModifier(hp, modifier, source);
 		//Invalid ID very bad
-		VariableLibrary alternateLibrary = new VariableManager(getScopeLibrary(), getValueStore());
+		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
