@@ -80,6 +80,9 @@
     </module>
     <module name="UpperEll"/>
   </module>
+<!--
+  Currently giving lots of false positives
   <module name="NewlineAtEndOfFile"/>
+-->
   <module name="Translation"/>
 </module>
