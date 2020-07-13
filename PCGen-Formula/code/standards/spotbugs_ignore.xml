@@ -6,7 +6,7 @@
    </Match>
    <Match>
         <!-- We ignore serialization -->
-        <Bug pattern="SE_NO_SERIALVERSIONID,SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" />
+        <Bug pattern="SE_NO_SERIALVERSIONID,SE_COMPARATOR_SHOULD_BE_SERIALIZABLE,SE_BAD_FIELD" />
    </Match>
    <Match>
         <!-- not relevent to pcgen -->
