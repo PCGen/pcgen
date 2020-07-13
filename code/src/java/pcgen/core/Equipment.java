@@ -4214,7 +4214,7 @@ public final class Equipment extends PObject
 					if (iOffs > 10)
 					{
 						int acCombatBonus = Integer.parseInt(aString.substring(10, iOffs));
-						double d = (double) acCombatBonus * mult;
+						double d = acCombatBonus * mult;
 						acCombatBonus = (int) d;
 						aString = aString.substring(0, 10) + Integer.toString(acCombatBonus) + aString.substring(iOffs);
 						/*
@@ -5464,7 +5464,7 @@ public final class Equipment extends PObject
 	public Float getBaseContainedWeight()
 	{
 
-		float total = (float) 0;
+		float total = 0.0f;
 
 		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT)) || (getChildCount() == 0))
 		{
