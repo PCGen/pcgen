@@ -141,7 +141,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable()
 	{
-		getVariableStore().put(getVariable("a"), 5);
+		getVariableStore().put(getVariable("a"), 4.5);
 		String formula = "ceil(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -150,5 +150,6 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 		assertEquals(1, vars.size());
 		VariableID<?> var = vars.get(0);
 		assertEquals("a", var.getName());
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(5));
 	}
 }

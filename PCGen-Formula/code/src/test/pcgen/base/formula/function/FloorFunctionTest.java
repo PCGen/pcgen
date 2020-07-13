@@ -141,7 +141,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable()
 	{
-		getVariableStore().put(getVariable("a"), 5);
+		getVariableStore().put(getVariable("a"), 5.3);
 		String formula = "floor(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -150,5 +150,6 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 		assertEquals(1, vars.size());
 		VariableID<?> var = vars.get(0);
 		assertEquals("a", var.getName());
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(5));
 	}
 }
