@@ -46,4 +46,10 @@ public class SimpleVarScoped implements VarScoped
 		return Optional.ofNullable(parent);
 	}
 
+	@Override
+	public String toString()
+	{
+		return "SVS:" + name;
+	}
+
 }

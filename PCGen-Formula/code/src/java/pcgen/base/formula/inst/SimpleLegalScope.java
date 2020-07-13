@@ -29,7 +29,7 @@ public class SimpleLegalScope implements LegalScope
 {
 
 	/**
-	 * The LegalScope that is a parent of this LegalScope.
+	 * The LegalScope that is the parent of this LegalScope.
 	 */
 	private final Optional<LegalScope> parent;
 
@@ -53,7 +53,7 @@ public class SimpleLegalScope implements LegalScope
 	 * Constructs a new LegalScope with the given parent LegalScope and name.
 	 * 
 	 * @param parentScope
-	 *            The LegalScope that is a parent of this LegalScope. May be
+	 *            The LegalScope that is the parent of this LegalScope. May be
 	 *            null to represent global
 	 * @param name
 	 *            The name of this SimpleLegalScope
@@ -69,24 +69,12 @@ public class SimpleLegalScope implements LegalScope
 		this.name = Objects.requireNonNull(name);
 	}
 
-	/**
-	 * Returns the LegalScope that serves as a "parent" for this LegalScope.
-	 * 
-	 * Null is a legal return value for a "global" scope.
-	 * 
-	 * @return The LegalScope that serves as a "parent" for this LegalScope
-	 */
 	@Override
 	public Optional<LegalScope> getParentScope()
 	{
 		return parent;
 	}
 
-	/**
-	 * Returns the name of this LegalScope.
-	 * 
-	 * @return the name of the LegalScope
-	 */
 	@Override
 	public String getName()
 	{
@@ -96,6 +84,6 @@ public class SimpleLegalScope implements LegalScope
 	@Override
 	public String toString()
 	{
-		return name;
+		return parent.isPresent() ? parent.get().toString() + "." + name : name;
 	}
 }

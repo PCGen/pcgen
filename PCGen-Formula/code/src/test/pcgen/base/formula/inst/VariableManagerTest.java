@@ -70,7 +70,7 @@ public class VariableManagerTest extends TestCase
 	{
 		try
 		{
-			new VariableManager(null, null);
+			new VariableManager(null, valueStore);
 			fail("null must be rejected in constructor");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -79,7 +79,7 @@ public class VariableManagerTest extends TestCase
 		}
 		try
 		{
-			new VariableManager(null, null);
+			new VariableManager(legalScopeManager, null);
 			fail("null must be rejected in constructor");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -577,55 +577,6 @@ public class VariableManagerTest extends TestCase
 			return pair.toString();
 		}
 		
-	}
-
-	private static final class IndirectModifier<T> implements Modifier<T>
-	{
-
-		private final Indirect<T> indirect;
-		private final FormatManager<T> formatManager;
-
-		public IndirectModifier(FormatManager<T> formatManager,
-			Indirect<T> indirect)
-		{
-			this.formatManager = formatManager;
-			this.indirect = indirect;
-		}
-
-		@Override
-		public T process(EvaluationManager manager)
-		{
-			return indirect.get();
-		}
-
-		@Override
-		public void getDependencies(DependencyManager fdm)
-		{
-		}
-
-		@Override
-		public long getPriority()
-		{
-			return 0;
-		}
-
-		@Override
-		public FormatManager<T> getVariableFormat()
-		{
-			return formatManager;
-		}
-
-		@Override
-		public String getIdentification()
-		{
-			return "SET";
-		}
-
-		@Override
-		public String getInstructions()
-		{
-			return indirect.getUnconverted();
-		}
 	}
 
 }
