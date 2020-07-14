@@ -52,7 +52,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 	public void testLang() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		character.addFreeLanguage(elven, elven);
+		character.addAutoLanguage(elven, elven);
 
 		Prerequisite prereq;
 
@@ -72,7 +72,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 		assertFalse("Character doesn't have Dwarven", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addFreeLanguage(dwarven, dwarven);
+		character.addAutoLanguage(dwarven, dwarven);
 
 		assertTrue("Character has Elven and Dwarven", PrereqHandler.passes(
 			prereq, character, null));
@@ -82,7 +82,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 		assertFalse("Character doesn't have 3 langs", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addFreeLanguage(halfling, halfling);
+		character.addAutoLanguage(halfling, halfling);
 
 		assertTrue("Character has Elven, Dwarven, and Halfling", PrereqHandler
 			.passes(prereq, character, null));

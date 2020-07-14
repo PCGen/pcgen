@@ -264,9 +264,6 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
-	<bean id="freeLanguageFacet" class="pcgen.cdom.facet.input.FreeLanguageFacet">
-		<property name="languageFacet" ref="languageFacet"/>
-	</bean>
 	<!-- G -->
 	<bean id="genderFacet" class="pcgen.cdom.facet.fact.GenderFacet">
 		<property name="templateFacet" ref="templateFacet"/>
