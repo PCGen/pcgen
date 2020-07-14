@@ -41,7 +41,6 @@ import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.MockStat;
 import pcgen.base.testsupport.TestUtilities;
-import pcgen.base.util.FormatManager;
 
 public class SolverTest
 {
@@ -81,7 +80,6 @@ public class SolverTest
 	@Test
 	public void testIllegalConstruction()
 	{
-		Modifier<Number> mod = AbstractModifier.add(1, 100);
 		assertThrows(NullPointerException.class, () -> new Solver<Number>(FormatUtilities.NUMBER_MANAGER, null));
 		assertThrows(NullPointerException.class, () -> new Solver<Number>(null, 4));
 	}
@@ -237,7 +235,7 @@ public class SolverTest
 	@Test
 	public void testArrayMod()
 	{
-		Solver<Number[]> solver = new Solver<Number[]>((FormatManager<Number[]>) TestUtilities.NUMBER_ARRAY_MANAGER, new Number[]{});
+		Solver<Number[]> solver = new Solver<Number[]>(TestUtilities.NUMBER_ARRAY_MANAGER, new Number[]{});
 		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
 		Modifier<Number[]> add1 = AbstractModifier.addToArray(1, 10);
 		solver.addModifier(add1, inst);
@@ -267,7 +265,7 @@ public class SolverTest
 	@Test
 	public void testArrayIndependenceAdd()
 	{
-		Solver<Number[]> solver = new Solver<Number[]>((FormatManager<Number[]>) TestUtilities.NUMBER_ARRAY_MANAGER, new Number[]{});
+		Solver<Number[]> solver = new Solver<Number[]>(TestUtilities.NUMBER_ARRAY_MANAGER, new Number[]{});
 		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
 		Modifier<Number[]> add1 = AbstractModifier.addToArray(1, 10);
 		solver.addModifier(add1, inst);
