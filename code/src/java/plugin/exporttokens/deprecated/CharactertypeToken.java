@@ -18,9 +18,11 @@
  */
 package plugin.exporttokens.deprecated;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Deal with Charactertype Token
@@ -36,6 +38,7 @@ public class CharactertypeToken extends AbstractExportToken
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
-		return display.getCharacterType();
+		return (String) ChannelUtilities
+			.readControlledChannel(display.getCharID(), CControl.CHARACTERTYPE);
 	}
 }

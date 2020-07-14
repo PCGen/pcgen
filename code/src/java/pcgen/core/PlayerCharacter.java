@@ -161,7 +161,6 @@ import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.fact.AllowDebtFacet;
-import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
@@ -300,7 +299,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private final AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
-	private final CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
 	private final SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private final AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
 	private final AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
@@ -586,7 +584,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		setGold(BigDecimal.ZERO);
 		setXPTable(SettingsHandler.getGameAsProperty().get().getDefaultXPTableName());
-		setCharacterType(SettingsHandler.getGameAsProperty().get().getDefaultCharacterType());
+		ChannelUtilities.setControlledChannel(id, CControl.CHARACTERTYPE,
+			SettingsHandler.getGameAsProperty().get()
+				.getDefaultCharacterType());
 		setPreviewSheet(SettingsHandler.getGameAsProperty().get().getDefaultPreviewSheet());
 
 		setName(Constants.EMPTY_STRING);
@@ -632,6 +632,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			ChannelUtilities.setDirtyOnChannelChange(this, CControl.ALIGNMENTINPUT);
 		}
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.CHARACTERTYPE);
 		if (isFeatureEnabled(CControl.DOMAINFEATURE))
 		{
 			deityWatchSetup(context);
@@ -2318,14 +2319,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public LevelInfo getXPTableLevelInfo(int level)
 	{
 		return xpTableFacet.getLevelInfo(id, level);
-	}
-
-	public final void setCharacterType(final String characterType)
-	{
-		if (characterTypeFacet.set(id, characterType))
-		{
-			setDirty(true);
-		}
 	}
 
 	public final void setPreviewSheet(final String previewSheet)

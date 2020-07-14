@@ -213,7 +213,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> currentXP;
 	private DefaultReferenceFacade<Integer> xpForNextlevel;
 	private DefaultReferenceFacade<String> xpTableName;
-	private DefaultReferenceFacade<String> characterType;
+	private WriteableReferenceFacade<String> characterType;
 	private DefaultReferenceFacade<String> previewSheet;
 	private DefaultReferenceFacade<SkillFilter> skillFilter;
 	private WriteableReferenceFacade<Integer> age;
@@ -343,7 +343,8 @@ public class CharacterFacadeImpl
 		}
 		portrait = new DefaultReferenceFacade<>(portraitFile);
 		cropRect = new RectangleReference(charDisplay.getPortraitThumbnailRect());
-		characterType = new DefaultReferenceFacade<>(charDisplay.getCharacterType());
+		characterType = CoreInterfaceUtilities
+				.getReferenceFacade(theCharacter.getCharID(), CControl.CHARACTERTYPE);
 		previewSheet = new DefaultReferenceFacade<>(charDisplay.getPreviewSheet());
 		skillFilter = new DefaultReferenceFacade<>(charDisplay.getSkillFilter());
 
@@ -2571,7 +2572,6 @@ public class CharacterFacadeImpl
 	{
 
 		characterType.set(newType);
-		theCharacter.setCharacterType(newType);
 		theCharacter.calcActiveBonuses();
 
 		// This can affect traits mainly.
@@ -3769,7 +3769,6 @@ public class CharacterFacadeImpl
 		race.set(charDisplay.getRace());
 		refreshRaceRelatedFields();
 		name.set(charDisplay.getName());
-		characterType.set(charDisplay.getCharacterType());
 
 		// Deity and domains
 		buildAvailableDomainsList();

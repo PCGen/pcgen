@@ -2302,7 +2302,8 @@ final class PCGVer2Parser implements PCGParser
 			final String message = "Character type " + wantedType + " not found. Using " + characterType; //$NON-NLS-1$
 			warnings.add(message);
 		}
-		thePC.setCharacterType(characterType);
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.CHARACTERTYPE, characterType);
 	}
 
 	private void parsePreviewSheetLine(final String line)
