@@ -47,7 +47,6 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -471,13 +470,6 @@ public final class PCGVer2Creator
 		appendCampaignHistoryLines(buffer);
 
 		/*
-		 * #Suppressed fields
-		 */
-		appendNewline(buffer);
-		appendComment("Suppressed Biography Fields", buffer); //$NON-NLS-1$
-		appendSuppressBioFieldLines(buffer);
-
-		/*
 		 * #Preview Sheet Variables
 		 */
 		appendNewline(buffer);
@@ -524,25 +516,6 @@ public final class PCGVer2Creator
 			}
 			buffer.append(IOConstants.LINE_SEP);
 		}
-	}
-
-	/**
-	 * @param buffer
-	 */
-	private void appendSuppressBioFieldLines(StringBuilder buffer)
-	{
-		buffer.append(IOConstants.TAG_SUPPRESS_BIO_FIELDS).append(':');
-		String delim = Constants.EMPTY_STRING;
-		for (BiographyField field : BiographyField.values())
-		{
-			if (charDisplay.getSuppressBioField(field))
-			{
-				buffer.append(delim);
-				buffer.append(field);
-				delim = "|"; //$NON-NLS-1$
-			}
-		}
-		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private GameMode getGameMode()

@@ -289,4 +289,21 @@ public final class ChannelUtilities
 		VariableUtilities.addListenerToVariable(pc.getCharID(), varName,
 			listener);
 	}
+
+	public static boolean containsInControlledChannel(CharID id,
+		CControl control, Object obj)
+	{
+		String channelName =
+				ControlUtilities.getControlToken(Globals.getContext(), control);
+		Object[] value =
+				(Object[]) ChannelUtilities.readGlobalChannel(id, channelName);
+		for (Object entry : value)
+		{
+			if (entry.equals(obj))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

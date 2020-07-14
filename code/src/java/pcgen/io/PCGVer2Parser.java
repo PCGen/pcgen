@@ -46,7 +46,6 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -1357,13 +1356,8 @@ final class PCGVer2Parser implements PCGParser
 			}
 		}
 
-		if (cache.containsKey(IOConstants.TAG_SUPPRESS_BIO_FIELDS))
-		{
-			for (final String line : cache.get(IOConstants.TAG_SUPPRESS_BIO_FIELDS))
-			{
-				parseSupressBioFieldsLine(line);
-			}
-		}
+		//Ignore - no longer a PCGen function
+		//if (cache.containsKey(IOConstants.TAG_SUPPRESS_BIO_FIELDS))
 
 		if(cache.containsKey(IOConstants.TAG_PREVIEWSHEETVAR))
 		{
@@ -3334,23 +3328,6 @@ final class PCGVer2Parser implements PCGParser
 		}
 
 		thePC.addChronicleEntry(ce);
-	}
-
-	/**
-	 * Biography fields that are to be hidden from output.
-	 * @param line The SUPPRESS_BIO_FIELDS line
-	 */
-	private void parseSupressBioFieldsLine(final String line)
-	{
-		String fieldNames = EntityEncoder.decode(line.substring(IOConstants.TAG_SUPPRESS_BIO_FIELDS.length() + 1));
-		if (!fieldNames.isEmpty())
-		{
-			String[] names = fieldNames.split("\\|");
-			for (String field : names)
-			{
-				thePC.setSuppressBioField(BiographyField.valueOf(field), true);
-			}
-		}
 	}
 
 	/**

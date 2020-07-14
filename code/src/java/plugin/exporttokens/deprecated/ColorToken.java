@@ -18,7 +18,6 @@
  */
 package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
@@ -47,61 +46,18 @@ public class ColorToken extends AbstractExportToken
 
 		if ("COLOR.EYE".equals(tokenSource))
 		{
-			retString = getEyeToken(display);
+			retString = display.getSafeStringFor(PCStringKey.EYECOLOR);
 		}
 		else if ("COLOR.HAIR".equals(tokenSource))
 		{
-			retString = getHairToken(display);
+			retString = display.getSafeStringFor(PCStringKey.HAIRCOLOR);
 		}
 		else if ("COLOR.SKIN".equals(tokenSource))
 		{
-			retString = getSkinToken(display);
+			retString = (String) ChannelUtilities.readControlledChannel(
+				display.getCharID(), CControl.SKINCOLORINPUT);
 		}
 
 		return retString;
 	}
-
-	/**
-	 * Get the eye colour token 
-	 * @param display the display for the character being exported
-	 * @return eye colour
-	 */
-	private static String getEyeToken(CharacterDisplay display)
-	{
-		if (display.getSuppressBioField(BiographyField.EYE_COLOR))
-		{
-			return "";
-		}
-		return display.getSafeStringFor(PCStringKey.EYECOLOR);
-	}
-
-	/**
-	 * Get the Hair token 
-	 * @param display the display for the character being exported
-	 * @return hair color
-	 */
-	private static String getHairToken(CharacterDisplay display)
-	{
-		if (display.getSuppressBioField(BiographyField.HAIR_COLOR))
-		{
-			return "";
-		}
-		return display.getSafeStringFor(PCStringKey.HAIRCOLOR);
-	}
-
-	/**
-	 * Get the skin token
-	 * @param display the display of the character being exported
-	 * @return skin color
-	 */
-	private static String getSkinToken(CharacterDisplay display)
-	{
-		if (display.getSuppressBioField(BiographyField.SKIN_TONE))
-		{
-			return "";
-		}
-		return (String) ChannelUtilities.readControlledChannel(
-			display.getCharID(), CControl.SKINCOLORINPUT);
-	}
-
 }

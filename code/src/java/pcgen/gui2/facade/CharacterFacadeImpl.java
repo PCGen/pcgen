@@ -42,7 +42,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
@@ -1743,28 +1742,6 @@ public class CharacterFacadeImpl
 		{
 			todoManager.removeTodo("in_sumTodoName");
 		}
-	}
-
-	/**
-	 * Check  whether the field should be output. 
-	 * @param field The BiographyField to check export rules for.
-	 * @return true if the field should be output, false if it may not be.
-	 */
-	@Override
-	public boolean getExportBioField(BiographyField field)
-	{
-		return !charDisplay.getSuppressBioField(field);
-	}
-
-	/**
-	 * Set whether the field should be output. 
-	 * @param field The BiographyField to set export rules for.
-	 * @param export Should the field be shown in output.
-	 */
-	@Override
-	public void setExportBioField(BiographyField field, boolean export)
-	{
-		theCharacter.setSuppressBioField(field, !export);
 	}
 
 	@Override
