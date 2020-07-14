@@ -18,7 +18,6 @@
  */
 package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.util.CControl;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
@@ -42,16 +41,13 @@ public class AlignmentToken extends Token
 	{
 		String retString = "";
 
-		if (!pc.getDisplay().getSuppressBioField(BiographyField.ALIGNMENT))
+		if ("ALIGNMENT".equals(tokenSource))
 		{
-			if ("ALIGNMENT".equals(tokenSource))
-			{
-				retString = getAlignmentDisplay(pc);
-			}
-			else if ("ALIGNMENT.SHORT".equals(tokenSource))
-			{
-				retString = getShortToken(pc);
-			}
+			retString = getAlignmentDisplay(pc);
+		}
+		else if ("ALIGNMENT.SHORT".equals(tokenSource))
+		{
+			retString = getShortToken(pc);
 		}
 
 		return retString;

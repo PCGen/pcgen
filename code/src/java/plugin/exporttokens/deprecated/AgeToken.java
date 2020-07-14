@@ -18,7 +18,6 @@
  */
 package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -39,10 +38,6 @@ public class AgeToken extends AbstractExportToken
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
-		if (display.getSuppressBioField(BiographyField.AGE))
-		{
-			return "";
-		}
 		String retString = "";
 
 		if ("AGE".equals(tokenSource))

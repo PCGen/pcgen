@@ -598,7 +598,6 @@
 	<bean id="subRaceFacet" class="pcgen.cdom.facet.analysis.SubRaceFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
-	<bean id="suppressBioFieldFacet" class="pcgen.cdom.facet.fact.SuppressBioFieldFacet" />
 	<!-- T -->
 	<bean id="targetTrackingFacet" class="pcgen.cdom.facet.TargetTrackingFacet"/>
 	<bean id="templateFacet" class="pcgen.cdom.facet.model.TemplateFacet"/>
