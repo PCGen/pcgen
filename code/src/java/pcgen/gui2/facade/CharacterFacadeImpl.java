@@ -158,7 +158,6 @@ import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.GenderCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.pluginmgr.PluginManager;
@@ -1961,7 +1960,8 @@ public class CharacterFacadeImpl
 	{
 		List<QualifiedObject<Domain>> availDomainList = new ArrayList<>();
 		List<QualifiedObject<Domain>> selDomainList = new ArrayList<>();
-		Deity pcDeity = DeityCompat.getCurrentDeity(charDisplay.getCharID());
+		Deity pcDeity = (Deity) ChannelUtilities.readControlledChannel(
+			charDisplay.getCharID(), CControl.DEITYINPUT);
 
 		if (pcDeity != null)
 		{

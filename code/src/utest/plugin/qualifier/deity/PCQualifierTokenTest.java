@@ -21,7 +21,7 @@ import java.net.URISyntaxException;
 import pcgen.ControlTestSupport;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
-import pcgen.output.channel.compat.DeityCompat;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -80,7 +80,8 @@ public class PCQualifierTokenTest extends
 	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, Deity item)
 	{
-		DeityCompat.setCurrentDeity(pc.getCharID(), item);
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.DEITYINPUT, item);
 	}
 
 	@Override

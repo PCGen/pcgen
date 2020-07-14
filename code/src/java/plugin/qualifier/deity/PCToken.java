@@ -20,9 +20,10 @@ package plugin.qualifier.deity;
 import java.util.Collection;
 import java.util.Collections;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
-import pcgen.output.channel.compat.DeityCompat;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<Deity>
@@ -31,7 +32,8 @@ public class PCToken extends AbstractPCQualifierToken<Deity>
 	@Override
 	protected Collection<Deity> getPossessed(PlayerCharacter pc)
 	{
-		Deity deity = DeityCompat.getCurrentDeity(pc.getCharID());
+		Deity deity = (Deity) ChannelUtilities
+			.readControlledChannel(pc.getCharID(), CControl.DEITYINPUT);
 		if (deity == null)
 		{
 			return Collections.emptyList();

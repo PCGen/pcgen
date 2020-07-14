@@ -24,10 +24,11 @@ import static org.junit.Assert.assertTrue;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -114,9 +115,11 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		DeityCompat.setCurrentDeity(character.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 		assertEquals("Deity should have been set for character.", deity,
-			DeityCompat.getCurrentDeity(character.getCharID()));
+			ChannelUtilities.readControlledChannel(character.getCharID(),
+				CControl.DEITYINPUT));
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREALIGN:Deity");

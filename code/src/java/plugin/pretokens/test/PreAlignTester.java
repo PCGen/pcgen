@@ -33,8 +33,8 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -113,7 +113,8 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		else if (desiredAlignment.equalsIgnoreCase("Deity"))
 		{
-			Deity deity = DeityCompat.getCurrentDeity(display.getCharID());
+			Deity deity = (Deity) ChannelUtilities.readControlledChannel(
+				display.getCharID(), CControl.DEITYINPUT);
 			if (deity != null)
 			{
 				CDOMSingleRef<PCAlignment> deityAlign = deity.get(ObjectKey.ALIGNMENT);

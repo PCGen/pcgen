@@ -20,10 +20,11 @@ package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
-import pcgen.output.channel.compat.SkinColorCompat;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Deal with tokens:
@@ -99,7 +100,8 @@ public class ColorToken extends AbstractExportToken
 		{
 			return "";
 		}
-		return SkinColorCompat.getCurrentSkinColor(display.getCharID());
+		return (String) ChannelUtilities.readControlledChannel(
+			display.getCharID(), CControl.SKINCOLORINPUT);
 	}
 
 }
