@@ -25,7 +25,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
 
@@ -38,8 +37,6 @@ import pcgen.core.WeaponProf;
 public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
 		implements DataFacetChangeListener<CharID, Deity>
 {
-
-	private DeityFacet deityFacet;
 
 	/**
 	 * Adds WeaponProfs granted to the Player Character due to the Deity
@@ -93,21 +90,5 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, Weapo
 	public void dataRemoved(DataFacetChangeEvent<CharID, Deity> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
-	}
-
-	public void setDeityFacet(DeityFacet deityFacet)
-	{
-		this.deityFacet = deityFacet;
-	}
-
-	/**
-	 * Initializes the connections for DeityWeaponProfFacet to other facets.
-	 * 
-	 * This method is automatically called by the Spring framework during
-	 * initialization of the DeityWeaponProfFacet.
-	 */
-	public void init()
-	{
-		deityFacet.addDataFacetChangeListener(this);
 	}
 }

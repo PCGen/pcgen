@@ -22,6 +22,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -33,6 +34,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -109,10 +111,14 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		{
 			return true;
 		}
-		else if ((desiredAlignment.equalsIgnoreCase("Deity")) && (display.getDeity() != null))
+		else if (desiredAlignment.equalsIgnoreCase("Deity"))
 		{
-			final CDOMSingleRef<PCAlignment> deityAlign = display.getDeity().get(ObjectKey.ALIGNMENT);
-            return (deityAlign != null) && charAlignment.equals(deityAlign.get());
+			Deity deity = DeityCompat.getCurrentDeity(display.getCharID());
+			if (deity != null)
+			{
+				CDOMSingleRef<PCAlignment> deityAlign = deity.get(ObjectKey.ALIGNMENT);
+				return (deityAlign != null) && charAlignment.equals(deityAlign.get());
+			}
 		}
 		return false;
 	}

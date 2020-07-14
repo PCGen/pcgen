@@ -135,6 +135,7 @@ import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -2071,7 +2072,7 @@ final class PCGVer2Parser implements PCGParser
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, deityKey);
 		if (aDeity != null)
 		{
-			thePC.setDeity(aDeity);
+			DeityCompat.setCurrentDeity(thePC.getCharID(), aDeity);
 		}
 		else if (!Constants.NONE.equals(deityKey))
 		{

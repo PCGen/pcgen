@@ -21,7 +21,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PlayerCharacter;
@@ -37,8 +36,6 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
-
-	private DeityFacet deityFacet;
 
 	private TemplateFacet templateFacet;
 
@@ -85,11 +82,6 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		this.raceFacet = raceFacet;
 	}
 
-	public void setDeityFacet(DeityFacet deityFacet)
-	{
-		this.deityFacet = deityFacet;
-	}
-
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;
@@ -104,7 +96,6 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(5000, this);
-		deityFacet.addDataFacetChangeListener(5000, this);
 		//templateFacet.addDataFacetChangeListener(5000, this);
 	}
 }

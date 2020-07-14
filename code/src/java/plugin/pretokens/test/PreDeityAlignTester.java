@@ -15,6 +15,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -40,7 +41,7 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements Pre
 		else
 		{
 			CDOMSingleRef<PCAlignment> deityAlign = null;
-			Deity deity = pc.getDeity();
+			Deity deity = DeityCompat.getCurrentDeity(pc.getCharID());
 			if (deity != null)
 			{
 				deityAlign = deity.get(ObjectKey.ALIGNMENT);

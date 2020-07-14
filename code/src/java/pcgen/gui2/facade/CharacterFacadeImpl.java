@@ -158,6 +158,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.GenderCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.pluginmgr.PluginManager;
@@ -196,7 +197,7 @@ public class CharacterFacadeImpl
 	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
 	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<Race> race;
-	private DefaultReferenceFacade<Deity> deity;
+	private WriteableReferenceFacade<Deity> deity;
 	private DefaultReferenceFacade<String> tabName;
 	private DefaultReferenceFacade<String> name;
 	private DefaultReferenceFacade<String> playersName;
@@ -414,7 +415,8 @@ public class CharacterFacadeImpl
 		refreshClassLevelModel();
 		charLevelsFacade.addHitPointListener(this);
 
-		deity = new DefaultReferenceFacade<>(charDisplay.getDeity());
+		deity = CoreInterfaceUtilities
+			.getReferenceFacade(theCharacter.getCharID(), CControl.DEITYINPUT);
 		domains = new DefaultListFacade<>();
 		maxDomains = new DefaultReferenceFacade<>(theCharacter.getMaxCharacterDomains());
 		remainingDomains = new DefaultReferenceFacade<>(theCharacter.getMaxCharacterDomains() - domains.getSize());
@@ -1839,10 +1841,12 @@ public class CharacterFacadeImpl
 	@Override
 	public void setDeity(Deity deity)
 	{
-		this.deity.set(deity);
-		theCharacter.setDeity(deity);
-		refreshLanguageList();
-		buildAvailableDomainsList();
+		if (theCharacter.canSelectDeity(deity))
+		{
+			this.deity.set(deity);
+			refreshLanguageList();
+			buildAvailableDomainsList();
+		}
 	}
 
 	@Override
@@ -1955,7 +1959,7 @@ public class CharacterFacadeImpl
 	{
 		List<QualifiedObject<Domain>> availDomainList = new ArrayList<>();
 		List<QualifiedObject<Domain>> selDomainList = new ArrayList<>();
-		Deity pcDeity = charDisplay.getDeity();
+		Deity pcDeity = DeityCompat.getCurrentDeity(charDisplay.getCharID());
 
 		if (pcDeity != null)
 		{
@@ -3778,7 +3782,6 @@ public class CharacterFacadeImpl
 		characterType.set(charDisplay.getCharacterType());
 
 		// Deity and domains
-		deity.set(charDisplay.getDeity());
 		buildAvailableDomainsList();
 
 		refreshStatScores();

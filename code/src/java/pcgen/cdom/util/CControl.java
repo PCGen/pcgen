@@ -130,6 +130,11 @@ public final class CControl
 	public static final String DOMAINFEATURE = "DOMAINFEATURE";
 
 	/**
+	 * Code control for the Deity of a PC.
+	 */
+	public static final CControl DEITYINPUT = new CControl("DEITYINPUT", "Deity", Optional.of("DOMAINFEATURE"), "DEITY", true, true);
+	
+	/**
 	 * Code Control for the Hair Style Input Channel.
 	 */
 	public static final CControl HAIRSTYLEINPUT = new CControl("HAIRSTYLEINPUT", "HairStyle", Optional.empty(), "STRING", true, false);

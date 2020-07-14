@@ -18,6 +18,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -39,7 +40,7 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 			try
 			{
 				String pantheon = prereq.getKey().substring(9);
-				Deity deity = display.getDeity();
+				Deity deity = DeityCompat.getCurrentDeity(display.getCharID());
 				Set<Object> charDeityPantheon = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 				if (deity != null)
 				{
@@ -89,7 +90,8 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 		}
 		else
 		{
-			final String charDeity = display.getDeity() != null ? display.getDeity().getKeyName() : ""; //$NON-NLS-1$
+			Deity deity = DeityCompat.getCurrentDeity(display.getCharID());
+			final String charDeity = (deity != null) ? deity.getKeyName() : ""; //$NON-NLS-1$
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 				|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 			{

@@ -46,6 +46,7 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.util.Logging;
 
 /**
@@ -82,7 +83,7 @@ public class DeityToken extends Token
 		String retString = "";
 
 		CharacterDisplay display = pc.getDisplay();
-		Deity deity = display.getDeity();
+		Deity deity = DeityCompat.getCurrentDeity(pc.getCharID());
 		if (deity != null)
 		{
 			StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);

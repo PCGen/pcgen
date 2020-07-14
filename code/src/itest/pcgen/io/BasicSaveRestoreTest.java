@@ -28,6 +28,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.DeityCompat;
 import plugin.lsttokens.pcclass.HdToken;
 
 import org.junit.jupiter.api.Test;
@@ -48,7 +49,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	{
 		Deity deity = create(Deity.class, "MyDeity");
 		finishLoad();
-		pc.setDeity(deity);
+		DeityCompat.setCurrentDeity(id, deity);
 		runRoundRobin(null);
 	}
 

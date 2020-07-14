@@ -45,6 +45,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.output.channel.compat.DeityCompat;
 
 /**
  * A AbilityRefChoiceSet contains references to AbilityRef Objects.
@@ -216,7 +217,7 @@ public class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelectio
 		 */
 		if ("DEITYWEAPON".equals(nameRoot) && chooseInfo.getReferenceClass().equals(WeaponProf.class))
 		{
-			Deity deity = aPC.getDeity();
+			Deity deity = DeityCompat.getCurrentDeity(aPC.getCharID());
 			if (deity == null)
 			{
 				availableList.clear();
