@@ -53,7 +53,7 @@ public final class SkinColorCompat
 	 * 
 	 * @param id
 	 *            The CharID representing the PC for which the Skin Color should be set
-	 * @param deity
+	 * @param skinColor
 	 *            The Skin Color which should be set
 	 */
 	public static void setCurrentSkinColor(CharID id, String skinColor)
