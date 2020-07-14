@@ -180,7 +180,6 @@ import pcgen.cdom.facet.input.AutoListWeaponProfFacet;
 import pcgen.cdom.facet.input.BonusWeaponProfFacet;
 import pcgen.cdom.facet.input.CampaignFacet;
 import pcgen.cdom.facet.input.DomainInputFacet;
-import pcgen.cdom.facet.input.FreeLanguageFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.MonsterCSkillFacet;
@@ -295,7 +294,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private final AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
-	private final FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
 	private final CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
 	private final SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private final AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
@@ -5892,12 +5890,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 * (Skill) e.next(); aSkill.replaceClassRank(fromClass.getName(),
 		 * toClass.getName()); } toClass.setSkillPool(fromClass.getSkillPool());
 		 */
-	}
-
-	public void addFreeLanguage(final Language aLang, CDOMObject source)
-	{
-		freeLangFacet.add(id, aLang, source);
-		setDirty(true);
 	}
 
 	public void addAddLanguage(final Language aLang, CDOMObject source)
