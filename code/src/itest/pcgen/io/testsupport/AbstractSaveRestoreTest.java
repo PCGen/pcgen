@@ -402,7 +402,6 @@ public abstract class AbstractSaveRestoreTest
 		pc.setStringFor(PCStringKey.LOCATION, "");
 		pc.setStringFor(PCStringKey.NAME, "");
 		pc.setStringFor(PCStringKey.COMPANIONS, "");
-		pc.setStringFor(PCStringKey.SKINCOLOR, "");
 		pc.setStringFor(PCStringKey.CATCHPHRASE, "");
 		pc.setStringFor(PCStringKey.BIO, "");
 		pc.setStringFor(PCStringKey.GMNOTES, "");

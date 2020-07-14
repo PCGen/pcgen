@@ -633,6 +633,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRSTYLEINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.SKINCOLORINPUT);
 	}
 
 	private void deityWatchSetup(LoadContext context)

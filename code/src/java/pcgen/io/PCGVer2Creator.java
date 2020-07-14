@@ -98,6 +98,7 @@ import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -1837,7 +1838,7 @@ public final class PCGVer2Creator
 	private void appendSkinColorLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_SKINCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.SKINCOLOR)));
+		buffer.append(EntityEncoder.encode(SkinColorCompat.getCurrentSkinColor(thePC.getCharID())));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
