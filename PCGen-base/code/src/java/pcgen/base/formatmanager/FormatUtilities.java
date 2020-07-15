@@ -106,6 +106,7 @@ public final class FormatUtilities
 	{
 		library.addFormatManagerBuilder(new CompoundFormatFactory(',', '|'));
 		library.addFormatManagerBuilder(new ArrayFormatFactory('\n', ','));
+		library.addFormatManagerBuilder(new OptionalFormatFactory());
 	}
 
 	/**
