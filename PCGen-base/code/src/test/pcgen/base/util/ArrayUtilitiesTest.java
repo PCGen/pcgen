@@ -149,29 +149,18 @@ public class ArrayUtilitiesTest extends TestCase
 	}
 
 	@Test
-	public void testIdentityBad()
+	public void testIdentityNull()
 	{
 		Integer[] first = null;
 		Integer[] second = null;
-		try
-		{
-			ArrayUtilities.calculateIdentityDifference(first, second);
-			fail("Expected NPE for null values");
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateIdentityDifference(first, second);
+		assertEquals(0, tuple.getFirst().size());
+		assertEquals(0, tuple.getSecond().size());
 		first = new Integer[]{};
-		try
-		{
-			ArrayUtilities.calculateIdentityDifference(first, second);
-			fail("Expected NPE for null values");
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
+		tuple = ArrayUtilities.calculateIdentityDifference(first, second);
+		assertEquals(0, tuple.getFirst().size());
+		assertEquals(0, tuple.getSecond().size());
 	}
 
 	@Test
@@ -200,9 +189,37 @@ public class ArrayUtilitiesTest extends TestCase
 	}
 
 	@Test
+	public void testIdentityOnlyRemoveNull()
+	{
+		Integer[] first = new Integer[]{three, four};
+		Integer[] second = null;
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateIdentityDifference(first, second);
+		List<Integer> removed = new IdentityList<>(tuple.getFirst());
+		assertEquals(2, removed.size());
+		assertTrue(removed.contains(three));
+		assertTrue(removed.contains(four));
+		assertEquals(0, tuple.getSecond().size());
+	}
+
+	@Test
 	public void testIdentityOnlyAdd()
 	{
 		Integer[] first = new Integer[]{};
+		Integer[] second = new Integer[]{five, six};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateIdentityDifference(first, second);
+		List<Integer> added = new IdentityList<>(tuple.getSecond());
+		assertEquals(0, tuple.getFirst().size());
+		assertEquals(2, added.size());
+		assertTrue(added.contains(five));
+		assertTrue(added.contains(six));
+	}
+
+	@Test
+	public void testIdentityOnlyAddNull()
+	{
+		Integer[] first = null;
 		Integer[] second = new Integer[]{five, six};
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateIdentityDifference(first, second);

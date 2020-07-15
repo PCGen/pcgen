@@ -18,6 +18,7 @@ package pcgen.base.util;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.IntFunction;
 
@@ -153,6 +154,8 @@ public final class ArrayUtilities
 	/**
 	 * Calculates the difference between two arrays, using identity comparison.
 	 * 
+	 * null is tolerated and treated as an empty array.
+	 * 
 	 * @param oldArray
 	 *            The "old" array for comparison
 	 * @param newArray
@@ -165,6 +168,21 @@ public final class ArrayUtilities
 	 */
 	public static <T> Tuple<List<T>, List<T>> calculateIdentityDifference(T[] oldArray, T[] newArray)
 	{
+		if (oldArray == null)
+		{
+			if (newArray == null)
+			{
+				return new Tuple<>(Collections.emptyList(),
+					Collections.emptyList());
+			}
+			return new Tuple<>(Collections.emptyList(),
+				new IdentityList<>(Arrays.asList(newArray)));
+		}
+		if (newArray == null)
+		{
+			return new Tuple<>(new IdentityList<>(Arrays.asList(oldArray)),
+				Collections.emptyList());
+		}
 		List<T> oldList = Arrays.asList(oldArray);
 		List<T> newList = new IdentityList<>(Arrays.asList(newArray));
 		return processComparison(oldList, newList);
