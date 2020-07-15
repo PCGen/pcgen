@@ -34,85 +34,8 @@ import java.util.Optional;
  * @param <T>
  *            The type of object for which this FormatManager provides services
  */
-public interface FormatManager<T> extends Converter<T>
+public interface FormatManager<T> extends ReferenceConverter<T>
 {
-
-	/**
-	 * Converts the given String into an object of the type for which this
-	 * FormatManager provides services.
-	 * 
-	 * Since this method may rely on the Context being resolved, this should
-	 * only be used at Runtime after the data load is complete. Otherwise, there
-	 * is no guarantee of results.
-	 * 
-	 * Must throw a RuntimeException if the given String is not a properly
-	 * formatted String for creation of the appropriate type of object.
-	 * The actual type of RuntimeException is implementation dependent.
-	 * 
-	 * @param inputStr
-	 *            The input String which should be converted into the
-	 *            appropriate object
-	 * 
-	 * @return An object of the type for which this FormatManager provides
-	 *         services
-	 */
-	@Override
-	public T convert(String inputStr);
-
-	/**
-	 * Converts the given String into an Indirect, which is capable of producing
-	 * an object of the type for which this FormatManager provides services.
-	 * 
-	 * This indirection is sometimes necessary as objects may not be able to be
-	 * produced during data load.
-	 * 
-	 * Must throw a RuntimeException if the given String is not a properly
-	 * formatted String for creation of the appropriate type of object.
-	 * The actual type of RuntimeException is implementation dependent.
-	 * 
-	 * @param inputStr
-	 *            The input String which should be converted into the
-	 *            appropriate object
-	 * 
-	 * @return An Indirect, which is capable of producing an object of the type
-	 *         for which this FormatManager provides services
-	 */
-	public Indirect<T> convertIndirect(String inputStr);
-
-	/**
-	 * Returns true if this format can always be converted directly.
-	 * 
-	 * If this returns true, then no setup is necessary in order to use this
-	 * FormatManager, meaning the Indirect provided by convertIndirect can always be
-	 * dereferenced.
-	 * 
-	 * If this returns false, then the Indirect returned from convertIndirect cannot
-	 * always be dereferenced, and additional setup may be necessary. Consult the
-	 * implementing class for more information.
-	 * 
-	 * @return true if this format can always be converted directly; false otherwise
-	 */
-	public boolean isDirect();
-
-	/**
-	 * Serializes (unconverts) the given object into a human-readable serialized
-	 * form.
-	 * 
-	 * @param obj
-	 *            The object to be converted into a human-readable serialized
-	 *            form
-	 * @return The human-readable serialized form of the given object
-	 */
-	public String unconvert(T obj);
-
-	/**
-	 * Returns the non-null Class of the type of object upon which this
-	 * FormatManager operates.
-	 * 
-	 * @return the Class of the type of object upon which this FormatManager
-	 *         operates
-	 */
-	public Class<T> getManagedClass();
 
 	/**
 	 * Returns a non-null identifier indicating the type of object upon which this
