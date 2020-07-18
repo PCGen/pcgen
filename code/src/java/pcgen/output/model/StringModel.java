@@ -20,7 +20,6 @@ package pcgen.output.model;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 
 /**
@@ -46,7 +45,7 @@ public class StringModel implements TemplateScalarModel, Supplier<String>
 	}
 
 	@Override
-	public String getAsString() throws TemplateModelException
+	public String getAsString()
 	{
 		return string;
 	}

@@ -18,7 +18,6 @@
 package plugin.lsttokens.deprecated;
 
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
@@ -49,33 +48,15 @@ public class TemplateChooseLangautoToken extends AbstractTokenWithSeparator<PCTe
 			return new ParseResult.Fail("Incompatible with CHOOSE:LANGAUTO replacement in Template");
 		}
 		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, " + "please use CHOOSE:LANG and AUTO:LANG|%LIST");
-		try
-		{
-			if (!context.processToken(template, "CHOOSE", "LANG|" + value.substring(9)))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG");
-			}
-		}
-		catch (PersistenceLayerException e)
+		if (!context.processToken(template, "CHOOSE", "LANG|" + value.substring(9)))
 		{
 			Logging.replayParsedMessages();
-			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG: " + e.getLocalizedMessage());
+			return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG");
 		}
-		try
-		{
-			if (!context.processToken(template, "AUTO", "LANG|%LIST"))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
-			}
-		}
-		catch (PersistenceLayerException e)
+		if (!context.processToken(template, "AUTO", "LANG|%LIST"))
 		{
 			Logging.replayParsedMessages();
-			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG: " + e.getLocalizedMessage());
+			return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
 		}
 		return ParseResult.SUCCESS;
 	}

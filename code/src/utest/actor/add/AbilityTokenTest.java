@@ -33,7 +33,6 @@ import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
@@ -128,19 +127,11 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		Ability badCA = oc.newInstance();
 		badCA.setName("ChooseAbility");
 		context.getReferenceContext().importObject(badCA);
-		try
-		{
-			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
-			assertTrue(context.processToken(item, "MULT", "Yes"));
-			assertTrue(context.processToken(badCA, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
-			assertTrue(context.processToken(badCA, "MULT", "Yes"));
-			assertTrue(context.processToken(parent, "ADD", "ABILITY|FEAT|NORMAL|ChooseAbility"));
-		}
-		catch (PersistenceLayerException e)
-		{
-			e.printStackTrace();
-			fail();
-		}
+		assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
+		assertTrue(context.processToken(item, "MULT", "Yes"));
+		assertTrue(context.processToken(badCA, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
+		assertTrue(context.processToken(badCA, "MULT", "Yes"));
+		assertTrue(context.processToken(parent, "ADD", "ABILITY|FEAT|NORMAL|ChooseAbility"));
 		finishLoad(context);
 		PlayerCharacter pc = new PlayerCharacter();
 		Object source = UserSelection.getInstance();

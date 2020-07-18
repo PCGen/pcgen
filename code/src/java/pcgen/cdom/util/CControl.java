@@ -130,6 +130,16 @@ public final class CControl
 	public static final String DOMAINFEATURE = "DOMAINFEATURE";
 
 	/**
+	 * Code control for the Deity of a PC.
+	 */
+	public static final CControl DEITYINPUT = new CControl("DEITYINPUT", "Deity", Optional.of("DOMAINFEATURE"), "DEITY", true, true);
+	
+	/**
+	 * Code Control for the Hair Style Input Channel.
+	 */
+	public static final CControl HAIRSTYLEINPUT = new CControl("HAIRSTYLEINPUT", "HairStyle", Optional.empty(), "STRING", true, false);
+	
+	/**
 	 * Code control for the Handedness of a PC.
 	 */
 	public static final CControl HANDEDINPUT = new CControl("HANDEDINPUT", "Handed", Optional.empty(), "HANDED", true, false);
@@ -139,6 +149,11 @@ public final class CControl
 	 */
 	public static final CControl AVAILHANDEDNESS = new CControl("AVAILHANDEDNESS", "AvailableHandedness", Optional.empty(), "ARRAY[HANDED]", true, false);
 
+	/**
+	 * Code Control for the Skin Color Input Channel.
+	 */
+	public static final CControl SKINCOLORINPUT = new CControl("SKINCOLORINPUT", "SkinColor", Optional.empty(), "STRING", true, false);
+	
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code
 	 * Control is already used internally and is overridden by data (rather than just

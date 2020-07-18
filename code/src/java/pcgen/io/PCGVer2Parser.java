@@ -72,6 +72,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
@@ -132,8 +133,11 @@ import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -1363,6 +1367,14 @@ final class PCGVer2Parser implements PCGParser
 			}
 		}
 
+		if(cache.containsKey(IOConstants.TAG_PREVIEWSHEETVAR))
+		{
+			for(final String line : cache.get(IOConstants.TAG_PREVIEWSHEETVAR))
+			{
+				parsePreviewSheetVarLine(line);
+			}
+		}
+
 	}
 
 	/*
@@ -2061,7 +2073,7 @@ final class PCGVer2Parser implements PCGParser
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, deityKey);
 		if (aDeity != null)
 		{
-			thePC.setDeity(aDeity);
+			DeityCompat.setCurrentDeity(thePC.getCharID(), aDeity);
 		}
 		else if (!Constants.NONE.equals(deityKey))
 		{
@@ -2296,9 +2308,17 @@ final class PCGVer2Parser implements PCGParser
 	private void parsePreviewSheetLine(final String line)
 	{
 		final StringTokenizer stok = new StringTokenizer(line.substring(IOConstants.TAG_PREVIEWSHEET.length() + 1),
-			IOConstants.TAG_END, false);
+				IOConstants.TAG_END, false);
 
 		thePC.setPreviewSheet(stok.nextToken());
+	}
+
+	private void parsePreviewSheetVarLine(final String line)
+	{
+		final String subLine = line.substring(IOConstants.TAG_PREVIEWSHEETVAR.length() + 1);
+		final StringTokenizer stok = new StringTokenizer(subLine, IOConstants.TAG_SEPARATOR, false);
+
+		thePC.addPreviewSheetVar(stok.nextToken(), stok.nextToken());
 	}
 
 	/*
@@ -2908,8 +2928,10 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseHairStyleLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.HAIRSTYLE,
-			EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRSTYLE.length() + 1)));
+		String hairStyle = EntityEncoder
+			.decode(line.substring(IOConstants.TAG_HAIRSTYLE.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.HAIRSTYLEINPUT, hairStyle);
 	}
 
 	private void parseHandedLine(final String line)
@@ -3692,7 +3714,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseSkinColorLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.SKINCOLOR,
+		SkinColorCompat.setCurrentSkinColor(thePC.getCharID(), 
 			EntityEncoder.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1)));
 	}
 

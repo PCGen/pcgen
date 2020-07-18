@@ -37,6 +37,7 @@ import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.util.Logging;
 
 public final class BioSet extends PObject implements NonInteractive
@@ -195,7 +196,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if (ranList.contains("SKIN"))
 		{
-			pc.setPCAttribute(PCStringKey.SKINCOLOR, generateBioValue("SKINTONE", pc));
+			SkinColorCompat.setCurrentSkinColor(pc.getCharID(), generateBioValue("SKINTONE", pc));
 		}
 	}
 

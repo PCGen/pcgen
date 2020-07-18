@@ -51,7 +51,6 @@ import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
@@ -205,7 +204,6 @@ public abstract class AbstractSaveRestoreTest
 	protected ClassFacet classFacet;
 	private ClassLevelFacet classLevelFacet;
 	private CompanionModFacet companionModFacet;
-	private DeityFacet deityFacet;
 	private DomainFacet domainFacet;
 	private ExpandedCampaignFacet expandedCampaignFacet;
 	private LanguageFacet languageFacet;
@@ -243,7 +241,6 @@ public abstract class AbstractSaveRestoreTest
 		classFacet = FacetLibrary.getFacet(ClassFacet.class);
 		classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
 		companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
-		deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 		domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 		expandedCampaignFacet =
 				FacetLibrary.getFacet(ExpandedCampaignFacet.class);
@@ -401,12 +398,10 @@ public abstract class AbstractSaveRestoreTest
 		pc.setStringFor(PCStringKey.PERSONALITY1, "");
 		pc.setStringFor(PCStringKey.EYECOLOR, "");
 		pc.setStringFor(PCStringKey.PLAYERSNAME, "");
-		pc.setStringFor(PCStringKey.HAIRSTYLE, "");
 		pc.setStringFor(PCStringKey.PHOBIAS, "");
 		pc.setStringFor(PCStringKey.LOCATION, "");
 		pc.setStringFor(PCStringKey.NAME, "");
 		pc.setStringFor(PCStringKey.COMPANIONS, "");
-		pc.setStringFor(PCStringKey.SKINCOLOR, "");
 		pc.setStringFor(PCStringKey.CATCHPHRASE, "");
 		pc.setStringFor(PCStringKey.BIO, "");
 		pc.setStringFor(PCStringKey.GMNOTES, "");

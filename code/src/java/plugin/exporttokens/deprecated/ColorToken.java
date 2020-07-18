@@ -23,6 +23,7 @@ import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.output.channel.compat.SkinColorCompat;
 
 /**
  * Deal with tokens:
@@ -98,7 +99,7 @@ public class ColorToken extends AbstractExportToken
 		{
 			return "";
 		}
-		return display.getSafeStringFor(PCStringKey.SKINCOLOR);
+		return SkinColorCompat.getCurrentSkinColor(display.getCharID());
 	}
 
 }

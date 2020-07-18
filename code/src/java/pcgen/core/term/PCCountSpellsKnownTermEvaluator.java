@@ -56,7 +56,7 @@ public class PCCountSpellsKnownTermEvaluator extends BasePCTermEvaluator impleme
 
 				if (pObj != null)
 				{
-					count = (float) pc.getCharacterSpells(pObj, null, Globals.getDefaultSpellBook(), nums[1]).size();
+					count = pc.getCharacterSpells(pObj, null, Globals.getDefaultSpellBook(), nums[1]).size();
 				}
 			}
 		}

@@ -33,6 +33,7 @@ import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
+import pcgen.core.Domain;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Kit;
 import pcgen.core.Language;
@@ -41,6 +42,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
 import pcgen.core.VariableProcessor;
 import pcgen.facade.util.DefaultListFacade;
@@ -393,19 +395,19 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return The domains that the character knows
 	 */
-	public ListFacade<DomainFacade> getDomains();
+	public ListFacade<QualifiedObject<Domain>> getDomains();
 
 	/**
 	 * Add a domain to the list of those the character knows.
 	 * @param domain The domain to add.
 	 */
-	public void addDomain(DomainFacade domain);
+	public void addDomain(QualifiedObject<Domain> domain);
 
 	/**
 	 * Remove a domain from the list of those the character knows.
 	 * @param domain The domain to remove.
 	 */
-	public void removeDomain(DomainFacade domain);
+	public void removeDomain(QualifiedObject<Domain> domain);
 
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef();
 
@@ -416,7 +418,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return The domains which the character has access to.
 	 */
-	public ListFacade<DomainFacade> getAvailableDomains();
+	public ListFacade<QualifiedObject<Domain>> getAvailableDomains();
 
 	public ListFacade<Language> getLanguages();
 
@@ -626,7 +628,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param domain The domain to be checked.
 	 * @return True if the character can take the domain, false if not.
 	 */
-	public boolean isQualifiedFor(DomainFacade domain);
+	public boolean isQualifiedFor(QualifiedObject<Domain> domain);
 
 	/**
 	 * Check if the character meets all requirements to take the deity.
@@ -873,4 +875,8 @@ public interface CharacterFacade extends CompanionFacade
 	 * otherwise.
 	 */
 	public boolean isFeatureEnabled(String feature);
+
+	public String getPreviewSheetVar(String key);
+
+	public void addPreviewSheetVar(String key, String value);
 }

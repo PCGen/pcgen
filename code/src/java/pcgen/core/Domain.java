@@ -26,13 +26,16 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.InfoFacade;
+import pcgen.util.SortKeyAware;
 
 /**
  * {@code Domain}.
  */
 @SuppressWarnings("serial")
-public final class Domain extends PObject implements InfoFacade, ChooseDriver
+public final class Domain extends PObject
+		implements InfoFacade, ChooseDriver, SortKeyAware
 {
 	@Override
 	public ChooseInformation<?> getChooseInfo()
@@ -62,5 +65,16 @@ public final class Domain extends PObject implements InfoFacade, ChooseDriver
 	public Formula getNumChoices()
 	{
 		return getSafe(FormulaKey.NUMCHOICES);
+	}
+
+	@Override
+	public String getSortKey()
+	{
+		String sortKey = get(StringKey.SORT_KEY);
+		if (sortKey == null)
+		{
+			sortKey = getDisplayName();
+		}
+		return sortKey;
 	}
 }

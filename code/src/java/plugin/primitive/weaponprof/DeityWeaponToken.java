@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
@@ -86,7 +87,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
 	{
-		Deity deity = pc.getDisplay().getDeity();
+		Deity deity = DeityCompat.getCurrentDeity(pc.getCharID());
 		if (deity == null)
 		{
 			return Collections.emptySet();

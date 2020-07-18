@@ -18,9 +18,12 @@ package pcgen.testsupport;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import pcgen.ControlTestSupport;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -31,6 +34,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.TypeLst;
@@ -130,9 +134,16 @@ public abstract class AbstractCharacterUsingTestCase
 		
 		AbstractReferenceContext ref = context.getReferenceContext();
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
-		
+		Deity none = new Deity();
+		none.setName("None");
+		ref.importObject(none);
+
+		ControlTestSupport.enableFeature(context, CControl.DOMAINFEATURE);
+
 		FormatSupport.addNoneAsDefault(context,
 			ref.getManufacturer(PCAlignment.class));
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(Deity.class));
 		FormatSupport.addBasicDefaults(context);
 		SourceFileLoader.defineBuiltinVariables(context);
 
@@ -165,7 +176,6 @@ public abstract class AbstractCharacterUsingTestCase
 		ref.importObject(cn);
 		ce = BuildUtilities.createAlignment("Chaotic Evil", "CE");
 		ref.importObject(ce);
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		gamemode.setBonusFeatLevels("3|3");

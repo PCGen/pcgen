@@ -29,6 +29,7 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.compat.DeityCompat;
 
 public class PreHasDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
@@ -37,7 +38,7 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements Prer
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal;
-		final boolean charHasDeity = display.getDeity() != null;
+		final boolean charHasDeity = DeityCompat.getCurrentDeity(display.getCharID()) != null;
 
 		final String ucOp = prereq.getKey().toUpperCase();
 		final boolean flag =

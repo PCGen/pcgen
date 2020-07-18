@@ -454,4 +454,7 @@ interface IOConstants
 
 	/** USERPOOL - The amount the user has modified the pool by. */
 	String TAG_USERPOOL = "USERPOOL";
+
+	/** PREVIEWVAR - preview sheet variable,  allows preview input fields to be maintained*/
+	String TAG_PREVIEWSHEETVAR = "PREVIEWVAR";
 }

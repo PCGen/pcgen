@@ -24,6 +24,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
@@ -63,7 +64,7 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 		BuildUtilities.addToFactSet(deity, "PANTHEON", "War");
 		deity.setName("Ares");
 
-		character.setDeity(deity);
+		DeityCompat.setCurrentDeity(character.getCharID(), deity);
 
 		Prerequisite prereq;
 

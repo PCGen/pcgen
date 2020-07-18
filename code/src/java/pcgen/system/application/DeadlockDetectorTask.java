@@ -20,6 +20,7 @@ package pcgen.system.application;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
@@ -33,7 +34,7 @@ import pcgen.util.Logging;
  */
 public class DeadlockDetectorTask
 {
-	private final DeadlockHandler deadlockHandler;
+
 	private static final ThreadFactory THREAD_FACTORY = r ->
 	{
 		Thread thread = new Thread(r);
@@ -41,9 +42,25 @@ public class DeadlockDetectorTask
 		thread.setName("deadlock-detector");
 		return thread;
 	};
+
+	private final DeadlockHandler deadlockHandler;
+
 	private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1, THREAD_FACTORY);
 
-	private final Runnable deadlockCheck = () -> {
+	public DeadlockDetectorTask(final DeadlockHandler deadlockHandler)
+	{
+		this.deadlockHandler = Objects.requireNonNull(deadlockHandler);
+	}
+
+	public void initialize()
+	{
+		Logging.debugPrint("starting deadlock detector");
+		executor.scheduleAtFixedRate(this::runDeadlockCheck, 1, 1,
+			TimeUnit.MINUTES);
+	}
+	
+	private void runDeadlockCheck()
+	{
 		long[] deadlockedThreadIds = ManagementFactory.getThreadMXBean().findDeadlockedThreads();
 
 		if (deadlockedThreadIds != null)
@@ -53,17 +70,5 @@ public class DeadlockDetectorTask
 
 			DeadlockDetectorTask.this.deadlockHandler.handleDeadlock(threadInfos);
 		}
-	};
-
-	public DeadlockDetectorTask(final DeadlockHandler deadlockHandler)
-	{
-		this.deadlockHandler = deadlockHandler;
-	}
-
-	public void initialize()
-	{
-		Logging.debugPrint("starting deadlock detector");
-		executor.scheduleAtFixedRate(
-				this.deadlockCheck, 1, 1, TimeUnit.MINUTES);
 	}
 }

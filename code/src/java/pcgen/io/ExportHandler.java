@@ -1118,22 +1118,22 @@ public abstract class ExportHandler
 							switch (mode)
 							{
 								case ADDITION_MODE:
-									total = (float) ((double) total + Double.parseDouble(valString));
+									total = (float) (total + Double.parseDouble(valString));
 
 									break;
 
 								case SUBTRACTION_MODE:
-									total = (float) ((double) total - Double.parseDouble(valString));
+									total = (float) (total - Double.parseDouble(valString));
 
 									break;
 
 								case MULTIPLICATION_MODE:
-									total = (float) ((double) total * Double.parseDouble(valString));
+									total = (float) (total * Double.parseDouble(valString));
 
 									break;
 
 								case DIVISION_MODE:
-									total = (float) ((double) total / Double.parseDouble(valString));
+									total = (float) (total / Double.parseDouble(valString));
 
 									break;
 
