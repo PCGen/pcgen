@@ -276,7 +276,6 @@
 		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
 		<property name="masterUsableSkillFacet" ref="masterUsableSkillFacet"/>
 	</bean>
-	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
 	<bean id="grantedVarFacet" class="pcgen.cdom.facet.GrantedVarFacet">
 		<property name="varScopedFacet" ref="varScopedFacet"/>
