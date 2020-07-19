@@ -3008,7 +3008,7 @@ public class CharacterFacadeImpl
 		}
 		Equipment updatedItem = theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
 
-		if (!free && !canAfford(equipItemToAdjust, quantity, (GearBuySellScheme) gearBuySellSchemeRef.get()))
+		if (!free && !canAfford(equipItemToAdjust, new BigDecimal(quantity), (GearBuySellScheme) gearBuySellSchemeRef.get()))
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME,
 				LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", quantity, equipItemToAdjust.getName()));
@@ -3044,7 +3044,7 @@ public class CharacterFacadeImpl
 		// Update the PC and equipment
 		if (!free)
 		{
-			BigDecimal itemCost = calcItemCost(updatedItem, quantity,
+			BigDecimal itemCost = calcItemCost(updatedItem, new BigDecimal(quantity),
 				(GearBuySellScheme) gearBuySellSchemeRef.get());
 			BigDecimal currentGold =
 					(BigDecimal) ChannelUtilities.readControlledChannel(
@@ -3081,7 +3081,7 @@ public class CharacterFacadeImpl
 	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
 	 * @return true if it can be afforded
 	 */
-	private boolean canAfford(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
+	private boolean canAfford(Equipment selected, BigDecimal purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
 		BigDecimal currentGold =
 				(BigDecimal) ChannelUtilities.readControlledChannel(
@@ -3092,20 +3092,20 @@ public class CharacterFacadeImpl
 		return allowDebt || (itemCost.compareTo(currentGold) <= 0);
 	}
 
-	private BigDecimal calcItemCost(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
+	private BigDecimal calcItemCost(Equipment selected, BigDecimal purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
 		if (selected == null)
 		{
 			return BigDecimal.ZERO;
 		}
 
-		BigDecimal rate = purchaseQty >= 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
-		if (purchaseQty < 0 && selected.isSellAsCash())
+		BigDecimal rate = purchaseQty.compareTo(BigDecimal.ZERO) > 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
+		if (purchaseQty.compareTo(BigDecimal.ZERO) < 0 && selected.isSellAsCash())
 		{
 			rate = gearBuySellScheme.getCashSellRate();
 		}
 
-		return new BigDecimal(purchaseQty).multiply(rate)
+		return purchaseQty.multiply(rate)
 			.multiply(new BigDecimal("0.01"))
 			.multiply(selected.getCost(theCharacter));
 	}
@@ -3188,7 +3188,9 @@ public class CharacterFacadeImpl
 		// Update the PC and equipment
 		if (!free)
 		{
-			BigDecimal itemCost = calcItemCost(updatedItem, numRemoved * -1,
+			@SuppressWarnings("PMD.AvoidDecimalLiteralsInBigDecimalConstructor")
+			BigDecimal removed = new BigDecimal(numRemoved);
+			BigDecimal itemCost = calcItemCost(updatedItem, removed.negate(),
 				(GearBuySellScheme) gearBuySellSchemeRef.get());
 			BigDecimal currentGold =
 					(BigDecimal) ChannelUtilities.readControlledChannel(
