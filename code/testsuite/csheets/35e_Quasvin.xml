@@ -333,7 +333,7 @@ BIO
 		</skillpoints>
 		<list_mods>Bluff +8, Concentration +8, Diplomacy +12, Gather Information +8, Hide +4, Intimidate +2, Listen +4, Psicraft +12, Sense Motive +10, Spot +4</list_mods>
 		<max_class_skill_level>8</max_class_skill_level>
-		<max_cross_class_skill_level>4</max_cross_class_skill_level>
+		<max_cross_class_skill_level>4.0</max_cross_class_skill_level>
 		<skill>
 			<name>Appraise</name>
 			<ranks>0.0</ranks>
