@@ -174,7 +174,10 @@ public final class ArgFunction implements FormulaFunction
 					+ "but DependencyManager did not have an ArgumentDependencyManager, "
 					+ "so unable to log the dependency");
 		}
-		return (Optional<FormatManager<?>>) visitor.visit((SimpleNode) masterArgs[argNum], manager);
+		@SuppressWarnings("unchecked")
+		Optional<FormatManager<?>> result = (Optional<FormatManager<?>>) visitor
+			.visit((SimpleNode) masterArgs[argNum], manager);
+		return result;
 	}
 
 	/**

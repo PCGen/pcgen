@@ -151,7 +151,9 @@ public class GenericFunction implements FormulaFunction
 		FunctionLibrary withArgs = ArgFunction
 			.getWithArgs(formulaManager.get(FormulaManager.FUNCTION), args);
 		FormulaManager subFtn = formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
-		return (Optional<FormatManager<?>>) visitor.visit(root,
-			manager.getWith(DependencyManager.FMANAGER, subFtn));
+		@SuppressWarnings("unchecked")
+		Optional<FormatManager<?>> result = (Optional<FormatManager<?>>) visitor
+			.visit(root, manager.getWith(DependencyManager.FMANAGER, subFtn));
+		return result;
 	}
 }
