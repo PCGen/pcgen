@@ -64,6 +64,13 @@ public interface Compound
 	public String getPrimaryUnconverted();
 
 	/**
+	 * Returns the primary value of the compound.
+	 * 
+	 * @return the primary value of the compound
+	 */
+	public Object getPrimary();
+
+	/**
 	 * Returns a Collection of the names of the NamedIndirect objects in this Compound.
 	 * 
 	 * @return A Collection of the names of the NamedIndirect objects in this Compound
