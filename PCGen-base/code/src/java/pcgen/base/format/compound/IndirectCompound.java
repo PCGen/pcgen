@@ -79,4 +79,10 @@ class IndirectCompound extends AbstractCompound implements Indirect<Compound>, D
 	{
 		return dispatchManager.unconvertSeparated(this);
 	}
+
+	@Override
+	public Object getPrimary()
+	{
+		return object.get();
+	}
 }

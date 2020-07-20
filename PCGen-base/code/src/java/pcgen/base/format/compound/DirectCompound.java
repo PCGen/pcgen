@@ -98,4 +98,10 @@ class DirectCompound extends AbstractCompound
 		return super.equals(obj) && (obj instanceof DirectCompound)
 			&& object.equals(((DirectCompound) obj).object);
 	}
+
+	@Override
+	public Object getPrimary()
+	{
+		return object;
+	}
 }
