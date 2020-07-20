@@ -21,7 +21,6 @@ import java.util.function.Supplier;
 
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
@@ -79,7 +78,7 @@ public class FormulaSetupFactory
 	/**
 	 * The ScopeInstanceFactory for this FormulaSetupFactory.
 	 */
-	private Function<LegalScopeLibrary, ScopeInstanceFactory> scopeInstanceFactoryFunction =
+	private Function<LegalScopeManager, ScopeInstanceFactory> scopeInstanceFactoryFunction =
 			lsl -> new SimpleScopeInstanceFactory(lsl);
 
 	/**
@@ -189,7 +188,7 @@ public class FormulaSetupFactory
 	 *            FormulaSetupFactory
 	 */
 	public void setScopeInstanceFactoryFunction(
-		Function<LegalScopeLibrary, ScopeInstanceFactory> scopeInstanceFactoryFunction)
+		Function<LegalScopeManager, ScopeInstanceFactory> scopeInstanceFactoryFunction)
 	{
 		this.scopeInstanceFactoryFunction = scopeInstanceFactoryFunction;
 	}

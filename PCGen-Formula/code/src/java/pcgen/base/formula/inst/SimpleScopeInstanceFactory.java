@@ -25,7 +25,6 @@ import java.util.Objects;
 import java.util.Optional;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
@@ -51,28 +50,28 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	private final Map<String, ScopeInstance> globals = new HashMap<>();
 
 	/**
-	 * The LegalScopeLibrary used to indicate the LegalScope objects for this
+	 * The LegalScopeManager used to indicate the LegalScope objects for this
 	 * SimpleScopeInstanceFactory.
 	 */
-	private final LegalScopeLibrary library;
+	private final LegalScopeManager manager;
 
 	/**
 	 * Construct a new SimpleScopeInstanceFactory with the underlying
-	 * LegalScopeLibrary.
+	 * LegalScopeManager.
 	 * 
-	 * @param library
-	 *            The LegalScopeLibrary indicating the legal scopes for this
+	 * @param manager
+	 *            The LegalScopeManager indicating the legal scopes for this
 	 *            SimpleScopeInstanceFactory
 	 */
-	public SimpleScopeInstanceFactory(LegalScopeLibrary library)
+	public SimpleScopeInstanceFactory(LegalScopeManager manager)
 	{
-		this.library = Objects.requireNonNull(library);
+		this.manager = Objects.requireNonNull(manager);
 	}
 
 	@Override
 	public ScopeInstance getGlobalInstance(String scopeName)
 	{
-		LegalScope legalScope = library.getScope(scopeName);
+		LegalScope legalScope = manager.getScope(scopeName);
 		if (legalScope == null)
 		{
 			throw new IllegalArgumentException(
@@ -83,7 +82,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 
 	/*
 	 * This is private so we know the LegalScope came from the contained
-	 * LegalScopeLibrary.
+	 * LegalScopeManager.
 	 */
 	private ScopeInstance getGlobalInstance(LegalScope legalScope)
 	{
@@ -106,7 +105,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	@Override
 	public ScopeInstance get(String scopeName, Optional<VarScoped> obj)
 	{
-		LegalScope scope = library.getScope(scopeName);
+		LegalScope scope = manager.getScope(scopeName);
 		if (scope == null)
 		{
 			throw new IllegalArgumentException(
@@ -119,7 +118,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	 * Actually processes the result of a get, while preserving the original
 	 * VarScoped object to make any message better for the end user.
 	 * 
-	 * Private so that we know the LegalScope came from the LegalScopeLibrary of
+	 * Private so that we know the LegalScope came from the LegalScopeManager of
 	 * this SimpleScopeInstanceFactory.
 	 */
 	private ScopeInstance getMessaged(LegalScope instScope, Optional<VarScoped> current,
@@ -162,7 +161,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 			 */
 			return getMessaged(instScope, parentObj, original);
 		}
-		LegalScope currentScope = library.getScope(localScopeName.get());
+		LegalScope currentScope = manager.getScope(localScopeName.get());
 		if (!currentScope.equals(instScope))
 		{
 			/*
@@ -201,6 +200,6 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	@Override
 	public LegalScope getScope(String s)
 	{
-		return library.getScope(s);
+		return manager.getScope(s);
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2015-20 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
@@ -19,7 +19,6 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.LegalScopeLibrary;
 
 /**
  * A LegalScopeManager is a storage location for LegalScope used to track the children of
@@ -29,8 +28,19 @@ import pcgen.base.formula.base.LegalScopeLibrary;
  * parents are not themselves loaded), then certain behaviors (like getScope) are not
  * guaranteed to properly behave.
  */
-public interface LegalScopeManager extends LegalScopeLibrary
+public interface LegalScopeManager
 {
+	/**
+	 * Returns the LegalScope with the given name. If there was no LegalScope
+	 * with the given name registered with this LegalScopeManager, then null
+	 * will be returned.
+	 * 
+	 * @param name
+	 *            The name of the LegalScope that should be returned
+	 * @return The LegalScope with the given name
+	 */
+	public LegalScope getScope(String name);
+
 	/**
 	 * Returns a list of the child LegalScope objects registered with this
 	 * LegalScopeManager for the given LegalScope.

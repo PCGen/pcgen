@@ -29,7 +29,7 @@ import java.util.Optional;
  * LegalScope provides the ability to not only distinguish the different scopes,
  * but also to define the relationship between the scopes (each scope can
  * identify its parent scope - if you need to know child scopes, see
- * LegalScopeLibrary).
+ * LegalScopeManager).
  * 
  * It is perhaps important to recognize that a LegalScope is simply an
  * identifier. This means it does not contain information about what the scope
