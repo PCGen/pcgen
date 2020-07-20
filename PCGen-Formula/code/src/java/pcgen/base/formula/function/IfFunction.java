@@ -17,7 +17,6 @@
  */
 package pcgen.base.formula.function;
 
-import java.util.Arrays;
 import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
@@ -53,34 +52,17 @@ public class IfFunction implements FormulaFunction
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
 		Node[] args, FormulaSemantics semantics)
 	{
-		int argCount = args.length;
-		if (argCount != 3)
-		{
-			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 3 got " + args.length
-				+ " " + Arrays.asList(args));
-		}
+		FunctionUtilities.validateArgCount(this, args, 3);
 		//Boolean conditional node
 		Node conditionalNode = args[0];
-		@SuppressWarnings("PMD.PrematureDeclaration")
-		FormatManager<?> format = (FormatManager<?>) conditionalNode.jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED,
-				Optional.of(FormatUtilities.BOOLEAN_MANAGER)));
-		if (!FormatUtilities.BOOLEAN_MANAGER.equals(format))
-		{
-			throw new SemanticsFailureException("Parse Error: Invalid Value Format: "
-				+ format + " found in " + conditionalNode.getClass().getName()
-				+ " found in location requiring a"
-				+ " Boolean (class cannot be evaluated)");
-		}
-
+		FunctionUtilities.ensureMatchingFormat(visitor, semantics, conditionalNode,
+			FormatUtilities.BOOLEAN_MANAGER);
+		
 		//If True node
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> tFormat =
 				(FormatManager<?>) args[1].jjtAccept(visitor, semantics);
 
 		//If False node
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> fFormat =
 				(FormatManager<?>) args[2].jjtAccept(visitor, semantics);
 

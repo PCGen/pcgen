@@ -104,13 +104,13 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	@Test
 	public void testProcess()
 	{
-		Modifier<Number> cm = AbstractModifier.setNumber(6, 100);
+		Modifier<Number> cm = AbstractModifier.setNumber(8, 100);
 		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(NAF, 5, cm);
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		EvaluationManager manager = generateManager(array);
 		Object[] result = acm.process(manager);
 		assertFalse(array == result);
-		array[5] = 6;
+		array[5] = 8;
 		assertTrue(Arrays.deepEquals(array, result));
 	}
 

@@ -70,6 +70,19 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
+	public void testIntegerPositiveAsString()
+	{
+		String formula = "ceil(\"1\")";
+		SimpleNode node = TestUtilities.doParse(formula);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		isStatic(formula, node, true);
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(1));
+		Object rv =
+				new ReconstructionVisitor().visit(node, new StringBuilder());
+		assertTrue(rv.toString().equals(formula));
+	}
+
+	@Test
 	public void testIntegerNegative()
 	{
 		String formula = "ceil(-2)";
