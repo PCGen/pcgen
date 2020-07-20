@@ -98,6 +98,16 @@ public class NamedIndirect<T>
 		return object.getUnconverted();
 	}
 
+	/**
+	 * Returns the value of the underlying Indirect.
+	 * 
+	 * @return The value of the underlying Indirect
+	 */
+	public T getValue()
+	{
+		return object.get();
+	}
+
 	@Override
 	public String toString()
 	{
