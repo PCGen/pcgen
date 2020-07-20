@@ -17,6 +17,8 @@
  */
 package pcgen.base.format.compound;
 
+import java.util.Optional;
+
 import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
@@ -42,7 +44,7 @@ public class CompoundFormatFactoryTest extends TestCase
 		library.addFormatManager(booleanManager);
 		library.addFormatManager(stringManager);
 		assertEquals("COMPOUND", manager.getBuilderBaseFormat());
-		manager.build("NUMBER,STRING=Level", library);
+		manager.build(Optional.empty(), Optional.of("NUMBER,STRING=Level"), library);
 	}
 
 	public void testBuildNoFormat()
@@ -53,7 +55,7 @@ public class CompoundFormatFactoryTest extends TestCase
 		assertEquals("COMPOUND", manager.getBuilderBaseFormat());
 		try
 		{
-			manager.build("NUMBER,STRING=Level", library);
+			manager.build(Optional.empty(), Optional.of("NUMBER,STRING=Level"), library);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -70,7 +72,7 @@ public class CompoundFormatFactoryTest extends TestCase
 		assertEquals("COMPOUND", manager.getBuilderBaseFormat());
 		try
 		{
-			manager.build(",NUMBER,STRING=Level", library);
+			manager.build(Optional.empty(), Optional.of(",NUMBER,STRING=Level"), library);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -79,7 +81,7 @@ public class CompoundFormatFactoryTest extends TestCase
 		}
 		try
 		{
-			manager.build("NUMBER,STRING=Level,", library);
+			manager.build(Optional.empty(), Optional.of("NUMBER,STRING=Level,"), library);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -88,7 +90,7 @@ public class CompoundFormatFactoryTest extends TestCase
 		}
 		try
 		{
-			manager.build("NUMBER,,STRING=Level", library);
+			manager.build(Optional.empty(), Optional.of("NUMBER,,STRING=Level"), library);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -97,7 +99,7 @@ public class CompoundFormatFactoryTest extends TestCase
 		}
 		try
 		{
-			manager.build("NUMBER,STRING==Level", library);
+			manager.build(Optional.empty(), Optional.of("NUMBER,STRING==Level"), library);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)

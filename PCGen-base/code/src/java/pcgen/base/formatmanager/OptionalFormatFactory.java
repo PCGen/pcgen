@@ -15,6 +15,8 @@
  */
 package pcgen.base.formatmanager;
 
+import java.util.Optional;
+
 import pcgen.base.format.OptionalFormatManager;
 import pcgen.base.util.FormatManager;
 
@@ -26,16 +28,16 @@ public class OptionalFormatFactory implements FormatManagerFactory
 {
 
 	@Override
-	public FormatManager<?> build(String subFormatName,
-		FormatManagerLibrary library)
+	public FormatManager<?> build(Optional<String> parentFormat,
+		Optional<String> subFormat, FormatManagerLibrary library)
 	{
-		if (subFormatName == null)
+		if (subFormat.isEmpty())
 		{
 			throw new IllegalArgumentException(
 				"Cannot build OPTIONAL with no subformat");
 		}
 		return new OptionalFormatManager<>(
-			library.getFormatManager(subFormatName));
+			library.getFormatManager(parentFormat, subFormat.get()));
 	}
 
 	@Override

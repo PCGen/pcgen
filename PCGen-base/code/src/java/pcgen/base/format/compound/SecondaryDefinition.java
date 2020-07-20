@@ -16,6 +16,7 @@
 package pcgen.base.format.compound;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatManagerLibrary;
 import pcgen.base.util.FormatManager;
@@ -163,7 +164,8 @@ public class SecondaryDefinition
 			throw new IllegalArgumentException(
 				"Format must be FORMAT=Name, but ended with = :" + instructions);
 		}
-		FormatManager<?> formatManager = library.getFormatManager(formatID);
+		FormatManager<?> formatManager =
+				library.getFormatManager(Optional.of("COMPOUND"), formatID);
 		return new SecondaryDefinition(formatManager, name, required);
 	}
 }

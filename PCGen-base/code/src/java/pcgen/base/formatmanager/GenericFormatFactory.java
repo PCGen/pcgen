@@ -18,6 +18,7 @@
 package pcgen.base.formatmanager;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 
@@ -72,9 +73,15 @@ public class GenericFormatFactory<T> implements FormatManagerFactory
 	}
 
 	@Override
-	public FormatManager<?> build(String subFormatName,
-		FormatManagerLibrary library)
+	public FormatManager<?> build(Optional<String> parentFormat,
+		Optional<String> subFormatName, FormatManagerLibrary library)
 	{
+		if (subFormatName.isPresent())
+		{
+			throw new IllegalArgumentException(
+				"Poorly formatted instructions (subformat provided in GenericFormat: "
+					+ identifier + ")");
+		}
 		return new GenericFormatManager<>(database, underlyingClass,
 			identifier);
 	}

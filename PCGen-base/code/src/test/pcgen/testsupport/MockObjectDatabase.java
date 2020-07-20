@@ -20,7 +20,12 @@ public class MockObjectDatabase implements ObjectDatabase
 	@Override
 	public <T> T get(Class<T> cl, String name)
 	{
-		return (T) map.get(cl, name);
+		T underlying = (T) map.get(cl, name);
+		if (underlying == null)
+		{
+			throw new IllegalArgumentException("Does not contain " + cl.getName() + " " + name);
+		}
+		return underlying;
 	}
 
 	@Override

@@ -17,6 +17,8 @@
  */
 package pcgen.base.formatmanager;
 
+import java.util.Optional;
+
 import pcgen.base.util.FormatManager;
 
 /**
@@ -30,12 +32,14 @@ public interface FormatManagerLibrary
 	 * 
 	 * Note: Reserves the right to throw an exception if hasFormatManager returns false.
 	 * 
+	 * @param parent
+	 * 	          The parent Format name requesting the FormatManager, if any
 	 * @param formatName
 	 *            The Format name for which the FormatManager should be returned
 	 * @return A FormatManager for the format identified by the given Format
 	 *         name
 	 */
-	public FormatManager<?> getFormatManager(String formatName);
+	public FormatManager<?> getFormatManager(Optional<String> parent, String formatName);
 
 	/**
 	 * Returns whether a FormatManager for the format identified by the given Format name

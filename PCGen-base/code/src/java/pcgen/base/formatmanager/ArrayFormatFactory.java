@@ -17,8 +17,7 @@
  */
 package pcgen.base.formatmanager;
 
-import java.util.Objects;
-import java.util.regex.Pattern;
+import java.util.Optional;
 
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.util.FormatManager;
@@ -29,13 +28,6 @@ import pcgen.base.util.FormatManager;
  */
 public class ArrayFormatFactory implements FormatManagerFactory
 {
-
-	/**
-	 * A pattern to ensure no multidimensional arrays
-	 */
-	private static final Pattern ARRAY_PATTERN = Pattern.compile(
-		Pattern.quote("ARRAY["), Pattern.CASE_INSENSITIVE);
-
 	/**
 	 * The list separator character used to parse instructions and separate list items
 	 * that will be part of an array built by a FormatManager produced by this
@@ -69,10 +61,15 @@ public class ArrayFormatFactory implements FormatManagerFactory
 	}
 	
 	@Override
-	public FormatManager<?> build(String subFormatName,
-		FormatManagerLibrary library)
+	public FormatManager<?> build(Optional<String> parentFormat,
+		Optional<String> subFormatName, FormatManagerLibrary library)
 	{
-		if (ARRAY_PATTERN.matcher(Objects.requireNonNull(subFormatName)).find())
+		if (subFormatName.isEmpty())
+		{
+			throw new IllegalArgumentException("Poorly formatted instructions "
+				+ "(subformat not provided in ArrayFormatFactory)");
+		}
+		if (parentFormat.isPresent())
 		{
 			/*
 			 * This is currently prohibited because - among other things -
@@ -80,11 +77,13 @@ public class ArrayFormatFactory implements FormatManagerFactory
 			 * array
 			 */
 			throw new IllegalArgumentException(
-				"Multidimensional Array format not supported: " + subFormatName
-					+ " may not contain brackets");
+				"Array format not supported inside another format: "
+					+ parentFormat.get() + " may not contain an array");
 		}
 		return new ArrayFormatManager<>(
-			library.getFormatManager(subFormatName), groupSep, listSep);
+			library.getFormatManager(Optional.of(getBuilderBaseFormat()),
+				subFormatName.get()),
+			groupSep, listSep);
 	}
 
 	@Override

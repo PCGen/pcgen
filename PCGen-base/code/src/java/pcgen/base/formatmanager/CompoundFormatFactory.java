@@ -16,6 +16,9 @@
 package pcgen.base.formatmanager;
 
 import pcgen.base.format.compound.SecondaryDefinition;
+
+import java.util.Optional;
+
 import pcgen.base.format.compound.CompoundFormatManager;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FormatManager;
@@ -60,8 +63,15 @@ public class CompoundFormatFactory implements FormatManagerFactory
 	}
 
 	@Override
-	public FormatManager<?> build(String subFormatName, FormatManagerLibrary library)
+	public FormatManager<?> build(Optional<String> parentFormat,
+		Optional<String> subFormat, FormatManagerLibrary library)
 	{
+		if (subFormat.isEmpty())
+		{
+			throw new IllegalArgumentException(
+				"Poorly formatted instructions (missing subformat in Compound)");
+		}
+		String subFormatName = subFormat.get();
 		if (!StringUtil.hasValidSeparators(subFormatName, definitionSeparator))
 		{
 			throw new IllegalArgumentException(
@@ -69,7 +79,8 @@ public class CompoundFormatFactory implements FormatManagerFactory
 					+ subFormatName);
 		}
 		String[] instructions = StringUtil.split(subFormatName, definitionSeparator);
-		FormatManager<?> primaryFM = library.getFormatManager(instructions[0]);
+		FormatManager<?> primaryFM =
+				library.getFormatManager(parentFormat, instructions[0]);
 		CompoundFormatManager<?> manager =
 				new CompoundFormatManager<>(primaryFM, applicationSeparator);
 		for (int i = 1; i < instructions.length; i++)

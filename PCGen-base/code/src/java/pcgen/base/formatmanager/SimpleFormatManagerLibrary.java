@@ -17,7 +17,7 @@
  */
 package pcgen.base.formatmanager;
 
-import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
@@ -36,52 +36,45 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 	private final CaseInsensitiveMap<FormatManagerFactory> builderByIdentifier =
 			new CaseInsensitiveMap<>();
 
-	/**
-	 * Gets the FormatManager for the given String identifying a format of
-	 * object.
-	 * 
-	 * @param formatName
-	 *            The String identifying the format for which the FormatManager
-	 *            should be returned
-	 * @return The FormatManager for the given String identifying a format of
-	 *         object
-	 * @throws NullPointerException
-	 *             if the given format does not have an associated FormatManager
-	 */
 	@Override
-	public FormatManager<?> getFormatManager(String formatName)
+	public FormatManager<?> getFormatManager(Optional<String> parent,
+		String formatName)
 	{
-		FormatManager<?> fm = internalGetFormatManager(formatName);
-		return Objects.requireNonNull(fm, "No FormatManager available for " + formatName);
+		return internalGetFormatManager(parent, formatName);
 	}
 
-	private FormatManager<?> internalGetFormatManager(String formatName)
+	private FormatManager<?> internalGetFormatManager(Optional<String> parent, String formatName)
 	{
 		FormatManagerFactory fmtManagerBuilder = builderByIdentifier.get(formatName);
 		if (fmtManagerBuilder != null)
 		{
-			return fmtManagerBuilder.build(null, this);
+			return fmtManagerBuilder.build(Optional.empty(), Optional.empty(), this);
 		}
-		String formatSub = null;
 		int sqBracketLoc = formatName.indexOf('[');
-		if (sqBracketLoc != -1)
+		if (sqBracketLoc == -1)
 		{
-			int lengthMinusOne = formatName.length() - 1;
-			if (formatName.lastIndexOf(']') != lengthMinusOne)
-			{
-				throw new IllegalArgumentException(
-					"Format Name must have matching open and close brackets, found: "
-						+ formatName);
-			}
-			String formatRoot = formatName.substring(0, sqBracketLoc);
-			formatSub = formatName.substring(sqBracketLoc + 1, lengthMinusOne);
-			fmtManagerBuilder = builderByIdentifier.get(formatRoot);
+			//There was no brackets for a subformat, so we fail
+			throw new IllegalArgumentException(
+				"No FormatManager available for " + formatName);
 		}
+		int lengthMinusOne = formatName.length() - 1;
+		if (formatName.lastIndexOf(']') != lengthMinusOne)
+		{
+			throw new IllegalArgumentException(
+				"Format Name must have matching open and close brackets, found: "
+					+ formatName);
+		}
+		String formatRoot = formatName.substring(0, sqBracketLoc);
+		String formatSub =
+				formatName.substring(sqBracketLoc + 1, lengthMinusOne);
+		fmtManagerBuilder = builderByIdentifier.get(formatRoot);
 		if (fmtManagerBuilder == null)
 		{
-			return null;
+			//Parent format doesn't exist even after removing subformat, so we fail
+			throw new IllegalArgumentException("No FormatManager available for "
+				+ formatRoot + " (called with subformat " + formatSub + ")");
 		}
-		return fmtManagerBuilder.build(formatSub, this);
+		return fmtManagerBuilder.build(parent, Optional.of(formatSub), this);
 	}
 
 	/**
@@ -123,6 +116,13 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 	@Override
 	public boolean hasFormatManager(String formatName)
 	{
-		return internalGetFormatManager(formatName) != null;
+		try
+		{
+			return internalGetFormatManager(Optional.empty(), formatName) != null;
+		}
+		catch (IllegalArgumentException e)
+		{
+			return false;
+		}
 	}
 }
