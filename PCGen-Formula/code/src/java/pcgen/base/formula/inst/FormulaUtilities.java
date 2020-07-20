@@ -24,6 +24,7 @@ import pcgen.base.formula.function.CeilFunction;
 import pcgen.base.formula.function.FloorFunction;
 import pcgen.base.formula.function.IfFunction;
 import pcgen.base.formula.function.IsEmptyFunction;
+import pcgen.base.formula.function.LengthFunction;
 import pcgen.base.formula.function.MaxFunction;
 import pcgen.base.formula.function.MinFunction;
 import pcgen.base.formula.function.RoundFunction;
@@ -84,6 +85,7 @@ public final class FormulaUtilities
 		functionLib.addFunction(new FloorFunction());
 		functionLib.addFunction(new IfFunction());
 		functionLib.addFunction(new IsEmptyFunction());
+		functionLib.addFunction(new LengthFunction());
 		functionLib.addFunction(new MaxFunction());
 		functionLib.addFunction(new MinFunction());
 		functionLib.addFunction(new RoundFunction());
