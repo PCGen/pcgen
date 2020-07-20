@@ -26,8 +26,6 @@ import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
@@ -35,10 +33,8 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.math.OrderedPair;
-import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.testsupport.SimpleVarScoped;
-import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 
 public class VariableManagerTest extends TestCase
