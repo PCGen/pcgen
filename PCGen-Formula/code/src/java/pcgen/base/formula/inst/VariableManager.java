@@ -69,6 +69,8 @@ public class VariableManager implements VariableLibrary
 	 * @param legalScopeManager
 	 *            The LegalScopeManager used to to ensure variables are legal within a
 	 *            given scope
+	 * @param defaultStore
+	 *            The ValueStore used to get the default variable for a variable Format
 	 */
 	public VariableManager(LegalScopeManager legalScopeManager, ValueStore defaultStore)
 	{

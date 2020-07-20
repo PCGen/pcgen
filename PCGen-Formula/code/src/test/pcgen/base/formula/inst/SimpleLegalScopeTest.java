@@ -54,6 +54,6 @@ public class SimpleLegalScopeTest extends TestCase
 		assertTrue(local.getParentScope().isPresent());
 		assertEquals(scope, local.getParentScope().get());
 		assertEquals("Local", local.getName());
-		assertEquals("Local", local.toString());
+		assertEquals("Global.Local", local.toString());
 	}
 }
