@@ -198,5 +198,6 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 		assertEquals(1, vars.size());
 		VariableID<?> var = vars.get(0);
 		assertEquals("a", var.getName());
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(5));
 	}
 }

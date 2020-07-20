@@ -165,7 +165,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	public void testVariable()
 	{
 		getVariableStore().put(getVariable("a"), 5);
-		String formula = "min(a, 3.4)";
+		String formula = "min(a, 7.4)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -173,5 +173,6 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 		assertEquals(1, vars.size());
 		VariableID<?> var = vars.get(0);
 		assertEquals("a", var.getName());
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(5));
 	}
 }
