@@ -27,6 +27,14 @@ import pcgen.base.formula.base.LegalScope;
  * Note: If a complete set of LegalScope objects is not loaded (meaning some of the
  * parents are not themselves loaded), then certain behaviors (like getScope) are not
  * guaranteed to properly behave.
+ * 
+ * Relationship between two LegalScope objects extends to this form of ambiguity: When
+ * in a known scope, a variable name should be unique (regardless of being in the local
+ * scope or implied from a parent scope).
+ * 
+ * If a variable name is defined for an existing parent or child (both recursively) of a
+ * LegalScope, then adding that variable name to that LegalScope should be prohibited.
+ * Otherwise, ambiguity (1) above would be violated.
  */
 public interface LegalScopeManager
 {
@@ -69,4 +77,17 @@ public interface LegalScopeManager
 	 *         false otherwise
 	 */
 	public boolean recognizesScope(LegalScope legalScope);
+	
+	/**
+	 * Returns true if two scopes are related. They are related if the presence of a
+	 * matching variable name would produce an ambiguity (as described in the description
+	 * of this interface).
+	 * 
+	 * @param firstScope
+	 *            The first scope to be checked
+	 * @param secondScope
+	 *            The second scope to be checked
+	 * @return true if the two LegalScope objects are related; false otherwise
+	 */
+	public boolean isRelated(LegalScope firstScope, LegalScope secondScope);
 }

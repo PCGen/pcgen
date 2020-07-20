@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -88,6 +90,19 @@ public interface LegalScope
 			current = current.get().getParentScope();
 		}
 		return sb.toString();
+	}
+
+	public static List<String> getHierarchy(LegalScope legalScope)
+	{
+		List<String> list = new ArrayList<>(6);
+		list.add(legalScope.getName());
+		Optional<? extends LegalScope> current = legalScope.getParentScope();
+		while (current.isPresent())
+		{
+			list.add(0, current.get().getName());
+			current = current.get().getParentScope();
+		}
+		return list;
 	}
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-20 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -26,6 +26,9 @@ import pcgen.base.util.FormatManager;
  * VariableLibrary performs the management of legal variable names within a LegalScope.
  * This ensures that when a VariableID is built, it is in an appropriate structure to be
  * evaluated.
+ * 
+ * A VariableLibrary should ensure uniqueness of variable names when in a given
+ * scope. @see LegalScopeManager to understand how scopes can be related.
  */
 public interface VariableLibrary
 {
@@ -39,7 +42,9 @@ public interface VariableLibrary
 	 * stored as the definition for the given variable name.
 	 * 
 	 * If a previous FormatManager exists for the given variable name, then this will pass
-	 * if and only if the given LegalScope is equal to the already stored LegalScope.
+	 * if and only if the given LegalScope can allow a duplicate variable name to any
+	 * already stored LegalScope. In effect, if the scopes are at all related, then this
+	 * will fail.
 	 * 
 	 * @param varName
 	 *            The variable name for which the given FormatManager and LegalScope is

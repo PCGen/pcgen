@@ -17,6 +17,7 @@ package pcgen.base.formula.inst;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -109,5 +110,28 @@ public class ScopeManagerInst implements LegalScopeManager
 	public boolean recognizesScope(LegalScope legalScope)
 	{
 		return scopes.values().contains(legalScope);
+	}
+
+	@Override
+	public boolean isRelated(LegalScope scope1, LegalScope scope2)
+	{
+		Collection<LegalScope> descendents1 = getDescendents(scope1);
+		descendents1.retainAll(getDescendents(scope2));
+		return !descendents1.isEmpty();
+	}
+
+	private Collection<LegalScope> getDescendents(LegalScope scope)
+	{
+		Collection<LegalScope> descendents = new HashSet<LegalScope>();
+		descendents.add(scope);
+		accumulateDescendents(scope, descendents);
+		return descendents;
+	}
+
+	private void accumulateDescendents(LegalScope scope,
+		Collection<LegalScope> descendents)
+	{
+		scopeChildren.getSafeListFor(scope).stream().filter(descendents::add)
+			.forEach(child -> accumulateDescendents(child, descendents));
 	}
 }
