@@ -50,7 +50,6 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -217,7 +216,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<String> characterType;
 	private DefaultReferenceFacade<String> previewSheet;
 	private DefaultReferenceFacade<SkillFilter> skillFilter;
-	private DefaultReferenceFacade<Integer> age;
+	private WriteableReferenceFacade<Integer> age;
 	private DefaultReferenceFacade<String> ageCategory;
 	private DefaultListFacade<String> ageCategoryList;
 	private DefaultReferenceFacade<String> poolPointText;
@@ -380,7 +379,8 @@ public class CharacterFacadeImpl
 			alignment = CoreInterfaceUtilities.getReferenceFacade(
 				theCharacter.getCharID(), CControl.ALIGNMENTINPUT);
 		}
-		age = new DefaultReferenceFacade<>(charDisplay.getAge());
+		age = CoreInterfaceUtilities
+			.getReferenceFacade(theCharacter.getCharID(), CControl.AGEINPUT);
 		ageCategory = new DefaultReferenceFacade<>();
 		updateAgeCategoryForAge();
 		currentXP = new DefaultReferenceFacade<>(theCharacter.getXP());
@@ -758,7 +758,6 @@ public class CharacterFacadeImpl
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
-		age.set(charDisplay.getAge());
 		refreshHeightWeight();
 		refreshStatScores();
 
@@ -1683,7 +1682,6 @@ public class CharacterFacadeImpl
 		}
 		refreshClassLevelModel();
 		refreshStatScores();
-		age.set(charDisplay.getAge());
 		updateAgeCategoryForAge();
 		refreshHeightWeight();
 		characterAbilities.rebuildAbilityLists();
@@ -1829,7 +1827,7 @@ public class CharacterFacadeImpl
 	{
 		int weightInPounds = (int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(weight);
 		weightRef.set(weight);
-		theCharacter.setPCAttribute(NumericPCAttribute.WEIGHT, weightInPounds);
+		theCharacter.setWeight(weightInPounds);
 	}
 
 	@Override
@@ -2609,13 +2607,6 @@ public class CharacterFacadeImpl
 	@Override
 	public void setAge(final int age)
 	{
-		if (age == this.age.get())
-		{
-			// We've already processed this change, most likely via the setAgeCategory method
-			return;
-		}
-
-		theCharacter.setPCAttribute(NumericPCAttribute.AGE, age);
 		this.age.set(age);
 		updateAgeCategoryForAge();
 		refreshStatScores();
@@ -2673,7 +2664,6 @@ public class CharacterFacadeImpl
             {
                 ageCategory.set(ageCat);
                 SettingsHandler.getGameAsProperty().get().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
-                age.set(charDisplay.getAge());
                 ageCategory.set(ageCat);
                 refreshStatScores();
                 refreshLanguageList();

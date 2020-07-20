@@ -115,6 +115,11 @@ public final class CControl
 	public static final String COSTMULTIPLIER = "COSTMULTIPLIER";
 
 	/**
+	 * Code Control for the Age Input Channel.
+	 */
+	public static final CControl AGEINPUT = new CControl("AGEINPUT", "Age", Optional.empty(), "NUMBER", true, false);
+
+	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment", Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);

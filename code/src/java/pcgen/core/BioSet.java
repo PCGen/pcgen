@@ -34,9 +34,9 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.util.Logging;
 
@@ -459,7 +459,7 @@ public final class BioSet extends PObject implements NonInteractive
 					ageAdd = maxAge - baseAge;
 				}
 			}
-			pc.setPCAttribute(NumericPCAttribute.AGE, baseAge + ageAdd);
+			AgeCompat.setCurrentAge(pc.getCharID(), baseAge + ageAdd);
 		}
 	}
 
@@ -550,7 +550,7 @@ public final class BioSet extends PObject implements NonInteractive
 					totalWeight = replaceString(totalWeight, "HTDIEROLL", htAdd);
 					totalWeight = replaceString(totalWeight, "BASEWT", baseWeight);
 					totalWeight = replaceString(totalWeight, "WTDIEROLL", wtAdd);
-					pc.setPCAttribute(NumericPCAttribute.WEIGHT, pc.getVariableValue(totalWeight, "").intValue());
+					pc.setWeight(pc.getVariableValue(totalWeight, "").intValue());
 				}
 
 				break;

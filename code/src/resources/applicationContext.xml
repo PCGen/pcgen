@@ -33,15 +33,12 @@
 	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
-	<bean id="ageFacet" class="pcgen.cdom.facet.fact.AgeFacet" />
 	<bean id="ageSetFacet" class="pcgen.cdom.facet.analysis.AgeSetFacet">
-		<property name="ageFacet" ref="ageFacet"/>
 		<property name="regionFacet" ref="regionFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>
 	<bean id="ageSetKitFacet" class="pcgen.cdom.facet.AgeSetKitFacet">
-		<property name="ageFacet" ref="ageFacet"/>
 		<property name="ageSetFacet" ref="ageSetFacet"/>
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>

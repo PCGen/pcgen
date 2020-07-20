@@ -68,7 +68,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -82,6 +81,7 @@ import pcgen.cdom.facet.ActiveSpellsFacet;
 import pcgen.cdom.facet.AddFacet;
 import pcgen.cdom.facet.AddedBonusFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
+import pcgen.cdom.facet.AgeSetKitFacet;
 import pcgen.cdom.facet.AppliedBonusFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
 import pcgen.cdom.facet.AutoLanguageGrantedFacet;
@@ -160,7 +160,6 @@ import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
-import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.AllowDebtFacet;
 import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
@@ -260,6 +259,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
@@ -430,7 +430,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
 	private final SaveableBonusFacet saveableBonusFacet = FacetLibrary.getFacet(SaveableBonusFacet.class);
 	private final SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
-	private final AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private final ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private final SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private final ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
@@ -623,6 +622,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		scopeFacet.set(id, formulaManager.getScopeInstanceFactory());
 		variableStoreFacet.set(id, varStore);
 		solverManagerFacet.set(id, variableContext.generateSolverManager(varStore));
+		ChannelUtilities.watchChannel(this, CControl.AGEINPUT, ageSetFacet);
+		ChannelUtilities.watchChannel(this, CControl.AGEINPUT, FacetLibrary.getFacet(AgeSetKitFacet.class));
+		ChannelUtilities.addListenerToChannel(this, CControl.AGEINPUT, x -> {
+			setDirty(true);
+			calcActiveBonuses();
+		});
 		if (isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			ChannelUtilities.setDirtyOnChannelChange(this, CControl.ALIGNMENTINPUT);
@@ -654,28 +659,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return "PlayerCharacter [name=" + getName() + " @ " + getFileName() + " serial=" + serial + ']';
 	}
 
-	public void setPCAttribute(final NumericPCAttribute attr, final int value)
+	public void setWeight(int value)
 	{
-		boolean didChange = false;
-		switch (attr)
-		{
-			case WEIGHT:
-				didChange = weightFacet.set(id, value);
-				break;
-			case AGE:
-				didChange = ageFacet.set(id, value);
-				break;
-		}
-
+		boolean didChange = weightFacet.set(id, value);
 		if (didChange)
 		{
 			setDirty(true);
-			if (attr.shouldRecalcActiveBonuses())
-			{
-				calcActiveBonuses();
-			}
 		}
-
 	}
 
 	/**
@@ -9528,7 +9518,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 
 			spMod *= getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
-			if (ageFacet.getAge(id) <= 0)
+			if (AgeCompat.getCurrentAge(getCharID()) <= 0)
 			{
 				// Only generate a random age if the user hasn't set one!
 				bioSetFacet.get(id).randomize("AGE", this);

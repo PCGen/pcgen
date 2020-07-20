@@ -101,7 +101,6 @@ import pcgen.cdom.facet.analysis.SubRaceFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
-import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
@@ -180,7 +179,6 @@ public class CharacterDisplay
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FormulaResolvingFacet formulaResolvingFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
-	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
@@ -541,11 +539,6 @@ public class CharacterDisplay
 	public int calcACOfType(String type)
 	{
 		return armorClassFacet.calcACOfType(id, type);
-	}
-
-	public int getAge()
-	{
-		return ageFacet.getAge(id);
 	}
 
 	public int getBaseMovement(MovementType moveType, Load load)
