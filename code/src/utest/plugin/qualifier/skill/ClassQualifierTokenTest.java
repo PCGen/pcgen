@@ -23,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
+import pcgen.TestConstants;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -35,10 +36,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
-import plugin.lsttokens.ChooseLst;
+
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
@@ -49,10 +49,7 @@ public class ClassQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
-	private static final ChooseLst TOKEN = new ChooseLst();
 	private static final SkillToken SUBTOKEN = new SkillToken();
-	private static final CDOMTokenLoader<CDOMObject> LOADER =
-			new CDOMTokenLoader<>();
 	private Skill s1, s2, s3;
 	private PCClass cl1;
 
@@ -92,13 +89,13 @@ public class ClassQualifierTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return LOADER;
+		return TestConstants.TOKEN_LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return TOKEN;
+		return TestConstants.CHOOSE_TOKEN;
 	}
 
 	@Override

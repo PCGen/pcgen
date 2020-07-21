@@ -33,7 +33,7 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Domain>
 {
 
-	static DomainToken subtoken = new DomainToken();
+	private static final DomainToken SUBTOKEN = new DomainToken();
 
 	private static final plugin.qualifier.domain.PCToken PC_TOKEN =
 			new plugin.qualifier.domain.PCToken();
@@ -49,7 +49,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override

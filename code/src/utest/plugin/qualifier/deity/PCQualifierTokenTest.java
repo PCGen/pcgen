@@ -40,7 +40,7 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Deity>
 {
 
-	static DeityToken subtoken = new DeityToken();
+	private static final DeityToken SUBTOKEN = new DeityToken();
 
 	private static final plugin.qualifier.deity.PCToken PC_TOKEN =
 			new plugin.qualifier.deity.PCToken();
@@ -56,7 +56,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override

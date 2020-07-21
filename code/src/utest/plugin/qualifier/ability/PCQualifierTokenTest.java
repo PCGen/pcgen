@@ -38,7 +38,7 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Ability>
 {
 
-	static AbilityToken subtoken = new AbilityToken();
+	private static final AbilityToken SUBTOKEN = new AbilityToken();
 
 	private static final plugin.qualifier.ability.PCToken PC_TOKEN =
 			new plugin.qualifier.ability.PCToken();
@@ -54,7 +54,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
