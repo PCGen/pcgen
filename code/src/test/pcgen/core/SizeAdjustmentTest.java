@@ -19,7 +19,8 @@ package pcgen.core;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.output.channel.compat.DeityCompat;
+import pcgen.cdom.util.CControl;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.rules.context.LoadContext;
 
 import org.junit.jupiter.api.Test;
@@ -51,7 +52,8 @@ public class SizeAdjustmentTest extends AbstractCharacterTestCase
 		assertEquals("S", pc.getSizeAdjustment().getKeyName());
 		pc.addTemplate(template);
 		assertEquals("D", pc.getSizeAdjustment().getKeyName());
-		DeityCompat.setCurrentDeity(pc.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.DEITYINPUT, deity);
 		pc.calcActiveBonuses();
 		assertEquals("T", pc.getSizeAdjustment().getKeyName());
 	}

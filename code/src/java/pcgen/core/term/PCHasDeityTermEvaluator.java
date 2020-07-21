@@ -20,10 +20,11 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.output.channel.compat.DeityCompat;
+import pcgen.output.channel.ChannelUtilities;
 
 public class PCHasDeityTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
@@ -40,7 +41,8 @@ public class PCHasDeityTermEvaluator extends BasePCDTermEvaluator implements Ter
 	{
 		Deity requiredDeity = Globals.getContext().getReferenceContext()
 			.silentlyGetConstructedCDOMObject(Deity.class, deity);
-		Deity currentDeity = DeityCompat.getCurrentDeity(display.getCharID());
+		Deity currentDeity = (Deity) ChannelUtilities
+			.readControlledChannel(display.getCharID(), CControl.DEITYINPUT);
 		boolean matches = ((requiredDeity == null) && (currentDeity == null))
 			|| ((requiredDeity != null) && requiredDeity.equals(currentDeity));
 		return matches ? 1.0f : 0.0f;

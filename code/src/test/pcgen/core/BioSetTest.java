@@ -29,9 +29,10 @@ import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AgeCompat;
-import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
@@ -120,13 +121,10 @@ public class BioSetTest extends AbstractCharacterTestCase
 		assertTrue(("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
 			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))), "Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
 				+ " is not valid.");
-		assertTrue(
-			("Pasty".equals(SkinColorCompat.getCurrentSkinColor(pc.getCharID()))
-				|| "Tanned".equals(
-					SkinColorCompat.getCurrentSkinColor(pc.getCharID()))),
-			"Generated skin colour "
-				+ SkinColorCompat.getCurrentSkinColor(pc.getCharID())
-				+ " is not valid.");
+		String skinColor = (String) ChannelUtilities
+			.readControlledChannel(pc.getCharID(), CControl.SKINCOLORINPUT);
+		assertTrue(("Pasty".equals(skinColor) || "Tanned".equals(skinColor)),
+			"Generated skin colour " + skinColor + " is not valid.");
 	}
 
 	/**

@@ -24,13 +24,14 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.output.channel.compat.DeityCompat;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Deal with Dieties via Kits
@@ -115,7 +116,8 @@ public class KitDeity extends BaseKit
 			warnings.add("DEITY: Cannot select deity \"" + theDeity.getDisplayName() + "\"");
 			return false;
 		}
-		DeityCompat.setCurrentDeity(aPC.getCharID(), theDeity);
+		ChannelUtilities.setControlledChannel(aPC.getCharID(),
+			CControl.DEITYINPUT, theDeity);
 
 		if (theDomains == null || theDomains.isEmpty())
 		{
@@ -216,7 +218,8 @@ public class KitDeity extends BaseKit
 		{
 			return;
 		}
-		DeityCompat.setCurrentDeity(aPC.getCharID(), theDeity);
+		ChannelUtilities.setControlledChannel(aPC.getCharID(),
+			CControl.DEITYINPUT, theDeity);
 
 		if (domainsToAdd != null)
 		{

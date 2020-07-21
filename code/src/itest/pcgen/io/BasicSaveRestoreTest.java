@@ -30,7 +30,6 @@ import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 
 import plugin.lsttokens.pcclass.HdToken;
 
@@ -52,7 +51,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	{
 		Deity deity = create(Deity.class, "MyDeity");
 		finishLoad();
-		DeityCompat.setCurrentDeity(id, deity);
+		ChannelUtilities.setControlledChannel(id, CControl.DEITYINPUT, deity);
 		runRoundRobin(null);
 	}
 

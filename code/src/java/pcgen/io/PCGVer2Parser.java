@@ -135,9 +135,7 @@ import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.HandedCompat;
-import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -2073,7 +2071,8 @@ final class PCGVer2Parser implements PCGParser
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, deityKey);
 		if (aDeity != null)
 		{
-			DeityCompat.setCurrentDeity(thePC.getCharID(), aDeity);
+			ChannelUtilities.setControlledChannel(thePC.getCharID(),
+				CControl.DEITYINPUT, aDeity);
 		}
 		else if (!Constants.NONE.equals(deityKey))
 		{
@@ -3715,8 +3714,10 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseSkinColorLine(final String line)
 	{
-		SkinColorCompat.setCurrentSkinColor(thePC.getCharID(), 
-			EntityEncoder.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1)));
+		String color = EntityEncoder
+			.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.SKINCOLORINPUT, color);
 	}
 
 	private void parseSpeechPatternLine(final String line)

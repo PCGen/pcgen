@@ -259,7 +259,6 @@ import pcgen.io.exporttoken.EqToken;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -6066,7 +6065,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Deity
 		if (isFeatureEnabled(CControl.DOMAINFEATURE))
 		{
-			list.add(DeityCompat.getCurrentDeity(getCharID()));
+			list.add((Deity) ChannelUtilities.readControlledChannel(getCharID(),
+				CControl.DEITYINPUT));
 		}
 
 		// Domain
