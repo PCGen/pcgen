@@ -27,12 +27,12 @@ public class TemplateTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCTemplate>
 {
 
-	static TemplateToken pca = new TemplateToken();
+	private static final TemplateToken PCA = new TemplateToken();
 
 	@Override
 	public Chooser<PCTemplate> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

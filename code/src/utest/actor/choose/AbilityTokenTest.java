@@ -57,18 +57,10 @@ public class AbilityTokenTest
 		context = null;
 	}
 
-	private Ability getObject()
-	{
-		Ability a = BuildUtilities.getFeatCat().newInstance();
-		a.setName(ITEM_NAME);
-		context.getReferenceContext().importObject(a);
-		return a;
-	}
-
 	@Test
 	public void testEncodeChoice()
 	{
-		assertEquals(getExpected(), PCA.encodeChoice(getObject()));
+		assertEquals(getExpected(), PCA.encodeChoice(BuildUtilities.buildFeat(context, ITEM_NAME)));
 	}
 
 	protected String getExpected()
@@ -79,15 +71,16 @@ public class AbilityTokenTest
 	@Test
 	public void testDecodeChoice()
 	{
-		assertEquals(getObject(),
+		assertEquals(BuildUtilities.buildFeat(context, ITEM_NAME),
 			PCA.decodeChoice(context, getExpected(), BuildUtilities.getFeatCat()));
 	}
 
 	@Test
 	public void testLegacyDecodeChoice()
 	{
-		assertEquals(getObject(), PCA.decodeChoice(context, "CATEGORY=FEAT|" + ITEM_NAME,
-			BuildUtilities.getFeatCat()));
+		assertEquals(BuildUtilities.buildFeat(context, ITEM_NAME),
+			PCA.decodeChoice(context, "CATEGORY=FEAT|" + ITEM_NAME,
+				BuildUtilities.getFeatCat()));
 	}
 
 }
