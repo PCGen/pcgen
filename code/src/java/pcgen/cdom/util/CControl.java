@@ -138,6 +138,11 @@ public final class CControl
 	 * Code control for the Deity of a PC.
 	 */
 	public static final CControl DEITYINPUT = new CControl("DEITYINPUT", "Deity", Optional.of("DOMAINFEATURE"), "DEITY", true, true);
+
+	/**
+	 * Code Control for the Gold Input Channel.
+	 */
+	public static final CControl GOLDINPUT = new CControl("GOLDINPUT", "Gold", Optional.empty(), "NUMBER", true, false);
 	
 	/**
 	 * Code Control for the Hair Style Input Channel.

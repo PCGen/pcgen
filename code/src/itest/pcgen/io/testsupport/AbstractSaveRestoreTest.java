@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.math.BigDecimal;
 import java.util.Collections;
 
 import pcgen.ControlTestSupport;
@@ -386,7 +385,6 @@ public abstract class AbstractSaveRestoreTest
 		pc.setGender(Gender.Male);
 		pc.setIgnoreCost(false);
 		AgeCompat.setCurrentAge(pc.getCharID(), 0);
-		pc.setGold(BigDecimal.ZERO);
 		pc.setXP(0);
 		pc.setRegion(Region.getConstant(Constants.NONE));
 

@@ -156,6 +156,7 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.GenderCompat;
@@ -246,7 +247,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<String> eyeColor;
 	private DefaultReferenceFacade<Integer> heightRef;
 	private DefaultReferenceFacade<Integer> weightRef;
-	private DefaultReferenceFacade<BigDecimal> fundsRef;
+	private WriteableReferenceFacade<BigDecimal> fundsRef;
 	private DefaultReferenceFacade<BigDecimal> wealthRef;
 	private DefaultReferenceFacade<GearBuySellFacade> gearBuySellSchemeRef;
 
@@ -445,7 +446,9 @@ public class CharacterFacadeImpl
 
 		purchasedEquip.addListListener(spellSupportFacade);
 		purchasedEquip.addEquipmentListListener(spellSupportFacade);
-		fundsRef = new DefaultReferenceFacade<>(theCharacter.getGold());
+		fundsRef = CoreInterfaceUtilities
+				.getReferenceFacade(theCharacter.getCharID(), CControl.GOLDINPUT);
+
 		wealthRef = new DefaultReferenceFacade<>(theCharacter.totalValue());
 		gearBuySellSchemeRef = new DefaultReferenceFacade<>(findGearBuySellRate());
 		allowDebt = false;
@@ -2904,15 +2907,15 @@ public class CharacterFacadeImpl
 	@Override
 	public void adjustFunds(BigDecimal modVal)
 	{
-		BigDecimal currFunds = theCharacter.getGold();
-		theCharacter.setGold(currFunds.add(modVal));
+		BigDecimal currFunds = fundsRef.get();
+		fundsRef.set(currFunds.add(modVal));
 		updateWealthFields();
 	}
 
 	@Override
 	public void setFunds(BigDecimal newVal)
 	{
-		theCharacter.setGold(newVal);
+		fundsRef.set(newVal);
 		updateWealthFields();
 	}
 
@@ -2950,7 +2953,6 @@ public class CharacterFacadeImpl
 	 */
 	private void updateWealthFields()
 	{
-		fundsRef.set(theCharacter.getGold());
 		wealthRef.set(theCharacter.totalValue());
 	}
 
@@ -3006,7 +3008,7 @@ public class CharacterFacadeImpl
 		}
 		Equipment updatedItem = theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
 
-		if (!free && !canAfford(equipItemToAdjust, quantity, (GearBuySellScheme) gearBuySellSchemeRef.get()))
+		if (!free && !canAfford(equipItemToAdjust, new BigDecimal(quantity), (GearBuySellScheme) gearBuySellSchemeRef.get()))
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME,
 				LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", quantity, equipItemToAdjust.getName()));
@@ -3042,8 +3044,13 @@ public class CharacterFacadeImpl
 		// Update the PC and equipment
 		if (!free)
 		{
-			double itemCost = calcItemCost(updatedItem, quantity, (GearBuySellScheme) gearBuySellSchemeRef.get());
-			theCharacter.adjustGold(itemCost * -1);
+			BigDecimal itemCost = calcItemCost(updatedItem, new BigDecimal(quantity),
+				(GearBuySellScheme) gearBuySellSchemeRef.get());
+			BigDecimal currentGold =
+					(BigDecimal) ChannelUtilities.readControlledChannel(
+						theCharacter.getCharID(), CControl.GOLDINPUT);
+			ChannelUtilities.setControlledChannel(theCharacter.getCharID(),
+				CControl.GOLDINPUT, currentGold.subtract(itemCost));
 		}
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
@@ -3074,29 +3081,33 @@ public class CharacterFacadeImpl
 	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
 	 * @return true if it can be afforded
 	 */
-	private boolean canAfford(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
+	private boolean canAfford(Equipment selected, BigDecimal purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
-		final float currentFunds = theCharacter.getGold().floatValue();
+		BigDecimal currentGold =
+				(BigDecimal) ChannelUtilities.readControlledChannel(
+					theCharacter.getCharID(), CControl.GOLDINPUT);
 
-		final double itemCost = calcItemCost(selected, purchaseQty, gearBuySellScheme);
+		BigDecimal itemCost = calcItemCost(selected, purchaseQty, gearBuySellScheme);
 
-		return allowDebt || (itemCost <= currentFunds);
+		return allowDebt || (itemCost.compareTo(currentGold) <= 0);
 	}
 
-	private double calcItemCost(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
+	private BigDecimal calcItemCost(Equipment selected, BigDecimal purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
 		if (selected == null)
 		{
-			return 0;
+			return BigDecimal.ZERO;
 		}
 
-		BigDecimal rate = purchaseQty >= 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
-		if (purchaseQty < 0 && selected.isSellAsCash())
+		BigDecimal rate = purchaseQty.compareTo(BigDecimal.ZERO) > 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
+		if (purchaseQty.compareTo(BigDecimal.ZERO) < 0 && selected.isSellAsCash())
 		{
 			rate = gearBuySellScheme.getCashSellRate();
 		}
 
-		return (purchaseQty * rate.intValue()) * (float) 0.01 * selected.getCost(theCharacter).floatValue();
+		return purchaseQty.multiply(rate)
+			.multiply(new BigDecimal("0.01"))
+			.multiply(selected.getCost(theCharacter));
 	}
 
 	private Equipment openCustomizer(Equipment aEq)
@@ -3177,9 +3188,15 @@ public class CharacterFacadeImpl
 		// Update the PC and equipment
 		if (!free)
 		{
-			double itemCost =
-					calcItemCost(updatedItem, numRemoved * -1, (GearBuySellScheme) gearBuySellSchemeRef.get());
-			theCharacter.adjustGold(itemCost * -1);
+			@SuppressWarnings("PMD.AvoidDecimalLiteralsInBigDecimalConstructor")
+			BigDecimal removed = new BigDecimal(numRemoved);
+			BigDecimal itemCost = calcItemCost(updatedItem, removed.negate(),
+				(GearBuySellScheme) gearBuySellSchemeRef.get());
+			BigDecimal currentGold =
+					(BigDecimal) ChannelUtilities.readControlledChannel(
+						theCharacter.getCharID(), CControl.GOLDINPUT);
+			ChannelUtilities.setControlledChannel(theCharacter.getCharID(),
+				CControl.GOLDINPUT, currentGold.subtract(itemCost));
 		}
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
@@ -3779,7 +3796,6 @@ public class CharacterFacadeImpl
 
 	private void refreshEquipment()
 	{
-		fundsRef.set(theCharacter.getGold());
 		wealthRef.set(theCharacter.totalValue());
 
 		purchasedEquip.refresh(theCharacter.getEquipmentMasterList());
@@ -4097,8 +4113,9 @@ public class CharacterFacadeImpl
 		BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
 		if (totalCost != null)
 		{
-            // Character cannot afford the kit
-            return theCharacter.getGold().compareTo(totalCost) >= 0;
+			BigDecimal currentGold = (BigDecimal) ChannelUtilities
+					.readControlledChannel(theCharacter.getCharID(), CControl.GOLDINPUT);
+			return currentGold.compareTo(totalCost) >= 0;
 		}
 		return true;
 	}

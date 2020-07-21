@@ -17,11 +17,14 @@
  */
 package pcgen.core.kit;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * {@code KitFunds}.
@@ -33,7 +36,7 @@ public final class KitFunds extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private int theQty = 0;
+	private BigDecimal theQty = BigDecimal.ZERO;
 
 	@Override
 	public String toString()
@@ -44,19 +47,21 @@ public final class KitFunds extends BaseKit
 	@Override
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
-		theQty = -1;
 		if (quantity == null)
 		{
 			return false;
 		}
-		theQty = quantity.resolve(aPC, "").intValue();
+		theQty = new BigDecimal(quantity.resolve(aPC, "").toString());
 		return true;
 	}
 
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		aPC.adjustGold(theQty);
+		BigDecimal currentGold = (BigDecimal) ChannelUtilities
+				.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT);
+		ChannelUtilities.setControlledChannel(aPC.getCharID(),
+			CControl.GOLDINPUT, currentGold.add(theQty));
 	}
 
 	@Override
