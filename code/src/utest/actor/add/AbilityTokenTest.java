@@ -19,8 +19,8 @@ package actor.add;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
@@ -76,7 +76,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	@Test
 	public void testEncodeChoice()
 	{
-		Ability item = construct("ItemName");
+		Ability item = BuildUtilities.buildFeat(context, "ItemName");
 		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
 			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
 		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", PCA
@@ -86,16 +86,9 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	@Test
 	public void testDecodeChoice()
 	{
-		try
-		{
-			PCA.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		Ability item = construct("ItemName");
+		assertThrows(IllegalArgumentException.class, () -> PCA
+			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
+		Ability item = BuildUtilities.buildFeat(context, "ItemName");
 		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
 			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
 		assertEquals(as, PCA
@@ -112,8 +105,8 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		TokenRegistration.register(ADD_TOKEN);
 		TokenRegistration.register(ADD_ABILITY_TOKEN);
-		Ability item = construct("ChooseAbility");
-		Ability parent = construct("Parent");
+		Ability item = BuildUtilities.buildFeat(context, "ChooseAbility");
+		Ability parent = BuildUtilities.buildFeat(context, "Parent");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Foo");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Bar");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Goo");
@@ -195,13 +188,5 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		assertFalse(PCA.allow(gooCAS, pc, false));
 		assertFalse(PCA.allow(wowCAS, pc, false));
 		assertFalse(PCA.allow(revFFCAS, pc, false));
-	}
-
-	protected Ability construct(String one)
-	{
-		Ability a = BuildUtilities.getFeatCat().newInstance();
-		a.setName(one);
-		context.getReferenceContext().importObject(a);
-		return a;
 	}
 }

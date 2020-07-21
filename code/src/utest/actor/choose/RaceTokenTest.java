@@ -27,12 +27,12 @@ public class RaceTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Race>
 {
 
-	static RaceToken pca = new RaceToken();
+	private static final RaceToken PCA = new RaceToken();
 
 	@Override
 	public Chooser<Race> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override
