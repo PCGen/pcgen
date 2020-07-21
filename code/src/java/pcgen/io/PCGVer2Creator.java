@@ -784,7 +784,8 @@ public final class PCGVer2Creator
 	private void appendCharacterTypeLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_CHARACTERTYPE).append(':');
-		buffer.append(charDisplay.getCharacterType());
+		buffer.append((String) ChannelUtilities.readControlledChannel(
+			charDisplay.getCharID(), CControl.CHARACTERTYPE));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

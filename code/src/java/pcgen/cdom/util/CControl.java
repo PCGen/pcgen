@@ -130,6 +130,11 @@ public final class CControl
 	public static final String ALIGNMENTFEATURE = "ALIGNMENTFEATURE";
 
 	/**
+	 * Code Control for the Hair Style Input Channel.
+	 */
+	public static final CControl CHARACTERTYPE = new CControl("CHARACERTYPE", "CharacterType", Optional.empty(), "STRING", true, false);
+	
+	/**
 	 * Enable/Disable the DomainFeature
 	 */
 	public static final String DOMAINFEATURE = "DOMAINFEATURE";

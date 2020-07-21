@@ -19,6 +19,7 @@ package pcgen.io;
 
 import java.util.Arrays;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.NoteItem;
@@ -27,8 +28,10 @@ import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.DeityCompat;
+
 import plugin.lsttokens.pcclass.HdToken;
 
 import org.junit.jupiter.api.Test;
@@ -129,7 +132,8 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		gameMode.setCharacterTypeList(Arrays.asList("Default",
 				"MyType"));
 		finishLoad();
-		pc.setCharacterType("MyType");
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.CHARACTERTYPE, "MyType");
 		runRoundRobin(null);
 	}
 

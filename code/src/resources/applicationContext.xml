@@ -152,7 +152,6 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="characterTypeFacet" class="pcgen.cdom.facet.fact.CharacterTypeFacet"/>
 	<bean id="checkFacet" class="pcgen.cdom.facet.model.CheckFacet" />
 	<bean id="checkBonusFacet" class="pcgen.cdom.facet.CheckBonusFacet">
 		<property name="checkFacet" ref="checkFacet"/>

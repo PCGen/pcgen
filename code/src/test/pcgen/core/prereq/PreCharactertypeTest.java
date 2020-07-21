@@ -21,7 +21,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -42,7 +44,8 @@ class PreCharactertypeTest extends AbstractCharacterTestCase
 	void testCharactertype() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setCharacterType("PC");
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.CHARACTERTYPE, "PC");
 
 		Prerequisite prereq;
 
