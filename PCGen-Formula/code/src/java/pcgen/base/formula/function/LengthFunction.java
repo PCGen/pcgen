@@ -72,10 +72,10 @@ public class LengthFunction implements FormulaFunction
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		Object[] original = (Object[]) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, Optional.empty()));
-
-		return original.length;
+		EvaluationManager nonAssertingManager =
+				manager.getWith(EvaluationManager.ASSERTED, Optional.empty());
+		Object result = args[0].jjtAccept(visitor, nonAssertingManager);
+		return ((Object[]) result).length;
 	}
 
 	@Override

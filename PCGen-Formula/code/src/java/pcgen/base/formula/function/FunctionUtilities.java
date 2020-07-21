@@ -30,9 +30,14 @@ import pcgen.base.util.FormatManager;
 /**
  * FunctionUtilities are supporting methods for FormulaFunction objects.
  */
-public class FunctionUtilities
+public final class FunctionUtilities
 {
 
+	private FunctionUtilities()
+	{
+		//Do not instantiate utility class
+	}
+	
 	/**
 	 * Ensures the given ASTNum is a positive integer value. Throws a
 	 * SemanticsFailureException if the value is not a positive integer.
