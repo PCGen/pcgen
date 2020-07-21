@@ -28,6 +28,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCa
 import plugin.lsttokens.pcclass.MonnonskillhdToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class MonNonSkillHDIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
@@ -36,6 +38,7 @@ public class MonNonSkillHDIntegrationTest extends
 	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

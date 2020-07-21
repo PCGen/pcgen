@@ -29,6 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 
 import plugin.lsttokens.MoveLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -39,6 +40,7 @@ public class GlobalMoveTest extends AbstractContentTokenTest
 	private MovementFacet moveFacet;
 
 	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		super.setUp();

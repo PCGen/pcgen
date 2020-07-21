@@ -101,7 +101,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		DeityCompat.setCurrentDeity(id, source);
 		assertTrue(containsExpected(granted));
 		assertEquals(1, getCount());
-		DeityCompat.setCurrentDeity(id, null);
+		DeityCompat.setCurrentDeity(id, new Deity());
 		assertEquals(0, getCount());
 		assertTrue(cleanedSideEffects());
 	}

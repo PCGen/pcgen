@@ -155,7 +155,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		DeityCompat.setCurrentDeity(id, source);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		DeityCompat.setCurrentDeity(id, null);
+		DeityCompat.setCurrentDeity(id, new Deity());
 		assertEquals(baseCount(), targetFacetCount());
 	}
 

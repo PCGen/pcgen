@@ -6134,10 +6134,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		list.addAll(companionModFacet.getSet(id));
 
 		// Deity
-		Deity deity = DeityCompat.getCurrentDeity(getCharID());
-		if (deity != null)
+		if (isFeatureEnabled(CControl.DOMAINFEATURE))
 		{
-			list.add(deity);
+			list.add(DeityCompat.getCurrentDeity(getCharID()));
 		}
 
 		// Domain

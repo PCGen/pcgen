@@ -397,10 +397,13 @@ public final class PCGVer2Creator
  * DOMAINSPELLS:GOOD|SPELLLIST:(>list of level by level spells)
  */
 
-		appendNewline(buffer);
-		appendComment("Character Deity/Domain", buffer); //$NON-NLS-1$
-		appendDeityLine(buffer);
-		appendDomainLines(buffer);
+		if (thePC.isFeatureEnabled(CControl.DOMAINFEATURE))
+		{
+			appendNewline(buffer);
+			appendComment("Character Deity/Domain", buffer); //$NON-NLS-1$
+			appendDeityLine(buffer);
+			appendDomainLines(buffer);
+		}
 
 		/*
 		 * This one is what will make spellcasters U G L Y!!!

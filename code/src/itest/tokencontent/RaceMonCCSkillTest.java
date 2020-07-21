@@ -41,6 +41,7 @@ import plugin.lsttokens.race.MonccskillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
@@ -58,6 +59,7 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 	private PCClass dragon;
 
 	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		super.setUp();

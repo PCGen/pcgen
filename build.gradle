@@ -126,8 +126,6 @@ sourceSets {
         resources {
             srcDirs = ['code/src/testResources']
         }
-        compileClasspath += sourceSets.main.output
-        runtimeClasspath += sourceSets.main.output
         compileClasspath += sourceSets.test.compileClasspath
         runtimeClasspath += sourceSets.test.runtimeClasspath
 
@@ -139,8 +137,6 @@ sourceSets {
         resources {
             srcDirs = ['code/src/testResources']
         }
-        compileClasspath += sourceSets.main.output
-        runtimeClasspath += sourceSets.main.output
         compileClasspath += sourceSets.test.compileClasspath
         runtimeClasspath += sourceSets.test.runtimeClasspath
 
@@ -349,12 +345,14 @@ test {
 }
 
 task itest(type: Test, dependsOn: [jar]) {
+    useJUnitPlatform()
     testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
 }
 
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
+    useJUnitPlatform()
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
