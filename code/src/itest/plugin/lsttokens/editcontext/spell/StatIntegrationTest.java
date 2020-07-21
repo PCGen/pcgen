@@ -29,6 +29,8 @@ import plugin.lsttokens.spell.StatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class StatIntegrationTest extends
 		AbstractItemIntegrationTestCase<Spell, PCStat>
 {
@@ -49,6 +51,7 @@ public class StatIntegrationTest extends
 	}
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

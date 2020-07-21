@@ -57,6 +57,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -97,6 +98,8 @@ import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.language.PCToken;
 
 import compare.InequalityTesterInst;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
@@ -134,7 +137,7 @@ public abstract class AbstractSaveRestoreTest
 	protected CharID id;
 
 	@BeforeAll
-	public static void setUpBeforeClass()
+	public static void classSetUp()
 	{
 		TokenRegistration.register(new LevelToken());
 		TokenRegistration.register(new MinxpToken());
@@ -260,10 +263,19 @@ public abstract class AbstractSaveRestoreTest
 		gameMode.clearLoadContext();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
 
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		context = Globals.getContext();
+		AbstractReferenceContext ref = context.getReferenceContext();
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 
-		context = Globals.getContext();
+		Deity none = new Deity();
+		none.setName("None");
+		ref.importObject(none);
+
+		ControlTestSupport.enableFeature(context, CControl.DOMAINFEATURE);
+
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(Deity.class));
+
 		FormatSupport.addBasicDefaults(context);
 		FormatSupport.addNoneAsDefault(context,
 			context.getReferenceContext().getManufacturer(PCAlignment.class));
@@ -327,6 +339,22 @@ public abstract class AbstractSaveRestoreTest
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 		ChooserFactory.setDelegate(new MockUIDelegate());
+	}
+
+	@AfterAll
+	static void classTearDown()
+	{
+		TokenRegistration.clearTokens();
+	}
+	
+	@AfterEach
+	void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		context = null;
+		pc = null;
+		reloadedPC = null;
+		id = null;
 	}
 
 	protected void runRoundRobin(Runnable preEqualityCleanup)

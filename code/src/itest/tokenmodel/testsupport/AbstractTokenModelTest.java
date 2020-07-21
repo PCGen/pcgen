@@ -45,6 +45,7 @@ import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -209,6 +210,15 @@ public abstract class AbstractTokenModelTest
 		context = Globals.getContext();
 		AbstractReferenceContext ref = context.getReferenceContext();
 		ControlTestSupport.enableFeature(context, CControl.ALIGNMENTFEATURE);
+
+		Deity none = new Deity();
+		none.setName("None");
+		ref.importObject(none);
+
+		ControlTestSupport.enableFeature(context, CControl.DOMAINFEATURE);
+
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(Deity.class));
 
 		BuildUtilities.buildUnselectedRace(context);
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));

@@ -27,6 +27,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCa
 import plugin.lsttokens.pcclass.XtrafeatsToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class XtraFeatsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
@@ -35,6 +37,7 @@ public class XtraFeatsIntegrationTest extends
 	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

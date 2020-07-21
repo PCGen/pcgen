@@ -34,6 +34,7 @@ import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.race.FavclassToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
@@ -49,6 +50,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 	private FavoredClassFacet fcFacet;
 
 	@Override
+	@BeforeEach
 	protected void setUp() throws Exception
 	{
 		super.setUp();

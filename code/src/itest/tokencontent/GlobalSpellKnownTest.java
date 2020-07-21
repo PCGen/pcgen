@@ -47,6 +47,7 @@ import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.test.PreVariableTester;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -65,6 +66,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	}
 
 	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		super.setUp();
