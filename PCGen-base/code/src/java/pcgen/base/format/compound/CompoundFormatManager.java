@@ -416,6 +416,6 @@ public class CompoundFormatManager<T> implements DispatchingFormatManager<Compou
 		String name, FormatManager<S> secondaryManager)
 	{
 		S secondaryValue = secondaryManager.initializeFrom(valueStore);
-		return new NamedIndirect<>(name, secondaryManager, secondaryValue);
+		return new NamedIndirect<>(name, secondaryValue, secondaryManager);
 	}
 }

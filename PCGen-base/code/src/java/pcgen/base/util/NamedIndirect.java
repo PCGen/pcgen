@@ -47,12 +47,12 @@ public class NamedIndirect<T>
 	 * 
 	 * @param name
 	 *            The name of this NamedIndirect
-	 * @param manager
-	 *            The FormatManager used to unconvert the value
 	 * @param object
 	 *            The value of this NamedIndirect
+	 * @param manager
+	 *            The FormatManager used to unconvert the value
 	 */
-	public NamedIndirect(String name, FormatManager<T> manager, T object)
+	public NamedIndirect(String name, T object, FormatManager<T> manager)
 	{
 		this.name = Objects.requireNonNull(name);
 		this.object = new BasicIndirect<>(manager, object);
