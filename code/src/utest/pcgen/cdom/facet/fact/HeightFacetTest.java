@@ -35,7 +35,7 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 
 	@Override
 	@BeforeEach
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		super.setUp();
 		DataSetID cid = DataSetID.getID();

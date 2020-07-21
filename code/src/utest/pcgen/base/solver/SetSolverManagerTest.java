@@ -29,8 +29,7 @@ import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.format.ArrayFormatManager;
-import pcgen.base.format.NumberManager;
-import pcgen.base.format.StringManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -63,6 +62,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.ModifierFactory;
+
 import plugin.function.GetOtherFunction;
 
 import org.hamcrest.MatcherAssert;
@@ -78,8 +78,6 @@ class SetSolverManagerTest
 	private VariableManager sl;
 	private FormulaManager fm;
 	private DynamicSolverManager manager;
-	private final FormatManager<Number> numberManager = new NumberManager();
-	private final FormatManager<String> stringManager = new StringManager();
 	private FormatManager<Skill> skillManager;
 	private ArrayFormatManager<String> arrayManager;
 	private ScopeInstanceFactory siFactory;
@@ -103,7 +101,7 @@ class SetSolverManagerTest
 		skillScope.setParent(globalScope);
 		vsLib.registerScope(skillScope);
 		sl = new VariableManager(vsLib, mvs);
-		arrayManager = new ArrayFormatManager<>(stringManager, '\n', ',');
+		arrayManager = new ArrayFormatManager<>(FormatUtilities.STRING_MANAGER, '\n', ',');
 		context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
@@ -119,9 +117,11 @@ class SetSolverManagerTest
 		solverFactory.addSolverFormat(skillManager, () -> defaultSkill);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
-		solverFactory.addSolverFormat(numberManager, () -> 0);
-		solverFactory.addSolverFormat(stringManager, () -> "");
+		solverFactory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
+		solverFactory.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 	}
+
+	//TODO Tear Down
 
 	@Test
 	public void testProcessDependentSet()
@@ -170,8 +170,8 @@ class SetSolverManagerTest
 	public void testProcessDynamicSet()
 	{
 		LegalScope skillScope = vsLib.getScope("PC.SKILL");
-		sl.assertLegalVariableID("LocalVar", skillScope, numberManager);
-		sl.assertLegalVariableID("ResultVar", globalScope, numberManager);
+		sl.assertLegalVariableID("LocalVar", skillScope, FormatUtilities.NUMBER_MANAGER);
+		sl.assertLegalVariableID("ResultVar", globalScope, FormatUtilities.NUMBER_MANAGER);
 		sl.assertLegalVariableID("SkillVar", globalScope, skillManager);
 
 		Skill skill = new Skill();
@@ -197,18 +197,18 @@ class SetSolverManagerTest
 		ModifierFactory am1 = new plugin.modifier.number.SetModifierFactory();
 		ModifierFactory amString = new plugin.modifier.string.SetModifierFactory();
 		FormulaModifier mod2 =
-				am1.getModifier("2", numberManager);
+				am1.getModifier("2", FormatUtilities.NUMBER_MANAGER);
 		mod2.addAssociation("PRIORITY=2000");
 		FormulaModifier mod3 =
-				am1.getModifier("3", numberManager);
+				am1.getModifier("3", FormatUtilities.NUMBER_MANAGER);
 		mod3.addAssociation("PRIORITY=2000");
 		FormulaModifier mod4 =
-				am1.getModifier("4", numberManager);
+				am1.getModifier("4", FormatUtilities.NUMBER_MANAGER);
 		mod4.addAssociation("PRIORITY=3000");
 		String formula = "getOther(\"PC.SKILL\",SkillVar,LocalVar)";
 		context.getReferenceContext().importObject(skill);
 		context.getReferenceContext().importObject(skillalt);
-		FormulaModifier modf = am1.getModifier(formula, numberManager);
+		FormulaModifier modf = am1.getModifier(formula, FormatUtilities.NUMBER_MANAGER);
 		modf.addAssociation("PRIORITY=2000");
 		
 		NEPCalculation calc1 = new ProcessCalculation<>(skill,

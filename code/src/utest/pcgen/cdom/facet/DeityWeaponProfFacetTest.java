@@ -39,7 +39,7 @@ public class DeityWeaponProfFacetTest extends
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		super.setUp();
 		Deity cdo1 = new Deity();

@@ -35,7 +35,7 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		super.setUp();
 		DataSetID cid = DataSetID.getID();

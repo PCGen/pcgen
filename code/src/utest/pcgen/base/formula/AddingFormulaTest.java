@@ -21,19 +21,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class AddingFormulaTest
 {
-
-    private AddingFormula plusOne;
-
-    @BeforeEach
-    void setUp()
-    {
-        plusOne = new AddingFormula(1);
-    }
 
     @Test
     void testToString()
@@ -95,6 +86,7 @@ class AddingFormulaTest
     @Test
     void testStackedFormula()
     {
+        AddingFormula plusOne = new AddingFormula(1);
         assertEquals(3, plusOne.resolve(plusOne.resolve(1)));
         assertEquals(3, plusOne.resolve(plusOne.resolve(1.2435643516)));
     }
@@ -102,24 +94,28 @@ class AddingFormulaTest
     @Test
     void testIntegerOverflow()
     {
+        AddingFormula plusOne = new AddingFormula(1);
         assertEquals(Integer.MIN_VALUE, plusOne.resolve(Integer.MAX_VALUE));
     }
 
     @Test
     void testInputNotNull()
     {
+        AddingFormula plusOne = new AddingFormula(1);
         assertThrows(IllegalArgumentException.class, () -> plusOne.resolve((Number[]) null));
     }
 
     @Test
     void testInputNotEmpty()
     {
+        AddingFormula plusOne = new AddingFormula(1);
         assertThrows(IllegalArgumentException.class, () -> plusOne.resolve());
     }
 
     @Test
     void testInputNotLongerThan1()
     {
+        AddingFormula plusOne = new AddingFormula(1);
         assertThrows(IllegalArgumentException.class, () -> plusOne.resolve(4, 2.5));
     }
 }
