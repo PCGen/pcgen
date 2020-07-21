@@ -18,6 +18,7 @@ package plugin.primitive.equipment;
 
 import java.net.URISyntaxException;
 
+import pcgen.TestConstants;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.Race;
@@ -25,10 +26,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.ChooseLst;
+
 import plugin.lsttokens.choose.EquipmentToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -37,10 +37,7 @@ public class WieldTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Equipment>
 {
 
-	static ChooseLst token = new ChooseLst();
-	static EquipmentToken subtoken = new EquipmentToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
+	private static final EquipmentToken SUBTOKEN = new EquipmentToken();
 	private static final WieldCategoryToken WIELD_PRIMITIVE = new WieldCategoryToken();
 
 	public WieldTokenTest()
@@ -59,7 +56,7 @@ public class WieldTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -77,13 +74,13 @@ public class WieldTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return loader;
+		return TestConstants.TOKEN_LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return token;
+		return TestConstants.CHOOSE_TOKEN;
 	}
 
 	public void testPrimitiveIllegalSpelledOut()

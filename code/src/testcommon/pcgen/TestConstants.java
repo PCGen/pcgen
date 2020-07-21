@@ -1,6 +1,5 @@
 /*
- * 
- * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2020 Tom Parker <thpr@users.sourceforge.net>
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -15,35 +14,21 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package selectionactor.race;
+package pcgen;
 
-import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.core.PCClass;
-import plugin.lsttokens.race.FavclassToken;
+import pcgen.cdom.base.CDOMObject;
 
-import selectionactor.testsupport.AbstractSelectionActorTest;
+import plugin.lsttokens.ChooseLst;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class FavClassTokenTest extends AbstractSelectionActorTest<PCClass>
+/**
+ * Stores common elements used across many PCGen tests.
+ */
+public class TestConstants
 {
 
-	private static final FavclassToken CRA = new FavclassToken();
+	public static final CDOMTokenLoader<CDOMObject> TOKEN_LOADER = new CDOMTokenLoader<>();
 
-	@Override
-	public ChooseSelectionActor<PCClass> getActor()
-	{
-		return CRA;
-	}
-
-	@Override
-	public Class<PCClass> getCDOMClass()
-	{
-		return PCClass.class;
-	}
-
-	@Override
-	public boolean isGranted()
-	{
-		return false;
-	}
+	public static final ChooseLst CHOOSE_TOKEN = new ChooseLst();
 
 }
