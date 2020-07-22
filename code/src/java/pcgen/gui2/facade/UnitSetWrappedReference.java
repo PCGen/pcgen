@@ -25,7 +25,7 @@ import pcgen.facade.util.WriteableReferenceFacade;
  * UnitSetWrappedReference is a Decorator for a WriteableReferenceFacade that converts an
  * underlying value into a value that is converted to the current unit set.
  */
-public class UnitSetWrappedReference extends AbstractReferenceFacade<Number>
+public final class UnitSetWrappedReference extends AbstractReferenceFacade<Number>
 		implements WriteableReferenceFacade<Number>
 {
 	/**
