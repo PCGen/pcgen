@@ -1359,9 +1359,6 @@ final class PCGVer2Parser implements PCGParser
 			}
 		}
 
-		//Ignore - no longer a PCGen function
-		//if (cache.containsKey(IOConstants.TAG_SUPPRESS_BIO_FIELDS))
-
 		if(cache.containsKey(IOConstants.TAG_PREVIEWSHEETVAR))
 		{
 			for(final String line : cache.get(IOConstants.TAG_PREVIEWSHEETVAR))
