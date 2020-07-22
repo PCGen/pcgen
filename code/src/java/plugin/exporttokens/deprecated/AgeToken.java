@@ -22,6 +22,7 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.output.channel.compat.AgeCompat;
 
 /**
  * Class handles AGE Token 
@@ -45,7 +46,7 @@ public class AgeToken extends AbstractExportToken
 
 		if ("AGE".equals(tokenSource))
 		{
-			retString = Integer.toString(display.getAge());
+			retString = Integer.toString(AgeCompat.getCurrentAge(display.getCharID()));
 		}
 		else if ("AGE.CATEGORY".equals(tokenSource))
 		{

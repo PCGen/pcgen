@@ -24,12 +24,13 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -63,7 +64,8 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		DeityCompat.setCurrentDeity(character.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 
 		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
 			prereq, character, null));
@@ -89,7 +91,8 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		DeityCompat.setCurrentDeity(character.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 
 		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
 			prereq, character, null));

@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -46,7 +47,7 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.output.channel.compat.DeityCompat;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.util.Logging;
 
 /**
@@ -83,7 +84,8 @@ public class DeityToken extends Token
 		String retString = "";
 
 		CharacterDisplay display = pc.getDisplay();
-		Deity deity = DeityCompat.getCurrentDeity(pc.getCharID());
+		Deity deity = (Deity) ChannelUtilities
+			.readControlledChannel(pc.getCharID(), CControl.DEITYINPUT);
 		if (deity != null)
 		{
 			StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);

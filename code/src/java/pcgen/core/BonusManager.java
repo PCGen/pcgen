@@ -438,7 +438,7 @@ public class BonusManager
 		                                       .stream()
 		                                       .filter(fullyQualifiedBonusType ->
 				                                       fullyQualifiedBonusType.startsWith(prefix))
-		                                       .collect(Collectors.toSet());
+		                                       .collect(Collectors.toCollection(() -> new TreeSet<>()));
 		for (String fullyQualifiedBonusType : keys)
 		{
 			// make a list of keys that end with .REPLACE

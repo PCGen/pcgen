@@ -50,14 +50,14 @@ BIO
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
-			<name></name>
+			<name>None</name>
 			<alignment></alignment>
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
-			<source></source>
+			<source>PCGen Team - PCGen Testing Set</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>

@@ -24,7 +24,7 @@ It supports numerous game systems, most notably:
 
 # PCGen Needs You
 
-PCGen is an open source program driven by cotributors, without your help no new fixes or content can be added.
+PCGen is an open source program driven by contributors, without your help no new fixes or content can be added.
 If you can program Java or want to contribute to expanding the book support please consider joining our team.
 Many of the original members have become inactive and we need new contributors to keep the project going.
 

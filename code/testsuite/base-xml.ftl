@@ -66,20 +66,19 @@
 			</@loop></shortform><#lt>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
-<#macro getarg object subvar><#if object?has_content>${object[subvar]}</#if></#macro>
 		<deity>
-			<name>${pc.deity!}</name>
-			<alignment><@pcstring tag="DEITY.ALIGNMENT"/></alignment>
-			<description><@pcstring tag="DEITY.DESCRIPTION"/></description>
-			<domainlist><@pcstring tag="DEITY.DOMAINLIST"/></domainlist>
-			<favoredweapon><@pcstring tag="DEITY.FAVOREDWEAPON"/></favoredweapon>
-			<holyitem><@getarg pc.deity "symbol"/></holyitem>
-			<pantheonlist><#if pc.deity?has_content>${pc.deity.pantheon!?join(", ")}</#if></pantheonlist>
-			<source><#if pc.deity?has_content>${pc.deity.source.pubname} - ${pc.deity.source.long}<#if pc.deity.source.page?has_content>, ${pc.deity.source.page}</#if></#if></source>
-			<special_abilities><@pcstring tag="DEITY.SA"/></special_abilities>
-			<appearance><@getarg pc.deity "appearance"/></appearance>
-			<title><@getarg pc.deity "title"/></title>
-			<worshippers><@getarg pc.deity "worshippers"/></worshippers>
+			<name>${pcstring('DEITY')}</name>
+			<alignment>${pcstring('DEITY.ALIGNMENT')}</alignment>
+			<description>${pcstring('DEITY.DESCRIPTION')}</description>
+			<domainlist>${pcstring('DEITY.DOMAINLIST')}</domainlist>
+			<favoredweapon>${pcstring('DEITY.FAVOREDWEAPON')}</favoredweapon>
+			<holyitem>${pcstring('DEITY.HOLYITEM')}</holyitem>
+			<pantheonlist>${pcstring('DEITY.PANTHEONLIST')}</pantheonlist>
+			<source>${pcstring('DEITY.SOURCE')}</source>
+			<special_abilities>${pcstring('DEITY.SA')}</special_abilities>
+			<appearance>${pcstring('DEITY.APPEARANCE')}</appearance>
+			<title>${pcstring('DEITY.TITLE')}</title>
+			<worshippers>${pcstring('DEITY.WORSHIPPERS')}</worshippers>
 		</deity>
 		<description><@pcstring tag="DESC"/></description>
 		<experience>

@@ -18,16 +18,16 @@ package plugin.primitive.race;
 
 import java.net.URISyntaxException;
 
+import pcgen.TestConstants;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.ChooseLst;
+
 import plugin.lsttokens.choose.RaceToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -35,10 +35,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class RaceSubTypeTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Race>
 {
-	static ChooseLst token = new ChooseLst();
-	static RaceToken subtoken = new RaceToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
+	private static final RaceToken SUBTOKEN = new RaceToken();
 	private static final RaceSubTypeToken RACESUBTYPE_TOKEN = new RaceSubTypeToken();
 
 	public RaceSubTypeTokenTest()
@@ -57,7 +54,7 @@ public class RaceSubTypeTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -75,13 +72,13 @@ public class RaceSubTypeTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return loader;
+		return TestConstants.TOKEN_LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return token;
+		return TestConstants.CHOOSE_TOKEN;
 	}
 
 }

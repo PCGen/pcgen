@@ -27,12 +27,12 @@ public class CheckTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCCheck>
 {
 
-	static CheckToken pca = new CheckToken();
+	private static final CheckToken PCA = new CheckToken();
 
 	@Override
 	public Chooser<PCCheck> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

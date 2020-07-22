@@ -17,18 +17,18 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import pcgen.cdom.enumeration.SubRegion;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeIntegrationTestCase;
+
+import plugin.lsttokens.editcontext.testsupport.AbstractStringIntegrationTestCase;
 import plugin.lsttokens.template.SubregionToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class SubregionIntegrationTest extends
-		AbstractTypeSafeIntegrationTestCase<PCTemplate>
+public class SubregionIntegrationTest
+		extends AbstractStringIntegrationTestCase<PCTemplate>
 {
 
 	private static SubregionToken token = new SubregionToken();
@@ -52,21 +52,15 @@ public class SubregionIntegrationTest extends
 		return token;
 	}
 
-	@Override
-	public Object getConstant(String string)
-	{
-		return SubRegion.getConstant(string);
-	}
-
-	@Override
-	protected boolean requiresPreconstruction()
-	{
-		return false;
-	}
-
 	@Test
 	public void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
+	}
+
+	@Override
+	public boolean isClearLegal()
+	{
+		return false;
 	}
 }

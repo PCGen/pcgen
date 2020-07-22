@@ -22,6 +22,7 @@ package pcgen.io;
 
 import java.awt.Rectangle;
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -95,10 +96,9 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.HandedCompat;
-import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -396,10 +396,13 @@ public final class PCGVer2Creator
  * DOMAINSPELLS:GOOD|SPELLLIST:(>list of level by level spells)
  */
 
-		appendNewline(buffer);
-		appendComment("Character Deity/Domain", buffer); //$NON-NLS-1$
-		appendDeityLine(buffer);
-		appendDomainLines(buffer);
+		if (thePC.isFeatureEnabled(CControl.DOMAINFEATURE))
+		{
+			appendNewline(buffer);
+			appendComment("Character Deity/Domain", buffer); //$NON-NLS-1$
+			appendDeityLine(buffer);
+			appendDomainLines(buffer);
+		}
 
 		/*
 		 * This one is what will make spellcasters U G L Y!!!
@@ -633,7 +636,7 @@ public final class PCGVer2Creator
 	private void appendAgeLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_AGE).append(':');
-		buffer.append(charDisplay.getAge());
+		buffer.append(AgeCompat.getCurrentAge(thePC.getCharID()));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -782,7 +785,8 @@ public final class PCGVer2Creator
 	private void appendCharacterTypeLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_CHARACTERTYPE).append(':');
-		buffer.append(charDisplay.getCharacterType());
+		buffer.append((String) ChannelUtilities.readControlledChannel(
+			charDisplay.getCharID(), CControl.CHARACTERTYPE));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -1020,7 +1024,8 @@ public final class PCGVer2Creator
 	 */
 	private void appendDeityLine(StringBuilder buffer)
 	{
-		final Deity aDeity = DeityCompat.getCurrentDeity(charDisplay.getCharID());
+		final Deity aDeity = (Deity) ChannelUtilities.readControlledChannel(
+			charDisplay.getCharID(), CControl.DEITYINPUT);
 		if (aDeity != null)
 		{
 
@@ -1838,7 +1843,9 @@ public final class PCGVer2Creator
 	private void appendSkinColorLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_SKINCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(SkinColorCompat.getCurrentSkinColor(thePC.getCharID())));
+		buffer.append(EntityEncoder.encode(
+			(String) ChannelUtilities.readControlledChannel(thePC.getCharID(),
+				CControl.SKINCOLORINPUT)));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -2490,7 +2497,9 @@ public final class PCGVer2Creator
 	private void appendMoneyLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_MONEY).append(':');
-		buffer.append(thePC.getGold());
+		BigDecimal currentGold = (BigDecimal) ChannelUtilities
+				.readControlledChannel(thePC.getCharID(), CControl.GOLDINPUT);
+		buffer.append(currentGold);
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

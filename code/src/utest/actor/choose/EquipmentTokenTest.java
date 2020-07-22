@@ -27,12 +27,12 @@ public class EquipmentTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Equipment>
 {
 
-	static EquipmentToken pca = new EquipmentToken();
+	private static final EquipmentToken PCA = new EquipmentToken();
 
 	@Override
 	public Chooser<Equipment> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

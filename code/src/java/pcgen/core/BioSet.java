@@ -34,10 +34,11 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
-import pcgen.output.channel.compat.SkinColorCompat;
+import pcgen.cdom.util.CControl;
+import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.AgeCompat;
 import pcgen.util.Logging;
 
 public final class BioSet extends PObject implements NonInteractive
@@ -196,7 +197,8 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if (ranList.contains("SKIN"))
 		{
-			SkinColorCompat.setCurrentSkinColor(pc.getCharID(), generateBioValue("SKINTONE", pc));
+			ChannelUtilities.setControlledChannel(pc.getCharID(),
+				CControl.SKINCOLORINPUT, generateBioValue("SKINTONE", pc));
 		}
 	}
 
@@ -459,7 +461,7 @@ public final class BioSet extends PObject implements NonInteractive
 					ageAdd = maxAge - baseAge;
 				}
 			}
-			pc.setPCAttribute(NumericPCAttribute.AGE, baseAge + ageAdd);
+			AgeCompat.setCurrentAge(pc.getCharID(), baseAge + ageAdd);
 		}
 	}
 
@@ -550,7 +552,7 @@ public final class BioSet extends PObject implements NonInteractive
 					totalWeight = replaceString(totalWeight, "HTDIEROLL", htAdd);
 					totalWeight = replaceString(totalWeight, "BASEWT", baseWeight);
 					totalWeight = replaceString(totalWeight, "WTDIEROLL", wtAdd);
-					pc.setPCAttribute(NumericPCAttribute.WEIGHT, pc.getVariableValue(totalWeight, "").intValue());
+					pc.setWeight(pc.getVariableValue(totalWeight, "").intValue());
 				}
 
 				break;

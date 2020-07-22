@@ -27,6 +27,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractFormulaIntegrationTestCa
 import plugin.lsttokens.pcclass.CrformulaToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class CRFormulaIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<PCClass>
 {
@@ -35,6 +37,7 @@ public class CRFormulaIntegrationTest extends
 	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

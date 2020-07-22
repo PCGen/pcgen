@@ -19,10 +19,12 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.ChannelUtilities;
 
 public class PreCharactertypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
@@ -30,7 +32,8 @@ public class PreCharactertypeTester extends AbstractDisplayPrereqTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		String characterType = display.getCharacterType();
+		String characterType = (String) ChannelUtilities
+			.readControlledChannel(display.getCharID(), CControl.CHARACTERTYPE);
 		if (characterType != null && characterType.equalsIgnoreCase(prereq.getKey()))
 		{
 			return countedTotal(prereq, 1);

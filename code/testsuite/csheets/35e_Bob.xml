@@ -343,7 +343,7 @@ BIO
 		</skillpoints>
 		<list_mods>Acrobatics +5, Combat Focus +4, Domain Skill 1 +2, Domain Skill 2 +2, Linguistics +1, Poetry +1, Uber Scripting from five ranks in Test Coding Script +3</list_mods>
 		<max_class_skill_level>8</max_class_skill_level>
-		<max_cross_class_skill_level>4</max_cross_class_skill_level>
+		<max_cross_class_skill_level>4.0</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>3.0</ranks>

@@ -1,6 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
- * 
+ * Copyright (c) 2020 Tom Parker <thpr@users.sourceforge.net>
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -15,21 +14,21 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet.fact;
+package pcgen;
 
-import pcgen.cdom.base.ItemFacet;
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.output.publish.OutputDB;
+import pcgen.cdom.base.CDOMObject;
+
+import plugin.lsttokens.ChooseLst;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 /**
- * CharacterTypeFacet is a Facet that tracks the character type 
- * of a character.
+ * Stores common elements used across many PCGen tests.
  */
-public class CharacterTypeFacet extends AbstractItemFacet<CharID, String> implements ItemFacet<CharID, String>
+public class TestConstants
 {
-	public void init()
-	{
-		OutputDB.register("charactertype", this);
-	}
+
+	public static final CDOMTokenLoader<CDOMObject> TOKEN_LOADER = new CDOMTokenLoader<>();
+
+	public static final ChooseLst CHOOSE_TOKEN = new ChooseLst();
+
 }

@@ -40,12 +40,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-import pcgen.output.channel.compat.DeityCompat;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * A AbilityRefChoiceSet contains references to AbilityRef Objects.
@@ -217,7 +218,8 @@ public class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelectio
 		 */
 		if ("DEITYWEAPON".equals(nameRoot) && chooseInfo.getReferenceClass().equals(WeaponProf.class))
 		{
-			Deity deity = DeityCompat.getCurrentDeity(aPC.getCharID());
+			Deity deity = (Deity) ChannelUtilities
+				.readControlledChannel(aPC.getCharID(), CControl.DEITYINPUT);
 			if (deity == null)
 			{
 				availableList.clear();

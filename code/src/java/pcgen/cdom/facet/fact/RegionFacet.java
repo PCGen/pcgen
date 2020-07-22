@@ -23,7 +23,7 @@ import java.util.Optional;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
-import pcgen.cdom.enumeration.SubRegion;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -117,7 +117,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 *            The SubRegion for the Player Character represented by the
 	 *            given CharID
 	 */
-	public void setSubRegion(CharID id, SubRegion subregion)
+	public void setSubRegion(CharID id, String subregion)
 	{
 		getConstructingInfo(id).subregion = subregion;
 	}
@@ -230,7 +230,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 *         Character represented by the given CharID; "NONE" if no character
 	 *         SubRegion is set for the Player Character
 	 */
-	public Optional<SubRegion> getCharacterSubRegion(CharID id)
+	public Optional<String> getCharacterSubRegion(CharID id)
 	{
 		RegionCacheInfo rci = getInfo(id);
 		// character's subregion trumps any from templates
@@ -253,7 +253,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 *         represented by the given CharID; "NONE" if no SubRegion is set
 	 *         for the Player Character
 	 */
-	public Optional<SubRegion> getSubRegion(CharID id)
+	public Optional<String> getSubRegion(CharID id)
 	{
 		RegionCacheInfo rci = getInfo(id);
 		// character's subregion trumps any from templates
@@ -264,7 +264,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 
 		return templateFacet.getSet(id).stream()
 			.map(
-				template -> Optional.ofNullable(template.get(ObjectKey.SUBREGION)))
+				template -> Optional.ofNullable(template.get(StringKey.SUBREGION)))
 			.filter(Optional::isPresent)
 			.reduce(Optional.empty(), (current, next) -> next);
 	}
@@ -283,7 +283,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 */
 	public String getFullRegion(CharID id)
 	{
-		Optional<SubRegion> sub = getSubRegion(id);
+		Optional<String> sub = getSubRegion(id);
 		StringBuilder tempRegName = new StringBuilder(40).append(getRegionString(id));
 
 		sub.ifPresent(subRegion -> tempRegName.append(" (").append(subRegion.toString()).append(')'));
@@ -302,7 +302,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 
 		public Region region;
 
-		public SubRegion subregion;
+		public String subregion;
 
 		@Override
 		public String toString()

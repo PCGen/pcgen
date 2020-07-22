@@ -50,7 +50,6 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
-import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.facet.ActiveSpellsFacet;
 import pcgen.cdom.facet.AutoLanguageGrantedFacet;
 import pcgen.cdom.facet.AutoLanguageUnconditionalFacet;
@@ -101,8 +100,6 @@ import pcgen.cdom.facet.analysis.SubRaceFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
-import pcgen.cdom.facet.fact.AgeFacet;
-import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
@@ -180,10 +177,8 @@ public class CharacterDisplay
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FormulaResolvingFacet formulaResolvingFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
-	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
@@ -505,7 +500,7 @@ public class CharacterDisplay
 	 * 
 	 * @return character sub region
 	 */
-	public Optional<SubRegion> getSubRegion()
+	public Optional<String> getSubRegion()
 	{
 		return regionFacet.getSubRegion(id);
 	}
@@ -543,11 +538,6 @@ public class CharacterDisplay
 		return armorClassFacet.calcACOfType(id, type);
 	}
 
-	public int getAge()
-	{
-		return ageFacet.getAge(id);
-	}
-
 	public int getBaseMovement(MovementType moveType, Load load)
 	{
 		return moveResultFacet.getBaseMovement(id, moveType, load);
@@ -571,11 +561,6 @@ public class CharacterDisplay
 	public Race getRace()
 	{
 		return raceFacet.get(id);
-	}
-
-	public String getCharacterType()
-	{
-		return characterTypeFacet.get(id);
 	}
 
 	public String getPreviewSheet()

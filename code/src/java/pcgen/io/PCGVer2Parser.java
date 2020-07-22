@@ -52,7 +52,6 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -134,10 +133,9 @@ import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.HandedCompat;
-import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -483,7 +481,7 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setPCAttribute(NumericPCAttribute.AGE,
+			AgeCompat.setCurrentAge(thePC.getCharID(),
 				Integer.parseInt(line.substring(IOConstants.TAG_AGE.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
@@ -2073,7 +2071,8 @@ final class PCGVer2Parser implements PCGParser
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, deityKey);
 		if (aDeity != null)
 		{
-			DeityCompat.setCurrentDeity(thePC.getCharID(), aDeity);
+			ChannelUtilities.setControlledChannel(thePC.getCharID(),
+				CControl.DEITYINPUT, aDeity);
 		}
 		else if (!Constants.NONE.equals(deityKey))
 		{
@@ -2302,7 +2301,8 @@ final class PCGVer2Parser implements PCGParser
 			final String message = "Character type " + wantedType + " not found. Using " + characterType; //$NON-NLS-1$
 			warnings.add(message);
 		}
-		thePC.setCharacterType(characterType);
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.CHARACTERTYPE, characterType);
 	}
 
 	private void parsePreviewSheetLine(final String line)
@@ -3714,8 +3714,10 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseSkinColorLine(final String line)
 	{
-		SkinColorCompat.setCurrentSkinColor(thePC.getCharID(), 
-			EntityEncoder.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1)));
+		String color = EntityEncoder
+			.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.SKINCOLORINPUT, color);
 	}
 
 	private void parseSpeechPatternLine(final String line)
@@ -4628,7 +4630,7 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setPCAttribute(NumericPCAttribute.WEIGHT,
+			thePC.setWeight(
 				Integer.parseInt(line.substring(IOConstants.TAG_WEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
@@ -5046,7 +5048,10 @@ final class PCGVer2Parser implements PCGParser
 	 */
 	private void parseMoneyLine(final String line)
 	{
-		thePC.setGold(line.substring(IOConstants.TAG_MONEY.length() + 1));
+		BigDecimal bd = new BigDecimal(
+			line.substring(IOConstants.TAG_MONEY.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.GOLDINPUT, bd);
 	}
 
 	/**

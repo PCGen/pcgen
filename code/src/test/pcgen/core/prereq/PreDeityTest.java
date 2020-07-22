@@ -26,10 +26,11 @@ import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
-import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -68,7 +69,8 @@ public class PreDeityTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		DeityCompat.setCurrentDeity(character.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -104,7 +106,8 @@ public class PreDeityTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		DeityCompat.setCurrentDeity(character.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -144,7 +147,8 @@ public class PreDeityTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		DeityCompat.setCurrentDeity(character.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 
 		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -179,7 +183,8 @@ public class PreDeityTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		DeityCompat.setCurrentDeity(character.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -218,7 +223,8 @@ public class PreDeityTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		DeityCompat.setCurrentDeity(character.getCharID(), deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
 			prereq, character, null));
 

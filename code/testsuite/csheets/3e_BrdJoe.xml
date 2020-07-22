@@ -311,7 +311,7 @@ BIO
 		</skillpoints>
 		<list_mods>Appraise +5, Climb +3, Craft (Carpentry) +5, Knowledge (Religion) +5, Listen +2, Perform +4, Search +2, Spellcraft +5, Spot +2</list_mods>
 		<max_class_skill_level>4</max_class_skill_level>
-		<max_cross_class_skill_level>2</max_cross_class_skill_level>
+		<max_cross_class_skill_level>2.0</max_cross_class_skill_level>
 		<skill>
 			<name>Appraise</name>
 			<ranks>4.0</ranks>

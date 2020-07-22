@@ -21,7 +21,7 @@ import java.net.URISyntaxException;
 import pcgen.ControlTestSupport;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
-import pcgen.output.channel.compat.DeityCompat;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -40,7 +40,7 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Deity>
 {
 
-	static DeityToken subtoken = new DeityToken();
+	private static final DeityToken SUBTOKEN = new DeityToken();
 
 	private static final plugin.qualifier.deity.PCToken PC_TOKEN =
 			new plugin.qualifier.deity.PCToken();
@@ -56,7 +56,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -80,7 +80,8 @@ public class PCQualifierTokenTest extends
 	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, Deity item)
 	{
-		DeityCompat.setCurrentDeity(pc.getCharID(), item);
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.DEITYINPUT, item);
 	}
 
 	@Override

@@ -33,15 +33,12 @@
 	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
-	<bean id="ageFacet" class="pcgen.cdom.facet.fact.AgeFacet" />
 	<bean id="ageSetFacet" class="pcgen.cdom.facet.analysis.AgeSetFacet">
-		<property name="ageFacet" ref="ageFacet"/>
 		<property name="regionFacet" ref="regionFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>
 	<bean id="ageSetKitFacet" class="pcgen.cdom.facet.AgeSetKitFacet">
-		<property name="ageFacet" ref="ageFacet"/>
 		<property name="ageSetFacet" ref="ageSetFacet"/>
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>
@@ -155,7 +152,6 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="characterTypeFacet" class="pcgen.cdom.facet.fact.CharacterTypeFacet"/>
 	<bean id="checkFacet" class="pcgen.cdom.facet.model.CheckFacet" />
 	<bean id="checkBonusFacet" class="pcgen.cdom.facet.CheckBonusFacet">
 		<property name="checkFacet" ref="checkFacet"/>
@@ -279,7 +275,6 @@
 		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
 		<property name="masterUsableSkillFacet" ref="masterUsableSkillFacet"/>
 	</bean>
-	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
 	<bean id="grantedVarFacet" class="pcgen.cdom.facet.GrantedVarFacet">
 		<property name="varScopedFacet" ref="varScopedFacet"/>
