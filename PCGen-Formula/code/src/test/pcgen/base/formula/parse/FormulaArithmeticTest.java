@@ -17,25 +17,25 @@
  */
 package pcgen.base.formula.parse;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
-import pcgen.base.util.FormatManager;
 
 public class FormulaArithmeticTest extends AbstractFormulaTestCase
 {
 
-	private static final FormatManager<?> booleanManager =
-			FormatUtilities.BOOLEAN_MANAGER;
-
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		super.setUp();
 		FormulaUtilities.loadBuiltInOperators(getOperatorLibrary());
@@ -599,11 +599,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2==3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -614,10 +614,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2==3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -628,10 +628,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1==3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -642,10 +642,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1==3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -656,11 +656,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -671,10 +671,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2==-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -685,10 +685,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -699,10 +699,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1==-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -713,11 +713,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2==3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -728,10 +728,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2==3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -742,10 +742,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1==3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -756,10 +756,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1==3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -770,10 +770,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6==6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -784,10 +784,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -798,10 +798,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3==3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -812,10 +812,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3==-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -826,10 +826,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0==2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -840,10 +840,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3==3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -854,11 +854,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -869,10 +869,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2!=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -883,10 +883,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -897,10 +897,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1!=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -911,11 +911,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -926,10 +926,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2!=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -940,10 +940,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -954,10 +954,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1!=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -968,11 +968,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -983,10 +983,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2!=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -997,10 +997,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1011,10 +1011,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1!=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1025,10 +1025,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6!=6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1039,10 +1039,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1053,10 +1053,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3!=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1067,10 +1067,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3!=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1081,10 +1081,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0!=2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1095,10 +1095,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3!=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1109,11 +1109,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1124,10 +1124,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1138,10 +1138,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1152,10 +1152,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1166,11 +1166,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1181,10 +1181,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1195,10 +1195,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1209,10 +1209,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1223,11 +1223,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2<3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1238,10 +1238,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2<3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1252,10 +1252,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1<3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1266,10 +1266,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1<3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1280,10 +1280,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6<6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1294,10 +1294,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1308,10 +1308,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3<3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1322,10 +1322,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3<-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1336,10 +1336,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0<2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1350,10 +1350,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3<3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1364,11 +1364,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1379,10 +1379,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1393,10 +1393,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1407,10 +1407,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1421,11 +1421,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1436,10 +1436,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1450,10 +1450,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1464,10 +1464,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1478,11 +1478,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2>3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1493,10 +1493,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2>3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1507,10 +1507,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1>3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1521,10 +1521,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1>3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1535,10 +1535,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6>6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1549,10 +1549,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1563,10 +1563,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3>3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1577,10 +1577,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3>-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1591,10 +1591,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0>2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1605,10 +1605,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3>3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1619,11 +1619,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1634,10 +1634,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1648,10 +1648,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1662,10 +1662,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1676,11 +1676,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1691,10 +1691,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1705,10 +1705,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1719,10 +1719,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1733,11 +1733,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1748,10 +1748,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-4<=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1762,10 +1762,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-5.1<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1776,10 +1776,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-5.1<=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1790,10 +1790,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6<=6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1804,10 +1804,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1818,10 +1818,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3<=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1832,10 +1832,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3<=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1846,10 +1846,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0<=2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1860,10 +1860,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3<=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1874,11 +1874,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1889,10 +1889,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1903,10 +1903,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1917,10 +1917,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1931,11 +1931,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1946,10 +1946,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1960,10 +1960,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1974,10 +1974,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -1988,11 +1988,11 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2003,10 +2003,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2>=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2017,10 +2017,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2031,10 +2031,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1>=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2045,10 +2045,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6>=6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2059,10 +2059,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2073,10 +2073,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3>=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2087,10 +2087,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3>=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2101,10 +2101,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0>=2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2115,10 +2115,10 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3>=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -3058,7 +3058,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		String formula = "(4<5)+(5>6)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-		isNotValid(formula, node, booleanManager, Optional.empty());
+		isNotValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -3067,7 +3067,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		String formula = "((4<5)+(5>6))-1";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-		isNotValid(formula, node, booleanManager, Optional.empty());
+		isNotValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -3076,7 +3076,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		String formula = "5+((4<5)+(5>6))";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-		isNotValid(formula, node, booleanManager, Optional.empty());
+		isNotValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -3102,7 +3102,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		String formula = "5^(9>8)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-		isNotValid(formula, node, booleanManager, Optional.empty());
+		isNotValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 	}
 
 
@@ -3112,7 +3112,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		String formula = "((4<5)+(5>6))^1";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-		isNotValid(formula, node, booleanManager, Optional.empty());
+		isNotValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -3121,6 +3121,6 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		String formula = "5^((4<5)+(5>6))";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-		isNotValid(formula, node, booleanManager, Optional.empty());
+		isNotValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 	}
 }

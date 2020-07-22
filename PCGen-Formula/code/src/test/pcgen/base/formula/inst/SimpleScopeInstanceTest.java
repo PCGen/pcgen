@@ -17,130 +17,57 @@
  */
 package pcgen.base.formula.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
-
-public class SimpleScopeInstanceTest extends TestCase
+public class SimpleScopeInstanceTest
 {
-
-	private static final GlobalVarScoped LOCAL_VS = new GlobalVarScoped("Local");
-	private static final GlobalVarScoped GLOBAL_VS = new GlobalVarScoped("Global");
 
 	private SimpleLegalScope scope;
 	private SimpleScopeInstance scopeInst;
 	private SimpleLegalScope local;
 	private SimpleScopeInstance localInst;
 	
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		scope = new SimpleLegalScope("Global");
-		scopeInst = new SimpleScopeInstance(Optional.empty(), scope, GLOBAL_VS);
+		scopeInst = new SimpleScopeInstance(Optional.empty(), scope, new GlobalVarScoped("Global"));
 		local = new SimpleLegalScope(scope, "Local");
-		localInst = new SimpleScopeInstance(Optional.of(scopeInst), local, LOCAL_VS);
+		localInst = new SimpleScopeInstance(Optional.of(scopeInst), local, new GlobalVarScoped("Local"));
+	}
+	
+	@AfterEach
+	void tearDown()
+	{
+		scope = null;
+		scopeInst = null;
+		local = null;
+		localInst = null;
 	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testConstructor()
 	{
-		try
-		{
-			new SimpleScopeInstance(Optional.of(scopeInst), null, GLOBAL_VS);
-			fail("null scope must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleScopeInstance(Optional.of(scopeInst), scope, new GlobalVarScoped("Ignored"));
-			fail("mismatch of inst, built scope must be rejected (scope parent == null)");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleScopeInstance(Optional.of(localInst), local, new GlobalVarScoped("Ignored"));
-			fail("mismatch of inst, built scope must be rejected (neither parent null)");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleScopeInstance(null, local, new GlobalVarScoped("Ignored"));
-			fail("non global scope without parent instance must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), null, new GlobalVarScoped("Global")));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), scope, new GlobalVarScoped("Ignored")));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(localInst), local, new GlobalVarScoped("Ignored")));
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(null, local, new GlobalVarScoped("Ignored")));
 		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
-		try
-		{
-			new SimpleScopeInstance(null, local, new GlobalVarScoped("Ignored"));
-			fail("Instance should require a parent if not global");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleScopeInstance(Optional.empty(), local, new GlobalVarScoped("Ignored"));
-			fail("non global scope without parent instance must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleScopeInstance(Optional.empty(), local, new GlobalVarScoped("Ignored"));
-			fail("Instance should require a parent if not global");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(null, local, new GlobalVarScoped("Ignored")));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.empty(), local, new GlobalVarScoped("Ignored")));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.empty(), local, new GlobalVarScoped("Ignored")));
 		assertEquals(scopeInst, localInst.getParentScope().get());
 		assertEquals(local, localInst.getLegalScope());
-		try
-		{
-			new SimpleScopeInstance(Optional.of(scopeInst), null, new GlobalVarScoped("Ignored"));
-			fail("LegalScope cannot be null");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleScopeInstance(Optional.of(scopeInst), local, null);
-			fail("Description cannot be null");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleScopeInstance(Optional.of(scopeInst), sublocal, new GlobalVarScoped("Ignored"));
-			fail("LegalScope must be a direct child of the scope of the provided instance");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), null, new GlobalVarScoped("Ignored")));
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), local, null));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), sublocal, new GlobalVarScoped("Ignored")));
 	}
 
 	@Test

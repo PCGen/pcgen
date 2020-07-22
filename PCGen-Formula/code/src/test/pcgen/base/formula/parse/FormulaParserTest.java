@@ -17,13 +17,13 @@
  */
 package pcgen.base.formula.parse;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.io.StringReader;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
-
-public class FormulaParserTest extends TestCase
+public class FormulaParserTest
 {
 
 	private SimpleNode doTest(String formula) throws ParseException
@@ -619,6 +619,7 @@ public class FormulaParserTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testLessThan()
 	{
 		try
@@ -698,6 +699,7 @@ public class FormulaParserTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testGreaterThan()
 	{
 		try
@@ -777,6 +779,7 @@ public class FormulaParserTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testLessThanOrEqualTo()
 	{
 		try
@@ -856,6 +859,7 @@ public class FormulaParserTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testGreaterThanOrEqualTo()
 	{
 		try

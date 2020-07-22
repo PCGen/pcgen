@@ -17,10 +17,12 @@
  */
 package pcgen.base.formula.function;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Objects;
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;

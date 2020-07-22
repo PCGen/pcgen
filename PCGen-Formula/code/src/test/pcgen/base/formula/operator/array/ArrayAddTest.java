@@ -15,44 +15,33 @@
  */
 package pcgen.base.formula.operator.array;
 
-import java.lang.reflect.Array;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Optional;
 
-import junit.framework.TestCase;
-import pcgen.base.format.ArrayFormatManager;
-import pcgen.base.format.BooleanManager;
-import pcgen.base.format.NumberManager;
-import pcgen.base.util.FormatManager;
+import org.junit.jupiter.api.Test;
 
-public class ArrayAddTest extends TestCase
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.testsupport.TestUtilities;
+
+public class ArrayAddTest
 {
-
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
-	private static final Class<Integer> INTEGER_CLASS = Integer.class;
-	private static final Class<Object[]> OBJECT_ARRAY_CLASS =
-			(Class<Object[]>) Array.newInstance(Object.class, 0).getClass();
-	private static final Class<Number[]> NUMBER_ARRAY_CLASS =
-			(Class<Number[]>) Array.newInstance(NUMBER_CLASS, 0).getClass();
-	private static final Class<Boolean[]> BOOLEAN_ARRAY_CLASS =
-			(Class<Boolean[]>) Array.newInstance(BOOLEAN_CLASS, 0).getClass();
-	private static final Class<Integer[]> INTEGER_ARRAY_CLASS =
-			(Class<Integer[]>) Array.newInstance(INTEGER_CLASS, 0).getClass();
-	FormatManager<Number[]> numberArrayManager =
-			new ArrayFormatManager<>(new NumberManager(), ',', '|');
-	FormatManager<Boolean[]> booleanArrayManager =
-			new ArrayFormatManager<>(new BooleanManager(), ',', '|');
-
-	private final ArrayAdd op = new ArrayAdd();
-
+	@Test
 	public void testOperator()
 	{
+		ArrayAdd op = new ArrayAdd();
 		assertNotNull(op.getOperator());
 		assertTrue(op.getOperator().getSymbol().equals("+"));
 	}
 
+	@Test
 	public void testAbstractEvaluateNulls()
 	{
+		ArrayAdd op = new ArrayAdd();
 		try
 		{
 			assertNull(op.abstractEvaluate(null, null, null));
@@ -63,7 +52,7 @@ public class ArrayAddTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, null, null));
+			assertNull(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -71,7 +60,7 @@ public class ArrayAddTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, NUMBER_ARRAY_CLASS, null));
+			assertNull(op.abstractEvaluate(null, TestUtilities.NUMBER_ARRAY_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -79,7 +68,7 @@ public class ArrayAddTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, null));
+			assertNull(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.NUMBER_ARRAY_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -87,39 +76,43 @@ public class ArrayAddTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAbstractEvaluateMismatch()
 	{
-		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, BOOLEAN_ARRAY_CLASS,
+		ArrayAdd op = new ArrayAdd();
+		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.BOOLEAN_ARRAY_CLASS,
 			Optional.empty()).isEmpty());
-		assertTrue(op.abstractEvaluate(BOOLEAN_ARRAY_CLASS, INTEGER_ARRAY_CLASS,
-			Optional.of(booleanArrayManager)).isEmpty());
-		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS,
-			Optional.of(booleanArrayManager)).isEmpty());
-		assertTrue(op.abstractEvaluate(BOOLEAN_ARRAY_CLASS, INTEGER_CLASS,
-			Optional.of(booleanArrayManager)).isEmpty());
-		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_CLASS,
-			Optional.of(booleanArrayManager)).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.BOOLEAN_ARRAY_CLASS, TestUtilities.INTEGER_ARRAY_CLASS,
+			Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.NUMBER_ARRAY_CLASS,
+			Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.BOOLEAN_ARRAY_CLASS, TestUtilities.INTEGER_CLASS,
+			Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, FormatUtilities.NUMBER_CLASS,
+			Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).isEmpty());
 	}
 
+	@Test
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(NUMBER_ARRAY_CLASS, op.abstractEvaluate(NUMBER_ARRAY_CLASS,
-			NUMBER_ARRAY_CLASS, Optional.of(numberArrayManager)).get().getManagedClass());
-		assertEquals(BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(BOOLEAN_ARRAY_CLASS,
-			BOOLEAN_ARRAY_CLASS, Optional.of(booleanArrayManager)).get().getManagedClass());
-		assertEquals(NUMBER_ARRAY_CLASS, op.abstractEvaluate(NUMBER_ARRAY_CLASS,
-			NUMBER_CLASS, Optional.of(numberArrayManager)).get().getManagedClass());
-		assertEquals(BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(BOOLEAN_ARRAY_CLASS,
-			BOOLEAN_CLASS, Optional.of(booleanArrayManager)).get().getManagedClass());
-		assertEquals(NUMBER_ARRAY_CLASS, op.abstractEvaluate(NUMBER_CLASS,
-			NUMBER_ARRAY_CLASS, Optional.of(numberArrayManager)).get().getManagedClass());
-		assertEquals(BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(BOOLEAN_CLASS,
-			BOOLEAN_ARRAY_CLASS, Optional.of(booleanArrayManager)).get().getManagedClass());
-		assertEquals(NUMBER_ARRAY_CLASS, op
-			.abstractEvaluate(NUMBER_CLASS, NUMBER_CLASS, Optional.of(numberArrayManager))
+		ArrayAdd op = new ArrayAdd();
+		assertEquals(TestUtilities.NUMBER_ARRAY_CLASS, op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS,
+			TestUtilities.NUMBER_ARRAY_CLASS, Optional.of(TestUtilities.NUMBER_ARRAY_MANAGER)).get().getManagedClass());
+		assertEquals(TestUtilities.BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(TestUtilities.BOOLEAN_ARRAY_CLASS,
+			TestUtilities.BOOLEAN_ARRAY_CLASS, Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).get().getManagedClass());
+		assertEquals(TestUtilities.NUMBER_ARRAY_CLASS, op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS,
+			FormatUtilities.NUMBER_CLASS, Optional.of(TestUtilities.NUMBER_ARRAY_MANAGER)).get().getManagedClass());
+		assertEquals(TestUtilities.BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(TestUtilities.BOOLEAN_ARRAY_CLASS,
+			FormatUtilities.BOOLEAN_CLASS, Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).get().getManagedClass());
+		assertEquals(TestUtilities.NUMBER_ARRAY_CLASS, op.abstractEvaluate(FormatUtilities.NUMBER_CLASS,
+			TestUtilities.NUMBER_ARRAY_CLASS, Optional.of(TestUtilities.NUMBER_ARRAY_MANAGER)).get().getManagedClass());
+		assertEquals(TestUtilities.BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS,
+			TestUtilities.BOOLEAN_ARRAY_CLASS, Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).get().getManagedClass());
+		assertEquals(TestUtilities.NUMBER_ARRAY_CLASS, op
+			.abstractEvaluate(FormatUtilities.NUMBER_CLASS, FormatUtilities.NUMBER_CLASS, Optional.of(TestUtilities.NUMBER_ARRAY_MANAGER))
 			.get().getManagedClass());
-		assertEquals(BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(BOOLEAN_CLASS,
-			BOOLEAN_CLASS, Optional.of(booleanArrayManager)).get().getManagedClass());
+		assertEquals(TestUtilities.BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS,
+			FormatUtilities.BOOLEAN_CLASS, Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).get().getManagedClass());
 		//TODO Interesting that these REQUIRE a format assertion... why?
 //		assertEquals(NUMBER_ARRAY_CLASS,
 //			op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, Optional.empty())
@@ -129,44 +122,14 @@ public class ArrayAddTest extends TestCase
 //			.getManagedClass());
 	}
 
+	@Test
 	public void testEvaluateFailNull()
 	{
-		try
-		{
-			assertNull(op.evaluate(null, null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(Boolean.TRUE, null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(new Boolean[0], null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(null, Boolean.FALSE));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
+		ArrayAdd op = new ArrayAdd();
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(Boolean.TRUE, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(new Boolean[0], null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, Boolean.FALSE));
 	}
 
 	//TODO How to catch these? :/
@@ -192,11 +155,13 @@ public class ArrayAddTest extends TestCase
 //		}
 //	}
 
+	@Test
 	public void testEvaluateLegalArrayObject()
 	{
+		ArrayAdd op = new ArrayAdd();
 		Number[] iArray = new Number[]{1, 2};
 		Object result = op.evaluate(iArray, 4.5);
-		assertTrue(result.getClass().equals(OBJECT_ARRAY_CLASS));
+		assertTrue(result.getClass().equals(TestUtilities.OBJECT_ARRAY_CLASS));
 		Object[] resultArray = (Object[]) result;
 		assertEquals(3, resultArray.length);
 		assertEquals(1, resultArray[0]);
@@ -204,11 +169,13 @@ public class ArrayAddTest extends TestCase
 		assertEquals(4.5, resultArray[2]);
 	}
 
+	@Test
 	public void testEvaluateLegalArrayArray()
 	{
+		ArrayAdd op = new ArrayAdd();
 		Number[] iArray = new Number[]{1, 2};
 		Object result = op.evaluate(iArray, new Number[]{4.5, -6});
-		assertTrue(result.getClass().equals(OBJECT_ARRAY_CLASS));
+		assertTrue(result.getClass().equals(TestUtilities.OBJECT_ARRAY_CLASS));
 		Object[] resultArray = (Object[]) result;
 		assertEquals(4, resultArray.length);
 		assertEquals(1, resultArray[0]);
@@ -217,10 +184,12 @@ public class ArrayAddTest extends TestCase
 		assertEquals(-6, resultArray[3]);
 	}
 
+	@Test
 	public void testEvaluateLegalObjectArray()
 	{
+		ArrayAdd op = new ArrayAdd();
 		Object result = op.evaluate(1, new Number[]{4.5, -6});
-		assertTrue(result.getClass().equals(OBJECT_ARRAY_CLASS));
+		assertTrue(result.getClass().equals(TestUtilities.OBJECT_ARRAY_CLASS));
 		Object[] resultArray = (Object[]) result;
 		assertEquals(3, resultArray.length);
 		assertEquals(1, resultArray[0]);
@@ -228,10 +197,12 @@ public class ArrayAddTest extends TestCase
 		assertEquals(-6, resultArray[2]);
 	}
 
+	@Test
 	public void testEvaluateLegalObjectObject()
 	{
+		ArrayAdd op = new ArrayAdd();
 		Object result = op.evaluate(1, -6);
-		assertTrue(result.getClass().equals(OBJECT_ARRAY_CLASS));
+		assertTrue(result.getClass().equals(TestUtilities.OBJECT_ARRAY_CLASS));
 		Object[] resultArray = (Object[]) result;
 		assertEquals(2, resultArray.length);
 		assertEquals(1, resultArray[0]);

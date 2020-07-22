@@ -17,9 +17,14 @@
  */
 package pcgen.base.formula.library;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
@@ -39,11 +44,22 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	private DependencyManager depManager;
 	private DependencyVisitor varCapture;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		super.setUp();
 		resetManager();
+	}
+
+	@AfterEach
+	@Override
+	protected void tearDown()
+	{
+		super.tearDown();
+		argManager = null;
+		depManager = null;
+		varCapture = null;
 	}
 
 	private void resetManager()

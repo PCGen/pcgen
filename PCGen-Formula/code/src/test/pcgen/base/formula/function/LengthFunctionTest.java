@@ -17,13 +17,13 @@
  */
 package pcgen.base.formula.function;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import pcgen.base.format.ArrayFormatManager;
-import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
@@ -33,15 +33,12 @@ import pcgen.base.testsupport.TestUtilities;
 
 public class LengthFunctionTest extends AbstractFormulaTestCase
 {
-	private ArrayFormatManager<Number> manager = new ArrayFormatManager<>(
-			new NumberManager(), '\n', ',');
-
 	@Test
 	public void testInvalidTooManyArg()
 	{
 		String formula = "length(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, Optional.empty());
+		isNotValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -49,7 +46,7 @@ public class LengthFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "length(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, Optional.empty());
+		isNotValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -57,7 +54,7 @@ public class LengthFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "length(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, Optional.empty());
+		isNotValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -65,13 +62,14 @@ public class LengthFunctionTest extends AbstractFormulaTestCase
 	{
 		VariableLibrary variableLibrary = getVariableLibrary();
 		variableLibrary.assertLegalVariableID("a",
-			getInstanceFactory().getScope("Global"), manager);
+			getInstanceFactory().getScope("Global"), TestUtilities.NUMBER_ARRAY_MANAGER);
+		@SuppressWarnings("unchecked")
 		VariableID<Number[]> variable = (VariableID<Number[]>) variableLibrary
 			.getVariableID(getGlobalScopeInst(), "a");
 		getVariableStore().put(variable, new Number[]{5});
 		String formula = "length(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, manager, Optional.empty());
+		isValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());

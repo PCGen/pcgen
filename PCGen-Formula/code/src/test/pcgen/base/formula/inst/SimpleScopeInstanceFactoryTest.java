@@ -17,16 +17,21 @@
  */
 package pcgen.base.formula.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 
-public class SimpleScopeInstanceFactoryTest extends TestCase
+public class SimpleScopeInstanceFactoryTest
 {
 
 	private ScopeInstanceFactory factory;
@@ -34,10 +39,9 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 	private ScopeInstance scopeInst;
 	private SimpleLegalScope local;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		legalScopeManager = new ScopeManagerInst();
 		factory = new SimpleScopeInstanceFactory(legalScopeManager);
 		SimpleLegalScope scope = new SimpleLegalScope("Global");
@@ -46,48 +50,34 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 		local = new SimpleLegalScope(scope, "Local");
 		legalScopeManager.registerScope(local);
 	}
+	
+	@AfterEach
+	void tearDown()
+	{
+		factory = null;
+		legalScopeManager = null;
+		scopeInst = null;
+		local = null;
+	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testConstructor()
 	{
-		try
-		{
-			new SimpleScopeInstanceFactory(null);
-			fail("null library must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstanceFactory(null));
 	}
 
+	@Test
 	public void testGetGlobalInstance()
 	{
-		try
-		{
-			factory.getGlobalInstance("Local");
-			fail("Expected failure due to non global scope");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			factory.getGlobalInstance("Global.Local");
-			fail("Expected failure due to non global scope");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> factory.getGlobalInstance("Local"));
+		assertThrows(IllegalArgumentException.class, () -> factory.getGlobalInstance("Global.Local"));
 		ScopeInstance globalInst = factory.getGlobalInstance("Global");
 		assertTrue(globalInst.getParentScope().isEmpty());
 		assertEquals("Global", globalInst.getLegalScope().getName());
 		assertEquals(scopeInst, globalInst);
 	}
 
+	@Test
 	public void testGet()
 	{
 		ScopeInstance gsi = factory.get("Global", Optional.empty());
@@ -113,24 +103,8 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 		assertEquals(si, gsi);
 		assertTrue(si == gsi);
 
-		try
-		{
-			factory.get("Local", Optional.of(gvs));
-			fail("Mixmatch Local and Global should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			factory.get("Local", null);
-			fail("Mixmatch Local and Global should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> factory.get("Local", Optional.of(gvs)));
+		assertThrows(IllegalArgumentException.class, () -> factory.get("Local", null));
 		Scoped lvs = new Scoped("LVar", "Global.Local", gvs);
 		ScopeInstance lsi = factory.get("Global.Local", Optional.of(lvs));
 		assertTrue(local.equals(lsi.getLegalScope()));

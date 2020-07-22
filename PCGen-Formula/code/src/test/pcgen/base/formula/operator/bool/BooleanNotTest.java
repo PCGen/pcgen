@@ -17,25 +17,31 @@
  */
 package pcgen.base.formula.operator.bool;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BooleanNotTest extends TestCase
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.testsupport.TestUtilities;
+
+public class BooleanNotTest
 {
-
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
-	private static final Class<Integer> INTEGER_CLASS = Integer.class;
-
-	private final BooleanNot op = new BooleanNot();
-
+	@Test
 	public void testOperator()
 	{
+		BooleanNot op = new BooleanNot();
 		assertNotNull(op.getOperator());
 		assertTrue(op.getOperator().getSymbol().equals("!"));
 	}
 
+	@Test
 	public void testAbstractEvaluateNulls()
 	{
+		BooleanNot op = new BooleanNot();
 		try
 		{
 			assertNull(op.abstractEvaluate(null));
@@ -46,54 +52,40 @@ public class BooleanNotTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAbstractEvaluateMismatch()
 	{
-		assertTrue(op.abstractEvaluate(INTEGER_CLASS).isEmpty());
-		assertTrue(op.abstractEvaluate(NUMBER_CLASS).isEmpty());
+		BooleanNot op = new BooleanNot();
+		assertTrue(op.abstractEvaluate(TestUtilities.INTEGER_CLASS).isEmpty());
+		assertTrue(op.abstractEvaluate(FormatUtilities.NUMBER_CLASS).isEmpty());
 	}
 
+	@Test
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(BOOLEAN_CLASS, op.abstractEvaluate(BOOLEAN_CLASS).get().getManagedClass());
+		BooleanNot op = new BooleanNot();
+		assertEquals(FormatUtilities.BOOLEAN_CLASS, op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS).get().getManagedClass());
 	}
 
+	@Test
 	public void testEvaluateFailNull()
 	{
-		try
-		{
-			assertNull(op.evaluate(null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
+		BooleanNot op = new BooleanNot();
+		assertThrows(NullPointerException.class, () -> op.evaluate(null));
 	}
 
+	@Test
 	public void testEvaluateMismatch()
 	{
-		try
-		{
-			assertNull(op.evaluate(Double.valueOf(4.5)));
-			fail();
-		}
-		catch (RuntimeException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(new Object()));
-			fail();
-		}
-		catch (RuntimeException e)
-		{
-			//expected
-		}
+		BooleanNot op = new BooleanNot();
+		assertThrows(ClassCastException.class, () -> op.evaluate(Double.valueOf(4.5)));
+		assertThrows(ClassCastException.class, () -> op.evaluate(new Object()));
 	}
 
+	@Test
 	public void testEvaluateLegal()
 	{
+		BooleanNot op = new BooleanNot();
 		assertEquals(Boolean.TRUE, op.evaluate(Boolean.FALSE));
 		assertEquals(Boolean.FALSE, op.evaluate(Boolean.TRUE));
 	}

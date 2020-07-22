@@ -17,9 +17,14 @@
  */
 package pcgen.base.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -51,19 +56,17 @@ import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.util.FormatManager;
 
-public abstract class AbstractFormulaTestCase extends TestCase
+public abstract class AbstractFormulaTestCase
 {
 
-	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private ScopeManagerInst legalScopeManager;
 	private FormulaManager formulaManager;
 	private ScopeInstance globalInstance;
 	private SupplierValueStore valueStore;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	protected void setUp()
 	{
-		super.setUp();
 		FormulaSetupFactory setup = new FormulaSetupFactory();
 		legalScopeManager = new ScopeManagerInst();
 		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
@@ -82,12 +85,21 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			Optional.of(new GlobalVarScoped("Global")));
 	}
 
+	@AfterEach
+	protected void tearDown()
+	{
+		legalScopeManager = null;
+		formulaManager = null;
+		globalInstance = null;
+		valueStore = null;
+	}
+
 	public void isValid(String formula, SimpleNode node,
 		FormatManager<?> formatManager, Optional<FormatManager<?>> assertedFormat)
 	{
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
+		FormulaSemantics semantics = TestUtilities.EMPTY_MGR_FACTORY.generateFormulaSemantics(
 			getFormulaManager(), getInstanceFactory().getScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
@@ -146,7 +158,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public EvaluationManager generateManager()
 	{
 		EvaluationManager em =
-				managerFactory.generateEvaluationManager(getFormulaManager());
+				TestUtilities.EMPTY_MGR_FACTORY.generateEvaluationManager(getFormulaManager());
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 
@@ -160,26 +172,17 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
+		FormulaSemantics semantics = TestUtilities.EMPTY_MGR_FACTORY.generateFormulaSemantics(
 			getFormulaManager(), getInstanceFactory().getScope("Global"));
-		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
-		try
-		{
-			semanticsVisitor.visit(node, semantics);
-			TestCase.fail(
-				"Expected Invalid Formula: " + formula + " but was valid");
-		}
-		catch (SemanticsFailureException e)
-		{
-			//Expected
-		}
+		FormulaSemantics finSemantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
+		assertThrows(SemanticsFailureException.class, () -> semanticsVisitor.visit(node, finSemantics));
 	}
 
 	protected List<VariableID<?>> getVariables(SimpleNode node)
 	{
-		DependencyManager fdm = managerFactory
+		DependencyManager fdm = TestUtilities.EMPTY_MGR_FACTORY
 			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst());
-		fdm = managerFactory.withVariables(fdm);
+		fdm = TestUtilities.EMPTY_MGR_FACTORY.withVariables(fdm);
 		new DependencyVisitor().visit(node, fdm);
 		return fdm.get(DependencyManager.VARIABLES).get().getVariables();
 	}
@@ -249,7 +252,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected ManagerFactory getManagerFactory()
 	{
-		return managerFactory;
+		return TestUtilities.EMPTY_MGR_FACTORY;
 	}
 	
 	protected SupplierValueStore getValueStore()

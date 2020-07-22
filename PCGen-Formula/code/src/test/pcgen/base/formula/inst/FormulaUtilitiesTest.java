@@ -17,12 +17,14 @@
  */
 package pcgen.base.formula.inst;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.testsupport.TestUtilities;
 
-public class FormulaUtilitiesTest extends TestCase
+public class FormulaUtilitiesTest
 {
 
+	@Test
 	public void testDepKey()
 	{
 		TestUtilities.invokePrivateConstructor(FormulaUtilities.class);

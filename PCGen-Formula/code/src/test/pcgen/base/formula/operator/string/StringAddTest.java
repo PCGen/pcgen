@@ -17,25 +17,30 @@
  */
 package pcgen.base.formula.operator.string;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class StringAddTest extends TestCase
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
+
+public class StringAddTest
 {
-
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
-	private static final Class<String> STRING_CLASS = String.class;
-
-	private final StringAdd op = new StringAdd();
-
+	@Test
 	public void testOperator()
 	{
+		StringAdd op = new StringAdd();
 		assertNotNull(op.getOperator());
 		assertTrue(op.getOperator().getSymbol().equals("+"));
 	}
 
+	@Test
 	public void testAbstractEvaluateNulls()
 	{
+		StringAdd op = new StringAdd();
 		try
 		{
 			assertNull(op.abstractEvaluate(null, null, null));
@@ -46,7 +51,7 @@ public class StringAddTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(STRING_CLASS, null, null));
+			assertNull(op.abstractEvaluate(FormatUtilities.STRING_CLASS, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -54,7 +59,7 @@ public class StringAddTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, STRING_CLASS, null));
+			assertNull(op.abstractEvaluate(null, FormatUtilities.STRING_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -62,73 +67,43 @@ public class StringAddTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAbstractEvaluateMismatch()
 	{
-		assertTrue(op.abstractEvaluate(BOOLEAN_CLASS, STRING_CLASS, null).isEmpty());
-		assertTrue(op.abstractEvaluate(STRING_CLASS, NUMBER_CLASS, null).isEmpty());
+		StringAdd op = new StringAdd();
+		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, FormatUtilities.STRING_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(FormatUtilities.STRING_CLASS, FormatUtilities.NUMBER_CLASS, null).isEmpty());
 	}
 
+	@Test
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(STRING_CLASS,
-			op.abstractEvaluate(STRING_CLASS, STRING_CLASS, null).get().getManagedClass());
+		StringAdd op = new StringAdd();
+		assertEquals(FormatUtilities.STRING_CLASS,
+			op.abstractEvaluate(FormatUtilities.STRING_CLASS, FormatUtilities.STRING_CLASS, null).get().getManagedClass());
 	}
 
+	@Test
 	public void testEvaluateFailNull()
 	{
-		try
-		{
-			assertNull(op.evaluate(null, null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate("ABC", null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(null, "DEF"));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
+		StringAdd op = new StringAdd();
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate("ABC", null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, "DEF"));
 	}
 
+	@Test
 	public void testEvaluateMismatch()
 	{
-		try
-		{
-			assertNull(op.evaluate("ABC", true));
-			fail();
-		}
-		catch (RuntimeException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(new Object(), "DEF"));
-			fail();
-		}
-		catch (RuntimeException e)
-		{
-			//expected
-		}
+		StringAdd op = new StringAdd();
+		assertThrows(ClassCastException.class, () -> op.evaluate("ABC", true));
+		assertThrows(ClassCastException.class, () -> op.evaluate(new Object(), "DEF"));
 	}
 
+	@Test
 	public void testEvaluateLegal()
 	{
+		StringAdd op = new StringAdd();
 		assertEquals("ABCDEF", op.evaluate("ABC", "DEF"));
 	}
 }

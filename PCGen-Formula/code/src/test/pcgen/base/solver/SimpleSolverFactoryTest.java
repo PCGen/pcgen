@@ -15,117 +15,54 @@
  */
 package pcgen.base.solver;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.function.Supplier;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
-import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.util.FormatManager;
+import pcgen.base.testsupport.TestUtilities;
 
-public class SimpleSolverFactoryTest extends TestCase
+public class SimpleSolverFactoryTest
 {
-	private final FormatManager<Number[]> NAF =
-			new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER, '\n', ',');
-
-	private SolverFactory factory;
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		SupplierValueStore valueStore = new SupplierValueStore();
-		factory = new SimpleSolverFactory(valueStore);
-	}
-
 	@Test
 	public void testIllegalGetDefault()
 	{
-		try
-		{
-			factory.getDefault(null);
-			fail("Should not be able to get Default for null");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			factory.getDefault(FormatUtilities.NUMBER_MANAGER);
-			fail("Should not be able to get Default when none was set");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
+		SolverFactory factory = new SimpleSolverFactory(new SupplierValueStore());
+		assertThrows(NullPointerException.class, () -> factory.getDefault(null));
+		assertThrows(NullPointerException.class, () -> factory.getDefault(FormatUtilities.NUMBER_MANAGER));
 	}
 
 	@Test
 	public void testIllegalGetSolver()
 	{
-		try
-		{
-			factory.getSolver(new NumberManager());
-			fail("Should not be able to get Solver when no default was set");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			factory.getSolver(null);
-			fail("Should not be able to get Solver for null FormatManager");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
+		SolverFactory factory = new SimpleSolverFactory(new SupplierValueStore());
+		assertThrows(NullPointerException.class, () -> factory.getSolver(new NumberManager()));
+		assertThrows(NullPointerException.class, () -> factory.getSolver(null));
 	}
 
 	@Test
 	public void testAddSolverFormat()
 	{
-		try
-		{
-			factory.addSolverFormat(null, () -> 9);
-			fail("Should not be able to set Solver for null format");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, null);
-			fail("Should not be able to set Solver for null default");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		SolverFactory factory = new SimpleSolverFactory(new SupplierValueStore());
+		assertThrows(NullPointerException.class, () -> factory.addSolverFormat(null, () -> 9));
+		assertThrows(NullPointerException.class, () -> factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, null));
 		//But this is safe
 		Supplier<? extends Number> default108 = () -> 108;
 		factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, default108);
 		assertEquals(108, factory.getDefault(FormatUtilities.NUMBER_MANAGER));
-		try
-		{
-			factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 111);
-			fail("You can't reset a default to a different value");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 111));
 		//But you can set it to the same thing (maybe?)
 		factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, default108);
 		assertTrue(factory.validateDefaults().get());
 		//and you can use in an array
-		Solver<Number[]> solver = factory.getSolver(NAF);
+		Solver<Number[]> solver = factory.getSolver(TestUtilities.NUMBER_ARRAY_MANAGER);
 		assertEquals(0, solver.process(new EvaluationManager()).length);
 	}
 
@@ -133,25 +70,19 @@ public class SimpleSolverFactoryTest extends TestCase
 	@Test
 	public void testIllegalAddSolverFormatGenerics()
 	{
+		SolverFactory factory = new SimpleSolverFactory(new SupplierValueStore());
 		Supplier<Number> setNumber = () -> 9;
 		//intentionally break generics
 		factory.addSolverFormat(FormatUtilities.STRING_MANAGER, (Supplier) setNumber);
-		assertFalse("Should not be able to add Format with mismatch",
-			factory.validateDefaults().get());
+		assertFalse(factory.validateDefaults().get(),
+			"Should not be able to add Format with mismatch");
 	}
 
 	@Test
 	public void testIllegalAddSolverFormatDouble()
 	{
+		SolverFactory factory = new SimpleSolverFactory(new SupplierValueStore());
 		factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 108);
-		try
-		{
-			factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 9);
-			fail("Should not be able to set Default a second time");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 9));
 	}
 }

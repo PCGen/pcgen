@@ -17,16 +17,21 @@
  */
 package pcgen.base.formula.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.formula.base.LegalScope;
 
-public class ScopeManagerInstTest extends TestCase
+public class ScopeManagerInstTest
 {
 
 	private ScopeManagerInst legalScopeManager;
@@ -34,77 +39,34 @@ public class ScopeManagerInstTest extends TestCase
 	private SimpleLegalScope subScope = new SimpleLegalScope(globalScope, "SubScope");
 	private SimpleLegalScope otherScope = new SimpleLegalScope(globalScope, "OtherScope");
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		legalScopeManager = new ScopeManagerInst();
+	}
+	
+	@AfterEach
+	void tearDown()
+	{
+		legalScopeManager = null;
 	}
 
 	@Test
 	public void testNullRegister()
 	{
-		try
-		{
-			legalScopeManager.registerScope(null);
-			fail("null must be rejected in registerScope");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(null));
 	}
 
 	@Test
 	public void testBadRegister()
 	{
-		try
-		{
-			legalScopeManager.registerScope(new BadLegalScope1());
-			fail("null name must be rejected in registerScope");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			legalScopeManager.registerScope(new BadLegalScope2());
-			fail("null parent must be rejected in registerScope");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			legalScopeManager.registerScope(subScope);
-			fail("should reject because parent has not been added");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(new BadLegalScope1()));
+		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(new BadLegalScope2()));
+		assertThrows(IllegalArgumentException.class, () -> legalScopeManager.registerScope(subScope));
 		legalScopeManager.registerScope(globalScope);
 		legalScopeManager.registerScope(subScope);
-		try
-		{
-			legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "SubScope"));
-			fail("dupe name be rejected in registerScope");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "Sub.Scope"));
-			fail("dupe name be rejected in registerScope");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "SubScope")));
+		assertThrows(IllegalArgumentException.class, () -> legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "Sub.Scope")));
 	}
 	
 	@Test
@@ -119,15 +81,7 @@ public class ScopeManagerInstTest extends TestCase
 	@Test
 	public void testNullGet()
 	{
-		try
-		{
-			legalScopeManager.getChildScopes(null);
-			fail("null must be rejected in getChildScopes");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> legalScopeManager.getChildScopes(null));
 	}
 
 	@Test

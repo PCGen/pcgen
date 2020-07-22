@@ -17,10 +17,15 @@
  */
 package pcgen.base.formula.parse;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -35,18 +40,15 @@ import pcgen.base.formula.operator.number.NumberSubtract;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
-import pcgen.base.util.FormatManager;
 
 public class FormulaVariableTest extends AbstractFormulaTestCase
 {
 
-	private static final FormatManager<?> booleanManager =
-			FormatUtilities.BOOLEAN_MANAGER;
-
 	private WriteableVariableStore store;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		super.setUp();
 		store = getVariableStore();
@@ -57,6 +59,14 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		operatorLibrary.addAction(new NumberSubtract());
 		operatorLibrary.addAction(new NumberDivide());
 		operatorLibrary.addAction(new NumberMultiply());
+	}
+	
+	@AfterEach
+	@Override
+	protected void tearDown()
+	{
+		super.tearDown();
+		store = null;
 	}
 
 	@Test
@@ -212,11 +222,11 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		store.put(getVariable("a"), 3.2);
 		store.put(getVariable("b"), 2.1);
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		hasABVars(node);
 		//Note integer math
-		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -230,7 +240,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		getVariableStore().put(getBooleanVariable("b"), false);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-		isNotValid(formula, node, booleanManager, Optional.empty());
+		isNotValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -240,11 +250,11 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		store.put(getVariable("a"), 0.0);
 		store.put(getVariable("b"), 0);
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		hasABVars(node);
 		//Note integer math
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -257,11 +267,11 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		store.put(getVariable("a"), -2.1);
 		store.put(getVariable("b"), -2.1);
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		hasABVars(node);
 		//Note integer math
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -393,13 +403,13 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		String formula = "!a";
 		store.put(getBooleanVariable("a"), Boolean.FALSE);
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, Optional.empty());
+		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());
 		VariableID<?> var0 = vars.get(0);
 		assertEquals("a", var0.getName());
-		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));

@@ -15,13 +15,13 @@
  */
 package pcgen.base.formula.function;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import pcgen.base.format.ArrayFormatManager;
-import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -33,18 +33,12 @@ import pcgen.base.testsupport.TestUtilities;
 public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 {
 
-	private static final Number[] EMPTY_ARR = {};
-	private static final Number[] ARR_1 = {Integer.valueOf(1)};
-
-	private ArrayFormatManager<Number> manager =
-			new ArrayFormatManager<>(new NumberManager(), '\n', ',');
-
 	@Test
 	public void testInvalidTooManyArg()
 	{
 		String formula = "isEmpty(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, Optional.empty());
+		isNotValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -52,7 +46,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "isEmpty(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, Optional.empty());
+		isNotValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -60,16 +54,16 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "isEmpty(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, Optional.empty());
+		isNotValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 	}
 
 	@Test
 	public void testEmptyArrayVar()
 	{
-		getVariableStore().put(getArrayVariable("a"), EMPTY_ARR);
+		getVariableStore().put(getArrayVariable("a"), TestUtilities.EMPTY_ARRAY);
 		String formula = "isEmpty(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, manager, Optional.empty());
+		isValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());
@@ -81,10 +75,10 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testNotEmptyArrayVar()
 	{
-		getVariableStore().put(getArrayVariable("a"), ARR_1);
+		getVariableStore().put(getArrayVariable("a"), new Number[]{1});
 		String formula = "isEmpty(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, manager, Optional.empty());
+		isValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());
@@ -98,7 +92,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 		VariableLibrary variableLibrary = getVariableLibrary();
 		ScopeInstance globalInst = getInstanceFactory().getGlobalInstance("Global");
 		variableLibrary.assertLegalVariableID(formula, globalInst.getLegalScope(),
-			manager);
+			TestUtilities.NUMBER_ARRAY_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number[]> variableID =
 				(VariableID<Number[]>) variableLibrary.getVariableID(globalInst, formula);

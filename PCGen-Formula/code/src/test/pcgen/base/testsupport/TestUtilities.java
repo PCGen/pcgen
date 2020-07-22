@@ -18,18 +18,59 @@
 package pcgen.base.testsupport;
 
 import java.io.StringReader;
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import junit.framework.TestCase;
+import pcgen.base.format.ArrayFormatManager;
+import pcgen.base.format.BooleanManager;
+import pcgen.base.format.NumberManager;
+import pcgen.base.formatmanager.ArrayFormatFactory;
+import pcgen.base.formatmanager.CompoundFormatFactory;
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
+import pcgen.base.util.FormatManager;
 
 public final class TestUtilities
 {
 	public static final double SMALL_ERROR = Math.pow(10, -10);
 
+	public static final Number[] EMPTY_ARRAY = {};
+
+	public static final ManagerFactory EMPTY_MGR_FACTORY = new ManagerFactory()
+	{
+	};
+
+	public static final ArrayFormatFactory ARRAY_FACTORY =
+			new ArrayFormatFactory('\n', ',');
+	public static final ArrayFormatManager<Number> NUMBER_ARRAY_MANAGER =
+			new ArrayFormatManager<>(new NumberManager(), '\n', ',');
+	public static final FormatManager<Boolean[]> BOOLEAN_ARRAY_MANAGER =
+			new ArrayFormatManager<>(new BooleanManager(), ',', '|');
+	
+	public static final CompoundFormatFactory COMPOUND_MANAGER =
+			new CompoundFormatFactory(',', '|');
+
+	public static final Class<Float> FLOAT_CLASS = Float.class;
+	public static final Class<Integer> INTEGER_CLASS = Integer.class;
+	public static final Class<Double> DOUBLE_CLASS = Double.class;
+
+	@SuppressWarnings("unchecked")
+	public static final Class<Number[]> NUMBER_ARRAY_CLASS =
+			(Class<Number[]>) Array.newInstance(FormatUtilities.NUMBER_CLASS, 0).getClass();
+	@SuppressWarnings("unchecked")
+	public static final Class<Object[]> OBJECT_ARRAY_CLASS =
+			(Class<Object[]>) Array.newInstance(Object.class, 0).getClass();
+	@SuppressWarnings("unchecked")
+	public static final Class<Boolean[]> BOOLEAN_ARRAY_CLASS =
+			(Class<Boolean[]>) Array.newInstance(FormatUtilities.BOOLEAN_CLASS, 0).getClass();
+	@SuppressWarnings("unchecked")
+	public static final Class<Integer[]> INTEGER_ARRAY_CLASS =
+			(Class<Integer[]>) Array.newInstance(INTEGER_CLASS, 0).getClass();
 
 	private TestUtilities()
 	{

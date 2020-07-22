@@ -15,9 +15,14 @@
  */
 package pcgen.base.solver;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
@@ -28,7 +33,6 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.TrainingStrategy;
@@ -45,77 +49,50 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
+import pcgen.base.testsupport.TestUtilities;
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.TypedKey;
 
 public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 {
-	private ManagerFactory managerFactory = new ManagerFactory()
-	{
-	};
 	private DynamicSolverManager manager;
 	private LimbManager limbManager;
-	public static final TypedKey<ScopeInstanceFactory> SIFACTORY = new TypedKey<>();
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		super.setUp();
-		manager = new DynamicSolverManager(getFormulaManager(), managerFactory,
+		manager = new DynamicSolverManager(getFormulaManager(), TestUtilities.EMPTY_MGR_FACTORY,
 			getSolverFactory(), getVariableStore());
 		limbManager = new LimbManager();
 		getSolverFactory().addSolverFormat(limbManager,
 			() -> limbManager.convert("Head"));
 	}
+	
+	@AfterEach
+	@Override
+	protected void tearDown()
+	{
+		super.tearDown();
+		manager = null;
+		limbManager = null;
+	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testIllegalConstruction()
 	{
-		try
-		{
-			new DynamicSolverManager(null, managerFactory, getSolverFactory(),
-				getVariableStore());
-			fail("No nulls in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(null, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(),
+				getVariableStore()));
 		FormulaManager formulaManager = getFormulaManager();
-		try
-		{
-			new DynamicSolverManager(formulaManager, null, getSolverFactory(),
-				getVariableStore());
-			fail("No nulls in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			new DynamicSolverManager(formulaManager, managerFactory, null,
-				getVariableStore());
-			fail("No nulls in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			new DynamicSolverManager(formulaManager, managerFactory, getSolverFactory(),
-				null);
-			fail("No nulls in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, null, getSolverFactory(),
+				getVariableStore()));
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, TestUtilities.EMPTY_MGR_FACTORY, null,
+				getVariableStore()));
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(),
+				null));
 	}
 
 	@Override
@@ -350,6 +327,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 	}
 
+	@Test
 	public void testAnother()
 	{
 		ScopeInstance source = getGlobalScopeInst();
@@ -410,7 +388,6 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		manager.addModifier(altID, four, altInst);
 		assertEquals(4, store.get(resultID));
 	}
-
 
 	@Override
 	protected FormulaManager getFormulaManager()

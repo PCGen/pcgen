@@ -17,39 +17,26 @@
  */
 package pcgen.base.formula.inst;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class SimpleLegalScopeTest extends TestCase
+public class SimpleLegalScopeTest
 {
-
-	private SimpleLegalScope scope;
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		scope = new SimpleLegalScope("Global");
-	}
 
 	@Test
 	public void testDoubleConstructor()
 	{
-		try
-		{
-			scope = new SimpleLegalScope(scope, null);
-			fail("null name must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		SimpleLegalScope scope = new SimpleLegalScope("Global");
+		assertThrows(NullPointerException.class, () -> new SimpleLegalScope(scope, null));
 	}
 
 	@Test
 	public void testIsValid()
 	{
+		SimpleLegalScope scope = new SimpleLegalScope("Global");
 		SimpleLegalScope local = new SimpleLegalScope(scope, "Local");
 		assertTrue(local.getParentScope().isPresent());
 		assertEquals(scope, local.getParentScope().get());

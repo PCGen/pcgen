@@ -15,14 +15,18 @@
  */
 package pcgen.base.solver;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
@@ -31,61 +35,37 @@ import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
 import pcgen.base.solver.testsupport.MockStat;
+import pcgen.base.testsupport.TestUtilities;
 
 public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 {
-	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private AggressiveSolverManager manager;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		super.setUp();
-		manager = new AggressiveSolverManager(getFormulaManager(), managerFactory,
+		manager = new AggressiveSolverManager(getFormulaManager(), TestUtilities.EMPTY_MGR_FACTORY,
 			getSolverFactory(), getVariableStore());
 	}
+	
+	@AfterEach
+	@Override
+	protected void tearDown()
+	{
+		super.tearDown();
+		manager = null;
+	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testIllegalConstruction()
 	{
-		try
-		{
-			new AggressiveSolverManager(null, managerFactory, getSolverFactory(), getVariableStore());
-			fail("No nulls in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(null, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(), getVariableStore()));
 		FormulaManager formulaManager = getFormulaManager();
-		try
-		{
-			new AggressiveSolverManager(formulaManager, null, getSolverFactory(), getVariableStore());
-			fail("No nulls in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			new AggressiveSolverManager(formulaManager, managerFactory, getSolverFactory(), null);
-			fail("No nulls in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			new AggressiveSolverManager(formulaManager, managerFactory, getSolverFactory(), null);
-			fail("No nulls in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, null, getSolverFactory(), getVariableStore()));
+		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(), null));
+		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(), null));
 	}
 
 	@Test

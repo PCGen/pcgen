@@ -17,110 +17,73 @@
  */
 package pcgen.base.formula.base;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import junit.framework.TestCase;
-import pcgen.base.format.NumberManager;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 
-public class VariableIDTest extends TestCase
+public class VariableIDTest
 {
 
-	private NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
 	private ScopeManagerInst legalScopeManager;
 	private ScopeInstanceFactory instanceFactory;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		legalScopeManager = new ScopeManagerInst();
 		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
 
-	@SuppressWarnings("unused")
+	@AfterEach
+	void tearDown()
+	{
+		legalScopeManager = null;
+		instanceFactory = null;
+	}
+
 	@Test
 	public void testDoubleConstructor()
 	{
-		try
-		{
-			new VariableID<>(null, null, null);
-			fail("nulls must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new VariableID<>(null, null, null));
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		try
-		{
-			new VariableID<>(globalInst, numberManager, null);
-			fail("null name must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new VariableID<>(globalInst, null, "VAR");
-			fail("null FormatManager must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new VariableID<>(null, numberManager, "VAR");
-			fail("null scope must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new VariableID<>(globalInst, numberManager, "");
-			fail("empty name must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new VariableID<>(globalInst, numberManager, " test");
-			fail("padded name must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, null));
+		assertThrows(NullPointerException.class, () -> new VariableID<>(globalInst, null, "VAR"));
+		assertThrows(NullPointerException.class, () -> new VariableID<>(null, FormatUtilities.NUMBER_MANAGER, "VAR"));
+		assertThrows(IllegalArgumentException.class, () -> new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, ""));
+		assertThrows(IllegalArgumentException.class, () -> new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, " test"));
 	}
 
+	@Test
 	public void testGlobal()
 	{
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		VariableID<Number> vid = new VariableID<>(globalInst, numberManager, "test");
+		VariableID<Number> vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		assertEquals("test", vid.getName());
 		assertEquals(globalInst, vid.getScope());
 		assertEquals(Number.class, vid.getVariableFormat());
 	}
 
+	@Test
 	public void testEquals()
 	{
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
-		VariableID<Number> vid1 = new VariableID<>(globalInst, numberManager, "test");
-		VariableID<Number> vid2 = new VariableID<>(globalInst, numberManager, "test");
-		VariableID<Number> vid3 = new VariableID<>(globalInst, numberManager, "test2");
-		VariableID<Number> vid4 = new VariableID<>(globalInst2, numberManager, "test");
+		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
+		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
+		VariableID<Number> vid3 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test2");
+		VariableID<Number> vid4 = new VariableID<>(globalInst2, FormatUtilities.NUMBER_MANAGER, "test");
 		assertFalse(vid1.equals(null));
 		assertFalse(vid1.equals(new Object()));
 		assertTrue(vid1.equals(vid1));
@@ -130,15 +93,16 @@ public class VariableIDTest extends TestCase
 		assertFalse(vid1.equals(vid4));
 	}
 
+	@Test
 	public void testHashCode()
 	{
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
-		VariableID<Number> vid1 = new VariableID<>(globalInst, numberManager, "test");
-		VariableID<Number> vid2 = new VariableID<>(globalInst, numberManager, "test");
-		VariableID<Number> vid3 = new VariableID<>(globalInst, numberManager, "bummer");
-		VariableID<Number> vid4 = new VariableID<>(globalInst2, numberManager, "test");
+		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
+		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
+		VariableID<Number> vid3 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "bummer");
+		VariableID<Number> vid4 = new VariableID<>(globalInst2, FormatUtilities.NUMBER_MANAGER, "test");
 		int hc1 = vid1.hashCode();
 		int hc2 = vid2.hashCode();
 		int hc3 = vid3.hashCode();

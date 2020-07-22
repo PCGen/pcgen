@@ -17,53 +17,55 @@
  */
 package pcgen.base.formula.inst;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 
-public class SimpleVariableStoreTest extends TestCase
+public class SimpleVariableStoreTest
 {
 
 	private ScopeManagerInst legalScopeManager;
 	private ScopeInstanceFactory instanceFactory;
 		
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		legalScopeManager = new ScopeManagerInst();
 		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
+	
+	@AfterEach
+	void tearDown()
+	{
+		legalScopeManager = null;
+		instanceFactory = null;
+	}
 
+	@Test
 	public void testNulls()
 	{
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = new NumberManager();
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		VariableID<Number> vid = new VariableID<>(globalInst, numberManager, "test");
-		try
-		{
-			varStore.put(null, Integer.valueOf(4));
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//yep
-		}
-		try
-		{
-			varStore.put(vid, null);
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//yep
-		}
+		assertThrows(NullPointerException.class, () -> varStore.put(null, Integer.valueOf(4)));
+		assertThrows(NullPointerException.class, () -> varStore.put(vid, null));
 	}
 
+	@Test
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	public void testGenericsViolation()
 	{
@@ -71,18 +73,11 @@ public class SimpleVariableStoreTest extends TestCase
 		NumberManager numberManager = new NumberManager();
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		VariableID vid = new VariableID<>(globalInst, numberManager, "test");
-		try
-		{
-			//Intentionally break generics
-			varStore.put(vid, "NotANumber!");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//yep
-		}
+		//Intentionally break generics
+		assertThrows(IllegalArgumentException.class, () -> varStore.put(vid, "NotANumber!"));
 	}
 
+	@Test
 	public void testGlobal()
 	{
 		SimpleVariableStore varStore = new SimpleVariableStore();
@@ -98,6 +93,7 @@ public class SimpleVariableStoreTest extends TestCase
 		assertEquals(Integer.valueOf(4), varStore.get(vid));
 	}
 
+	@Test
 	public void testIndependence()
 	{
 		SimpleVariableStore varStore = new SimpleVariableStore();

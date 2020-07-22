@@ -15,43 +15,34 @@
  */
 package pcgen.base.formula.operator.array;
 
-import java.lang.reflect.Array;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Optional;
 
-import junit.framework.TestCase;
-import pcgen.base.format.ArrayFormatManager;
-import pcgen.base.format.BooleanManager;
-import pcgen.base.format.NumberManager;
-import pcgen.base.util.FormatManager;
+import org.junit.jupiter.api.Test;
 
-public class ArrayNotEqualTest extends TestCase
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.testsupport.TestUtilities;
+
+public class ArrayNotEqualTest
 {
-
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
-	private static final Class<Integer> INTEGER_CLASS = Integer.class;
-	private static final Class<Number[]> NUMBER_ARRAY_CLASS =
-			(Class<Number[]>) Array.newInstance(NUMBER_CLASS, 0).getClass();
-	private static final Class<Boolean[]> BOOLEAN_ARRAY_CLASS =
-			(Class<Boolean[]>) Array.newInstance(BOOLEAN_CLASS, 0).getClass();
-	private static final Class<Integer[]> INTEGER_ARRAY_CLASS =
-			(Class<Integer[]>) Array.newInstance(INTEGER_CLASS, 0).getClass();
-	private final BooleanManager booleanManager = new BooleanManager();
-	private final FormatManager<Number[]> numberArrayManager =
-			new ArrayFormatManager<>(new NumberManager(), ',', '|');
-	private final FormatManager<Boolean[]> booleanArrayManager =
-			new ArrayFormatManager<>(booleanManager, ',', '|');
-
-	private final ArrayNotEqual op = new ArrayNotEqual();
-
+	@Test
 	public void testOperator()
 	{
+		ArrayNotEqual op = new ArrayNotEqual();
 		assertNotNull(op.getOperator());
 		assertTrue(op.getOperator().getSymbol().equals("!="));
 	}
 
+	@Test
 	public void testAbstractEvaluateNulls()
 	{
+		ArrayNotEqual op = new ArrayNotEqual();
 		try
 		{
 			assertNull(op.abstractEvaluate(null, null, null));
@@ -62,7 +53,7 @@ public class ArrayNotEqualTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, null, null));
+			assertNull(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -70,7 +61,7 @@ public class ArrayNotEqualTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, NUMBER_ARRAY_CLASS, null));
+			assertNull(op.abstractEvaluate(null, TestUtilities.NUMBER_ARRAY_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -78,89 +69,65 @@ public class ArrayNotEqualTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAbstractEvaluateMismatch()
 	{
-		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, BOOLEAN_ARRAY_CLASS,
+		ArrayNotEqual op = new ArrayNotEqual();
+		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.BOOLEAN_ARRAY_CLASS,
 			Optional.empty()).isEmpty());
-		assertTrue(op.abstractEvaluate(BOOLEAN_ARRAY_CLASS, INTEGER_ARRAY_CLASS,
-			Optional.of(booleanManager)).isEmpty());
-		assertTrue(op.abstractEvaluate(BOOLEAN_ARRAY_CLASS, INTEGER_CLASS,
-			Optional.of(booleanManager)).isEmpty());
-		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_CLASS,
-			Optional.of(booleanManager)).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.BOOLEAN_ARRAY_CLASS, TestUtilities.INTEGER_ARRAY_CLASS,
+			Optional.of(FormatUtilities.BOOLEAN_MANAGER)).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.BOOLEAN_ARRAY_CLASS, TestUtilities.INTEGER_CLASS,
+			Optional.of(FormatUtilities.BOOLEAN_MANAGER)).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, FormatUtilities.NUMBER_CLASS,
+			Optional.of(FormatUtilities.BOOLEAN_MANAGER)).isEmpty());
 	}
 
+	@Test
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(BOOLEAN_CLASS, op.abstractEvaluate(NUMBER_ARRAY_CLASS,
-			NUMBER_ARRAY_CLASS, Optional.of(numberArrayManager)).get().getManagedClass());
-		assertEquals(BOOLEAN_CLASS, op.abstractEvaluate(BOOLEAN_ARRAY_CLASS,
-			BOOLEAN_ARRAY_CLASS, Optional.of(booleanArrayManager)).get().getManagedClass());
-		assertEquals(BOOLEAN_CLASS,
-			op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, Optional.empty())
+		ArrayNotEqual op = new ArrayNotEqual();
+		assertEquals(FormatUtilities.BOOLEAN_CLASS, op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS,
+			TestUtilities.NUMBER_ARRAY_CLASS, Optional.of(TestUtilities.NUMBER_ARRAY_MANAGER)).get().getManagedClass());
+		assertEquals(FormatUtilities.BOOLEAN_CLASS, op.abstractEvaluate(TestUtilities.BOOLEAN_ARRAY_CLASS,
+			TestUtilities.BOOLEAN_ARRAY_CLASS, Optional.of(TestUtilities.BOOLEAN_ARRAY_MANAGER)).get().getManagedClass());
+		assertEquals(FormatUtilities.BOOLEAN_CLASS,
+			op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.NUMBER_ARRAY_CLASS, Optional.empty())
 			.get().getManagedClass());
-		assertEquals(BOOLEAN_CLASS, op
-			.abstractEvaluate(BOOLEAN_ARRAY_CLASS, BOOLEAN_ARRAY_CLASS, Optional.empty())
+		assertEquals(FormatUtilities.BOOLEAN_CLASS, op
+			.abstractEvaluate(TestUtilities.BOOLEAN_ARRAY_CLASS, TestUtilities.BOOLEAN_ARRAY_CLASS, Optional.empty())
 			.get().getManagedClass());
 	}
 
+	@Test
 	public void testEvaluateFailNull()
 	{
-		try
-		{
-			assertNull(op.evaluate(null, null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(Boolean.TRUE, null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(new Boolean[0], null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(null, Boolean.FALSE));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
+		ArrayNotEqual op = new ArrayNotEqual();
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(Boolean.TRUE, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(new Boolean[0], null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, Boolean.FALSE));
 	}
 
+	@Test
 	public void testEvaluateLegalArrayArray()
 	{
+		ArrayNotEqual op = new ArrayNotEqual();
 		Number[] iArray = new Number[]{1, 2};
 		Object result = op.evaluate(iArray, new Number[]{4.5, -6});
-		assertTrue(result.getClass().equals(BOOLEAN_CLASS));
+		assertTrue(result.getClass().equals(FormatUtilities.BOOLEAN_CLASS));
 		assertTrue((Boolean) result);
 		result = op.evaluate(iArray, new Number[]{1, -6});
-		assertTrue(result.getClass().equals(BOOLEAN_CLASS));
+		assertTrue(result.getClass().equals(FormatUtilities.BOOLEAN_CLASS));
 		assertTrue((Boolean) result);
 		result = op.evaluate(iArray, new Number[]{2, -6});
-		assertTrue(result.getClass().equals(BOOLEAN_CLASS));
+		assertTrue(result.getClass().equals(FormatUtilities.BOOLEAN_CLASS));
 		assertTrue((Boolean) result);
 		result = op.evaluate(iArray, new Number[]{1, 2});
-		assertTrue(result.getClass().equals(BOOLEAN_CLASS));
+		assertTrue(result.getClass().equals(FormatUtilities.BOOLEAN_CLASS));
 		assertFalse((Boolean) result);
 		result = op.evaluate(iArray, new Number[]{1, -6, 2});
-		assertTrue(result.getClass().equals(BOOLEAN_CLASS));
+		assertTrue(result.getClass().equals(FormatUtilities.BOOLEAN_CLASS));
 		assertTrue((Boolean) result);
 		/*
 		 * Today we respect order... this is up for debate, though
@@ -170,7 +137,7 @@ public class ArrayNotEqualTest extends TestCase
 		 */
 		iArray = new Number[]{1, 2, 1};
 		result = op.evaluate(iArray, new Number[]{1, 1, 2});
-		assertTrue(result.getClass().equals(BOOLEAN_CLASS));
+		assertTrue(result.getClass().equals(FormatUtilities.BOOLEAN_CLASS));
 		assertTrue((Boolean) result);
 	}
 }

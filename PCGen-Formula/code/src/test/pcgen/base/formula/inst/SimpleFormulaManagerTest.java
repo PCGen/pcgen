@@ -15,10 +15,13 @@
  */
 package pcgen.base.formula.inst;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import junit.framework.TestCase;
-import pcgen.base.format.ArrayFormatManager;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstanceFactory;
@@ -26,8 +29,9 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SupplierValueStore;
+import pcgen.base.testsupport.TestUtilities;
 
-public class SimpleFormulaManagerTest extends TestCase
+public class SimpleFormulaManagerTest
 {
 
 	private VariableLibrary variableLibrary;
@@ -37,10 +41,9 @@ public class SimpleFormulaManagerTest extends TestCase
 	private ScopeInstanceFactory siFactory;
 	private SupplierValueStore valueStore;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		valueStore = new SupplierValueStore();
 		defaultStore = new SimpleSolverFactory(valueStore);
 		LegalScopeManager legalScopeManager = new ScopeManagerInst();
@@ -51,70 +54,27 @@ public class SimpleFormulaManagerTest extends TestCase
 		defaultStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		defaultStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 	}
+	
+	@AfterEach
+	void tearDown()
+	{
+		variableLibrary = null;
+		opLibrary = null;
+		resultsStore = null;
+		defaultStore = null;
+		siFactory = null;
+		valueStore = null;
+	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testDoubleConstructor()
 	{
-		try
-		{
-			new SimpleFormulaManager(null, null, null, null, null);
-			fail("nulls must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleFormulaManager(null, variableLibrary, siFactory,
-				resultsStore, valueStore);
-			fail("null op lib must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleFormulaManager(opLibrary, null, siFactory, resultsStore,
-				valueStore);
-			fail("null var lib must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleFormulaManager(opLibrary, variableLibrary, null,
-				resultsStore, valueStore);
-			fail("null var siFactory must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleFormulaManager(opLibrary, variableLibrary, siFactory, null,
-				valueStore);
-			fail("null results must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleFormulaManager(opLibrary, variableLibrary, siFactory,
-				resultsStore, null);
-			fail("null defaults must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(null, null, null, null, null));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(null, variableLibrary, siFactory, resultsStore, valueStore));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(opLibrary, null, siFactory, resultsStore, valueStore));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(opLibrary, variableLibrary, null, resultsStore, valueStore));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(opLibrary, variableLibrary, siFactory, null, valueStore));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(opLibrary, variableLibrary, siFactory, resultsStore, null));
 	}
 
 	@Test
@@ -124,7 +84,7 @@ public class SimpleFormulaManagerTest extends TestCase
 			resultsStore, valueStore);
 		assertEquals(0,formulaManager.getDefault(FormatUtilities.NUMBER_MANAGER));
 		assertEquals("", formulaManager.getDefault(FormatUtilities.STRING_MANAGER));
-		Object[] array = formulaManager.getDefault(new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER, '\n', ','));
+		Object[] array = formulaManager.getDefault(TestUtilities.NUMBER_ARRAY_MANAGER);
 		assertEquals(0, array.length);
 	}
 }

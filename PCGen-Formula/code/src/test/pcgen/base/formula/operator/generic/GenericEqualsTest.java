@@ -17,29 +17,33 @@
  */
 package pcgen.base.formula.operator.generic;
 
-import java.lang.reflect.Array;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-public class GenericEqualsTest extends TestCase
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.testsupport.TestUtilities;
+
+public class GenericEqualsTest
 {
-
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
-	private static final Class<Integer> INTEGER_CLASS = Integer.class;
-	private static final Class<Number[]> NUMBER_ARRAY_CLASS =
-			(Class<Number[]>) Array.newInstance(NUMBER_CLASS, 0).getClass();
-
-	private final GenericEquals op = new GenericEquals();
-
+	@Test
 	public void testOperator()
 	{
+		GenericEquals op = new GenericEquals();
 		assertNotNull(op.getOperator());
 		assertTrue(op.getOperator().getSymbol().equals("=="));
 	}
 
+	@Test
 	public void testAbstractEvaluateNulls()
 	{
+		GenericEquals op = new GenericEquals();
 		try
 		{
 			assertNull(op.abstractEvaluate(null, null, null));
@@ -50,7 +54,7 @@ public class GenericEqualsTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(BOOLEAN_CLASS, null, null));
+			assertNull(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -58,7 +62,7 @@ public class GenericEqualsTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, BOOLEAN_CLASS, null));
+			assertNull(op.abstractEvaluate(null, FormatUtilities.BOOLEAN_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -66,55 +70,39 @@ public class GenericEqualsTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAbstractEvaluateMismatch()
 	{
-		assertTrue(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null).isEmpty());
-		assertTrue(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null).isEmpty());
+		GenericEquals op = new GenericEquals();
+		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(FormatUtilities.NUMBER_CLASS, FormatUtilities.BOOLEAN_CLASS, null).isEmpty());
 		//Don't handle arrays
-		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, null).isEmpty());
-		assertTrue(op.abstractEvaluate(NUMBER_CLASS, NUMBER_ARRAY_CLASS, null).isEmpty());
-		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.NUMBER_ARRAY_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(FormatUtilities.NUMBER_CLASS, TestUtilities.NUMBER_ARRAY_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, FormatUtilities.NUMBER_CLASS, null).isEmpty());
 	}
 
+	@Test
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(BOOLEAN_CLASS,
-			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS, null).get().getManagedClass());
+		GenericEquals op = new GenericEquals();
+		assertEquals(FormatUtilities.BOOLEAN_CLASS,
+			op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, FormatUtilities.BOOLEAN_CLASS, null).get().getManagedClass());
 	}
 
+	@Test
 	public void testEvaluateFailNull()
 	{
-		try
-		{
-			assertNull(op.evaluate(null, null));
-			fail();
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(Boolean.TRUE, null));
-			fail();
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(null, Boolean.FALSE));
-			fail();
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		GenericEquals op = new GenericEquals();
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(Boolean.TRUE, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, Boolean.FALSE));
 	}
 
+	@Test
 	public void testEvaluateMismatch()
 	{
+		GenericEquals op = new GenericEquals();
 		try
 		{
 			Object result = op.evaluate(Boolean.TRUE, Double.valueOf(4.5));
@@ -141,8 +129,10 @@ public class GenericEqualsTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testEvaluateLegal()
 	{
+		GenericEquals op = new GenericEquals();
 		assertEquals(Boolean.TRUE, op.evaluate(Boolean.TRUE, Boolean.TRUE));
 		assertEquals(Boolean.FALSE, op.evaluate(Boolean.FALSE, Boolean.TRUE));
 		assertEquals(Boolean.FALSE, op.evaluate(Boolean.TRUE, Boolean.FALSE));

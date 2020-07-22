@@ -17,18 +17,22 @@
  */
 package pcgen.base.solver;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
-import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.inst.GlobalVarScoped;
@@ -36,24 +40,20 @@ import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.MockStat;
+import pcgen.base.testsupport.TestUtilities;
 import pcgen.base.util.FormatManager;
 
-public class SolverTest extends TestCase
+public class SolverTest
 {
-	private final FormatManager<Number[]> NAF =
-			new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER, '\n', ',');
-
 	private FormulaManager formulaManager;
-	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private EvaluationManager evalManager;
 	private ScopeInstance inst;
 	private ScopeInstance str;
 	private ScopeInstance con;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		FormulaSetupFactory setup = new FormulaSetupFactory();
 		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
@@ -65,33 +65,25 @@ public class SolverTest extends TestCase
 		inst = scopeInstanceFactory.get("Global", Optional.of(new GlobalVarScoped("Global")));
 		str = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("STR")));
 		con = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("CON")));
-		evalManager = managerFactory.generateEvaluationManager(formulaManager);
+		evalManager = TestUtilities.EMPTY_MGR_FACTORY.generateEvaluationManager(formulaManager);
 	}
 
-	@SuppressWarnings("unused")
+	@AfterEach
+	void tearDown()
+	{
+		formulaManager = null;
+		evalManager = null;
+		inst = null;
+		str = null;
+		con = null;
+	}
+
 	@Test
 	public void testIllegalConstruction()
 	{
 		Modifier<Number> mod = AbstractModifier.add(1, 100);
-		try
-		{
-			new Solver<Number>(FormatUtilities.NUMBER_MANAGER, null);
-			fail("null default value must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new Solver<Number>(null, 4);
-			fail("null format manager must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-
+		assertThrows(NullPointerException.class, () -> new Solver<Number>(FormatUtilities.NUMBER_MANAGER, null));
+		assertThrows(NullPointerException.class, () -> new Solver<Number>(null, 4));
 	}
 
 	@Test
@@ -99,24 +91,8 @@ public class SolverTest extends TestCase
 	{
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		Modifier<Number> mod = AbstractModifier.add(1, 100);
-		try
-		{
-			solver.addModifier(null, inst);
-			fail("Null modifier must be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			solver.addModifier(mod, null);
-			fail("Null source must be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> solver.addModifier(null, inst));
+		assertThrows(NullPointerException.class, () -> solver.addModifier(mod, null));
 	}
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
@@ -125,16 +101,8 @@ public class SolverTest extends TestCase
 	{
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		Modifier<String> badm = AbstractModifier.setString("");
-		try
-		{
-			//have to be bad about generics to even get this to be set up to fail
-			solver.addModifier((Modifier) badm, inst);
-			fail("wrong type must be rejected");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		//have to be bad about generics to even get this to be set up to fail
+		assertThrows(IllegalArgumentException.class, () -> solver.addModifier((Modifier) badm, inst));
 	}
 
 	@Test
@@ -142,39 +110,15 @@ public class SolverTest extends TestCase
 	{
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		Modifier<Number> mod = AbstractModifier.add(1, 100);
-		try
-		{
-			solver.removeModifier(null, inst);
-			fail("Null modifier must be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			solver.removeModifier(mod, null);
-			fail("Null source must be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> solver.removeModifier(null, inst));
+		assertThrows(NullPointerException.class, () -> solver.removeModifier(mod, null));
 	}
 
 	@Test
 	public void testIllegalRemoveFromSource()
 	{
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
-		try
-		{
-			solver.removeFromSource(null);
-			fail("Null source must be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> solver.removeFromSource(null));
 	}
 
 	@Test
@@ -293,7 +237,7 @@ public class SolverTest extends TestCase
 	@Test
 	public void testArrayMod()
 	{
-		Solver<Number[]> solver = new Solver<Number[]>(NAF, new Number[]{});
+		Solver<Number[]> solver = new Solver<Number[]>((FormatManager<Number[]>) TestUtilities.NUMBER_ARRAY_MANAGER, new Number[]{});
 		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
 		Modifier<Number[]> add1 = AbstractModifier.addToArray(1, 10);
 		solver.addModifier(add1, inst);
@@ -305,15 +249,15 @@ public class SolverTest extends TestCase
 		solver.addModifier(add3, inst);
 		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, solver.process(evalManager)));
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
-		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(NAF, 0, addm);
+		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 0, addm);
 		solver.addModifier(addTo1, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
-		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(NAF, 1, multm);
+		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 1, multm);
 		solver.addModifier(multTo2, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 4, 3}, solver.process(evalManager)));
 		Modifier<Number> setm = AbstractModifier.setNumber(7, 100);
-		Modifier<Number[]> setTo3 = new ArrayComponentModifier<>(NAF, 2, setm);
+		Modifier<Number[]> setTo3 = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 2, setm);
 		solver.addModifier(setTo3, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 4, 7}, solver.process(evalManager)));
 		solver.removeModifier(add1, inst);
@@ -323,7 +267,7 @@ public class SolverTest extends TestCase
 	@Test
 	public void testArrayIndependenceAdd()
 	{
-		Solver<Number[]> solver = new Solver<Number[]>(NAF, new Number[]{});
+		Solver<Number[]> solver = new Solver<Number[]>((FormatManager<Number[]>) TestUtilities.NUMBER_ARRAY_MANAGER, new Number[]{});
 		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
 		Modifier<Number[]> add1 = AbstractModifier.addToArray(1, 10);
 		solver.addModifier(add1, inst);
@@ -337,12 +281,12 @@ public class SolverTest extends TestCase
 		Solver<Number[]> other = solver.createReplacement();
 		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, other.process(evalManager)));
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
-		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(NAF, 0, addm);
+		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 0, addm);
 		solver.addModifier(addTo1, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
 		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, other.process(evalManager)));
 		Modifier<Number> multm = AbstractModifier.multiply(6, 100);
-		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(NAF, 1, multm);
+		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 1, multm);
 		other.addModifier(multTo2, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
 		assertTrue(Arrays.equals(new Number[]{1, 12, 3}, other.process(evalManager)));
@@ -370,6 +314,4 @@ public class SolverTest extends TestCase
 		assertEquals(Integer.valueOf(12), solver.process(evalManager));
 		assertEquals(Integer.valueOf(5), other.process(evalManager));
 	}
-
-
 }

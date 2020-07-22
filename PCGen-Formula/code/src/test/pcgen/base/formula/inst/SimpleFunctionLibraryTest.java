@@ -17,16 +17,18 @@
  */
 package pcgen.base.formula.inst;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FormulaFunction;
+import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -34,49 +36,27 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 
-public class SimpleFunctionLibraryTest extends TestCase
+public class SimpleFunctionLibraryTest
 {
-	private SimpleFunctionLibrary library;
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		library = new SimpleFunctionLibrary();
-	}
 
 	@Test
 	public void testInvalidNull()
 	{
-		try
-		{
-			library.addFunction(null);
-			fail("Expected null function to be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Yep
-		}
+		SimpleFunctionLibrary library = new SimpleFunctionLibrary();
+		assertThrows(NullPointerException.class, () -> library.addFunction(null));
 	}
 
 	@Test
 	public void testInvalidNullName()
 	{
-		try
-		{
-			FormulaFunction f = getPseudoFunction(null);
-			library.addFunction(f);
-			fail("Expected function with null name to be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Yep
-		}
+		SimpleFunctionLibrary library = new SimpleFunctionLibrary();
+		assertThrows(NullPointerException.class, () -> library.addFunction(getPseudoFunction(null)));
 	}
 
 	@Test
 	public void testSimpleFunctionSetGet()
 	{
+		SimpleFunctionLibrary library = new SimpleFunctionLibrary();
 		FormulaFunction abs = getPseudoFunction("Abs");
 		library.addFunction(abs);
 		//case insensitive
@@ -88,12 +68,12 @@ public class SimpleFunctionLibraryTest extends TestCase
 	@Test
 	public void testInvalidDupeNameSimpleFunction()
 	{
+		SimpleFunctionLibrary library = new SimpleFunctionLibrary();
 		FormulaFunction abs = getPseudoFunction("Abs");
 		library.addFunction(abs);
 		try
 		{
-			FormulaFunction pseudoFunction = getPseudoFunction("ABS");
-			library.addFunction(pseudoFunction);
+			library.addFunction(getPseudoFunction("ABS"));
 			fail("Should not have been able to add function twice");
 		}
 		catch (IllegalArgumentException e)
@@ -103,8 +83,7 @@ public class SimpleFunctionLibraryTest extends TestCase
 		}
 		try
 		{
-			FormulaFunction pseudoFunction = getPseudoFunction("abs");
-			library.addFunction(pseudoFunction);
+			library.addFunction(getPseudoFunction("abs"));
 			fail("Should not have been able to add function twice, regardless of case");
 		}
 		catch (IllegalArgumentException e)

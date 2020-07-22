@@ -17,25 +17,31 @@
  */
 package pcgen.base.formula.operator.bool;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BooleanOrTest extends TestCase
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.testsupport.TestUtilities;
+
+public class BooleanOrTest
 {
-
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
-	private static final Class<Integer> INTEGER_CLASS = Integer.class;
-
-	private final BooleanOr op = new BooleanOr();
-
+	@Test
 	public void testOperator()
 	{
+		BooleanOr op = new BooleanOr();
 		assertNotNull(op.getOperator());
 		assertTrue(op.getOperator().getSymbol().equals("||"));
 	}
 
+	@Test
 	public void testAbstractEvaluateNulls()
 	{
+		BooleanOr op = new BooleanOr();
 		try
 		{
 			assertNull(op.abstractEvaluate(null, null, null));
@@ -46,7 +52,7 @@ public class BooleanOrTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(BOOLEAN_CLASS, null, null));
+			assertNull(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -54,7 +60,7 @@ public class BooleanOrTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, BOOLEAN_CLASS, null));
+			assertNull(op.abstractEvaluate(null, FormatUtilities.BOOLEAN_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -62,73 +68,43 @@ public class BooleanOrTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAbstractEvaluateMismatch()
 	{
-		assertTrue(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null).isEmpty());
-		assertTrue(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null).isEmpty());
+		BooleanOr op = new BooleanOr();
+		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(FormatUtilities.NUMBER_CLASS, FormatUtilities.BOOLEAN_CLASS, null).isEmpty());
 	}
 
+	@Test
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(BOOLEAN_CLASS,
-			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS, null).get().getManagedClass());
+		BooleanOr op = new BooleanOr();
+		assertEquals(FormatUtilities.BOOLEAN_CLASS,
+			op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, FormatUtilities.BOOLEAN_CLASS, null).get().getManagedClass());
 	}
 
+	@Test
 	public void testEvaluateFailNull()
 	{
-		try
-		{
-			assertNull(op.evaluate(null, null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(Boolean.TRUE, null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(null, Boolean.FALSE));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
+		BooleanOr op = new BooleanOr();
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(Boolean.TRUE, null));
+		assertThrows(NullPointerException.class, () -> op.evaluate(null, Boolean.FALSE));
 	}
 
+	@Test
 	public void testEvaluateMismatch()
 	{
-		try
-		{
-			assertNull(op.evaluate(Boolean.TRUE, Double.valueOf(4.5)));
-			fail();
-		}
-		catch (RuntimeException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertNull(op.evaluate(new Object(), Boolean.FALSE));
-			fail();
-		}
-		catch (RuntimeException e)
-		{
-			//expected
-		}
+		BooleanOr op = new BooleanOr();
+		assertThrows(ClassCastException.class, () -> op.evaluate(Boolean.TRUE, Double.valueOf(4.5)));
+		assertThrows(ClassCastException.class, () -> op.evaluate(new Object(), Boolean.FALSE));
 	}
 
+	@Test
 	public void testEvaluateLegal()
 	{
+		BooleanOr op = new BooleanOr();
 		assertEquals(Boolean.TRUE, op.evaluate(Boolean.TRUE, Boolean.TRUE));
 		assertEquals(Boolean.TRUE, op.evaluate(Boolean.FALSE, Boolean.TRUE));
 		assertEquals(Boolean.TRUE, op.evaluate(Boolean.TRUE, Boolean.FALSE));

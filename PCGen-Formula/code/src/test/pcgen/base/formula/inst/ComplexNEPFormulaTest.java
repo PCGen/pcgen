@@ -1,60 +1,39 @@
 package pcgen.base.formula.inst;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableList;
 import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
+import pcgen.base.testsupport.TestUtilities;
 
 public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 {
 
-	private ManagerFactory managerFactory = new ManagerFactory()
-	{
-	};
-
-	@SuppressWarnings("unused")
+	@Test
 	public void testConstructor()
 	{
-		try
-		{
-			new ComplexNEPFormula<>(null, FormatUtilities.NUMBER_MANAGER);
-			fail("Expected null formula text to fail");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			new ComplexNEPFormula<>("3+6", null);
-			fail("Expected null format manager to fail");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			new ComplexNEPFormula<>("3+*5", FormatUtilities.NUMBER_MANAGER);
-			fail("Expected bad formula text to fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new ComplexNEPFormula<>(null, FormatUtilities.NUMBER_MANAGER));
+		assertThrows(NullPointerException.class, () -> new ComplexNEPFormula<>("3+6", null));
+		assertThrows(IllegalArgumentException.class, () -> new ComplexNEPFormula<>("3+*5", FormatUtilities.NUMBER_MANAGER));
 	}
 
+	@Test
 	public void testToString()
 	{
 		assertEquals("3+5", new ComplexNEPFormula<>("3+5", FormatUtilities.NUMBER_MANAGER).toString());
@@ -73,22 +52,11 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 			new ComplexNEPFormula<>("process[THIS]", FormatUtilities.NUMBER_MANAGER).toString());
 	}
 
+	@Test
 	public void testIsValid()
 	{
 		FormulaSemantics fs = getSemantics();
-		try
-		{
-			new ComplexNEPFormula<Number>("3+5", FormatUtilities.NUMBER_MANAGER).isValid(null);
-			fail("Expected null FormulaSemantics to fail");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		catch (SemanticsException e)
-		{
-			fail("Failed for unknown reason: " + e.getMessage());
-		}
+		assertThrows(NullPointerException.class, () -> new ComplexNEPFormula<Number>("3+5", FormatUtilities.NUMBER_MANAGER).isValid(null));
 
 		try {
 			new ComplexNEPFormula<Number>("3+5", FormatUtilities.NUMBER_MANAGER).isValid(fs);
@@ -115,6 +83,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		}
 	}
 
+	@Test
 	public void testGetDependenciesNone()
 	{
 		DependencyManager depManager = setupDM();
@@ -127,6 +96,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(-1, potentialArgDM.get().getMaximumArgument());
 	}
 
+	@Test
 	public void testGetDependenciesNoneToo()
 	{
 		DependencyManager depManager = setupDM();
@@ -139,6 +109,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(-1, potentialArgDM.get().getMaximumArgument());
 	}
 
+	@Test
 	public void testGetDependenciesNoneLonger()
 	{
 		DependencyManager depManager = setupDM();
@@ -151,6 +122,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(-1, potentialArgDM.get().getMaximumArgument());
 	}
 
+	@Test
 	public void testGetDependenciesVars()
 	{
 		getVariableLibrary().assertLegalVariableID("a",
@@ -173,6 +145,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(-1, potentialArgDM.get().getMaximumArgument());
 	}
 
+	@Test
 	public void testGetDependenciesVarsIfOne()
 	{
 		getVariableLibrary().assertLegalVariableID("a",
@@ -194,6 +167,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(-1, potentialArgDM.get().getMaximumArgument());
 	}
 
+	@Test
 	public void testGetDependenciesVarsIfTwo()
 	{
 		getVariableLibrary().assertLegalVariableID("a",
@@ -215,6 +189,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(-1, potentialArgDM.get().getMaximumArgument());
 	}
 
+	@Test
 	public void testGetDependenciesVarsIfThree()
 	{
 		getVariableLibrary().assertLegalVariableID("c",
@@ -238,6 +213,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(-1, potentialArgDM.get().getMaximumArgument());
 	}
 
+	@Test
 	public void testGetDependenciesValue()
 	{
 		DependencyManager depManager = setupDM();
@@ -253,9 +229,9 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	private DependencyManager setupDM()
 	{
-		DependencyManager dm = managerFactory
+		DependencyManager dm = TestUtilities.EMPTY_MGR_FACTORY
 			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst());
-		dm = managerFactory.withVariables(dm);
+		dm = TestUtilities.EMPTY_MGR_FACTORY.withVariables(dm);
 		return dm.getWith(ArgumentDependencyManager.KEY,
 			Optional.of(new ArgumentDependencyManager()));
 	}
@@ -263,15 +239,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	public void testResolve()
 	{
 		EvaluationManager evalManager = generateManager();
-		try
-		{
-			new ComplexNEPFormula<>("3+5", FormatUtilities.NUMBER_MANAGER).resolve(null);
-			fail("Expected null FormulaManager to fail");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> new ComplexNEPFormula<>("3+5", FormatUtilities.NUMBER_MANAGER).resolve(null));
 
 		assertEquals(8, new ComplexNEPFormula<>("3+5", FormatUtilities.NUMBER_MANAGER).resolve(evalManager));
 		assertEquals(15, new ComplexNEPFormula<>("3*5", FormatUtilities.NUMBER_MANAGER).resolve(evalManager));
@@ -320,16 +288,11 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		ComplexNEPFormula<String> fourString = new ComplexNEPFormula<>("\"4\"", FormatUtilities.STRING_MANAGER);
 		FormulaSemantics fs = getSemantics();
 		fourString.isValid(fs);
-		try
-		{
-			fourString.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(FormatUtilities.NUMBER_MANAGER)));
-			fail("Expected the Conversion to pass for the result to "
+		assertThrows(SemanticsException.class,
+			() -> fourString.isValid(fs.getWith(FormulaSemantics.ASSERTED,
+				Optional.of(FormatUtilities.NUMBER_MANAGER))),
+			"Expected the Conversion to pass for the result to "
 				+ "not be the String the ComplexNEPFormula expected!");
-		}
-		catch (SemanticsException e)
-		{
-			//Expected
-		}
 	}
 
 	@Test
@@ -339,16 +302,10 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 				new ComplexNEPFormula<>("\"4,4\"", FormatUtilities.NUMBER_MANAGER);
 
 		FormulaSemantics fs = getSemantics();
-		try
-		{
-			notANumber
-				.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(FormatUtilities.NUMBER_MANAGER)));
-			fail("Expected non-number to fail");
-		}
-		catch (SemanticsException e)
-		{
-			//Expected
-		}
+		assertThrows(SemanticsException.class,
+			() -> notANumber.isValid(fs.getWith(FormulaSemantics.ASSERTED,
+				Optional.of(FormatUtilities.NUMBER_MANAGER))),
+			"Expected non-number to fail");
 	}
 
 	@Test
@@ -356,15 +313,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	{
 		ComplexNEPFormula<String> fiveMismatch = new ComplexNEPFormula<>("5", FormatUtilities.STRING_MANAGER);
 		FormulaSemantics fs = getSemantics();
-		try
-		{
-			fiveMismatch.isValid(fs);
-			fail("Expected non-quoted item to fail as a String");
-		}
-		catch (SemanticsException e)
-		{
-			//Expected
-		}
+		assertThrows(SemanticsException.class, () -> fiveMismatch.isValid(fs),
+			"Expected non-quoted item to fail as a String");
 	}
 
 	@Test
@@ -373,16 +323,9 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		ComplexNEPFormula<Number> longWayAround =
 				new ComplexNEPFormula<>("\"4\"", FormatUtilities.NUMBER_MANAGER);
 		FormulaSemantics fs = getSemantics();
-		try
-		{
-			longWayAround.isValid(fs);
-			fail("Expected quoted item to fail as a number "
+		assertThrows(SemanticsException.class, () -> longWayAround.isValid(fs),
+			"Expected quoted item to fail as a number "
 				+ "because not convertable without an assertion");
-		}
-		catch (SemanticsException e)
-		{
-			//Expected
-		}
 		longWayAround
 			.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(FormatUtilities.NUMBER_MANAGER)));
 	}
@@ -399,7 +342,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	private FormulaSemantics getSemantics()
 	{
-		return managerFactory.generateFormulaSemantics(getFormulaManager(),
+		return TestUtilities.EMPTY_MGR_FACTORY.generateFormulaSemantics(getFormulaManager(),
 			getInstanceFactory().getScope("Global"));
 	}
 }

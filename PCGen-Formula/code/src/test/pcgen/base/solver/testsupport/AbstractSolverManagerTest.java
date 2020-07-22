@@ -15,9 +15,16 @@
  */
 package pcgen.base.solver.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.LegalScope;
@@ -44,8 +51,9 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	private LegalScope globalScope;
 	private ScopeInstance globalScopeInst;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		super.setUp();
 		solverFactory = new SimpleSolverFactory(getValueStore());
@@ -55,6 +63,18 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		globalScopeInst = getGlobalScopeInst();
 	}
 
+	@AfterEach
+	@Override
+	protected void tearDown()
+	{
+		super.tearDown();
+		solverFactory = null;
+		varLibrary = null;
+		store = null;
+		globalScope = null;
+		globalScopeInst = null;
+	}
+
 	protected abstract SolverManager getManager();
 
 	@Test
@@ -62,15 +82,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	{
 		varLibrary.assertLegalVariableID("HP", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
-		try
-		{
-			getManager().createChannel(null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> getManager().createChannel(null));
 	}
 
 	@Test
@@ -82,15 +94,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
 		getManager().createChannel(hp);
-		try
-		{
-			getManager().createChannel(hp);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> getManager().createChannel(hp));
 	}
 
 	@Test
@@ -117,33 +121,9 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		getManager().createChannel(hp);
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
 		ScopeInstance source = globalScopeInst;
-		try
-		{
-			getManager().addModifier(null, modifier, source);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			getManager().addModifier(hp, null, source);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			getManager().addModifier(hp, modifier, null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> getManager().addModifier(null, modifier, source));
+		assertThrows(NullPointerException.class, () -> getManager().addModifier(hp, null, source));
+		assertThrows(NullPointerException.class, () -> getManager().addModifier(hp, modifier, null));
 		//Invalid ID very bad
 		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
@@ -151,15 +131,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		@SuppressWarnings("unchecked")
 		VariableID<Number> brains = (VariableID<Number>) alternateLibrary
 			.getVariableID(globalScopeInst, "Brains");
-		try
-		{
-			getManager().addModifier(brains, modifier, source);
-			fail("Didn't own that VarID!");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> getManager().addModifier(brains, modifier, source));
 	}
 
 	@Test
@@ -313,33 +285,9 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		getManager().createChannel(hp);
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
 		ScopeInstance source = globalScopeInst;
-		try
-		{
-			getManager().removeModifier(null, modifier, source);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			getManager().removeModifier(hp, null, source);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			getManager().removeModifier(hp, modifier, null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> getManager().removeModifier(null, modifier, source));
+		assertThrows(NullPointerException.class, () -> getManager().removeModifier(hp, null, source));
+		assertThrows(NullPointerException.class, () -> getManager().removeModifier(hp, modifier, null));
 		//Not present is Harmless
 		getManager().removeModifier(hp, modifier, source);
 		//Invalid ID very bad
@@ -349,15 +297,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		@SuppressWarnings("unchecked")
 		VariableID<Number> brains = (VariableID<Number>) alternateLibrary
 			.getVariableID(globalScopeInst, "Brains");
-		try
-		{
-			getManager().removeModifier(brains, modifier, source);
-			fail("Didn't own that VarID!");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> getManager().removeModifier(brains, modifier, source));
 	}
 
 	@Test

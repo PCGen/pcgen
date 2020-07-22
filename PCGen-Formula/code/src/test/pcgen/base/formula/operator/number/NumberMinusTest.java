@@ -17,26 +17,31 @@
  */
 package pcgen.base.formula.operator.number;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class NumberMinusTest extends TestCase
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.testsupport.TestUtilities;
+
+public class NumberMinusTest
 {
-
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Integer> INTEGER_CLASS = Integer.class;
-	private static final Class<Double> DOUBLE_CLASS = Double.class;
-	private static final Class<Float> FLOAT_CLASS = Float.class;
-
-	private final NumberMinus op = new NumberMinus();
-
+	@Test
 	public void testOperator()
 	{
+		NumberMinus op = new NumberMinus();
 		assertNotNull(op.getOperator());
 		assertTrue(op.getOperator().getSymbol().equals("-"));
 	}
 
+	@Test
 	public void testAbstractEvaluateNulls()
 	{
+		NumberMinus op = new NumberMinus();
 		try
 		{
 			assertNull(op.abstractEvaluate(null));
@@ -47,47 +52,41 @@ public class NumberMinusTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAbstractEvaluateMismatch()
 	{
+		NumberMinus op = new NumberMinus();
 		assertTrue(op.abstractEvaluate(Boolean.class).isEmpty());
 	}
 
+	@Test
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(NUMBER_CLASS).get().getManagedClass());
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(DOUBLE_CLASS).get().getManagedClass());
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(FLOAT_CLASS).get().getManagedClass());
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(INTEGER_CLASS).get().getManagedClass());
+		NumberMinus op = new NumberMinus();
+		assertEquals(FormatUtilities.NUMBER_CLASS, op.abstractEvaluate(FormatUtilities.NUMBER_CLASS).get().getManagedClass());
+		assertEquals(FormatUtilities.NUMBER_CLASS, op.abstractEvaluate(TestUtilities.DOUBLE_CLASS).get().getManagedClass());
+		assertEquals(FormatUtilities.NUMBER_CLASS, op.abstractEvaluate(TestUtilities.FLOAT_CLASS).get().getManagedClass());
+		assertEquals(FormatUtilities.NUMBER_CLASS, op.abstractEvaluate(TestUtilities.INTEGER_CLASS).get().getManagedClass());
 	}
 
+	@Test
 	public void testEvaluateFailNull()
 	{
-		try
-		{
-			assertNull(op.evaluate(null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
+		NumberMinus op = new NumberMinus();
+		assertThrows(NullPointerException.class, () -> op.evaluate(null));
 	}
 
+	@Test
 	public void testEvaluateMismatch()
 	{
-		try
-		{
-			assertNull(op.evaluate(true));
-			fail();
-		}
-		catch (RuntimeException e)
-		{
-			//expected
-		}
+		NumberMinus op = new NumberMinus();
+		assertThrows(ClassCastException.class, () -> op.evaluate(true));
 	}
 
+	@Test
 	public void testEvaluateLegal()
 	{
+		NumberMinus op = new NumberMinus();
 		assertEquals(Integer.valueOf(-2), op.evaluate(Integer.valueOf(2)));
 		assertEquals(Double.valueOf(1.3), op.evaluate(Double.valueOf(-1.3)));
 		assertEquals(Double.valueOf(-1.3f), op.evaluate(Float.valueOf(1.3f)));

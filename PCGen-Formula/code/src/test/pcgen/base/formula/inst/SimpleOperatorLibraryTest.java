@@ -17,10 +17,13 @@
  */
 package pcgen.base.formula.inst;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.operator.generic.GenericEquals;
@@ -28,113 +31,60 @@ import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.formula.operator.number.NumberEquals;
 import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.testsupport.TestUtilities;
 
-public class SimpleOperatorLibraryTest extends TestCase
+public class SimpleOperatorLibraryTest
 {
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Integer> INTEGER_CLASS = Integer.class;
-
-	private SimpleOperatorLibrary library;
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		library = new SimpleOperatorLibrary();
-	}
 
 	@Test
 	public void testInvalidNull()
 	{
-		try
-		{
-			library.addAction((OperatorAction) null);
-			fail("Expected null action to be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Yep
-		}
-		try
-		{
-			library.addAction((UnaryAction) null);
-			fail("Expected null action to be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Yep
-		}
+		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
+		assertThrows(NullPointerException.class, () -> library.addAction((OperatorAction) null));
+		assertThrows(NullPointerException.class, () -> library.addAction((UnaryAction) null));
 	}
 
 	@Test
 	public void testEmpty()
 	{
+		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		assertTrue(
-			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null).isEmpty());
-		assertTrue(library.processAbstract(Operator.MINUS, NUMBER_CLASS).isEmpty());
-		try
-		{
-			library.evaluate(Operator.ADD, 1, 2, null);
-			fail();
-		}
-		catch (IllegalStateException e)
-		{
-			//Wasn't defined yet
-		}
-		try
-		{
-			library.evaluate(Operator.MINUS, 1);
-			fail();
-		}
-		catch (IllegalStateException e)
-		{
-			//Wasn't defined yet
-		}
+			library.processAbstract(Operator.ADD, FormatUtilities.NUMBER_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
+		assertTrue(library.processAbstract(Operator.MINUS, FormatUtilities.NUMBER_CLASS).isEmpty());
+		assertThrows(IllegalStateException.class, () -> library.evaluate(Operator.ADD, 1, 2, null));
+		assertThrows(IllegalStateException.class, () -> library.evaluate(Operator.MINUS, 1));
 	}
 
 	@Test
 	public void testSimpleBinary()
 	{
+		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		library.addAction(new NumberAdd());
 		assertEquals(Number.class,
-			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null).get().getManagedClass());
+			library.processAbstract(Operator.ADD, FormatUtilities.NUMBER_CLASS, TestUtilities.INTEGER_CLASS, null).get().getManagedClass());
 		assertEquals(Integer.valueOf(3), library.evaluate(Operator.ADD, 1, 2, null));
-		try
-		{
-			library.evaluate(Operator.ADD, true, false, null);
-			fail();
-		}
-		catch (IllegalStateException e)
-		{
-			//Isn't defined 
-		}
+		assertThrows(IllegalStateException.class, () -> library.evaluate(Operator.ADD, true, false, null));
 	}
 
 	@Test
 	public void testSimpleUnary()
 	{
+		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		library.addAction(new NumberMinus());
 		assertEquals(Number.class,
-			library.processAbstract(Operator.MINUS, INTEGER_CLASS).get().getManagedClass());
+			library.processAbstract(Operator.MINUS, TestUtilities.INTEGER_CLASS).get().getManagedClass());
 		assertEquals(Integer.valueOf(3), library.evaluate(Operator.MINUS, -3));
-		try
-		{
-			library.evaluate(Operator.MINUS, true);
-			fail();
-		}
-		catch (IllegalStateException e)
-		{
-			//Isn't defined 
-		}
+		assertThrows(IllegalStateException.class, () -> library.evaluate(Operator.MINUS, true));
 	}
 
 	@Test
 	public void testMultiple()
 	{
+		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		library.addAction(new GenericEquals());
 		library.addAction(new NumberEquals());
-		assertEquals(Boolean.class,
-			library.processAbstract(Operator.EQ, NUMBER_CLASS, INTEGER_CLASS, null).get().getManagedClass());
+		assertEquals(FormatUtilities.BOOLEAN_CLASS,
+			library.processAbstract(Operator.EQ, FormatUtilities.NUMBER_CLASS, TestUtilities.INTEGER_CLASS, null).get().getManagedClass());
 		assertEquals(Boolean.FALSE, library.evaluate(Operator.EQ, 1, 2, null));
 	}
 
