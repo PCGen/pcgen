@@ -71,7 +71,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
-import pcgen.output.channel.compat.AgeCompat;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
@@ -412,7 +412,7 @@ public abstract class AbstractSaveRestoreTest
 		HandedCompat.setCurrentHandedness(pc.getCharID(), Handed.Right);
 		pc.setGender(Gender.Male);
 		pc.setIgnoreCost(false);
-		AgeCompat.setCurrentAge(pc.getCharID(), 0);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 0);
 		pc.setXP(0);
 		pc.setRegion(Region.getConstant(Constants.NONE));
 

@@ -96,7 +96,6 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
@@ -637,7 +636,7 @@ public final class PCGVer2Creator
 	private void appendAgeLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_AGE).append(':');
-		buffer.append(AgeCompat.getCurrentAge(thePC.getCharID()));
+		buffer.append(ChannelUtilities.readControlledChannel(thePC.getCharID(), CControl.AGEINPUT));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

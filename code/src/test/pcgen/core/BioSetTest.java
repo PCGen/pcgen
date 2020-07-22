@@ -32,7 +32,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
@@ -102,7 +101,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		for (int ageCat = 0; ageCat < MAX_AGE.length; ageCat++)
 		{
 			currBioSet.randomize("AGECAT" + ageCat, pc);
-			final int age = AgeCompat.getCurrentAge(pc.getCharID());
+			final int age = (Integer) getAge(pc);
 			//System.out.println("Age for cat " + ageCat + " is " + age + ".");
 			assertTrue(
 					(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]), "Generated age " + age + " is not between "
@@ -143,29 +142,34 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-		AgeCompat.setCurrentAge(pc.getCharID(), 12);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 12);
 		int idx = display.getAgeSetIndex();
-		assertEquals(0, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
+		assertEquals(0, idx, "Ageset for " + getAge(pc) + ".");
 
-		AgeCompat.setCurrentAge(pc.getCharID(), 17);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 17);
 		idx = display.getAgeSetIndex();
-		assertEquals(0, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
+		assertEquals(0, idx, "Ageset for " + getAge(pc) + ".");
 
-		AgeCompat.setCurrentAge(pc.getCharID(), 36);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 36);
 		idx = display.getAgeSetIndex();
-		assertEquals(1, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
+		assertEquals(1, idx, "Ageset for " + getAge(pc) + ".");
 
-		AgeCompat.setCurrentAge(pc.getCharID(), 54);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 54);
 		idx = display.getAgeSetIndex();
-		assertEquals(2, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
+		assertEquals(2, idx, "Ageset for " + getAge(pc) + ".");
 
-		AgeCompat.setCurrentAge(pc.getCharID(), 72);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 72);
 		idx = display.getAgeSetIndex();
-		assertEquals(3, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
+		assertEquals(3, idx, "Ageset for " + getAge(pc) + ".");
 
 		Optional<Region> region = pc.getDisplay().getRegion();
 		SettingsHandler.getGameAsProperty().get().getBioSet().getAgeSet(region, idx);
 
+	}
+
+	private Object getAge(final PlayerCharacter pc)
+	{
+		return ChannelUtilities.readControlledChannel(pc.getCharID(), CControl.AGEINPUT);
 	}
 
 	@Override

@@ -19,10 +19,11 @@
 package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
-import pcgen.output.channel.compat.AgeCompat;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Class handles AGE Token 
@@ -46,7 +47,7 @@ public class AgeToken extends AbstractExportToken
 
 		if ("AGE".equals(tokenSource))
 		{
-			retString = Integer.toString(AgeCompat.getCurrentAge(display.getCharID()));
+			retString = ChannelUtilities.readControlledChannel(display.getCharID(), CControl.AGEINPUT).toString();
 		}
 		else if ("AGE.CATEGORY".equals(tokenSource))
 		{
