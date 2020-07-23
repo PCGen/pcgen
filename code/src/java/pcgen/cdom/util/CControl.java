@@ -150,6 +150,11 @@ public final class CControl
 	public static final CControl GOLDINPUT = new CControl("GOLDINPUT", "Gold", Optional.empty(), "NUMBER", true, false);
 	
 	/**
+	 * Code Control for the Hair Color Input Channel.
+	 */
+	public static final CControl HAIRCOLORINPUT = new CControl("HAIRCOLORINPUT", "HairColor", Optional.empty(), "STRING", true, false);
+
+	/**
 	 * Code Control for the Hair Style Input Channel.
 	 */
 	public static final CControl HAIRSTYLEINPUT = new CControl("HAIRSTYLEINPUT", "HairStyle", Optional.empty(), "STRING", true, false);
