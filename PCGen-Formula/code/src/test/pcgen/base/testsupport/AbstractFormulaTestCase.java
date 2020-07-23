@@ -19,6 +19,7 @@ package pcgen.base.testsupport;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,9 +151,27 @@ public abstract class AbstractFormulaTestCase
 				return;
 			}
 		}
-		TestCase.fail("Expected " + valueOf.getClass().getSimpleName() + " (" + valueOf
-			+ ") for Formula: " + formula + ", was " + result + " ("
-			+ result.getClass().getSimpleName() + ")");
+		//And deeply check arrays
+		else if (valueOf.getClass().isArray() && result.getClass().isArray())
+		{
+			if (Arrays.deepEquals((Object[]) valueOf, (Object[]) result))
+			{
+				return;
+			}
+		}
+		String valueSimpleName = valueOf.getClass().getSimpleName();
+		String resultSimpleName = result.getClass().getSimpleName();
+		if (valueOf.getClass().isArray())
+		{
+			valueOf = Arrays.asList((Object[]) valueOf);
+		}
+		if (result.getClass().isArray())
+		{
+			result = Arrays.asList((Object[]) result);
+		}
+		TestCase.fail(
+			"Expected " + valueSimpleName + " (" + valueOf + ") for Formula: "
+				+ formula + ", was " + result + " (" + resultSimpleName + ")");
 	}
 
 	public EvaluationManager generateManager()
