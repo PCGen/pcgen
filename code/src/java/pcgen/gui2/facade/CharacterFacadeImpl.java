@@ -242,7 +242,7 @@ public class CharacterFacadeImpl
 	private String selectedGender;
 	private List<Language> currBonusLangs;
 	private WriteableReferenceFacade<String> skinColor;
-	private DefaultReferenceFacade<String> hairColor;
+	private WriteableReferenceFacade<String> hairColor;
 	private DefaultReferenceFacade<String> eyeColor;
 	private DefaultReferenceFacade<Integer> heightRef;
 	private DefaultReferenceFacade<Integer> weightRef;
@@ -393,7 +393,8 @@ public class CharacterFacadeImpl
 
 		skinColor = CoreInterfaceUtilities.getReferenceFacade(
 			theCharacter.getCharID(), CControl.SKINCOLORINPUT);
-		hairColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR));
+		hairColor = CoreInterfaceUtilities.getReferenceFacade(
+				theCharacter.getCharID(), CControl.HAIRCOLORINPUT);
 		eyeColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR));
 		weightRef = new DefaultReferenceFacade<>();
 		heightRef = new DefaultReferenceFacade<>();
@@ -1789,7 +1790,6 @@ public class CharacterFacadeImpl
 	public void setHairColor(String color)
 	{
 		hairColor.set(color);
-		theCharacter.setPCAttribute(PCStringKey.HAIRCOLOR, color);
 	}
 
 	@Override

@@ -33,6 +33,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AgeCompat;
+import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
@@ -118,8 +119,12 @@ public class BioSetTest extends AbstractCharacterTestCase
 						+ " is not in required range.");
 		assertEquals("Blue", pc.getSafeStringFor(PCStringKey.EYECOLOR), "Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
 				+ " is not valid.");
-		assertTrue(("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
-			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))), "Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
+		assertTrue(
+			("Blond".equals(HairColorCompat.getCurrentHairColor(pc.getCharID()))
+				|| "Brown".equals(
+					HairColorCompat.getCurrentHairColor(pc.getCharID()))),
+			"Generated hair colour "
+				+ HairColorCompat.getCurrentHairColor(pc.getCharID())
 				+ " is not valid.");
 		String skinColor = (String) ChannelUtilities
 			.readControlledChannel(pc.getCharID(), CControl.SKINCOLORINPUT);

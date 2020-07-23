@@ -178,7 +178,7 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version:'2.7'
 
     implementation group: 'org.springframework', name: 'spring-web', version:'5.2.8.RELEASE'
-    implementation group: 'org.springframework', name: 'spring-beans', version:'5.2.7.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-beans', version:'5.2.8.RELEASE'
     implementation group: 'org.springframework', name: 'spring-core', version:'5.2.7.RELEASE'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.11'
     compile('org.apache.xmlgraphics:fop:2.5')

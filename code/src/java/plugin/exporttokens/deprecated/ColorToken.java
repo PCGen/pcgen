@@ -25,6 +25,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.HairColorCompat;
 
 /**
  * Deal with tokens:
@@ -86,7 +87,7 @@ public class ColorToken extends AbstractExportToken
 		{
 			return "";
 		}
-		return display.getSafeStringFor(PCStringKey.HAIRCOLOR);
+		return HairColorCompat.getCurrentHairColor(display.getCharID());
 	}
 
 	/**
