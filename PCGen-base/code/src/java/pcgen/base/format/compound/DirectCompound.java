@@ -24,7 +24,7 @@ import pcgen.base.util.FormatManager;
 /**
  * DirectCompound is an AbstractCompound for direct types (Number.class)
  */
-class DirectCompound extends AbstractCompound
+public class DirectCompound extends AbstractCompound
 {
 
 	/**
@@ -41,7 +41,7 @@ class DirectCompound extends AbstractCompound
 	 * @param fmtManager
 	 *            The FormatManager for this DirectCompound
 	 */
-	DirectCompound(Object primary, FormatManager<Compound> fmtManager)
+	public DirectCompound(Object primary, FormatManager<Compound> fmtManager)
 	{
 		super(fmtManager);
 		object = Objects.requireNonNull(primary);
