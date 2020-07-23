@@ -16,6 +16,11 @@
  */
 package pcgen;
 
+import pcgen.base.format.ArrayFormatManager;
+import pcgen.base.format.dice.Dice;
+import pcgen.base.format.dice.DiceFormat;
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 
 import plugin.lsttokens.ChooseLst;
@@ -30,5 +35,16 @@ public class TestConstants
 	public static final CDOMTokenLoader<CDOMObject> TOKEN_LOADER = new CDOMTokenLoader<>();
 
 	public static final ChooseLst CHOOSE_TOKEN = new ChooseLst();
+
+	public static final Integer I1 = 1;
+
+	public static final Integer I2 = 2;
+
+	public static final Integer I3 = 3;
+
+	public static final FormatManager<Dice> DICE_MANAGER = new DiceFormat();
+
+	public static final FormatManager<Number[]> NUMBER_ARR_FORMAT =
+			new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER, '\n', ',');
 
 }

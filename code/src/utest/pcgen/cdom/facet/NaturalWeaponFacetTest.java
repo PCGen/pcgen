@@ -39,7 +39,7 @@ public class NaturalWeaponFacetTest extends
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		super.setUp();
 		CDOMObject cdo1 = new PCTemplate();
