@@ -40,6 +40,8 @@ import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
 import pcgen.base.graph.inst.DirectionalSetMapGraph;
+import pcgen.base.logging.Logging;
+import pcgen.base.logging.Severity;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -356,10 +358,9 @@ public class DynamicSolverManager implements SolverManager
 		}
 		if (!dependentVarIDs.isEmpty())
 		{
-			/*
-			 * TODO Some form of error here since couldn't find matching edges for all
-			 * dependencies...
-			 */
+			Logging.log(Severity.ERROR,
+				() -> "Unable to find matching edges for all Solver Dependencies: "
+					+ dependentVarIDs);
 		}
 	}
 
