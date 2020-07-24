@@ -51,7 +51,12 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	protected void setUp()
 	{
 		super.setUp();
-		resetManager();
+		depManager = getManagerFactory().generateDependencyManager(
+			getFormulaManager(), getGlobalScopeInst());
+		depManager = getManagerFactory().withVariables(depManager);
+		argManager = new ArgumentDependencyManager();
+		depManager = depManager.getWith(ArgumentDependencyManager.KEY,
+			Optional.of(argManager));
 		varCapture = new DependencyVisitor();
 	}
 
@@ -73,16 +78,6 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		String formula = "abs(-4.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		return new Node[]{four, five, node};
-	}
-
-	private void resetManager()
-	{
-		depManager = getManagerFactory().generateDependencyManager(getFormulaManager(),
-			getGlobalScopeInst());
-		depManager = getManagerFactory().withVariables(depManager);
-		argManager = new ArgumentDependencyManager();
-		depManager = depManager.getWith(ArgumentDependencyManager.KEY,
-			Optional.of(argManager));
 	}
 
 	@Test
