@@ -19,7 +19,10 @@
  */
 package pcgen.base.graph.base;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * A DirectionalGraph is a Graph which contains directional edges. Directional
@@ -45,7 +48,17 @@ public interface DirectionalGraph<N, ET extends DirectionalEdge<N>> extends
 	 *            The Node for which to return the inward Edges.
 	 * @return The List of Edges for which the given Node is a sink Node.
 	 */
-	public List<ET> getInwardEdgeList(N node);
+	public default List<ET> getInwardEdgeList(N node)
+	{
+		Collection<ET> adjacentEdgeList = getAdjacentEdges(node);
+		if (adjacentEdgeList == null)
+		{
+			return null;
+		}
+		return adjacentEdgeList.stream()
+							   .filter(edge -> edge.isSink(node))
+							   .collect(Collectors.toCollection(ArrayList::new));
+	}
 
 	/**
 	 * Returns a List of the Edges for which the given Node is a source Node in
@@ -55,7 +68,17 @@ public interface DirectionalGraph<N, ET extends DirectionalEdge<N>> extends
 	 *            The Node for which to return the outward Edges.
 	 * @return The List of Edges for which the given Node is a source Node.
 	 */
-	public List<ET> getOutwardEdgeList(N node);
+	public default List<ET> getOutwardEdgeList(N node)
+	{
+		Collection<ET> adjacentEdgeList = getAdjacentEdges(node);
+		if (adjacentEdgeList == null)
+		{
+			return null;
+		}
+		return adjacentEdgeList.stream()
+							   .filter(edge -> edge.isSource(node))
+							   .collect(Collectors.toCollection(ArrayList::new));
+	}
 
 	/**
 	 * Returns true if the given Node is connected to any Edge in this
@@ -67,7 +90,22 @@ public interface DirectionalGraph<N, ET extends DirectionalEdge<N>> extends
 	 * @return true if the given Node is connected to any Edge in this
 	 *         DirectionalGraph as a sink Node; false otherwise
 	 */
-	public boolean hasInwardEdge(N node);
+	public default boolean hasInwardEdge(N node)
+	{
+		Collection<ET> adjacentEdgeList = getAdjacentEdges(node);
+		if (adjacentEdgeList == null)
+		{
+			return false;
+		}
+		for (ET edge : adjacentEdgeList)
+		{
+			if (edge.isSink(node))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * Returns true if the given Node is connected to any Edge in this
@@ -79,5 +117,21 @@ public interface DirectionalGraph<N, ET extends DirectionalEdge<N>> extends
 	 * @return true if the given Node is connected to any Edge in this
 	 *         DirectionalGraph as a source Node; false otherwise
 	 */
-	public boolean hasOutwardEdge(N node);
+	public default boolean hasOutwardEdge(N node)
+	{
+		Collection<ET> adjacentEdgeList = getAdjacentEdges(node);
+		if (adjacentEdgeList == null)
+		{
+			return false;
+		}
+		for (ET edge : adjacentEdgeList)
+		{
+			if (edge.isSource(node))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

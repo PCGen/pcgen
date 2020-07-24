@@ -19,10 +19,7 @@
  */
 package pcgen.base.graph.inst;
 
-import java.util.Collections;
-import java.util.List;
-
-import pcgen.base.graph.base.DirectionalEdge;
+import pcgen.base.graph.base.DirectionalGraphEdge;
 
 /**
  * Represents a default implementation of a Directional GraphEdge. A GraphEdge
@@ -32,7 +29,7 @@ import pcgen.base.graph.base.DirectionalEdge;
  *            The type of Node stored in this Edge
  */
 public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
-		implements DirectionalEdge<N>
+		implements DirectionalGraphEdge<N>
 {
 
 	/**
@@ -55,30 +52,6 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	public DefaultDirectionalGraphEdge<N> createReplacementEdge(N gn1, N gn2)
 	{
 		return new DefaultDirectionalGraphEdge<>(gn1, gn2);
-	}
-
-	@Override
-	public boolean isSource(N node)
-	{
-		return getNodeAt(0).equals(node);
-	}
-
-	@Override
-	public boolean isSink(N node)
-	{
-		return getNodeAt(1).equals(node);
-	}
-
-	@Override
-	public List<N> getSinkNodes()
-	{
-		return Collections.singletonList(getNodeAt(1));
-	}
-
-	@Override
-	public List<N> getSourceNodes()
-	{
-		return Collections.singletonList(getNodeAt(0));
 	}
 
 	@Override
