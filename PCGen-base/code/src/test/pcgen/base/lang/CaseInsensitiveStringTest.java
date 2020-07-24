@@ -17,29 +17,23 @@
  */
 package pcgen.base.lang;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test the CaseInsensitiveString class
  */
-public class CaseInsensitiveStringTest extends TestCase
+public class CaseInsensitiveStringTest
 {
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testNullConstructor()
 	{
-		try
-		{
-			new CaseInsensitiveString(null);
-			fail("Expected CaseInsensitiveString to reject null argument in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> new CaseInsensitiveString(null));
 	}
 	
 	@Test

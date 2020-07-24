@@ -15,10 +15,16 @@
  */
 package pcgen.base.format.table;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Optional;
 
-import junit.framework.TestCase;
-import pcgen.base.format.NumberManager;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.GenericFormatManager;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.FormatManager;
@@ -27,63 +33,48 @@ import pcgen.testsupport.MockObjectDatabase;
 /**
  * Test the ColumnFormatFactory class
  */
-public class ColumnFormatFactoryTest extends TestCase
+public class ColumnFormatFactoryTest
 {
-	private final NumberManager numberManager = new NumberManager();
-	MockObjectDatabase mod = new MockObjectDatabase();
-	FormatManager<TableColumn> baseManager =
+	private MockObjectDatabase mod = new MockObjectDatabase();
+	private FormatManager<TableColumn> baseManager =
 			new GenericFormatManager<>(mod, TableColumn.class, "IGNORED");
-	ColumnFormatFactory factory = new ColumnFormatFactory(baseManager);
+	private ColumnFormatFactory factory = new ColumnFormatFactory(baseManager);
 
+	@AfterEach
+	void tearDown()
+	{
+		factory = null;
+		baseManager = null;
+		mod = null;
+	}
+
+	@Test
 	public void testBuild()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
-		library.addFormatManager(numberManager);
+		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);
 		assertEquals("COLUMN", factory.getBuilderBaseFormat());
 		ColumnFormatManager<?> formatManager = (ColumnFormatManager<?>) factory
 			.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals(TableColumn.class, formatManager.getManagedClass());
 		assertTrue(formatManager.getComponentManager().isPresent());
-		assertEquals(numberManager, formatManager.getComponentManager().get());
+		assertEquals(FormatUtilities.NUMBER_MANAGER, formatManager.getComponentManager().get());
 	}
 
+	@Test
 	public void testBuildNoFormatAvailable()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
 		assertEquals("COLUMN", factory.getBuilderBaseFormat());
-		try
-		{
-			factory.build(Optional.empty(), Optional.of("NUMBER"), library);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected!
-		}
-		try
-		{
-			factory.build(Optional.empty(), Optional.empty(), library);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected!
-		}
+		assertThrows(IllegalArgumentException.class, () -> factory.build(Optional.empty(), Optional.of("NUMBER"), library));
+		assertThrows(IllegalArgumentException.class, () -> factory.build(Optional.empty(), Optional.empty(), library));
 	}
 
+	@Test
 	public void testBuildParentIllegal()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
 		assertEquals("COLUMN", factory.getBuilderBaseFormat());
-		try
-		{
-			factory.build(Optional.of("NUMBER"), Optional.of("NUMBER"),
-				library);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected!
-		}
+		assertThrows(IllegalArgumentException.class, () -> factory.build(Optional.of("NUMBER"), Optional.of("NUMBER"), library));
 	}
 }

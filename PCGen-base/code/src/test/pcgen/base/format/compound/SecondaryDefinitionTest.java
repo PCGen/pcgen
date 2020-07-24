@@ -15,107 +15,60 @@
  */
 package pcgen.base.format.compound;
 
-import junit.framework.TestCase;
-import pcgen.base.format.BooleanManager;
-import pcgen.base.format.NumberManager;
-import pcgen.base.format.StringManager;
-import pcgen.base.formatmanager.CompoundFormatFactory;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 
 /**
  * Test the SecondaryDefinitio class
  */
-public class SecondaryDefinitionTest extends TestCase
+public class SecondaryDefinitionTest
 {
 
-	private final NumberManager numberManager = new NumberManager();
-	private final BooleanManager booleanManager = new BooleanManager();
-	private final StringManager stringManager = new StringManager();
-	CompoundFormatFactory manager = new CompoundFormatFactory(',', '|');
-
+	@Test
 	public void testValueOf()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
-		library.addFormatManager(numberManager);
-		library.addFormatManager(booleanManager);
-		library.addFormatManager(stringManager);
+		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);
+		library.addFormatManager(FormatUtilities.BOOLEAN_MANAGER);
+		library.addFormatManager(FormatUtilities.STRING_MANAGER);
 		SecondaryDefinition def = SecondaryDefinition.valueOf(library, "NUMBER=b");
-		assertEquals(def.getFormatManager(), numberManager);
+		assertEquals(def.getFormatManager(), FormatUtilities.NUMBER_MANAGER);
 		assertEquals(def.getName(), "b");
 		assertTrue(def.isRequired());
 	}
 
+	@Test
 	public void testValueOfOptional()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
-		library.addFormatManager(numberManager);
-		library.addFormatManager(booleanManager);
-		library.addFormatManager(stringManager);
+		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);
+		library.addFormatManager(FormatUtilities.BOOLEAN_MANAGER);
+		library.addFormatManager(FormatUtilities.STRING_MANAGER);
 		SecondaryDefinition def = SecondaryDefinition.valueOf(library, "NUMBER?=b");
-		assertEquals(def.getFormatManager(), numberManager);
+		assertEquals(def.getFormatManager(), FormatUtilities.NUMBER_MANAGER);
 		assertEquals(def.getName(), "b");
 		assertFalse(def.isRequired());
 	}
 
+	@Test
 	public void testValueOfFail()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
-		library.addFormatManager(numberManager);
-		library.addFormatManager(booleanManager);
-		library.addFormatManager(stringManager);
-		try
-		{
-			SecondaryDefinition.valueOf(library, "A=b");
-			fail("Bad Format should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			SecondaryDefinition.valueOf(library, "NUMBER==b");
-			fail("Double equals should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			SecondaryDefinition.valueOf(library, "NUMBER=b=c");
-			fail("Two Equals should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			SecondaryDefinition.valueOf(library, "NUMBER");
-			fail("No Equals should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			SecondaryDefinition.valueOf(library, "NUMBER=");
-			fail("No Name should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			SecondaryDefinition.valueOf(library, "=B");
-			fail("No Format should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//Expected
-		}
+		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);
+		library.addFormatManager(FormatUtilities.BOOLEAN_MANAGER);
+		library.addFormatManager(FormatUtilities.STRING_MANAGER);
+		assertThrows(IllegalArgumentException.class, () -> SecondaryDefinition.valueOf(library, "A=b"));
+		assertThrows(IllegalArgumentException.class, () -> SecondaryDefinition.valueOf(library, "NUMBER==b"));
+		assertThrows(IllegalArgumentException.class, () -> SecondaryDefinition.valueOf(library, "NUMBER=b=c"));
+		assertThrows(IllegalArgumentException.class, () -> SecondaryDefinition.valueOf(library, "NUMBER"));
+		assertThrows(IllegalArgumentException.class, () -> SecondaryDefinition.valueOf(library, "NUMBER="));
+		assertThrows(IllegalArgumentException.class, () -> SecondaryDefinition.valueOf(library, "=B"));
 	}
 }

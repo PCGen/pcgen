@@ -17,36 +17,25 @@
  */
 package pcgen.base.lang;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Test the NumberUtilities class
  */
-public class NumberComparatorTest extends TestCase
+public class NumberComparatorTest
 {
+	@Test
 	public void testCompareFail()
 	{
 		NumberComparator comparator = new NumberComparator();
-		try
-		{
-			assertEquals(0, comparator.compare(3, null));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
-		try
-		{
-			assertEquals(0, comparator.compare(null, 2.5));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
+		assertThrows(NullPointerException.class, () -> comparator.compare(3, null));
+		assertThrows(NullPointerException.class, () -> comparator.compare(null, 2.5));
 	}
 
+	@Test
 	public void testCompare()
 	{
 		NumberComparator comparator = new NumberComparator();

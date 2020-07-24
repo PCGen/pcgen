@@ -17,30 +17,31 @@
  */
 package pcgen.base.graph.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test the DefaultHyperEdge class
  */
-public class DefaultHyperEdgeTest extends TestCase
+public class DefaultHyperEdgeTest
 {
 
 	private DefaultHyperEdge<Integer> edge1, edge2, edge3, edge4, edge5, edge6;
 
 	private Integer node3, node4, node5, node6;
 
-	/**
-	 * Sets up the fixture, for example, open a network connection. This method
-	 * is called before a test is executed.
-	 * 
-	 * @throws Exception
-	 */
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		node3 = new Integer(3);
 		node4 = new Integer(4);
@@ -66,64 +67,40 @@ public class DefaultHyperEdgeTest extends TestCase
 						node4, node6}));
 	}
 
-	@SuppressWarnings("unused")
-	public void testDefaultHyperEdge()
+	@AfterEach
+	void tearDown()
 	{
-		try
-		{
-			new DefaultHyperEdge<Integer>(null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			new DefaultHyperEdge<>(Arrays.asList(new Integer[]{}));
-			fail();
-		}
-		catch (IllegalArgumentException iae)
-		{
-			//expected
-		}
-		try
-		{
-			new DefaultHyperEdge<>(Arrays.asList(new Integer[]{node4,
-					null}));
-			fail();
-		}
-		catch (IllegalArgumentException iae)
-		{
-			//expected
-		}
+		node3 = null;
+		node4 = null;
+		node5 = null;
+		node6 = null;
+		edge1 = null;
+		edge2 = null;
+		edge3 = null;
+		edge4 = null;
+		edge5 = null;
+		edge6 = null;
 	}
 
+	@Test
+	public void testDefaultHyperEdge()
+	{
+		assertThrows(NullPointerException.class, () -> new DefaultHyperEdge<Integer>(null));
+		assertThrows(IllegalArgumentException.class, () -> new DefaultHyperEdge<>(Arrays.asList(new Integer[]{})));
+		assertThrows(IllegalArgumentException.class, () -> new DefaultHyperEdge<>(Arrays.asList(new Integer[]{node4, null})));
+	}
+
+	@Test
 	public void testGetNodeAt()
 	{
 		assertEquals(node6, edge3.getNodeAt(0));
 		assertEquals(node4, edge3.getNodeAt(1));
 		assertEquals(node3, edge3.getNodeAt(2));
-		try
-		{
-			edge3.getNodeAt(-1);
-			fail();
-		}
-		catch (IndexOutOfBoundsException e)
-		{
-			//expected
-		}
-		try
-		{
-			edge3.getNodeAt(3);
-			fail();
-		}
-		catch (IndexOutOfBoundsException e)
-		{
-			//expected
-		}
+		assertThrows(IndexOutOfBoundsException.class, () -> edge3.getNodeAt(-1));
+		assertThrows(IndexOutOfBoundsException.class, () -> edge3.getNodeAt(3));
 	}
 
+	@Test
 	public void testGetAdjacentNodes()
 	{
 		List<Integer> l = edge3.getAdjacentNodes();
@@ -136,6 +113,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		assertTrue(l.contains(node6));
 	}
 
+	@Test
 	public void testGetAdjacentNodeCount()
 	{
 		assertEquals(3, edge1.getAdjacentNodeCount());
@@ -146,6 +124,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		assertEquals(2, edge6.getAdjacentNodeCount());
 	}
 
+	@Test
 	public void testIsAdjacentEdge()
 	{
 		assertTrue(edge1.isAdjacentNode(node3));
@@ -154,26 +133,11 @@ public class DefaultHyperEdgeTest extends TestCase
 		assertTrue(edge1.isAdjacentNode(node6));
 	}
 
+	@Test
 	public void testCreateReplacementEdge()
 	{
-		try
-		{
-			edge1.createReplacementEdge(null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			edge1.createReplacementEdge(new ArrayList<>());
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> edge1.createReplacementEdge(null));
+		assertThrows(IllegalArgumentException.class, () -> edge1.createReplacementEdge(new ArrayList<>()));
 		DefaultHyperEdge<Integer> newEdge =
 				edge1.createReplacementEdge(Arrays.asList(new Integer[]{4, 5}));
 		assertTrue(newEdge.getClass().equals(edge1.getClass()));

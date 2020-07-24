@@ -17,83 +17,92 @@
  */
 package pcgen.base.lang;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
 import pcgen.testsupport.TestSupport;
 
 /**
  * Test the StringUtil class
  */
-public class StringUtilTest extends TestCase
+public class StringUtilTest
 {
 
+	@Test
 	public void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(StringUtil.class);
 	}
 
+	@Test
 	public void testAllowNullCollection()
 	{
 		assertEquals("", StringUtil.join((Collection<?>) null, ", "));
 	}
 
+	@Test
 	public void testAllowNullArray()
 	{
 		assertEquals("", StringUtil.join((String[]) null, ", "));
 	}
 
+	@Test
 	public void testAllowEmptyCollection()
 	{
 		assertEquals("", StringUtil.join(Collections.emptyList(), ", "));
 	}
 
+	@Test
 	public void testAllowEmptyArray()
 	{
 		assertEquals("", StringUtil.join(new String[]{}, ", "));
 	}
 
+	@Test
 	public void testJoinArray()
 	{
 		assertEquals("Foo, Bar", StringUtil.join(new String[]{"Foo", "Bar"},
 			", "));
 	}
 
+	@Test
 	public void testJoinDupeArray()
 	{
 		assertEquals("Foo, Foo", StringUtil.join(new String[]{"Foo", "Foo"},
 			", "));
 	}
 
+	@Test
 	public void testJoinNonStringList()
 	{
 		assertEquals("1, 2", StringUtil.join(
 			Arrays.asList(new Integer[]{1, 2}), ", "));
 	}
 
+	@Test
 	public void testJoinNullArrayContents()
 	{
 		assertEquals("Foo, null", StringUtil
 			.join(new String[]{"Foo", null}, ", "));
 	}
 
+	@Test
 	public void testJoinNullListContents()
 	{
-		try
-		{
-			assertEquals("1", StringUtil.join(Arrays.asList(new Integer[]{1,
-				null}), ", "));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
+		assertThrows(NullPointerException.class,
+			() -> StringUtil.join(Arrays.asList(new Integer[]{1, null}), ", "));
 	}
 
+	@Test
 	public void testReplaceAll()
 	{
 		assertEquals("ABC", StringUtil.replaceAll("ABD", "D", "C"));
@@ -107,6 +116,7 @@ public class StringUtilTest extends TestCase
 		assertEquals("ABCCDbEFG", StringUtil.replaceAll("ABDaDaDbEFG", "Da", "C"));
 	}
 
+	@Test
 	public void testHasBalancedParens()
 	{
 		assertTrue(StringUtil.hasBalancedParens("No Parens!"));
@@ -127,6 +137,7 @@ public class StringUtilTest extends TestCase
 		assertFalse(StringUtil.hasBalancedParens("(and getting fancy) doesn't help)"));
 	}
 	
+	@Test
 	public void testCaseSensitiveOrder()
 	{
 		Comparator<String> cso = StringUtil.CASE_SENSITIVE_ORDER;
@@ -139,23 +150,7 @@ public class StringUtilTest extends TestCase
 		assertTrue(cso.compare("Ca", "cb") < 0);
 		assertTrue(cso.compare("bb", "Bc") > 0);
 		assertTrue(cso.compare("Bc", "bb") < 0);
-		try
-		{
-			assertTrue(cso.compare(null, "Bc") > 0);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertTrue(cso.compare("Bc", null) > 0);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> cso.compare(null, "Bc"));
+		assertThrows(NullPointerException.class, () -> cso.compare("Bc", null));
 	}
 }

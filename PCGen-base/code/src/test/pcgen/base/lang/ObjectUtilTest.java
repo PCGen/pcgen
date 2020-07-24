@@ -17,46 +17,57 @@
  */
 package pcgen.base.lang;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
 import pcgen.testsupport.TestSupport;
 
 /**
  * Test the ObjectUtil class
  */
-public class ObjectUtilTest extends TestCase
+public class ObjectUtilTest
 {
 
+	@Test
 	public void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(ObjectUtil.class);
 	}
 
+	@Test
 	public void testNulls()
 	{
 		assertTrue(ObjectUtil.identityEquals(null).test(null));
 	}
 
+	@Test
 	public void testNullObject()
 	{
 		assertFalse(ObjectUtil.identityEquals(null).test(new Object()));
 	}
 
+	@Test
 	public void testObjectNull()
 	{
 		assertFalse(ObjectUtil.identityEquals(new Object()).test(null));
 	}
 
+	@Test
 	public void testDifferent()
 	{
 		assertFalse(ObjectUtil.identityEquals(new Object()).test(new Object()));
 	}
 
+	@Test
 	public void testSameInstance()
 	{
 		Object obj = new Object();
 		assertTrue(ObjectUtil.identityEquals(obj).test(obj));
 	}
 
+	@Test
 	public void testEqualsMethodIsIdentity()
 	{
 		assertFalse(ObjectUtil.identityEquals(new Integer(1)).test(new Integer(1)));

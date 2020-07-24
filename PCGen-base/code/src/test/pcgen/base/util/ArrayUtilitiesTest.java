@@ -15,23 +15,21 @@
  */
 package pcgen.base.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.IntFunction;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
 import pcgen.testsupport.TestSupport;
 
-public class ArrayUtilitiesTest extends TestCase
+public class ArrayUtilitiesTest
 {
-
-	private final Integer two = 2;
-	private final Integer three = 3;
-	private final Integer four = 4;
-	private final Integer five = 5;
-	private final Integer six = 6;
 
 	@Test
 	public void testConstructor()
@@ -48,11 +46,11 @@ public class ArrayUtilitiesTest extends TestCase
 		assertNull(ArrayUtilities.mergeArray(arrayClass, first, second));
 		first = new Integer[]{};
 		assertTrue(ArrayUtilities.mergeArray(arrayClass, first, second).length == 0);
-		first = new Integer[]{three, four};
+		first = new Integer[]{TestSupport.I3, TestSupport.I4};
 		assertTrue(ArrayUtilities.mergeArray(arrayClass, first, second) == first);
 		second = new Integer[]{};
 		assertTrue(ArrayUtilities.mergeArray(arrayClass, first, second) == first);
-		second = new Integer[]{five, six};
+		second = new Integer[]{TestSupport.I5, TestSupport.I6};
 		assertTrue(Arrays.deepEquals(ArrayUtilities.mergeArray(arrayClass, first, second),
 			new Integer[]{3, 4, 5, 6}));
 		first = new Integer[]{};
@@ -64,27 +62,9 @@ public class ArrayUtilitiesTest extends TestCase
 	@Test
 	public void testDifferenceBad()
 	{
-		Integer[] first = null;
-		Integer[] second = null;
-		try
-		{
-			ArrayUtilities.calculateDifference(first, second);
-			fail("Expected NPE for null values");
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
-		first = new Integer[]{};
-		try
-		{
-			ArrayUtilities.calculateDifference(first, second);
-			fail("Expected NPE for null values");
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
+		assertThrows(NullPointerException.class, () -> ArrayUtilities.calculateDifference(null, null));
+		assertThrows(NullPointerException.class, () -> ArrayUtilities.calculateDifference(new Integer[]{}, null));
+		assertThrows(NullPointerException.class, () -> ArrayUtilities.calculateDifference(null, new Integer[]{}));
 	}
 
 	@Test
@@ -101,7 +81,7 @@ public class ArrayUtilitiesTest extends TestCase
 	@Test
 	public void testDifferenceOnlyRemove()
 	{
-		Integer[] first = new Integer[]{three, four};
+		Integer[] first = new Integer[]{TestSupport.I3, TestSupport.I4};
 		Integer[] second = new Integer[]{};
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateDifference(first, second);
@@ -116,7 +96,7 @@ public class ArrayUtilitiesTest extends TestCase
 	public void testDifferenceOnlyAdd()
 	{
 		Integer[] first = new Integer[]{};
-		Integer[] second = new Integer[]{five, six};
+		Integer[] second = new Integer[]{TestSupport.I5, TestSupport.I6};
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateDifference(first, second);
 		List<Integer> added = tuple.getSecond();
@@ -134,7 +114,7 @@ public class ArrayUtilitiesTest extends TestCase
 		 * 
 		 * This is specifically testing that the two "3" objects are detected as equal
 		 */
-		Integer[] first = new Integer[]{three, four, six};
+		Integer[] first = new Integer[]{TestSupport.I3, TestSupport.I4, TestSupport.I6};
 		Integer[] second = new Integer[]{7, new Integer(3), 5};
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateDifference(first, second);
@@ -177,28 +157,28 @@ public class ArrayUtilitiesTest extends TestCase
 	@Test
 	public void testIdentityOnlyRemove()
 	{
-		Integer[] first = new Integer[]{three, four};
+		Integer[] first = new Integer[]{TestSupport.I3, TestSupport.I4};
 		Integer[] second = new Integer[]{};
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateIdentityDifference(first, second);
 		List<Integer> removed = new IdentityList<>(tuple.getFirst());
 		assertEquals(2, removed.size());
-		assertTrue(removed.contains(three));
-		assertTrue(removed.contains(four));
+		assertTrue(removed.contains(TestSupport.I3));
+		assertTrue(removed.contains(TestSupport.I4));
 		assertEquals(0, tuple.getSecond().size());
 	}
 
 	@Test
 	public void testIdentityOnlyRemoveNull()
 	{
-		Integer[] first = new Integer[]{three, four};
+		Integer[] first = new Integer[]{TestSupport.I3, TestSupport.I4};
 		Integer[] second = null;
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateIdentityDifference(first, second);
 		List<Integer> removed = new IdentityList<>(tuple.getFirst());
 		assertEquals(2, removed.size());
-		assertTrue(removed.contains(three));
-		assertTrue(removed.contains(four));
+		assertTrue(removed.contains(TestSupport.I3));
+		assertTrue(removed.contains(TestSupport.I4));
 		assertEquals(0, tuple.getSecond().size());
 	}
 
@@ -206,28 +186,28 @@ public class ArrayUtilitiesTest extends TestCase
 	public void testIdentityOnlyAdd()
 	{
 		Integer[] first = new Integer[]{};
-		Integer[] second = new Integer[]{five, six};
+		Integer[] second = new Integer[]{TestSupport.I5, TestSupport.I6};
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateIdentityDifference(first, second);
 		List<Integer> added = new IdentityList<>(tuple.getSecond());
 		assertEquals(0, tuple.getFirst().size());
 		assertEquals(2, added.size());
-		assertTrue(added.contains(five));
-		assertTrue(added.contains(six));
+		assertTrue(added.contains(TestSupport.I5));
+		assertTrue(added.contains(TestSupport.I6));
 	}
 
 	@Test
 	public void testIdentityOnlyAddNull()
 	{
 		Integer[] first = null;
-		Integer[] second = new Integer[]{five, six};
+		Integer[] second = new Integer[]{TestSupport.I5, TestSupport.I6};
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateIdentityDifference(first, second);
 		List<Integer> added = new IdentityList<>(tuple.getSecond());
 		assertEquals(0, tuple.getFirst().size());
 		assertEquals(2, added.size());
-		assertTrue(added.contains(five));
-		assertTrue(added.contains(six));
+		assertTrue(added.contains(TestSupport.I5));
+		assertTrue(added.contains(TestSupport.I6));
 	}
 
 	@Test
@@ -239,20 +219,20 @@ public class ArrayUtilitiesTest extends TestCase
 		 * This is specifically testing that the two "3" objects are detected as equal
 		 */
 		Integer otherthree = new Integer(3);
-		Integer[] first = new Integer[]{three, four, six};
-		Integer[] second = new Integer[]{two, otherthree, five};
+		Integer[] first = new Integer[]{TestSupport.I3, TestSupport.I4, TestSupport.I6};
+		Integer[] second = new Integer[]{TestSupport.I2, otherthree, TestSupport.I5};
 		Tuple<List<Integer>, List<Integer>> tuple =
 				ArrayUtilities.calculateIdentityDifference(first, second);
 		List<Integer> removed = new IdentityList<>(tuple.getFirst());
 		List<Integer> added = new IdentityList<>(tuple.getSecond());
 		assertEquals(3, removed.size());
 		assertEquals(3, added.size());
-		assertTrue(added.contains(two));
+		assertTrue(added.contains(TestSupport.I2));
 		assertTrue(added.contains(otherthree));
-		assertTrue(added.contains(five));
-		assertTrue(removed.contains(six));
-		assertTrue(removed.contains(four));
-		assertTrue(removed.contains(three));
+		assertTrue(added.contains(TestSupport.I5));
+		assertTrue(removed.contains(TestSupport.I6));
+		assertTrue(removed.contains(TestSupport.I4));
+		assertTrue(removed.contains(TestSupport.I3));
 	}
 	
 	@Test
@@ -398,5 +378,4 @@ public class ArrayUtilitiesTest extends TestCase
 		array = ArrayUtilities.removeOnCopy(array, 0);
 		assertTrue(array.length == 0);
 	}
-
 }

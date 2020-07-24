@@ -16,83 +16,72 @@
  */
 package pcgen.base.formatmanager;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.format.StringManager;
 import pcgen.testsupport.MockObjectDatabase;
 
 /**
  * Test the GenericFormatManager class
  */
-public class GenericFormatManagerTest extends TestCase
+public class GenericFormatManagerTest
 {
 	private GenericFormatManager<Object> manager;
 	private MockObjectDatabase database;
 
-	@Override
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		database = new MockObjectDatabase();
 		manager = new GenericFormatManager<>(database, Object.class, "KEYED");
 	}
 
+	@AfterEach
+	void tearDown()
+	{
+		database = null;
+		manager = null;
+	}
+
+	@Test
 	public void testConvertFailNull()
 	{
-		try
-		{
-			manager.convert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> manager.convert(null));
 	}
 
+	@Test
 	public void testUnconvertFailNull()
 	{
-		try
-		{
-			manager.unconvert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> manager.unconvert(null));
 	}
 
+	@Test
 	public void testConvertIndirectFailNull()
 	{
-		try
-		{
-			manager.convertIndirect(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> manager.convertIndirect(null));
 	}
 
+	@Test
 	public void testConvertIndirectFailNotNumeric()
 	{
-		try
-		{
-			manager.convertIndirect("SomeString");
-			fail("invalid value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("SomeString"));
 	}
 
+	@Test
 	public void testGetManagedClass()
 	{
 		assertSame(Object.class, manager.getManagedClass());
 	}
 
+	@Test
 	public void testConvert()
 	{
 		database.map.put(Object.class, "1", 1);
@@ -103,6 +92,7 @@ public class GenericFormatManagerTest extends TestCase
 		assertEquals(Double.valueOf(1.4), manager.convert("1.4"));
 	}
 
+	@Test
 	public void testUnconvert()
 	{
 		assertEquals("1", manager.unconvert(Integer.valueOf(1)));
@@ -110,6 +100,7 @@ public class GenericFormatManagerTest extends TestCase
 		assertEquals("1.4", manager.unconvert(Double.valueOf(1.4)));
 	}
 
+	@Test
 	public void testConvertIndirect()
 	{
 		database.map.put(Object.class, "1", 1);
@@ -120,11 +111,13 @@ public class GenericFormatManagerTest extends TestCase
 		assertEquals(Double.valueOf(1.4), manager.convertIndirect("1.4").get());
 	}
 
+	@Test
 	public void testGetIdentifier()
 	{
 		assertEquals("KEYED", manager.getIdentifierType());
 	}
 
+	@Test
 	public void testHashCodeEquals()
 	{
 		assertFalse(manager.equals(new Object()));
@@ -146,12 +139,14 @@ public class GenericFormatManagerTest extends TestCase
 			new GenericFormatManager<>(database, Object.class, "KEYED")));
 	}
 
+	@Test
 	public void testGetComponent()
 	{
 		assertTrue(manager.getComponentManager().isEmpty());
 	}
 
 
+	@Test
 	public void testIsDirect()
 	{
 		assertEquals(database.isDirect(), manager.isDirect());

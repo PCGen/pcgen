@@ -15,11 +15,13 @@
  */
 package pcgen.base.formatmanager;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -28,9 +30,10 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the FormatUtilites class
  */
-public class FormatUtilitiesTest extends TestCase
+public class FormatUtilitiesTest
 {
 
+	@Test
 	public void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(FormatUtilities.class);
@@ -41,24 +44,8 @@ public class FormatUtilitiesTest extends TestCase
 	{
 		NumberManager numberManager = new NumberManager();
 		assertEquals(numberManager, FormatUtilities.isValid(numberManager));
-		try
-		{
-			FormatUtilities.isValid(new BadManagerNoIdentifierType());
-			fail("Should reject a manager without an identifier");
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			FormatUtilities.isValid(new BadManagerNoManagedClass());
-			fail("Should reject a manager without a managed class");
-		}
-		catch (NullPointerException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> FormatUtilities.isValid(new BadManagerNoIdentifierType()));
+		assertThrows(NullPointerException.class, () -> FormatUtilities.isValid(new BadManagerNoManagedClass()));
 	}
 
 	private class BadManagerNoIdentifierType implements FormatManager<String>

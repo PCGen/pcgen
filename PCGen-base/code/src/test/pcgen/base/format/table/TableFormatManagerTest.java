@@ -15,8 +15,13 @@
  */
 package pcgen.base.format.table;
 
-import junit.framework.TestCase;
-import pcgen.base.format.NumberManager;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.GenericFormatManager;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -26,119 +31,65 @@ import pcgen.testsupport.MockObjectDatabase;
 /**
  * Test the TableFormatManager class
  */
-public class TableFormatManagerTest extends TestCase
+public class TableFormatManagerTest
 {
-	private final NumberManager numberManager = new NumberManager();
-
+	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void testUnconvertFailObject()
 	{
 		MockObjectDatabase mod = new MockObjectDatabase();
 		FormatManager<DataTable> baseManager =
 				new GenericFormatManager<>(mod, DataTable.class, "IGNORED");
-		TableFormatManager<Number> manager =
-				new TableFormatManager<>(baseManager, numberManager);
-		try
-		{
-			//Yes generics are being violated in order to do this test
-			FormatManager formatManager = manager;
-			formatManager.unconvert(new Object());
-			fail("Object should fail");
-		}
-		catch (ClassCastException e)
-		{
-			//expected
-		}
+		//Yes generics are being violated in order to do this test
+		FormatManager formatManager = new TableFormatManager<>(baseManager, FormatUtilities.NUMBER_MANAGER);
+		assertThrows(ClassCastException.class, () -> formatManager.unconvert(new Object()));
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testConstructor()
 	{
 		MockObjectDatabase mod = new MockObjectDatabase();
 		FormatManager<DataTable> baseManager =
 				new GenericFormatManager<>(mod, DataTable.class, "IGNORED");
-		try
-		{
-			TableFormatManager<Number> manager =
-					new TableFormatManager<>(baseManager, null);
-			fail("Should not be able to use null format");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			TableFormatManager<Number> manager =
-					new TableFormatManager<>(null, numberManager);
-			fail("Should not be able to use null format");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new TableFormatManager<>(baseManager, null));
+		assertThrows(NullPointerException.class, () -> new TableFormatManager<>(null, FormatUtilities.NUMBER_MANAGER));
 	}
 
+	@Test
 	public void testRoundRobinIdentifier()
 	{
 		MockObjectDatabase mod = new MockObjectDatabase();
 		FormatManager<DataTable> baseManager =
 				new GenericFormatManager<>(mod, DataTable.class, "IGNORED");
 		TableFormatManager<Number> manager =
-				new TableFormatManager<>(baseManager, numberManager);
+				new TableFormatManager<>(baseManager, FormatUtilities.NUMBER_MANAGER);
 		assertEquals("TABLE[NUMBER]", manager.getIdentifierType());
 	}
 
+	@Test
 	public void testInvalidConvertSimpleFail()
 	{
 		MockObjectDatabase mod = new MockObjectDatabase();
 		FormatManager<DataTable> baseManager =
 				new GenericFormatManager<>(mod, DataTable.class, "IGNORED");
 		TableFormatManager<Number> manager =
-				new TableFormatManager<>(baseManager, numberManager);
-		try
-		{
-			manager.convert(null);
-			fail("Should not be able to convert null instructions");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok too
-		}
-		try
-		{
-			manager.convert("");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("|");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+				new TableFormatManager<>(baseManager, FormatUtilities.NUMBER_MANAGER);
+		assertThrows(NullPointerException.class, () -> manager.convert(null));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert(""));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("|"));
 	}
 
+	@Test
 	public void testConvert()
 	{
 		MockObjectDatabase mod = new MockObjectDatabase();
 		FormatManager<DataTable> baseManager =
 				new GenericFormatManager<>(mod, DataTable.class, "IGNORED");
 		TableFormatManager<Number> manager =
-				new TableFormatManager<>(baseManager, numberManager);
+				new TableFormatManager<>(baseManager, FormatUtilities.NUMBER_MANAGER);
 		TableColumn column = new TableColumn();
 		column.setName("Age");
-		column.setFormatManager(numberManager);
+		column.setFormatManager(FormatUtilities.NUMBER_MANAGER);
 		DataTable table = new DataTable();
 		table.setName("Penalties");
 		table.addColumn(column);
@@ -149,38 +100,29 @@ public class TableFormatManagerTest extends TestCase
 		assertEquals("Penalties", manager.unconvert(c));
 	}
 
+	@Test
+	public void testConvertIndirectIllegal()
+	{
+		MockObjectDatabase mod = new MockObjectDatabase();
+		FormatManager<DataTable> baseManager =
+				new GenericFormatManager<>(mod, DataTable.class, "IGNORED");
+		TableFormatManager<Number> manager =
+				new TableFormatManager<>(baseManager, FormatUtilities.NUMBER_MANAGER);
+		assertThrows(NullPointerException.class, () -> manager.convertIndirect(null));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect(""));
+	}
+
+	@Test
 	public void testConvertIndirect()
 	{
 		MockObjectDatabase mod = new MockObjectDatabase();
 		FormatManager<DataTable> baseManager =
 				new GenericFormatManager<>(mod, DataTable.class, "IGNORED");
 		TableFormatManager<Number> manager =
-				new TableFormatManager<>(baseManager, numberManager);
-		try
-		{
-			manager.convertIndirect(null);
-			fail("Should not be able to convert null instructions");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok too
-		}
-		try
-		{
-			manager.convertIndirect("");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+				new TableFormatManager<>(baseManager, FormatUtilities.NUMBER_MANAGER);
 		TableColumn column = new TableColumn();
 		column.setName("Age");
-		column.setFormatManager(numberManager);
+		column.setFormatManager(FormatUtilities.NUMBER_MANAGER);
 		DataTable table = new DataTable();
 		table.setName("Age");
 		table.addColumn(column);
@@ -192,13 +134,14 @@ public class TableFormatManagerTest extends TestCase
 		assertEquals("Age", manager.unconvert(c));
 	}
 
+	@Test
 	public void testInitializeFrom()
 	{
 		MockObjectDatabase mod = new MockObjectDatabase();
 		FormatManager<DataTable> baseManager =
 				new GenericFormatManager<>(mod, DataTable.class, "IGNORED");
 		TableFormatManager<Number> manager =
-				new TableFormatManager<>(baseManager, numberManager);
+				new TableFormatManager<>(baseManager, FormatUtilities.NUMBER_MANAGER);
 		//No need to make much assertion here
 		assertNotNull(manager.initializeFrom(new SimpleValueStore()));
 	}

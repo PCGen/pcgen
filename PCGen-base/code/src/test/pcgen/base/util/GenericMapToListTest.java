@@ -17,10 +17,8 @@
  */
 package pcgen.base.util;
 
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.NoPublicZeroArgConstructorMap;
 import pcgen.testsupport.NoZeroArgConstructorMap;
@@ -35,57 +33,23 @@ import pcgen.testsupport.StrangeMap;
  * @see GenericMapToListIdentityHashTest
  * @see GenericMapToListTreeTest
  */
-public class GenericMapToListTest extends TestCase
+public class GenericMapToListTest
 {
-	@SuppressWarnings("unused")
 	@Test
 	public void testConstructorNoZeroArg()
 	{
-		try
-		{
-			new GenericMapToList<>(NoZeroArgConstructorMap.class);
-			fail("Expected InstantiationException");
-		}
-		catch (ReflectiveOperationException e)
-		{
-			//expected
-		}
+		assertThrows(ReflectiveOperationException.class, () -> new GenericMapToList<>(NoZeroArgConstructorMap.class));
 	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testConstructorPrivate()
 	{
-		try
-		{
-			new GenericMapToList<>(NoPublicZeroArgConstructorMap.class);
-			fail("Expected IllegalAccessException");
-		}
-		catch (NoSuchMethodException e)
-		{
-			// OK - please keep this separate!
-		}
-		catch (ReflectiveOperationException e)
-		{
-			fail(e.getMessage());
-		}
+		assertThrows(NoSuchMethodException.class, () -> new GenericMapToList<>(NoPublicZeroArgConstructorMap.class));
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testBadClassInConstructor()
 	{
-		try
-		{
-			new GenericMapToList<>(StrangeMap.class);
-			fail();
-		}
-		catch (NoSuchMethodException e)
-		{
-			//OK, expected
-		}
-		catch (ReflectiveOperationException e)
-		{
-			fail(e.getMessage());
-		}
+		assertThrows(NoSuchMethodException.class, () -> new GenericMapToList<>(StrangeMap.class));
 	}
 }

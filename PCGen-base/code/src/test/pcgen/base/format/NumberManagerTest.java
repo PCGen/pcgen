@@ -16,144 +16,115 @@
  */
 package pcgen.base.format;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Comparator;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.SimpleValueStore;
 
 /**
  * Test the NumberManager class
  */
-public class NumberManagerTest extends TestCase
+public class NumberManagerTest
 {
-	private NumberManager manager = new NumberManager();
-
+	@Test
 	public void testConvertFailNull()
 	{
-		try
-		{
-			manager.convert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> FormatUtilities.NUMBER_MANAGER.convert(null));
 	}
 
+	@Test
 	public void testConvertFailNotNumeric()
 	{
-		try
-		{
-			manager.convert("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.NUMBER_MANAGER.convert("SomeString"));
 	}
 
+	@Test
 	public void testUnconvertFailNull()
 	{
-		try
-		{
-			manager.unconvert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> FormatUtilities.NUMBER_MANAGER.unconvert(null));
 	}
 
+	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void testUnconvertFailObject()
 	{
-		try
-		{
-			//Yes generics are being violated in order to do this test
-			FormatManager formatManager = manager;
-			formatManager.unconvert(new Object());
-			fail("Object should fail");
-		}
-		catch (ClassCastException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		//Yes generics are being violated in order to do this test
+		FormatManager formatManager = FormatUtilities.NUMBER_MANAGER;
+		assertThrows(ClassCastException.class, () -> formatManager.unconvert(new Object()));
 	}
 
+	@Test
 	public void testConvertIndirectFailNull()
 	{
-		try
-		{
-			manager.convertIndirect(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> FormatUtilities.NUMBER_MANAGER.convertIndirect(null));
 	}
 
+	@Test
 	public void testConvertIndirectFailNotNumeric()
 	{
-		try
-		{
-			manager.convertIndirect("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.NUMBER_MANAGER.convertIndirect("SomeString"));
 	}
 
+	@Test
 	public void testConvert()
 	{
-		assertEquals(Integer.valueOf(1), manager.convert("1"));
-		assertEquals(Integer.valueOf(-3), manager.convert("-3"));
-		assertEquals(Double.valueOf(1.4), manager.convert("1.4"));
+		assertEquals(Integer.valueOf(1), FormatUtilities.NUMBER_MANAGER.convert("1"));
+		assertEquals(Integer.valueOf(-3), FormatUtilities.NUMBER_MANAGER.convert("-3"));
+		assertEquals(Double.valueOf(1.4), FormatUtilities.NUMBER_MANAGER.convert("1.4"));
 	}
 
+	@Test
 	public void testUnconvert()
 	{
-		assertEquals("1", manager.unconvert(Integer.valueOf(1)));
-		assertEquals("-3", manager.unconvert(Integer.valueOf(-3)));
-		assertEquals("1.4", manager.unconvert(Double.valueOf(1.4)));
+		assertEquals("1", FormatUtilities.NUMBER_MANAGER.unconvert(Integer.valueOf(1)));
+		assertEquals("-3", FormatUtilities.NUMBER_MANAGER.unconvert(Integer.valueOf(-3)));
+		assertEquals("1.4", FormatUtilities.NUMBER_MANAGER.unconvert(Double.valueOf(1.4)));
 	}
 
+	@Test
 	public void testConvertIndirect()
 	{
-		assertEquals(Integer.valueOf(1), manager.convertIndirect("1").get());
-		assertEquals(Integer.valueOf(-3), manager.convertIndirect("-3").get());
-		assertEquals(Double.valueOf(1.4), manager.convertIndirect("1.4").get());
+		assertEquals(Integer.valueOf(1), FormatUtilities.NUMBER_MANAGER.convertIndirect("1").get());
+		assertEquals(Integer.valueOf(-3), FormatUtilities.NUMBER_MANAGER.convertIndirect("-3").get());
+		assertEquals(Double.valueOf(1.4), FormatUtilities.NUMBER_MANAGER.convertIndirect("1.4").get());
 	}
 
+	@Test
 	public void testGetIdentifier()
 	{
-		assertEquals("NUMBER", manager.getIdentifierType());
+		assertEquals("NUMBER", FormatUtilities.NUMBER_MANAGER.getIdentifierType());
 	}
 
+	@Test
 	public void testHashCodeEquals()
 	{
-		assertEquals(new NumberManager().hashCode(), manager.hashCode());
-		assertFalse(manager.equals(new Object()));
-		assertFalse(manager.equals(new StringManager()));
-		assertTrue(manager.equals(new NumberManager()));
+		assertEquals(new NumberManager().hashCode(), FormatUtilities.NUMBER_MANAGER.hashCode());
+		assertFalse(FormatUtilities.NUMBER_MANAGER.equals(new Object()));
+		assertFalse(FormatUtilities.NUMBER_MANAGER.equals(new StringManager()));
+		assertTrue(FormatUtilities.NUMBER_MANAGER.equals(new NumberManager()));
 	}
 
+	@Test
 	public void testGetComponent()
 	{
-		assertTrue(manager.getComponentManager().isEmpty());
+		assertTrue(FormatUtilities.NUMBER_MANAGER.getComponentManager().isEmpty());
 	}
 
+	@Test
 	public void testIsDirect()
 	{
-		assertTrue(manager.isDirect());
+		assertTrue(FormatUtilities.NUMBER_MANAGER.isDirect());
 	}
 
+	@Test
 	public void testGetComparator()
 	{
 		Comparator<Number> comparator = new NumberManager().getComparator();
@@ -163,14 +134,15 @@ public class NumberManagerTest extends TestCase
 		assertEquals(0, comparator.compare(Integer.valueOf(1), Double.valueOf(1)));
 	}
 
+	@Test
 	public void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
-		valueStore.addValueFor(manager.getIdentifierType(), 1);
-		Object value = manager.initializeFrom(valueStore);
+		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER.getIdentifierType(), 1);
+		Object value = FormatUtilities.NUMBER_MANAGER.initializeFrom(valueStore);
 		assertEquals(1, value);
-		valueStore.addValueFor(manager.getIdentifierType(), 3);
-		value = manager.initializeFrom(valueStore);
+		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER.getIdentifierType(), 3);
+		value = FormatUtilities.NUMBER_MANAGER.initializeFrom(valueStore);
 		assertEquals(3, value);
 	}
 }

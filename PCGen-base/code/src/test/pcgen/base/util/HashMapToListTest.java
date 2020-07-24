@@ -17,8 +17,6 @@
  */
 package pcgen.base.util;
 
-
-
 public class HashMapToListTest extends AbstractMapToListTest
 {
 	@Override

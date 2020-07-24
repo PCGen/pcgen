@@ -17,10 +17,16 @@
  */
 package pcgen.base.graph.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.EdgeChangeEvent;
 import pcgen.base.graph.base.Graph;
@@ -30,38 +36,31 @@ import pcgen.base.graph.base.NodeChangeEvent;
 /**
  * Test the GraphChangeSupport class
  */
-public class GraphChangeSupportTest extends TestCase
+public class GraphChangeSupportTest
 {
 
 	private GraphChangeSupport<Object, Edge<Object>> support;
 
-	/**
-	 * Sets up the fixture, for example, open a network connection. This method
-	 * is called before a test is executed.
-	 * 
-	 * @throws Exception
-	 */
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		Graph<Object, Edge<Object>> source = new SimpleListGraph<Object, Edge<Object>>();
 		support = new GraphChangeSupport<>(source);
 	}
 
-	@SuppressWarnings("unused")
-	public void testGraphChangeSupport()
+	@AfterEach
+	void tearDown()
 	{
-		try
-		{
-			new GraphChangeSupport<>(null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException npe)
-		{
-			//We expect this
-		}
+		support = null;
 	}
 
+	@Test
+	public void testGraphChangeSupport()
+	{
+		assertThrows(NullPointerException.class, () -> new GraphChangeSupport<>(null));
+	}
+
+	@Test
 	public void testAddGraphChangeListener()
 	{
 		try
@@ -76,6 +75,7 @@ public class GraphChangeSupportTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testGraphChangeListeners()
 	{
 		assertEquals(0, support.getGraphChangeListeners().length);
@@ -94,11 +94,13 @@ public class GraphChangeSupportTest extends TestCase
 		assertEquals(0, support.getGraphChangeListeners().length);
 	}
 
+	@Test
 	public void testFireGraphEdgeChangeEvent()
 	{
 		//NEEDTEST
 	}
 
+	@Test
 	public void testFireGraphNodeChangeEvent()
 	{
 		TransparentGCL listener = new TransparentGCL();

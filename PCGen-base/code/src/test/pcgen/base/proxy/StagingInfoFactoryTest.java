@@ -15,10 +15,10 @@
  */
 package pcgen.base.proxy;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,8 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test the StagingInfoFactory class
@@ -35,250 +34,104 @@ import org.junit.Test;
 public class StagingInfoFactoryTest
 {
 
-	private StagingInfoFactory factory = new StagingInfoFactory();
-
-	@Before
-	public void setUp()
+	private StagingInfoFactory getFactory()
 	{
+		StagingInfoFactory factory = new StagingInfoFactory();
 		factory.addProcessor(new ItemProcessor());
 		factory.addProcessor(new ListProcessor());
 		factory.addProcessor(new MapProcessor());
+		return factory;
 	}
 
 	@Test
 	public void testInvalidClass()
 	{
-		try
-		{
-			factory.produceStaging(Object.class, SetItemOnly.class, new Object());
-			fail("factory should require an interface");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetItemOnly.class, Object.class, new GetItemOnly()
-			{
-			});
-			fail("factory should require an interface");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(NoMethodInterface.class, SetItemOnly.class,
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(Object.class, SetItemOnly.class, new Object()));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetItemOnly.class, Object.class, new GetItemOnly() {}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(NoMethodInterface.class, SetItemOnly.class,
 				new NoMethodInterface()
 				{
-				});
-			fail("factory should require an interface with methods");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetListOnly.class, NoMethodInterface.class,
+				}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetListOnly.class, NoMethodInterface.class,
 				new GetListOnly()
 				{
-				});
-			fail("factory should require an interface with methods");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(SetItemOnly.class, SetItemOnly.class, new SetItemOnly()
+				}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(SetItemOnly.class, SetItemOnly.class, new SetItemOnly()
 			{
-			});
-			fail("Must have read methods on read interface");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetListOnly.class, null, new GetListOnly()
+			}));
+		assertThrows(NullPointerException.class, () -> getFactory().produceStaging(GetListOnly.class, null, new GetListOnly()
 			{
-			});
-			fail("Can't take null item");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(null, AddListOnly.class, new Object());
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetItemOnly.class, SetShouldBeVoid.class,
+			}));
+		assertThrows(NullPointerException.class, () -> getFactory().produceStaging(null, AddListOnly.class, new Object()));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetItemOnly.class, SetShouldBeVoid.class,
 				new GetItemOnly()
 				{
-				});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetListOnly.class, AddShouldBeVoid.class,
+				}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetListOnly.class, AddShouldBeVoid.class,
 				new GetListOnly()
 				{
-				});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetMapOnly.class, PutShouldBeVoid.class,
+				}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetMapOnly.class, PutShouldBeVoid.class,
 				new GetMapOnly()
 				{
-				});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetShouldHaveNoParams.class, SetItemOnly.class,
+				}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetShouldHaveNoParams.class, SetItemOnly.class,
 				new GetShouldHaveNoParams()
 				{
-				});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetItemOnly.class, SetItemShouldHaveOneParam.class,
+				}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetItemOnly.class, SetItemShouldHaveOneParam.class,
 				new GetItemOnly()
 				{
-				});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetItemOnly.class, SetDupeName.class, new GetItemOnly()
+				}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetItemOnly.class, SetDupeName.class, new GetItemOnly()
 			{
-			});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetNumber.class, SetItemOnly.class, new GetNumber()
+			}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetNumber.class, SetItemOnly.class, new GetNumber()
 			{
-			});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetItemOnly.class, LeftoverWrite.class,
+			}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetItemOnly.class, LeftoverWrite.class,
 				new GetItemOnly()
 				{
-				});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetItemOnly.class, LeftoverWrite.class, null);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(LeftoverRead.class, SetItemOnly.class,
+				}));
+		assertThrows(NullPointerException.class, () -> getFactory().produceStaging(GetItemOnly.class, LeftoverWrite.class, null));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(LeftoverRead.class, SetItemOnly.class,
 				new LeftoverRead()
 				{
-				});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(GetItemOnly.class, DupePropertyName.class,
+				}));
+		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetItemOnly.class, DupePropertyName.class,
 				new GetItemOnly()
 				{
-				});
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Expected
-		}
+				}));
 	}
 
 	@Test
 	public void testStagingSetup()
 	{
-		factory.produceStaging(GetItemOnly.class, SetItemOnly.class, new GetItemOnly()
+		getFactory().produceStaging(GetItemOnly.class, SetItemOnly.class, new GetItemOnly()
 		{
 		});
-		factory.produceStaging(GetListOnly.class, AddListOnly.class, new GetListOnly()
+		getFactory().produceStaging(GetListOnly.class, AddListOnly.class, new GetListOnly()
 		{
 		});
-		factory.produceStaging(GetMapOnly.class, PutMapOnly.class, new GetMapOnly()
+		getFactory().produceStaging(GetMapOnly.class, PutMapOnly.class, new GetMapOnly()
 		{
 		});
-		factory.produceStaging(GetItemOnly.class, SetItem.class, new SetItem()
+		getFactory().produceStaging(GetItemOnly.class, SetItem.class, new SetItem()
 		{
 		});
-		factory.produceStaging(GetListOnly.class, AddList.class, new AddList()
+		getFactory().produceStaging(GetListOnly.class, AddList.class, new AddList()
 		{
 		});
-		factory.produceStaging(GetMapOnly.class, PutMap.class, new PutMap()
+		getFactory().produceStaging(GetMapOnly.class, PutMap.class, new PutMap()
 		{
 		});
-		factory.produceStaging(ReadOnlyItem.class, SetItemOnly.class, new Settable());
+		getFactory().produceStaging(ReadOnlyItem.class, SetItemOnly.class, new Settable());
 	}
 
 	@Test
 	public void testStagingItem()
 	{
+		StagingInfoFactory factory = getFactory();
 		SetItem object = new SetItem()
 		{
 
@@ -311,6 +164,7 @@ public class StagingInfoFactoryTest
 	@Test
 	public void testStagingList()
 	{
+		StagingInfoFactory factory = getFactory();
 		AddList object = new AddList()
 		{
 
@@ -352,6 +206,7 @@ public class StagingInfoFactoryTest
 	@Test
 	public void testStagingMap()
 	{
+		StagingInfoFactory factory = getFactory();
 		PutMap object = new PutMap()
 		{
 
@@ -385,6 +240,7 @@ public class StagingInfoFactoryTest
 	@Test
 	public void testStagingParamMap()
 	{
+		StagingInfoFactory factory = getFactory();
 		PutParamMap object = new PutParamMap()
 		{
 
@@ -418,6 +274,7 @@ public class StagingInfoFactoryTest
 	@Test
 	public void testStagingItemReadOnly()
 	{
+		StagingInfoFactory factory = getFactory();
 		Settable object = new Settable()
 		{
 

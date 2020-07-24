@@ -17,31 +17,33 @@
  */
 package pcgen.base.graph.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.base.GraphEdge;
 
-import junit.framework.TestCase;
-
 /**
  * Test the DefaultDirectionalGraphEdge class
  */
-public class DefaultDirectionalGraphEdgeTest extends TestCase
+public class DefaultDirectionalGraphEdgeTest
 {
 
 	private Double node1, node2, node3, node4;
 
 	private DefaultDirectionalGraphEdge<Double> edge1, edge2, edge3, edge4, edge5;
 
-	/**
-	 * Sets up the fixture, for example, open a network connection. This method
-	 * is called before a test is executed.
-	 * 
-	 * @throws Exception
-	 */
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		node1 = new Double(1);
 		node2 = new Double(2);
@@ -54,38 +56,29 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		edge5 = new DefaultDirectionalGraphEdge<>(node4, node4);
 	}
 
-	@SuppressWarnings("unused")
-	public void testDefaultGraphEdge()
+	@AfterEach
+	void tearDown()
 	{
-		try
-		{
-			new DefaultDirectionalGraphEdge<>(node1, null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			new DefaultDirectionalGraphEdge<>(null, node3);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			new DefaultDirectionalGraphEdge<Double>(null, null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
+		node1 = null;
+		node2 = null;
+		node3 = null;
+		node4 = null;
+		edge1 = null;
+		edge2 = null;
+		edge3 = null;
+		edge4 = null;
+		edge5 = null;
 	}
 
+	@Test
+	public void testDefaultGraphEdge()
+	{
+		assertThrows(NullPointerException.class, () -> new DefaultDirectionalGraphEdge<>(node1, null));
+		assertThrows(NullPointerException.class, () -> new DefaultDirectionalGraphEdge<>(null, node3));
+		assertThrows(NullPointerException.class, () -> new DefaultDirectionalGraphEdge<Double>(null, null));
+	}
+
+	@Test
 	public void testGetNodeAt()
 	{
 		assertEquals(node1, edge1.getNodeAt(0));
@@ -98,26 +91,11 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		assertEquals(node3, edge3.getNodeAt(1));
 		assertEquals(node3, edge4.getNodeAt(1));
 		assertEquals(node4, edge5.getNodeAt(1));
-		try
-		{
-			assertEquals(node1, edge1.getNodeAt(2));
-			fail();
-		}
-		catch (IndexOutOfBoundsException e)
-		{
-			//expected
-		}
-		try
-		{
-			assertEquals(node1, edge1.getNodeAt(-1));
-			fail();
-		}
-		catch (IndexOutOfBoundsException e)
-		{
-			//expected
-		}
+		assertThrows(IndexOutOfBoundsException.class, () -> edge1.getNodeAt(2));
+		assertThrows(IndexOutOfBoundsException.class, () -> edge1.getNodeAt(-1));
 	}
 
+	@Test
 	public void testGetOppositeNode()
 	{
 		assertEquals(node1, edge1.getOppositeNode(node2));
@@ -134,6 +112,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		assertNull(edge1.getOppositeNode(node3));
 	}
 
+	@Test
 	public void testCreateReplacementEdgeNodeNode()
 	{
 		GraphEdge<Double> ge = edge1.createReplacementEdge(node3, node4);
@@ -143,12 +122,14 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		assertEquals(2, ge.getAdjacentNodeCount());
 	}
 
+	@Test
 	public void testGetAdjacentNodeCount()
 	{
 		assertEquals(2, edge1.getAdjacentNodeCount());
 		assertEquals(2, edge2.getAdjacentNodeCount());
 	}
 
+	@Test
 	public void testIsAdjacentNode()
 	{
 		assertTrue(edge3.isAdjacentNode(node1));
@@ -159,6 +140,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		assertFalse(edge2.isAdjacentNode(node3));
 	}
 
+	@Test
 	public void testGetSourceNode()
 	{
 		List<Double> l;
@@ -179,6 +161,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		assertTrue(l.contains(node4));
 	}
 
+	@Test
 	public void testGetSinkNode()
 	{
 		List<Double> l;
@@ -199,6 +182,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		assertTrue(l.contains(node4));
 	}
 
+	@Test
 	public void testGetNodeInterfaceType()
 	{
 		assertEquals(DirectionalEdge.SOURCE, edge1.getNodeInterfaceType(node1));

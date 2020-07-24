@@ -17,29 +17,24 @@
  */
 package pcgen.base.util;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class DefaultMapTest extends TestCase
+import pcgen.testsupport.TestSupport;
+
+public class DefaultMapTest
 {
 
-	private DefaultMap<Object, Double> dm;
-
-	@Override
-	@Before
-	public void setUp()
+	public void populate(DefaultMap<Object, Double> dm)
 	{
-		dm = new DefaultMap<>();
-	}
-
-	public void populate()
-	{
-		dm.put(Integer.valueOf(0), Double.valueOf(0));
-		dm.put("ONE", Double.valueOf(1));
-		dm.put("tWo", Double.valueOf(0));
-		dm.put("This is Three!", Double.valueOf(1));
+		dm.put(TestSupport.I0, TestSupport.D0);
+		dm.put("ONE", TestSupport.D1);
+		dm.put("tWo", TestSupport.D0);
+		dm.put("This is Three!", TestSupport.D1);
 		dm.put("null result", null);
 		dm.put(null, Double.valueOf(-1));
 	}
@@ -47,6 +42,7 @@ public class DefaultMapTest extends TestCase
 	@Test
 	public void testGetDefault()
 	{
+		DefaultMap<Object, Double> dm = new DefaultMap<>();
 		assertNull(dm.getDefaultValue());
 		dm.setDefaultValue(Double.valueOf(5.4));
 		assertEquals(Double.valueOf(5.4), dm.getDefaultValue());
@@ -55,11 +51,12 @@ public class DefaultMapTest extends TestCase
 	@Test
 	public void testPutGetExact()
 	{
-		populate();
-		assertEquals(Double.valueOf(0), dm.get(Integer.valueOf(0)));
-		assertEquals(Double.valueOf(1), dm.get("ONE"));
-		assertEquals(Double.valueOf(0), dm.get("tWo"));
-		assertEquals(Double.valueOf(1), dm.get("This is Three!"));
+		DefaultMap<Object, Double> dm = new DefaultMap<>();
+		populate(dm);
+		assertEquals(TestSupport.D0, dm.get(TestSupport.I0));
+		assertEquals(TestSupport.D1, dm.get("ONE"));
+		assertEquals(TestSupport.D0, dm.get("tWo"));
+		assertEquals(TestSupport.D1, dm.get("This is Three!"));
 		assertNull(dm.get("null result"));
 		assertEquals(Double.valueOf(-1), dm.get(null));
 		assertNull(dm.get("wasnotakey"));
@@ -73,9 +70,10 @@ public class DefaultMapTest extends TestCase
 	@Test
 	public void testContainsKey()
 	{
-		populate();
+		DefaultMap<Object, Double> dm = new DefaultMap<>();
+		populate(dm);
 		dm.setDefaultValue(Double.valueOf(5.4));
-		assertTrue(dm.containsKey(Integer.valueOf(0)));
+		assertTrue(dm.containsKey(TestSupport.I0));
 		assertTrue(dm.containsKey("ONE"));
 		assertTrue(dm.containsKey("tWo"));
 		assertTrue(dm.containsKey("This is Three!"));
@@ -87,23 +85,24 @@ public class DefaultMapTest extends TestCase
 	@Test
 	public void testRemoveRestoreDefault()
 	{
-		populate();
+		DefaultMap<Object, Double> dm = new DefaultMap<>();
+		populate(dm);
 		dm.setDefaultValue(Double.valueOf(5.4));
-		assertEquals(Double.valueOf(0), dm.get(Integer.valueOf(0)));
-		assertEquals(Double.valueOf(1), dm.get("ONE"));
-		assertEquals(Double.valueOf(0), dm.get("tWo"));
-		assertEquals(Double.valueOf(1), dm.get("This is Three!"));
+		assertEquals(TestSupport.D0, dm.get(TestSupport.I0));
+		assertEquals(TestSupport.D1, dm.get("ONE"));
+		assertEquals(TestSupport.D0, dm.get("tWo"));
+		assertEquals(TestSupport.D1, dm.get("This is Three!"));
 		assertNull(dm.get("null result"));
 		assertEquals(Double.valueOf(-1), dm.get(null));
 
-		assertEquals(Double.valueOf(0), dm.remove(Integer.valueOf(0)));
-		assertEquals(Double.valueOf(1), dm.remove("ONE"));
-		assertEquals(Double.valueOf(0), dm.remove("tWo"));
-		assertEquals(Double.valueOf(1), dm.remove("This is Three!"));
+		assertEquals(TestSupport.D0, dm.remove(TestSupport.I0));
+		assertEquals(TestSupport.D1, dm.remove("ONE"));
+		assertEquals(TestSupport.D0, dm.remove("tWo"));
+		assertEquals(TestSupport.D1, dm.remove("This is Three!"));
 		assertNull(dm.remove("null result"));
 		assertEquals(Double.valueOf(-1), dm.remove(null));
 
-		assertEquals(Double.valueOf(5.4), dm.get(Integer.valueOf(0)));
+		assertEquals(Double.valueOf(5.4), dm.get(TestSupport.I0));
 		assertEquals(Double.valueOf(5.4), dm.get("ONE"));
 		assertEquals(Double.valueOf(5.4), dm.get("tWo"));
 		assertEquals(Double.valueOf(5.4), dm.get("This is Three!"));

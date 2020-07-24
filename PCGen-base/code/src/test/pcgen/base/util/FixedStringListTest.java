@@ -17,64 +17,35 @@
  */
 package pcgen.base.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Arrays;
 import java.util.Collection;
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.lang.StringUtil;
 
-public class FixedStringListTest extends TestCase
+public class FixedStringListTest
 {
 
 	@SuppressWarnings("unused")
 	@Test
+	public void testConstructorNullValuesLegal()
+	{
+		new FixedStringList((String) null);
+		new FixedStringList("Foo", "Bar", null);
+		new FixedStringList("Foo", "Bar", null, "Baz");
+	}
+
+	@Test
 	public void testConstructor()
 	{
-		try
-		{
-			new FixedStringList((String) null);
-		}
-		catch (IllegalArgumentException e)
-		{
-			fail("Null values are legal");
-		}
-		try
-		{
-			new FixedStringList("Foo", "Bar", null);
-		}
-		catch (IllegalArgumentException e)
-		{
-			fail("Null values are legal");
-		}
-		try
-		{
-			new FixedStringList("Foo", "Bar", null, "Baz");
-		}
-		catch (IllegalArgumentException e)
-		{
-			fail("Null values are legal");
-		}
-		try
-		{
-			new FixedStringList((Collection<String>) null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			// OK
-		}
-		try
-		{
-			new FixedStringList(-1);
-			fail();
-		}
-		catch (IllegalArgumentException | NegativeArraySizeException e)
-		{
-			// OK
-		}
+		String[] s = null;
+		assertThrows(NullPointerException.class, () -> new FixedStringList(s));
+		assertThrows(NullPointerException.class, () -> new FixedStringList((Collection<String>) null));
+		assertThrows(NegativeArraySizeException.class, () -> new FixedStringList(-1));
 	}
 
 	@Test
@@ -140,25 +111,9 @@ public class FixedStringListTest extends TestCase
 	public void testArrayIndex()
 	{
 		FixedStringList list = new FixedStringList(Arrays.asList(new String[]{"Foo", "Bar", null, "Baz"}));
-		try
-		{
-			list.remove(-1);
-			fail();
-		}
-		catch (ArrayIndexOutOfBoundsException e)
-		{
-			//Yep
-		}
+		assertThrows(ArrayIndexOutOfBoundsException.class, () -> list.remove(-1));
 		FixedStringList empty = new FixedStringList(0);
-		try
-		{
-			empty.remove(0);
-			fail();
-		}
-		catch (ArrayIndexOutOfBoundsException e)
-		{
-			//Yep
-		}
+		assertThrows(ArrayIndexOutOfBoundsException.class, () -> empty.remove(0));
 	}
 
 	@Test
@@ -269,6 +224,4 @@ public class FixedStringListTest extends TestCase
 		assertTrue(FixedStringList.compare(list1f, list1u, StringUtil.CASE_SENSITIVE_ORDER) > 0);
 		assertTrue(FixedStringList.compare(list1f, list1u, String.CASE_INSENSITIVE_ORDER) > 0);
 	}
-
-
 }

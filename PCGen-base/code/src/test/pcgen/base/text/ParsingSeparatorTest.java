@@ -17,29 +17,28 @@
  */
 package pcgen.base.text;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.NoSuchElementException;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test the ParsingSeparator class
  */
-public class ParsingSeparatorTest extends TestCase
+public class ParsingSeparatorTest
 {
-	@SuppressWarnings("unused")
+	@Test
 	public void testConstructor()
 	{
-		try
-		{
-			new ParsingSeparator(null, ',');
-			fail("Expected ParsingSeparator to reject null base String");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> new ParsingSeparator(null, ','));
 	}
 
+	@Test
 	public void testEmpty()
 	{
 		ParsingSeparator separator = new ParsingSeparator("", ',');
@@ -95,6 +94,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testMismatchedOpen()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b(c,d", ',');
@@ -113,6 +113,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testMismatchedClosed()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b)c,d", ',');
@@ -131,6 +132,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testMismatchedOffset()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b(c,[d)]", ',');
@@ -150,6 +152,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testSimple()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b(c,d)", ',');
@@ -170,6 +173,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testQuotes()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b\"c,d\"", ',');
@@ -190,6 +194,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testQuotesComplex()
 	{
 		ParsingSeparator separator =
@@ -215,6 +220,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testQuotesEmbedded()
 	{
 		ParsingSeparator separator =
@@ -239,6 +245,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testParenEmbedded()
 	{
 		ParsingSeparator separator =
@@ -263,6 +270,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testParenStart()
 	{
 		ParsingSeparator separator =
@@ -287,6 +295,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testParenEnd()
 	{
 		ParsingSeparator separator =
@@ -309,6 +318,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testBlankEnd()
 	{
 		ParsingSeparator separator =
@@ -333,6 +343,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAddGroupingPair()
 	{
 		ParsingSeparator separator =
@@ -402,6 +413,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 	
+	@Test
 	public void testRemove()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b\"c,d\"", ',');

@@ -17,7 +17,16 @@
  */
 package pcgen.base.graph.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.Graph;
@@ -43,17 +52,20 @@ public class SimpleListMapGraphTest extends
 		return new DefaultGraphEdge<>(node1, node2);
 	}
 
-	/**
-	 * Sets up the fixture, for example, open a network connection. This method
-	 * is called before a test is executed.
-	 * 
-	 * @throws Exception
-	 */
 	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		super.setUp();
 		strategy = new SimpleListMapGraph<>();
+	}
+
+	@Override
+	@AfterEach
+	void tearDown()
+	{
+		super.tearDown();
+		strategy = null;
 	}
 
 	@Override
@@ -62,6 +74,7 @@ public class SimpleListMapGraphTest extends
 		return strategy;
 	}
 
+	@Test
 	public void testGetInternalizedNode()
 	{
 		Integer node = new Integer(1);

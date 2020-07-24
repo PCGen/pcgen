@@ -17,7 +17,12 @@
  */
 package pcgen.base.util;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+import pcgen.testsupport.TestSupport;
 
 public class HashMapToInstanceListTest extends HashMapToListTest
 {
@@ -33,32 +38,29 @@ public class HashMapToInstanceListTest extends HashMapToListTest
 	public void testInstanceBehavior()
 	{
 		AbstractMapToList<Integer, Character> dkm = getMapToList();
-		Character ca = Character.valueOf('a');
-		Character cb = Character.valueOf('b');
-		Character cc = Character.valueOf('c');
-		Character ca1 = new Character('a');
-		Integer i1 = Integer.valueOf(1);
-		dkm.addToListFor(i1, ca);
-		dkm.addToListFor(i1, cb);
-		dkm.addToListFor(i1, cc);
-		Integer i2 = Integer.valueOf(2);
-		dkm.addToListFor(i2, ca);
-		dkm.addToListFor(i2, ca);
-		Integer i3 = Integer.valueOf(3);
-		dkm.addToListFor(i3, cb);
-		dkm.addToListFor(i3, cc);
-		assertTrue(dkm.containsInList(i1, ca));
-		assertFalse(dkm.containsInList(i1, ca1));
-		assertFalse(dkm.removeFromListFor(i1, ca1));
-		assertTrue(dkm.containsInList(i1, ca));
+		Character ca = TestSupport.CONST_A;
+		Character cb = TestSupport.CONST_B;
+		Character cc = TestSupport.CONST_C;
+		Character ca1 = new Character(TestSupport.CONST_A.charValue());
+		dkm.addToListFor(TestSupport.I1, ca);
+		dkm.addToListFor(TestSupport.I1, cb);
+		dkm.addToListFor(TestSupport.I1, cc);
+		dkm.addToListFor(TestSupport.I2, ca);
+		dkm.addToListFor(TestSupport.I2, ca);
+		dkm.addToListFor(TestSupport.I3, cb);
+		dkm.addToListFor(TestSupport.I3, cc);
+		assertTrue(dkm.containsInList(TestSupport.I1, ca));
+		assertFalse(dkm.containsInList(TestSupport.I1, ca1));
+		assertFalse(dkm.removeFromListFor(TestSupport.I1, ca1));
+		assertTrue(dkm.containsInList(TestSupport.I1, ca));
 
-		assertTrue(dkm.containsInList(i2, ca));
-		assertFalse(dkm.containsInList(i2, ca1));
-		assertFalse(dkm.removeFromListFor(i2, ca1));
-		assertTrue(dkm.containsInList(i2, ca));
-		assertTrue(dkm.removeFromListFor(i2, ca));
+		assertTrue(dkm.containsInList(TestSupport.I2, ca));
+		assertFalse(dkm.containsInList(TestSupport.I2, ca1));
+		assertFalse(dkm.removeFromListFor(TestSupport.I2, ca1));
+		assertTrue(dkm.containsInList(TestSupport.I2, ca));
+		assertTrue(dkm.removeFromListFor(TestSupport.I2, ca));
 		// There were two
-		assertTrue(dkm.containsInList(i2, ca));
+		assertTrue(dkm.containsInList(TestSupport.I2, ca));
 	}
 
 }

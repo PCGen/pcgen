@@ -16,150 +16,74 @@
  */
 package pcgen.base.math;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test the OrderedPair class
  */
-public class OrderedPairTest extends TestCase
+public class OrderedPairTest
 {
-	@SuppressWarnings("unused")
+	@Test
 	public void testConstructorXNull()
 	{
-		try
-		{
-			new OrderedPair(null, 4);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> new OrderedPair(null, 4));
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testConstructorYNull()
 	{
-		try
-		{
-			new OrderedPair(4, null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> new OrderedPair(4, null));
 	}
 
+	@Test
 	public void testValueOfNull()
 	{
-		try
-		{
-			OrderedPair.valueOf(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> OrderedPair.valueOf(null));
 	}
 
+	@Test
 	public void testValueOfNotNumeric()
 	{
-		try
-		{
-			OrderedPair.valueOf("SomeString");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("SomeString"));
 	}
 
+	@Test
 	public void testValueOfTooManyCommas()
 	{
-		try
-		{
-			OrderedPair.valueOf("1,3,4");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("1,3,4"));
 	}
 
+	@Test
 	public void testValueOfNoTrailingNumber()
 	{
-		try
-		{
-			OrderedPair.valueOf("1,");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("1,"));
 	}
 
+	@Test
 	public void testValueOfNoLeadingNumber()
 	{
-		try
-		{
-			OrderedPair.valueOf(",4");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf(",4"));
 	}
 
+	@Test
 	public void testValueOfBadFirstNumber()
 	{
-		try
-		{
-			OrderedPair.valueOf("x,4");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
-		try
-		{
-			OrderedPair.valueOf("3-0,4");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("x,4"));
+		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("3-0,4"));
 	}
 
+	@Test
 	public void testValueOfBadSecondNumber()
 	{
-		try
-		{
-			OrderedPair.valueOf("5,x");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
-		try
-		{
-			OrderedPair.valueOf("5,5..6");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("5,x"));
+		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("5,5..6"));
 	}
 
+	@Test
 	public void testValueOf()
 	{
 		OrderedPair op = OrderedPair.valueOf("4,6");
@@ -168,6 +92,7 @@ public class OrderedPairTest extends TestCase
 		assertEquals("4,6", op.toString());
 	}
 
+	@Test
 	public void testEquals()
 	{
 		OrderedPair op1 = OrderedPair.valueOf("4,6");

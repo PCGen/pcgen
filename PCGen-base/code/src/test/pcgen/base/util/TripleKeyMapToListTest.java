@@ -17,6 +17,12 @@
  */
 package pcgen.base.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -24,209 +30,195 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.NoPublicZeroArgConstructorMap;
 import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
+import pcgen.testsupport.TestSupport;
 
-public class TripleKeyMapToListTest extends TestCase
+public class TripleKeyMapToListTest
 {
 
-	private static final Double D0 = Double.valueOf(0);
-	private static final Double D1 = Double.valueOf(1);
-	private static final Double D2 = Double.valueOf(2);
-	private static final Integer I1 = Integer.valueOf(1);
-	private static final Integer I2 = Integer.valueOf(2);
-	private static final Long L1 = Long.valueOf(1);
-	private static final Long L2 = Long.valueOf(2);
-	private static final char CONST_E = 'E';
-	private static final char CONST_C = 'C';
-	private static final char CONST_G = 'G';
-	private static final char CONST_H = 'H';
-	private static final char CONST_F = 'F';
-	private static final char CONST_D = 'D';
-	private static final char CONST_B = 'B';
-	private static final char CONST_A = 'A';
-	private TripleKeyMapToList<Integer, Double, Long, Character> dkm;
-
-	@Override
-	@Before
-	public void setUp()
+	public void populate(TripleKeyMapToList<Integer, Double, Long, Character> tkm)
 	{
-		dkm = new TripleKeyMapToList<>();
-	}
-
-	public void populate()
-	{
-		dkm.addToListFor(I1, D1, L1, CONST_A);
-		dkm.addToListFor(I1, D1, L1, CONST_B);
-		dkm.addToListFor(I1, D2, L2, CONST_C);
-		dkm.addToListFor(I2, D1, L2, CONST_D);
-		dkm.addToListFor(I2, D2, L1, CONST_E);
-		dkm.addToListFor(I2, D2, L1, null);
-		dkm.addToListFor(null, Double.valueOf(3), L2, CONST_F);
-		dkm.addToListFor(Integer.valueOf(3), null, L1, CONST_G);
-		dkm.addToListFor(Integer.valueOf(4), Double.valueOf(4), null, CONST_H);
-		dkm.addToListFor(Integer.valueOf(5), Double.valueOf(6), L1, null);
+		tkm.addToListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1, TestSupport.CONST_A);
+		tkm.addToListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1, TestSupport.CONST_B);
+		tkm.addToListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2, TestSupport.CONST_C);
+		tkm.addToListFor(TestSupport.I2, TestSupport.D1, TestSupport.L2, TestSupport.CONST_D);
+		tkm.addToListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1, TestSupport.CONST_E);
+		tkm.addToListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1, null);
+		tkm.addToListFor(null, TestSupport.D3, TestSupport.L2, TestSupport.CONST_F);
+		tkm.addToListFor(TestSupport.I3, null, TestSupport.L1, TestSupport.CONST_G);
+		tkm.addToListFor(TestSupport.I4, TestSupport.D4, null, TestSupport.CONST_H);
+		tkm.addToListFor(TestSupport.I5, TestSupport.D6, TestSupport.L1, null);
 	}
 
 	@Test
 	public void testPutGet()
 	{
-		assertNull(dkm.getListFor(I1, D0, L1));
-		populate();
-		List<Character> l = dkm.getListFor(I1, D1, L1);
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		assertNull(tkm.getListFor(TestSupport.I1, TestSupport.D0, TestSupport.L1));
+		populate(tkm);
+		List<Character> l = tkm.getListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1);
 		assertEquals(2, l.size());
-		assertTrue(l.contains(CONST_A));
-		assertTrue(l.contains(CONST_B));
-		assertTrue(dkm.containsListFor(I1, D2, L2));
-		l = dkm.getListFor(I1, D2, L2);
+		assertTrue(l.contains(TestSupport.CONST_A));
+		assertTrue(l.contains(TestSupport.CONST_B));
+		assertTrue(tkm.containsListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2));
+		l = tkm.getListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2);
 		assertEquals(1, l.size());
-		assertTrue(l.contains(CONST_C));
-		dkm.addToListFor(I1, D2, L2, CONST_C);
-		l = dkm.getListFor(I1, D2, L2);
+		assertTrue(l.contains(TestSupport.CONST_C));
+		tkm.addToListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2, TestSupport.CONST_C);
+		l = tkm.getListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2);
 		assertEquals(2, l.size());
-		assertTrue(l.contains(CONST_C));
+		assertTrue(l.contains(TestSupport.CONST_C));
 		// two of them
-		l.remove(Character.valueOf(CONST_C));
-		assertTrue(l.contains(CONST_C));
-		l = dkm.getListFor(I2, D2, L1);
+		l.remove(Character.valueOf(TestSupport.CONST_C));
+		assertTrue(l.contains(TestSupport.CONST_C));
+		l = tkm.getListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1);
 		assertEquals(2, l.size());
-		assertTrue(l.contains(CONST_E));
+		assertTrue(l.contains(TestSupport.CONST_E));
 		assertTrue(l.contains(null));
-		l.remove(Character.valueOf(CONST_E));
-		List<Character> l2 = dkm.getListFor(I2, D2, L1);
+		l.remove(Character.valueOf(TestSupport.CONST_E));
+		List<Character> l2 = tkm.getListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1);
 		assertEquals(2, l2.size());
-		assertTrue(l2.contains(CONST_E));
+		assertTrue(l2.contains(TestSupport.CONST_E));
 		assertTrue(l2.contains(null));
 		assertEquals(1, l.size());
 		assertTrue(l.contains(null));
-		dkm.addToListFor(I2, D2, L1, null);
-		l = dkm.getListFor(I2, D2, L1);
+		tkm.addToListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1, null);
+		l = tkm.getListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1);
 		assertEquals(3, l.size());
-		assertTrue(l.contains(CONST_E));
+		assertTrue(l.contains(TestSupport.CONST_E));
 		assertTrue(l.contains(null));
 		// Two of them.
 		l.remove(null);
 		assertTrue(l.contains(null));
-		assertNull(dkm.getListFor(I1, D0, L1));
-		assertNull(dkm.getListFor(I2, Double.valueOf(3), L2));
-		assertNull(dkm.getListFor(Integer.valueOf(4), D0, L1));
-		assertNull(dkm.getListFor(I1, null, L2));
-		assertNull(dkm.getListFor(null, D1, L1));
-		assertNull(dkm.getListFor(I1, D1, null));
-		dkm.clear();
+		assertNull(tkm.getListFor(TestSupport.I1, TestSupport.D0, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I2, TestSupport.D3, TestSupport.L2));
+		assertNull(tkm.getListFor(TestSupport.I4, TestSupport.D0, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I1, null, TestSupport.L2));
+		assertNull(tkm.getListFor(null, TestSupport.D1, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I1, TestSupport.D1, null));
+		tkm.clear();
 		assertEquals(2, l2.size());
-		assertTrue(l2.contains(CONST_E));
+		assertTrue(l2.contains(TestSupport.CONST_E));
 		assertTrue(l2.contains(null));
 	}
 
 	@Test
 	public void testContainsKey()
 	{
-		populate();
-		assertTrue(dkm.containsListFor(I1, D1, L1));
-		assertTrue(dkm.containsListFor(I1, D2, L2));
-		assertTrue(dkm.containsListFor(I2, D1, L2));
-		assertTrue(dkm.containsListFor(I2, D2, L1));
-		assertFalse(dkm.containsListFor(I2, Double.valueOf(3), L1));
-		assertFalse(dkm.containsListFor(Integer.valueOf(-4), D0, L1));
-		assertFalse(dkm.containsListFor(I1, null, L1));
-		assertFalse(dkm.containsListFor(null, D1, L1));
-		assertTrue(dkm.containsListFor(null, Double.valueOf(3), L2));
-		assertTrue(dkm.containsListFor(Integer.valueOf(3), null, L1));
-		assertTrue(dkm.containsListFor(Integer.valueOf(4), Double.valueOf(4), null));
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		populate(tkm);
+		assertTrue(tkm.containsListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
+		assertTrue(tkm.containsListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2));
+		assertTrue(tkm.containsListFor(TestSupport.I2, TestSupport.D1, TestSupport.L2));
+		assertTrue(tkm.containsListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1));
+		assertFalse(tkm.containsListFor(TestSupport.I2, TestSupport.D3, TestSupport.L1));
+		assertFalse(tkm.containsListFor(Integer.valueOf(-4), TestSupport.D0, TestSupport.L1));
+		assertFalse(tkm.containsListFor(TestSupport.I1, null, TestSupport.L1));
+		assertFalse(tkm.containsListFor(null, TestSupport.D1, TestSupport.L1));
+		assertTrue(tkm.containsListFor(null, TestSupport.D3, TestSupport.L2));
+		assertTrue(tkm.containsListFor(TestSupport.I3, null, TestSupport.L1));
+		assertTrue(tkm.containsListFor(TestSupport.I4, TestSupport.D4, null));
 	}
 
 	@Test
 	public void testRemoveListFor()
 	{
-		assertNull(dkm.removeListFor(I1, D1, L1));
-		populate();
-		assertTrue(dkm.containsListFor(I1, D1, L1));
-		List<Character> l = dkm.removeListFor(I1, D1, L1);
-		assertFalse(dkm.containsListFor(I1, D1, L1));
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		assertNull(tkm.removeListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
+		populate(tkm);
+		assertTrue(tkm.containsListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
+		List<Character> l = tkm.removeListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1);
+		assertFalse(tkm.containsListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
 		assertEquals(2, l.size());
-		assertTrue(l.contains(CONST_A));
-		assertTrue(l.contains(CONST_B));
-		assertFalse(dkm.containsListFor(I1, D1, L1));
-		assertNull(dkm.getListFor(I1, D1, L1));
-		l = dkm.removeListFor(I1, D2, L2);
-		assertFalse(dkm.containsListFor(I1, D1, L1));
+		assertTrue(l.contains(TestSupport.CONST_A));
+		assertTrue(l.contains(TestSupport.CONST_B));
+		assertFalse(tkm.containsListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
+		l = tkm.removeListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2);
+		assertFalse(tkm.containsListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
 		assertEquals(1, l.size());
-		assertTrue(l.contains(CONST_C));
-		dkm.addToListFor(I1, D2, L2, CONST_C);
-		l = dkm.removeListFor(I1, D2, L2);
+		assertTrue(l.contains(TestSupport.CONST_C));
+		tkm.addToListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2, TestSupport.CONST_C);
+		l = tkm.removeListFor(TestSupport.I1, TestSupport.D2, TestSupport.L2);
 		assertEquals(1, l.size());
-		assertTrue(l.contains(CONST_C));
-		l = dkm.removeListFor(I2, D2, L1);
+		assertTrue(l.contains(TestSupport.CONST_C));
+		l = tkm.removeListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1);
 		assertEquals(2, l.size());
-		assertTrue(l.contains(CONST_E));
+		assertTrue(l.contains(TestSupport.CONST_E));
 		assertTrue(l.contains(null));
-		assertNull(dkm.removeListFor(I2, D2, L1));
-		assertNull(dkm.getListFor(I1, D0, L1));
-		assertNull(dkm.getListFor(I2, Double.valueOf(3), L1));
-		assertNull(dkm.getListFor(Integer.valueOf(4), D0, L1));
-		assertNull(dkm.getListFor(I1, null, L1));
-		assertNull(dkm.getListFor(null, D1, L1));
-		assertNull(dkm.getListFor(I1, D1, null));
+		assertNull(tkm.removeListFor(TestSupport.I2, TestSupport.D2, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I1, TestSupport.D0, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I2, TestSupport.D3, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I4, TestSupport.D0, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I1, null, TestSupport.L1));
+		assertNull(tkm.getListFor(null, TestSupport.D1, TestSupport.L1));
+		assertNull(tkm.getListFor(TestSupport.I1, TestSupport.D1, null));
 	}
 
 	@Test
 	public void testRemoveListsFor()
 	{
-		assertNull(dkm.removeListsFor(I1, D1));
-		populate();
-		dkm.addToListFor(I1, D1, L2, CONST_C);
-		assertTrue(dkm.containsListFor(I1, D1, L1));
-		MapToList<Long, Character> mtl = dkm.removeListsFor(I1, D1);
-		assertFalse(dkm.containsListFor(I1, D1, L1));
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		assertNull(tkm.removeListsFor(TestSupport.I1, TestSupport.D1));
+		populate(tkm);
+		tkm.addToListFor(TestSupport.I1, TestSupport.D1, TestSupport.L2, TestSupport.CONST_C);
+		assertTrue(tkm.containsListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
+		MapToList<Long, Character> mtl = tkm.removeListsFor(TestSupport.I1, TestSupport.D1);
+		assertFalse(tkm.containsListFor(TestSupport.I1, TestSupport.D1, TestSupport.L1));
 		Set<Long> keys = mtl.getKeySet();
 		assertEquals(2, keys.size());
-		assertTrue(keys.contains(L1));
-		assertTrue(keys.contains(L2));
-		List<Character> list = mtl.getListFor(L1);
+		assertTrue(keys.contains(TestSupport.L1));
+		assertTrue(keys.contains(TestSupport.L2));
+		List<Character> list = mtl.getListFor(TestSupport.L1);
 		assertEquals(2, list.size());
-		assertTrue(list.contains(CONST_A));
-		assertTrue(list.contains(CONST_B));
-		list = mtl.getListFor(L2);
+		assertTrue(list.contains(TestSupport.CONST_A));
+		assertTrue(list.contains(TestSupport.CONST_B));
+		list = mtl.getListFor(TestSupport.L2);
 		assertEquals(1, list.size());
-		assertTrue(list.contains(CONST_C));
+		assertTrue(list.contains(TestSupport.CONST_C));
 	}
 
 	@Test
 	public void testGetKeySet()
 	{
-		Set<Integer> s = dkm.getKeySet();
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		Set<Integer> s = tkm.getKeySet();
 		assertEquals(0, s.size());
 		s.add(Integer.valueOf(-5));
 		// Ensure not saved in DoubleKeyMap
-		Set<Integer> s2 = dkm.getKeySet();
+		Set<Integer> s2 = tkm.getKeySet();
 		assertEquals(0, s2.size());
 		assertEquals(1, s.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		populate();
+		populate(tkm);
 		assertEquals(1, s.size());
 		assertEquals(0, s2.size());
-		Set<Integer> s3 = dkm.getKeySet();
+		Set<Integer> s3 = tkm.getKeySet();
 		assertEquals(6, s3.size());
-		assertTrue(s3.contains(I1));
-		assertTrue(s3.contains(I2));
-		assertTrue(s3.contains(Integer.valueOf(3)));
-		assertTrue(s3.contains(Integer.valueOf(4)));
-		assertTrue(s3.contains(Integer.valueOf(5)));
+		assertTrue(s3.contains(TestSupport.I1));
+		assertTrue(s3.contains(TestSupport.I2));
+		assertTrue(s3.contains(TestSupport.I3));
+		assertTrue(s3.contains(TestSupport.I4));
+		assertTrue(s3.contains(TestSupport.I5));
 		assertTrue(s3.contains(null));
 	}
 
 	@Test
 	public void testGetSecondaryKeySet()
 	{
-		Set<Double> s = dkm.getSecondaryKeySet(Integer.valueOf(4));
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		Set<Double> s = tkm.getSecondaryKeySet(TestSupport.I4);
 		assertEquals(0, s.size());
 		int sSize = 1;
 		try
@@ -239,190 +231,126 @@ public class TripleKeyMapToListTest extends TestCase
 			sSize = 0;
 		}
 		// Ensure not saved in DoubleKeyMap
-		Set<Double> s2 = dkm.getSecondaryKeySet(Integer.valueOf(4));
+		Set<Double> s2 = tkm.getSecondaryKeySet(TestSupport.I4);
 		assertEquals(0, s2.size());
 		assertEquals(sSize, s.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		populate();
+		populate(tkm);
 		assertEquals(sSize, s.size());
 		assertEquals(0, s2.size());
-		Set<Double> s3 = dkm.getSecondaryKeySet(I1);
+		Set<Double> s3 = tkm.getSecondaryKeySet(TestSupport.I1);
 		assertEquals(2, s3.size());
-		assertTrue(s3.contains(D1));
-		assertTrue(s3.contains(D2));
-		Set<Double> s4 = dkm.getSecondaryKeySet(Integer.valueOf(3));
+		assertTrue(s3.contains(TestSupport.D1));
+		assertTrue(s3.contains(TestSupport.D2));
+		Set<Double> s4 = tkm.getSecondaryKeySet(TestSupport.I3);
 		assertEquals(1, s4.size());
 		assertTrue(s4.contains(null));
-		Set<Double> s5 = dkm.getSecondaryKeySet(null);
+		Set<Double> s5 = tkm.getSecondaryKeySet(null);
 		assertEquals(1, s5.size());
-		assertTrue(s5.contains(Double.valueOf(3)));
+		assertTrue(s5.contains(TestSupport.D3));
 	}
 
 	@Test
 	public void testClearIsEmpty()
 	{
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.firstKeyCount());
-		populate();
-		assertFalse(dkm.isEmpty());
-		assertEquals(6, dkm.firstKeyCount());
-		dkm.clear();
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.firstKeyCount());
-		dkm.addToListFor(null, Double.valueOf(3), L1, 'F');
-		assertFalse(dkm.isEmpty());
-		assertEquals(1, dkm.firstKeyCount());
-		dkm.clear();
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.firstKeyCount());
-		dkm.addToListFor(Integer.valueOf(3), null, L2, 'G');
-		assertFalse(dkm.isEmpty());
-		assertEquals(1, dkm.firstKeyCount());
-		dkm.clear();
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.firstKeyCount());
-		dkm.addToListFor(Integer.valueOf(5), Double.valueOf(6), L1, null);
-		assertFalse(dkm.isEmpty());
-		assertEquals(1, dkm.firstKeyCount());
-		dkm.clear();
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.firstKeyCount());
-		dkm.addToListFor(Integer.valueOf(5), Double.valueOf(6), null, 'F');
-		assertFalse(dkm.isEmpty());
-		assertEquals(1, dkm.firstKeyCount());
-		dkm.clear();
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.firstKeyCount());
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		assertTrue(tkm.isEmpty());
+		assertEquals(0, tkm.firstKeyCount());
+		populate(tkm);
+		assertFalse(tkm.isEmpty());
+		assertEquals(6, tkm.firstKeyCount());
+		tkm.clear();
+		assertTrue(tkm.isEmpty());
+		assertEquals(0, tkm.firstKeyCount());
+		tkm.addToListFor(null, TestSupport.D3, TestSupport.L1, 'F');
+		assertFalse(tkm.isEmpty());
+		assertEquals(1, tkm.firstKeyCount());
+		tkm.clear();
+		assertTrue(tkm.isEmpty());
+		assertEquals(0, tkm.firstKeyCount());
+		tkm.addToListFor(TestSupport.I3, null, TestSupport.L2, 'G');
+		assertFalse(tkm.isEmpty());
+		assertEquals(1, tkm.firstKeyCount());
+		tkm.clear();
+		assertTrue(tkm.isEmpty());
+		assertEquals(0, tkm.firstKeyCount());
+		tkm.addToListFor(TestSupport.I5, TestSupport.D6, TestSupport.L1, null);
+		assertFalse(tkm.isEmpty());
+		assertEquals(1, tkm.firstKeyCount());
+		tkm.clear();
+		assertTrue(tkm.isEmpty());
+		assertEquals(0, tkm.firstKeyCount());
+		tkm.addToListFor(TestSupport.I5, TestSupport.D6, null, 'F');
+		assertFalse(tkm.isEmpty());
+		assertEquals(1, tkm.firstKeyCount());
+		tkm.clear();
+		assertTrue(tkm.isEmpty());
+		assertEquals(0, tkm.firstKeyCount());
 	}
 
 	@Test
 	public void testAddAllToListFor()
 	{
-		Integer i1 = I1;
-		Double d1 = D1;
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		Integer i1 = TestSupport.I1;
+		Double d1 = TestSupport.D1;
 		List<Character> l = new ArrayList<>();
-		l.add(CONST_A);
+		l.add(TestSupport.CONST_A);
 		l.add(null);
-		l.add(CONST_A);
-		l.add(CONST_B);
-		dkm.addAllToListFor(i1, d1, L1, l);
-		assertTrue(dkm.containsListFor(i1, d1, L1));
-		assertEquals(4, dkm.getListFor(i1, d1, L1).size());
-		dkm.addAllToListFor(i1, d1, L1, Collections.singleton(CONST_D));
+		l.add(TestSupport.CONST_A);
+		l.add(TestSupport.CONST_B);
+		tkm.addAllToListFor(i1, d1, TestSupport.L1, l);
+		assertTrue(tkm.containsListFor(i1, d1, TestSupport.L1));
+		assertEquals(4, tkm.getListFor(i1, d1, TestSupport.L1).size());
+		tkm.addAllToListFor(i1, d1, TestSupport.L1, Collections.singleton(TestSupport.CONST_D));
 		assertEquals(4, l.size());
 		// Check reference semantics!
-		l.add(CONST_C);
-		l.add(CONST_E);
-		assertTrue(dkm.containsListFor(i1, d1, L1));
-		assertEquals(5, dkm.getListFor(i1, d1, L1).size());
+		l.add(TestSupport.CONST_C);
+		l.add(TestSupport.CONST_E);
+		assertTrue(tkm.containsListFor(i1, d1, TestSupport.L1));
+		assertEquals(5, tkm.getListFor(i1, d1, TestSupport.L1).size());
 		l.clear();
-		assertTrue(dkm.containsListFor(i1, d1, L1));
-		assertEquals(5, dkm.getListFor(i1, d1, L1).size());
+		assertTrue(tkm.containsListFor(i1, d1, TestSupport.L1));
+		assertEquals(5, tkm.getListFor(i1, d1, TestSupport.L1).size());
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testNullInConstructor()
 	{
-		try
-		{
-			new TripleKeyMapToList<>(null, HashMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMapToList<>(HashMap.class, null, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMapToList<>(HashMap.class, HashMap.class, null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			// OK, expected
-		}
+		assertThrows(NullPointerException.class, () -> new TripleKeyMapToList<>(null, HashMap.class, HashMap.class));
+		assertThrows(NullPointerException.class, () -> new TripleKeyMapToList<>(HashMap.class, null, HashMap.class));
+		assertThrows(NullPointerException.class, () -> new TripleKeyMapToList<>(HashMap.class, HashMap.class, null));
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testBadClassInConstructor()
 	{
-		try
-		{
-			new TripleKeyMapToList<>(StrangeMap.class, HashMap.class,
-				HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMapToList<>(HashMap.class, StrangeMap.class,
-				HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMapToList<>(HashMap.class, HashMap.class,
-				StrangeMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(StrangeMap.class, HashMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(HashMap.class, StrangeMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(HashMap.class, HashMap.class, StrangeMap.class));
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testBadClassInConstructor2()
 	{
-		try
-		{
-			new TripleKeyMapToList<>(NoPublicZeroArgConstructorMap.class,
-				HashMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMapToList<>(HashMap.class,
-				NoPublicZeroArgConstructorMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMapToList<>(HashMap.class, HashMap.class,
-				NoPublicZeroArgConstructorMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(NoPublicZeroArgConstructorMap.class,
+				HashMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(HashMap.class,
+				NoPublicZeroArgConstructorMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(HashMap.class, HashMap.class,
+				NoPublicZeroArgConstructorMap.class));
 	}
 
+	@Test
 	@SuppressWarnings("unused")
 	public void testGoodConstructor()
 	{
@@ -430,45 +358,26 @@ public class TripleKeyMapToListTest extends TestCase
 			IdentityHashMap.class);
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testBadClassInConstructor3()
 	{
-		try
-		{
-			new TripleKeyMapToList<>(NoZeroArgConstructorMap.class,
-				HashMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMapToList<>(HashMap.class,
-				NoZeroArgConstructorMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMapToList<>(HashMap.class, HashMap.class,
-				NoZeroArgConstructorMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK, expected
-		}
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(NoZeroArgConstructorMap.class,
+				HashMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(HashMap.class,
+				NoZeroArgConstructorMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class,
+			() -> new TripleKeyMapToList<>(HashMap.class, HashMap.class,
+				NoZeroArgConstructorMap.class));
 	}
 
 	@Test
 	public void testGetTertiaryKeySet()
 	{
-		Set<Long> s = dkm.getTertiaryKeySet(Integer.valueOf(4), D2);
+		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
+				new TripleKeyMapToList<>();
+		Set<Long> s = tkm.getTertiaryKeySet(TestSupport.I4, TestSupport.D2);
 		assertEquals(0, s.size());
 		int sSize = 1;
 		try
@@ -481,24 +390,24 @@ public class TripleKeyMapToListTest extends TestCase
 			sSize = 0;
 		}
 		// Ensure not saved in DoubleKeyMap
-		Set<Long> s2 = dkm.getTertiaryKeySet(Integer.valueOf(4), D2);
+		Set<Long> s2 = tkm.getTertiaryKeySet(TestSupport.I4, TestSupport.D2);
 		assertEquals(0, s2.size());
 		assertEquals(sSize, s.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		populate();
+		populate(tkm);
 		assertEquals(sSize, s.size());
 		assertEquals(0, s2.size());
-		Set<Long> s3 = dkm.getTertiaryKeySet(I1, D1);
+		Set<Long> s3 = tkm.getTertiaryKeySet(TestSupport.I1, TestSupport.D1);
 		assertEquals(1, s3.size());
-		assertTrue(s3.contains(L1));
-		Set<Long> s4 = dkm.getTertiaryKeySet(Integer.valueOf(3), null);
+		assertTrue(s3.contains(TestSupport.L1));
+		Set<Long> s4 = tkm.getTertiaryKeySet(TestSupport.I3, null);
 		assertEquals(1, s4.size());
-		assertTrue(s4.contains(L1));
-		Set<Long> s5 = dkm.getTertiaryKeySet(null, Double.valueOf(3));
+		assertTrue(s4.contains(TestSupport.L1));
+		Set<Long> s5 = tkm.getTertiaryKeySet(null, TestSupport.D3);
 		assertEquals(1, s5.size());
-		assertTrue(s5.contains(L2));
-		Set<Long> s6 = dkm.getTertiaryKeySet(Integer.valueOf(4), Double.valueOf(4));
+		assertTrue(s5.contains(TestSupport.L2));
+		Set<Long> s6 = tkm.getTertiaryKeySet(TestSupport.I4, TestSupport.D4);
 		assertEquals(1, s6.size());
 		assertTrue(s6.contains(null));
 	}

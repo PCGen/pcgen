@@ -16,99 +16,77 @@
  */
 package pcgen.base.formatmanager;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
 import java.util.Optional;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.util.FormatManager;
+import pcgen.testsupport.TestSupport;
 
 /**
  * Test the SimpleFormatManagerLibrary class
  */
-public class SimpleFormatManagerLibraryTest extends TestCase
+public class SimpleFormatManagerLibraryTest
 {
-	private static final Number[] ARR_N3_4_5 = {
-		Integer.valueOf(-3), Integer.valueOf(4), Integer.valueOf(5)};
-	private static final Number[] ARR_N3_4P1_5 = {
-		Integer.valueOf(-3), Double.valueOf(4.1), Integer.valueOf(5)};
-	private static final Number[] ARR_1P4 = {Double.valueOf(1.4)};
-	private static final Number[] ARR_N3 = {Integer.valueOf(-3)};
-	private static final Number[] ARR_1 = {Integer.valueOf(1)};
-
 	private SimpleFormatManagerLibrary library;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		library = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(library);
 		FormatUtilities.loadDefaultFactories(library);
 	}
 
+	@AfterEach
+	void tearDown()
+	{
+		library = null;
+	}
+
+	@Test
 	public void testFailOnlyClose()
 	{
-		try
-		{
-			assertFalse(library.hasFormatManager("NUMBER]"));
-			library.getFormatManager(Optional.empty(), "NUMBER]");
-			fail("bad input value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertFalse(library.hasFormatManager("NUMBER]"));
+		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "NUMBER]"));
 	}
 
+	@Test
 	public void testFailInvalidSub()
 	{
-		try
-		{
-			assertFalse(library.hasFormatManager("NUMBER[NUMBER]"));
-			library.getFormatManager(Optional.empty(), "NUMBER[NUMBER]");
-			fail("bad input value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertFalse(library.hasFormatManager("NUMBER[NUMBER]"));
+		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "NUMBER[NUMBER]"));
 	}
 
+	@Test
 	public void testBadFormatFail()
 	{
-		try
-		{
-			assertFalse(library.hasFormatManager("NIMBLER"));
-			library.getFormatManager(Optional.empty(), "NIMBLER");
-			fail("null bad bracket value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertFalse(library.hasFormatManager("NIMBLER"));
+		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "NIMBLER"));
 	}
 
+	@Test
 	public void testGetBad()
 	{
-		try
-		{
-			assertFalse(library.hasFormatManager("ARRAY[NUMBER"));
-			library.getFormatManager(Optional.empty(), "ARRAY[NUMBER");
-			fail("null bad bracket value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertFalse(library.hasFormatManager("ARRAY[NUMBER"));
+		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "ARRAY[NUMBER"));
 	}
 
+	@Test
 	public void testOneOnly()
 	{
-		try
-		{
-			library.addFormatManager(new NumberManager()
+		assertThrows(IllegalArgumentException.class, () -> library.addFormatManager(new NumberManager()
 			{
 				@Override
 				public String getIdentifierType()
@@ -116,31 +94,20 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 					//To force equality failure
 					return "STRING";
 				}
-			});
-			fail("can't add STRING twice with two different FormatManagers");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+			}));
+
 		//This is okay (equality)
 		library.addFormatManager(new NumberManager());
 	}
 
+	@Test
 	public void testConvertFailBadSeparator()
 	{
-		try
-		{
-			assertFalse(library.hasFormatManager("ARRAY[NIMBLER]"));
-			library.getFormatManager(Optional.empty(), "ARRAY[NIMBLER]");
-			fail("bad sub format should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertFalse(library.hasFormatManager("ARRAY[NIMBLER]"));
+		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "ARRAY[NIMBLER]"));
 	}
 
+	@Test
 	public void testConvert()
 	{
 		assertTrue(library.hasFormatManager("NUMBER"));
@@ -151,29 +118,31 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 					.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert(null)));
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert("")));
-		assertTrue(Arrays.equals(ARR_1, manager.convert("1")));
-		assertTrue(Arrays.equals(ARR_N3, manager.convert("-3")));
-		assertTrue(Arrays.equals(ARR_N3_4_5, manager.convert("-3,4,5")));
-		assertTrue(Arrays.equals(ARR_1P4, manager.convert("1.4")));
-		assertTrue(Arrays.equals(ARR_N3_4P1_5, manager.convert("-3,4.1,5")));
+		assertTrue(Arrays.equals(TestSupport.ARR_1, manager.convert("1")));
+		assertTrue(Arrays.equals(TestSupport.ARR_N3, manager.convert("-3")));
+		assertTrue(Arrays.equals(TestSupport.ARR_N3_4_5, manager.convert("-3,4,5")));
+		assertTrue(Arrays.equals(TestSupport.ARR_1P4, manager.convert("1.4")));
+		assertTrue(Arrays.equals(TestSupport.ARR_N3_4P1_5, manager.convert("-3,4.1,5")));
 	}
 
+	@Test
 	public void testUnconvert()
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) library
 					.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
-		assertEquals("1", manager.unconvert(ARR_1));
-		assertEquals("-3", manager.unconvert(ARR_N3));
-		assertEquals("-3,4,5", manager.unconvert(ARR_N3_4_5));
-		assertEquals("1.4", manager.unconvert(ARR_1P4));
-		assertEquals("-3,4.1,5", manager.unconvert(ARR_N3_4P1_5));
+		assertEquals("1", manager.unconvert(TestSupport.ARR_1));
+		assertEquals("-3", manager.unconvert(TestSupport.ARR_N3));
+		assertEquals("-3,4,5", manager.unconvert(TestSupport.ARR_N3_4_5));
+		assertEquals("1.4", manager.unconvert(TestSupport.ARR_1P4));
+		assertEquals("-3,4.1,5", manager.unconvert(TestSupport.ARR_N3_4P1_5));
 		//Just to show it's not picky
 		assertEquals("1.4",
 			manager.unconvert(new Double[]{Double.valueOf(1.4)}));
 	}
 
+	@Test
 	public void testConvertIndirect()
 	{
 		@SuppressWarnings("unchecked")
@@ -184,12 +153,12 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 			.get()));
 		assertTrue(Arrays.equals(new Number[]{}, manager.convertIndirect("")
 			.get()));
-		assertTrue(Arrays.equals(ARR_1, manager.convertIndirect("1").get()));
-		assertTrue(Arrays.equals(ARR_N3, manager.convertIndirect("-3").get()));
-		assertTrue(Arrays.equals(ARR_1P4, manager.convertIndirect("1.4").get()));
-		assertTrue(Arrays.equals(ARR_N3_4P1_5,
+		assertTrue(Arrays.equals(TestSupport.ARR_1, manager.convertIndirect("1").get()));
+		assertTrue(Arrays.equals(TestSupport.ARR_N3, manager.convertIndirect("-3").get()));
+		assertTrue(Arrays.equals(TestSupport.ARR_1P4, manager.convertIndirect("1.4").get()));
+		assertTrue(Arrays.equals(TestSupport.ARR_N3_4P1_5,
 			manager.convertIndirect("-3,4.1,5").get()));
-		assertTrue(Arrays.equals(ARR_N3_4_5, manager.convertIndirect("-3,4,5")
+		assertTrue(Arrays.equals(TestSupport.ARR_N3_4_5, manager.convertIndirect("-3,4,5")
 			.get()));
 
 		assertEquals("", manager.convertIndirect(null).getUnconverted());
@@ -203,6 +172,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 			.getUnconverted());
 	}
 
+	@Test
 	public void testGetIdentifier()
 	{
 		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
@@ -213,6 +183,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		assertEquals("STRING", manager.getIdentifierType());
 	}
 
+	@Test
 	public void testManagedClass()
 	{
 		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
@@ -223,6 +194,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		assertSame(String.class, manager.getManagedClass());
 	}
 
+	@Test
 	public void testGetComponent()
 	{
 		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");

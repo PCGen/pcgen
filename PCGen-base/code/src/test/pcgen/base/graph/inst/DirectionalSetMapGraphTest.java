@@ -17,11 +17,20 @@
  */
 package pcgen.base.graph.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.base.Graph;
@@ -38,11 +47,19 @@ public class DirectionalSetMapGraphTest extends
 	private DirectionalSetMapGraph<Integer, DirectionalEdge<Integer>> strategy;
 
 	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		super.setUp();
-		strategy =
-				new DirectionalSetMapGraph<>();
+		strategy = new DirectionalSetMapGraph<>();
+	}
+
+	@Override
+	@AfterEach
+	void tearDown()
+	{
+		super.tearDown();
+		strategy = null;
 	}
 
 	public class TestDirectionalGraphEdge extends DefaultGraphEdge<Integer>
@@ -121,6 +138,7 @@ public class DirectionalSetMapGraphTest extends
 	// assertNull(listener.lastAddEdge);
 	// }
 
+	@Test
 	public void testGetInwardEdgeList()
 	{
 		Integer node1 = new Integer(1);
@@ -157,6 +175,7 @@ public class DirectionalSetMapGraphTest extends
 		assertNull(strategy.getInwardEdgeList(null));
 	}
 
+	@Test
 	public void testGetOutwardEdgeList()
 	{
 		Integer node1 = new Integer(1);
@@ -193,6 +212,7 @@ public class DirectionalSetMapGraphTest extends
 		assertNull(strategy.getOutwardEdgeList(null));
 	}
 
+	@Test
 	public void testHasInwardEdgeList()
 	{
 		Integer node0 = new Integer(0);
@@ -246,6 +266,7 @@ public class DirectionalSetMapGraphTest extends
 		assertFalse(strategy.hasInwardEdge(null));
 	}
 
+	@Test
 	public void testHasOutwardEdgeList()
 	{
 		Integer node0 = new Integer(0);
@@ -305,6 +326,7 @@ public class DirectionalSetMapGraphTest extends
 		return strategy;
 	}
 
+	@Test
 	public void testGetInternalizedNode()
 	{
 		Integer node = new Integer(1);

@@ -14,9 +14,16 @@
  */
 package pcgen.base.formatmanager;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Optional;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.util.FormatManager;
@@ -24,48 +31,41 @@ import pcgen.base.util.FormatManager;
 /**
  * Test the OptionalFormatFactory class
  */
-public class OptionalFormatFactoryTest extends TestCase
+public class OptionalFormatFactoryTest
 {
 
 	private SimpleFormatManagerLibrary library;
 	private OptionalFormatFactory factory;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		library = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(library);
 		factory = new OptionalFormatFactory();
 		library.addFormatManagerBuilder(factory);
 	}
 
+	@AfterEach
+	void tearDown()
+	{
+		library = null;
+		factory = null;
+	}
+
+	@Test
 	public void testFailBadSubFormat()
 	{
-		try
-		{
-			factory.build(Optional.empty(), Optional.of("NUM"), library);
-			fail("bad sub form should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> factory.build(Optional.empty(), Optional.of("NUM"), library));
 	}
 
+	@Test
 	public void testFailEmptySubFormat()
 	{
-		try
-		{
-			factory.build(Optional.empty(), Optional.empty(), library);
-			fail("null sub form should fail");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> factory.build(Optional.empty(), Optional.empty(), library));
 	}
 
+	@Test
 	public void testConvert()
 	{
 		@SuppressWarnings("unchecked")
@@ -79,6 +79,7 @@ public class OptionalFormatFactoryTest extends TestCase
 		assertEquals(1.4, manager.convert("1.4").get());
 	}
 
+	@Test
 	public void testGetIdentifier()
 	{
 		FormatManager<?> manager =
@@ -89,6 +90,7 @@ public class OptionalFormatFactoryTest extends TestCase
 		assertEquals("OPTIONAL[STRING]", manager.getIdentifierType());
 	}
 
+	@Test
 	public void testManagedClass()
 	{
 		FormatManager<?> manager =
@@ -103,6 +105,7 @@ public class OptionalFormatFactoryTest extends TestCase
 		assertEquals(new StringManager(), manager.getComponentManager().get());
 	}
 
+	@Test
 	public void testGetComponent()
 	{
 		FormatManager<?> manager =

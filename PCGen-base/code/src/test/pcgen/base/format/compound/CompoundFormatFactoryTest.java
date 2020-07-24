@@ -17,95 +17,54 @@
  */
 package pcgen.base.format.compound;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.Optional;
 
-import junit.framework.TestCase;
-import pcgen.base.format.BooleanManager;
-import pcgen.base.format.NumberManager;
-import pcgen.base.format.StringManager;
-import pcgen.base.formatmanager.CompoundFormatFactory;
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
+import pcgen.testsupport.TestSupport;
 
 /**
  * Test the CompoundFormatFactory class
  */
-public class CompoundFormatFactoryTest extends TestCase
+public class CompoundFormatFactoryTest
 {
-	private final NumberManager numberManager = new NumberManager();
-	private final BooleanManager booleanManager = new BooleanManager();
-	private final StringManager stringManager = new StringManager();
-	CompoundFormatFactory manager =
-			new CompoundFormatFactory(',', '|');
-
+	@Test
 	public void testBuild()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
-		library.addFormatManager(numberManager);
-		library.addFormatManager(booleanManager);
-		library.addFormatManager(stringManager);
-		assertEquals("COMPOUND", manager.getBuilderBaseFormat());
-		manager.build(Optional.empty(), Optional.of("NUMBER,STRING=Level"), library);
+		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);
+		library.addFormatManager(FormatUtilities.BOOLEAN_MANAGER);
+		library.addFormatManager(FormatUtilities.STRING_MANAGER);
+		assertEquals("COMPOUND", TestSupport.COMPOUND_MANAGER.getBuilderBaseFormat());
+		TestSupport.COMPOUND_MANAGER.build(Optional.empty(), Optional.of("NUMBER,STRING=Level"), library);
 	}
 
+	@Test
 	public void testBuildNoFormat()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
-		library.addFormatManager(booleanManager);
-		library.addFormatManager(stringManager);
-		assertEquals("COMPOUND", manager.getBuilderBaseFormat());
-		try
-		{
-			manager.build(Optional.empty(), Optional.of("NUMBER,STRING=Level"), library);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected!
-		}
+		library.addFormatManager(FormatUtilities.BOOLEAN_MANAGER);
+		library.addFormatManager(FormatUtilities.STRING_MANAGER);
+		assertEquals("COMPOUND", TestSupport.COMPOUND_MANAGER.getBuilderBaseFormat());
+		assertThrows(IllegalArgumentException.class, () -> TestSupport.COMPOUND_MANAGER.build(Optional.empty(), Optional.of("NUMBER,STRING=Level"), library));
 	}
 
+	@Test
 	public void testBuildBadSyntax()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
-		library.addFormatManager(booleanManager);
-		library.addFormatManager(stringManager);
-		assertEquals("COMPOUND", manager.getBuilderBaseFormat());
-		try
-		{
-			manager.build(Optional.empty(), Optional.of(",NUMBER,STRING=Level"), library);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected!
-		}
-		try
-		{
-			manager.build(Optional.empty(), Optional.of("NUMBER,STRING=Level,"), library);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected!
-		}
-		try
-		{
-			manager.build(Optional.empty(), Optional.of("NUMBER,,STRING=Level"), library);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected!
-		}
-		try
-		{
-			manager.build(Optional.empty(), Optional.of("NUMBER,STRING==Level"), library);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected!
-		}
+		library.addFormatManager(FormatUtilities.BOOLEAN_MANAGER);
+		library.addFormatManager(FormatUtilities.STRING_MANAGER);
+		assertEquals("COMPOUND", TestSupport.COMPOUND_MANAGER.getBuilderBaseFormat());
+		assertThrows(IllegalArgumentException.class, () -> TestSupport.COMPOUND_MANAGER.build(Optional.empty(), Optional.of(",NUMBER,STRING=Level"), library));
+		assertThrows(IllegalArgumentException.class, () -> TestSupport.COMPOUND_MANAGER.build(Optional.empty(), Optional.of("NUMBER,STRING=Level,"), library));
+		assertThrows(IllegalArgumentException.class, () -> TestSupport.COMPOUND_MANAGER.build(Optional.empty(), Optional.of("NUMBER,,STRING=Level"), library));
+		assertThrows(IllegalArgumentException.class, () -> TestSupport.COMPOUND_MANAGER.build(Optional.empty(), Optional.of("NUMBER,STRING==Level"), library));
 	}
 
 }

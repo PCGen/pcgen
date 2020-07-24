@@ -17,54 +17,29 @@
  */
 package pcgen.base.graph.base;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.graph.inst.DefaultGraphEdge;
 import pcgen.base.graph.inst.SimpleListMapGraph;
-import junit.framework.TestCase;
 
 /**
  * Test the EdgeChangeEvent class
  */
-public class EdgeChangeEventTest extends TestCase
+public class EdgeChangeEventTest
 {
 
-	/**
-	 * Sets up the fixture, for example, open a network connection. This method
-	 * is called before a test is executed.
-	 * 
-	 * @throws Exception
-	 */
-	@Override
-	protected void setUp() throws Exception
-	{
-		// No setup required
-	}
-
-	@SuppressWarnings("unused")
+	@Test
 	public void testEdgeChangeEvent()
 	{
-		try
-		{
-			new EdgeChangeEvent<Object, Edge<Object>>(null,
-					new DefaultGraphEdge<>(new Object(), new Object()),
-				EdgeChangeEvent.EDGE_ADDED);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			new EdgeChangeEvent<>(
-					new SimpleListMapGraph<>(), null,
-					EdgeChangeEvent.EDGE_REMOVED
-			);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class,
+			() -> new EdgeChangeEvent<Object, Edge<Object>>(null,
+				new DefaultGraphEdge<>(new Object(), new Object()),
+				EdgeChangeEvent.EDGE_ADDED));
+		assertThrows(NullPointerException.class,
+			() -> new EdgeChangeEvent<>(new SimpleListMapGraph<>(), null,
+				EdgeChangeEvent.EDGE_REMOVED));
 	}
 
 }

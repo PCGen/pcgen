@@ -17,11 +17,20 @@
  */
 package pcgen.base.graph.inst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.Graph;
 import pcgen.base.graph.base.GraphChangeListener;
@@ -32,21 +41,26 @@ import pcgen.base.graph.testsupport.TestGraphChangeListener;
  * 
  * @param <T> The type of Edge in the Graph being tested
  */
-public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
-		TestCase
+public abstract class AbstractGraphTestCase<T extends Edge<Integer>>
 {
 
 	private SimpleListGraph<Integer, T> master = new SimpleListGraph<>();
 
 	private TestGraphChangeListener<Integer, T> listener;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
-		super.setUp();
 		listener = new TestGraphChangeListener<>();
 	}
 
+	@AfterEach
+	void tearDown()
+	{
+		listener = null;
+	}
+
+	@Test
 	public void testAddNode()
 	{
 		getStrategy().addGraphChangeListener(listener);
@@ -98,6 +112,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertEquals(node3, listener.lastAddNode);
 	}
 
+	@Test
 	public void testAddEdge()
 	{
 		Integer node1 = new Integer(1);
@@ -160,6 +175,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertTrue(getStrategy().containsNode(node5));
 	}
 
+	@Test
 	public void testClear()
 	{
 		Integer node1 = new Integer(1);
@@ -196,6 +212,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 
 	protected abstract T getLegalHyperEdge(Integer[] integers);
 
+	@Test
 	public void testContainsNode()
 	{
 		Integer node = new Integer(1);
@@ -209,6 +226,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertFalse(getStrategy().containsNode(null));
 	}
 
+	@Test
 	public void testContainsEdge()
 	{
 		Integer node1 = new Integer(1);
@@ -225,6 +243,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertFalse(getStrategy().containsEdge(null));
 	}
 
+	@Test
 	public void testGetNodeList()
 	{
 		Integer node = new Integer(1);
@@ -240,6 +259,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertEquals(2, myList.size());
 	}
 
+	@Test
 	public void testGetEdgeList()
 	{
 		Integer node1 = new Integer(1);
@@ -259,6 +279,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertEquals(2, myList.size());
 	}
 
+	@Test
 	public void testRemoveNode()
 	{
 		getStrategy().addGraphChangeListener(listener);
@@ -319,6 +340,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertEquals(1, getStrategy().getNodeList().size());
 	}
 
+	@Test
 	public void testRemoveEdge()
 	{
 		getStrategy().addGraphChangeListener(listener);
@@ -372,6 +394,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertEquals(1, getStrategy().getEdgeList().size());
 	}
 
+	@Test
 	public void testGetAdjacentEdgeList()
 	{
 		Integer node1 = new Integer(1);
@@ -411,6 +434,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertNull(getStrategy().getAdjacentEdges(null));
 	}
 
+	@Test
 	public void testHasAdjacentEdge()
 	{
 		Integer node1 = new Integer(1);
@@ -434,6 +458,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertFalse(getStrategy().hasAdjacentEdge(node5));
 	}
 
+	@Test
 	public void testAddGraphChangeListener()
 	{
 		assertEquals(0, getStrategy().getGraphChangeListeners().length);
@@ -445,6 +470,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertEquals(1, getStrategy().getGraphChangeListeners().length);
 	}
 
+	@Test
 	public void testGetGraphChangeListeners()
 	{
 		assertEquals(0, getStrategy().getGraphChangeListeners().length);
@@ -462,6 +488,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertTrue(l.contains(listener2));
 	}
 
+	@Test
 	public void testRemoveGraphChangeListener()
 	{
 		getStrategy().addGraphChangeListener(listener);
@@ -484,6 +511,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertEquals(listener2, getStrategy().getGraphChangeListeners()[0]);
 	}
 
+	@Test
 	public void testEquals()
 	{
 		Integer node1 = new Integer(1);

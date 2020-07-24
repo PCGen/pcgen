@@ -17,22 +17,27 @@
  */
 package pcgen.base.text;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.text.MessageFormat;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
 import pcgen.testsupport.TestSupport;
 
 /**
  * Test the MessageFormatUtilities class
  */
-public class MessageFormatUtilitiesTest extends TestCase
+public class MessageFormatUtilitiesTest
 {
 
+	@Test
 	public void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(MessageFormatUtilities.class);
 	}
 
+	@Test
 	public void testNulls()
 	{
 		MessageFormat mf = new MessageFormat("Hello");

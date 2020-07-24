@@ -17,227 +17,207 @@
  */
 package pcgen.base.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Before;
-import org.junit.Test;
+import pcgen.testsupport.TestSupport;
 
-public class KeyMapTest extends TestCase
+public class KeyMapTest
 {
 
-	private static final String SA = "A";
-	private static final String SC = "C";
-	private static final String SF = "F";
-	private static final String SB = "B";
-	private static final Double D0 = Double.valueOf(0);
-	private static final Double D2 = Double.valueOf(2);
-	private static final Double D3_2 = Double.valueOf(3.2);
-	private static final Double D5 = Double.valueOf(5);
-	private static final Double D6 = Double.valueOf(6);
-
-	private KeyMap<Double> otom;
-
-	@Override
-	@Before
-	public void setUp()
+	public void populate(KeyMap<Double> km)
 	{
-		otom = new KeyMap<>();
-	}
-
-	public void populate()
-	{
-		otom.put(SA, D0);
-		otom.put(SB, D5);
+		km.put(TestSupport.S1, TestSupport.D0);
+		km.put(TestSupport.S4, TestSupport.D5);
 	}
 
 	@Test
 	public void testEmptyClear()
 	{
-		assertEquals(0, otom.size());
-		assertTrue(otom.isEmpty());
-		populate();
-		assertEquals(2, otom.size());
-		assertFalse(otom.isEmpty());
-		otom.clear();
-		assertTrue(otom.isEmpty());
-		assertNull(otom.get(SA));
-		assertNull(otom.getKeyFor(D5));
+		KeyMap<Double> km = new KeyMap<>();
+		assertEquals(0, km.size());
+		assertTrue(km.isEmpty());
+		populate(km);
+		assertEquals(2, km.size());
+		assertFalse(km.isEmpty());
+		km.clear();
+		assertTrue(km.isEmpty());
+		assertNull(km.get(TestSupport.S1));
+		assertNull(km.getKeyFor(TestSupport.D5));
 	}
 
 	@Test
 	public void testPutGetBad()
 	{
-		try
-		{
-			otom.put(null, Double.valueOf(5.4));
-			fail("null key should be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//yep
-		}
-		try
-		{
-			otom.put(SB, null);
-			fail("null value should be rejected");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//yep
-		}
+		KeyMap<Double> km = new KeyMap<>();
+		assertThrows(NullPointerException.class, () -> km.put(null, Double.valueOf(5.4)));
+		assertThrows(NullPointerException.class, () -> km.put(TestSupport.S4, null));
 	}
 
 	@Test
 	public void testPutGetExact()
 	{
-		populate();
-		assertEquals(D0, otom.get(SA));
-		assertEquals(D5, otom.get(SB));
-		assertEquals(SA, otom.getKeyFor(D0));
-		assertEquals(SB, otom.getKeyFor(D5));
+		KeyMap<Double> km = new KeyMap<>();
+		populate(km);
+		assertEquals(TestSupport.D0, km.get(TestSupport.S1));
+		assertEquals(TestSupport.D5, km.get(TestSupport.S4));
+		assertEquals(TestSupport.S1, km.getKeyFor(TestSupport.D0));
+		assertEquals(TestSupport.S4, km.getKeyFor(TestSupport.D5));
 		//double check direct overwrite
-		Double ov = otom.put(SB, D5);
-		assertEquals(D5, ov);
-		assertEquals(D5, otom.get(SB));
-		assertEquals(SB, otom.getKeyFor(D5));
-		otom.remove(SB);
-		assertEquals(D0, otom.get(SA));
-		assertEquals(SA, otom.getKeyFor(D0));
-		assertNull(otom.get(SB));
-		assertNull(otom.getKeyFor(D5));
+		Double ov = km.put(TestSupport.S4, TestSupport.D5);
+		assertEquals(TestSupport.D5, ov);
+		assertEquals(TestSupport.D5, km.get(TestSupport.S4));
+		assertEquals(TestSupport.S4, km.getKeyFor(TestSupport.D5));
+		km.remove(TestSupport.S4);
+		assertEquals(TestSupport.D0, km.get(TestSupport.S1));
+		assertEquals(TestSupport.S1, km.getKeyFor(TestSupport.D0));
+		assertNull(km.get(TestSupport.S4));
+		assertNull(km.getKeyFor(TestSupport.D5));
 		//safe
-		otom.remove(null);
-		assertEquals(D0, otom.get(SA));
-		assertEquals(SA, otom.getKeyFor(D0));
-		assertNull(otom.get(SB));
-		assertNull(otom.getKeyFor(D5));
+		km.remove(null);
+		assertEquals(TestSupport.D0, km.get(TestSupport.S1));
+		assertEquals(TestSupport.S1, km.getKeyFor(TestSupport.D0));
+		assertNull(km.get(TestSupport.S4));
+		assertNull(km.getKeyFor(TestSupport.D5));
 	}
 
 	@Test
 	public void testOverwriteKey()
 	{
-		populate();
-		Double ov = otom.put(SA, D3_2);
-		assertEquals(D3_2, otom.get(SA));
-		assertEquals(SA, otom.getKeyFor(D3_2));
-		assertEquals(D0, ov);
+		KeyMap<Double> km = new KeyMap<>();
+		populate(km);
+		Double ov = km.put(TestSupport.S1, TestSupport.D3_2);
+		assertEquals(TestSupport.D3_2, km.get(TestSupport.S1));
+		assertEquals(TestSupport.S1, km.getKeyFor(TestSupport.D3_2));
+		assertEquals(TestSupport.D0, ov);
 		//check reset
-		assertNull(otom.getKeyFor(D0));
+		assertNull(km.getKeyFor(TestSupport.D0));
 	}
 
 	@Test
 	public void testOverwriteValue()
 	{
-		populate();
-		Double ov = otom.put(SC, D5);
-		assertEquals(D5, otom.get(SC));
-		assertEquals(SC, otom.getKeyFor(D5));
+		KeyMap<Double> km = new KeyMap<>();
+		populate(km);
+		Double ov = km.put(TestSupport.S2, TestSupport.D5);
+		assertEquals(TestSupport.D5, km.get(TestSupport.S2));
+		assertEquals(TestSupport.S2, km.getKeyFor(TestSupport.D5));
 		assertNull(ov);
 		//check reset
-		assertNull(otom.get(SB));
+		assertNull(km.get(TestSupport.S4));
 	}
 
 	@Test
 	public void testOverwriteMix()
 	{
-		populate();
-		Double ov = otom.put(SA, D5);
-		assertEquals(D0, ov);
-		assertEquals(D5, otom.get(SA));
-		assertEquals(SA, otom.getKeyFor(D5));
+		KeyMap<Double> km = new KeyMap<>();
+		populate(km);
+		Double ov = km.put(TestSupport.S1, TestSupport.D5);
+		assertEquals(TestSupport.D0, ov);
+		assertEquals(TestSupport.D5, km.get(TestSupport.S1));
+		assertEquals(TestSupport.S1, km.getKeyFor(TestSupport.D5));
 		//check reset
-		assertNull(otom.get(SB));
-		assertNull(otom.getKeyFor(D0));
+		assertNull(km.get(TestSupport.S4));
+		assertNull(km.getKeyFor(TestSupport.D0));
 	}
 
 	@Test
 	public void testContainsKey()
 	{
-		populate();
-		assertTrue(otom.containsKey(SA));
-		assertTrue(otom.containsKey(SB));
-		assertFalse(otom.containsKey(SF));
+		KeyMap<Double> km = new KeyMap<>();
+		populate(km);
+		assertTrue(km.containsKey(TestSupport.S1));
+		assertTrue(km.containsKey(TestSupport.S4));
+		assertFalse(km.containsKey(TestSupport.S3));
 	}
 
 	@Test
 	public void testContainsValue()
 	{
-		populate();
-		assertTrue(otom.containsValue(D0));
-		assertTrue(otom.containsValue(D5));
-		assertFalse(otom.containsValue(D2));
+		KeyMap<Double> km = new KeyMap<>();
+		populate(km);
+		assertTrue(km.containsValue(TestSupport.D0));
+		assertTrue(km.containsValue(TestSupport.D5));
+		assertFalse(km.containsValue(TestSupport.D2));
 		//Check values just in case
-		assertFalse(otom.containsValue(SA));
+		assertFalse(km.containsValue(TestSupport.S1));
 	}
 
 	@Test
 	public void testKeySet()
 	{
-		Set<String> s = otom.keySet();
+		KeyMap<Double> km = new KeyMap<>();
+		Set<String> s = km.keySet();
 		assertNotNull(s);
 		assertEquals(0, s.size());
-		populate();
-		s = otom.keySet();
+		populate(km);
+		s = km.keySet();
 		assertNotNull(s);
 		assertEquals(2, s.size());
 		//copy since we don't know what is returned is modifiable
 		Set<String> full = new HashSet<>(s);
 		//make sure we didn't lose anything
 		assertEquals(2, full.size());
-		assertTrue(full.remove(SA));
-		assertTrue(full.remove(SB));
+		assertTrue(full.remove(TestSupport.S1));
+		assertTrue(full.remove(TestSupport.S4));
 		//check independence
 		try
 		{
-			s.add(SF);
-			assertEquals(2, otom.keySet().size());
+			s.add(TestSupport.S3);
+			assertEquals(2, km.keySet().size());
 		}
 		catch (UnsupportedOperationException e)
 		{
 			//expected
 		}
 		assertEquals(3, s.size());
-		otom.put(SC, D6);
-		assertEquals(3, otom.keySet().size());
+		km.put(TestSupport.S2, TestSupport.D6);
+		assertEquals(3, km.keySet().size());
 		assertEquals(3, s.size());
 	}
 
 	@Test
 	public void testKeyValues()
 	{
-		Collection<Double> s = otom.keySortedValues();
+		KeyMap<Double> km = new KeyMap<>();
+		Collection<Double> s = km.keySortedValues();
 		assertNotNull(s);
 		assertEquals(0, s.size());
-		populate();
-		s = otom.keySortedValues();
+		populate(km);
+		s = km.keySortedValues();
 		assertNotNull(s);
 		assertEquals(2, s.size());
 		//copy since we don't know what is returned is modifiable
 		Set<Double> full = new HashSet<>(s);
 		//make sure we didn't lose anything
 		assertEquals(2, full.size());
-		assertTrue(full.remove(D0));
-		assertTrue(full.remove(D5));
+		assertTrue(full.remove(TestSupport.D0));
+		assertTrue(full.remove(TestSupport.D5));
 		//check independence
 		try
 		{
-			s.add(D2);
-			assertEquals(2, otom.keySet().size());
+			s.add(TestSupport.D2);
+			assertEquals(2, km.keySet().size());
 		}
 		catch (UnsupportedOperationException e)
 		{
 			//expected
 		}
 		assertEquals(3, s.size());
-		assertEquals(2, otom.keySortedValues().size());
-		otom.put(SC, D6);
-		s = otom.keySortedValues();
-		assertEquals(3, otom.keySet().size());
+		assertEquals(2, km.keySortedValues().size());
+		km.put(TestSupport.S5, TestSupport.D6);
+		s = km.keySortedValues();
+		assertEquals(3, km.keySet().size());
 		assertEquals(3, s.size());
 		Iterator<Double> iterator = s.iterator();
 		assertEquals(0.0, iterator.next());

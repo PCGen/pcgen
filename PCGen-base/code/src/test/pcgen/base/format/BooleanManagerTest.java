@@ -16,148 +16,119 @@
  */
 package pcgen.base.format;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.SimpleValueStore;
 
 /**
  * Test the BooleanManager class
  */
-public class BooleanManagerTest extends TestCase
+public class BooleanManagerTest
 {
-	private BooleanManager manager = new BooleanManager();
-
+	@Test
 	public void testConvertFailNull()
 	{
-		try
-		{
-			manager.convert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.BOOLEAN_MANAGER.convert(null));
 	}
 
+	@Test
 	public void testConvertFailNotBoolean()
 	{
-		try
-		{
-			manager.convert("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.BOOLEAN_MANAGER.convert("SomeString"));
 	}
 
+	@Test
 	public void testUnconvertFailNull()
 	{
-		try
-		{
-			manager.unconvert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> FormatUtilities.BOOLEAN_MANAGER.unconvert(null));
 	}
 
+	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void testUnconvertFailObject()
 	{
-		try
-		{
-			//Yes generics are being violated in order to do this test
-			FormatManager formatManager = manager;
-			formatManager.unconvert(new Object());
-			fail("Object should fail");
-		}
-		catch (ClassCastException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		//Yes generics are being violated in order to do this test
+		FormatManager formatManager = FormatUtilities.BOOLEAN_MANAGER;
+		assertThrows(ClassCastException.class, () -> formatManager.unconvert(new Object()));
 	}
 
+	@Test
 	public void testConvertIndirectFailNull()
 	{
-		try
-		{
-			manager.convertIndirect(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.BOOLEAN_MANAGER.convertIndirect(null));
 	}
 
+	@Test
 	public void testConvertIndirectFailNotBoolean()
 	{
-		try
-		{
-			manager.convertIndirect("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.BOOLEAN_MANAGER.convertIndirect("SomeString"));
 	}
 
+	@Test
 	public void testConvert()
 	{
-		assertEquals(Boolean.TRUE, manager.convert("true"));
-		assertEquals(Boolean.FALSE, manager.convert("false"));
-		assertEquals(Boolean.TRUE, manager.convert("True"));
+		assertEquals(Boolean.TRUE, FormatUtilities.BOOLEAN_MANAGER.convert("true"));
+		assertEquals(Boolean.FALSE, FormatUtilities.BOOLEAN_MANAGER.convert("false"));
+		assertEquals(Boolean.TRUE, FormatUtilities.BOOLEAN_MANAGER.convert("True"));
 	}
 
+	@Test
 	public void testUnconvert()
 	{
-		assertEquals("true", manager.unconvert(Boolean.TRUE));
-		assertEquals("false", manager.unconvert(Boolean.FALSE));
+		assertEquals("true", FormatUtilities.BOOLEAN_MANAGER.unconvert(Boolean.TRUE));
+		assertEquals("false", FormatUtilities.BOOLEAN_MANAGER.unconvert(Boolean.FALSE));
 	}
 
+	@Test
 	public void testConvertIndirect()
 	{
-		assertEquals(Boolean.TRUE, manager.convertIndirect("true").get());
-		assertEquals(Boolean.FALSE, manager.convertIndirect("false").get());
+		assertEquals(Boolean.TRUE, FormatUtilities.BOOLEAN_MANAGER.convertIndirect("true").get());
+		assertEquals(Boolean.FALSE, FormatUtilities.BOOLEAN_MANAGER.convertIndirect("false").get());
 	}
 
+	@Test
 	public void testGetIdentifier()
 	{
-		assertEquals("BOOLEAN", manager.getIdentifierType());
+		assertEquals("BOOLEAN", FormatUtilities.BOOLEAN_MANAGER.getIdentifierType());
 	}
 
+	@Test
 	public void testHashCodeEquals()
 	{
-		assertEquals(new BooleanManager().hashCode(), manager.hashCode());
-		assertFalse(manager.equals(new Object()));
-		assertFalse(manager.equals(new StringManager()));
-		assertTrue(manager.equals(new BooleanManager()));
+		assertEquals(new BooleanManager().hashCode(), FormatUtilities.BOOLEAN_MANAGER.hashCode());
+		assertFalse(FormatUtilities.BOOLEAN_MANAGER.equals(new Object()));
+		assertFalse(FormatUtilities.BOOLEAN_MANAGER.equals(new StringManager()));
+		assertTrue(FormatUtilities.BOOLEAN_MANAGER.equals(new BooleanManager()));
 	}
 
+	@Test
 	public void testGetComponent()
 	{
-		assertTrue(manager.getComponentManager().isEmpty());
+		assertTrue(FormatUtilities.BOOLEAN_MANAGER.getComponentManager().isEmpty());
 	}
 
+	@Test
 	public void testIsDirect()
 	{
-		assertTrue(manager.isDirect());
+		assertTrue(FormatUtilities.BOOLEAN_MANAGER.isDirect());
 	}
 
+	@Test
 	public void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
-		valueStore.addValueFor(manager.getIdentifierType(), Boolean.FALSE);
-		Object value = manager.initializeFrom(valueStore);
+		valueStore.addValueFor(FormatUtilities.BOOLEAN_MANAGER.getIdentifierType(), Boolean.FALSE);
+		Object value = FormatUtilities.BOOLEAN_MANAGER.initializeFrom(valueStore);
 		assertEquals(Boolean.FALSE, value);
-		valueStore.addValueFor(manager.getIdentifierType(), Boolean.TRUE);
-		value = manager.initializeFrom(valueStore);
+		valueStore.addValueFor(FormatUtilities.BOOLEAN_MANAGER.getIdentifierType(), Boolean.TRUE);
+		value = FormatUtilities.BOOLEAN_MANAGER.initializeFrom(valueStore);
 		assertEquals(Boolean.TRUE, value);
 	}
 }

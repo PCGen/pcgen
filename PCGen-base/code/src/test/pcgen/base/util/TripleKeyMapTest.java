@@ -17,248 +17,218 @@
  */
 package pcgen.base.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Set;
 import java.util.TreeMap;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.NoPublicZeroArgConstructorMap;
 import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
+import pcgen.testsupport.TestSupport;
 
-public class TripleKeyMapTest extends TestCase
+public class TripleKeyMapTest
 {
 
-	private static final Character CA = 'A';
-
-	private static final Character CB = 'B';
-
-	private static final Character CC = 'C';
-
-	private static final Character CD = 'D';
-
-	private static final Integer I1 = 1;
-
-	private static final Integer I2 = 2;
-
-	private static final Integer I3 = 3;
-
-	private static final Integer I4 = 4;
-
-	private static final Double D1 = 1.0;
-
-	private static final Double D2 = 2.0;
-
-	private static final Double D3 = 3.0;
-
-	private static final Double D4 = 4.0;
-
-	private static final String S1 = "S1";
-
-	private static final String S2 = "S2";
-
-	private static final String S3 = "S3";
-
-	private static final String S4 = "S4";
-
-	private static final String S5 = "S5";
-
-	private static final String S6 = "S6";
-
-	private static final String S7 = "S7";
-
-	private static final String S8 = "S8";
-
-	private static final String S9 = "S9";
-
-	private TripleKeyMap<Integer, Double, Character, String> tkm;
-
-	public void populate(boolean allowNull)
+	public void populate(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
 	{
-		tkm.put(I1, D1, CA, S1);
-		tkm.put(I1, D1, CB, S2);
-		tkm.put(I1, D2, CA, S2);
-		tkm.put(I1, D2, CB, S3);
-		tkm.put(I2, D1, CC, S4);
-		tkm.put(I2, D3, CD, S5);
-		tkm.put(I3, D4, CD, S6);
+		tkm.put(TestSupport.I1, TestSupport.D1, TestSupport.CONST_A, TestSupport.S1);
+		tkm.put(TestSupport.I1, TestSupport.D1, TestSupport.CONST_B, TestSupport.S2);
+		tkm.put(TestSupport.I1, TestSupport.D2, TestSupport.CONST_A, TestSupport.S2);
+		tkm.put(TestSupport.I1, TestSupport.D2, TestSupport.CONST_B, TestSupport.S3);
+		tkm.put(TestSupport.I2, TestSupport.D1, TestSupport.CONST_C, TestSupport.S4);
+		tkm.put(TestSupport.I2, TestSupport.D3, TestSupport.CONST_D, TestSupport.S5);
+		tkm.put(TestSupport.I3, TestSupport.D4, TestSupport.CONST_D, TestSupport.S6);
 		if (allowNull)
 		{
-			tkm.put(null, D3, CD, S7);
-			tkm.put(I4, null, CD, S8);
-			tkm.put(I4, D1, null, S9);
-			tkm.put(I4, D2, CA, null);
+			tkm.put(null, TestSupport.D3, TestSupport.CONST_D, TestSupport.S7);
+			tkm.put(TestSupport.I4, null, TestSupport.CONST_D, TestSupport.S8);
+			tkm.put(TestSupport.I4, TestSupport.D1, null, TestSupport.S9);
+			tkm.put(TestSupport.I4, TestSupport.D2, TestSupport.CONST_A, null);
 		}
 	}
 
 	@Test
-	public void testPutGet()
+	public void testPutGetPlain()
 	{
-		tkm = new TripleKeyMap<>();
-		runPutGet(true);
-		tkm =
-				new TripleKeyMap<>(
-						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
-		runPutGet(false);
+		runPutGet(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testContainsKey()
+	public void testPutGetIdentity()
 	{
-		tkm = new TripleKeyMap<>();
-		runContainsKey(true);
-		tkm =
-				new TripleKeyMap<>(
-						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
-		runContainsKey(false);
+		runPutGet(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testRemove()
+	public void testContainsKeyPlain()
 	{
-		tkm = new TripleKeyMap<>();
-		runRemove(true);
-		tkm =
-				new TripleKeyMap<>(
-						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
-		runRemove(false);
+		runContainsKey(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testGetKeySet()
+	public void testContainsKeyIdentity()
 	{
-		tkm = new TripleKeyMap<>();
-		runGetKeySet(true);
-		tkm =
-				new TripleKeyMap<>(
-						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
-		runGetKeySet(false);
+		runContainsKey(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testGetSecondaryKeySet()
+	public void testRemovePlain()
 	{
-		tkm = new TripleKeyMap<>();
-		runGetSecondaryKeySet(true);
-		tkm =
-				new TripleKeyMap<>(
-						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
-		runGetSecondaryKeySet(false);
+		runRemove(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testGetTertiaryKeySet()
+	public void testRemoveIdentity()
 	{
-		tkm = new TripleKeyMap<>();
-		runGetTertiaryKeySet(true);
-		tkm =
-				new TripleKeyMap<>(
-						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
-		runGetTertiaryKeySet(false);
+		runRemove(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testClearIsEmpty()
+	public void testGetKeySetPlain()
 	{
-		tkm = new TripleKeyMap<>();
-		runClearIsEmpty(true);
-		tkm =
-				new TripleKeyMap<>(
-						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
-		runClearIsEmpty(false);
+		runGetKeySet(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testValues()
+	public void testGetKeySetIdentity()
 	{
-		tkm = new TripleKeyMap<>();
-		runValues(true);
-		tkm =
-				new TripleKeyMap<>(
-						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
-		runValues(false);
+		runGetKeySet(getIdentityMap(), false);
 	}
 
-	public void runPutGet(boolean allowNull)
+	@Test
+	public void testGetSecondaryKeySetPlain()
 	{
-		assertNull(tkm.get(I1, D2, CA));
-		populate(allowNull);
-		assertNull(tkm.get(I1, D1, CC));
-		assertNull(tkm.get(I1, D4, CA));
-		assertNull(tkm.get(Integer.valueOf(5), D1, CA));
-		assertEquals(S1, tkm.get(I1, D1, CA));
-		assertEquals(S2, tkm.get(I1, D1, CB));
-		assertEquals(S2, tkm.get(I1, D2, CA));
-		assertEquals(S3, tkm.get(I1, D2, CB));
-		assertEquals(S4, tkm.get(I2, D1, CC));
-		assertEquals(S5, tkm.get(I2, D3, CD));
-		assertEquals(S6, tkm.get(I3, D4, CD));
+		runGetSecondaryKeySet(new TripleKeyMap<>(), true);
+	}
+
+	@Test
+	public void testGetSecondaryKeySetIdentity()
+	{
+		runGetSecondaryKeySet(getIdentityMap(), false);
+	}
+
+	@Test
+	public void testGetTertiaryKeySetPlain()
+	{
+		runGetTertiaryKeySet(new TripleKeyMap<>(), true);
+	}
+
+	@Test
+	public void testGetTertiaryKeySetIdentity()
+	{
+		runGetTertiaryKeySet(getIdentityMap(), false);
+	}
+
+	@Test
+	public void testClearIsEmptyPlain()
+	{
+		runClearIsEmpty(new TripleKeyMap<>(), true);
+	}
+
+	@Test
+	public void testClearIsEmptyIdentity()
+	{
+		runClearIsEmpty(getIdentityMap(), false);
+	}
+
+	@Test
+	public void testValuesPlain()
+	{
+		runValues(new TripleKeyMap<>(), true);
+	}
+
+	@Test
+	public void testValuesIdentity()
+	{
+		runValues(getIdentityMap(), false);
+	}
+
+	public void runPutGet(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
+	{
+		assertNull(tkm.get(TestSupport.I1, TestSupport.D2, TestSupport.CONST_A));
+		populate(tkm, allowNull);
+		assertNull(tkm.get(TestSupport.I1, TestSupport.D1, TestSupport.CONST_C));
+		assertNull(tkm.get(TestSupport.I1, TestSupport.D4, TestSupport.CONST_A));
+		assertNull(tkm.get(TestSupport.I5, TestSupport.D1, TestSupport.CONST_A));
+		assertEquals(TestSupport.S1, tkm.get(TestSupport.I1, TestSupport.D1, TestSupport.CONST_A));
+		assertEquals(TestSupport.S2, tkm.get(TestSupport.I1, TestSupport.D1, TestSupport.CONST_B));
+		assertEquals(TestSupport.S2, tkm.get(TestSupport.I1, TestSupport.D2, TestSupport.CONST_A));
+		assertEquals(TestSupport.S3, tkm.get(TestSupport.I1, TestSupport.D2, TestSupport.CONST_B));
+		assertEquals(TestSupport.S4, tkm.get(TestSupport.I2, TestSupport.D1, TestSupport.CONST_C));
+		assertEquals(TestSupport.S5, tkm.get(TestSupport.I2, TestSupport.D3, TestSupport.CONST_D));
+		assertEquals(TestSupport.S6, tkm.get(TestSupport.I3, TestSupport.D4, TestSupport.CONST_D));
 		if (allowNull)
 		{
-			assertEquals(S7, tkm.get(null, D3, CD));
-			assertEquals(S8, tkm.get(I4, null, CD));
-			assertEquals(S9, tkm.get(I4, D1, null));
-			assertNull(tkm.get(I4, D2, CA));
+			assertEquals(TestSupport.S7, tkm.get(null, TestSupport.D3, TestSupport.CONST_D));
+			assertEquals(TestSupport.S8, tkm.get(TestSupport.I4, null, TestSupport.CONST_D));
+			assertEquals(TestSupport.S9, tkm.get(TestSupport.I4, TestSupport.D1, null));
+			assertNull(tkm.get(TestSupport.I4, TestSupport.D2, TestSupport.CONST_A));
 		}
 	}
 
-	public void runContainsKey(boolean allowNull)
+	public void runContainsKey(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
 	{
-		assertFalse(tkm.containsKey(I1, D2, CA));
-		populate(allowNull);
-		assertFalse(tkm.containsKey(I1, D1, CC));
-		assertFalse(tkm.containsKey(I1, D4, CA));
-		assertFalse(tkm.containsKey(Integer.valueOf(5), D1, CA));
-		assertTrue(tkm.containsKey(I1, D1, CA));
-		assertTrue(tkm.containsKey(I1, D1, CB));
-		assertTrue(tkm.containsKey(I1, D2, CA));
-		assertTrue(tkm.containsKey(I1, D2, CB));
-		assertTrue(tkm.containsKey(I2, D1, CC));
-		assertTrue(tkm.containsKey(I2, D3, CD));
-		assertTrue(tkm.containsKey(I3, D4, CD));
+		assertFalse(tkm.containsKey(TestSupport.I1, TestSupport.D2, TestSupport.CONST_A));
+		populate(tkm, allowNull);
+		assertFalse(tkm.containsKey(TestSupport.I1, TestSupport.D1, TestSupport.CONST_C));
+		assertFalse(tkm.containsKey(TestSupport.I1, TestSupport.D4, TestSupport.CONST_A));
+		assertFalse(tkm.containsKey(TestSupport.I5, TestSupport.D1, TestSupport.CONST_A));
+		assertTrue(tkm.containsKey(TestSupport.I1, TestSupport.D1, TestSupport.CONST_A));
+		assertTrue(tkm.containsKey(TestSupport.I1, TestSupport.D1, TestSupport.CONST_B));
+		assertTrue(tkm.containsKey(TestSupport.I1, TestSupport.D2, TestSupport.CONST_A));
+		assertTrue(tkm.containsKey(TestSupport.I1, TestSupport.D2, TestSupport.CONST_B));
+		assertTrue(tkm.containsKey(TestSupport.I2, TestSupport.D1, TestSupport.CONST_C));
+		assertTrue(tkm.containsKey(TestSupport.I2, TestSupport.D3, TestSupport.CONST_D));
+		assertTrue(tkm.containsKey(TestSupport.I3, TestSupport.D4, TestSupport.CONST_D));
 		if (allowNull)
 		{
-			assertTrue(tkm.containsKey(null, D3, CD));
-			assertTrue(tkm.containsKey(I4, null, CD));
-			assertTrue(tkm.containsKey(I4, D1, null));
-			assertTrue(tkm.containsKey(I4, D2, CA));
+			assertTrue(tkm.containsKey(null, TestSupport.D3, TestSupport.CONST_D));
+			assertTrue(tkm.containsKey(TestSupport.I4, null, TestSupport.CONST_D));
+			assertTrue(tkm.containsKey(TestSupport.I4, TestSupport.D1, null));
+			assertTrue(tkm.containsKey(TestSupport.I4, TestSupport.D2, TestSupport.CONST_A));
 		}
 	}
 
-	public void runRemove(boolean allowNull)
+	public void runRemove(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
 	{
-		assertNull(tkm.remove(I1, D2, CA));
-		populate(allowNull);
-		assertTrue(tkm.containsKey(I1, D1, CA));
-		assertEquals(S1, tkm.remove(I1, D1, CA));
-		assertFalse(tkm.containsKey(I1, D1, CA));
-		assertNull(tkm.remove(I1, D1, CA));
+		assertNull(tkm.remove(TestSupport.I1, TestSupport.D2, TestSupport.CONST_A));
+		populate(tkm, allowNull);
+		assertTrue(tkm.containsKey(TestSupport.I1, TestSupport.D1, TestSupport.CONST_A));
+		assertEquals(TestSupport.S1, tkm.remove(TestSupport.I1, TestSupport.D1, TestSupport.CONST_A));
+		assertFalse(tkm.containsKey(TestSupport.I1, TestSupport.D1, TestSupport.CONST_A));
+		assertNull(tkm.remove(TestSupport.I1, TestSupport.D1, TestSupport.CONST_A));
 		if (allowNull)
 		{
-			assertTrue(tkm.containsKey(null, D3, CD));
-			assertEquals(S7, tkm.remove(null, D3, CD));
-			assertFalse(tkm.containsKey(null, D3, CD));
-			assertNull(tkm.remove(null, D3, CD));
-			assertTrue(tkm.containsKey(I4, null, CD));
-			assertEquals(S8, tkm.remove(I4, null, CD));
-			assertFalse(tkm.containsKey(I4, null, CD));
-			assertNull(tkm.remove(I4, null, CD));
-			assertTrue(tkm.containsKey(I4, D1, null));
-			assertEquals(S9, tkm.remove(I4, D1, null));
-			assertFalse(tkm.containsKey(I4, D1, null));
-			assertNull(tkm.remove(I4, D1, null));
-			assertTrue(tkm.containsKey(I4, D2, CA));
-			assertNull(tkm.remove(I4, D2, CA));
-			assertFalse(tkm.containsKey(I4, D2, CA));
-			assertNull(tkm.remove(I4, D2, CA));
+			assertTrue(tkm.containsKey(null, TestSupport.D3, TestSupport.CONST_D));
+			assertEquals(TestSupport.S7, tkm.remove(null, TestSupport.D3, TestSupport.CONST_D));
+			assertFalse(tkm.containsKey(null, TestSupport.D3, TestSupport.CONST_D));
+			assertNull(tkm.remove(null, TestSupport.D3, TestSupport.CONST_D));
+			assertTrue(tkm.containsKey(TestSupport.I4, null, TestSupport.CONST_D));
+			assertEquals(TestSupport.S8, tkm.remove(TestSupport.I4, null, TestSupport.CONST_D));
+			assertFalse(tkm.containsKey(TestSupport.I4, null, TestSupport.CONST_D));
+			assertNull(tkm.remove(TestSupport.I4, null, TestSupport.CONST_D));
+			assertTrue(tkm.containsKey(TestSupport.I4, TestSupport.D1, null));
+			assertEquals(TestSupport.S9, tkm.remove(TestSupport.I4, TestSupport.D1, null));
+			assertFalse(tkm.containsKey(TestSupport.I4, TestSupport.D1, null));
+			assertNull(tkm.remove(TestSupport.I4, TestSupport.D1, null));
+			assertTrue(tkm.containsKey(TestSupport.I4, TestSupport.D2, TestSupport.CONST_A));
+			assertNull(tkm.remove(TestSupport.I4, TestSupport.D2, TestSupport.CONST_A));
+			assertFalse(tkm.containsKey(TestSupport.I4, TestSupport.D2, TestSupport.CONST_A));
+			assertNull(tkm.remove(TestSupport.I4, TestSupport.D2, TestSupport.CONST_A));
 		}
 	}
 
-	public void runGetKeySet(boolean allowNull)
+	public void runGetKeySet(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
 	{
 		Set<Integer> s = tkm.getKeySet();
 		assertEquals(0, s.size());
@@ -269,24 +239,24 @@ public class TripleKeyMapTest extends TestCase
 		assertEquals(1, s.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		populate(allowNull);
+		populate(tkm, allowNull);
 		assertEquals(1, s.size());
 		assertEquals(0, s2.size());
 		Set<Integer> s3 = tkm.getKeySet();
 		assertEquals(allowNull ? 5 : 3, s3.size());
-		assertTrue(s3.contains(I1));
-		assertTrue(s3.contains(I2));
-		assertTrue(s3.contains(I3));
+		assertTrue(s3.contains(TestSupport.I1));
+		assertTrue(s3.contains(TestSupport.I2));
+		assertTrue(s3.contains(TestSupport.I3));
 		if (allowNull)
 		{
-			assertTrue(s3.contains(I4));
+			assertTrue(s3.contains(TestSupport.I4));
 			assertTrue(s3.contains(null));
 		}
 	}
 
-	public void runGetSecondaryKeySet(boolean allowNull)
+	public void runGetSecondaryKeySet(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
 	{
-		Set<Double> s = tkm.getSecondaryKeySet(Integer.valueOf(4));
+		Set<Double> s = tkm.getSecondaryKeySet(TestSupport.I4);
 		assertEquals(0, s.size());
 		int sSize = 1;
 		try
@@ -299,39 +269,39 @@ public class TripleKeyMapTest extends TestCase
 			sSize = 0;
 		}
 		// Ensure not saved in DoubleKeyMap
-		Set<Double> s2 = tkm.getSecondaryKeySet(I4);
+		Set<Double> s2 = tkm.getSecondaryKeySet(TestSupport.I4);
 		assertEquals(0, s2.size());
 		assertEquals(sSize, s.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		populate(allowNull);
+		populate(tkm, allowNull);
 		assertEquals(sSize, s.size());
 		assertEquals(0, s2.size());
-		Set<Double> s3 = tkm.getSecondaryKeySet(I1);
+		Set<Double> s3 = tkm.getSecondaryKeySet(TestSupport.I1);
 		assertEquals(2, s3.size());
-		assertTrue(s3.contains(D1));
-		assertTrue(s3.contains(D2));
+		assertTrue(s3.contains(TestSupport.D1));
+		assertTrue(s3.contains(TestSupport.D2));
 		if (allowNull)
 		{
-			Set<Double> s4 = tkm.getSecondaryKeySet(I4);
+			Set<Double> s4 = tkm.getSecondaryKeySet(TestSupport.I4);
 			assertEquals(3, s4.size());
-			assertTrue(s4.contains(D1));
-			assertTrue(s4.contains(D2));
+			assertTrue(s4.contains(TestSupport.D1));
+			assertTrue(s4.contains(TestSupport.D2));
 			assertTrue(s4.contains(null));
 			Set<Double> s5 = tkm.getSecondaryKeySet(null);
 			assertEquals(1, s5.size());
-			assertTrue(s5.contains(Double.valueOf(3)));
+			assertTrue(s5.contains(TestSupport.D3));
 		}
 	}
 
-	public void runGetTertiaryKeySet(boolean allowNull)
+	public void runGetTertiaryKeySet(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
 	{
-		Set<Character> s = tkm.getTertiaryKeySet(I1, D1);
+		Set<Character> s = tkm.getTertiaryKeySet(TestSupport.I1, TestSupport.D1);
 		assertEquals(0, s.size());
 		int sSize = 1;
 		try
 		{
-			s.add(CC);
+			s.add(TestSupport.CONST_C);
 		}
 		catch (UnsupportedOperationException uoe)
 		{
@@ -339,25 +309,25 @@ public class TripleKeyMapTest extends TestCase
 			sSize = 0;
 		}
 		// Ensure not saved in DoubleKeyMap
-		Set<Character> s2 = tkm.getTertiaryKeySet(I1, D1);
+		Set<Character> s2 = tkm.getTertiaryKeySet(TestSupport.I1, TestSupport.D1);
 		assertEquals(0, s2.size());
 		assertEquals(sSize, s.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		populate(allowNull);
+		populate(tkm, allowNull);
 		assertEquals(sSize, s.size());
 		assertEquals(0, s2.size());
-		Set<Character> s3 = tkm.getTertiaryKeySet(I1, D1);
+		Set<Character> s3 = tkm.getTertiaryKeySet(TestSupport.I1, TestSupport.D1);
 		assertEquals(2, s3.size());
-		assertTrue(s3.contains(CA));
-		assertTrue(s3.contains(CB));
+		assertTrue(s3.contains(TestSupport.CONST_A));
+		assertTrue(s3.contains(TestSupport.CONST_B));
 	}
 
-	public void runClearIsEmpty(boolean allowNull)
+	public void runClearIsEmpty(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
 	{
 		assertTrue(tkm.isEmpty());
 		assertEquals(0, tkm.firstKeyCount());
-		populate(allowNull);
+		populate(tkm, allowNull);
 		assertFalse(tkm.isEmpty());
 		assertEquals(allowNull ? 5 : 3, tkm.firstKeyCount());
 		tkm.clear();
@@ -365,19 +335,19 @@ public class TripleKeyMapTest extends TestCase
 		assertEquals(0, tkm.firstKeyCount());
 		if (allowNull)
 		{
-			tkm.put(null, D3, CD, "Sa");
+			tkm.put(null, TestSupport.D3, TestSupport.CONST_D, "Sa");
 			assertFalse(tkm.isEmpty());
 			assertEquals(1, tkm.firstKeyCount());
 			tkm.clear();
 			assertTrue(tkm.isEmpty());
 			assertEquals(0, tkm.firstKeyCount());
-			tkm.put(I3, null, CA, "Sb");
+			tkm.put(TestSupport.I3, null, TestSupport.CONST_A, "Sb");
 			assertFalse(tkm.isEmpty());
 			assertEquals(1, tkm.firstKeyCount());
 			tkm.clear();
 			assertTrue(tkm.isEmpty());
 			assertEquals(0, tkm.firstKeyCount());
-			tkm.put(I2, D4, null, "Sc");
+			tkm.put(TestSupport.I2, TestSupport.D4, null, "Sc");
 			assertFalse(tkm.isEmpty());
 			assertEquals(1, tkm.firstKeyCount());
 		}
@@ -386,41 +356,41 @@ public class TripleKeyMapTest extends TestCase
 		assertEquals(0, tkm.firstKeyCount());
 	}
 
-	public void runValues(boolean allowNull)
+	public void runValues(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
 	{
-		Set<String> values = tkm.values(I1, D1);
+		Set<String> values = tkm.values(TestSupport.I1, TestSupport.D1);
 		assertEquals(0, values.size());
-		populate(allowNull);
-		values = tkm.values(I1, D1);
+		populate(tkm, allowNull);
+		values = tkm.values(TestSupport.I1, TestSupport.D1);
 		assertEquals(2, values.size());
-		assertTrue(values.contains(S1));
-		assertTrue(values.contains(S2));
+		assertTrue(values.contains(TestSupport.S1));
+		assertTrue(values.contains(TestSupport.S2));
 		// prove independence
-		tkm.remove(I1, D1, CA);
+		tkm.remove(TestSupport.I1, TestSupport.D1, TestSupport.CONST_A);
 		assertEquals(2, values.size());
-		assertTrue(values.contains(S1));
-		assertTrue(values.contains(S2));
-		values = tkm.values(I1, D2);
+		assertTrue(values.contains(TestSupport.S1));
+		assertTrue(values.contains(TestSupport.S2));
+		values = tkm.values(TestSupport.I1, TestSupport.D2);
 		assertEquals(2, values.size());
-		assertTrue(values.contains(S2));
-		assertTrue(values.contains(S3));
+		assertTrue(values.contains(TestSupport.S2));
+		assertTrue(values.contains(TestSupport.S3));
 		// prove independence
-		values.remove(S2);
+		values.remove(TestSupport.S2);
 		assertEquals(1, values.size());
-		assertTrue(values.contains(S3));
-		assertEquals(2, tkm.values(I1, D2).size());
+		assertTrue(values.contains(TestSupport.S3));
+		assertEquals(2, tkm.values(TestSupport.I1, TestSupport.D2).size());
 		if (allowNull)
 		{
-			values = tkm.values(null, D3);
+			values = tkm.values(null, TestSupport.D3);
 			assertEquals(1, values.size());
-			assertTrue(values.contains(S7));
-			values = tkm.values(I4, null);
+			assertTrue(values.contains(TestSupport.S7));
+			values = tkm.values(TestSupport.I4, null);
 			assertEquals(1, values.size());
-			assertTrue(values.contains(S8));
-			values = tkm.values(I4, D1);
+			assertTrue(values.contains(TestSupport.S8));
+			values = tkm.values(TestSupport.I4, TestSupport.D1);
 			assertEquals(1, values.size());
-			assertTrue(values.contains(S9));
-			values = tkm.values(I4, D2);
+			assertTrue(values.contains(TestSupport.S9));
+			values = tkm.values(TestSupport.I4, TestSupport.D2);
 			assertEquals(1, values.size());
 			assertTrue(values.contains(null));
 		}
@@ -429,141 +399,44 @@ public class TripleKeyMapTest extends TestCase
 
 	// TODO Need a test that respects order/behavior of underlying lists for
 	// class constructor
-	@SuppressWarnings("unused")
+	@Test
 	public void testNullInConstructor()
 	{
-		try
-		{
-			new TripleKeyMap<>(null, HashMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMap<>(HashMap.class, null, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			// OK, expected
-		}
-		try
-		{
-			new TripleKeyMap<>(HashMap.class, HashMap.class, null);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			// OK, expected
-		}
+		assertThrows(NullPointerException.class, () -> new TripleKeyMap<>(null, HashMap.class, HashMap.class));
+		assertThrows(NullPointerException.class, () -> new TripleKeyMap<>(HashMap.class, null, HashMap.class));
+		assertThrows(NullPointerException.class, () -> new TripleKeyMap<>(HashMap.class, HashMap.class, null));
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testBadClassInConstructor()
 	{
-		try
-		{
-			new TripleKeyMap<>(StrangeMap.class, HashMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
-		try
-		{
-			new TripleKeyMap<>(HashMap.class, StrangeMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
-		try
-		{
-			new TripleKeyMap<>(HashMap.class, HashMap.class, StrangeMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(StrangeMap.class, HashMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, StrangeMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, HashMap.class, StrangeMap.class));
 	}
 
-
-	@SuppressWarnings("unused")
+	@Test
 	public void testBadClassInConstructor2()
 	{
-		try
-		{
-			new TripleKeyMap<>(NoPublicZeroArgConstructorMap.class, HashMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
-		try
-		{
-			new TripleKeyMap<>(HashMap.class, NoPublicZeroArgConstructorMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
-		try
-		{
-			new TripleKeyMap<>(HashMap.class, HashMap.class, NoPublicZeroArgConstructorMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(NoPublicZeroArgConstructorMap.class, HashMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, NoPublicZeroArgConstructorMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, HashMap.class, NoPublicZeroArgConstructorMap.class));
 	}
 
-
-	@SuppressWarnings("unused")
+	@Test
 	public void testBadClassInConstructor3()
 	{
-		try
-		{
-			new TripleKeyMap<>(NoZeroArgConstructorMap.class, HashMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
-		try
-		{
-			new TripleKeyMap<>(HashMap.class, NoZeroArgConstructorMap.class, HashMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
-		try
-		{
-			new TripleKeyMap<>(HashMap.class, HashMap.class, NoZeroArgConstructorMap.class);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//OK, expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(NoZeroArgConstructorMap.class, HashMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, NoZeroArgConstructorMap.class, HashMap.class));
+		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, HashMap.class, NoZeroArgConstructorMap.class));
 	}
 
 	@Test
 	public void testClone()
 	{
-		tkm = new TripleKeyMap<>();
-		populate(true);
+		TripleKeyMap<Integer, Double, Character, String> tkm =
+				new TripleKeyMap<>();
+		populate(tkm, true);
 		TripleKeyMap<Integer, Double, Character, String> copy;
 		try
 		{
@@ -574,14 +447,18 @@ public class TripleKeyMapTest extends TestCase
 			fail(e.getMessage());
 			return;
 		}
-		Integer i1 = Integer.valueOf(1);
-		Double d1 = Double.valueOf(1);
+		Double d1 = TestSupport.D1;
 		// test independence
-		tkm.put(i1, d1, CD, S1);
-		assertNull(copy.get(i1, d1, CD));
-		copy.put(i1, d1, CC, S4);
-		assertNull(tkm.get(i1, d1, CC));
+		tkm.put(TestSupport.I1, d1, TestSupport.CONST_D, TestSupport.S1);
+		assertNull(copy.get(TestSupport.I1, d1, TestSupport.CONST_D));
+		copy.put(TestSupport.I1, d1, TestSupport.CONST_C, TestSupport.S4);
+		assertNull(tkm.get(TestSupport.I1, d1, TestSupport.CONST_C));
+	}
+
+	private TripleKeyMap<Integer, Double, Character, String> getIdentityMap()
+	{
+		return new TripleKeyMap<>(
+				TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 	}
 
 }
-

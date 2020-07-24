@@ -16,9 +16,16 @@
  */
 package pcgen.base.format;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.math.BigDecimal;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.SimpleValueStore;
@@ -26,146 +33,110 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the OrderedPairManager class
  */
-public class OrderedPairManagerTest extends TestCase
+public class OrderedPairManagerTest
 {
-	private OrderedPairManager manager = new OrderedPairManager();
-
+	@Test
 	public void testConvertFailNull()
 	{
-		try
-		{
-			manager.convert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.convert(null));
 	}
 
+	@Test
 	public void testConvertFailNotNumeric()
 	{
-		try
-		{
-			manager.convert("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.convert("SomeString"));
 	}
 
+	@Test
 	public void testUnconvertFailNull()
 	{
-		try
-		{
-			manager.unconvert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.unconvert(null));
 	}
 
+	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void testUnconvertFailObject()
 	{
-		try
-		{
-			//Yes generics are being violated in order to do this test
-			FormatManager formatManager = manager;
-			formatManager.unconvert(new Object());
-			fail("Object should fail");
-		}
-		catch (ClassCastException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		//Yes generics are being violated in order to do this test
+		FormatManager formatManager = FormatUtilities.ORDEREDPAIR_MANAGER;
+		assertThrows(ClassCastException.class, () -> formatManager.unconvert(new Object()));
 	}
 
+	@Test
 	public void testConvertIndirectFailNull()
 	{
-		try
-		{
-			manager.convertIndirect(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.convertIndirect(null));
 	}
 
+	@Test
 	public void testConvertIndirectFailNotNumeric()
 	{
-		try
-		{
-			manager.convertIndirect("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.convertIndirect("SomeString"));
 	}
 
+	@Test
 	public void testConvert()
 	{
-		assertEquals(new OrderedPair(1, 1), manager.convert("1,1"));
-		assertEquals(new OrderedPair(-3, 4), manager.convert("-3,4"));
-		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), manager.convert("1.4,6.5"));
+		assertEquals(new OrderedPair(1, 1), FormatUtilities.ORDEREDPAIR_MANAGER.convert("1,1"));
+		assertEquals(new OrderedPair(-3, 4), FormatUtilities.ORDEREDPAIR_MANAGER.convert("-3,4"));
+		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), FormatUtilities.ORDEREDPAIR_MANAGER.convert("1.4,6.5"));
 	}
 
+	@Test
 	public void testUnconvert()
 	{
-		assertEquals("1,2", manager.unconvert(new OrderedPair(1, 2)));
-		assertEquals("-3,4", manager.unconvert(new OrderedPair(-3, 4)));
-		assertEquals("1.4,6.5", manager.unconvert(new OrderedPair(1.4, 6.5)));
+		assertEquals("1,2", FormatUtilities.ORDEREDPAIR_MANAGER.unconvert(new OrderedPair(1, 2)));
+		assertEquals("-3,4", FormatUtilities.ORDEREDPAIR_MANAGER.unconvert(new OrderedPair(-3, 4)));
+		assertEquals("1.4,6.5", FormatUtilities.ORDEREDPAIR_MANAGER.unconvert(new OrderedPair(1.4, 6.5)));
 	}
 
+	@Test
 	public void testConvertIndirect()
 	{
-		assertEquals(new OrderedPair(1, 1), manager.convertIndirect("1,1")
+		assertEquals(new OrderedPair(1, 1), FormatUtilities.ORDEREDPAIR_MANAGER.convertIndirect("1,1")
 			.get());
-		assertEquals(new OrderedPair(-3, 4), manager.convertIndirect("-3,4")
+		assertEquals(new OrderedPair(-3, 4), FormatUtilities.ORDEREDPAIR_MANAGER.convertIndirect("-3,4")
 			.get());
-		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), manager
+		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), FormatUtilities.ORDEREDPAIR_MANAGER
 			.convertIndirect("1.4,6.5").get());
 	}
 
+	@Test
 	public void testGetIdentifier()
 	{
-		assertEquals("ORDEREDPAIR", manager.getIdentifierType());
+		assertEquals("ORDEREDPAIR", FormatUtilities.ORDEREDPAIR_MANAGER.getIdentifierType());
 	}
 
+	@Test
 	public void testHashCodeEquals()
 	{
-		assertEquals(new OrderedPairManager().hashCode(), manager.hashCode());
-		assertFalse(manager.equals(new Object()));
-		assertFalse(manager.equals(new StringManager()));
-		assertTrue(manager.equals(new OrderedPairManager()));
+		assertEquals(new OrderedPairManager().hashCode(), FormatUtilities.ORDEREDPAIR_MANAGER.hashCode());
+		assertFalse(FormatUtilities.ORDEREDPAIR_MANAGER.equals(new Object()));
+		assertFalse(FormatUtilities.ORDEREDPAIR_MANAGER.equals(new StringManager()));
+		assertTrue(FormatUtilities.ORDEREDPAIR_MANAGER.equals(new OrderedPairManager()));
 	}
 
+	@Test
 	public void testGetComponent()
 	{
-		assertTrue(manager.getComponentManager().isEmpty());
+		assertTrue(FormatUtilities.ORDEREDPAIR_MANAGER.getComponentManager().isEmpty());
 	}
 
+	@Test
 	public void testIsDirect()
 	{
-		assertTrue(manager.isDirect());
+		assertTrue(FormatUtilities.ORDEREDPAIR_MANAGER.isDirect());
 	}
 
+	@Test
 	public void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
-		valueStore.addValueFor(manager.getIdentifierType(), new OrderedPair(1, 3));
-		Object value = manager.initializeFrom(valueStore);
+		valueStore.addValueFor(FormatUtilities.ORDEREDPAIR_MANAGER.getIdentifierType(), new OrderedPair(1, 3));
+		Object value = FormatUtilities.ORDEREDPAIR_MANAGER.initializeFrom(valueStore);
 		assertEquals(new OrderedPair(1, 3), value);
-		valueStore.addValueFor(manager.getIdentifierType(), new OrderedPair(2, 6));
-		value = manager.initializeFrom(valueStore);
+		valueStore.addValueFor(FormatUtilities.ORDEREDPAIR_MANAGER.getIdentifierType(), new OrderedPair(2, 6));
+		value = FormatUtilities.ORDEREDPAIR_MANAGER.initializeFrom(valueStore);
 		assertEquals(new OrderedPair(2, 6), value);
 	}
 }

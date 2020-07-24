@@ -17,29 +17,23 @@
  */
 package pcgen.base.util;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class CaseInsensitiveMapTest extends TestCase
+import pcgen.testsupport.TestSupport;
+
+public class CaseInsensitiveMapTest
 {
 
-	private CaseInsensitiveMap<Double> cim;
-
-	@Override
-	@Before
-	public void setUp()
+	public void populate(CaseInsensitiveMap<Double> cim)
 	{
-		cim = new CaseInsensitiveMap<>();
-	}
-
-	public void populate()
-	{
-		cim.put(Integer.valueOf(0), Double.valueOf(0));
-		cim.put("ONE", Double.valueOf(1));
-		cim.put("tWo", Double.valueOf(0));
-		cim.put("This is Three!", Double.valueOf(1));
+		cim.put(TestSupport.I0, TestSupport.D0);
+		cim.put("ONE", TestSupport.D1);
+		cim.put("tWo", TestSupport.D0);
+		cim.put("This is Three!", TestSupport.D1);
 		cim.put("null result", null);
 		cim.put(null, Double.valueOf(-1));
 	}
@@ -47,11 +41,12 @@ public class CaseInsensitiveMapTest extends TestCase
 	@Test
 	public void testPutGetExact()
 	{
-		populate();
-		assertEquals(Double.valueOf(0), cim.get(Integer.valueOf(0)));
-		assertEquals(Double.valueOf(1), cim.get("ONE"));
-		assertEquals(Double.valueOf(0), cim.get("tWo"));
-		assertEquals(Double.valueOf(1), cim.get("This is Three!"));
+		CaseInsensitiveMap<Double> cim = new CaseInsensitiveMap<>();
+		populate(cim);
+		assertEquals(TestSupport.D0, cim.get(TestSupport.I0));
+		assertEquals(TestSupport.D1, cim.get("ONE"));
+		assertEquals(TestSupport.D0, cim.get("tWo"));
+		assertEquals(TestSupport.D1, cim.get("This is Three!"));
 		assertNull(cim.get("null result"));
 		assertEquals(Double.valueOf(-1), cim.get(null));
 	}
@@ -59,11 +54,12 @@ public class CaseInsensitiveMapTest extends TestCase
 	@Test
 	public void testPutGetDiffCase()
 	{
-		populate();
-		assertEquals(Double.valueOf(0), cim.get(Integer.valueOf(0)));
-		assertEquals(Double.valueOf(1), cim.get("one"));
-		assertEquals(Double.valueOf(0), cim.get("TWO"));
-		assertEquals(Double.valueOf(1), cim.get("This is three!"));
+		CaseInsensitiveMap<Double> cim = new CaseInsensitiveMap<>();
+		populate(cim);
+		assertEquals(TestSupport.D0, cim.get(TestSupport.I0));
+		assertEquals(TestSupport.D1, cim.get("one"));
+		assertEquals(TestSupport.D0, cim.get("TWO"));
+		assertEquals(TestSupport.D1, cim.get("This is three!"));
 		assertNull(cim.get("NULL RESULT"));
 		assertEquals(Double.valueOf(-1), cim.get(null));
 	}
@@ -71,8 +67,9 @@ public class CaseInsensitiveMapTest extends TestCase
 	@Test
 	public void testContainsKey()
 	{
-		populate();
-		assertTrue(cim.containsKey(Integer.valueOf(0)));
+		CaseInsensitiveMap<Double> cim = new CaseInsensitiveMap<>();
+		populate(cim);
+		assertTrue(cim.containsKey(TestSupport.I0));
 		assertTrue(cim.containsKey("one"));
 		assertTrue(cim.containsKey("TWO"));
 		assertTrue(cim.containsKey("This is three!"));
@@ -83,22 +80,23 @@ public class CaseInsensitiveMapTest extends TestCase
 	@Test
 	public void testRemove()
 	{
-		populate();
-		assertEquals(Double.valueOf(0), cim.get(Integer.valueOf(0)));
-		assertEquals(Double.valueOf(1), cim.get("OnE"));
-		assertEquals(Double.valueOf(0), cim.get("two"));
-		assertEquals(Double.valueOf(1), cim.get("This IS three!"));
+		CaseInsensitiveMap<Double> cim = new CaseInsensitiveMap<>();
+		populate(cim);
+		assertEquals(TestSupport.D0, cim.get(TestSupport.I0));
+		assertEquals(TestSupport.D1, cim.get("OnE"));
+		assertEquals(TestSupport.D0, cim.get("two"));
+		assertEquals(TestSupport.D1, cim.get("This IS three!"));
 		assertNull(cim.get("NULL result"));
 		assertEquals(Double.valueOf(-1), cim.get(null));
 
-		assertEquals(Double.valueOf(0), cim.remove(Integer.valueOf(0)));
-		assertEquals(Double.valueOf(1), cim.remove("one"));
-		assertEquals(Double.valueOf(0), cim.remove("TWO"));
-		assertEquals(Double.valueOf(1), cim.remove("This is three!"));
+		assertEquals(TestSupport.D0, cim.remove(TestSupport.I0));
+		assertEquals(TestSupport.D1, cim.remove("one"));
+		assertEquals(TestSupport.D0, cim.remove("TWO"));
+		assertEquals(TestSupport.D1, cim.remove("This is three!"));
 		assertNull(cim.remove("NULL RESULT"));
 		assertEquals(Double.valueOf(-1), cim.remove(null));
 
-		assertNull(cim.get(Integer.valueOf(0)));
+		assertNull(cim.get(TestSupport.I0));
 		assertNull(cim.get("one"));
 		assertNull(cim.get("TWO"));
 		assertNull(cim.get("This is three!"));

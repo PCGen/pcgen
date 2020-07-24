@@ -17,10 +17,13 @@
  */
 package pcgen.base.format.compound;
 
-import junit.framework.TestCase;
-import pcgen.base.format.BooleanManager;
-import pcgen.base.format.NumberManager;
-import pcgen.base.format.StringManager;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.SimpleValueStore;
@@ -28,169 +31,81 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the CompoundFormatManager class
  */
-public class CompoundFormatManagerTest extends TestCase
+public class CompoundFormatManagerTest
 {
-	private final NumberManager numberManager = new NumberManager();
-	private final BooleanManager booleanManager = new BooleanManager();
-	private final StringManager stringManager = new StringManager();
-
-
+	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void testUnconvertFailObject()
 	{
 		CompoundFormatManager<Number> manager =
-				new CompoundFormatManager<>(numberManager, '|');
-		try
-		{
-			//Yes generics are being violated in order to do this test
-			FormatManager formatManager = manager;
-			formatManager.unconvert(new Object());
-			fail("Object should fail");
-		}
-		catch (ClassCastException e)
-		{
-			//expected
-		}
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		//Yes generics are being violated in order to do this test
+		FormatManager formatManager = manager;
+		assertThrows(ClassCastException.class, () -> formatManager.unconvert(new Object()));
 	}
 
-	@SuppressWarnings("unused")
+	@Test
 	public void testConstructor()
 	{
-		try
-		{
-			new CompoundFormatManager<>(null, '|');
-			fail("Should not be able to use null format");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(NullPointerException.class, () -> new CompoundFormatManager<>(null, '|'));
 	}
 
+	@Test
 	public void testRoundRobinIdentifier()
 	{
 		CompoundFormatManager<Number> manager =
-				new CompoundFormatManager<>(numberManager, '|');
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
 		assertEquals("COMPOUND[NUMBER]", manager.getIdentifierType());
-		manager.addSecondary(stringManager, "Level", true);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		assertEquals("COMPOUND[NUMBER,STRING=Level]",
 			manager.getIdentifierType());
-		manager.addSecondary(booleanManager, "Allowed", false);
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
 		assertEquals("COMPOUND[NUMBER,BOOLEAN?=Allowed,STRING=Level]",
 			manager.getIdentifierType());
 	}
 
+	@Test
 	public void testInvalidConvertSimpleFail()
 	{
 		CompoundFormatManager<Number> manager =
-				new CompoundFormatManager<>(numberManager, '|');
-		manager.addSecondary(booleanManager, "Allowed", false);
-		manager.addSecondary(stringManager, "Level", true);
-		try
-		{
-			manager.convert(null);
-			fail("Should not be able to convert null instructions");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok too
-		}
-		try
-		{
-			manager.convert("");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("|");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("3");
-			fail("Should not be able to convert instructions"
-				+ " missing a required association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
+		assertThrows(IllegalArgumentException.class, () -> manager.convert(null));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert(""));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("|"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3"));
 	}
 	
+	@Test
 	public void testInvalidConvertBadSeparator()
 	{
 		CompoundFormatManager<Number> manager =
-				new CompoundFormatManager<>(numberManager, '|');
-		manager.addSecondary(booleanManager, "Allowed", false);
-		manager.addSecondary(stringManager, "Level", true);
-		try
-		{
-			manager.convert("3|LEVEL=Hard|");
-			fail("Should not be able to convert instructions"
-				+ " with an ending separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("3|LEVEL=Hard||ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with an double separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("3||LEVEL=Hard|ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with an double separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3|LEVEL=Hard|"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3|LEVEL=Hard||ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3||LEVEL=Hard|ALLOWED=false"));
 	}
 	
+	@Test
 	public void testInvalidConvertBadAssociation()
 	{
 		CompoundFormatManager<Number> manager =
-				new CompoundFormatManager<>(numberManager, '|');
-		manager.addSecondary(booleanManager, "Allowed", false);
-		manager.addSecondary(stringManager, "Level", true);
-		try
-		{
-			manager.convert("3|LEVEL=Hard|SOUND=Bell");
-			fail("Should not be able to convert instructions"
-				+ " with an undefined association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3|LEVEL=Hard|SOUND=Bell"));
 	}
 	
+	@Test
 	public void testConvert()
 	{
 		CompoundFormatManager<Number> manager =
-				new CompoundFormatManager<>(numberManager, '|');
-		manager.addSecondary(booleanManager, "Allowed", false);
-		manager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		Compound c = manager.convert("3|LEVEL=Hard");
 		assertEquals("3", c.getPrimaryUnconverted());
 		assertEquals("Hard", c.getSecondary("Level").getUnconverted());
@@ -209,77 +124,26 @@ public class CompoundFormatManagerTest extends TestCase
 		assertEquals("false", c2.getSecondary("ALLOWED").getUnconverted());
 		assertEquals("4|ALLOWED=false|LEVEL=Easy", manager.unconvert(c2));
 		CompoundFormatManager<String> manager2 =
-				new CompoundFormatManager<>(stringManager, '|');
-		manager.addSecondary(booleanManager, "Allowed", false);
-		manager.addSecondary(numberManager, "Level", true);
-		try
-		{
-			manager2.unconvert(c2);
-			fail("Should not be able to unconvert incompatible Compound");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+				new CompoundFormatManager<>(FormatUtilities.STRING_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.NUMBER_MANAGER, "Level", true);
+		//Incompatible
+		assertThrows(IllegalArgumentException.class, () -> manager2.unconvert(c2));
 	}
 
+	@Test
 	public void testConvertIndirect()
 	{
 		CompoundFormatManager<Number> manager =
-				new CompoundFormatManager<>(numberManager, '|');
-		manager.addSecondary(booleanManager, "Allowed", false);
-		manager.addSecondary(stringManager, "Level", true);
-		try
-		{
-			manager.convertIndirect(null);
-			fail("Should not be able to convert null instructions");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok too
-		}
-		try
-		{
-			manager.convertIndirect("");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect("|");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect("3");
-			fail("Should not be able to convert instructions"
-				+ " missing a required association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect("3|LEVEL=Hard|SOUND=Bell");
-			fail("Should not be able to convert instructions"
-				+ " with an undefined association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect(null));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect(""));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("|"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("3"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("3|LEVEL=Hard|SOUND=Bell"));
+		
 		Indirect<Compound> in = manager.convertIndirect("3|LEVEL=Hard");
 		Compound c = in.get();
 		assertEquals("3", c.getPrimaryUnconverted());
@@ -304,22 +168,23 @@ public class CompoundFormatManagerTest extends TestCase
 		assertEquals("4|ALLOWED=false|LEVEL=Easy", in2.getUnconverted());
 	}
 
+	@Test
 	public void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
 		CompoundFormatManager<Number> manager =
-				new CompoundFormatManager<>(numberManager, '|');
-		manager.addSecondary(booleanManager, "Allowed", false);
-		manager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		Compound c = manager.convert("3|LEVEL=Hard");
-		valueStore.addValueFor(numberManager.getIdentifierType(), 3);
-		valueStore.addValueFor(stringManager.getIdentifierType(), "Hard");
+		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER.getIdentifierType(), 3);
+		valueStore.addValueFor(FormatUtilities.STRING_MANAGER.getIdentifierType(), "Hard");
 		Compound value = manager.initializeFrom(valueStore);
 		assertEquals("Hard", value.getSecondary("LEVEL").getUnconverted());
 		assertEquals(c, value);
 		Compound c2 = manager.convert("4|LEVEL=Easy");
-		valueStore.addValueFor(numberManager.getIdentifierType(), 4);
-		valueStore.addValueFor(stringManager.getIdentifierType(), "Easy");
+		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER.getIdentifierType(), 4);
+		valueStore.addValueFor(FormatUtilities.STRING_MANAGER.getIdentifierType(), "Easy");
 		value = manager.initializeFrom(valueStore);
 		assertEquals(c2, value);
 	}

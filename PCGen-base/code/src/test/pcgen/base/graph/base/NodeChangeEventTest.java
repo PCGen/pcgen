@@ -17,53 +17,27 @@
  */
 package pcgen.base.graph.base;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.graph.inst.SimpleListMapGraph;
-import junit.framework.TestCase;
 
 /**
  * Test the NodeChangeEvent class
  */
-public class NodeChangeEventTest extends TestCase
+public class NodeChangeEventTest
 {
-
-	/**
-	 * Sets up the fixture, for example, open a network connection. This method
-	 * is called before a test is executed.
-	 * 
-	 * @throws Exception
-	 */
-	@Override
-	protected void setUp() throws Exception
-	{
-		// No setup required
-	}
-
-	@SuppressWarnings("unused")
+	@Test
 	public void testEdgeChangeEvent()
 	{
-		try
-		{
-			new NodeChangeEvent<>(null, new Object(),
+		assertThrows(IllegalArgumentException.class, () -> new NodeChangeEvent<>(null, new Object(),
 					NodeChangeEvent.NODE_ADDED
-			);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			new NodeChangeEvent<>(
+			));
+		assertThrows(NullPointerException.class, () -> new NodeChangeEvent<>(
 					new SimpleListMapGraph<>(), null,
 					NodeChangeEvent.NODE_ADDED
-			);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
+			));
 	}
 
 }

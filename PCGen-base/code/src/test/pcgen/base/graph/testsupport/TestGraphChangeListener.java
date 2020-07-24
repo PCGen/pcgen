@@ -60,13 +60,6 @@ public class TestGraphChangeListener<T, ET extends Edge<T>> implements
 	 */
 	public int edgeCount = 0;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * rpgmapgen.util.graph.event.GraphChangeListener#nodeAdded(rpgmapgen.util
-	 * .graph.event.GraphNodeChangeEvent)
-	 */
 	@Override
 	public void nodeAdded(NodeChangeEvent<T> gce)
 	{
@@ -74,13 +67,6 @@ public class TestGraphChangeListener<T, ET extends Edge<T>> implements
 		nodeCount++;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * rpgmapgen.util.graph.event.GraphChangeListener#nodeRemoved(rpgmapgen.
-	 * util.graph.event.GraphNodeChangeEvent)
-	 */
 	@Override
 	public void nodeRemoved(NodeChangeEvent<T> gce)
 	{
@@ -88,13 +74,6 @@ public class TestGraphChangeListener<T, ET extends Edge<T>> implements
 		nodeCount++;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * rpgmapgen.util.graph.event.GraphChangeListener#edgeAdded(rpgmapgen.util
-	 * .graph.event.GraphEdgeChangeEvent)
-	 */
 	@Override
 	public void edgeAdded(EdgeChangeEvent<T, ET> gce)
 	{
@@ -102,13 +81,6 @@ public class TestGraphChangeListener<T, ET extends Edge<T>> implements
 		edgeCount++;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * rpgmapgen.util.graph.event.GraphChangeListener#edgeRemoved(rpgmapgen.
-	 * util.graph.event.GraphEdgeChangeEvent)
-	 */
 	@Override
 	public void edgeRemoved(EdgeChangeEvent<T, ET> gce)
 	{

@@ -14,9 +14,16 @@
  */
 package pcgen.base.format;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Optional;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.SimpleValueStore;
@@ -24,125 +31,100 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the OptionalFormatManager class
  */
-public class OptionalFormatManagerTest extends TestCase
+public class OptionalFormatManagerTest
 {
-	private OptionalFormatManager<Number> manager =
-			new OptionalFormatManager<>(new NumberManager());
-
-	@SuppressWarnings("unused")
+	@Test
 	public void testConstructor()
 	{
-		try
-		{
-			new OptionalFormatManager<>(null);
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> new OptionalFormatManager<>(null));
 	}
 
+	@Test
 	public void testConvertFailNotNumeric()
 	{
-		try
-		{
-			manager.convert("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("SomeString"));
 	}
 
+	@Test
 	public void testUnconvertFailNull()
 	{
-		try
-		{
-			manager.unconvert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
+		assertThrows(NullPointerException.class, () -> manager.unconvert(null));
 	}
 
+	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void testUnconvertFailObject()
 	{
-		try
-		{
-			//Yes generics are being violated in order to do this test
-			FormatManager formatManager = manager;
-			formatManager.unconvert(new Object());
-			fail("Object should fail");
-		}
-		catch (ClassCastException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		//Yes generics are being violated in order to do this test
+		FormatManager formatManager = new OptionalFormatManager<>(new NumberManager());
+		assertThrows(ClassCastException.class, () -> formatManager.unconvert(new Object()));
 	}
 
+	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void testUnconvertFailUnderlying()
 	{
-		try
-		{
-			//Yes generics are being violated in order to do this test
-			FormatManager formatManager = manager;
-			formatManager.unconvert(1);
-			fail("Integer should fail");
-		}
-		catch (ClassCastException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		//Yes generics are being violated in order to do this test
+		FormatManager formatManager = new OptionalFormatManager<>(new NumberManager());
+		assertThrows(ClassCastException.class, () -> formatManager.unconvert(1));
 	}
 
-	public void testConvertIndirectFailNotNumeric()
+	@Test
+	public void testConvertIndirectFailNotOptional()
 	{
-		try
-		{
-			manager.convertIndirect("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("SomeString"));
 	}
 
+	@Test
 	public void testConvertEmpty()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals(Optional.empty(), manager.convert(""));
 		assertEquals(Optional.empty(), manager.convert(null));
 	}
 
+	@Test
 	public void testConvertIndirectEmpty()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals(Optional.empty(), manager.convertIndirect("").get());
 		assertEquals(Optional.empty(), manager.convertIndirect(null).get());
 	}
 
+	@Test
 	public void testConvert()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals(Optional.of(1), manager.convert("1"));
 		assertEquals(Optional.of(-3), manager.convert("-3"));
 		assertEquals(Optional.of(1.4), manager.convert("1.4"));
 	}
 
+	@Test
 	public void testUnconvert()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals("", manager.unconvert(Optional.empty()));
 		assertEquals("1", manager.unconvert(Optional.of(1)));
 		assertEquals("-3", manager.unconvert(Optional.of(-3)));
 		assertEquals("1.4", manager.unconvert(Optional.of(1.4)));
 	}
 
+	@Test
 	public void testConvertIndirect()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals(Optional.of(1), manager.convertIndirect("1").get());
 		assertEquals(Optional.of(-3), manager.convertIndirect("-3").get());
 		assertEquals(Optional.of(1.4), manager.convertIndirect("1.4").get());
@@ -152,18 +134,27 @@ public class OptionalFormatManagerTest extends TestCase
 		assertEquals("1.4", manager.convertIndirect("1.4").getUnconverted());
 	}
 
+	@Test
 	public void testGetIdentifier()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals("OPTIONAL[NUMBER]", manager.getIdentifierType());
 	}
 
+	@Test
 	public void testManagedClass()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertSame(Optional.class, manager.getManagedClass());
 	}
 
+	@Test
 	public void testHashCodeEquals()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals(
 			new OptionalFormatManager<>(new NumberManager()).hashCode(),
 			manager.hashCode());
@@ -172,13 +163,19 @@ public class OptionalFormatManagerTest extends TestCase
 			manager.equals(new OptionalFormatManager<>(new BooleanManager())));
 	}
 
+	@Test
 	public void testGetComponent()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals(new NumberManager(), manager.getComponentManager().get());
 	}
 
+	@Test
 	public void testIsDirect()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertTrue(manager.isDirect());
 		assertTrue(
 			new OptionalFormatManager<>(new BooleanManager()).isDirect());
@@ -231,8 +228,11 @@ public class OptionalFormatManagerTest extends TestCase
 		}).isDirect());
 	}
 
+	@Test
 	public void testInitializeFrom()
 	{
+		OptionalFormatManager<Number> manager =
+				new OptionalFormatManager<>(new NumberManager());
 		assertEquals(Optional.empty(),
 			manager.initializeFrom(new SimpleValueStore()));
 	}

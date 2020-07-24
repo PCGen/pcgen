@@ -17,363 +17,346 @@
  */
 package pcgen.base.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Before;
-import org.junit.Test;
+import pcgen.testsupport.TestSupport;
 
-public class TreeMapToListTest extends TestCase
+public class TreeMapToListTest
 {
 
-	private static final Character CONST_E = 'E';
-
-	private static final Character CONST_C = 'C';
-
-	private static final Character CONST_F = 'F';
-
-	private static final Character CONST_D = 'D';
-
-	private static final Character CONST_B = 'B';
-
-	private static final Character CONST_A = 'A';
-
-	private TreeMapToList<Integer, Character> dkm;
-
-	@Override
-	@Before
-	public void setUp()
+	public void populate(TreeMapToList<Integer, Character> tml)
 	{
-		dkm = new TreeMapToList<>();
-	}
-
-	public void populate()
-	{
-		dkm.addToListFor(Integer.valueOf(1), CONST_A);
-		dkm.addToListFor(Integer.valueOf(1), CONST_B);
-		dkm.addToListFor(Integer.valueOf(1), CONST_C);
-		dkm.addToListFor(Integer.valueOf(2), CONST_D);
-		dkm.addToListFor(Integer.valueOf(2), CONST_E);
-		dkm.addToListFor(Integer.valueOf(2), null);
-		dkm.addToListFor(Integer.valueOf(5), null);
+		tml.addToListFor(TestSupport.I1, TestSupport.CONST_A);
+		tml.addToListFor(TestSupport.I1, TestSupport.CONST_B);
+		tml.addToListFor(TestSupport.I1, TestSupport.CONST_C);
+		tml.addToListFor(TestSupport.I2, TestSupport.CONST_D);
+		tml.addToListFor(TestSupport.I2, TestSupport.CONST_E);
+		tml.addToListFor(TestSupport.I2, null);
+		tml.addToListFor(TestSupport.I5, null);
 	}
 
 	@Test
-	public void testConstructor()
+	public void testConstructorWithNull()
 	{
-		dkm = new TreeMapToList<>(null);
-		testPutGet();
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>(null);
+		runPutGet(tml);
+	}
+
+	@Test
+	public void testDefaultConstructor()
+	{
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		runPutGet(tml);
 	}
 
 	@Test
 	public void testPutNull()
 	{
-		try
-		{
-			dkm.addToListFor(null, CONST_F);
-			fail();
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//expected
-		}
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		assertThrows(NullPointerException.class, () -> tml.addToListFor(null, TestSupport.CONST_F));
 	}
 
 	@Test
 	public void testInitializeListFor()
 	{
-		assertNull(dkm.getListFor(Integer.valueOf(1)));
-		dkm.initializeListFor(Integer.valueOf(1));
-		List<Character> l = dkm.getListFor(Integer.valueOf(1));
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		assertNull(tml.getListFor(TestSupport.I1));
+		tml.initializeListFor(TestSupport.I1);
+		List<Character> l = tml.getListFor(TestSupport.I1);
 		assertEquals(0, l.size());
-		try
-		{
-			dkm.initializeListFor(Integer.valueOf(1));
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			//expected
-		}
+		assertThrows(IllegalArgumentException.class, () -> tml.initializeListFor(TestSupport.I1));
 	}
 
-	@Test
-	public void testPutGet()
+	public void runPutGet(TreeMapToList<Integer, Character> tml)
 	{
-		assertNull(dkm.getListFor(Integer.valueOf(1)));
-		populate();
-		List<Character> l = dkm.getListFor(Integer.valueOf(1));
+		assertNull(tml.getListFor(TestSupport.I1));
+		populate(tml);
+		List<Character> l = tml.getListFor(TestSupport.I1);
 		assertEquals(3, l.size());
-		assertTrue(l.contains(CONST_A));
-		assertTrue(l.contains(CONST_B));
-		assertTrue(l.contains(CONST_C));
-		dkm.addToListFor(Integer.valueOf(1), CONST_C);
-		l = dkm.getListFor(Integer.valueOf(1));
+		assertTrue(l.contains(TestSupport.CONST_A));
+		assertTrue(l.contains(TestSupport.CONST_B));
+		assertTrue(l.contains(TestSupport.CONST_C));
+		tml.addToListFor(TestSupport.I1, TestSupport.CONST_C);
+		l = tml.getListFor(TestSupport.I1);
 		assertEquals(4, l.size());
-		assertTrue(l.contains(CONST_A));
-		assertTrue(l.contains(CONST_B));
-		assertTrue(l.contains(CONST_C));
+		assertTrue(l.contains(TestSupport.CONST_A));
+		assertTrue(l.contains(TestSupport.CONST_B));
+		assertTrue(l.contains(TestSupport.CONST_C));
 		// two of them
-		l.remove(CONST_C);
-		assertTrue(l.contains(CONST_C));
-		l = dkm.getListFor(Integer.valueOf(2));
+		l.remove(TestSupport.CONST_C);
+		assertTrue(l.contains(TestSupport.CONST_C));
+		l = tml.getListFor(TestSupport.I2);
 		assertEquals(3, l.size());
-		assertTrue(l.contains(CONST_D));
-		assertTrue(l.contains(CONST_E));
+		assertTrue(l.contains(TestSupport.CONST_D));
+		assertTrue(l.contains(TestSupport.CONST_E));
 		assertTrue(l.contains(null));
-		dkm.addToListFor(Integer.valueOf(2), null);
-		l = dkm.getListFor(Integer.valueOf(2));
+		tml.addToListFor(TestSupport.I2, null);
+		l = tml.getListFor(TestSupport.I2);
 		assertEquals(4, l.size());
-		assertTrue(l.contains(CONST_D));
-		assertTrue(l.contains(CONST_E));
+		assertTrue(l.contains(TestSupport.CONST_D));
+		assertTrue(l.contains(TestSupport.CONST_E));
 		assertTrue(l.contains(null));
 		// Two of them.
 		l.remove(null);
 		assertTrue(l.contains(null));
-		assertNull(dkm.getListFor(Integer.valueOf(4)));
-		l = dkm.getListFor(Integer.valueOf(5));
+		assertNull(tml.getListFor(TestSupport.I4));
+		l = tml.getListFor(TestSupport.I5);
 		assertEquals(1, l.size());
 		assertTrue(l.contains(null));
-		l.add(CONST_A);
-		List<Character> l2 = dkm.getListFor(Integer.valueOf(5));
+		l.add(TestSupport.CONST_A);
+		List<Character> l2 = tml.getListFor(TestSupport.I5);
 		assertEquals(1, l2.size());
 		assertTrue(l2.contains(null));
 		assertEquals(2, l.size());
 		assertTrue(l.contains(null));
-		assertTrue(l.contains(CONST_A));
-		dkm.clear();
+		assertTrue(l.contains(TestSupport.CONST_A));
+		tml.clear();
 		assertEquals(1, l2.size());
 		assertTrue(l2.contains(null));
 		assertEquals(2, l.size());
 		assertTrue(l.contains(null));
-		assertTrue(l.contains(CONST_A));
+		assertTrue(l.contains(TestSupport.CONST_A));
 		l2.clear();
 		assertEquals(0, l2.size());
 		assertEquals(2, l.size());
 		assertTrue(l.contains(null));
-		assertTrue(l.contains(CONST_A));
+		assertTrue(l.contains(TestSupport.CONST_A));
 	}
 
 	@Test
 	public void testContainsKey()
 	{
-		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
-		populate();
-		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		assertFalse(tml.containsListFor(TestSupport.I1));
+		populate(tml);
+		assertTrue(tml.containsListFor(TestSupport.I1));
 		// Keys are .equals items, not instance
-		assertTrue(dkm.containsListFor(new Integer(1)));
-		assertTrue(dkm.containsListFor(Integer.valueOf(2)));
-		assertTrue(dkm.containsListFor(Integer.valueOf(5)));
-		assertFalse(dkm.containsListFor(Integer.valueOf(-4)));
+		assertTrue(tml.containsListFor(new Integer(1)));
+		assertTrue(tml.containsListFor(TestSupport.I2));
+		assertTrue(tml.containsListFor(TestSupport.I5));
+		assertFalse(tml.containsListFor(Integer.valueOf(-4)));
 	}
 
 	@Test
 	public void testRemoveListFor()
 	{
-		assertNull(dkm.removeListFor(Integer.valueOf(1)));
-		populate();
-		List<Character> l = dkm.removeListFor(Integer.valueOf(1));
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		assertNull(tml.removeListFor(TestSupport.I1));
+		populate(tml);
+		List<Character> l = tml.removeListFor(TestSupport.I1);
 		assertEquals(3, l.size());
-		assertTrue(l.contains(CONST_A));
-		assertTrue(l.contains(CONST_B));
-		assertTrue(l.contains(CONST_C));
-		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
-		assertNull(dkm.getListFor(Integer.valueOf(1)));
-		l = dkm.removeListFor(Integer.valueOf(2));
+		assertTrue(l.contains(TestSupport.CONST_A));
+		assertTrue(l.contains(TestSupport.CONST_B));
+		assertTrue(l.contains(TestSupport.CONST_C));
+		assertFalse(tml.containsListFor(TestSupport.I1));
+		assertNull(tml.getListFor(TestSupport.I1));
+		l = tml.removeListFor(TestSupport.I2);
 		assertEquals(3, l.size());
-		assertTrue(l.contains(CONST_D));
-		assertTrue(l.contains(CONST_E));
+		assertTrue(l.contains(TestSupport.CONST_D));
+		assertTrue(l.contains(TestSupport.CONST_E));
 		assertTrue(l.contains(null));
 	}
 
 	@Test
 	public void testRemoveFromListFor()
 	{
-		assertFalse(dkm.removeFromListFor(Integer.valueOf(1), CONST_D));
-		populate();
-		assertTrue(dkm.removeFromListFor(Integer.valueOf(1), CONST_A));
-		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		assertFalse(tml.removeFromListFor(TestSupport.I1, TestSupport.CONST_D));
+		populate(tml);
+		assertTrue(tml.removeFromListFor(TestSupport.I1, TestSupport.CONST_A));
+		assertTrue(tml.containsListFor(TestSupport.I1));
 		// Keys are .equals items, not instance
-		assertTrue(dkm.containsListFor(new Integer(1)));
-		assertEquals(2, dkm.sizeOfListFor(Integer.valueOf(1)));
-		assertFalse(dkm.removeFromListFor(Integer.valueOf(1), CONST_A));
-		assertTrue(dkm.removeFromListFor(Integer.valueOf(1), CONST_B));
-		assertEquals(1, dkm.sizeOfListFor(Integer.valueOf(1)));
-		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
-		assertFalse(dkm.removeFromListFor(Integer.valueOf(1), CONST_A));
-		assertTrue(dkm.removeFromListFor(Integer.valueOf(1), CONST_C));
-		assertEquals(0, dkm.sizeOfListFor(Integer.valueOf(1)));
-		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
+		assertTrue(tml.containsListFor(new Integer(1)));
+		assertEquals(2, tml.sizeOfListFor(TestSupport.I1));
+		assertFalse(tml.removeFromListFor(TestSupport.I1, TestSupport.CONST_A));
+		assertTrue(tml.removeFromListFor(TestSupport.I1, TestSupport.CONST_B));
+		assertEquals(1, tml.sizeOfListFor(TestSupport.I1));
+		assertTrue(tml.containsListFor(TestSupport.I1));
+		assertFalse(tml.removeFromListFor(TestSupport.I1, TestSupport.CONST_A));
+		assertTrue(tml.removeFromListFor(TestSupport.I1, TestSupport.CONST_C));
+		assertEquals(0, tml.sizeOfListFor(TestSupport.I1));
+		assertFalse(tml.containsListFor(TestSupport.I1));
 
 		// add a second :)
-		dkm.addToListFor(Integer.valueOf(2), CONST_D);
-		assertFalse(dkm.removeFromListFor(Integer.valueOf(2), CONST_A));
-		assertTrue(dkm.containsListFor(Integer.valueOf(2)));
-		assertEquals(4, dkm.sizeOfListFor(Integer.valueOf(2)));
-		assertFalse(dkm.removeFromListFor(Integer.valueOf(2), CONST_A));
-		assertTrue(dkm.removeFromListFor(Integer.valueOf(2), CONST_D));
-		assertEquals(3, dkm.sizeOfListFor(Integer.valueOf(2)));
-		assertTrue(dkm.containsListFor(Integer.valueOf(2)));
-		assertTrue(dkm.removeFromListFor(Integer.valueOf(2), CONST_E));
-		assertEquals(2, dkm.sizeOfListFor(Integer.valueOf(2)));
-		assertTrue(dkm.containsListFor(Integer.valueOf(2)));
-		assertTrue(dkm.removeFromListFor(Integer.valueOf(2), null));
-		assertEquals(1, dkm.sizeOfListFor(Integer.valueOf(2)));
-		assertTrue(dkm.containsListFor(Integer.valueOf(2)));
-		assertTrue(dkm.removeFromListFor(Integer.valueOf(2), CONST_D));
-		assertEquals(0, dkm.sizeOfListFor(Integer.valueOf(2)));
-		assertFalse(dkm.containsListFor(Integer.valueOf(2)));
+		tml.addToListFor(TestSupport.I2, TestSupport.CONST_D);
+		assertFalse(tml.removeFromListFor(TestSupport.I2, TestSupport.CONST_A));
+		assertTrue(tml.containsListFor(TestSupport.I2));
+		assertEquals(4, tml.sizeOfListFor(TestSupport.I2));
+		assertFalse(tml.removeFromListFor(TestSupport.I2, TestSupport.CONST_A));
+		assertTrue(tml.removeFromListFor(TestSupport.I2, TestSupport.CONST_D));
+		assertEquals(3, tml.sizeOfListFor(TestSupport.I2));
+		assertTrue(tml.containsListFor(TestSupport.I2));
+		assertTrue(tml.removeFromListFor(TestSupport.I2, TestSupport.CONST_E));
+		assertEquals(2, tml.sizeOfListFor(TestSupport.I2));
+		assertTrue(tml.containsListFor(TestSupport.I2));
+		assertTrue(tml.removeFromListFor(TestSupport.I2, null));
+		assertEquals(1, tml.sizeOfListFor(TestSupport.I2));
+		assertTrue(tml.containsListFor(TestSupport.I2));
+		assertTrue(tml.removeFromListFor(TestSupport.I2, TestSupport.CONST_D));
+		assertEquals(0, tml.sizeOfListFor(TestSupport.I2));
+		assertFalse(tml.containsListFor(TestSupport.I2));
 	}
 
 	@Test
 	public void testContainsInList()
 	{
-		assertFalse(dkm.containsInList(Integer.valueOf(1), CONST_D));
-		populate();
-		assertTrue(dkm.containsInList(Integer.valueOf(1), CONST_A));
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		assertFalse(tml.containsInList(TestSupport.I1, TestSupport.CONST_D));
+		populate(tml);
+		assertTrue(tml.containsInList(TestSupport.I1, TestSupport.CONST_A));
 		// Keys are .equals items, not instance
-		assertTrue(dkm.containsInList(new Integer(1), CONST_A));
-		assertTrue(dkm.containsInList(Integer.valueOf(1), CONST_B));
-		assertTrue(dkm.containsInList(Integer.valueOf(1), CONST_C));
-		assertFalse(dkm.containsInList(Integer.valueOf(1), CONST_D));
+		assertTrue(tml.containsInList(new Integer(1), TestSupport.CONST_A));
+		assertTrue(tml.containsInList(TestSupport.I1, TestSupport.CONST_B));
+		assertTrue(tml.containsInList(TestSupport.I1, TestSupport.CONST_C));
+		assertFalse(tml.containsInList(TestSupport.I1, TestSupport.CONST_D));
 
 		// add a second :)
-		dkm.addToListFor(Integer.valueOf(1), CONST_C);
-		assertTrue(dkm.containsInList(Integer.valueOf(1), CONST_C));
+		tml.addToListFor(TestSupport.I1, TestSupport.CONST_C);
+		assertTrue(tml.containsInList(TestSupport.I1, TestSupport.CONST_C));
 
 		// Test null stuff :)
-		assertTrue(dkm.containsInList(Integer.valueOf(2), null));
+		assertTrue(tml.containsInList(TestSupport.I2, null));
 	}
 
 	@Test
 	public void testGetKeySet()
 	{
-		Set<Integer> s = dkm.getKeySet();
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		Set<Integer> s = tml.getKeySet();
 		assertEquals(0, s.size());
 		s.add(Integer.valueOf(-5));
 		// Ensure not saved in DoubleKeyMap
-		Set<Integer> s2 = dkm.getKeySet();
+		Set<Integer> s2 = tml.getKeySet();
 		assertEquals(0, s2.size());
 		assertEquals(1, s.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		populate();
+		populate(tml);
 		assertEquals(1, s.size());
 		assertEquals(0, s2.size());
-		Set<Integer> s3 = dkm.getKeySet();
+		Set<Integer> s3 = tml.getKeySet();
 		assertEquals(3, s3.size());
-		assertTrue(s3.contains(Integer.valueOf(1)));
-		assertTrue(s3.contains(Integer.valueOf(2)));
-		assertTrue(s3.contains(Integer.valueOf(5)));
+		assertTrue(s3.contains(TestSupport.I1));
+		assertTrue(s3.contains(TestSupport.I2));
+		assertTrue(s3.contains(TestSupport.I5));
 	}
 
 	@Test
 	public void testClearIsEmpty()
 	{
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.size());
-		populate();
-		assertFalse(dkm.isEmpty());
-		assertEquals(3, dkm.size());
-		dkm.clear();
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.size());
-		dkm.addToListFor(Integer.valueOf(3), 'G');
-		assertFalse(dkm.isEmpty());
-		assertEquals(1, dkm.size());
-		dkm.clear();
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.size());
-		dkm.addToListFor(Integer.valueOf(5), null);
-		assertFalse(dkm.isEmpty());
-		assertEquals(1, dkm.size());
-		dkm.clear();
-		assertTrue(dkm.isEmpty());
-		assertEquals(0, dkm.size());
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		assertTrue(tml.isEmpty());
+		assertEquals(0, tml.size());
+		populate(tml);
+		assertFalse(tml.isEmpty());
+		assertEquals(3, tml.size());
+		tml.clear();
+		assertTrue(tml.isEmpty());
+		assertEquals(0, tml.size());
+		tml.addToListFor(TestSupport.I3, 'G');
+		assertFalse(tml.isEmpty());
+		assertEquals(1, tml.size());
+		tml.clear();
+		assertTrue(tml.isEmpty());
+		assertEquals(0, tml.size());
+		tml.addToListFor(TestSupport.I5, null);
+		assertFalse(tml.isEmpty());
+		assertEquals(1, tml.size());
+		tml.clear();
+		assertTrue(tml.isEmpty());
+		assertEquals(0, tml.size());
 	}
 
 	@Test
 	public void testEmptyAddAll()
 	{
-		dkm.addAllToListFor(Integer.valueOf(1), null);
-		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
-		dkm.addAllToListFor(Integer.valueOf(1), new ArrayList<>());
-		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		tml.addAllToListFor(TestSupport.I1, null);
+		assertFalse(tml.containsListFor(TestSupport.I1));
+		tml.addAllToListFor(TestSupport.I1, new ArrayList<>());
+		assertFalse(tml.containsListFor(TestSupport.I1));
 	}
 
 	@Test
 	public void testAddAll()
 	{
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		List<Character> l = new ArrayList<>();
-		l.add(CONST_A);
+		l.add(TestSupport.CONST_A);
 		l.add(null);
-		l.add(CONST_A);
-		l.add(CONST_B);
-		dkm.addAllToListFor(Integer.valueOf(1), l);
-		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
-		assertEquals(4, dkm.sizeOfListFor(Integer.valueOf(1)));
-		dkm.addToListFor(Integer.valueOf(1), CONST_D);
+		l.add(TestSupport.CONST_A);
+		l.add(TestSupport.CONST_B);
+		tml.addAllToListFor(TestSupport.I1, l);
+		assertTrue(tml.containsListFor(TestSupport.I1));
+		assertEquals(4, tml.sizeOfListFor(TestSupport.I1));
+		tml.addToListFor(TestSupport.I1, TestSupport.CONST_D);
 		assertEquals(4, l.size());
 		// Check reference semantics!
-		l.add(CONST_C);
-		l.add(CONST_E);
-		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
-		assertEquals(5, dkm.sizeOfListFor(Integer.valueOf(1)));
+		l.add(TestSupport.CONST_C);
+		l.add(TestSupport.CONST_E);
+		assertTrue(tml.containsListFor(TestSupport.I1));
+		assertEquals(5, tml.sizeOfListFor(TestSupport.I1));
 		l.clear();
-		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
-		assertEquals(5, dkm.sizeOfListFor(Integer.valueOf(1)));
+		assertTrue(tml.containsListFor(TestSupport.I1));
+		assertEquals(5, tml.sizeOfListFor(TestSupport.I1));
 	}
 
 	@Test
 	public void testInstanceBehavior()
 	{
-		Character ca = Character.valueOf('a');
-		Character cb = Character.valueOf('b');
-		Character cc = Character.valueOf('c');
-		Character ca1 = new Character('a');
-		Integer i1 = Integer.valueOf(1);
-		dkm.addToListFor(i1, ca);
-		dkm.addToListFor(i1, cb);
-		dkm.addToListFor(i1, cc);
-		Integer i2 = Integer.valueOf(2);
-		dkm.addToListFor(i2, ca);
-		dkm.addToListFor(i2, ca);
-		Integer i3 = Integer.valueOf(3);
-		dkm.addToListFor(i3, cb);
-		dkm.addToListFor(i3, cc);
-		assertTrue(dkm.containsInList(i1, ca));
-		assertTrue(dkm.containsInList(i1, ca1));
-		assertTrue(dkm.removeFromListFor(i1, ca1));
-		assertFalse(dkm.containsInList(i1, ca));
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		Character ca = TestSupport.CONST_A;
+		Character cb = TestSupport.CONST_B;
+		Character cc = TestSupport.CONST_C;
+		Character ca1 = new Character(TestSupport.CONST_A.charValue());
+		tml.addToListFor(TestSupport.I1, ca);
+		tml.addToListFor(TestSupport.I1, cb);
+		tml.addToListFor(TestSupport.I1, cc);
+		tml.addToListFor(TestSupport.I2, ca);
+		tml.addToListFor(TestSupport.I2, ca);
+		tml.addToListFor(TestSupport.I3, cb);
+		tml.addToListFor(TestSupport.I3, cc);
+		assertTrue(tml.containsInList(TestSupport.I1, ca));
+		assertTrue(tml.containsInList(TestSupport.I1, ca1));
+		assertTrue(tml.removeFromListFor(TestSupport.I1, ca1));
+		assertFalse(tml.containsInList(TestSupport.I1, ca));
 
-		assertTrue(dkm.containsInList(i2, ca));
-		assertTrue(dkm.containsInList(i2, ca1));
-		assertTrue(dkm.removeFromListFor(i2, ca1));
+		assertTrue(tml.containsInList(TestSupport.I2, ca));
+		assertTrue(tml.containsInList(TestSupport.I2, ca1));
+		assertTrue(tml.removeFromListFor(TestSupport.I2, ca1));
 		// There were two
-		assertTrue(dkm.containsInList(i2, ca));
-		assertTrue(dkm.removeFromListFor(i2, ca));
+		assertTrue(tml.containsInList(TestSupport.I2, ca));
+		assertTrue(tml.removeFromListFor(TestSupport.I2, ca));
 		// There were two
-		assertFalse(dkm.containsInList(i2, ca));
+		assertFalse(tml.containsInList(TestSupport.I2, ca));
 	}
 
 	@Test
 	public void testAddAllLists()
 	{
-		HashMapToList<Integer, Character> dkm2 = new HashMapToList<>();
-		populate();
-		dkm2.addAllLists(dkm);
-		assertTrue(dkm.removeFromListFor(Integer.valueOf(1), CONST_A));
-		assertTrue(dkm2.containsInList(Integer.valueOf(1), CONST_A));
+		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
+		HashMapToList<Integer, Character> tml2 = new HashMapToList<>();
+		populate(tml);
+		tml2.addAllLists(tml);
+		assertTrue(tml.removeFromListFor(TestSupport.I1, TestSupport.CONST_A));
+		assertTrue(tml2.containsInList(TestSupport.I1, TestSupport.CONST_A));
 
-		assertTrue(dkm2.removeFromListFor(Integer.valueOf(1), CONST_B));
-		assertTrue(dkm.containsInList(Integer.valueOf(1), CONST_B));
+		assertTrue(tml2.removeFromListFor(TestSupport.I1, TestSupport.CONST_B));
+		assertTrue(tml.containsInList(TestSupport.I1, TestSupport.CONST_B));
 
-		dkm.removeListFor(Integer.valueOf(1));
-		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
-		assertTrue(dkm2.containsListFor(Integer.valueOf(1)));
+		tml.removeListFor(TestSupport.I1);
+		assertFalse(tml.containsListFor(TestSupport.I1));
+		assertTrue(tml2.containsListFor(TestSupport.I1));
 	}
 	
 	// TODO Need to test iterator order

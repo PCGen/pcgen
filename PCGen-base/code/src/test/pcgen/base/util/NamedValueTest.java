@@ -17,55 +17,39 @@
  */
 package pcgen.base.util;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class NamedValueTest extends TestCase
+public class NamedValueTest
 {
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testNullConstructor()
 	{
-		try
-		{
-			new NamedValue(null, 1.0);
-			fail("Expected NamedValue to reject null argument in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
-		try
-		{
-			new NamedValue(null);
-			fail("Expected NamedValue to reject null argument in constructor");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//expected
-		}
+		assertThrows(NullPointerException.class, () -> new NamedValue(null, 1.0));
+		assertThrows(NullPointerException.class, () -> new NamedValue(null));
 	}
 
 	@Test
 	public void testBasics()
 	{
-		NamedValue nf1 = new NamedValue("Foo");
-		assertEquals("Foo", nf1.getName());
-		assertEquals(0.0, nf1.getWeight());
-		nf1.addWeight(4.3);
-		assertEquals(4.3, nf1.getWeight(), 10.0e-8);
-		nf1.addWeight(2.1);
-		assertEquals(6.4, nf1.getWeight(), 10.0e-8);
-		nf1.removeWeight(3.3);
-		assertEquals(3.1, nf1.getWeight(), 10.0e-8);
+		NamedValue nv = new NamedValue("Foo");
+		assertEquals("Foo", nv.getName());
+		assertEquals(0.0, nv.getWeight());
+		nv.addWeight(4.3);
+		assertEquals(4.3, nv.getWeight(), 10.0e-8);
+		nv.addWeight(2.1);
+		assertEquals(6.4, nv.getWeight(), 10.0e-8);
+		nv.removeWeight(3.3);
+		assertEquals(3.1, nv.getWeight(), 10.0e-8);
 	}
 
 	@Test
 	public void testToString()
 	{
-		NamedValue nf1 = new NamedValue("Foo", 2.0);
-		assertEquals("Foo:2.0", nf1.toString());
+		NamedValue nv = new NamedValue("Foo", 2.0);
+		assertEquals("Foo:2.0", nv.toString());
 	}
 }

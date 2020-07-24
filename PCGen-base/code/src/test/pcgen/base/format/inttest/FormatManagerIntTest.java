@@ -15,18 +15,26 @@
  */
 package pcgen.base.format.inttest;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.compound.Compound;
 import pcgen.base.format.compound.CompoundFormatManager;
+import pcgen.base.format.compound.DirectCompound;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.NamedIndirect;
 
 /**
  * Integration testing between FormatManager objects
  */
-public class FormatManagerIntTest extends TestCase
+public class FormatManagerIntTest
 {
+	@Test
 	public void testInvalidConvertSimple()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -35,27 +43,11 @@ public class FormatManagerIntTest extends TestCase
 		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
-		try
-		{
-			manager.convert("|");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("3");
-			fail("Should not be able to convert instructions"
-				+ " missing a required association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("|"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3"));
 	}
 
+	@Test
 	public void testInvalidConvertSeparatorIssues()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -64,67 +56,15 @@ public class FormatManagerIntTest extends TestCase
 		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
-		try
-		{
-			manager.convert("3|LEVEL=Hard|");
-			fail("Should not be able to convert end with separator instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("3|LEVEL=Hard||ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with an double separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("3||LEVEL=Hard|ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with an double separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("3,,4|LEVEL=Hard|ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with an double separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert(",3,4|LEVEL=Hard|ALLOWED=false");
-			fail(
-				"Should not be able to convert instructions" + " with leading separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convert("3,4,|LEVEL=Hard|ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with trailing separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3|LEVEL=Hard|"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3|LEVEL=Hard||ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3||LEVEL=Hard|ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3,,4|LEVEL=Hard|ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert(",3,4|LEVEL=Hard|ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3,4,|LEVEL=Hard|ALLOWED=false"));
 	}
 
+	@Test
 	public void testInvalidConvertAssociationIssues()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -133,18 +73,10 @@ public class FormatManagerIntTest extends TestCase
 		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
-		try
-		{
-			manager.convert("3|LEVEL=Hard|SOUND=Bell");
-			fail("Should not be able to convert instructions"
-				+ " with an undefined association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3|LEVEL=Hard|SOUND=Bell"));
 	}
 
+	@Test
 	public void testInvalidConvertIndirectSimple()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -153,27 +85,11 @@ public class FormatManagerIntTest extends TestCase
 		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
-		try
-		{
-			manager.convertIndirect("|");
-			fail("Should not be able to convert null instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect("3");
-			fail("Should not be able to convert instructions"
-				+ " missing a required association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("|"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("3"));
 	}
 
+	@Test
 	public void testInvalidConvertIndirectSeparator()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -182,67 +98,15 @@ public class FormatManagerIntTest extends TestCase
 		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
-		try
-		{
-			manager.convertIndirect("3|LEVEL=Hard|");
-			fail("Should not be able to convert end with separator instructions");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect("3|LEVEL=Hard||ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with an double separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect("3||LEVEL=Hard|ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with an double separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect("3,,4|LEVEL=Hard|ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with an double separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect(",3,4|LEVEL=Hard|ALLOWED=false");
-			fail(
-				"Should not be able to convert instructions" + " with leading separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			manager.convertIndirect("3,4,|LEVEL=Hard|ALLOWED=false");
-			fail("Should not be able to convert instructions"
-				+ " with trailing separator");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("3|LEVEL=Hard|"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("3|LEVEL=Hard||ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("3||LEVEL=Hard|ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("3,,4|LEVEL=Hard|ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect(",3,4|LEVEL=Hard|ALLOWED=false"));
+		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("3,4,|LEVEL=Hard|ALLOWED=false"));
 	}
 
+	@Test
 	public void testInvalidConvertIndirectBadAssociations()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -251,18 +115,10 @@ public class FormatManagerIntTest extends TestCase
 		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
-		try
-		{
-			manager.convert("3|LEVEL=Hard|SOUND=Bell");
-			fail("Should not be able to convert instructions"
-				+ " with an undefined association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		assertThrows(IllegalArgumentException.class, () -> manager.convert("3|LEVEL=Hard|SOUND=Bell"));
 	}
 
+	@Test
 	public void testConvertNoArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -292,6 +148,7 @@ public class FormatManagerIntTest extends TestCase
 		assertEquals("4|ALLOWED=false|LEVEL=Easy", manager.unconvert(c2));
 	}
 
+	@Test
 	public void testConvertCompoundArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -322,23 +179,21 @@ public class FormatManagerIntTest extends TestCase
 		assertEquals("4,5|ALLOWED=false|LEVEL=Easy", manager.unconvert(c2));
 	}
 
-//	public void testUnconvertInvalid()
-//	{
-//		CompoundFormatManager<String> manager2 =
-//				new CompoundFormatManager<>(stringManager, '|');
-//		manager.addComponent(booleanManager, "Allowed", false);
-//		manager.addComponent(numberManager, "Level", true);
-//		try
-//		{
-//			manager2.unconvert(c2);
-//			fail("Should not be able to unconvert incompatible Compound");
-//		}
-//		catch (IllegalArgumentException e)
-//		{
-//			//ok
-//		}
-//	}
+	public void testUnconvertInvalid()
+	{
+		CompoundFormatManager<Number> compoundManager =
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "School", true);
+		CompoundFormatManager<String> manager2 =
+				new CompoundFormatManager<>(FormatUtilities.STRING_MANAGER, '|');
+		Compound c = new DirectCompound(1, compoundManager);
+		c.addSecondary(new NamedIndirect<String>("School", FormatUtilities.STRING_MANAGER, "Illusion"));
+		manager2.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Visible", true);
+		assertThrows(IllegalArgumentException.class, () -> manager2.unconvert(c));
+	}
 
+	@Test
 	public void testConvertIndirectNoArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
@@ -372,6 +227,7 @@ public class FormatManagerIntTest extends TestCase
 		assertEquals("4|ALLOWED=false|LEVEL=Easy", in2.getUnconverted());
 	}
 
+	@Test
 	public void testConvertIndirectCompoundArray()
 	{
 		CompoundFormatManager<Number> compoundManager =

@@ -15,10 +15,15 @@
  */
 package pcgen.base.graph.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Arrays;
 import java.util.function.Function;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.inst.DefaultHyperEdge;
 import pcgen.testsupport.TestSupport;
@@ -26,27 +31,38 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the EdgeUtilities class
  */
-public class EdgeUtilitiesTest extends TestCase
+public class EdgeUtilitiesTest
 {
 
 	private DefaultHyperEdge<Integer> edge1;
 
 	private Integer node1, node2, node3;
 
-	public void testConstructor()
-	{
-		TestSupport.invokePrivateConstructor(EdgeUtilities.class);
-	}
-
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		node1 = new Integer(3);
 		node2 = new Integer(4);
 		node3 = new Integer(6);
 		edge1 = new DefaultHyperEdge<>(Arrays.asList(new Integer[]{node2, node1, node3}));
 	}
+	
+	@AfterEach
+	void tearDown()
+	{
+		node1 = null;
+		node2 = null;
+		node3 = null;
+		edge1 = null;
+	}
 
+	@Test
+	public void testConstructor()
+	{
+		TestSupport.invokePrivateConstructor(EdgeUtilities.class);
+	}
+	
+	@Test
 	public void testGetNodeAt()
 	{
 		Function<Edge<Integer>, Integer> get0 = EdgeUtilities.getNode(0);

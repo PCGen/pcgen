@@ -19,6 +19,9 @@ package pcgen.base.graph.inst;
 
 import java.util.Arrays;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.Graph;
 
@@ -42,17 +45,20 @@ public class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 		return new DefaultGraphEdge<>(node1, node2);
 	}
 
-	/**
-	 * Sets up the fixture, for example, open a network connection. This method
-	 * is called before a test is executed.
-	 * 
-	 * @throws Exception
-	 */
 	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		super.setUp();
 		strategy = new SimpleListGraph<>();
+	}
+
+	@Override
+	@AfterEach
+	void tearDown()
+	{
+		super.tearDown();
+		strategy = null;
 	}
 
 	@Override
