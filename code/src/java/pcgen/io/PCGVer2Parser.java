@@ -136,6 +136,7 @@ import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -2959,7 +2960,8 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setHeight(Integer.parseInt(line.substring(IOConstants.TAG_HEIGHT.length() + 1)));
+			int height = Integer.parseInt(line.substring(IOConstants.TAG_HEIGHT.length() + 1));
+			HeightCompat.setCurrentHeight(thePC.getCharID(), height);
 		}
 		catch (NumberFormatException nfe)
 		{

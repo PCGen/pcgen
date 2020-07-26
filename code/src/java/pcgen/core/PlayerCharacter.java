@@ -165,7 +165,6 @@ import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
-import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
@@ -292,7 +291,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private final IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private final GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private final HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private final AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
@@ -636,6 +634,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRSTYLEINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRCOLORINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HEIGHTINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.SKINCOLORINPUT);
 	}
 
@@ -1290,22 +1289,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		if (genderFacet.getGender(id) != g)
 		{
 			genderFacet.set(id, g);
-			setDirty(true);
-		}
-	}
-
-	/**
-	 * Sets the character's height in inches.
-	 *
-	 * @param i
-	 *            A height in inches.
-	 *
-	 * TODO - This should be a double value stored in CM
-	 */
-	public void setHeight(final int i)
-	{
-		if (heightFacet.set(id, i))
-		{
 			setDirty(true);
 		}
 	}

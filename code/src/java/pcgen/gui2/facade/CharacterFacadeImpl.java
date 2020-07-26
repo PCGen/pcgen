@@ -244,7 +244,6 @@ public class CharacterFacadeImpl
 	private WriteableReferenceFacade<String> skinColor;
 	private WriteableReferenceFacade<String> hairColor;
 	private DefaultReferenceFacade<String> eyeColor;
-	private DefaultReferenceFacade<Integer> heightRef;
 	private DefaultReferenceFacade<Integer> weightRef;
 	private WriteableReferenceFacade<BigDecimal> fundsRef;
 	private DefaultReferenceFacade<BigDecimal> wealthRef;
@@ -397,8 +396,7 @@ public class CharacterFacadeImpl
 				theCharacter.getCharID(), CControl.HAIRCOLORINPUT);
 		eyeColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR));
 		weightRef = new DefaultReferenceFacade<>();
-		heightRef = new DefaultReferenceFacade<>();
-		refreshHeightWeight();
+		refreshWeight();
 
 		purchasedEquip = new EquipmentListFacadeImpl(theCharacter.getEquipmentMasterList());
 		autoEquipListener = new AutoEquipListener();
@@ -762,7 +760,7 @@ public class CharacterFacadeImpl
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
-		refreshHeightWeight();
+		refreshWeight();
 		refreshStatScores();
 
 		updateLevelTodo();
@@ -782,10 +780,9 @@ public class CharacterFacadeImpl
 		hpRef.set(theCharacter.hitPoints());
 	}
 
-	private void refreshHeightWeight()
+	private void refreshWeight()
 	{
 		weightRef.set(Globals.getGameModeUnitSet().convertWeightToUnitSet(charDisplay.getWeight()));
-		heightRef.set((int) Math.round(Globals.getGameModeUnitSet().convertHeightToUnitSet(charDisplay.getHeight())));
 	}
 
 	@Override
@@ -1687,7 +1684,7 @@ public class CharacterFacadeImpl
 		refreshClassLevelModel();
 		refreshStatScores();
 		updateAgeCategoryForAge();
-		refreshHeightWeight();
+		refreshWeight();
 		characterAbilities.rebuildAbilityLists();
 		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
@@ -1803,20 +1800,6 @@ public class CharacterFacadeImpl
 	{
 		eyeColor.set(color);
 		theCharacter.setEyeColor(color);
-	}
-
-	@Override
-	public ReferenceFacade<Integer> getHeightRef()
-	{
-		return heightRef;
-	}
-
-	@Override
-	public void setHeight(int height)
-	{
-		int heightInInches = Globals.getGameModeUnitSet().convertHeightFromUnitSet(height);
-		heightRef.set(height);
-		theCharacter.setHeight(heightInInches);
 	}
 
 	@Override

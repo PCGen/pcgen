@@ -103,7 +103,6 @@ import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
-import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
@@ -221,7 +220,6 @@ public class CharacterDisplay
 	private NonProficiencyPenaltyFacet nonppFacet = FacetLibrary.getFacet(NonProficiencyPenaltyFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
-	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private StatCalcFacet statCalcFacet = FacetLibrary.getFacet(StatCalcFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
@@ -791,16 +789,6 @@ public class CharacterDisplay
 	public Set<Equipment> getEquipmentSet()
 	{
 		return equipmentFacet.getSet(id);
-	}
-
-	/**
-	 * Gets the character's height in inches.
-	 * 
-	 * @return The character's height in inches.
-	 */
-	public int getHeight()
-	{
-		return heightFacet.getHeight(id);
 	}
 
 	/**
