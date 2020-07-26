@@ -37,7 +37,6 @@ import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.util.CControl;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.util.Logging;
 
@@ -461,7 +460,7 @@ public final class BioSet extends PObject implements NonInteractive
 					ageAdd = maxAge - baseAge;
 				}
 			}
-			AgeCompat.setCurrentAge(pc.getCharID(), baseAge + ageAdd);
+			ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, baseAge + ageAdd);
 		}
 	}
 

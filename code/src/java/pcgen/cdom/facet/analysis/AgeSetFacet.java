@@ -29,10 +29,11 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.util.CControl;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.Race;
-import pcgen.output.channel.compat.AgeCompat;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.publish.OutputDB;
 
 /**
@@ -141,7 +142,7 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 			return 0;
 		}
 
-		int pcAge = AgeCompat.getCurrentAge(id);
+		int pcAge = (Integer) ChannelUtilities.readControlledChannel(id, CControl.AGEINPUT);
 		int ageSet = -1;
 
 		for (String s : values)

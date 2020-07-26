@@ -133,7 +133,6 @@ import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
@@ -482,8 +481,10 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			AgeCompat.setCurrentAge(thePC.getCharID(),
-				Integer.parseInt(line.substring(IOConstants.TAG_AGE.length() + 1)));
+			int age = Integer
+				.parseInt(line.substring(IOConstants.TAG_AGE.length() + 1));
+			ChannelUtilities.setControlledChannel(thePC.getCharID(),
+				CControl.AGEINPUT, age);
 		}
 		catch (NumberFormatException nfe)
 		{
