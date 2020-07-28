@@ -80,7 +80,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	}
 
 	@Override
-	protected SolverManager getManager()
+	protected SolverSystem getManager()
 	{
 		return manager;
 	}

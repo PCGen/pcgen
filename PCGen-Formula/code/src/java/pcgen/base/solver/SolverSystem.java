@@ -24,18 +24,18 @@ import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 
 /**
- * A SolverManager manages a series of Solver objects in order to manage dependencies
+ * A SolverSystem manages a series of Solver objects in order to manage dependencies
  * between those Solver objects.
  * 
- * One of the primary characteristic of the SolverManager is also that callers will
- * consider items as represented by a given "VariableID", whereas the SolverManager will
+ * One of the primary characteristic of the SolverSystem is also that callers will
+ * consider items as represented by a given "VariableID", whereas the SolverSystem will
  * build and manage any associated structures to correctly resolve the VariableID.
  */
-public interface SolverManager
+public interface SolverSystem
 {
 
 	/**
-	 * Defines a new Variable that requires solving in this SolverManager. The Variable,
+	 * Defines a new Variable that requires solving in this SolverSystem. The Variable,
 	 * identified by the given VariableID, will be of the format of the given Class.
 	 * 
 	 * @param <T>
@@ -71,9 +71,9 @@ public interface SolverManager
 	 * given VariableID and solves for the given VariableID. Returns true if the added
 	 * modifier caused the value of the VariableID to change.
 	 * 
-	 * Note: If the SolverManager is not aggressive, then the SolverManager may 
+	 * Note: If the SolverSystem is not aggressive, then the SolverSystem may 
 	 * interpret more than one Modifier as new to the underlying Solver.  The return
-	 * value of this method is open to interpretation by the SolverManager to 
+	 * value of this method is open to interpretation by the SolverSystem to 
 	 * determine if it limits it to only the provided Modifier or any Modifier since
 	 * the last time the Solver was analyzed.
 	 * 
@@ -160,26 +160,26 @@ public interface SolverManager
 	public void solveChildren(VariableID<?> varID);
 
 	/**
-	 * Creates a replacement SolverManager for this SolverManager. The replacement will
+	 * Creates a replacement SolverSystem for this SolverSystem. The replacement will
 	 * have the given VariableStore as the destination for calculations. Any underlying
-	 * system of calculation in the resulting SolverManager must be independent of this
-	 * SolverManager. For example, an addition of a Modifier to either SolverManager must
+	 * system of calculation in the resulting SolverSystem must be independent of this
+	 * SolverSystem. For example, an addition of a Modifier to either SolverSystem must
 	 * not modify the other.
 	 * 
 	 * @param newVarStore
-	 *            The WriteableVariableStore for the new SolverManager
-	 * @return A SolverManager sharing the same default values, existing values, but with
-	 *         independent calculation pathways from this SolverManager
+	 *            The WriteableVariableStore for the new SolverSystem
+	 * @return A SolverSystem sharing the same default values, existing values, but with
+	 *         independent calculation pathways from this SolverSystem
 	 */
-	public SolverManager createReplacement(WriteableVariableStore newVarStore);
+	public SolverSystem createReplacement(WriteableVariableStore newVarStore);
 	
 	/**
-	 * Directly solves a given NEPFormula using the information in this SolverManager.
+	 * Directly solves a given NEPFormula using the information in this SolverSystem.
 	 * 
 	 * @param formula
-	 *            The NEPFormula to be solved using the information in this SolverManager
+	 *            The NEPFormula to be solved using the information in this SolverSystem
 	 * @return The result of evaluating the given formula based on information in this
-	 *         SolverManager
+	 *         SolverSystem
 	 */
 	public <T> T solve(NEPFormula<T> formula);
 

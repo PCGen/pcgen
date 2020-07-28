@@ -56,7 +56,7 @@ import pcgen.base.util.FormatManager;
  * will build and manage the associated Solver for that VariableID.
  */
 @SuppressWarnings("PMD.TooManyMethods")
-public class DynamicSolverManager implements SolverManager
+public class DynamicSolverManager implements SolverSystem
 {
 
 	/**

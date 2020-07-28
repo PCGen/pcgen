@@ -39,7 +39,7 @@ import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
-import pcgen.base.solver.SolverManager;
+import pcgen.base.solver.SolverSystem;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 
 public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
@@ -75,7 +75,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		globalScopeInst = null;
 	}
 
-	protected abstract SolverManager getManager();
+	protected abstract SolverSystem getManager();
 
 	@Test
 	public void testIllegalCreateChannel()
@@ -422,7 +422,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(2, store.get(limbs));
 
 		SimpleVariableStore altstore = new SimpleVariableStore();
-		SolverManager alt = getManager().createReplacement(altstore);
+		SolverSystem alt = getManager().createReplacement(altstore);
 
 		AbstractModifier<Number> four = AbstractModifier.setNumber(2, 5);
 		assertEquals(0, store.get(legs));

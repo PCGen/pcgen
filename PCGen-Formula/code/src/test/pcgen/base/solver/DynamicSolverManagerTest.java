@@ -96,7 +96,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	}
 
 	@Override
-	protected SolverManager getManager()
+	protected SolverSystem getManager()
 	{
 		return manager;
 	}
