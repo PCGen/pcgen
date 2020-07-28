@@ -33,7 +33,7 @@ import pcgen.base.util.TreeMapToList;
 
 /**
  * A Solver manages a series of Modifiers in order to "solve" those Modifiers to
- * produce the result for a single "variable" (specifically managed by a
+ * produce the result for a single "variable" (specifically identified by a
  * VariableID).
  * 
  * The primary role of a Solver is to process the priority of each Modifier
@@ -120,7 +120,7 @@ public class Solver<T>
 	}
 
 	/**
-	 * Removes the given Modifier (From the given source) from this Solver.
+	 * Removes the given Modifier (from the given source) from this Solver.
 	 * 
 	 * For this to have any effect, the combination of Modifier and source must
 	 * be the same (as defined by .equals() equality) as a combination provided

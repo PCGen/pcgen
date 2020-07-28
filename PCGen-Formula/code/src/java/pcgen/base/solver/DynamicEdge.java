@@ -44,10 +44,10 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	/**
 	 * The underlying DynamicDependency object that this DynamicEdge is representing.
 	 */
-	private final DynamicDependency dd;
+	private final DynamicDependency dynamicDep;
 
 	/**
-	 * The dynamic variable name
+	 * The dynamic variable name.
 	 */
 	private final String varName;
 
@@ -61,16 +61,16 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 * @param targetEdge
 	 *            The GraphEdge that has the actual dependency link given the current
 	 *            state of the
-	 * @param dd
+	 * @param dynamicDep
 	 *            The underlying DynamicDependency that has the information about the
 	 *            original dependency
 	 */
 	public DynamicEdge(VariableID<?> source,
-		DefaultDirectionalGraphEdge<VariableID<?>> targetEdge, DynamicDependency dd)
+		DefaultDirectionalGraphEdge<VariableID<?>> targetEdge, DynamicDependency dynamicDep)
 	{
 		super(source, targetEdge);
 		varName = targetEdge.getNodeAt(0).getName();
-		this.dd = Objects.requireNonNull(dd);
+		this.dynamicDep = Objects.requireNonNull(dynamicDep);
 	}
 
 	@Override
@@ -96,17 +96,17 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 * @param targetVar
 	 *            The target (resulting) variable of the calculation, for linking the
 	 *            dependency
-	 * @return a replacement DynamicEdge for this DynamicEdge, with the target edge
+	 * @return A replacement DynamicEdge for this DynamicEdge, with the target edge
 	 *         containing the same target and the new source
 	 */
 	public DynamicEdge createReplacement(VariableLibrary varLibrary,
 		ScopeInstanceFactory siFactory, VarScoped vs, VariableID<?> targetVar)
 	{
 		VariableID<?> input =
-				dd.generateSource(varLibrary, siFactory, vs, getSourceName());
+				dynamicDep.generateSource(varLibrary, siFactory, vs, getSourceName());
 		DefaultDirectionalGraphEdge<VariableID<?>> edge =
 				new DefaultDirectionalGraphEdge<>(input, targetVar);
-		return new DynamicEdge((VariableID<?>) getNodeAt(0), edge, dd);
+		return new DynamicEdge((VariableID<?>) getNodeAt(0), edge, dynamicDep);
 	}
 
 	@Override
@@ -184,7 +184,7 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 */
 	public boolean isDependency(DynamicDependency dep)
 	{
-		return dd.equals(dep);
+		return dynamicDep.equals(dep);
 	}
 
 	/**

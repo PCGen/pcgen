@@ -56,19 +56,20 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	 * 
 	 * @param formatManager
 	 *            The format of the array this Modifier can act upon
-	 * @param loc
+	 * @param location
 	 *            The location of the component in the array to be modified
-	 * @param mod
+	 * @param modifier
 	 *            The Modifier to be applied to the component in the array
 	 */
-	public ArrayComponentModifier(FormatManager<T[]> formatManager, int loc, Modifier<T> mod)
+	public ArrayComponentModifier(FormatManager<T[]> formatManager,
+		int location, Modifier<T> modifier)
 	{
-		if (loc < 0)
+		if (location < 0)
 		{
 			throw new IllegalArgumentException("Array Location must be >= 0");
 		}
-		location = loc;
-		modifier = Objects.requireNonNull(mod);
+		this.location = location;
+		this.modifier = Objects.requireNonNull(modifier);
 		format = Objects.requireNonNull(formatManager);
 		FormatManager<?> componentManager = format.getComponentManager().get();
 		//CONSIDER Leniency here?  Does FormatManager need something like isAssignableFrom?

@@ -24,12 +24,8 @@ import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 
 /**
- * A SolverSystem manages a series of Solver objects in order to manage dependencies
- * between those Solver objects.
- * 
- * One of the primary characteristic of the SolverSystem is also that callers will
- * consider items as represented by a given "VariableID", whereas the SolverSystem will
- * build and manage any associated structures to correctly resolve the VariableID.
+ * A SolverSystem manages a series of variables, identified by VariableIDs with Modifier
+ * objects, in order to resolve the value of those variables.
  */
 public interface SolverSystem
 {
@@ -48,48 +44,44 @@ public interface SolverSystem
 	public <T> void createChannel(VariableID<T> varID);
 
 	/**
-	 * Adds a Modifier (with the given source object) to the Solver identified by the
+	 * Adds a Modifier (with the given source object) to the variable identified by the
 	 * given VariableID.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which a Modifier should be added to the responsible
-	 *            Solver
+	 *            variable
 	 * @param modifier
-	 *            The Modifier to be added to the Solver for the given VariableID
+	 *            The Modifier to be added to the variable for the given VariableID
 	 * @param source
-	 *            The source of the Modifier to be added to the Solver
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
+	 *            The source of the Modifier to be added to the variable
 	 */
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source);
 
 	/**
-	 * Adds a Modifier (with the given source object) to the Solver identified by the
+	 * Adds a Modifier (with the given source object) to the variable identified by the
 	 * given VariableID and solves for the given VariableID. Returns true if the added
 	 * modifier caused the value of the VariableID to change.
 	 * 
 	 * Note: If the SolverSystem is not aggressive, then the SolverSystem may 
-	 * interpret more than one Modifier as new to the underlying Solver.  The return
+	 * interpret more than one Modifier as new to the underlying variable.  The return
 	 * value of this method is open to interpretation by the SolverSystem to 
 	 * determine if it limits it to only the provided Modifier or any Modifier since
-	 * the last time the Solver was analyzed.
+	 * the last time the variable was analyzed.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which a Modifier should be added to the responsible
-	 *            Solver
+	 *            variable
 	 * @param modifier
-	 *            The Modifier to be added to the Solver for the given VariableID
+	 *            The Modifier to be added to the variable for the given VariableID
 	 * @param source
-	 *            The source of the Modifier to be added to the Solver
-	 * @return true if the given VariableID was modified by adding the given Solver, false
+	 *            The source of the Modifier to be added to the variable
+	 * @return true if the given VariableID was modified by adding the given variable, false
 	 *         otherwise
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
 	 */
 	public <T> boolean addModifierAndSolve(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source);
@@ -106,15 +98,13 @@ public interface SolverSystem
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which a Modifier should be removed from the
-	 *            responsible Solver
+	 *            responsible variable
 	 * @param modifier
-	 *            The Modifier to be removed from the Solver identified by the given
+	 *            The Modifier to be removed from the variable identified by the given
 	 *            VariableID
 	 * @param source
-	 *            The source object for the Modifier to be removed from the Solver
+	 *            The source object for the Modifier to be removed from the variable
 	 *            identified by the given VariableID
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
 	 */
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source);
@@ -150,12 +140,12 @@ public interface SolverSystem
 	public <T> T getDefaultValue(FormatManager<T> formatManager);
 
 	/**
-	 * Triggers Solvers to be called, recursively through the dependencies, from the
+	 * Triggers variables to be resolved, recursively through the dependencies, from the
 	 * children of the given VariableID.
 	 * 
 	 * @param varID
 	 *            The VariableID for which the children will be used as a starting point
-	 *            for triggering Solvers to be processed
+	 *            for triggering variables to be processed
 	 */
 	public void solveChildren(VariableID<?> varID);
 

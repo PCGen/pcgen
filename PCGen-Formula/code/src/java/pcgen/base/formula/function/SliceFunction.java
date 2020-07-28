@@ -125,7 +125,8 @@ public class SliceFunction implements FormulaFunction
 			if (start == end)
 			{
 				throw new SemanticsFailureException(
-					"Parse Error: Wasted Effort: Start and End values of slice produce empty array");
+					"Parse Error: Wasted Effort: Start and End values "
+						+ "of slice produce empty array");
 			}
 			else if (start > end)
 			{
@@ -136,7 +137,7 @@ public class SliceFunction implements FormulaFunction
 		}
 	}
 
-	public static FormatManager<?> ensureArray(SemanticsVisitor visitor,
+	private static FormatManager<?> ensureArray(SemanticsVisitor visitor,
 		FormulaSemantics semantics, Node node)
 	{
 		FormatManager<?> arrayFormat =
