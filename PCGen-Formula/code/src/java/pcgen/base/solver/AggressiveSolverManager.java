@@ -51,7 +51,7 @@ import pcgen.base.util.FormatManager;
  * VariableID.
  */
 @SuppressWarnings("PMD.TooManyMethods")
-public class AggressiveSolverManager implements SolverManager
+public class AggressiveSolverManager implements SolverSystem
 {
 
 	/**

@@ -43,7 +43,7 @@ import pcgen.base.util.TreeMapToList;
  * 
  * Note that a Solver makes NO attempt to understand whether it is behaving
  * correctly relative to other Solver instances. That cross-variable resolution
- * is done by a SolverManager.
+ * is done by a SolverSystem.
  * 
  * @param <T>
  *            The format of object that this Solver operates on (e.g.
