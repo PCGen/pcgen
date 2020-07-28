@@ -30,7 +30,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
@@ -45,7 +45,7 @@ public class VariableManagerTest
 {
 
 	private ScopeInstanceFactory instanceFactory;
-	private ScopeManagerInst legalScopeManager;
+	private ScopeManagerInst scopeManager;
 	private VariableLibrary variableLibrary;
 	private SupplierValueStore valueStore;
 
@@ -53,19 +53,19 @@ public class VariableManagerTest
 	void setUp()
 	{
 		valueStore = new SupplierValueStore();
-		legalScopeManager = new ScopeManagerInst();
-		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
+		scopeManager = new ScopeManagerInst();
+		instanceFactory = new SimpleScopeInstanceFactory(scopeManager);
 		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
-		variableLibrary = new VariableManager(legalScopeManager, valueStore);
+		variableLibrary = new VariableManager(scopeManager, valueStore);
 	}
 	
 	@AfterEach
 	void tearDown()
 	{
 		instanceFactory = null;
-		legalScopeManager = null;
+		scopeManager = null;
 		variableLibrary = null;
 		valueStore = null;
 	}
@@ -74,14 +74,14 @@ public class VariableManagerTest
 	public void testNullConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new VariableManager(null, valueStore));
-		assertThrows(NullPointerException.class, () -> new VariableManager(legalScopeManager, null));
+		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, null));
 		assertThrows(NullPointerException.class, () -> new VariableManager(null, null));
 	}
 
 	@Test
 	public void testAssertVariableFail()
 	{
-		LegalScope globalScope = new SimpleLegalScope("Global");
+		ImplementedScope globalScope = new SimpleLegalScope("Global");
 		assertThrows(NullPointerException.class, () -> variableLibrary.assertLegalVariableID(null, globalScope, FormatUtilities.NUMBER_MANAGER));
 		assertThrows(IllegalArgumentException.class, () -> variableLibrary.assertLegalVariableID("", globalScope, FormatUtilities.NUMBER_MANAGER));
 		assertThrows(IllegalArgumentException.class, () -> variableLibrary.assertLegalVariableID(" Walk", globalScope, FormatUtilities.NUMBER_MANAGER));
@@ -106,13 +106,13 @@ public class VariableManagerTest
 	public void testAssertVariable()
 	{
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
+		ImplementedScope spScope = new SimpleLegalScope(globalScope, "Spell");
 		SimpleLegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(spScope);
-		legalScopeManager.registerScope(eqScope);
-		legalScopeManager.registerScope(eqPartScope);
+		ImplementedScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(spScope);
+		scopeManager.registerScope(eqScope);
+		scopeManager.registerScope(eqPartScope);
 		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
 		//Dupe is safe
 		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
@@ -139,8 +139,8 @@ public class VariableManagerTest
 	@Test
 	public void testIsLegalVIDFail()
 	{
-		LegalScope globalScope = new SimpleLegalScope("Global");
-		legalScopeManager.registerScope(globalScope);
+		ImplementedScope globalScope = new SimpleLegalScope("Global");
+		scopeManager.registerScope(globalScope);
 		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
 		assertThrows(NullPointerException.class, () -> variableLibrary.isLegalVariableID(null, "Walk"));
 		try
@@ -157,13 +157,13 @@ public class VariableManagerTest
 	public void testIsLegalVID()
 	{
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
+		ImplementedScope spScope = new SimpleLegalScope(globalScope, "Spell");
 		SimpleLegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(spScope);
-		legalScopeManager.registerScope(eqScope);
-		legalScopeManager.registerScope(eqPartScope);
+		ImplementedScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(spScope);
+		scopeManager.registerScope(eqScope);
+		scopeManager.registerScope(eqPartScope);
 		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
 		assertTrue(variableLibrary.isLegalVariableID(globalScope, "Walk"));
 		assertFalse(variableLibrary.isLegalVariableID(globalScope, "Run"));
@@ -194,13 +194,13 @@ public class VariableManagerTest
 	@Test
 	public void testGetVIDFail()
 	{
-		LegalScope globalScope = new SimpleLegalScope("Global");
-		legalScopeManager.registerScope(globalScope);
+		ImplementedScope globalScope = new SimpleLegalScope("Global");
+		scopeManager.registerScope(globalScope);
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		legalScopeManager.registerScope(eqScope);
-		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
-		legalScopeManager.registerScope(spScope);
+		ImplementedScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
+		scopeManager.registerScope(eqScope);
+		ImplementedScope spScope = new SimpleLegalScope(globalScope, "Spell");
+		scopeManager.registerScope(spScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
@@ -219,17 +219,17 @@ public class VariableManagerTest
 	@Test
 	public void testGetVID()
 	{
-		LegalScope globalScope = new SimpleLegalScope("Global");
-		legalScopeManager.registerScope(globalScope);
+		ImplementedScope globalScope = new SimpleLegalScope("Global");
+		scopeManager.registerScope(globalScope);
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		legalScopeManager.registerScope(eqScope);
+		ImplementedScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
+		scopeManager.registerScope(eqScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
 		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
-		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
-		legalScopeManager.registerScope(eqPartScope);
+		ImplementedScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
+		scopeManager.registerScope(eqPartScope);
 		SimpleVarScoped eqpart = new SimpleVarScoped();
 		eqpart.scopeName = "Global.Equipment.Part";
 		eqpart.name = "Mod";
@@ -274,10 +274,10 @@ public class VariableManagerTest
 	@Test
 	public void testGetVariableFormat()
 	{
-		LegalScope globalScope = new SimpleLegalScope("Global");
-		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(eqScope);
+		ImplementedScope globalScope = new SimpleLegalScope("Global");
+		ImplementedScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(eqScope);
 		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
 		variableLibrary.assertLegalVariableID("Float", eqScope, FormatUtilities.NUMBER_MANAGER);
 		assertThrows(NullPointerException.class, () -> variableLibrary.getVariableFormat(null, "Walk"));
@@ -305,16 +305,16 @@ public class VariableManagerTest
 	public void testProveReuse()
 	{
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		legalScopeManager.registerScope(globalScope);
-		LegalScope eqScope =
+		scopeManager.registerScope(globalScope);
+		ImplementedScope eqScope =
 				new SimpleLegalScope(globalScope, "Equipment");
-		legalScopeManager.registerScope(eqScope);
+		scopeManager.registerScope(eqScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
 		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
-		LegalScope abScope = new SimpleLegalScope(globalScope, "Ability");
-		legalScopeManager.registerScope(abScope);
+		ImplementedScope abScope = new SimpleLegalScope(globalScope, "Ability");
+		scopeManager.registerScope(abScope);
 		SimpleVarScoped ab = new SimpleVarScoped();
 		ab.scopeName = "Global.Ability";
 		ab.name = "Dodge";
@@ -341,7 +341,7 @@ public class VariableManagerTest
 	public void testOrderOfOps()
 	{
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		legalScopeManager.registerScope(globalScope);
+		scopeManager.registerScope(globalScope);
 		DeferredIndirect def = new DeferredIndirect();
 		valueStore.addSolverFormat(FormatUtilities.ORDEREDPAIR_MANAGER, def);
 		variableLibrary.assertLegalVariableID("Walk", globalScope,

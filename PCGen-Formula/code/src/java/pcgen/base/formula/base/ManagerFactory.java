@@ -83,18 +83,18 @@ public class ManagerFactory
 	 * @param manager
 	 *            The FormulaManager referenced when a Formula is processed with this
 	 *            FormulaSemantics
-	 * @param legalScope
-	 *            The LegalScope when a Formula is processed with this FormulaSemantics
+	 * @param scope
+	 *            The ImplementedScope when a Formula is processed with this FormulaSemantics
 	 * @return An initialized FormulaSemantics object with the appropriate keys set to the
 	 *         given parameters
 	 */
 	public FormulaSemantics generateFormulaSemantics(
-		FormulaManager manager, LegalScope legalScope)
+		FormulaManager manager, ImplementedScope scope)
 	{
 		FormulaSemantics semantics = new FormulaSemantics();
 		semantics = semantics.getWith(FormulaSemantics.FMANAGER, manager);
 		semantics = semantics.getWith(FormulaSemantics.OPLIB, opLib);
-		return semantics.getWith(FormulaSemantics.SCOPE, legalScope);
+		return semantics.getWith(FormulaSemantics.SCOPE, scope);
 	}
 
 	/**

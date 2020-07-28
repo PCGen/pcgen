@@ -20,26 +20,26 @@ package pcgen.base.formula.inst;
 import java.util.Objects;
 import java.util.Optional;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 
 /**
- * A SimpleLegalScope is a simple implementation of LegalScope.
+ * A SimpleLegalScope is a simple implementation of ImplementedScope.
  */
-public class SimpleLegalScope implements LegalScope
+public class SimpleLegalScope implements ImplementedScope
 {
 
 	/**
-	 * The LegalScope that is the parent of this LegalScope.
+	 * The ImplementedScope that is the parent of this ImplementedScope.
 	 */
-	private final Optional<LegalScope> parent;
+	private final Optional<ImplementedScope> parent;
 
 	/**
-	 * The name of this LegalScope.
+	 * The name of this ImplementedScope.
 	 */
 	private final String name;
 
 	/**
-	 * Constructs a new LegalScope with the given parent LegalScope and name.
+	 * Constructs a new ImplementedScope with the given name.
 	 * 
 	 * @param name
 	 *            The name of this SimpleLegalScope
@@ -50,27 +50,27 @@ public class SimpleLegalScope implements LegalScope
 	}
 
 	/**
-	 * Constructs a new LegalScope with the given parent LegalScope and name.
+	 * Constructs a new ImplementedScope with the given parent ImplementedScope and name.
 	 * 
 	 * @param parentScope
-	 *            The LegalScope that is the parent of this LegalScope. May be
+	 *            The ImplementedScope that is the parent of this ImplementedScope. May be
 	 *            null to represent global
 	 * @param name
 	 *            The name of this SimpleLegalScope
 	 */
-	public SimpleLegalScope(LegalScope parentScope, String name)
+	public SimpleLegalScope(ImplementedScope parentScope, String name)
 	{
 		this(Optional.of(parentScope), name);
 	}
 
-	private SimpleLegalScope(Optional<LegalScope> parentScope, String name)
+	private SimpleLegalScope(Optional<ImplementedScope> parentScope, String name)
 	{
 		this.parent = Objects.requireNonNull(parentScope);
 		this.name = Objects.requireNonNull(name);
 	}
 
 	@Override
-	public Optional<LegalScope> getParentScope()
+	public Optional<ImplementedScope> getParentScope()
 	{
 		return parent;
 	}

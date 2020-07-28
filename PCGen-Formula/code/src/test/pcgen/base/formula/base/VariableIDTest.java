@@ -37,10 +37,10 @@ public class VariableIDTest
 	@Test
 	public void testDoubleConstructor()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		ScopeInstanceFactory instanceFactory =
-				new SimpleScopeInstanceFactory(legalScopeManager);
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+				new SimpleScopeInstanceFactory(scopeManager);
+		scopeManager.registerScope(new SimpleLegalScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 
@@ -55,10 +55,10 @@ public class VariableIDTest
 	@Test
 	public void testGlobal()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		ScopeInstanceFactory instanceFactory =
-				new SimpleScopeInstanceFactory(legalScopeManager);
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+				new SimpleScopeInstanceFactory(scopeManager);
+		scopeManager.registerScope(new SimpleLegalScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 
@@ -71,13 +71,13 @@ public class VariableIDTest
 	@Test
 	public void testEquals()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		ScopeInstanceFactory instanceFactory =
-				new SimpleScopeInstanceFactory(legalScopeManager);
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+				new SimpleScopeInstanceFactory(scopeManager);
+		scopeManager.registerScope(new SimpleLegalScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
-		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
+		scopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.get("Global2",
 			Optional.of(new GlobalVarScoped("Global2")));
 
@@ -97,13 +97,13 @@ public class VariableIDTest
 	@Test
 	public void testHashCode()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		ScopeInstanceFactory instanceFactory =
-				new SimpleScopeInstanceFactory(legalScopeManager);
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+				new SimpleScopeInstanceFactory(scopeManager);
+		scopeManager.registerScope(new SimpleLegalScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
-		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
+		scopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.get("Global2",
 			Optional.of(new GlobalVarScoped("Global2")));
 

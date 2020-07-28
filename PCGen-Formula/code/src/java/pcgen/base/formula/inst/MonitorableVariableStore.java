@@ -35,7 +35,8 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 * The listeners, identified by priority and which VariableID they are listening to.
 	 */
 	@SuppressWarnings("PMD.LooseCoupling")
-	private final DoubleKeyMapToList<VariableID<?>, Integer, EnhancedWeakReference<VariableListener<?>>> listenerList =
+	private final DoubleKeyMapToList<VariableID<?>, Integer,
+					EnhancedWeakReference<VariableListener<?>>> listenerList =
 			new DoubleKeyMapToList<>(HashMap.class, TreeMap.class);
 
 	/**

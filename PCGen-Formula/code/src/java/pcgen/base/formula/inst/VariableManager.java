@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
@@ -34,7 +34,7 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.ValueStore;
 
 /**
- * VariableManager performs the management of legal variable names within a LegalScope.
+ * VariableManager performs the management of legal variable names within an ImplementedScope.
  * This ensures that when a VariableID is built, it is in an appropriate structure to be
  * evaluated.
  */
@@ -42,11 +42,11 @@ public class VariableManager implements VariableLibrary
 {
 
 	/**
-	 * The LegalScopeManager that supports to be used to determine "child" scopes from any
-	 * LegalScope (in order to avoid variable name conflicts between different but non
-	 * disjoint scopes).
+	 * The ScopeManager that supports to be used to determine "child" scopes from any
+	 * ImplementedScope (in order to avoid variable name conflicts between different but
+	 * non disjoint scopes).
 	 */
-	private final LegalScopeManager legalScopeManager;
+	private final ScopeManager scopeManager;
 
 	/**
 	 * The ValueStore that knows what defaults exist (and thus what variables would be
@@ -55,106 +55,106 @@ public class VariableManager implements VariableLibrary
 	private final ValueStore defaultStore;
 
 	/**
-	 * Holds a map from variable names and LegalScope objects to the format for that
+	 * Holds a map from variable names and ImplementedScope objects to the format for that
 	 * variable.
 	 */
 	@SuppressWarnings("PMD.LooseCoupling")
-	private final DoubleKeyMap<Object, LegalScope, FormatManager<?>> variableDefs =
+	private final DoubleKeyMap<Object, ImplementedScope, FormatManager<?>> variableDefs =
 			new DoubleKeyMap<>(CaseInsensitiveMap.class, HashMap.class);
 
 	/**
-	 * Constructs a new VariableManager, which uses the given LegalScopeManager to ensure
+	 * Constructs a new VariableManager, which uses the given ScopeManager to ensure
 	 * variables are legal within a given scope.
 	 * 
-	 * @param legalScopeManager
-	 *            The LegalScopeManager used to to ensure variables are legal within a
+	 * @param scopeManager
+	 *            The ScopeManager used to to ensure variables are legal within a
 	 *            given scope
 	 * @param defaultStore
 	 *            The ValueStore used to get the default variable for a variable Format
 	 */
-	public VariableManager(LegalScopeManager legalScopeManager, ValueStore defaultStore)
+	public VariableManager(ScopeManager scopeManager, ValueStore defaultStore)
 	{
-		this.legalScopeManager = Objects.requireNonNull(legalScopeManager);
+		this.scopeManager = Objects.requireNonNull(scopeManager);
 		this.defaultStore = Objects.requireNonNull(defaultStore);
 	}
 
 	@Override
-	public void assertLegalVariableID(String varName, LegalScope legalScope,
+	public void assertLegalVariableID(String varName, ImplementedScope scope,
 		FormatManager<?> formatManager)
 	{
 		Objects.requireNonNull(varName);
-		Objects.requireNonNull(legalScope);
+		Objects.requireNonNull(scope);
 		Objects.requireNonNull(formatManager);
-		if (!legalScopeManager.recognizesScope(legalScope))
+		if (!scopeManager.recognizesScope(scope))
 		{
-			throw new IllegalArgumentException("LegalScope " + legalScope.getName()
-				+ " was not registered with LegalScopeManager");
+			throw new IllegalArgumentException("ImplementedScope " + scope.getName()
+				+ " was not registered with ScopeManager");
 		}
 		VariableID.checkLegalVarName(varName);
 		if (!variableDefs.containsKey(varName))
 		{
 			//Can't be a conflict
-			variableDefs.put(varName, legalScope, formatManager);
+			variableDefs.put(varName, scope, formatManager);
 			return;
 		}
-		FormatManager<?> currentFormat = variableDefs.get(varName, legalScope);
+		FormatManager<?> currentFormat = variableDefs.get(varName, scope);
 		//Asserted Format Already there
 		if ((currentFormat != null) && !formatManager.equals(currentFormat))
 		{
 			throw new LegalVariableException(varName + " was asserted in scope: "
-				+ LegalScope.getFullName(legalScope) + " with format "
+				+ ImplementedScope.getFullName(scope) + " with format "
 				+ formatManager.getIdentifierType() + " but was previously asserted as a "
 				+ currentFormat.getIdentifierType());
 		}
 		//Now, need to check for conflicts
-		if (hasConflict(varName, legalScope))
+		if (hasConflict(varName, scope))
 		{
 			throw new LegalVariableException(variableDefs.getSecondaryKeySet(varName)
-				.stream().map(ls -> LegalScope.getFullName(ls))
+				.stream().map(ls -> ImplementedScope.getFullName(ls))
 				.collect(Collectors.joining(", ",
 					"A Variable was asserted in incompatible variable scopes: " + varName
-						+ " was requested in " + LegalScope.getFullName(legalScope)
+						+ " was requested in " + ImplementedScope.getFullName(scope)
 						+ " but was previously in ",
 					"")));
 		}
 		else
 		{
-			variableDefs.put(varName, legalScope, formatManager);
+			variableDefs.put(varName, scope, formatManager);
 		}
 	}
 
 	/**
 	 * Returns true if there is a conflict with a related Scope for the given variable name.
 	 */
-	private boolean hasConflict(String varName, LegalScope legalScope)
+	private boolean hasConflict(String varName, ImplementedScope scope)
 	{
 		return variableDefs.getSecondaryKeySet(varName).stream()
-			.filter(otherScope -> legalScopeManager.isRelated(otherScope, legalScope))
-			.anyMatch(otherScope -> !otherScope.equals(legalScope));
+			.filter(otherScope -> scopeManager.isRelated(otherScope, scope))
+			.anyMatch(otherScope -> !otherScope.equals(scope));
 	}
 
 	@Override
-	public boolean isLegalVariableID(LegalScope legalScope, String varName)
+	public boolean isLegalVariableID(ImplementedScope scope, String varName)
 	{
-		Objects.requireNonNull(legalScope);
-		if (variableDefs.containsKey(varName, legalScope))
+		Objects.requireNonNull(scope);
+		if (variableDefs.containsKey(varName, scope))
 		{
 			return true;
 		}
 		//Recursively check parent
-		Optional<? extends LegalScope> potentialParent = legalScope.getParentScope();
+		Optional<? extends ImplementedScope> potentialParent = scope.getParentScope();
 		return potentialParent.isPresent()
 			&& isLegalVariableID(potentialParent.get(), varName);
 	}
 
 	@Override
-	public FormatManager<?> getVariableFormat(LegalScope legalScope, String varName)
+	public FormatManager<?> getVariableFormat(ImplementedScope scope, String varName)
 	{
-		Objects.requireNonNull(legalScope);
-		FormatManager<?> format = variableDefs.get(varName, legalScope);
+		Objects.requireNonNull(scope);
+		FormatManager<?> format = variableDefs.get(varName, scope);
 		if (format == null)
 		{
-			Optional<? extends LegalScope> potentialParent = legalScope.getParentScope();
+			Optional<? extends ImplementedScope> potentialParent = scope.getParentScope();
 			//Recursively check parent, if possible
 			if (potentialParent.isPresent())
 			{
@@ -180,7 +180,7 @@ public class VariableManager implements VariableLibrary
 		Objects.requireNonNull(scopeInst);
 		VariableID.checkLegalVarName(varName);
 		FormatManager<?> formatManager =
-				variableDefs.get(varName, scopeInst.getLegalScope());
+				variableDefs.get(varName, scopeInst.getImplementedScope());
 		if (formatManager != null)
 		{
 			return new VariableID<>(scopeInst, formatManager, varName);

@@ -46,7 +46,7 @@ public class SimpleScopeInstanceTest
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.empty(), local, new GlobalVarScoped("Ignored")));
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.empty(), local, new GlobalVarScoped("Ignored")));
 		assertEquals(scopeInst, localInst.getParentScope().get());
-		assertEquals(local, localInst.getLegalScope());
+		assertEquals(local, localInst.getImplementedScope());
 		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), null, new GlobalVarScoped("Ignored")));
 		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), local, null));
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), sublocal, new GlobalVarScoped("Ignored")));
@@ -62,7 +62,7 @@ public class SimpleScopeInstanceTest
 		SimpleScopeInstance localInst = new SimpleScopeInstance(
 			Optional.of(scopeInst), local, new GlobalVarScoped("Local"));
 
-		assertEquals(local, localInst.getLegalScope());
+		assertEquals(local, localInst.getImplementedScope());
 		assertEquals(scopeInst, localInst.getParentScope().get());
 	}
 

@@ -162,7 +162,7 @@ public class AggressiveSolverManager implements SolverSystem
 		Objects.requireNonNull(source);
 
 		if (!formulaManager.getFactory()
-			.isLegalVariableID(varID.getScope().getLegalScope(), varID.getName()))
+			.isLegalVariableID(varID.getScope().getImplementedScope(), varID.getName()))
 		{
 			/*
 			 * The above check allows the implicit create below for only items within the

@@ -45,9 +45,9 @@ public class SimpleFormulaManagerTest
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 		valueStore.validateDefaults();
 		resultsStore = new SimpleVariableStore();
-		LegalScopeManager legalScopeManager = new ScopeManagerInst();
-		variableLibrary = new VariableManager(legalScopeManager, valueStore);
-		siFactory = new SimpleScopeInstanceFactory(legalScopeManager);
+		ScopeManager scopeManager = new ScopeManagerInst();
+		variableLibrary = new VariableManager(scopeManager, valueStore);
+		siFactory = new SimpleScopeInstanceFactory(scopeManager);
 	}
 	
 	@AfterEach

@@ -23,7 +23,7 @@ import java.util.Optional;
  * ScopeInstance identifies an instance of a scope in which a particular part of
  * a formula (usually a variable) is valid.
  * 
- * Combined with LegalScope, this effectively provides a concept similar to a
+ * Combined with ImplementedScope, this effectively provides a concept similar to a
  * local variable scope in many programming languages.
  * 
  * ScopeInstance provides the ability to not only distinguish the different
@@ -36,7 +36,7 @@ import java.util.Optional;
  * contains (it does not, for example, have a list of legal variables for the
  * scope).
  * 
- * LegalScope was the template of sorts for actual ScopeInstance objects. You
+ * ImplementedScope was the template of sorts for actual ScopeInstance objects. You
  * must have a ScopeInstance to create a VariableID. (Creating a ScopeInstance
  * is must like creating a new instance of a class in Java, where the local
  * variables and methods can be processed).
@@ -52,11 +52,11 @@ public interface ScopeInstance extends Identified
 {
 
 	/**
-	 * Returns the LegalScope that serves as a "template" for this ScopeInstance.
+	 * Returns the ImplementedScope that serves as a "template" for this ScopeInstance.
 	 * 
-	 * @return The LegalScope that serves as a "template" for this ScopeInstance
+	 * @return The ImplementedScope that serves as a "template" for this ScopeInstance
 	 */
-	public LegalScope getLegalScope();
+	public ImplementedScope getImplementedScope();
 
 	/**
 	 * Returns the ScopeInstance that serves as a "parent" for this ScopeInstance.

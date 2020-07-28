@@ -63,7 +63,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getInstanceFactory().getScope("Global"));
+			.generateFormulaSemantics(getFormulaManager(), getScopeManager().getImplementedScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT,
 			Optional.of(FormatUtilities.NUMBER_MANAGER));
 		semanticsVisitor.visit(node, semantics);
@@ -85,7 +85,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 		//My isValid due to need to set INPUT_FORMAT
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory().generateFormulaSemantics(
-			getFormulaManager(), getInstanceFactory().getScope("Global"));
+			getFormulaManager(), getScopeManager().getImplementedScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT,
 			Optional.of(FormatUtilities.NUMBER_MANAGER));
 		semanticsVisitor.visit(node, semantics);

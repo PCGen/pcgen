@@ -32,7 +32,7 @@ import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.TrainingStrategy;
@@ -100,7 +100,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	{
 		ScopeInstance source = getGlobalScopeInst();
 		getFunctionLibrary().addFunction(new Dynamic());
-		LegalScope globalScope = getInstanceFactory().getScope("Global");
+		ImplementedScope globalScope = getScopeManager().getImplementedScope("Global");
 
 		LimbManager limbManager = new LimbManager();
 		getValueStore().addSolverFormat(limbManager,
@@ -332,7 +332,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			() -> limbManager.convert("Head"));
 
 		ScopeInstance source = getGlobalScopeInst();
-		LegalScope globalScope = getInstanceFactory().getScope("Global");
+		ImplementedScope globalScope = getScopeManager().getImplementedScope("Global");
 
 		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
 		getScopeManager().registerScope(limbScope);

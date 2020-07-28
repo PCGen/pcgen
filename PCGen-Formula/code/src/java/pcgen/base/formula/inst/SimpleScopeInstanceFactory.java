@@ -24,14 +24,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 
 /**
  * A SimpleScopeInstanceFactory is a factory used to instantiate ScopeInstance objects
- * given a parent ScopeInstance and LegalScope in which to instantiate the
+ * given a parent ScopeInstance and ImplementedScope in which to instantiate the
  * ScopeInstance.
  */
 public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
@@ -50,20 +50,20 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	private final Map<String, ScopeInstance> globals = new HashMap<>();
 
 	/**
-	 * The LegalScopeManager used to indicate the LegalScope objects for this
+	 * The ScopeManager used to indicate the ImplementedScope objects for this
 	 * SimpleScopeInstanceFactory.
 	 */
-	private final LegalScopeManager manager;
+	private final ScopeManager manager;
 
 	/**
 	 * Construct a new SimpleScopeInstanceFactory with the underlying
-	 * LegalScopeManager.
+	 * ScopeManager.
 	 * 
 	 * @param manager
-	 *            The LegalScopeManager indicating the legal scopes for this
+	 *            The ScopeManager indicating the legal scopes for this
 	 *            SimpleScopeInstanceFactory
 	 */
-	public SimpleScopeInstanceFactory(LegalScopeManager manager)
+	public SimpleScopeInstanceFactory(ScopeManager manager)
 	{
 		this.manager = Objects.requireNonNull(manager);
 	}
@@ -71,32 +71,32 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	@Override
 	public ScopeInstance getGlobalInstance(String scopeName)
 	{
-		LegalScope legalScope = manager.getScope(scopeName);
-		if (legalScope == null)
+		ImplementedScope scope = manager.getImplementedScope(scopeName);
+		if (scope == null)
 		{
 			throw new IllegalArgumentException(
 				"Cannot find Scope named: " + scopeName);
 		}
-		return getGlobalInstance(legalScope);
+		return getGlobalInstance(scope);
 	}
 
 	/*
-	 * This is private so we know the LegalScope came from the contained
-	 * LegalScopeManager.
+	 * This is private so we know the ImplementedScope came from the contained
+	 * ScopeManager.
 	 */
-	private ScopeInstance getGlobalInstance(LegalScope legalScope)
+	private ScopeInstance getGlobalInstance(ImplementedScope scope)
 	{
-		if (legalScope.getParentScope().isPresent())
+		if (scope.getParentScope().isPresent())
 		{
 			throw new IllegalArgumentException(
-				"Cannot build Global Scope for a LegalScope that has a parent");
+				"Cannot build Global Scope for a ImplementedScope that has a parent");
 		}
-		String name = legalScope.getName();
+		String name = scope.getName();
 		ScopeInstance inst = globals.get(name);
 		if (inst == null)
 		{
-			inst = new SimpleScopeInstance(Optional.empty(), legalScope,
-				new GlobalVarScoped(legalScope.getName()));
+			inst = new SimpleScopeInstance(Optional.empty(), scope,
+				new GlobalVarScoped(scope.getName()));
 			globals.put(name, inst);
 		}
 		return inst;
@@ -105,7 +105,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	@Override
 	public ScopeInstance get(String scopeName, Optional<VarScoped> obj)
 	{
-		LegalScope scope = manager.getScope(scopeName);
+		ImplementedScope scope = manager.getImplementedScope(scopeName);
 		if (scope == null)
 		{
 			throw new IllegalArgumentException(
@@ -118,13 +118,13 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	 * Actually processes the result of a get, while preserving the original
 	 * VarScoped object to make any message better for the end user.
 	 * 
-	 * Private so that we know the LegalScope came from the LegalScopeManager of
+	 * Private so that we know the ImplementedScope came from the ScopeManager of
 	 * this SimpleScopeInstanceFactory.
 	 */
-	private ScopeInstance getMessaged(LegalScope instScope, Optional<VarScoped> current,
+	private ScopeInstance getMessaged(ImplementedScope instScope, Optional<VarScoped> current,
 		Optional<VarScoped> original)
 	{
-		Optional<? extends LegalScope> potentialParentScope = instScope.getParentScope();
+		Optional<? extends ImplementedScope> potentialParentScope = instScope.getParentScope();
 		//Empty is Global object
 		if (current.isEmpty())
 		{
@@ -138,7 +138,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 				//Started with a global assertion
 				throw new IllegalArgumentException(
 					"Requested ScopeInstance for Global object, "
-						+ "but with LegalScope that was not Global: "
+						+ "but with ImplementedScope that was not Global: "
 						+ instScope.getName());
 			}
 			else
@@ -161,7 +161,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 			 */
 			return getMessaged(instScope, parentObj, original);
 		}
-		LegalScope currentScope = manager.getScope(localScopeName.get());
+		ImplementedScope currentScope = manager.getImplementedScope(localScopeName.get());
 		if (!currentScope.equals(instScope))
 		{
 			/*
@@ -198,8 +198,8 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	}
 
 	@Override
-	public LegalScope getScope(String s)
+	public ImplementedScope getImplementedScope(String s)
 	{
-		return manager.getScope(s);
+		return manager.getImplementedScope(s);
 	}
 }

@@ -27,7 +27,7 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 
 public class ScopeManagerInstTest
 {
@@ -39,85 +39,85 @@ public class ScopeManagerInstTest
 	@Test
 	public void testNullRegister()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(null));
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		assertThrows(NullPointerException.class, () -> scopeManager.registerScope(null));
 	}
 
 	@Test
 	public void testBadRegister()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(new BadLegalScope1()));
-		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(new BadLegalScope2()));
-		assertThrows(IllegalArgumentException.class, () -> legalScopeManager.registerScope(subScope));
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(subScope);
-		assertThrows(IllegalArgumentException.class, () -> legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "SubScope")));
-		assertThrows(IllegalArgumentException.class, () -> legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "Sub.Scope")));
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		assertThrows(NullPointerException.class, () -> scopeManager.registerScope(new BadLegalScope1()));
+		assertThrows(NullPointerException.class, () -> scopeManager.registerScope(new BadLegalScope2()));
+		assertThrows(IllegalArgumentException.class, () -> scopeManager.registerScope(subScope));
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(subScope);
+		assertThrows(IllegalArgumentException.class, () -> scopeManager.registerScope(new SimpleLegalScope(globalScope, "SubScope")));
+		assertThrows(IllegalArgumentException.class, () -> scopeManager.registerScope(new SimpleLegalScope(globalScope, "Sub.Scope")));
 	}
 	
 	@Test
 	public void testDupeOkay()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(subScope);
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(subScope);
 		//This is okay
-		legalScopeManager.registerScope(subScope);
+		scopeManager.registerScope(subScope);
 	}
 
 	@Test
 	public void testNullGet()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		assertThrows(NullPointerException.class, () -> legalScopeManager.getChildScopes(null));
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		assertThrows(NullPointerException.class, () -> scopeManager.getChildScopes(null));
 	}
 
 	@Test
 	public void testGetScope()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		List<LegalScope> children = legalScopeManager.getChildScopes(globalScope);
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		List<ImplementedScope> children = scopeManager.getChildScopes(globalScope);
 		if (children != null)
 		{
 			assertEquals(0, children.size());
 		}
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(subScope);
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(subScope);
 		//test getScope
-		assertEquals(globalScope, legalScopeManager.getScope("Global"));
-		assertEquals(subScope, legalScopeManager.getScope("Global.SubScope"));
-		assert(legalScopeManager.getScope("OtherScope") == null);
-		assert(legalScopeManager.getScope(null) == null);
+		assertEquals(globalScope, scopeManager.getImplementedScope("Global"));
+		assertEquals(subScope, scopeManager.getImplementedScope("Global.SubScope"));
+		assert(scopeManager.getImplementedScope("OtherScope") == null);
+		assert(scopeManager.getImplementedScope(null) == null);
 	}
 
 	@Test
 	public void testGetChildScopes()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		List<LegalScope> children = legalScopeManager.getChildScopes(globalScope);
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		List<ImplementedScope> children = scopeManager.getChildScopes(globalScope);
 		if (children != null)
 		{
 			assertEquals(0, children.size());
 		}
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(subScope);
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(subScope);
 		//test getChildScopes
-		children = legalScopeManager.getChildScopes(globalScope);
+		children = scopeManager.getChildScopes(globalScope);
 		assertEquals(1, children.size());
 		assertEquals(subScope, children.get(0));
 		//test independence of children list
 		children.add(globalScope);
 		// Ensure not saved in Library
-		List<LegalScope> children2 = legalScopeManager.getChildScopes(globalScope);
+		List<ImplementedScope> children2 = scopeManager.getChildScopes(globalScope);
 		assertEquals(1, children2.size());
 		assertEquals(2, children.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		legalScopeManager.registerScope(otherScope);
+		scopeManager.registerScope(otherScope);
 		assertEquals(1, children2.size());
 		assertEquals(2, children.size());
-		List<LegalScope> children3 = legalScopeManager.getChildScopes(globalScope);
+		List<ImplementedScope> children3 = scopeManager.getChildScopes(globalScope);
 		assertEquals(2, children3.size());
 		assertTrue(children3.contains(subScope));
 		assertTrue(children3.contains(otherScope));
@@ -125,15 +125,15 @@ public class ScopeManagerInstTest
 
 
 	@Test
-	public void testGetLegalScopes()
+	public void testGetImplementedScopes()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		Collection<LegalScope> legal = legalScopeManager.getLegalScopes();
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		Collection<ImplementedScope> legal = scopeManager.getImplementedScopes();
 		assertEquals(0, legal.size());
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(subScope);
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(subScope);
 		//test getChildScopes
-		legal = legalScopeManager.getLegalScopes();
+		legal = scopeManager.getImplementedScopes();
 		assertEquals(2, legal.size());
 		assertTrue(legal.contains(globalScope));
 		assertTrue(legal.contains(subScope));
@@ -153,26 +153,26 @@ public class ScopeManagerInstTest
 		{
 			//Check this stuff only if we could add - otherwise dependence is ok
 			// Ensure not saved in Library
-			Collection<LegalScope> children2 = legalScopeManager.getLegalScopes();
+			Collection<ImplementedScope> children2 = scopeManager.getImplementedScopes();
 			assertEquals(2, children2.size());
 			assertEquals(3, legal.size());
 			// And ensure references are not kept the other direction to be altered
 			// by changes in the underlying DoubleKeyMap
-			legalScopeManager.registerScope(otherScope);
+			scopeManager.registerScope(otherScope);
 			assertEquals(1, children2.size());
 			assertEquals(2, legal.size());
-			Collection<LegalScope> children3 = legalScopeManager.getLegalScopes();
+			Collection<ImplementedScope> children3 = scopeManager.getImplementedScopes();
 			assertEquals(2, children3.size());
 			assertTrue(children3.contains(subScope));
 			assertTrue(children3.contains(otherScope));
 		}
 	}
 
-	private class BadLegalScope1 implements LegalScope
+	private class BadLegalScope1 implements ImplementedScope
 	{
 
 		@Override
-		public Optional<LegalScope> getParentScope()
+		public Optional<ImplementedScope> getParentScope()
 		{
 			return Optional.empty();
 		}
@@ -185,11 +185,11 @@ public class ScopeManagerInstTest
 
 	}
 
-	private class BadLegalScope2 implements LegalScope
+	private class BadLegalScope2 implements ImplementedScope
 	{
 
 		@Override
-		public Optional<LegalScope> getParentScope()
+		public Optional<ImplementedScope> getParentScope()
 		{
 			return null;
 		}

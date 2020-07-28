@@ -341,6 +341,6 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	private FormulaSemantics getSemantics()
 	{
 		return getManagerFactory().generateFormulaSemantics(getFormulaManager(),
-			getInstanceFactory().getScope("Global"));
+			getScopeManager().getImplementedScope("Global"));
 	}
 }

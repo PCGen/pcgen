@@ -58,11 +58,11 @@ public class SolverTest
 	void setUp()
 	{
 		FormulaSetupFactory setup = new FormulaSetupFactory();
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		legalScopeManager.registerScope(globalScope);
-		legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "STAT"));
-		setup.setLegalScopeManagerSupplier(() -> legalScopeManager);
+		scopeManager.registerScope(globalScope);
+		scopeManager.registerScope(new SimpleLegalScope(globalScope, "STAT"));
+		setup.setScopeManagerSupplier(() -> scopeManager);
 		formulaManager = setup.generate();
 		ScopeInstanceFactory scopeInstanceFactory = formulaManager.getScopeInstanceFactory();
 		inst = scopeInstanceFactory.get("Global", Optional.of(new GlobalVarScoped("Global")));

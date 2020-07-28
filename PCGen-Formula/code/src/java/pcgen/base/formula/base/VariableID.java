@@ -161,7 +161,7 @@ public class VariableID<T>
 	@Override
 	public String toString()
 	{
-		return scope.getLegalScope().getName() + " Variable: " + varName + " ("
+		return scope.getImplementedScope().getName() + " Variable: " + varName + " ("
 			+ formatManager.getIdentifierType() + ")";
 	}
 

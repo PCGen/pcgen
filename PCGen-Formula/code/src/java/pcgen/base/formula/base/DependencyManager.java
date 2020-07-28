@@ -53,12 +53,12 @@ public class DependencyManager
 	public static final TypedKey<OperatorLibrary> OPLIB = new TypedKey<>();
 
 	/**
-	 * A TypedKey used for storing the LegalScope contained in this DependencyManager.
+	 * A TypedKey used for storing the ImplementedScope contained in this DependencyManager.
 	 * 
 	 * The SCOPE TypedKey is required if the INSTANCE TypedKey is not used.  Otherwise,
 	 * for DependencyVisitor it is optional.
 	 */
-	public static final TypedKey<Optional<LegalScope>> SCOPE =
+	public static final TypedKey<Optional<ImplementedScope>> SCOPE =
 			new TypedKey<>(Optional.empty());
 
 	/**

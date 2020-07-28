@@ -58,9 +58,9 @@ public class FormulaSemantics
 	public static final TypedKey<OperatorLibrary> OPLIB = new TypedKey<>();
 
 	/**
-	 * A TypedKey used for storing the LegalScope contained in this FormulaSemantics.
+	 * A TypedKey used for storing the ImplementedScope contained in this FormulaSemantics.
 	 */
-	public static final TypedKey<LegalScope> SCOPE = new TypedKey<>();
+	public static final TypedKey<ImplementedScope> SCOPE = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the Format currently asserted for the formula served by

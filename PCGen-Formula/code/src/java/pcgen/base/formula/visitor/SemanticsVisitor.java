@@ -21,11 +21,11 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.SemanticsFailureException;
@@ -365,8 +365,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	{
 		VariableLibrary varLib =
 				semantics.get(FormulaSemantics.FMANAGER).getFactory();
-		LegalScope legalScope = semantics.get(FormulaSemantics.SCOPE);
-		return varLib.getVariableFormat(legalScope, varName);
+		ImplementedScope implementedScope = semantics.get(FormulaSemantics.SCOPE);
+		return varLib.getVariableFormat(implementedScope, varName);
 	}
 
 	/**
