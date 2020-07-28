@@ -16,6 +16,7 @@
 package pcgen.base.util;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.function.Supplier;
 
 /**
@@ -35,4 +36,43 @@ public interface ComplexResult<T> extends Supplier<T>
 	 * @return A non-null list of messages contained by this ComplexResult.
 	 */
 	public Collection<String> getMessages();
+
+	/**
+	 * Returns true if this ComplexResult was successful; false otherwise.
+	 * 
+	 * @return true if this ComplexResult was successful; false otherwise
+	 */
+	public boolean isSuccessful();
+	
+	/**
+	 * Returns a ComplexResult representing successful processing of an operation with the
+	 * given value as the result.
+	 * 
+	 * @return A ComplexResult indicating successful processing and containing the given
+	 *         value
+	 */
+	public static <T> ComplexResult<T> ofSuccess(T t)
+	{
+		return new ComplexResult<>()
+		{
+			@Override
+			public T get()
+			{
+				return t;
+			}
+
+			@Override
+			public Collection<String> getMessages()
+			{
+				//No messages because we passed
+				return Collections.emptyList();
+			}
+
+			@Override
+			public boolean isSuccessful()
+			{
+				return true;
+			}
+		};
+	}
 }

@@ -17,13 +17,14 @@ package pcgen.base.util;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 /**
  * Represents a failed operation on a method that returns a Boolean result. This will
  * return FALSE rather than null from get().
  */
-public class FailureResult implements ComplexResult<Boolean>
+public class FailureResult<T> implements ComplexResult<T>
 {
 	/**
 	 * The error String indicating the reason for the failure.
@@ -42,9 +43,9 @@ public class FailureResult implements ComplexResult<Boolean>
 	}
 
 	@Override
-	public Boolean get()
+	public T get()
 	{
-		return Boolean.FALSE;
+		throw new NoSuchElementException("Can't perform get on failed result");
 	}
 
 	@Override
@@ -57,5 +58,11 @@ public class FailureResult implements ComplexResult<Boolean>
 	public Collection<String> getMessages()
 	{
 		return Collections.singleton(error);
+	}
+
+	@Override
+	public boolean isSuccessful()
+	{
+		return false;
 	}
 }
