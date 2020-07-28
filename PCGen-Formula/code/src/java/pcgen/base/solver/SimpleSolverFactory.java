@@ -16,12 +16,8 @@
 package pcgen.base.solver;
 
 import java.util.Objects;
-import java.util.function.Supplier;
 
-import pcgen.base.util.ComplexResult;
-import pcgen.base.util.FailureResult;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.PassResult;
 
 /**
  * A SimpleSolverFactory is a centralized location to define a shared default value for a
@@ -48,65 +44,6 @@ public class SimpleSolverFactory implements SolverFactory
 	public SimpleSolverFactory(SupplierValueStore valueStore)
 	{
 		this.valueStore = Objects.requireNonNull(valueStore);
-	}
-
-	@Override
-	public <T> void addSolverFormat(FormatManager<T> formatManager,
-		Supplier<? extends T> defaultModifier)
-	{
-		Objects.requireNonNull(formatManager,
-			"Variable/Solve FormatManager cannot be null");
-		Objects.requireNonNull(defaultModifier,
-			() -> "Default Modifier for Format: "
-				+ formatManager.getIdentifierType() + " cannot be null");
-		Supplier<T> existing = valueStore.get(formatManager);
-		if (existing == null)
-		{
-			valueStore.addValueFor(formatManager, defaultModifier);
-		}
-		else if (!defaultModifier.equals(existing))
-		{
-			throw new IllegalArgumentException(
-				"Cannot set different default values for Format: "
-					+ formatManager.getIdentifierType());
-		}
-	}
-
-	@Override
-	@SuppressWarnings({"PMD.AvoidCatchingNPE",
-		"PMD.AvoidCatchingGenericException"})
-	public ComplexResult<Boolean> validateDefaults()
-	{
-		for (FormatManager<?> formatManager : valueStore.getStoredFormats())
-		{
-			try
-			{
-				try
-				{
-					roundRobinDefault(formatManager);
-				}
-				catch (ClassCastException e)
-				{
-					//Generics were violated during addSolverFormat if we got here
-					return new FailureResult("Format: " + formatManager
-						+ " cannot use default Modifier that produces: "
-						+ valueStore.get(formatManager).get().getClass());
-				}
-			}
-			catch (NullPointerException e)
-			{
-				return new FailureResult(
-					"Default Modifier for Format: " + formatManager
-						+ " cannot be null or rely on terms/functions");
-			}
-		}
-		return PassResult.SUCCESS;
-	}
-
-	private <T> void roundRobinDefault(FormatManager<T> formatManager)
-	{
-		//Lack of assignment is not useless - it is detecting if this will throw an exception
-		formatManager.unconvert(valueStore.get(formatManager).get());
 	}
 
 	@Override

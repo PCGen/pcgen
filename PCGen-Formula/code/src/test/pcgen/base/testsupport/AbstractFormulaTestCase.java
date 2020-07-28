@@ -52,8 +52,6 @@ import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.solver.FormulaSetupFactory;
-import pcgen.base.solver.SimpleSolverFactory;
-import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.util.FormatManager;
 
@@ -74,14 +72,10 @@ public abstract class AbstractFormulaTestCase
 		setup.setLegalScopeManagerSupplier(() -> legalScopeManager);
 		valueStore = new SupplierValueStore();
 		setup.setValueStoreSupplier(() -> valueStore);
-		SolverFactory solverFactory = new SimpleSolverFactory(valueStore);
-		solverFactory.addSolverFormat(FormatUtilities.NUMBER_MANAGER,
-			() -> 0);
-		solverFactory.addSolverFormat(FormatUtilities.STRING_MANAGER,
-			() -> "");
-		solverFactory.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER,
-			() -> false);
 		formulaManager = setup.generate();
+		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
+		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
+		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
 		globalInstance = formulaManager.getScopeInstanceFactory().get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 	}

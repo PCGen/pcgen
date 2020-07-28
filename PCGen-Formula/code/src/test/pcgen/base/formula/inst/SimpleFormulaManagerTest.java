@@ -26,8 +26,6 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.solver.SimpleSolverFactory;
-import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.testsupport.TestUtilities;
 
@@ -37,7 +35,6 @@ public class SimpleFormulaManagerTest
 	private VariableLibrary variableLibrary;
 	private SimpleOperatorLibrary opLibrary;
 	private SimpleVariableStore resultsStore;
-	private SolverFactory defaultStore;
 	private ScopeInstanceFactory siFactory;
 	private SupplierValueStore valueStore;
 
@@ -45,14 +42,14 @@ public class SimpleFormulaManagerTest
 	void setUp()
 	{
 		valueStore = new SupplierValueStore();
-		defaultStore = new SimpleSolverFactory(valueStore);
+		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
+		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
+		valueStore.validateDefaults();
+		resultsStore = new SimpleVariableStore();
 		LegalScopeManager legalScopeManager = new ScopeManagerInst();
 		variableLibrary = new VariableManager(legalScopeManager, valueStore);
 		opLibrary = new SimpleOperatorLibrary();
-		resultsStore = new SimpleVariableStore();
 		siFactory = new SimpleScopeInstanceFactory(legalScopeManager);
-		defaultStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
-		defaultStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 	}
 	
 	@AfterEach
@@ -61,7 +58,6 @@ public class SimpleFormulaManagerTest
 		variableLibrary = null;
 		opLibrary = null;
 		resultsStore = null;
-		defaultStore = null;
 		siFactory = null;
 		valueStore = null;
 	}

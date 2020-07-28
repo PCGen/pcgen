@@ -55,9 +55,9 @@ public class VariableManagerTest
 		valueStore = new SupplierValueStore();
 		legalScopeManager = new ScopeManagerInst();
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
-		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER, () -> 0);
-		valueStore.addValueFor(FormatUtilities.STRING_MANAGER, () -> "");
-		valueStore.addValueFor(FormatUtilities.BOOLEAN_MANAGER, () -> false);
+		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
+		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
+		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
 		variableLibrary = new VariableManager(legalScopeManager, valueStore);
 	}
 	
@@ -343,7 +343,7 @@ public class VariableManagerTest
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
 		legalScopeManager.registerScope(globalScope);
 		DeferredIndirect def = new DeferredIndirect();
-		valueStore.addValueFor(FormatUtilities.ORDEREDPAIR_MANAGER, def);
+		valueStore.addSolverFormat(FormatUtilities.ORDEREDPAIR_MANAGER, def);
 		variableLibrary.assertLegalVariableID("Walk", globalScope,
 			FormatUtilities.ORDEREDPAIR_MANAGER);
 		assertFalse(variableLibrary.getInvalidFormats().isEmpty());

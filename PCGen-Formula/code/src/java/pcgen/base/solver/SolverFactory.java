@@ -17,9 +17,6 @@
  */
 package pcgen.base.solver;
 
-import java.util.function.Supplier;
-
-import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -31,41 +28,6 @@ import pcgen.base.util.FormatManager;
  */
 public interface SolverFactory
 {
-
-	/**
-	 * Adds a relationship between a Solver format and a default value for that format of
-	 * Solver to this SolverFactory.
-	 * 
-	 * The default value for a format of Solver may not be redefined for a
-	 * SolverFactory. Once a given default Supplier has been established for a format of
-	 * Solver, this method MUST NOT be called a second time for that format of Solver.
-	 * 
-	 * @param <T>
-	 *            The format (class) of object changed by the given Supplier
-	 * @param formatManager
-	 *            The FormatManager of the Solver format for which the given Supplier
-	 *            should provide the default value
-	 * @param defaultValue
-	 *            The Supplier to be used to get the default value for the given Solver
-	 *            format
-	 * @throws IllegalArgumentException
-	 *             If the given Solver format already has a default value defined for this
-	 *             SolverFactory
-	 */
-	public <T> void addSolverFormat(FormatManager<T> formatManager,
-		Supplier<? extends T> defaultValue);
-
-	/**
-	 * Returns a ComplexResult indicating the status of validating the defaults added to
-	 * the addSolverFormat method. If all of the defaults are usable, this will return a
-	 * ComplexResult indicating TRUE. If not, it will return a ComplexResult indicating
-	 * FALSE and an appropriate message.
-	 * 
-	 * @return A ComplexResult indicating the status of validating the defaults added to
-	 *         the addSolverFormat method
-	 */
-	public <T> ComplexResult<Boolean> validateDefaults();
-
 	/**
 	 * Returns a new Solver for the given format. The default value of the
 	 * Solver is loaded based on values previously provided to the
