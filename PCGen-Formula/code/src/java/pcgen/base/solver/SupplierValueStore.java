@@ -23,7 +23,10 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.ComplexResult;
+import pcgen.base.util.FailureResult;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.PassResult;
 import pcgen.base.util.ValueStore;
 
 /**
@@ -46,22 +49,6 @@ public class SupplierValueStore implements ValueStore
 	 */
 	private final CaseInsensitiveMap<Supplier<?>> identifierMap =
 			new CaseInsensitiveMap<>();
-
-	/**
-	 * Adds a new default value to this SupplierValueStore for the given FormatManager.
-	 * 
-	 * @param formatManager
-	 *            The FormatManager for which the given value should be added
-	 * @param defaultValue
-	 *            The Supplier that used to set the value for the given FormatManager
-	 * @return The previous default for the given FormatManager, if any
-	 */
-	public Object addValueFor(FormatManager<?> formatManager,
-		Supplier<?> defaultValue)
-	{
-		identifierMap.put(formatManager.getIdentifierType(), defaultValue);
-		return formatMap.put(formatManager, defaultValue);
-	}
 
 	@Override
 	public Object getValueFor(String identifier)
@@ -97,4 +84,93 @@ public class SupplierValueStore implements ValueStore
 	{
 		return Collections.unmodifiableSet(formatMap.keySet());
 	}
+
+	/**
+	 * Adds a relationship between a Solver format and a default value for that format of
+	 * Solver to this SupplierValueStore.
+	 * 
+	 * The default value for a format of Solver may not be redefined for a
+	 * SupplierValueStore. Once a given default Supplier has been established for a format
+	 * of Solver, this method MUST NOT be called a second time for that format of Solver.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object changed by the given Supplier
+	 * @param formatManager
+	 *            The FormatManager of the Solver format for which the given Supplier
+	 *            should provide the default value
+	 * @param defaultValue
+	 *            The Supplier to be used to get the default value for the given Solver
+	 *            format
+	 * @throws IllegalArgumentException
+	 *             If the given Solver format already has a default value defined for this
+	 *             SupplierValueStore
+	 */
+	public <T> void addSolverFormat(FormatManager<T> formatManager,
+		Supplier<? extends T> defaultModifier)
+	{
+		Objects.requireNonNull(formatManager,
+			"Variable/Solve FormatManager cannot be null");
+		Objects.requireNonNull(defaultModifier,
+			() -> "Default Modifier for Format: "
+				+ formatManager.getIdentifierType() + " cannot be null");
+		Supplier<T> existing = get(formatManager);
+		if (existing == null)
+		{
+			identifierMap.put(formatManager.getIdentifierType(),
+				defaultModifier);
+			formatMap.put(formatManager, defaultModifier);
+		}
+		else if (!defaultModifier.equals(existing))
+		{
+			throw new IllegalArgumentException(
+				"Cannot set different default values for Format: "
+					+ formatManager.getIdentifierType());
+		}
+	}
+
+	/**
+	 * Returns a ComplexResult indicating the status of validating the defaults added to
+	 * the addSolverFormat method. If all of the defaults are usable, this will return a
+	 * ComplexResult indicating TRUE. If not, it will return a ComplexResult indicating
+	 * FALSE and an appropriate message.
+	 * 
+	 * @return A ComplexResult indicating the status of validating the defaults added to
+	 *         the addSolverFormat method
+	 */
+	@SuppressWarnings({"PMD.AvoidCatchingNPE",
+		"PMD.AvoidCatchingGenericException"})
+	public ComplexResult<Boolean> validateDefaults()
+	{
+		for (FormatManager<?> formatManager : getStoredFormats())
+		{
+			try
+			{
+				try
+				{
+					roundRobinDefault(formatManager);
+				}
+				catch (ClassCastException e)
+				{
+					//Generics were violated during addSolverFormat if we got here
+					return new FailureResult("Format: " + formatManager
+						+ " cannot use default Modifier that produces: "
+						+ get(formatManager).get().getClass());
+				}
+			}
+			catch (NullPointerException e)
+			{
+				return new FailureResult(
+					"Default Modifier for Format: " + formatManager
+						+ " cannot be null or rely on terms/functions");
+			}
+		}
+		return PassResult.SUCCESS;
+	}
+
+	private <T> void roundRobinDefault(FormatManager<T> formatManager)
+	{
+		//Lack of assignment is not useless - it is detecting if this will throw an exception
+		formatManager.unconvert(get(formatManager).get());
+	}
+
 }
