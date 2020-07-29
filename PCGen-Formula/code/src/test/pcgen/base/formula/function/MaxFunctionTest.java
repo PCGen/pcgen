@@ -177,7 +177,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVar()
 	{
-		getVariableStore().put(getVariable("a"), 5);
+		setVariable(getVariable("a"), 5);
 		String formula = "max(4.6,a,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -192,7 +192,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable()
 	{
-		getVariableStore().put(getVariable("a"), 5);
+		setVariable(getVariable("a"), 5);
 		String formula = "max(a, 3.4)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());

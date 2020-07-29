@@ -58,7 +58,6 @@ import pcgen.base.util.Indirect;
 public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 {
 	private DynamicSolverManager manager;
-	private LimbManager limbManager;
 
 	@BeforeEach
 	@Override
@@ -67,9 +66,6 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		super.setUp();
 		manager = new DynamicSolverManager(getFormulaManager(), TestUtilities.EMPTY_MGR_FACTORY,
 			getSolverFactory(), getVariableStore());
-		limbManager = new LimbManager();
-		getValueStore().addSolverFormat(limbManager,
-			() -> limbManager.convert("Head"));
 	}
 	
 	@AfterEach
@@ -78,7 +74,6 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	{
 		super.tearDown();
 		manager = null;
-		limbManager = null;
 	}
 
 	@Test
@@ -108,21 +103,25 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		getFunctionLibrary().addFunction(new Dynamic());
 		LegalScope globalScope = getInstanceFactory().getScope("Global");
 
+		LimbManager limbManager = new LimbManager();
+		getValueStore().addSolverFormat(limbManager,
+			() -> limbManager.convert("Head"));
+
 		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
 		getScopeManager().registerScope(limbScope);
-		getVarLibrary().assertLegalVariableID("active", globalScope, limbManager);
-		getVarLibrary().assertLegalVariableID("quantity", limbScope, FormatUtilities.NUMBER_MANAGER);
-		getVarLibrary().assertLegalVariableID("result", globalScope, FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("active", "Global", limbManager);
+		assertLegalVariable("quantity", "Global.LIMB", FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("result", "Global", FormatUtilities.NUMBER_MANAGER);
 
 		ComplexNEPFormula<Number> dynamicformula =
 				new ComplexNEPFormula<Number>("dynamic(active, quantity)", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
 
 		@SuppressWarnings("unchecked")
-		VariableID<Limb> active = (VariableID<Limb>) getVarLibrary()
+		VariableID<Limb> active = (VariableID<Limb>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Active");
 		@SuppressWarnings("unchecked")
-		VariableID<Number> result = (VariableID<Number>) getVarLibrary()
+		VariableID<Number> result = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Result");
 
 		Limb hands = limbManager.convert("Hands");
@@ -132,9 +131,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		@SuppressWarnings("unchecked")
 		VariableID<Number> handsID =
-				(VariableID<Number>) getVarLibrary().getVariableID(handsInst, "Quantity");
+				(VariableID<Number>) getVariableLibrary().getVariableID(handsInst, "Quantity");
 		@SuppressWarnings("unchecked")
-		VariableID<Number> fingersID = (VariableID<Number>) getVarLibrary()
+		VariableID<Number> fingersID = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(fingersInst, "Quantity");
 
 		AbstractModifier<Number> two = AbstractModifier.setNumber(2, 5);
@@ -167,8 +166,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testTrivial()
 	{
-		getVariableLibrary().assertLegalVariableID("Limbs",
-			getInstanceFactory().getScope("Global"), FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Limbs");
@@ -330,23 +328,27 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testAnother()
 	{
+		LimbManager limbManager = new LimbManager();
+		getValueStore().addSolverFormat(limbManager,
+			() -> limbManager.convert("Head"));
+
 		ScopeInstance source = getGlobalScopeInst();
 		LegalScope globalScope = getInstanceFactory().getScope("Global");
 
 		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
 		getScopeManager().registerScope(limbScope);
 
-		getVarLibrary().assertLegalVariableID("LocalVar", limbScope, FormatUtilities.NUMBER_MANAGER);
-		getVarLibrary().assertLegalVariableID("ResultVar", globalScope, FormatUtilities.NUMBER_MANAGER);
-		getVarLibrary().assertLegalVariableID("EquipVar", globalScope, limbManager);
+		assertLegalVariable("LocalVar", "Global.LIMB", FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("ResultVar", "Global", FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("EquipVar", "Global", limbManager);
 
 		WriteableVariableStore store = getVariableStore();
 
 		@SuppressWarnings("unchecked")
-		VariableID<Limb> activeID = (VariableID<Limb>) getVarLibrary()
+		VariableID<Limb> activeID = (VariableID<Limb>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "EquipVar");
 		@SuppressWarnings("unchecked")
-		VariableID<Number> resultID = (VariableID<Number>) getVarLibrary()
+		VariableID<Number> resultID = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "ResultVar");
 
 		Limb equip = limbManager.convert("EquipKey");
@@ -356,10 +358,10 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		@SuppressWarnings("unchecked")
 		VariableID<Number> equipID =
-				(VariableID<Number>) getVarLibrary().getVariableID(equipInst, "LocalVar");
+				(VariableID<Number>) getVariableLibrary().getVariableID(equipInst, "LocalVar");
 		@SuppressWarnings("unchecked")
 		VariableID<Number> altID =
-				(VariableID<Number>) getVarLibrary().getVariableID(altInst, "LocalVar");
+				(VariableID<Number>) getVariableLibrary().getVariableID(altInst, "LocalVar");
 
 		AbstractModifier<Number> two = AbstractModifier.setNumber(2, 5);
 		AbstractModifier<Number> three = AbstractModifier.setNumber(3, 10);

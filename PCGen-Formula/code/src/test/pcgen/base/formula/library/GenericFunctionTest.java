@@ -94,7 +94,6 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula2 = "floor((14-10)/2)";
 		SimpleNode node2 = TestUtilities.doParse(formula2);
-		getFunctionLibrary().addFunction(new GenericFunction("noargs", node2));
 		isValid(formula2, node2, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		String formula = "noargs(2)";
 		SimpleNode node = TestUtilities.doParse(formula);

@@ -61,12 +61,11 @@ public class LengthFunctionTest extends AbstractFormulaTestCase
 	public void testVariable()
 	{
 		VariableLibrary variableLibrary = getVariableLibrary();
-		variableLibrary.assertLegalVariableID("a",
-			getInstanceFactory().getScope("Global"), TestUtilities.NUMBER_ARRAY_MANAGER);
+		assertLegalVariable("a", "Global", TestUtilities.NUMBER_ARRAY_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number[]> variable = (VariableID<Number[]>) variableLibrary
 			.getVariableID(getGlobalScopeInst(), "a");
-		getVariableStore().put(variable, new Number[]{5});
+		setVariable(variable, new Number[]{5});
 		String formula = "length(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
@@ -76,7 +75,7 @@ public class LengthFunctionTest extends AbstractFormulaTestCase
 		VariableID<?> var = vars.get(0);
 		assertEquals("a", var.getName());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1));
-		getVariableStore().put(variable, new Number[]{5, 6, 7, 7, 8});
+		setVariable(variable, new Number[]{5, 6, 7, 7, 8});
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(5));
 	}
 }

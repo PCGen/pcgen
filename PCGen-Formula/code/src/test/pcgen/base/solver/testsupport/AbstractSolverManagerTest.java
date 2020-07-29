@@ -79,16 +79,14 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testIllegalCreateChannel()
 	{
-		varLibrary.assertLegalVariableID("HP", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
 		assertThrows(NullPointerException.class, () -> getManager().createChannel(null));
 	}
 
 	@Test
 	public void testCreateChannelTwice()
 	{
-		varLibrary.assertLegalVariableID("HP", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
@@ -99,8 +97,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testCreateChannel()
 	{
-		varLibrary.assertLegalVariableID("HP", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
@@ -112,8 +109,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testIllegalAddModifier()
 	{
-		varLibrary.assertLegalVariableID("HP", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
@@ -136,8 +132,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testAddModifier()
 	{
-		varLibrary.assertLegalVariableID("HP", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
@@ -150,8 +145,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(6, store.get(hp));
 
 		//Create not required...
-		varLibrary.assertLegalVariableID("HitPoints", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("HitPoints", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> hitpoints = (VariableID<Number>) varLibrary
 			.getVariableID(globalScopeInst, "HitPoints");
@@ -177,12 +171,9 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		ComplexNEPFormula<Number> formula =
 				new ComplexNEPFormula<>("arms+legs", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> formulaMod = AbstractModifier.add(formula, 100);
-		varLibrary.assertLegalVariableID("Limbs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
-		varLibrary.assertLegalVariableID("arms", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
-		varLibrary.assertLegalVariableID("legs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("arms", "Global", FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("legs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Limbs");
@@ -227,23 +218,19 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 				new ComplexNEPFormula<>("fingers/5", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> handsMod = AbstractModifier.add(handsformula, 100);
 
-		varLibrary.assertLegalVariableID("Limbs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Limbs");
-		varLibrary.assertLegalVariableID("arms", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("arms", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> arms =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Arms");
-		varLibrary.assertLegalVariableID("Fingers", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Fingers", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> fingers =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Fingers");
-		varLibrary.assertLegalVariableID("legs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("legs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> legs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Legs");
@@ -276,8 +263,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testIllegalRemoveModifier()
 	{
-		varLibrary.assertLegalVariableID("HP", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
@@ -315,23 +301,19 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 				new ComplexNEPFormula<>("limbs*5", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> fingersMod = AbstractModifier.add(fingersformula, 100);
 
-		varLibrary.assertLegalVariableID("Limbs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Limbs");
-		varLibrary.assertLegalVariableID("arms", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("arms", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> arms =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Arms");
-		varLibrary.assertLegalVariableID("Fingers", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Fingers", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> fingers =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Fingers");
-		varLibrary.assertLegalVariableID("legs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("legs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> legs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Legs");
@@ -371,11 +353,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		return solverFactory;
 	}
 
-	public VariableLibrary getVarLibrary()
-	{
-		return varLibrary;
-	}
-
 	@Test
 	public void testIndependence()
 	{
@@ -388,23 +365,19 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 				new ComplexNEPFormula<>("fingers/5", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> handsMod = AbstractModifier.add(handsformula, 100);
 
-		varLibrary.assertLegalVariableID("Limbs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Limbs");
-		varLibrary.assertLegalVariableID("arms", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("arms", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> arms =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Arms");
-		varLibrary.assertLegalVariableID("Fingers", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Fingers", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> fingers =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Fingers");
-		varLibrary.assertLegalVariableID("legs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("legs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> legs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Legs");
@@ -461,8 +434,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 				new ComplexNEPFormula<>("\"4\"", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> strMod = AbstractModifier.add(fiveString, 200);
 
-		varLibrary.assertLegalVariableID("Limbs", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Limbs");

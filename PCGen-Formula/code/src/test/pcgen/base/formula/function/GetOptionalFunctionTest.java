@@ -20,14 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formatmanager.OptionalFormatFactory;
-import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
@@ -37,27 +32,12 @@ import pcgen.base.util.FormatManager;
 public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 {
 
-	SimpleFormatManagerLibrary library;
-	FormatManager<Optional<Number>> formatManager;
-
-	@SuppressWarnings("unchecked")
-	@Override
-	@BeforeEach
-	protected void setUp()
-	{
-		super.setUp();
-		library = new SimpleFormatManagerLibrary();
-		FormatUtilities.loadDefaultFormats(library);
-		FormatUtilities.loadDefaultFactories(library);
-		formatManager = (FormatManager<Optional<Number>>) new OptionalFormatFactory()
-			.build(Optional.empty(), Optional.of("NUMBER"), library);
-	}
-
 	@Test
 	public void testInvalidTooManyArg()
 	{
-		getVariableStore().put(getOptionalVariable("a"), Optional.of(3));
-		getVariableStore().put(getOptionalVariable("b"), Optional.of(3));
+		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
+		setVariable(getOptionalVariable("a"), Optional.of(3));
+		setVariable(getOptionalVariable("b"), Optional.of(3));
 		String formula = "getOptional(a, b)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, formatManager, Optional.empty());
@@ -66,6 +46,7 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testNotValidString()
 	{
+		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		String formula = "getOptional(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, formatManager, Optional.empty());
@@ -74,6 +55,7 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testNotValidNoVar()
 	{
+		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		String formula = "getOptional(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, formatManager, Optional.empty());
@@ -82,7 +64,8 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable()
 	{
-		getVariableStore().put(getOptionalVariable("a"), Optional.of(3));
+		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
+		setVariable(getOptionalVariable("a"), Optional.of(3));
 		String formula = "getOptional(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, formatManager, Optional.empty());
@@ -97,7 +80,8 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testNullVariable()
 	{
-		getVariableStore().put(getOptionalVariable("a"), Optional.empty());
+		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
+		setVariable(getOptionalVariable("a"), Optional.empty());
 		String formula = "getOptional(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, formatManager, Optional.empty());
@@ -108,17 +92,4 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 		assertEquals("a", var.getName());
 		evaluatesTo(formatManager, formula, node, Integer.valueOf(0));
 	}
-
-	protected VariableID<Optional<Number>> getOptionalVariable(String formula)
-	{
-		VariableLibrary variableLibrary = getVariableLibrary();
-		variableLibrary.assertLegalVariableID(formula,
-			getInstanceFactory().getScope("Global"), formatManager);
-		@SuppressWarnings("unchecked")
-		VariableID<Optional<Number>> variableID =
-				(VariableID<Optional<Number>>) variableLibrary
-					.getVariableID(getGlobalScopeInst(), formula);
-		return variableID;
-	}
-
 }

@@ -29,7 +29,6 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -212,7 +211,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVar()
 	{
-		getVariableStore().put(getVariable("a"), 5);
+		setVariable(getVariable("a"), 5);
 		String formula = "if(4.6>0,a,8.1)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -227,10 +226,9 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testManyVar()
 	{
-		WriteableVariableStore variableStore = getVariableStore();
-		variableStore.put(getVariable("a"), -5);
-		variableStore.put(getVariable("b"), 5.1);
-		variableStore.put(getVariable("c"), 3);
+		setVariable(getVariable("a"), -5);
+		setVariable(getVariable("b"), 5.1);
+		setVariable(getVariable("c"), 3);
 		String formula = "if(a>0,b,c)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -251,11 +249,11 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable1()
 	{
-		getVariableLibrary().assertLegalVariableID("a", getInstanceFactory().getScope("Global"), FormatUtilities.BOOLEAN_MANAGER);
+		assertLegalVariable("a", "Global", FormatUtilities.BOOLEAN_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Boolean> variable =
 				(VariableID<Boolean>) getVariableLibrary().getVariableID(getGlobalScopeInst(), "a");
-		getVariableStore().put(variable, true);
+		setVariable(variable, true);
 		String formula = "if(a, 4, 5)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -269,7 +267,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable2()
 	{
-		getVariableStore().put(getVariable("a"), 5);
+		setVariable(getVariable("a"), 5);
 		String formula = "if(4<5, a, 3.4)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -283,7 +281,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable3()
 	{
-		getVariableStore().put(getVariable("a"), 5);
+		setVariable(getVariable("a"), 5);
 		String formula = "if(4<3, 3.4, a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());

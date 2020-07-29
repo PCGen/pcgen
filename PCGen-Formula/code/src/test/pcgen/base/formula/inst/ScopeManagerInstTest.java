@@ -25,8 +25,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formula.base.LegalScope;
@@ -34,32 +32,21 @@ import pcgen.base.formula.base.LegalScope;
 public class ScopeManagerInstTest
 {
 
-	private ScopeManagerInst legalScopeManager;
 	private SimpleLegalScope globalScope = new SimpleLegalScope("Global");
 	private SimpleLegalScope subScope = new SimpleLegalScope(globalScope, "SubScope");
 	private SimpleLegalScope otherScope = new SimpleLegalScope(globalScope, "OtherScope");
 
-	@BeforeEach
-	void setUp()
-	{
-		legalScopeManager = new ScopeManagerInst();
-	}
-	
-	@AfterEach
-	void tearDown()
-	{
-		legalScopeManager = null;
-	}
-
 	@Test
 	public void testNullRegister()
 	{
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(null));
 	}
 
 	@Test
 	public void testBadRegister()
 	{
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(new BadLegalScope1()));
 		assertThrows(NullPointerException.class, () -> legalScopeManager.registerScope(new BadLegalScope2()));
 		assertThrows(IllegalArgumentException.class, () -> legalScopeManager.registerScope(subScope));
@@ -72,6 +59,7 @@ public class ScopeManagerInstTest
 	@Test
 	public void testDupeOkay()
 	{
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		legalScopeManager.registerScope(globalScope);
 		legalScopeManager.registerScope(subScope);
 		//This is okay
@@ -81,12 +69,14 @@ public class ScopeManagerInstTest
 	@Test
 	public void testNullGet()
 	{
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		assertThrows(NullPointerException.class, () -> legalScopeManager.getChildScopes(null));
 	}
 
 	@Test
 	public void testGetScope()
 	{
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		List<LegalScope> children = legalScopeManager.getChildScopes(globalScope);
 		if (children != null)
 		{
@@ -104,6 +94,7 @@ public class ScopeManagerInstTest
 	@Test
 	public void testGetChildScopes()
 	{
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		List<LegalScope> children = legalScopeManager.getChildScopes(globalScope);
 		if (children != null)
 		{
@@ -136,6 +127,7 @@ public class ScopeManagerInstTest
 	@Test
 	public void testGetLegalScopes()
 	{
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		Collection<LegalScope> legal = legalScopeManager.getLegalScopes();
 		assertEquals(0, legal.size());
 		legalScopeManager.registerScope(globalScope);

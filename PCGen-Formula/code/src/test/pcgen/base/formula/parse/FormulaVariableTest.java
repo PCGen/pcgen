@@ -23,57 +23,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.WriteableVariableStore;
-import pcgen.base.formula.operator.bool.BooleanNot;
-import pcgen.base.formula.operator.number.NumberAdd;
-import pcgen.base.formula.operator.number.NumberDivide;
-import pcgen.base.formula.operator.number.NumberEquals;
-import pcgen.base.formula.operator.number.NumberMultiply;
-import pcgen.base.formula.operator.number.NumberSubtract;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
 public class FormulaVariableTest extends AbstractFormulaTestCase
 {
-
-	private WriteableVariableStore store;
-
-	@BeforeEach
-	@Override
-	protected void setUp()
-	{
-		super.setUp();
-		store = getVariableStore();
-		OperatorLibrary operatorLibrary = getOperatorLibrary();
-		operatorLibrary.addAction(new NumberEquals());
-		operatorLibrary.addAction(new NumberAdd());
-		operatorLibrary.addAction(new BooleanNot());
-		operatorLibrary.addAction(new NumberSubtract());
-		operatorLibrary.addAction(new NumberDivide());
-		operatorLibrary.addAction(new NumberMultiply());
-	}
-	
-	@AfterEach
-	@Override
-	protected void tearDown()
-	{
-		super.tearDown();
-		store = null;
-	}
-
 	@Test
 	public void testSimpleVariablePositive()
 	{
 		String formula = "a";
-		store.put(getVariable(formula), 5);
+		setVariable(getVariable(formula), 5);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -92,7 +56,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testSimpleVariableNegative()
 	{
 		String formula = "a";
-		store.put(getVariable(formula), -7);
+		setVariable(getVariable(formula), -7);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -111,7 +75,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testSimpleVariableDouble()
 	{
 		String formula = "a";
-		store.put(getVariable(formula), -7.3);
+		setVariable(getVariable(formula), -7.3);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -130,8 +94,8 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testAddVariableVariable()
 	{
 		String formula = "a+b";
-		store.put(getVariable("a"), 3);
-		store.put(getVariable("b"), 7);
+		setVariable(getVariable("a"), 3);
+		setVariable(getVariable("b"), 7);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -147,8 +111,8 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testAddVariableVariableDouble()
 	{
 		String formula = "a+b";
-		store.put(getVariable("a"), 3.2);
-		store.put(getVariable("b"), -7.9);
+		setVariable(getVariable("a"), 3.2);
+		setVariable(getVariable("b"), -7.9);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -164,9 +128,9 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testAddMultiple()
 	{
 		String formula = "a+b+c";
-		store.put(getVariable("a"), 3.2);
-		store.put(getVariable("b"), -7.9);
-		store.put(getVariable("c"), 2.2);
+		setVariable(getVariable("a"), 3.2);
+		setVariable(getVariable("b"), -7.9);
+		setVariable(getVariable("c"), 2.2);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -182,7 +146,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testSubtractInteger()
 	{
 		String formula = "a-3";
-		store.put(getVariable("a"), 3.2);
+		setVariable(getVariable("a"), 3.2);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -202,8 +166,8 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testSubtractVariableVariable()
 	{
 		String formula = "a-b";
-		store.put(getVariable("a"), 3.2);
-		store.put(getVariable("b"), 2.1);
+		setVariable(getVariable("a"), 3.2);
+		setVariable(getVariable("b"), 2.1);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -219,8 +183,8 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testEqualVariableDifferentVariable()
 	{
 		String formula = "a==b";
-		store.put(getVariable("a"), 3.2);
-		store.put(getVariable("b"), 2.1);
+		setVariable(getVariable("a"), 3.2);
+		setVariable(getVariable("b"), 2.1);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -236,8 +200,8 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testEqualVariableDifferentType()
 	{
 		String formula = "a==b";
-		store.put(getVariable("a"), 3.2);
-		getVariableStore().put(getBooleanVariable("b"), false);
+		setVariable(getVariable("a"), 3.2);
+		setVariable(getBooleanVariable("b"), false);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isNotValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
@@ -247,8 +211,8 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testEqualZeroVariableZeroVariable()
 	{
 		String formula = "a==b";
-		store.put(getVariable("a"), 0.0);
-		store.put(getVariable("b"), 0);
+		setVariable(getVariable("a"), 0.0);
+		setVariable(getVariable("b"), 0);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -264,8 +228,8 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testEqualVariableEqualVariable()
 	{
 		String formula = "a==b";
-		store.put(getVariable("a"), -2.1);
-		store.put(getVariable("b"), -2.1);
+		setVariable(getVariable("a"), -2.1);
+		setVariable(getVariable("b"), -2.1);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -291,9 +255,9 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testParens()
 	{
 		String formula = "a*(b+c)";
-		store.put(getVariable("a"), 2);
-		store.put(getVariable("b"), 1.2);
-		store.put(getVariable("c"), -0.3);
+		setVariable(getVariable("a"), 2);
+		setVariable(getVariable("b"), 1.2);
+		setVariable(getVariable("c"), -0.3);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -308,9 +272,9 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testExtraParens()
 	{
 		String formula = "((a/(((b-c)))))";
-		store.put(getVariable("a"), 3);
-		store.put(getVariable("b"), 1.2);
-		store.put(getVariable("c"), -0.3);
+		setVariable(getVariable("a"), 3);
+		setVariable(getVariable("b"), 1.2);
+		setVariable(getVariable("c"), -0.3);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
@@ -401,7 +365,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	public void testBooleanNegation()
 	{
 		String formula = "!a";
-		store.put(getBooleanVariable("a"), Boolean.FALSE);
+		setVariable(getBooleanVariable("a"), Boolean.FALSE);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.BOOLEAN_MANAGER, Optional.empty());
 		isStatic(formula, node, false);

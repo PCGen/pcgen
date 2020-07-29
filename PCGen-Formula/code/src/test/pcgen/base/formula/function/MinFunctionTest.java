@@ -167,7 +167,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable()
 	{
-		getVariableStore().put(getVariable("a"), 5);
+		setVariable(getVariable("a"), 5);
 		String formula = "min(a, 7.4)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());

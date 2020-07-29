@@ -21,6 +21,7 @@ import java.io.StringReader;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 
 import junit.framework.TestCase;
 import pcgen.base.format.ArrayFormatManager;
@@ -34,6 +35,7 @@ import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.ValueStore;
 
 public final class TestUtilities
 {
@@ -140,4 +142,14 @@ public final class TestUtilities
 
 		return instance;
 	}
+
+	public static ValueStore getDefaultValueStore()
+	{
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("NUMBER", 0);
+		map.put("STRING", "");
+		map.put("BOOLEAN", Boolean.FALSE);
+		return map::get;
+	}
+
 }
