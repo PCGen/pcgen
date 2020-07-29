@@ -26,7 +26,6 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FailureResult;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.PassResult;
 import pcgen.base.util.ValueStore;
 
 /**
@@ -152,19 +151,19 @@ public class SupplierValueStore implements ValueStore
 				catch (ClassCastException e)
 				{
 					//Generics were violated during addSolverFormat if we got here
-					return new FailureResult("Format: " + formatManager
+					return new FailureResult<>("Format: " + formatManager
 						+ " cannot use default Modifier that produces: "
 						+ get(formatManager).get().getClass());
 				}
 			}
 			catch (NullPointerException e)
 			{
-				return new FailureResult(
+				return new FailureResult<>(
 					"Default Modifier for Format: " + formatManager
 						+ " cannot be null or rely on terms/functions");
 			}
 		}
-		return PassResult.SUCCESS;
+		return ComplexResult.ofSuccess(Boolean.TRUE);
 	}
 
 	private <T> void roundRobinDefault(FormatManager<T> formatManager)
