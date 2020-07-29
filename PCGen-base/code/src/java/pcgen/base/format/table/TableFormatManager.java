@@ -25,6 +25,8 @@ import pcgen.base.util.ValueStore;
 
 /**
  * A TableFormatManager is a FormatManager that defines the format of a DataTable.
+ * 
+ * @param <T> The Format for the table lookup (first column in the table)
  */
 public final class TableFormatManager<T> implements FormatManager<DataTable>
 {

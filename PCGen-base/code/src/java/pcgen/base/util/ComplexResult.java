@@ -48,17 +48,21 @@ public interface ComplexResult<T> extends Supplier<T>
 	 * Returns a ComplexResult representing successful processing of an operation with the
 	 * given value as the result.
 	 * 
+	 * @param <T>
+	 *            The format of the object contained by the returned ComplexResult
+	 * @param result
+	 *            The result value contained by this ComplexResult
 	 * @return A ComplexResult indicating successful processing and containing the given
 	 *         value
 	 */
-	public static <T> ComplexResult<T> ofSuccess(T t)
+	public static <T> ComplexResult<T> ofSuccess(T result)
 	{
 		return new ComplexResult<>()
 		{
 			@Override
 			public T get()
 			{
-				return t;
+				return result;
 			}
 
 			@Override

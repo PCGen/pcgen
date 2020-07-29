@@ -23,6 +23,10 @@ import java.util.Objects;
 /**
  * Represents a failed operation on a method that returns a Boolean result. This will
  * return FALSE rather than null from get().
+ * 
+ * @param <T>
+ *            The format of object the ComplexResult should contain if the process was
+ *            successful (will not be in this FailureResult)
  */
 public class FailureResult<T> implements ComplexResult<T>
 {
