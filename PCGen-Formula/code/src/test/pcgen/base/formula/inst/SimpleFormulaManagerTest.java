@@ -33,7 +33,6 @@ public class SimpleFormulaManagerTest
 {
 
 	private VariableLibrary variableLibrary;
-	private SimpleOperatorLibrary opLibrary;
 	private SimpleVariableStore resultsStore;
 	private ScopeInstanceFactory siFactory;
 	private SupplierValueStore valueStore;
@@ -48,7 +47,6 @@ public class SimpleFormulaManagerTest
 		resultsStore = new SimpleVariableStore();
 		LegalScopeManager legalScopeManager = new ScopeManagerInst();
 		variableLibrary = new VariableManager(legalScopeManager, valueStore);
-		opLibrary = new SimpleOperatorLibrary();
 		siFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
 	
@@ -56,7 +54,6 @@ public class SimpleFormulaManagerTest
 	void tearDown()
 	{
 		variableLibrary = null;
-		opLibrary = null;
 		resultsStore = null;
 		siFactory = null;
 		valueStore = null;
@@ -65,18 +62,17 @@ public class SimpleFormulaManagerTest
 	@Test
 	public void testDoubleConstructor()
 	{
-		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(null, null, null, null, null));
-		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(null, variableLibrary, siFactory, resultsStore, valueStore));
-		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(opLibrary, null, siFactory, resultsStore, valueStore));
-		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(opLibrary, variableLibrary, null, resultsStore, valueStore));
-		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(opLibrary, variableLibrary, siFactory, null, valueStore));
-		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(opLibrary, variableLibrary, siFactory, resultsStore, null));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(null, null, null, null));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(null, siFactory, resultsStore, valueStore));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(variableLibrary, null, resultsStore, valueStore));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(variableLibrary, siFactory, null, valueStore));
+		assertThrows(NullPointerException.class, () -> new SimpleFormulaManager(variableLibrary, siFactory, resultsStore, null));
 	}
 
 	@Test
 	public void testGetDefault()
 	{
-		FormulaManager formulaManager = new SimpleFormulaManager(opLibrary, variableLibrary, siFactory,
+		FormulaManager formulaManager = new SimpleFormulaManager(variableLibrary, siFactory,
 			resultsStore, valueStore);
 		assertEquals(0,formulaManager.getDefault(FormatUtilities.NUMBER_MANAGER));
 		assertEquals("", formulaManager.getDefault(FormatUtilities.STRING_MANAGER));

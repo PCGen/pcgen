@@ -49,7 +49,6 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
-import pcgen.base.testsupport.TestUtilities;
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
@@ -65,7 +64,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	protected void setUp()
 	{
 		super.setUp();
-		manager = new DynamicSolverManager(getFormulaManager(), TestUtilities.EMPTY_MGR_FACTORY,
+		manager = new DynamicSolverManager(getFormulaManager(), getManagerFactory(),
 			getSolverFactory(), getVariableStore());
 		limbManager = new LimbManager();
 		getValueStore().addSolverFormat(limbManager,
@@ -84,14 +83,14 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testIllegalConstruction()
 	{
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(null, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(),
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(null, getManagerFactory(), getSolverFactory(),
 				getVariableStore()));
 		FormulaManager formulaManager = getFormulaManager();
 		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, null, getSolverFactory(),
 				getVariableStore()));
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, TestUtilities.EMPTY_MGR_FACTORY, null,
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, getManagerFactory(), null,
 				getVariableStore()));
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(),
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, getManagerFactory(), getSolverFactory(),
 				null));
 	}
 

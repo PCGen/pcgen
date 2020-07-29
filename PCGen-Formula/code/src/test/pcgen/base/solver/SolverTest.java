@@ -33,11 +33,15 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.MockStat;
 import pcgen.base.testsupport.TestUtilities;
@@ -64,7 +68,9 @@ public class SolverTest
 		inst = scopeInstanceFactory.get("Global", Optional.of(new GlobalVarScoped("Global")));
 		str = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("STR")));
 		con = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("CON")));
-		evalManager = TestUtilities.EMPTY_MGR_FACTORY.generateEvaluationManager(formulaManager);
+		OperatorLibrary opLibrary = FormulaUtilities.loadBuiltInOperators(new SimpleOperatorLibrary());
+		ManagerFactory managerFactory = new ManagerFactory(opLibrary);
+		evalManager = managerFactory.generateEvaluationManager(formulaManager);
 	}
 
 	@AfterEach

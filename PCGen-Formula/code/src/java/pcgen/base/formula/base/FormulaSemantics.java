@@ -52,6 +52,8 @@ public class FormulaSemantics
 	 */
 	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
 
+	public static final TypedKey<OperatorLibrary> OPLIB = new TypedKey<>();
+
 	/**
 	 * A TypedKey used for storing the LegalScope contained in this FormulaSemantics.
 	 */

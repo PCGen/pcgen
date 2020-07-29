@@ -17,6 +17,7 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -24,8 +25,15 @@ import java.util.Optional;
  * the visitors to a Formula. This is an interface to allow extension of these behaviors
  * by more advanced formula processing systems.
  */
-public interface ManagerFactory
+public class ManagerFactory
 {
+	private final OperatorLibrary opLib;
+
+	public ManagerFactory(OperatorLibrary opLib)
+	{
+		this.opLib = Objects.requireNonNull(opLib);
+	}
+
 	/**
 	 * Generates an initialized DependencyManager with the given arguments.
 	 * 
@@ -35,10 +43,11 @@ public interface ManagerFactory
 	 *            The ScopeInstance to be contained in the DependencyManager
 	 * @return An initialized DependencyManager with the given arguments
 	 */
-	public default DependencyManager generateDependencyManager(
+	public DependencyManager generateDependencyManager(
 		FormulaManager formulaManager, ScopeInstance scopeInst)
 	{
 		DependencyManager fdm = new DependencyManager(formulaManager);
+		fdm = fdm.getWith(DependencyManager.OPLIB, opLib);
 		return fdm.getWith(DependencyManager.INSTANCE, scopeInst);
 	}
 
@@ -51,7 +60,7 @@ public interface ManagerFactory
 	 *            be derived
 	 * @return The DependencyManager with contents to handle variables
 	 */
-	public default DependencyManager withVariables(DependencyManager fdm)
+	public DependencyManager withVariables(DependencyManager fdm)
 	{
 		return fdm
 			.getWith(DependencyManager.VARSTRATEGY, Optional.of(new StaticStrategy()))
@@ -70,11 +79,12 @@ public interface ManagerFactory
 	 * @return An initialized FormulaSemantics object with the appropriate keys set to the
 	 *         given parameters
 	 */
-	public default FormulaSemantics generateFormulaSemantics(FormulaManager manager,
-		LegalScope legalScope)
+	public FormulaSemantics generateFormulaSemantics(
+		FormulaManager manager, LegalScope legalScope)
 	{
 		FormulaSemantics semantics = new FormulaSemantics();
 		semantics = semantics.getWith(FormulaSemantics.FMANAGER, manager);
+		semantics = semantics.getWith(FormulaSemantics.OPLIB, opLib);
 		return semantics.getWith(FormulaSemantics.SCOPE, legalScope);
 	}
 
@@ -86,10 +96,11 @@ public interface ManagerFactory
 	 *            EvaluationManager
 	 * @return A new EvaluationManager initialized with the given parameters
 	 */
-	public default EvaluationManager generateEvaluationManager(
+	public EvaluationManager generateEvaluationManager(
 		FormulaManager formulaManager)
 	{
 		EvaluationManager manager = new EvaluationManager();
+		manager = manager.getWith(EvaluationManager.OPLIB, opLib);
 		return manager.getWith(EvaluationManager.FMANAGER, formulaManager);
 	}
 
