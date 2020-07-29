@@ -22,8 +22,13 @@ import java.util.function.Consumer;
 /**
  * DequeUtilities are utility methods related to the Deque interface.
  */
-public class DequeUtilities
+public final class DequeUtilities
 {
+	private DequeUtilities()
+	{
+		//Do not construct utility class
+	}
+
 	/**
 	 * Empties a Deque full of ReadySupplier objects, providing them to the given
 	 * Consumer.
