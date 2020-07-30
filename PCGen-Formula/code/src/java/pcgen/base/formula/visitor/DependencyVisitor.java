@@ -340,8 +340,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		Node child2 = node.jjtGetChild(1);
 		@SuppressWarnings("unchecked")
 		Optional<FormatManager<?>> format2 = (Optional<FormatManager<?>>) child2.jjtAccept(this, data);
-		OperatorLibrary opLib =
-				manager.get(DependencyManager.FMANAGER).getOperatorLibrary();
+		OperatorLibrary opLib = manager.get(DependencyManager.OPLIB);
 		Operator op = node.getOperator();
 		return opLib.processAbstract(op, format1.get().getManagedClass(),
 			format2.get().getManagedClass(), manager.get(DependencyManager.ASSERTED));
@@ -353,8 +352,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		@SuppressWarnings("unchecked")
 		Optional<FormatManager<?>> format = (Optional<FormatManager<?>>) child.jjtAccept(this, data);
 		DependencyManager manager = (DependencyManager) data;
-		OperatorLibrary opLib =
-				manager.get(DependencyManager.FMANAGER).getOperatorLibrary();
+		OperatorLibrary opLib = manager.get(DependencyManager.OPLIB);
 		Operator op = node.getOperator();
 		return opLib.processAbstract(op, format.get().getManagedClass());
 	}

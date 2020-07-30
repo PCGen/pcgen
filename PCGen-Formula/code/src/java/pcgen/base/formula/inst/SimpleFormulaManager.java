@@ -20,7 +20,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
@@ -48,11 +47,6 @@ public class SimpleFormulaManager implements FormulaManager
 	private final ValueStore defaultStore;
 
 	/**
-	 * The OperatorLibrary used to store valid operators in this FormulaManager.
-	 */
-	private final OperatorLibrary opLibrary;
-
-	/**
 	 * The VariableLibrary used to get VariableIDs.
 	 */
 	private final VariableLibrary varLibrary;
@@ -66,8 +60,6 @@ public class SimpleFormulaManager implements FormulaManager
 	 * Constructs a new FormulaManager from the provided FunctionLibrary, OperatorLibrary,
 	 * VariableLibrary, and VariableStore.
 	 * 
-	 * @param opLibrary
-	 *            The OperatorLibrary used to store valid operators in this FormulaManager
 	 * @param varLibrary
 	 *            The VariableLibrary used to get VariableIDs
 	 * @param siFactory
@@ -78,11 +70,10 @@ public class SimpleFormulaManager implements FormulaManager
 	 * @param defaultStore
 	 *            The ValueStore used to know default values for each format (class)
 	 */
-	public SimpleFormulaManager(OperatorLibrary opLibrary, VariableLibrary varLibrary,
+	public SimpleFormulaManager(VariableLibrary varLibrary,
 		ScopeInstanceFactory siFactory, VariableStore resultStore,
 		ValueStore defaultStore)
 	{
-		this.opLibrary = Objects.requireNonNull(opLibrary);
 		this.varLibrary = Objects.requireNonNull(varLibrary);
 		this.siFactory = Objects.requireNonNull(siFactory);
 		map.put(RESULTS, Objects.requireNonNull(resultStore));
@@ -91,7 +82,6 @@ public class SimpleFormulaManager implements FormulaManager
 	
 	private SimpleFormulaManager(SimpleFormulaManager original, Map<TypedKey<?>, Object> map)
 	{
-		this.opLibrary = original.opLibrary;
 		this.varLibrary = original.varLibrary;
 		this.siFactory = original.siFactory;
 		this.defaultStore = original.defaultStore;
@@ -107,17 +97,6 @@ public class SimpleFormulaManager implements FormulaManager
 	public VariableLibrary getFactory()
 	{
 		return varLibrary;
-	}
-
-	/**
-	 * Returns the OperatorLibrary used to store valid operations in this FormulaManager.
-	 * 
-	 * @return The OperatorLibrary used to store valid operations in this FormulaManager
-	 */
-	@Override
-	public OperatorLibrary getOperatorLibrary()
-	{
-		return opLibrary;
 	}
 
 	@Override

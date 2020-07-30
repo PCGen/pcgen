@@ -35,7 +35,6 @@ import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
 import pcgen.base.solver.testsupport.MockStat;
-import pcgen.base.testsupport.TestUtilities;
 
 public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 {
@@ -46,7 +45,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	protected void setUp()
 	{
 		super.setUp();
-		manager = new AggressiveSolverManager(getFormulaManager(), TestUtilities.EMPTY_MGR_FACTORY,
+		manager = new AggressiveSolverManager(getFormulaManager(), getManagerFactory(),
 			getSolverFactory(), getVariableStore());
 	}
 	
@@ -61,11 +60,11 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testIllegalConstruction()
 	{
-		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(null, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(), getVariableStore()));
+		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(null, getManagerFactory(), getSolverFactory(), getVariableStore()));
 		FormulaManager formulaManager = getFormulaManager();
 		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, null, getSolverFactory(), getVariableStore()));
-		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(), null));
-		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, TestUtilities.EMPTY_MGR_FACTORY, getSolverFactory(), null));
+		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, getManagerFactory(), getSolverFactory(), null));
+		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, getManagerFactory(), getSolverFactory(), null));
 	}
 
 	@Test

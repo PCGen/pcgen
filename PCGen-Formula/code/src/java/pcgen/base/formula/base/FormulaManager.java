@@ -55,15 +55,6 @@ public interface FormulaManager
 	public VariableLibrary getFactory();
 
 	/**
-	 * Returns the OperatorLibrary used to store valid operations in this
-	 * FormulaManager.
-	 * 
-	 * @return The OperatorLibrary used to store valid operations in this
-	 *         FormulaManager
-	 */
-	public OperatorLibrary getOperatorLibrary();
-
-	/**
 	 * Returns the default value for a given FormatManager.
 	 * 
 	 * @param formatManager

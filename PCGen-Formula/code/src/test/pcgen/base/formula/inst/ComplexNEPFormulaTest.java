@@ -36,7 +36,6 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableList;
 import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
-import pcgen.base.testsupport.TestUtilities;
 
 public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 {
@@ -230,9 +229,9 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	private DependencyManager setupDM()
 	{
-		DependencyManager dm = TestUtilities.EMPTY_MGR_FACTORY
+		DependencyManager dm = getManagerFactory()
 			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst());
-		dm = TestUtilities.EMPTY_MGR_FACTORY.withVariables(dm);
+		dm = getManagerFactory().withVariables(dm);
 		return dm.getWith(ArgumentDependencyManager.KEY,
 			Optional.of(new ArgumentDependencyManager()));
 	}
@@ -341,7 +340,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	private FormulaSemantics getSemantics()
 	{
-		return TestUtilities.EMPTY_MGR_FACTORY.generateFormulaSemantics(getFormulaManager(),
+		return getManagerFactory().generateFormulaSemantics(getFormulaManager(),
 			getInstanceFactory().getScope("Global"));
 	}
 }

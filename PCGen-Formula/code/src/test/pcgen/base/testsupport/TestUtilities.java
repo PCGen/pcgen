@@ -30,7 +30,6 @@ import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.ArrayFormatFactory;
 import pcgen.base.formatmanager.CompoundFormatFactory;
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
@@ -42,10 +41,6 @@ public final class TestUtilities
 	public static final double SMALL_ERROR = Math.pow(10, -10);
 
 	public static final Number[] EMPTY_ARRAY = {};
-
-	public static final ManagerFactory EMPTY_MGR_FACTORY = new ManagerFactory()
-	{
-	};
 
 	public static final ArrayFormatFactory ARRAY_FACTORY =
 			new ArrayFormatFactory('\n', ',');

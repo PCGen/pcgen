@@ -312,8 +312,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Object child1result = node.jjtGetChild(0).jjtAccept(this, data);
 		Object child2result = node.jjtGetChild(1).jjtAccept(this, data);
 		EvaluationManager manager = (EvaluationManager) data;
-		OperatorLibrary opLib =
-				manager.get(EvaluationManager.FMANAGER).getOperatorLibrary();
+		OperatorLibrary opLib = manager.get(EvaluationManager.OPLIB);
 		Optional<FormatManager<?>> asserted = manager.get(EvaluationManager.ASSERTED);
 		return opLib.evaluate(node.getOperator(), child1result, child2result, asserted);
 	}
@@ -333,8 +332,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	{
 		Object result = node.jjtGetChild(0).jjtAccept(this, data);
 		EvaluationManager manager = (EvaluationManager) data;
-		OperatorLibrary opLib =
-				manager.get(EvaluationManager.FMANAGER).getOperatorLibrary();
+		OperatorLibrary opLib = manager.get(EvaluationManager.OPLIB);
 		return opLib.evaluate(node.getOperator(), result);
 	}
 

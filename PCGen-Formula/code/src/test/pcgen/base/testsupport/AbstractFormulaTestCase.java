@@ -48,9 +48,11 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.exception.SemanticsFailureException;
+import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -67,10 +69,17 @@ public abstract class AbstractFormulaTestCase
 	private FormulaManager formulaManager;
 	private ScopeInstance globalInstance;
 	private SupplierValueStore valueStore;
+	private OperatorLibrary opLibrary;
+	private ManagerFactory managerFactory;
 
 	@BeforeEach
 	protected void setUp()
 	{
+		/**
+		 * The SimpleOperatorLibrary for this FormulaSetupFactory.
+		 */
+		opLibrary = FormulaUtilities.loadBuiltInOperators(new SimpleOperatorLibrary());
+		managerFactory = new ManagerFactory(opLibrary);
 		FormulaSetupFactory setup = new FormulaSetupFactory();
 		legalScopeManager = new ScopeManagerInst();
 		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
@@ -92,6 +101,7 @@ public abstract class AbstractFormulaTestCase
 		formulaManager = null;
 		globalInstance = null;
 		valueStore = null;
+		opLibrary = null;
 	}
 
 	public void isValid(String formula, SimpleNode node,
@@ -99,7 +109,7 @@ public abstract class AbstractFormulaTestCase
 	{
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = TestUtilities.EMPTY_MGR_FACTORY.generateFormulaSemantics(
+		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
 			getFormulaManager(), getInstanceFactory().getScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
@@ -176,7 +186,7 @@ public abstract class AbstractFormulaTestCase
 	public EvaluationManager generateManager()
 	{
 		EvaluationManager em =
-				TestUtilities.EMPTY_MGR_FACTORY.generateEvaluationManager(getFormulaManager());
+				managerFactory.generateEvaluationManager(getFormulaManager());
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 
@@ -190,7 +200,7 @@ public abstract class AbstractFormulaTestCase
 	{
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = TestUtilities.EMPTY_MGR_FACTORY.generateFormulaSemantics(
+		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
 			getFormulaManager(), getInstanceFactory().getScope("Global"));
 		FormulaSemantics finSemantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		assertThrows(SemanticsFailureException.class, () -> semanticsVisitor.visit(node, finSemantics));
@@ -198,9 +208,9 @@ public abstract class AbstractFormulaTestCase
 
 	protected List<VariableID<?>> getVariables(SimpleNode node)
 	{
-		DependencyManager fdm = TestUtilities.EMPTY_MGR_FACTORY
+		DependencyManager fdm = managerFactory
 			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst());
-		fdm = TestUtilities.EMPTY_MGR_FACTORY.withVariables(fdm);
+		fdm = managerFactory.withVariables(fdm);
 		new DependencyVisitor().visit(node, fdm);
 		return fdm.get(DependencyManager.VARIABLES).get().getVariables();
 	}
@@ -230,7 +240,7 @@ public abstract class AbstractFormulaTestCase
 
 	protected OperatorLibrary getOperatorLibrary()
 	{
-		return getFormulaManager().getOperatorLibrary();
+		return opLibrary;
 	}
 
 	protected VariableLibrary getVariableLibrary()
@@ -278,7 +288,7 @@ public abstract class AbstractFormulaTestCase
 
 	protected ManagerFactory getManagerFactory()
 	{
-		return TestUtilities.EMPTY_MGR_FACTORY;
+		return managerFactory;
 	}
 	
 	protected SupplierValueStore getValueStore()

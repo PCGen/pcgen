@@ -48,6 +48,11 @@ public class DependencyManager
 	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
 
 	/**
+	 * The OperatorLibrary used to store valid operators.
+	 */
+	public static final TypedKey<OperatorLibrary> OPLIB = new TypedKey<>();
+
+	/**
 	 * A TypedKey used for storing the LegalScope contained in this DependencyManager.
 	 * 
 	 * The SCOPE TypedKey is required if the INSTANCE TypedKey is not used.  Otherwise,

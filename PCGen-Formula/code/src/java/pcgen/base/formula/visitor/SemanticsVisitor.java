@@ -457,8 +457,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		FormatManager<?> format2 = (FormatManager<?>) child2.jjtAccept(this, data);
 
 		FormulaSemantics semantics = (FormulaSemantics) data;
-		OperatorLibrary opLib =
-				semantics.get(FormulaSemantics.FMANAGER).getOperatorLibrary();
+		OperatorLibrary opLib = semantics.get(FormulaSemantics.OPLIB);
 		Optional<FormatManager<?>> asserted = semantics.get(FormulaSemantics.ASSERTED);
 		Optional<FormatManager<?>> returnedFormat = opLib.processAbstract(op,
 			format1.getManagedClass(), format2.getManagedClass(), asserted);
@@ -481,8 +480,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		FormatManager<?> format = (FormatManager<?>) singleChildValid(node, data);
 
 		FormulaSemantics semantics = (FormulaSemantics) data;
-		OperatorLibrary opLib =
-				semantics.get(FormulaSemantics.FMANAGER).getOperatorLibrary();
+		OperatorLibrary opLib = semantics.get(FormulaSemantics.OPLIB);
 		Optional<FormatManager<?>> returnedFormat = opLib.processAbstract(op, format.getManagedClass());
 		return returnedFormat.orElseThrow(() -> new SemanticsFailureException(
 			"Parse Error: Operator " + op.getSymbol()

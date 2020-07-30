@@ -21,7 +21,6 @@ import java.util.function.Supplier;
 
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
@@ -30,7 +29,6 @@ import pcgen.base.formula.inst.LegalScopeManager;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleFormulaManager;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
-import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.inst.VariableManager;
@@ -64,12 +62,6 @@ public class FormulaSetupFactory
 			() -> FormulaUtilities.loadBuiltInFunctions(new SimpleFunctionLibrary());
 
 	/**
-	 * The SimpleOperatorLibrary for this FormulaSetupFactory.
-	 */
-	private Supplier<OperatorLibrary> operatorLibrarySupplier =
-			() -> FormulaUtilities.loadBuiltInOperators(new SimpleOperatorLibrary());
-
-	/**
 	 * The VariableLibrary for this FormulaSetupFactory.
 	 */
 	private BiFunction<LegalScopeManager, ValueStore, VariableLibrary> variableLibraryFunction =
@@ -99,13 +91,12 @@ public class FormulaSetupFactory
 		SupplierValueStore valueStore = valueStoreSupplier.get();
 		LegalScopeManager legalScopeManager = legalScopeManagerSupplier.get();
 		FunctionLibrary functionLibrary = functionLibrarySupplier.get();
-		OperatorLibrary operatorLibrary = operatorLibrarySupplier.get();
 		VariableStore variableStore = variableStoreSupplier.get();
 		VariableLibrary variableLibrary =
 				variableLibraryFunction.apply(legalScopeManager, valueStore);
 		ScopeInstanceFactory scopeInstanceFactory =
 				scopeInstanceFactoryFunction.apply(legalScopeManager);
-		SimpleFormulaManager fManager = new SimpleFormulaManager(operatorLibrary,
+		SimpleFormulaManager fManager = new SimpleFormulaManager(
 			variableLibrary, scopeInstanceFactory, variableStore, valueStore);
 		return fManager.getWith(FormulaManager.FUNCTION, functionLibrary);
 	}
@@ -149,20 +140,6 @@ public class FormulaSetupFactory
 		Supplier<FunctionLibrary> functionLibrarySupplier)
 	{
 		this.functionLibrarySupplier = functionLibrarySupplier;
-	}
-
-	/**
-	 * Sets the Supplier that will generate a OperatorLibrary for this
-	 * FormulaSetupFactory.
-	 * 
-	 * @param operatorLibrarySupplier
-	 *            The Supplier that will generate a OperatorLibrary for this
-	 *            FormulaSetupFactory
-	 */
-	public void setOperatorLibrarySupplier(
-		Supplier<OperatorLibrary> operatorLibrarySupplier)
-	{
-		this.operatorLibrarySupplier = operatorLibrarySupplier;
 	}
 
 	/**
