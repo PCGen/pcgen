@@ -113,7 +113,7 @@ public class DataLoadTest implements PCGenTaskListener
 		UIDelegate uiDelegate = new MockUIDelegate();
 
 		PCGenTask loader =
-				new SourceFileLoader(sourceSelection, uiDelegate);
+				new SourceFileLoader(uiDelegate, sourceSelection.getCampaigns(), sourceSelection.getGameMode().get().getName());
 		errors = new ArrayList<>();
 		loader.addPCGenTaskListener(this);
 		loader.run();

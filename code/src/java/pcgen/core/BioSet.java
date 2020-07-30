@@ -34,9 +34,11 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
-import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.util.CControl;
+import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.HairColorCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.util.Logging;
 
 public final class BioSet extends PObject implements NonInteractive
@@ -190,12 +192,13 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if (ranList.contains("HAIR"))
 		{
-			pc.setPCAttribute(PCStringKey.HAIRCOLOR, generateBioValue("HAIR", pc));
+			HairColorCompat.setCurrentHairColor(pc.getCharID(), generateBioValue("HAIR", pc));
 		}
 
 		if (ranList.contains("SKIN"))
 		{
-			pc.setPCAttribute(PCStringKey.SKINCOLOR, generateBioValue("SKINTONE", pc));
+			ChannelUtilities.setControlledChannel(pc.getCharID(),
+				CControl.SKINCOLORINPUT, generateBioValue("SKINTONE", pc));
 		}
 	}
 
@@ -458,7 +461,7 @@ public final class BioSet extends PObject implements NonInteractive
 					ageAdd = maxAge - baseAge;
 				}
 			}
-			pc.setPCAttribute(NumericPCAttribute.AGE, baseAge + ageAdd);
+			ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, baseAge + ageAdd);
 		}
 	}
 
@@ -541,7 +544,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 				if ((baseHeight != 0) && (htAdd != 0))
 				{
-					pc.setHeight(baseHeight + htAdd);
+					HeightCompat.setCurrentHeight(pc.getCharID(), baseHeight + htAdd);
 				}
 
 				if ((totalWeight != null) && (baseWeight != 0) && (wtAdd != 0))
@@ -549,7 +552,7 @@ public final class BioSet extends PObject implements NonInteractive
 					totalWeight = replaceString(totalWeight, "HTDIEROLL", htAdd);
 					totalWeight = replaceString(totalWeight, "BASEWT", baseWeight);
 					totalWeight = replaceString(totalWeight, "WTDIEROLL", wtAdd);
-					pc.setPCAttribute(NumericPCAttribute.WEIGHT, pc.getVariableValue(totalWeight, "").intValue());
+					pc.setWeight(pc.getVariableValue(totalWeight, "").intValue());
 				}
 
 				break;

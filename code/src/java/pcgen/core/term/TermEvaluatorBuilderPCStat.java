@@ -54,7 +54,6 @@ public class TermEvaluatorBuilderPCStat implements TermEvaluatorBuilder
 
 	@Override
 	public TermEvaluator getTermEvaluator(String expressionString, String src, String matchedSection)
-		throws TermEvaulatorException
 	{
 		if (expressionString.equals(matchedSection))
 		{

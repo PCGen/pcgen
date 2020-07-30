@@ -220,9 +220,9 @@ public final class UnitSet implements Loadable
 	 * @param height
 	 * @return int height in inches.
 	 */
-	public int convertHeightFromUnitSet(final double height)
+	public int convertHeightFromUnitSet(Number height)
 	{
-		final double heightInInches = height / heightFactor.doubleValue();
+		double heightInInches = height.doubleValue() / heightFactor.doubleValue();
 
 		return (int) heightInInches;
 	}
@@ -233,9 +233,9 @@ public final class UnitSet implements Loadable
 	 * @param heightInInches
 	 * @return double heights in units.
 	 */
-	public double convertHeightToUnitSet(final int heightInInches)
+	public double convertHeightToUnitSet(Number heightInInches)
 	{
-		return heightInInches * heightFactor.doubleValue();
+		return heightInInches.doubleValue() * heightFactor.doubleValue();
 	}
 
 	/**

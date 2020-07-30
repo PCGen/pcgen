@@ -27,12 +27,15 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.output.channel.ChannelUtilities;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.Test;
@@ -97,10 +100,10 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		deityFacet.set(id, source);
+		ChannelUtilities.setControlledChannel(id, CControl.DEITYINPUT, source);
 		assertTrue(containsExpected(granted));
 		assertEquals(1, getCount());
-		deityFacet.remove(id);
+		ChannelUtilities.setControlledChannel(id, CControl.DEITYINPUT, new Deity());
 		assertEquals(0, getCount());
 		assertTrue(cleanedSideEffects());
 	}

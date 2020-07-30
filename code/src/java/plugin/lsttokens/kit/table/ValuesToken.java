@@ -28,7 +28,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
 import pcgen.core.kit.KitTable;
 import pcgen.core.kit.KitTable.TableEntry;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -84,17 +83,10 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements CDOM
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
-				try
+				boolean passed = context.processToken(optionInfo, key, thingValue);
+				if (!passed)
 				{
-					boolean passed = context.processToken(optionInfo, key, thingValue);
-					if (!passed)
-					{
-						return new ParseResult.Fail("Failure in token: " + key);
-					}
-				}
-				catch (PersistenceLayerException e)
-				{
-					return new ParseResult.Fail("Failure in token: " + key + ' ' + e.getMessage());
+					return new ParseResult.Fail("Failure in token: " + key);
 				}
 			}
 			if (!sep.hasNext())

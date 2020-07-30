@@ -1502,7 +1502,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		public SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
 		{
 			this.sources = sources;
-			loader = new SourceFileLoader(sources, delegate);
+			loader = new SourceFileLoader(delegate, sources.getCampaigns(), sources.getGameMode().get().getName());
 			worker = statusBar.createWorker(LanguageBundle.getString("in_taskLoadSources"), loader); //$NON-NLS-1$
 		}
 

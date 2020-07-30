@@ -22,12 +22,14 @@ package pcgen.io;
 
 import java.awt.Rectangle;
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -45,7 +47,6 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -93,8 +94,11 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -392,10 +396,13 @@ public final class PCGVer2Creator
  * DOMAINSPELLS:GOOD|SPELLLIST:(>list of level by level spells)
  */
 
-		appendNewline(buffer);
-		appendComment("Character Deity/Domain", buffer); //$NON-NLS-1$
-		appendDeityLine(buffer);
-		appendDomainLines(buffer);
+		if (thePC.isFeatureEnabled(CControl.DOMAINFEATURE))
+		{
+			appendNewline(buffer);
+			appendComment("Character Deity/Domain", buffer); //$NON-NLS-1$
+			appendDeityLine(buffer);
+			appendDomainLines(buffer);
+		}
 
 		/*
 		 * This one is what will make spellcasters U G L Y!!!
@@ -464,11 +471,11 @@ public final class PCGVer2Creator
 		appendCampaignHistoryLines(buffer);
 
 		/*
-		 * #Suppressed fields
+		 * #Preview Sheet Variables
 		 */
 		appendNewline(buffer);
-		appendComment("Suppressed Biography Fields", buffer); //$NON-NLS-1$
-		appendSuppressBioFieldLines(buffer);
+		appendComment("Preview Sheet Variables", buffer); //$NON-NLS-1$
+		appendPreviewSheetVarLines(buffer);
 
 		/*
 		 * Add one more newline at end of file
@@ -477,6 +484,23 @@ public final class PCGVer2Creator
 
 		// All done!
 		return buffer.toString();
+	}
+
+	private void appendPreviewSheetVarLines(StringBuilder buffer)
+	{
+		for(Map.Entry<String, String> var : thePC.getPreviewSheetVars().entrySet())
+		{
+			if(var.getValue().isEmpty())
+			{
+				continue;
+			}
+			buffer.append(IOConstants.TAG_PREVIEWSHEETVAR)
+					.append(IOConstants.TAG_END)
+					.append(var.getKey())
+					.append(IOConstants.TAG_SEPARATOR)
+					.append(var.getValue())
+					.append(IOConstants.LINE_SEP);
+		}
 	}
 
 	private void appendCampaignLine(StringBuilder buffer)
@@ -493,25 +517,6 @@ public final class PCGVer2Creator
 			}
 			buffer.append(IOConstants.LINE_SEP);
 		}
-	}
-
-	/**
-	 * @param buffer
-	 */
-	private void appendSuppressBioFieldLines(StringBuilder buffer)
-	{
-		buffer.append(IOConstants.TAG_SUPPRESS_BIO_FIELDS).append(':');
-		String delim = Constants.EMPTY_STRING;
-		for (BiographyField field : BiographyField.values())
-		{
-			if (charDisplay.getSuppressBioField(field))
-			{
-				buffer.append(delim);
-				buffer.append(field);
-				delim = "|"; //$NON-NLS-1$
-			}
-		}
-		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private GameMode getGameMode()
@@ -605,7 +610,7 @@ public final class PCGVer2Creator
 	private void appendAgeLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_AGE).append(':');
-		buffer.append(charDisplay.getAge());
+		buffer.append(ChannelUtilities.readControlledChannel(thePC.getCharID(), CControl.AGEINPUT));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -754,7 +759,8 @@ public final class PCGVer2Creator
 	private void appendCharacterTypeLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_CHARACTERTYPE).append(':');
-		buffer.append(charDisplay.getCharacterType());
+		buffer.append((String) ChannelUtilities.readControlledChannel(
+			charDisplay.getCharID(), CControl.CHARACTERTYPE));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -992,9 +998,10 @@ public final class PCGVer2Creator
 	 */
 	private void appendDeityLine(StringBuilder buffer)
 	{
-		if (charDisplay.getDeity() != null)
+		final Deity aDeity = (Deity) ChannelUtilities.readControlledChannel(
+			charDisplay.getCharID(), CControl.DEITYINPUT);
+		if (aDeity != null)
 		{
-			final Deity aDeity = charDisplay.getDeity();
 
 			buffer.append(IOConstants.TAG_DEITY).append(':');
 			buffer.append(EntityEncoder.encode(aDeity.getKeyName()));
@@ -1501,14 +1508,17 @@ public final class PCGVer2Creator
 	private void appendHairColorLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HAIRCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR)));
+		buffer.append(EntityEncoder.encode(HairColorCompat.getCurrentHairColor(thePC.getCharID())));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendHairStyleLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HAIRSTYLE).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
+		String hairStyle = (String) ChannelUtilities
+			.readControlledChannel(thePC.getCharID(), CControl.HAIRSTYLEINPUT);
+		buffer.append(EntityEncoder.encode(
+			Optional.ofNullable(hairStyle).orElse(Constants.EMPTY_STRING)));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -1710,7 +1720,7 @@ public final class PCGVer2Creator
 	private void appendHeightLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HEIGHT).append(':');
-		buffer.append(charDisplay.getHeight());
+		buffer.append(EntityEncoder.encode(HeightCompat.getCurrentHeight(thePC.getCharID()).toString()));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -1807,7 +1817,9 @@ public final class PCGVer2Creator
 	private void appendSkinColorLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_SKINCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.SKINCOLOR)));
+		buffer.append(EntityEncoder.encode(
+			(String) ChannelUtilities.readControlledChannel(thePC.getCharID(),
+				CControl.SKINCOLORINPUT)));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -2459,7 +2471,9 @@ public final class PCGVer2Creator
 	private void appendMoneyLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_MONEY).append(':');
-		buffer.append(thePC.getGold());
+		BigDecimal currentGold = (BigDecimal) ChannelUtilities
+				.readControlledChannel(thePC.getCharID(), CControl.GOLDINPUT);
+		buffer.append(currentGold);
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

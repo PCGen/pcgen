@@ -19,6 +19,7 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -26,6 +27,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.system.LanguageBundle;
 
 public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
@@ -36,7 +38,8 @@ public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements P
 	{
 		int runningTotal = 0;
 
-		Deity deity = display.getDeity();
+		Deity deity = (Deity) ChannelUtilities
+			.readControlledChannel(display.getCharID(), CControl.DEITYINPUT);
 		if (deity != null)
 		{
 			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().getReferenceContext()

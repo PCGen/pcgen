@@ -25,10 +25,12 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.list.DomainList;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
@@ -86,7 +88,8 @@ public class DeityToken implements PrimitiveToken<Domain>
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
 	{
 		HashSet<R> returnSet = new HashSet<>();
-		Deity deity = pc.getDisplay().getDeity();
+		Deity deity = (Deity) ChannelUtilities
+			.readControlledChannel(pc.getCharID(), CControl.DEITYINPUT);
 		if (deity == null)
 		{
 			return returnSet;

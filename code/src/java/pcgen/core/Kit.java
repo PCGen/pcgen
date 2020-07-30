@@ -33,12 +33,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.AllowUtilities;
+import pcgen.cdom.util.CControl;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.core.kit.KitTable;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
@@ -131,7 +133,10 @@ public final class Kit extends PObject
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(pc);
 		if (totalCostToBeCharged != null)
 		{
-			pc.setGold(pc.getGold().subtract(totalCostToBeCharged));
+			BigDecimal currentGold = (BigDecimal) ChannelUtilities
+				.readControlledChannel(pc.getCharID(), CControl.GOLDINPUT);
+			ChannelUtilities.setControlledChannel(pc.getCharID(),
+				CControl.GOLDINPUT, currentGold.subtract(totalCostToBeCharged));
 		}
 
 		for (KitStat kStat : getStats())
@@ -297,14 +302,16 @@ public final class Kit extends PObject
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(tempPC);
 		if (totalCostToBeCharged != null)
 		{
-			BigDecimal pcGold = tempPC.getGold();
+			BigDecimal pcGold = (BigDecimal) ChannelUtilities
+					.readControlledChannel(tempPC.getCharID(), CControl.GOLDINPUT);
 			if (pcGold.compareTo(BigDecimal.ZERO) >= 0 && pcGold.compareTo(totalCostToBeCharged) < 0)
 			{
 				warnings.add("Could not purchase kit. Not enough funds.");
 			}
 			else
 			{
-				tempPC.setGold(pcGold.subtract(totalCostToBeCharged));
+				ChannelUtilities.setControlledChannel(tempPC.getCharID(),
+					CControl.GOLDINPUT, pcGold.subtract(totalCostToBeCharged));
 			}
 		}
 

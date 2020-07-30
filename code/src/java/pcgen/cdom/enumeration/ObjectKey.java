@@ -110,8 +110,6 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Boolean> REMOVABLE = new ObjectKey<>(Boolean.TRUE);
 
-	public static final ObjectKey<SubRegion> SUBREGION = new ObjectKey<>(null);
-
 	public static final ObjectKey<Region> REGION = new ObjectKey<>(null);
 
 	public static final ObjectKey<Gender> GENDER_LOCK = new ObjectKey<>(null);

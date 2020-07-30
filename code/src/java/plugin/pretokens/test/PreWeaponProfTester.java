@@ -23,6 +23,8 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.WeaponProf;
@@ -30,6 +32,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.system.LanguageBundle;
 
 public class PreWeaponProfTester extends AbstractDisplayPrereqTest
@@ -77,9 +80,11 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 		}
 
 		final String aString = prereq.getKey();
-		if ("DEITYWEAPON".equals(aString) && display.getDeity() != null) //$NON-NLS-1$
+		Deity deity = (Deity) ChannelUtilities
+			.readControlledChannel(display.getCharID(), CControl.DEITYINPUT);
+		if ("DEITYWEAPON".equals(aString) && (deity != null)) //$NON-NLS-1$
 		{
-			List<CDOMReference<WeaponProf>> dwp = display.getDeity().getSafeListFor(ListKey.DEITYWEAPON);
+			List<CDOMReference<WeaponProf>> dwp = deity.getSafeListFor(ListKey.DEITYWEAPON);
 			DEITYWPN: for (CDOMReference<WeaponProf> ref : dwp)
 			{
 				for (WeaponProf wp : ref.getContainedObjects())

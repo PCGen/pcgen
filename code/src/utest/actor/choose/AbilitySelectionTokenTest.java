@@ -63,13 +63,13 @@ public class AbilitySelectionTokenTest
 	@Test
 	public void testEncodeChoice()
 	{
-		Ability item = construct("ItemName");
+		Ability item = BuildUtilities.buildFeat(context, "ItemName");
 		AbilitySelection as = new AbilitySelection(item, null);
 		assertEquals("CATEGORY=FEAT|ItemName", PCA.encodeChoice(as));
-		Ability paren = construct("ParenName (test)");
+		Ability paren = BuildUtilities.buildFeat(context, "ParenName (test)");
 		as = new AbilitySelection(paren, null);
 		assertEquals("CATEGORY=FEAT|ParenName (test)", PCA.encodeChoice(as));
-		Ability sel = construct("ChooseName");
+		Ability sel = BuildUtilities.buildFeat(context, "ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		StringToken st = new plugin.lsttokens.choose.StringToken();
 		ParseResult pr = st.parseToken(Globals.getContext(), sel, "selection|Acrobatics");
@@ -84,13 +84,13 @@ public class AbilitySelectionTokenTest
 	{
 		assertThrows(IllegalArgumentException.class,
 				() -> PCA.decodeChoice(context, "Category=Special Ability|ItemName"));
-		Ability item = construct("ItemName");
+		Ability item = BuildUtilities.buildFeat(context, "ItemName");
 		AbilitySelection as = new AbilitySelection(item, null);
 		assertEquals(as, PCA.decodeChoice(context, "CATEGORY=FEAT|ItemName"));
-		Ability paren = construct("ParenName (test)");
+		Ability paren = BuildUtilities.buildFeat(context, "ParenName (test)");
 		as = new AbilitySelection(paren, null);
 		assertEquals(as, PCA.decodeChoice(context, "CATEGORY=Feat|ParenName (test)"));
-		Ability sel = construct("ChooseName");
+		Ability sel = BuildUtilities.buildFeat(context, "ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		StringToken st = new plugin.lsttokens.choose.StringToken();
 		ParseResult pr = st.parseToken(Globals.getContext(), sel, "selection|Acrobatics");
@@ -98,13 +98,5 @@ public class AbilitySelectionTokenTest
 		Globals.getContext().commit();
 		as = new AbilitySelection(sel, "selection");
 		assertEquals(as, PCA.decodeChoice(context, "CATEGORY=Feat|ChooseName|selection"));
-	}
-
-	protected Ability construct(String one)
-	{
-		Ability a = BuildUtilities.getFeatCat().newInstance();
-		a.setName(one);
-		context.getReferenceContext().importObject(a);
-		return a;
 	}
 }

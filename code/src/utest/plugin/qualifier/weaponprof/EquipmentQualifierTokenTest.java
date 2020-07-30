@@ -23,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
+import pcgen.TestConstants;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -36,10 +37,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
-import plugin.lsttokens.ChooseLst;
+
 import plugin.lsttokens.choose.WeaponProficiencyToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
@@ -49,10 +49,7 @@ import org.junit.jupiter.api.Test;
 public class EquipmentQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Equipment>
 {
-	static ChooseLst token = new ChooseLst();
-	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
+	private static final WeaponProficiencyToken SUBTOKEN = new WeaponProficiencyToken();
 	private static final plugin.qualifier.weaponprof.EquipmentToken EQUIPMENT_TOKEN =
 			new plugin.qualifier.weaponprof.EquipmentToken();
 	private WeaponProf wp1, wp2;
@@ -73,7 +70,7 @@ public class EquipmentQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -91,13 +88,13 @@ public class EquipmentQualifierTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return loader;
+		return TestConstants.TOKEN_LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return token;
+		return TestConstants.CHOOSE_TOKEN;
 	}
 
 	@Override

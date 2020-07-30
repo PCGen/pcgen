@@ -32,6 +32,8 @@ import plugin.pretokens.parser.PreLevelMaxParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class MonSkillIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
@@ -44,6 +46,7 @@ public class MonSkillIntegrationTest extends
 	PreLevelMaxParser prelevelmax = new PreLevelMaxParser();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

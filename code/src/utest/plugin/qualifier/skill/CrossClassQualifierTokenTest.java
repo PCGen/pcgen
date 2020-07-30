@@ -23,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
+import pcgen.TestConstants;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -35,10 +36,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
-import plugin.lsttokens.ChooseLst;
+
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
@@ -49,9 +49,7 @@ public class CrossClassQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
-	private static CDOMPrimaryToken token = new ChooseLst();
-	private static CDOMSecondaryToken subtoken = new SkillToken();
-	static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static CDOMSecondaryToken SUBTOKEN = new SkillToken();
 	private Skill s1, s2, s3, s4, s5;
 	private PCClass cl1;
 
@@ -73,7 +71,7 @@ public class CrossClassQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -91,13 +89,13 @@ public class CrossClassQualifierTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return loader;
+		return TestConstants.TOKEN_LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return token;
+		return TestConstants.CHOOSE_TOKEN;
 	}
 
 	@Override

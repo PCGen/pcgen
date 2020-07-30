@@ -228,10 +228,10 @@ class DataTest
 	{
 		List<CampaignSourceEntry> cseList =
 				new ArrayList<>();
-		Arrays.stream(CampaignLoader.OBJECT_FILE_LISTKEY)
+		CampaignLoader.OBJECT_FILE_LISTKEY.stream()
 		      .map((Function<ListKey, List>) campaign::getSafeListFor)
 		      .forEach(cseList::addAll);
-		Arrays.stream(CampaignLoader.OTHER_FILE_LISTKEY)
+		CampaignLoader.OTHER_FILE_LISTKEY.stream()
 		      .map((Function<ListKey, List>) campaign::getSafeListFor)
 		      .forEach(cseList::addAll);
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_PCC));

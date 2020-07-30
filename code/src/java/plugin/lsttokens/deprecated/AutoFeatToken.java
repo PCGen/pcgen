@@ -18,7 +18,6 @@
 package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -42,17 +41,10 @@ public class AutoFeatToken extends AbstractNonEmptyToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Incompatible with " + value);
 		}
-		try
+		if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value.substring(5)))
 		{
-			if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value.substring(5)))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error from AUTO:FEAT");
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from AUTO:FEAT: " + e.getLocalizedMessage());
+			Logging.replayParsedMessages();
+			return new ParseResult.Fail("Delegation Error from AUTO:FEAT");
 		}
 		return ParseResult.SUCCESS;
 	}

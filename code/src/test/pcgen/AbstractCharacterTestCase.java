@@ -23,6 +23,7 @@ import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -112,10 +113,16 @@ public abstract class AbstractCharacterTestCase
 		BuildUtilities.buildUnselectedRace(context);
 		AbstractReferenceContext ref = context.getReferenceContext();
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
-		
+
+		Deity d = new Deity();
+		d.setName("None");
+		ref.importObject(d);
+
 		FormatSupport.addBasicDefaults(context);
 		FormatSupport.addNoneAsDefault(context,
 			context.getReferenceContext().getManufacturer(PCAlignment.class));
+		FormatSupport.addNoneAsDefault(context,
+			context.getReferenceContext().getManufacturer(Deity.class));
 		SourceFileLoader.defineBuiltinVariables(context);
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),

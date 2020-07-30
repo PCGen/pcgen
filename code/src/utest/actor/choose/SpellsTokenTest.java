@@ -27,12 +27,12 @@ public class SpellsTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Spell>
 {
 
-	static SpellsToken pca = new SpellsToken();
+	private static final SpellsToken PCA = new SpellsToken();
 
 	@Override
 	public Chooser<Spell> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

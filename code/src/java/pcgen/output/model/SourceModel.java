@@ -128,7 +128,7 @@ public class SourceModel implements TemplateHashModel
 	}
 
 	@Override
-	public boolean isEmpty() throws TemplateModelException
+	public boolean isEmpty()
 	{
 		return false;
 	}

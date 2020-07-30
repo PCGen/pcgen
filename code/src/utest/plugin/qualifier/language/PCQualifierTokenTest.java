@@ -33,7 +33,7 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Language>
 {
 
-	static LangToken subtoken = new LangToken();
+	private static final LangToken SUBTOKEN = new LangToken();
 
 	private static final plugin.qualifier.language.PCToken PC_TOKEN =
 			new plugin.qualifier.language.PCToken();
@@ -49,7 +49,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override

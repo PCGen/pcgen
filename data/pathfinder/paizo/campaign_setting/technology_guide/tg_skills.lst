@@ -1,0 +1,5 @@
+
+
+
+# Skill Name			Key Stat	Untrained?		Type				Source Page		Bonus to skill
+Craft (Mechanical)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft				BONUS:SKILL|Craft (Mechanical)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Mechanical)|PRESKILL:1,Craft (Mechanical)=1

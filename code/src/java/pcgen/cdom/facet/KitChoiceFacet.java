@@ -23,7 +23,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SkillFacet;
@@ -42,8 +41,6 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
-
-	private DeityFacet deityFacet;
 
 	private DomainFacet domainFacet;
 
@@ -104,11 +101,6 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		this.raceFacet = raceFacet;
 	}
 
-	public void setDeityFacet(DeityFacet deityFacet)
-	{
-		this.deityFacet = deityFacet;
-	}
-
 	public void setDomainFacet(DomainFacet domainFacet)
 	{
 		this.domainFacet = domainFacet;
@@ -133,7 +125,6 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
-		deityFacet.addDataFacetChangeListener(this);
 		domainFacet.addDataFacetChangeListener(this);
 		skillFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);

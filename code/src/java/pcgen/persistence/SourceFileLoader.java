@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
@@ -39,7 +38,6 @@ import pcgen.base.util.AbstractMapToList;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.content.factset.FactSetDefinition;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -67,6 +65,7 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCCheck;
@@ -85,9 +84,9 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.io.PCGFile;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.lst.AbilityCategoryLoader;
@@ -136,10 +135,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private final LstObjectFileLoader<Language> languageLoader = new GenericLoader<>(Language.class);
 	private final LstLineFileLoader abilityCategoryLoader = new AbilityCategoryLoader();
 	private final LstLineFileLoader companionModLoader = new CompanionModLoader();
-	private final LstObjectFileLoader kitLoader = new KitLoader();
+	private final LstObjectFileLoader<Kit> kitLoader = new KitLoader();
 	private final LstLineFileLoader bioLoader = new BioSetLoader();
-	private final LstObjectFileLoader abilityLoader = new AbilityLoader();
-	private final LstObjectFileLoader featLoader = new FeatLoader();
+	private final LstObjectFileLoader<Ability> abilityLoader = new AbilityLoader();
+	private final LstObjectFileLoader<Ability> featLoader = new FeatLoader();
 	private final LstObjectFileLoader<PCTemplate> templateLoader = new GenericLoader<>(PCTemplate.class);
 	private final LstObjectFileLoader<Equipment> equipmentLoader =
 			new GenericLocalVariableLoader<>(Equipment.class, "PC.EQUIPMENT");
@@ -168,38 +167,29 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * Other properties
 	 */
 	private final Collection<CampaignSourceEntry> licenseFiles = new ArrayList<>();
-	private final Collection<String> sourcesSet = new TreeSet<>();
-	private final Collection<Campaign> loadedCampaigns = new ArrayList<>();
 	private final StringBuilder sec15 = new StringBuilder(500);
 	private final StringBuilder licensesToDisplayString = new StringBuilder(500);
 	private final StringBuilder matureCampaigns = new StringBuilder(100);
-	private final CampaignSourceEntry globalCampaign;
-	private boolean showD20 = false;
 	private boolean showLicensed = true;
 	private boolean showMature = false;
 	private boolean showOGL = false;
-	private final List<Campaign> selectedCampaigns;
+	private final List<Campaign> selectedCampaigns = new ArrayList<>();
 	private final GameMode selectedGame;
 	private DataSet dataset = null;
 	private int progress = 0;
 	private final UIDelegate uiDelegate;
 
-	public SourceFileLoader(SourceSelectionFacade selection, UIDelegate delegate)
+	public SourceFileLoader(UIDelegate delegate, ListFacade<Campaign> campaigns, String gameModeNamed)
 	{
 		//Ensure object lists are not null (but rather empty)
-		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OBJECT_FILE_LISTKEY)
-		{
-			fileLists.initializeListFor(lk);
-		}
+		CampaignLoader.OBJECT_FILE_LISTKEY
+				.forEach(fileLists::initializeListFor);
 		this.uiDelegate = delegate;
-		selectedCampaigns = new ArrayList<>();
-		for (Campaign campaign : selection.getCampaigns())
-		{
-			Campaign camp = Globals.getCampaignKeyed(campaign.getKeyName());
-			selectedCampaigns.add(camp);
-		}
-		selectedGame = SystemCollections.getGameModeNamed(selection.getGameMode().get().getName());
-		globalCampaign = new CampaignSourceEntry(new Campaign(), URI.create("file:/System%20Configuration%20Document"));
+		campaigns.forEach(campaign -> selectedCampaigns.add(Globals.getCampaignKeyed(campaign.getKeyName())));
+		selectedGame = SystemCollections.getGameModeNamed(gameModeNamed);
+		//TODO see if this has any sideeffects
+		new CampaignSourceEntry(new Campaign(), URI.create("file:/System%20Configuration%20Document"));
+
 		abilityCategoryLoader.addObserver(this);
 		bioLoader.addObserver(this);
 		companionModLoader.addObserver(this);
@@ -439,21 +429,22 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		URI uri = URI.create("file:/" + eqModLoader.getClass().getName() + ".java");
 		context.setSourceURI(uri);
 		SourceEntry source = new CampaignSourceEntry(new Campaign(), uri);
+
 		LoadContext subContext = context.dropIntoContext("PC.EQUIPMENT");
-		String aLine;
-		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\t"
+
+		String addType = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\t"
 				+ "CHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
-		eqModLoader.parseLine(subContext, null, aLine, source);
+		eqModLoader.parseLine(subContext, null, addType, source);
 
 		//
 		// Add internal equipment modifier for adding weapon/armor types to
 		// equipment
 		//
-		aLine = Constants.INTERNAL_EQMOD_WEAPON + "\tTYPE:Weapon\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
-		eqModLoader.parseLine(subContext, null, aLine, source);
+		String weapon = Constants.INTERNAL_EQMOD_WEAPON + "\tTYPE:Weapon\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
+		eqModLoader.parseLine(subContext, null, weapon, source);
 
-		aLine = Constants.INTERNAL_EQMOD_ARMOR + "\tTYPE:Armor\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
-		eqModLoader.parseLine(subContext, null, aLine, source);
+		String armor = Constants.INTERNAL_EQMOD_ARMOR + "\tTYPE:Armor\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
+		eqModLoader.parseLine(subContext, null, armor, source);
 	}
 
 	private void loadCampaigns() throws PersistenceLayerException
@@ -468,7 +459,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 		pManager.setChosenCampaignSourcefiles(uris);
 
-		sourcesSet.clear();
 		licenseFiles.clear();
 
 		if (selectedCampaigns.isEmpty())
@@ -493,10 +483,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			// Verify weapons are melee or ranged
 			verifyWeaponsMeleeOrRanged(context);
 
-			for (Campaign campaign : selectedCampaigns)
-			{
-				sourcesSet.add(SourceFormat.getFormattedString(campaign, SourceFormat.MEDIUM, true));
-			}
 			context.setLoaded(selectedCampaigns);
 
 			/*
@@ -521,15 +507,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	{
 		Logging.log(Logging.INFO, "Loading game " + gamemode + " and sources " + aSelectedCampaignsList + ".");
 
-		//		// The first thing we need to do is load the
-		//		// correct statsandchecks.lst file for this gameMode
-		//		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
-		//		if (gamemode == null)
-		//		{
-		//			// Autoload campaigns is set but there
-		//			// is no current gameMode, so just return
-		//			return;
-		//		}
 		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
 
 		// Sort the campaigns
@@ -670,7 +647,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private static boolean allowControl(LoadContext context, CControl control)
 	{
 		return control.getControllingFeature().isEmpty() || ControlUtilities
-			.hasControlToken(context, control.getControllingFeature().get());
+			.isFeatureEnabled(context, control.getControllingFeature().get());
 	}
 
 	/**
@@ -732,17 +709,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	public static void processFactDefinitions(LoadContext context)
 	{
-		Collection<? extends ContentDefinition> defs =
-				context.getReferenceContext().getConstructedCDOMObjects(FactDefinition.class);
-		for (ContentDefinition<?, ?> fd : defs)
-		{
-			fd.activate(context);
-		}
-		defs = context.getReferenceContext().getConstructedCDOMObjects(FactSetDefinition.class);
-		for (ContentDefinition<?, ?> fd : defs)
-		{
-			fd.activate(context);
-		}
+				context.getReferenceContext().getConstructedCDOMObjects(FactDefinition.class)
+						.forEach(factDefinition-> factDefinition.activate(context));
+
+				context.getReferenceContext().getConstructedCDOMObjects(FactSetDefinition.class)
+						.forEach(factSetDefinition -> factSetDefinition.activate(context));
 	}
 
 	private void finishLoad(GameMode gameMode, List<Campaign> aSelectedCampaignsList, LoadContext context)
@@ -782,6 +753,19 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		if (RaceUtilities.getUnselectedRace() == null)
 		{
 			Logging.errorPrint(gameMode.getName() + " did not have required Race with 'Unselected' Group");
+		}
+		if (ControlUtilities.isFeatureEnabled(context, CControl.DOMAINFEATURE))
+		{
+			long unselectedDeityCount = refContext.getConstructedCDOMObjects(Deity.class)
+					.stream()
+					.filter(Deity::isUnselected)
+					.count();
+			if (unselectedDeityCount != 1)
+			{
+				Logging.errorPrint(gameMode.getName()
+					+ " did not have one Deity with 'Unselected' Group (found: "
+					+ unselectedDeityCount + ")");
+			}
 		}
 	}
 
@@ -863,7 +847,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 		catch (IOException e)
 		{
-			logError("Error when loading custom items", e);
+			Logging.errorPrint("Error when loading custom items", e);
 		}
 	}
 
@@ -907,21 +891,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	}
 
 	/**
-	 * Logs an error that has occurred during data loading. This will not only
-	 * log the message to the system error log, but it will also notify all
-	 * observers of the error.
-	 * 
-	 * @param message
-	 *            the error to notify listeners about
-	 * @param e
-	 */
-	private void logError(String message, Throwable e)
-	{
-		Logging.errorPrint(message, e);
-		//setChanged();
-	}
-
-	/**
 	 * This method reads the PCC (Campaign) files and, if options are allowed to
 	 * be set in the sources, sets the SettingsHandler settings to reflect the
 	 * changes from the campaign files.
@@ -942,8 +911,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				Logging.debugPrint("Loading campaign " + campaign);
 			}
 
-			loadedCampaigns.add(campaign);
-
 			List<String> copyright = campaign.getListFor(ListKey.SECTION_15);
 			if (copyright != null)
 			{
@@ -959,7 +926,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 			// Update whether licenses need shown
 			showOGL |= campaign.getSafe(ObjectKey.IS_OGL);
-			showD20 |= campaign.getSafe(ObjectKey.IS_D20);
 			showLicensed |= campaign.getSafe(ObjectKey.IS_LICENSED);
 
 			if (campaign.getSafe(ObjectKey.IS_LICENSED))
@@ -1051,25 +1017,22 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private static void setCampaignOptions(Campaign aCamp)
 	{
 		Set<String> keys = aCamp.getKeysFor(MapKey.PROPERTY);
-		if (keys != null)
+		for (final String key : keys)
 		{
-			for (final String key : keys)
+			String value = aCamp.get(MapKey.PROPERTY, key);
+			if (key.contains("."))
 			{
-				String value = aCamp.get(MapKey.PROPERTY, key);
-				if (key.contains("."))
-				{
-					PCGenSettings.getInstance().setProperty(key, value);
-				}
-				else
-				{
-					PCGenSettings.OPTIONS_CONTEXT.setProperty(key, value);
-				}
-				// Note: This is just until we transition all settings from the legacy settings
-				SettingsHandler.setPCGenOption(key, value);
+				PCGenSettings.getInstance().setProperty(key, value);
 			}
-			// Make sure any game mode settings are applied.
-			SystemCollections.getUnmodifiableGameModeList().forEach(GameMode::applyPreferences);
+			else
+			{
+				PCGenSettings.OPTIONS_CONTEXT.setProperty(key, value);
+			}
+			// Note: This is just until we transition all settings from the legacy settings
+			SettingsHandler.setPCGenOption(key, value);
 		}
+		// Make sure any game mode settings are applied.
+		SystemCollections.getUnmodifiableGameModeList().forEach(GameMode::applyPreferences);
 	}
 
 	/**
@@ -1106,11 +1069,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 	}
 
-	public boolean hasD20Campaign()
-	{
-		return showD20;
-	}
-
 	public boolean hasMatureCampaign()
 	{
 		return showMature;
@@ -1141,7 +1099,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			{
 				setProgress(String.valueOf(uri), progress);
 			}
-			//setProgress(progress);
 		}
 		else if (arg instanceof Exception)
 		{

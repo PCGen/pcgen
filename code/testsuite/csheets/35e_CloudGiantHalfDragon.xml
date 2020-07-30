@@ -425,7 +425,7 @@ BIO
 		</skillpoints>
 		<list_mods>Climb +27, Diplomacy +5, Intimidate +11, Jump +28, Listen +15, Perform (String Instruments) +2, Sense Motive +9, Spot +15</list_mods>
 		<max_class_skill_level>20</max_class_skill_level>
-		<max_cross_class_skill_level>10</max_cross_class_skill_level>
+		<max_cross_class_skill_level>10.0</max_cross_class_skill_level>
 		<skill>
 			<name>Appraise</name>
 			<ranks>0.0</ranks>

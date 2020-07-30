@@ -42,7 +42,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
@@ -50,7 +49,6 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -126,7 +124,6 @@ import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.DescriptionFacade;
-import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
@@ -158,6 +155,7 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.GenderCompat;
 import pcgen.output.channel.compat.HandedCompat;
@@ -197,7 +195,7 @@ public class CharacterFacadeImpl
 	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
 	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<Race> race;
-	private DefaultReferenceFacade<Deity> deity;
+	private WriteableReferenceFacade<Deity> deity;
 	private DefaultReferenceFacade<String> tabName;
 	private DefaultReferenceFacade<String> name;
 	private DefaultReferenceFacade<String> playersName;
@@ -214,10 +212,10 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> currentXP;
 	private DefaultReferenceFacade<Integer> xpForNextlevel;
 	private DefaultReferenceFacade<String> xpTableName;
-	private DefaultReferenceFacade<String> characterType;
+	private WriteableReferenceFacade<String> characterType;
 	private DefaultReferenceFacade<String> previewSheet;
 	private DefaultReferenceFacade<SkillFilter> skillFilter;
-	private DefaultReferenceFacade<Integer> age;
+	private WriteableReferenceFacade<Integer> age;
 	private DefaultReferenceFacade<String> ageCategory;
 	private DefaultListFacade<String> ageCategoryList;
 	private DefaultReferenceFacade<String> poolPointText;
@@ -232,8 +230,8 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<String> carriedWeightRef;
 	private DefaultReferenceFacade<String> loadRef;
 	private DefaultReferenceFacade<String> weightLimitRef;
-	private DefaultListFacade<DomainFacade> domains;
-	private DefaultListFacade<DomainFacade> availDomains;
+	private DefaultListFacade<QualifiedObject<Domain>> domains;
+	private DefaultListFacade<QualifiedObject<Domain>> availDomains;
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<PCTemplate> templates;
@@ -242,12 +240,11 @@ public class CharacterFacadeImpl
 	private RectangleReference cropRect;
 	private String selectedGender;
 	private List<Language> currBonusLangs;
-	private DefaultReferenceFacade<String> skinColor;
-	private DefaultReferenceFacade<String> hairColor;
+	private WriteableReferenceFacade<String> skinColor;
+	private WriteableReferenceFacade<String> hairColor;
 	private DefaultReferenceFacade<String> eyeColor;
-	private DefaultReferenceFacade<Integer> heightRef;
 	private DefaultReferenceFacade<Integer> weightRef;
-	private DefaultReferenceFacade<BigDecimal> fundsRef;
+	private WriteableReferenceFacade<BigDecimal> fundsRef;
 	private DefaultReferenceFacade<BigDecimal> wealthRef;
 	private DefaultReferenceFacade<GearBuySellFacade> gearBuySellSchemeRef;
 
@@ -344,7 +341,8 @@ public class CharacterFacadeImpl
 		}
 		portrait = new DefaultReferenceFacade<>(portraitFile);
 		cropRect = new RectangleReference(charDisplay.getPortraitThumbnailRect());
-		characterType = new DefaultReferenceFacade<>(charDisplay.getCharacterType());
+		characterType = CoreInterfaceUtilities
+				.getReferenceFacade(theCharacter.getCharID(), CControl.CHARACTERTYPE);
 		previewSheet = new DefaultReferenceFacade<>(charDisplay.getPreviewSheet());
 		skillFilter = new DefaultReferenceFacade<>(charDisplay.getSkillFilter());
 
@@ -380,7 +378,8 @@ public class CharacterFacadeImpl
 			alignment = CoreInterfaceUtilities.getReferenceFacade(
 				theCharacter.getCharID(), CControl.ALIGNMENTINPUT);
 		}
-		age = new DefaultReferenceFacade<>(charDisplay.getAge());
+		age = CoreInterfaceUtilities
+			.getReferenceFacade(theCharacter.getCharID(), CControl.AGEINPUT);
 		ageCategory = new DefaultReferenceFacade<>();
 		updateAgeCategoryForAge();
 		currentXP = new DefaultReferenceFacade<>(theCharacter.getXP());
@@ -390,12 +389,13 @@ public class CharacterFacadeImpl
 		xpTableName = new DefaultReferenceFacade<>(charDisplay.getXPTableName());
 		hpRef = new DefaultReferenceFacade<>(theCharacter.hitPoints());
 
-		skinColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SKINCOLOR));
-		hairColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR));
+		skinColor = CoreInterfaceUtilities.getReferenceFacade(
+			theCharacter.getCharID(), CControl.SKINCOLORINPUT);
+		hairColor = CoreInterfaceUtilities.getReferenceFacade(
+				theCharacter.getCharID(), CControl.HAIRCOLORINPUT);
 		eyeColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR));
 		weightRef = new DefaultReferenceFacade<>();
-		heightRef = new DefaultReferenceFacade<>();
-		refreshHeightWeight();
+		refreshWeight();
 
 		purchasedEquip = new EquipmentListFacadeImpl(theCharacter.getEquipmentMasterList());
 		autoEquipListener = new AutoEquipListener();
@@ -415,7 +415,8 @@ public class CharacterFacadeImpl
 		refreshClassLevelModel();
 		charLevelsFacade.addHitPointListener(this);
 
-		deity = new DefaultReferenceFacade<>(charDisplay.getDeity());
+		deity = CoreInterfaceUtilities
+			.getReferenceFacade(theCharacter.getCharID(), CControl.DEITYINPUT);
 		domains = new DefaultListFacade<>();
 		maxDomains = new DefaultReferenceFacade<>(theCharacter.getMaxCharacterDomains());
 		remainingDomains = new DefaultReferenceFacade<>(theCharacter.getMaxCharacterDomains() - domains.getSize());
@@ -443,7 +444,9 @@ public class CharacterFacadeImpl
 
 		purchasedEquip.addListListener(spellSupportFacade);
 		purchasedEquip.addEquipmentListListener(spellSupportFacade);
-		fundsRef = new DefaultReferenceFacade<>(theCharacter.getGold());
+		fundsRef = CoreInterfaceUtilities
+				.getReferenceFacade(theCharacter.getCharID(), CControl.GOLDINPUT);
+
 		wealthRef = new DefaultReferenceFacade<>(theCharacter.totalValue());
 		gearBuySellSchemeRef = new DefaultReferenceFacade<>(findGearBuySellRate());
 		allowDebt = false;
@@ -756,8 +759,7 @@ public class CharacterFacadeImpl
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
-		age.set(charDisplay.getAge());
-		refreshHeightWeight();
+		refreshWeight();
 		refreshStatScores();
 
 		updateLevelTodo();
@@ -777,10 +779,9 @@ public class CharacterFacadeImpl
 		hpRef.set(theCharacter.hitPoints());
 	}
 
-	private void refreshHeightWeight()
+	private void refreshWeight()
 	{
 		weightRef.set(Globals.getGameModeUnitSet().convertWeightToUnitSet(charDisplay.getWeight()));
-		heightRef.set((int) Math.round(Globals.getGameModeUnitSet().convertHeightToUnitSet(charDisplay.getHeight())));
 	}
 
 	@Override
@@ -1681,9 +1682,8 @@ public class CharacterFacadeImpl
 		}
 		refreshClassLevelModel();
 		refreshStatScores();
-		age.set(charDisplay.getAge());
 		updateAgeCategoryForAge();
-		refreshHeightWeight();
+		refreshWeight();
 		characterAbilities.rebuildAbilityLists();
 		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
@@ -1742,28 +1742,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * Check  whether the field should be output. 
-	 * @param field The BiographyField to check export rules for.
-	 * @return true if the field should be output, false if it may not be.
-	 */
-	@Override
-	public boolean getExportBioField(BiographyField field)
-	{
-		return !charDisplay.getSuppressBioField(field);
-	}
-
-	/**
-	 * Set whether the field should be output. 
-	 * @param field The BiographyField to set export rules for.
-	 * @param export Should the field be shown in output.
-	 */
-	@Override
-	public void setExportBioField(BiographyField field, boolean export)
-	{
-		theCharacter.setSuppressBioField(field, !export);
-	}
-
 	@Override
 	public ReferenceFacade<String> getSkinColorRef()
 	{
@@ -1774,7 +1752,6 @@ public class CharacterFacadeImpl
 	public void setSkinColor(String color)
 	{
 		skinColor.set(color);
-		theCharacter.setPCAttribute(PCStringKey.SKINCOLOR, color);
 	}
 
 	@Override
@@ -1787,7 +1764,6 @@ public class CharacterFacadeImpl
 	public void setHairColor(String color)
 	{
 		hairColor.set(color);
-		theCharacter.setPCAttribute(PCStringKey.HAIRCOLOR, color);
 	}
 
 	@Override
@@ -1804,20 +1780,6 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<Integer> getHeightRef()
-	{
-		return heightRef;
-	}
-
-	@Override
-	public void setHeight(int height)
-	{
-		int heightInInches = Globals.getGameModeUnitSet().convertHeightFromUnitSet(height);
-		heightRef.set(height);
-		theCharacter.setHeight(heightInInches);
-	}
-
-	@Override
 	public ReferenceFacade<Integer> getWeightRef()
 	{
 		return weightRef;
@@ -1828,7 +1790,7 @@ public class CharacterFacadeImpl
 	{
 		int weightInPounds = (int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(weight);
 		weightRef.set(weight);
-		theCharacter.setPCAttribute(NumericPCAttribute.WEIGHT, weightInPounds);
+		theCharacter.setWeight(weightInPounds);
 	}
 
 	@Override
@@ -1840,27 +1802,24 @@ public class CharacterFacadeImpl
 	@Override
 	public void setDeity(Deity deity)
 	{
-		this.deity.set(deity);
-		theCharacter.setDeity(deity);
-		refreshLanguageList();
-		buildAvailableDomainsList();
+		if (theCharacter.canSelectDeity(deity))
+		{
+			this.deity.set(deity);
+			refreshLanguageList();
+			buildAvailableDomainsList();
+		}
 	}
 
 	@Override
-	public void addDomain(DomainFacade domainFacade)
+	public void addDomain(QualifiedObject<Domain> wrappedDomain)
 	{
-		if (!(domainFacade instanceof DomainFacadeImpl))
-		{
-			return;
-		}
-		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
-		Domain domain = domainFI.getRawObject();
+		Domain domain = wrappedDomain.getRawObject();
 		if (charDisplay.hasDomain(domain))
 		{
 			return;
 		}
 
-		if (!isQualifiedFor(domainFacade))
+		if (!isQualifiedFor(wrappedDomain))
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME,
 				LanguageBundle.getFormattedString("in_qualifyMess", domain.getDisplayName()));
@@ -1888,7 +1847,7 @@ public class CharacterFacadeImpl
 
 		if (theCharacter.addDomain(domain))
 		{
-			domains.addElement(domainFI);
+			domains.addElement(wrappedDomain);
 			DomainApplication.applyDomain(theCharacter, domain);
 
 			theCharacter.calcActiveBonuses();
@@ -1901,19 +1860,19 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<DomainFacade> getDomains()
+	public ListFacade<QualifiedObject<Domain>> getDomains()
 	{
 		return domains;
 	}
 
 	@Override
-	public void removeDomain(DomainFacade domain)
+	public void removeDomain(QualifiedObject<Domain> domain)
 	{
 		if (domains.removeElement(domain))
 		{
-			Domain dom = ((DomainFacadeImpl) domain).getRawObject();
+			Domain dom = domain.getRawObject();
 			DomainApplication.removeDomain(theCharacter, dom);
-			theCharacter.removeDomain(((DomainFacadeImpl) domain).getRawObject());
+			theCharacter.removeDomain(dom);
 			remainingDomains.set(theCharacter.getMaxCharacterDomains() - charDisplay.getDomainCount());
 			updateDomainTodo();
 			spellSupportFacade.refreshAvailableKnownSpells();
@@ -1949,7 +1908,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<DomainFacade> getAvailableDomains()
+	public ListFacade<QualifiedObject<Domain>> getAvailableDomains()
 	{
 		return availDomains;
 	}
@@ -1959,9 +1918,10 @@ public class CharacterFacadeImpl
 	 */
 	private void buildAvailableDomainsList()
 	{
-		List<DomainFacadeImpl> availDomainList = new ArrayList<>();
-		List<DomainFacadeImpl> selDomainList = new ArrayList<>();
-		Deity pcDeity = charDisplay.getDeity();
+		List<QualifiedObject<Domain>> availDomainList = new ArrayList<>();
+		List<QualifiedObject<Domain>> selDomainList = new ArrayList<>();
+		Deity pcDeity = (Deity) ChannelUtilities.readControlledChannel(
+			charDisplay.getCharID(), CControl.DEITYINPUT);
 
 		if (pcDeity != null)
 		{
@@ -1974,7 +1934,7 @@ public class CharacterFacadeImpl
 					{
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList()));
+							availDomainList.add(new QualifiedObject<>(d, apo.getPrerequisiteList()));
 						}
 					}
 				}
@@ -2001,9 +1961,9 @@ public class CharacterFacadeImpl
 		// Loop through the character's selected domains
 		for (Domain d : charDisplay.getDomainSet())
 		{
-			DomainFacadeImpl domainFI = new DomainFacadeImpl(d);
+			QualifiedObject<Domain> domainFI = new QualifiedObject<>(d);
 			boolean found = false;
-			for (DomainFacadeImpl row : availDomainList)
+			for (QualifiedObject<Domain> row : availDomainList)
 			{
 				if (d.equals(row.getRawObject()))
 				{
@@ -2038,9 +1998,9 @@ public class CharacterFacadeImpl
 	 * @param domain The domain to search for.
 	 * @return true if the domain is in the list 
 	 */
-	private boolean isDomainInList(List<DomainFacadeImpl> qualDomainList, Domain domain)
+	private boolean isDomainInList(List<QualifiedObject<Domain>> qualDomainList, Domain domain)
 	{
-		for (DomainFacadeImpl row : qualDomainList)
+		for (QualifiedObject<Domain> row : qualDomainList)
 		{
 			if (domain.equals(row.getRawObject()))
 			{
@@ -2050,7 +2010,7 @@ public class CharacterFacadeImpl
 		return false;
 	}
 
-	private void processAddDomains(CDOMObject cdo, final List<DomainFacadeImpl> availDomainList)
+	private void processAddDomains(CDOMObject cdo, final List<QualifiedObject<Domain>> availDomainList)
 	{
 		Collection<CDOMReference<Domain>> domainRefs = cdo.getListMods(PCClass.ALLOWED_DOMAINS);
 		if (domainRefs != null)
@@ -2069,7 +2029,7 @@ public class CharacterFacadeImpl
 						 */
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList()));
+							availDomainList.add(new QualifiedObject<>(d, apo.getPrerequisiteList()));
 						}
 					}
 				}
@@ -2077,7 +2037,7 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	private void processDomainList(CDOMObject obj, final List<DomainFacadeImpl> availDomainList)
+	private void processDomainList(CDOMObject obj, final List<QualifiedObject<Domain>> availDomainList)
 	{
 		for (QualifiedObject<CDOMSingleRef<Domain>> qo : obj.getSafeListFor(ListKey.DOMAIN))
 		{
@@ -2085,7 +2045,7 @@ public class CharacterFacadeImpl
 			Domain domain = ref.get();
 			if (!isDomainInList(availDomainList, domain))
 			{
-				availDomainList.add(new DomainFacadeImpl(domain, qo.getPrerequisiteList()));
+				availDomainList.add(new QualifiedObject<>(domain, qo.getPrerequisiteList()));
 			}
 		}
 	}
@@ -2457,10 +2417,8 @@ public class CharacterFacadeImpl
 	 * Save the character to disc using its filename. Note this method is not 
 	 * part of the CharacterFacade and should only be used by the 
 	 * ChracterManager class.
-	 * 
-	 * @throws IOException If the write fails
 	 */
-	public void save() throws IOException
+	public void save()
 	{
 		GameMode mode = dataSet.getGameMode();
 		List<Campaign> campaigns = ListFacades.wrap(dataSet.getCampaigns());
@@ -2577,7 +2535,6 @@ public class CharacterFacadeImpl
 	{
 
 		characterType.set(newType);
-		theCharacter.setCharacterType(newType);
 		theCharacter.calcActiveBonuses();
 
 		// This can affect traits mainly.
@@ -2613,13 +2570,6 @@ public class CharacterFacadeImpl
 	@Override
 	public void setAge(final int age)
 	{
-		if (age == this.age.get())
-		{
-			// We've already processed this change, most likely via the setAgeCategory method
-			return;
-		}
-
-		theCharacter.setPCAttribute(NumericPCAttribute.AGE, age);
 		this.age.set(age);
 		updateAgeCategoryForAge();
 		refreshStatScores();
@@ -2677,7 +2627,6 @@ public class CharacterFacadeImpl
             {
                 ageCategory.set(ageCat);
                 SettingsHandler.getGameAsProperty().get().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
-                age.set(charDisplay.getAge());
                 ageCategory.set(ageCat);
                 refreshStatScores();
                 refreshLanguageList();
@@ -2918,15 +2867,15 @@ public class CharacterFacadeImpl
 	@Override
 	public void adjustFunds(BigDecimal modVal)
 	{
-		BigDecimal currFunds = theCharacter.getGold();
-		theCharacter.setGold(currFunds.add(modVal));
+		BigDecimal currFunds = fundsRef.get();
+		fundsRef.set(currFunds.add(modVal));
 		updateWealthFields();
 	}
 
 	@Override
 	public void setFunds(BigDecimal newVal)
 	{
-		theCharacter.setGold(newVal);
+		fundsRef.set(newVal);
 		updateWealthFields();
 	}
 
@@ -2964,7 +2913,6 @@ public class CharacterFacadeImpl
 	 */
 	private void updateWealthFields()
 	{
-		fundsRef.set(theCharacter.getGold());
 		wealthRef.set(theCharacter.totalValue());
 	}
 
@@ -3020,7 +2968,7 @@ public class CharacterFacadeImpl
 		}
 		Equipment updatedItem = theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
 
-		if (!free && !canAfford(equipItemToAdjust, quantity, (GearBuySellScheme) gearBuySellSchemeRef.get()))
+		if (!free && !canAfford(equipItemToAdjust, new BigDecimal(quantity), (GearBuySellScheme) gearBuySellSchemeRef.get()))
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME,
 				LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", quantity, equipItemToAdjust.getName()));
@@ -3056,8 +3004,13 @@ public class CharacterFacadeImpl
 		// Update the PC and equipment
 		if (!free)
 		{
-			double itemCost = calcItemCost(updatedItem, quantity, (GearBuySellScheme) gearBuySellSchemeRef.get());
-			theCharacter.adjustGold(itemCost * -1);
+			BigDecimal itemCost = calcItemCost(updatedItem, new BigDecimal(quantity),
+				(GearBuySellScheme) gearBuySellSchemeRef.get());
+			BigDecimal currentGold =
+					(BigDecimal) ChannelUtilities.readControlledChannel(
+						theCharacter.getCharID(), CControl.GOLDINPUT);
+			ChannelUtilities.setControlledChannel(theCharacter.getCharID(),
+				CControl.GOLDINPUT, currentGold.subtract(itemCost));
 		}
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
@@ -3088,29 +3041,33 @@ public class CharacterFacadeImpl
 	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
 	 * @return true if it can be afforded
 	 */
-	private boolean canAfford(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
+	private boolean canAfford(Equipment selected, BigDecimal purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
-		final float currentFunds = theCharacter.getGold().floatValue();
+		BigDecimal currentGold =
+				(BigDecimal) ChannelUtilities.readControlledChannel(
+					theCharacter.getCharID(), CControl.GOLDINPUT);
 
-		final double itemCost = calcItemCost(selected, purchaseQty, gearBuySellScheme);
+		BigDecimal itemCost = calcItemCost(selected, purchaseQty, gearBuySellScheme);
 
-		return allowDebt || (itemCost <= currentFunds);
+		return allowDebt || (itemCost.compareTo(currentGold) <= 0);
 	}
 
-	private double calcItemCost(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
+	private BigDecimal calcItemCost(Equipment selected, BigDecimal purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
 		if (selected == null)
 		{
-			return 0;
+			return BigDecimal.ZERO;
 		}
 
-		BigDecimal rate = purchaseQty >= 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
-		if (purchaseQty < 0 && selected.isSellAsCash())
+		BigDecimal rate = purchaseQty.compareTo(BigDecimal.ZERO) > 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
+		if (purchaseQty.compareTo(BigDecimal.ZERO) < 0 && selected.isSellAsCash())
 		{
 			rate = gearBuySellScheme.getCashSellRate();
 		}
 
-		return (purchaseQty * rate.intValue()) * (float) 0.01 * selected.getCost(theCharacter).floatValue();
+		return purchaseQty.multiply(rate)
+			.multiply(new BigDecimal("0.01"))
+			.multiply(selected.getCost(theCharacter));
 	}
 
 	private Equipment openCustomizer(Equipment aEq)
@@ -3191,9 +3148,15 @@ public class CharacterFacadeImpl
 		// Update the PC and equipment
 		if (!free)
 		{
-			double itemCost =
-					calcItemCost(updatedItem, numRemoved * -1, (GearBuySellScheme) gearBuySellSchemeRef.get());
-			theCharacter.adjustGold(itemCost * -1);
+			@SuppressWarnings("PMD.AvoidDecimalLiteralsInBigDecimalConstructor")
+			BigDecimal removed = new BigDecimal(numRemoved);
+			BigDecimal itemCost = calcItemCost(updatedItem, removed.negate(),
+				(GearBuySellScheme) gearBuySellSchemeRef.get());
+			BigDecimal currentGold =
+					(BigDecimal) ChannelUtilities.readControlledChannel(
+						theCharacter.getCharID(), CControl.GOLDINPUT);
+			ChannelUtilities.setControlledChannel(theCharacter.getCharID(),
+				CControl.GOLDINPUT, currentGold.subtract(itemCost));
 		}
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
@@ -3480,16 +3443,10 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean isQualifiedFor(DomainFacade domainFacade)
+	public boolean isQualifiedFor(QualifiedObject<Domain> wrappedDomain)
 	{
-		if (!(domainFacade instanceof DomainFacadeImpl))
-		{
-			return false;
-		}
-
-		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
-		Domain domain = domainFI.getRawObject();
-        return PrereqHandler.passesAll(domainFI, theCharacter, domain) && theCharacter.isQualified(domain);
+		Domain domain = wrappedDomain.getRawObject();
+        return PrereqHandler.passesAll(wrappedDomain, theCharacter, domain) && theCharacter.isQualified(domain);
     }
 
 	@Override
@@ -3789,10 +3746,8 @@ public class CharacterFacadeImpl
 		race.set(charDisplay.getRace());
 		refreshRaceRelatedFields();
 		name.set(charDisplay.getName());
-		characterType.set(charDisplay.getCharacterType());
 
 		// Deity and domains
-		deity.set(charDisplay.getDeity());
 		buildAvailableDomainsList();
 
 		refreshStatScores();
@@ -3800,7 +3755,6 @@ public class CharacterFacadeImpl
 
 	private void refreshEquipment()
 	{
-		fundsRef.set(theCharacter.getGold());
 		wealthRef.set(theCharacter.totalValue());
 
 		purchasedEquip.refresh(theCharacter.getEquipmentMasterList());
@@ -4118,8 +4072,9 @@ public class CharacterFacadeImpl
 		BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
 		if (totalCost != null)
 		{
-            // Character cannot afford the kit
-            return theCharacter.getGold().compareTo(totalCost) >= 0;
+			BigDecimal currentGold = (BigDecimal) ChannelUtilities
+					.readControlledChannel(theCharacter.getCharID(), CControl.GOLDINPUT);
+			return currentGold.compareTo(totalCost) >= 0;
 		}
 		return true;
 	}
@@ -4128,5 +4083,17 @@ public class CharacterFacadeImpl
 	public boolean isFeatureEnabled(String feature)
 	{
 		return theCharacter.isFeatureEnabled(feature);
+	}
+
+	@Override
+	public String getPreviewSheetVar(String key)
+	{
+		return theCharacter.getPreviewSheetVar(key);
+	}
+
+	@Override
+	public void addPreviewSheetVar(final String key, final String value)
+	{
+		theCharacter.addPreviewSheetVar(key, value);
 	}
 }

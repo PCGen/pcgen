@@ -27,12 +27,12 @@ public class AlignmentTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCAlignment>
 {
 
-	static AlignmentToken pca = new AlignmentToken();
+	private static final AlignmentToken PCA = new AlignmentToken();
 
 	@Override
 	public Chooser<PCAlignment> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

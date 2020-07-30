@@ -143,7 +143,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			character.incrementClassLevel(1, warrior);
 			assertTrue(notawarrior.qualifies(character, notawarrior));
 		}
-		catch (URISyntaxException | PersistenceLayerException e)
+		catch (URISyntaxException e)
 		{
 			fail(e.getMessage());
 		}
@@ -171,7 +171,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			setPCStat(character, intel, 16);
 			assertTrue(spellcaster.qualifies(character, spellcaster));
 		}
-		catch (URISyntaxException | PersistenceLayerException e)
+		catch (URISyntaxException e)
 		{
 			fail(e.getMessage());
 		}
@@ -206,7 +206,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			assertEquals(5, SkillModifier.modifier(concentration, character)
 					.intValue());
 		}
-		catch (URISyntaxException | PersistenceLayerException e)
+		catch (URISyntaxException e)
 		{
 			fail(e.getMessage());
 		}
@@ -243,7 +243,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			assertEquals(5, SkillModifier.modifier(concentration, character)
 					.intValue());
 		}
-		catch (URISyntaxException | PersistenceLayerException e)
+		catch (URISyntaxException e)
 		{
 			fail(e.getMessage());
 		}
@@ -286,7 +286,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			assertEquals(5, SkillModifier.modifier(concentration, character)
 					.intValue());
 		}
-		catch (URISyntaxException | PersistenceLayerException e)
+		catch (URISyntaxException e)
 		{
 			fail(e.getMessage());
 		}
@@ -320,7 +320,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			character.incrementClassLevel(1, warrior);
 			assertTrue(sab.qualifies(character, warrior));
 		}
-		catch (URISyntaxException | PersistenceLayerException e)
+		catch (URISyntaxException e)
 		{
 			fail(e.getMessage());
 		}

@@ -21,12 +21,15 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -63,7 +66,8 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 		BuildUtilities.addToFactSet(deity, "PANTHEON", "War");
 		deity.setName("Ares");
 
-		character.setDeity(deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 
 		Prerequisite prereq;
 

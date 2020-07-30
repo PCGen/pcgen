@@ -212,14 +212,14 @@
 				<description type="formattedtext">${pcstring('ABILITYALL.FEAT.VISIBLE.${feat}.DESC')}</description>
 				<sourcebook type="string">${sourceNameReplace(pcstring('ABILITYALL.FEAT.VISIBLE.${feat}.SOURCE'))}</sourcebook>
 				<benefit type="formattedtext"><p>${pcstring('ABILITYALL.FEAT.VISIBLE.${feat}.BENEFIT')}</p></benefit>
-	<#if (pcstring('ABILITYALL.FEAT.VISIBLE.${feat}.TYPE')?lower_case?contains("general"))>
-				<type type="string">General</type>
-	<#elseif (pcstring('ABILITYALL.FEAT.VISIBLE.${feat}.TYPE')?lower_case?contains("combat"))>
+	<#if (pcstring('ABILITYALL.FEAT.VISIBLE.${feat}.TYPE')?lower_case?contains("combat"))>
 				<type type="string">Combat</type>
 	<#elseif (pcstring('ABILITYALL.FEAT.VISIBLE.${feat}.TYPE')?lower_case?contains("metamagic"))>
 				<type type="string">Metamagic</type>
 	<#elseif (pcstring('ABILITYALL.Mythic Feat.VISIBLE.${mythicFeat}.TYPE')?lower_case?contains("mythic"))>
 				<type type="string">Mythic</type>
+	<#else>
+				<type type="string">General</type>
 	</#if>
 				<normal type="formattedtext"><#list pc.abilities as cnas><#if cnas.pool == "Feat"><#if cnas.ability == pcstring('ABILITYALL.FEAT.VISIBLE.${feat}')>${cnas.ability.info.Normal}</#if></#if></#list></normal>
 				<special type="formattedtext"><#list pc.abilities as cnas><#if cnas.pool == "Feat"><#if cnas.ability == pcstring('ABILITYALL.FEAT.VISIBLE.${feat}')>${cnas.ability.info.Special}</#if></#if></#list></special>

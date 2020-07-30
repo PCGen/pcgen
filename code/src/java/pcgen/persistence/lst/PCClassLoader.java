@@ -41,7 +41,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 {
 	@Override
 	public PCClass parseLine(LoadContext context, PCClass target, String lstLine, SourceEntry source)
-		throws PersistenceLayerException
 	{
 		if (lstLine.startsWith("SUBCLASS:") || lstLine.startsWith("SUBCLASSLEVEL:"))
 		{
@@ -146,7 +145,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	private PCClass parseClassLine(LoadContext context, String lstLine, SourceEntry source, PCClass pcClass)
-		throws PersistenceLayerException
 	{
 		int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
 		String lineIdentifier;
@@ -195,7 +193,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	private void parseFullClassLevelLine(LoadContext context, SourceEntry source, PCClass pcClass,
-		String lineIdentifier, String restOfLine) throws PersistenceLayerException
+		String lineIdentifier, String restOfLine)
 	{
 		try
 		{
@@ -246,7 +244,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	public void parseClassLevelLine(LoadContext context, PCClass pcClass, int lvl, SourceEntry source,
-		String restOfLine) throws PersistenceLayerException
+		String restOfLine)
 	{
 		if (restOfLine == null)
 		{
@@ -289,7 +287,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	public void parseLineIntoClass(LoadContext context, PCClass pcClass, SourceEntry source, String restOfLine)
-		throws PersistenceLayerException
 	{
 		if (restOfLine == null)
 		{
@@ -331,7 +328,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	private void parseRepeatClassLevel(LoadContext context, String restOfLine, SourceEntry source, PCClass pcClass,
-		int iLevel, String colString) throws PersistenceLayerException
+		int iLevel, String colString)
 	{
 		//
 		// REPEAT:<level increment>|<consecutive>|<max level>
@@ -481,28 +478,20 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		{
 			context.setSourceURI(dl.source.getURI());
 			String lstLine = dl.lstLine;
-			try
+			int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
+			String lineIdentifier;
+			String restOfLine;
+			if (tabLoc == -1)
 			{
-				int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
-				String lineIdentifier;
-				String restOfLine;
-				if (tabLoc == -1)
-				{
-					lineIdentifier = lstLine;
-					restOfLine = null;
-				}
-				else
-				{
-					lineIdentifier = lstLine.substring(0, tabLoc);
-					restOfLine = lstLine.substring(tabLoc + 1);
-				}
-				parseFullClassLevelLine(context, dl.source, sc, lineIdentifier, restOfLine);
+				lineIdentifier = lstLine;
+				restOfLine = null;
 			}
-			catch (PersistenceLayerException ple)
+			else
 			{
-				Logging.log(Logging.LST_ERROR, "Error parsing " + sc.getClass().getSimpleName() + " line: "
-					+ cl.getKeyName() + " " + sc.getKeyName() + " " + lstLine, ple);
+				lineIdentifier = lstLine.substring(0, tabLoc);
+				restOfLine = lstLine.substring(tabLoc + 1);
 			}
+			parseFullClassLevelLine(context, dl.source, sc, lineIdentifier, restOfLine);
 		}
 	}
 

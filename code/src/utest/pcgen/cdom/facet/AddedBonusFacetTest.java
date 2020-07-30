@@ -45,7 +45,7 @@ public class AddedBonusFacetTest extends AbstractSourcedListFacetTest<BonusObj>
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		super.setUp();
 		context =

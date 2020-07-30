@@ -52,6 +52,8 @@ class CNAbilitySelectionUtilitiesTest
 		othernomult.setName("OtherNoMult");
 		othernomult.setCDOMCategory(feat);
 	}
+	
+	//TODO Tear Down
 
 	@Test
 	public void testDifferentCategory()

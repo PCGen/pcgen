@@ -257,7 +257,7 @@ public final class FopTask implements Runnable
 		}
 
 		@Override
-		public void warning(TransformerException exception) throws TransformerException
+		public void warning(TransformerException exception)
 		{
 			SourceLocator locator = exception.getLocator();
 			Logging.log(Logging.WARNING, getLocation(locator) + exception.getMessage());

@@ -32,6 +32,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.writer.PreVariableWriter;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.GameModeSupport;
 
@@ -42,6 +43,7 @@ public class WieldIntegrationTest extends
 	private static final CDOMLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

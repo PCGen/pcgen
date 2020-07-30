@@ -30,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.race.MoveToken;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
@@ -41,6 +42,7 @@ public class RaceMoveTest extends AbstractTokenModelTest
 	private BaseMovementFacet baseMoveFacet;
 
 	@Override
+	@BeforeEach
 	protected void setUp() throws Exception
 	{
 		super.setUp();

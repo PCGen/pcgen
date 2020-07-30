@@ -26,7 +26,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.rules.context.AbstractReferenceContext;
 
@@ -45,7 +44,6 @@ public class PreSizeTester extends AbstractPrerequisiteTest implements Prerequis
 
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter pc)
-		throws PrerequisiteException
 	{
 		final int targetSize = getTargetSizeInt(prereq.getOperand());
 

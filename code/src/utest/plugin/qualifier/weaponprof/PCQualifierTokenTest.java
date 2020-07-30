@@ -33,7 +33,7 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<WeaponProf>
 {
 
-	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
+	private static final WeaponProficiencyToken SUBTOKEN = new WeaponProficiencyToken();
 
 	private static final plugin.qualifier.weaponprof.PCToken PC_TOKEN = new plugin.qualifier.weaponprof.PCToken();
 
@@ -48,7 +48,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
