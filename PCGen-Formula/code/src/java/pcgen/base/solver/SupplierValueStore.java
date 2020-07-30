@@ -98,7 +98,7 @@ public class SupplierValueStore implements ValueStore
 	 * @param formatManager
 	 *            The FormatManager of the Solver format for which the given Supplier
 	 *            should provide the default value
-	 * @param defaultValue
+	 * @param defaultModifier
 	 *            The Supplier to be used to get the default value for the given Solver
 	 *            format
 	 * @throws IllegalArgumentException
