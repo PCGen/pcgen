@@ -28,7 +28,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -99,17 +98,11 @@ public class DeityToken extends Token
 
 			if ("NAME".equals(subTag))
 			{
-				if (!display.getSuppressBioField(BiographyField.DEITY))
-				{
-					retString = deity.getDisplayName();
-				}
+				retString = deity.getDisplayName();
 			}
 			else if ("OUTPUTNAME".equals(subTag))
 			{
-				if (!display.getSuppressBioField(BiographyField.DEITY))
-				{
-					retString = OutputNameFormatting.getOutputName(deity);
-				}
+				retString = OutputNameFormatting.getOutputName(deity);
 			}
 			else if ("DOMAINLIST".equals(subTag))
 			{

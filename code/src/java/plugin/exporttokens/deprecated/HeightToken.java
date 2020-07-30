@@ -18,7 +18,6 @@
  */
 package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -45,20 +44,17 @@ public class HeightToken extends AbstractExportToken
 	{
 		String retString = "";
 
-		if (!display.getSuppressBioField(BiographyField.HEIGHT))
+		if ("HEIGHT".equals(tokenSource))
 		{
-			if ("HEIGHT".equals(tokenSource))
-			{
-				retString = getHeightString(display);
-			}
-			else if ("HEIGHT.FOOTPART".equals(tokenSource))
-			{
-				retString = getHeightFootPart(display);
-			}
-			else if ("HEIGHT.INCHPART".equals(tokenSource))
-			{
-				retString = getHeightInchPart(display);
-			}
+			retString = getHeightString(display);
+		}
+		else if ("HEIGHT.FOOTPART".equals(tokenSource))
+		{
+			retString = getHeightFootPart(display);
+		}
+		else if ("HEIGHT.INCHPART".equals(tokenSource))
+		{
+			retString = getHeightInchPart(display);
 		}
 
 		return retString;

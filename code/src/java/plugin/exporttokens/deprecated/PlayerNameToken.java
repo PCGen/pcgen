@@ -18,7 +18,6 @@
  */
 package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -35,10 +34,6 @@ public class PlayerNameToken extends AbstractExportToken
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
-		if (display.getSuppressBioField(BiographyField.PLAYERNAME))
-		{
-			return "";
-		}
 		return display.getPlayersName();
 	}
 }
