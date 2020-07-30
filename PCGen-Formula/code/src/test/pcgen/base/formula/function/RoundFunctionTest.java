@@ -170,7 +170,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable()
 	{
-		getVariableStore().put(getVariable("a"), 5.3);
+		setVariable(getVariable("a"), 5.3);
 		String formula = "round(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());

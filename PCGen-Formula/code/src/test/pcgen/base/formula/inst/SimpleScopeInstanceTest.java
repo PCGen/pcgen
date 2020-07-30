@@ -22,39 +22,21 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Optional;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class SimpleScopeInstanceTest
 {
 
-	private SimpleLegalScope scope;
-	private SimpleScopeInstance scopeInst;
-	private SimpleLegalScope local;
-	private SimpleScopeInstance localInst;
-	
-	@BeforeEach
-	void setUp()
-	{
-		scope = new SimpleLegalScope("Global");
-		scopeInst = new SimpleScopeInstance(Optional.empty(), scope, new GlobalVarScoped("Global"));
-		local = new SimpleLegalScope(scope, "Local");
-		localInst = new SimpleScopeInstance(Optional.of(scopeInst), local, new GlobalVarScoped("Local"));
-	}
-	
-	@AfterEach
-	void tearDown()
-	{
-		scope = null;
-		scopeInst = null;
-		local = null;
-		localInst = null;
-	}
-
 	@Test
 	public void testConstructor()
 	{
+		SimpleLegalScope scope = new SimpleLegalScope("Global");
+		SimpleScopeInstance scopeInst = new SimpleScopeInstance(
+			Optional.empty(), scope, new GlobalVarScoped("Global"));
+		SimpleLegalScope local = new SimpleLegalScope(scope, "Local");
+		SimpleScopeInstance localInst = new SimpleScopeInstance(
+			Optional.of(scopeInst), local, new GlobalVarScoped("Local"));
+
 		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), null, new GlobalVarScoped("Global")));
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), scope, new GlobalVarScoped("Ignored")));
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(localInst), local, new GlobalVarScoped("Ignored")));
@@ -73,6 +55,13 @@ public class SimpleScopeInstanceTest
 	@Test
 	public void testIsValid()
 	{
+		SimpleLegalScope scope = new SimpleLegalScope("Global");
+		SimpleScopeInstance scopeInst = new SimpleScopeInstance(
+			Optional.empty(), scope, new GlobalVarScoped("Global"));
+		SimpleLegalScope local = new SimpleLegalScope(scope, "Local");
+		SimpleScopeInstance localInst = new SimpleScopeInstance(
+			Optional.of(scopeInst), local, new GlobalVarScoped("Local"));
+
 		assertEquals(local, localInst.getLegalScope());
 		assertEquals(scopeInst, localInst.getParentScope().get());
 	}

@@ -24,8 +24,6 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -70,7 +68,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	public void testSingleItem()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		getVariableStore().put(getArray("ab"), array);
+		setVariable(getNumberArrayVar("ab"), array);
 		String formula = "slice(ab,1,2)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -85,7 +83,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	public void testBoundedSlice()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		getVariableStore().put(getArray("ab"), array);
+		setVariable(getNumberArrayVar("ab"), array);
 		String formula = "slice(ab,1,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -100,7 +98,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	public void testUnboundedSlice()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		getVariableStore().put(getArray("ab"), array);
+		setVariable(getNumberArrayVar("ab"), array);
 		String formula = "slice(ab,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -115,7 +113,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	public void testNegativeStart()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		getVariableStore().put(getArray("ab"), array);
+		setVariable(getNumberArrayVar("ab"), array);
 		String formula = "slice(ab,-3)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -125,7 +123,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	public void testInvalid()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		getVariableStore().put(getArray("ab"), array);
+		setVariable(getNumberArrayVar("ab"), array);
 		String formula = "slice(ab,3,1)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -135,7 +133,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	public void testWastedEmpty()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		getVariableStore().put(getArray("ab"), array);
+		setVariable(getNumberArrayVar("ab"), array);
 		String formula = "slice(ab,3,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -145,7 +143,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	public void testNonIntegerStart()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		getVariableStore().put(getArray("ab"), array);
+		setVariable(getNumberArrayVar("ab"), array);
 		String formula = "slice(ab,3.1,1)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -155,20 +153,9 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	public void testNonIntegerEnd()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		getVariableStore().put(getArray("ab"), array);
+		setVariable(getNumberArrayVar("ab"), array);
 		String formula = "slice(ab,3,1.2)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-	}
-
-	protected VariableID<Number[]> getArray(String formula)
-	{
-		VariableLibrary variableLibrary = getVariableLibrary();
-		variableLibrary.assertLegalVariableID(formula,
-			getInstanceFactory().getScope("Global"), TestUtilities.NUMBER_ARRAY_MANAGER);
-		@SuppressWarnings("unchecked")
-		VariableID<Number[]> variableID = (VariableID<Number[]>) variableLibrary
-			.getVariableID(getGlobalScopeInst(), formula);
-		return variableID;
 	}
 }

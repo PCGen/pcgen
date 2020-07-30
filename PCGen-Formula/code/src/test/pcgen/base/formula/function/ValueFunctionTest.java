@@ -59,8 +59,8 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 		String formula = "value()";
 		SimpleNode node = TestUtilities.doParse(formula);
 		Optional<FormatManager<?>> assertedFormat = Optional.empty();
-		Objects.requireNonNull(assertedFormat);
 		//My isValid due to need to set INPUT_FORMAT
+		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
 			.generateFormulaSemantics(getFormulaManager(), getInstanceFactory().getScope("Global"));

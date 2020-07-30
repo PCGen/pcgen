@@ -23,9 +23,7 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
@@ -60,7 +58,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testEmptyArrayVar()
 	{
-		getVariableStore().put(getArrayVariable("a"), TestUtilities.EMPTY_ARRAY);
+		setVariable(getNumberArrayVar("a"), TestUtilities.EMPTY_ARRAY);
 		String formula = "isEmpty(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
@@ -75,7 +73,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testNotEmptyArrayVar()
 	{
-		getVariableStore().put(getArrayVariable("a"), new Number[]{1});
+		setVariable(getNumberArrayVar("a"), new Number[]{1});
 		String formula = "isEmpty(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, TestUtilities.NUMBER_ARRAY_MANAGER, Optional.empty());
@@ -86,17 +84,4 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 		assertEquals("a", var.getName());
 		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 	}
-
-	protected VariableID<Number[]> getArrayVariable(String formula)
-	{
-		VariableLibrary variableLibrary = getVariableLibrary();
-		ScopeInstance globalInst = getInstanceFactory().getGlobalInstance("Global");
-		variableLibrary.assertLegalVariableID(formula, globalInst.getLegalScope(),
-			TestUtilities.NUMBER_ARRAY_MANAGER);
-		@SuppressWarnings("unchecked")
-		VariableID<Number[]> variableID =
-				(VariableID<Number[]>) variableLibrary.getVariableID(globalInst, formula);
-		return variableID;
-	}
-
 }

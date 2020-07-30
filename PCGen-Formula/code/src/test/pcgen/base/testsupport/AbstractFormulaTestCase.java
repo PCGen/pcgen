@@ -28,11 +28,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import junit.framework.TestCase;
+import pcgen.base.formatmanager.FormatManagerLibrary;
 import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formatmanager.OptionalFormatFactory;
+import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
@@ -202,22 +207,18 @@ public abstract class AbstractFormulaTestCase
 
 	protected VariableID<Number> getVariable(String formula)
 	{
-		VariableLibrary variableLibrary = getVariableLibrary();
-		variableLibrary.assertLegalVariableID(formula,
-			getInstanceFactory().getScope("Global"), FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable(formula, "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
-		VariableID<Number> variableID = (VariableID<Number>) variableLibrary
+		VariableID<Number> variableID = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), formula);
 		return variableID;
 	}
 
 	protected VariableID<Boolean> getBooleanVariable(String formula)
 	{
-		VariableLibrary variableLibrary = getVariableLibrary();
-		variableLibrary.assertLegalVariableID(formula,
-			getInstanceFactory().getScope("Global"), FormatUtilities.BOOLEAN_MANAGER);
+		assertLegalVariable(formula, "Global", FormatUtilities.BOOLEAN_MANAGER);
 		@SuppressWarnings("unchecked")
-		VariableID<Boolean> variableID = (VariableID<Boolean>) variableLibrary
+		VariableID<Boolean> variableID = (VariableID<Boolean>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), formula);
 		return variableID;
 	}
@@ -248,6 +249,18 @@ public abstract class AbstractFormulaTestCase
 		return globalInstance;
 	}
 
+	protected void assertLegalVariable(String varName, String scopeName,
+		FormatManager<?> manager)
+	{
+		getVariableLibrary().assertLegalVariableID(varName,
+			getImplementedScope(scopeName), manager);
+	}
+
+	protected LegalScope getImplementedScope(String name)
+	{
+		return getInstanceFactory().getScope(name);
+	}
+
 	protected ScopeInstanceFactory getInstanceFactory()
 	{
 		return formulaManager.getScopeInstanceFactory();
@@ -273,8 +286,64 @@ public abstract class AbstractFormulaTestCase
 		return valueStore;
 	}
 
+	protected void addFunction(FormulaFunction ff)
+	{
+		((WriteableFunctionLibrary) getFormulaManager().get(FormulaManager.FUNCTION)).addFunction(ff);
+	}
+
 	protected ScopeInstance getScopeInstance(String scopeName, VarScoped vs)
 	{
 		return getInstanceFactory().get(scopeName, Optional.of(vs));
+	}
+
+	public ScopeInstance getGlobalInstance(String name)
+	{
+		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		return formulaManager.getScopeInstanceFactory().get("Global",
+			Optional.of(new GlobalVarScoped("Global")));
+	}
+
+	public FormatManagerLibrary getInitializedFormatManager()
+	{
+		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
+		FormatUtilities.loadDefaultFormats(library);
+		FormatUtilities.loadDefaultFactories(library);
+		return library;
+	}
+
+	protected VariableID<Optional<Number>> getOptionalVariable(String formula)
+	{
+		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
+		VariableLibrary variableLibrary = getVariableLibrary();
+		assertLegalVariable(formula, "Global", formatManager);
+		@SuppressWarnings("unchecked")
+		VariableID<Optional<Number>> variableID =
+				(VariableID<Optional<Number>>) variableLibrary
+					.getVariableID(getGlobalScopeInst(), formula);
+		return variableID;
+	}
+
+	protected FormatManager<Optional<Number>> getOptionalFormatManager()
+	{
+		FormatManagerLibrary library = getInitializedFormatManager();
+		@SuppressWarnings("unchecked")
+		FormatManager<Optional<Number>> formatManager =
+				(FormatManager<Optional<Number>>) new OptionalFormatFactory()
+					.build(Optional.empty(), Optional.of("NUMBER"), library);
+		return formatManager;
+	}
+
+	protected <T> void setVariable(VariableID<T> varID, T value)
+	{
+		getVariableStore().put(varID, value);
+	}
+
+	protected VariableID<Number[]> getNumberArrayVar(String formula)
+	{
+		assertLegalVariable(formula, "Global", TestUtilities.NUMBER_ARRAY_MANAGER);
+		@SuppressWarnings("unchecked")
+		VariableID<Number[]> variableID = (VariableID<Number[]>) getVariableLibrary()
+			.getVariableID(getGlobalScopeInst(), formula);
+		return variableID;
 	}
 }

@@ -22,41 +22,29 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 
 public class VariableIDTest
 {
-
-	private ScopeManagerInst legalScopeManager;
-	private ScopeInstanceFactory instanceFactory;
-
-	@BeforeEach
-	void setUp()
-	{
-		legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
-		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
-	}
-
-	@AfterEach
-	void tearDown()
-	{
-		legalScopeManager = null;
-		instanceFactory = null;
-	}
-
 	@Test
 	public void testDoubleConstructor()
 	{
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeInstanceFactory instanceFactory =
+				new SimpleScopeInstanceFactory(legalScopeManager);
+		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		ScopeInstance globalInst = instanceFactory.get("Global",
+			Optional.of(new GlobalVarScoped("Global")));
+
 		assertThrows(NullPointerException.class, () -> new VariableID<>(null, null, null));
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		assertThrows(NullPointerException.class, () -> new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, null));
 		assertThrows(NullPointerException.class, () -> new VariableID<>(globalInst, null, "VAR"));
 		assertThrows(NullPointerException.class, () -> new VariableID<>(null, FormatUtilities.NUMBER_MANAGER, "VAR"));
@@ -67,7 +55,13 @@ public class VariableIDTest
 	@Test
 	public void testGlobal()
 	{
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeInstanceFactory instanceFactory =
+				new SimpleScopeInstanceFactory(legalScopeManager);
+		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		ScopeInstance globalInst = instanceFactory.get("Global",
+			Optional.of(new GlobalVarScoped("Global")));
+
 		VariableID<Number> vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		assertEquals("test", vid.getName());
 		assertEquals(globalInst, vid.getScope());
@@ -77,9 +71,16 @@ public class VariableIDTest
 	@Test
 	public void testEquals()
 	{
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeInstanceFactory instanceFactory =
+				new SimpleScopeInstanceFactory(legalScopeManager);
+		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		ScopeInstance globalInst = instanceFactory.get("Global",
+			Optional.of(new GlobalVarScoped("Global")));
 		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
-		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
+		ScopeInstance globalInst2 = instanceFactory.get("Global2",
+			Optional.of(new GlobalVarScoped("Global2")));
+
 		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid3 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test2");
@@ -96,9 +97,16 @@ public class VariableIDTest
 	@Test
 	public void testHashCode()
 	{
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		ScopeInstanceFactory instanceFactory =
+				new SimpleScopeInstanceFactory(legalScopeManager);
+		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		ScopeInstance globalInst = instanceFactory.get("Global",
+			Optional.of(new GlobalVarScoped("Global")));
 		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
-		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
+		ScopeInstance globalInst2 = instanceFactory.get("Global2",
+			Optional.of(new GlobalVarScoped("Global2")));
+
 		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid3 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "bummer");
@@ -112,5 +120,4 @@ public class VariableIDTest
 		assertFalse(hc2 == hc4);
 		assertFalse(hc3 == hc4);
 	}
-
 }

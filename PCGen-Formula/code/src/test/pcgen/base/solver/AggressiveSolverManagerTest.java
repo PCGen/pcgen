@@ -71,8 +71,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testTrivial()
 	{
-		getVariableLibrary().assertLegalVariableID("Limbs",
-			getInstanceFactory().getScope("Global"), FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Limbs");
@@ -91,8 +90,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		WriteableVariableStore store = getVariableStore();
 		LegalScope globalScope = getInstanceFactory().getScope("Global");
 		ScopeInstance globalScopeInst = getGlobalScopeInst();
-		getVariableLibrary().assertLegalVariableID("STR", globalScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("STR", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> str =
 				(VariableID<Number>) getVariableLibrary().getVariableID(globalScopeInst,
@@ -108,8 +106,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		ScopeInstance strInst =
 				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));
 
-		getVariableLibrary().assertLegalVariableID("Mod", localScope,
-			FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("Mod", "Global.STAT", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> mod =
 				(VariableID<Number>) getVariableLibrary().getVariableID(strInst, "Mod");
