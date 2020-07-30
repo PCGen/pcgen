@@ -44,6 +44,9 @@ public final class EvaluationManager
 	 */
 	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
 
+	/**
+	 * The OperatorLibrary used to store valid operators.
+	 */
 	public static final TypedKey<OperatorLibrary> OPLIB = new TypedKey<>();
 
 	/**
