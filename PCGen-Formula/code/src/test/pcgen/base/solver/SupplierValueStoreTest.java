@@ -45,7 +45,7 @@ public class SupplierValueStoreTest
 		Supplier<Number> setNumber = () -> 9;
 		//intentionally break generics
 		svs.addSolverFormat(FormatUtilities.STRING_MANAGER, (Supplier) setNumber);
-		assertFalse(svs.validateDefaults().get(),
+		assertFalse(svs.validateDefaults().isSuccessful(),
 			"Should not be able to add Format with mismatch");
 	}
 
