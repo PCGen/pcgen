@@ -449,11 +449,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			throw new SemanticsFailureException(getInvalidCountReport(node, 2));
 		}
 		Node child1 = node.jjtGetChild(0);
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> format1 = (FormatManager<?>) child1.jjtAccept(this, data);
 
 		Node child2 = node.jjtGetChild(1);
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> format2 = (FormatManager<?>) child2.jjtAccept(this, data);
 
 		FormulaSemantics semantics = (FormulaSemantics) data;
@@ -476,7 +474,6 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			throw new SemanticsFailureException("Parse Error: Object of type "
 				+ node.getClass() + " expected to have an operator, none was found");
 		}
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> format = (FormatManager<?>) singleChildValid(node, data);
 
 		FormulaSemantics semantics = (FormulaSemantics) data;

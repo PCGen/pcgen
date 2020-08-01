@@ -69,7 +69,7 @@ import pcgen.base.util.FormatManager;
  * called and successfully processed to ensure that evaluation will run without
  * an Exception.
  */
-@SuppressWarnings({ "PMD.TooManyMethods", "PMD.ExcessiveImports"})
+@SuppressWarnings({"PMD.TooManyMethods", "PMD.ExcessiveImports"})
 public class EvaluateVisitor implements FormulaParserVisitor
 {
 	/**

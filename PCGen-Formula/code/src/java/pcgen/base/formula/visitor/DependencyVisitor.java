@@ -61,7 +61,7 @@ import pcgen.base.util.FormatManager;
  * is not defined if SemanticsVisitor returned a FormulaSemantics that indicated
  * isValid() was false.
  */
-@SuppressWarnings({ "PMD.TooManyMethods", "PMD.ExcessiveImports"})
+@SuppressWarnings({"PMD.TooManyMethods", "PMD.ExcessiveImports"})
 public class DependencyVisitor implements FormulaParserVisitor
 {
 

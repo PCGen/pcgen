@@ -48,7 +48,6 @@ public class IsEmptyFunction implements FormulaFunction
 	{
 		FunctionUtilities.validateArgCount(this, args, 1);
 		Node node = args[0];
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> format = (FormatManager<?>) node.jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.empty()));
 		if (!format.getManagedClass().isArray())
