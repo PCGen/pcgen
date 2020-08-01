@@ -437,6 +437,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *            The element to be removed from the given list
 	 * @return true if the object is returned; false otherwise
 	 */
+	@SuppressWarnings("PMD.DefaultPackage")
 	boolean removeFromList(List<V> list, V valueElement)
 	{
 		return list.remove(valueElement);

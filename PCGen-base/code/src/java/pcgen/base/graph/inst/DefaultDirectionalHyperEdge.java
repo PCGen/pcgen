@@ -88,8 +88,8 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 			throw new IllegalArgumentException(
 				"Both Collections to DefaultDirectionalGraphEdge cannot be null");
 		}
-		sourceNodes = setNodes(sourceNode);
-		sinkNodes = setNodes(sinkNode);
+		sourceNodes = processNodesToList(sourceNode);
+		sinkNodes = processNodesToList(sinkNode);
 		if (sourceNodes == null && sinkNodes == null)
 		{
 			throw new IllegalArgumentException(
@@ -105,7 +105,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * @return The resulting List of nodes to be used/saved internally by this
 	 *         Edge
 	 */
-	private List<N> setNodes(Collection<N> nodes)
+	private List<N> processNodesToList(Collection<N> nodes)
 	{
 		if ((nodes == null) || nodes.isEmpty())
 		{

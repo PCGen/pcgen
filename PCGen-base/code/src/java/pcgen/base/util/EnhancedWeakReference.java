@@ -56,7 +56,7 @@ public class EnhancedWeakReference<T>
 	 * The hashCode for this EnhancedWeakReference. This is generated at construction,
 	 * since the underlying object may be lost.
 	 */
-	private final int hashCode;
+	private final int hash;
 
 	/**
 	 * Constructs a new EnhancedWeakReference with a WeakReference to the given underlying
@@ -67,7 +67,7 @@ public class EnhancedWeakReference<T>
 	 */
 	public EnhancedWeakReference(T underlying)
 	{
-		hashCode = underlying.hashCode();
+		hash = underlying.hashCode();
 		underlyingReference =
 				new WeakReference<>(Objects.requireNonNull(underlying));
 	}
@@ -207,6 +207,6 @@ public class EnhancedWeakReference<T>
 	@Override
 	public int hashCode()
 	{
-		return hashCode;
+		return hash;
 	}
 }

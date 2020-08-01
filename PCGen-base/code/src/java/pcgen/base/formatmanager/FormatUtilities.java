@@ -120,7 +120,7 @@ public final class FormatUtilities
 	 * @throws NullPointerException
 	 *             if the given FormatManager is not valid
 	 */
-	public static FormatManager<?> isValid(FormatManager<?> fmtManager)
+	public static FormatManager<?> ifValid(FormatManager<?> fmtManager)
 	{
 		String fmIdent = fmtManager.getIdentifierType();
 		Class<?> fmFormat = fmtManager.getManagedClass();

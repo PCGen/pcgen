@@ -114,6 +114,7 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 	/**
 	 * Package - internal behavior. Actually remove an item from a list
 	 */
+	@SuppressWarnings("PMD.DefaultPackage")
 	@Override
 	boolean removeFromList(List<V> list, V valueElement)
 	{

@@ -43,7 +43,7 @@ public class SecondaryDefinition
 	 * Indicates whether the secondary value defined by this SecondaryDefinition is
 	 * required when this SecondaryDefinition exists on a Compound.
 	 */
-	private final boolean isRequired;
+	private final boolean isDefRequired;
 
 	/**
 	 * Constructs a new SecondaryDefinition with the given FormatManager for managing the
@@ -64,7 +64,7 @@ public class SecondaryDefinition
 	{
 		formatManager = Objects.requireNonNull(subManager);
 		valueName = Objects.requireNonNull(name);
-		isRequired = required;
+		isDefRequired = required;
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class SecondaryDefinition
 	 */
 	public boolean isRequired()
 	{
-		return isRequired;
+		return isDefRequired;
 	}
 
 	@Override

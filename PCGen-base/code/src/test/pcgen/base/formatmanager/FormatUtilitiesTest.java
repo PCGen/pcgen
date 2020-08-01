@@ -43,9 +43,9 @@ public class FormatUtilitiesTest
 	public void testIsValid()
 	{
 		NumberManager numberManager = new NumberManager();
-		assertEquals(numberManager, FormatUtilities.isValid(numberManager));
-		assertThrows(NullPointerException.class, () -> FormatUtilities.isValid(new BadManagerNoIdentifierType()));
-		assertThrows(NullPointerException.class, () -> FormatUtilities.isValid(new BadManagerNoManagedClass()));
+		assertEquals(numberManager, FormatUtilities.ifValid(numberManager));
+		assertThrows(NullPointerException.class, () -> FormatUtilities.ifValid(new BadManagerNoIdentifierType()));
+		assertThrows(NullPointerException.class, () -> FormatUtilities.ifValid(new BadManagerNoManagedClass()));
 	}
 
 	private class BadManagerNoIdentifierType implements FormatManager<String>
