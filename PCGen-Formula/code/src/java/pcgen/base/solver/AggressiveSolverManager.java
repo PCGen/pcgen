@@ -18,11 +18,11 @@ package pcgen.base.solver;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import java.util.Stack;
-import java.util.Map.Entry;
+import java.util.function.Consumer;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -54,6 +54,11 @@ import pcgen.base.util.FormatManager;
 public class AggressiveSolverManager implements SolverSystem
 {
 
+	/**
+	 * The SolverStrategy used to determine how VariableIDs are updated.
+	 */
+	private final SolverStrategy strategy;
+	
 	/**
 	 * The FormulaManager used by the Solver members of this AggressiveSolverManager.
 	 */
@@ -92,12 +97,6 @@ public class AggressiveSolverManager implements SolverSystem
 	private final SolverFactory solverFactory;
 
 	/**
-	 * The Stack, used during processing, to identify what items are being processed and
-	 * to detect loops.
-	 */
-	private final Stack<VariableID<?>> varStack = new Stack<>();
-
-	/**
 	 * Constructs a new AggressiveSolverManager which will use the given FormulaMananger
 	 * and store results in the given VariableStore.
 	 * 
@@ -117,11 +116,13 @@ public class AggressiveSolverManager implements SolverSystem
 	 *            The SolverFactory used to store Defaults and build Solver objects
 	 * @param resultStore
 	 *            The WriteableVariableStore used to store results of the calculations of
-	 *            the Solver objects within this AggressiveSolverManager.
+	 *            the Solver objects within this AggressiveSolverManager
 	 */
 	public AggressiveSolverManager(FormulaManager manager, ManagerFactory managerFactory,
 		SolverFactory solverFactory, WriteableVariableStore resultStore)
 	{
+		this.strategy = new AggressiveStrategy(this::processForChildren,
+			this::processSolver);
 		this.formulaManager = Objects.requireNonNull(manager);
 		this.managerFactory = Objects.requireNonNull(managerFactory);
 		this.solverFactory = Objects.requireNonNull(solverFactory);
@@ -143,18 +144,11 @@ public class AggressiveSolverManager implements SolverSystem
 				"Attempt to recreate local channel: " + varID);
 		}
 		unconditionallyBuildSolver(varID);
-		solveFromNode(varID);
+		strategy.processModsUpdated(varID);
 	}
 
 	@Override
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
-		ScopeInstance source)
-	{
-		addModifierAndSolve(varID, modifier, source);
-	}
-
-	@Override
-	public <T> boolean addModifierAndSolve(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
 	{
 		Objects.requireNonNull(varID);
@@ -208,7 +202,7 @@ public class AggressiveSolverManager implements SolverSystem
 		/*
 		 * Solve this solver and anything that requires it (recursively)
 		 */
-		return solveFromNode(varID);
+		strategy.processModsUpdated(varID);
 	}
 
 	private void ensureSolverExists(VariableID<?> varID)
@@ -216,7 +210,7 @@ public class AggressiveSolverManager implements SolverSystem
 		if (scopedChannels.get(varID) == null)
 		{
 			unconditionallyBuildSolver(varID);
-			solveFromNode(varID);
+			strategy.processModsUpdated(varID);
 		}
 	}
 
@@ -253,7 +247,7 @@ public class AggressiveSolverManager implements SolverSystem
 		processDependencies(varID, dependencyManager);
 		//Cast above effectively enforced here
 		solver.removeModifier(modifier, source);
-		solveFromNode(varID);
+		strategy.processModsUpdated(varID);
 	}
 
 	/**
@@ -296,48 +290,8 @@ public class AggressiveSolverManager implements SolverSystem
 		}
 	}
 
-	/**
-	 * Triggers Solvers to be called, recursively through the dependencies, from the given
-	 * VariableID.
-	 * 
-	 * @param varID
-	 *            The VariableID as a starting point for triggering Solvers to be
-	 *            processed
-	 * @return true if the variable identified by the given VariableID changed; false
-	 *         otherwise
-	 */
-	public boolean solveFromNode(VariableID<?> varID)
-	{
-		boolean changed = false;
-		boolean warning = varStack.contains(varID);
-		try
-		{
-			varStack.push(varID);
-			changed = processSolver(varID);
-			if (changed)
-			{
-				if (warning)
-				{
-					throw new IllegalStateException(
-						"Infinite Loop in Variable Processing: " + varStack);
-				}
-				/*
-				 * Only necessary if the answer changes. The problem is that this is not
-				 * doing them in order of a topological sort - it is completely random...
-				 * so things may be processed twice :/
-				 */
-				solveChildren(varID);
-			}
-		}
-		finally
-		{
-			varStack.pop();
-		}
-		return changed;
-	}
-
-	@Override
-	public void solveChildren(VariableID<?> varID)
+	private void processForChildren(VariableID<?> varID,
+		Consumer<VariableID<?>> consumer)
 	{
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> adjacentEdges =
 				dependencies.getAdjacentEdges(varID);
@@ -347,7 +301,7 @@ public class AggressiveSolverManager implements SolverSystem
 			{
 				if (edge.getNodeAt(0).equals(varID))
 				{
-					solveFromNode(edge.getNodeAt(1));
+					consumer.accept(edge.getNodeAt(1));
 				}
 			}
 		}
@@ -406,8 +360,8 @@ public class AggressiveSolverManager implements SolverSystem
 	{
 		newVarStore.importFrom(resultStore);
 		AggressiveSolverManager replacement = new AggressiveSolverManager(
-			formulaManager.getWith(FormulaManager.RESULTS, newVarStore), managerFactory,
-			solverFactory, newVarStore);
+			formulaManager.getWith(FormulaManager.RESULTS, newVarStore),
+			managerFactory, solverFactory, newVarStore);
 		for (VariableID<?> varID : dependencies.getNodeList())
 		{
 			replacement.dependencies.addNode(varID);

@@ -61,32 +61,6 @@ public interface SolverSystem
 		ScopeInstance source);
 
 	/**
-	 * Adds a Modifier (with the given source object) to the variable identified by the
-	 * given VariableID and solves for the given VariableID. Returns true if the added
-	 * modifier caused the value of the VariableID to change.
-	 * 
-	 * Note: If the SolverSystem is not aggressive, then the SolverSystem may 
-	 * interpret more than one Modifier as new to the underlying variable.  The return
-	 * value of this method is open to interpretation by the SolverSystem to 
-	 * determine if it limits it to only the provided Modifier or any Modifier since
-	 * the last time the variable was analyzed.
-	 * 
-	 * @param <T>
-	 *            The format (class) of object contained by the given VariableID
-	 * @param varID
-	 *            The VariableID for which a Modifier should be added to the responsible
-	 *            variable
-	 * @param modifier
-	 *            The Modifier to be added to the variable for the given VariableID
-	 * @param source
-	 *            The source of the Modifier to be added to the variable
-	 * @return true if the given VariableID was modified by adding the given variable, false
-	 *         otherwise
-	 */
-	public <T> boolean addModifierAndSolve(VariableID<T> varID, Modifier<T> modifier,
-		ScopeInstance source);
-
-	/**
 	 * Removes a Modifier (with the given source object) from the Solver identified by the
 	 * given VariableID.
 	 * 
@@ -138,16 +112,6 @@ public interface SolverSystem
 	 * @return The Default Value for the given Variable Format.
 	 */
 	public <T> T getDefaultValue(FormatManager<T> formatManager);
-
-	/**
-	 * Triggers variables to be resolved, recursively through the dependencies, from the
-	 * children of the given VariableID.
-	 * 
-	 * @param varID
-	 *            The VariableID for which the children will be used as a starting point
-	 *            for triggering variables to be processed
-	 */
-	public void solveChildren(VariableID<?> varID);
 
 	/**
 	 * Creates a replacement SolverSystem for this SolverSystem. The replacement will

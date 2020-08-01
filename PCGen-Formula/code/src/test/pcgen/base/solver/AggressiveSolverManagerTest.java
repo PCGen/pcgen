@@ -67,16 +67,6 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, getManagerFactory(), getSolverFactory(), null));
 	}
 
-	@Test
-	public void testTrivial()
-	{
-		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
-		@SuppressWarnings("unchecked")
-		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
-			.getVariableID(getGlobalScopeInst(), "Limbs");
-		manager.solveChildren(limbs);
-	}
-
 	@Override
 	protected SolverSystem getManager()
 	{

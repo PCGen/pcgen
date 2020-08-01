@@ -162,16 +162,6 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		assertEquals(0, store.get(result));
 	}
 
-	@Test
-	public void testTrivial()
-	{
-		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
-		@SuppressWarnings("unchecked")
-		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
-			.getVariableID(getGlobalScopeInst(), "Limbs");
-		manager.solveChildren(limbs);
-	}
-
 	public class LimbManager implements FormatManager<Limb>
 	{
 
