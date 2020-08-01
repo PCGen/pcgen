@@ -256,17 +256,20 @@ runtime {
     targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64/Contents/Home")
 
     jpackage{
+        installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}","--license-file", "${projectDir}/code/LICENSE"]
+
         if (Os.isFamily(Os.FAMILY_MAC))
         {
             targetPlatformName = 'mac-x64'
+            installerOptions += ["--mac-package-identifier", "pcgen.system.Main"]
         }
         else {
             targetPlatformName = 'linux-x64'
+            installerOptions += ['--linux-shortcut']
         }
 
         imageName = "PcGen"
         resourceDir = file("$buildDir/install/pcgen")
-        installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}","--license-file", "${projectDir}/code/LICENSE"]
     }
 }
 
