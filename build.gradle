@@ -261,7 +261,7 @@ runtime {
         if (Os.isFamily(Os.FAMILY_MAC))
         {
             targetPlatformName = 'mac-x64'
-            installerOptions += ["--mac-package-identifier", "pcgen.system.Main"]
+            installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
         }
         else {
             targetPlatformName = 'linux-x64'
@@ -273,7 +273,7 @@ runtime {
     }
 }
 
-tasks.jpackageImage.doLast {
+tasks.jpackageImage.    doLast {
     copy {
         includeEmptyDirs = false
         from "${buildDir}/install/pcgen/"
