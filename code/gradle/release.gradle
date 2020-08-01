@@ -415,43 +415,64 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 
 task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar',
      'buildNsis']) {
-        description = "Create the release artifacts and get them into the release folder."
-        into releaseDir
-        // buildNsis puts the exe into the release folder directly
+    description = "Create the release artifacts and get them into the release folder."
+    into releaseDir
+    // buildNsis puts the exe into the release folder directly
 
-        from("$buildDir/nsisRelease"){
-            include '*.exe'
-        }
+    from("$buildDir/nsisRelease"){
+        include '*.exe'
+    }
 
-        from("${buildDir}/libs") {
-            include 'pcgen*-sources.jar'
-        }
-        from("${buildDir}") {
-            include 'image*.zip'
-        }
-        delete fileTree(buildDir).matching {
-            include "image*.zip"
-        }
-        if (Os.isFamily(Os.FAMILY_MAC)) {
-            from ("${buildDir}/jpackage/"){
-                include 'pcgen-*.*'
-            }
-        }
+    from("${buildDir}/libs") {
+        include 'pcgen*-sources.jar'
+    }
+    from("${buildDir}") {
+        include 'image*.zip'
+    }
+    delete fileTree(buildDir).matching {
+        include "image*.zip"
+    }
+    from ("${buildDir}/jpackage/"){
+        include 'pcgen-*.*'
+    }
 }
 
-if (Os.isFamily(Os.FAMILY_MAC))
+//Add || Os.isFamily(Os.FAMILY_UNIX) to add linux installs once bug in installers fixed https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8233449.
+if (Os.isFamily(Os.FAMILY_MAC) )
 {
     assembleArtifacts.dependsOn jpackage
 }
 
 // Produce SHA-256 checksums for each release artifact
 task checksum(dependsOn: assembleArtifacts) doLast {
-    File checksumsFile = new File("${buildDir}/release/SHA256-digests-${version}.txt")
-    checksumsFile.delete()
+    File zipChecksumsFile = new File("${buildDir}/release/SHA256-digests-zip-${version}.txt")
+    zipChecksumsFile.delete()
     file(releaseDir).listFiles().each {File file ->
         ant.checksum(file: file, property: "cs_$file.name", algorithm: "sha-256")
         def cs = ant.properties["cs_$file.name"]
-        checksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        if (file.name.endsWith("zip")) {
+            zipChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".exe")){
+            File exeChecksumsFile = new File("${buildDir}/release/SHA256-digests-exe-${version}.txt")
+            exeChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".pkg")|| file.name.endsWith(".dmg")){
+            File macChecksumsFile = new File("${buildDir}/release/SHA256-digests-mac-${version}.txt")
+            macChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".deb")|| file.name.endsWith(".rpm")){
+            File linuxChecksumsFile = new File("${buildDir}/release/SHA256-digests-linux-${version}.txt")
+            linuxChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".jar")){
+            File jarChecksumsFile = new File("${buildDir}/release/SHA256-digests-jar-${version}.txt")
+            jarChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".txt")) {}
+        else {
+            throw new GradleException("Checksums should account for all file.")
+        }
     }
 }
 
