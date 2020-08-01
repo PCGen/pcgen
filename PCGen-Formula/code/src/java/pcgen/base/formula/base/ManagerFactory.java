@@ -27,8 +27,17 @@ import java.util.Optional;
  */
 public class ManagerFactory
 {
+	/**
+	 * The OperatorLibrary this ManagerFactory will use to construct Managers.
+	 */
 	private final OperatorLibrary opLib;
 
+	/**
+	 * Construct a new ManagerFactory with the given arguments.
+	 * 
+	 * @param opLib
+	 *            The OperatorLibrary this ManagerFactory will use to construct Managers
+	 */
 	public ManagerFactory(OperatorLibrary opLib)
 	{
 		this.opLib = Objects.requireNonNull(opLib);

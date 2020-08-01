@@ -41,6 +41,8 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	/**
 	 * Adds a VariableListener for the given VariableID.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which the given VariableListener wishes to receive
 	 *            VariableChangeEvents
@@ -57,6 +59,8 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	/**
 	 * Adds a VariableListener for the given VariableID with the given priority .
 	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
 	 * @param priority
 	 *            The lower the priority the earlier in the list the new listener will get
 	 *            advised of the change.
@@ -77,6 +81,8 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	/**
 	 * Removes a VariableListener from the given VariableID.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which the given VariableListener is to be removed
 	 *            from the listener list
@@ -98,6 +104,8 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 * Note that if the given VariableListener has been registered under a different
 	 * priority, it will still receive events at that priority level.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
 	 * @param priority
 	 *            The priority of the listener to be removed
 	 * @param varID
@@ -137,6 +145,8 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 * Fires a VariableChangeEvent to the VariableListeners subscribed to the given
 	 * VariableID.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID indicating which variable changed
 	 * @param old

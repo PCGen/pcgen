@@ -117,6 +117,9 @@ public class DependencyManager
 
 	/**
 	 * Constructs a new DependencyManager object.
+	 * 
+	 * @param formulaManager
+	 *            The FormatManager that the new DependencyManager will contain
 	 */
 	public DependencyManager(FormulaManager formulaManager)
 	{
@@ -128,11 +131,15 @@ public class DependencyManager
 	 * Returns a new DependencyManager that has all the characteristics of this
 	 * DependencyManager, except the given key set to the given value.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object stored by the given TypedKey
 	 * @param key
 	 *            The TypeKey for which the given value should be set in the returned
 	 *            DependencyManager
 	 * @param value
 	 *            The value to be set in the DependencyManager for the given TypeKey
+	 * @return A new DependencyManager that has all the characteristics of this
+	 *         DependencyManager, except the given key set to the given value
 	 */
 	public <T> DependencyManager getWith(TypedKey<T> key, T value)
 	{
@@ -149,6 +156,8 @@ public class DependencyManager
 	 * will simply return the "Default Value" for the given TypeKey. Note null is a legal
 	 * default value.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object stored by the given TypedKey
 	 * @param key
 	 *            The TypeKey for which the value should be returned
 	 * @return The value of the DependencyManager for the given TypedKey

@@ -29,6 +29,8 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.logging.Logging;
+import pcgen.base.logging.Severity;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -81,10 +83,11 @@ public class GetOptionalFunction implements FormulaFunction
 					manager.get(EvaluationManager.ASSERTED);
 			if (asserted.isEmpty())
 			{
-				System.out.println("Evaluation called on invalid formula: '"
-					+ "<Optional Not Present>"
-					+ "', no asserted format available to determine default, "
-					+ "assuming zero (number)");
+				Logging.log(Severity.WARNING,
+					() -> "Evaluation called on invalid formula: '"
+						+ "<Optional Not Present>"
+						+ "', no asserted format available to determine default, "
+						+ "assuming zero (number)");
 				return 0;
 			}
 			@SuppressWarnings("unchecked")
@@ -93,9 +96,10 @@ public class GetOptionalFunction implements FormulaFunction
 			Optional<FormatManager<?>> underlying =
 					optionalFormat.getComponentManager();
 			Class<?> managedClass = asserted.get().getManagedClass();
-			System.out.println("Evaluation called on invalid formula: '"
-				+ "<Optional Not Present>" + "', assuming default for "
-				+ managedClass.getSimpleName());
+			Logging.log(Severity.WARNING,
+				() -> "Evaluation called on invalid formula: '"
+					+ "<Optional Not Present>" + "', assuming default for "
+					+ managedClass.getSimpleName());
 			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 			return fm.getDefault((FormatManager<?>) underlying.get());
 		}

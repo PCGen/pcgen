@@ -273,7 +273,7 @@ public class Solver<T>
 		}
 
 		@Override
-		public void getDependencies(DependencyManager fdm)
+		public void captureDependencies(DependencyManager fdm)
 		{
 		}
 

@@ -62,6 +62,8 @@ public class SupplierValueStore implements ValueStore
 	/**
 	 * Returns the default value (unresolved) for the given FormatManager.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object managed by the given FormatManager
 	 * @param formatManager
 	 *            The FormatManager for which the default value should be returned
 	 * @return The (unresolved) default value for the given FormatManager

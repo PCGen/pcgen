@@ -107,19 +107,19 @@ public class SimpleFunctionLibraryTest
 			@Override
 			public Boolean isStatic(StaticVisitor visitor, Node[] args)
 			{
-				return null;
+				return false;
 			}
 
 			@Override
 			public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics fs)
 			{
-				return null;
+				throw new UnsupportedOperationException();
 			}
 
 			@Override
 			public Double evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 			{
-				return null;
+				throw new UnsupportedOperationException();
 			}
 
 			@Override

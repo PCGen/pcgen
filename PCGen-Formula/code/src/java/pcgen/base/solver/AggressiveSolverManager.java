@@ -187,7 +187,7 @@ public class AggressiveSolverManager implements SolverSystem
 		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
 		dependencyManager = managerFactory.withVariables(dependencyManager);
-		modifier.getDependencies(dependencyManager);
+		modifier.captureDependencies(dependencyManager);
 		//Should always exist based on where this method was called from
 		Optional<VariableList> potentialVariables =
 				dependencyManager.get(DependencyManager.VARIABLES);
@@ -249,7 +249,7 @@ public class AggressiveSolverManager implements SolverSystem
 		dependencyManager = managerFactory.withVariables(dependencyManager);
 		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
-		modifier.getDependencies(dependencyManager);
+		modifier.captureDependencies(dependencyManager);
 		processDependencies(varID, dependencyManager);
 		//Cast above effectively enforced here
 		solver.removeModifier(modifier, source);
@@ -303,6 +303,8 @@ public class AggressiveSolverManager implements SolverSystem
 	 * @param varID
 	 *            The VariableID as a starting point for triggering Solvers to be
 	 *            processed
+	 * @return true if the variable identified by the given VariableID changed; false
+	 *         otherwise
 	 */
 	public boolean solveFromNode(VariableID<?> varID)
 	{

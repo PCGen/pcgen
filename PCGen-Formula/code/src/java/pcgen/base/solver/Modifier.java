@@ -57,7 +57,7 @@ public interface Modifier<T>
 	 *            The DependencyManager to be notified of dependencies for this
 	 *            Modifier
 	 */
-	public void getDependencies(DependencyManager fdm);
+	public void captureDependencies(DependencyManager fdm);
 
 	/**
 	 * Returns the priority of this Modifier. This is defined by the developer,

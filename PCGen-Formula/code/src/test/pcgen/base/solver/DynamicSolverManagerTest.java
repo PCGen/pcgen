@@ -318,9 +318,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			visitor.visitVariable(varName, trainer);
 			DynamicDependency dd = new DynamicDependency(ts.getControlVar(), "Global.LIMB");
 			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
-			Optional<FormatManager<?>> returnFormat = visitor.visitVariable(name, dynamic);
+			FormatManager<?> returnFormat = visitor.visitVariable(name, dynamic);
 			dm.get(DependencyManager.DYNAMIC).addDependency(dd);
-			return returnFormat;
+			return Optional.of(returnFormat);
 		}
 	}
 

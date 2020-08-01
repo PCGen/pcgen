@@ -166,6 +166,8 @@ public interface SolverSystem
 	/**
 	 * Directly solves a given NEPFormula using the information in this SolverSystem.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object processed by the given NEPFormula
 	 * @param formula
 	 *            The NEPFormula to be solved using the information in this SolverSystem
 	 * @return The result of evaluating the given formula based on information in this

@@ -85,7 +85,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	/**
 	 * The (cached) hashCode.
 	 */
-	private int hashCode = 0;
+	private int hash = 0;
 
 	/**
 	 * Construct a new ComplexNEPFormula from the given String. This calculates the tree
@@ -165,7 +165,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 *            The DependencyManager to be used to capture the dependencies
 	 */
 	@Override
-	public void getDependencies(DependencyManager depManager)
+	public void captureDependencies(DependencyManager depManager)
 	{
 		DEPENDENCY_VISITOR.visit(root, Objects.requireNonNull(depManager));
 	}
@@ -209,11 +209,11 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	@Override
 	public int hashCode()
 	{
-		if (hashCode == 0)
+		if (hash == 0)
 		{
-			hashCode = toString().hashCode();
+			hash = toString().hashCode();
 		}
-		return hashCode;
+		return hash;
 	}
 
 	@Override

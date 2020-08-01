@@ -205,7 +205,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			return getVariableFormat(manager, name).get().getComponentManager();
+			return getVariableFormat(manager, name).getComponentManager();
 		}
 		throw new IllegalStateException(
 				"Evaluation called on invalid Function (failed semantics?)");
@@ -219,7 +219,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenSingleWord node, Object data)
 	{
-		return visitVariable(node.getText(), (DependencyManager) data);
+		return Optional.of(visitVariable(node.getText(), (DependencyManager) data));
 	}
 
 	/**
@@ -227,8 +227,12 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * 
 	 * @param varName
 	 *            The variable name to be added as a dependency
+	 * @param manager
+	 *            The DependencyManager used to process the visit to the variable
+	 * @return The format for the given Variable, in the scope as described by the
+	 *         DependencyManager
 	 */
-	public Optional<FormatManager<?>> visitVariable(String varName, DependencyManager manager)
+	public FormatManager<?> visitVariable(String varName, DependencyManager manager)
 	{
 		Optional<VariableStrategy> varStrategy =
 				manager.get(DependencyManager.VARSTRATEGY);
@@ -251,13 +255,13 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * @return The format for the given Variable, in the scope as described by the
 	 *         DependencyManager
 	 */
-	public Optional<FormatManager<?>> getVariableFormat(DependencyManager manager, String varName)
+	public FormatManager<?> getVariableFormat(DependencyManager manager, String varName)
 	{
 		VariableLibrary varLib = manager.get(DependencyManager.FMANAGER).getFactory();
 		//Fall back to INSTANCE if necessary
 		LegalScope legalScope = manager.get(DependencyManager.SCOPE).orElseGet(
 			() -> manager.get(DependencyManager.INSTANCE).getLegalScope());
-		return Optional.of(varLib.getVariableFormat(legalScope, varName));
+		return varLib.getVariableFormat(legalScope, varName);
 	}
 
 	/**

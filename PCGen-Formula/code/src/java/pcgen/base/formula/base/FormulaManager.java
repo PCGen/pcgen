@@ -57,6 +57,8 @@ public interface FormulaManager
 	/**
 	 * Returns the default value for a given FormatManager.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object managed by the given FormatManager
 	 * @param formatManager
 	 *            The FormatManager for which the default value should be returned
 	 * @return The default value for a given FormatManager
@@ -67,11 +69,15 @@ public interface FormulaManager
 	 * Returns a new FormulaManager that has all the characteristics of this
 	 * FormulaManager, except the given key set to the given value.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object stored by the given TypedKey
 	 * @param key
 	 *            The TypeKey for which the given value should be set in the returned
 	 *            FormulaManager
 	 * @param value
 	 *            The value to be set in the FormulaManager for the given TypeKey
+	 * @return A new FormulaManager that has all the characteristics of this
+	 *         FormulaManager, except the given key set to the given value
 	 */
 	public <T> FormulaManager getWith(TypedKey<T> key, T value);
 
@@ -82,6 +88,8 @@ public interface FormulaManager
 	 * no value for that TypedKey. It will simply return the "Default Value" for the given
 	 * TypeKey. Note null is a legal default value.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object stored by the given TypedKey
 	 * @param key
 	 *            The TypeKey for which the value should be returned
 	 * @return The value in the FormulaManager for the given TypedKey

@@ -19,8 +19,6 @@
    <include-pattern>.*/formula/parse/SimpleNode.java</include-pattern>
 
   <rule ref="category/java/bestpractices.xml">
-    <!-- We need to decide on our logging policy in the libraries - trying to minimize external dependencies means no Apache logging, etc.-->
-    <exclude name="SystemPrintln"/>
     <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
     <exclude name="UseVarargs"/>
   </rule>
@@ -32,10 +30,7 @@
     <!-- This is excluded because we use "Utilities" not "Utils" -->
     <exclude name="ClassNamingConventions"/>
     <exclude name="CommentDefaultAccessModifier"/>
-    <exclude name="DefaultPackage"/>
     <exclude name="GenericsNaming"/>
-    <!-- TODO Only a couple of these - worth investigating -->
-    <exclude name="LinguisticNaming"/>
     <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
     <exclude name="LocalVariableCouldBeFinal"/>
     <!-- This is excluded because we aim for clarity not terse-ness -->
@@ -61,20 +56,17 @@
   </rule>
   <rule ref="category/java/errorprone.xml">
     <exclude name="AvoidDuplicateLiterals"/>
-    <exclude name="AvoidFieldNameMatchingMethodName"/>
     <exclude name="AvoidLiteralsInIfCondition"/>
     <!-- This is excluded because we aren't beans -->
     <exclude name="BeanMembersShouldSerialize"/>
     <!-- This is excluded because there are so many false positives -->
     <exclude name="DataflowAnomalyAnalysis"/>
-    <!-- Another scenario: We need to decide on our logging policy in the libraries - trying to minimize external dependencies means no Apache logging, etc.-->
-    <exclude name="EmptyIfStmt"/>
     <!-- TODO Only a small handful of these - worth investigating -->
     <exclude name="MissingSerialVersionUID"/>
   </rule>
   <rule ref="category/java/multithreading.xml">
     <exclude name="AvoidSynchronizedAtMethodLevel"/>
-    <!-- Interesting, but very too many false positives -->
+    <!-- Interesting, but too many false positives -->
     <exclude name="UseConcurrentHashMap"/>
   </rule>
   <rule ref="category/java/performance.xml">

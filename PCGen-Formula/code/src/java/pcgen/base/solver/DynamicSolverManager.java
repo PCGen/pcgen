@@ -202,7 +202,7 @@ public class DynamicSolverManager implements SolverSystem
 		dependencyManager = managerFactory.withVariables(dependencyManager);
 		dependencyManager = dependencyManager.getWith(DependencyManager.DYNAMIC,
 			new DynamicManager());
-		modifier.getDependencies(dependencyManager);
+		modifier.captureDependencies(dependencyManager);
 		addDirectDependencies(varID, dependencyManager);
 		addDynamicDependencies(varID, dependencyManager);
 		//Cast above effectively enforced here
@@ -304,7 +304,7 @@ public class DynamicSolverManager implements SolverSystem
 		dependencyManager = managerFactory.withVariables(dependencyManager);
 		dependencyManager = dependencyManager.getWith(DependencyManager.DYNAMIC,
 			new DynamicManager());
-		modifier.getDependencies(dependencyManager);
+		modifier.captureDependencies(dependencyManager);
 		processDependencies(varID, dependencyManager);
 		//Cast above effectively enforced here
 		solver.removeModifier(modifier, source);
@@ -371,6 +371,8 @@ public class DynamicSolverManager implements SolverSystem
 	 * @param varID
 	 *            The VariableID as a starting point for triggering Solvers to be
 	 *            processed
+	 * @return true if the variable identified by the given VariableID changed; false
+	 *         otherwise
 	 */
 	public boolean solveFromNode(VariableID<?> varID)
 	{

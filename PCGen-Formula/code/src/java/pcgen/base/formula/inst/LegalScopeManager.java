@@ -73,6 +73,9 @@ public interface LegalScopeManager
 	/**
 	 * Returns true if the LegalScope has been registered with this LegalScopeManager.
 	 * 
+	 * @param legalScope
+	 *            The LegalScope to be checked to see if it is recognized by this
+	 *            LegalScopeManager
 	 * @return true if the LegalScope has been registered with this LegalScopeManager;
 	 *         false otherwise
 	 */

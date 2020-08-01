@@ -167,6 +167,8 @@ public class VariableID<T>
 
 	/**
 	 * Ensure a name is not null, zero length, or whitespace padded.
+	 * 
+	 * @param varName The variable name to be checked to see if it is legal
 	 */
 	public static void checkLegalVarName(String varName)
 	{

@@ -71,11 +71,15 @@ public final class EvaluationManager
 	 * Returns a new EvaluationManager that has all the characteristics of this
 	 * EvaluationManager, except the given key set to the given value.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object stored by the given TypedKey
 	 * @param key
 	 *            The TypeKey for which the given value should be set in the returned
 	 *            EvaluationManager
 	 * @param value
 	 *            The value to be set in the EvaluationManager for the given TypeKey
+	 * @return A new EvaluationManager that has all the characteristics of this
+	 *         EvaluationManager, except the given key set to the given value
 	 */
 	public <T> EvaluationManager getWith(TypedKey<T> key, T value)
 	{
@@ -92,6 +96,8 @@ public final class EvaluationManager
 	 * will simply return the "Default Value" for the given TypeKey. Note null is a legal
 	 * default value.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object stored by the given TypedKey
 	 * @param key
 	 *            The TypeKey for which the value should be returned
 	 * @return The value of the EvaluationManager for the given TypedKey

@@ -15,9 +15,6 @@
     <module name="JavadocMethod">
       <property name="scope" value="public"/>
       <property name="allowUndeclaredRTE" value="true"/>
-      <property name="allowMissingParamTags" value="true"/>
-      <property name="allowMissingReturnTag" value="true"/>
-      <property name="allowMissingPropertyJavadoc" value="true"/>
     </module>
     <module name="JavadocType"/>
     <module name="JavadocVariable">
@@ -37,6 +34,7 @@
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
     <module name="LineLength">
+      <property name="tabWidth" value="4"/>
       <property name="max" value="120"/>
     </module>
     <module name="MethodLength"/>

@@ -100,11 +100,15 @@ public class FormulaSemantics
 	 * Returns a new FormulaSemantics that has all the characteristics of this
 	 * FormulaSemantics, except the given key set to the given value.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object stored by the given TypedKey
 	 * @param key
 	 *            The TypeKey for which the given value should be set in the returned
 	 *            FormulaSemantics
 	 * @param value
 	 *            The value to be set in the FormulaSemantics for the given TypeKey
+	 * @return A new FormulaSemantics that has all the characteristics of this
+	 *         FormulaSemantics, except the given key set to the given value
 	 */
 	public <T> FormulaSemantics getWith(TypedKey<T> key, T value)
 	{
@@ -120,6 +124,8 @@ public class FormulaSemantics
 	 * will simply return the "Default Value" for the given TypeKey. Note null is a legal
 	 * default value.
 	 * 
+	 * @param <T>
+	 *            The format (class) of object stored by the given TypedKey
 	 * @param key
 	 *            The TypeKey for which the value should be returned
 	 * @return The value of the FormulaSemantics for the given TypedKey

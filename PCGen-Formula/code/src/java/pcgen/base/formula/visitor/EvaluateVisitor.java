@@ -48,6 +48,8 @@ import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
+import pcgen.base.logging.Logging;
+import pcgen.base.logging.Severity;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -399,15 +401,16 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Optional<FormatManager<?>> asserted = manager.get(EvaluationManager.ASSERTED);
 		if (!asserted.isPresent())
 		{
-			System.out
-				.println("Evaluation called on invalid variable: '" + varName
+			Logging.log(Severity.WARNING,
+				() -> "Evaluation called on invalid variable: '" + varName
 					+ "', no asserted format available to determine default, "
 					+ "assuming zero (number)");
 			return 0;
 		}
 		Class<?> managedClass = asserted.get().getManagedClass();
-		System.out.println("Evaluation called on invalid variable: '" + varName
-			+ "', assuming default for " + managedClass.getSimpleName());
+		Logging.log(Severity.WARNING,
+			() -> "Evaluation called on invalid variable: '" + varName
+				+ "', assuming default for " + managedClass.getSimpleName());
 		return fm.getDefault(asserted.get());
 	}
 

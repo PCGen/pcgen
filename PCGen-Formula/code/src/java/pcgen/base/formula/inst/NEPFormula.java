@@ -90,7 +90,7 @@ public interface NEPFormula<T>
 	 * @param depManager
 	 *            The DependencyManager to be used to capture the dependencies
 	 */
-	public void getDependencies(DependencyManager depManager);
+	public void captureDependencies(DependencyManager depManager);
 	
 	/**
 	 * The FormatManager in which the NEPFormula is processed (and indicating the type of
