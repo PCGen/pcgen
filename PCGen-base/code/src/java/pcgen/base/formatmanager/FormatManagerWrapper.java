@@ -43,7 +43,7 @@ public class FormatManagerWrapper implements FormatManagerFactory
 	 */
 	public FormatManagerWrapper(FormatManager<?> fmtManager)
 	{
-		formatManager = FormatUtilities.isValid(fmtManager);
+		formatManager = FormatUtilities.ifValid(fmtManager);
 	}
 
 	@Override

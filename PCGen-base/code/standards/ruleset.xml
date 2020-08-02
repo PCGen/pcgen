@@ -25,9 +25,6 @@
     <!-- This is excluded because we use "Utilities" not "Utils" -->
     <exclude name="ClassNamingConventions"/>
     <exclude name="CommentDefaultAccessModifier"/>
-    <exclude name="DefaultPackage"/>
-    <!-- TODO Only a couple of these - worth investigating -->
-    <exclude name="LinguisticNaming"/>
     <exclude name="GenericsNaming"/>
     <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
     <exclude name="LocalVariableCouldBeFinal"/>
@@ -53,7 +50,6 @@
   </rule>
   <rule ref="category/java/errorprone.xml">
     <exclude name="AvoidDuplicateLiterals"/>
-    <exclude name="AvoidFieldNameMatchingMethodName"/>
     <exclude name="AvoidLiteralsInIfCondition"/>
     <!-- This is excluded because we aren't beans -->
     <exclude name="BeanMembersShouldSerialize"/>
@@ -64,7 +60,7 @@
   </rule>
   <rule ref="category/java/multithreading.xml">
     <exclude name="AvoidSynchronizedAtMethodLevel"/>
-    <!-- Interesting, but very too many false positives -->
+    <!-- Interesting, but too many false positives -->
     <exclude name="UseConcurrentHashMap"/>
   </rule>
   <rule ref="category/java/performance.xml">
