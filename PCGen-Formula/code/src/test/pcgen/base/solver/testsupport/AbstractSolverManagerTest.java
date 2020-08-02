@@ -36,15 +36,15 @@ import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.Modifier;
-import pcgen.base.solver.SimpleSolverFactory;
-import pcgen.base.solver.SolverFactory;
+import pcgen.base.solver.SimpleSolverManager;
+import pcgen.base.solver.SolverManager;
 import pcgen.base.solver.SolverSystem;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 
 public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 {
 
-	private SolverFactory solverFactory;
+	private SolverManager solverManager;
 	private VariableLibrary varLibrary;
 	private WriteableVariableStore store;
 	private ImplementedScope globalScope;
@@ -55,7 +55,10 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	protected void setUp()
 	{
 		super.setUp();
-		solverFactory = new SimpleSolverFactory(getValueStore());
+		solverManager = new SimpleSolverManager(
+			getFormulaManager().getFactory()::isLegalVariableID,
+			getFormulaManager(), getManagerFactory(), getValueStore(),
+			getVariableStore());
 		varLibrary = getVariableLibrary();
 		store = getVariableStore();
 		globalScope = getScopeManager().getImplementedScope("Global");
@@ -67,7 +70,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	protected void tearDown()
 	{
 		super.tearDown();
-		solverFactory = null;
+		solverManager = null;
 		varLibrary = null;
 		store = null;
 		globalScope = null;
@@ -77,43 +80,12 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	protected abstract SolverSystem getManager();
 
 	@Test
-	public void testIllegalCreateChannel()
-	{
-		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
-		assertThrows(NullPointerException.class, () -> getManager().createChannel(null));
-	}
-
-	@Test
-	public void testCreateChannelTwice()
-	{
-		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
-		@SuppressWarnings("unchecked")
-		VariableID<Number> hp =
-				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
-		getManager().createChannel(hp);
-		assertThrows(IllegalArgumentException.class, () -> getManager().createChannel(hp));
-	}
-
-	@Test
-	public void testCreateChannel()
-	{
-		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
-		@SuppressWarnings("unchecked")
-		VariableID<Number> hp =
-				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
-		assertEquals(null, store.get(hp));
-		getManager().createChannel(hp);
-		assertEquals(0, store.get(hp));
-	}
-
-	@Test
 	public void testIllegalAddModifier()
 	{
 		assertLegalVariable("HP", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
-		getManager().createChannel(hp);
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
 		ScopeInstance source = globalScopeInst;
 		assertThrows(NullPointerException.class, () -> getManager().addModifier(null, modifier, source));
@@ -137,8 +109,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
 		assertEquals(null, store.get(hp));
-		getManager().createChannel(hp);
-		assertEquals(0, store.get(hp));
 		ScopeInstance source = globalScopeInst;
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
 		getManager().addModifier(hp, modifier, source);
@@ -267,7 +237,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		@SuppressWarnings("unchecked")
 		VariableID<Number> hp =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "HP");
-		getManager().createChannel(hp);
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
 		ScopeInstance source = globalScopeInst;
 		assertThrows(NullPointerException.class, () -> getManager().removeModifier(null, modifier, source));
@@ -348,9 +317,9 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 
 	}
 
-	public SolverFactory getSolverFactory()
+	public SolverManager getSolverManager()
 	{
-		return solverFactory;
+		return solverManager;
 	}
 
 	@Test
@@ -420,6 +389,59 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(0, store.get(legs));
 		assertEquals(2, store.get(limbs));
 
+	}
+
+	@Test
+	public void testCleanRemove()
+	{
+		ScopeInstance source = globalScopeInst;
+		ComplexNEPFormula<Number> formula =
+				new ComplexNEPFormula<>("arms+legs", FormatUtilities.NUMBER_MANAGER);
+		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
+
+		ComplexNEPFormula<Number> handsformula =
+				new ComplexNEPFormula<>("arms", FormatUtilities.NUMBER_MANAGER);
+		Modifier<Number> armMod = AbstractModifier.add(handsformula, 100);
+
+		assertLegalVariable("Limbs", "Global", FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
+		VariableID<Number> limbs =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Limbs");
+		assertLegalVariable("arms", "Global", FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
+		VariableID<Number> arms =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Arms");
+		assertLegalVariable("WithExtra", "Global", FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
+		VariableID<Number> extra =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "WithExtra");
+		assertLegalVariable("legs", "Global", FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
+		VariableID<Number> legs =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Legs");
+		assertEquals(null, store.get(limbs));
+		getManager().addModifier(limbs, limbsMod, source);
+		getManager().addModifier(extra, limbsMod, source);
+		getManager().addModifier(extra, armMod, source);
+
+		AbstractModifier<Number> two = AbstractModifier.setNumber(2, 5);
+		getManager().addModifier(arms, two, source);
+		assertEquals(2, store.get(arms));
+		assertEquals(2, store.get(limbs));
+		assertEquals(4, store.get(extra));
+
+		getManager().addModifier(legs, two, source);
+		assertEquals(2, store.get(arms));
+		assertEquals(2, store.get(legs));
+		assertEquals(4, store.get(limbs));
+		assertEquals(6, store.get(extra));
+
+		//This makes sure the remove of arms+legs doesn't disrupt that ANOTHER modifier has arms
+		getManager().removeModifier(extra, limbsMod, source);
+		assertEquals(2, store.get(arms));
+		assertEquals(2, store.get(legs));
+		assertEquals(4, store.get(limbs));
+		assertEquals(2, store.get(extra));
 	}
 
 	@Test

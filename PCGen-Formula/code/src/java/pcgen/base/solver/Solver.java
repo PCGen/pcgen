@@ -386,4 +386,29 @@ public class Solver<T>
 		replacement.sourceList.addAllLists(sourceList);
 		return replacement;
 	}
+
+	/**
+	 * Loads the dependencies for all of the Modifier objects for this Solver into the
+	 * given DependencyManager.
+	 * 
+	 * The DependencyManager may not be altered if there are no dependencies for this
+	 * Modifier.
+	 * 
+	 * @param dependencyManager
+	 *            The DependencyManager to be notified of dependencies for this all of the
+	 *            Modifier objects for this Solver
+	 */
+	public void captureDependencies(DependencyManager dependencyManager)
+	{
+		for (Long priority : modifierList.getKeySet())
+		{
+			for (ModInfo<T> modInfo : modifierList.getListFor(priority))
+			{
+				Modifier<T> mod = modInfo.modifier;
+				DependencyManager dm = dependencyManager
+					.getWith(DependencyManager.INSTANCE, modInfo.inst);
+				mod.captureDependencies(dm);
+			}
+		}
+	}
 }

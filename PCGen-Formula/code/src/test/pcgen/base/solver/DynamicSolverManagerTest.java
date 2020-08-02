@@ -63,7 +63,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	{
 		super.setUp();
 		manager = new DynamicSolverManager(getFormulaManager(), getManagerFactory(),
-			getSolverFactory(), getVariableStore());
+			getSolverManager(), getVariableStore());
 	}
 	
 	@AfterEach
@@ -77,14 +77,14 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testIllegalConstruction()
 	{
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(null, getManagerFactory(), getSolverFactory(),
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(null, getManagerFactory(), getSolverManager(),
 				getVariableStore()));
 		FormulaManager formulaManager = getFormulaManager();
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, null, getSolverFactory(),
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, null, getSolverManager(),
 				getVariableStore()));
 		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, getManagerFactory(), null,
 				getVariableStore()));
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, getManagerFactory(), getSolverFactory(),
+		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, getManagerFactory(), getSolverManager(),
 				null));
 	}
 

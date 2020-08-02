@@ -15,10 +15,7 @@
  */
 package pcgen.base.solver;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -40,15 +37,10 @@ import pcgen.base.logging.Severity;
 import pcgen.base.util.FormatManager;
 
 /**
- * An AggressiveSolverManager manages a series of Solver objects in order to manage
- * dependencies between those Solver objects and ensure that any Solver which needs to be
+ * An AggressiveSolverManager manages a series of variables objects in order to manage
+ * dependencies between those variables and ensure that any variable which needs to be
  * processed to update a value is processed "aggressively" (as soon as a dependency has
  * calculated a new value).
- * 
- * One of the primary characteristic of the AggressiveSolverManager is also that callers
- * will consider items as represented by a given "VariableID", whereas the
- * AggressiveSolverManager will build and manage the associated Solver for that
- * VariableID.
  */
 @SuppressWarnings("PMD.TooManyMethods")
 public class AggressiveSolverManager implements SolverSystem
@@ -60,7 +52,7 @@ public class AggressiveSolverManager implements SolverSystem
 	private final SolverStrategy strategy;
 	
 	/**
-	 * The FormulaManager used by the Solver members of this AggressiveSolverManager.
+	 * The FormulaManager used by this AggressiveSolverManager.
 	 */
 	private final FormulaManager formulaManager;
 
@@ -71,18 +63,6 @@ public class AggressiveSolverManager implements SolverSystem
 	private final ManagerFactory managerFactory;
 
 	/**
-	 * The relationship from each VariableID to the Solver calculating the value of the
-	 * VariableID.
-	 */
-	private final Map<VariableID<?>, Solver<?>> scopedChannels =
-			new HashMap<VariableID<?>, Solver<?>>();
-
-	/**
-	 * The "summarized" results of the calculation of each Solver.
-	 */
-	private final WriteableVariableStore resultStore;
-
-	/**
 	 * A mathematical graph used to store dependencies between VariableIDs. Since there is
 	 * a 1:1 relationship with the Solver used for a VariableID, this implicitly stores
 	 * the dependencies between the Solvers that are part of this AggressiveSolverManager.
@@ -91,10 +71,10 @@ public class AggressiveSolverManager implements SolverSystem
 			new DirectionalSetMapGraph<>();
 
 	/**
-	 * The SolverFactory to be used to construct the Solver objects that are members of
+	 * The solverManager to be used to manage the defaults and values of the variables in
 	 * this AggressiveSolverFactory.
 	 */
-	private final SolverFactory solverFactory;
+	private final SolverManager solverManager;
 
 	/**
 	 * Constructs a new AggressiveSolverManager which will use the given FormulaMananger
@@ -112,39 +92,17 @@ public class AggressiveSolverManager implements SolverSystem
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to generate visitor managers in this
 	 *            AggressiveSolverManager
-	 * @param solverFactory
-	 *            The SolverFactory used to store Defaults and build Solver objects
-	 * @param resultStore
-	 *            The WriteableVariableStore used to store results of the calculations of
-	 *            the Solver objects within this AggressiveSolverManager
+	 * @param solverManager
+	 *            The SolverManager used to manage the defaults and values of variables
 	 */
 	public AggressiveSolverManager(FormulaManager manager, ManagerFactory managerFactory,
-		SolverFactory solverFactory, WriteableVariableStore resultStore)
+		SolverManager solverManager)
 	{
 		this.strategy = new AggressiveStrategy(this::processForChildren,
-			this::processSolver);
+			solverManager::processSolver);
 		this.formulaManager = Objects.requireNonNull(manager);
 		this.managerFactory = Objects.requireNonNull(managerFactory);
-		this.solverFactory = Objects.requireNonNull(solverFactory);
-		this.resultStore = Objects.requireNonNull(resultStore);
-	}
-
-	/*
-	 * Note: This creates a "local" scoped channel that only exists for the item in
-	 * question (item is "in" the VariableID). The key here being that there is the
-	 * ability to have a local variable (e.g. Equipment variable).
-	 */
-	@Override
-	public <T> void createChannel(VariableID<T> varID)
-	{
-		Solver<?> currentSolver = scopedChannels.get(Objects.requireNonNull(varID));
-		if (currentSolver != null)
-		{
-			throw new IllegalArgumentException(
-				"Attempt to recreate local channel: " + varID);
-		}
-		unconditionallyBuildSolver(varID);
-		strategy.processModsUpdated(varID);
+		this.solverManager = Objects.requireNonNull(solverManager);
 	}
 
 	@Override
@@ -155,27 +113,11 @@ public class AggressiveSolverManager implements SolverSystem
 		Objects.requireNonNull(modifier);
 		Objects.requireNonNull(source);
 
-		if (!formulaManager.getFactory()
-			.isLegalVariableID(varID.getScope().getImplementedScope(), varID.getName()))
+		if (solverManager.initialize(varID))
 		{
-			/*
-			 * The above check allows the implicit create below for only items within the
-			 * VariableLibrary
-			 */
-			throw new IllegalArgumentException("Request to add Modifier to Solver for "
-				+ varID + " but that channel was never defined");
+			dependencies.addNode(varID);
 		}
-		//Note: This cast is enforced by the solver during addModifier
-		@SuppressWarnings("unchecked")
-		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
-		if (solver == null)
-		{
-			//CONSIDER This build is implicit - do we want explicit or implicit?
-			solver = unconditionallyBuildSolver(varID);
-		}
-		/*
-		 * Now build new edges of things this solver will be dependent upon...
-		 */
+
 		DependencyManager dependencyManager =
 				managerFactory.generateDependencyManager(formulaManager, source);
 		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
@@ -187,7 +129,8 @@ public class AggressiveSolverManager implements SolverSystem
 				dependencyManager.get(DependencyManager.VARIABLES);
 		for (VariableID<?> depID : potentialVariables.get().getVariables())
 		{
-			ensureSolverExists(depID);
+			dependencies.addNode(depID);
+			solverManager.initialize(depID);
 			/*
 			 * Better to use depID here rather than Solver: (1) No order of operations
 			 * risk (2) Process can still write to cache knowing ID
@@ -197,30 +140,8 @@ public class AggressiveSolverManager implements SolverSystem
 					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
 			dependencies.addEdge(edge);
 		}
-		//Cast above effectively enforced here
-		solver.addModifier(modifier, source);
-		/*
-		 * Solve this solver and anything that requires it (recursively)
-		 */
+		solverManager.addModifier(varID, modifier, source);
 		strategy.processModsUpdated(varID);
-	}
-
-	private void ensureSolverExists(VariableID<?> varID)
-	{
-		if (scopedChannels.get(varID) == null)
-		{
-			unconditionallyBuildSolver(varID);
-			strategy.processModsUpdated(varID);
-		}
-	}
-
-	private <T> Solver<T> unconditionallyBuildSolver(VariableID<T> varID)
-	{
-		FormatManager<T> formatManager = varID.getFormatManager();
-		Solver<T> solver = solverFactory.getSolver(formatManager);
-		scopedChannels.put(varID, solver);
-		dependencies.addNode(varID);
-		return solver;
 	}
 
 	@Override
@@ -230,23 +151,14 @@ public class AggressiveSolverManager implements SolverSystem
 		Objects.requireNonNull(varID);
 		Objects.requireNonNull(modifier);
 		Objects.requireNonNull(source);
-		//Note: This cast is enforced by the solver during addModifier
-		@SuppressWarnings("unchecked")
-		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
-		if (solver == null)
-		{
-			throw new IllegalArgumentException("Request to remove Modifier to Solver for "
-				+ varID + " but that channel was never defined");
-		}
+		solverManager.removeModifier(varID, modifier, source);
 		DependencyManager dependencyManager =
 				managerFactory.generateDependencyManager(formulaManager, source);
 		dependencyManager = managerFactory.withVariables(dependencyManager);
 		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
-		modifier.captureDependencies(dependencyManager);
+		solverManager.captureAllDependencies(varID, dependencyManager);
 		processDependencies(varID, dependencyManager);
-		//Cast above effectively enforced here
-		solver.removeModifier(modifier, source);
 		strategy.processModsUpdated(varID);
 	}
 
@@ -265,11 +177,15 @@ public class AggressiveSolverManager implements SolverSystem
 	private <T> void processDependencies(VariableID<T> varID,
 		DependencyManager dependencyManager)
 	{
+		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
+				dependencies.getAdjacentEdges(varID);
+		if (edges == null)
+		{
+			return;
+		}
 		Optional<VariableList> potentialVariables =
 				dependencyManager.get(DependencyManager.VARIABLES);
 		List<VariableID<?>> dependentVarIDs = potentialVariables.get().getVariables();
-		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
-				dependencies.getAdjacentEdges(varID);
 		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : edges)
 		{
 			if (edge.getNodeAt(1) == varID)
@@ -307,61 +223,24 @@ public class AggressiveSolverManager implements SolverSystem
 		}
 	}
 
-	/**
-	 * Processes a single Solver represented by the given VariableID. Returns true if the
-	 * value of the Variable calculated by the Solver has changed due to this processing.
-	 * 
-	 * @param <T>
-	 *            The format (class) of object contained by the given VariableID
-	 * @param varID
-	 *            The VariableID for which the given Solver should be processed.
-	 * 
-	 * @return true if the value of the Variable calculated by the Solver has changed due
-	 *         to this processing; false otherwise
-	 */
-	private <T> boolean processSolver(VariableID<T> varID)
-	{
-		@SuppressWarnings("unchecked")
-		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
-		/*
-		 * Solver should "never" be null here, so we accept risk of NPE, since it's always
-		 * a code bug
-		 */
-		EvaluationManager evalManager =
-				managerFactory.generateEvaluationManager(formulaManager);
-		T newValue = solver.process(evalManager);
-		Object oldValue = resultStore.put(varID, newValue);
-		return !newValue.equals(oldValue);
-	}
-
 	@Override
 	public <T> List<ProcessStep<T>> diagnose(VariableID<T> varID)
 	{
-		@SuppressWarnings("unchecked")
-		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
-		if (solver == null)
-		{
-			throw new IllegalArgumentException("Request to diagnose VariableID " + varID
-				+ " but that channel was never defined");
-		}
-		EvaluationManager evalManager =
-				managerFactory.generateEvaluationManager(formulaManager);
-		return solver.diagnose(evalManager);
+		return solverManager.diagnose(varID);
 	}
 
 	@Override
 	public <T> T getDefaultValue(FormatManager<T> formatManager)
 	{
-		return solverFactory.getDefault(formatManager);
+		return solverManager.getDefault(formatManager);
 	}
 
 	@Override
 	public AggressiveSolverManager createReplacement(WriteableVariableStore newVarStore)
 	{
-		newVarStore.importFrom(resultStore);
 		AggressiveSolverManager replacement = new AggressiveSolverManager(
 			formulaManager.getWith(FormulaManager.RESULTS, newVarStore),
-			managerFactory, solverFactory, newVarStore);
+			managerFactory, solverManager.createReplacement(newVarStore));
 		for (VariableID<?> varID : dependencies.getNodeList())
 		{
 			replacement.dependencies.addNode(varID);
@@ -369,10 +248,6 @@ public class AggressiveSolverManager implements SolverSystem
 		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : dependencies.getEdgeList())
 		{
 			replacement.dependencies.addEdge(edge);
-		}
-		for (Entry<VariableID<?>, Solver<?>> entry : scopedChannels.entrySet())
-		{
-			replacement.scopedChannels.put(entry.getKey(), entry.getValue().createReplacement());
 		}
 		return replacement;
 	}

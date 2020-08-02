@@ -31,19 +31,6 @@ public interface SolverSystem
 {
 
 	/**
-	 * Defines a new Variable that requires solving in this SolverSystem. The Variable,
-	 * identified by the given VariableID, will be of the format of the given Class.
-	 * 
-	 * @param <T>
-	 *            The format (class) of object contained by the given VariableID
-	 * @param varID
-	 *            The VariableID used to identify the Solver to be built
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
-	 */
-	public <T> void createChannel(VariableID<T> varID);
-
-	/**
 	 * Adds a Modifier (with the given source object) to the variable identified by the
 	 * given VariableID.
 	 * 
@@ -61,7 +48,7 @@ public interface SolverSystem
 		ScopeInstance source);
 
 	/**
-	 * Removes a Modifier (with the given source object) from the Solver identified by the
+	 * Removes a Modifier (with the given source object) from the variable identified by the
 	 * given VariableID.
 	 * 
 	 * For this to have any effect, the combination of Modifier and source must be the
