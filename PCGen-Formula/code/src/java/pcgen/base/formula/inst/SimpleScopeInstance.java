@@ -18,7 +18,7 @@ package pcgen.base.formula.inst;
 import java.util.Objects;
 import java.util.Optional;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 
@@ -34,9 +34,9 @@ public class SimpleScopeInstance implements ScopeInstance
 	private final Optional<ScopeInstance> parent;
 
 	/**
-	 * Contains the LegalScope in which this ScopeInstance was instantiated.
+	 * Contains the ImplementedScope in which this ScopeInstance was instantiated.
 	 */
-	private final LegalScope scope;
+	private final ImplementedScope scope;
 
 	/**
 	 * Contains the VarScoped that this ScopeInstance was instantiated to represent.
@@ -45,16 +45,16 @@ public class SimpleScopeInstance implements ScopeInstance
 
 	/**
 	 * Constructs a new SimpleScopeInstance with the given parent ScopeInstance and within
-	 * the given LegalScope.
+	 * the given ImplementedScope.
 	 * 
 	 * @param parent
 	 *            the ScopeInstance that is the parent of this ScopeInstance
 	 * @param scope
-	 *            the LegalScope in which this ScopeInstance was instantiated
+	 *            the ImplementedScope in which this ScopeInstance was instantiated
 	 * @param representing
 	 *            The VarScoped object that this ScopeInstance represents
 	 */
-	public SimpleScopeInstance(Optional<ScopeInstance> parent, LegalScope scope,
+	public SimpleScopeInstance(Optional<ScopeInstance> parent, ImplementedScope scope,
 		VarScoped representing)
 	{
 		this.representing = Objects.requireNonNull(representing);
@@ -64,25 +64,25 @@ public class SimpleScopeInstance implements ScopeInstance
 			if (scope.getParentScope().isPresent())
 			{
 				throw new IllegalArgumentException(
-					"Incompatible ScopeInstance and LegalScope: "
-						+ "Parent may only be null when LegalScope has no parent");
+					"Incompatible ScopeInstance and ImplementedScope: "
+						+ "Parent may only be null when ImplementedScope has no parent");
 			}
 		}
 		else if (scope.getParentScope().isPresent())
 		{
-			LegalScope parentScope = scope.getParentScope().get();
-			if (!parentScope.equals(parent.get().getLegalScope()))
+			ImplementedScope parentScope = scope.getParentScope().get();
+			if (!parentScope.equals(parent.get().getImplementedScope()))
 			{
 				throw new IllegalArgumentException(
-					"Incompatible ScopeInstance (" + parent.get().getLegalScope().getName()
-						+ ") and LegalScope parent (" + parentScope.getName() + ")");
+					"Incompatible ScopeInstance (" + parent.get().getImplementedScope().getName()
+						+ ") and ImplementedScope parent (" + parentScope.getName() + ")");
 			}
 		}
 		else
 		{
 			throw new IllegalArgumentException(
-				"Incompatible ScopeInstance and LegalScope: "
-					+ "LegalScope Parent may only be null "
+				"Incompatible ScopeInstance and ImplementedScope: "
+					+ "ImplementedScope Parent may only be null "
 					+ "when ScopeInstance is null");
 		}
 		this.parent = parent;
@@ -90,7 +90,7 @@ public class SimpleScopeInstance implements ScopeInstance
 	}
 
 	@Override
-	public LegalScope getLegalScope()
+	public ImplementedScope getImplementedScope()
 	{
 		return scope;
 	}

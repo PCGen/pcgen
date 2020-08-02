@@ -73,7 +73,7 @@ public class SimpleVariableStore implements WriteableVariableStore
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean containsKey(VariableID<?> varID)
+	public boolean containsVariable(VariableID<?> varID)
 	{
 		return resultsMap.containsKey(varID);
 	}

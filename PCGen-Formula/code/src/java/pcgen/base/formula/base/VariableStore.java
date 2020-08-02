@@ -70,7 +70,7 @@ public interface VariableStore
 	 * @return true if this VariableStore contains a value for the given
 	 *         VariableID; false otherwise
 	 */
-	public boolean containsKey(VariableID<?> varID);
+	public boolean containsVariable(VariableID<?> varID);
 
 	/**
 	 * Returns a Collection of the VariableID objects in this VariableStore.

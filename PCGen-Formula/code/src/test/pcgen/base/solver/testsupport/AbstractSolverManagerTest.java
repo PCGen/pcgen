@@ -26,7 +26,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
@@ -47,7 +47,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	private SolverFactory solverFactory;
 	private VariableLibrary varLibrary;
 	private WriteableVariableStore store;
-	private LegalScope globalScope;
+	private ImplementedScope globalScope;
 	private ScopeInstance globalScopeInst;
 
 	@BeforeEach
@@ -58,7 +58,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		solverFactory = new SimpleSolverFactory(getValueStore());
 		varLibrary = getVariableLibrary();
 		store = getVariableStore();
-		globalScope = getInstanceFactory().getScope("Global");
+		globalScope = getScopeManager().getImplementedScope("Global");
 		globalScopeInst = getGlobalScopeInst();
 	}
 

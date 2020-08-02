@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
@@ -87,7 +87,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	public void testAddModifierExternal()
 	{
 		WriteableVariableStore store = getVariableStore();
-		LegalScope globalScope = getInstanceFactory().getScope("Global");
+		ImplementedScope globalScope = getScopeManager().getImplementedScope("Global");
 		ScopeInstance globalScopeInst = getGlobalScopeInst();
 		assertLegalVariable("STR", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")

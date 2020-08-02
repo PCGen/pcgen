@@ -35,10 +35,10 @@ public class SimpleVariableStoreTest
 	@Test
 	public void testNulls()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		scopeManager.registerScope(new SimpleLegalScope("Global"));
 		ScopeInstanceFactory instanceFactory =
-				new SimpleScopeInstanceFactory(legalScopeManager);
+				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		VariableID<Number> vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
@@ -50,10 +50,10 @@ public class SimpleVariableStoreTest
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	public void testGenericsViolation()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		scopeManager.registerScope(new SimpleLegalScope("Global"));
 		ScopeInstanceFactory instanceFactory =
-				new SimpleScopeInstanceFactory(legalScopeManager);
+				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		VariableID vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
@@ -64,53 +64,53 @@ public class SimpleVariableStoreTest
 	@Test
 	public void testGlobal()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		scopeManager.registerScope(new SimpleLegalScope("Global"));
 		ScopeInstanceFactory instanceFactory =
-				new SimpleScopeInstanceFactory(legalScopeManager);
+				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		VariableID<Number> vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
-		assertFalse(varStore.containsKey(vid));
+		assertFalse(varStore.containsVariable(vid));
 		assertNull(varStore.put(vid, Integer.valueOf(9)));
-		assertTrue(varStore.containsKey(vid));
+		assertTrue(varStore.containsVariable(vid));
 		assertEquals(Integer.valueOf(9), varStore.get(vid));
 		assertEquals(Integer.valueOf(9), varStore.put(vid, Integer.valueOf(4)));
-		assertTrue(varStore.containsKey(vid));
+		assertTrue(varStore.containsVariable(vid));
 		assertEquals(Integer.valueOf(4), varStore.get(vid));
 	}
 
 	@Test
 	public void testIndependence()
 	{
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		scopeManager.registerScope(new SimpleLegalScope("Global"));
 		ScopeInstanceFactory instanceFactory =
-				new SimpleScopeInstanceFactory(legalScopeManager);
+				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid3 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test2");
-		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
+		scopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
 		VariableID<Number> vid4 = new VariableID<>(globalInst2, FormatUtilities.NUMBER_MANAGER, "test");
 		assertNull(varStore.put(vid1, Integer.valueOf(9)));
-		assertTrue(varStore.containsKey(vid1));
-		assertTrue(varStore.containsKey(vid2));
-		assertFalse(varStore.containsKey(vid3));
-		assertFalse(varStore.containsKey(vid4));
+		assertTrue(varStore.containsVariable(vid1));
+		assertTrue(varStore.containsVariable(vid2));
+		assertFalse(varStore.containsVariable(vid3));
+		assertFalse(varStore.containsVariable(vid4));
 		assertEquals(Integer.valueOf(9), varStore.put(vid2, Integer.valueOf(4)));
-		assertTrue(varStore.containsKey(vid1));
-		assertTrue(varStore.containsKey(vid2));
-		assertFalse(varStore.containsKey(vid3));
-		assertFalse(varStore.containsKey(vid4));
+		assertTrue(varStore.containsVariable(vid1));
+		assertTrue(varStore.containsVariable(vid2));
+		assertFalse(varStore.containsVariable(vid3));
+		assertFalse(varStore.containsVariable(vid4));
 		assertEquals(Integer.valueOf(4), varStore.get(vid1));
 		assertNull(varStore.put(vid4, Integer.valueOf(3)));
-		assertTrue(varStore.containsKey(vid1));
-		assertTrue(varStore.containsKey(vid2));
-		assertFalse(varStore.containsKey(vid3));
-		assertTrue(varStore.containsKey(vid4));
+		assertTrue(varStore.containsVariable(vid1));
+		assertTrue(varStore.containsVariable(vid2));
+		assertFalse(varStore.containsVariable(vid3));
+		assertTrue(varStore.containsVariable(vid4));
 		assertEquals(Integer.valueOf(4), varStore.get(vid1));
 		assertEquals(Integer.valueOf(3), varStore.get(vid4));
 	}

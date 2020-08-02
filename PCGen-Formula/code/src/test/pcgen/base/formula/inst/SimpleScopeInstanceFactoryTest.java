@@ -35,27 +35,27 @@ public class SimpleScopeInstanceFactoryTest
 {
 
 	private ScopeInstanceFactory factory;
-	private ScopeManagerInst legalScopeManager;
+	private ScopeManagerInst scopeManager;
 	private ScopeInstance scopeInst;
 	private SimpleLegalScope local;
 
 	@BeforeEach
 	void setUp()
 	{
-		legalScopeManager = new ScopeManagerInst();
-		factory = new SimpleScopeInstanceFactory(legalScopeManager);
+		scopeManager = new ScopeManagerInst();
+		factory = new SimpleScopeInstanceFactory(scopeManager);
 		SimpleLegalScope scope = new SimpleLegalScope("Global");
-		legalScopeManager.registerScope(scope);
+		scopeManager.registerScope(scope);
 		scopeInst = factory.getGlobalInstance("Global");
 		local = new SimpleLegalScope(scope, "Local");
-		legalScopeManager.registerScope(local);
+		scopeManager.registerScope(local);
 	}
 	
 	@AfterEach
 	void tearDown()
 	{
 		factory = null;
-		legalScopeManager = null;
+		scopeManager = null;
 		scopeInst = null;
 		local = null;
 	}
@@ -73,7 +73,7 @@ public class SimpleScopeInstanceFactoryTest
 		assertThrows(IllegalArgumentException.class, () -> factory.getGlobalInstance("Global.Local"));
 		ScopeInstance globalInst = factory.getGlobalInstance("Global");
 		assertTrue(globalInst.getParentScope().isEmpty());
-		assertEquals("Global", globalInst.getLegalScope().getName());
+		assertEquals("Global", globalInst.getImplementedScope().getName());
 		assertEquals(scopeInst, globalInst);
 	}
 
@@ -82,7 +82,7 @@ public class SimpleScopeInstanceFactoryTest
 	{
 		ScopeInstance gsi = factory.get("Global", Optional.empty());
 		assertTrue(gsi.getParentScope().isEmpty());
-		assertEquals("Global", gsi.getLegalScope().getName());
+		assertEquals("Global", gsi.getImplementedScope().getName());
 
 		/*
 		 * This is subtle, but important.
@@ -99,7 +99,7 @@ public class SimpleScopeInstanceFactoryTest
 		Scoped gvs = new Scoped("Var", null, null);
 		ScopeInstance si = factory.get("Global", Optional.of(gvs));
 		assertTrue(si.getParentScope().isEmpty());
-		assertEquals("Global", si.getLegalScope().getName());
+		assertEquals("Global", si.getImplementedScope().getName());
 		assertEquals(si, gsi);
 		assertTrue(si == gsi);
 
@@ -107,17 +107,17 @@ public class SimpleScopeInstanceFactoryTest
 		assertThrows(IllegalArgumentException.class, () -> factory.get("Local", null));
 		Scoped lvs = new Scoped("LVar", "Global.Local", gvs);
 		ScopeInstance lsi = factory.get("Global.Local", Optional.of(lvs));
-		assertTrue(local.equals(lsi.getLegalScope()));
+		assertTrue(local.equals(lsi.getImplementedScope()));
 		assertTrue(scopeInst.equals(lsi.getParentScope().get()));
-		assertEquals("Local", lsi.getLegalScope().getName());
+		assertEquals("Local", lsi.getImplementedScope().getName());
 
 		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
-		legalScopeManager.registerScope(sublocal);
+		scopeManager.registerScope(sublocal);
 		Scoped slvs = new Scoped("SVar", "Global.Local.SubLocal", lvs);
 		ScopeInstance slsi = factory.get("Global.Local.SubLocal", Optional.of(slvs));
-		assertTrue(sublocal.equals(slsi.getLegalScope()));
+		assertTrue(sublocal.equals(slsi.getImplementedScope()));
 		assertTrue(scopeInst.equals(slsi.getParentScope().get().getParentScope().get()));
-		assertEquals("SubLocal", slsi.getLegalScope().getName());
+		assertEquals("SubLocal", slsi.getImplementedScope().getName());
 
 	}
 

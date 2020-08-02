@@ -25,7 +25,7 @@ import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
 import pcgen.base.formula.inst.FormulaUtilities;
-import pcgen.base.formula.inst.LegalScopeManager;
+import pcgen.base.formula.inst.ScopeManager;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleFormulaManager;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
@@ -50,9 +50,9 @@ public class FormulaSetupFactory
 			() -> new SupplierValueStore();
 
 	/**
-	 * The LegalScopeManager for this FormulaSetupFactory.
+	 * The ScopeManager for this FormulaSetupFactory.
 	 */
-	private Supplier<LegalScopeManager> legalScopeManagerSupplier =
+	private Supplier<ScopeManager> scopeManagerSupplier =
 			() -> new ScopeManagerInst();
 
 	/**
@@ -64,13 +64,13 @@ public class FormulaSetupFactory
 	/**
 	 * The VariableLibrary for this FormulaSetupFactory.
 	 */
-	private BiFunction<LegalScopeManager, ValueStore, VariableLibrary> variableLibraryFunction =
+	private BiFunction<ScopeManager, ValueStore, VariableLibrary> variableLibraryFunction =
 			(lsl, vs) -> new VariableManager(lsl, vs);
 
 	/**
 	 * The ScopeInstanceFactory for this FormulaSetupFactory.
 	 */
-	private Function<LegalScopeManager, ScopeInstanceFactory> scopeInstanceFactoryFunction =
+	private Function<ScopeManager, ScopeInstanceFactory> scopeInstanceFactoryFunction =
 			lsl -> new SimpleScopeInstanceFactory(lsl);
 
 	/**
@@ -89,13 +89,13 @@ public class FormulaSetupFactory
 	public FormulaManager generate()
 	{
 		SupplierValueStore valueStore = valueStoreSupplier.get();
-		LegalScopeManager legalScopeManager = legalScopeManagerSupplier.get();
+		ScopeManager scopeManager = scopeManagerSupplier.get();
 		FunctionLibrary functionLibrary = functionLibrarySupplier.get();
 		VariableStore variableStore = variableStoreSupplier.get();
 		VariableLibrary variableLibrary =
-				variableLibraryFunction.apply(legalScopeManager, valueStore);
+				variableLibraryFunction.apply(scopeManager, valueStore);
 		ScopeInstanceFactory scopeInstanceFactory =
-				scopeInstanceFactoryFunction.apply(legalScopeManager);
+				scopeInstanceFactoryFunction.apply(scopeManager);
 		SimpleFormulaManager fManager = new SimpleFormulaManager(
 			variableLibrary, scopeInstanceFactory, variableStore, valueStore);
 		return fManager.getWith(FormulaManager.FUNCTION, functionLibrary);
@@ -115,17 +115,17 @@ public class FormulaSetupFactory
 	}
 
 	/**
-	 * Sets the Supplier that will generate a LegalScopeManager for this
+	 * Sets the Supplier that will generate a ScopeManager for this
 	 * FormulaSetupFactory.
 	 * 
-	 * @param legalScopeManagerSupplier
-	 *            The Supplier that will generate a LegalScopeManager for this
+	 * @param scopeManagerSupplier
+	 *            The Supplier that will generate a ScopeManager for this
 	 *            FormulaSetupFactory
 	 */
-	public void setLegalScopeManagerSupplier(
-		Supplier<LegalScopeManager> legalScopeManagerSupplier)
+	public void setScopeManagerSupplier(
+		Supplier<ScopeManager> scopeManagerSupplier)
 	{
-		this.legalScopeManagerSupplier = legalScopeManagerSupplier;
+		this.scopeManagerSupplier = scopeManagerSupplier;
 	}
 
 	/**
@@ -151,7 +151,7 @@ public class FormulaSetupFactory
 	 *            FormulaSetupFactory
 	 */
 	public void setVariableLibraryFunction(
-		BiFunction<LegalScopeManager, ValueStore, VariableLibrary> variableLibraryFunction)
+		BiFunction<ScopeManager, ValueStore, VariableLibrary> variableLibraryFunction)
 	{
 		this.variableLibraryFunction = variableLibraryFunction;
 	}
@@ -165,7 +165,7 @@ public class FormulaSetupFactory
 	 *            FormulaSetupFactory
 	 */
 	public void setScopeInstanceFactoryFunction(
-		Function<LegalScopeManager, ScopeInstanceFactory> scopeInstanceFactoryFunction)
+		Function<ScopeManager, ScopeInstanceFactory> scopeInstanceFactoryFunction)
 	{
 		this.scopeInstanceFactoryFunction = scopeInstanceFactoryFunction;
 	}

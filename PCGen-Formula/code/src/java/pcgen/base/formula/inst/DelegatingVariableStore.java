@@ -87,9 +87,9 @@ public class DelegatingVariableStore extends MonitorableVariableStore
 	}
 
 	@Override
-	public boolean containsKey(VariableID<?> varID)
+	public boolean containsVariable(VariableID<?> varID)
 	{
-		return super.containsKey(varID) || backgroundStore.containsKey(varID);
+		return super.containsVariable(varID) || backgroundStore.containsVariable(varID);
 	}
 
 	@Override

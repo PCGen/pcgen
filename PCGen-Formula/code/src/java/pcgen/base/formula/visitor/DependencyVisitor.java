@@ -24,7 +24,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStrategy;
@@ -259,9 +259,9 @@ public class DependencyVisitor implements FormulaParserVisitor
 	{
 		VariableLibrary varLib = manager.get(DependencyManager.FMANAGER).getFactory();
 		//Fall back to INSTANCE if necessary
-		LegalScope legalScope = manager.get(DependencyManager.SCOPE).orElseGet(
-			() -> manager.get(DependencyManager.INSTANCE).getLegalScope());
-		return varLib.getVariableFormat(legalScope, varName);
+		ImplementedScope implementedScope = manager.get(DependencyManager.SCOPE).orElseGet(
+			() -> manager.get(DependencyManager.INSTANCE).getImplementedScope());
+		return varLib.getVariableFormat(implementedScope, varName);
 	}
 
 	/**
