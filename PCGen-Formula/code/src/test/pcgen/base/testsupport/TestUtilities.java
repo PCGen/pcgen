@@ -21,7 +21,9 @@ import java.io.StringReader;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import junit.framework.TestCase;
 import pcgen.base.format.ArrayFormatManager;
@@ -145,6 +147,18 @@ public final class TestUtilities
 		map.put("STRING", "");
 		map.put("BOOLEAN", Boolean.FALSE);
 		return map::get;
+	}
+
+	public static class Container<T>
+	{
+		public List<T> objects = new ArrayList<>();
+		
+		public boolean set(T object)
+		{
+			objects.add(object);
+			return true;
+		}
+		
 	}
 
 }
