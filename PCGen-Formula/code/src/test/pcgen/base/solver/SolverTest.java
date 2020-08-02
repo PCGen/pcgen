@@ -40,7 +40,7 @@ import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.MockStat;
@@ -59,9 +59,9 @@ public class SolverTest
 	{
 		FormulaSetupFactory setup = new FormulaSetupFactory();
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
-		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
+		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
 		scopeManager.registerScope(globalScope);
-		scopeManager.registerScope(new SimpleLegalScope(globalScope, "STAT"));
+		scopeManager.registerScope(globalScope, new SimpleDefinedScope("STAT"));
 		setup.setScopeManagerSupplier(() -> scopeManager);
 		formulaManager = setup.generate();
 		ScopeInstanceFactory scopeInstanceFactory = formulaManager.getScopeInstanceFactory();

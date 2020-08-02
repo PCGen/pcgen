@@ -37,18 +37,18 @@ public class SimpleScopeInstanceFactoryTest
 	private ScopeInstanceFactory factory;
 	private ScopeManagerInst scopeManager;
 	private ScopeInstance scopeInst;
-	private SimpleLegalScope local;
+	private SimpleDefinedScope local;
 
 	@BeforeEach
 	void setUp()
 	{
 		scopeManager = new ScopeManagerInst();
 		factory = new SimpleScopeInstanceFactory(scopeManager);
-		SimpleLegalScope scope = new SimpleLegalScope("Global");
+		SimpleDefinedScope scope = new SimpleDefinedScope("Global");
 		scopeManager.registerScope(scope);
 		scopeInst = factory.getGlobalInstance("Global");
-		local = new SimpleLegalScope(scope, "Local");
-		scopeManager.registerScope(local);
+		local = new SimpleDefinedScope("Local");
+		scopeManager.registerScope(scope, local);
 	}
 	
 	@AfterEach
@@ -107,15 +107,15 @@ public class SimpleScopeInstanceFactoryTest
 		assertThrows(IllegalArgumentException.class, () -> factory.get("Local", null));
 		Scoped lvs = new Scoped("LVar", "Global.Local", gvs);
 		ScopeInstance lsi = factory.get("Global.Local", Optional.of(lvs));
-		assertTrue(local.equals(lsi.getImplementedScope()));
+		assertTrue(local.equals(lsi.getImplementedScope().getDefinedScope()));
 		assertTrue(scopeInst.equals(lsi.getParentScope().get()));
 		assertEquals("Local", lsi.getImplementedScope().getName());
 
-		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
-		scopeManager.registerScope(sublocal);
+		SimpleDefinedScope sublocal = new SimpleDefinedScope("SubLocal");
+		scopeManager.registerScope(local, sublocal);
 		Scoped slvs = new Scoped("SVar", "Global.Local.SubLocal", lvs);
 		ScopeInstance slsi = factory.get("Global.Local.SubLocal", Optional.of(slvs));
-		assertTrue(sublocal.equals(slsi.getImplementedScope()));
+		assertTrue(sublocal.equals(slsi.getImplementedScope().getDefinedScope()));
 		assertTrue(scopeInst.equals(slsi.getParentScope().get().getParentScope().get()));
 		assertEquals("SubLocal", slsi.getImplementedScope().getName());
 

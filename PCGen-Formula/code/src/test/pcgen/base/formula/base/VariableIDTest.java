@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 
 public class VariableIDTest
@@ -40,7 +40,7 @@ public class VariableIDTest
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		scopeManager.registerScope(new SimpleLegalScope("Global"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 
@@ -58,7 +58,7 @@ public class VariableIDTest
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		scopeManager.registerScope(new SimpleLegalScope("Global"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 
@@ -74,10 +74,10 @@ public class VariableIDTest
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		scopeManager.registerScope(new SimpleLegalScope("Global"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
-		scopeManager.registerScope(new SimpleLegalScope("Global2"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.get("Global2",
 			Optional.of(new GlobalVarScoped("Global2")));
 
@@ -100,10 +100,10 @@ public class VariableIDTest
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		scopeManager.registerScope(new SimpleLegalScope("Global"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
-		scopeManager.registerScope(new SimpleLegalScope("Global2"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.get("Global2",
 			Optional.of(new GlobalVarScoped("Global2")));
 

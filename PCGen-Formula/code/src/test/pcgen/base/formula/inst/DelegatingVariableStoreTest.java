@@ -41,8 +41,8 @@ public class DelegatingVariableStoreTest
 	void setUp()
 	{
 		legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
-		legalScopeManager.registerScope(new SimpleLegalScope("Static"));
+		legalScopeManager.registerScope(new SimpleDefinedScope("Global"));
+		legalScopeManager.registerScope(new SimpleDefinedScope("Static"));
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 		lastEvent = null;
 	}

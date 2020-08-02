@@ -81,71 +81,73 @@ public class VariableManagerTest
 	@Test
 	public void testAssertVariableFail()
 	{
-		ImplementedScope globalScope = new SimpleLegalScope("Global");
-		assertThrows(NullPointerException.class, () -> variableLibrary.assertLegalVariableID(null, globalScope, FormatUtilities.NUMBER_MANAGER));
-		assertThrows(IllegalArgumentException.class, () -> variableLibrary.assertLegalVariableID("", globalScope, FormatUtilities.NUMBER_MANAGER));
-		assertThrows(IllegalArgumentException.class, () -> variableLibrary.assertLegalVariableID(" Walk", globalScope, FormatUtilities.NUMBER_MANAGER));
-		assertThrows(IllegalArgumentException.class, () -> variableLibrary.assertLegalVariableID("Walk ", globalScope, FormatUtilities.NUMBER_MANAGER));
-		assertThrows(NullPointerException.class, () -> variableLibrary.assertLegalVariableID("Walk", globalScope, null));
+		ImplementedScope globalImplementedScope = getGlobalImpl();
+		assertThrows(NullPointerException.class, () -> variableLibrary.assertLegalVariableID(null, globalImplementedScope, FormatUtilities.NUMBER_MANAGER));
+		assertThrows(IllegalArgumentException.class, () -> variableLibrary.assertLegalVariableID("", globalImplementedScope, FormatUtilities.NUMBER_MANAGER));
+		assertThrows(IllegalArgumentException.class, () -> variableLibrary.assertLegalVariableID(" Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER));
+		assertThrows(IllegalArgumentException.class, () -> variableLibrary.assertLegalVariableID("Walk ", globalImplementedScope, FormatUtilities.NUMBER_MANAGER));
+		assertThrows(NullPointerException.class, () -> variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, null));
 		assertThrows(NullPointerException.class, () -> variableLibrary.assertLegalVariableID("Walk", null, FormatUtilities.NUMBER_MANAGER));
 		//Just to check
 		try
 		{
-			assertFalse(variableLibrary.isLegalVariableID(globalScope, null));
+			assertFalse(variableLibrary.isLegalVariableID(globalImplementedScope, null));
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok too
 		}
-		assertFalse(variableLibrary.isLegalVariableID(globalScope, ""));
-		assertFalse(variableLibrary.isLegalVariableID(globalScope, " Walk"));
-		assertFalse(variableLibrary.isLegalVariableID(globalScope, "Walk "));
+		assertFalse(variableLibrary.isLegalVariableID(globalImplementedScope, ""));
+		assertFalse(variableLibrary.isLegalVariableID(globalImplementedScope, " Walk"));
+		assertFalse(variableLibrary.isLegalVariableID(globalImplementedScope, "Walk "));
 	}
 
 	@Test
 	public void testAssertVariable()
 	{
-		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		ImplementedScope spScope = new SimpleLegalScope(globalScope, "Spell");
-		SimpleLegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		ImplementedScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
+		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
+		SimpleDefinedScope eqScope = new SimpleDefinedScope("Equipment");
+		SimpleDefinedScope eqPartScope = new SimpleDefinedScope("Part");
 		scopeManager.registerScope(globalScope);
-		scopeManager.registerScope(spScope);
-		scopeManager.registerScope(eqScope);
-		scopeManager.registerScope(eqPartScope);
-		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
+		scopeManager.registerScope(globalScope, eqScope);
+		scopeManager.registerScope(eqScope, eqPartScope);
+		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
+		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
+		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
+		ImplementedScope spellImplementedScope = getSubScope(globalScope, "Spell");
+		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		//Dupe is safe
-		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
-		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.BOOLEAN_MANAGER));
-		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Walk", eqScope, FormatUtilities.NUMBER_MANAGER));
+		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.BOOLEAN_MANAGER));
+		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Walk", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER));
 		//Check child recursive
-		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Walk", eqPartScope, FormatUtilities.NUMBER_MANAGER));
-		variableLibrary.assertLegalVariableID("Float", eqScope, FormatUtilities.NUMBER_MANAGER);
-		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Float", eqPartScope, FormatUtilities.NUMBER_MANAGER));
-		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Float", globalScope, FormatUtilities.NUMBER_MANAGER));
+		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Walk", partImplementedScope, FormatUtilities.NUMBER_MANAGER));
+		variableLibrary.assertLegalVariableID("Float", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Float", partImplementedScope, FormatUtilities.NUMBER_MANAGER));
+		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Float", globalImplementedScope, FormatUtilities.NUMBER_MANAGER));
 		//Allow peer
-		variableLibrary.assertLegalVariableID("Float", spScope, FormatUtilities.NUMBER_MANAGER);
-		variableLibrary.assertLegalVariableID("Hover", eqPartScope, FormatUtilities.NUMBER_MANAGER);
-		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Hover", eqScope, FormatUtilities.NUMBER_MANAGER));
-		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Hover", globalScope, FormatUtilities.NUMBER_MANAGER));
-		variableLibrary.assertLegalVariableID("Drive", spScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Float", spellImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Hover", partImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Hover", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER));
+		assertThrows(LegalVariableException.class, () -> variableLibrary.assertLegalVariableID("Hover", globalImplementedScope, FormatUtilities.NUMBER_MANAGER));
+		variableLibrary.assertLegalVariableID("Drive", spellImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		//Check peer child
-		variableLibrary.assertLegalVariableID("Drive", eqPartScope, FormatUtilities.NUMBER_MANAGER);
-		variableLibrary.assertLegalVariableID("Fly", spScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Drive", partImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Fly", spellImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		//Check peer with children
-		variableLibrary.assertLegalVariableID("Fly", eqScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Fly", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
 	}
 
 	@Test
 	public void testIsLegalVIDFail()
 	{
-		ImplementedScope globalScope = new SimpleLegalScope("Global");
-		scopeManager.registerScope(globalScope);
-		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
+		ImplementedScope globalImplementedScope = getGlobalImpl();
+
+		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		assertThrows(NullPointerException.class, () -> variableLibrary.isLegalVariableID(null, "Walk"));
 		try
 		{
-			assertFalse(variableLibrary.isLegalVariableID(globalScope, null));
+			assertFalse(variableLibrary.isLegalVariableID(globalImplementedScope, null));
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
@@ -156,51 +158,64 @@ public class VariableManagerTest
 	@Test
 	public void testIsLegalVID()
 	{
-		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		ImplementedScope spScope = new SimpleLegalScope(globalScope, "Spell");
-		SimpleLegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		ImplementedScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
+		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
 		scopeManager.registerScope(globalScope);
-		scopeManager.registerScope(spScope);
-		scopeManager.registerScope(eqScope);
-		scopeManager.registerScope(eqPartScope);
-		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
-		assertTrue(variableLibrary.isLegalVariableID(globalScope, "Walk"));
-		assertFalse(variableLibrary.isLegalVariableID(globalScope, "Run"));
+		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
+
+		ImplementedScope spellImplementedScope = getSubScope(globalScope, "Spell");
+
+		SimpleDefinedScope eqScope = new SimpleDefinedScope("Equipment");
+		scopeManager.registerScope(globalScope, eqScope);
+		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
+
+		SimpleDefinedScope eqPartScope = new SimpleDefinedScope("Part");
+		scopeManager.registerScope(eqScope, eqPartScope);
+		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
+
+		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		assertTrue(variableLibrary.isLegalVariableID(globalImplementedScope, "Walk"));
+		assertFalse(variableLibrary.isLegalVariableID(globalImplementedScope, "Run"));
 		//Works for child
-		assertTrue(variableLibrary.isLegalVariableID(eqScope, "Walk"));
+		assertTrue(variableLibrary.isLegalVariableID(equipmentImplementedScope, "Walk"));
 		//Works for child recursively
-		assertTrue(variableLibrary.isLegalVariableID(eqPartScope, "Walk"));
+		assertTrue(variableLibrary.isLegalVariableID(partImplementedScope, "Walk"));
 
-		variableLibrary.assertLegalVariableID("Float", eqScope, FormatUtilities.NUMBER_MANAGER);
-		assertTrue(variableLibrary.isLegalVariableID(eqScope, "Float"));
+		variableLibrary.assertLegalVariableID("Float", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		assertTrue(variableLibrary.isLegalVariableID(equipmentImplementedScope, "Float"));
 		//Works for child 
-		assertTrue(variableLibrary.isLegalVariableID(eqPartScope, "Float"));
+		assertTrue(variableLibrary.isLegalVariableID(partImplementedScope, "Float"));
 		//but not parent
-		assertFalse(variableLibrary.isLegalVariableID(globalScope, "Float"));
+		assertFalse(variableLibrary.isLegalVariableID(globalImplementedScope, "Float"));
 		//and not peer
-		assertFalse(variableLibrary.isLegalVariableID(spScope, "Float"));
+		assertFalse(variableLibrary.isLegalVariableID(spellImplementedScope, "Float"));
 
-		variableLibrary.assertLegalVariableID("Hover", eqPartScope, FormatUtilities.NUMBER_MANAGER);
-		assertTrue(variableLibrary.isLegalVariableID(eqPartScope, "Hover"));
+		variableLibrary.assertLegalVariableID("Hover", partImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		assertTrue(variableLibrary.isLegalVariableID(partImplementedScope, "Hover"));
 		//but not parent
-		assertFalse(variableLibrary.isLegalVariableID(eqScope, "Hover"));
+		assertFalse(variableLibrary.isLegalVariableID(equipmentImplementedScope, "Hover"));
 		//or parent recursively
-		assertFalse(variableLibrary.isLegalVariableID(globalScope, "Hover"));
+		assertFalse(variableLibrary.isLegalVariableID(globalImplementedScope, "Hover"));
 		//and not unrelated
-		assertFalse(variableLibrary.isLegalVariableID(spScope, "Hover"));
+		assertFalse(variableLibrary.isLegalVariableID(spellImplementedScope, "Hover"));
 	}
 
 	@Test
 	public void testGetVIDFail()
 	{
-		ImplementedScope globalScope = new SimpleLegalScope("Global");
+		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
 		scopeManager.registerScope(globalScope);
+
+		SimpleDefinedScope spScope = new SimpleDefinedScope("Spell");
+		scopeManager.registerScope(globalScope, spScope);
+		ImplementedScope spellImplementedScope = scopeManager.getImplementedScope("Global.Spell");
+
+		SimpleDefinedScope eqScope = new SimpleDefinedScope("Equipment");
+		scopeManager.registerScope(globalScope, eqScope);
+
+		SimpleDefinedScope eqPartScope = new SimpleDefinedScope("Part");
+		scopeManager.registerScope(eqScope, eqPartScope);
+
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		ImplementedScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		scopeManager.registerScope(eqScope);
-		ImplementedScope spScope = new SimpleLegalScope(globalScope, "Spell");
-		scopeManager.registerScope(spScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
@@ -212,32 +227,38 @@ public class VariableManagerTest
 		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableID(globalInst, "Walk "));
 		assertThrows(NoSuchElementException.class, () -> variableLibrary.getVariableID(globalInst, "Walk"));
 		assertThrows(NoSuchElementException.class, () -> variableLibrary.getVariableID(eqInst, "Walk"));
-		variableLibrary.assertLegalVariableID("Float", spScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Float", spellImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		assertThrows(NoSuchElementException.class, () -> variableLibrary.getVariableID(eqInst, "Float"));
 	}
 
 	@Test
 	public void testGetVID()
 	{
-		ImplementedScope globalScope = new SimpleLegalScope("Global");
+		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
 		scopeManager.registerScope(globalScope);
+		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
+
+		SimpleDefinedScope eqScope = new SimpleDefinedScope("Equipment");
+		scopeManager.registerScope(globalScope, eqScope);
+		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
+
+		SimpleDefinedScope eqPartScope = new SimpleDefinedScope("Part");
+		scopeManager.registerScope(eqScope, eqPartScope);
+		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
+
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		ImplementedScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		scopeManager.registerScope(eqScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
 		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
-		ImplementedScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
-		scopeManager.registerScope(eqPartScope);
 		SimpleVarScoped eqpart = new SimpleVarScoped();
 		eqpart.scopeName = "Global.Equipment.Part";
 		eqpart.name = "Mod";
 		eqpart.parent = eq;
 		ScopeInstance eqPartInst = instanceFactory.get("Global.Equipment.Part", Optional.of(eqpart));
-		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
-		variableLibrary.assertLegalVariableID("Float", eqScope, FormatUtilities.NUMBER_MANAGER);
-		variableLibrary.assertLegalVariableID("Hover", eqPartScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Float", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Hover", partImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		VariableID<?> vid = variableLibrary.getVariableID(globalInst, "Walk");
 		assertEquals("Walk", vid.getName());
 		assertEquals(globalInst, vid.getScope());
@@ -274,16 +295,18 @@ public class VariableManagerTest
 	@Test
 	public void testGetVariableFormat()
 	{
-		ImplementedScope globalScope = new SimpleLegalScope("Global");
-		ImplementedScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
+		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
 		scopeManager.registerScope(globalScope);
-		scopeManager.registerScope(eqScope);
-		variableLibrary.assertLegalVariableID("Walk", globalScope, FormatUtilities.NUMBER_MANAGER);
-		variableLibrary.assertLegalVariableID("Float", eqScope, FormatUtilities.NUMBER_MANAGER);
+		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
+
+		ImplementedScope equipmentImplementedScope = getSubScope(globalScope, "Equipment");
+
+		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Float", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		assertThrows(NullPointerException.class, () -> variableLibrary.getVariableFormat(null, "Walk"));
 		try
 		{
-			Object o = variableLibrary.getVariableFormat(globalScope, null);
+			Object o = variableLibrary.getVariableFormat(globalImplementedScope, null);
 			assertTrue(o == null);
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -291,42 +314,41 @@ public class VariableManagerTest
 			//ok too
 		}
 		assertTrue(FormatUtilities.NUMBER_MANAGER
-			.equals(variableLibrary.getVariableFormat(globalScope, "Walk")));
+			.equals(variableLibrary.getVariableFormat(globalImplementedScope, "Walk")));
 		assertTrue(
-			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(eqScope, "Float")));
+			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(equipmentImplementedScope, "Float")));
 		//fail at depth
 		assertTrue(
-			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(eqScope, "Walk")));
+			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(equipmentImplementedScope, "Walk")));
 		//work indirect
-		assertTrue(variableLibrary.getVariableFormat(globalScope, "Float") == null);
+		assertTrue(variableLibrary.getVariableFormat(globalImplementedScope, "Float") == null);
 	}
 
 	@Test
 	public void testProveReuse()
 	{
-		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
+		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
 		scopeManager.registerScope(globalScope);
-		ImplementedScope eqScope =
-				new SimpleLegalScope(globalScope, "Equipment");
-		scopeManager.registerScope(eqScope);
+
+		ImplementedScope equipmentImplementedScope = getSubScope(globalScope, "Equipment");
+		ImplementedScope abilityImplementedScope = getSubScope(globalScope, "Ability");
+
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
 		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
-		ImplementedScope abScope = new SimpleLegalScope(globalScope, "Ability");
-		scopeManager.registerScope(abScope);
 		SimpleVarScoped ab = new SimpleVarScoped();
 		ab.scopeName = "Global.Ability";
 		ab.name = "Dodge";
 		ScopeInstance abInst = instanceFactory.get("Global.Ability", Optional.of(ab));
 
-		variableLibrary.assertLegalVariableID("Walk", eqScope, FormatUtilities.NUMBER_MANAGER);
+		variableLibrary.assertLegalVariableID("Walk", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		VariableID<?> vidm = variableLibrary.getVariableID(eqInst, "Walk");
 		assertEquals("Walk", vidm.getName());
 		assertEquals(eqInst, vidm.getScope());
 		assertEquals(Number.class, vidm.getVariableFormat());
 
-		variableLibrary.assertLegalVariableID("Walk", abScope, FormatUtilities.BOOLEAN_MANAGER);
+		variableLibrary.assertLegalVariableID("Walk", abilityImplementedScope, FormatUtilities.BOOLEAN_MANAGER);
 		VariableID<?> vidf = variableLibrary.getVariableID(abInst, "Walk");
 		assertEquals("Walk", vidf.getName());
 		assertEquals(abInst, vidf.getScope());
@@ -340,11 +362,11 @@ public class VariableManagerTest
 	@Test
 	public void testOrderOfOps()
 	{
-		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		scopeManager.registerScope(globalScope);
+		ImplementedScope globalImplementedScope = getGlobalImpl();
+
 		DeferredIndirect def = new DeferredIndirect();
 		valueStore.addSolverFormat(FormatUtilities.ORDEREDPAIR_MANAGER, def);
-		variableLibrary.assertLegalVariableID("Walk", globalScope,
+		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope,
 			FormatUtilities.ORDEREDPAIR_MANAGER);
 		assertFalse(variableLibrary.getInvalidFormats().isEmpty());
 		def.setPair(new OrderedPair(0, 0));
@@ -373,6 +395,20 @@ public class VariableManagerTest
 			return pair.toString();
 		}
 		
+	}
+
+	private ImplementedScope getGlobalImpl()
+	{
+		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
+		scopeManager.registerScope(globalScope);
+		return scopeManager.getImplementedScope("Global");
+	}
+
+	private ImplementedScope getSubScope(SimpleDefinedScope globalScope, String name)
+	{
+		SimpleDefinedScope subScope = new SimpleDefinedScope(name);
+		scopeManager.registerScope(globalScope, subScope);
+		return scopeManager.getImplementedScope(globalScope.getName() + "." + name);
 	}
 
 }

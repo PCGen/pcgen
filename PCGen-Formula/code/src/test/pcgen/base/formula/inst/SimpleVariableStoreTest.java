@@ -36,7 +36,7 @@ public class SimpleVariableStoreTest
 	public void testNulls()
 	{
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
-		scopeManager.registerScope(new SimpleLegalScope("Global"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
@@ -51,7 +51,7 @@ public class SimpleVariableStoreTest
 	public void testGenericsViolation()
 	{
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
-		scopeManager.registerScope(new SimpleLegalScope("Global"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
@@ -65,7 +65,7 @@ public class SimpleVariableStoreTest
 	public void testGlobal()
 	{
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
-		scopeManager.registerScope(new SimpleLegalScope("Global"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
@@ -84,7 +84,7 @@ public class SimpleVariableStoreTest
 	public void testIndependence()
 	{
 		ScopeManagerInst scopeManager = new ScopeManagerInst();
-		scopeManager.registerScope(new SimpleLegalScope("Global"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
@@ -92,7 +92,7 @@ public class SimpleVariableStoreTest
 		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid3 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test2");
-		scopeManager.registerScope(new SimpleLegalScope("Global2"));
+		scopeManager.registerScope(new SimpleDefinedScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
 		VariableID<Number> vid4 = new VariableID<>(globalInst2, FormatUtilities.NUMBER_MANAGER, "test");
 		assertNull(varStore.put(vid1, Integer.valueOf(9)));

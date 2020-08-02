@@ -32,7 +32,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
-import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.Modifier;
@@ -153,8 +153,8 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		getManager().addModifier(hitpoints, modifier, source);
 		assertEquals(6, store.get(hitpoints));
 
-		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
-		getScopeManager().registerScope(localScope);
+		SimpleDefinedScope localScope = new SimpleDefinedScope("STAT");
+		getScopeManager().registerScope(getGlobalDefinedScope(), localScope);
 		ScopeInstance strInst =
 				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));
 
@@ -444,5 +444,10 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(5, store.get(limbs));
 		getManager().addModifier(limbs, strMod, source);
 		assertEquals(9, store.get(limbs));
+	}
+	
+	public ImplementedScope getGlobalImplementedScope()
+	{
+		return globalScope;
 	}
 }

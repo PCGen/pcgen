@@ -91,36 +91,35 @@ public class VariableManager implements VariableLibrary
 				+ " was not registered with ScopeManager");
 		}
 		VariableID.checkLegalVarName(varName);
-		if (!variableDefs.containsKey(varName))
+		if (variableDefs.containsKey(varName))
 		{
-			//Can't be a conflict
-			variableDefs.put(varName, scope, formatManager);
-			return;
+			FormatManager<?> currentFormat =
+					variableDefs.get(varName, scope);
+			//Asserted Format Already there
+			if ((currentFormat != null) && !formatManager.equals(currentFormat))
+			{
+				throw new LegalVariableException(
+					varName + " was asserted in scope: "
+						+ ImplementedScope.getFullName(scope)
+						+ " with format " + formatManager.getIdentifierType()
+						+ " but was previously asserted as a "
+						+ currentFormat.getIdentifierType());
+			}
+			//Now, need to check for conflicts
+			if (hasConflict(varName, scope))
+			{
+				throw new LegalVariableException(variableDefs
+					.getSecondaryKeySet(varName).stream()
+					.map(ls -> ImplementedScope.getFullName(ls))
+					.collect(Collectors.joining(", ",
+						"A Variable was asserted in incompatible variable scopes: "
+							+ varName + " was requested in "
+							+ ImplementedScope.getFullName(scope)
+							+ " but was previously in ",
+						"")));
+			}
 		}
-		FormatManager<?> currentFormat = variableDefs.get(varName, scope);
-		//Asserted Format Already there
-		if ((currentFormat != null) && !formatManager.equals(currentFormat))
-		{
-			throw new LegalVariableException(varName + " was asserted in scope: "
-				+ ImplementedScope.getFullName(scope) + " with format "
-				+ formatManager.getIdentifierType() + " but was previously asserted as a "
-				+ currentFormat.getIdentifierType());
-		}
-		//Now, need to check for conflicts
-		if (hasConflict(varName, scope))
-		{
-			throw new LegalVariableException(variableDefs.getSecondaryKeySet(varName)
-				.stream().map(ls -> ImplementedScope.getFullName(ls))
-				.collect(Collectors.joining(", ",
-					"A Variable was asserted in incompatible variable scopes: " + varName
-						+ " was requested in " + ImplementedScope.getFullName(scope)
-						+ " but was previously in ",
-					"")));
-		}
-		else
-		{
-			variableDefs.put(varName, scope, formatManager);
-		}
+		variableDefs.put(varName, scope, formatManager);
 	}
 
 	/**
@@ -129,7 +128,7 @@ public class VariableManager implements VariableLibrary
 	private boolean hasConflict(String varName, ImplementedScope scope)
 	{
 		return variableDefs.getSecondaryKeySet(varName).stream()
-			.filter(otherScope -> scopeManager.isRelated(otherScope, scope))
+			.filter(otherScope -> scopeManager.isRelated(otherScope.getDefinedScope(), scope.getDefinedScope()))
 			.anyMatch(otherScope -> !otherScope.equals(scope));
 	}
 

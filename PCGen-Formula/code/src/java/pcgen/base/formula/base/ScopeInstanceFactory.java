@@ -56,15 +56,4 @@ public interface ScopeInstanceFactory
 	 *             getVariableParent())
 	 */
 	public ScopeInstance get(String scopeName, Optional<VarScoped> obj);
-
-	/**
-	 * Returns the ImplementedScope for the given legal scope name, using the ScopeManager
-	 * underlying this ScopeInstanceFactory to resolve the name.
-	 * 
-	 * @param s
-	 *            The scope name to be used to find the ImplementedScope in the
-	 *            ScopeManager underlying this ScopeInstanceFactory
-	 * @return The ImplementedScope for the given legal scope name
-	 */
-	public ImplementedScope getImplementedScope(String s);
 }

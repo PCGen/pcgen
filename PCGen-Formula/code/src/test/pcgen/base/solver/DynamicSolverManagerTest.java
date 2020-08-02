@@ -32,7 +32,6 @@ import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.TrainingStrategy;
@@ -40,7 +39,7 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
-import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -100,16 +99,16 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	{
 		ScopeInstance source = getGlobalScopeInst();
 		getFunctionLibrary().addFunction(new Dynamic());
-		ImplementedScope globalScope = getScopeManager().getImplementedScope("Global");
 
 		LimbManager limbManager = new LimbManager();
 		getValueStore().addSolverFormat(limbManager,
 			() -> limbManager.convert("Head"));
 
-		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
-		getScopeManager().registerScope(limbScope);
+		SimpleDefinedScope limbScope = new SimpleDefinedScope("LIMB");
+		getScopeManager().registerScope(getGlobalDefinedScope(), limbScope);
 		assertLegalVariable("active", "Global", limbManager);
-		assertLegalVariable("quantity", "Global.LIMB", FormatUtilities.NUMBER_MANAGER);
+		assertLegalVariable("quantity", "Global.LIMB",
+			FormatUtilities.NUMBER_MANAGER);
 		assertLegalVariable("result", "Global", FormatUtilities.NUMBER_MANAGER);
 
 		ComplexNEPFormula<Number> dynamicformula =
@@ -322,10 +321,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			() -> limbManager.convert("Head"));
 
 		ScopeInstance source = getGlobalScopeInst();
-		ImplementedScope globalScope = getScopeManager().getImplementedScope("Global");
 
-		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
-		getScopeManager().registerScope(limbScope);
+		SimpleDefinedScope limbScope = new SimpleDefinedScope("LIMB");
+		getScopeManager().registerScope(getGlobalDefinedScope(), limbScope);
 
 		assertLegalVariable("LocalVar", "Global.LIMB", FormatUtilities.NUMBER_MANAGER);
 		assertLegalVariable("ResultVar", "Global", FormatUtilities.NUMBER_MANAGER);

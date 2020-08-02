@@ -106,11 +106,6 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	public ScopeInstance get(String scopeName, Optional<VarScoped> obj)
 	{
 		ImplementedScope scope = manager.getImplementedScope(scopeName);
-		if (scope == null)
-		{
-			throw new IllegalArgumentException(
-				"Scope with name " + scopeName + " not found");
-		}
 		return getMessaged(scope, obj, obj);
 	}
 
@@ -195,11 +190,5 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	{
 		return Collections
 			.unmodifiableCollection(objectToInstanceCache.keySet());
-	}
-
-	@Override
-	public ImplementedScope getImplementedScope(String s)
-	{
-		return manager.getImplementedScope(s);
 	}
 }

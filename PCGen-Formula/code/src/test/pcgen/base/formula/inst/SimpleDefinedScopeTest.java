@@ -19,28 +19,23 @@ package pcgen.base.formula.inst;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class SimpleLegalScopeTest
+public class SimpleDefinedScopeTest
 {
 
 	@Test
 	public void testDoubleConstructor()
 	{
-		SimpleLegalScope scope = new SimpleLegalScope("Global");
-		assertThrows(NullPointerException.class, () -> new SimpleLegalScope(scope, null));
+		assertThrows(NullPointerException.class, () -> new SimpleDefinedScope(null));
 	}
 
 	@Test
 	public void testIsValid()
 	{
-		SimpleLegalScope scope = new SimpleLegalScope("Global");
-		SimpleLegalScope local = new SimpleLegalScope(scope, "Local");
-		assertTrue(local.getParentScope().isPresent());
-		assertEquals(scope, local.getParentScope().get());
+		SimpleDefinedScope local = new SimpleDefinedScope("Local");
 		assertEquals("Local", local.getName());
-		assertEquals("Global.Local", local.toString());
+		assertEquals("Local", local.toString());
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2015-20 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
@@ -16,21 +16,25 @@
 package pcgen.base.formula.inst;
 
 import java.util.Collection;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Stream;
 
+import pcgen.base.formula.base.DefinedScope;
 import pcgen.base.formula.base.ImplementedScope;
-import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.base.util.HashMapToList;
+import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
+import pcgen.base.graph.inst.DirectionalSetMapGraph;
+import pcgen.base.logging.Logging;
+import pcgen.base.logging.Severity;
 
 /**
- * A ScopeManagerInst is a storage location for ImplementedScope used to track the children of
- * ImplementedScope objects.
+ * A ScopeManagerInst is a storage location for DefinedScope used to track the children of
+ * DefinedScope objects.
  * 
- * Note: If a complete set of ImplementedScope objects is not loaded (meaning some of the
+ * Note: If a complete set of DefinedScope objects is not loaded (meaning some of the
  * parents are not themselves loaded), then certain behaviors (like getScope) are not
  * guaranteed to properly behave.
  * 
@@ -62,101 +66,225 @@ import pcgen.base.util.HashMapToList;
 public class ScopeManagerInst implements ScopeManager
 {
 
-	/**
-	 * The Map of ImplementedScope objects to their list of child ImplementedScope objects.
+	private static final Object GLOBAL_PARENT = new Object();
+
+	private DirectionalSetMapGraph<Object, DefaultDirectionalGraphEdge<Object>> scopeRelationships =
+			new DirectionalSetMapGraph<>();
+
+	private HashMap<DefinedScope, Object> virtualNodes = new HashMap<>();
+
+	private HashMap<String, ImplementedScope> scopeCache = new HashMap<>();
+
+	/*
+	 * Note the use of DefinedScope rather than pure Strings allows two local scopes
+	 * to both be called "Foo" as long as there is no relationship between the parent
+	 * scopes.
 	 */
-	private final HashMapToList<ImplementedScope, ImplementedScope> scopeChildren =
-			new HashMapToList<ImplementedScope, ImplementedScope>();
 
 	/**
-	 * A set of the ImplementedScope objects loaded in this ScopeManagerInst. Note that this is
-	 * distinct from the keys of scopeChildren, since only parents are loaded as keys.
+	 * Create a new ScopeManagerInst
 	 */
-	private final CaseInsensitiveMap<ImplementedScope> scopes = new CaseInsensitiveMap<ImplementedScope>();
+	public ScopeManagerInst()
+	{
+		scopeRelationships.addNode(GLOBAL_PARENT);
+	}
 
 	/**
-	 * Registers a ImplementedScope with this ScopeManager.
+	 * Registers a DefinedScope with this DefinedScopeManager.
 	 * 
 	 * @param scope
-	 *            The ImplementedScope to be registered with this ScopeManager
+	 *            The DefinedScope to be registered with this DefinedScopeManager
 	 * @throws IllegalArgumentException
-	 *             if the name of the given ImplementedScope is null or if there is a previous
-	 *             ImplementedScope registered with the same name as the given ImplementedScope
+	 *             if the name of the given DefinedScope is null or if there is a previous
+	 *             DefinedScope registered with the same name as the given DefinedScope
 	 */
-	public void registerScope(ImplementedScope scope)
+	public void registerScope(DefinedScope scope)
+	{
+		registerScope(Optional.empty(), scope);
+	}
+
+	/**
+	 * Registers a DefinedScope with this DefinedScopeManager. The given parent will be
+	 * the parent scope of the DefinedScope to be registered.
+	 * 
+	 * @param parent
+	 *            The parent DefinedScope of the given scope to be registered
+	 * @param scope
+	 *            The DefinedScope to be registered with this DefinedScopeManager
+	 * @throws IllegalArgumentException
+	 *             if the name of the given DefinedScope is null or if there is a previous
+	 *             DefinedScope registered with the same name as the given DefinedScope or
+	 *             if the parent DefinedScope has not yet been registered with this
+	 *             ScopeManagerInst
+	 */
+	public void registerScope(DefinedScope parent, DefinedScope scope)
+	{
+		registerScope(Optional.of(parent), scope);
+	}
+
+	private void registerScope(Optional<DefinedScope> parent,
+		DefinedScope scope)
 	{
 		String name = scope.getName();
-		Objects.requireNonNull(name, "ImplementedScope must have a name");
+		Objects.requireNonNull(name, "DefinedScope must have a name");
+		//TODO Make Period a parameter?
 		if (name.indexOf('.') != -1)
 		{
 			throw new IllegalArgumentException(
-				"ImplementedScope name must not contain a period '.'");
+				"DefinedScope name must not contain a period '.'");
 		}
-		Optional<? extends ImplementedScope> parent = scope.getParentScope();
-		if (parent.isPresent() && !recognizesScope(parent.get()))
-		{
-			throw new IllegalArgumentException(
-				"Attempted to register Scope " + scope.getName() + " before parent scope "
-					+ parent.get().getName() + " was registered");
-		}
-		String fullName = ImplementedScope.getFullName(scope);
-		ImplementedScope current = scopes.get(fullName);
-		if ((current != null) && !current.equals(scope))
-		{
-			throw new IllegalArgumentException("A Scope with name fully qualified name "
-				+ fullName + " is already registered");
-		}
+		Object parentVirtualNode;
 		if (parent.isPresent())
 		{
-			scopeChildren.addToListFor(parent.get(), scope);
+			if (!recognizesScope(parent.get()))
+			{
+				throw new IllegalArgumentException(
+					"Attempted to register Scope " + scope.getName()
+						+ " before parent scope " + parent.get().getName()
+						+ " was registered");
+			}
+			parentVirtualNode = virtualNodes.get(parent.get());
 		}
-		scopes.put(fullName, scope);
+		else
+		{
+			parentVirtualNode = GLOBAL_PARENT;
+		}
+		Stream<Object> children = getDownScopeStream(parentVirtualNode);
+		Optional<DefinedScope> duplicate =
+				children.map(child -> (DefinedScope) child)
+					.filter(child -> child.getName().equals(name)).findFirst();
+		if (duplicate.isPresent())
+		{
+			DefinedScope dupe = duplicate.get();
+			String message = parent.isPresent()
+				? " for parent " + parent.get().getName() : " as global scope";
+			if (scope.equals(dupe))
+			{
+				Logging.log(Severity.WARNING,
+					() -> "Duplicate attempt to register scope " + name
+						+ message);
+				return;
+			}
+			else
+			{
+				throw new IllegalArgumentException(
+					"Attempted to register a second sub-scope named " + name
+						+ message);
+			}
+
+		}
+		//connect up
+		scopeRelationships.addNode(scope);
+		scopeRelationships.addEdge(
+			new DefaultDirectionalGraphEdge<>(parentVirtualNode, scope));
+
+		//connect down
+		Object virtualNode = getVirtualNode(scope);
+		scopeRelationships.addNode(virtualNode);
+		scopeRelationships
+			.addEdge(new DefaultDirectionalGraphEdge<>(scope, virtualNode));
+	}
+
+	private Object getVirtualNode(DefinedScope scope)
+	{
+		Object o = virtualNodes.get(scope);
+		if (o == null)
+		{
+			o = new Object();
+			virtualNodes.put(scope, o);
+		}
+		return o;
 	}
 
 	@Override
-	public List<ImplementedScope> getChildScopes(ImplementedScope scope)
+	public boolean isRelated(DefinedScope scope1, DefinedScope scope2)
 	{
-		return scopeChildren.getListFor(Objects.requireNonNull(scope));
+		Collection<Object> descendents1 = getDescendents(scope1);
+		descendents1.retainAll(getDescendents(scope2));
+		return !descendents1.isEmpty();
+	}
+
+	private Collection<Object> getDescendents(DefinedScope scope)
+	{
+		Collection<Object> descendents = new HashSet<Object>();
+		accumDescendents(scope, descendents);
+		return descendents;
+	}
+
+	private void accumDescendents(Object obj, Collection<Object> descendents)
+	{
+		Stream<Object> children = getDownScopeStream(obj);
+		children.filter(child -> descendents.add(child))
+			.forEach(child -> accumDescendents(child, descendents));
+	}
+
+	private Stream<Object> getDownScopeStream(Object node)
+	{
+		Set<DefaultDirectionalGraphEdge<Object>> edges = scopeRelationships
+			.getAdjacentEdges(Objects.requireNonNull(node));
+		return edges.stream().filter(edge -> edge.isSource(node))
+			.map(edge -> edge.getNodeAt(1));
 	}
 
 	@Override
 	public ImplementedScope getImplementedScope(String name)
 	{
-		return scopes.get(name);
+		ImplementedScope cached = scopeCache.get(name);
+		if (cached != null)
+		{
+			return cached;
+		}
+		int dotLoc = name.lastIndexOf('.');
+		Optional<ImplementedScope> parent;
+		Object parentVirtualNode;
+
+		if (dotLoc == -1)
+		{
+			parent = Optional.empty();
+			parentVirtualNode = GLOBAL_PARENT;
+		}
+		else
+		{
+			ImplementedScope implScope =
+					getImplementedScope(name.substring(0, dotLoc));
+			parent = Optional.of(implScope);
+			parentVirtualNode = virtualNodes.get(implScope.getDefinedScope());
+		}
+		String localName = name.substring(dotLoc + 1);
+		Optional<DefinedScope> localDefined =
+				getDownScopeStream(parentVirtualNode)
+					.map(child -> (DefinedScope) child)
+					.filter(scope -> localName.equals(scope.getName()))
+					.findFirst();
+		if (localDefined.isEmpty())
+		{
+			String message = parent.isPresent()
+				? " for parent " + parent.get().getName() : " as global scope";
+			throw new IllegalArgumentException(
+				"Cannot find DefinedScope " + localName + message);
+		}
+		SimpleImplementedScope scope =
+				new SimpleImplementedScope(parent, localDefined.get());
+		scopeCache.put(name, scope);
+		return scope;
 	}
 
-	@Override
-	public Collection<ImplementedScope> getImplementedScopes()
+	public boolean recognizesScope(DefinedScope scope)
 	{
-		return Collections.unmodifiableCollection(scopes.values());
+		return scopeRelationships.containsNode(scope);
 	}
 
 	@Override
 	public boolean recognizesScope(ImplementedScope scope)
 	{
-		return scopes.values().contains(scope);
+		return scopeCache.containsValue(scope);
 	}
 
-	@Override
-	public boolean isRelated(ImplementedScope scope1, ImplementedScope scope2)
+	public void addPseudoRelationship(DefinedScope underlying,
+		DefinedScope expressed)
 	{
-		Collection<ImplementedScope> descendents1 = getDescendents(scope1);
-		descendents1.retainAll(getDescendents(scope2));
-		return !descendents1.isEmpty();
-	}
-
-	private Collection<ImplementedScope> getDescendents(ImplementedScope scope)
-	{
-		Collection<ImplementedScope> descendents = new HashSet<ImplementedScope>();
-		descendents.add(scope);
-		accumulateDescendents(scope, descendents);
-		return descendents;
-	}
-
-	private void accumulateDescendents(ImplementedScope scope,
-		Collection<ImplementedScope> descendents)
-	{
-		scopeChildren.getSafeListFor(scope).stream().filter(descendents::add)
-			.forEach(child -> accumulateDescendents(child, descendents));
+		scopeRelationships.addEdge(new DefaultDirectionalGraphEdge<>(expressed,
+			virtualNodes.get(underlying)));
+		//TODO Need to make sure this doesn't retroactively make things related :/
 	}
 }

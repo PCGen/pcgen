@@ -26,12 +26,11 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
-import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
 import pcgen.base.solver.testsupport.MockStat;
@@ -77,7 +76,6 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	public void testAddModifierExternal()
 	{
 		WriteableVariableStore store = getVariableStore();
-		ImplementedScope globalScope = getScopeManager().getImplementedScope("Global");
 		ScopeInstance globalScopeInst = getGlobalScopeInst();
 		assertLegalVariable("STR", "Global", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
@@ -89,8 +87,8 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		manager.createChannel(str);
 		assertEquals(0, store.get(str));
 
-		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
-		getScopeManager().registerScope(localScope);
+		SimpleDefinedScope localScope = new SimpleDefinedScope("STAT");
+		getScopeManager().registerScope(getGlobalDefinedScope(), localScope);
 
 		ScopeInstance strInst =
 				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));

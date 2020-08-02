@@ -47,7 +47,7 @@ public class MonitorableVariableStoreTest
 	void setUp()
 	{
 		legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
+		legalScopeManager.registerScope(new SimpleDefinedScope("Global"));
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 		order = new ArrayList<>();
 		lastEvent = null;
