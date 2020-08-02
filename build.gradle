@@ -273,6 +273,23 @@ runtime {
     }
 }
 
+tasks.jpackageImage.doLast {
+    copy {
+        includeEmptyDirs = false
+        from "${buildDir}/install/pcgen/"
+        exclude "**/*.exe"
+        exclude "**/*.bat"
+        exclude "pcgen"
+        exclude "**/lib/**"
+        if (Os.isFamily(Os.FAMILY_MAC)){
+            into "build/jpackage/PcGen/Contents/Resources"
+        }
+        else {
+            into "build/jpackage/PcGen/bin"
+        }
+    }
+}
+
 
 task converterJar(type: Jar, dependsOn: jar) {
     manifest {
