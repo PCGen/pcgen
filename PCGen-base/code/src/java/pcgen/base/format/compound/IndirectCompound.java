@@ -85,4 +85,17 @@ class IndirectCompound extends AbstractCompound implements Indirect<Compound>, D
 	{
 		return object.get();
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode() ^ object.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return super.equals(obj) && (obj instanceof IndirectCompound)
+			&& object.equals(((IndirectCompound) obj).object);
+	}
 }

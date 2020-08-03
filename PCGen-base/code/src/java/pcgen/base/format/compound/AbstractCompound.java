@@ -109,7 +109,14 @@ abstract class AbstractCompound implements Compound
 	@Override
 	public int hashCode()
 	{
-		int result = 31 + ((components == null) ? 0 : components.hashCode());
+		int result = 0;
+		if (components != null)
+		{
+			for (Object o : components.values())
+			{
+				result = 31 * result + o.hashCode();
+			}
+		}
 		return 31 * result + formatManager.hashCode();
 	}
 

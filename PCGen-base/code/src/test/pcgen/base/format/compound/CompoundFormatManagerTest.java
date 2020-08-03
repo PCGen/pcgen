@@ -18,8 +18,11 @@
 package pcgen.base.format.compound;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -108,6 +111,7 @@ public class CompoundFormatManagerTest
 		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		Compound c = manager.convert("3|LEVEL=Hard");
 		assertEquals("3", c.getPrimaryUnconverted());
+		assertEquals(3, c.getPrimary());
 		assertEquals("Hard", c.getSecondary("Level").getUnconverted());
 		assertEquals("Hard", c.getSecondary("LEVEL").getUnconverted());
 		/*
@@ -120,6 +124,7 @@ public class CompoundFormatManagerTest
 		assertEquals("3|LEVEL=Hard", manager.unconvert(c));
 		Compound c2 = manager.convert("4|LEVEL=Easy|ALLOWED=False");
 		assertEquals("4", c2.getPrimaryUnconverted());
+		assertEquals(4, c2.getPrimary());
 		assertEquals("Easy", c2.getSecondary("Level").getUnconverted());
 		assertEquals("false", c2.getSecondary("ALLOWED").getUnconverted());
 		assertEquals("4|ALLOWED=false|LEVEL=Easy", manager.unconvert(c2));
@@ -147,6 +152,7 @@ public class CompoundFormatManagerTest
 		Indirect<Compound> in = manager.convertIndirect("3|LEVEL=Hard");
 		Compound c = in.get();
 		assertEquals("3", c.getPrimaryUnconverted());
+		assertEquals(3, c.getPrimary());
 		assertEquals("Hard", c.getSecondary("Level").getUnconverted());
 		assertEquals("Hard", c.getSecondary("LEVEL").getUnconverted());
 		/*
@@ -162,6 +168,7 @@ public class CompoundFormatManagerTest
 				manager.convertIndirect("4|LEVEL=Easy|ALLOWED=False");
 		Compound c2 = in2.get();
 		assertEquals("4", c2.getPrimaryUnconverted());
+		assertEquals(4, c2.getPrimary());
 		assertEquals("Easy", c2.getSecondary("Level").getUnconverted());
 		assertEquals("false", c2.getSecondary("ALLOWED").getUnconverted());
 		assertEquals("4|ALLOWED=false|LEVEL=Easy", manager.unconvert(c2));
@@ -187,5 +194,98 @@ public class CompoundFormatManagerTest
 		valueStore.addValueFor(FormatUtilities.STRING_MANAGER.getIdentifierType(), "Easy");
 		value = manager.initializeFrom(valueStore);
 		assertEquals(c2, value);
+	}
+
+	@Test
+	public void testEquals()
+	{
+		CompoundFormatManager<Number> manager =
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
+		CompoundFormatManager<Number> altmanager =
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		altmanager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		altmanager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", false);
+		
+		Compound c = manager.convert("3|Level=Hard");
+		Indirect<Compound> ic = manager.convertIndirect("3|Level=Hard");
+		
+		assertTrue(c.equals(c));
+		assertTrue(ic.equals(ic));
+
+		assertFalse(c.equals(1));
+		assertFalse(ic.equals(1));
+
+		assertFalse(manager.equals(altmanager));
+
+		assertTrue(manager.convert("3|Level=Hard").equals(manager.convert("3|Level=Hard")));
+		assertTrue(manager.convertIndirect("3|LEVEL=Hard").equals(manager.convertIndirect("3|Level=Hard")));
+
+		assertTrue(altmanager.convert("3").equals(altmanager.convert("3")));
+		assertTrue(altmanager.convertIndirect("3").equals(altmanager.convertIndirect("3")));
+
+		//Format managers are different
+		assertFalse(manager.convert("3|LEVEL=Hard").equals(altmanager.convert("3|Level=Hard")));
+		assertFalse(manager.convertIndirect("3|LEVEL=Hard").equals(altmanager.convertIndirect("3|Level=Hard")));
+
+		assertFalse(manager.convert("4|Level=Hard").equals(manager.convert("3|Level=Hard")));
+		assertFalse(manager.convert("3|Level=Hard").equals(manager.convertIndirect("3|Level=Hard")));
+		assertFalse(manager.convertIndirect("3|Level=Hard").equals(manager.convert("3|Level=Hard")));
+		assertFalse(manager.convertIndirect("4|LEVEL=Hard").equals(manager.convertIndirect("3|Level=Hard")));
+
+		assertFalse(manager.convert("3|LEVEL=Hard").equals(manager.convert("3|Level=Hard|Allowed=True")));
+		assertFalse(manager.convertIndirect("3|LEVEL=Hard").equals(manager.convertIndirect("3|Level=Hard|Allowed=True")));
+
+		assertFalse(altmanager.convert("3|LEVEL=Hard").equals(altmanager.convert("3|Allowed=True")));
+		assertFalse(altmanager.convertIndirect("3|LEVEL=Hard").equals(altmanager.convertIndirect("3|Allowed=True")));
+
+		assertFalse(altmanager.convert("3").equals(altmanager.convert("3|Allowed=True")));
+		assertFalse(altmanager.convertIndirect("3").equals(altmanager.convertIndirect("3|Allowed=True")));
+
+		assertFalse(altmanager.convert("3|LEVEL=Hard").equals(altmanager.convert("3")));
+		assertFalse(altmanager.convertIndirect("3|LEVEL=Hard").equals(altmanager.convertIndirect("3")));
+	}
+
+	@Test
+	public void testHashCode()
+	{
+		CompoundFormatManager<Number> manager =
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		manager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		manager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
+		CompoundFormatManager<Number> altmanager =
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		altmanager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		altmanager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", false);
+
+		assertNotEquals(manager.hashCode(), altmanager.hashCode());
+
+		assertEquals(manager.convert("3|Level=Hard").hashCode(), manager.convert("3|Level=Hard").hashCode());
+		assertEquals(manager.convertIndirect("3|LEVEL=Hard").hashCode(), manager.convertIndirect("3|Level=Hard").hashCode());
+
+		assertEquals(altmanager.convert("3").hashCode(), altmanager.convert("3").hashCode());
+		assertEquals(altmanager.convertIndirect("3").hashCode(), altmanager.convertIndirect("3").hashCode());
+
+		//Format managers are different
+		assertNotEquals(manager.convert("3|LEVEL=Hard").hashCode(), altmanager.convert("3|Level=Hard").hashCode());
+		assertNotEquals(manager.convertIndirect("3|LEVEL=Hard").hashCode(), altmanager.convertIndirect("3|Level=Hard").hashCode());
+
+		assertNotEquals(manager.convert("4|Level=Hard").hashCode(), manager.convert("3|Level=Hard").hashCode());
+		assertNotEquals(manager.convert("3|Level=Hard").hashCode(), manager.convertIndirect("3|Level=Hard").hashCode());
+		assertNotEquals(manager.convertIndirect("3|Level=Hard").hashCode(), manager.convert("3|Level=Hard").hashCode());
+		assertNotEquals(manager.convertIndirect("4|LEVEL=Hard").hashCode(), manager.convertIndirect("3|Level=Hard").hashCode());
+
+		assertNotEquals(manager.convert("3|LEVEL=Hard").hashCode(), manager.convert("3|Level=Hard|Allowed=True").hashCode());
+		assertNotEquals(manager.convertIndirect("3|LEVEL=Hard").hashCode(), manager.convertIndirect("3|Level=Hard|Allowed=True").hashCode());
+
+		assertNotEquals(altmanager.convert("3|LEVEL=Hard").hashCode(), altmanager.convert("3|Allowed=True").hashCode());
+		assertNotEquals(altmanager.convertIndirect("3|LEVEL=Hard").hashCode(), altmanager.convertIndirect("3|Allowed=True").hashCode());
+
+		assertNotEquals(altmanager.convert("3").hashCode(), altmanager.convert("3|Allowed=True").hashCode());
+		assertNotEquals(altmanager.convertIndirect("3").hashCode(), altmanager.convertIndirect("3|Allowed=True").hashCode());
+
+		assertNotEquals(altmanager.convert("3|LEVEL=Hard").hashCode(), altmanager.convert("3").hashCode());
+		assertNotEquals(altmanager.convertIndirect("3|LEVEL=Hard").hashCode(), altmanager.convertIndirect("3").hashCode());
 	}
 }

@@ -237,4 +237,19 @@ public class OptionalFormatManagerTest
 			manager.initializeFrom(new SimpleValueStore()));
 	}
 
+
+	@Test
+	public void testEquals()
+	{
+		OptionalFormatManager<Number> manager1 =
+				new OptionalFormatManager<>(new NumberManager());
+		OptionalFormatManager<String> manager2 =
+				new OptionalFormatManager<>(new StringManager());
+		OptionalFormatManager<Number> manager3 =
+				new OptionalFormatManager<>(new NumberManager());
+		assertFalse(manager1.equals(manager2));
+		assertFalse(manager2.equals(manager1));
+		assertTrue(manager1.equals(manager3));
+	}
+
 }

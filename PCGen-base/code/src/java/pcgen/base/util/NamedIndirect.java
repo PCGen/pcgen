@@ -15,7 +15,7 @@
  */
 package pcgen.base.util;
 
-import java.util.Objects;
+import pcgen.base.lang.CaseInsensitiveString;
 
 /**
  * A NamedIndirect is an Indirect Object that also has a String name associated with the
@@ -39,7 +39,7 @@ public class NamedIndirect<T>
 	/**
 	 * The name of the NamedIndirect.
 	 */
-	private final String name;
+	private final CaseInsensitiveString name;
 
 	/**
 	 * Constructs a new NamedIndirect with the given name, Format of the value, and value
@@ -54,7 +54,7 @@ public class NamedIndirect<T>
 	 */
 	public NamedIndirect(String name, T object, FormatManager<T> manager)
 	{
-		this.name = Objects.requireNonNull(name);
+		this.name = new CaseInsensitiveString(name);
 		this.object = new BasicIndirect<>(manager, object);
 	}
 
@@ -71,7 +71,7 @@ public class NamedIndirect<T>
 	 */
 	public NamedIndirect(String name, FormatManager<T> manager, String instructions)
 	{
-		this.name = Objects.requireNonNull(name);
+		this.name = new CaseInsensitiveString(name);
 		object = manager.convertIndirect(instructions);
 	}
 
@@ -82,7 +82,7 @@ public class NamedIndirect<T>
 	 */
 	public String getName()
 	{
-		return name;
+		return name.toString();
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class NamedIndirect<T>
 		if (obj instanceof NamedIndirect)
 		{
 			NamedIndirect<?> other = (NamedIndirect<?>) obj;
-			return name.equalsIgnoreCase(other.name) && object.equals(other.object);
+			return name.equals(other.name) && object.equals(other.object);
 		}
 		return false;
 	}
