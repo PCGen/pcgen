@@ -19,14 +19,14 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import pcgen.base.formula.base.DeleteMeWithSetupFactory;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.ScopeImplementer;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
 import pcgen.base.formula.inst.FormulaUtilities;
-import pcgen.base.formula.inst.ScopeManager;
-import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleFormulaManager;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
@@ -52,8 +52,7 @@ public class FormulaSetupFactory
 	/**
 	 * The ScopeManager for this FormulaSetupFactory.
 	 */
-	private Supplier<ScopeManager> scopeManagerSupplier =
-			() -> new ScopeManagerInst();
+	private Supplier<DeleteMeWithSetupFactory> scopeManagerSupplier;
 
 	/**
 	 * The SimpleFunctionLibrary for this FormulaSetupFactory.
@@ -64,13 +63,13 @@ public class FormulaSetupFactory
 	/**
 	 * The VariableLibrary for this FormulaSetupFactory.
 	 */
-	private BiFunction<ScopeManager, ValueStore, VariableLibrary> variableLibraryFunction =
+	private BiFunction<DeleteMeWithSetupFactory, ValueStore, VariableLibrary> variableLibraryFunction =
 			(lsl, vs) -> new VariableManager(lsl, vs);
 
 	/**
 	 * The ScopeInstanceFactory for this FormulaSetupFactory.
 	 */
-	private Function<ScopeManager, ScopeInstanceFactory> scopeInstanceFactoryFunction =
+	private Function<ScopeImplementer, ScopeInstanceFactory> scopeInstanceFactoryFunction =
 			lsl -> new SimpleScopeInstanceFactory(lsl);
 
 	/**
@@ -89,7 +88,7 @@ public class FormulaSetupFactory
 	public FormulaManager generate()
 	{
 		SupplierValueStore valueStore = valueStoreSupplier.get();
-		ScopeManager scopeManager = scopeManagerSupplier.get();
+		DeleteMeWithSetupFactory scopeManager = scopeManagerSupplier.get();
 		FunctionLibrary functionLibrary = functionLibrarySupplier.get();
 		VariableStore variableStore = variableStoreSupplier.get();
 		VariableLibrary variableLibrary =
@@ -123,7 +122,7 @@ public class FormulaSetupFactory
 	 *            FormulaSetupFactory
 	 */
 	public void setScopeManagerSupplier(
-		Supplier<ScopeManager> scopeManagerSupplier)
+		Supplier<DeleteMeWithSetupFactory> scopeManagerSupplier)
 	{
 		this.scopeManagerSupplier = scopeManagerSupplier;
 	}
@@ -151,7 +150,7 @@ public class FormulaSetupFactory
 	 *            FormulaSetupFactory
 	 */
 	public void setVariableLibraryFunction(
-		BiFunction<ScopeManager, ValueStore, VariableLibrary> variableLibraryFunction)
+		BiFunction<DeleteMeWithSetupFactory, ValueStore, VariableLibrary> variableLibraryFunction)
 	{
 		this.variableLibraryFunction = variableLibraryFunction;
 	}
@@ -165,7 +164,7 @@ public class FormulaSetupFactory
 	 *            FormulaSetupFactory
 	 */
 	public void setScopeInstanceFactoryFunction(
-		Function<ScopeManager, ScopeInstanceFactory> scopeInstanceFactoryFunction)
+		Function<ScopeImplementer, ScopeInstanceFactory> scopeInstanceFactoryFunction)
 	{
 		this.scopeInstanceFactoryFunction = scopeInstanceFactoryFunction;
 	}

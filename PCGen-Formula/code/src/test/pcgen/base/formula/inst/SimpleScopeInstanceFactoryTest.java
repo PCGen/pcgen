@@ -30,25 +30,22 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.testsupport.NaiveScopeManager;
 
 public class SimpleScopeInstanceFactoryTest
 {
 
 	private ScopeInstanceFactory factory;
-	private ScopeManagerInst scopeManager;
+	private NaiveScopeManager scopeManager;
 	private ScopeInstance scopeInst;
-	private SimpleDefinedScope local;
 
 	@BeforeEach
 	void setUp()
 	{
-		scopeManager = new ScopeManagerInst();
+		scopeManager = new NaiveScopeManager();
 		factory = new SimpleScopeInstanceFactory(scopeManager);
-		SimpleDefinedScope scope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(scope);
 		scopeInst = factory.getGlobalInstance("Global");
-		local = new SimpleDefinedScope("Local");
-		scopeManager.registerScope(scope, local);
+		scopeManager.registerScope("Global", "Local");
 	}
 	
 	@AfterEach
@@ -57,7 +54,6 @@ public class SimpleScopeInstanceFactoryTest
 		factory = null;
 		scopeManager = null;
 		scopeInst = null;
-		local = null;
 	}
 
 	@Test
@@ -69,8 +65,6 @@ public class SimpleScopeInstanceFactoryTest
 	@Test
 	public void testGetGlobalInstance()
 	{
-		assertThrows(IllegalArgumentException.class, () -> factory.getGlobalInstance("Local"));
-		assertThrows(IllegalArgumentException.class, () -> factory.getGlobalInstance("Global.Local"));
 		ScopeInstance globalInst = factory.getGlobalInstance("Global");
 		assertTrue(globalInst.getParentScope().isEmpty());
 		assertEquals("Global", globalInst.getImplementedScope().getName());
@@ -103,19 +97,16 @@ public class SimpleScopeInstanceFactoryTest
 		assertEquals(si, gsi);
 		assertTrue(si == gsi);
 
-		assertThrows(IllegalArgumentException.class, () -> factory.get("Local", Optional.of(gvs)));
-		assertThrows(IllegalArgumentException.class, () -> factory.get("Local", null));
 		Scoped lvs = new Scoped("LVar", "Global.Local", gvs);
 		ScopeInstance lsi = factory.get("Global.Local", Optional.of(lvs));
-		assertTrue(local.equals(lsi.getImplementedScope().getDefinedScope()));
+		assertTrue("Local".equals(lsi.getImplementedScope().getName()));
 		assertTrue(scopeInst.equals(lsi.getParentScope().get()));
 		assertEquals("Local", lsi.getImplementedScope().getName());
 
-		SimpleDefinedScope sublocal = new SimpleDefinedScope("SubLocal");
-		scopeManager.registerScope(local, sublocal);
+		scopeManager.registerScope("Local", "SubLocal");
 		Scoped slvs = new Scoped("SVar", "Global.Local.SubLocal", lvs);
 		ScopeInstance slsi = factory.get("Global.Local.SubLocal", Optional.of(slvs));
-		assertTrue(sublocal.equals(slsi.getImplementedScope().getDefinedScope()));
+		assertTrue("SubLocal".equals(slsi.getImplementedScope().getName()));
 		assertTrue(scopeInst.equals(slsi.getParentScope().get().getParentScope().get()));
 		assertEquals("SubLocal", slsi.getImplementedScope().getName());
 

@@ -39,7 +39,6 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
-import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -104,8 +103,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		getValueStore().addSolverFormat(limbManager,
 			() -> limbManager.convert("Head"));
 
-		SimpleDefinedScope limbScope = new SimpleDefinedScope("LIMB");
-		getScopeManager().registerScope(getGlobalDefinedScope(), limbScope);
+		getScopeManager().registerScope("Global", "LIMB");
 		assertLegalVariable("active", "Global", limbManager);
 		assertLegalVariable("quantity", "Global.LIMB",
 			FormatUtilities.NUMBER_MANAGER);
@@ -322,8 +320,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		ScopeInstance source = getGlobalScopeInst();
 
-		SimpleDefinedScope limbScope = new SimpleDefinedScope("LIMB");
-		getScopeManager().registerScope(getGlobalDefinedScope(), limbScope);
+		getScopeManager().registerScope("Global", "LIMB");
 
 		assertLegalVariable("LocalVar", "Global.LIMB", FormatUtilities.NUMBER_MANAGER);
 		assertLegalVariable("ResultVar", "Global", FormatUtilities.NUMBER_MANAGER);

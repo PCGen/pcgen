@@ -144,6 +144,8 @@ public interface SolverManager
 	/**
 	 * Directly solves a given NEPFormula using the information in this SolverManager.
 	 * 
+	 * @param <T>
+	 *            The format (class) of the value returned by the given NEPFormula
 	 * @param formula
 	 *            The NEPFormula to be solved using the information in this SolverManager
 	 * @return The result of evaluating the given formula based on information in this

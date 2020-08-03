@@ -15,7 +15,6 @@
  */
 package pcgen.base.formula.inst;
 
-import pcgen.base.formula.base.DefinedScope;
 import pcgen.base.formula.base.ImplementedScope;
 
 /**
@@ -31,23 +30,11 @@ public interface ScopeManager
 	/**
 	 * Returns true if the ImplementedScope is recognized by this ScopeManager.
 	 * 
+	 * @param implScope the ImplementedScope to be checked
 	 * @return true if the ImplementedScope is recognized by this ScopeManager;
 	 *         false otherwise
 	 */
-	public boolean recognizesScope(ImplementedScope DefinedScope);
-	
-	/**
-	 * Returns true if two scopes are related. They are related if the presence of a
-	 * matching variable name would produce an ambiguity (as described in the description
-	 * of this interface).
-	 * 
-	 * @param firstScope
-	 *            The first scope to be checked
-	 * @param secondScope
-	 *            The second scope to be checked
-	 * @return true if the two DefinedScope objects are related; false otherwise
-	 */
-	public boolean isRelated(DefinedScope firstScope, DefinedScope secondScope);
+	public boolean recognizesScope(ImplementedScope implScope);
 
 	/**
 	 * Returns the ImplementedScope with the given fully resolved name.

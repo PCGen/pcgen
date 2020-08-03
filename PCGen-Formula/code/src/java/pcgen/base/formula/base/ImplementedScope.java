@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2015-20 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,6 +17,7 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -69,15 +70,15 @@ public interface ImplementedScope
 	/**
 	 * Returns the full name (including parent names) for the given ImplementedScope.
 	 * 
-	 * @param ImplementedScope
+	 * @param scope
 	 *            The ImplementedScope for which the full name should be returned
 	 * @return The full name (including parent names) for the given ImplementedScope
 	 */
-	public static String getFullName(ImplementedScope ImplementedScope)
+	public static String getFullName(ImplementedScope scope)
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(ImplementedScope.getName());
-		Optional<? extends ImplementedScope> current = ImplementedScope.getParentScope();
+		sb.append(scope.getName());
+		Optional<? extends ImplementedScope> current = scope.getParentScope();
 		while (current.isPresent())
 		{
 			sb.insert(0, '.');
@@ -87,5 +88,12 @@ public interface ImplementedScope
 		return sb.toString();
 	}
 
-	public DefinedScope getDefinedScope();
+	/**
+	 * Returns a List of the ImplementedScope objects that this ImplementedScope can draw
+	 * upon for variables.
+	 * 
+	 * @return A List of the ImplementedScope objects that this ImplementedScope can draw
+	 *         upon for variables
+	 */
+	public List<ImplementedScope> drawsFrom();
 }

@@ -39,11 +39,10 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
-import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.MockStat;
+import pcgen.base.testsupport.NaiveScopeManager;
 import pcgen.base.testsupport.TestUtilities;
 
 public class SolverTest
@@ -58,10 +57,8 @@ public class SolverTest
 	void setUp()
 	{
 		FormulaSetupFactory setup = new FormulaSetupFactory();
-		ScopeManagerInst scopeManager = new ScopeManagerInst();
-		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(globalScope);
-		scopeManager.registerScope(globalScope, new SimpleDefinedScope("STAT"));
+		NaiveScopeManager scopeManager = new NaiveScopeManager();
+		scopeManager.registerScope("Global", "STAT");
 		setup.setScopeManagerSupplier(() -> scopeManager);
 		formulaManager = setup.generate();
 		ScopeInstanceFactory scopeInstanceFactory = formulaManager.getScopeInstanceFactory();

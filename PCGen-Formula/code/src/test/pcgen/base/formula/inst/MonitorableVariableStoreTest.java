@@ -34,11 +34,12 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.testsupport.NaiveScopeManager;
 
 public class MonitorableVariableStoreTest
 {
 
-	private ScopeManagerInst legalScopeManager;
+	private NaiveScopeManager scopeManager;
 	private ScopeInstanceFactory instanceFactory;
 	private VariableChangeEvent<?> lastEvent;
 	private List<EventCapture> order;
@@ -46,9 +47,8 @@ public class MonitorableVariableStoreTest
 	@BeforeEach
 	void setUp()
 	{
-		legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleDefinedScope("Global"));
-		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
+		scopeManager = new NaiveScopeManager();
+		instanceFactory = new SimpleScopeInstanceFactory(scopeManager);
 		order = new ArrayList<>();
 		lastEvent = null;
 	}
@@ -56,7 +56,7 @@ public class MonitorableVariableStoreTest
 	@AfterEach
 	void tearDown()
 	{
-		legalScopeManager = null;
+		scopeManager = null;
 		instanceFactory = null;
 		lastEvent = null;
 		order = null;

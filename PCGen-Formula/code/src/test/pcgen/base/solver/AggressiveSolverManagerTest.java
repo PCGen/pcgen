@@ -30,7 +30,6 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
-import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
 import pcgen.base.solver.testsupport.MockStat;
@@ -84,8 +83,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 
 		assertEquals(null, store.get(str));
 
-		SimpleDefinedScope localScope = new SimpleDefinedScope("STAT");
-		getScopeManager().registerScope(getGlobalDefinedScope(), localScope);
+		getScopeManager().registerScope("Global", "STAT");
 
 		ScopeInstance strInst =
 				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));

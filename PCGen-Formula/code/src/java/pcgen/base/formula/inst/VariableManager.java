@@ -23,6 +23,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import pcgen.base.formula.base.DeleteMeWithSetupFactory;
 import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -46,7 +47,7 @@ public class VariableManager implements VariableLibrary
 	 * ImplementedScope (in order to avoid variable name conflicts between different but
 	 * non disjoint scopes).
 	 */
-	private final ScopeManager scopeManager;
+	private final DeleteMeWithSetupFactory scopeManager;
 
 	/**
 	 * The ValueStore that knows what defaults exist (and thus what variables would be
@@ -72,7 +73,7 @@ public class VariableManager implements VariableLibrary
 	 * @param defaultStore
 	 *            The ValueStore used to get the default variable for a variable Format
 	 */
-	public VariableManager(ScopeManager scopeManager, ValueStore defaultStore)
+	public VariableManager(DeleteMeWithSetupFactory scopeManager, ValueStore defaultStore)
 	{
 		this.scopeManager = Objects.requireNonNull(scopeManager);
 		this.defaultStore = Objects.requireNonNull(defaultStore);
@@ -128,7 +129,7 @@ public class VariableManager implements VariableLibrary
 	private boolean hasConflict(String varName, ImplementedScope scope)
 	{
 		return variableDefs.getSecondaryKeySet(varName).stream()
-			.filter(otherScope -> scopeManager.isRelated(otherScope.getDefinedScope(), scope.getDefinedScope()))
+			.filter(otherScope -> scopeManager.isRelated(otherScope, scope))
 			.anyMatch(otherScope -> !otherScope.equals(scope));
 	}
 

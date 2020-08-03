@@ -29,13 +29,11 @@ public class SimpleScopeInstanceTest
 	@Test
 	public void testConstructor()
 	{
-		SimpleDefinedScope scope = new SimpleDefinedScope("Global");
-		SimpleImplementedScope implementedScope = new SimpleImplementedScope(scope);
+		SimpleImplementedScope implementedScope = new SimpleImplementedScope("Global");
 		SimpleScopeInstance scopeInst = new SimpleScopeInstance(
 			Optional.empty(), implementedScope, new GlobalVarScoped("Global"));
-		SimpleDefinedScope local = new SimpleDefinedScope("Local");
 		SimpleImplementedScope localImplementedScope =
-				new SimpleImplementedScope(implementedScope, local);
+				new SimpleImplementedScope(implementedScope, "Local");
 		SimpleScopeInstance localInst =
 				new SimpleScopeInstance(Optional.of(scopeInst),
 					localImplementedScope, new GlobalVarScoped("Local"));
@@ -44,8 +42,7 @@ public class SimpleScopeInstanceTest
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), implementedScope, new GlobalVarScoped("Ignored")));
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(localInst), localImplementedScope, new GlobalVarScoped("Ignored")));
 		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(null, localImplementedScope, new GlobalVarScoped("Ignored")));
-		SimpleDefinedScope sublocal = new SimpleDefinedScope("SubLocal");
-		SimpleImplementedScope sublocalImplementedScope = new SimpleImplementedScope(localImplementedScope, sublocal);
+		SimpleImplementedScope sublocalImplementedScope = new SimpleImplementedScope(localImplementedScope, "SubLocal");
 		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(null, localImplementedScope, new GlobalVarScoped("Ignored")));
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.empty(), localImplementedScope, new GlobalVarScoped("Ignored")));
 		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.empty(), localImplementedScope, new GlobalVarScoped("Ignored")));
@@ -59,13 +56,11 @@ public class SimpleScopeInstanceTest
 	@Test
 	public void testIsValid()
 	{
-		SimpleDefinedScope scope = new SimpleDefinedScope("Global");
-		SimpleImplementedScope implementedScope = new SimpleImplementedScope(scope);
+		SimpleImplementedScope implementedScope = new SimpleImplementedScope("Global");
 		SimpleScopeInstance scopeInst = new SimpleScopeInstance(
 			Optional.empty(), implementedScope, new GlobalVarScoped("Global"));
-		SimpleDefinedScope local = new SimpleDefinedScope("Local");
 		SimpleImplementedScope localImplementedScope =
-				new SimpleImplementedScope(implementedScope, local);
+				new SimpleImplementedScope(implementedScope, "Local");
 		SimpleScopeInstance localInst =
 				new SimpleScopeInstance(Optional.of(scopeInst),
 					localImplementedScope, new GlobalVarScoped("Local"));

@@ -15,10 +15,12 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import pcgen.base.formula.base.DefinedScope;
 import pcgen.base.formula.base.ImplementedScope;
 
 /**
@@ -33,41 +35,56 @@ public class SimpleImplementedScope implements ImplementedScope
 	private final Optional<ImplementedScope> parent;
 
 	/**
-	 * The name of this ImplementedScope.
+	 * The List of ImplementedScope objects that items in this ImplementedScope can draw
+	 * from...
 	 */
-	private final DefinedScope scope;
+	private final List<ImplementedScope> supplyingScopes = new LinkedList<>();
 
 	/**
-	 * Constructs a new SimpleImplementedScope with the given DefinedScope.
-	 * 
-	 * @param scope
-	 *            The DefinedScope of this SimpleImplementedScope
+	 * The name of this ImplementedScope.
 	 */
-	public SimpleImplementedScope(DefinedScope scope)
+	private final String name;
+
+	/**
+	 * Constructs a new SimpleImplementedScope with the given name.
+	 * 
+	 * @param name
+	 *            The name of this ImplementedScope
+	 */
+	public SimpleImplementedScope(String name)
 	{
-		this(Optional.empty(), scope);
+		this(Optional.empty(), name);
 	}
 
 	/**
 	 * Constructs a new ImplementedScope with the given parent ImplementedScope and
-	 * DefinedScope.
+	 * name.
 	 * 
 	 * @param parentScope
 	 *            The ImplementedScope that is the parent of this ImplementedScope.
-	 * @param scope
-	 *            The DefinedScope of this SimpleImplementedScope
+	 * @param name
+	 *            The name of this ImplementedScope
 	 */
-	public SimpleImplementedScope(ImplementedScope parentScope,
-		DefinedScope scope)
+	public SimpleImplementedScope(ImplementedScope parentScope, String name)
 	{
-		this(Optional.of(parentScope), scope);
+		this(Optional.of(parentScope), name);
 	}
 
+	/**
+	 * Constructs a new SimpleImplementedScope with the optional parent ImplementedScope
+	 * and for the given name.
+	 * 
+	 * @param parentScope
+	 *            The ImplementedScope that is the parent of this ImplementedScope, if
+	 *            present
+	 * @param name
+	 *            The name of this ImplementedScope
+	 */
 	public SimpleImplementedScope(Optional<ImplementedScope> parentScope,
-		DefinedScope scope)
+		String name)
 	{
 		this.parent = Objects.requireNonNull(parentScope);
-		this.scope = Objects.requireNonNull(scope);
+		this.name = Objects.requireNonNull(name);
 	}
 
 	@Override
@@ -79,7 +96,7 @@ public class SimpleImplementedScope implements ImplementedScope
 	@Override
 	public String getName()
 	{
-		return scope.getName();
+		return name;
 	}
 
 	@Override
@@ -89,9 +106,20 @@ public class SimpleImplementedScope implements ImplementedScope
 			: getName();
 	}
 
-	@Override
-	public DefinedScope getDefinedScope()
+	/**
+	 * Adds a new ImplementedScope that this ImplementedScope can draw from.
+	 * 
+	 * @param implScope
+	 *            The ImplementedScope that this ImplementedScope can draw from
+	 */
+	public void drawsFrom(ImplementedScope implScope)
 	{
-		return scope;
+		supplyingScopes.add(implScope);
+	}
+
+	@Override
+	public List<ImplementedScope> drawsFrom()
+	{
+		return Collections.unmodifiableList(supplyingScopes);
 	}
 }

@@ -38,6 +38,7 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.solver.SupplierValueStore;
+import pcgen.base.testsupport.NaiveScopeManager;
 import pcgen.base.testsupport.SimpleVarScoped;
 import pcgen.base.util.Indirect;
 
@@ -45,7 +46,7 @@ public class VariableManagerTest
 {
 
 	private ScopeInstanceFactory instanceFactory;
-	private ScopeManagerInst scopeManager;
+	private NaiveScopeManager scopeManager;
 	private VariableLibrary variableLibrary;
 	private SupplierValueStore valueStore;
 
@@ -53,7 +54,7 @@ public class VariableManagerTest
 	void setUp()
 	{
 		valueStore = new SupplierValueStore();
-		scopeManager = new ScopeManagerInst();
+		scopeManager = new NaiveScopeManager();
 		instanceFactory = new SimpleScopeInstanceFactory(scopeManager);
 		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
@@ -105,16 +106,12 @@ public class VariableManagerTest
 	@Test
 	public void testAssertVariable()
 	{
-		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
-		SimpleDefinedScope eqScope = new SimpleDefinedScope("Equipment");
-		SimpleDefinedScope eqPartScope = new SimpleDefinedScope("Part");
-		scopeManager.registerScope(globalScope);
-		scopeManager.registerScope(globalScope, eqScope);
-		scopeManager.registerScope(eqScope, eqPartScope);
+		scopeManager.registerScope("Global", "Equipment");
+		scopeManager.registerScope("Equipment", "Part");
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
 		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
 		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
-		ImplementedScope spellImplementedScope = getSubScope(globalScope, "Spell");
+		ImplementedScope spellImplementedScope = getSubScope("Global", "Spell");
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		//Dupe is safe
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
@@ -158,18 +155,14 @@ public class VariableManagerTest
 	@Test
 	public void testIsLegalVID()
 	{
-		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(globalScope);
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
 
-		ImplementedScope spellImplementedScope = getSubScope(globalScope, "Spell");
+		ImplementedScope spellImplementedScope = getSubScope("Global", "Spell");
 
-		SimpleDefinedScope eqScope = new SimpleDefinedScope("Equipment");
-		scopeManager.registerScope(globalScope, eqScope);
+		scopeManager.registerScope("Global", "Equipment");
 		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
 
-		SimpleDefinedScope eqPartScope = new SimpleDefinedScope("Part");
-		scopeManager.registerScope(eqScope, eqPartScope);
+		scopeManager.registerScope("Equipment", "Part");
 		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
 
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
@@ -202,18 +195,11 @@ public class VariableManagerTest
 	@Test
 	public void testGetVIDFail()
 	{
-		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(globalScope);
-
-		SimpleDefinedScope spScope = new SimpleDefinedScope("Spell");
-		scopeManager.registerScope(globalScope, spScope);
+		scopeManager.registerScope("Global", "Spell");
 		ImplementedScope spellImplementedScope = scopeManager.getImplementedScope("Global.Spell");
 
-		SimpleDefinedScope eqScope = new SimpleDefinedScope("Equipment");
-		scopeManager.registerScope(globalScope, eqScope);
-
-		SimpleDefinedScope eqPartScope = new SimpleDefinedScope("Part");
-		scopeManager.registerScope(eqScope, eqPartScope);
+		scopeManager.registerScope("Global", "Equipment");
+		scopeManager.registerScope("Equipment", "Part");
 
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		SimpleVarScoped eq = new SimpleVarScoped();
@@ -234,16 +220,12 @@ public class VariableManagerTest
 	@Test
 	public void testGetVID()
 	{
-		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(globalScope);
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
 
-		SimpleDefinedScope eqScope = new SimpleDefinedScope("Equipment");
-		scopeManager.registerScope(globalScope, eqScope);
+		scopeManager.registerScope("Global", "Equipment");
 		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
 
-		SimpleDefinedScope eqPartScope = new SimpleDefinedScope("Part");
-		scopeManager.registerScope(eqScope, eqPartScope);
+		scopeManager.registerScope("Equipment", "Part");
 		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
 
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
@@ -295,11 +277,9 @@ public class VariableManagerTest
 	@Test
 	public void testGetVariableFormat()
 	{
-		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(globalScope);
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
 
-		ImplementedScope equipmentImplementedScope = getSubScope(globalScope, "Equipment");
+		ImplementedScope equipmentImplementedScope = getSubScope("Global", "Equipment");
 
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		variableLibrary.assertLegalVariableID("Float", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
@@ -327,11 +307,8 @@ public class VariableManagerTest
 	@Test
 	public void testProveReuse()
 	{
-		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(globalScope);
-
-		ImplementedScope equipmentImplementedScope = getSubScope(globalScope, "Equipment");
-		ImplementedScope abilityImplementedScope = getSubScope(globalScope, "Ability");
+		ImplementedScope equipmentImplementedScope = getSubScope("Global", "Equipment");
+		ImplementedScope abilityImplementedScope = getSubScope("Global", "Ability");
 
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
@@ -399,16 +376,13 @@ public class VariableManagerTest
 
 	private ImplementedScope getGlobalImpl()
 	{
-		SimpleDefinedScope globalScope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(globalScope);
 		return scopeManager.getImplementedScope("Global");
 	}
 
-	private ImplementedScope getSubScope(SimpleDefinedScope globalScope, String name)
+	private ImplementedScope getSubScope(String parent, String name)
 	{
-		SimpleDefinedScope subScope = new SimpleDefinedScope(name);
-		scopeManager.registerScope(globalScope, subScope);
-		return scopeManager.getImplementedScope(globalScope.getName() + "." + name);
+		scopeManager.registerScope(parent, name);
+		return scopeManager.getImplementedScope(parent + "." + name);
 	}
 
 }

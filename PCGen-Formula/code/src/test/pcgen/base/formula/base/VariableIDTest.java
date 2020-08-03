@@ -28,19 +28,17 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
-import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
+import pcgen.base.testsupport.NaiveScopeManager;
 
 public class VariableIDTest
 {
 	@Test
 	public void testDoubleConstructor()
 	{
-		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 
@@ -55,10 +53,9 @@ public class VariableIDTest
 	@Test
 	public void testGlobal()
 	{
-		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 
@@ -71,13 +68,11 @@ public class VariableIDTest
 	@Test
 	public void testEquals()
 	{
-		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
-		scopeManager.registerScope(new SimpleDefinedScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.get("Global2",
 			Optional.of(new GlobalVarScoped("Global2")));
 
@@ -97,13 +92,11 @@ public class VariableIDTest
 	@Test
 	public void testHashCode()
 	{
-		ScopeManagerInst scopeManager = new ScopeManagerInst();
+		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		ScopeInstance globalInst = instanceFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
-		scopeManager.registerScope(new SimpleDefinedScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.get("Global2",
 			Optional.of(new GlobalVarScoped("Global2")));
 

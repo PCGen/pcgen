@@ -27,6 +27,7 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.solver.SupplierValueStore;
+import pcgen.base.testsupport.NaiveScopeManager;
 import pcgen.base.testsupport.TestUtilities;
 
 public class SimpleFormulaManagerTest
@@ -45,7 +46,7 @@ public class SimpleFormulaManagerTest
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 		valueStore.validateDefaults();
 		resultsStore = new SimpleVariableStore();
-		ScopeManager scopeManager = new ScopeManagerInst();
+		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		variableLibrary = new VariableManager(scopeManager, valueStore);
 		siFactory = new SimpleScopeInstanceFactory(scopeManager);
 	}

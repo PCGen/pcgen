@@ -50,8 +50,6 @@ import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
-import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.formula.inst.SimpleDefinedScope;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -65,16 +63,13 @@ import pcgen.base.util.FormatManager;
 public abstract class AbstractFormulaTestCase
 {
 
-	private ScopeManagerInst scopeManager;
+	private NaiveScopeManager scopeManager;
 	private FormulaManager formulaManager;
 	private ScopeInstance globalInstance;
 	private SupplierValueStore valueStore;
 
 	private OperatorLibrary opLibrary;
 	private ManagerFactory managerFactory;
-
-	private SimpleDefinedScope globalDefinedScope;
-
 
 	@BeforeEach
 	protected void setUp()
@@ -85,9 +80,7 @@ public abstract class AbstractFormulaTestCase
 		opLibrary = FormulaUtilities.loadBuiltInOperators(new SimpleOperatorLibrary());
 		managerFactory = new ManagerFactory(opLibrary);
 		FormulaSetupFactory setup = new FormulaSetupFactory();
-		scopeManager = new ScopeManagerInst();
-		globalDefinedScope = new SimpleDefinedScope("Global");
-		scopeManager.registerScope(globalDefinedScope);
+		scopeManager = new NaiveScopeManager();
 		setup.setScopeManagerSupplier(() -> scopeManager);
 		valueStore = new SupplierValueStore();
 		setup.setValueStoreSupplier(() -> valueStore);
@@ -286,14 +279,9 @@ public abstract class AbstractFormulaTestCase
 		return formulaManager;
 	}
 
-	protected ScopeManagerInst getScopeManager()
+	protected NaiveScopeManager getScopeManager()
 	{
 		return scopeManager;
-	}
-	
-	protected SimpleDefinedScope getGlobalDefinedScope()
-	{
-		return globalDefinedScope;
 	}
 
 	protected ManagerFactory getManagerFactory()
@@ -318,7 +306,6 @@ public abstract class AbstractFormulaTestCase
 
 	public ScopeInstance getGlobalInstance(String name)
 	{
-		scopeManager.registerScope(new SimpleDefinedScope("Global"));
 		return formulaManager.getScopeInstanceFactory().get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 	}

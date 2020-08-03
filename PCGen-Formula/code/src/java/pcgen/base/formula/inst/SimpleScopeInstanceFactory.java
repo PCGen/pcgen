@@ -25,6 +25,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 import pcgen.base.formula.base.ImplementedScope;
+import pcgen.base.formula.base.ScopeImplementer;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
@@ -53,7 +54,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	 * The ScopeManager used to indicate the ImplementedScope objects for this
 	 * SimpleScopeInstanceFactory.
 	 */
-	private final ScopeManager manager;
+	private final ScopeImplementer manager;
 
 	/**
 	 * Construct a new SimpleScopeInstanceFactory with the underlying
@@ -63,7 +64,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	 *            The ScopeManager indicating the legal scopes for this
 	 *            SimpleScopeInstanceFactory
 	 */
-	public SimpleScopeInstanceFactory(ScopeManager manager)
+	public SimpleScopeInstanceFactory(ScopeImplementer manager)
 	{
 		this.manager = Objects.requireNonNull(manager);
 	}
