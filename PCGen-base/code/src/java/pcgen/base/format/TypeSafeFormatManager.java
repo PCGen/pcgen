@@ -13,7 +13,7 @@
  * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
  * Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formatmanager;
+package pcgen.base.format;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -59,6 +59,13 @@ public class TypeSafeFormatManager<T extends TypeSafeConstant>
 	{
 		this.underlyingClass = Objects.requireNonNull(underlyingClass);
 		this.identifier = Objects.requireNonNull(identifier);
+		if (identifier.length() == 0)
+		{
+			throw new IllegalArgumentException(
+				"Cannot construct TypeSafeFormatManager for "
+					+ underlyingClass.getCanonicalName()
+					+ " with an empty identifier");
+		}
 		try
 		{
 			getItemsInClass();

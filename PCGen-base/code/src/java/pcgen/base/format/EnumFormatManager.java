@@ -13,7 +13,7 @@
  * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
  * Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formatmanager;
+package pcgen.base.format;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -53,6 +53,20 @@ public class EnumFormatManager<T extends Enum<T>> implements FormatManager<T>
 	{
 		this.underlyingClass = Objects.requireNonNull(underlyingEnum);
 		this.identifier = Objects.requireNonNull(identifier);
+		if (identifier.length() == 0)
+		{
+			throw new IllegalArgumentException(
+				"Cannot construct EnumFormatManager for "
+					+ underlyingClass.getCanonicalName()
+					+ " with an empty identifier");
+		}
+		if (!underlyingClass.isEnum())
+		{
+			throw new IllegalArgumentException(
+				"Cannot construct EnumFormatManager for "
+					+ underlyingClass.getCanonicalName()
+					+ " since it is not an enum");
+		}
 	}
 
 	@Override
