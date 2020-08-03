@@ -30,7 +30,7 @@ import pcgen.base.util.ValueStore;
 
 /**
  * A SupplierValueStore is a centralized location to define a shared default value for a
- * format of formats for Solvers.
+ * format for a SolverSystem (or individual Solvers).
  */
 public class SupplierValueStore implements ValueStore
 {
@@ -95,7 +95,7 @@ public class SupplierValueStore implements ValueStore
 	 * of Solver, this method MUST NOT be called a second time for that format of Solver.
 	 * 
 	 * @param <T>
-	 *            The format (class) of object changed by the given Supplier
+	 *            The format (class) of object being added
 	 * @param formatManager
 	 *            The FormatManager of the Solver format for which the given Supplier
 	 *            should provide the default value

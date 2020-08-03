@@ -25,7 +25,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
@@ -36,15 +35,16 @@ import pcgen.base.solver.testsupport.MockStat;
 
 public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 {
-	private AggressiveSolverManager manager;
+	private GeneralSolverSystem manager;
 
 	@BeforeEach
 	@Override
 	protected void setUp()
 	{
 		super.setUp();
-		manager = new AggressiveSolverManager(getFormulaManager(), getManagerFactory(),
-			getSolverManager());
+		manager = SolverUtilities.buildStaticSolverSystem(
+			getFormulaManager(), getManagerFactory(),
+			getValueStore(), getVariableStore());
 	}
 	
 	@AfterEach
@@ -58,10 +58,17 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testIllegalConstruction()
 	{
-		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(null, getManagerFactory(), getSolverManager()));
-		FormulaManager formulaManager = getFormulaManager();
-		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, null, getSolverManager()));
-		assertThrows(NullPointerException.class, () -> new AggressiveSolverManager(formulaManager, getManagerFactory(), null));
+		SimpleSolverManager newSolver = new SimpleSolverManager(
+			getFormulaManager().getFactory()::isLegalVariableID,
+			getFormulaManager(), getManagerFactory(), getValueStore(),
+			getVariableStore());
+		SolverDependencyManager dm = new StaticSolverDependencyManager(getFormulaManager(),
+			getManagerFactory(), newSolver::initialize);
+		SolverStrategy strategy =
+				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
+		assertThrows(NullPointerException.class, () -> new GeneralSolverSystem(null, dm, strategy));
+		assertThrows(NullPointerException.class, () -> new GeneralSolverSystem(newSolver, null, strategy));
+		assertThrows(NullPointerException.class, () -> new GeneralSolverSystem(newSolver, dm, null));
 	}
 
 	@Override

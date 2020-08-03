@@ -1,0 +1,88 @@
+/*
+ * Copyright 2020 (C) Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.base.solver;
+
+import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.base.WriteableVariableStore;
+
+/**
+ * SolverUtilities are utilities related to Solvers and SolverSystems.
+ */
+public final class SolverUtilities
+{
+
+	private SolverUtilities()
+	{
+		//Do not construct utility class
+	}
+
+	/**
+	 * Builds a new GeneralSolverSystem with an Aggressive SolverStrategy and a Static
+	 * SolverDependencyManager.
+	 * 
+	 * @param manager
+	 *            The FormulaManager used to set up the SolverSystem
+	 * @param managerFactory
+	 *            The ManagerFactory used to set up the SolverSystem
+	 * @param valueStore
+	 *            The SupplierValueStore used to set up the SolverSystem
+	 * @param resultStore
+	 *            The WriteableVariableStore used to set up the SolverSystem
+	 * @return The new GeneralSolverSystem
+	 */
+	public static GeneralSolverSystem buildStaticSolverSystem(
+		FormulaManager manager, ManagerFactory managerFactory,
+		SupplierValueStore valueStore, WriteableVariableStore resultStore)
+	{
+		SimpleSolverManager newSolver =
+				new SimpleSolverManager(manager.getFactory()::isLegalVariableID,
+					manager, managerFactory, valueStore, resultStore);
+		SolverDependencyManager dm = new StaticSolverDependencyManager(manager,
+			managerFactory, newSolver::initialize);
+		SolverStrategy strategy =
+				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
+		return new GeneralSolverSystem(newSolver, dm, strategy);
+	}
+
+	/**
+	 * Builds a new GeneralSolverSystem with an Aggressive SolverStrategy and a Dynamic
+	 * SolverDependencyManager.
+	 * 
+	 * @param manager
+	 *            The FormulaManager used to set up the SolverSystem
+	 * @param managerFactory
+	 *            The ManagerFactory used to set up the SolverSystem
+	 * @param valueStore
+	 *            The SupplierValueStore used to set up the SolverSystem
+	 * @param resultStore
+	 *            The WriteableVariableStore used to set up the SolverSystem
+	 * @return The new GeneralSolverSystem
+	 */
+	public static GeneralSolverSystem buildDynamicSolverSystem(
+		FormulaManager manager, ManagerFactory managerFactory,
+		SupplierValueStore valueStore, WriteableVariableStore resultStore)
+	{
+		SimpleSolverManager newSolver =
+				new SimpleSolverManager(manager.getFactory()::isLegalVariableID,
+					manager, managerFactory, valueStore, resultStore);
+		SolverDependencyManager dm = new DynamicSolverDependencyManager(manager,
+			managerFactory, newSolver::initialize, resultStore);
+		SolverStrategy strategy =
+				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
+		return new GeneralSolverSystem(newSolver, dm, strategy);
+	}
+}

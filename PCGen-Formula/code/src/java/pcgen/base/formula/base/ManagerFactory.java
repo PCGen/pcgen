@@ -61,6 +61,20 @@ public class ManagerFactory
 	}
 
 	/**
+	 * Generates an initialized DependencyManager with the given arguments.
+	 * 
+	 * @param formulaManager
+	 *            The FormulaManager to be contained in the DependencyManager
+	 * @return An initialized DependencyManager with the given arguments
+	 */
+	public DependencyManager generateDependencyManager(
+		FormulaManager formulaManager)
+	{
+		DependencyManager fdm = new DependencyManager(formulaManager);
+		return fdm.getWith(DependencyManager.OPLIB, opLib);
+	}
+
+	/**
 	 * Generates a DependencyManager with additional contents to handle variable
 	 * dependencies.
 	 * 

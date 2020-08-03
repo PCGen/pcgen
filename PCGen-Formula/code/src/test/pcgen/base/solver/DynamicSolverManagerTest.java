@@ -16,7 +16,6 @@
 package pcgen.base.solver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Optional;
 
@@ -54,15 +53,16 @@ import pcgen.base.util.Indirect;
 
 public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 {
-	private DynamicSolverManager manager;
+	private SolverSystem manager;
 
 	@BeforeEach
 	@Override
 	protected void setUp()
 	{
 		super.setUp();
-		manager = new DynamicSolverManager(getFormulaManager(), getManagerFactory(),
-			getSolverManager(), getVariableStore());
+		manager = SolverUtilities.buildDynamicSolverSystem(
+			getFormulaManager(), getManagerFactory(),
+			getValueStore(), getVariableStore());
 	}
 	
 	@AfterEach
@@ -71,20 +71,6 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	{
 		super.tearDown();
 		manager = null;
-	}
-
-	@Test
-	public void testIllegalConstruction()
-	{
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(null, getManagerFactory(), getSolverManager(),
-				getVariableStore()));
-		FormulaManager formulaManager = getFormulaManager();
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, null, getSolverManager(),
-				getVariableStore()));
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, getManagerFactory(), null,
-				getVariableStore()));
-		assertThrows(NullPointerException.class, () -> new DynamicSolverManager(formulaManager, getManagerFactory(), getSolverManager(),
-				null));
 	}
 
 	@Override
