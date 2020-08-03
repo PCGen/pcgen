@@ -20,6 +20,7 @@ package pcgen.base.graph.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.Graph;
 
 /**
@@ -73,4 +74,19 @@ public final class GraphUtilities
 		return !edgeListB.retainAll(edgeListA);
 	}
 
+	/**
+	 * Returns an unmodifiable view of the given Graph.
+	 * 
+	 * @param <N>
+	 *            The format of the nodes in the given Graph
+	 * @param <E>
+	 *            The format of the edges in the given Graph
+	 * @param graph
+	 *            The Graph for which an unmodifiable view should be returned
+	 * @return An unmodifiable view of the given Graph
+	 */
+	public static <N, E extends Edge<N>> Graph<N, E> unmodifiableGraph(Graph<N, E> graph)
+	{
+		return new UnmodifiableGraph<>(graph);
+	}
 }

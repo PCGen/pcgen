@@ -30,21 +30,21 @@ import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.base.DirectionalGraph;
 
 /**
- * Test the DirectionalSetMapGraph class
+ * Test the DirectionalListMapGraph class
  */
-public class DirectionalSetMapGraphTest extends AbstractDirectionalMapGraphTest
+public class DirectionalListMapGraphTest extends AbstractDirectionalMapGraphTest
 {
 
 	//TODO Need to test .equals behavior on nodes and edges
 
-	private DirectionalSetMapGraph<Integer, DirectionalEdge<Integer>> strategy;
+	private DirectionalListMapGraph<Integer, DirectionalEdge<Integer>> strategy;
 
 	@Override
 	@BeforeEach
 	void setUp()
 	{
 		super.setUp();
-		strategy = new DirectionalSetMapGraph<>();
+		strategy = new DirectionalListMapGraph<>();
 	}
 
 	@Override
