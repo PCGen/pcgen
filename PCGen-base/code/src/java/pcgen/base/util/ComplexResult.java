@@ -41,9 +41,9 @@ public interface ComplexResult<T> extends Supplier<T>
 	public Collection<String> getMessages();
 
 	/**
-	 * Returns true if this ComplexResult was successful; false otherwise.
+	 * Returns true if this ComplexResult is successful; false otherwise.
 	 * 
-	 * @return true if this ComplexResult was successful; false otherwise
+	 * @return true if this ComplexResult is successful; false otherwise
 	 */
 	public boolean isSuccessful();
 
@@ -78,8 +78,8 @@ public interface ComplexResult<T> extends Supplier<T>
 	 * parameter is null.
 	 *
 	 * @param object
-	 *            the value to be returned, if the ComplexResult was not successful
-	 * @return The value, if the ComplexResult was successful, otherwise the given
+	 *            the value to be returned, if the ComplexResult is not successful
+	 * @return The value, if the ComplexResult is successful, otherwise the given
 	 *         parameter
 	 */
 	public default T orElse(T object)
@@ -95,9 +95,9 @@ public interface ComplexResult<T> extends Supplier<T>
 	 * being null.
 	 *
 	 * @param supplier
-	 *            The supplier of the value to be returned, if the ComplexResult was not
+	 *            The supplier of the value to be returned, if the ComplexResult is not
 	 *            successful
-	 * @return The value, if the ComplexResult was successful, otherwise the value from
+	 * @return The value, if the ComplexResult is successful, otherwise the value from
 	 *         the supplier
 	 */
 	public default T orElseGet(Supplier<T> supplier)
@@ -110,11 +110,15 @@ public interface ComplexResult<T> extends Supplier<T>
 	 * exception provided by the given Function. The input to the function is an
 	 * unmodifiable view of the Collection of error messages in this ComplexResult.
 	 * 
-	 * @param supplier
-	 *            The supplier of the exception to be thrown, if the ComplexResult was not
+	 * @param <TH>
+	 *            The class of exception to be thrown if this ComplexResult is not
 	 *            successful
-	 * @return The value, if the ComplexResult was successful, throws the exception
-	 *         provided by the given Function
+	 * @param exceptionSupplier
+	 *            The supplier of the exception to be thrown, if the ComplexResult is not
+	 *            successful
+	 * @return The value, if the ComplexResult is successful, otherwise throws the
+	 *         exception provided by the given Function
+	 * @throws TH if this ComplexResult is not successful
 	 */
 	public default <TH extends Throwable> T orElseThrow(
 		Function<Collection<String>, ? extends TH> exceptionSupplier) throws TH
@@ -139,7 +143,7 @@ public interface ComplexResult<T> extends Supplier<T>
 	 * @param function
 	 *            The function to be run if the ComplexResult is successful
 	 * @return The result of the given Function (which is provided the value of this
-	 *         ComplexResult) if this ComplexResult was successful, otherwise this
+	 *         ComplexResult) if this ComplexResult is successful, otherwise this
 	 *         ComplexResult
 	 */
 	public default ComplexResult<T> ifSuccessful(

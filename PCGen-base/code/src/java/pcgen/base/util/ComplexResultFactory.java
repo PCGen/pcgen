@@ -80,6 +80,7 @@ public class ComplexResultFactory
 	 *         any messages; otherwise a successful ComplexResult containing the value
 	 *         provided by the given Supplier
 	 */
+	@SuppressWarnings("PMD.ShortMethodName")
 	public <T> ComplexResult<T> of(Supplier<T> supplier)
 	{
 		if (messages.isEmpty())
@@ -103,6 +104,7 @@ public class ComplexResultFactory
 	 *         any messages; otherwise a successful ComplexResult containing the given
 	 *         value
 	 */
+	@SuppressWarnings("PMD.ShortMethodName")
 	public <T> ComplexResult<T> of(T object)
 	{
 		if (messages.isEmpty())
