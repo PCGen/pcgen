@@ -20,10 +20,8 @@ import java.util.List;
 import java.util.Objects;
 
 import pcgen.base.formula.base.DynamicDependency;
-import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
 import pcgen.base.graph.inst.DefaultGraphEdge;
@@ -85,12 +83,6 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 * containing the same target and the new source (based on the given VarScoped
 	 * object).
 	 * 
-	 * @param varLibrary
-	 *            The VariableLibrary to be used to resolve the VariableID of the
-	 *            (dynamic) source
-	 * @param siFactory
-	 *            The ScopeInstanceFactory to be used to resolve the scope instance used
-	 *            to determine the VariableID of the (dynamic) source
 	 * @param vs
 	 *            The (new) VarScoped object that is the source of the dynamic variable
 	 * @param targetVar
@@ -99,11 +91,10 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 * @return A replacement DynamicEdge for this DynamicEdge, with the target edge
 	 *         containing the same target and the new source
 	 */
-	public DynamicEdge createReplacement(VariableLibrary varLibrary,
-		ScopeInstanceFactory siFactory, VarScoped vs, VariableID<?> targetVar)
+	public DynamicEdge createReplacement(VarScoped vs, VariableID<?> targetVar)
 	{
 		VariableID<?> input =
-				dynamicDep.generateSource(varLibrary, siFactory, vs, getSourceName());
+				dynamicDep.generateSource(vs, getSourceName());
 		DefaultDirectionalGraphEdge<VariableID<?>> edge =
 				new DefaultDirectionalGraphEdge<>(input, targetVar);
 		return new DynamicEdge((VariableID<?>) getNodeAt(0), edge, dynamicDep);

@@ -289,7 +289,11 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			TrainingStrategy ts = new TrainingStrategy();
 			DependencyManager trainer = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(ts));
 			visitor.visitVariable(varName, trainer);
-			DynamicDependency dd = new DynamicDependency(ts.getControlVar(), "Global.LIMB");
+
+			FormulaManager formulaManager = getFormulaManager();
+			DynamicDependency dd =
+					new DynamicDependency(formulaManager.getResolver(),
+						ts.getControlVar(), "Global.LIMB");
 			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
 			FormatManager<?> returnFormat = visitor.visitVariable(name, dynamic);
 			dm.get(DependencyManager.DYNAMIC).addDependency(dd);

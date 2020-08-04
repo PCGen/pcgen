@@ -18,7 +18,7 @@ package pcgen.base.formula.base;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * A DynamicDependency is a formula dependency that can change the absolute variable upon
@@ -32,6 +32,8 @@ import java.util.Optional;
  */
 public class DynamicDependency implements VariableStrategy
 {
+
+	private final VarIDResolver varResolver;
 
 	/**
 	 * The VariableID that contains the variable that controls which local variable scope
@@ -54,13 +56,16 @@ public class DynamicDependency implements VariableStrategy
 	 * Constructs a new DynamicDependency with the given VariableLibrary, Control
 	 * Variable, and source scope name and variable name.
 	 * 
+	 * @param varResolver
+	 *            The VariableLibrary used to resolve variables
 	 * @param controlVar
 	 *            The VariableID that contains the variable that controls which local
 	 *            variable scope is used to resolve the source variable name
 	 * @param sourceScopeName
 	 *            The source scope name for the dynamic dependency
 	 */
-	public DynamicDependency(VariableID<?> controlVar, String sourceScopeName)
+	public DynamicDependency(VarIDResolver varResolver,
+		VariableID<?> controlVar, String sourceScopeName)
 	{
 		if (!VarScoped.class
 			.isAssignableFrom(controlVar.getFormatManager().getManagedClass()))
@@ -69,43 +74,30 @@ public class DynamicDependency implements VariableStrategy
 				"Request to add Dynamic Dependency to Solver based on " + controlVar
 					+ " but that variable cannot be VarScoped");
 		}
+		this.varResolver = Objects.requireNonNull(varResolver);
 		this.controlVar = Objects.requireNonNull(controlVar);
 		this.sourceScopeName = Objects.requireNonNull(sourceScopeName);
 	}
 
 	/**
 	 * Returns a list of VariableIDs of the sources of the dynamic dependency, for the
-	 * given source object. The given ScopeInstanceFactory is used to resolve the
-	 * ScopeInstance for the given source object.
+	 * given source object.
 	 * 
-	 * @param varLibrary
-	 *            The VariableLibrary used to resolve variables
-	 * @param siFactory
-	 *            The ScopeInstanceFactory used to resolve ScopeInstance objects
 	 * @param sourceObject
 	 *            The source VarScoped for the variables
 	 * @return A list of the VariableIDs of the source of the dynamic dependency, for the
 	 *         given source object
 	 */
-	public List<VariableID<?>> generateSources(VariableLibrary varLibrary,
-		ScopeInstanceFactory siFactory, VarScoped sourceObject)
+	public List<VariableID<?>> generateSources(VarScoped sourceObject)
 	{
-		ScopeInstance scopeInst = siFactory.get(sourceScopeName, Optional.of(sourceObject));
-		List<VariableID<?>> list = new ArrayList<>();
-		for (String sourceVarName : sourceVarNames)
-		{
-			list.add(varLibrary.getVariableID(scopeInst, sourceVarName));
-		}
-		return list;
+		return sourceVarNames.stream()
+			.map(varName -> generateSource(sourceObject, varName))
+			.collect(Collectors.toList());
 	}
 
 	/**
 	 * Returns a source VariableID for a specific source variable name and other parameters.
 	 * 
-	 * @param varLibrary
-	 *            The VariableLibrary used to resolve variables
-	 * @param siFactory
-	 *            The ScopeInstanceFactory used to resolve ScopeInstance objects
 	 * @param sourceObject
 	 *            The source VarScoped for the variable
 	 * @param sourceVarName
@@ -113,11 +105,9 @@ public class DynamicDependency implements VariableStrategy
 	 * @return A source VariableID for a specific source variable name based on the other
 	 *         given parameters
 	 */
-	public VariableID<?> generateSource(VariableLibrary varLibrary,
-		ScopeInstanceFactory siFactory, VarScoped sourceObject, String sourceVarName)
+	public VariableID<?> generateSource(VarScoped sourceObject, String sourceVarName)
 	{
-		ScopeInstance scopeInst = siFactory.get(sourceScopeName, Optional.of(sourceObject));
-		return varLibrary.getVariableID(scopeInst, sourceVarName);
+		return varResolver.resolve(sourceScopeName, sourceObject, sourceVarName);
 	}
 
 	/**

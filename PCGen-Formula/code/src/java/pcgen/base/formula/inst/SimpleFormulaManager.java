@@ -18,9 +18,14 @@ package pcgen.base.formula.inst;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.base.VarIDResolver;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
 import pcgen.base.util.FormatManager;
@@ -56,6 +61,8 @@ public class SimpleFormulaManager implements FormulaManager
 	 */
 	private final ScopeInstanceFactory siFactory;
 
+	private final VarIDResolver resolver;
+
 	/**
 	 * Constructs a new FormulaManager from the provided FunctionLibrary, OperatorLibrary,
 	 * VariableLibrary, and VariableStore.
@@ -78,16 +85,33 @@ public class SimpleFormulaManager implements FormulaManager
 		this.siFactory = Objects.requireNonNull(siFactory);
 		map.put(RESULTS, Objects.requireNonNull(resultStore));
 		this.defaultStore = Objects.requireNonNull(defaultStore);
+		resolver = buildResolver();
 	}
-	
+
 	private SimpleFormulaManager(SimpleFormulaManager original, Map<TypedKey<?>, Object> map)
 	{
 		this.varLibrary = original.varLibrary;
 		this.siFactory = original.siFactory;
 		this.defaultStore = original.defaultStore;
 		this.map.putAll(map);
+		resolver = buildResolver();
 	}
 
+	private VarIDResolver buildResolver()
+	{
+		return new VarIDResolver()
+		{
+			@Override
+			public VariableID<?> resolve(String sourceScopeName,
+				VarScoped sourceObject, String sourceVarName)
+			{
+				ScopeInstance scopeInst = siFactory.get(sourceScopeName,
+					Optional.of(sourceObject));
+				return varLibrary.getVariableID(scopeInst, sourceVarName);
+			}
+		};
+	}
+	
 	/**
 	 * Returns the VariableLibrary used to get VariableIDs.
 	 * 
@@ -124,6 +148,12 @@ public class SimpleFormulaManager implements FormulaManager
 	public ScopeInstanceFactory getScopeInstanceFactory()
 	{
 		return siFactory;
+	}
+
+	@Override
+	public VarIDResolver getResolver()
+	{
+		return resolver;
 	}
 
 }

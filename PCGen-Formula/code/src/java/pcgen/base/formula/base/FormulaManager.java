@@ -103,4 +103,11 @@ public interface FormulaManager
 	 */
 	public ScopeInstanceFactory getScopeInstanceFactory();
 
+	/**
+	 * Returns the VariableIDResolver for this FormulaManager.
+	 * 
+	 * @return The VariableIDResolver for this FormulaManager
+	 */
+	public VarIDResolver getResolver();
+
 }
