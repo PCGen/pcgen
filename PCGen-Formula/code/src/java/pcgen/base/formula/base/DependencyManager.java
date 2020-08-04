@@ -43,10 +43,15 @@ public class DependencyManager
 	public static final TypedKey<List<String>> LOG = new TypedKey<>();
 
 	/**
-	 * A TypedKey used for storing the FormulaManager contained in this DependencyManager
+	 * A TypedKey used for storing the VariableLibrary contained in this DependencyManager.
 	 */
-	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
+	public static final TypedKey<VariableLibrary> VARLIB = new TypedKey<>();
 
+	/**
+	 * A TypedKey used for storing the FunctionLibrary contained in this DependencyManager.
+	 */
+	public static final TypedKey<FunctionLibrary> FUNCTION = new TypedKey<>();
+	
 	/**
 	 * The OperatorLibrary used to store valid operators.
 	 */
@@ -110,20 +115,11 @@ public class DependencyManager
 	 */
 	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
 
-	private DependencyManager()
-	{
-		//Null constructor for getWith
-	}
-
 	/**
 	 * Constructs a new DependencyManager object.
-	 * 
-	 * @param formulaManager
-	 *            The FormatManager that the new DependencyManager will contain
 	 */
-	public DependencyManager(FormulaManager formulaManager)
+	public DependencyManager()
 	{
-		map.put(FMANAGER, formulaManager);
 		map.put(LOG, new WriteOnceReadManyList<>(new ArrayList<>()));
 	}
 

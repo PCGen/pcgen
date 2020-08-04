@@ -54,11 +54,11 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	protected void setUp()
 	{
 		super.setUp();
-		solverManager = new SimpleSolverManager(
-			getFormulaManager().getFactory()::isLegalVariableID,
-			getFormulaManager(), getManagerFactory(), getValueStore(),
-			getVariableStore());
 		varLibrary = getVariableLibrary();
+		solverManager = new SimpleSolverManager(
+			varLibrary::isLegalVariableID,
+			getManagerFactory(), getValueStore(),
+			getVariableStore());
 		store = getVariableStore();
 		globalScope = getScopeManager().getImplementedScope("Global");
 		globalScopeInst = getGlobalScopeInst();
@@ -91,7 +91,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertThrows(NullPointerException.class, () -> getManager().addModifier(hp, null, source));
 		assertThrows(NullPointerException.class, () -> getManager().addModifier(hp, modifier, null));
 		//Invalid ID very bad
-		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getValueStore());
+		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getScopeManager(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
@@ -243,7 +243,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		//Not present is Harmless
 		getManager().removeModifier(hp, modifier, source);
 		//Invalid ID very bad
-		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getValueStore());
+		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getScopeManager(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")

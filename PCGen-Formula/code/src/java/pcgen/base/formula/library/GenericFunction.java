@@ -25,7 +25,6 @@ import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.exception.SemanticsFailureException;
@@ -98,17 +97,14 @@ public class GenericFunction implements FormulaFunction
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
 	{
-		FormulaManager formulaManager = semantics.get(FormulaSemantics.FMANAGER);
 		FunctionLibrary withArgs = ArgFunction
-			.getWithArgs(formulaManager.get(FormulaManager.FUNCTION), args);
-		FormulaManager subFormulaMgr =
-				formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
+			.getWithArgs(semantics.get(FormulaSemantics.FUNCTION), args);
 
 		//Need to save original to handle "embedded" GenericFunction objects properly
 		ArgumentDependencyManager myArgs = new ArgumentDependencyManager();
 		FormulaSemantics subSemantics =
 				semantics.getWith(ArgumentDependencyManager.KEY, Optional.of(myArgs));
-		subSemantics = subSemantics.getWith(FormulaSemantics.FMANAGER, subFormulaMgr);
+		subSemantics = subSemantics.getWith(FormulaSemantics.FUNCTION, withArgs);
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> result = (FormatManager<?>) visitor.visit(root, subSemantics);
 
@@ -126,13 +122,10 @@ public class GenericFunction implements FormulaFunction
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		FormulaManager formulaManager = manager.get(EvaluationManager.FMANAGER);
 		FunctionLibrary withArgs = ArgFunction
-			.getWithArgs(formulaManager.get(FormulaManager.FUNCTION), args);
-		FormulaManager subFormulaMgr =
-				formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
+			.getWithArgs(manager.get(EvaluationManager.FUNCTION), args);
 		return visitor.visit(root,
-			manager.getWith(EvaluationManager.FMANAGER, subFormulaMgr));
+			manager.getWith(EvaluationManager.FUNCTION, withArgs));
 	}
 
 	@Override
@@ -147,13 +140,11 @@ public class GenericFunction implements FormulaFunction
 	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		FormulaManager formulaManager = manager.get(DependencyManager.FMANAGER);
 		FunctionLibrary withArgs = ArgFunction
-			.getWithArgs(formulaManager.get(FormulaManager.FUNCTION), args);
-		FormulaManager subFtn = formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
+			.getWithArgs(manager.get(DependencyManager.FUNCTION), args);
 		@SuppressWarnings("unchecked")
 		Optional<FormatManager<?>> result = (Optional<FormatManager<?>>) visitor
-			.visit(root, manager.getWith(DependencyManager.FMANAGER, subFtn));
+			.visit(root, manager.getWith(DependencyManager.FUNCTION, withArgs));
 		return result;
 	}
 }

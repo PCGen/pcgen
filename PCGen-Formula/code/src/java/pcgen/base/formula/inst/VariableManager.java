@@ -23,8 +23,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import pcgen.base.formula.base.DeleteMeWithSetupFactory;
 import pcgen.base.formula.base.ImplementedScope;
+import pcgen.base.formula.base.ImplementedScopeManager;
+import pcgen.base.formula.base.RelationshipManager;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
@@ -43,11 +44,17 @@ public class VariableManager implements VariableLibrary
 {
 
 	/**
-	 * The ScopeManager that supports to be used to determine "child" scopes from any
-	 * ImplementedScope (in order to avoid variable name conflicts between different but
-	 * non disjoint scopes).
+	 * The RelationshipManager that supports to be used to determine "child" scopes from
+	 * any ImplementedScope (in order to avoid variable name conflicts between different
+	 * but non disjoint scopes).
 	 */
-	private final DeleteMeWithSetupFactory scopeManager;
+	private final RelationshipManager relationshipManager;
+
+	/**
+	 * The ImplementedScopeManager that supports to be used to determine legal
+	 * ImplementedScope objects.
+	 */
+	private final ImplementedScopeManager scopeManager;
 
 	/**
 	 * The ValueStore that knows what defaults exist (and thus what variables would be
@@ -64,17 +71,22 @@ public class VariableManager implements VariableLibrary
 			new DoubleKeyMap<>(CaseInsensitiveMap.class, HashMap.class);
 
 	/**
-	 * Constructs a new VariableManager, which uses the given ScopeManager to ensure
-	 * variables are legal within a given scope.
+	 * Constructs a new VariableManager, which uses the RelationshipManager and
+	 * ImplementedScopeManager parameters to ensure variables are legal within a given
+	 * scope, and the ValueStore for default values of the variables.
 	 * 
+	 * @param relationshipManager
+	 *            The RelationshipManager used to determine if two scopes are related
 	 * @param scopeManager
-	 *            The ScopeManager used to to ensure variables are legal within a
-	 *            given scope
+	 *            The ImplementedScopeManager used to to ensure variables are legal within
+	 *            a given scope
 	 * @param defaultStore
 	 *            The ValueStore used to get the default variable for a variable Format
 	 */
-	public VariableManager(DeleteMeWithSetupFactory scopeManager, ValueStore defaultStore)
+	public VariableManager(RelationshipManager relationshipManager,
+		ImplementedScopeManager scopeManager, ValueStore defaultStore)
 	{
+		this.relationshipManager = Objects.requireNonNull(relationshipManager);
 		this.scopeManager = Objects.requireNonNull(scopeManager);
 		this.defaultStore = Objects.requireNonNull(defaultStore);
 	}
@@ -129,7 +141,7 @@ public class VariableManager implements VariableLibrary
 	private boolean hasConflict(String varName, ImplementedScope scope)
 	{
 		return variableDefs.getSecondaryKeySet(varName).stream()
-			.filter(otherScope -> scopeManager.isRelated(otherScope, scope))
+			.filter(otherScope -> relationshipManager.isRelated(otherScope, scope))
 			.anyMatch(otherScope -> !otherScope.equals(scope));
 	}
 
@@ -201,5 +213,11 @@ public class VariableManager implements VariableLibrary
 			.filter(formatManager -> Objects
 				.isNull(formatManager.initializeFrom(defaultStore)))
 			.collect(Collectors.toList());
+	}
+
+	@Override
+	public <T> T getDefault(FormatManager<T> formatManager)
+	{
+		return formatManager.initializeFrom(defaultStore);
 	}
 }

@@ -38,7 +38,7 @@ public class SimpleFunctionLibrary implements WriteableFunctionLibrary
 	/**
 	 * Stores the FormulaFunction objects in this FunctionLibrary.
 	 */
-	private final CaseInsensitiveMap<FormulaFunction> parenMap =
+	private final CaseInsensitiveMap<FormulaFunction> functionMap =
 			new CaseInsensitiveMap<FormulaFunction>();
 
 	/**
@@ -56,12 +56,12 @@ public class SimpleFunctionLibrary implements WriteableFunctionLibrary
 	{
 		String functionName = function.getFunctionName();
 		Objects.requireNonNull(functionName, "Cannot add Function with null name");
-		if (parenMap.containsKey(functionName))
+		if (functionMap.containsKey(functionName))
 		{
 			throw new IllegalArgumentException(
 				"Cannot load two functions of name: " + functionName);
 		}
-		parenMap.put(functionName, function);
+		functionMap.put(functionName, function);
 	}
 
 	/**
@@ -76,6 +76,6 @@ public class SimpleFunctionLibrary implements WriteableFunctionLibrary
 	@Override
 	public FormulaFunction getFunction(String functionName)
 	{
-		return parenMap.get(functionName);
+		return functionMap.get(functionName);
 	}
 }

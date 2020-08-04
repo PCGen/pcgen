@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import pcgen.base.formula.base.DeleteMeWithSetupFactory;
 import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ImplementedScopeManager;
 import pcgen.base.formula.base.RelationshipManager;
@@ -35,7 +34,7 @@ import pcgen.base.formula.inst.SimpleImplementedScope;
  * designed as a test framework class.
  */
 public class NaiveScopeManager implements ScopeImplementer, RelationshipManager,
-		ImplementedScopeManager, DeleteMeWithSetupFactory
+		ImplementedScopeManager
 {
 
 	/**

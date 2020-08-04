@@ -24,7 +24,6 @@ import java.util.function.Consumer;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.DynamicManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -42,13 +41,6 @@ import pcgen.base.graph.inst.DirectionalSetMapGraph;
  */
 public class DynamicSolverDependencyManager implements SolverDependencyManager
 {
-
-	/**
-	 * The FormulaManager used by the Solver members of this
-	 * DynamicSolverDependencyManager.
-	 */
-	private final FormulaManager formulaManager;
-
 	/**
 	 * The ManagerFactory to be used to generate visitor managers in this
 	 * DynamicSolverDependencyManager.
@@ -93,9 +85,6 @@ public class DynamicSolverDependencyManager implements SolverDependencyManager
 	 * WriteableVariableStore transfers to this DynamicSolverDependencyManager. It can be
 	 * shared to other locations as a (readable) VariableStore, as necessary.)
 	 * 
-	 * @param manager
-	 *            The FormulaManager to be used by any Solver in this
-	 *            DynamicSolverDependencyManager
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to generate visitor managers in this
 	 *            DynamicSolverDependencyManager
@@ -106,11 +95,9 @@ public class DynamicSolverDependencyManager implements SolverDependencyManager
 	 *            The VariableStore used to store results in the SolverSystem where this
 	 *            DynamicSolverDependencyManager is managing the dependencies
 	 */
-	public DynamicSolverDependencyManager(FormulaManager manager,
-		ManagerFactory managerFactory,
+	public DynamicSolverDependencyManager(ManagerFactory managerFactory,
 		Consumer<VariableID<?>> notificationTarget, VariableStore resultStore)
 	{
-		this.formulaManager = Objects.requireNonNull(manager);
 		this.managerFactory = Objects.requireNonNull(managerFactory);
 		this.notificationTarget = Objects.requireNonNull(notificationTarget);
 		this.resultStore = Objects.requireNonNull(resultStore);
@@ -235,7 +222,7 @@ public class DynamicSolverDependencyManager implements SolverDependencyManager
 	private <T> DependencyManager getDepManager(VariableID<T> varID)
 	{
 		DependencyManager dependencyManager = managerFactory
-			.generateDependencyManager(formulaManager);
+			.generateDependencyManager();
 		dependencyManager = dependencyManager.getWith(
 			DependencyManager.ASSERTED, Optional.of(varID.getFormatManager()));
 		dependencyManager = dependencyManager.getWith(DependencyManager.DYNAMIC,
@@ -269,7 +256,6 @@ public class DynamicSolverDependencyManager implements SolverDependencyManager
 	{
 		DynamicSolverDependencyManager replacement =
 				new DynamicSolverDependencyManager(
-					formulaManager.getWith(FormulaManager.RESULTS, newVarStore),
 					managerFactory, newNotificationTarget, newVarStore);
 		for (VariableID<?> varID : dependencies.getNodeList())
 		{

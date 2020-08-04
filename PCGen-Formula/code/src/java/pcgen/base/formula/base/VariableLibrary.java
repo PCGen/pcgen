@@ -138,4 +138,16 @@ public interface VariableLibrary
 	 *         a default value
 	 */
 	public List<FormatManager<?>> getInvalidFormats();
+
+	/**
+	 * Returns the default value for a given FormatManager.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object for which the default value should be
+	 *            returned
+	 * @param formatManager
+	 *            The FormatManager for which the default value should be returned
+	 * @return The default value for the given FormatManager
+	 */
+	public <T> T getDefault(FormatManager<T> formatManager);
 }

@@ -15,8 +15,8 @@
  */
 package pcgen.base.solver;
 
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 
 /**
@@ -34,8 +34,8 @@ public final class SolverUtilities
 	 * Builds a new GeneralSolverSystem with an Aggressive SolverStrategy and a Static
 	 * SolverDependencyManager.
 	 * 
-	 * @param manager
-	 *            The FormulaManager used to set up the SolverSystem
+	 * @param varLib
+	 *            The VariableLibrary used to set up the SolverSystem
 	 * @param managerFactory
 	 *            The ManagerFactory used to set up the SolverSystem
 	 * @param valueStore
@@ -45,13 +45,13 @@ public final class SolverUtilities
 	 * @return The new GeneralSolverSystem
 	 */
 	public static GeneralSolverSystem buildStaticSolverSystem(
-		FormulaManager manager, ManagerFactory managerFactory,
+		VariableLibrary varLib, ManagerFactory managerFactory,
 		SupplierValueStore valueStore, WriteableVariableStore resultStore)
 	{
 		SimpleSolverManager newSolver =
-				new SimpleSolverManager(manager.getFactory()::isLegalVariableID,
-					manager, managerFactory, valueStore, resultStore);
-		SolverDependencyManager dm = new StaticSolverDependencyManager(manager,
+				new SimpleSolverManager(varLib::isLegalVariableID,
+					managerFactory, valueStore, resultStore);
+		SolverDependencyManager dm = new StaticSolverDependencyManager(
 			managerFactory, newSolver::initialize);
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
@@ -62,8 +62,8 @@ public final class SolverUtilities
 	 * Builds a new GeneralSolverSystem with an Aggressive SolverStrategy and a Dynamic
 	 * SolverDependencyManager.
 	 * 
-	 * @param manager
-	 *            The FormulaManager used to set up the SolverSystem
+	 * @param varLib
+	 *            The VariableLibrary used to set up the SolverSystem
 	 * @param managerFactory
 	 *            The ManagerFactory used to set up the SolverSystem
 	 * @param valueStore
@@ -73,13 +73,13 @@ public final class SolverUtilities
 	 * @return The new GeneralSolverSystem
 	 */
 	public static GeneralSolverSystem buildDynamicSolverSystem(
-		FormulaManager manager, ManagerFactory managerFactory,
+		VariableLibrary varLib, ManagerFactory managerFactory,
 		SupplierValueStore valueStore, WriteableVariableStore resultStore)
 	{
 		SimpleSolverManager newSolver =
-				new SimpleSolverManager(manager.getFactory()::isLegalVariableID,
-					manager, managerFactory, valueStore, resultStore);
-		SolverDependencyManager dm = new DynamicSolverDependencyManager(manager,
+				new SimpleSolverManager(varLib::isLegalVariableID,
+					managerFactory, valueStore, resultStore);
+		SolverDependencyManager dm = new DynamicSolverDependencyManager(
 			managerFactory, newSolver::initialize, resultStore);
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);

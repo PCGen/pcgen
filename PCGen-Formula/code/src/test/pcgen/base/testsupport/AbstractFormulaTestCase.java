@@ -34,9 +34,8 @@ import pcgen.base.formatmanager.OptionalFormatFactory;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaFunction;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -50,13 +49,16 @@ import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
+import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
+import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
+import pcgen.base.formula.inst.SimpleVariableStore;
+import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
-import pcgen.base.solver.FormulaSetupFactory;
 import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.util.FormatManager;
 
@@ -64,42 +66,51 @@ public abstract class AbstractFormulaTestCase
 {
 
 	private NaiveScopeManager scopeManager;
-	private FormulaManager formulaManager;
 	private ScopeInstance globalInstance;
 	private SupplierValueStore valueStore;
-
+	private FunctionLibrary functionLib;
 	private OperatorLibrary opLibrary;
 	private ManagerFactory managerFactory;
+	private ScopeInstanceFactory siFactory;
+	private WriteableVariableStore varStore;
+	private VariableManager varLib;
 
 	@BeforeEach
 	protected void setUp()
 	{
-		/**
-		 * The SimpleOperatorLibrary for this FormulaSetupFactory.
-		 */
 		opLibrary = FormulaUtilities.loadBuiltInOperators(new SimpleOperatorLibrary());
-		managerFactory = new ManagerFactory(opLibrary);
-		FormulaSetupFactory setup = new FormulaSetupFactory();
-		scopeManager = new NaiveScopeManager();
-		setup.setScopeManagerSupplier(() -> scopeManager);
+		functionLib = functionSetup(
+			FormulaUtilities.loadBuiltInFunctions(new SimpleFunctionLibrary()));
 		valueStore = new SupplierValueStore();
-		setup.setValueStoreSupplier(() -> valueStore);
-		formulaManager = setup.generate();
 		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
-		globalInstance = formulaManager.getScopeInstanceFactory().get("Global",
+		varStore = new SimpleVariableStore();
+		scopeManager = new NaiveScopeManager();
+		siFactory = new SimpleScopeInstanceFactory(scopeManager);
+		varLib = new VariableManager(scopeManager, scopeManager, valueStore);
+		managerFactory = new ManagerFactory(opLibrary, varLib, functionLib, varStore, siFactory);
+		globalInstance = siFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
+	}
+
+	protected FunctionLibrary functionSetup(WriteableFunctionLibrary wfl)
+	{
+		return wfl;
 	}
 
 	@AfterEach
 	protected void tearDown()
 	{
 		scopeManager = null;
-		formulaManager = null;
 		globalInstance = null;
 		valueStore = null;
 		opLibrary = null;
+		functionLib = null;
+		managerFactory = null;
+		siFactory = null;
+		varStore = null;
+		varLib = null;
 	}
 
 	public void isValid(String formula, SimpleNode node,
@@ -108,15 +119,14 @@ public abstract class AbstractFormulaTestCase
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
-			getFormulaManager(), getScopeManager().getImplementedScope("Global"));
+			getScopeManager().getImplementedScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 	}
 
 	public void isStatic(String formula, SimpleNode node, boolean b)
 	{
-		StaticVisitor staticVisitor =
-				new StaticVisitor(getFormulaManager().get(FormulaManager.FUNCTION));
+		StaticVisitor staticVisitor = new StaticVisitor(functionLib);
 		boolean isStat = ((Boolean) staticVisitor.visit(node, null)).booleanValue();
 		if (isStat != b)
 		{
@@ -183,8 +193,7 @@ public abstract class AbstractFormulaTestCase
 
 	public EvaluationManager generateManager()
 	{
-		EvaluationManager em =
-				managerFactory.generateEvaluationManager(getFormulaManager());
+		EvaluationManager em = managerFactory.generateEvaluationManager();
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 
@@ -199,7 +208,7 @@ public abstract class AbstractFormulaTestCase
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
-			getFormulaManager(), getScopeManager().getImplementedScope("Global"));
+			getScopeManager().getImplementedScope("Global"));
 		FormulaSemantics finSemantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		assertThrows(SemanticsFailureException.class, () -> semanticsVisitor.visit(node, finSemantics));
 	}
@@ -207,7 +216,7 @@ public abstract class AbstractFormulaTestCase
 	protected List<VariableID<?>> getVariables(SimpleNode node)
 	{
 		DependencyManager fdm = managerFactory
-			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst());
+			.generateDependencyManager(getGlobalScopeInst());
 		fdm = managerFactory.withVariables(fdm);
 		new DependencyVisitor().visit(node, fdm);
 		return fdm.get(DependencyManager.VARIABLES).get().getVariables();
@@ -231,9 +240,9 @@ public abstract class AbstractFormulaTestCase
 		return variableID;
 	}
 
-	protected WriteableFunctionLibrary getFunctionLibrary()
+	protected FunctionLibrary getFunctionLibrary()
 	{
-		return (WriteableFunctionLibrary) formulaManager.get(FormulaManager.FUNCTION);
+		return functionLib;
 	}
 
 	protected OperatorLibrary getOperatorLibrary()
@@ -243,13 +252,12 @@ public abstract class AbstractFormulaTestCase
 
 	protected VariableLibrary getVariableLibrary()
 	{
-		return getFormulaManager().getFactory();
+		return varLib;
 	}
 
 	protected WriteableVariableStore getVariableStore()
 	{
-		return (WriteableVariableStore) getFormulaManager()
-			.get(FormulaManager.RESULTS);
+		return varStore;
 	}
 
 	protected final ScopeInstance getGlobalScopeInst()
@@ -271,12 +279,7 @@ public abstract class AbstractFormulaTestCase
 
 	protected ScopeInstanceFactory getInstanceFactory()
 	{
-		return formulaManager.getScopeInstanceFactory();
-	}
-
-	protected FormulaManager getFormulaManager()
-	{
-		return formulaManager;
+		return siFactory;
 	}
 
 	protected NaiveScopeManager getScopeManager()
@@ -294,11 +297,6 @@ public abstract class AbstractFormulaTestCase
 		return valueStore;
 	}
 
-	protected void addFunction(FormulaFunction ff)
-	{
-		((WriteableFunctionLibrary) getFormulaManager().get(FormulaManager.FUNCTION)).addFunction(ff);
-	}
-
 	protected ScopeInstance getScopeInstance(String scopeName, VarScoped vs)
 	{
 		return getInstanceFactory().get(scopeName, Optional.of(vs));
@@ -306,7 +304,7 @@ public abstract class AbstractFormulaTestCase
 
 	public ScopeInstance getGlobalInstance(String name)
 	{
-		return formulaManager.getScopeInstanceFactory().get("Global",
+		return siFactory.get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
 	}
 

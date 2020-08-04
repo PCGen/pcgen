@@ -29,8 +29,8 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
@@ -64,7 +64,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 
 	private void resetManager()
 	{
-		depManager = getManagerFactory().generateDependencyManager(getFormulaManager(),
+		depManager = getManagerFactory().generateDependencyManager(
 			getGlobalScopeInst());
 		depManager = getManagerFactory().withVariables(depManager);
 		argManager = new ArgumentDependencyManager();
@@ -199,7 +199,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Override
-	protected FormulaManager getFormulaManager()
+	protected FunctionLibrary functionSetup(WriteableFunctionLibrary wfl)
 	{
 		String d20ModFormula = "floor((arg(0)-10)/2)";
 		SimpleNode d20ModNode = TestUtilities.doParse(d20ModFormula);
@@ -207,19 +207,9 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		SimpleNode noArgsNode = TestUtilities.doParse(noArgsFormula);
 		String embedFormula = "floor((arg(0)-arg(1))/2)";
 		SimpleNode embedNode = TestUtilities.doParse(embedFormula);
-		FormulaManager formulaManager = super.getFormulaManager();
-		FunctionLibrary functionLibrary = formulaManager.get(FormulaManager.FUNCTION);
-		functionLibrary = getWith(functionLibrary, "d20Mod", d20ModNode);
-		functionLibrary = getWith(functionLibrary, "noargs", noArgsNode);
-		functionLibrary = getWith(functionLibrary, "embed", embedNode);
-		return formulaManager.getWith(FormulaManager.FUNCTION, functionLibrary);
+		wfl.addFunction(new GenericFunction("d20Mod", d20ModNode));
+		wfl.addFunction(new GenericFunction("noargs", noArgsNode));
+		wfl.addFunction(new GenericFunction("embed", embedNode));
+		return wfl;
 	}
-
-	public static FunctionLibrary getWith(FunctionLibrary functionLibrary, String name,
-		SimpleNode node)
-	{
-		return lookupName -> name.equalsIgnoreCase(lookupName)
-			? new GenericFunction(name, node) : functionLibrary.getFunction(lookupName);
-	}
-	
 }

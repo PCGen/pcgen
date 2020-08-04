@@ -109,7 +109,7 @@ public class GeneralSolverSystem implements SolverSystem
 		SolverManager newSolver = solverFactory.createReplacement(newVarStore);
 		SolverDependencyManager newDepManager = depManager.createReplacement(newVarStore,
 			newSolver::initialize);
-		SolverStrategy newStrategy = this.strategy.generateReplacement(
+		SolverStrategy newStrategy = strategy.generateReplacement(
 			newDepManager::processForChildren, newSolver::processSolver);
 		return new GeneralSolverSystem(newSolver, newDepManager,
 			newStrategy);

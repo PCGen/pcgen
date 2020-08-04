@@ -28,14 +28,15 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.TrainingStrategy;
+import pcgen.base.formula.base.VarIDResolver;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.parse.Node;
@@ -60,9 +61,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	protected void setUp()
 	{
 		super.setUp();
-		manager = SolverUtilities.buildDynamicSolverSystem(
-			getFormulaManager(), getManagerFactory(),
-			getValueStore(), getVariableStore());
+		manager = SolverUtilities.buildDynamicSolverSystem(getVariableLibrary(),
+			getManagerFactory(), getValueStore(), getVariableStore());
 	}
 	
 	@AfterEach
@@ -79,11 +79,17 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		return manager;
 	}
 
+	@Override
+	protected FunctionLibrary functionSetup(WriteableFunctionLibrary wfl)
+	{
+		wfl.addFunction(new Dynamic());
+		return wfl;
+	}
+
 	@Test
 	public void testDynamic()
 	{
 		ScopeInstance source = getGlobalScopeInst();
-		getFunctionLibrary().addFunction(new Dynamic());
 
 		LimbManager limbManager = new LimbManager();
 		getValueStore().addSolverFormat(limbManager,
@@ -272,8 +278,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager em)
 		{
 			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, em);
-			FormulaManager fManager = em.get(EvaluationManager.FMANAGER);
-			ScopeInstanceFactory siFactory = fManager.getScopeInstanceFactory();
+			ScopeInstanceFactory siFactory = em.get(EvaluationManager.SIFACTORY);
 			ScopeInstance scopeInst = siFactory.get("Global.LIMB", Optional.of(vs));
 			//Rest of Equation
 			return args[1].jjtAccept(visitor,
@@ -290,9 +295,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			DependencyManager trainer = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(ts));
 			visitor.visitVariable(varName, trainer);
 
-			FormulaManager formulaManager = getFormulaManager();
 			DynamicDependency dd =
-					new DynamicDependency(formulaManager.getResolver(),
+					new DynamicDependency(buildResolver(),
 						ts.getControlVar(), "Global.LIMB");
 			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
 			FormatManager<?> returnFormat = visitor.visitVariable(name, dynamic);
@@ -301,6 +305,21 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 	}
 
+	private VarIDResolver buildResolver()
+	{
+		return new VarIDResolver()
+		{
+			@Override
+			public VariableID<?> resolve(String sourceScopeName,
+				VarScoped sourceObject, String sourceVarName)
+			{
+				ScopeInstance scopeInst = getInstanceFactory().get(sourceScopeName,
+					Optional.of(sourceObject));
+				return getVariableLibrary().getVariableID(scopeInst, sourceVarName);
+			}
+		};
+	}
+	
 	@Test
 	public void testAnother()
 	{
@@ -363,21 +382,5 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		manager.addModifier(altID, four, altInst);
 		assertEquals(4, store.get(resultID));
-	}
-
-	@Override
-	protected FormulaManager getFormulaManager()
-	{
-		FormulaManager formulaManager = super.getFormulaManager();
-		FunctionLibrary functionLibrary = formulaManager.get(FormulaManager.FUNCTION);
-		functionLibrary = getWith(functionLibrary, new Dynamic());
-		return formulaManager.getWith(FormulaManager.FUNCTION, functionLibrary);
-	}
-	
-	public static FunctionLibrary getWith(FunctionLibrary functionLibrary,
-		FormulaFunction function)
-	{
-		return lookupName -> function.getFunctionName().equalsIgnoreCase(lookupName)
-			? function : functionLibrary.getFunction(lookupName);
 	}
 }

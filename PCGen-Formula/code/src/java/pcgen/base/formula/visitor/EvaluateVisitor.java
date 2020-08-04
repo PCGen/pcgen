@@ -21,7 +21,6 @@ import java.lang.reflect.Array;
 import java.util.Optional;
 
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -217,8 +216,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Node[] args = VisitorUtilities.accumulateArguments(argNode);
 		if (argNode instanceof ASTFParen)
 		{
-			FunctionLibrary ftnLib = manager.get(EvaluationManager.FMANAGER)
-				.get(FormulaManager.FUNCTION);
+			FunctionLibrary ftnLib = manager.get(EvaluationManager.FUNCTION);
 			FormulaFunction function = ftnLib.getFunction(name);
 			return function.evaluate(this, args, manager);
 		}
@@ -383,8 +381,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 */
 	public Object visitVariable(String varName, EvaluationManager manager)
 	{
-		FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
-		VariableLibrary varLibrary = fm.getFactory();
+		VariableLibrary varLibrary = manager.get(EvaluationManager.VARLIB);
 		ScopeInstance scopeInst = manager.get(EvaluationManager.INSTANCE);
 		FormatManager<?> formatManager =
 				varLibrary
@@ -392,7 +389,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		if (formatManager != null)
 		{
 			VariableID<?> id = varLibrary.getVariableID(scopeInst, varName);
-			VariableStore resolver = fm.get(FormulaManager.RESULTS);
+			VariableStore resolver = manager.get(EvaluationManager.RESULTS);
 			if (resolver.containsVariable(id))
 			{
 				return resolver.get(id);
@@ -411,7 +408,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Logging.log(Severity.WARNING,
 			() -> "Evaluation called on invalid variable: '" + varName
 				+ "', assuming default for " + managedClass.getSimpleName());
-		return fm.getDefault(asserted.get());
+		return varLibrary.getDefault(asserted.get());
 	}
 
 }

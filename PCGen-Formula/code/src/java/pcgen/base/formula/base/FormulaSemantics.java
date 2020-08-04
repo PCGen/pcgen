@@ -48,9 +48,14 @@ public class FormulaSemantics
 	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
 
 	/**
-	 * A TypedKey used for storing the FormulaManager contained in this FormulaSemantics.
+	 * A TypedKey used for storing the FunctionLibrary contained in this FormulaSemantics.
 	 */
-	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
+	public static final TypedKey<FunctionLibrary> FUNCTION = new TypedKey<>();
+	
+	/**
+	 * A TypedKey used for storing the VariableLibrary contained in this FormulaSemantics.
+	 */
+	public static final TypedKey<VariableLibrary> VARLIB = new TypedKey<>();
 
 	/**
 	 * The OperatorLibrary used to store valid operators.

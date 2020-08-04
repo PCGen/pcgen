@@ -18,7 +18,6 @@ package pcgen.base.formula.inst;
 import java.util.HashMap;
 import java.util.Map;
 
-import pcgen.base.formula.base.DeleteMeWithSetupFactory;
 import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ImplementedScopeManager;
 import pcgen.base.formula.base.RelationshipManager;
@@ -33,7 +32,7 @@ import pcgen.base.formula.base.ScopeImplementer;
  * are not guaranteed to properly behave.
  */
 public class ImplementedScopeLibrary implements ScopeImplementer,
-		RelationshipManager, ImplementedScopeManager, DeleteMeWithSetupFactory
+		RelationshipManager, ImplementedScopeManager
 {
 
 	/**

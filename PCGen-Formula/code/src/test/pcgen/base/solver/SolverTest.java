@@ -32,14 +32,18 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.GlobalVarScoped;
+import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
+import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
+import pcgen.base.formula.inst.SimpleVariableStore;
+import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.MockStat;
 import pcgen.base.testsupport.NaiveScopeManager;
@@ -47,7 +51,6 @@ import pcgen.base.testsupport.TestUtilities;
 
 public class SolverTest
 {
-	private FormulaManager formulaManager;
 	private EvaluationManager evalManager;
 	private ScopeInstance inst;
 	private ScopeInstance str;
@@ -56,24 +59,28 @@ public class SolverTest
 	@BeforeEach
 	void setUp()
 	{
-		FormulaSetupFactory setup = new FormulaSetupFactory();
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		scopeManager.registerScope("Global", "STAT");
-		setup.setScopeManagerSupplier(() -> scopeManager);
-		formulaManager = setup.generate();
-		ScopeInstanceFactory scopeInstanceFactory = formulaManager.getScopeInstanceFactory();
+		ScopeInstanceFactory scopeInstanceFactory = new SimpleScopeInstanceFactory(scopeManager);
 		inst = scopeInstanceFactory.get("Global", Optional.of(new GlobalVarScoped("Global")));
 		str = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("STR")));
 		con = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("CON")));
 		OperatorLibrary opLibrary = FormulaUtilities.loadBuiltInOperators(new SimpleOperatorLibrary());
-		ManagerFactory managerFactory = new ManagerFactory(opLibrary);
-		evalManager = managerFactory.generateEvaluationManager(formulaManager);
+		FunctionLibrary functionLib = FormulaUtilities.loadBuiltInFunctions(new SimpleFunctionLibrary());
+		SupplierValueStore valueStore = new SupplierValueStore();
+		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
+		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
+		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
+		VariableManager varLib = new VariableManager(scopeManager, scopeManager, valueStore);
+		SimpleVariableStore varStore = new SimpleVariableStore();
+		ManagerFactory managerFactory = new ManagerFactory(opLibrary, varLib,
+			functionLib, varStore, scopeInstanceFactory);
+		evalManager = managerFactory.generateEvaluationManager();
 	}
 
 	@AfterEach
 	void tearDown()
 	{
-		formulaManager = null;
 		evalManager = null;
 		inst = null;
 		str = null;

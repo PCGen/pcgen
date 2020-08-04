@@ -22,7 +22,6 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -38,11 +37,6 @@ import pcgen.base.graph.inst.DirectionalSetMapGraph;
 public final class StaticSolverDependencyManager
 		implements SolverDependencyManager
 {
-	/**
-	 * The FormulaManager used by the Solver members of this StaticSolverDependencyManager.
-	 */
-	private final FormulaManager formulaManager;
-
 	/**
 	 * The ManagerFactory to be used to generate visitor managers in this
 	 * StaticSolverDependencyManager.
@@ -66,19 +60,16 @@ public final class StaticSolverDependencyManager
 	/**
 	 * Create a new StaticSolverDependencyManager with the given arguments.
 	 * 
-	 * @param manager
-	 *            The FormulaManager used to analyze dependencies of VariableIDs managed
 	 * @param managerFactory
 	 *            The ManagerFactory used to construct DependencyManager objects
 	 * @param notificationTarget
 	 *            The Consumer to be notified when a VariableID providing a dependency is
 	 *            detected
 	 */
-	public StaticSolverDependencyManager(FormulaManager manager,
+	public StaticSolverDependencyManager(
 		ManagerFactory managerFactory,
 		Consumer<VariableID<?>> notificationTarget)
 	{
-		this.formulaManager = Objects.requireNonNull(manager);
 		this.managerFactory = Objects.requireNonNull(managerFactory);
 		this.notificationTarget = Objects.requireNonNull(notificationTarget);
 	}
@@ -150,7 +141,7 @@ public final class StaticSolverDependencyManager
 	private <T> DependencyManager getDepManager(VariableID<T> varID)
 	{
 		DependencyManager dependencyManager = managerFactory
-			.generateDependencyManager(formulaManager);
+			.generateDependencyManager();
 		dependencyManager = dependencyManager.getWith(
 			DependencyManager.ASSERTED, Optional.of(varID.getFormatManager()));
 		return managerFactory.withVariables(dependencyManager);
@@ -180,9 +171,8 @@ public final class StaticSolverDependencyManager
 		Consumer<VariableID<?>> newNotificationTarget)
 	{
 		StaticSolverDependencyManager replacement =
-				new StaticSolverDependencyManager(
-					formulaManager.getWith(FormulaManager.RESULTS, newVarStore),
-					managerFactory, newNotificationTarget);
+				new StaticSolverDependencyManager(managerFactory,
+					newNotificationTarget);
 		for (VariableID<?> varID : dependencies.getNodeList())
 		{
 			replacement.dependencies.addNode(varID);

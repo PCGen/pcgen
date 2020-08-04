@@ -29,8 +29,8 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.parse.ASTNum;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
@@ -52,7 +52,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		super.setUp();
 		depManager = getManagerFactory().generateDependencyManager(
-			getFormulaManager(), getGlobalScopeInst());
+			getGlobalScopeInst());
 		depManager = getManagerFactory().withVariables(depManager);
 		argManager = new ArgumentDependencyManager();
 		depManager = depManager.getWith(ArgumentDependencyManager.KEY,
@@ -167,7 +167,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		DependencyManager fdm =
-				getManagerFactory().generateDependencyManager(getFormulaManager(),
+				getManagerFactory().generateDependencyManager(
 					getGlobalScopeInst());
 		fdm = getManagerFactory().withVariables(fdm);
 		/*
@@ -195,11 +195,8 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Override
-	protected FormulaManager getFormulaManager()
+	protected FunctionLibrary functionSetup(WriteableFunctionLibrary wfl)
 	{
-		FormulaManager formulaManager = super.getFormulaManager();
-		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
-		return formulaManager.getWith(FormulaManager.FUNCTION,
-			ArgFunction.getWithArgs(functionManager, getNodes()));
+		return ArgFunction.getWithArgs(wfl, getNodes());
 	}
 }

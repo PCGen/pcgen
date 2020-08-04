@@ -33,44 +33,74 @@ public class ManagerFactory
 	private final OperatorLibrary opLib;
 
 	/**
+	 * The VariableLibrary this ManagerFactory will use to construct Managers.
+	 */
+	private final VariableLibrary varLib;
+
+	/**
+	 * The FunctionLibrary this ManagerFactory will use to construct Managers.
+	 */
+	private final FunctionLibrary functionLib;
+
+	/**
+	 * The VariableStore this ManagerFactory will use to construct Managers.
+	 */
+	private final VariableStore varStore;
+
+	/**
+	 * The ScopeInstanceFactory this ManagerFactory will use to construct Managers.
+	 */
+	private final ScopeInstanceFactory siFactory;
+
+	/**
 	 * Construct a new ManagerFactory with the given arguments.
 	 * 
 	 * @param opLib
 	 *            The OperatorLibrary this ManagerFactory will use to construct Managers
+	 * @param varLib
+	 *            The VariableLibrary this ManagerFactory will use to construct Managers
+	 * @param functionLib
+	 *            The FunctionLibrary this ManagerFactory will use to construct Managers
+	 * @param varStore
+	 *            The VariableStore this ManagerFactory will use to construct Managers
+	 * @param siFactory
+	 *            The ScopeInstanceFactory this ManagerFactory will use to construct
+	 *            Managers
 	 */
-	public ManagerFactory(OperatorLibrary opLib)
+	public ManagerFactory(OperatorLibrary opLib, VariableLibrary varLib,
+		FunctionLibrary functionLib, VariableStore varStore,
+		ScopeInstanceFactory siFactory)
 	{
 		this.opLib = Objects.requireNonNull(opLib);
+		this.varLib = Objects.requireNonNull(varLib);
+		this.functionLib = Objects.requireNonNull(functionLib);
+		this.varStore = Objects.requireNonNull(varStore);
+		this.siFactory = Objects.requireNonNull(siFactory);
 	}
 
 	/**
 	 * Generates an initialized DependencyManager with the given arguments.
 	 * 
-	 * @param formulaManager
-	 *            The FormulaManager to be contained in the DependencyManager
 	 * @param scopeInst
 	 *            The ScopeInstance to be contained in the DependencyManager
 	 * @return An initialized DependencyManager with the given arguments
 	 */
-	public DependencyManager generateDependencyManager(
-		FormulaManager formulaManager, ScopeInstance scopeInst)
+	public DependencyManager generateDependencyManager(ScopeInstance scopeInst)
 	{
-		DependencyManager fdm = new DependencyManager(formulaManager);
-		fdm = fdm.getWith(DependencyManager.OPLIB, opLib);
-		return fdm.getWith(DependencyManager.INSTANCE, scopeInst);
+		return generateDependencyManager()
+			.getWith(DependencyManager.INSTANCE, scopeInst);
 	}
 
 	/**
 	 * Generates an initialized DependencyManager with the given arguments.
 	 * 
-	 * @param formulaManager
-	 *            The FormulaManager to be contained in the DependencyManager
 	 * @return An initialized DependencyManager with the given arguments
 	 */
-	public DependencyManager generateDependencyManager(
-		FormulaManager formulaManager)
+	public DependencyManager generateDependencyManager()
 	{
-		DependencyManager fdm = new DependencyManager(formulaManager);
+		DependencyManager fdm = new DependencyManager();
+		fdm = fdm.getWith(DependencyManager.VARLIB, varLib);
+		fdm = fdm.getWith(DependencyManager.FUNCTION, functionLib);
 		return fdm.getWith(DependencyManager.OPLIB, opLib);
 	}
 
@@ -94,19 +124,16 @@ public class ManagerFactory
 	 * Constructs and initializes a new FormulaSemantics object with the appropriate keys
 	 * set to the given parameters.
 	 * 
-	 * @param manager
-	 *            The FormulaManager referenced when a Formula is processed with this
-	 *            FormulaSemantics
 	 * @param scope
 	 *            The ImplementedScope when a Formula is processed with this FormulaSemantics
 	 * @return An initialized FormulaSemantics object with the appropriate keys set to the
 	 *         given parameters
 	 */
-	public FormulaSemantics generateFormulaSemantics(
-		FormulaManager manager, ImplementedScope scope)
+	public FormulaSemantics generateFormulaSemantics(ImplementedScope scope)
 	{
 		FormulaSemantics semantics = new FormulaSemantics();
-		semantics = semantics.getWith(FormulaSemantics.FMANAGER, manager);
+		semantics = semantics.getWith(FormulaSemantics.FUNCTION, functionLib);
+		semantics = semantics.getWith(FormulaSemantics.VARLIB, varLib);
 		semantics = semantics.getWith(FormulaSemantics.OPLIB, opLib);
 		return semantics.getWith(FormulaSemantics.SCOPE, scope);
 	}
@@ -114,17 +141,30 @@ public class ManagerFactory
 	/**
 	 * Generates a new EvaluationManager initialized with the given parameters.
 	 * 
-	 * @param formulaManager
-	 *            The FormulaManager used to evaluate formulas processed by this
-	 *            EvaluationManager
 	 * @return A new EvaluationManager initialized with the given parameters
 	 */
-	public EvaluationManager generateEvaluationManager(
-		FormulaManager formulaManager)
+	public EvaluationManager generateEvaluationManager()
 	{
 		EvaluationManager manager = new EvaluationManager();
 		manager = manager.getWith(EvaluationManager.OPLIB, opLib);
-		return manager.getWith(EvaluationManager.FMANAGER, formulaManager);
+		manager = manager.getWith(EvaluationManager.FUNCTION, functionLib);
+		manager = manager.getWith(EvaluationManager.VARLIB, varLib);
+		manager = manager.getWith(EvaluationManager.RESULTS, varStore);
+		manager = manager.getWith(EvaluationManager.SIFACTORY, siFactory);
+		return manager;
+	}
+
+	/**
+	 * Creates a replacement ManagerFactory which contains the given VariableStore.
+	 * 
+	 * @param newVarStore
+	 *            The new VariableStore to be stored in the replacement
+	 * @return A replacement ManagerFactory which contains the given VariableStore
+	 */
+	public ManagerFactory createReplacement(WriteableVariableStore newVarStore)
+	{
+		return new ManagerFactory(opLib, varLib, functionLib, newVarStore,
+			siFactory);
 	}
 
 }

@@ -59,7 +59,7 @@ public class VariableManagerTest
 		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
-		variableLibrary = new VariableManager(scopeManager, valueStore);
+		variableLibrary = new VariableManager(scopeManager, scopeManager, valueStore);
 	}
 	
 	@AfterEach
@@ -74,9 +74,9 @@ public class VariableManagerTest
 	@Test
 	public void testNullConstructor()
 	{
-		assertThrows(NullPointerException.class, () -> new VariableManager(null, valueStore));
-		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, null));
-		assertThrows(NullPointerException.class, () -> new VariableManager(null, null));
+		assertThrows(NullPointerException.class, () -> new VariableManager(null, scopeManager, valueStore));
+		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, null, valueStore));
+		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, scopeManager, null));
 	}
 
 	@Test

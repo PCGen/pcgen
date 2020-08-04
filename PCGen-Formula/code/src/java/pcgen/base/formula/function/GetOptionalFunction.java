@@ -21,8 +21,8 @@ import java.util.Optional;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -100,8 +100,8 @@ public class GetOptionalFunction implements FormulaFunction
 				() -> "Evaluation called on invalid formula: '"
 					+ "<Optional Not Present>" + "', assuming default for "
 					+ managedClass.getSimpleName());
-			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
-			return fm.getDefault((FormatManager<?>) underlying.get());
+			VariableLibrary varLib = manager.get(EvaluationManager.VARLIB);
+			return varLib.getDefault((FormatManager<?>) underlying.get());
 		}
 		return optional.get();
 	}

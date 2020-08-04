@@ -26,7 +26,6 @@ import java.util.function.BiFunction;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
@@ -45,11 +44,6 @@ import pcgen.base.util.FormatManager;
 public class SimpleSolverManager implements SolverManager
 {
 
-	/**
-	 * The FormulaManager used by the Solver members of this SimpleSolverManager.
-	 */
-	private final FormulaManager formulaManager;
-	
 	/**
 	 * The Function used to check validity of a variable name.
 	 */
@@ -91,9 +85,6 @@ public class SimpleSolverManager implements SolverManager
 	 * 
 	 * @param varCheck
 	 *            The Function used to check validity of a variable name
-	 * @param manager
-	 *            The FormulaManager used by the Solver members of this
-	 *            SimpleSolverManager
 	 * @param managerFactory
 	 *            The to be used to generate visitor managers in this SimpleSolverManager
 	 * @param valueStore
@@ -102,12 +93,12 @@ public class SimpleSolverManager implements SolverManager
 	 * @param resultStore
 	 *            The place where results from a calculation should be stored
 	 */
-	public SimpleSolverManager(BiFunction<ImplementedScope, String, Boolean> varCheck,
-		FormulaManager manager, ManagerFactory managerFactory,
-		SupplierValueStore valueStore, WriteableVariableStore resultStore)
+	public SimpleSolverManager(
+		BiFunction<ImplementedScope, String, Boolean> varCheck,
+		ManagerFactory managerFactory, SupplierValueStore valueStore,
+		WriteableVariableStore resultStore)
 	{
 		this.varCheck = Objects.requireNonNull(varCheck);
-		this.formulaManager = Objects.requireNonNull(manager);
 		this.managerFactory = Objects.requireNonNull(managerFactory);
 		this.valueStore = Objects.requireNonNull(valueStore);
 		this.resultStore = Objects.requireNonNull(resultStore);
@@ -180,7 +171,7 @@ public class SimpleSolverManager implements SolverManager
 	{
 		T newValue = getBuiltSolver(varID)
 			.map(s -> s.process(
-				managerFactory.generateEvaluationManager(formulaManager)))
+				managerFactory.generateEvaluationManager()))
 			.orElse(getDefault(varID.getFormatManager()));
 		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
@@ -191,7 +182,7 @@ public class SimpleSolverManager implements SolverManager
 	{
 		return getBuiltSolver(varID)
 			.map(s -> s.diagnose(
-				managerFactory.generateEvaluationManager(formulaManager)))
+				managerFactory.generateEvaluationManager()))
 			.orElse(Collections.emptyList());
 	}
 
@@ -200,8 +191,7 @@ public class SimpleSolverManager implements SolverManager
 	{
 		newVarStore.importFrom(resultStore);
 		SimpleSolverManager replacement = new SimpleSolverManager(varCheck, 
-			formulaManager.getWith(FormulaManager.RESULTS, newVarStore),
-			managerFactory, valueStore, newVarStore);
+			managerFactory.createReplacement(newVarStore), valueStore, newVarStore);
 		for (Entry<VariableID<?>, Solver<?>> entry : scopedChannels.entrySet())
 		{
 			createSolverReplacement(replacement.scopedChannels, entry.getKey(),
@@ -239,7 +229,7 @@ public class SimpleSolverManager implements SolverManager
 	public <T> T solve(NEPFormula<T> formula)
 	{
 		EvaluationManager evalManager =
-				managerFactory.generateEvaluationManager(formulaManager);
+				managerFactory.generateEvaluationManager();
 		return formula.resolve(evalManager);
 	}
 

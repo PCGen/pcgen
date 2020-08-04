@@ -27,10 +27,10 @@ public class GeneralSolverSystemTest extends AbstractFormulaTestCase
 	public void testIllegalConstruction()
 	{
 		SimpleSolverManager newSolver = new SimpleSolverManager(
-			getFormulaManager().getFactory()::isLegalVariableID,
-			getFormulaManager(), getManagerFactory(), getValueStore(),
+			getVariableLibrary()::isLegalVariableID,
+			getManagerFactory(), getValueStore(),
 			getVariableStore());
-		SolverDependencyManager dm = new StaticSolverDependencyManager(getFormulaManager(),
+		SolverDependencyManager dm = new StaticSolverDependencyManager(
 			getManagerFactory(), newSolver::initialize);
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);

@@ -230,7 +230,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	private DependencyManager setupDM()
 	{
 		DependencyManager dm = getManagerFactory()
-			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst());
+			.generateDependencyManager(getGlobalScopeInst());
 		dm = getManagerFactory().withVariables(dm);
 		return dm.getWith(ArgumentDependencyManager.KEY,
 			Optional.of(new ArgumentDependencyManager()));
@@ -340,7 +340,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	private FormulaSemantics getSemantics()
 	{
-		return getManagerFactory().generateFormulaSemantics(getFormulaManager(),
+		return getManagerFactory().generateFormulaSemantics(
 			getScopeManager().getImplementedScope("Global"));
 	}
 }

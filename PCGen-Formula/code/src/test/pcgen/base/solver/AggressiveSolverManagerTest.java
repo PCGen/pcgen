@@ -42,9 +42,8 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	protected void setUp()
 	{
 		super.setUp();
-		manager = SolverUtilities.buildStaticSolverSystem(
-			getFormulaManager(), getManagerFactory(),
-			getValueStore(), getVariableStore());
+		manager = SolverUtilities.buildStaticSolverSystem(getVariableLibrary(),
+			getManagerFactory(), getValueStore(), getVariableStore());
 	}
 	
 	@AfterEach
@@ -59,10 +58,10 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	public void testIllegalConstruction()
 	{
 		SimpleSolverManager newSolver = new SimpleSolverManager(
-			getFormulaManager().getFactory()::isLegalVariableID,
-			getFormulaManager(), getManagerFactory(), getValueStore(),
+			getVariableLibrary()::isLegalVariableID,
+			getManagerFactory(), getValueStore(),
 			getVariableStore());
-		SolverDependencyManager dm = new StaticSolverDependencyManager(getFormulaManager(),
+		SolverDependencyManager dm = new StaticSolverDependencyManager(
 			getManagerFactory(), newSolver::initialize);
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);

@@ -22,7 +22,6 @@ import java.util.Optional;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaFunction;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -197,8 +196,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		Node argNode = node.jjtGetChild(1);
 		if (argNode instanceof ASTFParen)
 		{
-			FormulaManager formulaManager = manager.get(DependencyManager.FMANAGER);
-			FunctionLibrary library = formulaManager.get(FormulaManager.FUNCTION);
+			FunctionLibrary library = manager.get(DependencyManager.FUNCTION);
 			FormulaFunction function = library.getFunction(name);
 			Node[] args = VisitorUtilities.accumulateArguments(argNode);
 			return function.getDependencies(this, manager, args);
@@ -257,7 +255,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 */
 	public FormatManager<?> getVariableFormat(DependencyManager manager, String varName)
 	{
-		VariableLibrary varLib = manager.get(DependencyManager.FMANAGER).getFactory();
+		VariableLibrary varLib = manager.get(DependencyManager.VARLIB);
 		//Fall back to INSTANCE if necessary
 		ImplementedScope implementedScope = manager.get(DependencyManager.SCOPE).orElseGet(
 			() -> manager.get(DependencyManager.INSTANCE).getImplementedScope());

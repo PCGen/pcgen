@@ -22,7 +22,6 @@ import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaFunction;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.ImplementedScope;
@@ -269,8 +268,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		Node argNode = node.jjtGetChild(1);
 		if (argNode instanceof ASTFParen)
 		{
-			FunctionLibrary library =
-					semantics.get(FormulaSemantics.FMANAGER).get(FormulaManager.FUNCTION);
+			FunctionLibrary library = semantics.get(FormulaSemantics.FUNCTION);
 			FormulaFunction function = library.getFunction(name);
 			if (function == null)
 			{
@@ -338,14 +336,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		String varName = node.getText();
-		FormatManager<?> formatManager = getVariableFormat(semantics, varName);
-		if (formatManager == null)
-		{
-			throw new SemanticsFailureException(
-				"Variable: " + varName + " was not found in scope "
-					+ semantics.get(FormulaSemantics.SCOPE).getName());
-		}
-		return formatManager;
+		return getVariableFormat(semantics, varName);
 	}
 
 	/**
@@ -363,9 +354,14 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	public FormatManager<?> getVariableFormat(FormulaSemantics semantics,
 		String varName)
 	{
-		VariableLibrary varLib =
-				semantics.get(FormulaSemantics.FMANAGER).getFactory();
+		VariableLibrary varLib = semantics.get(FormulaSemantics.VARLIB);
 		ImplementedScope implementedScope = semantics.get(FormulaSemantics.SCOPE);
+		if (!varLib.isLegalVariableID(implementedScope, varName))
+		{
+			throw new SemanticsFailureException(
+				"Variable: " + varName + " was not found in scope "
+					+ semantics.get(FormulaSemantics.SCOPE).getName());
+		}
 		return varLib.getVariableFormat(implementedScope, varName);
 	}
 
