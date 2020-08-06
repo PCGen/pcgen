@@ -33,7 +33,7 @@ INFOTEXT:Starfinder Alien Archive
 
 VARIABLE:saa__variables.lst
 
-
+DATACONTROL:saa__datacontrols.lst
 ABILITY:saa_abilities.lst
 ABILITYCATEGORY:saa_abilitycategories.lst
 RACE:saa_races.lst
