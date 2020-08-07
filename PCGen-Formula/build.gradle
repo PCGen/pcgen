@@ -48,7 +48,7 @@ dependencies {
     // relative path to what you need.
     //compile files("../../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")
 
-    implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.217'
+    implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.219'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.6.2'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.2'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.6.2'
