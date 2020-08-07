@@ -29,10 +29,6 @@ import pcgen.base.util.FormatManager;
  * distinguished by a set of identifying characters surrounding zero or more arguments to
  * the function. (An example is the min function which might look like: "min(a, b)")
  * 
- * In practice (but not enforced by this interface), there are two types of functions,
- * parenthesis functions, such as min() and bracket functions like COUNT[]. The two
- * functions are distinct in parsing.
- * 
  * For ease of use, it is recommended that FormulaFunction names be considered
  * case-insensitive, but that is not a contractual requirement of this interface. Rather,
  * it is enforced by the system that manages Functions, see
@@ -119,8 +115,8 @@ public interface FormulaFunction
 	 * string is a valid prefix to the second argument (c) Check that "NonEpic" is a valid
 	 * suffix for the second argument.
 	 * 
-	 * Optionally, some processing of to ensure that "Fighter" is a legal first argument
-	 * may be possible. This will be domain-specific.
+	 * Optionally, some processing to ensure that "Fighter" is a legal first argument may
+	 * be possible. This will be domain-specific.
 	 * 
 	 * This optional situation is a recognition that allowArgs is not required to catch
 	 * situations it cannot reasonably predict: Specifically an unconstructed object which
@@ -212,7 +208,7 @@ public interface FormulaFunction
 	 * this FormulaFunction are included)
 	 * 
 	 * The results of calling this method are not defined if allowArgs returns a
-	 * FormulaValidity that indicates the formula is not valid. allowArgs should always be
+	 * FormulaSemantics that indicates the formula is not valid. allowArgs should always be
 	 * called prior to calling this method.
 	 * 
 	 * Note also that the legality of variables or content within the FormulaFunction that

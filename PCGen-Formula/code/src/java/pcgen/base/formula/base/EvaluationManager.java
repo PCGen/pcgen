@@ -27,9 +27,9 @@ import pcgen.base.util.TypedKey;
  * An EvaluationManager is a class to capture information used to support Evaluation of a
  * formula.
  * 
- * For this to be viable with a formula of any complexity, it must have a FormulaManager
- * and ScopeInstance loaded. Certain situations may also require knowing the input value,
- * asserted format or other characteristics that can be added to the EvaluationManager.
+ * For this to be viable with a formula of any complexity, it must have many items using
+ * the TypedKey objects below loaded into the EvaluationManager. The exact items that must
+ * be present are dependent upon what is used by the components in the formula.
  */
 public final class EvaluationManager
 {

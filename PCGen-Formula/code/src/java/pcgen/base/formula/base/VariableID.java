@@ -31,11 +31,10 @@ import pcgen.base.util.FormatManager;
  * The variable name is considered case-insensitive. The scope is a
  * ScopeInstance.
  * 
- * Note that a user should not directly construct a VariableID. Since it is
- * intended that only VariableIDs in a specific scope is legal, a system should
- * depend on pcgen.base.formula.manager.VariableLibrary to provide construction
- * services for VariableID objects. Exact details of VariableID uniqueness are
- * provided in VariableIDFactory.
+ * Note that a user should (generally) not directly construct a VariableID. Since
+ * it is intended that only VariableIDs in a specific scope is legal, a system
+ * should depend on a VariableLibrary to provide construction services for
+ * VariableID objects.
  * 
  * @param <T>
  *            The format of object identified by this VariableID
@@ -72,7 +71,7 @@ public class VariableID<T>
 	 * FormatManager and name.
 	 * 
 	 * Note: While this is public, it is highly advised to use a
-	 * VariableIDFactory to construct new instances of VariableID.
+	 * VariableLibrary to construct new instances of VariableID.
 	 * 
 	 * @param scopeInst
 	 *            The ScopeInstance of the variable represented by this

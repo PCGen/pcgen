@@ -19,8 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.util.Optional;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -91,7 +89,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertThrows(NullPointerException.class, () -> getManager().addModifier(hp, null, source));
 		assertThrows(NullPointerException.class, () -> getManager().addModifier(hp, modifier, null));
 		//Invalid ID very bad
-		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getScopeManager(), getValueStore());
+		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getScopeManager(), getInstanceFactory(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
@@ -124,7 +122,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 
 		getScopeManager().registerScope("Global", "STAT");
 		ScopeInstance strInst =
-				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));
+				getScopeInstance("Global.STAT", new MockStat("Strength"));
 
 		getManager().addModifier(hitpoints, AbstractModifier.setNumber(12, 3), strInst);
 		assertEquals(6, store.get(hitpoints));
@@ -243,7 +241,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		//Not present is Harmless
 		getManager().removeModifier(hp, modifier, source);
 		//Invalid ID very bad
-		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getScopeManager(), getValueStore());
+		VariableLibrary alternateLibrary = new VariableManager(getScopeManager(), getScopeManager(), getInstanceFactory(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")

@@ -112,9 +112,9 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	}
 
 	@Override
-	public void captureDependencies(DependencyManager fdm)
+	public void captureDependencies(DependencyManager depManager)
 	{
-		modifier.captureDependencies(fdm);
+		modifier.captureDependencies(depManager);
 	}
 
 	@Override

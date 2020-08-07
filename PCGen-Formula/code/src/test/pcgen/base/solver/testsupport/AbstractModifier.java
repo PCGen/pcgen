@@ -82,7 +82,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	}
 
 	@Override
-	public void captureDependencies(DependencyManager fdm)
+	public void captureDependencies(DependencyManager depManager)
 	{
 	}
 
@@ -233,9 +233,9 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			}
 
 			@Override
-			public void captureDependencies(DependencyManager fdm)
+			public void captureDependencies(DependencyManager depManager)
 			{
-				value.captureDependencies(fdm);
+				value.captureDependencies(depManager);
 			}
 
 			@Override

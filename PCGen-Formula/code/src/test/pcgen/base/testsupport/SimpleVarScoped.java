@@ -35,7 +35,7 @@ public class SimpleVarScoped implements VarScoped
 	}
 
 	@Override
-	public Optional<String> getLocalScopeName()
+	public Optional<String> getScopeName()
 	{
 		return Optional.ofNullable(scopeName);
 	}

@@ -23,12 +23,12 @@ import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 
 /**
- * VariableLibrary performs the management of legal variable names within an ImplementedScope.
- * This ensures that when a VariableID is built, it is in an appropriate structure to be
- * evaluated.
+ * VariableLibrary performs the management of legal variable names as they relate to an
+ * ImplementedScope. This ensures that when a VariableID is built, it is in an appropriate
+ * structure to be evaluated.
  * 
  * A VariableLibrary should ensure uniqueness of variable names when in a given
- * scope. @see ScopeManager to understand how scopes can be related.
+ * scope. @see RelationshipManager to understand how scopes can be related.
  */
 public interface VariableLibrary
 {
@@ -73,10 +73,10 @@ public interface VariableLibrary
 	 * ImplementedScope and variable name, then this will unconditionally return false.
 	 * 
 	 * If a FormatManager was stored via assertLegalVariableID for a ImplementedScope and variable
-	 * name, then this will return true if the given ImplementedScope is compatible with the
+	 * name, then this will return true if the given ImplementedScope is equal to or draws upon the
 	 * stored ImplementedScope.
 	 * 
-	 * @param implementedScope
+	 * @param scope
 	 *            The ImplementedScope to be used to determine if the given combination is legal
 	 * @param varName
 	 *            The variable name to be used to determine if the given combination is
@@ -85,16 +85,18 @@ public interface VariableLibrary
 	 * @return true if the given ImplementedScope and variable name are a legal combination;
 	 *         false otherwise
 	 */
-	public boolean isLegalVariableID(ImplementedScope implementedScope, String varName);
+	public boolean isLegalVariableID(ImplementedScope scope, String varName);
 
 	/**
 	 * Returns the FormatManager for the given ImplementedScope and variable name, knowing
 	 * previous assertions of a FormatManager for the given ImplementedScope and variable name.
 	 * 
-	 * If no previous FormatManager was stored via assertLegalVariableID for the given
+	 * If no previous FormatManager was stored via assertLegalVariableID for a related
 	 * ImplementedScope and variable name, then this will unconditionally return null.
+	 * Note if the given ImplementedScope is equal to or draws upon the stored ImplementedScope
+	 * then this will return a FormatManager.
 	 * 
-	 * @param implementedScope
+	 * @param scope
 	 *            The ImplementedScope to be used to determine the FormatManager for the given
 	 *            variable name
 	 * @param varName
@@ -102,7 +104,7 @@ public interface VariableLibrary
 	 * 
 	 * @return The FormatManager for the given ImplementedScope and variable name
 	 */
-	public FormatManager<?> getVariableFormat(ImplementedScope implementedScope, String varName);
+	public FormatManager<?> getVariableFormat(ImplementedScope scope, String varName);
 
 	/**
 	 * Returns a VariableID for the given ScopeInstance and variable name, if legal.
@@ -112,6 +114,11 @@ public interface VariableLibrary
 	 * If isLegalVariableID returns false, then this method will throw an exception.
 	 * isLegalVariableID should be called first to determine if calling this method is
 	 * safe.
+	 * 
+	 * Note the actual ScopeInstance in the returned VariableID may differ from the
+	 * ScopeInstance provided here, if the ImplementedScope that defines the given
+	 * variable is not equal to, but rather drawn upon by the ImplementedScope given as
+	 * a parameter to this method.
 	 * 
 	 * @param scopeInst
 	 *            The ScopeInstance used to determine if the ScopeInstance and name are a

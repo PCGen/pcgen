@@ -26,11 +26,11 @@ import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FailureResult;
 
 /**
- * A ShadowingScopeManager is a setup class for DefinedScope used to track the children of
- * DefinedScope objects. It can instantiate an ImplementedScopeLibrary.
+ * A ShadowingScopeManager is a setup class for scopes used to track scope relationships.
+ * It can instantiate an ImplementedScopeLibrary.
  * 
- * Note: If a complete set of DefinedScope objects is not registered (meaning some of the
- * parents are not themselves registered), then instantiate will not succeed.
+ * Note: If an acyclic set of scopes is not registered (meaning there are loops in the
+ * parent relationships), then get will not succeed.
  */
 public class ShadowingScopeManager
 {
@@ -41,7 +41,7 @@ public class ShadowingScopeManager
 	private static final String GLOBAL_PARENT = "**GLOBAL PARENT**";
 
 	/**
-	 * The graph of dependencies.
+	 * The graph of dependencies between scopes.
 	 */
 	private final DirectionalSetMapGraph<String, DefaultDirectionalGraphEdge<String>> dependencies =
 			new DirectionalSetMapGraph<>();
@@ -63,7 +63,7 @@ public class ShadowingScopeManager
 	public void registerGlobalScope(String name)
 	{
 		registerScope(GLOBAL_PARENT, name);
-		Objects.requireNonNull(name, "DefinedScope must have a name");
+		Objects.requireNonNull(name, "Registered scope must have a name");
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class ShadowingScopeManager
 	{
 		if (dependencies.containsNode(parent))
 		{
-			Objects.requireNonNull(name, "DefinedScope must have a name");
+			Objects.requireNonNull(name, "Registered scope must have a name");
 			dependencies.addNode(name);
 			dependencies
 				.addEdge(new DefaultDirectionalGraphEdge<>(parent, name));
@@ -105,12 +105,11 @@ public class ShadowingScopeManager
 
 	/**
 	 * Returns a ComplexResult with a possible ImplementedScopeLibrary if the set of
-	 * DefinedScope object registered with this ShadowingScopeManager can be implemented.
-	 * If the set of DefinedScope objects provided cannot be instantiated into an
-	 * ImplementedScopeLibrary, then a List of error messages is returned in the
-	 * ComplexResult.
+	 * scopes registered with this ShadowingScopeManager can be implemented. If the set of
+	 * scopes provided cannot be instantiated into an ImplementedScopeLibrary, then a List
+	 * of error messages is returned in the ComplexResult.
 	 * 
-	 * @return A ComplexResult with a possible ImplementedScopeLibrary, or error messages
+	 * @return A ComplexResult with a possible ImplementedScopeLibrary, or error message(s)
 	 *         if the instantiation failed
 	 */
 	public ComplexResult<ImplementedScopeLibrary> instantiate()

@@ -32,17 +32,17 @@ public class VariableList
 	private List<VariableID<?>> vars;
 
 	/**
-	 * Returns a non-null list of VariableID objects that identify the list of
-	 * dependencies of the Formula this VariableDependencyManager represents.
+	 * Returns a non-null list of VariableID objects that this VariableList contains.
 	 * 
 	 * Ownership of the returned List is transferred to the calling Object. The contents
-	 * of the List will not be modified as a result of the VariableDependencyManager
+	 * of the returned List will not be modified as a result of the VariableList
 	 * maintaining or otherwise transferring a reference to the List to another object
-	 * (and the VariableDependencyManager cannot be modified if the returned list is
-	 * modified).
+	 * (Thus, subsequent calls to add on VariableList will not cause the returned List to
+	 * change. Also, the VariableList cannot be modified if the returned list is
+	 * modified.)
 	 * 
 	 * @return A non-null list of VariableID objects that identify the list of
-	 *         dependencies of the Formula this VariableDependencyManager represents
+	 *         dependencies of the Formula this VariableList contains
 	 */
 	public List<VariableID<?>> getVariables()
 	{
@@ -61,7 +61,7 @@ public class VariableList
 	 * Adds a new VariableID to this VariableList.
 	 * 
 	 * @param varID
-	 *            The VariableID to be added to this VariableList.
+	 *            The VariableID to be added to this VariableList
 	 */
 	public void add(VariableID<?> varID)
 	{

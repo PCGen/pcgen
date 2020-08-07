@@ -28,7 +28,7 @@ public interface ScopeImplementer
 	 * @param scopeName
 	 *            The fully qualified scope name for which the ImplementedScope should be
 	 *            returned
-	 * @return The Implemented Scope for the given fully qualified scope name
+	 * @return The ImplementedScope for the given fully qualified scope name
 	 */
 	public ImplementedScope getImplementedScope(String scopeName);
 

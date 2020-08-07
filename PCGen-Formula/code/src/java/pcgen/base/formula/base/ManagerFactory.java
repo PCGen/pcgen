@@ -22,8 +22,8 @@ import java.util.Optional;
 
 /**
  * A ManagerFactory is an object designed to produce the various manager objects used by
- * the visitors to a Formula. This is an interface to allow extension of these behaviors
- * by more advanced formula processing systems.
+ * the visitors to a Formula. This provides a common construction location for typical
+ * SolverSystem object structures.
  */
 public class ManagerFactory
 {
@@ -79,7 +79,8 @@ public class ManagerFactory
 	}
 
 	/**
-	 * Generates an initialized DependencyManager with the given arguments.
+	 * Generates an initialized DependencyManager with the given arguments and based on
+	 * items known by the ManagerFactory.
 	 * 
 	 * @param scopeInst
 	 *            The ScopeInstance to be contained in the DependencyManager
@@ -92,42 +93,43 @@ public class ManagerFactory
 	}
 
 	/**
-	 * Generates an initialized DependencyManager with the given arguments.
+	 * Generates an initialized DependencyManager based on items known by the
+	 * ManagerFactory.
 	 * 
-	 * @return An initialized DependencyManager with the given arguments
+	 * @return An initialized DependencyManager
 	 */
 	public DependencyManager generateDependencyManager()
 	{
-		DependencyManager fdm = new DependencyManager();
-		fdm = fdm.getWith(DependencyManager.VARLIB, varLib);
-		fdm = fdm.getWith(DependencyManager.FUNCTION, functionLib);
-		return fdm.getWith(DependencyManager.OPLIB, opLib);
+		DependencyManager depManager = new DependencyManager();
+		depManager = depManager.getWith(DependencyManager.VARLIB, varLib);
+		depManager = depManager.getWith(DependencyManager.FUNCTION, functionLib);
+		return depManager.getWith(DependencyManager.OPLIB, opLib);
 	}
 
 	/**
 	 * Generates a DependencyManager with additional contents to handle variable
 	 * dependencies.
 	 * 
-	 * @param fdm
+	 * @param depManager
 	 *            The DependencyManager from which the returned DependencyManager should
 	 *            be derived
 	 * @return The DependencyManager with contents to handle variables
 	 */
-	public DependencyManager withVariables(DependencyManager fdm)
+	public DependencyManager withVariables(DependencyManager depManager)
 	{
-		return fdm
+		return depManager
 			.getWith(DependencyManager.VARSTRATEGY, Optional.of(new StaticStrategy()))
 			.getWith(DependencyManager.VARIABLES, Optional.of(new VariableList()));
 	}
 
 	/**
-	 * Constructs and initializes a new FormulaSemantics object with the appropriate keys
-	 * set to the given parameters.
+	 * Constructs and initializes a new FormulaSemantics object for operating in the given
+	 * scope.
 	 * 
 	 * @param scope
-	 *            The ImplementedScope when a Formula is processed with this FormulaSemantics
-	 * @return An initialized FormulaSemantics object with the appropriate keys set to the
-	 *         given parameters
+	 *            The ImplementedScope used to analyze a Formula processed with the
+	 *            returned FormulaSemantics
+	 * @return An initialized FormulaSemantics object for operating in the given scope
 	 */
 	public FormulaSemantics generateFormulaSemantics(ImplementedScope scope)
 	{
@@ -139,9 +141,9 @@ public class ManagerFactory
 	}
 
 	/**
-	 * Generates a new EvaluationManager initialized with the given parameters.
+	 * Generates a new EvaluationManager based on items known by the ManagerFactory.
 	 * 
-	 * @return A new EvaluationManager initialized with the given parameters
+	 * @return A new EvaluationManager based on items known by the ManagerFactory
 	 */
 	public EvaluationManager generateEvaluationManager()
 	{
@@ -155,7 +157,8 @@ public class ManagerFactory
 	}
 
 	/**
-	 * Creates a replacement ManagerFactory which contains the given VariableStore.
+	 * Creates a replacement ManagerFactory which contains the existing information in
+	 * this ManagerFactory, with the VariableStore replaced by the given VariableStore.
 	 * 
 	 * @param newVarStore
 	 *            The new VariableStore to be stored in the replacement
@@ -166,5 +169,4 @@ public class ManagerFactory
 		return new ManagerFactory(opLib, varLib, functionLib, newVarStore,
 			siFactory);
 	}
-
 }

@@ -46,8 +46,8 @@ import pcgen.base.util.FormatManager;
  * where they reside), it doesn't seem worthwhile and all Operators are
  * centralized by using Object, Object.
  * 
- * The Operators that perform mathematical functions attempt to perform Integer
- * math if that is sensible for the given situation, but the system is
+ * The Operators that perform mathematical functions should attempt to perform
+ * Integer math if that is sensible for the given situation, but the system is
  * conservative and does not strictly guarantee Integer math in every legal
  * situation. For example, it may not perform Integer division due to risk of
  * rounding, even if the two incoming values divide into an integer.
@@ -98,11 +98,6 @@ public interface OperatorAction
 	/**
 	 * Perform an evaluation with the two given objects as arguments and returns
 	 * a non-null result of the evaluation.
-	 * 
-	 * This method requires that abstractEvaluate called on the classes of the
-	 * given arguments would not return empty. In other words, if
-	 * abstractEvaluate would have returned empty when called with the classes of
-	 * the given arguments, then evaluate should throw an Exception.
 	 * 
 	 * The return value of evaluate is part of a contract with abstractEvaluate.
 	 * If abstractEvaluate returns a non-empty value, then this method should

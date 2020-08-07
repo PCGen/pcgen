@@ -17,10 +17,8 @@
  */
 package pcgen.base.formula.base;
 
-
-
 /**
- * A WrittenVariableStore is a storage location for the values of Variables. In
+ * A WriteableVariableStore is a storage location for the values of Variables. In
  * this case, it can be written, so the exposure of this interface should be
  * limited to calculating objects, not consuming objects.
  * 
@@ -56,10 +54,10 @@ public interface WriteableVariableStore extends VariableStore
 	 * WriteableVariableStore, the value is overwritten by the value in the given
 	 * VariableStore.
 	 * 
-	 * @param vs
+	 * @param varStore
 	 *            The VariableStore from which the VariableIDs and values should be
 	 *            imported.
 	 */
-	public void importFrom(VariableStore vs);
+	public void importFrom(VariableStore varStore);
 
 }

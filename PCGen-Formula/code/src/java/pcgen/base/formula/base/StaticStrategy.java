@@ -19,8 +19,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * StaticStrategy is a strategy used for static variables (Those where the instance and
- * name are known at time of formula parse).
+ * StaticStrategy is a VariableStrategy used for static variables (Those where the
+ * instance and name are known at time of formula parse).
  */
 public class StaticStrategy implements VariableStrategy
 {
@@ -35,16 +35,16 @@ public class StaticStrategy implements VariableStrategy
 	 * Returns the VariableID for the given variable name based on characteristics from
 	 * the given DependencyManager.
 	 * 
-	 * @param mgr
-	 *            The DependencyManager used to determine the active FormulaManager,
-	 *            ScopeInstance, etc.
+	 * @param depManager
+	 *            The DependencyManager used to determine information about the Formula
+	 *            being analyzed
 	 * @param varName
-	 *            The variable name for which the VariableID should be returned.
-	 * @return the VariableID for the given variable name
+	 *            The variable name for which the VariableID should be returned
+	 * @return The VariableID for the given variable name
 	 */
-	public static VariableID<?> getVariableID(DependencyManager mgr, String varName)
+	public static VariableID<?> getVariableID(DependencyManager depManager, String varName)
 	{
-		VariableLibrary varLib = mgr.get(DependencyManager.VARLIB);
-		return varLib.getVariableID(mgr.get(DependencyManager.INSTANCE), varName);
+		VariableLibrary varLib = depManager.get(DependencyManager.VARLIB);
+		return varLib.getVariableID(depManager.get(DependencyManager.INSTANCE), varName);
 	}
 }

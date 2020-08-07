@@ -48,7 +48,6 @@ import pcgen.base.util.FormatManager;
  */
 public interface UnaryAction
 {
-
 	/**
 	 * Returns the Operator that this UnaryAction represents.
 	 * 
@@ -79,18 +78,13 @@ public interface UnaryAction
 	 *            operation
 	 * @return An Optional FormatManager for the data format of the result of the
 	 *         operation if this UnaryAction can process objects of the given
-	 *         classes
+	 *         class
 	 */
 	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format);
 
 	/**
 	 * Perform an evaluation with the given object as an argument and returns a
 	 * non-null result of the evaluation.
-	 * 
-	 * This method requires that abstractEvaluate called on the class of the
-	 * given argument would not return empty. In other words, if abstractEvaluate
-	 * would have returned empty when called with the class of the given
-	 * argument, then evaluate should throw an Exception.
 	 * 
 	 * The return value of evaluate is part of a contract with abstractEvaluate.
 	 * If abstractEvaluate returns a non-empty value, then this method should

@@ -47,12 +47,13 @@ public interface ScopeInstanceFactory
 	 *            returned
 	 * @param obj
 	 *            The (Optional) Object where analysis should start in order to determine
-	 *            the appropriate ScopeInstance to be returned.
+	 *            the appropriate ScopeInstance to be returned.  This must be non-empty unless
+	 *            the given scopeName is a Global scope name.
 	 * @return The ScopeInstance within the given ImplementedScope and considering the given
 	 *         VarScoped object
 	 * @throws IllegalArgumentException
 	 *             if the given ImplementedScope is not a scope for the given VarScoped object
-	 *             or an ancestor of the VarScoped object (as determined by
+	 *             or an ancestor of the VarScoped object (as determined by VarScoped's
 	 *             getVariableParent())
 	 */
 	public ScopeInstance get(String scopeName, Optional<VarScoped> obj);

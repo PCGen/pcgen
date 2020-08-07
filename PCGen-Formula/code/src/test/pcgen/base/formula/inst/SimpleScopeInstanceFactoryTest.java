@@ -133,7 +133,7 @@ public class SimpleScopeInstanceFactoryTest
 		}
 
 		@Override
-		public Optional<String> getLocalScopeName()
+		public Optional<String> getScopeName()
 		{
 			return Optional.ofNullable(scopeName);
 		}

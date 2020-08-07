@@ -26,7 +26,7 @@ import pcgen.base.formula.base.ScopeImplementer;
 import pcgen.base.formula.inst.SimpleImplementedScope;
 
 /**
- * A NaiveScopeManager is a manager of DefinedScope and ImplementedScope objects, but it
+ * A NaiveScopeManager is a manager of scopes and ImplementedScope objects, but it
  * is extremely naive relative to error checking.
  * 
  * This will not check that a full set of scopes is loaded, it will not check for loops in

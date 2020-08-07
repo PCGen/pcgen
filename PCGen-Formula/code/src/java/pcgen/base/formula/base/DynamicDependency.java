@@ -33,6 +33,9 @@ import java.util.stream.Collectors;
 public class DynamicDependency implements VariableStrategy
 {
 
+	/**
+	 * The VarIDResolver used to determine VariableID objects.
+	 */
 	private final VarIDResolver varResolver;
 
 	/**
@@ -42,7 +45,7 @@ public class DynamicDependency implements VariableStrategy
 	private final VariableID<?> controlVar;
 
 	/**
-	 * The source variable name for the dynamic dependency. Stored as the variable name
+	 * The source variable names for the dynamic dependency. Stored as the variable names
 	 * since the actual VariableID is relative to the value of controlVar.
 	 */
 	private final List<String> sourceVarNames = new ArrayList<>();

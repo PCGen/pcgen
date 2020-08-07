@@ -52,6 +52,11 @@ public interface OperatorLibrary
 	 * given arguments, an IllegalStateException is returned. (The user should have
 	 * checked with processAbstract)
 	 * 
+	 * The return value of evaluate is part of a contract with processAbstract.
+	 * If processAbstract returns a non-empty value, then this method should
+	 * return a non-null value. If processAbstract returns empty, then this
+	 * method should throw an Exception.
+	 * 
 	 * @param operator
 	 *            The Operator to be evaluated
 	 * @param o1
@@ -82,6 +87,10 @@ public interface OperatorLibrary
 	 * this method is guaranteed to be assignable from the actual result. In other words,
 	 * this may return a FormatManager for Number.class, whereas evaluate may return an
 	 * Integer or Double.
+	 * 
+	 * The return value of processAbstract is part of a contract with evaluate. If this
+	 * method returns a non-empty value, then evaluate should return a non-null value. If
+	 * this method returns empty, then evaluate should throw an exception.
 	 * 
 	 * @param operator
 	 *            The Operator to be evaluated
@@ -125,6 +134,11 @@ public interface OperatorLibrary
 	 * argument, an IllegalStateException is returned. (The user should have checked with
 	 * processAbstract)
 	 * 
+	 * The return value of evaluate is part of a contract with processAbstract.
+	 * If processAbstract returns a non-empty value, then this method should
+	 * return a non-null value. If processAbstract returns empty, then this
+	 * method should throw an Exception.
+	 * 
 	 * @param operator
 	 *            The Operator to be evaluated
 	 * @param argument
@@ -146,6 +160,10 @@ public interface OperatorLibrary
 	 * this method is guaranteed to be assignable from the actual result. In other words,
 	 * this may return a FormatManager for Number.class, whereas evaluate may return an
 	 * Integer or Double.
+	 * 
+	 * The return value of processAbstract is part of a contract with evaluate. If this
+	 * method returns a non-empty value, then evaluate should return a non-null value. If
+	 * this method returns empty, then evaluate should throw an exception.
 	 * 
 	 * @param operator
 	 *            The Operator to be evaluated

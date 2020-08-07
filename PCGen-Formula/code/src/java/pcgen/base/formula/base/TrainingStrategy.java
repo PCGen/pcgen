@@ -16,8 +16,8 @@
 package pcgen.base.formula.base;
 
 /**
- * TrainingStrategy is a strategy used for "training" dynamic variables (These are the
- * control inputs to a dynamic variable - typically these must be static, but this
+ * TrainingStrategy is a VariableStrategy used for "training" dynamic variables (These are
+ * the control inputs to a dynamic variable - typically these must be static, but this
  * captures the variable that does the controlling). This assumes that only one variable
  * can control a dynamic variable.
  */

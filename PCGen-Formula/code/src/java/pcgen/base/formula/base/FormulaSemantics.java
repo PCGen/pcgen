@@ -29,15 +29,8 @@ import pcgen.base.util.TypedKey;
  * This is designed, among other things, to report on whether a formula is valid, and if
  * valid the semantics of the Formula (what format it will return).
  * 
- * In order to capture specific dependencies, a specific set of semantics information
- * should be loaded into this FormulaSemantics.
- * 
- * If a formula is valid, then the isValid() method will return true. In such a case, the
- * contents of getReport() should be ignored.
- * 
- * If a formula is not valid, then this must contain Report string. This value should
- * indicate with some precision the issue with the Formula. Note that if there is more
- * than one issue, only one issue needs to be returned (fast fail is acceptable).
+ * In order to process a formula, a specific set of semantics information should be loaded
+ * into this FormulaSemantics, as generally indicated by the TypedKey objects below.
  */
 public class FormulaSemantics
 {

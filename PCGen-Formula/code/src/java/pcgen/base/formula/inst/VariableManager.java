@@ -27,6 +27,7 @@ import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ImplementedScopeManager;
 import pcgen.base.formula.base.RelationshipManager;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
@@ -56,6 +57,9 @@ public class VariableManager implements VariableLibrary
 	 */
 	private final ImplementedScopeManager scopeManager;
 
+	
+	private final ScopeInstanceFactory siFactory;
+
 	/**
 	 * The ValueStore that knows what defaults exist (and thus what variables would be
 	 * legal).
@@ -80,14 +84,18 @@ public class VariableManager implements VariableLibrary
 	 * @param scopeManager
 	 *            The ImplementedScopeManager used to to ensure variables are legal within
 	 *            a given scope
+	 * @param siFactory
+	 *            The ScopeInstanceFactory used by this VariableManager
 	 * @param defaultStore
 	 *            The ValueStore used to get the default variable for a variable Format
 	 */
 	public VariableManager(RelationshipManager relationshipManager,
-		ImplementedScopeManager scopeManager, ValueStore defaultStore)
+		ImplementedScopeManager scopeManager, ScopeInstanceFactory siFactory,
+		ValueStore defaultStore)
 	{
 		this.relationshipManager = Objects.requireNonNull(relationshipManager);
 		this.scopeManager = Objects.requireNonNull(scopeManager);
+		this.siFactory = Objects.requireNonNull(siFactory);
 		this.defaultStore = Objects.requireNonNull(defaultStore);
 	}
 
@@ -146,59 +154,71 @@ public class VariableManager implements VariableLibrary
 	}
 
 	@Override
-	public boolean isLegalVariableID(ImplementedScope scope, String varName)
+	public boolean isLegalVariableID(ImplementedScope implScope,
+		String varName)
 	{
-		Objects.requireNonNull(scope);
-		if (variableDefs.containsKey(varName, scope))
-		{
-			return true;
-		}
-		//Recursively check parent
-		Optional<? extends ImplementedScope> potentialParent = scope.getParentScope();
-		return potentialParent.isPresent()
-			&& isLegalVariableID(potentialParent.get(), varName);
+		return internalGetImplementedScope(implScope, varName).isPresent();
 	}
 
 	@Override
-	public FormatManager<?> getVariableFormat(ImplementedScope scope, String varName)
+	public FormatManager<?> getVariableFormat(ImplementedScope legalScope,
+		String varName)
 	{
-		Objects.requireNonNull(scope);
-		FormatManager<?> format = variableDefs.get(varName, scope);
-		if (format == null)
-		{
-			Optional<? extends ImplementedScope> potentialParent = scope.getParentScope();
-			//Recursively check parent, if possible
-			if (potentialParent.isPresent())
-			{
-				return getVariableFormat(potentialParent.get(), varName);
-			}
-		}
-		return format;
+		Objects.requireNonNull(legalScope);
+		ImplementedScope implScope = getScopeImpl(legalScope, varName);
+		return variableDefs.get(varName, implScope);
 	}
 
 	@Override
 	public VariableID<?> getVariableID(ScopeInstance scopeInst, String varName)
 	{
-		return getVarIDMessaged(scopeInst, varName, scopeInst);
-	}
-
-	/**
-	 * Returns a VariableID for the given name that is valid in the given ScopeInstance
-	 * (or any parent ScopeInstance - recursively).
-	 */
-	private VariableID<?> getVarIDMessaged(ScopeInstance scopeInst, String varName,
-		ScopeInstance messageScope)
-	{
 		Objects.requireNonNull(scopeInst);
 		VariableID.checkLegalVarName(varName);
-		FormatManager<?> formatManager =
-				variableDefs.get(varName, scopeInst.getImplementedScope());
+		ImplementedScope implScope =
+				getScopeImpl(scopeInst.getImplementedScope(), varName);
+		FormatManager<?> formatManager = variableDefs.get(varName, implScope);
+		ScopeInstance activeInst = getActiveInst(implScope, scopeInst);
+		return new VariableID<>(activeInst, formatManager, varName);
+	}
+
+	private ScopeInstance getActiveInst(ImplementedScope implScope,
+		ScopeInstance scopeInst)
+	{
+		if (scopeInst.getImplementedScope().equals(implScope))
+		{
+			return scopeInst;
+		}
+		return siFactory.get(ImplementedScope.getFullName(implScope),
+			Optional.of(scopeInst.getOwningObject()));
+	}
+
+	private ImplementedScope getScopeImpl(ImplementedScope implScope,
+		String varName)
+	{
+		Optional<ImplementedScope> scope =
+				internalGetImplementedScope(implScope, varName);
+		return scope.orElseThrow(
+			() -> new IllegalArgumentException("Unable to find Variable "
+				+ varName + " when starting from Implemented Scope "
+				+ ImplementedScope.getFullName(implScope)));
+	}
+
+	private Optional<ImplementedScope> internalGetImplementedScope(ImplementedScope implScope,
+		String varName)
+	{
+		FormatManager<?> formatManager = variableDefs.get(varName, implScope);
 		if (formatManager != null)
 		{
-			return new VariableID<>(scopeInst, formatManager, varName);
+			return Optional.of(implScope);
 		}
-		//Recursively check parent scope
-		return getVarIDMessaged(scopeInst.getParentScope().get(), varName, messageScope);
+		for (ImplementedScope from : implScope.drawsFrom())
+		{
+			if (variableDefs.containsKey(varName, from))
+			{
+				return Optional.of(from);
+			}
+		}
+		return Optional.empty();
 	}
 
 	@Override

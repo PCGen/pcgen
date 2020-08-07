@@ -126,7 +126,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * available in the given EvaluationManager, behavior is not guaranteed and
 	 * ComplexNEPFormula or other methods called within this method reserve the
 	 * right to throw an Exception or otherwise not fail gracefully. (The
-	 * precise behavior is likely defined by the FormulaManager).
+	 * precise behavior is likely defined by contents of the EvaluationManager).
 	 * 
 	 * Note in the case of a valid formula that the format (but not the exact
 	 * class) of the return value is guaranteed by the ComplexNEPFormula. The

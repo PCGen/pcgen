@@ -71,7 +71,7 @@ public class SolverTest
 		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
-		VariableManager varLib = new VariableManager(scopeManager, scopeManager, valueStore);
+		VariableManager varLib = new VariableManager(scopeManager, scopeManager, scopeInstanceFactory, valueStore);
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		ManagerFactory managerFactory = new ManagerFactory(opLibrary, varLib,
 			functionLib, varStore, scopeInstanceFactory);

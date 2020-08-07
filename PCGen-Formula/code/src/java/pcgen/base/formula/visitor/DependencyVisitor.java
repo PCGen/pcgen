@@ -257,9 +257,9 @@ public class DependencyVisitor implements FormulaParserVisitor
 	{
 		VariableLibrary varLib = manager.get(DependencyManager.VARLIB);
 		//Fall back to INSTANCE if necessary
-		ImplementedScope implementedScope = manager.get(DependencyManager.SCOPE).orElseGet(
+		ImplementedScope scope = manager.get(DependencyManager.SCOPE).orElseGet(
 			() -> manager.get(DependencyManager.INSTANCE).getImplementedScope());
-		return varLib.getVariableFormat(implementedScope, varName);
+		return varLib.getVariableFormat(scope, varName);
 	}
 
 	/**

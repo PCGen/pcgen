@@ -148,16 +148,16 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 		}
 		VarScoped currentVarScoped = current.get();
 		Optional<VarScoped> parentObj = currentVarScoped.getVariableParent();
-		Optional<String> localScopeName = currentVarScoped.getLocalScopeName();
-		if (localScopeName.isEmpty())
+		Optional<String> scopeName = currentVarScoped.getScopeName();
+		if (scopeName.isEmpty())
 		{
 			/*
-			 * Some object may not have a local scope, so fall up: get the parent and
+			 * Some object may not have a scope, so fall up: get the parent and
 			 * check the local variable scope of the parent.
 			 */
 			return getMessaged(instScope, parentObj, original);
 		}
-		ImplementedScope currentScope = manager.getImplementedScope(localScopeName.get());
+		ImplementedScope currentScope = manager.getImplementedScope(scopeName.get());
 		if (!currentScope.equals(instScope))
 		{
 			/*

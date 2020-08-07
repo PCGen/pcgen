@@ -21,13 +21,13 @@ package pcgen.base.formula.base;
  * 
  * This is necessary as a VariableID is partially defined by the ImplementedScope; thus an
  * ImplementedScope is specific to a SolverSystem (and this provides that defensive
- * programming interface)
+ * programming interface).
  */
 @FunctionalInterface
 public interface ImplementedScopeManager
 {
 	/**
-	 * Returns true if the given ImplementedScope is recognized; false otherwise
+	 * Returns true if the given ImplementedScope is recognized; false otherwise.
 	 * 
 	 * @param scope
 	 *            The ImplementedScope to be checked

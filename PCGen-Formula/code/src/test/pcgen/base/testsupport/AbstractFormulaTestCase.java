@@ -88,10 +88,9 @@ public abstract class AbstractFormulaTestCase
 		varStore = new SimpleVariableStore();
 		scopeManager = new NaiveScopeManager();
 		siFactory = new SimpleScopeInstanceFactory(scopeManager);
-		varLib = new VariableManager(scopeManager, scopeManager, valueStore);
+		varLib = new VariableManager(scopeManager, scopeManager, siFactory, valueStore);
 		managerFactory = new ManagerFactory(opLibrary, varLib, functionLib, varStore, siFactory);
-		globalInstance = siFactory.get("Global",
-			Optional.of(new GlobalVarScoped("Global")));
+		globalInstance = getGlobalInstance("Global");
 	}
 
 	protected FunctionLibrary functionSetup(WriteableFunctionLibrary wfl)
@@ -119,7 +118,7 @@ public abstract class AbstractFormulaTestCase
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
-			getScopeManager().getImplementedScope("Global"));
+			getImplementedScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 	}
@@ -208,18 +207,18 @@ public abstract class AbstractFormulaTestCase
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
-			getScopeManager().getImplementedScope("Global"));
+			getImplementedScope("Global"));
 		FormulaSemantics finSemantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		assertThrows(SemanticsFailureException.class, () -> semanticsVisitor.visit(node, finSemantics));
 	}
 
 	protected List<VariableID<?>> getVariables(SimpleNode node)
 	{
-		DependencyManager fdm = managerFactory
+		DependencyManager depManager = managerFactory
 			.generateDependencyManager(getGlobalScopeInst());
-		fdm = managerFactory.withVariables(fdm);
-		new DependencyVisitor().visit(node, fdm);
-		return fdm.get(DependencyManager.VARIABLES).get().getVariables();
+		depManager = managerFactory.withVariables(depManager);
+		new DependencyVisitor().visit(node, depManager);
+		return depManager.get(DependencyManager.VARIABLES).get().getVariables();
 	}
 
 	protected VariableID<Number> getVariable(String formula)
@@ -277,11 +276,6 @@ public abstract class AbstractFormulaTestCase
 		return scopeManager.getImplementedScope(name);
 	}
 
-	protected ScopeInstanceFactory getInstanceFactory()
-	{
-		return siFactory;
-	}
-
 	protected NaiveScopeManager getScopeManager()
 	{
 		return scopeManager;
@@ -297,9 +291,14 @@ public abstract class AbstractFormulaTestCase
 		return valueStore;
 	}
 
+	protected ScopeInstanceFactory getInstanceFactory()
+	{
+		return siFactory;
+	}
+
 	protected ScopeInstance getScopeInstance(String scopeName, VarScoped vs)
 	{
-		return getInstanceFactory().get(scopeName, Optional.of(vs));
+		return siFactory.get(scopeName, Optional.of(vs));
 	}
 
 	public ScopeInstance getGlobalInstance(String name)

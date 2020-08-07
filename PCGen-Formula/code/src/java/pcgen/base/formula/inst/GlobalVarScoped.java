@@ -51,7 +51,7 @@ public class GlobalVarScoped implements VarScoped
 	}
 
 	@Override
-	public Optional<String> getLocalScopeName()
+	public Optional<String> getScopeName()
 	{
 		//Empty to indicate Global
 		return Optional.empty();

@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.junit.jupiter.api.AfterEach;
@@ -59,7 +58,7 @@ public class VariableManagerTest
 		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
-		variableLibrary = new VariableManager(scopeManager, scopeManager, valueStore);
+		variableLibrary = new VariableManager(scopeManager, scopeManager, instanceFactory, valueStore);
 	}
 	
 	@AfterEach
@@ -74,9 +73,10 @@ public class VariableManagerTest
 	@Test
 	public void testNullConstructor()
 	{
-		assertThrows(NullPointerException.class, () -> new VariableManager(null, scopeManager, valueStore));
-		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, null, valueStore));
-		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, scopeManager, null));
+		assertThrows(NullPointerException.class, () -> new VariableManager(null, scopeManager, instanceFactory, valueStore));
+		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, null, instanceFactory, valueStore));
+		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, scopeManager, null, valueStore));
+		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, scopeManager, instanceFactory, null));
 	}
 
 	@Test
@@ -211,10 +211,10 @@ public class VariableManagerTest
 		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableID(globalInst, ""));
 		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableID(globalInst, " Walk"));
 		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableID(globalInst, "Walk "));
-		assertThrows(NoSuchElementException.class, () -> variableLibrary.getVariableID(globalInst, "Walk"));
-		assertThrows(NoSuchElementException.class, () -> variableLibrary.getVariableID(eqInst, "Walk"));
+		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableID(globalInst, "Walk"));
+		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableID(eqInst, "Walk"));
 		variableLibrary.assertLegalVariableID("Float", spellImplementedScope, FormatUtilities.NUMBER_MANAGER);
-		assertThrows(NoSuchElementException.class, () -> variableLibrary.getVariableID(eqInst, "Float"));
+		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableID(eqInst, "Float"));
 	}
 
 	@Test
@@ -297,11 +297,11 @@ public class VariableManagerTest
 			.equals(variableLibrary.getVariableFormat(globalImplementedScope, "Walk")));
 		assertTrue(
 			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(equipmentImplementedScope, "Float")));
-		//fail at depth
+		//Works when scope lower down, variable up
 		assertTrue(
 			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(equipmentImplementedScope, "Walk")));
-		//work indirect
-		assertTrue(variableLibrary.getVariableFormat(globalImplementedScope, "Float") == null);
+		//Fail due to incorrect scope (scope higher up, variable down)
+		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableFormat(globalImplementedScope, "Float"));
 	}
 
 	@Test

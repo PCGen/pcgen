@@ -222,7 +222,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 
 		@Override
-		public Optional<String> getLocalScopeName()
+		public Optional<String> getScopeName()
 		{
 			return Optional.of("Global.LIMB");
 		}
@@ -313,8 +313,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			public VariableID<?> resolve(String sourceScopeName,
 				VarScoped sourceObject, String sourceVarName)
 			{
-				ScopeInstance scopeInst = getInstanceFactory().get(sourceScopeName,
-					Optional.of(sourceObject));
+				ScopeInstance scopeInst =
+						getScopeInstance(sourceScopeName, sourceObject);
 				return getVariableLibrary().getVariableID(scopeInst, sourceVarName);
 			}
 		};

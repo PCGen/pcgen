@@ -38,7 +38,7 @@ public class MockStat implements VarScoped
 	}
 
 	@Override
-	public Optional<String> getLocalScopeName()
+	public Optional<String> getScopeName()
 	{
 		return Optional.of("Global.STAT");
 	}

@@ -18,8 +18,6 @@ package pcgen.base.solver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.Optional;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -92,7 +90,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		getScopeManager().registerScope("Global", "STAT");
 
 		ScopeInstance strInst =
-				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));
+				getScopeInstance("Global.STAT", new MockStat("Strength"));
 
 		assertLegalVariable("Mod", "Global.STAT", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")

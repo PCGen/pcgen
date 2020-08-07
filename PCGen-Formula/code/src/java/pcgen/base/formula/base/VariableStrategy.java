@@ -26,10 +26,10 @@ public interface VariableStrategy
 	/**
 	 * Adds a Variable to the DependencyManager based on the behavior of the strategy.
 	 * 
-	 * @param mgr
+	 * @param depManager
 	 *            The DependencyManager to which the variable should be added
 	 * @param varName
 	 *            The name of the variable to be added to the DependencyManager
 	 */
-	public void addVariable(DependencyManager mgr, String varName);
+	public void addVariable(DependencyManager depManager, String varName);
 }

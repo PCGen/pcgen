@@ -31,8 +31,8 @@ import pcgen.base.util.WriteOnceReadManyList;
 /**
  * A DependencyManager is a class to capture Formula dependencies.
  * 
- * In order to capture specific dependencies, a specific dependency should be loaded into
- * this DependencyManager.
+ * In order to process a formula, a specific set of semantics information should be loaded
+ * into this DependencyManager, as generally indicated by the TypedKey objects below.
  */
 public class DependencyManager
 {
@@ -73,7 +73,7 @@ public class DependencyManager
 
 	/**
 	 * A TypedKey used for storing the Format currently asserted for the formula served by
-	 * this DependencyManager
+	 * this DependencyManager.
 	 */
 	public static final TypedKey<Optional<FormatManager<?>>> ASSERTED =
 			new TypedKey<>(Optional.empty());

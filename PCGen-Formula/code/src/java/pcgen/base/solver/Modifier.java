@@ -53,11 +53,11 @@ public interface Modifier<T>
 	 * The DependencyManager may not be altered if there are no dependencies for
 	 * this Modifier.
 	 * 
-	 * @param fdm
+	 * @param depManager
 	 *            The DependencyManager to be notified of dependencies for this
 	 *            Modifier
 	 */
-	public void captureDependencies(DependencyManager fdm);
+	public void captureDependencies(DependencyManager depManager);
 
 	/**
 	 * Returns the priority of this Modifier. This is defined by the developer,

@@ -35,11 +35,11 @@ public interface VarScoped
 	public String getKeyName();
 
 	/**
-	 * Returns the Local Scope name for this VarScoped object.
+	 * Returns the scope name for this VarScoped object.
 	 * 
-	 * @return The Local Scope name for this VarScoped object
+	 * @return The scope name for this VarScoped object
 	 */
-	public Optional<String> getLocalScopeName();
+	public Optional<String> getScopeName();
 
 	/**
 	 * Returns the object that is the parent of this VarScoped object.
