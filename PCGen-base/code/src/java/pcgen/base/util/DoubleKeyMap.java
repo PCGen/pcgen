@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.BiFunction;
 
 /**
  * Represents a map where the objects are stored using two keys rather than the
@@ -210,6 +211,26 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 			Map<K2, V> localMap = map.computeIfAbsent(me.getKey(), k -> createLocalMap());
 			localMap.putAll(me.getValue());
 		}
+	}
+
+	/**
+	 * If the specified key is not already associated with a value (or is null), computes
+	 * the value using the given BiFunction and puts the computed value into this map.
+	 *
+	 * @param key1
+	 *            The primary key for storing the given value
+	 * @param key2
+	 *            The secondary key for storing the given value
+	 * @param mappingFunction
+	 *            The mappingFunction used to compute a new value for the given keys if no
+	 *            current value is present (or the current vaule is null).
+	 * @return The existing or computed value for the given keys
+	 */
+	public V computeIfAbsent(K1 key1, K2 key2,
+		BiFunction<K1, K2, V> mappingFunction)
+	{
+		return map.computeIfAbsent(key1, k -> createLocalMap())
+			.computeIfAbsent(key2, k2 -> mappingFunction.apply(key1, k2));
 	}
 
 	/**
