@@ -19,54 +19,52 @@ package pcgen.base.formula.inst;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.util.Optional;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
+
+import pcgen.base.testsupport.GlobalVarScoped;
+import pcgen.base.testsupport.SimpleVarScoped;
 
 public class SimpleScopeInstanceTest
 {
 	@Test
 	public void testConstructor()
 	{
-		SimpleImplementedScope implementedScope = new SimpleImplementedScope("Global");
-		SimpleScopeInstance scopeInst = new SimpleScopeInstance(
-			Optional.empty(), implementedScope, new GlobalVarScoped("Global"));
+		GlobalVarScoped gvs = new GlobalVarScoped("Global");
+		SimpleImplementedScope implementedScope = new SimpleImplementedScope("Global", true);
 		SimpleImplementedScope localImplementedScope =
-				new SimpleImplementedScope(implementedScope, "Local");
-		SimpleScopeInstance localInst =
-				new SimpleScopeInstance(Optional.of(scopeInst),
-					localImplementedScope, new GlobalVarScoped("Local"));
+				new SimpleImplementedScope("Global.Local", false);
+		localImplementedScope.drawsFrom(implementedScope);
+		SimpleScopeInstance localInst = new SimpleScopeInstance(
+			localImplementedScope, new SimpleVarScoped("VS", gvs, "Global.Local"));
 
-		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), null, new GlobalVarScoped("Global")));
-		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), implementedScope, new GlobalVarScoped("Ignored")));
-		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(localInst), localImplementedScope, new GlobalVarScoped("Ignored")));
-		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(null, localImplementedScope, new GlobalVarScoped("Ignored")));
-		SimpleImplementedScope sublocalImplementedScope = new SimpleImplementedScope(localImplementedScope, "SubLocal");
-		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(null, localImplementedScope, new GlobalVarScoped("Ignored")));
-		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.empty(), localImplementedScope, new GlobalVarScoped("Ignored")));
-		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.empty(), localImplementedScope, new GlobalVarScoped("Ignored")));
-		assertEquals(scopeInst, localInst.getParentScope().get());
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(null, new GlobalVarScoped("Global")));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(implementedScope, new GlobalVarScoped("Ignored")));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(localImplementedScope, new GlobalVarScoped("Ignored")));
+		SimpleImplementedScope sublocalImplementedScope = new SimpleImplementedScope("Global.Local.SubLocal", false);
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(localImplementedScope, new GlobalVarScoped("Ignored")));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(localImplementedScope, new GlobalVarScoped("Ignored")));
+		assertTrue(localInst.getImplementedScope().drawsFrom().contains(implementedScope));
 		assertEquals(localImplementedScope, localInst.getImplementedScope());
-		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), null, new GlobalVarScoped("Ignored")));
-		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), localImplementedScope, null));
-		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(Optional.of(scopeInst), sublocalImplementedScope, new GlobalVarScoped("Ignored")));
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(null, new GlobalVarScoped("Ignored")));
+		assertThrows(NullPointerException.class, () -> new SimpleScopeInstance(localImplementedScope, null));
+		assertThrows(IllegalArgumentException.class, () -> new SimpleScopeInstance(sublocalImplementedScope, new GlobalVarScoped("Ignored")));
 	}
 
 	@Test
 	public void testIsValid()
 	{
-		SimpleImplementedScope implementedScope = new SimpleImplementedScope("Global");
-		SimpleScopeInstance scopeInst = new SimpleScopeInstance(
-			Optional.empty(), implementedScope, new GlobalVarScoped("Global"));
+		GlobalVarScoped gvs = new GlobalVarScoped("Global");
+		SimpleImplementedScope implementedScope = new SimpleImplementedScope("Global", true);
 		SimpleImplementedScope localImplementedScope =
-				new SimpleImplementedScope(implementedScope, "Local");
-		SimpleScopeInstance localInst =
-				new SimpleScopeInstance(Optional.of(scopeInst),
-					localImplementedScope, new GlobalVarScoped("Local"));
+				new SimpleImplementedScope("Global.Local", false);
+		localImplementedScope.drawsFrom(implementedScope);
+		SimpleScopeInstance localInst = new SimpleScopeInstance(
+			localImplementedScope, new SimpleVarScoped("VS", gvs, "Global.Local"));
 
 		assertEquals(localImplementedScope, localInst.getImplementedScope());
-		assertEquals(scopeInst, localInst.getParentScope().get());
+		assertTrue(localInst.getImplementedScope().drawsFrom().contains(implementedScope));
 	}
 
 }

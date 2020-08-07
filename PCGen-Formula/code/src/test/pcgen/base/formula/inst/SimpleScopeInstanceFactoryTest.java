@@ -21,8 +21,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Optional;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,7 +28,9 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
+import pcgen.base.testsupport.SimpleVarScoped;
 
 public class SimpleScopeInstanceFactoryTest
 {
@@ -38,13 +38,15 @@ public class SimpleScopeInstanceFactoryTest
 	private ScopeInstanceFactory factory;
 	private NaiveScopeManager scopeManager;
 	private ScopeInstance scopeInst;
+	private GlobalVarScoped gvs;
 
 	@BeforeEach
 	void setUp()
 	{
 		scopeManager = new NaiveScopeManager();
 		factory = new SimpleScopeInstanceFactory(scopeManager);
-		scopeInst = factory.getGlobalInstance("Global");
+		gvs = new GlobalVarScoped("Global");
+		scopeInst = factory.get("Global", gvs);
 		scopeManager.registerScope("Global", "Local");
 	}
 	
@@ -54,6 +56,7 @@ public class SimpleScopeInstanceFactoryTest
 		factory = null;
 		scopeManager = null;
 		scopeInst = null;
+		gvs = null;
 	}
 
 	@Test
@@ -65,8 +68,8 @@ public class SimpleScopeInstanceFactoryTest
 	@Test
 	public void testGetGlobalInstance()
 	{
-		ScopeInstance globalInst = factory.getGlobalInstance("Global");
-		assertTrue(globalInst.getParentScope().isEmpty());
+		ScopeInstance globalInst = factory.get("Global", gvs);
+		assertTrue(globalInst.getImplementedScope().drawsFrom().isEmpty());
 		assertEquals("Global", globalInst.getImplementedScope().getName());
 		assertEquals(scopeInst, globalInst);
 	}
@@ -74,8 +77,8 @@ public class SimpleScopeInstanceFactoryTest
 	@Test
 	public void testGet()
 	{
-		ScopeInstance gsi = factory.get("Global", Optional.empty());
-		assertTrue(gsi.getParentScope().isEmpty());
+		ScopeInstance gsi = factory.get("Global", gvs);
+		assertTrue(gsi.getImplementedScope().drawsFrom().isEmpty());
 		assertEquals("Global", gsi.getImplementedScope().getName());
 
 		/*
@@ -90,59 +93,22 @@ public class SimpleScopeInstanceFactoryTest
 		 * to still be the global scope. We can see that in the equals tests
 		 * below of si and gsi.
 		 */
-		Scoped gvs = new Scoped("Var", null, null);
-		ScopeInstance si = factory.get("Global", Optional.of(gvs));
-		assertTrue(si.getParentScope().isEmpty());
+		VarScoped nvs = new SimpleVarScoped("NVar", gvs, null);
+		ScopeInstance si = factory.get("Global", nvs);
+		assertTrue(si.getImplementedScope().drawsFrom().isEmpty());
 		assertEquals("Global", si.getImplementedScope().getName());
 		assertEquals(si, gsi);
 		assertTrue(si == gsi);
 
-		Scoped lvs = new Scoped("LVar", "Global.Local", gvs);
-		ScopeInstance lsi = factory.get("Global.Local", Optional.of(lvs));
-		assertTrue("Local".equals(lsi.getImplementedScope().getName()));
-		assertTrue(scopeInst.equals(lsi.getParentScope().get()));
-		assertEquals("Local", lsi.getImplementedScope().getName());
+		VarScoped lvs = new SimpleVarScoped("LVar", gvs, "Global.Local");
+		ScopeInstance lsi = factory.get("Global.Local", lvs);
+		assertTrue("Global.Local".equals(lsi.getImplementedScope().getName()));
+		assertEquals("Global.Local", lsi.getImplementedScope().getName());
 
 		scopeManager.registerScope("Local", "SubLocal");
-		Scoped slvs = new Scoped("SVar", "Global.Local.SubLocal", lvs);
-		ScopeInstance slsi = factory.get("Global.Local.SubLocal", Optional.of(slvs));
-		assertTrue("SubLocal".equals(slsi.getImplementedScope().getName()));
-		assertTrue(scopeInst.equals(slsi.getParentScope().get().getParentScope().get()));
-		assertEquals("SubLocal", slsi.getImplementedScope().getName());
-
-	}
-
-	public final class Scoped implements VarScoped
-	{
-
-		private final String name;
-		private final String scopeName;
-		private final VarScoped parent;
-
-		public Scoped(String s, String scopeName, VarScoped parent)
-		{
-			name = s;
-			this.scopeName = scopeName;
-			this.parent = parent;
-		}
-
-		@Override
-		public String getKeyName()
-		{
-			return name;
-		}
-
-		@Override
-		public Optional<String> getScopeName()
-		{
-			return Optional.ofNullable(scopeName);
-		}
-
-		@Override
-		public Optional<VarScoped> getVariableParent()
-		{
-			return Optional.ofNullable(parent);
-		}
-
+		VarScoped slvs = new SimpleVarScoped("SVar", lvs, "Global.Local.SubLocal");
+		ScopeInstance slsi = factory.get("Global.Local.SubLocal", slvs);
+		assertTrue("Global.Local.SubLocal".equals(slsi.getImplementedScope().getName()));
+		assertEquals("Global.Local.SubLocal", slsi.getImplementedScope().getName());
 	}
 }

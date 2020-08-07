@@ -47,6 +47,7 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
+import pcgen.base.testsupport.SimpleVarScoped;
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
@@ -95,7 +96,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		getValueStore().addSolverFormat(limbManager,
 			() -> limbManager.convert("Head"));
 
-		getScopeManager().registerScope("Global", "LIMB");
+		getScopeManager().registerScope("Global", "Global.LIMB");
 		assertLegalVariable("active", "Global", limbManager);
 		assertLegalVariable("quantity", "Global.LIMB",
 			FormatUtilities.NUMBER_MANAGER);
@@ -162,7 +163,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			Limb current = set.get(inputStr);
 			if (current == null)
 			{
-				current = new Limb(inputStr);
+				current = new Limb(inputStr, getGlobalVarScoped());
 				set.put(inputStr, current);
 			}
 			return current;
@@ -206,31 +207,11 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 	}
 
-	private final class Limb implements VarScoped
+	private final class Limb extends SimpleVarScoped
 	{
-		private final String name;
-
-		private Limb(String name)
+		private Limb(String name, VarScoped parent)
 		{
-			this.name = name;
-		}
-
-		@Override
-		public String getKeyName()
-		{
-			return name;
-		}
-
-		@Override
-		public Optional<String> getScopeName()
-		{
-			return Optional.of("Global.LIMB");
-		}
-
-		@Override
-		public Optional<VarScoped> getVariableParent()
-		{
-			return Optional.empty();
+			super(name, parent, "Global.LIMB");
 		}
 
 		@Override
@@ -279,7 +260,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		{
 			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, em);
 			ScopeInstanceFactory siFactory = em.get(EvaluationManager.SIFACTORY);
-			ScopeInstance scopeInst = siFactory.get("Global.LIMB", Optional.of(vs));
+			ScopeInstance scopeInst = siFactory.get("Global.LIMB", vs);
 			//Rest of Equation
 			return args[1].jjtAccept(visitor,
 				em.getWith(EvaluationManager.INSTANCE, scopeInst));
@@ -329,7 +310,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		ScopeInstance source = getGlobalScopeInst();
 
-		getScopeManager().registerScope("Global", "LIMB");
+		getScopeManager().registerScope("Global", "Global.LIMB");
 
 		assertLegalVariable("LocalVar", "Global.LIMB", FormatUtilities.NUMBER_MANAGER);
 		assertLegalVariable("ResultVar", "Global", FormatUtilities.NUMBER_MANAGER);

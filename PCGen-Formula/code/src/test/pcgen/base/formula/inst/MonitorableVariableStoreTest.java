@@ -34,6 +34,7 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 
 public class MonitorableVariableStoreTest
@@ -66,7 +67,7 @@ public class MonitorableVariableStoreTest
 	public void testAddRemove()
 	{
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
 		VariableID<Number> varID = new VariableID<>(globalInst,
 			FormatUtilities.NUMBER_MANAGER, "test");
 		VariableListener<Number> listener = new EventCapture();
@@ -93,7 +94,7 @@ public class MonitorableVariableStoreTest
 	public void testPriority()
 	{
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
 		VariableID<Number> varID = new VariableID<>(globalInst,
 			FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> otherID = new VariableID<>(globalInst,

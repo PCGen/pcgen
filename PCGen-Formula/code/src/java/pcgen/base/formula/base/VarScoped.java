@@ -17,8 +17,6 @@
  */
 package pcgen.base.formula.base;
 
-import java.util.Optional;
-
 /**
  * A VarScoped object is an object that is designed to be an "owning object" in
  * a variable processing hierarchy (supporting local variables).
@@ -35,17 +33,14 @@ public interface VarScoped
 	public String getKeyName();
 
 	/**
-	 * Returns the scope name for this VarScoped object.
+	 * Returns the object drawn from by this VarScoped for the given ImplementedScope.
+	 * May return this if the ImplementedScope matches the scope of this object.
 	 * 
-	 * @return The scope name for this VarScoped object
+	 * @param implScope
+	 *            The ImplementedScope for which the relevant VarScoped object should be
+	 *            returned
+	 * @return The object drawn from by this ScopeInstance for the given ImplementedScope
 	 */
-	public Optional<String> getScopeName();
-
-	/**
-	 * Returns the object that is the parent of this VarScoped object.
-	 * 
-	 * @return The object that is the parent of this VarScoped object
-	 */
-	public Optional<VarScoped> getVariableParent();
+	public VarScoped getProviderFor(ImplementedScope implScope);
 
 }

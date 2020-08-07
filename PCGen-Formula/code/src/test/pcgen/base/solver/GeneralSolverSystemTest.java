@@ -31,7 +31,7 @@ public class GeneralSolverSystemTest extends AbstractFormulaTestCase
 			getManagerFactory(), getValueStore(),
 			getVariableStore());
 		SolverDependencyManager dm = new StaticSolverDependencyManager(
-			getManagerFactory(), newSolver::initialize);
+			getManagerFactory());
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
 		assertThrows(NullPointerException.class, () -> new GeneralSolverSystem(null, dm, strategy));

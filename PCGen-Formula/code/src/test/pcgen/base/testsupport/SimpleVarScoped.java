@@ -17,8 +17,9 @@
  */
 package pcgen.base.testsupport;
 
-import java.util.Optional;
+import java.util.Objects;
 
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.VarScoped;
 
 public class SimpleVarScoped implements VarScoped
@@ -28,6 +29,14 @@ public class SimpleVarScoped implements VarScoped
 	public String scopeName;
 	public VarScoped parent;
 
+	public SimpleVarScoped(String name, VarScoped parent, String scopeName)
+	{
+		super();
+		this.name = Objects.requireNonNull(name);
+		this.parent = Objects.requireNonNull(parent);
+		this.scopeName = scopeName;
+	}
+
 	@Override
 	public String getKeyName()
 	{
@@ -35,21 +44,19 @@ public class SimpleVarScoped implements VarScoped
 	}
 
 	@Override
-	public Optional<String> getScopeName()
-	{
-		return Optional.ofNullable(scopeName);
-	}
-
-	@Override
-	public Optional<VarScoped> getVariableParent()
-	{
-		return Optional.ofNullable(parent);
-	}
-
-	@Override
 	public String toString()
 	{
 		return "SVS:" + name;
+	}
+
+	@Override
+	public VarScoped getProviderFor(ImplementedScope implScope)
+	{
+		if (implScope.getName().equals(scopeName))
+		{
+			return this;
+		}
+		return parent.getProviderFor(implScope);
 	}
 
 }

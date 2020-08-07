@@ -72,10 +72,6 @@ public class GeneralSolverSystem implements SolverSystem
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		if (solverFactory.initialize(varID))
-		{
-			depManager.addNode(varID);
-		}
 		depManager.insertDependency(varID, modifier, source);
 		solverFactory.addModifier(varID, modifier, source);
 		strategy.processModsUpdated(varID);
@@ -107,8 +103,7 @@ public class GeneralSolverSystem implements SolverSystem
 	public GeneralSolverSystem createReplacement(WriteableVariableStore newVarStore)
 	{
 		SolverManager newSolver = solverFactory.createReplacement(newVarStore);
-		SolverDependencyManager newDepManager = depManager.createReplacement(newVarStore,
-			newSolver::initialize);
+		SolverDependencyManager newDepManager = depManager.createReplacement(newVarStore);
 		SolverStrategy newStrategy = strategy.generateReplacement(
 			newDepManager::processForChildren, newSolver::processSolver);
 		return new GeneralSolverSystem(newSolver, newDepManager,

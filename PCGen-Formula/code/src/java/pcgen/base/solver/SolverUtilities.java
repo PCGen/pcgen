@@ -52,7 +52,7 @@ public final class SolverUtilities
 				new SimpleSolverManager(varLib::isLegalVariableID,
 					managerFactory, valueStore, resultStore);
 		SolverDependencyManager dm = new StaticSolverDependencyManager(
-			managerFactory, newSolver::initialize);
+			managerFactory);
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
 		return new GeneralSolverSystem(newSolver, dm, strategy);
@@ -80,7 +80,7 @@ public final class SolverUtilities
 				new SimpleSolverManager(varLib::isLegalVariableID,
 					managerFactory, valueStore, resultStore);
 		SolverDependencyManager dm = new DynamicSolverDependencyManager(
-			managerFactory, newSolver::initialize, resultStore);
+			managerFactory, resultStore);
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
 		return new GeneralSolverSystem(newSolver, dm, strategy);

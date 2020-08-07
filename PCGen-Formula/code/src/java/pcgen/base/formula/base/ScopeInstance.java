@@ -17,18 +17,12 @@
  */
 package pcgen.base.formula.base;
 
-import java.util.Optional;
-
 /**
  * ScopeInstance identifies an instance of a scope in which a particular part of
  * a formula (usually a variable) is valid.
  * 
  * Combined with ImplementedScope, this effectively provides a concept similar to a
  * local variable scope in many programming languages.
- * 
- * ScopeInstance provides the ability to not only distinguish the different
- * scopes, but also to define the relationship between the scopes (each scope
- * can identify scopes it can draw upon for variables).
  * 
  * It is perhaps important to recognize that a ScopeInstance is simply an
  * identifier. This means it does not contain information about what the scope
@@ -58,19 +52,15 @@ public interface ScopeInstance extends Identified
 	public ImplementedScope getImplementedScope();
 
 	/**
-	 * Returns the ScopeInstance that serves as a "parent" for this ScopeInstance.
+	 * Returns the object drawn from by this ScopeInstance for the given ImplementedScope.
+	 * Will return the owning object for this VarScoped if the ImplementedScope matches
+	 * that returned by getImplementedScope().
 	 * 
-	 * Empty is a legal return value for a "master" scope.
-	 * 
-	 * @return The ScopeInstance that serves as a "parent" for this ScopeInstance
+	 * @param scope
+	 *            The ImplementedScope for which the relevant VarScoped object should be
+	 *            returned
+	 * @return The object drawn from by this ScopeInstance for the given ImplementedScope
 	 */
-	public Optional<ScopeInstance> getParentScope();
-
-	/**
-	 * Returns the owning object for this ScopeInstance.
-	 * 
-	 * @return The owning object for this ScopeInstance
-	 */
-	public VarScoped getOwningObject();
+	public VarScoped getOwningObject(ImplementedScope scope);
 
 }

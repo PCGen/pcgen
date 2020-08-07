@@ -29,6 +29,7 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 
 public class SimpleVariableStoreTest
@@ -40,7 +41,7 @@ public class SimpleVariableStoreTest
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
 		VariableID<Number> vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		assertThrows(NullPointerException.class, () -> varStore.put(null, Integer.valueOf(4)));
 		assertThrows(NullPointerException.class, () -> varStore.put(vid, null));
@@ -54,7 +55,7 @@ public class SimpleVariableStoreTest
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
 		VariableID vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		//Intentionally break generics
 		assertThrows(IllegalArgumentException.class, () -> varStore.put(vid, "NotANumber!"));
@@ -67,7 +68,7 @@ public class SimpleVariableStoreTest
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
 		VariableID<Number> vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		assertFalse(varStore.containsVariable(vid));
 		assertNull(varStore.put(vid, Integer.valueOf(9)));
@@ -85,11 +86,11 @@ public class SimpleVariableStoreTest
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
 		SimpleVariableStore varStore = new SimpleVariableStore();
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
 		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid3 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test2");
-		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
+		ScopeInstance globalInst2 = instanceFactory.get("Global2", new GlobalVarScoped("Global2"));
 		VariableID<Number> vid4 = new VariableID<>(globalInst2, FormatUtilities.NUMBER_MANAGER, "test");
 		assertNull(varStore.put(vid1, Integer.valueOf(9)));
 		assertTrue(varStore.containsVariable(vid1));

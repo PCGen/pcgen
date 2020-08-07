@@ -18,7 +18,6 @@
 package pcgen.base.formula.base;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * ImplementedScope identifies a scope in which a particular part of a formula
@@ -51,14 +50,13 @@ import java.util.Optional;
  */
 public interface ImplementedScope
 {
+	
 	/**
-	 * Returns the ImplementedScope that serves as a "parent" for this ImplementedScope.
+	 * Returns true if this ImplementedScope is a global scope.
 	 * 
-	 * Optional.empty() is a legal return value for a "master" scope.
-	 * 
-	 * @return The ImplementedScope that serves as a "parent" for this ImplementedScope
+	 * @return true if this ImplementedScope is a global scope; false otherwise
 	 */
-	public Optional<? extends ImplementedScope> getParentScope();
+	public boolean isGlobal();
 
 	/**
 	 * Returns the name of this ImplementedScope.
@@ -66,27 +64,6 @@ public interface ImplementedScope
 	 * @return the name of the ImplementedScope
 	 */
 	public String getName();
-
-	/**
-	 * Returns the full name (including parent names) for the given ImplementedScope.
-	 * 
-	 * @param scope
-	 *            The ImplementedScope for which the full name should be returned
-	 * @return The full name (including parent names) for the given ImplementedScope
-	 */
-	public static String getFullName(ImplementedScope scope)
-	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(scope.getName());
-		Optional<? extends ImplementedScope> current = scope.getParentScope();
-		while (current.isPresent())
-		{
-			sb.insert(0, '.');
-			sb.insert(0, current.get().getName());
-			current = current.get().getParentScope();
-		}
-		return sb.toString();
-	}
 
 	/**
 	 * Returns a List of the ImplementedScope objects that this ImplementedScope can draw

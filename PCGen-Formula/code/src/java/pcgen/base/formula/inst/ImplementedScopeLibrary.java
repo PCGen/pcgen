@@ -48,7 +48,7 @@ public class ImplementedScopeLibrary implements ScopeImplementer,
 	 */
 	public void addScope(ImplementedScope scope)
 	{
-		scopeCache.put(ImplementedScope.getFullName(scope), scope);
+		scopeCache.put(scope.getName(), scope);
 	}
 
 	@Override

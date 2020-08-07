@@ -22,13 +22,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
+import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 
 public class VariableIDTest
@@ -39,8 +37,7 @@ public class VariableIDTest
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		ScopeInstance globalInst = instanceFactory.get("Global",
-			Optional.of(new GlobalVarScoped("Global")));
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
 
 		assertThrows(NullPointerException.class, () -> new VariableID<>(null, null, null));
 		assertThrows(NullPointerException.class, () -> new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, null));
@@ -56,8 +53,7 @@ public class VariableIDTest
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		ScopeInstance globalInst = instanceFactory.get("Global",
-			Optional.of(new GlobalVarScoped("Global")));
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
 
 		VariableID<Number> vid = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		assertEquals("test", vid.getName());
@@ -71,10 +67,8 @@ public class VariableIDTest
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		ScopeInstance globalInst = instanceFactory.get("Global",
-			Optional.of(new GlobalVarScoped("Global")));
-		ScopeInstance globalInst2 = instanceFactory.get("Global2",
-			Optional.of(new GlobalVarScoped("Global2")));
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
+		ScopeInstance globalInst2 = instanceFactory.get("Global2", new GlobalVarScoped("Global2"));
 
 		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
@@ -95,10 +89,8 @@ public class VariableIDTest
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
 				new SimpleScopeInstanceFactory(scopeManager);
-		ScopeInstance globalInst = instanceFactory.get("Global",
-			Optional.of(new GlobalVarScoped("Global")));
-		ScopeInstance globalInst2 = instanceFactory.get("Global2",
-			Optional.of(new GlobalVarScoped("Global2")));
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
+		ScopeInstance globalInst2 = instanceFactory.get("Global2", new GlobalVarScoped("Global2"));
 
 		VariableID<Number> vid1 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");
 		VariableID<Number> vid2 = new VariableID<>(globalInst, FormatUtilities.NUMBER_MANAGER, "test");

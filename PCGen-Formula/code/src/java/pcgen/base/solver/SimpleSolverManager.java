@@ -127,27 +127,10 @@ public class SimpleSolverManager implements SolverManager
 	}
 
 	@Override
-	public boolean initialize(VariableID<?> varID)
-	{
-		Solver<?> currentSolver =
-				scopedChannels.get(Objects.requireNonNull(varID));
-		if (currentSolver == null)
-		{
-			scopedChannels.put(varID, getNewSolver(varID));
-			processSolver(varID);
-		}
-		return (currentSolver == null);
-	}
-
-	@Override
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		getBuiltSolver(varID)
-			.orElseThrow(() -> new IllegalArgumentException(
-				"Request to add Modifier to Solver for " + varID
-					+ " but that channel was never defined"))
-			.addModifier(modifier, source);
+		getSolver(varID).addModifier(modifier, source);
 	}
 
 	@Override
@@ -209,11 +192,17 @@ public class SimpleSolverManager implements SolverManager
 		replacement.put(varID, tsSolver.createReplacement());
 	}
 
-	private <T> Solver<T> getNewSolver(VariableID<T> varID)
+	private <T> Solver<T> getSolver(VariableID<T> varID)
 	{
-		checkLegal(varID);
-		return new Solver<T>(varID.getFormatManager(),
+		return getBuiltSolver(varID).orElseGet(() -> createSolver(varID));
+	}
+
+	private <T> Solver<T> createSolver(VariableID<T> varID)
+	{
+		Solver<T> solver = new Solver<>(varID.getFormatManager(),
 			varID.getFormatManager().initializeFrom(valueStore));
+		scopedChannels.put(varID, solver);
+		return solver;
 	}
 
 	private <T> Optional<Solver<T>> getBuiltSolver(VariableID<T> varID)

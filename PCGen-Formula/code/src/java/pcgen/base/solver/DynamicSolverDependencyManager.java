@@ -48,12 +48,6 @@ public class DynamicSolverDependencyManager implements SolverDependencyManager
 	private final ManagerFactory managerFactory;
 
 	/**
-	 * The Consumer to be notified when a new VariableID is detected. Note that this can
-	 * be a redundant call, so must not create unnecessary side effects.
-	 */
-	private final Consumer<VariableID<?>> notificationTarget;
-
-	/**
 	 * The "summarized" results of the calculation of each Solver.
 	 */
 	private final VariableStore resultStore;
@@ -88,25 +82,15 @@ public class DynamicSolverDependencyManager implements SolverDependencyManager
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to generate visitor managers in this
 	 *            DynamicSolverDependencyManager
-	 * @param notificationTarget
-	 *            The Consumer to be notified when a VariableID providing a dependency is
-	 *            detected
 	 * @param resultStore
 	 *            The VariableStore used to store results in the SolverSystem where this
 	 *            DynamicSolverDependencyManager is managing the dependencies
 	 */
 	public DynamicSolverDependencyManager(ManagerFactory managerFactory,
-		Consumer<VariableID<?>> notificationTarget, VariableStore resultStore)
+		VariableStore resultStore)
 	{
 		this.managerFactory = Objects.requireNonNull(managerFactory);
-		this.notificationTarget = Objects.requireNonNull(notificationTarget);
 		this.resultStore = Objects.requireNonNull(resultStore);
-	}
-
-	@Override
-	public void addNode(VariableID<?> varID)
-	{
-		dependencies.addNode(varID);
 	}
 
 	@Override
@@ -190,31 +174,27 @@ public class DynamicSolverDependencyManager implements SolverDependencyManager
 	{
 		for (VariableID<?> depID : dependentVarIDs)
 		{
-			//Note: This add can be redundant
-			dependencies.addNode(varID);
 			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 			DefaultDirectionalGraphEdge<VariableID<?>> edge =
 					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
 			dependencies.addEdge(edge);
-			notificationTarget.accept(depID);
 		}
 	}
 
 	private void removeIfMissing(VariableID<?> varID,
 		List<VariableID<?>> dependentVarIDs)
 	{
-		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
+		Set<DefaultDirectionalGraphEdge<VariableID<?>>> adjacentEdges =
 				dependencies.getAdjacentEdges(varID);
-		if (edges == null)
+		if (adjacentEdges != null)
 		{
-			return;
-		}
-		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : edges)
-		{
-			if ((edge.getNodeAt(1) == varID)
-				&& !dependentVarIDs.contains(edge.getNodeAt(0)))
+			for (DefaultDirectionalGraphEdge<VariableID<?>> edge : adjacentEdges)
 			{
-				dependencies.removeEdge(edge);
+				if ((edge.getNodeAt(1) == varID)
+					&& !dependentVarIDs.contains(edge.getNodeAt(0)))
+				{
+					dependencies.removeEdge(edge);
+				}
 			}
 		}
 	}
@@ -251,12 +231,11 @@ public class DynamicSolverDependencyManager implements SolverDependencyManager
 
 	@Override
 	public DynamicSolverDependencyManager createReplacement(
-		WriteableVariableStore newVarStore,
-		Consumer<VariableID<?>> newNotificationTarget)
+		WriteableVariableStore newVarStore)
 	{
 		DynamicSolverDependencyManager replacement =
 				new DynamicSolverDependencyManager(
-					managerFactory, newNotificationTarget, newVarStore);
+					managerFactory, newVarStore);
 		for (VariableID<?> varID : dependencies.getNodeList())
 		{
 			replacement.dependencies.addNode(varID);

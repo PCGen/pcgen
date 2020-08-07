@@ -37,6 +37,7 @@ import pcgen.base.solver.SimpleSolverManager;
 import pcgen.base.solver.SolverManager;
 import pcgen.base.solver.SolverSystem;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
+import pcgen.base.testsupport.SimpleVarScoped;
 
 public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 {
@@ -120,9 +121,10 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		getManager().addModifier(hitpoints, modifier, source);
 		assertEquals(6, store.get(hitpoints));
 
-		getScopeManager().registerScope("Global", "STAT");
+		getScopeManager().registerScope("Global", "Global.STAT");
 		ScopeInstance strInst =
-				getScopeInstance("Global.STAT", new MockStat("Strength"));
+				getScopeInstance("Global.STAT", new SimpleVarScoped(
+					"Strength", getGlobalVarScoped(), "Global.STAT"));
 
 		getManager().addModifier(hitpoints, AbstractModifier.setNumber(12, 3), strInst);
 		assertEquals(6, store.get(hitpoints));
@@ -151,7 +153,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		@SuppressWarnings("unchecked")
 		VariableID<Number> arms =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Arms");
-		assertEquals(0, store.get(arms));
 		getManager().addModifier(arms, two, source);
 		assertEquals(2, store.get(arms));
 		assertEquals(2, store.get(limbs));
@@ -160,7 +161,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		@SuppressWarnings("unchecked")
 		VariableID<Number> legs =
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Legs");
-		assertEquals(0, store.get(legs));
 		getManager().addModifier(legs, four, source);
 		assertEquals(2, store.get(arms));
 		assertEquals(4, store.get(legs));
@@ -203,7 +203,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(null, store.get(limbs));
 		getManager().addModifier(limbs, limbsMod, source);
 
-		assertEquals(0, store.get(arms));
 		getManager().addModifier(arms, handsMod, source);
 		assertEquals(0, store.get(arms));
 
@@ -213,7 +212,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(2, store.get(limbs));
 
 		AbstractModifier<Number> four = AbstractModifier.setNumber(2, 5);
-		assertEquals(0, store.get(legs));
 		getManager().addModifier(legs, four, source);
 		assertEquals(2, store.get(arms));
 		assertEquals(2, store.get(legs));
@@ -285,7 +283,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(null, store.get(limbs));
 		getManager().addModifier(limbs, limbsMod, source);
 
-		assertEquals(0, store.get(arms));
 		getManager().addModifier(arms, handsMod, source);
 		assertEquals(0, store.get(arms));
 
@@ -295,7 +292,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(2, store.get(limbs));
 
 		AbstractModifier<Number> four = AbstractModifier.setNumber(2, 5);
-		assertEquals(0, store.get(legs));
 		getManager().addModifier(legs, four, source);
 		assertEquals(2, store.get(arms));
 		assertEquals(2, store.get(legs));
@@ -348,8 +344,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst, "Legs");
 		assertEquals(null, store.get(limbs));
 		getManager().addModifier(limbs, limbsMod, source);
-
-		assertEquals(0, store.get(arms));
 		getManager().addModifier(arms, handsMod, source);
 		assertEquals(0, store.get(arms));
 
@@ -362,8 +356,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		SolverSystem alt = getManager().createReplacement(altstore);
 
 		AbstractModifier<Number> four = AbstractModifier.setNumber(2, 5);
-		assertEquals(0, store.get(legs));
-		assertEquals(0, altstore.get(legs));
 		getManager().addModifier(legs, four, source);
 		assertEquals(2, store.get(arms));
 		assertEquals(2, store.get(legs));

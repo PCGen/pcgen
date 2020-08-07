@@ -56,8 +56,8 @@ public class NaiveScopeManager implements ScopeImplementer, RelationshipManager,
 	public boolean isRelated(ImplementedScope firstScope,
 		ImplementedScope secondScope)
 	{
-		String name1 = ImplementedScope.getFullName(firstScope);
-		String name2 = ImplementedScope.getFullName(secondScope);
+		String name1 = firstScope.getName();
+		String name2 = secondScope.getName();
 		return name1.startsWith(name2) || name2.startsWith(name1);
 	}
 
@@ -68,20 +68,17 @@ public class NaiveScopeManager implements ScopeImplementer, RelationshipManager,
 		if (scope == null)
 		{
 			int dotLoc = string.lastIndexOf('.');
-			String local;
 			Optional<ImplementedScope> implScope;
 			if (dotLoc == -1)
 			{
 				implScope = Optional.empty();
-				local = string;
 			}
 			else
 			{
-				local = string.substring(dotLoc + 1);
 				String parentName = string.substring(0, dotLoc);
 				implScope = Optional.of(getImplementedScope(parentName));
 			}
-			scope = new SimpleImplementedScope(implScope, local);
+			scope = new SimpleImplementedScope(string, implScope.isEmpty());
 			addParents(scope, implScope);
 			implemented.put(string, scope);
 		}
@@ -94,14 +91,20 @@ public class NaiveScopeManager implements ScopeImplementer, RelationshipManager,
 		Optional<? extends ImplementedScope> workingScope = implScope;
 		while (workingScope.isPresent())
 		{
-			((SimpleImplementedScope) scope).drawsFrom(workingScope.get());
-			workingScope = workingScope.get().getParentScope();
+			ImplementedScope thisScope = workingScope.get();
+			((SimpleImplementedScope) scope).drawsFrom(thisScope);
+			String parentName = parents.get(thisScope.getName());
+			if (parentName == null)
+			{
+				break;
+			}
+			workingScope = Optional.ofNullable(getImplementedScope(parentName));
 		}
 	}
 
 	@Override
 	public boolean recognizesScope(ImplementedScope s)
 	{
-		return implemented.get(ImplementedScope.getFullName(s)).equals(s);
+		return s.equals(implemented.get(s.getName()));
 	}
 }

@@ -19,7 +19,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 import pcgen.base.formula.base.ImplementedScope;
 
@@ -28,11 +27,10 @@ import pcgen.base.formula.base.ImplementedScope;
  */
 public class SimpleImplementedScope implements ImplementedScope
 {
-
 	/**
-	 * The ImplementedScope that is the parent of this ImplementedScope.
+	 * Indicates if this ImplementedScope is a global scope.
 	 */
-	private final Optional<ImplementedScope> parent;
+	private final boolean isGlobalScope;
 
 	/**
 	 * The List of ImplementedScope objects that items in this ImplementedScope can draw
@@ -50,47 +48,13 @@ public class SimpleImplementedScope implements ImplementedScope
 	 * 
 	 * @param name
 	 *            The name of this ImplementedScope
+	 * @param isGlobal
+	 *            true if this ImplementedScope is a global scope
 	 */
-	public SimpleImplementedScope(String name)
+	public SimpleImplementedScope(String name, boolean isGlobal)
 	{
-		this(Optional.empty(), name);
-	}
-
-	/**
-	 * Constructs a new ImplementedScope with the given parent ImplementedScope and
-	 * name.
-	 * 
-	 * @param parentScope
-	 *            The ImplementedScope that is the parent of this ImplementedScope.
-	 * @param name
-	 *            The name of this ImplementedScope
-	 */
-	public SimpleImplementedScope(ImplementedScope parentScope, String name)
-	{
-		this(Optional.of(parentScope), name);
-	}
-
-	/**
-	 * Constructs a new SimpleImplementedScope with the optional parent ImplementedScope
-	 * and for the given name.
-	 * 
-	 * @param parentScope
-	 *            The ImplementedScope that is the parent of this ImplementedScope, if
-	 *            present
-	 * @param name
-	 *            The name of this ImplementedScope
-	 */
-	public SimpleImplementedScope(Optional<ImplementedScope> parentScope,
-		String name)
-	{
-		this.parent = Objects.requireNonNull(parentScope);
 		this.name = Objects.requireNonNull(name);
-	}
-
-	@Override
-	public Optional<ImplementedScope> getParentScope()
-	{
-		return parent;
+		this.isGlobalScope = isGlobal;
 	}
 
 	@Override
@@ -102,8 +66,7 @@ public class SimpleImplementedScope implements ImplementedScope
 	@Override
 	public String toString()
 	{
-		return parent.isPresent() ? parent.get().toString() + "." + getName()
-			: getName();
+		return getName();
 	}
 
 	/**
@@ -121,5 +84,11 @@ public class SimpleImplementedScope implements ImplementedScope
 	public List<ImplementedScope> drawsFrom()
 	{
 		return Collections.unmodifiableList(supplyingScopes);
+	}
+
+	@Override
+	public boolean isGlobal()
+	{
+		return isGlobalScope;
 	}
 }

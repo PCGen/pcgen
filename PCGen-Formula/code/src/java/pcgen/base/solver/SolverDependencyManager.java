@@ -30,12 +30,6 @@ import pcgen.base.formula.base.WriteableVariableStore;
 public interface SolverDependencyManager
 {
 	/**
-	 * Adds a node (for potential dependencies) to the SolverDependencyManager.
-	 * @param varID The VariableID indicating the variable to be added to the SolverDependencyManager
-	 */
-	public void addNode(VariableID<?> varID);
-
-	/**
 	 * Inserts a set of dependencies for the given Modifier.
 	 * 
 	 * @param <T>
@@ -78,12 +72,9 @@ public interface SolverDependencyManager
 	 * @param newVarStore
 	 *            The WriteableVariableStore to be placed in the new
 	 *            SolverDependencyManager
-	 * @param newNotificationTarget
-	 *            The notification target to be placed in the new SolverDependencyManager
 	 * @return A replacement SolverDependencyManager with a new VariableStore and
 	 *         notification target
 	 */
 	public SolverDependencyManager createReplacement(
-		WriteableVariableStore newVarStore,
-		Consumer<VariableID<?>> newNotificationTarget);
+		WriteableVariableStore newVarStore);
 }

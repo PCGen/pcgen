@@ -16,7 +16,6 @@
 package pcgen.base.formula.inst;
 
 import java.util.Objects;
-import java.util.Optional;
 
 import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
@@ -27,12 +26,6 @@ import pcgen.base.formula.base.VarScoped;
  */
 public class SimpleScopeInstance implements ScopeInstance
 {
-
-	/**
-	 * Contains the ScopeInstance that is the parent of this ScopeInstance.
-	 */
-	private final Optional<ScopeInstance> parent;
-
 	/**
 	 * Contains the ImplementedScope in which this ScopeInstance was instantiated.
 	 */
@@ -47,46 +40,21 @@ public class SimpleScopeInstance implements ScopeInstance
 	 * Constructs a new SimpleScopeInstance with the given parent ScopeInstance and within
 	 * the given ImplementedScope.
 	 * 
-	 * @param parent
-	 *            the ScopeInstance that is the parent of this ScopeInstance
 	 * @param scope
 	 *            the ImplementedScope in which this ScopeInstance was instantiated
 	 * @param representing
 	 *            The VarScoped object that this ScopeInstance represents
 	 */
-	public SimpleScopeInstance(Optional<ScopeInstance> parent, ImplementedScope scope,
-		VarScoped representing)
+	public SimpleScopeInstance(ImplementedScope scope, VarScoped representing)
 	{
 		this.representing = Objects.requireNonNull(representing);
-		Objects.requireNonNull(scope);
-		if (parent.isEmpty())
-		{
-			if (scope.getParentScope().isPresent())
-			{
-				throw new IllegalArgumentException(
-					"Incompatible ScopeInstance and ImplementedScope: "
-						+ "Parent may only be null when ImplementedScope has no parent");
-			}
-		}
-		else if (scope.getParentScope().isPresent())
-		{
-			ImplementedScope parentScope = scope.getParentScope().get();
-			if (!parentScope.equals(parent.get().getImplementedScope()))
-			{
-				throw new IllegalArgumentException(
-					"Incompatible ScopeInstance (" + parent.get().getImplementedScope().getName()
-						+ ") and ImplementedScope parent (" + parentScope.getName() + ")");
-			}
-		}
-		else
+		VarScoped rep = representing.getProviderFor(scope);
+		if (!representing.equals(rep))
 		{
 			throw new IllegalArgumentException(
-				"Incompatible ScopeInstance and ImplementedScope: "
-					+ "ImplementedScope Parent may only be null "
-					+ "when ScopeInstance is null");
+				"Incompatible ScopeInstance and ImplementedScope");
 		}
-		this.parent = parent;
-		this.scope = scope;
+		this.scope = Objects.requireNonNull(scope);
 	}
 
 	@Override
@@ -96,21 +64,15 @@ public class SimpleScopeInstance implements ScopeInstance
 	}
 
 	@Override
-	public Optional<ScopeInstance> getParentScope()
-	{
-		return parent;
-	}
-
-	@Override
 	public String getIdentification()
 	{
 		return representing.getClass().getSimpleName() + " " + representing;
 	}
 
 	@Override
-	public VarScoped getOwningObject()
+	public VarScoped getOwningObject(ImplementedScope implScope)
 	{
-		return representing;
+		return representing.getProviderFor(implScope);
 	}
 
 }

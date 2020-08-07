@@ -13,11 +13,11 @@
  * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
  * Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.inst;
+package pcgen.base.testsupport;
 
 import java.util.Objects;
-import java.util.Optional;
 
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.VarScoped;
 
 /**
@@ -51,22 +51,18 @@ public class GlobalVarScoped implements VarScoped
 	}
 
 	@Override
-	public Optional<String> getScopeName()
-	{
-		//Empty to indicate Global
-		return Optional.empty();
-	}
-
-	@Override
-	public Optional<VarScoped> getVariableParent()
-	{
-		//Empty to indicate Global
-		return Optional.empty();
-	}
-
-	@Override
 	public String toString()
 	{
 		return "Global Variable Scope (" + name + ")";
+	}
+
+	@Override
+	public VarScoped getProviderFor(ImplementedScope implScope)
+	{
+		if (implScope.isGlobal() && implScope.getName().equals(name))
+		{
+			return this;
+		}
+		throw new IllegalArgumentException("Cannot provide for scope: " + implScope);
 	}
 }

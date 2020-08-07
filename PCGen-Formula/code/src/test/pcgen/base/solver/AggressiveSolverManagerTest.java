@@ -29,7 +29,7 @@ import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
-import pcgen.base.solver.testsupport.MockStat;
+import pcgen.base.testsupport.SimpleVarScoped;
 
 public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 {
@@ -60,7 +60,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 			getManagerFactory(), getValueStore(),
 			getVariableStore());
 		SolverDependencyManager dm = new StaticSolverDependencyManager(
-			getManagerFactory(), newSolver::initialize);
+			getManagerFactory());
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
 		assertThrows(NullPointerException.class, () -> new GeneralSolverSystem(null, dm, strategy));
@@ -90,7 +90,8 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		getScopeManager().registerScope("Global", "STAT");
 
 		ScopeInstance strInst =
-				getScopeInstance("Global.STAT", new MockStat("Strength"));
+				getScopeInstance("Global.STAT", new SimpleVarScoped("Strength",
+					getGlobalVarScoped(), "Global.STAT"));
 
 		assertLegalVariable("Mod", "Global.STAT", FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")

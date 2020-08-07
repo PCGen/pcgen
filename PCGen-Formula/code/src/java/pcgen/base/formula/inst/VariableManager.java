@@ -28,6 +28,7 @@ import pcgen.base.formula.base.ImplementedScopeManager;
 import pcgen.base.formula.base.RelationshipManager;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
@@ -45,7 +46,7 @@ public class VariableManager implements VariableLibrary
 {
 
 	/**
-	 * The RelationshipManager that supports to be used to determine "child" scopes from
+	 * The RelationshipManager that is used to determine "child" scopes from
 	 * any ImplementedScope (in order to avoid variable name conflicts between different
 	 * but non disjoint scopes).
 	 */
@@ -57,7 +58,10 @@ public class VariableManager implements VariableLibrary
 	 */
 	private final ImplementedScopeManager scopeManager;
 
-	
+	/**
+	 * The ScopeInstanceFactory that supports to be used to determine instances from
+	 * any ImplementedScope and objects.
+	 */
 	private final ScopeInstanceFactory siFactory;
 
 	/**
@@ -79,6 +83,11 @@ public class VariableManager implements VariableLibrary
 	 * ImplementedScopeManager parameters to ensure variables are legal within a given
 	 * scope, and the ValueStore for default values of the variables.
 	 * 
+<<<<<<< Upstream, based on upstream/master
+=======
+	 * @param siFactory
+	 *            The ScopeInstanceFactory used to generate ScopeInstance objects
+>>>>>>> b953ac2 Cleanup
 	 * @param relationshipManager
 	 *            The RelationshipManager used to determine if two scopes are related
 	 * @param scopeManager
@@ -120,8 +129,7 @@ public class VariableManager implements VariableLibrary
 			if ((currentFormat != null) && !formatManager.equals(currentFormat))
 			{
 				throw new LegalVariableException(
-					varName + " was asserted in scope: "
-						+ ImplementedScope.getFullName(scope)
+					varName + " was asserted in scope: " + scope.getName()
 						+ " with format " + formatManager.getIdentifierType()
 						+ " but was previously asserted as a "
 						+ currentFormat.getIdentifierType());
@@ -131,11 +139,10 @@ public class VariableManager implements VariableLibrary
 			{
 				throw new LegalVariableException(variableDefs
 					.getSecondaryKeySet(varName).stream()
-					.map(ls -> ImplementedScope.getFullName(ls))
+					.map(ls -> ls.getName())
 					.collect(Collectors.joining(", ",
 						"A Variable was asserted in incompatible variable scopes: "
-							+ varName + " was requested in "
-							+ ImplementedScope.getFullName(scope)
+							+ varName + " was requested in " + scope.getName()
 							+ " but was previously in ",
 						"")));
 			}
@@ -154,80 +161,52 @@ public class VariableManager implements VariableLibrary
 	}
 
 	@Override
-	public boolean isLegalVariableID(ImplementedScope implScope,
-		String varName)
+	public boolean isLegalVariableID(ImplementedScope scope, String varName)
 	{
-		return internalGetImplementedScope(implScope, varName).isPresent();
+		Objects.requireNonNull(scope);
+		if (variableDefs.containsKey(varName, scope))
+		{
+			return true;
+		}
+		return scope.drawsFrom().stream()
+			.anyMatch(s -> variableDefs.containsKey(varName, s));
 	}
 
 	@Override
 	public Optional<FormatManager<?>> getVariableFormat(ImplementedScope scope, String varName)
 	{
 		Objects.requireNonNull(scope);
-		Optional<FormatManager<?>> format =
-				Optional.ofNullable(variableDefs.get(varName, scope));
-		if (format.isEmpty())
+		return getActiveScope(scope, varName)
+			.map(s -> variableDefs.get(varName, s));
+	}
+
+	private Optional<ImplementedScope> getActiveScope(ImplementedScope scope,
+		String varName)
+	{
+		if (variableDefs.containsKey(varName, scope))
 		{
-			Optional<? extends ImplementedScope> potentialParent = scope.getParentScope();
-			//Recursively check parent, if possible
-			if (potentialParent.isPresent())
-			{
-				return getVariableFormat(potentialParent.get(), varName);
-			}
+			return Optional.of(scope);
 		}
-		return format;
+		return scope.drawsFrom().stream()
+			.filter(s -> variableDefs.containsKey(varName, s))
+			.findFirst();
 	}
 
 	@Override
 	public VariableID<?> getVariableID(ScopeInstance scopeInst, String varName)
 	{
-		Objects.requireNonNull(scopeInst);
 		VariableID.checkLegalVarName(varName);
-		ImplementedScope implScope =
-				getScopeImpl(scopeInst.getImplementedScope(), varName);
-		FormatManager<?> formatManager = variableDefs.get(varName, implScope);
-		ScopeInstance activeInst = getActiveInst(implScope, scopeInst);
-		return new VariableID<>(activeInst, formatManager, varName);
-	}
-
-	private ScopeInstance getActiveInst(ImplementedScope implScope,
-		ScopeInstance scopeInst)
-	{
-		if (scopeInst.getImplementedScope().equals(implScope))
-		{
-			return scopeInst;
-		}
-		return siFactory.get(ImplementedScope.getFullName(implScope),
-			Optional.of(scopeInst.getOwningObject()));
-	}
-
-	private ImplementedScope getScopeImpl(ImplementedScope implScope,
-		String varName)
-	{
-		Optional<ImplementedScope> scope =
-				internalGetImplementedScope(implScope, varName);
-		return scope.orElseThrow(
-			() -> new IllegalArgumentException("Unable to find Variable "
-				+ varName + " when starting from Implemented Scope "
-				+ ImplementedScope.getFullName(implScope)));
-	}
-
-	private Optional<ImplementedScope> internalGetImplementedScope(ImplementedScope implScope,
-		String varName)
-	{
-		FormatManager<?> formatManager = variableDefs.get(varName, implScope);
-		if (formatManager != null)
-		{
-			return Optional.of(implScope);
-		}
-		for (ImplementedScope from : implScope.drawsFrom())
-		{
-			if (variableDefs.containsKey(varName, from))
-			{
-				return Optional.of(from);
-			}
-		}
-		return Optional.empty();
+		ImplementedScope implScope = scopeInst.getImplementedScope();
+		ImplementedScope activeScope = getActiveScope(implScope, varName)
+			.orElseThrow(() -> new IllegalArgumentException(
+				"Requested VariableID for Scope: " + implScope.getName()
+					+ " Variable: " + varName
+					+ " but that is not a legal variable"));
+		VarScoped owner = scopeInst.getOwningObject(activeScope);
+		ScopeInstance activeScopeInst =
+				siFactory.get(activeScope.getName(), owner);
+		FormatManager<?> formatManager = variableDefs.get(varName, activeScope);
+		return new VariableID<>(activeScopeInst, formatManager, varName);
 	}
 
 	@Override

@@ -30,21 +30,6 @@ import pcgen.base.util.FormatManager;
  */
 public interface SolverManager
 {
-
-	/**
-	 * Initializes the variable identified by the given VariableID. This will ensure
-	 * (among other things) that the variable has the default value stored in the
-	 * ResultsStore. Returns true if the variable is new (has not been initialized before,
-	 * has not had a Modifier added to it, has not been referenced in a Modifier modifying
-	 * another variable).
-	 * 
-	 * @param varID
-	 *            The VariableID identifying the variable that should be initialized
-	 * @return true if the variable identified by the given VariableID was actually
-	 *         initialized; false otherwise
-	 */
-	public boolean initialize(VariableID<?> varID);
-
 	/**
 	 * Adds the given Modifier to the variable identified by the given VariableID. The
 	 * Modifier is associated to the given source.

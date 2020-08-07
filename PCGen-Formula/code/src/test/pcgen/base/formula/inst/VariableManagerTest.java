@@ -37,6 +37,7 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.solver.SupplierValueStore;
+import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 import pcgen.base.testsupport.SimpleVarScoped;
 import pcgen.base.util.FormatManager;
@@ -107,12 +108,15 @@ public class VariableManagerTest
 	@Test
 	public void testAssertVariable()
 	{
-		scopeManager.registerScope("Global", "Equipment");
-		scopeManager.registerScope("Equipment", "Part");
+		scopeManager.registerScope("Global", "Global.Spell");
+		scopeManager.registerScope("Global", "Global.Equipment");
+		scopeManager.registerScope("Global.Equipment", "Global.Equipment.Part");
+
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
 		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
 		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
-		ImplementedScope spellImplementedScope = getSubScope("Global", "Spell");
+		ImplementedScope spellImplementedScope = scopeManager.getImplementedScope("Global.Spell");
+
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		//Dupe is safe
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
@@ -156,14 +160,13 @@ public class VariableManagerTest
 	@Test
 	public void testIsLegalVID()
 	{
+		scopeManager.registerScope("Global", "Global.Spell");
+		scopeManager.registerScope("Global", "Global.Equipment");
+		scopeManager.registerScope("Global.Equipment", "Global.Equipment.Part");
+
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
-
-		ImplementedScope spellImplementedScope = getSubScope("Global", "Spell");
-
-		scopeManager.registerScope("Global", "Equipment");
+		ImplementedScope spellImplementedScope = scopeManager.getImplementedScope("Global.Spell");
 		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
-
-		scopeManager.registerScope("Equipment", "Part");
 		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
 
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
@@ -196,17 +199,17 @@ public class VariableManagerTest
 	@Test
 	public void testGetVIDFail()
 	{
+		GlobalVarScoped gvs = new GlobalVarScoped("Global");
+
 		scopeManager.registerScope("Global", "Spell");
+		scopeManager.registerScope("Global", "Global.Equipment");
+		scopeManager.registerScope("Global.Equipment", "Global.Equipment.Part");
+
 		ImplementedScope spellImplementedScope = scopeManager.getImplementedScope("Global.Spell");
 
-		scopeManager.registerScope("Global", "Equipment");
-		scopeManager.registerScope("Equipment", "Part");
-
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		SimpleVarScoped eq = new SimpleVarScoped();
-		eq.scopeName = "Global.Equipment";
-		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
+		SimpleVarScoped eq = new SimpleVarScoped("Sword", gvs, "Global.Equipment");
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
 		assertThrows(NullPointerException.class, () -> variableLibrary.getVariableID(null, "Walk"));
 		assertThrows(NullPointerException.class, () -> variableLibrary.getVariableID(globalInst, null));
 		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableID(globalInst, ""));
@@ -221,24 +224,20 @@ public class VariableManagerTest
 	@Test
 	public void testGetVID()
 	{
+		GlobalVarScoped gvs = new GlobalVarScoped("Global");
+
+		scopeManager.registerScope("Global", "Global.Equipment");
+		scopeManager.registerScope("Global.Equipment", "Global.Equipment.Part");
+
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
-
-		scopeManager.registerScope("Global", "Equipment");
 		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
-
-		scopeManager.registerScope("Equipment", "Part");
 		ImplementedScope partImplementedScope = scopeManager.getImplementedScope("Global.Equipment.Part");
 
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		SimpleVarScoped eq = new SimpleVarScoped();
-		eq.scopeName = "Global.Equipment";
-		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
-		SimpleVarScoped eqpart = new SimpleVarScoped();
-		eqpart.scopeName = "Global.Equipment.Part";
-		eqpart.name = "Mod";
-		eqpart.parent = eq;
-		ScopeInstance eqPartInst = instanceFactory.get("Global.Equipment.Part", Optional.of(eqpart));
+		ScopeInstance globalInst = instanceFactory.get("Global", gvs);
+		SimpleVarScoped eq = new SimpleVarScoped("Sword", gvs, "Global.Equipment");
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
+		SimpleVarScoped eqpart = new SimpleVarScoped("Mod", eq, "Global.Equipment.Part");
+		ScopeInstance eqPartInst = instanceFactory.get("Global.Equipment.Part", eqpart);
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		variableLibrary.assertLegalVariableID("Float", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		variableLibrary.assertLegalVariableID("Hover", partImplementedScope, FormatUtilities.NUMBER_MANAGER);
@@ -278,9 +277,9 @@ public class VariableManagerTest
 	@Test
 	public void testGetVariableFormat()
 	{
+		scopeManager.registerScope("Global", "Global.Equipment");
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
-
-		ImplementedScope equipmentImplementedScope = getSubScope("Global", "Equipment");
+		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
 
 		variableLibrary.assertLegalVariableID("Walk", globalImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		variableLibrary.assertLegalVariableID("Float", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
@@ -309,17 +308,16 @@ public class VariableManagerTest
 	@Test
 	public void testProveReuse()
 	{
-		ImplementedScope equipmentImplementedScope = getSubScope("Global", "Equipment");
-		ImplementedScope abilityImplementedScope = getSubScope("Global", "Ability");
+		GlobalVarScoped gvs = new GlobalVarScoped("Global");
+		scopeManager.registerScope("Global", "Global.Ability");
+		scopeManager.registerScope("Global", "Global.Equipment");
+		ImplementedScope abilityImplementedScope = scopeManager.getImplementedScope("Global.Ability");
+		ImplementedScope equipmentImplementedScope = scopeManager.getImplementedScope("Global.Equipment");
 
-		SimpleVarScoped eq = new SimpleVarScoped();
-		eq.scopeName = "Global.Equipment";
-		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
-		SimpleVarScoped ab = new SimpleVarScoped();
-		ab.scopeName = "Global.Ability";
-		ab.name = "Dodge";
-		ScopeInstance abInst = instanceFactory.get("Global.Ability", Optional.of(ab));
+		SimpleVarScoped eq = new SimpleVarScoped("Sword", gvs, "Global.Equipment");
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
+		SimpleVarScoped ab = new SimpleVarScoped("Dodge", gvs, "Global.Ability");
+		ScopeInstance abInst = instanceFactory.get("Global.Ability", ab);
 
 		variableLibrary.assertLegalVariableID("Walk", equipmentImplementedScope, FormatUtilities.NUMBER_MANAGER);
 		VariableID<?> vidm = variableLibrary.getVariableID(eqInst, "Walk");
@@ -380,11 +378,4 @@ public class VariableManagerTest
 	{
 		return scopeManager.getImplementedScope("Global");
 	}
-
-	private ImplementedScope getSubScope(String parent, String name)
-	{
-		scopeManager.registerScope(parent, name);
-		return scopeManager.getImplementedScope(parent + "." + name);
-	}
-
 }

@@ -29,6 +29,7 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 
 public class DelegatingVariableStoreTest
@@ -60,8 +61,8 @@ public class DelegatingVariableStoreTest
 		MonitorableVariableStore backingStore = new MonitorableVariableStore();
 		DelegatingVariableStore varStore = new DelegatingVariableStore(backingStore);
 		
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		ScopeInstance staticInst = instanceFactory.getGlobalInstance("Static");
+		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
+		ScopeInstance staticInst = instanceFactory.get("Static", new GlobalVarScoped("Static"));
 
 		VariableID<Number> varID = new VariableID<>(globalInst,
 				FormatUtilities.NUMBER_MANAGER, "test");

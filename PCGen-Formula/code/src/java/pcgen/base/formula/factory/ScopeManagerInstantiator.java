@@ -2,7 +2,9 @@ package pcgen.base.formula.factory;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.inst.ImplementedScopeLibrary;
 import pcgen.base.formula.inst.SimpleImplementedScope;
 import pcgen.base.graph.base.Graph;
@@ -56,28 +58,48 @@ public class ScopeManagerInstantiator
 	 */
 	public ImplementedScopeLibrary instantiate()
 	{
-		for (String node : dependencies.getNodeList())
-		{
-			SimpleImplementedScope scope = getImplementedScope(node);
-			ancestors.clear();
-			ancestors.traverseFromNode(node);
-			for (String ancestor : ancestors.getVisitedNodes())
-			{
-				scope.drawsFrom(getImplementedScope(ancestor));
-			}
-		}
+		dependencies.getAdjacentEdges(ShadowingScopeManager.GLOBAL_PARENT)
+			.stream()
+			.map(e -> e.getNodeAt(1))
+			.forEach(s -> getImplementedScope(s, true));
+		dependencies.getNodeList().stream()
+			.filter(s -> !map.containsKey(s))
+			.forEach(s -> getImplementedScope(s, false));
 		ImplementedScopeLibrary isl = new ImplementedScopeLibrary();
-		map.values().stream().forEach(isl::addScope);
+		map.values().stream().filter(this::notGlobal).forEach(isl::addScope);
 		return isl;
 	}
 
-	private SimpleImplementedScope getImplementedScope(String name)
+	private boolean notGlobal(ImplementedScope scope)
+	{
+		return !scope.getName().equals(ShadowingScopeManager.GLOBAL_PARENT);
+	}
+
+	private SimpleImplementedScope getImplementedScope(String name, boolean globalIfCreated)
 	{
 		SimpleImplementedScope scope = map.get(name);
 		if (scope == null)
 		{
-			scope = new SimpleImplementedScope(name);
+			scope = buildNewScope(name, globalIfCreated);
 			map.put(name, scope);
+		}
+		return scope;
+	}
+
+	private SimpleImplementedScope buildNewScope(String name,
+		boolean globalIfCreated)
+	{
+		ancestors.clear();
+		ancestors.traverseFromNode(name);
+		Set<String> visited = ancestors.getVisitedNodes();
+		SimpleImplementedScope scope =
+				new SimpleImplementedScope(name, globalIfCreated);
+		for (String ancestor : visited)
+		{
+			if (!ancestor.equals(scope.getName()))
+			{
+				scope.drawsFrom(getImplementedScope(ancestor, globalIfCreated));
+			}
 		}
 		return scope;
 	}

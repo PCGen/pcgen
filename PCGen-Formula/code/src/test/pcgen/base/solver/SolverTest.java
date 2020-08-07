@@ -24,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,15 +37,15 @@ import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.inst.FormulaUtilities;
-import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.testsupport.AbstractModifier;
-import pcgen.base.solver.testsupport.MockStat;
+import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
+import pcgen.base.testsupport.SimpleVarScoped;
 import pcgen.base.testsupport.TestUtilities;
 
 public class SolverTest
@@ -62,9 +61,10 @@ public class SolverTest
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		scopeManager.registerScope("Global", "STAT");
 		ScopeInstanceFactory scopeInstanceFactory = new SimpleScopeInstanceFactory(scopeManager);
-		inst = scopeInstanceFactory.get("Global", Optional.of(new GlobalVarScoped("Global")));
-		str = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("STR")));
-		con = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("CON")));
+		GlobalVarScoped gvs = new GlobalVarScoped("Global");
+		inst = scopeInstanceFactory.get("Global", gvs);
+		str = scopeInstanceFactory.get("Global.STAT", new SimpleVarScoped("STR", gvs, "Global.STAT"));
+		con = scopeInstanceFactory.get("Global.STAT", new SimpleVarScoped("CON", gvs, "Global.STAT"));
 		OperatorLibrary opLibrary = FormulaUtilities.loadBuiltInOperators(new SimpleOperatorLibrary());
 		FunctionLibrary functionLib = FormulaUtilities.loadBuiltInFunctions(new SimpleFunctionLibrary());
 		SupplierValueStore valueStore = new SupplierValueStore();

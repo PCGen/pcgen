@@ -17,24 +17,12 @@
  */
 package pcgen.base.formula.base;
 
-import java.util.Optional;
-
 /**
  * A ScopeInstanceFactory is a factory used to instantiate ScopeInstance objects given a
  * parent ScopeInstance and ImplementedScope in which to instantiate the ScopeInstance.
  */
 public interface ScopeInstanceFactory
 {
-	/**
-	 * Returns the "global" ScopeInstance object for the given ImplementedScope.
-	 * 
-	 * @param scopeName
-	 *            The name of the ImplementedScope for which the "global"
-	 *            ScopeInstance should be returned.
-	 * @return The "global" ScopeInstance object for the given ImplementedScope
-	 */
-	public ScopeInstance getGlobalInstance(String scopeName);
-
 	/**
 	 * Returns the ScopeInstance within the given ImplementedScope and considering the given
 	 * VarScoped object. If the ImplementedScope is not the scope for the given VarScoped
@@ -46,15 +34,14 @@ public interface ScopeInstanceFactory
 	 *            The name of the ImplementedScope for which the ScopeInstance should be
 	 *            returned
 	 * @param obj
-	 *            The (Optional) Object where analysis should start in order to determine
-	 *            the appropriate ScopeInstance to be returned.  This must be non-empty unless
-	 *            the given scopeName is a Global scope name.
+	 *            The Object where analysis should start in order to determine
+	 *            the appropriate ScopeInstance to be returned.
 	 * @return The ScopeInstance within the given ImplementedScope and considering the given
 	 *         VarScoped object
 	 * @throws IllegalArgumentException
 	 *             if the given ImplementedScope is not a scope for the given VarScoped object
-	 *             or an ancestor of the VarScoped object (as determined by VarScoped's
-	 *             getVariableParent())
+	 *             or an ancestor of the VarScoped object (as determined by
+	 *             getProviderFor())
 	 */
-	public ScopeInstance get(String scopeName, Optional<VarScoped> obj);
+	public ScopeInstance get(String scopeName, VarScoped obj);
 }

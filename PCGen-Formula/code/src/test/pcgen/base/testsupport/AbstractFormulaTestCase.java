@@ -48,7 +48,6 @@ import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.inst.FormulaUtilities;
-import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
@@ -74,6 +73,7 @@ public abstract class AbstractFormulaTestCase
 	private ScopeInstanceFactory siFactory;
 	private WriteableVariableStore varStore;
 	private VariableManager varLib;
+	private GlobalVarScoped globalVarScoped;
 
 	@BeforeEach
 	protected void setUp()
@@ -90,7 +90,8 @@ public abstract class AbstractFormulaTestCase
 		siFactory = new SimpleScopeInstanceFactory(scopeManager);
 		varLib = new VariableManager(scopeManager, scopeManager, siFactory, valueStore);
 		managerFactory = new ManagerFactory(opLibrary, varLib, functionLib, varStore, siFactory);
-		globalInstance = getGlobalInstance("Global");
+		globalVarScoped = new GlobalVarScoped("Global");
+		globalInstance = siFactory.get("Global", globalVarScoped);
 	}
 
 	protected FunctionLibrary functionSetup(WriteableFunctionLibrary wfl)
@@ -239,6 +240,11 @@ public abstract class AbstractFormulaTestCase
 		return variableID;
 	}
 
+	public GlobalVarScoped getGlobalVarScoped()
+	{
+		return globalVarScoped;
+	}
+
 	protected FunctionLibrary getFunctionLibrary()
 	{
 		return functionLib;
@@ -298,13 +304,12 @@ public abstract class AbstractFormulaTestCase
 
 	protected ScopeInstance getScopeInstance(String scopeName, VarScoped vs)
 	{
-		return siFactory.get(scopeName, Optional.of(vs));
+		return getInstanceFactory().get(scopeName, vs);
 	}
 
 	public ScopeInstance getGlobalInstance(String name)
 	{
-		return siFactory.get("Global",
-			Optional.of(new GlobalVarScoped("Global")));
+		return siFactory.get("Global", new GlobalVarScoped("Global"));
 	}
 
 	public FormatManagerLibrary getInitializedFormatManager()

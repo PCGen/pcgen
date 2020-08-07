@@ -44,12 +44,6 @@ public final class StaticSolverDependencyManager
 	private final ManagerFactory managerFactory;
 
 	/**
-	 * The Consumer to be notified when a new VariableID is detected. Note that this can
-	 * be a redundant call, so must not create unnecessary side effects.
-	 */
-	private final Consumer<VariableID<?>> notificationTarget;
-
-	/**
 	 * A mathematical graph used to store dependencies between VariableIDs. Since there is
 	 * a 1:1 relationship with the Solver used for a VariableID, this implicitly stores
 	 * the dependencies between the Solvers that are part of this StaticSolverDependencyManager.
@@ -62,22 +56,10 @@ public final class StaticSolverDependencyManager
 	 * 
 	 * @param managerFactory
 	 *            The ManagerFactory used to construct DependencyManager objects
-	 * @param notificationTarget
-	 *            The Consumer to be notified when a VariableID providing a dependency is
-	 *            detected
 	 */
-	public StaticSolverDependencyManager(
-		ManagerFactory managerFactory,
-		Consumer<VariableID<?>> notificationTarget)
+	public StaticSolverDependencyManager(ManagerFactory managerFactory)
 	{
 		this.managerFactory = Objects.requireNonNull(managerFactory);
-		this.notificationTarget = Objects.requireNonNull(notificationTarget);
-	}
-
-	@Override
-	public void addNode(VariableID<?> varID)
-	{
-		dependencies.addNode(varID);
 	}
 
 	@Override
@@ -109,31 +91,27 @@ public final class StaticSolverDependencyManager
 	{
 		for (VariableID<?> depID : dependentVarIDs)
 		{
-			//Note: This add can be redundant
-			dependencies.addNode(varID);
 			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 			DefaultDirectionalGraphEdge<VariableID<?>> edge =
 					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
 			dependencies.addEdge(edge);
-			notificationTarget.accept(depID);
 		}
 	}
 
 	private void removeIfMissing(VariableID<?> varID,
 		List<VariableID<?>> dependentVarIDs)
 	{
-		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
+		Set<DefaultDirectionalGraphEdge<VariableID<?>>> adjacentEdges =
 				dependencies.getAdjacentEdges(varID);
-		if (edges == null)
+		if (adjacentEdges != null)
 		{
-			return;
-		}
-		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : edges)
-		{
-			if ((edge.getNodeAt(1) == varID)
-				&& !dependentVarIDs.contains(edge.getNodeAt(0)))
+			for (DefaultDirectionalGraphEdge<VariableID<?>> edge : adjacentEdges)
 			{
-				dependencies.removeEdge(edge);
+				if ((edge.getNodeAt(1) == varID)
+					&& !dependentVarIDs.contains(edge.getNodeAt(0)))
+				{
+					dependencies.removeEdge(edge);
+				}
 			}
 		}
 	}
@@ -167,12 +145,10 @@ public final class StaticSolverDependencyManager
 
 	@Override
 	public StaticSolverDependencyManager createReplacement(
-		WriteableVariableStore newVarStore,
-		Consumer<VariableID<?>> newNotificationTarget)
+		WriteableVariableStore newVarStore)
 	{
 		StaticSolverDependencyManager replacement =
-				new StaticSolverDependencyManager(managerFactory,
-					newNotificationTarget);
+				new StaticSolverDependencyManager(managerFactory);
 		for (VariableID<?> varID : dependencies.getNodeList())
 		{
 			replacement.dependencies.addNode(varID);
