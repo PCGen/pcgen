@@ -15,11 +15,9 @@
  */
 package pcgen.base.solver;
 
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Function;
-
+import pcgen.base.formula.base.DependencyConsumer;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableSolver;
 
 /**
  * A SolverStrategy is the analyzer of the dependencies in a SolverSystem, and decides the
@@ -50,14 +48,12 @@ public interface SolverStrategy
 	 * Generates a Replacement SolverStrategy with the given arguments.
 	 * 
 	 * @param depManager
-	 *            The new SolverDependencyManager for the replacement SolverStrategy
+	 *            The new DependencyConsumer for the replacement SolverStrategy
 	 * @param solver
-	 *            The new Function used to solve a given VariableID. Must return true if
-	 *            the value changed.
+	 *            The new VariableSolver used to solve a given VariableID
 	 * @return A Replacement SolverStrategy with the given arguments
 	 */
-	public SolverStrategy generateReplacement(
-		BiConsumer<VariableID<?>, Consumer<VariableID<?>>> depManager,
-		Function<VariableID<?>, Boolean> solver);
+	public SolverStrategy generateReplacement(DependencyConsumer depManager,
+		VariableSolver solver);
 
 }

@@ -17,11 +17,10 @@ package pcgen.base.solver;
 
 import java.util.Objects;
 import java.util.Stack;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
+import pcgen.base.formula.base.DependencyConsumer;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableSolver;
 
 /**
  * An AggressiveStrategy is a SolverStrategy that will immediately calculate the result of
@@ -36,28 +35,26 @@ public class AggressiveStrategy implements SolverStrategy
 	private final Stack<VariableID<?>> varStack = new Stack<>();
 
 	/**
-	 * The Function used to solve a given VariableID.  Must return true if the value changed.
+	 * The VariableSolver used to solve a given VariableID.  Must return true if the value changed.
 	 */
-	private final Function<VariableID<?>, Boolean> solveProcessor;
+	private final VariableSolver solveProcessor;
 
 	/**
-	 * The BiConsumer used to process an item on all dependents of a VariableID.
+	 * The DependencyConsumer used to process an item on all dependents of a VariableID.
 	 */
-	private final BiConsumer<VariableID<?>, Consumer<VariableID<?>>> depConsumer;
+	private final DependencyConsumer depConsumer;
 
 	/**
 	 * Constructs a new AggressiveStrategy with the given arguments.
 	 * 
 	 * @param depConsumer
-	 *            The BiConsumer used to process an item on all dependents of a
+	 *            The DependencyConsumer used to process an item on all dependents of a
 	 *            VariableID
 	 * @param solveProcessor
-	 *            The Function used to solve a given VariableID. Must return true if the
-	 *            value changed
+	 *            The VariableSolver used to solve a given VariableID
 	 */
-	public AggressiveStrategy(BiConsumer<VariableID<?>,
-		Consumer<VariableID<?>>> depConsumer,
-		Function<VariableID<?>, Boolean> solveProcessor)
+	public AggressiveStrategy(DependencyConsumer depConsumer,
+		VariableSolver solveProcessor)
 	{
 		this.depConsumer = Objects.requireNonNull(depConsumer);
 		this.solveProcessor = Objects.requireNonNull(solveProcessor);
@@ -84,7 +81,7 @@ public class AggressiveStrategy implements SolverStrategy
 		try
 		{
 			varStack.push(varID);
-			changed = solveProcessor.apply(varID);
+			changed = solveProcessor.solve(varID);
 			if (changed)
 			{
 				if (loopIfChanged)
@@ -116,13 +113,13 @@ public class AggressiveStrategy implements SolverStrategy
 	@Override
 	public void processValueUpdated(VariableID<?> varID)
 	{
-		depConsumer.accept(varID, this::solveFromNode);
+		depConsumer.processForDependents(varID, this::solveFromNode);
 	}
 
 	@Override
 	public AggressiveStrategy generateReplacement(
-		BiConsumer<VariableID<?>, Consumer<VariableID<?>>> newDepConsumer,
-		Function<VariableID<?>, Boolean> newSolver)
+		DependencyConsumer newDepConsumer,
+		VariableSolver newSolver)
 	{
 		return new AggressiveStrategy(newDepConsumer, newSolver);
 	}

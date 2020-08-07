@@ -22,11 +22,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.BiFunction;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.ImplementedScope;
+import pcgen.base.formula.base.LegalVariableChecker;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -45,9 +44,9 @@ public class SimpleSolverManager implements SolverManager
 {
 
 	/**
-	 * The Function used to check validity of a variable name.
+	 * The LegalVariableChecker used to check validity of a variable name.
 	 */
-	private final BiFunction<ImplementedScope, String, Boolean> varCheck;
+	private final LegalVariableChecker varCheck;
 
 	/**
 	 * The ManagerFactory to be used to generate visitor managers in this
@@ -84,7 +83,7 @@ public class SimpleSolverManager implements SolverManager
 	 * VariableStore, as necessary.)
 	 * 
 	 * @param varCheck
-	 *            The Function used to check validity of a variable name
+	 *            The LegalVariableChecker used to check validity of a variable name
 	 * @param managerFactory
 	 *            The to be used to generate visitor managers in this SimpleSolverManager
 	 * @param valueStore
@@ -94,7 +93,7 @@ public class SimpleSolverManager implements SolverManager
 	 *            The place where results from a calculation should be stored
 	 */
 	public SimpleSolverManager(
-		BiFunction<ImplementedScope, String, Boolean> varCheck,
+		LegalVariableChecker varCheck,
 		ManagerFactory managerFactory, SupplierValueStore valueStore,
 		WriteableVariableStore resultStore)
 	{
@@ -118,7 +117,8 @@ public class SimpleSolverManager implements SolverManager
 	 */
 	private void checkLegal(VariableID<?> varID)
 	{
-		if (!varCheck.apply(varID.getScope().getImplementedScope(), varID.getName()))
+		if (!varCheck.isLegalVariable(varID.getScope().getImplementedScope(),
+			varID.getName()))
 		{
 			throw new IllegalArgumentException(
 				"Request to add Modifier to Solver for " + varID
@@ -153,8 +153,7 @@ public class SimpleSolverManager implements SolverManager
 	public <T> boolean processSolver(VariableID<T> varID)
 	{
 		T newValue = getBuiltSolver(varID)
-			.map(s -> s.process(
-				managerFactory.generateEvaluationManager()))
+			.map(s -> s.process(managerFactory.generateEvaluationManager()))
 			.orElse(getDefault(varID.getFormatManager()));
 		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
