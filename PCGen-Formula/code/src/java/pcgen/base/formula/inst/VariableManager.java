@@ -161,12 +161,21 @@ public class VariableManager implements VariableLibrary
 	}
 
 	@Override
-	public FormatManager<?> getVariableFormat(ImplementedScope legalScope,
-		String varName)
+	public Optional<FormatManager<?>> getVariableFormat(ImplementedScope scope, String varName)
 	{
-		Objects.requireNonNull(legalScope);
-		ImplementedScope implScope = getScopeImpl(legalScope, varName);
-		return variableDefs.get(varName, implScope);
+		Objects.requireNonNull(scope);
+		Optional<FormatManager<?>> format =
+				Optional.ofNullable(variableDefs.get(varName, scope));
+		if (format.isEmpty())
+		{
+			Optional<? extends ImplementedScope> potentialParent = scope.getParentScope();
+			//Recursively check parent, if possible
+			if (potentialParent.isPresent())
+			{
+				return getVariableFormat(potentialParent.get(), varName);
+			}
+		}
+		return format;
 	}
 
 	@Override

@@ -18,6 +18,7 @@
 package pcgen.base.formula.base;
 
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
@@ -91,10 +92,8 @@ public interface VariableLibrary
 	 * Returns the FormatManager for the given ImplementedScope and variable name, knowing
 	 * previous assertions of a FormatManager for the given ImplementedScope and variable name.
 	 * 
-	 * If no previous FormatManager was stored via assertLegalVariableID for a related
-	 * ImplementedScope and variable name, then this will unconditionally return null.
-	 * Note if the given ImplementedScope is equal to or draws upon the stored ImplementedScope
-	 * then this will return a FormatManager.
+	 * If no previous FormatManager was stored via assertLegalVariableID for the given
+	 * ImplementedScope and variable name, then this will unconditionally return empty.
 	 * 
 	 * @param scope
 	 *            The ImplementedScope to be used to determine the FormatManager for the given
@@ -104,7 +103,7 @@ public interface VariableLibrary
 	 * 
 	 * @return The FormatManager for the given ImplementedScope and variable name
 	 */
-	public FormatManager<?> getVariableFormat(ImplementedScope scope, String varName);
+	public Optional<FormatManager<?>> getVariableFormat(ImplementedScope implementedScope, String varName);
 
 	/**
 	 * Returns a VariableID for the given ScopeInstance and variable name, if legal.

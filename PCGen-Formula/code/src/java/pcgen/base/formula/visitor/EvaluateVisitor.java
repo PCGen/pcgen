@@ -383,10 +383,9 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	{
 		VariableLibrary varLibrary = manager.get(EvaluationManager.VARLIB);
 		ScopeInstance scopeInst = manager.get(EvaluationManager.INSTANCE);
-		FormatManager<?> formatManager =
-				varLibrary
-					.getVariableFormat(scopeInst.getImplementedScope(), varName);
-		if (formatManager != null)
+		Optional<FormatManager<?>> formatManager = varLibrary
+			.getVariableFormat(scopeInst.getImplementedScope(), varName);
+		if (formatManager.isPresent())
 		{
 			VariableID<?> id = varLibrary.getVariableID(scopeInst, varName);
 			VariableStore resolver = manager.get(EvaluationManager.RESULTS);
@@ -394,6 +393,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 			{
 				return resolver.get(id);
 			}
+			return varLibrary.getDefault(formatManager.get());
 		}
 		Optional<FormatManager<?>> asserted = manager.get(EvaluationManager.ASSERTED);
 		if (!asserted.isPresent())

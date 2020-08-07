@@ -39,6 +39,7 @@ import pcgen.base.math.OrderedPair;
 import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.testsupport.NaiveScopeManager;
 import pcgen.base.testsupport.SimpleVarScoped;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 
 public class VariableManagerTest
@@ -286,22 +287,23 @@ public class VariableManagerTest
 		assertThrows(NullPointerException.class, () -> variableLibrary.getVariableFormat(null, "Walk"));
 		try
 		{
-			Object o = variableLibrary.getVariableFormat(globalImplementedScope, null);
-			assertTrue(o == null);
+			Optional<FormatManager<?>> o = variableLibrary.getVariableFormat(globalImplementedScope, null);
+			assertTrue(o.isEmpty());
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok too
 		}
-		assertTrue(FormatUtilities.NUMBER_MANAGER
-			.equals(variableLibrary.getVariableFormat(globalImplementedScope, "Walk")));
+		//Works for variables at same scope
 		assertTrue(
-			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(equipmentImplementedScope, "Float")));
-		//Works when scope lower down, variable up
+			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(equipmentImplementedScope, "Float").get()));
 		assertTrue(
-			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(equipmentImplementedScope, "Walk")));
-		//Fail due to incorrect scope (scope higher up, variable down)
-		assertThrows(IllegalArgumentException.class, () -> variableLibrary.getVariableFormat(globalImplementedScope, "Float"));
+			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(globalImplementedScope, "Walk").get()));
+		//Works for variable from higher scope
+		assertTrue(
+			FormatUtilities.NUMBER_MANAGER.equals(variableLibrary.getVariableFormat(equipmentImplementedScope, "Walk").get()));
+		//Fail for variable from lower scope
+		assertTrue(variableLibrary.getVariableFormat(globalImplementedScope, "Float").isEmpty());
 	}
 
 	@Test

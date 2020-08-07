@@ -38,7 +38,7 @@ public class ShadowingScopeManager
 	/**
 	 * The object representing the Global Parent for all scopes.
 	 */
-	private static final String GLOBAL_PARENT = "**GLOBAL PARENT**";
+	public static final String GLOBAL_PARENT = "**GLOBAL PARENT**";
 
 	/**
 	 * The graph of dependencies between scopes.
@@ -88,6 +88,31 @@ public class ShadowingScopeManager
 			throw new IllegalArgumentException(
 				"Parent Scope: " + parent + " has not been registered");
 		}
+	}
+
+	/**
+	 * Links the given expressed scope to the given underlying scope. The expressed scope
+	 * will be able to draw upon the underlying scope.
+	 * 
+	 * @param underlying
+	 *            The underlying scope
+	 * @param expressed
+	 *            The expressed scope
+	 */
+	public void linkScope(String underlying, String expressed)
+	{
+		if (!dependencies.containsNode(underlying))
+		{
+			throw new IllegalArgumentException(
+				"Underlying Scope: " + underlying + " has not been registered");
+		}
+		if (!dependencies.containsNode(expressed))
+		{
+			throw new IllegalArgumentException(
+				"Expressed Scope: " + expressed + " has not been registered");
+		}
+		dependencies
+			.addEdge(new DefaultDirectionalGraphEdge<>(underlying, expressed));
 	}
 
 	/**

@@ -97,7 +97,7 @@ public class AggressiveStrategy implements SolverStrategy
 				 * doing them in order of a topological sort - it is completely random...
 				 * so things may be processed twice :/
 				 */
-				solveChildren(varID);
+				processValueUpdated(varID);
 			}
 		}
 		finally
@@ -113,7 +113,8 @@ public class AggressiveStrategy implements SolverStrategy
 	 * @param varID
 	 *            The VariableID for which the children should be solved
 	 */
-	private void solveChildren(VariableID<?> varID)
+	@Override
+	public void processValueUpdated(VariableID<?> varID)
 	{
 		depConsumer.accept(varID, this::solveFromNode);
 	}

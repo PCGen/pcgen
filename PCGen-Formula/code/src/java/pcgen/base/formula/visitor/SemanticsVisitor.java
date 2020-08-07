@@ -310,12 +310,6 @@ public class SemanticsVisitor implements FormulaParserVisitor
 					+ " must resolve to a number");
 		}
 		FormatManager<?> formatManager = getVariableFormat(semantics, name);
-		if (formatManager == null)
-		{
-			throw new SemanticsFailureException(
-				"Variable: " + name + " was not found in scope "
-					+ semantics.get(FormulaSemantics.SCOPE).getName());
-		}
 		Optional<FormatManager<?>> componentMgr = formatManager.getComponentManager();
 		return componentMgr.orElseThrow(() -> new SemanticsFailureException(
 				"Variable: " + name + " was not an array in scope "
@@ -355,14 +349,11 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		String varName)
 	{
 		VariableLibrary varLib = semantics.get(FormulaSemantics.VARLIB);
-		ImplementedScope scope = semantics.get(FormulaSemantics.SCOPE);
-		if (!varLib.isLegalVariableID(scope, varName))
-		{
-			throw new SemanticsFailureException(
+		ImplementedScope implementedScope = semantics.get(FormulaSemantics.SCOPE);
+		return varLib.getVariableFormat(implementedScope, varName)
+			.orElseThrow(() -> new SemanticsFailureException(
 				"Variable: " + varName + " was not found in scope "
-					+ semantics.get(FormulaSemantics.SCOPE).getName());
-		}
-		return varLib.getVariableFormat(scope, varName);
+					+ semantics.get(FormulaSemantics.SCOPE).getName()));
 	}
 
 	/**

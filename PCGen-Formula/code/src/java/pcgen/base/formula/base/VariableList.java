@@ -46,15 +46,7 @@ public class VariableList
 	 */
 	public List<VariableID<?>> getVariables()
 	{
-		if (vars == null)
-		{
-			vars = Collections.emptyList();
-		}
-		else
-		{
-			vars = new ArrayList<>(vars);
-		}
-		return vars;
+		return (vars == null) ? Collections.emptyList() : new ArrayList<>(vars);
 	}
 
 	/**

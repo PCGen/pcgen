@@ -29,6 +29,15 @@ public interface SolverStrategy
 {
 
 	/**
+	 * Notifies the SolverStrategy that the given VariableID has been updated (and any
+	 * dependent items may need to be addressed).
+	 * 
+	 * @param varID
+	 *            The VariableID where the value has been updated
+	 */
+	public void processValueUpdated(VariableID<?> varID);
+
+	/**
 	 * Notifies the SolverStrategy that the process to calculate the result of a given
 	 * VariableID has been updated.
 	 * 
