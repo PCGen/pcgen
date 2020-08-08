@@ -509,10 +509,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		{
 			listChar = new ListKeyMapToList();
 		}
-if (element == null)
-{
-	Thread.dumpStack();
-}
 		listChar.addToListFor(key, element);
 	}
 
