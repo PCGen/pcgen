@@ -42,7 +42,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
@@ -242,9 +241,8 @@ public class CharacterFacadeImpl
 	private String selectedGender;
 	private List<Language> currBonusLangs;
 	private WriteableReferenceFacade<String> skinColor;
-	private DefaultReferenceFacade<String> hairColor;
+	private WriteableReferenceFacade<String> hairColor;
 	private DefaultReferenceFacade<String> eyeColor;
-	private DefaultReferenceFacade<Integer> heightRef;
 	private DefaultReferenceFacade<Integer> weightRef;
 	private WriteableReferenceFacade<BigDecimal> fundsRef;
 	private DefaultReferenceFacade<BigDecimal> wealthRef;
@@ -393,11 +391,11 @@ public class CharacterFacadeImpl
 
 		skinColor = CoreInterfaceUtilities.getReferenceFacade(
 			theCharacter.getCharID(), CControl.SKINCOLORINPUT);
-		hairColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR));
+		hairColor = CoreInterfaceUtilities.getReferenceFacade(
+				theCharacter.getCharID(), CControl.HAIRCOLORINPUT);
 		eyeColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR));
 		weightRef = new DefaultReferenceFacade<>();
-		heightRef = new DefaultReferenceFacade<>();
-		refreshHeightWeight();
+		refreshWeight();
 
 		purchasedEquip = new EquipmentListFacadeImpl(theCharacter.getEquipmentMasterList());
 		autoEquipListener = new AutoEquipListener();
@@ -761,7 +759,7 @@ public class CharacterFacadeImpl
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
-		refreshHeightWeight();
+		refreshWeight();
 		refreshStatScores();
 
 		updateLevelTodo();
@@ -781,10 +779,9 @@ public class CharacterFacadeImpl
 		hpRef.set(theCharacter.hitPoints());
 	}
 
-	private void refreshHeightWeight()
+	private void refreshWeight()
 	{
 		weightRef.set(Globals.getGameModeUnitSet().convertWeightToUnitSet(charDisplay.getWeight()));
-		heightRef.set((int) Math.round(Globals.getGameModeUnitSet().convertHeightToUnitSet(charDisplay.getHeight())));
 	}
 
 	@Override
@@ -1686,7 +1683,7 @@ public class CharacterFacadeImpl
 		refreshClassLevelModel();
 		refreshStatScores();
 		updateAgeCategoryForAge();
-		refreshHeightWeight();
+		refreshWeight();
 		characterAbilities.rebuildAbilityLists();
 		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
@@ -1745,28 +1742,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * Check  whether the field should be output. 
-	 * @param field The BiographyField to check export rules for.
-	 * @return true if the field should be output, false if it may not be.
-	 */
-	@Override
-	public boolean getExportBioField(BiographyField field)
-	{
-		return !charDisplay.getSuppressBioField(field);
-	}
-
-	/**
-	 * Set whether the field should be output. 
-	 * @param field The BiographyField to set export rules for.
-	 * @param export Should the field be shown in output.
-	 */
-	@Override
-	public void setExportBioField(BiographyField field, boolean export)
-	{
-		theCharacter.setSuppressBioField(field, !export);
-	}
-
 	@Override
 	public ReferenceFacade<String> getSkinColorRef()
 	{
@@ -1789,7 +1764,6 @@ public class CharacterFacadeImpl
 	public void setHairColor(String color)
 	{
 		hairColor.set(color);
-		theCharacter.setPCAttribute(PCStringKey.HAIRCOLOR, color);
 	}
 
 	@Override
@@ -1803,20 +1777,6 @@ public class CharacterFacadeImpl
 	{
 		eyeColor.set(color);
 		theCharacter.setEyeColor(color);
-	}
-
-	@Override
-	public ReferenceFacade<Integer> getHeightRef()
-	{
-		return heightRef;
-	}
-
-	@Override
-	public void setHeight(int height)
-	{
-		int heightInInches = Globals.getGameModeUnitSet().convertHeightFromUnitSet(height);
-		heightRef.set(height);
-		theCharacter.setHeight(heightInInches);
 	}
 
 	@Override

@@ -24,7 +24,6 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
 
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
@@ -694,22 +693,6 @@ public interface CharacterFacade extends CompanionFacade
 	public void setThumbnailCrop(Rectangle rect);
 
 	/**
-	 * Retrieve the current export state of the BiographyField.
-	 * 
-	 * @param field The BiographyField to be examined
-	 * @return true if the field should be exported, false if it should be suppressed from export.
-	 */
-	public boolean getExportBioField(BiographyField field);
-
-	/**
-	 * Set the export state of the BiographyField.
-	 * 
-	 * @param field The BiographyField 
-	 * @param export if the field should be exported, false if it should be suppressed from export.
-	 */
-	public void setExportBioField(BiographyField field, boolean export);
-
-	/**
 	 * @return a reference to this character's skin color.
 	 */
 	public ReferenceFacade<String> getSkinColorRef();
@@ -738,16 +721,6 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param color the eye color to set.
 	 */
 	public void setEyeColor(String color);
-
-	/**
-	 * @return a reference to this character's height.
-	 */
-	public ReferenceFacade<Integer> getHeightRef();
-
-	/**
-	 * @param height the height to set.
-	 */
-	public void setHeight(int height);
 
 	/**
 	 * @return a reference to this character's weight.

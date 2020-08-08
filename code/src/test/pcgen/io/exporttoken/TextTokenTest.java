@@ -21,9 +21,10 @@ import static org.junit.Assert.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.output.channel.compat.AgeCompat;
+import pcgen.output.channel.ChannelUtilities;
 
 import plugin.exporttokens.TextToken;
 
@@ -89,43 +90,43 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		AgeCompat.setCurrentAge(character.getCharID(), 1);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 1);
 		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 2);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 2);
 		assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 3);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 3);
 		assertEquals("Suffix 3", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 4);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 4);
 		assertEquals("Suffix 4", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 11);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 11);
 		assertEquals("Suffix 11", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 12);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 12);
 		assertEquals("Suffix 12", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 13);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 13);
 		assertEquals("Suffix 13", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 14);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 14);
 		assertEquals("Suffix 14", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 21);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 21);
 		assertEquals("Suffix 21", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 22);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 22);
 		assertEquals("Suffix 22", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 23);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 23);
 		assertEquals("Suffix 23", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 24);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 24);
 		assertEquals("Suffix 24", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		AgeCompat.setCurrentAge(character.getCharID(), 133);
+		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 133);
 		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 	}

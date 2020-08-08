@@ -402,8 +402,6 @@ interface IOConstants
 	String TAG_SUBCLASS = "SUBCLASS";
 	/** SUBSTITUTIONLEVEL */
 	String TAG_SUBSTITUTIONLEVEL = "SUBSTITUTIONLEVEL";
-	/** Suppressed biography fields */
-	String TAG_SUPPRESS_BIO_FIELDS = "SUPPRESSBIOFIELDS";
 
 	/** SYNERGY */
 	String TAG_SYNERGY = "SYNERGY";

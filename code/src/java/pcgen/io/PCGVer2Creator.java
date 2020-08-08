@@ -47,7 +47,6 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -96,9 +95,10 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -471,13 +471,6 @@ public final class PCGVer2Creator
 		appendCampaignHistoryLines(buffer);
 
 		/*
-		 * #Suppressed fields
-		 */
-		appendNewline(buffer);
-		appendComment("Suppressed Biography Fields", buffer); //$NON-NLS-1$
-		appendSuppressBioFieldLines(buffer);
-
-		/*
 		 * #Preview Sheet Variables
 		 */
 		appendNewline(buffer);
@@ -524,25 +517,6 @@ public final class PCGVer2Creator
 			}
 			buffer.append(IOConstants.LINE_SEP);
 		}
-	}
-
-	/**
-	 * @param buffer
-	 */
-	private void appendSuppressBioFieldLines(StringBuilder buffer)
-	{
-		buffer.append(IOConstants.TAG_SUPPRESS_BIO_FIELDS).append(':');
-		String delim = Constants.EMPTY_STRING;
-		for (BiographyField field : BiographyField.values())
-		{
-			if (charDisplay.getSuppressBioField(field))
-			{
-				buffer.append(delim);
-				buffer.append(field);
-				delim = "|"; //$NON-NLS-1$
-			}
-		}
-		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private GameMode getGameMode()
@@ -636,7 +610,7 @@ public final class PCGVer2Creator
 	private void appendAgeLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_AGE).append(':');
-		buffer.append(AgeCompat.getCurrentAge(thePC.getCharID()));
+		buffer.append(ChannelUtilities.readControlledChannel(thePC.getCharID(), CControl.AGEINPUT));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -1534,7 +1508,7 @@ public final class PCGVer2Creator
 	private void appendHairColorLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HAIRCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR)));
+		buffer.append(EntityEncoder.encode(HairColorCompat.getCurrentHairColor(thePC.getCharID())));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
@@ -1746,7 +1720,7 @@ public final class PCGVer2Creator
 	private void appendHeightLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HEIGHT).append(':');
-		buffer.append(charDisplay.getHeight());
+		buffer.append(EntityEncoder.encode(HeightCompat.getCurrentHeight(thePC.getCharID()).toString()));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

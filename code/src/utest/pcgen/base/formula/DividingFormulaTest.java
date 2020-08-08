@@ -22,19 +22,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 
 class DividingFormulaTest
 {
-
-    private DividingFormula divByTwo;
-
-	@BeforeEach
-	void setUp()
-	{
-        divByTwo = new DividingFormula(2);
-	}
 
 	@Test
     void testToString()
@@ -96,6 +87,7 @@ class DividingFormulaTest
 	@Test
     void testStackedFormulas()
 	{
+	    DividingFormula divByTwo = new DividingFormula(2);
         assertEquals(2, divByTwo.resolve(divByTwo.resolve(8)));
         assertEquals(2, divByTwo.resolve(divByTwo.resolve(8.74)));
 	}
@@ -103,18 +95,21 @@ class DividingFormulaTest
 	@Test
 	void testInputNotNull()
 	{
+	    DividingFormula divByTwo = new DividingFormula(2);
         assertThrows(IllegalArgumentException.class, () -> divByTwo.resolve((Number[]) null));
 	}
 
 	@Test
 	void testInputNotEmpty()
 	{
+	    DividingFormula divByTwo = new DividingFormula(2);
         assertThrows(IllegalArgumentException.class, () -> divByTwo.resolve());
 	}
 
 	@Test
 	void testInputNotLongerThan1()
 	{
+	    DividingFormula divByTwo = new DividingFormula(2);
         assertThrows(IllegalArgumentException.class, () -> divByTwo.resolve(4, 2.5));
 	}
 

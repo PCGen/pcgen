@@ -82,6 +82,8 @@ class SizeFacetTest
 		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		bonusInfo = new HashMap<>();
 	}
+	
+	//TODO Tear Down
 
 	@BeforeAll
 	static void staticSetUp()

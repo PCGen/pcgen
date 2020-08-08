@@ -20,6 +20,7 @@ package pcgen.cdom.facet.model;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
+import pcgen.cdom.testsupport.TestFacetListener;
 import pcgen.core.Race;
 
 import org.junit.jupiter.api.Test;
@@ -48,7 +49,7 @@ public class RaceFacetTest extends AbstractItemFacetTest<Race>
 	@Test
 	public void testEmptyRemoval()
 	{
-		Listener newL = new Listener();
+		TestFacetListener newL = new TestFacetListener();
 		// Useless Removal
 		new RaceFacet().removeDataFacetChangeListener(newL);
 	}

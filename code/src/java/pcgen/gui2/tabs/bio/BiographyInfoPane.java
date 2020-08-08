@@ -40,13 +40,18 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
+import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.WriteableReferenceFacade;
+import pcgen.gui2.facade.UnitSetWrappedReference;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
+import pcgen.gui2.tabs.models.ChannelHandler;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
+import pcgen.gui2.util.CoreInterfaceUtilities;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -441,20 +446,19 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class HeightItem extends BioItem
 	{
 
+		private WriteableReferenceFacade<Number> heightRef;
+
 		public HeightItem(final CharacterFacade character)
 		{
 			super("in_height", BiographyField.HEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getHeightUnit());
-			setTextFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getHeightRef())
-			{
-
-				@Override
-				protected void valueChanged(int value)
-				{
-					character.setHeight(value);
-				}
-
-			});
+			WriteableReferenceFacade<Number> heightInInchesRef =
+					CoreInterfaceUtilities.getReferenceFacade(
+						character.getCharID(), CControl.HEIGHTINPUT);
+			heightRef = UnitSetWrappedReference.getReference(heightInInchesRef,
+				Globals.getGameModeUnitSet()::convertHeightToUnitSet,
+				Globals.getGameModeUnitSet()::convertHeightFromUnitSet);
+			setTextFieldHandler(new ChannelHandler<>(new JFormattedTextField(), heightRef));
 		}
 
 	}

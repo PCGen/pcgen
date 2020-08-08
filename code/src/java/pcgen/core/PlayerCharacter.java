@@ -58,7 +58,6 @@ import pcgen.cdom.content.Processor;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
@@ -165,13 +164,11 @@ import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
-import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SkillFilterFacet;
-import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.input.AddLanguageFacet;
@@ -257,7 +254,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -293,11 +289,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private final IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private final GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private final HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private final AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
-	private final SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private final AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
 	private final AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private final AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
@@ -635,7 +629,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.GOLDINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRSTYLEINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRCOLORINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HEIGHTINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.SKINCOLORINPUT);
 	}
 
@@ -1290,22 +1286,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		if (genderFacet.getGender(id) != g)
 		{
 			genderFacet.set(id, g);
-			setDirty(true);
-		}
-	}
-
-	/**
-	 * Sets the character's height in inches.
-	 *
-	 * @param i
-	 *            A height in inches.
-	 *
-	 * TODO - This should be a double value stored in CM
-	 */
-	public void setHeight(final int i)
-	{
-		if (heightFacet.set(id, i))
-		{
 			setDirty(true);
 		}
 	}
@@ -2053,19 +2033,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public int getSpellLevelTemp()
 	{
 		return spellLevelTemp;
-	}
-
-	/**
-	 * Set whether the field should be hidden from output.
-	 * @param field The BiographyField to set export suppression rules for.
-	 * @param suppress Should the field be hidden from output.
-	 */
-	public void setSuppressBioField(BiographyField field, boolean suppress)
-	{
-		if (suppressBioFieldFacet.setSuppressField(id, field, suppress))
-		{
-			setDirty(true);
-		}
 	}
 
 	/**
@@ -9447,7 +9414,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 
 			spMod *= getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
-			if (AgeCompat.getCurrentAge(getCharID()) <= 0)
+			if ((Integer) ChannelUtilities.readControlledChannel(getCharID(), CControl.AGEINPUT) <= 0)
 			{
 				// Only generate a random age if the user hasn't set one!
 				bioSetFacet.get(id).randomize("AGE", this);

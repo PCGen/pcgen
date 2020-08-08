@@ -47,7 +47,7 @@ public class StatLockFacetTest extends
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		facet = new StatLockFacet();
 		super.setUp();

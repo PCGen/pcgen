@@ -166,5 +166,4 @@ abstract class BioItem
 	{
 		textFieldHandler.ifPresent(ManagedField::uninstall);
 	}
-
 }

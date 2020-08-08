@@ -46,7 +46,6 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -133,9 +132,10 @@ import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -481,8 +481,10 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			AgeCompat.setCurrentAge(thePC.getCharID(),
-				Integer.parseInt(line.substring(IOConstants.TAG_AGE.length() + 1)));
+			int age = Integer
+				.parseInt(line.substring(IOConstants.TAG_AGE.length() + 1));
+			ChannelUtilities.setControlledChannel(thePC.getCharID(),
+				CControl.AGEINPUT, age);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -1354,14 +1356,6 @@ final class PCGVer2Parser implements PCGParser
 			for (final String line : cache.get(IOConstants.TAG_CHRONICLE_ENTRY))
 			{
 				parseChronicleEntryLine(line);
-			}
-		}
-
-		if (cache.containsKey(IOConstants.TAG_SUPPRESS_BIO_FIELDS))
-		{
-			for (final String line : cache.get(IOConstants.TAG_SUPPRESS_BIO_FIELDS))
-			{
-				parseSupressBioFieldsLine(line);
 			}
 		}
 
@@ -2922,8 +2916,8 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseHairColorLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.HAIRCOLOR,
-			EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRCOLOR.length() + 1)));
+		HairColorCompat.setCurrentHairColor(thePC.getCharID(), 
+				EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRCOLOR.length() + 1)));
 	}
 
 	private void parseHairStyleLine(final String line)
@@ -2957,7 +2951,8 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setHeight(Integer.parseInt(line.substring(IOConstants.TAG_HEIGHT.length() + 1)));
+			int height = Integer.parseInt(line.substring(IOConstants.TAG_HEIGHT.length() + 1));
+			HeightCompat.setCurrentHeight(thePC.getCharID(), height);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -3334,23 +3329,6 @@ final class PCGVer2Parser implements PCGParser
 		}
 
 		thePC.addChronicleEntry(ce);
-	}
-
-	/**
-	 * Biography fields that are to be hidden from output.
-	 * @param line The SUPPRESS_BIO_FIELDS line
-	 */
-	private void parseSupressBioFieldsLine(final String line)
-	{
-		String fieldNames = EntityEncoder.decode(line.substring(IOConstants.TAG_SUPPRESS_BIO_FIELDS.length() + 1));
-		if (!fieldNames.isEmpty())
-		{
-			String[] names = fieldNames.split("\\|");
-			for (String field : names)
-			{
-				thePC.setSuppressBioField(BiographyField.valueOf(field), true);
-			}
-		}
 	}
 
 	/**
