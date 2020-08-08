@@ -27,7 +27,7 @@ public interface VariableSolver
 	 * Solves the given VariableID. Returns true if the value of the VariableID changed;
 	 * false otherwise.
 	 * 
-	 * @param VariableID
+	 * @param startingID
 	 *            The VariableID that this VariableSolver should solve
 	 * @return true if the value of the VariableID changed when it was solved; false
 	 *         otherwise
