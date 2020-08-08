@@ -22,7 +22,7 @@ import pcgen.base.util.FormatManager;
 
 /**
  * A OperatorLibrary is a container for OperatorAction objects. These define the actual
- * behavior of an operator like + or - in a formula.
+ * behavior of an operator like + or * in a formula.
  */
 public interface OperatorLibrary
 {
@@ -59,9 +59,9 @@ public interface OperatorLibrary
 	 * 
 	 * @param operator
 	 *            The Operator to be evaluated
-	 * @param o1
+	 * @param left
 	 *            The first argument to the operation
-	 * @param o2
+	 * @param right
 	 *            The second argument to the operation
 	 * @param asserted
 	 *            An Optional FormatManager indicating the asserted format for the
@@ -75,7 +75,7 @@ public interface OperatorLibrary
 	 *             if this OperatorLibrary did not have an OperatorAction for the given
 	 *             Operator and arguments
 	 */
-	public Object evaluate(Operator operator, Object o1, Object o2,
+	public Object evaluate(Operator operator, Object left, Object right,
 		Optional<FormatManager<?>> asserted);
 
 	/**

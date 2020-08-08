@@ -18,8 +18,8 @@
 package pcgen.base.formula.function;
 
 /**
- * FloorFunction rounds the value of a Number to the next lowest integer value.
- * * The same situations/rules apply as those in java.lang.Math.floor(double)
+ * FloorFunction rounds the value of a Number to the next lowest integer value. The same
+ * situations/rules apply as those in java.lang.Math.floor(double).
  */
 public class FloorFunction extends AbstractUnaryFunction
 {
@@ -32,7 +32,7 @@ public class FloorFunction extends AbstractUnaryFunction
 
 	/**
 	 * Rounds the given argument to the next lowest integer value. The same
-	 * rules apply as those in java.lang.Math.floor(double)
+	 * rules apply as those in java.lang.Math.floor(double).
 	 * 
 	 * {@inheritDoc}
 	 */

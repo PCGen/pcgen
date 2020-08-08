@@ -103,7 +103,7 @@ public interface VariableLibrary
 	 * 
 	 * @return The FormatManager for the given ImplementedScope and variable name
 	 */
-	public Optional<FormatManager<?>> getVariableFormat(ImplementedScope implementedScope, String varName);
+	public Optional<FormatManager<?>> getVariableFormat(ImplementedScope scope, String varName);
 
 	/**
 	 * Returns a VariableID for the given ScopeInstance and variable name, if legal.

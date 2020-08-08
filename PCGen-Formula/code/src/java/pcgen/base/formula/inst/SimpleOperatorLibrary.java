@@ -99,7 +99,7 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	}
 
 	@Override
-	public Object evaluate(Operator operator, Object o1, Object o2,
+	public Object evaluate(Operator operator, Object left, Object right,
 		Optional<FormatManager<?>> asserted)
 	{
 		List<OperatorAction> actionList = operatorMTL.getListFor(operator);
@@ -107,20 +107,20 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 		{
 			throw new IllegalStateException(
 				"Evaluate called on invalid Operator: " + operator.getSymbol()
-				+ " cannot process " + o1.getClass().getSimpleName() + " and "
-				+ o2.getClass().getSimpleName());
+				+ " cannot process " + left.getClass().getSimpleName() + " and "
+				+ right.getClass().getSimpleName());
 		}
 		return actionList.stream()
 				.filter(action -> action
-					.abstractEvaluate(o1.getClass(), o2.getClass(), asserted)
+					.abstractEvaluate(left.getClass(), right.getClass(), asserted)
 					.isPresent())
 				.findFirst()
 				.orElseThrow(() -> new IllegalStateException(
 					"Evaluate called on invalid Operator: "
 							+ operator.getSymbol() + " cannot process "
-							+ o1.getClass().getSimpleName() + " and "
-							+ o2.getClass().getSimpleName()))
-				.evaluate(o1, o2);
+							+ left.getClass().getSimpleName() + " and "
+							+ right.getClass().getSimpleName()))
+				.evaluate(left, right);
 	}
 
 	@Override

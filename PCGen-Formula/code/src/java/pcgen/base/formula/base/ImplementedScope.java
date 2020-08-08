@@ -28,8 +28,7 @@ import java.util.List;
  * 
  * ImplementedScope provides the ability to not only distinguish the different scopes,
  * but also to define the relationship between the scopes (each scope can
- * identify its parent scope - if you need to know child scopes, see
- * ImplementedScopeManager).
+ * identify scopes it draws from).
  * 
  * It is perhaps important to recognize that a ImplementedScope is simply an identifier. This
  * means it does not contain information about what the scope contains (it does not, for
@@ -61,7 +60,7 @@ public interface ImplementedScope
 	/**
 	 * Returns the name of this ImplementedScope.
 	 * 
-	 * @return the name of the ImplementedScope
+	 * @return the name of this ImplementedScope
 	 */
 	public String getName();
 

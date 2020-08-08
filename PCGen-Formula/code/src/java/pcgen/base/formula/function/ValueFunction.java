@@ -32,7 +32,7 @@ import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 
 /**
- * ValueFunction returns the input value to the evaluation
+ * ValueFunction returns the input value to the evaluation.
  */
 public class ValueFunction implements FormulaFunction
 {

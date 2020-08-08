@@ -19,7 +19,7 @@ package pcgen.base.formula.function;
 
 /**
  * AbsFunction returns the absolute value of the given argument. The same
- * conditions/rules apply as those in Java.lang.Math.abs(double)
+ * conditions/rules apply as those in Java.lang.Math.abs(double).
  */
 public class AbsFunction extends AbstractUnaryFunction
 {
@@ -32,7 +32,7 @@ public class AbsFunction extends AbstractUnaryFunction
 
 	/**
 	 * Returns the absolute value of the given argument. The same
-	 * conditions/rules apply as those in Java.lang.Math.abs(double)
+	 * conditions/rules apply as those in Java.lang.Math.abs(double).
 	 * 
 	 * {@inheritDoc}
 	 */

@@ -31,8 +31,7 @@ import pcgen.base.util.FormatManager;
  * 
  * For ease of use, it is recommended that FormulaFunction names be considered
  * case-insensitive, but that is not a contractual requirement of this interface. Rather,
- * it is enforced by the system that manages Functions, see
- * pcgen.base.formula.manager.FunctionLibrary
+ * it is enforced by the system that manages Functions, see, for example, FunctionLibrary.
  * 
  * This interface represents the common behaviors of a function, including the ability to
  * validate the arguments, the ability to evaluate the value of the function, and
@@ -40,13 +39,17 @@ import pcgen.base.util.FormatManager;
  * variables).
  * 
  * Note that it is a contractual obligation of the FormulaFunction interface that the
- * combination of allowArgs() and getDependencies() can identify all situations that could
- * cause evaluate() to fail. For example, the formula "age("Bob")" may be passed by
- * allowArgs() because the database to determine "Bob" being a legal name is not present
- * (and allowArgs is designed to be used as early as possible). If allowArgs returns TRUE
- * and has NOT validated the person "Bob" actually exists, then getDependencies() MUST be
- * able to load an appropriate manager with a DependencyManager in order to indicate that
- * "Bob" is a name upon which the formula is dependent.
+ * combination of allowArgs() and getDependencies() can identify all reasonable situations
+ * that could cause evaluate() to fail. For example, the formula "age("Bob")" may be
+ * passed by allowArgs() because the database to determine "Bob" being a legal name is not
+ * present (and allowArgs is designed to be used as early as possible). If allowArgs
+ * returns TRUE and has NOT validated the person "Bob" actually exists, then
+ * getDependencies() MUST be able to load an appropriate manager with a DependencyManager
+ * in order to indicate that "Bob" is a name upon which the formula is dependent.
+ * 
+ * Note as part of that contractual obligation, exceptions that can only be detected at
+ * Runtime (such as division by zero in Java) don't need to be caught by the
+ * combination of allowArgs() and getDependencies().
  */
 public interface FormulaFunction
 {

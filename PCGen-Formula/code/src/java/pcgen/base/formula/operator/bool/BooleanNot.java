@@ -52,9 +52,9 @@ public class BooleanNot implements UnaryAction
 	}
 
 	@Override
-	public Object evaluate(Object object)
+	public Object evaluate(Object argument)
 	{
-		return !((Boolean) object);
+		return !((Boolean) argument);
 	}
 
 }

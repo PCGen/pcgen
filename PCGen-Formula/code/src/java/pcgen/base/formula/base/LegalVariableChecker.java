@@ -26,7 +26,7 @@ public interface LegalVariableChecker
 	/**
 	 * Returns true if the given ImplementedScope and variable name are a legal combination.
 	 * 
-	 * @param implementedScope
+	 * @param scope
 	 *            The ImplementedScope to be used to determine if the given combination is legal
 	 * @param varName
 	 *            The variable name to be used to determine if the given combination is
@@ -35,6 +35,6 @@ public interface LegalVariableChecker
 	 * @return true if the given ImplementedScope and variable name are a legal combination;
 	 *         false otherwise
 	 */
-	public boolean isLegalVariable(ImplementedScope implementedScope, String varName);
+	public boolean isLegalVariable(ImplementedScope scope, String varName);
 
 }

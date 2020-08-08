@@ -16,12 +16,12 @@
 package pcgen.base.formula.base;
 
 /**
- * TrainingStrategy is a VariableStrategy used for "training" dynamic variables (These are
+ * TrainingStrategy is a DependencyStrategy used for "training" dynamic variables (These are
  * the control inputs to a dynamic variable - typically these must be static, but this
  * captures the variable that does the controlling). This assumes that only one variable
  * can control a dynamic variable.
  */
-public class TrainingStrategy implements VariableStrategy
+public class TrainingStrategy implements DependencyStrategy
 {
 	/**
 	 * The Controlling VariableID as identified by this TrainingStrategy
@@ -29,11 +29,11 @@ public class TrainingStrategy implements VariableStrategy
 	private VariableID<?> controlID;
 
 	@Override
-	public void addVariable(DependencyManager mgr, String s)
+	public void addVariable(DependencyManager depManager, String varName)
 	{
 		if (controlID == null)
 		{
-			controlID = StaticStrategy.getVariableID(mgr, s);
+			controlID = StaticStrategy.getVariableID(depManager, varName);
 		}
 		else
 		{

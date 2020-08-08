@@ -98,10 +98,10 @@ public class DependencyManager
 
 	/**
 	 * A TypedKey used for determining how encountered variables are processed. This can
-	 * be a VariableStrategy that simply provides static behavior, or one that is aware of
+	 * be a DependencyStrategy that simply provides static behavior, or one that is aware of
 	 * dynamic variables.
 	 */
-	public static final TypedKey<Optional<VariableStrategy>> VARSTRATEGY =
+	public static final TypedKey<Optional<DependencyStrategy>> VARSTRATEGY =
 			new TypedKey<>(Optional.empty());
 
 	/**

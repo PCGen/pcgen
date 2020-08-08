@@ -83,11 +83,6 @@ public class VariableManager implements VariableLibrary
 	 * ImplementedScopeManager parameters to ensure variables are legal within a given
 	 * scope, and the ValueStore for default values of the variables.
 	 * 
-<<<<<<< Upstream, based on upstream/master
-=======
-	 * @param siFactory
-	 *            The ScopeInstanceFactory used to generate ScopeInstance objects
->>>>>>> b953ac2 Cleanup
 	 * @param relationshipManager
 	 *            The RelationshipManager used to determine if two scopes are related
 	 * @param scopeManager

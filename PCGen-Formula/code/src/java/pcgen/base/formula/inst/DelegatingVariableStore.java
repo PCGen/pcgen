@@ -100,10 +100,4 @@ public class DelegatingVariableStore extends MonitorableVariableStore
 		variables.addAll(backgroundStore.getVariables());
 		return variables;
 	}
-
-	@Override
-	public <T> T put(VariableID<T> varID, T value)
-	{
-		return super.put(varID, value);
-	}
 }

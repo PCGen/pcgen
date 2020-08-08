@@ -349,8 +349,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		String varName)
 	{
 		VariableLibrary varLib = semantics.get(FormulaSemantics.VARLIB);
-		ImplementedScope implementedScope = semantics.get(FormulaSemantics.SCOPE);
-		return varLib.getVariableFormat(implementedScope, varName)
+		ImplementedScope scope = semantics.get(FormulaSemantics.SCOPE);
+		return varLib.getVariableFormat(scope, varName)
 			.orElseThrow(() -> new SemanticsFailureException(
 				"Variable: " + varName + " was not found in scope "
 					+ semantics.get(FormulaSemantics.SCOPE).getName()));

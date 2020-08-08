@@ -91,10 +91,10 @@ public interface UnaryAction
 	 * return a non-null value. If abstractEvaluate returns empty, then this
 	 * method should throw an Exception.
 	 * 
-	 * @param o
+	 * @param argument
 	 *            The argument to the operation
 	 * @return The result of the operation
 	 */
-	public Object evaluate(Object o);
+	public Object evaluate(Object argument);
 
 }

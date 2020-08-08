@@ -28,8 +28,7 @@ package pcgen.base.formula.base;
  * presence of a variable should imply the full parent scope hierarchy. Said another way,
  * in any given context of interpreting a variable name, there should always be one and
  * only one possible interpretation. Given potential overlaps, this can be a subtle
- * problem. The following defines some rules for when a relationship exists between two
- * scopes, and thus they can't share a variable.
+ * problem.
  * 
  * If a variable name is defined for an existing parent or child (both recursively) of a
  * ImplementedScope, then adding that variable name to that ImplementedScope should be

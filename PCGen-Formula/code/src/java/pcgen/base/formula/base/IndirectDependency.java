@@ -31,7 +31,7 @@ public class IndirectDependency
 {
 
 	/**
-	 * The underlying List that contains the Indirect objects
+	 * The underlying List that contains the Indirect objects.
 	 */
 	private List<Indirect<?>> indirectObjects;
 

@@ -20,7 +20,7 @@ package pcgen.base.formula.function;
 /**
  * RoundFunction rounds the value of a Number to the nearest integer value. For
  * any value that is equally distant between two integers, the same rules apply
- * as those in java.lang.Math.round(double)
+ * as those in java.lang.Math.round(double).
  */
 public class RoundFunction extends AbstractUnaryFunction
 {
@@ -34,7 +34,7 @@ public class RoundFunction extends AbstractUnaryFunction
 	/**
 	 * Rounds the given argument to the nearest integer value. For any value
 	 * that is equally distant between two integers, the same rules apply as
-	 * those in java.lang.Math.round(double)
+	 * those in java.lang.Math.round(double).
 	 * 
 	 * {@inheritDoc}
 	 */

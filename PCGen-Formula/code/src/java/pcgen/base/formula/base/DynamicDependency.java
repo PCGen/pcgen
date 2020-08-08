@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  * you have to resolve one variable to know the absolute location of the variable to draw
  * upon).
  */
-public class DynamicDependency implements VariableStrategy
+public class DynamicDependency implements DependencyStrategy
 {
 
 	/**
@@ -119,7 +119,7 @@ public class DynamicDependency implements VariableStrategy
 	 * @param varName The source variable name to be added to this DynamicDependency
 	 */
 	@Override
-	public void addVariable(DependencyManager mgr, String varName)
+	public void addVariable(DependencyManager depManager, String varName)
 	{
 		sourceVarNames.add(varName);
 	}

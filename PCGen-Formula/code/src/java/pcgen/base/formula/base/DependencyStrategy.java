@@ -16,12 +16,13 @@
 package pcgen.base.formula.base;
 
 /**
- * A VariableStrategy is an interface for defining an appropriate behavior to be taken
- * when a variable is encountered in a formula. This behavior can change, based on whether
- * the current context is static or dynamic. Therefore, multiple strategies exist.
+ * A DependencyStrategy is an interface for defining an appropriate behavior to be taken
+ * when a variable is encountered in a formula (during dependency analysis). This behavior
+ * can change, based on whether the current context is static or dynamic. Therefore,
+ * multiple strategies exist.
  */
 @FunctionalInterface
-public interface VariableStrategy
+public interface DependencyStrategy
 {
 	/**
 	 * Adds a Variable to the DependencyManager based on the behavior of the strategy.

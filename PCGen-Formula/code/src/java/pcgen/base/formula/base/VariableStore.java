@@ -46,9 +46,6 @@ public interface VariableStore
 	 * unconditionally null for a return value, as the null id is not allowed in
 	 * a VariableStore.
 	 * 
-	 * Note the possible performance characteristics for this method referenced
-	 * in the class description.
-	 * 
 	 * @param <T>
 	 *            The format of variable to be retrieved from this VariableStore
 	 * @param varID

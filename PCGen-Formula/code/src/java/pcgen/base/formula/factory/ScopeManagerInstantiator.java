@@ -30,7 +30,7 @@ public class ScopeManagerInstantiator
 	private final AncestorSearch<String, DefaultDirectionalGraphEdge<String>> ancestors;
 
 	/**
-	 * The cache of built SimpleImplementedScope objects
+	 * The cache of built SimpleImplementedScope objects.
 	 */
 	private final Map<String, SimpleImplementedScope> map = new HashMap<>();
 

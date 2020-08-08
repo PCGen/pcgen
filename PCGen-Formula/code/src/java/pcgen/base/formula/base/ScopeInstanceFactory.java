@@ -19,29 +19,29 @@ package pcgen.base.formula.base;
 
 /**
  * A ScopeInstanceFactory is a factory used to instantiate ScopeInstance objects given a
- * parent ScopeInstance and ImplementedScope in which to instantiate the ScopeInstance.
+ * parent Scope name and the VarScoped for which the ScopeInstance is being instantiated.
  */
 public interface ScopeInstanceFactory
 {
 	/**
-	 * Returns the ScopeInstance within the given ImplementedScope and considering the given
-	 * VarScoped object. If the ImplementedScope is not the scope for the given VarScoped
-	 * object, then ancestors of the VarScoped object will be checked until one matches
-	 * the given ImplementedScope. A new ScopeInstance will be created if one does not already
-	 * exist.
+	 * Returns the ScopeInstance within the ImplementedScope of the given name, and
+	 * considering the given VarScoped object. If the ImplementedScope is not the scope
+	 * for the given VarScoped object, the VarScoped object will provide the appropriate
+	 * VarScoped it draws upon for the ImplementedScope. A new ScopeInstance will be
+	 * created if one does not already exist.
 	 * 
 	 * @param scopeName
 	 *            The name of the ImplementedScope for which the ScopeInstance should be
 	 *            returned
-	 * @param obj
-	 *            The Object where analysis should start in order to determine
-	 *            the appropriate ScopeInstance to be returned.
-	 * @return The ScopeInstance within the given ImplementedScope and considering the given
-	 *         VarScoped object
+	 * @param varScoped
+	 *            The Object where analysis should start in order to determine the
+	 *            appropriate ScopeInstance to be returned.
+	 * @return The ScopeInstance within the ImplementedScope of the given name and
+	 *         considering the given VarScoped object
 	 * @throws IllegalArgumentException
-	 *             if the given ImplementedScope is not a scope for the given VarScoped object
-	 *             or an ancestor of the VarScoped object (as determined by
+	 *             if the given ImplementedScope is not a scope for the given VarScoped
+	 *             object or an ancestor of the VarScoped object (as determined by
 	 *             getProviderFor())
 	 */
-	public ScopeInstance get(String scopeName, VarScoped obj);
+	public ScopeInstance get(String scopeName, VarScoped varScoped);
 }

@@ -26,9 +26,12 @@ public interface DependencyConsumer
 {
 
 	/**
-	 * Returns a String indicating the identification of this object.
+	 * Processes a Consumer for all dependents of the given starting VariableID.
 	 * 
-	 * @return A String indicating the identification of this object
+	 * @param startingID
+	 *            The VariableID at which to start the dependency analysis
+	 * @param consumer
+	 *            The Consumer to be provided each of the dependent VariableIDs
 	 */
 	public void processForDependents(VariableID<?> startingID,
 		Consumer<VariableID<?>> consumer);

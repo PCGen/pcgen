@@ -19,16 +19,16 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * StaticStrategy is a VariableStrategy used for static variables (Those where the
+ * StaticStrategy is a DependencyStrategy used for static variables (Those where the
  * instance and name are known at time of formula parse).
  */
-public class StaticStrategy implements VariableStrategy
+public class StaticStrategy implements DependencyStrategy
 {
 	@Override
-	public void addVariable(DependencyManager mgr, String varName)
+	public void addVariable(DependencyManager depManager, String varName)
 	{
-		Optional<VariableList> vars = mgr.get(DependencyManager.VARIABLES);
-		vars.get().add(Objects.requireNonNull(getVariableID(mgr, varName)));
+		Optional<VariableList> vars = depManager.get(DependencyManager.VARIABLES);
+		vars.get().add(Objects.requireNonNull(getVariableID(depManager, varName)));
 	}
 
 	/**

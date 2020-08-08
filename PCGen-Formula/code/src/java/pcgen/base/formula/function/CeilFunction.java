@@ -19,7 +19,7 @@ package pcgen.base.formula.function;
 
 /**
  * CeilFunction rounds the value of a Number to the next highest integer value.
- * The same situations/rules apply as those in java.lang.Math.ceil(double)
+ * The same situations/rules apply as those in java.lang.Math.ceil(double).
  */
 public class CeilFunction extends AbstractUnaryFunction
 {
@@ -32,7 +32,7 @@ public class CeilFunction extends AbstractUnaryFunction
 
 	/**
 	 * Rounds the given argument to the next highest integer value. The same
-	 * rules apply as those in java.lang.Math.ceil(double)
+	 * rules apply as those in java.lang.Math.ceil(double).
 	 * 
 	 * {@inheritDoc}
 	 */

@@ -16,11 +16,10 @@
 package pcgen.base.formula.base;
 
 /**
- * Identified identifies an object that has identification about what the object
- * represents.
+ * Identified objects have identification about what the object represents.
  * 
  * In the primary design case, this will be a String describing an object that this
- * Identified has been delegated to represent.
+ * Identified has been delegated to represent. It will typically be used for debugging.
  */
 @FunctionalInterface
 public interface Identified

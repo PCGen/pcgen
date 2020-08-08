@@ -79,7 +79,7 @@ public class ManagerFactory
 	}
 
 	/**
-	 * Generates an initialized DependencyManager with the given arguments and based on
+	 * Generates an initialized DependencyManager with the given argument and based on
 	 * items known by the ManagerFactory.
 	 * 
 	 * @param scopeInst
@@ -107,7 +107,7 @@ public class ManagerFactory
 	}
 
 	/**
-	 * Generates a DependencyManager with additional contents to handle variable
+	 * Decorates a DependencyManager with additional contents to handle variable
 	 * dependencies.
 	 * 
 	 * @param depManager

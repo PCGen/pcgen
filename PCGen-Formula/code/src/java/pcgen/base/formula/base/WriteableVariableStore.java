@@ -32,7 +32,7 @@ public interface WriteableVariableStore extends VariableStore
 	 * WriteableVariableStore for the given VariableID.
 	 * 
 	 * The returned value may be null if the VariableID was not previously
-	 * stored in this WriteableVariableStore. The VariableStore may throw an
+	 * stored in this WriteableVariableStore. The VariableStore must throw an
 	 * exception if the given VariableID or value are null.
 	 * 
 	 * @param <T>
@@ -56,7 +56,7 @@ public interface WriteableVariableStore extends VariableStore
 	 * 
 	 * @param varStore
 	 *            The VariableStore from which the VariableIDs and values should be
-	 *            imported.
+	 *            imported
 	 */
 	public void importFrom(VariableStore varStore);
 

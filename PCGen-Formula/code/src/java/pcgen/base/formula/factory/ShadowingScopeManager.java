@@ -30,7 +30,7 @@ import pcgen.base.util.FailureResult;
  * It can instantiate an ImplementedScopeLibrary.
  * 
  * Note: If an acyclic set of scopes is not registered (meaning there are loops in the
- * parent relationships), then get will not succeed.
+ * parent relationships), then instantiate will not succeed.
  */
 public class ShadowingScopeManager
 {
