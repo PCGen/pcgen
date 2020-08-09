@@ -3,7 +3,7 @@
 # Race Name	SORTKEY			Skills/Level				Starting Feats	Size		Move		Bonus Languages		Stat bonus								Modify VAR		Auto Language			Ability					Nb Legs	Nb Hands	Monster Class Name and Starting Level	Main Race Type		Race Subtype				Type			Source Page		Apply Kit				FACT
 Android	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|DEX,INT|2	BONUS:STAT|CHA|-2			BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Android	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Android			TYPE:Humanoid	SOURCEPAGE:p.42	KIT:1|Playable Race Defaults	FACT:BaseSize|M
 Human		SORTKEY:A_PlayableRace	XTRASKILLPTSPERLVL:SkillPointBonus	STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken										BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Human		LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Human				TYPE:Humanoid	SOURCEPAGE:p.44	KIT:1|Playable Race Defaults	FACT:BaseSize|M
-Kasatha	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|WIS|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Kasatha	ABILITY:Race|AUTOMATIC|Kasatha	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Kasatha			TYPE:Humanoid	SOURCEPAGE:p.46	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Kasatha	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|WIS|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Kasatha	ABILITY:Race|AUTOMATIC|Kasatha	LEGS:2	HANDS:4								RACETYPE:Humanoid		RACESUBTYPE:Kasatha			TYPE:Humanoid	SOURCEPAGE:p.46	KIT:1|Playable Race Defaults	FACT:BaseSize|M
 Lashunta	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CHA|2							BONUS:VAR|Walk|30	AUTO:LANG|Common|Castrovelian	ABILITY:Race|AUTOMATIC|Lashunta	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Lashunta			TYPE:Humanoid	SOURCEPAGE:p.48	KIT:1|Playable Race Defaults	FACT:BaseSize|M
 Shirren	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CON|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Shirren	ABILITY:Race|AUTOMATIC|Shirren	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Shirren			TYPE:Humanoid	SOURCEPAGE:p.50	KIT:1|Playable Race Defaults	FACT:BaseSize|M
 Vesk		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|CON|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Vesk		ABILITY:Race|AUTOMATIC|Vesk		LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Vesk				TYPE:Humanoid	SOURCEPAGE:p.52	KIT:1|Playable Race Defaults	FACT:BaseSize|M
@@ -40,3 +40,16 @@ Drone		SORTKEY:Z_Companion										SIZE:T	MOVE:Walk,0																						ABIL
 #
 #GRANT:MOVEMENT|Walk	MODIFY:RaceType_Construct|SET|True	MODIFY:Race_Legs|SET|2	MODIFY:Race_Hands|SET|2
 #
+
+
+Android.MOD		FACT:RacialDexBonus|true	FACT:RacialIntBonus|true
+Kasatha.MOD		FACT:RacialStrBonus|true	FACT:RacialWisBonus|true
+Lashunta.MOD	FACT:RacialChaBonus|true
+Shirren.MOD		FACT:RacialConBonus|true	FACT:RacialWisBonus|true
+Vesk.MOD		FACT:RacialStrBonus|true	FACT:RacialConBonus|true
+Ysoki.MOD		FACT:RacialDexBonus|true	FACT:RacialIntBonus|true
+# Pathfinder Legacy
+Dwarf.MOD		FACT:RacialConBonus|true	FACT:RacialWisBonus|true
+Elf.MOD		FACT:RacialDexBonus|true	FACT:RacialIntBonus|true
+Gnome.MOD		FACT:RacialConBonus|true	FACT:RacialWisBonus|true
+Halfling.MOD	FACT:RacialChaBonus|true	FACT:RacialDexBonus|true

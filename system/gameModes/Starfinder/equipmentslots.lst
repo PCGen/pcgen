@@ -12,6 +12,7 @@ NUMSLOTS:DEFAULT	HEAD:1	HANDS:2	TORSO:1	LEGS:2	SHIELD:1	WornMagic:2	CrystalSlot:
 ###Block: New Version
 EQSLOT:WornMagic		CONTAINS:WornMagic=2							NUMBER:WornMagic
 EQSLOT:Armor		CONTAINS:Armor=1								NUMBER:TORSO
+EQSLOT:Shield		CONTAINS:Shield=1								NUMBER:SHIELD
 EQSLOT:PoweredArmor	CONTAINS:PoweredArmor=1							NUMBER:TORSO
 EQSLOT:Solarian Weapon Crystal	CONTAINS:Solarian Weapon Crystal=1							NUMBER:CrystalSlot
 
