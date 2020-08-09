@@ -1,41 +1,55 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
-# Race Name	SORTKEY			Skills/Level				Starting Feats	Size		Move		Bonus Languages		Stat bonus								Modify VAR		Auto Language			Ability					Monster Class Name and Starting Level	Main Race Type		Race Subtype				Type			Source Page		Apply Kit				FACT			
-Android	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|DEX,INT|2	BONUS:STAT|CHA|-2			BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Android								RACETYPE:Humanoid		RACESUBTYPE:Android			TYPE:Humanoid	SOURCEPAGE:p.42	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Human		SORTKEY:A_PlayableRace	XTRASKILLPTSPERLVL:SkillPointBonus	STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken										BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Human									RACETYPE:Humanoid		RACESUBTYPE:Human				TYPE:Humanoid	SOURCEPAGE:p.44	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Kasatha	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|WIS|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Kasatha	ABILITY:Race|AUTOMATIC|Kasatha								RACETYPE:Humanoid		RACESUBTYPE:Kasatha			TYPE:Humanoid	SOURCEPAGE:p.46	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Lashunta	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CHA|2							BONUS:VAR|Walk|30	AUTO:LANG|Common|Castrovelian	ABILITY:Race|AUTOMATIC|Lashunta								RACETYPE:Humanoid		RACESUBTYPE:Lashunta			TYPE:Humanoid	SOURCEPAGE:p.48	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Shirren	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CON|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Shirren	ABILITY:Race|AUTOMATIC|Shirren								RACETYPE:Humanoid		RACESUBTYPE:Shirren			TYPE:Humanoid	SOURCEPAGE:p.50	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Vesk		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|CON|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Vesk		ABILITY:Race|AUTOMATIC|Vesk									RACETYPE:Humanoid		RACESUBTYPE:Vesk				TYPE:Humanoid	SOURCEPAGE:p.52	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Ysoki		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:S	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|-2	BONUS:STAT|INT|2	BONUS:STAT|DEX|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Ysoki		ABILITY:Race|AUTOMATIC|Ysoki									RACETYPE:Humanoid		RACESUBTYPE:Ysoki				TYPE:Humanoid	SOURCEPAGE:p.54	KIT:1|Playable Race Defaults	FACT:BaseSize|S	HANDS:2	LEGS:2
+# Race Name	SORTKEY			Skills/Level				Starting Feats	Size		Move		Bonus Languages		Stat bonus								Modify VAR		Auto Language			Ability					Nb Legs	Nb Hands	Monster Class Name and Starting Level	Main Race Type		Race Subtype				Type			Source Page		Apply Kit				FACT
+Android	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|DEX,INT|2	BONUS:STAT|CHA|-2			BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Android	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Android			TYPE:Humanoid	SOURCEPAGE:p.42	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Human		SORTKEY:A_PlayableRace	XTRASKILLPTSPERLVL:SkillPointBonus	STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken										BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Human		LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Human				TYPE:Humanoid	SOURCEPAGE:p.44	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Kasatha	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|WIS|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Kasatha	ABILITY:Race|AUTOMATIC|Kasatha	LEGS:2	HANDS:4								RACETYPE:Humanoid		RACESUBTYPE:Kasatha			TYPE:Humanoid	SOURCEPAGE:p.46	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Lashunta	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CHA|2							BONUS:VAR|Walk|30	AUTO:LANG|Common|Castrovelian	ABILITY:Race|AUTOMATIC|Lashunta	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Lashunta			TYPE:Humanoid	SOURCEPAGE:p.48	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Shirren	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CON|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Shirren	ABILITY:Race|AUTOMATIC|Shirren	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Shirren			TYPE:Humanoid	SOURCEPAGE:p.50	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Vesk		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|CON|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Vesk		ABILITY:Race|AUTOMATIC|Vesk		LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Vesk				TYPE:Humanoid	SOURCEPAGE:p.52	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Ysoki		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:S	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|-2	BONUS:STAT|INT|2	BONUS:STAT|DEX|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Ysoki		ABILITY:Race|AUTOMATIC|Ysoki		LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Ysoki				TYPE:Humanoid	SOURCEPAGE:p.54	KIT:1|Playable Race Defaults	FACT:BaseSize|S
 # Pathfinder Legacy
-Dwarf		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2	BONUS:STAT|WIS|2	BONUS:VAR|Walk|20	AUTO:LANG|Common|Dwarven	ABILITY:Race|AUTOMATIC|Dwarf									RACETYPE:Humanoid		RACESUBTYPE:Dwarf				TYPE:Humanoid	SOURCEPAGE:p.506	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Elf		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CON|-2	BONUS:STAT|DEX|2	BONUS:STAT|INT|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Elven		ABILITY:Race|AUTOMATIC|Elf									RACETYPE:Humanoid		RACESUBTYPE:Elf				TYPE:Humanoid	SOURCEPAGE:p.507	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Gnome		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:S	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|-2	BONUS:STAT|CON|2				BONUS:VAR|Walk|30	AUTO:LANG|Common|Gnome		ABILITY:Race|AUTOMATIC|Gnome									RACETYPE:Humanoid		RACESUBTYPE:Gnome				TYPE:Humanoid	SOURCEPAGE:p.508	KIT:1|Playable Race Defaults	FACT:BaseSize|S	HANDS:2	LEGS:2
-Half-Elf	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken										BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Half-Elf								RACETYPE:Humanoid		RACESUBTYPE:Elf|Human			TYPE:Humanoid	SOURCEPAGE:p.509	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Half-Orc	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken										BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Half-Orc								RACETYPE:Humanoid		RACESUBTYPE:Orc|Human			TYPE:Humanoid	SOURCEPAGE:p.510	KIT:1|Playable Race Defaults	FACT:BaseSize|M	HANDS:2	LEGS:2
-Halfling	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:S	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|-2	BONUS:STAT|DEX|2	BONUS:STAT|CHA|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Halfling	ABILITY:Race|AUTOMATIC|Halfling								RACETYPE:Humanoid		RACESUBTYPE:Halfling			TYPE:Humanoid	SOURCEPAGE:p.511	KIT:1|Playable Race Defaults	FACT:BaseSize|S	HANDS:2	LEGS:2
+Dwarf		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2	BONUS:STAT|WIS|2	BONUS:VAR|Walk|20	AUTO:LANG|Common|Dwarven	ABILITY:Race|AUTOMATIC|Dwarf		LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Dwarf				TYPE:Humanoid	SOURCEPAGE:p.506	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Elf		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|CON|-2	BONUS:STAT|DEX|2	BONUS:STAT|INT|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Elven		ABILITY:Race|AUTOMATIC|Elf		LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Elf				TYPE:Humanoid	SOURCEPAGE:p.507	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Gnome		SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:S	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|-2	BONUS:STAT|CON|2				BONUS:VAR|Walk|30	AUTO:LANG|Common|Gnome		ABILITY:Race|AUTOMATIC|Gnome		LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Gnome				TYPE:Humanoid	SOURCEPAGE:p.508	KIT:1|Playable Race Defaults	FACT:BaseSize|S
+Half-Elf	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken										BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Half-Elf	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Elf|Human			TYPE:Humanoid	SOURCEPAGE:p.509	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Half-Orc	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:M	MOVE:Walk,0	LANGBONUS:TYPE=Spoken										BONUS:VAR|Walk|30	AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Half-Orc	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Orc|Human			TYPE:Humanoid	SOURCEPAGE:p.510	KIT:1|Playable Race Defaults	FACT:BaseSize|M
+Halfling	SORTKEY:A_PlayableRace							STARTFEATS:1	SIZE:S	MOVE:Walk,0	LANGBONUS:TYPE=Spoken	BONUS:STAT|STR|-2	BONUS:STAT|DEX|2	BONUS:STAT|CHA|2	BONUS:VAR|Walk|30	AUTO:LANG|Common|Halfling	ABILITY:Race|AUTOMATIC|Halfling	LEGS:2	HANDS:2								RACETYPE:Humanoid		RACESUBTYPE:Halfling			TYPE:Humanoid	SOURCEPAGE:p.511	KIT:1|Playable Race Defaults	FACT:BaseSize|S
 
 #
-Drone		SORTKEY:Z_Companion										SIZE:T	MOVE:Walk,0																						ABILITY:Race|AUTOMATIC|Drone		MONSTERCLASS:Drone:1				RACETYPE:Construct	RACESUBTYPE:Drone|Technological	TYPE:Construct	SOURCEPAGE:p.74						FACT:BaseSize|T	
+Drone		SORTKEY:Z_Companion										SIZE:T	MOVE:Walk,0																						ABILITY:Race|AUTOMATIC|Drone						MONSTERCLASS:Drone:1				RACETYPE:Construct	RACESUBTYPE:Drone|Technological	TYPE:Construct	SOURCEPAGE:p.74						FACT:BaseSize|T
 
 
 
-#GRANT				MODIFY													MODIFYOTHER                                
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True	MODIFY:Race_Legs|ADD|2					MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True	MODIFY:Race_Hands|ADD|2					MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#                                                                                                                                                       
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|20  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30  
-#                                                                                                                                                       
-#                                                                                                                                                       
-#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Construct|SET|True	MODIFY:Race_Legs|SET|2	MODIFY:Race_Hands|SET|2                                            
+#GRANT				MODIFY													MODIFYOTHER
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True	MODIFY:Race_Legs|ADD|2					MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True	MODIFY:Race_Hands|ADD|2					MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
 #
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|20
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Humanoid|SET|True									MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
+#
+#
+#GRANT:MOVEMENT|Walk	MODIFY:RaceType_Construct|SET|True	MODIFY:Race_Legs|SET|2	MODIFY:Race_Hands|SET|2
+#
+
+
+Android.MOD		FACT:RacialDexBonus|true	FACT:RacialIntBonus|true
+Kasatha.MOD		FACT:RacialStrBonus|true	FACT:RacialWisBonus|true
+Lashunta.MOD	FACT:RacialChaBonus|true
+Shirren.MOD		FACT:RacialConBonus|true	FACT:RacialWisBonus|true
+Vesk.MOD		FACT:RacialStrBonus|true	FACT:RacialConBonus|true
+Ysoki.MOD		FACT:RacialDexBonus|true	FACT:RacialIntBonus|true
+# Pathfinder Legacy
+Dwarf.MOD		FACT:RacialConBonus|true	FACT:RacialWisBonus|true
+Elf.MOD		FACT:RacialDexBonus|true	FACT:RacialIntBonus|true
+Gnome.MOD		FACT:RacialConBonus|true	FACT:RacialWisBonus|true
+Halfling.MOD	FACT:RacialChaBonus|true	FACT:RacialDexBonus|true

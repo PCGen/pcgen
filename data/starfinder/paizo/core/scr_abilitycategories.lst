@@ -11,11 +11,11 @@ ABILITYCATEGORY:Proficiency		VISIBLE:NO	CATEGORY:PROFICIENCY
 ABILITYCATEGORY:Archetype		VISIBLE:NO	CATEGORY:Archetype
 ABILITYCATEGORY:Theme			VISIBLE:NO	CATEGORY:Theme
 ABILITYCATEGORY:Weapon			VISIBLE:NO	CATEGORY:Weapon
-
+ABILITYCATEGORY:Variant Ability	VISIBLE:NO	CATEGORY:Variant Ability
 
 #ABILITYCATEGORY:Feat			CATEGORY:Feat					DISPLAYLOCATION:Character
 
-
+ABILITYCATEGORY:Alternate Class Feature			VISIBLE:NO	CATEGORY:Alternate Class Feature
 
 
 
@@ -230,3 +230,12 @@ ABILITYCATEGORY:Ring of Resistance +5				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:N
 
 
 ABILITYCATEGORY:Android Upgrade Slot				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Android Upgrade Slot																																																																																											DISPLAYLOCATION:Character
+
+#Variant Ability Support
+ABILITYCATEGORY:Android Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Android Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Human Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Human Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Kasatha Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Kasatha Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Lashunta Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Lashunta Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Shirren Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Shirren Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vesk Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Vesk Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ysoki Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Ysoki Variant Ability																																																																																											DISPLAYLOCATION:Character
