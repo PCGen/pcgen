@@ -131,7 +131,7 @@ public final class OutputDB
 	 * @param name
 	 *            The name as the interpolation for fetching information from the variable
 	 *            for the given CControl during output
-	 * @param facet
+	 * @param control
 	 *            The CControl to be registered with the given name
 	 */
 	public static void register(String name, CControl control)
