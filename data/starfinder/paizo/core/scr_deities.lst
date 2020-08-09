@@ -46,3 +46,5 @@ Lamashtu				NAMEISPI:YES	DESC:Goddess of madness, monsters, nightmares					FACT:
 Lissala				NAMEISPI:YES	DESC:Goddess of duty, fate, obedience, reward of service			FACT:Title|Scion of Seven													FACTSET:Pantheon|Starfinder Setting			ALIGN:LE	SOURCEPAGE:p.493
 Shub-Niggurath			NAMEISPI:YES	DESC:Outer Goddess of fertility, forests, and monsters			FACT:Title|Black Goat of the Woods												FACTSET:Pantheon|Starfinder Setting|Outer Gods	ALIGN:CE	SOURCEPAGE:p.493
 Yog-Sothoth				NAMEISPI:YES	DESC:Outer God of gates, space, and time						FACT:Title|Key and the Gate													FACTSET:Pantheon|Starfinder Setting|Outer Gods	ALIGN:CN	SOURCEPAGE:p.493
+
+None								DESC:None											FACT:Title|None															FACTSET:Pantheon|Starfinder Setting																		FACT:Symbol|None																			GROUP:UNSELECTED

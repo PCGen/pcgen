@@ -10,12 +10,12 @@ CLASS:Envoy		STARTSKILLPTS:8	CSKILL:Acrobatics|Intimidate|Athletics|Medicine|Blu
 1	ABILITY:Class|AUTOMATIC|Envoy
 
 ###Block
-1	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ ENVOY IMPROVISATION
-1	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ EXPERTISE
-1	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ SKILL EXPERTISE
-3	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ EXPERTISE TALENT
-3	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ WEAPON SPECIALIZATION
-20	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ TRUE EXPERTISE
+1	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ ENVOY IMPROVISATION|!PREFACT:1,ABILITIES,Envoy_CF_EnvoyImprovisation=True
+1	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ EXPERTISE|!PREFACT:1,ABILITIES,Envoy_CF_Expertise=True
+1	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ SKILL EXPERTISE|!PREFACT:1,ABILITIES,Envoy_CF_SkillExpertise=True
+3	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ EXPERTISE TALENT|!PREFACT:1,ABILITIES,Envoy_CF_ExpertiseTalent=True
+3	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ WEAPON SPECIALIZATION|!PREFACT:1,ABILITIES,Envoy_CF_WeaponSpecialization=True
+20	ABILITY:Envoy Class Feature|AUTOMATIC|Envoy Class Feature ~ TRUE EXPERTISE|!PREFACT:1,ABILITIES,Envoy_CF_TrueExpertise=True
 
 # End Envoy
 
@@ -28,22 +28,22 @@ CLASS:Mechanic	STARTSKILLPTS:4	CSKILL:Athletics|Perception|Computers|Physical Sc
 ###Block
 1	ABILITY:Class|AUTOMATIC|Mechanic
 ###Block
-1	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ ARTIFICIAL INTELLIGENCE
-1	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ BYPASS
-1	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ CUSTOM RIG
-2	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ MECHANIC TRICK
-3	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ OVERLOAD
-3	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ WEAPON SPECIALIZATION
-5	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ REMOTE HACK
-7	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ EXPERT RIG
-7	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ MIRACLE WORKER
+1	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ ARTIFICIAL INTELLIGENCE|!PREFACT:1,ABILITIES,Mechanic_CF_ArtificialIntelligence=True
+1	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ BYPASS|!PREFACT:1,ABILITIES,Mechanic_CF_Bypass=True
+1	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ CUSTOM RIG|!PREFACT:1,ABILITIES,Mechanic_CF_CustomRig=True
+2	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ MECHANIC TRICK|!PREFACT:1,ABILITIES,Mechanic_CF_MechanicTrick=True
+3	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ OVERLOAD|!PREFACT:1,ABILITIES,Mechanic_CF_Overload=True
+3	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ WEAPON SPECIALIZATION|!PREFACT:1,ABILITIES,Mechanic_CF_WeaponSpecialization=True
+5	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ REMOTE HACK|!PREFACT:1,ABILITIES,Mechanic_CF_RemoteHack=True
+7	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ EXPERT RIG|!PREFACT:1,ABILITIES,Mechanic_CF_ExpertRig=True
+7	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ MIRACLE WORKER|!PREFACT:1,ABILITIES,Mechanic_CF_MiracleWorker=True
 9	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ OVERRIDE|!PREFACT:1,ABILITIES,MechanicArchetype=True
-11	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ COORDINATED ASSAULT
-13	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ ADVANCED RIG
-17	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ CONTROL NET
-19	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ GHOST IN THE MACHINE
-19	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ SUPERIOR RIG
-20	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ TECH MASTER
+11	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ COORDINATED ASSAULT|!PREFACT:1,ABILITIES,Mechanic_CF_CoordinatedAssault=True
+13	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ ADVANCED RIG|!PREFACT:1,ABILITIES,Mechanic_CF_AdvancedRig=True
+17	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ CONTROL NET|!PREFACT:1,ABILITIES,Mechanic_CF_ControlNet=True
+19	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ GHOST IN THE MACHINE|!PREFACT:1,ABILITIES,Mechanic_CF_GhostInTheMachine=True
+19	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ SUPERIOR RIG|!PREFACT:1,ABILITIES,Mechanic_CF_SuperiorRig=True
+20	ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ TECH MASTER|!PREFACT:1,ABILITIES,Mechanic_CF_TechMaster=True
 
 # Mystic - Completed
 
@@ -77,16 +77,16 @@ CLASS:Mystic	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic|Caster_Level_Mys
 19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
 ###Block: Class Features
-1	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ CONNECTION
+1	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ CONNECTION|!PREFACT:1,ABILITIES,Mystic_CF_Connection=True
 1	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ Connection Power
 1	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ Connection Spell
-1	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ HEALING TOUCH
-2	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ CHANNEL SKILL
-2	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ MINDLINK
-3	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ WEAPON SPECIALIZATION
-11	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ TELEPATHIC BOND
-19	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ TRANSCENDENCE
-20	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ ENLIGHTENMENT
+1	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ HEALING TOUCH|!PREFACT:1,ABILITIES,Mystic_CF_HealingTouch=True
+2	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ CHANNEL SKILL|!PREFACT:1,ABILITIES,Mystic_CF_ChannelSkill=True
+2	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ MINDLINK|!PREFACT:1,ABILITIES,Mystic_CF_Mindlink=True
+3	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ WEAPON SPECIALIZATION|!PREFACT:1,ABILITIES,Mystic_CF_WeaponSpecialization=True
+11	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ TELEPATHIC BOND|!PREFACT:1,ABILITIES,Mystic_CF_TelepathicBond=True
+19	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ TRANSCENDENCE|!PREFACT:1,ABILITIES,Mystic_CF_Transcendence=True
+20	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic Class Feature ~ ENLIGHTENMENT|!PREFACT:1,ABILITIES,Mystic_CF_Enlightenment=True
 
 # Operative
 
@@ -97,22 +97,22 @@ CLASS:Operative	STARTSKILLPTS:8	CSKILL:Acrobatics|Medicine|Athletics|Perception|
 ###Block: Proficiencies
 1	ABILITY:Class|AUTOMATIC|Operative
 ###Block
-1	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ OPERATIVE'S EDGE
-1	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ SPECIALIZATION
-5	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ Specialization Exploit
-7	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ Specialization Skill Mastery
-11	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ Specialization Power
-1	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ TRICK ATTACK
-2	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ EVASION
-2	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ OPERATIVE EXPLOIT
-3	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ QUICK MOVEMENT
-3	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ WEAPON SPECIALIZATION
-4	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ DEBILITATING TRICK
-7	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ UNCANNY AGILITY
-11	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ TRIPLE ATTACK
-13	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ QUAD ATTACK
-17	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ DOUBLE DEBILITATION
-20	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ SUPREME OPERATIVE
+1	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ OPERATIVE'S EDGE|!PREFACT:1,ABILITIES,Operative_CF_OperativesEdge=True
+1	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ SPECIALIZATION|!PREFACT:1,ABILITIES,Operative_CF_Specialization=True
+5	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ Specialization Exploit|!PREFACT:1,ABILITIES,Operative_CF_SpecializationExploit=True
+7	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ Specialization Skill Mastery|!PREFACT:1,ABILITIES,Operative_CF_SpecializationSkillMastery=True
+11	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ Specialization Power|!PREFACT:1,ABILITIES,Operative_CF_SpecializationPower=True
+1	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ TRICK ATTACK|!PREFACT:1,ABILITIES,Operative_CF_TrickAttack=True
+2	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ EVASION|!PREFACT:1,ABILITIES,Operative_CF_Evasion=True
+2	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ OPERATIVE EXPLOIT|!PREFACT:1,ABILITIES,Operative_CF_OperativeExploit=True
+3	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ QUICK MOVEMENT|!PREFACT:1,ABILITIES,Operative_CF_QuickMovement=True
+3	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ WEAPON SPECIALIZATION|!PREFACT:1,ABILITIES,Operative_CF_WeaponSpecialization=True
+4	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ DEBILITATING TRICK|!PREFACT:1,ABILITIES,Operative_CF_DebilitatingTrick=True
+7	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ UNCANNY AGILITY|!PREFACT:1,ABILITIES,Operative_CF_UncannyAgility=True
+11	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ TRIPLE ATTACK|!PREFACT:1,ABILITIES,Operative_CF_TripleAttack=True
+13	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ QUAD ATTACK|!PREFACT:1,ABILITIES,Operative_CF_QuadAttack=True
+17	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ DOUBLE DEBILITATION|!PREFACT:1,ABILITIES,Operative_CF_DoubleDebilitation=True
+20	ABILITY:Operative Class Feature|AUTOMATIC|Operative Class Feature ~ SUPREME OPERATIVE|!PREFACT:1,ABILITIES,Operative_CF_SupremeOperative=True
 
 # Solarian
 
@@ -123,16 +123,16 @@ CLASS:Solarian	STARTSKILLPTS:4	CSKILL:Acrobatics|Perception|Athletics|Physical S
 ###Block: Proficiencies
 1	ABILITY:Class|AUTOMATIC|Solarian
 ###Block 	ABILITY:Solarian Class Feature|AUTOMATIC|
-1	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ SKILL ADEPT
-1	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ SOLAR MANIFESTATION
-1	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ STELLAR MODE
-1	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ STELLAR REVELATION
-3	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ SIDEREAL INFLUENCE
-3	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ WEAPON SPECIALIZATION
-7	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ FLASHING STRIKES
-9	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ ZENITH REVELATIONS|!PREFACT:1,ABILITIES,SolarianArchetype=True
-13	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ SOLARIAN'S ONSLAUGHT
-20	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ STELLAR PARAGON
+1	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ SKILL ADEPT|!PREFACT:1,ABILITIES,Solarian_CF_SkillAdept=True
+1	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ SOLAR MANIFESTATION|!PREFACT:1,ABILITIES,Solarian_CF_SolarManifestation=True
+1	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ STELLAR MODE|!PREFACT:1,ABILITIES,Solarian_CF_StellarMode=True
+1	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ STELLAR REVELATION|!PREFACT:1,ABILITIES,Solarian_CF_StellarRevelation=True
+3	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ SIDEREAL INFLUENCE|!PREFACT:1,ABILITIES,Solarian_CF_SiderealInfluence=True
+3	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ WEAPON SPECIALIZATION|!PREFACT:1,ABILITIES,Solarian_CF_WeaponSpecialization=True
+7	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ FLASHING STRIKES|!PREFACT:1,ABILITIES,Solarian_CF_FlashingStrikes=True
+9	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ ZENITH REVELATIONS|!PREFACT:1,ABILITIES,SolarianArchetype=True|!PREFACT:1,ABILITIES,Solarian_CF_ZenithRevelations=True
+13	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ SOLARIAN'S ONSLAUGHT|!PREFACT:1,ABILITIES,Solarian_CF_SolariansOnslaught=True
+20	ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ STELLAR PARAGON|!PREFACT:1,ABILITIES,Solarian_CF_StellarParagon=True
 
 # Soldier
 
@@ -143,15 +143,15 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Acrobatics|Medicine|Athletics|Piloting|Engi
 ###Block: Proficiencies
 1	ABILITY:Class|AUTOMATIC|Soldier
 ###Block
-1	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ PRIMARY FIGHTING STYLE
-1	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ PRIMARY STYLE TECHNIQUE
-2	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ COMBAT FEAT
-3	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ GEAR BOOST
-3	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ WEAPON SPECIALIZATION
-9	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ SECONDARY FIGHTING STYLE|!PREFACT:1,ABILITIES,SoldierArchetype=True
-9	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ SECONDARY STYLE TECHNIQUE|!PREFACT:1,ABILITIES,SoldierArchetype=True
-11	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ SOLDIER'S ONSLAUGHT
-20	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ KILL SHOT
+1	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ PRIMARY FIGHTING STYLE|!PREFACT:1,ABILITIES,Soldier_CF_PrimaryFightingStyle=True
+1	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ PRIMARY STYLE TECHNIQUE|!PREFACT:1,ABILITIES,Soldier_CF_PrimaryStyleTechnique=True
+2	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ COMBAT FEAT|!PREFACT:1,ABILITIES,Soldier_CF_CombatFeat=True
+3	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ GEAR BOOST|!PREFACT:1,ABILITIES,Soldier_CF_GearBoost=True
+3	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ WEAPON SPECIALIZATION|!PREFACT:1,ABILITIES,Soldier_CF_WeaponSpecialization=True
+9	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ SECONDARY FIGHTING STYLE|!PREFACT:1,ABILITIES,SoldierArchetype=True|!PREFACT:1,ABILITIES,Soldier_CF_SecondaryFightingStyle=True
+9	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ SECONDARY STYLE TECHNIQUE|!PREFACT:1,ABILITIES,SoldierArchetype=True|!PREFACT:1,ABILITIES,Soldier_CF_SecondaryStyleTechnique=True
+11	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ SOLDIER'S ONSLAUGHT|!PREFACT:1,ABILITIES,Soldier_CF_SoldiersOnslaught=True
+20	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ KILL SHOT|!PREFACT:1,ABILITIES,Soldier_CF_KillShot=True
 
 # Technomancer
 
@@ -185,14 +185,14 @@ CLASS:Technomancer	SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Technomancer|Cast
 19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
 ###Block
-1	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ SPELL CACHE
-2	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ MAGIC HACK
-3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ SPELL FOCUS
-3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ TECHLORE
-3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ WEAPON SPECIALIZATION
-6	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ CACHE CAPACITOR|!PREFACT:1,ABILITIES,TechnomancerArchetype=True
-19	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ RESOLVE ATTUNEMENT
-20	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ FUSE SPELLS
+1	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ SPELL CACHE|!PREFACT:1,ABILITIES,Technomancer_CF_SpellCache=True
+2	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ MAGIC HACK|!PREFACT:1,ABILITIES,Technomancer_CF_MagicHack=True
+3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ SPELL FOCUS|!PREFACT:1,ABILITIES,Technomancer_CF_SpellFocus=True
+3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ TECHLORE|!PREFACT:1,ABILITIES,Technomancer_CF_Techlore=True
+3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ WEAPON SPECIALIZATION|!PREFACT:1,ABILITIES,Technomancer_CF_WeaponSpecialization=True
+6	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ CACHE CAPACITOR|!PREFACT:1,ABILITIES,TechnomancerArchetype=True|!PREFACT:1,ABILITIES,Technomancer_CF_CacheCapacitor=True
+19	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ RESOLVE ATTUNEMENT|!PREFACT:1,ABILITIES,Technomancer_CF_ResolveAttunement=True
+20	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ FUSE SPELLS|!PREFACT:1,ABILITIES,Technomancer_CF_FuseSpells=True
 
 
 # Exclusive for Drone Companion
