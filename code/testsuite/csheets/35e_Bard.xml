@@ -331,7 +331,7 @@ BIO
 		</skillpoints>
 		<list_mods>Perform (String Instruments) +9</list_mods>
 		<max_class_skill_level>8</max_class_skill_level>
-		<max_cross_class_skill_level>4</max_cross_class_skill_level>
+		<max_cross_class_skill_level>4.0</max_cross_class_skill_level>
 		<skill>
 			<name>Appraise</name>
 			<ranks>0.0</ranks>

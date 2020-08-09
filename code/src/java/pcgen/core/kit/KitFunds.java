@@ -58,8 +58,8 @@ public final class KitFunds extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		BigDecimal currentGold = (BigDecimal) ChannelUtilities
-				.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT);
+		BigDecimal currentGold = new BigDecimal(ChannelUtilities
+			.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT).toString());
 		ChannelUtilities.setControlledChannel(aPC.getCharID(),
 			CControl.GOLDINPUT, currentGold.add(theQty));
 	}

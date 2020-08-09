@@ -57,7 +57,8 @@ public class GoldToken extends Token
 	 */
 	public static BigDecimal getGoldToken(PlayerCharacter pc)
 	{
-		return (BigDecimal) ChannelUtilities
+		Number n = (Number) ChannelUtilities
 			.readControlledChannel(pc.getCharID(), CControl.GOLDINPUT);
+		return new BigDecimal(n.toString());
 	}
 }

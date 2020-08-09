@@ -185,8 +185,8 @@ public final class KitGear extends BaseKit
 		processLookups(aKit, aPC);
 
 		int aBuyRate = aKit.getBuyRate(aPC);
-		BigDecimal pcGold = (BigDecimal) ChannelUtilities
-				.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT);
+		BigDecimal pcGold = new BigDecimal(ChannelUtilities
+			.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT).toString());
 		final BigDecimal fixedTotalCost = aKit.getTotalCost(aPC);
 		if (fixedTotalCost != null)
 		{
@@ -320,8 +320,8 @@ public final class KitGear extends BaseKit
                 theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
             }
 
-			BigDecimal currentGold = (BigDecimal) ChannelUtilities
-					.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT);
+    		BigDecimal currentGold = new BigDecimal(ChannelUtilities
+    			.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT).toString());
 			ChannelUtilities.setControlledChannel(aPC.getCharID(),
 				CControl.GOLDINPUT, currentGold.subtract(theCost));
 		}
@@ -438,8 +438,8 @@ public final class KitGear extends BaseKit
 		//
 		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, (float) theQty);
 
-		BigDecimal currentGold = (BigDecimal) ChannelUtilities
-				.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT);
+		BigDecimal currentGold = new BigDecimal(ChannelUtilities
+			.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT).toString());
 		ChannelUtilities.setControlledChannel(aPC.getCharID(),
 			CControl.GOLDINPUT, currentGold.subtract(theCost));
 	}

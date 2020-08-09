@@ -1782,7 +1782,7 @@ BIO
 		<feat>
 			<name>Alertness</name>
 			<description>The character gets a +2 bonus on all Listen checks and Spot checks</description>
-			<type>MAGE.TELEPATH.GENERAL.SHADOWSLAYER.PERSONALITY.DEDICATED.TOUGH.INFILTRATOR.OCCULTIST.GLAMOURIST.MYSTIC.SHADOWJACK.THRASHER.SHADOWKINDHUMAN.TRACER</type>
+			<type>MAGE.TELEPATH.GENERAL.SHADOWSLAYER.PERSONALITY.DEDICATED.TOUGH.INFILTRATOR.OCCULTIST.TRACER.GLAMOURIST.MYSTIC.SHADOWJACK.THRASHER.SHADOWKINDHUMAN</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1792,7 +1792,7 @@ BIO
 		<feat>
 			<name>Brawl</name>
 			<description>When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier</description>
-			<type>GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.SHADOWHUNTER.SPEEDDEMON.THRASHER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR</type>
+			<type>GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR.SHADOWHUNTER.SPEEDDEMON.THRASHER</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1802,7 +1802,7 @@ BIO
 		<feat>
 			<name>Improved Brawl</name>
 			<description>When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character&#39;s Strength modifier</description>
-			<type>GENERAL.STRONG.TOUGH.DAREDEVIL.BODYGUARD.SHADOWHUNTER.SPEEDDEMON.STREETWARRIOR.THRASHER.DOGFIGHTER.DREADNOUGHT.SPACEMONKEY</type>
+			<type>GENERAL.STRONG.TOUGH.DAREDEVIL.BODYGUARD.DOGFIGHTER.DREADNOUGHT.SPACEMONKEY.SHADOWHUNTER.SPEEDDEMON.STREETWARRIOR.THRASHER</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1812,7 +1812,7 @@ BIO
 		<feat>
 			<name>Personal Firearms Proficiency</name>
 			<description>The character can fire any personal firearm without penalty</description>
-			<type>GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENT.MILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.STREETWARRIOR.TECHNOMAGE.WILDLORD.MECHAJOCKEY</type>
+			<type>GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENT.MILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.MECHAJOCKEY.STREETWARRIOR.TECHNOMAGE.WILDLORD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

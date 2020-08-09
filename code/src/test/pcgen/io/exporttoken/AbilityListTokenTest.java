@@ -86,18 +86,18 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
-				"Perform (Dance), Perform (Oratory), Silent Step",
-			tok.getToken("ABILITYLIST.FEAT", character, eh), "ABILITYLIST.FEAT"
+			"ABILITYLIST.FEAT",
+			tok.getToken("ABILITYLIST.FEAT", character, eh), "Perform (Dance), Perform (Oratory), Silent Step"
 		);
 
 		assertEquals(
-				"Perform (Dance), Perform (Oratory)",
-			tok.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh), "ABILITYLIST.FEAT.TYPE=Fighter"
+			"ABILITYLIST.FEAT.TYPE=Fighter",
+			tok.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh), "Perform (Dance), Perform (Oratory)"
 		);
 
 		assertEquals(
-				"Silent Step",
-			tok.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh), "ABILITYLIST.FEAT.!TYPE=Fighter"
+			"ABILITYLIST.FEAT.!TYPE=Fighter",
+			tok.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh), "Silent Step"
 		);
 	}
 
@@ -112,8 +112,8 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
-				"Perform (Dance)",
-			tok.getToken("ABILITYLIST.BARDIC", character, eh), "ABILITYLIST.BARDIC"
+			"ABILITYLIST.BARDIC",
+			tok.getToken("ABILITYLIST.BARDIC", character, eh), "Perform (Dance)"
 		);
 	}
 

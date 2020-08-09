@@ -415,13 +415,16 @@ public class CharacterFacadeImpl
 		refreshClassLevelModel();
 		charLevelsFacade.addHitPointListener(this);
 
-		deity = CoreInterfaceUtilities
-			.getReferenceFacade(theCharacter.getCharID(), CControl.DEITYINPUT);
-		domains = new DefaultListFacade<>();
-		maxDomains = new DefaultReferenceFacade<>(theCharacter.getMaxCharacterDomains());
-		remainingDomains = new DefaultReferenceFacade<>(theCharacter.getMaxCharacterDomains() - domains.getSize());
-		availDomains = new DefaultListFacade<>();
-		buildAvailableDomainsList();
+		if (theCharacter.isFeatureEnabled(CControl.DOMAINFEATURE))
+		{
+			deity = CoreInterfaceUtilities
+					.getReferenceFacade(theCharacter.getCharID(), CControl.DEITYINPUT);
+			domains = new DefaultListFacade<>();
+			maxDomains = new DefaultReferenceFacade<>(theCharacter.getMaxCharacterDomains());
+			remainingDomains = new DefaultReferenceFacade<>(theCharacter.getMaxCharacterDomains() - domains.getSize());
+			availDomains = new DefaultListFacade<>();
+			buildAvailableDomainsList();
+		}
 
 		templates = new DefaultListFacade<>(charDisplay.getDisplayVisibleTemplateList());
 		templateListener = new TemplateListener();
@@ -3006,9 +3009,8 @@ public class CharacterFacadeImpl
 		{
 			BigDecimal itemCost = calcItemCost(updatedItem, new BigDecimal(quantity),
 				(GearBuySellScheme) gearBuySellSchemeRef.get());
-			BigDecimal currentGold =
-					(BigDecimal) ChannelUtilities.readControlledChannel(
-						theCharacter.getCharID(), CControl.GOLDINPUT);
+			BigDecimal currentGold = new BigDecimal(ChannelUtilities
+				.readControlledChannel(theCharacter.getCharID(), CControl.GOLDINPUT).toString());
 			ChannelUtilities.setControlledChannel(theCharacter.getCharID(),
 				CControl.GOLDINPUT, currentGold.subtract(itemCost));
 		}
@@ -3043,9 +3045,8 @@ public class CharacterFacadeImpl
 	 */
 	private boolean canAfford(Equipment selected, BigDecimal purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
-		BigDecimal currentGold =
-				(BigDecimal) ChannelUtilities.readControlledChannel(
-					theCharacter.getCharID(), CControl.GOLDINPUT);
+		BigDecimal currentGold = new BigDecimal(ChannelUtilities
+			.readControlledChannel(theCharacter.getCharID(), CControl.GOLDINPUT).toString());
 
 		BigDecimal itemCost = calcItemCost(selected, purchaseQty, gearBuySellScheme);
 
@@ -3153,8 +3154,8 @@ public class CharacterFacadeImpl
 			BigDecimal itemCost = calcItemCost(updatedItem, removed.negate(),
 				(GearBuySellScheme) gearBuySellSchemeRef.get());
 			BigDecimal currentGold =
-					(BigDecimal) ChannelUtilities.readControlledChannel(
-						theCharacter.getCharID(), CControl.GOLDINPUT);
+					new BigDecimal(ChannelUtilities.readControlledChannel(
+						theCharacter.getCharID(), CControl.GOLDINPUT).toString());
 			ChannelUtilities.setControlledChannel(theCharacter.getCharID(),
 				CControl.GOLDINPUT, currentGold.subtract(itemCost));
 		}
@@ -4072,8 +4073,8 @@ public class CharacterFacadeImpl
 		BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
 		if (totalCost != null)
 		{
-			BigDecimal currentGold = (BigDecimal) ChannelUtilities
-					.readControlledChannel(theCharacter.getCharID(), CControl.GOLDINPUT);
+			BigDecimal currentGold = new BigDecimal(ChannelUtilities
+				.readControlledChannel(theCharacter.getCharID(), CControl.GOLDINPUT).toString());
 			return currentGold.compareTo(totalCost) >= 0;
 		}
 		return true;

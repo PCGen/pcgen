@@ -18,11 +18,13 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import pcgen.base.util.NamedValue;
@@ -289,12 +291,13 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 
 		public List<NamedValue> getMovementValues(CharID id)
 		{
-			List<NamedValue> list = new ArrayList<>();
+			Set<NamedValue> set = new TreeSet<>(new MoveSorter());
 			for (MovementType moveType : moveRates.keySet())
 			{
-				list.add(new NamedValue(moveType.toString(), movementOfType(id, moveType)));
+				String moveName = moveType.toString();
+				set.add(new NamedValue(moveName, movementOfType(id, moveType)));
 			}
-			return list;
+			return new ArrayList<>(set);
 		}
 
 		/**
@@ -678,4 +681,24 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			copymci.moveRates.putAll(mci.moveRates);
 		}
 	}
+	
+	private class MoveSorter implements Comparator<NamedValue>
+	{
+
+		@Override
+		public int compare(NamedValue o1, NamedValue o2)
+		{
+			if (o1.getName().equals("Walk"))
+			{
+				return -1;
+			}
+			if (o2.getName().equals("Walk"))
+			{
+				return 1;
+			}
+			return o1.getName().compareTo(o2.getName());
+		}
+		
+	}
+	
 }

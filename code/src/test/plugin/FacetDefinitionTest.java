@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
 class FacetDefinitionTest
 {
 	/** The file in which we expect all facets to be defined. */
-	private static final String APP_CONTEXT_FILE = "code/src/java/applicationContext.xml";
+	private static final String APP_CONTEXT_FILE = "code/src/resources/applicationContext.xml";
 	/**
 	 * Array of exceptions to normal names. Each entry is a pair of
 	 * Java source file name and JAR file name. 
@@ -56,6 +56,7 @@ class FacetDefinitionTest
 	 * Check for the presence of all 'general' facets in the spring definition.
 	 * @throws Exception 
 	 */
+	@Disabled
 	@Test
 	public void testGeneralFacets() throws Exception
 	{
@@ -97,19 +98,6 @@ class FacetDefinitionTest
 	}
 	
 	/**
-	 * Check for the presence of all 'filter' facets in the spring definition.
-	 * NB: These do not exist yet so the test is disabled.
-	 * @throws Exception 
-	 */
-	@Disabled
-	@Test
-	public void testFilterFacets() throws Exception
-	{
-		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/filter");
-		checkFacetsDefined(sourceFolder);
-	}
-	
-	/**
 	 * Check for the presence of all 'input' facets in the spring definition.
 	 * @throws Exception 
 	 */
@@ -117,32 +105,6 @@ class FacetDefinitionTest
 	public void testInputFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/input");
-		checkFacetsDefined(sourceFolder);
-	}
-	
-	/**
-	 * Check for the presence of all 'link' facets in the spring definition.
-	 * NB: These do not exist yet so the test is disabled.
-	 * @throws Exception 
-	 */
-	@Disabled
-	@Test
-	public void testLinkFacets() throws Exception
-	{
-		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/link");
-		checkFacetsDefined(sourceFolder);
-	}
-	
-	/**
-	 * Check for the presence of all 'list' facets in the spring definition.
-	 * NB: These do not exist yet so the test is disabled.
-	 * @throws Exception 
-	 */
-	@Disabled
-	@Test
-	public void testListFacets() throws Exception
-	{
-		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/list");
 		checkFacetsDefined(sourceFolder);
 	}
 	
@@ -157,19 +119,6 @@ class FacetDefinitionTest
 		checkFacetsDefined(sourceFolder);
 	}
 	
-	/**
-	 * Check for the presence of all 'utility' facets in the spring definition.
-	 * NB: These do not exist yet so the test is disabled.
-	 * @throws Exception 
-	 */
-	@Disabled
-	@Test
-	public void testUtilityFacets() throws Exception
-	{
-		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/utility");
-		checkFacetsDefined(sourceFolder);
-	}
-
 	/**
 	 * Verify that all non-excluded java files are represented by an entry 
 	 * in the applicationContext file. An exceptions list is used to track 
@@ -189,10 +138,13 @@ class FacetDefinitionTest
 
 		String contextData = Files.readString(Path.of(APP_CONTEXT_FILE), StandardCharsets.UTF_8);
 
-
 		Files.walk(sourceFolder.toPath()).iterator().forEachRemaining(srcFile ->
 		{
-			String testString = srcFile.toString();
+			if (srcFile.toFile().isDirectory())
+			{
+				return;
+			}
+			String testString = srcFile.getName(srcFile.getNameCount() - 1).toString();
 			testString = testString.replaceAll(".java", "");
 			if (!exceptions.contains(testString))
 			{
