@@ -15,6 +15,8 @@
  */
 package pcgen.output.factory;
 
+import java.util.Optional;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
@@ -59,8 +61,17 @@ public class ChannelFactory implements ModelFactory
 	@Override
 	public TemplateModel generate(CharID id)
 	{
-		String channelName = ControlUtilities.getControlToken(Globals.getContext(), control);
-		Object value = ChannelUtilities.readGlobalChannel(id, channelName);
+		Optional<String> feature = control.getControllingFeature();
+		Object value;
+		if (feature.isPresent() && ControlUtilities.isFeatureEnabled(Globals.getContext(), feature.get()))
+		{
+			String channelName = ControlUtilities.getControlToken(Globals.getContext(), control);
+			value = ChannelUtilities.readGlobalChannel(id, channelName);
+		}
+		else
+		{
+			value = "";
+		}
 		try
 		{
 			return wrapperFacet.wrap(id, value);
