@@ -73,12 +73,6 @@ CATEGORY=Class|Oracle.MOD	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle ~ Orison
 CATEGORY=Class|Oracle.MOD	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle's Curse|PREVAREQ:Oracle_CF_OraclesCurse,0|PREVARGTEQ:Oracle_CFP_Level,1
 CATEGORY=Class|Oracle.MOD	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle's Mystery|PREVAREQ:Oracle_CF_OraclesMystery,0|PREVARGTEQ:Oracle_CFP_Level,1
 
-CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Familiar|PREVAREQ:Witch_CF_Familiar,0|PREVARGTEQ:Witch_CFP_Level,1
-CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Cantrips|PREVAREQ:Witch_CF_Cantrips,0|PREVARGTEQ:Witch_CFP_Level,1
-CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Hex|PREVAREQ:Witch_CF_Hex,0|PREVARGTEQ:Witch_CFP_Level,1
-CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch Patron|PREVAREQ:Witch_CF_PatronSpell,0|PREVARGTEQ:Witch_CFP_Level,1
-CATEGORY=Class|Witch.MOD	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|PREVAREQ:Witch_CF_FamiliarTouchSpells,0|PREVARGTEQ:Witch_CFP_Level,3
-
 CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Evil|PREVAREQ:Antipaladin_CF_AuraOfEvil,0|PREVARGTEQ:Antipaladin_CFP_Level,1	
 CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Detect Good|PREVAREQ:Antipaladin_CF_DetectGood,0|PREVARGTEQ:Antipaladin_CFP_Level,1	
 CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Smite Good|PREVAREQ:Antipaladin_CF_SmiteGood,0|PREVARGTEQ:Antipaladin_CFP_Level,1	
@@ -550,10 +544,15 @@ CATEGORY=Class|Summoner.MOD																																																					
 
 
 # Witch
-CATEGORY=Class|Witch.MOD																																	ABILITY:Internal|AUTOMATIC|Witch ~ Class Skills|PREVAREQ:Witch_CF_ClassSkills,0
+CATEGORY=Class|Witch.MOD	ABILITY:Special Ability|AUTOMATIC|Witch ~ Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
+CATEGORY=Class|Witch.MOD	ABILITY:Internal|AUTOMATIC|Witch ~ Class Skills|PREVAREQ:Witch_CF_ClassSkills,0
+CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Familiar|PREVAREQ:Witch_CF_Familiar,0|PREVARGTEQ:Witch_CFP_Level,1
+CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Cantrips|PREVAREQ:Witch_CF_Cantrips,0|PREVARGTEQ:Witch_CFP_Level,1
+CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Hex|PREVAREQ:Witch_CF_Hex,0|PREVARGTEQ:Witch_CFP_Level,1
+CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Patron Spells|PREVARGTEQ:Witch_CFP_Level,1
+CATEGORY=Class|Witch.MOD	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|PREVAREQ:Witch_CF_FamiliarTouchSpells,0|PREVARGTEQ:Witch_CFP_Level,3
 
-CATEGORY=Class|Witch.MOD																																	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
-CATEGORY=Class|Witch.MOD		DEFINE:SpellMasteryQualify|0																																																																																				BONUS:VAR|SpellMasteryQualify|1
+CATEGORY=Class|Witch.MOD		DEFINE:SpellMasteryQualify|0		BONUS:VAR|SpellMasteryQualify|1
 
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_ClassSkills|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Familiar|0
