@@ -241,10 +241,11 @@ Pack Animal, Yak				KEY:Pack Animal (Yak)		OUTPUTNAME:Pack Animal (Yak)		TYPE:Go
 Pseudodragon															TYPE:Goods.Animal.Pet							COST:200	WT:7				SOURCEPAGE:16	SPROP:Generally considered slavery to own one as a pet
 Rat																	TYPE:Goods.Animal.Pet							COST:0.01	WT:1		SIZE:T	SOURCEPAGE:16
 Rat, Blue					KEY:Rat (Blue)			OUTPUTNAME:Blue Rat			TYPE:Goods.Animal.Pet							COST:1	WT:1		SIZE:T	SOURCEPAGE:16
-Rat, Dire					KEY:Rat (Dire)			OUTPUTNAME:Dire Rat			TYPE:Goods.Animal.Pet							COST:5	WT:50		SIZE:S	SOURCEPAGE:16
+#COMMENT: Dupes
+# Rat, Dire					KEY:Rat (Dire)			OUTPUTNAME:Dire Rat			TYPE:Goods.Animal.Pet							COST:5	WT:50		SIZE:S	SOURCEPAGE:16
 Raven																	TYPE:Goods.Animal.Pet							COST:2	WT:3		SIZE:T	SOURCEPAGE:16
-Snake, Constrictor			KEY:Snake (Constrictor)		OUTPUTNAME:Snake (Constrictor)	TYPE:Goods.Animal.Pet							COST:5	WT:60		SIZE:M	SOURCEPAGE:16
-Snake, Viper				KEY:Snake (Viper)			OUTPUTNAME:Snake (Viper)		TYPE:Goods.Animal.Pet							COST:5	WT:0.8	SIZE:T	SOURCEPAGE:16
+#Snake, Constrictor			KEY:Snake (Constrictor)		OUTPUTNAME:Snake (Constrictor)	TYPE:Goods.Animal.Pet							COST:5	WT:60		SIZE:M	SOURCEPAGE:16
+#Snake, Viper				KEY:Snake (Viper)			OUTPUTNAME:Snake (Viper)		TYPE:Goods.Animal.Pet							COST:5	WT:0.8	SIZE:T	SOURCEPAGE:16
 Stirge																TYPE:Goods.Animal.Pet							COST:20	WT:1		SIZE:T	SOURCEPAGE:16
 Toad																	TYPE:Goods.Animal.Pet							COST:0.02	WT:0.5	SIZE:D	SOURCEPAGE:16
 Toad, Vision				KEY:Toad (Vision)			OUTPUTNAME:Vision Toad			TYPE:Goods.Animal.Pet							COST:1	WT:0.4	SIZE:D	SOURCEPAGE:16	SPROP:Hallucinogen when licked
