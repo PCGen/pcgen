@@ -26,9 +26,11 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
+import pcgen.output.factory.ChannelFactory;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
@@ -120,6 +122,21 @@ public final class OutputDB
 	public static void register(String name, SetFacet<CharID, ?> facet)
 	{
 		registerModelFactory(name, new SetModelFactory(facet));
+	}
+
+	/**
+	 * Registers a new CControl with the OutputDatabase using the given name as the
+	 * interpolation for fetching information from the variable for the given CControl.
+	 * 
+	 * @param name
+	 *            The name as the interpolation for fetching information from the variable
+	 *            for the given CControl during output
+	 * @param control
+	 *            The CControl to be registered with the given name
+	 */
+	public static void register(String name, CControl control)
+	{
+		registerModelFactory(name, new ChannelFactory(control));
 	}
 
 	/**

@@ -93,6 +93,7 @@ public abstract class AbstractCharacterTestCase
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
 		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
+		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.DOMAINFEATURE);
 		gamemode.addLevelInfo("Normal", new LevelInfo());
 		gamemode.addXPTableName("Normal");
 		gamemode.setDefaultXPTableName("Normal");

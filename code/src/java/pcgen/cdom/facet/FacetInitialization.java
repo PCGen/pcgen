@@ -40,6 +40,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.cdom.util.CControl;
 import pcgen.output.factory.CodeControlModelFactory;
 import pcgen.output.publish.OutputDB;
 
@@ -234,5 +235,11 @@ public final class FacetInitialization
 		//and others just in case...
 		FacetLibrary.getFacet(ClassLevelChangeFacet.class);
 		FacetLibrary.getFacet(UnconditionalTemplateFacet.class);
+		
+		/*
+		 * As good of a place as any to do this
+		 */
+		OutputDB.register("Deity", CControl.DEITYINPUT);
+		OutputDB.register("Alignment", CControl.ALIGNMENTINPUT);
 	}
 }

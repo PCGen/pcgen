@@ -64,7 +64,7 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, PCGenScope
 	private <T> void processAdd(CharID id, VariableID<T> varID, Object source)
 	{
 		T value = variableStoreFacet.getValue(id, varID);
-		variableStoreFacet.get(id).addVariableListener(varID, new BridgeListener(id, this));
+		variableStoreFacet.get(id).addVariableListener(varID, new BridgeListener(id, this, source));
 		/*
 		 * CONSIDER This is a hard-coding based on array - the format manager, which is
 		 * available from the VariableID, might want to provide more insight. Currently,
@@ -100,7 +100,7 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, PCGenScope
 
 	private <T> void processRemove(CharID id, VariableID<T> varID, Object source)
 	{
-		variableStoreFacet.get(id).removeVariableListener(varID, new BridgeListener(id, this));
+		variableStoreFacet.get(id).removeVariableListener(varID, new BridgeListener(id, this, source));
 		T value = variableStoreFacet.getValue(id, varID);
 		if (value.getClass().isArray())
 		{

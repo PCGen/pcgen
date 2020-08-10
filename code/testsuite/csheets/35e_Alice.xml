@@ -125,7 +125,7 @@ BIO
 		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
-		<residence>Peachmond</residence>
+		<residence></residence>
 		<size>
 			<long>Medium</long>
 			<short>M</short>

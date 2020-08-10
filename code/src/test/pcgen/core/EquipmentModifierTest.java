@@ -19,6 +19,7 @@
 package pcgen.core;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
 
@@ -29,9 +30,10 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -49,8 +51,8 @@ class EquipmentModifierTest
 		TestHelper.loadPlugins();
 	}
 
-	@AfterEach
-	void tearDown()
+	@AfterAll
+	static void tearDown()
 	{
 		TokenRegistration.clearTokens();
 	}
@@ -66,6 +68,7 @@ class EquipmentModifierTest
 		final CDOMObject eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus(context, "WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
+		assertNotNull(aBonus);
 		eqMod.addToListFor(ListKey.BONUS, aBonus);
 
 		final Equipment e = new Equipment();
@@ -89,6 +92,7 @@ class EquipmentModifierTest
 		final CDOMObject eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
+		assertNotNull(aBonus);
 
 		final Equipment e = new Equipment();
 		
@@ -121,6 +125,7 @@ class EquipmentModifierTest
 		final CDOMObject eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
+		assertNotNull(aBonus);
 
 		final Equipment e = new Equipment();
 
