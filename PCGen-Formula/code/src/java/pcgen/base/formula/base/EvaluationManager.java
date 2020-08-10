@@ -40,6 +40,11 @@ public final class EvaluationManager
 	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
 
 	/**
+	 * A TypedKey used for storing the ScopeImplementer contained in this EvaluationManager.
+	 */
+	public static final TypedKey<ScopeImplementer> SCOPELIB = new TypedKey<>();
+
+	/**
 	 * A TypedKey used for storing the FunctionLibrary contained in this EvaluationManager.
 	 */
 	public static final TypedKey<FunctionLibrary> FUNCTION = new TypedKey<>();

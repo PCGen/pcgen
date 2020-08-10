@@ -41,6 +41,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.factory.ShadowingScopeManager;
+import pcgen.base.formula.factory.SimpleManagerFactory;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.DelegatingVariableStore;
 import pcgen.base.formula.inst.FormulaUtilities;
@@ -102,7 +103,7 @@ public class VariableIntegrationTest
 
 		instanceFactory = new SimpleScopeInstanceFactory(scopeManager);
 		varLibrary = new VariableManager(scopeManager, scopeManager, instanceFactory, valueStore);
-		managerFactory = new ManagerFactory(opLibrary, varLibrary, functionLib, varStore, instanceFactory);
+		managerFactory = new SimpleManagerFactory(scopeManager, opLibrary, varLibrary, functionLib, varStore, instanceFactory);
 		backmanager = SolverUtilities.buildDynamicSolverSystem(varLibrary, managerFactory, valueStore, backingStore);
 		//manager = SolverUtilities.buildDynamicSolverSystem(varLibrary, managerFactory, valueStore, varStore);
 		SimpleSolverManager newSolver =

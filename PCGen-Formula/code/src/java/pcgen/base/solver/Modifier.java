@@ -19,6 +19,8 @@ package pcgen.base.solver;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -58,6 +60,18 @@ public interface Modifier<T>
 	 *            Modifier
 	 */
 	public void captureDependencies(DependencyManager depManager);
+
+	/**
+	 * Processes this Modifier to determine if it is valid within the rules provided by
+	 * the given FormulaSemantics.
+	 * 
+	 * @param semantics
+	 *            The FormulaSemantics holding information about the context in which the
+	 *            Modifier is to be resolved
+	 * @throws SemanticsException
+	 *             If there is a Semantics issue with the Modifier
+	 */
+	public void isValid(FormulaSemantics semantics) throws SemanticsException;
 
 	/**
 	 * Returns the priority of this Modifier. This is defined by the developer,

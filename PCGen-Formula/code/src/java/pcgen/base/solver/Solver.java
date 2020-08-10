@@ -24,8 +24,10 @@ import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Identified;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.spotbugs.SuppressFBWarnings;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
@@ -278,6 +280,12 @@ public class Solver<T>
 		}
 
 		@Override
+		public void isValid(FormulaSemantics semantics)
+			throws SemanticsException
+		{
+		}
+
+		@Override
 		public long getPriority()
 		{
 			return 0;
@@ -300,7 +308,6 @@ public class Solver<T>
 		{
 			return formatManager.unconvert(value);
 		}
-		
 	}
 
 	/**

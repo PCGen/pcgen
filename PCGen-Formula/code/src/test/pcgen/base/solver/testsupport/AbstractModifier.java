@@ -22,6 +22,8 @@ import java.lang.reflect.Array;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.lang.NumberUtilities;
 import pcgen.base.solver.Modifier;
@@ -83,6 +85,12 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 
 	@Override
 	public void captureDependencies(DependencyManager depManager)
+	{
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics)
+		throws SemanticsException
 	{
 	}
 

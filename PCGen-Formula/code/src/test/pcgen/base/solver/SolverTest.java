@@ -36,6 +36,7 @@ import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.factory.SimpleManagerFactory;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
@@ -73,7 +74,7 @@ public class SolverTest
 		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
 		VariableManager varLib = new VariableManager(scopeManager, scopeManager, scopeInstanceFactory, valueStore);
 		SimpleVariableStore varStore = new SimpleVariableStore();
-		ManagerFactory managerFactory = new ManagerFactory(opLibrary, varLib,
+		ManagerFactory managerFactory = new SimpleManagerFactory(scopeManager, opLibrary, varLib,
 			functionLib, varStore, scopeInstanceFactory);
 		evalManager = managerFactory.generateEvaluationManager();
 	}

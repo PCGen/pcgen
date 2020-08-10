@@ -32,6 +32,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.ValueStore;
 
 /**
  * A SimpleSolverManager manages the Solvers for VariableIDs.
@@ -62,10 +63,10 @@ public class SimpleSolverManager implements SolverManager
 			new HashMap<VariableID<?>, Solver<?>>();
 
 	/**
-	 * The IndirectValueStore containing the relationship between a format of Solver and
+	 * The ValueStore containing the relationship between a format of Solver and
 	 * the default value for that format of Solver.
 	 */
-	private final SupplierValueStore valueStore;
+	private final ValueStore valueStore;
 
 	/**
 	 * The "summarized" results of the calculation of each Solver.
@@ -87,14 +88,13 @@ public class SimpleSolverManager implements SolverManager
 	 * @param managerFactory
 	 *            The to be used to generate visitor managers in this SimpleSolverManager
 	 * @param valueStore
-	 *            The IndirectValueStore containing the relationship between a format of a
+	 *            The ValueStore containing the relationship between a format of a
 	 *            variable and the default value for that format of a variable
 	 * @param resultStore
 	 *            The place where results from a calculation should be stored
 	 */
-	public SimpleSolverManager(
-		LegalVariableChecker varCheck,
-		ManagerFactory managerFactory, SupplierValueStore valueStore,
+	public SimpleSolverManager(LegalVariableChecker varCheck,
+		ManagerFactory managerFactory, ValueStore valueStore,
 		WriteableVariableStore resultStore)
 	{
 		this.varCheck = Objects.requireNonNull(varCheck);

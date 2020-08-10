@@ -41,6 +41,11 @@ public class FormulaSemantics
 	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
 
 	/**
+	 * A TypedKey used for storing the ScopeImplementer contained in this FormulaSemantics.
+	 */
+	public static final TypedKey<ScopeImplementer> SCOPELIB = new TypedKey<>();
+
+	/**
 	 * A TypedKey used for storing the FunctionLibrary contained in this FormulaSemantics.
 	 */
 	public static final TypedKey<FunctionLibrary> FUNCTION = new TypedKey<>();
@@ -54,6 +59,11 @@ public class FormulaSemantics
 	 * The OperatorLibrary used to store valid operators.
 	 */
 	public static final TypedKey<OperatorLibrary> OPLIB = new TypedKey<>();
+
+	/**
+	 * A TypedKey used for storing the ScopeInstanceFactory contained in this FormulaSemantics.
+	 */
+	public static final TypedKey<ScopeInstanceFactory> SIFACTORY = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the ImplementedScope contained in this FormulaSemantics.

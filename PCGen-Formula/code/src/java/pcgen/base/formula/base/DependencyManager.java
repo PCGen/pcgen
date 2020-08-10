@@ -43,6 +43,11 @@ public class DependencyManager
 	public static final TypedKey<List<String>> LOG = new TypedKey<>();
 
 	/**
+	 * A TypedKey used for storing the ScopeImplementer contained in this DependencyManager.
+	 */
+	public static final TypedKey<ScopeImplementer> SCOPELIB = new TypedKey<>();
+
+	/**
 	 * A TypedKey used for storing the VariableLibrary contained in this DependencyManager.
 	 */
 	public static final TypedKey<VariableLibrary> VARLIB = new TypedKey<>();
@@ -56,6 +61,11 @@ public class DependencyManager
 	 * The OperatorLibrary used to store valid operators.
 	 */
 	public static final TypedKey<OperatorLibrary> OPLIB = new TypedKey<>();
+
+	/**
+	 * A TypedKey used for storing the ScopeInstanceFactory contained in this DependencyManager.
+	 */
+	public static final TypedKey<ScopeInstanceFactory> SIFACTORY = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the ImplementedScope contained in this DependencyManager.

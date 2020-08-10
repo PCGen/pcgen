@@ -47,7 +47,7 @@ public class SimpleScopeInstance implements ScopeInstance
 	 */
 	public SimpleScopeInstance(ImplementedScope scope, VarScoped representing)
 	{
-		this.representing = Objects.requireNonNull(representing);
+		this.representing = representing;
 		VarScoped rep = representing.getProviderFor(scope);
 		if (!representing.equals(rep))
 		{

@@ -22,6 +22,8 @@ import java.util.Objects;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -115,6 +117,12 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	public void captureDependencies(DependencyManager depManager)
 	{
 		modifier.captureDependencies(depManager);
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
+	{
+		modifier.isValid(semantics);
 	}
 
 	@Override

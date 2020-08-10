@@ -17,7 +17,6 @@
  */
 package pcgen.base.formula.base;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -25,59 +24,8 @@ import java.util.Optional;
  * the visitors to a Formula. This provides a common construction location for typical
  * SolverSystem object structures.
  */
-public class ManagerFactory
+public interface ManagerFactory
 {
-	/**
-	 * The OperatorLibrary this ManagerFactory will use to construct Managers.
-	 */
-	private final OperatorLibrary opLib;
-
-	/**
-	 * The VariableLibrary this ManagerFactory will use to construct Managers.
-	 */
-	private final VariableLibrary varLib;
-
-	/**
-	 * The FunctionLibrary this ManagerFactory will use to construct Managers.
-	 */
-	private final FunctionLibrary functionLib;
-
-	/**
-	 * The VariableStore this ManagerFactory will use to construct Managers.
-	 */
-	private final VariableStore varStore;
-
-	/**
-	 * The ScopeInstanceFactory this ManagerFactory will use to construct Managers.
-	 */
-	private final ScopeInstanceFactory siFactory;
-
-	/**
-	 * Construct a new ManagerFactory with the given arguments.
-	 * 
-	 * @param opLib
-	 *            The OperatorLibrary this ManagerFactory will use to construct Managers
-	 * @param varLib
-	 *            The VariableLibrary this ManagerFactory will use to construct Managers
-	 * @param functionLib
-	 *            The FunctionLibrary this ManagerFactory will use to construct Managers
-	 * @param varStore
-	 *            The VariableStore this ManagerFactory will use to construct Managers
-	 * @param siFactory
-	 *            The ScopeInstanceFactory this ManagerFactory will use to construct
-	 *            Managers
-	 */
-	public ManagerFactory(OperatorLibrary opLib, VariableLibrary varLib,
-		FunctionLibrary functionLib, VariableStore varStore,
-		ScopeInstanceFactory siFactory)
-	{
-		this.opLib = Objects.requireNonNull(opLib);
-		this.varLib = Objects.requireNonNull(varLib);
-		this.functionLib = Objects.requireNonNull(functionLib);
-		this.varStore = Objects.requireNonNull(varStore);
-		this.siFactory = Objects.requireNonNull(siFactory);
-	}
-
 	/**
 	 * Generates an initialized DependencyManager with the given argument and based on
 	 * items known by the ManagerFactory.
@@ -86,10 +34,11 @@ public class ManagerFactory
 	 *            The ScopeInstance to be contained in the DependencyManager
 	 * @return An initialized DependencyManager with the given arguments
 	 */
-	public DependencyManager generateDependencyManager(ScopeInstance scopeInst)
+	public default DependencyManager generateDependencyManager(
+		ScopeInstance scopeInst)
 	{
-		return generateDependencyManager()
-			.getWith(DependencyManager.INSTANCE, scopeInst);
+		return generateDependencyManager().getWith(DependencyManager.INSTANCE,
+			scopeInst);
 	}
 
 	/**
@@ -98,13 +47,7 @@ public class ManagerFactory
 	 * 
 	 * @return An initialized DependencyManager
 	 */
-	public DependencyManager generateDependencyManager()
-	{
-		DependencyManager depManager = new DependencyManager();
-		depManager = depManager.getWith(DependencyManager.VARLIB, varLib);
-		depManager = depManager.getWith(DependencyManager.FUNCTION, functionLib);
-		return depManager.getWith(DependencyManager.OPLIB, opLib);
-	}
+	public DependencyManager generateDependencyManager();
 
 	/**
 	 * Decorates a DependencyManager with additional contents to handle variable
@@ -115,11 +58,13 @@ public class ManagerFactory
 	 *            be derived
 	 * @return The DependencyManager with contents to handle variables
 	 */
-	public DependencyManager withVariables(DependencyManager depManager)
+	public default DependencyManager withVariables(DependencyManager depManager)
 	{
 		return depManager
-			.getWith(DependencyManager.VARSTRATEGY, Optional.of(new StaticStrategy()))
-			.getWith(DependencyManager.VARIABLES, Optional.of(new VariableList()));
+			.getWith(DependencyManager.VARSTRATEGY,
+				Optional.of(new StaticStrategy()))
+			.getWith(DependencyManager.VARIABLES,
+				Optional.of(new VariableList()));
 	}
 
 	/**
@@ -131,30 +76,14 @@ public class ManagerFactory
 	 *            returned FormulaSemantics
 	 * @return An initialized FormulaSemantics object for operating in the given scope
 	 */
-	public FormulaSemantics generateFormulaSemantics(ImplementedScope scope)
-	{
-		FormulaSemantics semantics = new FormulaSemantics();
-		semantics = semantics.getWith(FormulaSemantics.FUNCTION, functionLib);
-		semantics = semantics.getWith(FormulaSemantics.VARLIB, varLib);
-		semantics = semantics.getWith(FormulaSemantics.OPLIB, opLib);
-		return semantics.getWith(FormulaSemantics.SCOPE, scope);
-	}
+	public FormulaSemantics generateFormulaSemantics(ImplementedScope scope);
 
 	/**
 	 * Generates a new EvaluationManager based on items known by the ManagerFactory.
 	 * 
 	 * @return A new EvaluationManager based on items known by the ManagerFactory
 	 */
-	public EvaluationManager generateEvaluationManager()
-	{
-		EvaluationManager manager = new EvaluationManager();
-		manager = manager.getWith(EvaluationManager.OPLIB, opLib);
-		manager = manager.getWith(EvaluationManager.FUNCTION, functionLib);
-		manager = manager.getWith(EvaluationManager.VARLIB, varLib);
-		manager = manager.getWith(EvaluationManager.RESULTS, varStore);
-		manager = manager.getWith(EvaluationManager.SIFACTORY, siFactory);
-		return manager;
-	}
+	public EvaluationManager generateEvaluationManager();
 
 	/**
 	 * Creates a replacement ManagerFactory which contains the existing information in
@@ -164,9 +93,5 @@ public class ManagerFactory
 	 *            The new VariableStore to be stored in the replacement
 	 * @return A replacement ManagerFactory which contains the given VariableStore
 	 */
-	public ManagerFactory createReplacement(WriteableVariableStore newVarStore)
-	{
-		return new ManagerFactory(opLib, varLib, functionLib, newVarStore,
-			siFactory);
-	}
+	public ManagerFactory createReplacement(WriteableVariableStore newVarStore);
 }

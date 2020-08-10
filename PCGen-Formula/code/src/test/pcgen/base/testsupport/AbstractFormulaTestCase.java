@@ -47,6 +47,7 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.exception.SemanticsFailureException;
+import pcgen.base.formula.factory.SimpleManagerFactory;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
@@ -89,7 +90,7 @@ public abstract class AbstractFormulaTestCase
 		scopeManager = new NaiveScopeManager();
 		siFactory = new SimpleScopeInstanceFactory(scopeManager);
 		varLib = new VariableManager(scopeManager, scopeManager, siFactory, valueStore);
-		managerFactory = new ManagerFactory(opLibrary, varLib, functionLib, varStore, siFactory);
+		managerFactory = new SimpleManagerFactory(scopeManager, opLibrary, varLib, functionLib, varStore, siFactory);
 		globalVarScoped = new GlobalVarScoped("Global");
 		globalInstance = siFactory.get("Global", globalVarScoped);
 	}

@@ -166,17 +166,17 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
-		DependencyManager depManager =
-				getManagerFactory().generateDependencyManager(
-					getGlobalScopeInst());
-		depManager = getManagerFactory().withVariables(depManager);
 		/*
 		 * Safe and "ignored" - if this test fails, need to change what DependencyManager
 		 * is passed in - it should NOT contain an ArgumentDependencyManager
 		 */
-		assertTrue(!depManager.get(ArgumentDependencyManager.KEY).isPresent());
+		DependencyManager cleanDepManager =
+				getManagerFactory().generateDependencyManager(
+					getGlobalScopeInst());
+		cleanDepManager = getManagerFactory().withVariables(cleanDepManager);
+		assertTrue(!cleanDepManager.get(ArgumentDependencyManager.KEY).isPresent());
 		DependencyVisitor dv = new DependencyVisitor();
-		dv.visit(node, depManager);
+		dv.visit(node, cleanDepManager);
 	}
 
 	@Test

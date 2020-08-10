@@ -68,7 +68,6 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 		ImplementedScope scope = manager.getImplementedScope(scopeName);
 		VarScoped activeVarScoped = varScoped.getProviderFor(scope);
 		return getActiveInstance(scope, activeVarScoped);
-
 	}
 
 	private ScopeInstance getActiveInstance(ImplementedScope scope,
