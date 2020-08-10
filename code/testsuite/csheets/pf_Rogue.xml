@@ -335,7 +335,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>27</total>
-		<listing>ABILITY +6, DEFLECTION +2, ARMORENHANCEMENT +1, BASE +10, NATURALARMORENHANCEMENT +2, ARMOR +4, DODGE +1, SIZE +1</listing>
+		<listing>ABILITY +6, ARMOR +4, ARMORENHANCEMENT +1, BASE +10, DEFLECTION +2, DODGE +1, NATURALARMORENHANCEMENT +2, SIZE +1</listing>
 		<flat>27</flat>
 		<touch>20</touch>
 		<base>10</base>

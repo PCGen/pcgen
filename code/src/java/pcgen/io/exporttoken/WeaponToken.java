@@ -2551,10 +2551,11 @@ public class WeaponToken extends Token
 	private static String weaponTypes(Equipment eq, boolean primary)
 	{
 		GameMode game = SettingsHandler.getGameAsProperty().get();
-		return game.getWeaponTypes().stream()
+		TreeSet<String> set = game.getWeaponTypes().stream()
 			.filter(type -> eq.isType(type, primary))
 			.map(type -> game.getWeaponTypeAbbrev(type))
-			.collect(Collectors.joining());
+			.collect(Collectors.toCollection(() -> new TreeSet<>()));
+		return StringUtil.join(set, "");
 	}
 
 	/**

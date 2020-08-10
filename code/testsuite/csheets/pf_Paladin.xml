@@ -113,7 +113,7 @@ BIO
 		</reach>
 		<region>Ustalav</region>
 		<reputation>0</reputation>
-		<residence>Sturnidae</residence>
+		<residence></residence>
 		<size>
 			<long>Medium</long>
 			<short>M</short>
@@ -288,7 +288,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>22</total>
-		<listing>ABILITY +1, DEFLECTION +1, ARMORENHANCEMENT +1, BASE +10, ARMOR +9</listing>
+		<listing>ABILITY +1, ARMOR +9, ARMORENHANCEMENT +1, BASE +10, DEFLECTION +1</listing>
 		<flat>21</flat>
 		<touch>12</touch>
 		<base>10</base>

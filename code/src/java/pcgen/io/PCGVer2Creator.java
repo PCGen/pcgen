@@ -22,7 +22,6 @@ package pcgen.io;
 
 import java.awt.Rectangle;
 import java.io.File;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -2471,9 +2470,9 @@ public final class PCGVer2Creator
 	private void appendMoneyLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_MONEY).append(':');
-		BigDecimal currentGold = (BigDecimal) ChannelUtilities
+		Number n = (Number) ChannelUtilities
 				.readControlledChannel(thePC.getCharID(), CControl.GOLDINPUT);
-		buffer.append(currentGold);
+		buffer.append(n.toString());
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

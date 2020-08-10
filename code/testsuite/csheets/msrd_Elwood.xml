@@ -1699,7 +1699,7 @@ BIO
 		<feat>
 			<name>Advanced Firearms Proficiency</name>
 			<description>The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an auto-fire setting)</description>
-			<type>GENERAL.DEDICATED.SOLDIER.GUNSLINGER.BODYGUARD.INVESTIGATOR.NEGOTIATOR.STREETWARRIOR.DREADNOUGHT.FIELDOFFICER.HELIXWARRIOR.SPACEMONKEY.TRACER</type>
+			<type>GENERAL.DEDICATED.SOLDIER.GUNSLINGER.BODYGUARD.INVESTIGATOR.NEGOTIATOR.DREADNOUGHT.FIELDOFFICER.HELIXWARRIOR.SPACEMONKEY.TRACER.STREETWARRIOR</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1709,7 +1709,7 @@ BIO
 		<feat>
 			<name>Brawl</name>
 			<description>When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier</description>
-			<type>GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.SHADOWHUNTER.SPEEDDEMON.THRASHER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR</type>
+			<type>GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR.SHADOWHUNTER.SPEEDDEMON.THRASHER</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1729,7 +1729,7 @@ BIO
 		<feat>
 			<name>Personal Firearms Proficiency</name>
 			<description>The character can fire any personal firearm without penalty</description>
-			<type>GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENT.MILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.STREETWARRIOR.TECHNOMAGE.WILDLORD.MECHAJOCKEY</type>
+			<type>GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENT.MILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.MECHAJOCKEY.STREETWARRIOR.TECHNOMAGE.WILDLORD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

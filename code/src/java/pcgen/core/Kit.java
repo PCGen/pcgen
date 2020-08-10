@@ -133,10 +133,10 @@ public final class Kit extends PObject
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(pc);
 		if (totalCostToBeCharged != null)
 		{
-			BigDecimal currentGold = (BigDecimal) ChannelUtilities
+			Number currentGold = (Number) ChannelUtilities
 				.readControlledChannel(pc.getCharID(), CControl.GOLDINPUT);
 			ChannelUtilities.setControlledChannel(pc.getCharID(),
-				CControl.GOLDINPUT, currentGold.subtract(totalCostToBeCharged));
+				CControl.GOLDINPUT, new BigDecimal(currentGold.toString()).subtract(totalCostToBeCharged));
 		}
 
 		for (KitStat kStat : getStats())
@@ -302,8 +302,8 @@ public final class Kit extends PObject
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(tempPC);
 		if (totalCostToBeCharged != null)
 		{
-			BigDecimal pcGold = (BigDecimal) ChannelUtilities
-					.readControlledChannel(tempPC.getCharID(), CControl.GOLDINPUT);
+			BigDecimal pcGold = new BigDecimal(ChannelUtilities
+					.readControlledChannel(tempPC.getCharID(), CControl.GOLDINPUT).toString());
 			if (pcGold.compareTo(BigDecimal.ZERO) >= 0 && pcGold.compareTo(totalCostToBeCharged) < 0)
 			{
 				warnings.add("Could not purchase kit. Not enough funds.");

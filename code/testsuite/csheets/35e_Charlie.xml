@@ -105,16 +105,16 @@ BIO
 				<squares>6</squares>
 			</move>
 			<move>
-				<name>Trot</name>
-				<rate>35 ft.</rate>
-				<squares>7</squares>
-			</move>
-			<move>
 				<name>Crawl</name>
 				<rate>5 ft.</rate>
 				<squares>1</squares>
 			</move>
-			<all>Walk 30 ft., Trot 35 ft., Crawl 5 ft.</all>
+			<move>
+				<name>Trot</name>
+				<rate>35 ft.</rate>
+				<squares>7</squares>
+			</move>
+			<all>Walk 30 ft., Crawl 5 ft., Trot 35 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>

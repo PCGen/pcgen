@@ -113,7 +113,7 @@ BIO
 		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
-		<residence>Vericostial</residence>
+		<residence></residence>
 		<size>
 			<long>Medium</long>
 			<short>M</short>
@@ -270,7 +270,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>16</total>
-		<listing>BASE +10, ARMOR +5, SHIELD +1</listing>
+		<listing>ARMOR +5, BASE +10, SHIELD +1</listing>
 		<flat>16</flat>
 		<touch>10</touch>
 		<base>10</base>
