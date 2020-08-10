@@ -7,7 +7,7 @@ Sawtooth Sabre						TYPE:Exotic.Melee.OneHanded.Slashing.Sword
 
 Aldori Dueling Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Elven Leafblade.MOD					TYPE:Bladelight.Weapon Group Blades Light
-Elven Thornblade						TYPE:Bladeheavy.Weapon Group Blades Heavy
+Elven Thornblade					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Piercing
 Sawtooth Sabre						TYPE:Bladeheavy.Weapon Group Blades Heavy
 
 Halberd.MOD							TYPE:HKOotNail
