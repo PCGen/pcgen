@@ -164,6 +164,9 @@ ABILITYCATEGORY:Personal Upgrade LVL 14				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Themeless Class Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Themeless Class Skill																																																																																											DISPLAYLOCATION:Character
 ABILITYCATEGORY:Themeless +1 Ability Score			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Themeless +1 Ability Score																																																																																										DISPLAYLOCATION:Character
 
+ABILITYCATEGORY:Priest Theme Benefit Divine Boon		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Priest Theme Benefit Divine Boon																																																																																									DISPLAYLOCATION:Character
+
+
 ABILITYCATEGORY:Scholar Theme Chosen Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Scholar Theme Chosen Skill																																																																																										DISPLAYLOCATION:Character
 
 ABILITYCATEGORY:Life Science Specialty				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:Life Science Specialty																																																																																											DISPLAYLOCATION:Character
@@ -230,3 +233,15 @@ ABILITYCATEGORY:Ring of Resistance +5				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:N
 
 
 ABILITYCATEGORY:Android Upgrade Slot				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Android Upgrade Slot																																																																																											DISPLAYLOCATION:Character
+
+#Variant Ability Support
+ABILITYCATEGORY:Android Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Android Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Human Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Human Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Kasatha Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Kasatha Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Lashunta Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Lashunta Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Shirren Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Shirren Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vesk Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Vesk Variant Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ysoki Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Ysoki Variant Ability																																																																																											DISPLAYLOCATION:Character
+
+
+
