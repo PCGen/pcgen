@@ -262,6 +262,7 @@ runtime {
         {
             targetPlatformName = 'mac-x64'
             installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
+            resourceDir = file("${projectDir}/installers/mac-installer")
         }
         else {
             targetPlatformName = 'linux-x64'
@@ -269,7 +270,6 @@ runtime {
         }
 
         imageName = "PcGen"
-        resourceDir = file("$buildDir/install/pcgen")
     }
 }
 
@@ -287,6 +287,15 @@ tasks.jpackageImage.doLast {
         else {
             into "build/jpackage/PcGen/bin"
         }
+    }
+    if (Os.isFamily(Os.FAMILY_MAC)){
+        copy {
+            from "${projectDir}/installers/mac-installer"
+            include "MacDirLauncher"
+            fileMode 0755
+            into "${buildDir}/jpackage/PcGen.app/Contents/MacOS"
+        }
+        ant.replace(file: "${buildDir}/jpackage/PcGen.app/Contents/Info.plist", token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>", value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
     }
 }
 
