@@ -282,7 +282,7 @@ tasks.jpackageImage.doLast {
         exclude "pcgen"
         exclude "**/lib/**"
         if (Os.isFamily(Os.FAMILY_MAC)){
-            into "build/jpackage/PcGen/Contents/Resources"
+            into "build/jpackage/PcGen.app/Contents/MacOS"
         }
         else {
             into "build/jpackage/PcGen/bin"
