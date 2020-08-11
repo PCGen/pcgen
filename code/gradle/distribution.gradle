@@ -91,7 +91,17 @@ applicationDistribution.with(programScriptImage)
 applicationDistribution.with(programDistsImage)
 
 application{
+    //Output the startScripts (.bat and .sh) in main distribute folder rather than .bin
     executableDir = ""
+}
+
+//Workaround for https://github.com/gradle/gradle/issues/10387
+startScripts{
+    doLast {
+        windowsScript.text =
+                windowsScript.text
+                .replace("set JAVA_HOME=\"%~dp0..\"", "set JAVA_HOME=\"%~dp0\"")
+    }
 }
 
 task runJar(type: JavaExec, dependsOn: jar) {
