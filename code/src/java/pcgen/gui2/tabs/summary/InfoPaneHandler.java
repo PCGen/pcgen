@@ -18,6 +18,7 @@
  */
 package pcgen.gui2.tabs.summary;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.PCStat;
 import pcgen.facade.core.CharacterFacade;
@@ -97,7 +98,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 		} 
 		else
 		{
-			if (!character.getDataSet().getAlignments().isEmpty())
+			if (character.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 			{
 				character.getAlignmentRef().addReferenceListener(this);
 			}
