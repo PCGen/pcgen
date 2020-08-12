@@ -93,6 +93,7 @@ applicationDistribution.with(programDistsImage)
 application{
     //Output the startScripts (.bat and .sh) in main distribute folder rather than .bin
     executableDir = ""
+    applicationDefaultJvmArgs = ["-Dsun.java2d.d3d=false"]
 }
 
 run {
