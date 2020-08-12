@@ -109,6 +109,14 @@ run {
 }
 tasks.run.dependsOn(downloadJavaFXModules)
 
+installDist.doLast{
+    delete {
+        delete fileTree("${buildDir}/install/pcgen/lib") {
+            include 'javafx-*'
+        }
+    }
+}
+
 //Workaround for https://github.com/gradle/gradle/issues/10387
 startScripts{
     doLast {
