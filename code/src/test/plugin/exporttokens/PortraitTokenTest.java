@@ -53,7 +53,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setName("PortraitTokenTest");
-		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
+		pc.setPortraitPath("code/src/resources/pcgen/images/SplashPcgen_Alpha.png");
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE));
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNotNull("THUMB should not be null ", thumbResult);
@@ -73,7 +73,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setName("PortraitTokenTest");
-		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
+		pc.setPortraitPath("code/src/resources/pcgen/images/SplashPcgen_Alpha.png");
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNotNull("THUMB should not be null ", thumbResult);
@@ -98,7 +98,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNull("No image or rect should be null", thumbResult);
 		
-		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
+		pc.setPortraitPath("code/src/resources/pcgen/images/SplashPcgen_Alpha.png");
 		thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNull("No rect should be null", thumbResult);
 
