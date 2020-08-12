@@ -1,11 +1,17 @@
 CAMPAIGN:Haunted Heroes Handbook - Support
 
 # Do not remove the EXTRAFILE comment.
-#EXTRAFILE:hhh_abilities_class_ap72.lst
-#EXTRAFILE:hhh_abilities_class_botc.lst
-#EXTRAFILE:hhh_abilities_class_hothc.lst
-#EXTRAFILE:hhh_abilities_class_ismc.lst
-#EXTRAFILE:hhh_abilities_class_pathr.lst
-#EXTRAFILE:hhh_abilities_class_planep.lst
-
-# COMMENTS:
+ABILITY:hhh_abilities_class_ap72.lst
+ABILITY:hhh_abilities_class_botc.lst
+ABILITY:hhh_abilities_class_cop.lst
+ABILITY:hhh_abilities_class_fap.lst
+ABILITY:hhh_abilities_class_ha.lst
+ABILITY:hhh_abilities_class_hhb.lst
+ABILITY:hhh_abilities_class_hothc.lst
+ABILITY:hhh_abilities_class_hotw.lst
+ABILITY:hhh_abilities_class_ismc.lst
+ABILITY:hhh_abilities_class_pathr.lst
+ABILITY:hhh_abilities_class_planep.lst
+ABILITY:hhh_abilities_class_uw.lst
+DEITY:hhh_deities_isg_fob.lst
+# COMMENTS: Placeholders

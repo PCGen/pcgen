@@ -109,3 +109,25 @@ Mystic Artist Skill ~ Perform (Sing)				SORTKEY:00_A	CATEGORY:Special Ability	TY
 #DESC:Usable %2/day, DC %1|MysticArtistDC|MysticArtistUse
 
 
+###Block: PLACEHOLDER
+# Make CSKILL ~ Alt Rule Skill ~ Acrobatics							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Acrobatics
+# Make CSKILL ~ Alt Rule Skill ~ Appraise							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Appraise
+# Make CSKILL ~ Alt Rule Skill ~ Athletics							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Athletics
+# Make CSKILL ~ Alt Rule Skill ~ Arcana							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Arcana
+# Make CSKILL ~ Alt Rule Skill ~ Concentration						CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Concentration
+# Make CSKILL ~ Alt Rule Skill ~ Craft							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Craft
+# Make CSKILL ~ Alt Rule Skill ~ Deception							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Deception
+# Make CSKILL ~ Alt Rule Skill ~ Engineering						CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Engineering
+# Make CSKILL ~ Alt Rule Skill ~ Heal								CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Heal
+# Make CSKILL ~ Alt Rule Skill ~ Linguistics						CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Linguistics
+# Make CSKILL ~ Alt Rule Skill ~ Local Knowledge						CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Local Knowledge
+# Make CSKILL ~ Alt Rule Skill ~ Perception							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Perception
+# Make CSKILL ~ Alt Rule Skill ~ Perform							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Perform
+# Make CSKILL ~ Alt Rule Skill ~ Persuasion							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Persuasion
+# Make CSKILL ~ Alt Rule Skill ~ Religion							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Religion
+# Make CSKILL ~ Alt Rule Skill ~ Profession							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Profession
+# Make CSKILL ~ Alt Rule Skill ~ Scholar							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Scholar
+# Make CSKILL ~ Alt Rule Skill ~ Socialize							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Socialize
+# Make CSKILL ~ Alt Rule Skill ~ Stealth							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Stealth
+# Make CSKILL ~ Alt Rule Skill ~ Survival							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Survival
+# Make CSKILL ~ Alt Rule Skill ~ Thievery							CATEGORY:Internal		CSKILL:Alt Rule Skill ~ Thievery
