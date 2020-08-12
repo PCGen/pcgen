@@ -95,6 +95,20 @@ application{
     executableDir = ""
 }
 
+run {
+    //Required to fixed incorrectly added "--module-path" and adds correct modules.
+    doFirst {
+        //-ea enables assertions
+        jvmArgs = ["-ea",
+                   "--module-path",
+                   "${projectDir}/mods/lib/",
+                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
+        ]
+
+    }
+}
+tasks.run.dependsOn(downloadJavaFXModules)
+
 //Workaround for https://github.com/gradle/gradle/issues/10387
 startScripts{
     doLast {
@@ -102,19 +116,6 @@ startScripts{
                 windowsScript.text
                 .replace("set JAVA_HOME=\"%~dp0..\"", "set JAVA_HOME=\"%~dp0\"")
     }
-}
-
-task runJar(type: JavaExec, dependsOn: jar) {
-    main = "-jar"
-
-    //-ea enables assertions
-    //The jar location must be last in the args list.
-    args = ["-ea",
-            "--module-path",
-            "${projectDir}/mods/lib/",
-            "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
-            "$buildDir/libs/pcgen-${version}.jar"
-    ]
 }
 
 [distZip, distTar, installDist]*.dependsOn createExe
