@@ -45,14 +45,13 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
-import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.factory.SimpleManagerFactory;
 import pcgen.base.formula.inst.FormulaUtilities;
+import pcgen.base.formula.inst.MonitorableVariableStore;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
-import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -72,7 +71,7 @@ public abstract class AbstractFormulaTestCase
 	private OperatorLibrary opLibrary;
 	private ManagerFactory managerFactory;
 	private ScopeInstanceFactory siFactory;
-	private WriteableVariableStore varStore;
+	private MonitorableVariableStore varStore;
 	private VariableManager varLib;
 	private GlobalVarScoped globalVarScoped;
 
@@ -86,7 +85,7 @@ public abstract class AbstractFormulaTestCase
 		valueStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		valueStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 		valueStore.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER, () -> false);
-		varStore = new SimpleVariableStore();
+		varStore = new MonitorableVariableStore();
 		scopeManager = new NaiveScopeManager();
 		siFactory = new SimpleScopeInstanceFactory(scopeManager);
 		varLib = new VariableManager(scopeManager, scopeManager, siFactory, valueStore);
@@ -261,7 +260,7 @@ public abstract class AbstractFormulaTestCase
 		return varLib;
 	}
 
-	protected WriteableVariableStore getVariableStore()
+	protected MonitorableVariableStore getVariableStore()
 	{
 		return varStore;
 	}

@@ -19,7 +19,7 @@ import java.util.List;
 
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.inst.MonitorableVariableStore;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 
@@ -108,11 +108,11 @@ public interface SolverSystem
 	 * not modify the other.
 	 * 
 	 * @param newVarStore
-	 *            The WriteableVariableStore for the new SolverSystem
+	 *            The MonitorableVariableStore for the new SolverSystem
 	 * @return A SolverSystem sharing the same default values, existing values, but with
 	 *         independent calculation pathways from this SolverSystem
 	 */
-	public SolverSystem createReplacement(WriteableVariableStore newVarStore);
+	public SolverSystem createReplacement(MonitorableVariableStore newVarStore);
 	
 	/**
 	 * Directly solves a given NEPFormula using the information in this SolverSystem.

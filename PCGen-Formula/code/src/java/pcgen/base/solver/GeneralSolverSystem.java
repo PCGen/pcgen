@@ -20,7 +20,7 @@ import java.util.Objects;
 
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.inst.MonitorableVariableStore;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 
@@ -100,12 +100,13 @@ public class GeneralSolverSystem implements SolverSystem
 	}
 
 	@Override
-	public GeneralSolverSystem createReplacement(WriteableVariableStore newVarStore)
+	public GeneralSolverSystem createReplacement(MonitorableVariableStore newVarStore)
 	{
 		SolverManager newSolver = solverFactory.createReplacement(newVarStore);
 		SolverDependencyManager newDepManager = depManager.createReplacement(newVarStore);
 		SolverStrategy newStrategy = strategy.generateReplacement(
 			newDepManager::processForChildren, newSolver::processSolver);
+		newVarStore.addGeneralListener(event -> newStrategy.processValueUpdated(event.getVarID()));
 		return new GeneralSolverSystem(newSolver, newDepManager,
 			newStrategy);
 	}

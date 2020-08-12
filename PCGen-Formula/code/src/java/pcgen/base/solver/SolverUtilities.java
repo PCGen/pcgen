@@ -17,7 +17,7 @@ package pcgen.base.solver;
 
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.inst.MonitorableVariableStore;
 import pcgen.base.util.ValueStore;
 
 /**
@@ -42,12 +42,12 @@ public final class SolverUtilities
 	 * @param valueStore
 	 *            The ValueStore used to set up the SolverSystem
 	 * @param resultStore
-	 *            The WriteableVariableStore used to set up the SolverSystem
+	 *            The MonitorableVariableStore used to set up the SolverSystem
 	 * @return The new GeneralSolverSystem
 	 */
 	public static GeneralSolverSystem buildStaticSolverSystem(
 		VariableLibrary varLib, ManagerFactory managerFactory,
-		ValueStore valueStore, WriteableVariableStore resultStore)
+		ValueStore valueStore, MonitorableVariableStore resultStore)
 	{
 		SimpleSolverManager newSolver =
 				new SimpleSolverManager(varLib::isLegalVariableID,
@@ -56,6 +56,7 @@ public final class SolverUtilities
 			managerFactory);
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
+		resultStore.addGeneralListener(event -> strategy.processValueUpdated(event.getVarID()));
 		return new GeneralSolverSystem(newSolver, dm, strategy);
 	}
 
@@ -70,12 +71,12 @@ public final class SolverUtilities
 	 * @param valueStore
 	 *            The ValueStore used to set up the SolverSystem
 	 * @param resultStore
-	 *            The WriteableVariableStore used to set up the SolverSystem
+	 *            The MonitorableVariableStore used to set up the SolverSystem
 	 * @return The new GeneralSolverSystem
 	 */
 	public static GeneralSolverSystem buildDynamicSolverSystem(
 		VariableLibrary varLib, ManagerFactory managerFactory,
-		ValueStore valueStore, WriteableVariableStore resultStore)
+		ValueStore valueStore, MonitorableVariableStore resultStore)
 	{
 		SimpleSolverManager newSolver =
 				new SimpleSolverManager(varLib::isLegalVariableID,
@@ -84,6 +85,7 @@ public final class SolverUtilities
 			managerFactory, resultStore);
 		SolverStrategy strategy =
 				new AggressiveStrategy(dm::processForChildren, newSolver::processSolver);
+		resultStore.addGeneralListener(event -> strategy.processValueUpdated(event.getVarID()));
 		return new GeneralSolverSystem(newSolver, dm, strategy);
 	}
 }

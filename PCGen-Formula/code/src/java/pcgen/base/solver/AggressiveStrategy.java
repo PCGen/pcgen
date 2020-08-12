@@ -77,30 +77,30 @@ public class AggressiveStrategy implements SolverStrategy
 	private boolean solveFromNode(VariableID<?> varID)
 	{
 		boolean changed = false;
-		boolean loopIfChanged = varStack.contains(varID);
-		try
-		{
-			varStack.push(varID);
+//		boolean loopIfChanged = varStack.contains(varID);
+//		try
+//		{
+//			varStack.push(varID);
 			changed = solveProcessor.solve(varID);
-			if (changed)
-			{
-				if (loopIfChanged)
-				{
-					throw new IllegalStateException(
-						"Infinite Loop in Variable Processing: " + varStack);
-				}
-				/*
-				 * Only necessary if the answer changes. The problem is that this is not
-				 * doing them in order of a topological sort - it is completely random...
-				 * so things may be processed twice :/
-				 */
-				processValueUpdated(varID);
-			}
-		}
-		finally
-		{
-			varStack.pop();
-		}
+//			if (changed)
+//			{
+//				if (loopIfChanged)
+//				{
+//					throw new IllegalStateException(
+//						"Infinite Loop in Variable Processing: " + varStack);
+//				}
+//				/*
+//				 * Only necessary if the answer changes. The problem is that this is not
+//				 * doing them in order of a topological sort - it is completely random...
+//				 * so things may be processed twice :/
+//				 */
+//				processValueUpdated(varID);
+//			}
+//		}
+//		finally
+//		{
+//			varStack.pop();
+//		}
 		return changed;
 	}
 
@@ -113,7 +113,20 @@ public class AggressiveStrategy implements SolverStrategy
 	@Override
 	public void processValueUpdated(VariableID<?> varID)
 	{
-		depConsumer.processForDependents(varID, this::solveFromNode);
+		if (varStack.contains(varID))
+		{
+			throw new IllegalStateException(
+				"Infinite Loop in Variable Processing: " + varStack);
+		}
+		try
+		{
+			varStack.push(varID);
+			depConsumer.processForDependents(varID, this::solveFromNode);
+		}
+		finally
+		{
+			varStack.pop();
+		}
 	}
 
 	@Override

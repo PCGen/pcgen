@@ -30,7 +30,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
-import pcgen.base.formula.inst.SimpleVariableStore;
+import pcgen.base.formula.inst.MonitorableVariableStore;
 import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SimpleSolverManager;
@@ -352,7 +352,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(2, store.get(arms));
 		assertEquals(2, store.get(limbs));
 
-		SimpleVariableStore altstore = new SimpleVariableStore();
+		MonitorableVariableStore altstore = new MonitorableVariableStore();
 		SolverSystem alt = getManager().createReplacement(altstore);
 
 		AbstractModifier<Number> four = AbstractModifier.setNumber(2, 5);

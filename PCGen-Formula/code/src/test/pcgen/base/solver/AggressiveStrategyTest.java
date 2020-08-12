@@ -52,6 +52,7 @@ public class AggressiveStrategyTest extends AbstractFormulaTestCase
 		assertTrue(target.objects.isEmpty());
 		strategy.processModsUpdated(parent);
 		assertTrue(target.objects.get(0).equals(parent));
+		strategy.processValueUpdated(parent);
 		assertTrue(target.objects.get(1).equals(child));
 		assertTrue(proc.parent.equals(parent));
 	}
