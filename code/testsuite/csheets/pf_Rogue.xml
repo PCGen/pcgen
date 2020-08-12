@@ -3952,17 +3952,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Combat Trick</name>
-			<description>You gain a bonus combat feat.</description>
-			<type>ROGUECLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY.ROGUETALENT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Improved Evasion</name>
 			<description>This works like Evasion, except that while you still take no damage on a successful Reflex saving throw against attacks, you henceforth take only half damage on a failed save. If you are helpless, you do not gain the benefit of Improved Evasion.</description>
 			<type>ROGUECLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY.ROGUEADVANCEDTALENT</type>
