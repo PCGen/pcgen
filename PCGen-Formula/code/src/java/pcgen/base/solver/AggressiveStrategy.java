@@ -63,45 +63,7 @@ public class AggressiveStrategy implements SolverStrategy
 	@Override
 	public void processModsUpdated(VariableID<?> varID)
 	{
-		solveFromNode(varID);
-	}
-
-	/**
-	 * Triggers Solvers to be called, recursively through the dependencies, from the given
-	 * VariableID.
-	 * 
-	 * @param varID
-	 *            The VariableID as a starting point for triggering Solvers to be
-	 *            processed
-	 */
-	private boolean solveFromNode(VariableID<?> varID)
-	{
-		boolean changed = false;
-//		boolean loopIfChanged = varStack.contains(varID);
-//		try
-//		{
-//			varStack.push(varID);
-			changed = solveProcessor.solve(varID);
-//			if (changed)
-//			{
-//				if (loopIfChanged)
-//				{
-//					throw new IllegalStateException(
-//						"Infinite Loop in Variable Processing: " + varStack);
-//				}
-//				/*
-//				 * Only necessary if the answer changes. The problem is that this is not
-//				 * doing them in order of a topological sort - it is completely random...
-//				 * so things may be processed twice :/
-//				 */
-//				processValueUpdated(varID);
-//			}
-//		}
-//		finally
-//		{
-//			varStack.pop();
-//		}
-		return changed;
+		solveProcessor.solve(varID);
 	}
 
 	/**
@@ -121,7 +83,7 @@ public class AggressiveStrategy implements SolverStrategy
 		try
 		{
 			varStack.push(varID);
-			depConsumer.processForDependents(varID, this::solveFromNode);
+			depConsumer.processForDependents(varID, this::processModsUpdated);
 		}
 		finally
 		{
