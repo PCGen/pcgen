@@ -47,6 +47,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PCAlignment;
@@ -543,16 +544,22 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void install()
 		{
-			if (ref.get() != null)
+			if (ref != null)
 			{
-				label.setText(ref.get().toString());
+				if (ref.get() != null)
+				{
+					label.setText(ref.get().toString());
+				}
+				ref.addReferenceListener(this);
 			}
-			ref.addReferenceListener(this);
 		}
 
 		public void uninstall()
 		{
-			ref.removeReferenceListener(this);
+			if (ref != null)
+			{
+				ref.removeReferenceListener(this);
+			}
 		}
 
 		@Override
@@ -639,8 +646,11 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public DomainTableModel(CharacterFacade character)
 		{
 			super(character);
-			setDelegate(character.getAvailableDomains());
-			character.getDomains().addListListener(listListener);
+			if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
+			{
+				setDelegate(character.getAvailableDomains());
+				character.getDomains().addListListener(listListener);
+			}
 		}
 
 		@Override
