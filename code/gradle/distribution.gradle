@@ -108,6 +108,7 @@ run {
 
     }
 }
+tasks.run.dependsOn(assemble)
 tasks.run.dependsOn(downloadJavaFXModules)
 
 installDist.doLast{
