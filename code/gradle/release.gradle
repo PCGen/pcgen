@@ -24,6 +24,7 @@ apply from: "code/gradle/releaseUtils.groovy"
 apply plugin: 'java'
 
 import org.apache.tools.ant.filters.FixCrLfFilter
+import org.apache.tools.ant.taskdefs.condition.Os
 
 ext {
     // Work out the path to the release notes for our current version.
@@ -42,6 +43,23 @@ ext {
             exclude 'batik*.jar'
         }
         into ('/libs')
+    }
+
+    lib32 = copySpec {
+        from("${buildDir}/image/pcgen-windows-x32/lib") {
+            exclude 'fop*.jar'
+            exclude 'batik*.jar'
+        }
+        into('/lib32')
+    }
+
+    lib64 = copySpec {
+        from("${buildDir}/image/pcgen-windows-x64/lib") {
+            exclude 'fop*.jar'
+            exclude 'batik*.jar'
+            exclude 'javafx*.jar'
+        }
+        into('/lib64')
     }
 
     pdfLibs = copySpec {
@@ -104,7 +122,7 @@ ext {
 	installerVerNum = result[0].toInteger() + "." + result[1].toInteger() + "." + result[2].take(2).toInteger() + ".0"
 	}
 
-task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs, 
+task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs,
         jar, converterJar]) {
     description="Assemble the required files for all PCGen installations"
     //doFirst {
@@ -120,16 +138,6 @@ task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs,
         into "/docs/acknowledgments/"
         include "PCGenLicense.txt"
     }
-    from ("${buildDir}/libs") {
-        into "./libs/"
-        exclude "pcgen-${version}.jar"
-        exclude "pcgen-${version}-batch-convert.jar"
-    }
-    from ("${buildDir}/libs") {
-        include "pcgen-${version}.jar"
-        include "pcgen-${version}-batch-convert.jar"
-        rename "(.+)-$version(.+)", '$1$2'
-    }
     from ("${projectDir}") {
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
@@ -140,14 +148,12 @@ task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs,
     from ("${buildDir}/launch4j") {
         include 'pcgen.exe'
     }
-    from ("${projectDir}/code") {
+    from ("${buildDir}/install/pcgen") {
         include 'pcgen.bat'
-        include 'pcgen.sh'
+        include 'pcgen'
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
     }
-
-    with baseLibs
     with basePlugins
     with nonPdfOutput
     with baseData
@@ -160,10 +166,9 @@ launch4j {
     jdkPreference = 'preferJre'
     maxHeapPercent = 80
     stayAlive = false
-    dontWrapJar = true
-    bundledJrePath = 'jre'
-    jar = "pcgen.jar"
     jreRuntimeBits = "64/32"
+    bundledJrePath = '.'
+    dontWrapJar = true
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
@@ -175,88 +180,6 @@ launch4j {
     downloadUrl = "https://jdk.java.net/"
 }
 
-task downloadJRE doLast {
-    def major = 13
-    def archs = ['x64','x32']
-    def osList = ['windows', 'mac']
-    def extension = 'zip'
-    osList.each{
-        def os = "${it}"
-        if(os != "windows") {
-            extension = 'tar.gz'
-        }
-        archs.each {
-            def arch = "${it}"
-            if(os == "mac" && arch == "x32"){
-                return
-            }
-            def url = "https://api.adoptopenjdk.net/v2/binary/releases/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jdk"
-            def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
-            if(!jreDir.exists()){
-                //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
-                println("Downloading Java ${major} ${arch} for ${os} from ${url}")
-                if(!jreDir.exists()){
-                    download {
-                        src url
-                        dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
-                        overwrite false
-                    }
-                    //Now untar them
-                    if(extension == "zip"){
-                        fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
-                            copy {
-                                println "Unzip $simLib.name"
-                                def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
-                                def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
-                                
-                                from zipTree(zipFile)
-                                into outputDir
-                                eachFile { fcd ->
-                                    def relPath = fcd.relativePath
-                                    if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
-                                        fcd.exclude()
-                                    } else {
-                                        def segments = relPath.segments
-                                        fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
-                                    }
-                                }
-                            }
-                            new File("${projectDir}/jre/${os}/${simLib.name}").delete()
-                        }
-                    } else {
-                        fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
-                            copy {
-                                println "Unzip $simLib.name"
-                                def name = simLib.name - '.$extension'
-                                def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
-                                def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
-                                
-                                from tarTree(zipFile)
-                                into outputDir
-                                eachFile { fcd ->
-                                    def relPath = fcd.relativePath
-                                    if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
-                                        fcd.exclude()
-                                    } else {
-                                        def segments = relPath.segments
-                                        fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
-                                    }
-                                }
-                            }
-                            new File("${projectDir}/jre/${os}/${simLib.name}").delete()
-                        }
-                    }
-                    file("${projectDir}/jre/${os}/jre_${arch}").list().each { f->
-                        if(f.startsWith("jdk")) {
-                            file("${projectDir}/jre/${os}/jre_${arch}/"+f).deleteDir()
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 task layoutNsisOptional(type: Copy, dependsOn: copyToOutput) {
     description="Assemble the optional files for PCGen installations"
     into nsisOptionFolder
@@ -265,6 +188,8 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToOutput) {
     with gmgenPlugins
     with pdfOutput
     with optionalData
+    with lib32
+    with lib64
 }
 
 // Generate the publisher/data list for the Windows installer script
@@ -356,7 +281,7 @@ task genDataList doLast {
     ignoreList.add("_universal");
     ignoreList.add("_images");
     ignoreList.add("publisher_logos");
-    new File("${projectDir}/data").eachDir{ 
+    new File("${projectDir}/data").eachDir{
         if (ignoreList.contains(it.name))
         {
             return
@@ -447,11 +372,11 @@ task genProjectNsis doLast {
 ; Constants file generated by release.gradle
 !define SIMPVER "${shortVerNum}"
 !define LONGVER "${plainVerNum}"
-!define OutDir "${releaseDir}"
+!define OutDir "${buildDir}\\nsisRelease"
 !define SrcDir "${buildDir}\\nsis"
 """)
 
-    mkdir releaseDir
+    mkdir "${buildDir}\\nsisRelease"
 }
 
 // Call NSIS to generate windows installer - Removed "genDataList"
@@ -488,33 +413,72 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
-task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
+task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar',
      'buildNsis']) {
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
     // buildNsis puts the exe into the release folder directly
-    from ("${buildDir}/libs") {
+
+    from("$buildDir/nsisRelease"){
+        include '*.exe'
+    }
+
+    from("${buildDir}/libs") {
         include 'pcgen*-sources.jar'
     }
-    from ("${buildDir}/distributions") {
-        include 'pcgen*-full.zip'
+    from("${buildDir}") {
+        include 'image*.zip'
     }
+    delete fileTree(buildDir).matching {
+        include "image*.zip"
+    }
+    from ("${buildDir}/jpackage/"){
+        include 'pcgen-*.*'
+    }
+}
+
+//Add || Os.isFamily(Os.FAMILY_UNIX) to add linux installs once bug in installers fixed https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8233449.
+if (Os.isFamily(Os.FAMILY_MAC) )
+{
+    assembleArtifacts.dependsOn jpackage
 }
 
 // Produce SHA-256 checksums for each release artifact
 task checksum(dependsOn: assembleArtifacts) doLast {
-    File checksumsFile = new File("${buildDir}/release/SHA256-digests-${version}.txt")
-    checksumsFile.delete()
+    File zipChecksumsFile = new File("${buildDir}/release/SHA256-digests-zip-${version}.txt")
+    zipChecksumsFile.delete()
     file(releaseDir).listFiles().each {File file ->
         ant.checksum(file: file, property: "cs_$file.name", algorithm: "sha-256")
         def cs = ant.properties["cs_$file.name"]
-        checksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        if (file.name.endsWith("zip")) {
+            zipChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".exe")){
+            File exeChecksumsFile = new File("${buildDir}/release/SHA256-digests-exe-${version}.txt")
+            exeChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".pkg")|| file.name.endsWith(".dmg")){
+            File macChecksumsFile = new File("${buildDir}/release/SHA256-digests-mac-${version}.txt")
+            macChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".deb")|| file.name.endsWith(".rpm")){
+            File linuxChecksumsFile = new File("${buildDir}/release/SHA256-digests-linux-${version}.txt")
+            linuxChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".jar")){
+            File jarChecksumsFile = new File("${buildDir}/release/SHA256-digests-jar-${version}.txt")
+            jarChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+        }
+        else if (file.name.endsWith(".txt")) {}
+        else {
+            throw new GradleException("Checksums should account for all file.")
+        }
     }
 }
 
 
 // genDataList removed as it causes release errors, 'genDataList'
-task prepareRelease (dependsOn: ['clean', 'build']) {
+task prepareRelease (dependsOn: ['clean', 'build', 'runtime']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 
@@ -539,53 +503,4 @@ task updateVersionToNext doLast {
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
 }
 
-macAppBundle {
-    mainClassName	= "pcgen.system.Main"
-    appName			= "PCGen"
-    appStyle		= "universalJavaApplicationStub"
-    icon 			= "installers/mac-installer/PCGenApp.icns"
-    bundleJRE 		= false
-    backgroundImage = "installers/mac-installer/PCGen_folder_background.png"
-    jvmVersion		= "+11.0"
-    appIconX		= "243"
-    appIconY		= "270"
-    appFolderX		= "370"
-    appFolderY		= "270"
-    javaProperties.put("apple.laf.useScreenMenuBar", "true")
-    bundleExtras.put("JVMVersion", "11.0")
-}
-
-task copyMacDataResources(type: Copy, dependsOn: copyToResourcesJava) {
-	from	"data"
-	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/data"
-}
-
-task copyMacDocsResources(type: Copy, dependsOn: copyMacDataResources) {
-	from	"docs"
-	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/docs"
-}
-
-task copyMacOutputsheetsResources(type: Copy, dependsOn: copyMacDocsResources) {
-	from	"outputsheets"
-	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/outputsheets"
-}
-
-task copyMacPluginsResources(type: Copy, dependsOn: copyMacOutputsheetsResources) {
-	from	"plugins"
-	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/plugins"
-}
-
-task copyMacPreviewResources(type: Copy, dependsOn: copyMacPluginsResources) {
-	from	"preview"
-	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/preview"
-}
-
-task copyMacSystemResources(type: Copy, dependsOn: copyMacPreviewResources) {
-	from	"system"
-	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/system"
-}
-
-createApp {
-	it.dependsOn 	"copyMacSystemResources"
-}
 
