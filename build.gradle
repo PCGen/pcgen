@@ -36,7 +36,11 @@ plugins {
 javafx {
     version = "14.0.1"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
-    configuration = "compileOnly"
+
+    //Check if running in ide. If so bundles javafx in to jar. If not only compiles so that runtime can add different platform javafx later.
+    if (!System.getProperty('idea.active')) {
+        configuration = "compileOnly"
+    }
 }
 
 group = 'net.sourceforge.pcgen'
