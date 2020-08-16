@@ -38,7 +38,8 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 
     //Check if running in ide. If so bundles javafx in to jar. If not only compiles so that runtime can add different platform javafx later.
-    if (!System.getProperty('idea.active')) {
+    //Also allows for gradle property which if true will force the single platforms javafx to be bundled to create local build. Can be added in command line with "-PlocalOnly=true."
+    if (!System.getProperty('idea.active') && !(localOnly.toBoolean())) {
         configuration = "compileOnly"
     }
 }
