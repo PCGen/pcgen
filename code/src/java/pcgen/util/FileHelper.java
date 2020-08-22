@@ -117,4 +117,22 @@ public final class FileHelper
 
 		return relative.getAbsolutePath().substring(root.length(), relative.getAbsolutePath().length());
 	}
+
+	/**
+	 * Remove characters which are not allowed by certain OSes and filesystems. The string returned can be used
+	 * as a filename on all OSes which can run pcgen.
+	 *
+	 * The following characters are removed:
+	 * <ul>
+	 *     <li>&lt;, &gt; :, ", \\, |, ?, * because they are
+	 *     <a href="https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions">restricted on Windows</a></li>
+	 *     <li>/ and U+0000 (Unicode NULL) , restricted on Linux, Mac, and Windows</li>
+	 * </ul>
+	 *
+	 * @param invalidCharacterFilename Filename to sanitize
+	 * @return string with invalid characters removed
+	 */
+	public static String sanitizeFilename(String invalidCharacterFilename) {
+		return invalidCharacterFilename.replaceAll("[\u0000\\\\/:*?\"<>|]", "");
+	}
 }
