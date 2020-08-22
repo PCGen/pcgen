@@ -183,4 +183,12 @@ public class FileHelperTest extends TestCase
 				"D:\\Temp\\bar.txt", path);
 		}
 	}
+
+	@Test
+	public void testFileNameStripsBadCharacters() {
+		final String invalidCharacterFilename = "Baalgor: <the>/a great?\u0000 * \"SNA|KE EYES\" White\\mane.TXT";
+
+		final String output = FileHelper.sanitizeFilename(invalidCharacterFilename);
+		assertEquals("Baalgor thea great  SNAKE EYES Whitemane.TXT", output);
+	}
 }
