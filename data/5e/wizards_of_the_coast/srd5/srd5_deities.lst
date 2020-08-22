@@ -82,3 +82,6 @@ Thor			SORTKEY:05_Norse		KEY:Norse ~ Thor			DESC:Tempest, War Hammer						FACT:T
 Thrym			SORTKEY:05_Norse		KEY:Norse ~ Thrym			DESC:War White double-bladed axe					FACT:Title|Thrym, god of fire giants and cold				FACTSET:Pantheon|Norse		ALIGN:CE
 Tyr			SORTKEY:05_Norse		KEY:Norse ~ Tyr			DESC:Knowledge, War Sword						FACT:Title|Tyr, god of courage and strategy				FACTSET:Pantheon|Norse		ALIGN:LN
 Uller			SORTKEY:05_Norse		KEY:Norse ~ Uller			DESC:Nature Longbow							FACT:Title|Uller, god of hunting and winter				FACTSET:Pantheon|Norse		ALIGN:CN
+
+# Default
+None													DESC:None								FACT:Symbol|None																			GROUP:UNSELECTED
