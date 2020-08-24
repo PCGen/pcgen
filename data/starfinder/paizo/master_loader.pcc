@@ -1,8 +1,7 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Starfinder RPG Core Supplements
 KEY:Starfinder RPG Core Supplements
 GAMEMODE:Starfinder
-TYPE:Paizo Publishing
+TYPE:Paizo
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:MultiSet
@@ -34,11 +33,12 @@ URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
+PCC:@/starfinder/paizo/core/_starfinder_core_rulebook.pcc
 
 PCC:@/starfinder/paizo/alien_archive/_starfinder_alien_archive.pcc
 PCC:@/starfinder/paizo/alien_archive_2/_starfinder_alien_archive_2.pcc
+PCC:@/starfinder/paizo/alien_archive_2/_starfinder_alien_archive_3.pcc
 PCC:@/starfinder/paizo/armory/_starfinder_armory.pcc
-PCC:@/starfinder/paizo/core/_starfinder_core_rulebook.pcc
 PCC:@/starfinder/paizo/pact_worlds/_starfinder_pact_worlds.pcc
 
 
@@ -47,5 +47,6 @@ PCC:@/starfinder/paizo/pact_worlds/_starfinder_pact_worlds.pcc
 # LST MONKEY: PCGen Team
 # LICENSE MONKEY: N/A
 # RELEASE REVIEW #
-# BETA:
-# RELEASE:
+# BETA: Andrew (LegacyKing) Maitland
+# RELEASE: Andrew (LegacyKing) Maitland
+# NOTES: Updated to include Alien Archive 3 on 8-23-2020
