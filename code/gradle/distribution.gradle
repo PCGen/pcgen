@@ -119,15 +119,6 @@ installDist.doLast{
     }
 }
 
-//Workaround for https://github.com/gradle/gradle/issues/10387
-startScripts{
-    doLast {
-        windowsScript.text =
-                windowsScript.text
-                .replace("set JAVA_HOME=\"%~dp0..\"", "set JAVA_HOME=\"%~dp0\"")
-    }
-}
-
 [distZip, distTar, installDist]*.dependsOn createExe
 
 task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', \
