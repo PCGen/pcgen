@@ -169,21 +169,21 @@ Pata.MOD					TYPE:Axe.Weapon Group Axes.Bladelight.Weapon Group Blades Light
 #
 # Weapon Group Blades, Heavy
 #
-Chakram.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Falcata.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Khopesh.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Rhoka Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
-Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Temple Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
-Double Chicken Saber.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
+Chakram.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Falcata.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Khopesh.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Rhoka Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Temple Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Double Chicken Saber.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing.Monk.Weapon Group Monk
 Katana (Double Walking Stick).MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
-Terbutje (Great).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Katana.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Broadsword (Nine Ring).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje (Great).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Katana.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Broadsword (Nine Ring).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
 Nodachi.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Polearm.Weapon Group Pole Arms
 Sword (Seven-Branched).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
 Shotel.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Terbutje.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
 #
 # Weapon Group Blades, Light
 #
