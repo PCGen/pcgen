@@ -56,6 +56,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
@@ -78,6 +79,7 @@ import pcgen.system.BatchExporter;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
+import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 
 /**
@@ -354,6 +356,9 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		{
 			path = new File(PCGenSettings.getPcgDir());
 			name = "Entire Party";
+		}
+		if (name != null) {
+			name = FileHelper.sanitizeFilename(name);
 		}
 		if (pdf)
 		{
