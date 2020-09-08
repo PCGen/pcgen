@@ -111,6 +111,7 @@ import pcgen.system.Main;
 import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PropertyContext;
+import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChoiceHandler;
 import pcgen.util.chooser.ChooserFactory;
@@ -939,7 +940,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		File prevFile = file;
 		if (file == null || StringUtils.isEmpty(file.getName()))
 		{
-			file = new File(parentPath, character.getNameRef().get() + Constants.EXTENSION_CHARACTER_FILE);
+			String characterName = FileHelper.sanitizeFilename(character.getNameRef().get());
+			file = new File(parentPath, characterName + Constants.EXTENSION_CHARACTER_FILE);
 		}
 		chooser.setSelectedFile(file);
 

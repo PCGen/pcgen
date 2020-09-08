@@ -184,7 +184,6 @@ public class FileHelperTest extends TestCase
 		}
 	}
 
-	@Test
 	public void testFileNameStripsBadCharacters() {
 		final String invalidCharacterFilename = "Baalgor: <the>/a great?\u0000 * \"SNA|KE EYES\" White\\mane.TXT";
 

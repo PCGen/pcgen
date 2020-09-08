@@ -53,6 +53,7 @@ import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
 import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import plugin.pcgtracker.gui.PCGTrackerView;
 
@@ -328,8 +329,9 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 
 		if (aPCFileName.isEmpty())
 		{
+			String characterName = FileHelper.sanitizeFilename(aPC.getDisplay().getDisplayName());
 			prevFile = new File(PCGenSettings.getPcgDir(),
-				aPC.getDisplay().getDisplayName() + Constants.EXTENSION_CHARACTER_FILE);
+				characterName + Constants.EXTENSION_CHARACTER_FILE);
 			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
 		}
