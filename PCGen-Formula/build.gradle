@@ -53,7 +53,7 @@ dependencies {
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.2'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.6.2'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.6.2'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.2'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
 }
 
 sourceSets {
