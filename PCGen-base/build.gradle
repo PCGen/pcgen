@@ -17,7 +17,7 @@ plugins {
     id 'checkstyle'
     id 'pmd'
     id "com.github.spotbugs" version '4.5.0'
-    id 'com.github.ben-manes.versions' version '0.31.0'
+    id 'com.github.ben-manes.versions' version '0.33.0'
 }
 
 group = 'net.sourceforge.pcgen'
