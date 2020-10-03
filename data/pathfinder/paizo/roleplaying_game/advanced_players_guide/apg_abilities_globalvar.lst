@@ -160,7 +160,8 @@ CATEGORY=Class|Stalwart Defender.MOD	ABILITY:Special Ability|AUTOMATIC|Stalwart 
 
 ###Block: Class Specifics
 # Ability Name				Define							Auto Weapon Prof																					Ability																																																	Bonus Ability Pool				Modify VAR
-CATEGORY=Class|Alchemist.MOD																																	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple	ABILITY:Internal|AUTOMATIC|Alchemist ~ Class Skills|PREVAREQ:Alchemist_CF_ClassSkills,0
+CATEGORY=Class|Alchemist.MOD																																	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple|PREVAREQ:Alchemist_CF_Proficiencies,0	ABILITY:Internal|AUTOMATIC|Alchemist ~ Class Skills|PREVAREQ:Alchemist_CF_ClassSkills,0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Proficiencies|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Alchemy|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Bomb|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BrewPotion|0
@@ -201,6 +202,7 @@ CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage15|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage17|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage19|0
 
+CATEGORY=Class|Alchemist.MOD																																																																																										BONUS:VAR|Alchemist_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Proficiencies=True
 CATEGORY=Class|Alchemist.MOD																																																																																										BONUS:VAR|Alchemist_CF_Alchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Alchemy=True
 CATEGORY=Class|Alchemist.MOD																																																																																										BONUS:VAR|Alchemist_CF_Bomb|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Bomb=True
 CATEGORY=Class|Alchemist.MOD																																																																																										BONUS:VAR|Alchemist_CF_BrewPotion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BrewPotion=True
