@@ -417,6 +417,7 @@ Enlarge/Reduce Weapon List	CATEGORY:Internal		DEFINE:DamageSizeAdjustment|0	BONU
 Add Language				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with bonus Language.								STACK:YES	MULT:YES	CHOOSE:LANG|TYPE=Spoken				AUTO:LANG|%LIST																																		COST:0
 +Total Level Ranks to Skill		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with +1 skill rank per level or use with custom INT bonus items.	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Base																						BONUS:SKILLRANK|%LIST|TL														COST:0
 Add a Feat Ignoring Restrictions	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with 1 feat that ignores restrictions.					STACK:YES	MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|ANY																																						COST:0	ABILITY:FEAT|NORMAL|%LIST
+Add a Class Skill				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with 1 class skill.								STACK:YES	MULT:YES	CHOOSE:ABILITYSELECTION|Class Skill|ANY																																					COST:0	ABILITY:Class Skill|AUTOMATIC|%LIST
 
 # Spells known
 +1 Level 1 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Bonus Spell Known	DESC:GM awarded PC with +1 level 1 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																																BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1
