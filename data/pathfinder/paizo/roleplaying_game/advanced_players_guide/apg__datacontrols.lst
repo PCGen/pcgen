@@ -12,6 +12,7 @@ FACTDEF:ABILITY|SummonerSelectionMade			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABL
 
 
 # Alchemist Archetype
+FACTDEF:ABILITY|Alchemist_Archetype_Proficiencies	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Alchemist_Archetype_Alchemy		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Alchemy				EXPLANATION:Determines whether the archetype affects - Alchemy
 FACTDEF:ABILITY|Alchemist_Archetype_Bomb			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Bomb					EXPLANATION:Determines whether the archetype affects - Bomb
 FACTDEF:ABILITY|Alchemist_Archetype_BrewPotion		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BrewPotion				EXPLANATION:Determines whether the archetype affects - BrewPotion
@@ -56,6 +57,7 @@ FACTDEF:ABILITY|Alchemist_Archetype_ClassSkills		DATAFORMAT:BOOLEAN	REQUIRED:NO	
 
 
 # Alchemist Class Feature Alterations
+FACTDEF:ABILITY|Alchemist_CF_Proficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Alchemist_CF_Alchemy			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AlchemistAlchemy			EXPLANATION:Remove Alchemist Alchemy
 FACTDEF:ABILITY|Alchemist_CF_Bomb				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AlchemistBomb			EXPLANATION:Remove Alchemist Bomb
 FACTDEF:ABILITY|Alchemist_CF_BrewPotion			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AlchemistBrewPotion		EXPLANATION:Remove Alchemist BrewPotion
