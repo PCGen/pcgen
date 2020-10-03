@@ -2,137 +2,137 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-# Ability Name							Type			Var. Min. Value
-CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name						Type
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	TYPE:PFSNotLegal
 
-CATEGORY=Internal|Skinwalker ~ Default.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Skinwalker ~ Default.MOD	TYPE:PFSNotLegal
 ###Block: Skinwalker Defaults
-# Ability Name									Type			Var. Min. Value
-CATEGORY=Special Ability|Skinwalker ~ Size.MOD				TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Skinwalker ~ Speed.MOD				TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Skinwalker ~ Vision.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Skinwalker ~ Languages.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name									Type
+CATEGORY=Special Ability|Skinwalker ~ Size.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Skinwalker ~ Speed.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Skinwalker ~ Vision.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Skinwalker ~ Languages.MOD			TYPE:PFSNotLegal
 
-CATEGORY=Special Ability|Skinwalker ~ Ability Scores.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Skinwalker ~ Animal-Minded.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Skinwalker ~ Change Shape.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Skinwalker ~ Spell-Like Ability.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Skinwalker ~ Ability Scores.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Skinwalker ~ Animal-Minded.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Skinwalker ~ Change Shape.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Skinwalker ~ Spell-Like Ability.MOD	TYPE:PFSNotLegal
 
 ###Block: Skinwalker Heritages
-# Ability Name										Type			Var. Min. Value
-CATEGORY=Internal|Skinwalker ~ Werebat-Kin.MOD					TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werebat-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werebat-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werebat-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werebat-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name										Type
+CATEGORY=Internal|Skinwalker ~ Werebat-Kin.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werebat-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werebat-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werebat-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werebat-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal
 
-CATEGORY=Internal|Skinwalker ~ Werebear-Kin.MOD					TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werebear-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werebear-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werebear-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werebear-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Skinwalker ~ Werebear-Kin.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werebear-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werebear-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werebear-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werebear-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal
 
-CATEGORY=Internal|Skinwalker ~ Wereboar-Kin.MOD					TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wereboar-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wereboar-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wereboar-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wereboar-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Skinwalker ~ Wereboar-Kin.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wereboar-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wereboar-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wereboar-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wereboar-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal
 
-CATEGORY=Internal|Skinwalker ~ Werecrocodile-Kin.MOD				TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werecrocodile-Kin ~ Ability Scores.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werecrocodile-Kin ~ Animal-Minded.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werecrocodile-Kin ~ Spell-Like Ability.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werecrocodile-Kin ~ Change Shape.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Skinwalker ~ Werecrocodile-Kin.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werecrocodile-Kin ~ Ability Scores.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werecrocodile-Kin ~ Animal-Minded.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werecrocodile-Kin ~ Spell-Like Ability.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werecrocodile-Kin ~ Change Shape.MOD		TYPE:PFSNotLegal
 
-CATEGORY=Internal|Skinwalker ~ Wererat-Kin.MOD					TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wererat-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wererat-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wererat-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wererat-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Skinwalker ~ Wererat-Kin.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wererat-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wererat-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wererat-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wererat-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal
 
-CATEGORY=Internal|Skinwalker ~ Wereshark-Kin.MOD				TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wereshark-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wereshark-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wereshark-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Wereshark-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Skinwalker ~ Wereshark-Kin.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wereshark-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wereshark-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wereshark-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Wereshark-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal
 
-CATEGORY=Internal|Skinwalker ~ Weretiger-Kin.MOD				TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Weretiger-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Weretiger-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Weretiger-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Weretiger-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Skinwalker ~ Weretiger-Kin.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Weretiger-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Weretiger-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Weretiger-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Weretiger-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal
 
-CATEGORY=Internal|Skinwalker ~ Werewolf-Kin.MOD					TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werewolf-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werewolf-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werewolf-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Werewolf-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Skinwalker ~ Werewolf-Kin.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werewolf-Kin ~ Ability Scores.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werewolf-Kin ~ Animal-Minded.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werewolf-Kin ~ Spell-Like Ability.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Werewolf-Kin ~ Change Shape.MOD			TYPE:PFSNotLegal
 
 ###Block: Skinwalker Traits
-# Ability Name								Type			Var. Min. Value
-CATEGORY=Special Ability|Trait ~ Mastery of Form.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Traumatic Shift.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name								Type
+CATEGORY=Special Ability|Trait ~ Mastery of Form.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Traumatic Shift.MOD		TYPE:PFSNotLegal
 # Werebats
-CATEGORY=Special Ability|Trait ~ Fight with the Flock.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Precision Hearing.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Fight with the Flock.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Precision Hearing.MOD	TYPE:PFSNotLegal
 # Werebear-Kin
-CATEGORY=Special Ability|Trait ~ Durable Change.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Reviving Rest.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Durable Change.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Reviving Rest.MOD		TYPE:PFSNotLegal
 # Wereboar-Kin
-CATEGORY=Special Ability|Trait ~ Boar Resilience.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Strength of Body.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Boar Resilience.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Strength of Body.MOD		TYPE:PFSNotLegal
 # Werecrocodile-Kin
-CATEGORY=Special Ability|Trait ~ Crocodile Swim.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Terrifying Lunge.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Crocodile Swim.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Terrifying Lunge.MOD		TYPE:PFSNotLegal
 # Wererat-Kin
-CATEGORY=Special Ability|Trait ~ Inured to Disease.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Rat Squeeze.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Inured to Disease.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Rat Squeeze.MOD		TYPE:PFSNotLegal
 # Wereshark-Kin
-CATEGORY=Special Ability|Trait ~ Sharkchild.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Shoreline Skirmisher.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Sharkchild.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Shoreline Skirmisher.MOD	TYPE:PFSNotLegal
 # Weretiger-Kin
-CATEGORY=Special Ability|Trait ~ Feline Instinct.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Tiger's Claw.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Feline Instinct.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Tiger's Claw.MOD		TYPE:PFSNotLegal
 # Werewolf-Kin
-CATEGORY=Special Ability|Trait ~ Lycanthropic Bloodlust.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Trait ~ Shared Curse.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Lycanthropic Bloodlust.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Shared Curse.MOD		TYPE:PFSNotLegal
 
 # New Trait
-CATEGORY=Special Ability|Trait ~ Child of the Moon.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Trait ~ Child of the Moon.MOD	TYPE:PFSNotLegal
 
 
 ###Block: NEW BARBARIAN RAGE POWERS
-# Ability Name									Type			Var. Min. Value
-CATEGORY=Special Ability|Rage Power ~ Armor Ripper.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Rage Power ~ Boar's Charge.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Rage Power ~ Deathless Frenzy.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Rage Power ~ Disemboweling Tusks.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Rage Power ~ Fueled by Vengeance.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Rage Power ~ Savage Intuition.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name									Type
+CATEGORY=Special Ability|Rage Power ~ Armor Ripper.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Rage Power ~ Boar's Charge.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Rage Power ~ Deathless Frenzy.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Rage Power ~ Disemboweling Tusks.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Rage Power ~ Fueled by Vengeance.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Rage Power ~ Savage Intuition.MOD		TYPE:PFSNotLegal
 
 ###Block: NEW WITCH HEXES
-# Ability Name									Type			Var. Min. Value
-CATEGORY=Special Ability|Witch Hex ~ Cursed Wound.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Witch Hex ~ Swamp's Grasp.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name									Type
+CATEGORY=Special Ability|Witch Hex ~ Cursed Wound.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Witch Hex ~ Swamp's Grasp.MOD		TYPE:PFSNotLegal
 # Major
-CATEGORY=Special Ability|Witch Major Hex ~ Animal Skin.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Witch Major Hex ~ Delicious Fright.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Special Ability|Witch Major Hex ~ Animal Skin.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Witch Major Hex ~ Delicious Fright.MOD	TYPE:PFSNotLegal
 
 ###Block: Alchemist Discovery
-# Ability Name								Type			Var. Min. Value
-CATEGORY=Special Ability|Discovery ~ Psychoactive Bomb.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name								Type
+CATEGORY=Special Ability|Discovery ~ Psychoactive Bomb.MOD	TYPE:PFSNotLegal
 
 ###Block: NEW ROGUE TALENTS
-# Ability Name									Type			Var. Min. Value
-CATEGORY=Special Ability|Rogue Talent ~ Disease Use.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Rogue Talent ~ Face in the Crowd.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Rogue Talent ~ Quick Scrounge.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Rogue Talent ~ Scavenger.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name									Type
+CATEGORY=Special Ability|Rogue Talent ~ Disease Use.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Rogue Talent ~ Face in the Crowd.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Rogue Talent ~ Quick Scrounge.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Rogue Talent ~ Scavenger.MOD			TYPE:PFSNotLegal
 
 ###Block: NEW MAGUS ARCANA
-# Ability Name									Type			Var. Min. Value
-CATEGORY=Special Ability|Magus Arcana ~ Aquatic Agility.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Magus Arcana ~ Arcane Scent.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Magus Arcana ~ Natural Spell Combat.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Magus Arcana ~ Spell Trickery.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=Special Ability|Magus Arcana ~ Spell-Scars.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name									Type
+CATEGORY=Special Ability|Magus Arcana ~ Aquatic Agility.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Magus Arcana ~ Arcane Scent.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Magus Arcana ~ Natural Spell Combat.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Magus Arcana ~ Spell Trickery.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Magus Arcana ~ Spell-Scars.MOD		TYPE:PFSNotLegal

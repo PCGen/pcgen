@@ -1,11 +1,11 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-# Spell Name						Type			Var. Min. Value
-Accursed Glare.MOD					TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Share Skin.MOD						TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Share Skin (Greater).MOD				TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Spell Name						Type
+Accursed Glare.MOD					TYPE:PFSNotLegal
+Share Skin.MOD						TYPE:PFSNotLegal
+Share Skin (Greater).MOD				TYPE:PFSNotLegal
 
 
-Speak with Animals (pigs and boars only).MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Speak with Animals (rodents only).MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Charm Animal (aquatic animals only).MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+Speak with Animals (pigs and boars only).MOD	TYPE:PFSNotLegal
+Speak with Animals (rodents only).MOD		TYPE:PFSNotLegal
+Charm Animal (aquatic animals only).MOD		TYPE:PFSNotLegal
