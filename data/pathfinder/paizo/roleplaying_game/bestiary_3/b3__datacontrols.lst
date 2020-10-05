@@ -1,0 +1,17 @@
+
+###Block: Racial Identifiers
+FACTDEF:TEMPLATE|IsCatfolk				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Catfolk		EXPLANATION:Determines whether the character is a Catfolk
+
+
+###Block: Racial Traits
+
+# Aasimar
+FACTDEF:ABILITY|Catfolk_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Ability Scores		EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Catfolk_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Type				EXPLANATION:Replaces the Catfolk Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Size				EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Vision				EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceCatsLuck			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Cat's Luck			EXPLANATION:Replaces the Cat's Luck Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceNaturalHunter		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Natural Hunter		EXPLANATION:Replaces the Natural Hunter Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSprinter			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Sprinter			EXPLANATION:Replaces the Sprinter Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Languages			EXPLANATION:Replaces the Languages Racial Trait

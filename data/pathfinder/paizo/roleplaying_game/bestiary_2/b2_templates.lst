@@ -130,12 +130,3 @@ Juju Zombie Flight															VISIBLE:NO					TEMPLATE:CHOOSE:Juju Zombie No F
 Juju Zombie No Flight															VISIBLE:NO																																!PREMOVE:1,Fly=1
 Juju Zombie Winged Flight														VISIBLE:NO																												PREMOVE:1,Fly=1																																				BONUS:VAR|Maneuverability|-Maneuverability
 Juju Zombie Magical Flight														VISIBLE:NO																												PREMOVE:1,Fly=1
-
-
-Dhampir				KEY:RaceSubtype ~ Dhampir									VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Dhampir	TYPE:Racial Heritage
-Fetchling				KEY:RaceSubtype ~ Fetchling									VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Fetchling	TYPE:Racial Heritage
-Grippli				KEY:RaceSubtype ~ Grippli									VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Grippli	TYPE:Racial Heritage
-Ifrit					KEY:RaceSubtype ~ Ifrit										VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Ifrit		TYPE:Racial Heritage
-Oread					KEY:RaceSubtype ~ Oread										VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Oread		TYPE:Racial Heritage
-Sylph					KEY:RaceSubtype ~ Sylph										VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Sylph		TYPE:Racial Heritage
-Undine				KEY:RaceSubtype ~ Undine									VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Undine	TYPE:Racial Heritage

@@ -22,6 +22,21 @@ Human Ethnicity (Varki)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.65					SUBRACE:Var
 # Racial Trait Support
 # ==============================
 
+###Block: Aasimar Subraces
+# Template Name	Unique Key					Visible	Source Page		Subrace
+Agathion-Blooded	KEY:Aasimar ~ Agathion-Blooded	VISIBLE:NO	SOURCEPAGE:p.238	SUBRACE:Agathion-Blooded
+Angel-Blooded	KEY:Aasimar ~ Angel-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Angel-Blooded
+Archon-Blooded	KEY:Aasimar ~ Archon-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Archon-Blooded
+Azata-Blooded	KEY:Aasimar ~ Azata-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Azata-Blooded
+Garuda-Blooded	KEY:Aasimar ~ Garuda-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Garuda-Blooded
+Peri-Blooded	KEY:Aasimar ~ Peri-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Peri-Blooded
+
+###Block: Dhampir Subraces
+# Template Name	Unique Key				Visible	Source Page		Subrace
+Jiang-shi-Born	KEY:Dhampir ~ Jiang-shi-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Jiang-shi-Born
+Moroi-Born		KEY:Dhampir ~ Moroi-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Moroi-Born
+Nosferatu-Born	KEY:Dhampir ~ Nosferatu-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Nosferatu-Born
+Vetala-Born		KEY:Dhampir ~ Vetala-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Vetala-Born
 
 # ==============================
 # New Race Support
@@ -35,4 +50,6 @@ Female Lashunta																		GENDERLOCK:Female
 # ==============================
 
 ###Block: Bonus Languages
-Race Bonus Language ~ Senzar							VISIBLE:NO				LANGBONUS:Senzar
+# Template Name						Visible	Bonus Languages
+Race Bonus Language ~ Senzar				VISIBLE:NO	LANGBONUS:Senzar
+Race Bonus Language ~ Drow Sign Language.MOD			LANGBONUS:Sakvroth

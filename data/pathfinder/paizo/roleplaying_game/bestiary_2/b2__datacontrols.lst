@@ -1,0 +1,34 @@
+
+###Block: Racial Identifiers
+FACTDEF:TEMPLATE|IsDhampir				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Dhampir		EXPLANATION:Determines whether the character is a Dhampir
+FACTDEF:TEMPLATE|IsFetchling				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fetchling		EXPLANATION:Determines whether the character is a Fetchling
+
+
+###Block: Racial Traits
+
+# Dhampir
+FACTDEF:ABILITY|Dhampir_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Ability Scores		EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Dhampir_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Type				EXPLANATION:Replaces the Dhampir Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Size				EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Senses				EXPLANATION:Replaces the Senses Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceSkilled			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Manipulative			EXPLANATION:Replaces the Manipulative Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceUndeadResistance		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Undead Resistance		EXPLANATION:Replaces the Undead Resistance Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceWeakness			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Light Sensitivity		EXPLANATION:Replaces the Light Sensitivity Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceEnergyAffinity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Negative Energy Affinity	EXPLANATION:Replaces the Negative Energy Affinity Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceSpellLikeAbility		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Spell-Like Ability		EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceResistLevelDrain		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Resist Level Drain		EXPLANATION:Replaces the Resist Level Drain Racial Trait
+FACTDEF:ABILITY|Dhampir_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dhampir Languages			EXPLANATION:Replaces the Languages Racial Trait
+
+# Fetchling
+FACTDEF:ABILITY|Fetchling_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Ability Scores			EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Fetchling_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Type					EXPLANATION:Replaces the Native Outsider Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Size					EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Speed					EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceDarkvision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Darkvision				EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceLowLightVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Low-Light Vision			EXPLANATION:Replaces the Low-Light Vision Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceSkilled			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Skilled				EXPLANATION:Replaces the Skilled Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceShadowBlending		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Shadow Blending			EXPLANATION:Replaces the Shadow Blending Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceShadowyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Shadowy Resistance		EXPLANATION:Replaces the Shadowy Resistance Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceSpellLikeAbilities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Spell-Like Abilities		EXPLANATION:Replaces the Spell-Like Abilities Racial Trait
+FACTDEF:ABILITY|Fetchling_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Fetchling Languages				EXPLANATION:Replaces the Languages Racial Trait

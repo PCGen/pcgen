@@ -2,6 +2,14 @@
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:52:26 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 
+###Block: Featured Races
+# Race Name		Source Page
+Aasimar.MOD		SOURCEPAGE:p.85
+Catfolk.MOD		SOURCEPAGE:p.91
+Dhampir.MOD		SOURCEPAGE:p.97
+Drow.MOD		SOURCEPAGE:p.103
+Fetchling.MOD	SOURCEPAGE:p.109
+
 # Race Name		Unique Key	Starting Feats	Size		Move				Reach		Required Gender	Bonus Languages									Stat bonus											Modify VAR													Auto Language			Ability																	Nb Legs	Nb Hands	Define				Main Race Type			Race Subtype				Type				Challenge Rating	Source Page		Bonus language			FACT
 Changeling				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5	PREGENDER:F		LANGBONUS:Aklo,Draconic,Dwarven,Elven,Giant,Gnoll,Goblin,Orc	BONUS:STAT|WIS,CHA|2	BONUS:STAT|CON|-2																				AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Changeling																			RACETYPE:Humanoid			RACESUBTYPE:Changeling			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.184	BONUS:LANGUAGES|NUMBER|1	FACT:BaseSize|M	FACT:IsPC|true
 Gillman				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5				LANGBONUS:Aklo,Aquan,Draconic,Elven						BONUS:STAT|CON,CHA|2	BONUS:STAT|WIS|-2																				AUTO:LANG|Common|Aboleth	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gillman																			RACETYPE:Humanoid									TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.188						FACT:BaseSize|M	FACT:IsPC|true
@@ -28,11 +36,6 @@ Wyvaran				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5																												
 # Race Name		SORTKEY
 # Featured
 # Race Name		SORTKEY		FACT
-Aasimar.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Catfolk.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Dhampir.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Drow.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Fetchling.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
 Goblin.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
 Hobgoblin.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
 Ifrit.MOD		SORTKEY:a_base_pc	FACT:IsPC|true

@@ -8,7 +8,6 @@ Masterpiece Activation Aasimar	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Mast
 
 ###Block: Aasimar Types
 # Template Name	Unique Key					Visible	Subrace
-Default-Aasimar	KEY:Aasimar ~ Default-Aasimar		VISIBLE:NO
 Agathion-Blooded	KEY:Aasimar ~ Agathion-Blooded	VISIBLE:NO	SUBRACE:Agathion-Blooded
 Angel-Blooded	KEY:Aasimar ~ Angel-Blooded		VISIBLE:NO	SUBRACE:Angel-Blooded
 Archon-Blooded	KEY:Aasimar ~ Archon-Blooded		VISIBLE:NO	SUBRACE:Archon-Blooded

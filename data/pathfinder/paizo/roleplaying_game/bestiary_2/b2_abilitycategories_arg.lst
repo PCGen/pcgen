@@ -7,12 +7,10 @@
 
 # Racial Abilities
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Dhampir Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DhampirRacialTrait		PLURAL:Dhampir Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Fetchling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FetchlingRacialTrait	PLURAL:Fetchling Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dhampir Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dhampir Racial Trait	PLURAL:Dhampir Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Fetchling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Fetchling Racial Trait	PLURAL:Fetchling Racial Traits	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ifrit Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IfritRacialTrait		PLURAL:Ifrit Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Oread Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OreadRacialTrait		PLURAL:Oread Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Sylph Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SylphRacialTrait		PLURAL:Sylph Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Undine Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Undine Racial Trait	PLURAL:Undine Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Grippli Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GrippliRacialTrait		PLURAL:Grippli Racial Traits		DISPLAYLOCATION:Racial Abilities
-
-ABILITYCATEGORY:Dhampir Subrace		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:DhampirSubrace								DISPLAYLOCATION:Racial Abilities

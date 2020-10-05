@@ -2,5 +2,6 @@
 # CVS $Revision: 19255 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Pathfinder Player Companion: Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7	SOURCEDATE:2012-07
 
-# Race Name	Bonus Ability Pool
-Aasimar.MOD	BONUS:ABILITYPOOL|Aasimar Subrace|1
+###Block
+# Race Name	Source Page
+Aasimar.MOD	SOURCEPAGE:Front Inside Cover

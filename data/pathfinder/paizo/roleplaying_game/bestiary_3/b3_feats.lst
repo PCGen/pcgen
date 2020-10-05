@@ -2,16 +2,3 @@
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
 
-
-###Block: Familiar Choices
-# Ability Name							Allowed Companions
-CATEGORY=Internal|Standard Familiar List.MOD	COMPANIONLIST:Familiar|Familiar (Flying Squirrel),Familiar (Fox),Familiar (Goat),Familiar (Otter),Familiar (Pig),Familiar (Raccoon)
-
-CATEGORY=Internal|Improved Familiar List (5th Level).MOD				COMPANIONLIST:Familiar|Zoog,Sprite|PREALIGN:CN,CG,CE,TN
-CATEGORY=Internal|Improved Familiar List (5th Level).MOD				COMPANIONLIST:Familiar|Carbuncle|PREALIGN:TN,NG,NE
-
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD				COMPANIONLIST:Familiar|Kyton (Augur)|PREALIGN:LE,NE,LN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD				COMPANIONLIST:Familiar|Dragon (Faerie)|!PREALIGN:LG,LN,LE,NE,TN,CE
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD				COMPANIONLIST:Familiar|Rakshasa (Raktavarna),Oni (Spirit)|PREALIGN:LE,LN,NE
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD				COMPANIONLIST:Familiar|Div (Doru)|PREALIGN:NE,TN,LE,CE
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD				COMPANIONLIST:Familiar|Archon (Harbinger)|PREALIGN:LG,LN,NG
