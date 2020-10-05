@@ -46,7 +46,6 @@ Imperial Dragon Attacks (Gargantuan)						VISIBLE:NO																												
 Imperial Dragon Attacks (Colossal)							VISIBLE:NO																																																															NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,4d6|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
 
 
-Catfolk						KEY:RaceSubtype ~ Catfolk	VISIBLE:NO	RACESUBTYPE:Catfolk	TYPE:Racial Heritage
 Ratfolk						KEY:RaceSubtype ~ Ratfolk	VISIBLE:NO	RACESUBTYPE:Ratfolk	TYPE:Racial Heritage
 Suli							KEY:RaceSubtype ~ Suli		VISIBLE:NO	RACESUBTYPE:Suli		TYPE:Racial Heritage
 Vanara						KEY:RaceSubtype ~ Vanara	VISIBLE:NO	RACESUBTYPE:Vanara	TYPE:Racial Heritage

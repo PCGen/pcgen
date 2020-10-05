@@ -7,7 +7,6 @@ ALIGN:NG
 RACE:Aasimar	!PRERACE:1,%
 GENDER:Female
 NAME:Aasimar Cleric
-DEITY:Sarenrae
 CLASS:Cleric	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Cleric
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
@@ -22,7 +21,7 @@ STAT:STR=8|DEX=10|CON=14|INT=13|WIS=15|CHA=12
 GEAR:Scale Mail				LOCATION:Equipped
 GEAR:Mace (Heavy)				LOCATION:Primary Hand
 GEAR:Crossbow (Light)			LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Evil

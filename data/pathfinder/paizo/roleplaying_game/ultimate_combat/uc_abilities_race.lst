@@ -6,3 +6,12 @@
 Gunslinger		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|GunslingerLVL
 Ninja			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|NinjaLVL
 Samurai		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|SamuraiLVL
+
+
+# ==============================
+# RACIAL SPELL-LIKE ABILITIES
+# ==============================
+
+###Block: Racial Spell-Like Abilities L0
+# Ability Name		Unique Key					Category of Ability		Type						Serves As									Define																																																			Innate Spells																																																																																																													Modify VAR
+Haunted Fey Aspect	KEY:Racial SLA ~ Haunted Fey Aspect	CATEGORY:Spell-Like Ability	TYPE:Racial Spell-Like Ability	SERVESAS:ABILITY=Spell-Like Ability|Haunted Fey Aspect	DEFINE:RacialSLA_HauntedFeyAspect_LVL|0	DEFINE:RacialSLA_HauntedFeyAspect_SpellLVL|0	DEFINE:RacialSLA_HauntedFeyAspect_Times|0	DEFINE:RacialSLA_HauntedFeyAspect_DCMod|0	DEFINE:RacialSLA_HauntedFeyAspect_DC|0	DEFINE:RacialSLA_HauntedFeyAspect_AtWill|0	DEFINE:RacialSLA_HauntedFeyAspect_Constant|0	SPELLS:Racial|TIMES=RacialSLA_HauntedFeyAspect_Times|TIMEUNIT=Day|CASTERLEVEL=RacialSLA_HauntedFeyAspect_LVL|Haunted Fey Aspect,RacialSLA_HauntedFeyAspect_DC|PREVAREQ:RacialSLA_HauntedFeyAspect_AtWill,0|PREVAREQ:RacialSLA_HauntedFeyAspect_Constant,0	SPELLS:Racial|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=RacialSLA_HauntedFeyAspect_LVL|Haunted Fey Aspect,RacialSLA_HauntedFeyAspect_DC|PREVAREQ:RacialSLA_HauntedFeyAspect_AtWill,1|PREVAREQ:RacialSLA_HauntedFeyAspect_Constant,0	SPELLS:Racial|TIMES=ATWILL|TIMEUNIT=Constant|CASTERLEVEL=RacialSLA_HauntedFeyAspect_LVL|Haunted Fey Aspect,RacialSLA_HauntedFeyAspect_DC|PREVAREQ:RacialSLA_HauntedFeyAspect_Constant,1	BONUS:VAR|RacialSLA_HauntedFeyAspect_LVL|TL|TYPE=Base	BONUS:VAR|RacialSLA_HauntedFeyAspect_SpellLVL|0	BONUS:VAR|RacialSLA_HauntedFeyAspect_Times|1|TYPE=Base	BONUS:VAR|RacialSLA_HauntedFeyAspect_DCMod|CHA|TYPE=Base	BONUS:VAR|RacialSLA_HauntedFeyAspect_DC|10+RacialSLA_HauntedFeyAspect_SpellLVL+RacialSLA_HauntedFeyAspect_DCMod

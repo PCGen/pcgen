@@ -1,0 +1,33 @@
+
+# ------------------------------
+# Catfolk
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability																			FACT
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceAbilityScores|0		ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Ability Scores|PREVAREQ:Catfolk_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceType|0				ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Type|PREVAREQ:Catfolk_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceSize|0				ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Size|PREVAREQ:Catfolk_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceSpeed|0				ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Speed|PREVAREQ:Catfolk_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceVision|0			ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Vision|PREVAREQ:Catfolk_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceCatsLuck|0			ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Cat's Luck|PREVAREQ:Catfolk_ReplaceCatsLuck,0
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceNaturalHunter|0		ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Natural Hunter|PREVAREQ:Catfolk_ReplaceNaturalHunter,0
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceSprinter|0			ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Sprinter|PREVAREQ:Catfolk_ReplaceSprinter,0
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	DEFINE:Catfolk_ReplaceLanguages|0			ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Languages|PREVAREQ:Catfolk_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkLowLightVision
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceCatsLuck|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkCatsLuck
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceNaturalHunter|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkNaturalHunter
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceSprinter|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkSprinter
+
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceType=true
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceSpeed=true
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceVision=true
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceCatsLuck|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceCatsLuck=true
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceNaturalHunter|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceNaturalHunter=true
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceSprinter|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceSprinter=true
+CATEGORY=Internal|Racial Traits ~ Catfolk.MOD	BONUS:VAR|Catfolk_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Catfolk_ReplaceLanguages=true

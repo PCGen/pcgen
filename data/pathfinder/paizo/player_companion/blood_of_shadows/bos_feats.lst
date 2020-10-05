@@ -36,3 +36,7 @@ Wayang Soothsayer					CATEGORY:FEAT		TYPE:General																											PREM
 
 ###Support for racial trait if OA is not loaded.
 Psychic Sensitivity				CATEGORY:FEAT		TYPE:General																																																																																																																					DESC:You unlock the secrets of the occult world.																																																SOURCEPAGE:p.138	BENEFIT:You gain access to occult skill unlocks (OA 194) for any skills in which you have ranks. If you have no ranks in the appropriate skill, you can't use the occult skill unlock, even if that skill can be used untrained. Normal: You must have the ability to cast psychic spells in order to use occult skill unlocks.
+
+###Block: Supports Drow Spirit Feat
+# Ability Name			Unique Key						Category of Ability		Type			Multiple Requirements																					Description																								Ability																		Source Page
+Drow Spell-Like Abilities	KEY:Half-Elf ~ Drow Spell-Like Abilities	CATEGORY:Special Ability	TYPE:ElfMagic	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Half-Elf ~ Drow Spell-Like Abilities],[!PREABILITY:1,CATEGORY=FEAT,Human Spirit,Elven Spirit]	DESC:Half-elves with this trait can cast dancing lights, darkness, and faerie fire once each per day. The caster level for these effects is %1.|TL	ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Dancing Lights|Racial SLA ~ Darkness|Racial SLA ~ Faerie Fire	SOURCEPAGE:p.15

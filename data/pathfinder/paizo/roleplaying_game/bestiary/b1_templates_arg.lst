@@ -1,0 +1,30 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21245 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Tengu			VISIBLE:NO	RACESUBTYPE:Tengu
+
+###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
+# Template Name	Unique Key					Visible	Type				FACT
+Aasimar		KEY:Racial Heritage ~ Aasimar		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsAasimar|True
+Drow			KEY:Racial Heritage ~ Drow		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsDrow|True
+Duergar		KEY:Racial Heritage ~ Duergar		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsDuergar|True
+Goblin		KEY:Racial Heritage ~ Goblin		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGoblin|True
+Hobgoblin		KEY:Racial Heritage ~ Hobgoblin	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsHobgoblin|True
+Kobold		KEY:Racial Heritage ~ Kobold		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsKobold|True
+Merfolk		KEY:Racial Heritage ~ Merfolk		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsMerfolk|True
+Tengu			KEY:Racial Heritage ~ Tengu		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTengu|True
+Tiefling		KEY:Racial Heritage ~ Tiefling	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTiefling|True
+Svirfneblin		KEY:Racial Heritage ~ Svirfneblin	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSvirfneblin|True
+
+
+
+###Block: Tiefling Subrace
+# Template Name	Unique Key			Visible
+Tiefling		KEY:Tiefling (Base)	VISIBLE:NO
+
+###Block: Tengu
+# Template Name			Visible	Auto Language		Bonus Languages
+Default Language ~ Tengu	VISIBLE:NO	AUTO:LANG|Common|Tengu	LANGBONUS:TYPE=Spoken

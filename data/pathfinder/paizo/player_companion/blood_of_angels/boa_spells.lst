@@ -5,7 +5,7 @@
 
 ###Block:
 # Spell Name					Type				Classes of caster			School			Sub-School			Components		Casting Time	Range		Target Area or Effect			Duration											Save Info		Spell Resistance	Description
-Summon Monster III (Lantern Archon Only)	TYPE:Arcane.Divine	CLASSES:Sorcerer,Wizard=3	SCHOOL:Conjuration	SUBSCHOOL:Summoning	COMPS:V, S, F/DF	CASTTIME:1 round	RANGE:Close	TARGETAREA:One summoned creature	DURATION:(ConjurationSummonersCharmBonus+(CASTERLEVEL)) rounds [D]	SAVEINFO:None	SPELLRES:No		DESC:This spell functions like summon monster III, except that you can summon one Lantern Archon.
+Summon Monster III.COPY=Summon Monster III (Lantern Archon Only)		CLASSES:.CLEARALL	DESC:.CLEAR	DESC:This spell functions like summon monster III, except that you can only summon one lantern archon.
 
 
 ###Block: Bardic Masterpiece spell placeholders

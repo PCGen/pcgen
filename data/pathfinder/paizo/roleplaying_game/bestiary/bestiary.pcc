@@ -7,6 +7,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Core Rulebook
+!PRECAMPAIGN:1,INCLUDES=Bestiary ~ Player Options Only
 !PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -55,6 +56,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009-
 #EXTRAFILE:OGL.txt
 
 DATACONTROL:b1__datacontrols.lst
+ABILITY:b1_abilities_globalvar.lst
 
 ABILITY:b1_abilities.lst
 ABILITY:b1_abilities_race.lst
@@ -72,6 +74,7 @@ WEAPONPROF:b1_profs_weapon.lst
 ABILITY:b1_abilities_race_arg.lst
 ABILITYCATEGORY:b1_abilitycategories_arg.lst
 RACE:b1_races_arg.lst
+TEMPLATE:b1_templates_arg.lst
 
 #MOVE TO CORE_ESSENTIALS
 ABILITY:b1_abilities_companion.lst
