@@ -1,4 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
 
 ###Block: Companion Support
@@ -20,3 +21,30 @@
 7th-Level Advancement ~ Companion (Pachycephalosaurus)	KEY:Companion Advancement ~ Pachycephalosaurus	CATEGORY:Special Ability	TYPE:CompanionAdvancement	PRERACE:1,Companion (Pachycephalosaurus)																				ABILITY:Special Ability|AUTOMATIC|Pachycephalosaurus ~ Clobbering Charge	BONUS:SIZEMOD|NUMBER|1
 7th-Level Advancement ~ Companion (Spinosaurus)			KEY:Companion Advancement ~ Spinosaurus		CATEGORY:Special Ability	TYPE:CompanionAdvancement	PRERACE:1,Companion (Spinosaurus)																																		BONUS:SIZEMOD|NUMBER|1
 4th-Level Advancement ~ Companion (Thylacine)			KEY:Companion Advancement ~ Thylacine		CATEGORY:Special Ability	TYPE:CompanionAdvancement	PRERACE:1,Companion (Thylacine)																																		BONUS:SIZEMOD|NUMBER|1
+
+###Block: Racial Traits
+
+#Axe Beak 29
+# Ability Name	Unique Key							Category of Ability		Type											Description																																																																																																							Source Page
+Sudden Charge	KEY:Axe Beak ~ Sudden Charge				CATEGORY:Special Ability	TYPE:AxeBeakRacialAbility.SpecialQuality.Extraordinary		DESC:When making a charge attack, an axe beak makes a single bite attack. If successful, it may also attempt to trip its opponent as a free action without provoking an attack of opportunity. If the attempt fails, the axe beak cannot be tripped in return.																																																														SOURCEPAGE:p.29
+
+#Dimetrodon (dinosaur) 78
+Tearing Bite	KEY:Dimetrodon ~ Tearing Bite				CATEGORY:Special Ability	TYPE:DimetrodonRacialAbility.SpecialQuality.Extraordinary		DESC:A dimetrodon's jaws are filled with razor-sharp teeth of two different sizes. This gives the creature a threat range of 19-20 with its bite attack.																																																																															SOURCEPAGE:p.78
+
+#Iguanodon's 78
+Thumb Spikes	KEY:Iguanodon ~ Thumb Spikes				CATEGORY:Special Ability	TYPE:IguanodonRacialAbility.SpecialQuality.Extraordinary		DESC:An iguanodon's thumb spikes can inflict grievous wounds-they deal triple damage on a successful critical hit.																																																																																					SOURCEPAGE:p.78
+
+#Pachycephalosaurus 79
+Clobbering Charge	KEY:Pachycephalosaurus ~ Clobbering Charge	CATEGORY:Special Ability	TYPE:RacialAbility.SpecialQuality.Extraordinary				DESC:When a pachycephalosaurus hits a target with its slam attack at the end of a charge, it can initiate a bull rush as a free action to move the struck target back in the same direction as the dinosaur's charge. The pachycephalosaurus cannot move with the target of the bull rush. If a pachycephalosaurus scores a critical hit against a creature with its slam attack at the end of a charge, it also staggers the target for 1 round. If the victim succeeds at a DC 18 Fortitude save, the stagger effect is negated, but the victim still suffers the effects of the dinosaur's bull rush attempt. The save DC is Strength-based.	SOURCEPAGE:p.79
+
+#Giant Gecko (lizard) 186
+Expert Climber	KEY:Giant Gecko ~ Expert Climber			CATEGORY:Special Ability	TYPE:GiantGeckoRacialAbility.SpecialQuality.Extraordinary		DESC:A gecko's feet allow it to climb virtually any surface, no matter how slick or sheer. In effect, geckos are treated as constantly being under a natural version of the spell spider climb.																																																																									SOURCEPAGE:p.186
+
+#Giant Chameleon (lizard) 186
+Tongue		KEY:Giant Chameleon ~ Tongue				CATEGORY:Special Ability	TYPE:GiantChameleonRacialAbility.SpecialQuality.Extraordinary	DESC:A giant chameleon can grab a foe with its tongue and draw the victim to its mouth. This tongue attack has a reach of 15 feet. The attack does no damage, but allows the creature to grab. A giant chameleon does not gain the grappled condition while using its tongue in this manner.																																																									SOURCEPAGE:p.186
+
+#Thylacine (marsupial) 191
+Powerful Jaws	KEY:Thylacine ~ Powerful Jaws				CATEGORY:Special Ability	TYPE:ThylacineRacialAbility.SpecialQuality.Extraordinary		DESC:A thylacine's muscular jaws threaten a critical hit on a natural roll of 19 or 20.																																																																																										SOURCEPAGE:p.191
+
+#Megalania (megafauna) 193
+Poison		KEY:Megalania ~ Poison					CATEGORY:Special Ability	TYPE:MegalaniaRacialAbility.SpecialQuality.Extraordinary		DESC:Bite; save Fort DC 19; frequency 1/round for 6 rounds; effect 1d4 Dex damage; cure 2 consecutive saves.																																																																																						SOURCEPAGE:p.193

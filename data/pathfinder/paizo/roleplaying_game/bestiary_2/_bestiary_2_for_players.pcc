@@ -94,11 +94,17 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 201
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+DATACONTROL:b2__datacontrols.lst
+
+ABILITY:b2_abilities_globalvar.lst
 
 # Separate out races used by ARG to simplify dependencies
 ABILITY:b2_abilities_race_arg.lst
 ABILITYCATEGORY:b2_abilitycategories_arg.lst
+LANGUAGE:b2_languages_arg.lst
 RACE:b2_races_arg.lst
+SPELL:b2_spells_arg.lst
+TEMPLATE:b2_templates_arg.lst
 
 # Familiars
 ABILITY:b2_abilities_familiar_race.lst

@@ -5,21 +5,29 @@ SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8od
 # Original Entry By: Andrew Maitland
 # Entry Date: Feb 2013
 
+# ==============================
+# RACE ABILITIES
+# ==============================
 
-###Block:Base Races
-# Ability Name						Category of Ability	Ability
-Racial Traits ~ Catfolk					CATEGORY:Internal
-CATEGORY=Internal|Racial Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkLowLightVision
-CATEGORY=Internal|Racial Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Cat's Luck|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkCatsLuck
-CATEGORY=Internal|Racial Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Natural Hunter|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkNaturalHunter
-CATEGORY=Internal|Racial Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Catfolk ~ Sprinter|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkSprinter
+# ------------------------------
+# Catfolk
+# ------------------------------
 
-###Block: Default Catfolk Abilities
-# Ability Name	Unique Key					Category of Ability		Type															Multiple Requirements																						Description																																Bonus to skill							Modify VAR						Source Page
-Low-Light Vision	KEY:Catfolk ~ Low-Light Vision	CATEGORY:Special Ability	TYPE:CatfolkRacialTrait.CatfolkRacialDefault.SpecialQuality						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Catfolk ~ Low-Light Vision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkLowLightVision]	DESC:In dim light, catfolk can see twice as far as humans.																																	BONUS:VAR|HasLowlightVision|1|TYPE=Base	SOURCEPAGE:p.91
-Cat's Luck		KEY:Catfolk ~ Cat's Luck		CATEGORY:Special Ability	TYPE:CatfolkRacialTrait.CatfolkRacialDefault.SpecialQuality						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Catfolk ~ Cat's Luck],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkCatsLuck]			DESC:Once per day when a catfolk makes a Reflex saving throw, he can roll the saving throw twice and take the better result. He must decide to use this ability before the saving throw is attempted.																	SOURCEPAGE:p.91
-Natural Hunter	KEY:Catfolk ~ Natural Hunter		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.CatfolkRacialTrait.CatfolkRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Catfolk ~ Natural Hunter],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkNaturalHunter]		DESC:Catfolk receive a +2 racial bonus on Perception, Stealth, and Survival checks.																				BONUS:SKILL|Perception,Stealth,Survival|2|TYPE=Racial								SOURCEPAGE:p.91
-Sprinter		KEY:Catfolk ~ Sprinter			CATEGORY:Special Ability	TYPE:CatfolkRacialTrait.CatfolkRacialDefault.SpecialQuality						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Catfolk ~ Sprinter],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkSprinter]				DESC:Catfolk gain a 10-foot racial bonus to their speed when using the charge, run, or withdraw actions.																																SOURCEPAGE:p.91
+###Block: Racial Abilities ~ grantor/removal MODs in b3_abilities_globalvar.lst
+# Ability Name		Category of Ability	Template
+Racial Traits ~ Catfolk	CATEGORY:Internal		TEMPLATE:Racial Heritage ~ Catfolk
+
+###Block: Default Racial Traits
+# Ability Name					Unique Key				Category of Ability		Type																		Visible		Define					Description																																Template																																		Auto Language			Bonus to skill							Stat bonus														Modify VAR					Vision			Source Page		Aspects
++2 Dexterity, +2 Charisma, –2 Wisdom	KEY:Catfolk ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality.Racial Ability Scores		VISIBLE:DISPLAY							DESC:Catfolk are agile and amiable, but they are known for their lack of common sense and self-control.																																																																	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CHA|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial											SOURCEPAGE:p.47
+Catfolk						KEY:Catfolk ~ Type		CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality.Racial Type				VISIBLE:DISPLAY							DESC:Catfolk are humanoids with the catfolk subtype.																									TEMPLATE:Catfolk																																																																								SOURCEPAGE:p.47
+Medium						KEY:Catfolk ~ Size		CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality.Racial Size				VISIBLE:DISPLAY							DESC:Catfolk are Medium creatures and have no bonuses or penalties due to their size.																			TEMPLATE:SIZE_M																																																																								SOURCEPAGE:p.47
+Normal Speed					KEY:Catfolk ~ Speed		CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality.Racial Speed				VISIBLE:DISPLAY							DESC:Catfolk have a base speed of 30 feet.																																																																																																				SOURCEPAGE:p.47
+Low-Light Vision					KEY:Catfolk ~ Vision		CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality.Racial Vision			VISIBLE:DISPLAY							DESC:In dim light, catfolk can see twice as far as humans.																																																																																								BONUS:VAR|HasRacialVision|1		VISION:Low-Light Vision	SOURCEPAGE:p.47	ASPECT:Vision|Low-Light Vision
+Cat's Luck						KEY:Catfolk ~ Cat's Luck	CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality.Special Quality.Extraordinary				DEFINE:Catfolk_CatsLuck_Times|0	DESC:Once per day when a catfolk makes a Reflex saving throw, it can roll the saving throw twice and take the better result. It must decide to use this ability before the saving throw is attempted.																																																																	BONUS:VAR|Catfolk_CatsLuck_Times|1					SOURCEPAGE:p.47	ASPECT:CheckCount|%1|Catfolk_CatsLuck_Times	ASPECT:CheckType|Uses per Day
+Natural Hunter					KEY:Catfolk ~ Natural Hunter	CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality															DESC:Catfolk receive a +2 racial bonus on Perception, Stealth, and Survival checks.																																																												BONUS:SKILL|Perception,Stealth,Survival|2|TYPE=Racial																										SOURCEPAGE:p.47	ASPECT:RacialSkillModifier|+2 Perception, +2 Stealth, +2 Survival
+Sprinter						KEY:Catfolk ~ Sprinter		CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality.Special Quality												DESC:A catfolk gains a 10-foot racial bonus to its speed when using the charge, run, or withdraw actions.																																																																																										SOURCEPAGE:p.47	ASPECT:CombatBonus|10-foot racial bonus to your speed when using the charge, run, or withdraw actions.
+Languages						KEY:Catfolk ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Catfolk Racial Trait.Catfolk Racial Default.SpecialQuality.Racial Language			VISIBLE:DISPLAY							DESC:Catfolk speak Catfolk and Common. A catfolk who has a high Intelligence score can choose from the following bonus languages: Elven, Gnoll, Gnome, Goblin, Halfling, Orc, and Sylvan.			TEMPLATE:Race Bonus Language ~ Elven|Race Bonus Language ~ Gnoll|Race Bonus Language ~ Gnome|Race Bonus Language ~ Goblin|Race Bonus Language ~ Halfling|Race Bonus Language ~ Orc|Race Bonus Language ~ Sylvan	AUTO:LANG|Common|Catfolk																																			SOURCEPAGE:p.47
 
 
 ###Block: Racial Traits ~ Ratfolk

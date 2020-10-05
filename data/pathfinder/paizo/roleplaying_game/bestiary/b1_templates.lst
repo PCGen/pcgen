@@ -156,22 +156,4 @@ Zombie ~ Colossal		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|AC_Natural_Armor|11|TYPE=Ba
 
 ###Block:
 # Template Name			Unique Key				Visible	Modify VAR													Auto Language		Bonus Languages		Race Subtype		Type				Description
-Default Language ~ Tengu						VISIBLE:NO															AUTO:LANG|Common|Tengu	LANGBONUS:TYPE=Spoken
-
 Polymorph Effect										BONUS:VAR|DisableArmorBonus|1|TYPE=Base	BONUS:VAR|DisableShieldBonus|1|TYPE=Base																	DESC:Removes Armor and Shield Bonuses from creature.
-
-
-Aasimar				KEY:RaceSubtype ~ Aasimar	VISIBLE:NO																							RACESUBTYPE:Aasimar	TYPE:Racial Heritage
-Drow					KEY:RaceSubtype ~ Drow		VISIBLE:NO																							RACESUBTYPE:Drow		TYPE:Racial Heritage
-Duergar				KEY:RaceSubtype ~ Duergar	VISIBLE:NO																							RACESUBTYPE:Duergar	TYPE:Racial Heritage
-Goblin				KEY:RaceSubtype ~ Goblin	VISIBLE:NO																							RACESUBTYPE:Goblin	TYPE:Racial Heritage
-Hobgoblin				KEY:RaceSubtype ~ Hobgoblin	VISIBLE:NO																							RACESUBTYPE:Hobgoblin	TYPE:Racial Heritage
-Kobold				KEY:RaceSubtype ~ Kobold	VISIBLE:NO																							RACESUBTYPE:Kobold	TYPE:Racial Heritage
-Merfolk				KEY:RaceSubtype ~ Merfolk	VISIBLE:NO																							RACESUBTYPE:Merfolk	TYPE:Racial Heritage
-Orc					KEY:RaceSubtype ~ Orc		VISIBLE:NO																							RACESUBTYPE:Orc		TYPE:Racial Heritage
-Tengu					KEY:RaceSubtype ~ Tengu		VISIBLE:NO																							RACESUBTYPE:Tengu		TYPE:Racial Heritage
-Tiefling				KEY:RaceSubtype ~ Tiefling	VISIBLE:NO																							RACESUBTYPE:Tiefling	TYPE:Racial Heritage
-Svirfneblin				KEY:RaceSubtype ~ Svirfneblin	VISIBLE:NO																							RACESUBTYPE:Svirfneblin	TYPE:Racial Heritage
-
-# Tiefling Subrace
-Tiefling				KEY:Tiefling (Base)		VISIBLE:NO

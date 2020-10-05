@@ -8,6 +8,6 @@
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
 ABILITYCATEGORY:Half-Elf Heritage			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Elf Heritage	PLURAL:Half-Elf Heritages		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Half-Orc Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Subrace	PLURAL:Half-Orc Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Orc Heritage			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Heritage	PLURAL:Half-Orc Racial Traits		DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Averaka Arbiter Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat			TYPE:Teamwork		PLURAL:Averaka Arbiter Bonus Feats	DISPLAYLOCATION:Feats

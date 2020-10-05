@@ -1,0 +1,115 @@
+CAMPAIGN:Bestiary 3 (Player Options Only)
+KEY:Bestiary 3 ~ Player Options Only
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+!PRECAMPAIGN:1,INCLUDES=Bonus Bestiary,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Bestiary 3
+SOURCESHORT:B3
+SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
+SOURCEDATE:2012-01
+RANK:201201
+ISOGL:YES
+
+COVER:bestiary_3.jpeg
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3|Buy this publication from Paizo Publishing!
+URL:Amazon.com|http://amzn.to/18i9dHR||Buy this book from Amazon.com!
+DESC:Test your courage against the most infamous foes of myth and legend. Bestiary 3 presents hundreds of monsters for use in the Pathfinder Roleplaying Game. Within this book you will find demiliches and demodands, grave knights and goblin snakes, norns and nephilim, imperial dragons and unfettered eidolons, and so much more. Yet not every creature needs to be an enemy, as winged garudas, crafty tanukis, and leonine lammasus all wait to join your party and answer the call of glory.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook, Copyright 2009, Paizo Inc.; Author Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary, Copyright 2009, Paizo Inc.; Author Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 2, Copyright 2010, Paizo Inc.; Authors Wolfgang Baur, Jason Bulmahn, Adam Daigle, Graeme Davis, Crystal Frasier, Joshua J. Frost, Tim Hitchcock, Brandon Hodge, James Jacobs, Steve Kenson, Hal MacLean, Martin Mason, Rob McCreary, Erik Mona, Jason Nelson, Patrick Renie, Sean K Reynolds, F. Wesley Schneider, Owen K.C. Stephens, James L. Sutter, Russ Taylor, and Greg A. Vaughan, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 3, Copyright 2011, Paizo Inc.; Authors Jesse Benner, Jason Bulmahn, Adam Daigle, James Jacobs, Michael Kenway, Rob McCreary, Patrick Renie, Chris Sims, F. Wesley Schneider, James L. Sutter, and Russ Taylor, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Fiends, Copyright 2003, Green Ronin Publishing; Authors Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb.
+COPYRIGHT:Kobold Quarterly Issue 7, Copyright 2008, Open Design LLC, www.koboldquarterly.com; Authors John Baichtal, Wolfgang Baur, Ross Byers, Matthew Cicci, John Flemming, Jeremy Jones, Derek Kagemann, Phillip Larwood, Richard Pett, and Stan!
+COPYRIGHT:The Tome of Horrors III, Copyright 2005, Necromancer Games, Inc.; Author Scott Greene.
+COPYRIGHT:Adherer from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.;  Authors Scott Greene and Clark Peterson, based on original material by Guy Shearer.
+COPYRIGHT:Animal Lord from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Ascomid from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Atomie from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Axe Beak from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Carbuncle from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Authors Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Caryatid Column from the Tome of Horrors, Revised,  Copyright  2002,  Necromancer Games, Inc.; Author Scott Greene, based on original material by Jean Wells.
+COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demodand, Shaggy from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demodand, Slimy from the Tome of Horrors, Revised,  Copyright  2002,  Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demodand, Tarry from the Tome of Horrors, Revised,  Copyright  2002,  Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Dire Corby from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Jeff Wyndham.
+COPYRIGHT:Disenchanter from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Dragon, Faerie from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Brian Jaeger and Gary Gygax.
+COPYRIGHT:Flail Snail from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Simon Tilbrook.
+COPYRIGHT:Flumph from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author  Scott  Greene,  based  on  original  material  by  Ian  McDowell  and  Douglas Naismith.
+COPYRIGHT:Foo Creature from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Huecuva from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Underworld Oracle.
+COPYRIGHT:Jackalwere from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Kamadan from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Nick Louth.
+COPYRIGHT:Kech from the Tome of Horrors, Revised,  Copyright  2002,  Necromancer  Games,  Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Marid from the Tome of Horrors III, Copyright 2005, Necromancer Games, Inc.; Author Scott Greene.
+COPYRIGHT:Rot Grub from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Wolf-In-Sheeps-Clothing from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:PCGen dataset conversion for "Bestiary 3" Copyright 2013, PCGen Data team (Including, but not limited to Andrew Maitland (LegacyKing), W. Robert Reed III (Mynex))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+DATACONTROL:b3__datacontrols.lst
+
+# Data files
+#ABILITY:b3_abilities_race.lst
+#ABILITYCATEGORY:b3_abilitycategories.lst
+#DEITY:b3_deities.lst
+#EQUIPMENT:b3_equip_arms_armor.lst
+#EQUIPMOD:b3_equipmods.lst
+#KIT:b3_kits_race.lst
+LANGUAGE:b3_languages.lst
+#RACE:b3_races.lst
+#TEMPLATE:b3_templates.lst
+#WEAPONPROF:b3_profs_weapon.lst
+
+# Separate out races used by ARG to simplify dependencies
+ABILITY:b3_abilities_globalvar_arg.lst
+ABILITY:b3_abilities_race_arg.lst
+ABILITYCATEGORY:b3_abilitycategories_arg.lst
+RACE:b3_races_arg.lst
+TEMPLATE:b3_templates_arg.lst
+
+ABILITY:b3_abilities_companion.lst
+KIT:b3_kits_companion.lst
+RACE:b3_races_companion.lst
+
+ABILITY:b3_abilities_familiar.lst
+KIT:b3_kits_familiar.lst
+RACE:b3_races_familiar.lst
+
+
+#MOVE TO CORE ESSENTIALS
+ABILITY:b3_feats.lst
+
+
+# We have some data from other sets which we need to include if they aren't loaded
+#EQUIPMENT:../ultimate_combat/uc_equip_arms_armor.lst|(INCLUDE:Cannon|Katana|Pistol)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+#WEAPONPROF:../ultimate_combat/uc_profs_weapon.lst|(INCLUDE:Cannon|Katana|Pistol)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+#EQUIPMOD:../ultimate_combat/uc_equipmods.lst|(INCLUDE:REACH)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+
+# For Ahriman Support
+#ABILITYCATEGORY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_abilitycategories.lst|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+#ABILITY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_abilities.lst|(INCLUDE:CATEGORY=Special Ability,Domain Power ~ Feed on Fear)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+#DEITY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_deities.lst|(INCLUDE:Ahriman)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+#DOMAIN:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_domains.lst|(INCLUDE:Fear Subdomain)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+

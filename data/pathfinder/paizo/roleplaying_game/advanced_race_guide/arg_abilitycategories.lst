@@ -16,24 +16,28 @@ ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		
 ###Block: Feats
 ABILITYCATEGORY:Elven Spirit Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elven Magic			PLURAL:Elven Spirit Choices				DISPLAYLOCATION:Feats
 
-###Block: Core Races ability categories
+###Block: Core Races Racial Trait Categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Elf Elemental Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Elf Elemental Resistance		PLURAL:Elf Elemental Resistances		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Adoptive Parentage			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Adoptive Parentage
 ABILITYCATEGORY:Heart of the... Trait		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Heart of the... Trait
-ABILITYCATEGORY:Focused Study Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Focused Study Choice		PLURAL:Focused Study Choices			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Multitalented Mastery Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MultitalentedMasteryBonus	PLURAL:Multitalented Mastery Bonuses	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Elf Elemental Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Elf Elemental Resistance		PLURAL:Elf Elemental Resistances		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Focused Study Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Focused Study Choice		PLURAL:Focused Study Choices			DISPLAYLOCATION:Racial Abilities
 
-###Block: Featured Races ability categories
+###Block: Core Races Feat Categories
+ABILITYCATEGORY:Multitalented Mastery Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MultitalentedMasteryBonus	PLURAL:Multitalented Mastery Bonuses	DISPLAYLOCATION:Racial Abilities
+
+
+###Block: Featured Races Racial Trait Categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Angelic Flesh Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AngelicFleshOption		PLURAL:Angelic Flesh Options		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Heavenly Radiance Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavenlyRadianceOption	PLURAL:Heavenly Radiance Options	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Catfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkRacialTrait		PLURAL:Catfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Catfolk Exemplar Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkExemplarOption	PLURAL:Catfolk Exemplar Options	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Catfolk Curiosity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Catfolk Curiosity		PLURAL:Catfolk Curiosity		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Blood Drinker Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BloodDrinkerType		PLURAL:Blood Drinker Types		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Catfolk Curiosity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Catfolk Curiosity		PLURAL:Catfolk Curiosity		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ratfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RatfolkRacialTrait		PLURAL:Ratfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Kobold Dragon Scale Color	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KoboldDragonScaleColor	PLURAL:Kobold Dragon Scale Colors	DISPLAYLOCATION:Racial Abilities
+
+###Block: Featured Races Feat Categories
+ABILITYCATEGORY:Angelic Flesh Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AngelicFleshOption		PLURAL:Angelic Flesh Options		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Heavenly Radiance Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavenlyRadianceOption	PLURAL:Heavenly Radiance Options	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Catfolk Exemplar Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkExemplarOption	PLURAL:Catfolk Exemplar Options	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Blood Drinker Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BloodDrinkerType		PLURAL:Blood Drinker Types		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Orc Weapon Expertise	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OrcWeaponExpertise		PLURAL:Orc Weapon Expertise		DISPLAYLOCATION:Racial Abilities
 
 

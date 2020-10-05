@@ -1727,15 +1727,7 @@ School of the Gun		KEY:School Of The Gun ~ Display		CATEGORY:Special Ability	TYP
 
 ###Block: Arcane Talent Support
 # Ability Name		Unique Key						Category of Ability	Type					Ability									Modify VAR
-Haunted Fey Aspect	KEY:Arcane Talent ~ Haunted Fey Aspect	CATEGORY:Internal		TYPE:ArcaneTalentSelection	ABILITY:Spell-Like Ability|AUTOMATIC|Haunted Fey Aspect	BONUS:VAR|Haunted_Fey_Aspect_Times|3|TYPE=Base
-
-###Block: UC Spell-Like
-# Ability Name		Category of Ability		Type			Visible	Define																	Innate Spells																																																																	Description	Modify VAR
-Haunted Fey Aspect	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:Haunted_Fey_Aspect_Times|0	DEFINE:Haunted_Fey_Aspect_DC|0	DEFINE:Haunted_Fey_Aspect_LVL|0	SPELLS:Innate|TIMES=Haunted_Fey_Aspect_Times|TIMEUNIT=Day|CASTERLEVEL=Haunted_Fey_Aspect_LVL|Haunted Fey Aspect,Haunted_Fey_Aspect_DC|PREVAREQ:DisableSpellHaunted_Fey_Aspect,0|PREVARGTEQ:Haunted_Fey_Aspect_Times,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Haunted_Fey_Aspect_LVL|Haunted Fey Aspect,Haunted_Fey_Aspect_DC|PREVAREQ:DisableSpellHaunted_Fey_Aspect,0|PREVARLTEQ:Haunted_Fey_Aspect_Times,0	DESC:Blank	BONUS:VAR|Haunted_Fey_Aspect_DC|10+SLA_DC_STAT	BONUS:VAR|Haunted_Fey_Aspect_Times|SLA_Base_Times|TYPE=Base	BONUS:VAR|Haunted_Fey_Aspect_LVL|SLA_Base_LVL|TYPE=Base
-
-###Block:
-# Ability Name		Unique Key					Category of Ability	Type								Ability
-Haunted Fey Aspect	KEY:Spell ~ Haunted Fey Aspect	CATEGORY:Internal		TYPE:SLA_LVL0.Bard_SLA_LVL0.Wizard_SLA_LVL0	ABILITY:Spell-Like Ability|AUTOMATIC|Haunted Fey Aspect
+Haunted Fey Aspect	KEY:Arcane Talent ~ Haunted Fey Aspect	CATEGORY:Internal		TYPE:ArcaneTalentSelection	ABILITY:Spell-Like Ability|AUTOMATIC|Haunted Fey Aspect	BONUS:VAR|SLA_HauntedFeyAspect_Times|3|TYPE=Base
 
 ###Block: Magus Spellblend
 # Ability Name				Unique Key									Category of Ability	Type							List of Known Class Spells by Level

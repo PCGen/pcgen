@@ -4,7 +4,7 @@
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list		Plural description for UI			Display Location
 ABILITYCATEGORY:Racial Size					VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Racial Size
-ABILITYCATEGORY:Race Size Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Racial Size		TYPE:Race Size Selection							PLURAL:Sizes					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Race Size Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Racial Size		TYPE:Race Size									PLURAL:Sizes					DISPLAYLOCATION:Racial Abilities
 
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list		Plural description for UI			Display Location
@@ -19,7 +19,6 @@ ABILITYCATEGORY:Emotive Duality				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRA
 ABILITYCATEGORY:Tiefling Language				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingLanguageTrait							PLURAL:Tiefling Languages			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ability Focus					VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Ability Focus
 ABILITYCATEGORY:Spell-Like Ability				VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:Spell-Like Ability
-ABILITYCATEGORY:SLA						VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:SLA
 
 ABILITYCATEGORY:Giant Creature Option			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GiantCreatureSelection							PLURAL:Giant Creature Options			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Setting Specific Language			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:RaceLanguageSelection														DISPLAYLOCATION:Racial Abilities

@@ -68,7 +68,6 @@ TEMPLATE:isr_templates.lst
 
 ABILITY:support/abilities_pots.lst|PRECAMPAIGN:1,INCLUDES=People of the Stars
 ABILITY:support/isr_abilities_botm.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
-ABILITY:support/isr_abilities_botn.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Night
 
 FORWARDREF:CLASSSPELLLIST|Bloodrager,Shaman
 FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist

@@ -8,27 +8,10 @@
 # ==============================
 
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Dhampir Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:DhampirSubrace								DISPLAYLOCATION:Racial Abilities
-
-# ==============================
-# Dhampir Racial Traits
-# ==============================
-
-ABILITYCATEGORY:Jiang-shi Born Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:JiangShiBornRacialTrait	PLURAL:Jiang-shi-Born Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Moroi Born Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MoroiBornRacialTrait	PLURAL:Moroi-Born Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Nosferatu Born Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NosferatuBornRacialTrait	PLURAL:Nosferatu-Born Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vetala Born Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VetalaBornRacialTrait	PLURAL:Vetala-Born Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dhampir Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dhampir Subrace								DISPLAYLOCATION:Racial Abilities
 
 # ==============================
 # Dhampir Race Traits
 # ==============================
 
-ABILITYCATEGORY:Dhampir Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DhampirRaceTrait		PLURAL:Dhampir-Race Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Jiang-shi Born Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:JiangShiBornRaceTrait	PLURAL:Jiang-shi-Born Race Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Moroi Born Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MoroiBornRaceTrait		PLURAL:Moroi-Born Race Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Nosferatu Born Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NosferatuBornRaceTrait	PLURAL:Nosferatu-Born Race Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vetala Born Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VetalaBornRaceTrait	PLURAL:Vetala-Born Race Traits	DISPLAYLOCATION:Racial Abilities
-
-
-
-ABILITYCATEGORY:Half-Forgotten Secrets		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Forgotten Secrets	PLURAL:Half-Forgotten Secrets		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Forgotten Secrets		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Forgotten Secrets	PLURAL:Half-Forgotten Secrets		DISPLAYLOCATION:Traits

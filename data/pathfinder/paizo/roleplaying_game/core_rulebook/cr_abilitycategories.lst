@@ -9,6 +9,7 @@
 ABILITYCATEGORY:Special Ability	VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability
 ABILITYCATEGORY:Class Skill		VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Class Skill
 ABILITYCATEGORY:Equipment		VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Equipment
+ABILITYCATEGORY:Choice			VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Choice
 
 ###Block: Racial Ability Categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI				Display Location

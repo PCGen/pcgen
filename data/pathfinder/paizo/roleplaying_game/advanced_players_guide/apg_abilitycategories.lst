@@ -114,7 +114,7 @@ ABILITYCATEGORY:Aspect of the Beast Selection				VISIBLE:QUALIFY	EDITABLE:YES	ED
 ABILITYCATEGORY:Expanded Arcana Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedArcana														PLURAL:Expanded Arcana Selections					DISPLAYLOCATION:Feats
 
 # Racial Abilities
-ABILITYCATEGORY:Half-Elf Ancestral Arms Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal									ABILITYLIST:Half-Elf Ancestral Arms ~ Exotic Weapon Proficiency|Half-Elf Ancestral Arms ~ Martial Weapon Proficiency	PLURAL:Half-Elf Ancestral Arms Proficiencies			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Elf Ancestral Arms Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Choice									ABILITYLIST:Half-Elf Ancestral Arms ~ Exotic Weapon Proficiency|Half-Elf Ancestral Arms ~ Martial Weapon Proficiency	PLURAL:Half-Elf Ancestral Arms Proficiencies			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Alignment Selection						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Alignment Selection			PLURAL:Alignment Selections						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Saving Throw Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Bonus to Saving Throw		PLURAL:Saving Throw Selections					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Bonus CMD Choice						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FighterBonusCMDChoice													PLURAL:Bonus CMD Choices						DISPLAYLOCATION:Racial Abilities

@@ -54,73 +54,6 @@ Rules ~ Use Age Rules (Negate Penalties)	CATEGORY:Internal		TYPE:OptionalRules	B
 
 
 
-###Spells Temp Spot - Move these to the originating book or set up control list
-###Block: Spell Like Abilities - Make it easier to manage spells individually
-
-# Template for Innate SPELL-LIKE ABILITY:
-#	Spell Name			KEY:Spell Name						CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLVLx.ArcaneLVLx.DivineLVLx	DEFINE:xxx_SpellTimes|0	DEFINE:xxx_SpellLevel|0	DEFINE:xxx_SpellCasterLVL|0	DEFINE:xxx_SpellDC|0	DEFINE:xxx_SpellTimesAtWill|0		SPELLS:Innate|TIMES=xxx_SpellTimes|CASTERLEVEL=xxx_SpellCasterLVL|xxx,xxx_SpellDC|PREVAREQ:xxx_SpellTimesAtWill,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=xxx_SpellCasterLVL|xxx,xxx_SpellDC|PREVARGTEQ:xxx_SpellTimesAtWill,1
-# Example Spell:
-#Flare Burst	KEY:Flare Burst	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLVL1.DivineLVL1	DEFINE:Flare_Burst_SpellTimes|0	DEFINE:Flare_Burst_SpellLevel|0	DEFINE:Flare_Burst_SpellCasterLVL|0	DEFINE:Flare_Burst_SpellDC|0			SPELLS:Innate|TIMES=Flare_Burst_SpellTimes|CASTERLEVEL=TL|Flare Burst,10+TL+CHA|PREVAREQ:Flare_Burst_SpellTimesAtWill,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Flare_Burst_SpellCasterLVL|Flare Burst,Flare_Burst_SpellDC|PREVARGTEQ:Flare_Burst_SpellTimesAtWill,1
-
-
-#L0
-# Ability Name	Category of Ability		Type								Visible	Define									Innate Spells
-Detect Magic	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DetectMagicTimes|0	DEFINE:DetectMagicLVL|0		SPELLS:Innate|TIMES=DetectMagicTimes|TIMEUNIT=Day|CASTERLEVEL=DetectMagicLVL|Detect Magic|PREVAREQ:DisableSpellDetectMagic,0|PREVARGTEQ:DetectMagicTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Constant|CASTERLEVEL=DetectMagicLVL|Detect Magic|PREVAREQ:DisableSpellDetectMagic,0|PREVARLTEQ:DetectMagicTimes,0
-
-#L1
-Feather Fall	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:FeatherFallTimes|0	DEFINE:FeatherFallLVL|0		SPELLS:Innate|TIMES=FeatherFallTimes|TIMEUNIT=Day|CASTERLEVEL=FeatherFallLVL|Feather Fall|PREVAREQ:DisableSpellFeatherFall,0|PREVARGTEQ:FeatherFallTimes,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=FeatherFallLVL|Feather Fall|PREVAREQ:DisableSpellFeatherFall,0|PREVARLTEQ:FeatherFallTimes,0
-
-#L2
-Levitate		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:LevitateTimes|0	DEFINE:LevitateLVL|0			SPELLS:Innate|TIMES=LevitateTimes|TIMEUNIT=Day|CASTERLEVEL=LevitateLVL|Levitate|PREVAREQ:DisableSpellLevitate,0|PREVARGTEQ:LevitateTimes,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=LevitateLVL|Levitate|PREVAREQ:DisableSpellLevitate,0|PREVARLTEQ:LevitateTimes,0
-
-#UNSORTED
-Faerie Fire		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:FaerieFireTimes|0	DEFINE:FaerieFireLVL|0		SPELLS:Innate|TIMES=FaerieFireTimes|TIMEUNIT=Day|CASTERLEVEL=FaerieFireLVL|Faerie Fire|PREVAREQ:DisableSpellFaerieFire,0|PREVARGTEQ:FaerieFireTimes,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=FaerieFireLVL|Faerie Fire|PREVAREQ:DisableSpellFaerieFire,0|PREVARLTEQ:FaerieFireTimes,0
-Darkness		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DarknessTimes|0	DEFINE:DarknessLVL|0			SPELLS:Innate|TIMES=DarknessTimes|TIMEUNIT=Day|CASTERLEVEL=DarknessLVL|Darkness|PREVAREQ:DisableSpellDarkness,0|PREVARGTEQ:DarknessTimes,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DarknessLVL|Darkness|PREVAREQ:DisableSpellDarkness,0|PREVARLTEQ:DarknessTimes,0
-Deeper Darkness	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DeeperDarknessTimes|0	DEFINE:DeeperDarknessLVL|0	SPELLS:Innate|TIMES=DeeperDarknessTimes|TIMEUNIT=Day|CASTERLEVEL=DeeperDarknessLVL|Deeper Darkness|PREVAREQ:DisableSpellDeeperDarkness,0|PREVARGTEQ:DeeperDarknessTimes,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DeeperDarknessLVL|Deeper Darkness|PREVAREQ:DisableSpellDeeperDarkness,0|PREVARLTEQ:DeeperDarknessTimes,0
-Dancing Lights	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DancingLightsTimes|0	DEFINE:DancingLightsLVL|0	SPELLS:Innate|TIMES=DancingLightsTimes|TIMEUNIT=Day|CASTERLEVEL=DancingLightsLVL|Dancing Lights|PREVAREQ:DisableSpellDancingLights,0|PREVARGTEQ:DancingLightsTimes,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DancingLightsLVL|Dancing Lights|PREVAREQ:DisableSpellDancingLights,0|PREVARLTEQ:DancingLightsTimes,0
-Spider Climb	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:SpiderClimbTimes|0	DEFINE:SpiderClimbLVL|0		SPELLS:Innate|TIMES=SpiderClimbTimes|TIMEUNIT=Day|CASTERLEVEL=SpiderClimbLVL|Spider Climb|PREVAREQ:DisableSpellSpiderClimb,0|PREVARGTEQ:SpiderClimbTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=SpiderClimbLVL|Spider Climb|PREVAREQ:DisableSpellSpiderClimb,0|PREVARLTEQ:SpiderClimbTimes,0
-Dispel Magic	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DispelMagicTimes|0	DEFINE:DispelMagicLVL|0		SPELLS:Innate|TIMES=DispelMagicTimes|TIMEUNIT=Day|CASTERLEVEL=DispelMagicLVL|Dispel Magic|PREVAREQ:DisableSpellDispelMagic,0|PREVARGTEQ:DispelMagicTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=DispelMagicLVL|Dispel Magic|PREVAREQ:DisableSpellDispelMagic,0|PREVARLTEQ:DispelMagicTimes,0
-Divine Favor	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DivineFavorTimes|0	DEFINE:DivineFavorLVL|0		SPELLS:Innate|TIMES=DivineFavorTimes|TIMEUNIT=Day|CASTERLEVEL=DivineFavorLVL|Divine Favor|PREVAREQ:DisableSpellDivineFavor,0|PREVARGTEQ:DivineFavorTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=DivineFavorLVL|Divine Favor|PREVAREQ:DisableSpellDivineFavor,0|PREVARLTEQ:DivineFavorTimes,0
-Suggestion		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:SuggestionTimes|0	DEFINE:SuggestionLVL|0		SPELLS:Innate|TIMES=SuggestionTimes|TIMEUNIT=Day|CASTERLEVEL=SuggestionLVL|Suggestion,13+CHA|PREVAREQ:DisableSpellSuggestion,0|PREVARGTEQ:SuggestionTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=SuggestionLVL|Suggestion,13+CHA|PREVAREQ:DisableSpellSuggestion,0|PREVARLTEQ:SuggestionTimes,0
-
-###Block:
-# Ability Name				Category of Ability		Type
-Spell-Like Ability LVL 0 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL0.SpellLikeDivineLVL0
-Spell-Like Ability LVL 1 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL1.SpellLikeDivineLVL1
-Spell-Like Ability LVL 2 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL2.SpellLikeDivineLVL2
-Spell-Like Ability LVL 3 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL3.SpellLikeDivineLVL3
-Spell-Like Ability LVL 4 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL4.SpellLikeDivineLVL4
-Spell-Like Ability LVL 5 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL5.SpellLikeDivineLVL5
-Spell-Like Ability LVL 6 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL6.SpellLikeDivineLVL6
-Spell-Like Ability LVL 7 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL7.SpellLikeDivineLVL7
-Spell-Like Ability LVL 8 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL8.SpellLikeDivineLVL8
-Spell-Like Ability LVL 9 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL9.SpellLikeDivineLVL9
-
-Spell-Like Ability LVL 0 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL0.SpellLikeArcaneLVL0
-Spell-Like Ability LVL 1 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL1.SpellLikeArcaneLVL1
-Spell-Like Ability LVL 2 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL2.SpellLikeArcaneLVL2
-Spell-Like Ability LVL 3 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL3.SpellLikeArcaneLVL3
-Spell-Like Ability LVL 4 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL4.SpellLikeArcaneLVL4
-Spell-Like Ability LVL 5 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL5.SpellLikeArcaneLVL5
-Spell-Like Ability LVL 6 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL6.SpellLikeArcaneLVL6
-Spell-Like Ability LVL 7 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL7.SpellLikeArcaneLVL7
-Spell-Like Ability LVL 8 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL8.SpellLikeArcaneLVL8
-Spell-Like Ability LVL 9 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL9.SpellLikeArcaneLVL9
-
-###Block: New Set up
-
-# Level 1 - Arcane
-
-
-# Level 2 - Divine
-# Ability Name	Category of Ability	Type				Define								Innate Spells											FACT
-Daylight		CATEGORY:SLA		TYPE:SLA.DivineLVL2	DEFINE:Daylight_CasterLevel|0	DEFINE:Daylight_Times|0	SPELLS:Innate|TIMES=Daylight_Times|CASTERLEVEL=Daylight_CasterLevel|Daylight	FACT:SLA_DivineLVL2|True
-
-
-
-
-
-
 ###Block: Common
 # Ability Name	Category of Ability	Type
 Ability Drain	CATEGORY:Ability Focus	TYPE:Ability Focus
@@ -420,14 +353,6 @@ Ohrwurm					CATEGORY:Ability Focus	TYPE:Ability Focus
 # Ability Name				Unique Key			Category of Ability	Stackable?	Multiple?	Choose
 Disable First Level Domain Power	KEY:DisableDomainLVL1	CATEGORY:Internal		STACK:NO	MULT:YES	CHOOSE:DOMAIN|PC
 
-
-
-#
-
-
-#	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
-#	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
-#	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
 
 ###Block: Movement
 # Ability Name			Category of Ability	Define					Move			Ability
@@ -958,47 +883,54 @@ Colossal					KEY:Race Size ~ C	SORTKEY:9	CATEGORY:Racial Size	TYPE:Race Size	PRE
 # Ability Name									Category of Ability	Type				Define						Description												Modify VAR								Cost
 Rules ~ Preview Sheet - Use Alternative Spell Listing Method	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:UseAlternativeSpellListing_a|0	DESC:Sets the Standard Sheet to display MEMORIZED/PREPRARED Spells first.	BONUS:VAR|UseAlternativeSpellListing_a|1|TYPE=Bool	COST:0
 
-###Block:
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|No Intelligence Score|PREVAREQ:NoIntelligenceSetTrue,1	DEFINE:NoIntelligenceSetTrue|0	
-No Intelligence Score	CATEGORY:Internal	DEFINESTAT:NONSTAT|INT
-
-Grant Intelligence			CATEGORY:Internal	TYPE:OptionalRules.Misc	BONUS:VAR|NoIntelligenceSetTrue|-1	BONUS:VAR|Mindless|-1
-Grant Standard Feat Progression	CATEGORY:Internal	TYPE:OptionalRules.Misc	BONUS:ABILITYPOOL|FEAT|1+(TL/3)
-
 ###Block: Track statblock save bonuses for stacking ~ AllSaveBonus/FortSaveBonus/RefSaveBonus/WillSaveBonus
-# Ability Name					Category of Ability	Define						Ability
-CATEGORY=Internal|Default.MOD														ABILITY:Internal|AUTOMATIC|Save Bonus Tracker
+# Ability Name					Category of Ability	Define								Ability
+CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Save Bonus Tracker
 Save Bonus Tracker				CATEGORY:Internal
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Poison|0			ABILITY:Save Bonus|AUTOMATIC|Poison|!PREVAREQ:SaveBonus_vs_Poison,0|!PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Spells|0			ABILITY:Save Bonus|AUTOMATIC|Spells|!PREVAREQ:SaveBonus_vs_Spells,0|!PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
-CATEGORY=Internal|Save Bonus Tracker.MOD												ABILITY:Save Bonus|AUTOMATIC|Poison and Spells|!PREVAREQ:SaveBonus_vs_Poison,0|!PREVAREQ:SaveBonus_vs_Spells,0|PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Enchantments|0		ABILITY:Save Bonus|AUTOMATIC|Enchantments|!PREVAREQ:SaveBonus_vs_Enchantments,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Illusions|0		ABILITY:Save Bonus|AUTOMATIC|Illusions|!PREVAREQ:SaveBonus_vs_Illusions,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Fear|0			ABILITY:Save Bonus|AUTOMATIC|Fear|!PREVAREQ:SaveBonus_vs_Fear,0|!PREVAREQ:SaveBonus_vs_Despair,SaveBonus_vs_Fear
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Poison|0					ABILITY:Save Bonus|AUTOMATIC|Poison|!PREVAREQ:SaveBonus_vs_Poison,0|!PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Spells|0					ABILITY:Save Bonus|AUTOMATIC|Spells|!PREVAREQ:SaveBonus_vs_Spells,0|!PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
+CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Poison and Spells|!PREVAREQ:SaveBonus_vs_Poison,0|!PREVAREQ:SaveBonus_vs_Spells,0|PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Enchantments|0				ABILITY:Save Bonus|AUTOMATIC|Enchantments|!PREVAREQ:SaveBonus_vs_Enchantments,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Illusions|0				ABILITY:Save Bonus|AUTOMATIC|Illusions|!PREVAREQ:SaveBonus_vs_Illusions,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Fear|0					ABILITY:Save Bonus|AUTOMATIC|Fear|!PREVAREQ:SaveBonus_vs_Fear,0|!PREVAREQ:SaveBonus_vs_Despair,SaveBonus_vs_Fear
+# B2
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Disease|0					ABILITY:Save Bonus|AUTOMATIC|Disease|!PREVAREQ:SaveBonus_vs_Disease,0|!PREVAREQ:SaveBonus_vs_Disease,SaveBonus_vs_MindAffecting
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_MindAffecting|0				ABILITY:Save Bonus|AUTOMATIC|Mind-Affecting|!PREVAREQ:SaveBonus_vs_MindAffecting,0|!PREVAREQ:SaveBonus_vs_Disease,SaveBonus_vs_MindAffecting
+CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Disease and Mind-Affecting|!PREVAREQ:SaveBonus_vs_Disease,0|!PREVAREQ:SaveBonus_vs_MindAffecting,0|PREVAREQ:SaveBonus_vs_Disease,SaveBonus_vs_MindAffecting
 # ARG
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_LightEffects|0		ABILITY:Save Bonus|AUTOMATIC|Light Descriptor Effects|!PREVAREQ:SaveBonus_vs_LightEffects,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:WillSave_vs_CharmAndCompulsion|0	ABILITY:Save Bonus|AUTOMATIC|Enchantment (Charm and Compulsion)|PREVAREQ:WillSave_vs_CharmAndCompulsion,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Despair|0			ABILITY:Save Bonus|AUTOMATIC|Despair|!PREVAREQ:SaveBonus_vs_Despair,0|!PREVAREQ:SaveBonus_vs_Despair,SaveBonus_vs_Fear
-CATEGORY=Internal|Save Bonus Tracker.MOD												ABILITY:Save Bonus|AUTOMATIC|Despair and Fear|!PREVAREQ:SaveBonus_vs_Despair,0|!PREVAREQ:SaveBonus_vs_Fear,0|PREVAREQ:SaveBonus_vs_Despair,SaveBonus_vs_Fear
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_Poison|0			ABILITY:Save Bonus|AUTOMATIC|Poison ~ Fort|PREVAREQ:FortSave_vs_Poison,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_LanguageSpells|0	ABILITY:Save Bonus|AUTOMATIC|Language Spells|!PREVAREQ:SaveBonus_vs_LanguageSpells,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:RefSave_vs_Trample|0			ABILITY:Save Bonus|AUTOMATIC|Trample|PREVAREQ:RefSave_vs_Trample,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_ColdClimate|0		ABILITY:Save Bonus|AUTOMATIC|Climate (Cold)|PREVAREQ:FortSave_vs_ColdClimate,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Slipping|0		ABILITY:Save Bonus|AUTOMATIC|Slipping and Falling|!PREVAREQ:SaveBonus_vs_Slipping,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_HotClimate|0		ABILITY:Save Bonus|AUTOMATIC|Climate (Hot)|PREVAREQ:FortSave_vs_HotClimate,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_SwarmsAndVermin|0	ABILITY:Save Bonus|AUTOMATIC|Swarms and Vermin|PREVAREQ:FortSave_vs_SwarmsAndVermin,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DeathEffects|0		ABILITY:Save Bonus|AUTOMATIC|Death Effects|PREVAREQ:SaveBonus_vs_DeathEffects,0
-# BOS
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_NegativeLevels|0	ABILITY:Save Bonus|AUTOMATIC|Negative Levels|!PREVAREQ:SaveBonus_vs_NegativeLevels,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_TrapsUnderground|0	ABILITY:Save Bonus|AUTOMATIC|Traps (Underground)|!PREVAREQ:SaveBonus_vs_TrapsUnderground,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_LightEffects|0				ABILITY:Save Bonus|AUTOMATIC|Light Descriptor Effects|!PREVAREQ:SaveBonus_vs_LightEffects,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:WillSave_vs_CharmAndCompulsion|0			ABILITY:Save Bonus|AUTOMATIC|Enchantment (Charm and Compulsion)|!PREVAREQ:WillSave_vs_CharmAndCompulsion,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Despair|0					ABILITY:Save Bonus|AUTOMATIC|Despair|!PREVAREQ:SaveBonus_vs_Despair,0|!PREVAREQ:SaveBonus_vs_Despair,SaveBonus_vs_Fear
+CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Despair and Fear|!PREVAREQ:SaveBonus_vs_Despair,0|!PREVAREQ:SaveBonus_vs_Fear,0|PREVAREQ:SaveBonus_vs_Despair,SaveBonus_vs_Fear
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_Poison|0					ABILITY:Save Bonus|AUTOMATIC|Poison ~ Fort|!PREVAREQ:FortSave_vs_Poison,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_LanguageSpells|0			ABILITY:Save Bonus|AUTOMATIC|Language Spells|!PREVAREQ:SaveBonus_vs_LanguageSpells,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:RefSave_vs_Trample|0					ABILITY:Save Bonus|AUTOMATIC|Trample|!PREVAREQ:RefSave_vs_Trample,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_ColdClimate|0				ABILITY:Save Bonus|AUTOMATIC|Climate (Cold)|!PREVAREQ:FortSave_vs_ColdClimate,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Slipping|0				ABILITY:Save Bonus|AUTOMATIC|Slipping and Falling|!PREVAREQ:SaveBonus_vs_Slipping,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_HotClimate|0				ABILITY:Save Bonus|AUTOMATIC|Climate (Hot)|!PREVAREQ:FortSave_vs_HotClimate,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_SwarmsAndVermin|0			ABILITY:Save Bonus|AUTOMATIC|Swarms and Vermin|!PREVAREQ:FortSave_vs_SwarmsAndVermin,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DeathEffects|0				ABILITY:Save Bonus|AUTOMATIC|Death Effects|!PREVAREQ:SaveBonus_vs_DeathEffects,0
 # HA
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_PsychicSpells|0		ABILITY:Save Bonus|AUTOMATIC|Psychic Spells|!PREVAREQ:SaveBonus_vs_PsychicSpells,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_SanityDamage|0		ABILITY:Save Bonus|AUTOMATIC|Sanity Damage|!PREVAREQ:SaveBonus_vs_SanityDamage,0
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_MindAffecting|0		ABILITY:Save Bonus|AUTOMATIC|Mind-Affecting|!PREVAREQ:SaveBonus_vs_MindAffecting,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_PsychicSpells|0				ABILITY:Save Bonus|AUTOMATIC|Psychic Spells|!PREVAREQ:SaveBonus_vs_PsychicSpells,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_SanityDamage|0				ABILITY:Save Bonus|AUTOMATIC|Sanity Damage|!PREVAREQ:SaveBonus_vs_SanityDamage,0
+### Campaign Setting
 # ISR
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DivineSpells|0		ABILITY:Save Bonus|AUTOMATIC|Divine Spells|!PREVAREQ:SaveBonus_vs_DivineSpells,0
-# Player Companion
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_DiseaseAndPoison|0	ABILITY:Save Bonus|AUTOMATIC|Disease and Poison|!PREVAREQ:FortSave_vs_DiseaseAndPoison,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DivineSpells|0				ABILITY:Save Bonus|AUTOMATIC|Divine Spells|!PREVAREQ:SaveBonus_vs_DivineSpells,0
+### Player Companion
+# Bastards of Golarion
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_DiseaseAndPoison|0			ABILITY:Save Bonus|AUTOMATIC|Disease and Poison|!PREVAREQ:FortSave_vs_DiseaseAndPoison,0
+# Blood of Shadows
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_NegativeLevels|0			ABILITY:Save Bonus|AUTOMATIC|Negative Levels|!PREVAREQ:SaveBonus_vs_NegativeLevels,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_TrapsUnderground|0			ABILITY:Save Bonus|AUTOMATIC|Traps (Underground)|!PREVAREQ:SaveBonus_vs_TrapsUnderground,0
+# Blood of Angels
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_CharmEffects|0				ABILITY:Save Bonus|AUTOMATIC|Charm Effects|!PREVAREQ:SaveBonus_vs_CharmEffects,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DazzleEffects|0				ABILITY:Save Bonus|AUTOMATIC|Dazzle Effects|!PREVAREQ:SaveBonus_vs_DazzleEffects,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_TempNegativeLevels|0			ABILITY:Save Bonus|AUTOMATIC|Temporary Negative Levels|!PREVAREQ:SaveBonus_vs_TempNegativeLevels,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Curses|0					ABILITY:Save Bonus|AUTOMATIC|Curses|!PREVAREQ:SaveBonus_vs_Curses,0
+# Blood of the Night
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_SonicEffectsAndSpells|0		ABILITY:Save Bonus|AUTOMATIC|Sonic Effects and Spells|!PREVAREQ:SaveBonus_vs_SonicEffectsAndSpells,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_PositiveEnergyDamageEffects|0	ABILITY:Save Bonus|AUTOMATIC|Positive Energy Damage Effects|!PREVAREQ:SaveBonus_vs_PositiveEnergyDamageEffects,0
+
 
 ###Block
 # Ability Name				Category of Ability	Aspects
@@ -1008,6 +940,10 @@ Poison and Spells				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. poison, spe
 Enchantments				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. enchantments|SaveBonus_vs_Enchantments
 Illusions					CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. illusions|SaveBonus_vs_Illusions
 Fear						CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. fear|SaveBonus_vs_Fear|PREVARGTEQ:SaveBonus_vs_Fear,1	ASPECT:AllSaveBonus|%1 vs. fear|SaveBonus_vs_Fear|PREVARLT:SaveBonus_vs_Fear,0
+# B2
+Disease					CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. disease|SaveBonus_vs_Disease
+Mind-Affecting				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. mind-affecting effects|SaveBonus_vs_MindAffecting
+Disease and Mind-Affecting		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. disease and mind-affecting effects|max(SaveBonus_vs_Disease,SaveBonus_vs_MindAffecting)
 # ARG
 Light Descriptor Effects		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. light effects|SaveBonus_vs_LightEffects|PREVARGTEQ:SaveBonus_vs_LightEffects,0	ASPECT:AllSaveBonus|%1 vs. light effects|SaveBonus_vs_LightEffects|PREVARLT:SaveBonus_vs_LightEffects,0
 Enchantment (Charm and Compulsion)	CATEGORY:Save Bonus	ASPECT:WillSaveBonus|+%1 vs. charm and compulsion spells and spell-like abilities|WillSave_vs_CharmAndCompulsion
@@ -1021,14 +957,23 @@ Slipping and Falling			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to avoid slip
 Climate (Hot)				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. hot climate|FortSave_vs_HotClimate
 Swarms and Vermin				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. poison and distraction ability of swarms and vermin|FortSave_vs_SwarmsAndVermin
 Death Effects				CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. death effects|SaveBonus_vs_DeathEffects
-# BOS
-Negative Levels				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to remove negative levels|SaveBonus_vs_NegativeLevels
-Traps (Underground)			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. traps and hazards when underground|SaveBonus_vs_TrapsUnderground
 # HA
 Psychic Spells				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. psychic spells and spell-like abilities|SaveBonus_vs_PsychicSpells
 Sanity Damage				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. sanity damage|SaveBonus_vs_SanityDamage
-Mind-Affecting				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. mind-affecting effects|SaveBonus_vs_MindAffecting
+### Campaign Setting
 # ISR
 Divine Spells				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. divine spells and spell-like abilities|SaveBonus_vs_DivineSpells
-# Player Companion
+### Player Companion
+# Bastards of Golarion
 Disease and Poison			CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. disease and poison|FortSave_vs_DiseaseAndPoison
+# Blood of Shadows
+Negative Levels				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to remove negative levels|SaveBonus_vs_NegativeLevels
+Traps (Underground)			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. traps and hazards when underground|SaveBonus_vs_TrapsUnderground
+# Blood of Angels
+Charm Effects				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. charm effects|SaveBonus_vs_CharmEffects
+Dazzle Effects				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. dazzle effects|SaveBonus_vs_DazzleEffects
+Temporary Negative Levels		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to remove temporary negative levels|SaveBonus_vs_TempNegativeLevels
+Curses					CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. curses|SaveBonus_vs_Curses
+# Blood of the Night
+Sonic Effects And Spells		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. sonic effects and spells|SaveBonus_vs_SonicEffectsAndSpells|PREVARGTEQ:SaveBonus_vs_SonicEffectsAndSpells,0	ASPECT:AllSaveBonus|%1 vs. sonic effects and spells|SaveBonus_vs_SonicEffectsAndSpells|PREVARLT:SaveBonus_vs_SonicEffectsAndSpells,0
+Positive Energy Damage Effects	CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. positive energy damage effects|SaveBonus_vs_PositiveEnergyDamageEffects|PREVARGTEQ:SaveBonus_vs_PositiveEnergyDamageEffects,0	ASPECT:AllSaveBonus|%1 vs. positive energy damage effects|SaveBonus_vs_PositiveEnergyDamageEffects|PREVARLT:SaveBonus_vs_PositiveEnergyDamageEffects,0

@@ -4,6 +4,15 @@ SOURCELONG:Inner Sea Races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/b
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 14 May 2016
 
+###Block
+# Race Name		Source Page
+Aasimar.MOD		SOURCEPAGE:p.238
+Catfolk.MOD		SOURCEPAGE:p.239
+Dhampir.MOD		SOURCEPAGE:p.240
+Drow.MOD		SOURCEPAGE:p.241
+Fetchling.MOD	SOURCEPAGE:p.242
+
+
 # ==============================
 # New Races
 # ==============================
