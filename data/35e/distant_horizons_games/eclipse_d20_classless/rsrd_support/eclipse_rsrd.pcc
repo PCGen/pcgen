@@ -34,6 +34,7 @@ RACE:*/_universal/races.lst
 
 
 ABILITY:eclipse_rsrd_abilities.lst
+ABILITY:eclipse_rsrd_abilities_ma.lst
 ABILITY:eclipse_rsrd_abilities_skills.lst
 
 ABILITYCATEGORY:eclipse_rsrd_ability_categories.lst
