@@ -51,5 +51,4 @@ deploy:
   file: build/release/*
   skip_cleanup: true
   on:
-    repo: PCGen/pcgen
     tags: true
