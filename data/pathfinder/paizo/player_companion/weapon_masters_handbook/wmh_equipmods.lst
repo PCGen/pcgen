@@ -43,3 +43,10 @@ Special Ability ~ Liberating ~ Weapon.COPY=Liberating			VISIBLE:NO
 Special Ability ~ Quaking ~ Weapon.COPY=Quaking				VISIBLE:NO
 Special Ability ~ Sharding ~ Weapon.COPY=Sharding			VISIBLE:NO
 Special Ability ~ Vampiric ~ Weapon.COPY=Vampiric			VISIBLE:NO
+
+
+
+Special Ability ~ +2 ~ Weapon.MOD			BONUS:VAR|AWT_DefensiveWeaponTraining|1|TYPE=Base
+Special Ability ~ +3 ~ Weapon.MOD			BONUS:VAR|AWT_DefensiveWeaponTraining|1|TYPE=Base
+Special Ability ~ +4 ~ Weapon.MOD			BONUS:VAR|AWT_DefensiveWeaponTraining|2|TYPE=Base
+Special Ability ~ +5 ~ Weapon.MOD			BONUS:VAR|AWT_DefensiveWeaponTraining|2|TYPE=Base
