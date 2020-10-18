@@ -32,7 +32,7 @@ It supports numerous game systems, most notably:
    
 1. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/latest.
 
-1. You should now be able to run PCGen. The exact invocation depends on your operating system
+1. You should now be able to run PCGen. The exact invocation depends on your operating system, but you should be able to either double-click to launch the file for your platform.
     - Windows: pcgen.exe (pcgen.bat for command-line users)
     - Linux: pcgen.sh 
     - Mac: pcgen.jar (or pcgen.dmg if it exists)
