@@ -10,6 +10,8 @@ It supports numerous game systems, most notably:
 - Starfinder
 
 # Table of Contents
+1. [Installing From Release](#installing-from-release)
+
 1. [PCGen Needs You](#pcgen-needs-you)
 
 1. [The Old Wiki](#the-old-wiki)
@@ -21,6 +23,19 @@ It supports numerous game systems, most notably:
 1. [Development Setup](#development-setup)
 
 1. [Essential Gradle Tasks](#essential-gradle-tasks)
+
+# Installing From Release
+1. Install Java.
+   - JDK 11 is recommended and has long term support, later versions should also work. 10 and below are not supported.
+   - To check if you have Java installed, see [Install Java](#install-java)
+   - If you don't have it already, you can get it from [AdoptOpenJDK](https://adoptopenjdk.net/installation.html?variant=openjdk11&jvmVariant=hotspot).
+   
+1. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/latest.
+
+1. You should now be able to run PCGen. The exact invocation depends on your operating system
+    - Windows: pcgen.exe (pcgen.bat for command-line users)
+    - Linux: pcgen.sh 
+    - Mac: pcgen.jar (or pcgen.dmg if it exists)
 
 # PCGen Needs You
 
