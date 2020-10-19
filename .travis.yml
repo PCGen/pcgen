@@ -46,7 +46,7 @@ cache:
 deploy:
   provider: releases
   api_key:
-    secure: vcWcTepSQfgZTbLrC2jbJKLFB8pho72dz00vqUyWjtilvLcbOYVgVWgE5U5zjPV+VS5j4cj93sMWv74dpwamXGv/kIld7fQlpVkMELtK5AkRa2bjOMi0BHk54K8gcGOG//Gen/3gdBJfV1kYcsOhC2Rc4t4pcY2rkW534NLUxdg=
+    secure: blUnOKKmO2mypu8ZZwn6rGh0z78sZtRya6zsuqBQcysY+N/opeG9WpQQyergenrDW9M3NPUAsqNL+46SOIsbk/8M10txOaEjnuiGiq5UwRFZMkTbc3/0fGBZRVIHEcImmEkVqRZD6Fpr5j9nhm1MKoUjdr/QYBnQ4mmHtzHkrv4=
   file_glob: true
   file: build/release/*
   skip_cleanup: true
