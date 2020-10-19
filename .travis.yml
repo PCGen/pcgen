@@ -43,8 +43,8 @@ before_deploy:
 
 deploy:
     provider: releases
-    #Replace this with a real token
-    api_key: "GITHUB OAUTH TOKEN"
+  api_key:
+    secure: blUnOKKmO2mypu8ZZwn6rGh0z78sZtRya6zsuqBQcysY+N/opeG9WpQQyergenrDW9M3NPUAsqNL+46SOIsbk/8M10txOaEjnuiGiq5UwRFZMkTbc3/0fGBZRVIHEcImmEkVqRZD6Fpr5j9nhm1MKoUjdr/QYBnQ4mmHtzHkrv4=
     file_glob: true
     file: "build/release/*"
     skip_cleanup: true
