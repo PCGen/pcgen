@@ -51,11 +51,18 @@ It supports numerous game systems, most notably:
     - Mac: `pcgen.sh` (or `pcgen.dmg` if it exists. Launching .jar may throw java errors so generally avoid)
 
 ## Using installer (windows and mac only)
-1. Download and extract the full installerfrom https://github.com/PCGen/pcgen/releases/ labled 6.09.xx. 
+1. Download and extract the full installer from https://github.com/PCGen/pcgen/releases/ labled 6.09.xx. 
     - Windows: `pcgen-6.09.xx_win_install.exe`
     - Mac: `pcgen-6.09.xx.dmg` or `pcgen-6.09.xx.pkg`
 
-1. Follow install instruction and then you should be able to launch PcGen as normal application.
+1. Run installer and follow instruction
+   - Windows: Open `pcgen-6.09.xx_win_install.exe`
+   - Mac:
+   - - `dmg`: Open `dmg` and drag into Applications. Right click on `PcGen` and click open.
+   - - `pkg`: Right click and `pkg` and click open and click `open` on security warning due to application being unsigned. 
+
+1. You should be able to launch PcGen as normal application.
+   -  Mac: You may need to on first launch right click on application and then click `open`.
 
 # PCGen Needs You
 
