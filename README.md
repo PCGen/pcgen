@@ -104,7 +104,8 @@ Check the installed version with:
 
     java -version
 
-You will want Java with a minimum version of 11.
+For 6.08 development you will want Java with a minimum version of 11.
+For 6.09 development you will want Java with a minimum version of 14.
 You can install the latest version from [AdoptOpenJDK](https://adoptopenjdk.net) regardless of your OS, please see instructions there.
 
 ### Install Git
