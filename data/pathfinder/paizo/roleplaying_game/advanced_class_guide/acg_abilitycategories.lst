@@ -221,6 +221,7 @@ ABILITYCATEGORY:Raging Blood Feat Bloodline		VISIBLE:NO												CATEGORY:Ragi
 
 ABILITYCATEGORY:Mutation Warrior Mutagen Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:Mutation Warrior Mutagen Selection		DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Elemental Opposition School	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalOppositionSchool	PLURAL:Elemental Opposition Schools		DISPLAYLOCATION:Class Abilities
 
 #
 # End
