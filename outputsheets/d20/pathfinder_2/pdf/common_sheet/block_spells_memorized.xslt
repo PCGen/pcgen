@@ -24,10 +24,11 @@
 				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
-					<xsl:apply-templates select="memorized_spells"/>	
 					<xsl:apply-templates select="spells_innate/racial_innate"/>	
 					<xsl:apply-templates select="spells_innate/class_innate"/>	
 					<xsl:apply-templates select="known_spells"/>	
+					<xsl:apply-templates select="memorized_spells"/>	
+					<xsl:apply-templates select="memorized_spells_detail"/>	
 				</fo:flow>
 			</fo:page-sequence>	
 		</xsl:if>

@@ -324,17 +324,23 @@
 	  ====================================
 	  ====================================-->
 	<armor_class>
-		<eac>${pcstring('AC.EAC')}</eac>
-		<kac>${pcstring('AC.KAC')}</kac>
-		<eac_armor>${pcstring('AC.EAC_Armor')}</eac_armor>
-		<kac_armor>${pcstring('AC.KAC_Armor')}</kac_armor>
+
+		<armorProf_LightArmor>${pcvar('VAR.ArmorProf_LightArmor')}</armorProf_LightArmor>
+		<armorProf_MediumArmor>${pcvar('VAR.ArmorProf_MediumArmor')}</armorProf_MediumArmor>
+		<armorProf_HeavyArmor>${pcvar('VAR.ArmorProf_HeavyArmor')}</armorProf_HeavyArmor>
+		<armorProf_UnarmoredDefense>${pcvar('VAR.ArmorProf_UnarmoredDefense')}</armorProf_UnarmoredDefense>
+		<ArmorProfBonus>${pcstring('AC.ArmorProfBonus')}</ArmorProfBonus>
+
+		<armor_bonus>${pcstring('AC.Armor')}</armor_bonus>
+		<shield_bonus>${pcstring('AC.Shield')}</shield_bonus>
+
+
+
 		<total>${pcstring('AC.Total')}</total>
 		<listing>${pcstring('BONUS.COMBAT.AC.LISTING')}</listing>
 		<flat>${pcstring('AC.Flatfooted')}</flat>
 		<touch>${pcstring('AC.Touch')}</touch>
 		<base>${pcstring('AC.Base')}</base>
-		<armor_bonus>${pcstring('AC.Armor')}</armor_bonus>
-		<shield_bonus>${pcstring('AC.Shield')}</shield_bonus>
 		<stat_mod>${pcstring('AC.Ability')}</stat_mod>
 		<size_mod>${pcstring('AC.Size')}</size_mod>
 		<natural>${pcstring('AC.NaturalArmor')}</natural>
@@ -367,6 +373,11 @@
 	  ====================================
 	  ====================================-->
 	<initiative>
+		<perception_total>${pcvar('VAR.PerceptionTotal')}</perception_total>
+		<perception_ability>${pcvar('VAR.PerceptionAbility')}</perception_ability>
+		<perception_prof>${pcvar('VAR.PerceptionProf')}</perception_prof>
+		<perception_item>${pcvar('VAR.PerceptionItem')}</perception_item>
+
 		<total>${pcstring('INITIATIVEMOD')}</total>
 		<dex_mod>${pcstring('STAT.1.MOD')}</dex_mod>
 		<misc_mod>${pcstring('INITIATIVEMISC')}</misc_mod>
@@ -383,6 +394,20 @@
 			<sonic/>
 		</resistances>
 	</initiative>
+
+
+	<!--
+	  ====================================
+	  ====================================
+			PF 2 Spell Attack and DC
+	  ====================================
+	  ====================================-->
+	<spellattackanddc>
+		
+
+	</spellattackanddc>
+
+
 	<!--
 	  ====================================
 	  ====================================
