@@ -90,9 +90,16 @@
 					<fo:table-cell><fo:block/></fo:table-cell>
 
 				</fo:table-row>
+				<xsl:apply-templates select="grapple" mode="to_hit">
+					<xsl:with-param name="title" select="'GRAPPLE'"/>
+				</xsl:apply-templates>
+				<xsl:apply-templates select="cmb" mode="to_hit">
+					<xsl:with-param name="title" select="'CMB'"/>
+				</xsl:apply-templates>
 			</fo:table-body>
 		</fo:table>
 		<xsl:apply-templates select="cmb" mode="moves"/>
+		<xsl:apply-templates select="cmb2" mode="moves2"/>
 <!-- END Attack table -->
 	</xsl:template>
 
@@ -189,15 +196,6 @@
 			<fo:table-column column-width="8mm"/>
 			<fo:table-column column-width="0mm"/>
 
-<!--			<fo:table-column column-width="13mm"/>
-			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 96) * 0.5" />mm</xsl:attribute>
-			</fo:table-column>
-			<fo:table-column column-width="1mm"/>
-			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 96) * 0.5" />mm</xsl:attribute>
-			</fo:table-column>
-			<fo:table-column column-width="1mm"/>	-->
 			<fo:table-body>
 				<xsl:call-template name="cmb.moves_header" />
 				<fo:table-row>
@@ -251,6 +249,86 @@
 		</fo:table>
 	</xsl:template>
 
+<!--	Second Row for Advanced Guide Manuevers		-->
+
+		<xsl:template match="cmb2" mode="moves2">
+		<!-- BEGIN CMB table -->
+		<fo:table table-layout="fixed" width="100%" >
+			<fo:table-column column-width="8mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="19mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="19mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="19mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="19mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="6mm"/>
+			<fo:table-column column-width="1mm"/>
+			<fo:table-column column-width="8mm"/>
+			<fo:table-column column-width="0mm"/>
+
+			<fo:table-body>
+				<xsl:call-template name="cmb2.moves_header2" />
+				<fo:table-row>
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'tohit.title'" />
+						</xsl:call-template>
+						<fo:block space-before.optimum="0.5pt" line-height="8pt" font-weight="bold" font-size="8pt" space-before="1pt">
+							<xsl:value-of select="'CMB'"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
+					<xsl:call-template name="iterative.attack.entry"><xsl:with-param name="value" select="dirtytrick_attack"/><xsl:with-param name="bab" select="bab"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="iterative.attack.entry"><xsl:with-param name="value" select="drag_attack"/><xsl:with-param name="bab" select="bab"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="iterative.attack.entry"><xsl:with-param name="value" select="reposition_attack"/><xsl:with-param name="bab" select="bab"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="iterative.attack.entry"><xsl:with-param name="value" select="steal_attack"/><xsl:with-param name="bab" select="bab"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+				</fo:table-row>
+			
+				<fo:table-row height="2.5pt">
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
+				</fo:table-row>
+<!-- Defense entries -->
+				<fo:table-row>		
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'tohit.title'" />
+						</xsl:call-template>
+						<fo:block space-before.optimum="0.5pt" line-height="8pt" font-weight="bold" font-size="8pt" space-before="1pt">
+							<xsl:value-of select="'CMD'"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
+					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="dirtytrick_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="drag_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="reposition_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="steal_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+	</xsl:template>
+
+	<xsl:template name="cmb2.moves_header2">
+		<fo:table-row>
+											<xsl:message>Test END</xsl:message>
+			<fo:table-cell><fo:block/></fo:table-cell>
+
+			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'DIRTY TRICK'"/></xsl:call-template>
+			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'DRAG'"/></xsl:call-template>
+			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'REPOSITION'"/></xsl:call-template>
+			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'STEAL'"/></xsl:call-template>
+		</fo:table-row>
+	</xsl:template>
+
+
 	<xsl:template name="cmb.moves_header">
 		<fo:table-row>
 											<xsl:message>Test END</xsl:message>
@@ -262,9 +340,13 @@
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'SUNDER'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'BULL RUSH'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'OVERRUN'"/></xsl:call-template>
-<!--			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'BASE'"/><xsl:with-param name="font.size" select="'6pt'"/></xsl:call-template> -->
 		</fo:table-row>
 	</xsl:template>
+
+
+
+
+
 
 	<xsl:template name="attack.entry">
 		<xsl:param name="value" />

@@ -54,7 +54,7 @@
 							<fo:block font-size="7pt">QTY</fo:block>
 						</fo:table-cell>
 						<fo:table-cell number-columns-spanned="2">
-							<fo:block font-size="7pt">BULK / COST</fo:block>
+							<fo:block font-size="7pt">WT / COST</fo:block>
 						</fo:table-cell>
 <!-->						<fo:table-cell padding-top="1pt">
 							<fo:block font-size="7pt"></fo:block>
@@ -68,7 +68,7 @@
 							<xsl:with-param name="attribute" select="'equipment.title'"/>
 						</xsl:call-template>
 						<fo:table-cell>
-							<fo:block font-size="7pt">TOTAL BULK CARRIED/VALUE</fo:block>
+							<fo:block font-size="7pt">TOTAL WEIGHT CARRIED/VALUE</fo:block>
 						</fo:table-cell>
 						<fo:table-cell>
 							<fo:block font-size="7pt">
@@ -83,7 +83,7 @@
 										<xsl:with-param name="RunningTotal" select="0"/>
 									</xsl:call-template>
 								</xsl:variable>
-								<xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> cr
+								<xsl:value-of select="format-number($TotalValue, '##,##0.#')"/>gp
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
@@ -263,16 +263,31 @@
 				<fo:table-row keep-with-next.within-column="always">
 											<xsl:message>Test</xsl:message>
 					<xsl:call-template name="weight.entry">
-						<xsl:with-param name="title" select="'Unencumbered'"/>
-						<xsl:with-param name="value" select="unencumbered"/>
+						<xsl:with-param name="title" select="'Light'"/>
+						<xsl:with-param name="value" select="light"/>
 					</xsl:call-template>
 					<xsl:call-template name="weight.entry">
-						<xsl:with-param name="title" select="'Encumbered'"/>
-						<xsl:with-param name="value" select="encumbered"/>
+						<xsl:with-param name="title" select="'Medium'"/>
+						<xsl:with-param name="value" select="medium"/>
 					</xsl:call-template>
 					<xsl:call-template name="weight.entry">
-						<xsl:with-param name="title" select="'Overburdened'"/>
-						<xsl:with-param name="value" select="encumbered+1"/>
+						<xsl:with-param name="title" select="'Heavy'"/>
+						<xsl:with-param name="value" select="heavy"/>
+					</xsl:call-template>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<xsl:call-template name="weight.entry">
+						<xsl:with-param name="title" select="'Lift over head'"/>
+						<xsl:with-param name="value" select="lift_over_head"/>
+					</xsl:call-template>
+					<xsl:call-template name="weight.entry">
+						<xsl:with-param name="title" select="'Lift off ground'"/>
+						<xsl:with-param name="value" select="lift_off_ground"/>
+					</xsl:call-template>
+					<xsl:call-template name="weight.entry">
+						<xsl:with-param name="title" select="'Push / Drag'"/>
+						<xsl:with-param name="value" select="push_drag"/>
 					</xsl:call-template>
 				</fo:table-row>
 			</fo:table-body>
@@ -302,7 +317,7 @@
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'money.title'"/>
 							</xsl:call-template>
-							<fo:block font-size="9pt">FUNDS</fo:block>
+							<fo:block font-size="9pt">MONEY</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
 				</fo:table-header>
@@ -320,9 +335,9 @@
 										<xsl:with-param name="RunningTotal" select="0"/>
 									</xsl:call-template>
 								</xsl:variable>
-								Total= <xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> cr
+								Total= <xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> gp
 								<xsl:if test="misc/gold != 0">
-								[Unspent Funds = <xsl:value-of select="misc/gold"/> cr]
+								[Unspent Funds = <xsl:value-of select="misc/gold"/> gp]
 								</xsl:if>
 							</fo:block>
 						</fo:table-cell>
