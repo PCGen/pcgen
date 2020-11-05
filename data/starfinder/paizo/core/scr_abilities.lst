@@ -3,6 +3,12 @@
 # COMMENT: This will serve the same purpose as Pathfinder, trying to limit it's super use though
 # Ability Name			Category of Ability	Type			Define																																																																																																																												Ability													Bonus to HP				Bonus to skill											Modify VAR																																	Vision					Aspects
 Default				CATEGORY:Internal					DEFINE:Resolve_PCLvl|0	DEFINE:Damage_OperativeWeapon|0																																																																																																																				ABILITY:Internal|AUTOMATIC|Movement									BONUS:HP|CURRENTMAX|RaceHP														BONUS:VAR|StarfinderSystem|1	BONUS:VAR|Resolve|max(1,Resolve_PCLvl+KeyAbilityBonus)	BONUS:VAR|Resolve_PCLvl|max(1,EffectiveLVL/2)	BONUS:VAR|SkillCap_Level|EffectiveLVL	BONUS:VAR|SkillCap_Acrobatics|SkillCap_Level
+CATEGORY=Internal|Default.MOD	DEFINE:STRSCORENoPMods|0	BONUS:VAR|STRSCORENoPMods|STRSCORE
+CATEGORY=Internal|Default.MOD	DEFINE:DEXSCORENoPMods|0	BONUS:VAR|DEXSCORENoPMods|DEXSCORE
+CATEGORY=Internal|Default.MOD	DEFINE:CONSCORENoPMods|0	BONUS:VAR|CONSCORENoPMods|CONSCORE
+CATEGORY=Internal|Default.MOD	DEFINE:INTSCORENoPMods|0	BONUS:VAR|INTSCORENoPMods|INTSCORE
+CATEGORY=Internal|Default.MOD	DEFINE:WISSCORENoPMods|0	BONUS:VAR|WISSCORENoPMods|WISSCORE
+CATEGORY=Internal|Default.MOD	DEFINE:CHASCORENoPMods|0	BONUS:VAR|CHASCORENoPMods|CHASCORE
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_Athletics|0																																																																																																																																																									BONUS:VAR|SkillCap_Athletics|SkillCap_Level
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_Bluff|0																																																																																																																																																										BONUS:VAR|SkillCap_Bluff|SkillCap_Level
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_Computers|0																																																																																																																																																									BONUS:VAR|SkillCap_Computers|SkillCap_Level
@@ -443,57 +449,57 @@ Playable Race Selected	CATEGORY:Internal		AUTO:WEAPONPROF|Unarmed	BONUS:ABILITYP
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key					SORTKEY		Category of Ability	Type										Restricted Ability								Var. Min. Value		Var. Max. Value		Stat bonus
-+1 Strength		KEY:PC Level 5 Stat Boost ~ STR +1	SORTKEY:PCSTAT_1a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost STR		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost STR	PREVARGTEQ:STRSCORE,17					BONUS:STAT|STR|1
-+2 Strength		KEY:PC Level 5 Stat Boost ~ STR +2	SORTKEY:PCSTAT_1b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost STR		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost STR					PREVARLTEQ:STRSCORE,16	BONUS:STAT|STR|2
-+1 Dexterity	KEY:PC Level 5 Stat Boost ~ DEX +1	SORTKEY:PCSTAT_2a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost DEX		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost DEX	PREVARGTEQ:DEXSCORE,17					BONUS:STAT|DEX|1
-+2 Dexterity	KEY:PC Level 5 Stat Boost ~ DEX +2	SORTKEY:PCSTAT_2b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost DEX		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost DEX					PREVARLTEQ:DEXSCORE,16	BONUS:STAT|DEX|2
-+1 Constitution	KEY:PC Level 5 Stat Boost ~ CON +1	SORTKEY:PCSTAT_3a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost CON		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost CON	PREVARGTEQ:CONSCORE,17					BONUS:STAT|CON|1
-+2 Constitution	KEY:PC Level 5 Stat Boost ~ CON +2	SORTKEY:PCSTAT_3b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost CON		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost CON					PREVARLTEQ:CONSCORE,16	BONUS:STAT|CON|2
-+1 Intelligence	KEY:PC Level 5 Stat Boost ~ INT +1	SORTKEY:PCSTAT_4a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost INT		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost INT	PREVARGTEQ:INTSCORE,17					BONUS:STAT|INT|1
-+2 Intelligence	KEY:PC Level 5 Stat Boost ~ INT +2	SORTKEY:PCSTAT_4b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost INT		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost INT					PREVARLTEQ:INTSCORE,16	BONUS:STAT|INT|2
-+1 Wisdom		KEY:PC Level 5 Stat Boost ~ WIS +1	SORTKEY:PCSTAT_5a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost WIS		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost WIS	PREVARGTEQ:WISSCORE,17					BONUS:STAT|WIS|1
-+2 Wisdom		KEY:PC Level 5 Stat Boost ~ WIS +2	SORTKEY:PCSTAT_5b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost WIS		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost WIS					PREVARLTEQ:WISSCORE,16	BONUS:STAT|WIS|2
-+1 Charisma		KEY:PC Level 5 Stat Boost ~ CHA +1	SORTKEY:PCSTAT_6a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost CHA		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost CHA	PREVARGTEQ:CHASCORE,17					BONUS:STAT|CHA|1
-+2 Charisma		KEY:PC Level 5 Stat Boost ~ CHA +2	SORTKEY:PCSTAT_6b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost CHA		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost CHA					PREVARLTEQ:CHASCORE,16	BONUS:STAT|CHA|2
++1 Strength		KEY:PC Level 5 Stat Boost ~ STR +1	SORTKEY:PCSTAT_1a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost STR		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost STR	PREVARGTEQ:STRSCORENoPMods,17					BONUS:STAT|STR|1
++2 Strength		KEY:PC Level 5 Stat Boost ~ STR +2	SORTKEY:PCSTAT_1b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost STR		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost STR					PREVARLTEQ:STRSCORENoPMods,16	BONUS:STAT|STR|2
++1 Dexterity	KEY:PC Level 5 Stat Boost ~ DEX +1	SORTKEY:PCSTAT_2a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost DEX		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost DEX	PREVARGTEQ:DEXSCORENoPMods,17					BONUS:STAT|DEX|1
++2 Dexterity	KEY:PC Level 5 Stat Boost ~ DEX +2	SORTKEY:PCSTAT_2b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost DEX		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost DEX					PREVARLTEQ:DEXSCORENoPMods,16	BONUS:STAT|DEX|2
++1 Constitution	KEY:PC Level 5 Stat Boost ~ CON +1	SORTKEY:PCSTAT_3a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost CON		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost CON	PREVARGTEQ:CONSCORENoPMods,17					BONUS:STAT|CON|1
++2 Constitution	KEY:PC Level 5 Stat Boost ~ CON +2	SORTKEY:PCSTAT_3b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost CON		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost CON					PREVARLTEQ:CONSCORENoPMods,16	BONUS:STAT|CON|2
++1 Intelligence	KEY:PC Level 5 Stat Boost ~ INT +1	SORTKEY:PCSTAT_4a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost INT		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost INT	PREVARGTEQ:INTSCORENoPMods,17					BONUS:STAT|INT|1
++2 Intelligence	KEY:PC Level 5 Stat Boost ~ INT +2	SORTKEY:PCSTAT_4b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost INT		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost INT					PREVARLTEQ:INTSCORENoPMods,16	BONUS:STAT|INT|2
++1 Wisdom		KEY:PC Level 5 Stat Boost ~ WIS +1	SORTKEY:PCSTAT_5a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost WIS		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost WIS	PREVARGTEQ:WISSCORENoPMods,17					BONUS:STAT|WIS|1
++2 Wisdom		KEY:PC Level 5 Stat Boost ~ WIS +2	SORTKEY:PCSTAT_5b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost WIS		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost WIS					PREVARLTEQ:WISSCORENoPMods,16	BONUS:STAT|WIS|2
++1 Charisma		KEY:PC Level 5 Stat Boost ~ CHA +1	SORTKEY:PCSTAT_6a	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost CHA		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost CHA	PREVARGTEQ:CHASCORENoPMods,17					BONUS:STAT|CHA|1
++2 Charisma		KEY:PC Level 5 Stat Boost ~ CHA +2	SORTKEY:PCSTAT_6b	CATEGORY:Internal		TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost CHA		!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 5 Stat Boost CHA					PREVARLTEQ:CHASCORENoPMods,16	BONUS:STAT|CHA|2
 
-+1 Strength		KEY:PC Level 10 Stat Boost ~ STR +1	SORTKEY:PCSTAT_1a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost STR	PREVARGTEQ:STRSCORE,17					BONUS:STAT|STR|1
-+2 Strength		KEY:PC Level 10 Stat Boost ~ STR +2	SORTKEY:PCSTAT_1b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost STR					PREVARLTEQ:STRSCORE,16	BONUS:STAT|STR|2
-+1 Dexterity	KEY:PC Level 10 Stat Boost ~ DEX +1	SORTKEY:PCSTAT_2a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost DEX	PREVARGTEQ:DEXSCORE,17					BONUS:STAT|DEX|1
-+2 Dexterity	KEY:PC Level 10 Stat Boost ~ DEX +2	SORTKEY:PCSTAT_2b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost DEX					PREVARLTEQ:DEXSCORE,16	BONUS:STAT|DEX|2
-+1 Constitution	KEY:PC Level 10 Stat Boost ~ CON +1	SORTKEY:PCSTAT_3a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost CON	PREVARGTEQ:CONSCORE,17					BONUS:STAT|CON|1
-+2 Constitution	KEY:PC Level 10 Stat Boost ~ CON +2	SORTKEY:PCSTAT_3b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost CON					PREVARLTEQ:CONSCORE,16	BONUS:STAT|CON|2
-+1 Intelligence	KEY:PC Level 10 Stat Boost ~ INT +1	SORTKEY:PCSTAT_4a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost INT	PREVARGTEQ:INTSCORE,17					BONUS:STAT|INT|1
-+2 Intelligence	KEY:PC Level 10 Stat Boost ~ INT +2	SORTKEY:PCSTAT_4b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost INT					PREVARLTEQ:INTSCORE,16	BONUS:STAT|INT|2
-+1 Wisdom		KEY:PC Level 10 Stat Boost ~ WIS +1	SORTKEY:PCSTAT_5a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost WIS	PREVARGTEQ:WISSCORE,17					BONUS:STAT|WIS|1
-+2 Wisdom		KEY:PC Level 10 Stat Boost ~ WIS +2	SORTKEY:PCSTAT_5b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost WIS					PREVARLTEQ:WISSCORE,16	BONUS:STAT|WIS|2
-+1 Charisma		KEY:PC Level 10 Stat Boost ~ CHA +1	SORTKEY:PCSTAT_6a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost CHA	PREVARGTEQ:CHASCORE,17					BONUS:STAT|CHA|1
-+2 Charisma		KEY:PC Level 10 Stat Boost ~ CHA +2	SORTKEY:PCSTAT_6b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost CHA					PREVARLTEQ:CHASCORE,16	BONUS:STAT|CHA|2
++1 Strength		KEY:PC Level 10 Stat Boost ~ STR +1	SORTKEY:PCSTAT_1a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost STR	PREVARGTEQ:STRSCORENoPMods,17					BONUS:STAT|STR|1
++2 Strength		KEY:PC Level 10 Stat Boost ~ STR +2	SORTKEY:PCSTAT_1b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost STR					PREVARLTEQ:STRSCORENoPMods,16	BONUS:STAT|STR|2
++1 Dexterity	KEY:PC Level 10 Stat Boost ~ DEX +1	SORTKEY:PCSTAT_2a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost DEX	PREVARGTEQ:DEXSCORENoPMods,17					BONUS:STAT|DEX|1
++2 Dexterity	KEY:PC Level 10 Stat Boost ~ DEX +2	SORTKEY:PCSTAT_2b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost DEX					PREVARLTEQ:DEXSCORENoPMods,16	BONUS:STAT|DEX|2
++1 Constitution	KEY:PC Level 10 Stat Boost ~ CON +1	SORTKEY:PCSTAT_3a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost CON	PREVARGTEQ:CONSCORENoPMods,17					BONUS:STAT|CON|1
++2 Constitution	KEY:PC Level 10 Stat Boost ~ CON +2	SORTKEY:PCSTAT_3b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost CON					PREVARLTEQ:CONSCORENoPMods,16	BONUS:STAT|CON|2
++1 Intelligence	KEY:PC Level 10 Stat Boost ~ INT +1	SORTKEY:PCSTAT_4a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost INT	PREVARGTEQ:INTSCORENoPMods,17					BONUS:STAT|INT|1
++2 Intelligence	KEY:PC Level 10 Stat Boost ~ INT +2	SORTKEY:PCSTAT_4b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost INT					PREVARLTEQ:INTSCORENoPMods,16	BONUS:STAT|INT|2
++1 Wisdom		KEY:PC Level 10 Stat Boost ~ WIS +1	SORTKEY:PCSTAT_5a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost WIS	PREVARGTEQ:WISSCORENoPMods,17					BONUS:STAT|WIS|1
++2 Wisdom		KEY:PC Level 10 Stat Boost ~ WIS +2	SORTKEY:PCSTAT_5b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost WIS					PREVARLTEQ:WISSCORENoPMods,16	BONUS:STAT|WIS|2
++1 Charisma		KEY:PC Level 10 Stat Boost ~ CHA +1	SORTKEY:PCSTAT_6a	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost CHA	PREVARGTEQ:CHASCORENoPMods,17					BONUS:STAT|CHA|1
++2 Charisma		KEY:PC Level 10 Stat Boost ~ CHA +2	SORTKEY:PCSTAT_6b	CATEGORY:Internal		TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 10 Stat Boost CHA					PREVARLTEQ:CHASCORENoPMods,16	BONUS:STAT|CHA|2
 
-+1 Strength		KEY:PC Level 15 Stat Boost ~ STR +1	SORTKEY:PCSTAT_1a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost STR	PREVARGTEQ:STRSCORE,17					BONUS:STAT|STR|1
-+2 Strength		KEY:PC Level 15 Stat Boost ~ STR +2	SORTKEY:PCSTAT_1b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost STR					PREVARLTEQ:STRSCORE,16	BONUS:STAT|STR|2
-+1 Dexterity	KEY:PC Level 15 Stat Boost ~ DEX +1	SORTKEY:PCSTAT_2a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost DEX	PREVARGTEQ:DEXSCORE,17					BONUS:STAT|DEX|1
-+2 Dexterity	KEY:PC Level 15 Stat Boost ~ DEX +2	SORTKEY:PCSTAT_2b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost DEX					PREVARLTEQ:DEXSCORE,16	BONUS:STAT|DEX|2
-+1 Constitution	KEY:PC Level 15 Stat Boost ~ CON +1	SORTKEY:PCSTAT_3a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost CON	PREVARGTEQ:CONSCORE,17					BONUS:STAT|CON|1
-+2 Constitution	KEY:PC Level 15 Stat Boost ~ CON +2	SORTKEY:PCSTAT_3b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost CON					PREVARLTEQ:CONSCORE,16	BONUS:STAT|CON|2
-+1 Intelligence	KEY:PC Level 15 Stat Boost ~ INT +1	SORTKEY:PCSTAT_4a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost INT	PREVARGTEQ:INTSCORE,17					BONUS:STAT|INT|1
-+2 Intelligence	KEY:PC Level 15 Stat Boost ~ INT +2	SORTKEY:PCSTAT_4b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost INT					PREVARLTEQ:INTSCORE,16	BONUS:STAT|INT|2
-+1 Wisdom		KEY:PC Level 15 Stat Boost ~ WIS +1	SORTKEY:PCSTAT_5a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost WIS	PREVARGTEQ:WISSCORE,17					BONUS:STAT|WIS|1
-+2 Wisdom		KEY:PC Level 15 Stat Boost ~ WIS +2	SORTKEY:PCSTAT_5b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost WIS					PREVARLTEQ:WISSCORE,16	BONUS:STAT|WIS|2
-+1 Charisma		KEY:PC Level 15 Stat Boost ~ CHA +1	SORTKEY:PCSTAT_6a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost CHA	PREVARGTEQ:CHASCORE,17					BONUS:STAT|CHA|1
-+2 Charisma		KEY:PC Level 15 Stat Boost ~ CHA +2	SORTKEY:PCSTAT_6b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost CHA					PREVARLTEQ:CHASCORE,16	BONUS:STAT|CHA|2
++1 Strength		KEY:PC Level 15 Stat Boost ~ STR +1	SORTKEY:PCSTAT_1a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost STR	PREVARGTEQ:STRSCORENoPMods,17					BONUS:STAT|STR|1
++2 Strength		KEY:PC Level 15 Stat Boost ~ STR +2	SORTKEY:PCSTAT_1b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost STR					PREVARLTEQ:STRSCORENoPMods,16	BONUS:STAT|STR|2
++1 Dexterity	KEY:PC Level 15 Stat Boost ~ DEX +1	SORTKEY:PCSTAT_2a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost DEX	PREVARGTEQ:DEXSCORENoPMods,17					BONUS:STAT|DEX|1
++2 Dexterity	KEY:PC Level 15 Stat Boost ~ DEX +2	SORTKEY:PCSTAT_2b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost DEX					PREVARLTEQ:DEXSCORENoPMods,16	BONUS:STAT|DEX|2
++1 Constitution	KEY:PC Level 15 Stat Boost ~ CON +1	SORTKEY:PCSTAT_3a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost CON	PREVARGTEQ:CONSCORENoPMods,17					BONUS:STAT|CON|1
++2 Constitution	KEY:PC Level 15 Stat Boost ~ CON +2	SORTKEY:PCSTAT_3b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost CON					PREVARLTEQ:CONSCORENoPMods,16	BONUS:STAT|CON|2
++1 Intelligence	KEY:PC Level 15 Stat Boost ~ INT +1	SORTKEY:PCSTAT_4a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost INT	PREVARGTEQ:INTSCORENoPMods,17					BONUS:STAT|INT|1
++2 Intelligence	KEY:PC Level 15 Stat Boost ~ INT +2	SORTKEY:PCSTAT_4b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost INT					PREVARLTEQ:INTSCORENoPMods,16	BONUS:STAT|INT|2
++1 Wisdom		KEY:PC Level 15 Stat Boost ~ WIS +1	SORTKEY:PCSTAT_5a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost WIS	PREVARGTEQ:WISSCORENoPMods,17					BONUS:STAT|WIS|1
++2 Wisdom		KEY:PC Level 15 Stat Boost ~ WIS +2	SORTKEY:PCSTAT_5b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost WIS					PREVARLTEQ:WISSCORENoPMods,16	BONUS:STAT|WIS|2
++1 Charisma		KEY:PC Level 15 Stat Boost ~ CHA +1	SORTKEY:PCSTAT_6a	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost CHA	PREVARGTEQ:CHASCORENoPMods,17					BONUS:STAT|CHA|1
++2 Charisma		KEY:PC Level 15 Stat Boost ~ CHA +2	SORTKEY:PCSTAT_6b	CATEGORY:Internal		TYPE:PC Level 15 Stat Boost.PC Level 15 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 15 Stat Boost CHA					PREVARLTEQ:CHASCORENoPMods,16	BONUS:STAT|CHA|2
 
-+1 Strength		KEY:PC Level 20 Stat Boost ~ STR +1	SORTKEY:PCSTAT_1a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost STR	PREVARGTEQ:STRSCORE,17					BONUS:STAT|STR|1
-+2 Strength		KEY:PC Level 20 Stat Boost ~ STR +2	SORTKEY:PCSTAT_1b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost STR					PREVARLTEQ:STRSCORE,16	BONUS:STAT|STR|2
-+1 Dexterity	KEY:PC Level 20 Stat Boost ~ DEX +1	SORTKEY:PCSTAT_2a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost DEX	PREVARGTEQ:DEXSCORE,17					BONUS:STAT|DEX|1
-+2 Dexterity	KEY:PC Level 20 Stat Boost ~ DEX +2	SORTKEY:PCSTAT_2b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost DEX					PREVARLTEQ:DEXSCORE,16	BONUS:STAT|DEX|2
-+1 Constitution	KEY:PC Level 20 Stat Boost ~ CON +1	SORTKEY:PCSTAT_3a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost CON	PREVARGTEQ:CONSCORE,17					BONUS:STAT|CON|1
-+2 Constitution	KEY:PC Level 20 Stat Boost ~ CON +2	SORTKEY:PCSTAT_3b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost CON					PREVARLTEQ:CONSCORE,16	BONUS:STAT|CON|2
-+1 Intelligence	KEY:PC Level 20 Stat Boost ~ INT +1	SORTKEY:PCSTAT_4a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost INT	PREVARGTEQ:INTSCORE,17					BONUS:STAT|INT|1
-+2 Intelligence	KEY:PC Level 20 Stat Boost ~ INT +2	SORTKEY:PCSTAT_4b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost INT					PREVARLTEQ:INTSCORE,16	BONUS:STAT|INT|2
-+1 Wisdom		KEY:PC Level 20 Stat Boost ~ WIS +1	SORTKEY:PCSTAT_5a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost WIS	PREVARGTEQ:WISSCORE,17					BONUS:STAT|WIS|1
-+2 Wisdom		KEY:PC Level 20 Stat Boost ~ WIS +2	SORTKEY:PCSTAT_5b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost WIS					PREVARLTEQ:WISSCORE,16	BONUS:STAT|WIS|2
-+1 Charisma		KEY:PC Level 20 Stat Boost ~ CHA +1	SORTKEY:PCSTAT_6a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost CHA	PREVARGTEQ:CHASCORE,17					BONUS:STAT|CHA|1
-+2 Charisma		KEY:PC Level 20 Stat Boost ~ CHA +2	SORTKEY:PCSTAT_6b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost CHA					PREVARLTEQ:CHASCORE,16	BONUS:STAT|CHA|2
++1 Strength		KEY:PC Level 20 Stat Boost ~ STR +1	SORTKEY:PCSTAT_1a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost STR	PREVARGTEQ:STRSCORENoPMods,17					BONUS:STAT|STR|1
++2 Strength		KEY:PC Level 20 Stat Boost ~ STR +2	SORTKEY:PCSTAT_1b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost STR	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost STR					PREVARLTEQ:STRSCORENoPMods,16	BONUS:STAT|STR|2
++1 Dexterity	KEY:PC Level 20 Stat Boost ~ DEX +1	SORTKEY:PCSTAT_2a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost DEX	PREVARGTEQ:DEXSCORENoPMods,17					BONUS:STAT|DEX|1
++2 Dexterity	KEY:PC Level 20 Stat Boost ~ DEX +2	SORTKEY:PCSTAT_2b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost DEX	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost DEX					PREVARLTEQ:DEXSCORENoPMods,16	BONUS:STAT|DEX|2
++1 Constitution	KEY:PC Level 20 Stat Boost ~ CON +1	SORTKEY:PCSTAT_3a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost CON	PREVARGTEQ:CONSCORENoPMods,17					BONUS:STAT|CON|1
++2 Constitution	KEY:PC Level 20 Stat Boost ~ CON +2	SORTKEY:PCSTAT_3b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost CON	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost CON					PREVARLTEQ:CONSCORENoPMods,16	BONUS:STAT|CON|2
++1 Intelligence	KEY:PC Level 20 Stat Boost ~ INT +1	SORTKEY:PCSTAT_4a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost INT	PREVARGTEQ:INTSCORENoPMods,17					BONUS:STAT|INT|1
++2 Intelligence	KEY:PC Level 20 Stat Boost ~ INT +2	SORTKEY:PCSTAT_4b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost INT	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost INT					PREVARLTEQ:INTSCORENoPMods,16	BONUS:STAT|INT|2
++1 Wisdom		KEY:PC Level 20 Stat Boost ~ WIS +1	SORTKEY:PCSTAT_5a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost WIS	PREVARGTEQ:WISSCORENoPMods,17					BONUS:STAT|WIS|1
++2 Wisdom		KEY:PC Level 20 Stat Boost ~ WIS +2	SORTKEY:PCSTAT_5b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost WIS	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost WIS					PREVARLTEQ:WISSCORENoPMods,16	BONUS:STAT|WIS|2
++1 Charisma		KEY:PC Level 20 Stat Boost ~ CHA +1	SORTKEY:PCSTAT_6a	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost CHA	PREVARGTEQ:CHASCORENoPMods,17					BONUS:STAT|CHA|1
++2 Charisma		KEY:PC Level 20 Stat Boost ~ CHA +2	SORTKEY:PCSTAT_6b	CATEGORY:Internal		TYPE:PC Level 20 Stat Boost.PC Level 20 Stat Boost CHA	!PREABILITY:1,CATEGORY=Internal,TYPE.PC Level 20 Stat Boost CHA					PREVARLTEQ:CHASCORENoPMods,16	BONUS:STAT|CHA|2
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 # Ability Name		Category of Ability	Bonus Ability Pool
@@ -504,29 +510,29 @@ Personal Upgrade 3	CATEGORY:Internal		BONUS:ABILITYPOOL|Personal Upgrade LVL 14|
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability	Type								Stat bonus
-Personal Upgrade Mk 1 (STR)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|STR|2|TYPE=PersonalUpgrade
-Personal Upgrade Mk 2 (STR)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|STR|4|TYPE=PersonalUpgrade
-Personal Upgrade Mk 3 (STR)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|STR|6|TYPE=PersonalUpgrade
+Personal Upgrade Mk 1 (STR)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|STR|2|TYPE=PersonalUpgrade	BONUS:VAR|STRSCORENoPMods|-2
+Personal Upgrade Mk 2 (STR)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|STR|4|TYPE=PersonalUpgrade	BONUS:VAR|STRSCORENoPMods|-4
+Personal Upgrade Mk 3 (STR)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|STR|6|TYPE=PersonalUpgrade	BONUS:VAR|STRSCORENoPMods|-6
 
-Personal Upgrade Mk 1 (DEX)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|DEX|2|TYPE=PersonalUpgrade
-Personal Upgrade Mk 2 (DEX)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|DEX|4|TYPE=PersonalUpgrade
-Personal Upgrade Mk 3 (DEX)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|DEX|6|TYPE=PersonalUpgrade
+Personal Upgrade Mk 1 (DEX)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|DEX|2|TYPE=PersonalUpgrade	BONUS:VAR|DEXSCORENoPMods|-2
+Personal Upgrade Mk 2 (DEX)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|DEX|4|TYPE=PersonalUpgrade	BONUS:VAR|DEXSCORENoPMods|-4
+Personal Upgrade Mk 3 (DEX)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|DEX|6|TYPE=PersonalUpgrade	BONUS:VAR|DEXSCORENoPMods|-6
 
-Personal Upgrade Mk 1 (CON)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|CON|2|TYPE=PersonalUpgrade
-Personal Upgrade Mk 2 (CON)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|CON|4|TYPE=PersonalUpgrade
-Personal Upgrade Mk 3 (CON)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|CON|6|TYPE=PersonalUpgrade
+Personal Upgrade Mk 1 (CON)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|CON|2|TYPE=PersonalUpgrade	BONUS:VAR|CONSCORENoPMods|-2
+Personal Upgrade Mk 2 (CON)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|CON|4|TYPE=PersonalUpgrade	BONUS:VAR|CONSCORENoPMods|-4
+Personal Upgrade Mk 3 (CON)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|CON|6|TYPE=PersonalUpgrade	BONUS:VAR|CONSCORENoPMods|-6
 
-Personal Upgrade Mk 1 (INT)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|INT|2|TYPE=PersonalUpgrade
-Personal Upgrade Mk 2 (INT)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|INT|4|TYPE=PersonalUpgrade
-Personal Upgrade Mk 3 (INT)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|INT|6|TYPE=PersonalUpgrade
+Personal Upgrade Mk 1 (INT)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|INT|2|TYPE=PersonalUpgrade	BONUS:VAR|INTSCORENoPMods|-2
+Personal Upgrade Mk 2 (INT)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|INT|4|TYPE=PersonalUpgrade	BONUS:VAR|INTSCORENoPMods|-4
+Personal Upgrade Mk 3 (INT)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|INT|6|TYPE=PersonalUpgrade	BONUS:VAR|INTSCORENoPMods|-6
 
-Personal Upgrade Mk 1 (WIS)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|WIS|2|TYPE=PersonalUpgrade
-Personal Upgrade Mk 2 (WIS)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|WIS|4|TYPE=PersonalUpgrade
-Personal Upgrade Mk 3 (WIS)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|WIS|6|TYPE=PersonalUpgrade
+Personal Upgrade Mk 1 (WIS)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|WIS|2|TYPE=PersonalUpgrade	BONUS:VAR|WISSCORENoPMods|-2
+Personal Upgrade Mk 2 (WIS)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|WIS|4|TYPE=PersonalUpgrade	BONUS:VAR|WISSCORENoPMods|-4
+Personal Upgrade Mk 3 (WIS)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|WIS|6|TYPE=PersonalUpgrade	BONUS:VAR|WISSCORENoPMods|-6 
 
-Personal Upgrade Mk 1 (CHA)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|CHA|2|TYPE=PersonalUpgrade
-Personal Upgrade Mk 2 (CHA)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|CHA|4|TYPE=PersonalUpgrade
-Personal Upgrade Mk 3 (CHA)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|CHA|6|TYPE=PersonalUpgrade
+Personal Upgrade Mk 1 (CHA)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 03	BONUS:STAT|CHA|2|TYPE=PersonalUpgrade	BONUS:VAR|CHASCORENoPMods|-2
+Personal Upgrade Mk 2 (CHA)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 07	BONUS:STAT|CHA|4|TYPE=PersonalUpgrade	BONUS:VAR|CHASCORENoPMods|-4
+Personal Upgrade Mk 3 (CHA)	CATEGORY:Internal		TYPE:Personal Upgrade.Personal Upgrade LVL 14	BONUS:STAT|CHA|6|TYPE=PersonalUpgrade	BONUS:VAR|CHASCORENoPMods|-6
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 # Ability Name	SORTKEY		Category of Ability	Type					Description																																																																											Ability																																																																			Source Page		Aspects
