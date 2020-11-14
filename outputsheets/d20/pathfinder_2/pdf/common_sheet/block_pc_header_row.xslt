@@ -19,8 +19,8 @@
 	<xsl:template match="basics">	
 		<!-- Character Header -->
 		<xsl:choose>		<!-- Determine which header to use -->
-			<xsl:when test="rules/pfs/os > 0">		
-				<!-- PFS Header -->
+			<xsl:when test="rules/society/os > 0">		
+				<!-- society Header -->
 				<fo:table table-layout="fixed" width="100%">
 				<xsl:attribute name="width"><xsl:value-of select="$pagePrintableWidth" />mm</xsl:attribute>
 				<xsl:choose>
@@ -165,7 +165,7 @@
 								</xsl:call-template>
 								<fo:block>
 									<xsl:variable name="portrait_file" select="portrait/portrait_thumb"/>
-									<fo:external-graphic src="file:/{$portrait_file}" content-width="22mm" content-height="scale-to-fit" scaling="uniform">
+									<fo:external-graphic src="file:{$portrait_file}" content-width="22mm" content-height="scale-to-fit" scaling="uniform">
 										<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
 									</fo:external-graphic>
 								</fo:block>
@@ -298,7 +298,7 @@
 								<xsl:with-param name="attribute" select="'bio'"/>
 							</xsl:call-template>
 							<fo:block font-size="8pt" padding-top="3pt">
-								<xsl:value-of select="rules/pfs/id_number"/>
+								<xsl:value-of select="rules/society/id_number"/>
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell><fo:block/></fo:table-cell>
@@ -422,7 +422,7 @@
 								<xsl:with-param name="attribute" select="'bio'"/>
 							</xsl:call-template>
 							<fo:block font-size="8pt" padding-top="3pt">	
-								<xsl:value-of select="rules/pfs/faction"/>	
+								<xsl:value-of select="rules/society/faction"/>	
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell><fo:block/></fo:table-cell>
@@ -537,37 +537,46 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<fo:table-column>
-						<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
+						<xsl:attribute name="column-width"><xsl:value-of select="0.15 * ($pagePrintableWidth - 12)" />mm</xsl:attribute>
 					</fo:table-column>
+					<!-- Class -->
 					<fo:table-column column-width="2mm"/>
+					<!---->
 					<fo:table-column>
-						<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
+						<xsl:attribute name="column-width"><xsl:value-of select="0.14 * ($pagePrintableWidth - 12)" />mm</xsl:attribute>
 					</fo:table-column>
+					<!-- Experience -->
 					<fo:table-column column-width="2mm"/>
+					<!-- -->
 					<fo:table-column>
-						<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
+						<xsl:attribute name="column-width"><xsl:value-of select="0.14 * ($pagePrintableWidth - 12)" />mm</xsl:attribute>
 					</fo:table-column>
+					<!-- Race -->
 					<fo:table-column column-width="2mm"/>
+					<!-- -->
 					<fo:table-column>
-						<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
+						<xsl:attribute name="column-width"><xsl:value-of select="0.14 * ($pagePrintableWidth - 12)" />mm</xsl:attribute>
 					</fo:table-column>
+					<!-- Size -->
 					<fo:table-column column-width="2mm"/>
+					<!-- -->
 					<fo:table-column>
-						<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
+						<xsl:attribute name="column-width"><xsl:value-of select="0.14 * ($pagePrintableWidth - 12)" />mm</xsl:attribute>
 					</fo:table-column>
+					<!-- Height -->
 					<fo:table-column column-width="2mm"/>
+					<!-- -->
 					<fo:table-column>
-						<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
+						<xsl:attribute name="column-width"><xsl:value-of select="0.14 * ($pagePrintableWidth - 12)" />mm</xsl:attribute>
 					</fo:table-column>
+					<!-- Weight -->
 					<fo:table-column column-width="2mm"/>
+					<!-- -->
 					<fo:table-column>
-						<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
+						<xsl:attribute name="column-width"><xsl:value-of select="0.15 * ($pagePrintableWidth - 12)" />mm</xsl:attribute>
 					</fo:table-column>
+					<!-- Vision -->
 					<fo:table-column column-width="2mm"/>
-					<fo:table-column>
-						<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
-					</fo:table-column>
-
 				</xsl:otherwise>
 			</xsl:choose>	
 			<fo:table-body>
@@ -975,11 +984,11 @@
 	<!--
 ====================================
 ====================================
-	TEMPLATE - PFS HEADER
+	TEMPLATE - society HEADER
 ====================================
 ====================================-->
 
-	<!-- PFS Header -->
+	<!-- society Header -->
 	<xsl:template match="header_pfs">
 
 	</xsl:template>

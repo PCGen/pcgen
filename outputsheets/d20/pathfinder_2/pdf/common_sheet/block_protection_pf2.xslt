@@ -61,7 +61,7 @@
 					</fo:table-cell>
 					<fo:table-cell padding-top="3pt">
 						<fo:block font-size="4pt">
-							SPELL FAILURE
+							n/a
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
@@ -105,7 +105,7 @@
 						</fo:table-cell>
 						<fo:table-cell text-align="center">
 							<fo:block font-size="8pt">
-								<xsl:value-of select="spellfail"/>
+								
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>

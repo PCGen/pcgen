@@ -146,7 +146,7 @@
 						<fo:table-cell number-columns-spanned="10">
 								<fo:block text-align="end" space-before.optimum="4pt" line-height="4pt" font-size="5pt">
 									<xsl:text>MAX RANKS: </xsl:text>
-									<xsl:value-of select="max_rank"/>
+									<xsl:value-of select="max_class_skill_level"/>/<xsl:value-of select="max_cross_class_skill_level"/>
 								</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
