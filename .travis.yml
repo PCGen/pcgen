@@ -52,4 +52,5 @@ deploy:
   skip_cleanup: true
   on:
     repo: PCGen/pcgen
+    # Any Tags should produce a build now.
     tags: true
