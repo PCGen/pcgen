@@ -51,5 +51,3 @@ deploy:
     on:
         #This make the deploy only happen when a tag is created.  
         tags: true
-        #Only on master
-        branch: master
