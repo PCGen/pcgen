@@ -36,6 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyr
 
 ABILITY:boa_abilities.lst
 ABILITY:boa_abilities_race.lst
+ABILITY:boa_abilities_variant.lst
 ABILITYCATEGORY:boa_abilitycategories.lst
 CLASS:boa_classes.lst
 DOMAIN:boa_domains.lst

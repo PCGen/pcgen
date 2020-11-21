@@ -89,6 +89,7 @@ ABILITY:b3_abilities_globalvar_arg.lst
 ABILITY:b3_abilities_race_arg.lst
 ABILITYCATEGORY:b3_abilitycategories_arg.lst
 RACE:b3_races_arg.lst
+TEMPLATE:b3_templates_arg.lst
 
 ABILITY:b3_abilities_companion.lst
 KIT:b3_kits_companion.lst
@@ -100,7 +101,6 @@ RACE:b3_races_familiar.lst
 
 #MOVE TO CORE ESSENTIALS
 ABILITY:b3_feats.lst
-
 
 # We have some data from other sets which we need to include if they aren't loaded
 EQUIPMENT:../ultimate_combat/uc_equip_arms_armor.lst|(INCLUDE:Cannon|Katana|Pistol)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat

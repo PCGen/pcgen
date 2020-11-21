@@ -28,7 +28,7 @@ COPYRIGHT:PCGen dataset conversion for "Starfinder Alien Archive 3" Copyright 20
 
 
 # COVER should be cover_gameMode_pub_book.file
-COVER:PZO7111_180.jpg
+#COVER:PZO7111_180.jpg
 # LOGO should be logo_pub.file
 LOGO:*/_images/logo/Paizo_Publishing.png
 
