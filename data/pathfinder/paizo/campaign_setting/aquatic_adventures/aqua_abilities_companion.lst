@@ -12,3 +12,6 @@ Water Dependency							KEY:Hippocampus ~ Water Dependency				CATEGORY:Special Ab
 
 #Seahorse
 Anchor								KEY:Companion (Seahorse) ~ Anchor				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:As a move action, a seahorse can wrap its tail around a stationary object. The seahorse remains anchored to the object until it releases its grip (a free action) or is forcibly moved. An anchored seahorse gains a +4 bonus to its combat maneuver defense and on checks and saving throws against effects that would move it against its will.
+
+# Orca
+Hold Breath		KEY:Dolphin (Oceanrider Orca) ~ Hold Breath		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DEFINE:HoldBreathDuration|0	DESC:You can hold your breath for %1 rounds before it risks drowning.|HoldBreathDuration																																																																																																			BONUS:VAR|HoldBreathDuration|CONSCORE*6																										SOURCEPAGE:p.88
