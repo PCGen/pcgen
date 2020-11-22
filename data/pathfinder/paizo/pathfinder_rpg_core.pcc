@@ -58,6 +58,7 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_wilderness/_ultimate_wilderness
 FORWARDREF:SPELL|Telepathy
 FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
 FORWARDREF:ABILITY=Special Ability|Mythic Power,Surge
+FORWARDREF:ABILITY=FEAT|Psychic Sensitivity
 
 
 

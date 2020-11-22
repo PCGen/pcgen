@@ -55,3 +55,4 @@ PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_gui
 FORWARDREF:RACE|Orc,Companion (Bat (Dire)),Companion (Dinosaur (Ankylosaurus)),Companion (Dinosaur (Brachiosaurus)),Companion (Dinosaur (Pteranodon)),Companion (Dinosaur (Stegosaurus)),Companion (Dinosaur (Triceratops)),Companion (Dinosaur (Tyrannosaurus)),Companion (Elephant (Mastodon)),Companion (Elephant),Companion (Herd Animal (Aurochs)),Companion (Herd Animal (Bison)),Companion (Rhinoceros)
 FORWARDREF:CLASSSPELLLIST|Magus,Medium,Mesmerist,Occultist,Psychic,Spiritualist
 FORWARDREF:SPELL|Telepathy
+FORWARDREF:ABILITY=FEAT|Psychic Sensitivity
