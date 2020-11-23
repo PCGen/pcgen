@@ -201,7 +201,7 @@ dependencies {
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
 
 
-    testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.8.0'
+    testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.8.1'
 }
 
 ant.importBuild 'build-gradle.xml'
