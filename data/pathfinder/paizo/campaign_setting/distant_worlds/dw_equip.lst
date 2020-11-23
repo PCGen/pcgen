@@ -7,4 +7,4 @@ Pressure Suit (Helm)											TYPE:Helm.Headgear																															
 
 #Rifle.COPY=Shobhad Longrifle
 #Shobhad Longrifle.MOD											RANGE:200	SIZE:L											SPROP:only works in the low gravity of Akiton and similar worlds.
-Shobhad Longrifle		NAMEISPI:YES	PROFICIENCY:WEAPON|Shobhad Longrifle	TYPE:Weapon.Resizable.Martial.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Rifle	CONTAINS:1|FirearmCartridge=1	COST:5000	WT:12		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d10	EQMOD:Material ~ Steel	WIELD:TwoHandsOnly	RANGE:200	SIZE:L	SOURCEPAGE:p.139								SPROP:Misfire 1; Only functions on low-gravity worlds.
+Shobhad Longrifle		NAMEISPI:YES	PROFICIENCY:WEAPON|Shobhad Longrifle	TYPE:Weapon.Resizable.Martial.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Weapon Group Firearms.Rifle	CONTAINS:1|FirearmCartridge=1	COST:5000	WT:12		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d10	EQMOD:Material ~ Steel	WIELD:TwoHandsOnly	RANGE:200	SIZE:L	SOURCEPAGE:p.139								SPROP:Misfire 1; Only functions on low-gravity worlds.

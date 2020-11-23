@@ -5,5 +5,5 @@ SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91d
 # Weapon Name		Unique Key				Type																	Nb Hands
 Skull									TYPE:Ranged.Simple.Thrown.Bludeoning											HANDS:1
 Kasatha Spinal Sword						TYPE:Martial.Exotic.OneHanded.Sword.Kasatha										HANDS:1
-Shobhad Longrifle							TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Rifle.TwoHandedFireArm.Shobhad	HANDS:2
+Shobhad Longrifle							TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Weapon Group Firearms.Rifle.TwoHandedFireArm.Shobhad	HANDS:2
 Pliers			KEY:Pliers (Tooth Fairy)	TYPE:Weapon.Simple.Melee.Magic.Finesseable.TwoHanded									HANDS:2
