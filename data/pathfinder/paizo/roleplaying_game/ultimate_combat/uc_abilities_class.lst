@@ -1943,3 +1943,17 @@ CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_MomentofGreat
 # Ability Name		Unique Key								Category of Ability	Type						Var. Min. Value													List of Known Class Spells by Level
 Tar Pool			KEY:Sorcerer Bonus Spell L6 ~ Tar Pool			CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell	PREVARGTEQ:Sorcerer_BonusSpell_TarPool_L6,1	PREVARGTEQ:BloodlineCasterLVL,13		SPELLKNOWN:CLASS|Sorcerer=6|Tar Pool
 Moment of Greatness	KEY:Sorcerer Bonus Spell L1 ~ Moment of Greatness	CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell	PREVARGTEQ:Sorcerer_BonusSpell_MomentofGreatness_L1,1	PREVARGTEQ:BloodlineCasterLVL,3	SPELLKNOWN:CLASS|Sorcerer=1|Moment of Greatness
+
+
+###Block - Weapon Group Firearms
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	DEFINE:WeaponTrainingFirearms|0
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	BONUS:VAR|WeaponTrainingFirearms|WeaponTrainingTierOne|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 1 Firearms
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	BONUS:VAR|WeaponTrainingFirearms|WeaponTrainingTierTwo|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 2 Firearms
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	BONUS:VAR|WeaponTrainingFirearms|WeaponTrainingTierThree|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Firearms
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	BONUS:VAR|WeaponTrainingFirearms|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Firearms
+
+###Block:
+Weapon Training (Firearms)			KEY:Weapon Training 1 Firearms		CATEGORY:Special Ability	TYPE:WeaponTraining.Fighter Weapon Training.WeaponTraining1.WeaponTrainingFirearms		VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE.WeaponTrainingFirearms		MULT:NO																				BONUS:WEAPONPROF=TYPE.Weapon Group Firearms|TOHIT,DAMAGE|WeaponTrainingFirearms|TYPE=WeaponTraining																SOURCEPAGE:p.56
+Weapon Training (Firearms)			KEY:Weapon Training 2 Firearms		CATEGORY:Special Ability	TYPE:WeaponTraining.Fighter Weapon Training.WeaponTraining2.WeaponTrainingFirearms		VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE.WeaponTrainingFirearms		MULT:NO																				BONUS:WEAPONPROF=TYPE.Weapon Group Firearms|TOHIT,DAMAGE|WeaponTrainingFirearms|TYPE=WeaponTraining																SOURCEPAGE:p.56
+Weapon Training (Firearms)			KEY:Weapon Training 3 Firearms		CATEGORY:Special Ability	TYPE:WeaponTraining.Fighter Weapon Training.WeaponTraining3.WeaponTrainingFirearms		VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE.WeaponTrainingFirearms		MULT:NO																				BONUS:WEAPONPROF=TYPE.Weapon Group Firearms|TOHIT,DAMAGE|WeaponTrainingFirearms|TYPE=WeaponTraining																SOURCEPAGE:p.56
+Weapon Training (Firearms)			KEY:Weapon Training 4 Firearms		CATEGORY:Special Ability	TYPE:WeaponTraining.Fighter Weapon Training.WeaponTraining4.WeaponTrainingFirearms		VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE.WeaponTrainingFirearms		MULT:NO																				BONUS:WEAPONPROF=TYPE.Weapon Group Firearms|TOHIT,DAMAGE|WeaponTrainingFirearms|TYPE=WeaponTraining																SOURCEPAGE:p.56
