@@ -30,7 +30,7 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.36.0'
     id "com.dorongold.task-tree" version '1.5'
     id 'org.openjfx.javafxplugin' version '0.0.9'
-    id 'org.beryx.runtime' version '1.11.4'
+    id 'org.beryx.runtime' version '1.11.5'
 }
 
 javafx {
