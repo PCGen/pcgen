@@ -36,9 +36,11 @@
 		<RULE weight="1">
 			<GETLIST idref="arabic-female-given" title="Given"/>
 			<SPACE/>
+			<GETLIST idref="arabic-al" title="al" />
+			<HYPHEN />
 			<GETLIST idref="arabic-female-cognomen" title="Cognomen"/>
 		</RULE>
-		<RULE weight="1">
+		<RULE weight="2">
 			<GETLIST idref="arabic-female-given" title="Given" />
 			<SPACE />
 			<GETLIST idref="arabic-al" title="al" />
@@ -120,6 +122,7 @@
 			<GETLIST idref="arabic-male-kunya" title="Prefix"/>
 			<SPACE />
 			<GETLIST idref="arabic-male-given-rule" title="Patrynomic"/>
+			<SPACE />
 		</RULE>
 	</RULESET>
 	<LIST id="arabic-male-prefix" title="Prefix">
@@ -1099,7 +1102,7 @@
 		<VALUE>Zummurrud</VALUE>
 	</LIST>
 	<LIST id="arabic-al" title="al">
-		<VALUE>al</VALUE>
+		<VALUE>al<SUBVALUE type="meaning">(of or from)</SUBVALUE></VALUE>
 	</LIST>
 	<LIST id="arabic-female-kunya" title="Prefix">
 		<VALUE>Oum<SUBVALUE type="meaning">Mother of</SUBVALUE></VALUE>
@@ -1109,22 +1112,16 @@
 		<VALUE>yah</VALUE>
 	</LIST>
 	<LIST id="arabic-female-cognomen" title="Cognomen">
-		<VALUE>al-Khansa'<SUBVALUE type="meaning">the pug-nosed</SUBVALUE></VALUE>
-		<VALUE>al-Khayzuran</VALUE>
-		<VALUE>al-Zarqa'<SUBVALUE type="meaning">the blue-eyed</SUBVALUE></VALUE>
-		<VALUE>al-Abdariyya</VALUE>
-		<VALUE>al-'Abida</VALUE>
-		<VALUE>al-'Arudiyya</VALUE>
-		<VALUE>al-'Ashiyya</VALUE>
-		<VALUE>al-Awfiyya</VALUE>
-		<VALUE>al-Fihriyya</VALUE>
-		<VALUE>al-Kafiba</VALUE>
-		<VALUE>al-Nisa</VALUE>
-		<VALUE>al-Sa'ima</VALUE>
-		<VALUE>al-Sawda'</VALUE>
-		<VALUE>al-Tujibiyya</VALUE>
-		<VALUE>al-Wadi</VALUE>
-		<VALUE>al-Zahra'<SUBVALUE type="meaning">the radiant</SUBVALUE></VALUE>
+		<VALUE>Khansa'<SUBVALUE type="meaning">the pug-nosed</SUBVALUE></VALUE>
+		<VALUE>Khayzuran</VALUE>
+		<VALUE>Zarqa'<SUBVALUE type="meaning">the blue-eyed</SUBVALUE></VALUE>
+		<VALUE>'Abida</VALUE>
+		<VALUE>Kafiba</VALUE>
+		<VALUE>Nisa</VALUE>
+		<VALUE>Sa'ima</VALUE>
+		<VALUE>Sawda'</VALUE>
+		<VALUE>Wadi<SUBVALUE type="meaning"> the river</SUBVALUE></VALUE>
+		<VALUE>Zahra'<SUBVALUE type="meaning">the radiant</SUBVALUE></VALUE>
 	</LIST>
 	<LIST id="arabic-location" title="Location">
 		<VALUE>'Abisiyya</VALUE>
