@@ -2608,15 +2608,15 @@
 	</LIST>
     -->
 	<LIST id="russian-male-patrynomic-suffix" title="Patrynomic Suffix">
-		<VALUE>ovich</VALUE>
-		<VALUE>evich</VALUE>
-		<VALUE>ich</VALUE>
+		<VALUE>ovich<SUBVALUE type="meaning">'s Son</SUBVALUE></VALUE>
+		<VALUE>evich<SUBVALUE type="meaning">'s Son</SUBVALUE></VALUE>
+		<VALUE>ich<SUBVALUE type="meaning">'s Son</SUBVALUE></VALUE>
 	</LIST>
 	<LIST id="russian-female-patrynomic-suffix" title="Patrynomic Suffix">
-		<VALUE>ovna</VALUE>
-		<VALUE>evna</VALUE>
-		<VALUE>ichna</VALUE>
-		<VALUE>inichna</VALUE>
+		<VALUE>ovna<SUBVALUE type="meaning">'s Daughter</SUBVALUE></VALUE>
+		<VALUE>evna<SUBVALUE type="meaning">'s Daughter</SUBVALUE></VALUE>
+		<VALUE>ichna<SUBVALUE type="meaning">'s Daughter</SUBVALUE></VALUE>
+		<VALUE>inichna<SUBVALUE type="meaning">'s Daughter</SUBVALUE></VALUE>
 	</LIST>
 	<LIST id="russian-female-modifier" title="Modifier">
 		<VALUE>doch'</VALUE>
