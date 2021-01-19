@@ -1,205 +1,220 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE GENERATOR SYSTEM "generator.dtd">
-<!-- Information taken from Fantasy Craft: Core Rulebook, Pages 250-251  -->
+<!-- Information inspired by Fantasy Craft: Core Rulebook, Pages 250-251  -->
 <!-- http://www.crafty-games.com  -->
+<!-- Additional Options added as noted -->
 <GENERATOR>
 	<RULESET id="fantasy_craft-drake" title="Fantasy Craft: Drake" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Male"/>		
 		<CATEGORY title="Sex: Female"/>		
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-elements"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-negative"/>
+			<GETLIST idref="fantasy_craft-negative" title="Negative"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-positive"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="2">
-			<GETLIST idref="fantasy_craft-reptillian-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-reptillian-prefix" title="Rept Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>
+			<GETLIST idref="fantasy_craft-the" title="the"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-dwarf-male" title="Fantasy Craft: Dwarf" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="8">
-			<GETLIST idref="fantasy_craft-dwarven-male"/>
+			<GETLIST idref="fantasy_craft-dwarven-male" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="8">
-			<GETLIST idref="fantasy_craft-dwarven-male"/>
+			<GETLIST idref="fantasy_craft-dwarven-male" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="2">
-			<GETLIST idref="fantasy_craft-dwarven-male"/>
+			<GETLIST idref="fantasy_craft-dwarven-male" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-tools"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/>
 		</RULE>
-		<RULE weight="2">
-			<GETLIST idref="fantasy_craft-folkish-male"/>
+		<RULE weight="1">
+			<GETLIST idref="fantasy_craft-folkish-male" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-tools"/> <!-- Personal Judgement: Book says "Column G" (Negative).  I used "Column J" (Tools) It follows the example and makes more sense -->
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/> <!-- Personal Judgement: Book says "Column G" (Negative).  I used "Column J" (Tools) It follows the example and makes more sense -->
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="fantasy_craft-folkish-male" title="Folk Given"/>
+			<SPACE/>
+			<GETLIST idref="fantasy_craft-negative" title="Negative"/> <!-- added original above as an alternative option and divided the option's weight -->
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-dwarf-female" title="Fantasy Craft: Dwarf" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="8">
-			<GETLIST idref="fantasy_craft-dwarven-female"/>
+			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="8">
-			<GETLIST idref="fantasy_craft-dwarven-female"/>
+			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="2">
-			<GETLIST idref="fantasy_craft-dwarven-female"/>
+			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-tools"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/>
 		</RULE>
-		<RULE weight="2">
-			<GETLIST idref="fantasy_craft-folkish-female"/>
+		<RULE weight="1">
+			<GETLIST idref="fantasy_craft-folkish-female" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-tools"/> <!-- Personal Judgement: Book says "Column G" (Negative).  I used "Column J" (Tools) It follows the example and makes more sense -->
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/> <!-- Personal Judgement: Book says "Column G" (Negative).  I used "Column J" (Tools) It follows the example and makes more sense -->
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>	
+		<RULE weight="1">
+			<GETLIST idref="fantasy_craft-folkish-female" title="Folk Given"/>
+			<SPACE/>
+			<GETLIST idref="fantasy_craft-negative" title="Negative"/> <!-- added original above as an alternative option and divided the option's weight -->
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
+		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-elf" title="Fantasy Craft: Elf" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-elvish-prefix"/>
-			<GETLIST idref="fantasy_craft-elvish-suffix"/>
+			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
+			<GETLIST idref="fantasy_craft-elvish-suffix" title="Elf Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-critters"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-elvish-prefix"/>
-			<GETLIST idref="fantasy_craft-elvish-suffix"/>
+			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
+			<GETLIST idref="fantasy_craft-elvish-suffix" title="Elf Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-elvish-prefix"/>
-			<GETLIST idref="fantasy_craft-elvish-suffix"/>
+			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
+			<GETLIST idref="fantasy_craft-elvish-suffix" title="Elf Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-nature"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="2">
-			<GETLIST idref="fantasy_craft-elvish-prefix"/>
-			<GETLIST idref="fantasy_craft-elvish-suffix"/>
+			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
+			<GETLIST idref="fantasy_craft-elvish-suffix" title="Elf Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>			
+			<GETLIST idref="fantasy_craft-the" title="the"/>			
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-positive"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-tools"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-giant-male" title="Fantasy Craft: Giant" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-folkish-male"/>
+			<GETLIST idref="fantasy_craft-folkish-male" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-dwarven-male"/>
+			<GETLIST idref="fantasy_craft-dwarven-male" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-dwarven-male"/>
+			<GETLIST idref="fantasy_craft-dwarven-male" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-elements"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>
+			<GETLIST idref="fantasy_craft-the" title="the"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-titles"/>						
+			<GETLIST idref="fantasy_craft-titles" title="Title"/>						
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-giant-female" title="Fantasy Craft: Giant" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-folkish-female"/>
+			<GETLIST idref="fantasy_craft-folkish-female" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-dwarven-female"/>
+			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-dwarven-female"/>
+			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-elements"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>
+			<GETLIST idref="fantasy_craft-the" title="the"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-titles"/>						
+			<GETLIST idref="fantasy_craft-titles" title="Title"/>						
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-goblin" title="Fantasy Craft: Goblin" usage="final">
@@ -207,110 +222,110 @@
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="8">
-			<GETLIST idref="fantasy_craft-orcish-prefix"/>
-			<GETLIST idref="fantasy_craft-orcish-suffix"/>
+			<GETLIST idref="fantasy_craft-orcish-prefix" title="Orc Prefix"/>
+			<GETLIST idref="fantasy_craft-orcish-suffix" title="Orc Suffix"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-orcish-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-orcish-prefix" title="Orc Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-orcish-prefix"/>
-			<GETLIST idref="fantasy_craft-orcish-suffix"/>
+			<GETLIST idref="fantasy_craft-orcish-prefix" title="Orc Prefix"/>
+			<GETLIST idref="fantasy_craft-orcish-suffix" title="Orc Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>
+			<GETLIST idref="fantasy_craft-the" title="the"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-critters"/>
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-orcish-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-orcish-prefix" title="Orc Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>
+			<GETLIST idref="fantasy_craft-the" title="the"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-negative"/>
+			<GETLIST idref="fantasy_craft-negative" title="Negative"/>
 		</RULE>
 	</RULESET>
-	<RULESET id="fantasy_craft-human-male-first" title="First">    <!-- Internal only ruleset to pick dwarf or folk firstname for human  -->
+	<RULESET id="fantasy_craft-human-male-first" title="First" usage="public">    <!-- Internal only ruleset to pick dwarf or folk firstname for human  -->
 		<RULE weight="1">
-			<GETLIST idref="fantasy_craft-folkish-male"/>
+			<GETLIST idref="fantasy_craft-folkish-male" title="Folk Given"/>
 		</RULE>
 		<RULE weight="1">
-			<GETLIST idref="fantasy_craft-dwarven-male"/>
+			<GETLIST idref="fantasy_craft-dwarven-male" title="Dwarf Given"/>
 		</RULE>
 	</RULESET>
-	<RULESET id="fantasy_craft-human-female-first" title="First">  <!-- Internal only ruleset to pick dwarf or folk firstname for human  -->
+	<RULESET id="fantasy_craft-human-female-first" title="First" usage="public">  <!-- Internal only ruleset to pick dwarf or folk firstname for human  -->
 		<RULE weight="1">
-			<GETLIST idref="fantasy_craft-folkish-female"/>
+			<GETLIST idref="fantasy_craft-folkish-female" title="Folk Given"/>
 		</RULE>
 		<RULE weight="1">
-			<GETLIST idref="fantasy_craft-dwarven-female"/>
+			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-human-male" title="Fantasy Craft: Human" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-human-male-first"/>
+			<GETLIST idref="fantasy_craft-human-male-first" title="Human Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-positive"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-critters"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-human-male-first"/>
+			<GETLIST idref="fantasy_craft-human-male-first" title="Human Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-critters"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-human-male-first"/>
+			<GETLIST idref="fantasy_craft-human-male-first" title="Human Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elvish-prefix"/>
-			<GETLIST idref="fantasy_craft-elvish-suffix"/>
+			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
+			<GETLIST idref="fantasy_craft-elvish-suffix" title="Elf Suffix"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-titles"/>
+			<GETLIST idref="fantasy_craft-titles" title="Title"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-folkish-male"/>
+			<GETLIST idref="fantasy_craft-folkish-male" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>			
+			<GETLIST idref="fantasy_craft-the" title="the"/>			
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-tools"/>
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-human-female" title="Fantasy Craft: Human" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-human-female-first"/>
+			<GETLIST idref="fantasy_craft-human-female-first" title="Human Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-positive"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-critters"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-human-female-first"/>
+			<GETLIST idref="fantasy_craft-human-female-first" title="Human Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-critters"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-human-female-first"/>
+			<GETLIST idref="fantasy_craft-human-female-first" title="Human Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elvish-prefix"/>
-			<GETLIST idref="fantasy_craft-elvish-suffix"/>
+			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
+			<GETLIST idref="fantasy_craft-elvish-suffix" title="Elf Suffix"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-titles"/>
+			<GETLIST idref="fantasy_craft-titles" title="Title"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-folkish-female"/>
+			<GETLIST idref="fantasy_craft-folkish-female" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>			
+			<GETLIST idref="fantasy_craft-the" title="the"/>			
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-tools"/>
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-ogre" title="Fantasy Craft: Ogre" usage="final">
@@ -318,27 +333,27 @@
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="7">
-			<GETLIST idref="fantasy_craft-anatomy"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="7">
-			<GETLIST idref="fantasy_craft-negative"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-negative" title="Negative"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="3">
-			<GETLIST idref="fantasy_craft-titles"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-titles" title="Title"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="3">
-			<GETLIST idref="fantasy_craft-elvish-prefix"/>
-			<GETLIST idref="fantasy_craft-orcish-suffix"/>
+			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
+			<GETLIST idref="fantasy_craft-orcish-suffix" title="Orc Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-titles"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-titles" title="Title"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-orc" title="Fantasy Craft: Orc" usage="final">
@@ -346,102 +361,102 @@
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="8">
-			<GETLIST idref="fantasy_craft-orcish-prefix"/>
-			<GETLIST idref="fantasy_craft-orcish-suffix"/>
+			<GETLIST idref="fantasy_craft-orcish-prefix" title="Orc Prefix"/>
+			<GETLIST idref="fantasy_craft-orcish-suffix" title="Orc Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-negative"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-tools"/>
+			<GETLIST idref="fantasy_craft-negative" title="Negative"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-orcish-prefix"/>
-			<GETLIST idref="fantasy_craft-orcish-suffix"/>
+			<GETLIST idref="fantasy_craft-orcish-prefix" title="Orc Prefix"/>
+			<GETLIST idref="fantasy_craft-orcish-suffix" title="Orc Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-critters"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-orcish-prefix"/>
-			<GETLIST idref="fantasy_craft-orcish-suffix"/>
+			<GETLIST idref="fantasy_craft-orcish-prefix" title="Orc Prefix"/>
+			<GETLIST idref="fantasy_craft-orcish-suffix" title="Orc Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-positive"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-orcish-prefix"/>
-			<GETLIST idref="fantasy_craft-orcish-suffix"/>
+			<GETLIST idref="fantasy_craft-orcish-prefix" title="Orc Prefix"/>
+			<GETLIST idref="fantasy_craft-orcish-suffix" title="Orc Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-the"/>
+			<GETLIST idref="fantasy_craft-the" title="the"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-titles"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-tools"/>
+			<GETLIST idref="fantasy_craft-titles" title="Title"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-pech-male" title="Fantasy Craft: Pech" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-folkish-male"/>
+			<GETLIST idref="fantasy_craft-folkish-male" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-positive"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-dwarven-male"/>
+			<GETLIST idref="fantasy_craft-dwarven-male" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-critters"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-dwarven-male"/>
+			<GETLIST idref="fantasy_craft-dwarven-male" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-folkish-male"/>
+			<GETLIST idref="fantasy_craft-folkish-male" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-pech-female" title="Fantasy Craft: Pech" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-folkish-female"/>
+			<GETLIST idref="fantasy_craft-folkish-female" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-positive"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-dwarven-female"/>
+			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-critters"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-dwarven-female"/>
+			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-folkish-female"/>
+			<GETLIST idref="fantasy_craft-folkish-female" title="Folk Given"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-rootwalker" title="Fantasy Craft: Rootwalker" usage="final">
@@ -449,24 +464,24 @@
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-nature"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-negative"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-negative" title="Negative"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-positive"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>			
-			<GETLIST idref="fantasy_craft-nature"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />			
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-saurian" title="Fantasy Craft: Saurian" usage="final">
@@ -475,40 +490,40 @@
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="8">
-			<GETLIST idref="fantasy_craft-reptillian-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-reptillian-prefix" title="Rept Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-reptillian-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-reptillian-prefix" title="Rept Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-gems"/>
-			<GETLIST idref="fantasy_craft-dash"/>
-			<GETLIST idref="fantasy_craft-anatomy"/>
+			<GETLIST idref="fantasy_craft-gems" title="Gems"/>
+			<HYPHEN />
+			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-reptillian-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-reptillian-prefix" title="Rept Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-nature"/>
-			<GETLIST idref="fantasy_craft-dash"/>
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
+			<HYPHEN />
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-reptillian-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-reptillian-prefix" title="Rept Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-elements"/>
-			<GETLIST idref="fantasy_craft-dash"/>
-			<GETLIST idref="fantasy_craft-critters"/>
+			<GETLIST idref="fantasy_craft-elements" title="Elements"/>
+			<HYPHEN />
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 	</RULESET>
-	<RULESET id="fantasy_craft-folkish-either" title="First">  <!-- Internal only ruleset to pick folk firstname regardless of sex  -->
+	<RULESET id="fantasy_craft-folkish-either" title="First" usage="public">  <!-- Internal only ruleset to pick folk firstname regardless of sex  -->
 		<RULE weight="1">
-			<GETLIST idref="fantasy_craft-folkish-male"/>
+			<GETLIST idref="fantasy_craft-folkish-male" title="Folk Given"/>
 		</RULE>
 		<RULE weight="1">
-			<GETLIST idref="fantasy_craft-folkish-female"/>
+			<GETLIST idref="fantasy_craft-folkish-female" title="Folk Given"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy_craft-unborn" title="Fantasy Craft: Unborn" usage="final">
@@ -517,38 +532,35 @@
 		<CATEGORY title="Sex: Female"/>
 		<CATEGORY title="Sex: Other"/>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-elvish-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-positive"/>
-			<GETLIST idref="fantasy_craft-dash"/>
-			<GETLIST idref="fantasy_craft-tools"/>
+			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
+			<HYPHEN />
+			<GETLIST idref="fantasy_craft-tools" title="Tools"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-reptillian-prefix"/>
-			<GETLIST idref="fantasy_craft-reptillian-suffix"/>
+			<GETLIST idref="fantasy_craft-reptillian-prefix" title="Rept Prefix"/>
+			<GETLIST idref="fantasy_craft-reptillian-suffix" title="Rept Suffix"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-nature"/>
-			<GETLIST idref="fantasy_craft-dash"/>
-			<GETLIST idref="fantasy_craft-actions"/>
+			<GETLIST idref="fantasy_craft-nature" title="Nature"/>
+			<HYPHEN />
+			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-folkish-either"/>
-			<GETLIST idref="fantasy_craft-possessive"/>
+			<GETLIST idref="fantasy_craft-folkish-either" title="Folk Given"/>
+			<GETLIST idref="fantasy_craft-possessive" title="'s"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-negative"/>
+			<GETLIST idref="fantasy_craft-negative" title="Negative"/>
 			<SPACE/>
-			<GETLIST idref="fantasy_craft-critters"/>
+			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 	</RULESET>
-	<LIST id="fantasy_craft-the">
+	<LIST id="fantasy_craft-the" title="the">
 		<VALUE>the</VALUE>
 	</LIST>
-	<LIST id="fantasy_craft-dash">
-		<VALUE>-</VALUE>
-	</LIST>
-	<LIST id="fantasy_craft-possessive">
+	<LIST id="fantasy_craft-possessive" title="'s">
 		<VALUE>'s</VALUE>
 	</LIST>
 	<LIST id="fantasy_craft-actions" title="Action">
@@ -560,6 +572,7 @@
 		<VALUE>Crusher</VALUE>
 		<VALUE>Eater</VALUE>
 		<VALUE>Holder</VALUE>
+		<VALUE>Keeper</VALUE>
 		<VALUE>Ruler</VALUE>
 		<VALUE>Scraper</VALUE>
 		<VALUE>Seeker</VALUE>
@@ -577,6 +590,7 @@
 		<VALUE>Arm</VALUE>
 		<VALUE>Back</VALUE>
 		<VALUE>Beard</VALUE>
+		<VALUE>Belly</VALUE> <!-- Added for additional Variety-->
 		<VALUE>Breath</VALUE>
 		<VALUE>Claw</VALUE>
 		<VALUE>Crest</VALUE>
@@ -585,6 +599,7 @@
 		<VALUE>Fist</VALUE>
 		<VALUE>Flesh</VALUE>
 		<VALUE>Foot</VALUE>
+		<VALUE>Leg</VALUE> <!-- Added for additional Variety-->
 		<VALUE>Hand</VALUE>
 		<VALUE>Head</VALUE>
 		<VALUE>Heart</VALUE>
@@ -602,6 +617,8 @@
 		<VALUE>Devil</VALUE>
 		<VALUE>Dragon</VALUE>
 		<VALUE>Eagle</VALUE>
+		<VALUE>Fox</VALUE> <!-- Added for additional Variety-->
+		<VALUE>Griffin</VALUE> <!-- Added for additional Variety-->
 		<VALUE>Hawk</VALUE>
 		<VALUE>Horse</VALUE>
 		<VALUE>Hound</VALUE>
@@ -627,6 +644,7 @@
 <VALUE>Frost</VALUE>
 <VALUE>Hill</VALUE>
 <VALUE>Lightning</VALUE>
+<VALUE>Mist</VALUE> <!-- Added for additional Variety-->
 <VALUE>Moon</VALUE>
 <VALUE>Mountain</VALUE>
 <VALUE>Rain</VALUE>
@@ -638,6 +656,7 @@
 <VALUE>Sun</VALUE>
 <VALUE>Thunder</VALUE>
 <VALUE>Wind</VALUE>
+<VALUE>Wood</VALUE> <!-- Added for additional Variety-->
 	</LIST>
 	<LIST id="fantasy_craft-gems" title="Gem">
 <VALUE>Adamant</VALUE>
@@ -771,7 +790,7 @@
 <VALUE>Sword</VALUE>
 <VALUE>Wheel</VALUE>
 	</LIST>
-	<LIST id="fantasy_craft-elvish-prefix" title="Elf Prefix">
+	<LIST id="fantasy_craft-elvish-prefix" title="Elf Syl1">
 <VALUE>Aen</VALUE>
 <VALUE>Ala</VALUE>
 <VALUE>And</VALUE>
@@ -793,8 +812,7 @@
 <VALUE>Tele</VALUE>
 <VALUE>Zau</VALUE>
 	</LIST>
-	<LIST id="fantasy_craft-elvish-suffix" title="Elf Suffix">
-Elvish Suff
+<LIST id="fantasy_craft-elvish-suffix" title="Elf Syl2">
 <VALUE>ael</VALUE>
 <VALUE>ari</VALUE>
 <VALUE>eth</VALUE>
