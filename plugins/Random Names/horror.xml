@@ -43,7 +43,7 @@
 			<GETLIST idref="lovecraft-relation" title="Relation" />
 		</RULE>
 	</RULESET>
-	<RULESET id="lovecraft-ephithet-rule" title="Ephithet" usage="final" >
+	<RULESET id="lovecraft-ephithet-rule" title="Ephithet" usage="private" >
 		<RULE weight="1" >
 			<GETLIST idref="the" title="the" />
 			<SPACE />
@@ -101,7 +101,7 @@
 			<GETLIST idref="lovecraft-name-rule" title="Subject" />
 		</RULE>
 	</RULESET>
-	<RULESET id="lovecraft-name-rule" title="Unspeakable Name" usage="final">
+	<RULESET id="lovecraft-name-rule" title="Unspeakable Name" usage="private">
 		<RULE weight="2">
 			<GETLIST idref="lovecraft-syl1" title="Syl1" />
 		</RULE>
@@ -200,7 +200,6 @@
 	</LIST>
 	<LIST id="articles" title="Articles">
 <VALUE>of the</VALUE>
-<!-- Sometimes too awkward <VALUE>to the </VALUE> -->
 <VALUE>from the</VALUE>
 <VALUE>in the</VALUE>	
 	</LIST>
