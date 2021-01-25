@@ -42,10 +42,10 @@
             <GETLIST idref="norse-patrynomic-female-suffix" title="Suffix" />
         </RULE>
         <RULE weight="6">
-            <GETLIST idref="viking-male-given" title="Given" />
+            <GETLIST idref="viking-female-given" title="Given" />
             <SPACE />
             <GETLIST idref="viking-male-given" title="Patronym" />
-            <GETLIST idref="norse-patrynomic-male-suffix" title="Suffix" />
+            <GETLIST idref="norse-patrynomic-female-suffix" title="Suffix" />
         </RULE>
         <RULE weight="2">
             <GETLIST idref="viking-female-given" title="Given" />
@@ -126,7 +126,86 @@ Liv : of life
 
 -->
 
+<!-- Modern Male Icelandic names -->
+<!-- 
+    Aage Aaron Abel Abraham Aðalberg Aðalbergur Aðalbert Aðalbjörn Aðalborgar Aðalgeir Aðalmundur Aðalráður Aðalsteinn Aðalvíkingur Adam Addi Adel Adíel Adolf Adólf Aðólf Adrian Adrían Adríel Agnar Agni Ágúst Áki Alan Albert Aldan Aldar Aldur Alex Alexander Alexíus Álfar Álfgeir Álfgrímur Alfons Alfred Alfreð Álfur Álfþór Ali Allan Alli Almar Alrekur Alvar Alvin Amil Amír Amon Amos Ámundi Anders Andrean Andreas André Andres Andrés Andri Anes Anfinn Angantýr Angi Annar Annarr Annas Annel Annes Annmar Anor Anthony Anton Antonio Antoníus Antóníus Aran Árbjartur Árbjörn Árelíus Arent Ares Árgeir Árgils Ari Ári Arían Arilíus Arinbjörn Aríel Aríus Armandó Ármann Arnald Arnaldur Arnar Arnberg Arnbergur Arnbjörn Arndór Arnes Arnfinnur Arnfreyr Arngarður Arngeir Arngils Arngrímur Árni Arnkell Arnlaugur Arnleifur Arnljótur Arnmóður Arnmundur Arnoddur Arnold Arnór Arnsteinn Arnúlfur Arnviður Arnþór Aron Ársæll Art Arthur Arthúr Artúr Ás Asael Ásar Ásberg Ásbergur Ásbjörn Ásdór Ásgautur Ásgeir Ásgils Ásgrímur Ási Áskell Askur Áslaugur Áslákur Ásmar Ásmundur Ásólfur Aspar Ásröður Ástbjörn Ástgeir Ástmar Ástmundur Ástráður Ástríkur Ástvald Ástvaldur Ástvar Ástvin Ástþór Ásvaldur Ásvarður Ásþór Atlas Atli Auðberg Auðbergur Auðbert Auðbjörn Auðgeir Auðkell Auðmundur Auðólfur Auðun Auðunn Auður Austar Austmann Austmar Austri Axel
+B
 
+Baddi Baldur Baldvin Baldwin Baltasar Bambi Bambus Barði Barri Bassi Bastían Baugur Baui Bárður Beinir Beinteinn Beitir Bekan Benedikt Benidikt Benjamín Benoný Benóní Benóný Bent Bentley Benvý Berent Berg Bergfinnur Berghreinn Bergjón Bergmann Bergmar Bergmundur Bergsteinn Bergsveinn Bergúlfur Bergur Bergvin Bergþór Bernhard Bernharð Bernharður Berni Bernódus Bersi Bertel Berti Bertram Bessi Betúel Bill Birgir Birkir Birmir Birnir Birtingur Birtir Bjargar Bjargmundur Bjargþór Bjarkan Bjarkar Bjarki Bjarmar Bjarmi Bjarnar Bjarnfinnur Bjarnfreður Bjarnharður Bjarnhéðinn Bjarni Bjarnlaugur Bjarnleifur Bjarnólfur Bjarnsteinn Bjarnþór Bjartmann Bjartmar Bjartur Bjartþór Bjólan Bjólfur Björgmundur Björgólfur Björgúlfur Björgvin Björn Björnólfur Blíður Blængur Blær Blævar Boði Bogi Bolli Borgar Borgúlfur Borgþór Bóas Bói Bótólfur Bragi Brandr Brandur Breki Bresi Brestir Brimar Brimi Brími Brimir Brímir Brimþór Brjánn Broddi Bruno Bryngeir Brynjar Brynjólfur Brynjúlfur Brynleifur Brynmar Brynsteinn Bryntýr Brynþór Burkni Búi Búri Bylur Bæring Bæringur Bæron Böðvar Börkur
+C
+
+Carl Cecil Cesar Charles Christian Christopher Cýrus Cæsar
+Advertisement:
+D
+
+Daði Dagbjartur Dagfari Dagfinnur Daggeir Dagmann Dagnýr Dagur Dagþór Dalbert Dalli Dalmann Dalmar Dalvin Damíen Damjan Damon Dan Danelíus Daniel Daníel Danival Daníval Dante Daríus Darri Davíð Demus Dengsi Deníel Dennis Dexter Diðrik Diego Diljar Díómedes Dittó Dofri Dolli Dómald Dómaldi Dómaldur Dominik Dónald Dónaldur Dór Dóri Dorri Dósóþeus Draupnir Dreki Drengur Dufgus Dufþakur Dugfús Dúi Dúnn Dvalinn Dynþór Dýri Dýrmundur
+E
+
+Ebbi Ebeneser Ebenezer Eberg Eddi Edgar Edilon Edílon Edvard Edvin Edward Eðvald Eðvar Eðvarð Efraím Eggert Eggþór Egill Eiðar Eiður Eikar Eilífur Einar Einir Einvarður Einþór Eir Eiríkur Eivin Elberg Elbert Eldar Eldgrímur Eldjárn Eldmar Eldon Eldór Eldur Elentínus Elfar Elfráður Elí Elía Elían Elías Elíeser Elimar Elímar Elínbergur Elínmundur Elinór Elínór Elíott Elis Elís Ellert Elli Elliði Ellís Elmar Elvar Elvin Elvis Emanuel Emanúel Embrek Emerald Emil Emir Emmanúel Engilbert Engilbjartur Engiljón Engill Enok Eragon Erasmus Eric Erik Erlar Erlendur Erling Erlingur Ermenrekur Ernest Ernestó Ernir Ernst Eron Eros Erpur Esekíel Esjar Esra Estefan Evald Evan Evert Evían Eyberg Eydór Eyjar Eyjólfur Eykam Eylaugur Eyleifur Eymar Eymundur Eyríkur Eysteinn Eyvar Eyvindur Eyþór
+F
+
+Fabrisíus Fáfnir Falgeir Fálki Falur Fannar Fannberg Fanngeir Fannþór Felix Fengur Fenrir Ferdinand Ferdínand Fertram Feykir Fífill Filip Filippus Finn Finnbjörn Finnbogi Finngeir Finni Finnjón Finnlaugur Finnur Finnvarður Fjalar Fjarki Fjólar Fjólmundur Fjölnir Fjölvar Fjörnir Flemming Flóki Flórent Flosi Flóvent Fólki Forni Fossmar Francis Frank Franklin Franklín Fránn Frans Franz Frár Frederik Freybjörn Freygarður Freymann Freymar Freymóður Freymundur Freyr Freysteinn Freyviður Freyþór Friðberg Friðbergur Friðbert Friðbjörn Friðfinnur Friðgeir Friðjón Friðlaugur Friðleifur Friðmann Friðmar Friðmundur Friðrik Friðríkur Friðsteinn Fríðsteinn Friður Friðvin Friðþjófur Friðþór Friedrich Frímann Fritz Fróði Fróðmar Frosti Frostúlfur Funi Fúsi Fylkir
+G
+
+Gabriel Gabríel Gaddi Gael Gáki Galdur Galti Gamalíel Garðar Garibaldi Garpur Garri Gaston Gaui Gaukur Gauti Gautrekur Gautur Gautviður Geimar Geir Geirarður Geirfinnur Geirharður Geirhjörtur Geirhvatur Geiri Geirlaugur Geirleifur Geirmundur Geirólfur Geirröður Geirtryggur Geirvaldur Geirþjófur Geisli Gellir Georg George Gerald Gerðar Geri Gestar Gestur Gígur Gilbert Gill Gilmar Gils Gissur Gizur Gídeon Gígjar Gísli Gjúki Glói Glúmur Gneisti Gnúpur Gnýr Goði Góði Goðmundur Gói Gottskálk Gottsveinn Grani Grankell Gregor Greipur Greppur Gretar Grettir Grétar Grímar Grímkell Grímlaugur Grímnir Grímólfur Grímur Grímúlfur Guðberg Guðbergur Guðbjarni Guðbjartur Guðbjörn Guðbrandur Guðfinnur Guðfreður Guðgeir Guðjón Guðlaugur Guðleifur Guðleikur Guðmann Guðmar Guðmon Guðmundur Guðni Guðráður Guðröður Guðsteinn Guðvarður Guðveigur Guðvin Guðþór Gulli Gumi Gunnar Gunnberg Gunnbjörn Gunndór Gunngeir Gunnhallur Gunnlaugur Gunnleifur Gunnólfur Gunnóli Gunnröður Gunnsteinn Gunnvaldur Gunnþór Gustav Gutti Guttormur Gústaf Gústav Gýgjar Gylfi Gýmir Gyrðir
+H
+
+Haddi Haddur Hafberg Hafgrímur Hafliði Hafnar Hafni Hafsteinn Haftýr Hafþór Hagalín Hagbarður Hagbert Haki Hallberg Hallbjörn Halldór Hallfreður Hallgarður Hallgeir Hallgils Hallgrímur Halli Hallkell Hallmann Hallmar Hallmundur Hallsteinn Hallur Hallvarður Hallþór Hamar Hannes Hannibal Hans Harald Haraldur Harri Harry Harrý Hartmann Hartvig Hauksteinn Haukur Haukvaldur Hákon Háleygur Hálfdan Hálfdán Hámundur Hárekur Hárlaugur Háski Hásteinn Hávar Hávarður Hávarr Hector Heiðar Heiðarr Heiðberg Heiðbert Heiðbjartur Heiðlindur Heiðmann Heiðmar Heiðmundur Heiðrekur Heikir Heilmóður Heimir Heinrekur Heisi Hektor Helgi Helmút Hemmert Hendrik Henning Henrik Henry Henrý Herbert Herbjörn Herfinnur Hergeir Hergill Hergils Herjólfur Herlaugur Herleifur Herluf Hermann Hermóður Hermundur Hersir Hersteinn Hersveinn Hervar Hervarður Hervin Héðinn Hilaríus Hilbert Hildar Hildibergur Hildibrandur Hildigeir Hildiglúmur Hildimar Hildimundur Hildingur Hildir Hildiþór Hilmar Hilmir Himri Hinrik Híram Hjallkár Hjalmar Hjálmar Hjálmgeir Hjálmtýr Hjálmur Hjálmþór Hjaltalín Hjalti Hjarnar Hjörleifur Hjörtur Hjörtþór Hjörvar Hleiðar Hlégestur Hlér Hlini Hlíðar Hlíðberg Hlífar Hljómur Hlynur Hlöðmundur Hlöður Hlöðvarður Hlöðver Hnefill Hnikar Hnikarr Holgeir Holger Holti Hólm Hólmar Hólmbert Hólmfastur Hólmgeir Hólmgrímur Hólmkell Hólmsteinn Hólmþór Hóseas Hrafn Hrafnar Hrafnbergur Hrafnkell Hrafntýr Hrafnþór Hrannar Hrappur Hraunar Hreggviður Hreiðar Hreiðmar Hreimur Hreinn Hringur Hrímnir Hrollaugur Hrolleifur Hróaldur Hróar Hróbjartur Hróðgeir Hróðmar Hróðólfur Hróðvar Hrói Hrólfur Hrómundur Hrútur Hrærekur Húbert Hugberg Hugi Huginn Hugleikur Hugo Hugó Húgó Huldar Húmi Húnbogi Húni Húnn Húnröður Huxley Hvannar Hyltir Hylur Hymir Hængur Hænir Höður Högni Hörður Höskuldur
+I / Í
+
+Ían Ígor Íkarus Ilías Ilíes Illíes Illugi Ími Immanúel Indriði Ingberg Ingi Ingiberg Ingibergur Ingibert Ingibjartur Ingibjörn Ingileifur Ingimagn Ingimar Ingimundur Ingivaldur Ingiþór Ingjaldur Ingmar Ingólfur Ingvaldur Ingvar Ingvi Ingþór Ísak Ísar Ísarr Ísbjörn Íseldur Ísgeir Ísidór Ísleifur Ismael Ísmael Ísmar Ísólfur Ísrael Issi Ívan Ivar Ívar
+J
+
+Jack Jafet Jagger Jaki Jakob Jakop James Jamil Jan Janus Jarfi Jarl Járngrímur Jarpi Jason Jasper Játgeir Játmundur Játvarður Jenni Jens Jeremías Jes Jesper Jóakim Jóann Jochum Jóel Johan Jóhann Jóhannes John Jói Jómar Jómundur Jón Jónar Jónas Jónatan Jónbjarni Jónbjörn Jóndór Jóngeir Jónmundur Jonni Jónsi Jónsteinn Jónþór Jósafat Jósavin José Jósef Joshua Jósep Jósteinn Jósúa Jóvin Júlí Julian Júlían Júlíus Júní Júníus Júrek Jökull Jörfi Jörgen Jörmundur Jörri Jörundur Jörvar Jörvi Jötunn
+K
+
+Kai Kaín Kaj Kakali Kaktus Kaldi Kaleb Kali Kalman Kalmann Kalmar Kamal Kamilus Kaprasíus Karel Karim Karkur Karl Karles Karli Karma Karvel Kaspar Kasper Kastíel Katarínus Kató Kár Kári Keli Keran Ketilbjörn Ketill Kiddi Kilían Kiljan Kinan Kíran Kjalar Kjallakur Kjaran Kjartan Kjarval Kjárr Kjói Klemens Klemenz Klettur Klængur Knútur Knörr Koðrán Koggi Kolbeinn Kolbjörn Kolfinnur Kolgrímur Kolmar Kolskeggur Kolur Kolviður Konráð Konstantínus Kópur Kórekur Kormákur Kornelíus Korri Kort Kraki Krákur Kris Kristall Kristberg Kristbergur Kristbjörn Kristdór Kristens Krister Kristfinnur Kristgeir Kristian Kristinn Kristján Kristjón Kristlaugur Kristleifur Kristmann Kristmar Kristmundur Kristó Kristofer Kristófer Kristvaldur Kristvarður Kristvin Kristþór Krummi Kubbur Kusi Kvasir Kveldúlfur
+L
+
+Lambert Lambi Lár Lárent Lárentíus Lárenz Lars Lárus Laufar Laugi Lauritz Leiðólfur Leif Leifur Leiknir Lennon Leo Leó Leon Leonard Leonardó Leonel Leonhard Leópold Lér Leví Levý Liam Líam Liljar Línberg Lindar Lindberg Lindi Líni Líó Líus Ljóni Ljósálfur Ljótur Ljúfur Loðmundur Loftur Logi Lói Loki Lóni Lórens Lórenz Lótus Ludvig Lúðvíg Lúðvík Lúis Lúkas Lundi Lúter Lúther Lýður Lyngar Lyngþór Lýtingur
+M
+
+Maggi Magngeir Magni Magnús Magnþór Makan Manfred Manfreð Máni Manuel Manúel Mar Már Marbjörn Marel Margeir Margrímur Mari Mári Marijón Marinó Marías Marínó Maríon Marís Maríus Marjón Mark Markó Markús Markþór Marley Marlon Maron Marri Mars Marsellíus Marteinn Marten Marthen Martin Márus Marvin Marzellíus Marzilíus Mateó Mathías Matthías Matti Mattías Max Maximus Mekkinó Melkíor Melkólmur Melrakki Mensalder Merkúr Methúsalem Metúsalem Meyvant Mías Michael Mikael Mikjáll Mikkael Mikkel Mikki Mildinberg Milli Mímir Míó Mír Miró Mjöllnir Mjölnir Móði Mói Moli Mordekaí Morgan Móri Mórits Moritz Mortan Morten Móses Mosi Muggi Muggur Múli Mummi Muni Muninn Mýrkjartan Myrkvar Myrkvi Mörður
+N
+
+Narfi Natan Natanael Nataníel Nathan Nathanael Nathaníel Nátthrafn Náttmörður Náttúlfur Neisti Nenni Neó Neptúnus Neró Nicolas Níels Nikanor Nikolai Nikolaj Nikolas Nikulás Nils Níls Njáll Njörður Nóam Nóel Nói Nóni Nonni Norbert Norðmann Nóri Normann Nóvember Númi Nývarð Nökkvi
+O / Ó
+
+Oddbergur Oddbjörn Oddfreyr Oddgeir Oddi Oddkell Oddleifur Oddmar Oddsteinn Oddur Oddvar Oddþór Óðinn Ófeigur Oktavías Oktavíus Októ Októvíus Olaf Ólaf Ólafur Olav Olavur Olgeir Óli Oliver Óliver Ólíver Olivert Olli Ómar Ómi Ónar Orfeus Ormar Ormsvíkingur Ormur Orri Orvar Óskar Ósvald Ósvaldur Ósvífur Othar Otkell Otri Óttar Óttarr Otti Ottó Otur
+P
+
+Parmes Patrek Patrekur Patrick Patrik Páll Pálmar Pálmi Pedró Per Peter Petter Pétur Pjetur Príor
+R
+
+Rafael Rafn Rafnar Rafnkell Ragnar Ragúel Raknar Ram Ramses Randver Rannver Rasmus Ráðgeir Ráðvarður Refur Reginbaldur Reginn Regn Reidar Reifnir Reimar Reinar Reinhard Reinhart Reinhold Remek Rex Rey Reykdal Reynald Reynar Reynarð Reynir Reyr Richard Ríkarður Rikharð Ríkharð Rikharður Ríkharður Rikki Ríó River Robert Róbert Rólant Rolf Róman Rómeó Ronald Rósant Rósar Rósberg Rósenberg Rósi Rósinberg Rósinkar Rósinkrans Rósmann Rósmundur Rúbar Rúben Rudolf Rúdólf Rúnar Runi Runólfur Rúrik Rútur Röðull Rögnvald Rögnvaldur Rögnvar Rökkvi Röskvi
+S
+
+Safír Sakarías Salmann Salmar Salómon Salvador Salvar Samson Samúel Sandel Sandri Sandur Saxi Sebastian Sebastían Seifur Seimur Sesar Sesil Sigbergur Sigbert Sigbjartur Sigbjörn Sigdór Sigfastur Sigfinnur Sigfreður Sigfús Siggeir Siggi Sighvatur Sigjón Siglaugur Sigmann Sigmar Sigmundur Signar Sigri Sigríkur Sigsteinn Sigtryggur Sigtýr Sigur Sigurbaldur Sigurberg Sigurbergur Sigurbjarni Sigurbjartur Sigurbjörn Sigurbrandur Sigurdór Sigurður Sigurfinnur Sigurgeir Sigurgestur Sigurgísli Sigurgrímur Sigurhans Sigurhjörtur Sigurjón Sigurkarl Sigurlaugur Sigurlás Sigurleifur Sigurliði Sigurlinni Sigurlogi Sigurmann Sigurmar Sigurmon Sigurmundur Sigurnýas Sigurnýjas Siguroddur Siguróli Sigurpáll Sigursteinn Sigursveinn Sigurvaldi Sigurvin Sigurþór Sigurörn Sigvaldi Sigvard Sigvarður Sigþór Silli Símon Sindri Sírnir Sírus Sívar Sjafnar Skafti Skapti Skarphéðinn Skefill Skeggi Skellir Skíði Skírnir Skjöldur Skorri Skrýmir Skröggur Skuggi Skúli Skúta Skær Skæringur Smári Smiður Smyrill Snjóki Snjólaugur Snjólfur Snorri Snæbjartur Snæbjörn Snæhólm Snælaugur Snær Snæringur Snævar Snævarr Snæþór Soffanías Sófús Sophanías Sophus Sófónías Sófus Sókrates Sólberg Sólbergur Sólbjartur Sólbjörn Sólimann Sólmar Sólmundur Sólon Sólhrafn Sólúlfur Sólver Sólvin Sotti Spartakus Spói Sporði Stanley Stapi Starkaður Starri Steðji Stefan Stefán Stefnir Steinar Steinarr Steinberg Steinbergur Steinbjörn Steinbogi Steindór Steinfinnur Steingrímur Steini Steinkell Steinmann Steinmar Steinmóður Steinn Steinólfur Steinröður Steinvarður Steinþór Stirnir Stígur Stormur Stórólfur Sturla Sturlaugur Sturri Styr Styrbjörn Styrkár Styrmir Styrr Súddi Sumarliði Svafar Svali Svan Svanberg Svanbergur Svanbjörn Svangeir Svanhólm Svani Svanlaugur Svanmundur Svanur Svanþór Svavar Sváfnir Sveinar Sveinberg Sveinbjartur Sveinbjörn Sveinjón Sveinlaugur Sveinmar Sveinn Sveinungi Sveinþór Svend Sverre Sverrir Svölnir Svörfuður Sýrus Sæberg Sæbergur Sæbjartur Sæbjörn Sæi Sælaugur Sæmann Sæmar Sæmi Sæmundur Sær Sævald Sævaldur Sævar Sævarr Sævin Sæþór Sölmundur Sölvar Sölvi Sören Sörli
+T
+
+Tandri Tarfur Taríel Tarón Teitur Teó Theó Theodor Theodór Theódór Thomas Thor Thór Thorberg Thorsteinn Tíbor Tindar Tindri Tindur Tinni Tími Tímon Tímoteus Tímóteus Tístran Tjaldur Tjörfi Tjörvi Tobbi Tobías Tóbías Toddi Toggi Tói Tóki Tolli Tómas Tonni Tór Torfi Tóti Trausti Tristan Trostan Trúmann Tryggvi Tumas Tumi Týr Tyrfingur
+U / Ú
+
+Ubbi Úddi Uggi Ugluspegill Úlfar Úlfgeir Úlfhéðinn Úlfkell Úlfljótur Úlftýr Úlfur Ullur Ulrich Úlrik Uni Unnar Unnbjörn Unndór Unnsteinn Unnþór Úranus Urðar Uxi
+V / W
+
+Vagn Vakur Valberg Valbergur Valbjörn Valbrandur Valdemar Valdi Valdimar Valdór Valentín Valentínus Valgarð Valgarður Valgeir Váli Valíant Vallaður Valmar Valmundur Valsteinn Valter Walter Valtýr Valur Valves Valþór Vápni Varmar Vatnar Vébjörn Végeir Veigar Veigur Vékell Vélaugur Vémundur Ver Vermundur Werner Vernharð Vernharður Vestar Vésteinn Vestmar Veturliði Victor Viðar Víðar Víðir Viðjar Vífill Vígberg Vigfús Viggó Víglundur Vígmar Vígmundur Vignir Vigri Vígsteinn Vigtýr Vigur Vígþór Vikar Víkingur Viktor Vilberg Vilbergur Vilbert Vilbjörn Vilbogi Vilbrandur Vilgeir Vilhelm Wilhelm Vilhjálmur Vili Viljar Vilji Willard Villi William Willum Willy Vilmar Vilmundur Vincent Vindar Vinjar Virgil Virgill Vopni Vorm Vöggur Völundur Vörður Vöttur
+Y / Ý
+
+Ylfingur Ylur Ymir Ýmir Ymur Yngvar Yngvi Ýrar Yrkill Yrkir
+Z
+
+Zakaría Zakarías Zophanías Zóphanías Zophonías Zóphonías
+Þ
+
+Þangbrandur Þengill Þeyr Þiðrandi Þiðrik Þinur Þjálfi Þjóðann Þjóðar Þjóðbjörn Þjóðgeir Þjóðleifur Þjóðmar Þjóðólfur Þjóðrekur Þjóðvarður Þjóstar Þjóstólfur Þór Þórar Þórarinn Þorberg Þorbergur Þórbergur Þórbjarni Þorbjörn Þórbjörn Þorbrandur Þórður Þorfinnur Þorgarður Þorgautur Þorgeir Þorgestur Þorgils Þorgísl Þorgnýr Þórgnýr Þorgrímur Þórgrímur Þórhaddur Þórhalli Þórhallur Þóri Þórinn Þórir Þorkell Þorlákur Þorlaugur Þórlaugur Þorleifur Þórleifur Þorleikur Þórlindur Þormar Þórmar Þormóður Þormundur Þórmundur Þóroddur Þórormur Þórólfur Þorri Þorsteinn Þórsteinn Þorvaldur Þorvar Þorvarður Þórörn Þráinn Þrándur Þrastar Þróttur Þrúðmar Þrymir Þrymur Þröstur Þyrill Þyrnir
+Æ
+
+Ægir Æsir Ævar Ævarr
+Ö
+
+Ögmundur Ögri Ölnir Ölver Ölvir Öndólfur Önundur Örlaugur Örlygur Örn Örnólfur Örvar Össur Öxar 
+-->
 
     <LIST id="viking-description" title="Descriptive">
         <VALUE>the Red</VALUE>
