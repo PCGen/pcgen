@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+    <RULESET id="norse-viking-male" title="Viking" usage="final">
+        <CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+        <CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+        <CATEGORY title="Sex: Male" />
+        <RULE weight="3">
+            <GETLIST idref="viking-male-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-description" title="Descriptive" />
+        </RULE>
+        <RULE weight="6">
+            <GETLIST idref="viking-male-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-male-suffix" title="Suffix" />
+        </RULE>
+        <RULE weight="2">
+            <GETLIST idref="viking-male-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-male-suffix" title="Suffix" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Ancestral Patronym" />
+            <GETLIST idref="norse-patrynomic-ancestral-suffix" title="Suffix" />
+        </RULE>
+    </RULESET>
+    <RULESET id="norse-viking-female" title="Viking" usage="final">
+        <CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+        <CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+        <CATEGORY title="Sex: Female" />
+        <RULE weight="3">
+            <GETLIST idref="viking-female-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-description" title="Descriptive" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="viking-female-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-female-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-female-suffix" title="Suffix" />
+        </RULE>
+        <RULE weight="6">
+            <GETLIST idref="viking-male-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-male-suffix" title="Suffix" />
+        </RULE>
+        <RULE weight="2">
+            <GETLIST idref="viking-female-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-female-suffix" title="Suffix" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Ancestral Patronym" />
+            <GETLIST idref="norse-patrynomic-ancestral-suffix" title="Suffix" />
+        </RULE>
+    </RULESET>
+
+<!--
+Male names from the Viking Age
+
+Arne: eagle   
+Birger: keeper    
+Bjørn: bear    
+Bo: the resident   
+Erik: absolute ruler   
+Frode: wise and clever  
+Gorm: he who worships god 
+Halfdan: the half Danish   
+Harald: lord and ruler  
+Knud: knot    
+Kåre: with curly hair   
+Leif: descendant
+Njal: giant    
+Roar: fame and spear  
+Rune: secret   
+Sten: stone    
+Skarde: with cleft chin  
+Sune: son   
+Svend: freeman who is in the service of another 
+Troels: Thor’s arrow   
+Toke: Thor and helmet   
+Torsten: Thor and stone  
+Trygve: trustworthy   
+Ulf: wolf    
+Ødger: wealth and spear  
+Åge: man that ploughs; ancestor
+
+
+Female names from the Viking Age
+
+Astrid: beautiful, loved
+Bodil: penance and fight
+Brenna :Sword
+Dagny: A new day started Dagne, Dagnee, Dagney, Dagni, Dagnia, Dagnie, Dagnija
+Dalia: flower
+Erykah
+Frida: peace
+Gertrud: spear
+Gro: to grow
+Estrid: god and beautiful
+Hilda: the fighter
+Gudrun: god and rune
+Gunhild: fight
+Helga: sacred
+Inga: of the god Inge
+Liv: of life
+Randi: shield or shrine
+Signe: the one who is victorious
+Sigrid: victorious horsewoman
+Revna: raven
+Sif: wife and bride
+Tora: of the god Thor
+Tove: dove
+Thyra: helpful
+Thurid: Thor and beautiful
+Yrsa: wild or she bear
+Ulfhild: wolf or battle 
+Åse: goddess
+Kari: Chaste, pure
+Kelsey: from the island of ships
+Liv : of life
+
+
+-->
+
+
+
+    <LIST id="viking-description" title="Descriptive">
+        <VALUE>the Red</VALUE>
+        <VALUE>the Left-handed</VALUE>
+        <VALUE>the Black</VALUE>
+        <VALUE>the Kind</VALUE>
+        <VALUE>the Lame</VALUE>
+        <VALUE>the Right-handed</VALUE>
+        <VALUE>the Boneless</VALUE>
+        <VALUE>the Brave</VALUE>
+        <VALUE>One-Eye</VALUE>
+        <VALUE>One-fist</VALUE>
+        <VALUE>Axe-Bearer</VALUE>
+        <VALUE>the Fair</VALUE>
+        <VALUE>the Judge</VALUE>
+        <VALUE>the Wise</VALUE>
+        <VALUE>the Fool</VALUE>
+        <VALUE>the Honorable</VALUE>
+        <VALUE>the Ruthless</VALUE>
+        <VALUE>the White</VALUE>
+        <VALUE>the Brown</VALUE>
+        <VALUE>the Strong</VALUE>
+        <VALUE>the Lesser</VALUE>
+        <VALUE>the Conqueror</VALUE>
+        <VALUE>the Greater</VALUE>
+    </LIST>
+    <LIST id="norse-patrynomic-male-suffix" title="Patrynomic">
+        <VALUE>sson</VALUE>
+    </LIST>
+    <LIST id="norse-patrynomic-female-suffix" title="Patrynomic">
+        <VALUE>sdottir</VALUE>
+    </LIST>
+    <LIST id="norse-patrynomic-ancestral-suffix" title="Acestral">
+        <VALUE>ssonar</VALUE>
+    </LIST>
+
+
+
+</GENERATOR>
