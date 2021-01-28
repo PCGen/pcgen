@@ -660,6 +660,7 @@ Weapon Training				KEY:Unchained Rogue Talent ~ Weapon Training	CATEGORY:Special
 #
 Advanced Talent				KEY:Unchained Rogue Talent ~ Advanced Talent	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Unchained Rogue Talent.IncreaseRogueAdvancedTalent	VISIBLE:DISPLAY																																															PREVARGTEQ:RogueTalentLVL,10																		DESC:Select an Advanced Rogue Talent.																																																																																STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:ABILITYPOOL|Unchained Rogue Advanced Talent|1
 CATEGORY=FEAT|Greater Steal.MOD																																PRE:.CLEAR															PREMULT:1,[PREMULT:1,[PRESTAT:1,INT=13],[PREVARGTEQ:CombatFeatIntRequirement,13]],[PREABILITY:1,CATEGORY=Special Ability,Unchained Rogue Talent ~ Combat Swipe]
+CATEGORY=Special Ability|Rogue Talent ~ Terrain Mastery.MOD		TYPE:Unchained Rogue Talent
 
 ###Block: Advanced Unchained Rogue Talents
 # Ability Name										Unique Key								Category of Ability		Type													Visible		Required Ability												Var. Min. Value			Define						Description																																																																																																																																				Stackable?	Multiple?	Choose		Ability								Bonus Ability Pool					Number of Feats	Modify VAR								Source Page
