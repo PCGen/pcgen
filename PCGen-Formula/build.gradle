@@ -49,7 +49,7 @@ dependencies {
     //compile files("../../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")
 
     implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.220'
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.7.0'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.7.1'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.1'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.7.1'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.7.1'
