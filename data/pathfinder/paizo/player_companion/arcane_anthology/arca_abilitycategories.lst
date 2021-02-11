@@ -7,3 +7,5 @@ ABILITYCATEGORY:Artifice Domain Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:N
 ABILITYCATEGORY:Discovery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT			TYPE:Discovery										PLURAL:Wizard Discoveries				DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Eldritch Scoundrel Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueTalent.Ninjatrick								PLURAL:Eldritch Scoundrel Talents			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Advanced Eldritch Scoundrel Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueTalent.Ninjatrick.RogueAdvancedTalent.AdvancedNinjaTrick	PLURAL:Advanced Eldritch Scoundrel Talents	DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Arcane Bond Sword Binder Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Arcane Bond Sword Binder Selection								PLURAL:Arcane Bond Sword Binder			DISPLAYLOCATION:Class Features
