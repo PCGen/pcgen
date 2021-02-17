@@ -112,6 +112,7 @@
 	</RULESET>
 	<RULESET id="fantasy_craft-elf" title="Fantasy Craft: Elf" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
+		<CATEGORY title="Fantasy: Elven" />
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="6">

@@ -89,6 +89,61 @@
 			<GETLIST idref="arabic-historical-location-rule" title="Historical Arabic Location"/>
 		</RULE>
 	</RULESET>
+	<RULESET id="fantasy-general-elf-male" title="Elven" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Elven" />
+		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="3">
+			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="4">
+			<GETRULE idref="deverry-fantasy-elven-male-rule" title="Deverry" />
+		</RULE>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-elf-male-rule" title="General" />
+		</RULE>
+		<RULE weight="2">
+			<GETRULE idref="alver-fantasy-rule" title="Alver" />
+		</RULE>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-half-elf-male-rule" title="Half-Elf"/>
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="mar-elf-male-rule" title="Mar" />
+		</RULE>
+		<RULE weight="4">
+			<GETRULE idref="middle-earth-fantasy-elven-male-rule" title="Middle-Earth" />
+		</RULE>
+	</RULESET>
+	<RULESET id="fantasy-general-elf-female" title="Elven" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Elven" />
+		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="2">
+			<GETRULE idref="alver-fantasy-rule" title="Alver" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="4">
+			<GETRULE idref="middle-earth-fantasy-elven-female-rule" title="Middle-Earth" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="mar-elf-female-rule" title="Mar" />
+		</RULE>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-half-elf-female-rule" title="Half-Elf"/>
+		</RULE>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-elf-female-rule" title="General" />
+		</RULE>
+		<RULE weight="4">
+			<GETRULE idref="deverry-fantasy-elven-female-rule" title="Deverry" />
+		</RULE>
+	</RULESET>
+	
 	<LIST id="fantasy-s" title="'s">
 		<VALUE>'s</VALUE>
 	</LIST>
@@ -2158,4 +2213,3 @@
 		<VALUE>Azarad (City of Outcasts)</VALUE>
 	</LIST>
 </GENERATOR>
-
