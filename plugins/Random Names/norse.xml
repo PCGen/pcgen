@@ -251,10 +251,6 @@
         <VALUE>Ylva</VALUE>
     </LIST>
 
-
-
-
-
     <LIST id="viking-description" title="Descriptive">
         <VALUE>the Red</VALUE>
         <VALUE>the Left-handed</VALUE>
@@ -291,7 +287,5 @@
     <LIST id="norse-patrynomic-ancestral-suffix" title="Acestral">
         <VALUE>ssonar<SUBVALUE type="meaning">'s grandchild</SUBVALUE></VALUE>
     </LIST>
-
-
-
+    
 </GENERATOR>
