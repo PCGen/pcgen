@@ -2,5 +2,5 @@
 
 # Prof
 # Weapon Name	Type
-Vested Pistol	TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Vested Rifle	TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Rifle
+Vested Pistol	TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Vested Rifle	TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Rifle
