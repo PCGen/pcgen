@@ -143,6 +143,43 @@
 			<GETRULE idref="deverry-fantasy-elven-female-rule" title="Deverry" />
 		</RULE>
 	</RULESET>
+	<RULESET id="fantasy-general-dwarf-male" title="Dwarven" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Dwarven" />
+		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-dwarf-male-rule" title="General Dwarf" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="fantasy_craft-dwarf-male" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="middle-earth-fantasy-dwarven-male-rule" title="Middle Earth" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="mar-dwarf-male-rule" title="Mar Dwarf" />
+		</RULE>		
+	</RULESET>
+
+	<RULESET id="fantasy-general-dwarf-female" title="Dwarven" usage="final"> 
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Dwarven" />
+		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-dwarf-female-rule" title="General Dwarf" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="fantasy_craft-dwarf-female" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="middle-earth-fantasy-dwarven-female-rule" title="Middle Earth" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="mar-dwarf-female-rule" title="Mar Dwarf" />
+		</RULE>		
+	</RULESET>
 	
 	<LIST id="fantasy-s" title="'s">
 		<VALUE>'s</VALUE>
