@@ -94,25 +94,28 @@
 		<CATEGORY title="Fantasy: Elven" />
 		<CATEGORY title="Consolidated" />
 		<CATEGORY title="Sex: Male"/>
-		<RULE weight="3">
+		<RULE weight="5">
 			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
 		</RULE>
-		<RULE weight="4">
+		<RULE weight="5">
 			<GETRULE idref="deverry-fantasy-elven-male-rule" title="Deverry" />
 		</RULE>
 		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
 			<GETRULE idref="cg-fantasy-elf-male-rule" title="General" />
 		</RULE>
-		<RULE weight="2">
+		<RULE weight="3">
 			<GETRULE idref="alver-fantasy-rule" title="Alver" />
 		</RULE>
 		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
 			<GETRULE idref="cg-fantasy-half-elf-male-rule" title="Half-Elf"/>
 		</RULE>
-		<RULE weight="3">
-			<GETRULE idref="mar-elf-male-rule" title="Mar" />
+		<RULE weight="5">
+			<GETRULE idref="mar-elf-male-rule" title="Mar Elf" />
 		</RULE>
-		<RULE weight="4">
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>
+		<RULE weight="5">
 			<GETRULE idref="middle-earth-fantasy-elven-male-rule" title="Middle-Earth" />
 		</RULE>
 	</RULESET>
@@ -131,7 +134,10 @@
 			<GETRULE idref="middle-earth-fantasy-elven-female-rule" title="Middle-Earth" />
 		</RULE>
 		<RULE weight="3">
-			<GETRULE idref="mar-elf-female-rule" title="Mar" />
+			<GETRULE idref="mar-elf-female-rule" title="Mar Elf" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
 		</RULE>
 		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
 			<GETRULE idref="cg-fantasy-half-elf-female-rule" title="Half-Elf"/>
@@ -159,9 +165,11 @@
 		</RULE>
 		<RULE weight="5">
 			<GETRULE idref="mar-dwarf-male-rule" title="Mar Dwarf" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
 		</RULE>		
 	</RULESET>
-
 	<RULESET id="fantasy-general-dwarf-female" title="Dwarven" usage="final"> 
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Dwarven" />
@@ -178,9 +186,44 @@
 		</RULE>
 		<RULE weight="5">
 			<GETRULE idref="mar-dwarf-female-rule" title="Mar Dwarf" />
-		</RULE>		
+		</RULE>	
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>	
 	</RULESET>
 	
+	<RULESET id="fantasy-general-halfling-male" title="Halfling" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Halfling" />
+		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETRULE idref="cg-fantasy-halfling-male-rule" title="General Halfling" />
+		</RULE>
+		<RULE weight="6">
+			<GETRULE idref="middle-earth-fantasy-halfling-male-rule" title="Hobbit" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>
+	</RULESET>
+	<RULESET id="fantasy-general-halfling-female" title="Halfling" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Halfling" />
+		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETRULE idref="cg-fantasy-halfling-female-rule" title="General Halfling" />
+		</RULE>
+		<RULE weight="6">
+			<GETRULE idref="middle-earth-fantasy-halfling-female-rule" title="Hobbit" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>
+	</RULESET>
+
+
 	<LIST id="fantasy-s" title="'s">
 		<VALUE>'s</VALUE>
 	</LIST>
