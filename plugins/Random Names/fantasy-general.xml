@@ -139,7 +139,7 @@
 		</RULE>
 	</RULESET>
 	
-	<RULESET id="cg-fantasy-halfling-male-rule" title="Halfling" usage="final">
+	<RULESET id="cg-fantasy-halfling-male-rule" title="Halfling" usage="public">
 		<CATEGORY title="Fantasy: Halfling" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male"/>
@@ -152,7 +152,7 @@
 			<GETLIST idref="cg-halfling-last" title="Last" />
 		</RULE>
 	</RULESET>
-	<RULESET id="cg-fantasy-halfling-female-rule" title="Halfling" usage="final">
+	<RULESET id="cg-fantasy-halfling-female-rule" title="Halfling" usage="public">
 		<CATEGORY title="Fantasy: Halfling" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Female"/>

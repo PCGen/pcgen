@@ -74,6 +74,7 @@
 	</RULESET>
 	<RULESET id="fantasy_craft-dwarf-female" title="Fantasy Craft: Dwarf" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
+		<CATEGORY title="Fantasy: Dwarven" />
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="8">
 			<GETLIST idref="fantasy_craft-dwarven-female" title="Dwarf Given"/>
