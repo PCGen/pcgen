@@ -182,7 +182,7 @@ dependencies {
     }
     implementation group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
     implementation group: 'org.xmlunit', name: 'xmlunit-core', version:'2.8.2'
-    implementation group: 'org.controlsfx', name: 'controlsfx', version:'11.0.3'
+    implementation group: 'org.controlsfx', name: 'controlsfx', version:'11.1.0'
 
     implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
     implementation group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.200'
