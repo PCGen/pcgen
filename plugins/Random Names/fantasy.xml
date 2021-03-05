@@ -97,6 +97,9 @@
 		<RULE weight="5">
 			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
 		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="tamriel-atmer-male-full-rule" title="Atmer (High Elf)" />
+		</RULE>
 		<RULE weight="5">
 			<GETRULE idref="deverry-fantasy-elven-male-rule" title="Deverry" />
 		</RULE>
@@ -129,6 +132,9 @@
 		</RULE>
 		<RULE weight="3">
 			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="tamriel-atmer-female-full-rule" title="Atmer (High Elf)" />
 		</RULE>
 		<RULE weight="4">
 			<GETRULE idref="middle-earth-fantasy-elven-female-rule" title="Middle-Earth" />
