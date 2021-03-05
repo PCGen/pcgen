@@ -92,7 +92,7 @@
 	<RULESET id="fantasy-general-elf-male" title="Elven" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Elven" />
-		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="5">
 			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
@@ -125,7 +125,7 @@
 	<RULESET id="fantasy-general-elf-female" title="Elven" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Elven" />
-		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="2">
 			<GETRULE idref="alver-fantasy-rule" title="Alver" />
@@ -158,7 +158,7 @@
 	<RULESET id="fantasy-general-dwarf-male" title="Dwarven" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Dwarven" />
-		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
 			<GETRULE idref="cg-fantasy-dwarf-male-rule" title="General Dwarf" />
@@ -179,7 +179,7 @@
 	<RULESET id="fantasy-general-dwarf-female" title="Dwarven" usage="final"> 
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Dwarven" />
-		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
 			<GETRULE idref="cg-fantasy-dwarf-female-rule" title="General Dwarf" />
@@ -201,7 +201,7 @@
 	<RULESET id="fantasy-general-halfling-male" title="Halfling" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Halfling" />
-		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="1">
 			<GETRULE idref="cg-fantasy-halfling-male-rule" title="General Halfling" />
@@ -216,7 +216,7 @@
 	<RULESET id="fantasy-general-halfling-female" title="Halfling" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Halfling" />
-		<CATEGORY title="Consolidated" />
+		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="1">
 			<GETRULE idref="cg-fantasy-halfling-female-rule" title="General Halfling" />
