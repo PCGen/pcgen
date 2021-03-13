@@ -1,0 +1,89 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Blank Class Template - Has all the normal tags, plus anything extra
+#	CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#	MAXLEVEL:
+#	ROLE:
+#	CLASSTYPE:
+#	SOURCEPAGE:p.	DEFINE:xxxLVL|0	BONUS:VAR|xxxLVL|CL
+#	CLASS:xxx	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#	CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+#			BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+#	CLASS:xxx		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
+#	CLASS:xxx		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
+#	CLASS:xxx		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
+
+#	CLASS:xxx	PRETEXT:
+#	CLASS:xxx	STARTSKILLPTS:	CSKILL:
+#	CLASS:xxx	BONUS:CASTERLEVEL|xxx|CL+CasterLevelBonus	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
+#		ADD:SPELLCASTER|
+###Block
+#		ABILITY:xxx Class Feature|AUTOMATIC|
+# NOTE: CLASSTYPE, SPELLTYPE & ABB are being PHASED OUT and Replaced with FACT:x (with x being the previous name)
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Class File tags" to find
+#out how the tags in the classes file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####Example
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
+#CLASS:Rogue		HD:6	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Skill Pts/Lvl	Class Skill
+#CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
+###Block:Proficiencies
+#1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+#1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+###Block: Level progression
+#1											BONUS:VAR|RogueSneakAttackLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trapfinding|Sneak Attack|Rogue Sneak Attack
+#2																												ABILITY:Special Ability|AUTOMATIC|Evasion
+#3											BONUS:VAR|RogueTrapSenseLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability|Rogue Trap Sense
+#4											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLVL|CL/4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+#10	BONUS:ABILITYPOOL|Rogue Special Ability|min(4,(CL-7)/3)
+
+#####
+#Class files are where each class is listed, given it's important information for the correct output and functioning of the
+#class. Each class has 2 components to it: The main class line and the class level line. The class line begins with CLASS
+#and the class level line begins with a level # (0, 1, 2, etc).
+#
+#The CLASS tag tells PCGen the class name and sets up the relationships with skills and spells. This line can be entered
+#multiple times in a single class entry (appearing on separate lines) for purposes of making the lines easier to read in an
+#editor (so as to not have to scroll forever to reach the end of the class line). THIS MUST BE THE FIRST TAG!!!
+#
+#The HD tag sets the Hit Die used to determine hit points at each level gained.
+#
+#The TYPE tag is used within the filters of PCGen to sort the classes by their respective types (makes it easier to find a
+#specific class).
+#
+#The ABB tag can be used to hold a 3-5 letter abbreviation of the class name.
+#
+#The MAXLEVEL tag sets the maximum number of levels of the class you can add to a character. You can use MAXLEVEL:NOLIMIT in addition to a number.
+#
+#The SOURCEPAGE tag can be used to hold a reference to where you can find the class. This will be displayed in PCGen.
+#
+#The LANGAUTO tag is holding a list of languages that the character automatically gains.
+#
+#The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
+#of them, look in the List File Tag Index under the topic "Bonus tags".
+#
+#The STARTSKILLPTS tag determines how many skill points a character gains per level.
+#
+#The CSKILL tag grants the listed skills as class skills. When used in a classes.lst, it grants the class skills only to the
+#class it is actually in.
+#
+#The FEATAUTO tag holds a list of feats that the class automatically gets.
+#
+#The SA tag is holding a text that will be displayed as Special Ability on the output sheet.
+#
+#The ADD:FEAT tag will give the character a choice of one from the feats listed in the parentheses. If the feat being added
+#has a chooser ADD:FEAT is the only tag which will activate it (VFEAT, MFEAT and FEATAUTO will not). Besides of ADD:FEAT, there
+#is a multitude of ADD tags in PCGen. You can look them up in the List File Tag Index under the topic "ADD Tags".

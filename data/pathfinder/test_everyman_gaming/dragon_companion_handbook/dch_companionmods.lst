@@ -1,0 +1,29 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Class of the Master			Type				Define			Stat bonus						Modify VAR
+FOLLOWER:DraconicCompanionLVL=1	TYPE:Draconic Companion	DEFINE:MasterLevel|0	BONUS:STAT|STR,CON|floor(MasterLevel/3)	BONUS:VAR|MasterLevel|MASTERVAR("DraconicCompanionLVL")	BONUS:VAR|AC_Natural_Armor|2*floor(MasterLevel/3)
+###Block: HD
+# Class of the Master			Type				Hit Dice
+FOLLOWER:DraconicCompanionLVL=2	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=4	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=5	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=6	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=8	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=9	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=10	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=12	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=13	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=14	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=16	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=17	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=18	TYPE:Draconic Companion	HD:1
+FOLLOWER:DraconicCompanionLVL=20	TYPE:Draconic Companion	HD:1
+###Block:
+# Class of the Master			Type				Ability
+FOLLOWER:DraconicCompanionLVL=1	TYPE:Draconic Companion	ABILITY:Special Ability|AUTOMATIC|Dragon Companion ~ Empathic Link
+FOLLOWER:DraconicCompanionLVL=1	TYPE:Draconic Companion	ABILITY:Special Ability|AUTOMATIC|Dragon Companion ~ Share Spells
+FOLLOWER:DraconicCompanionLVL=1	TYPE:Draconic Companion	ABILITY:Special Ability|AUTOMATIC|Dragon Companion ~ Deliver Touch Spells
+FOLLOWER:DraconicCompanionLVL=4	TYPE:Draconic Companion	ABILITY:Special Ability|AUTOMATIC|Dragon Companion ~ Ability Score Increase
+FOLLOWER:DraconicCompanionLVL=3	TYPE:Draconic Companion	ABILITY:Special Ability|AUTOMATIC|Dragon Companion ~ Bonus Dragon Feat
+FOLLOWER:DraconicCompanionLVL=15	TYPE:Draconic Companion	ABILITY:Special Ability|AUTOMATIC|Dragon Companion ~ Spell Resistance

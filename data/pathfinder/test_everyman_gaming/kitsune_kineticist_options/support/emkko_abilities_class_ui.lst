@@ -1,0 +1,3 @@
+SOURCELONG:Everyman Minis: Kitsune Kineticist Options		SOURCESHORT:EMKKO		SOURCEWEB:http://www.everymangaming.com/		SOURCEDATE:2018-04
+
+Voluminous Vocabulary		KEY:Wild Talent ~ Voluminous Vocabulary SLA	CATEGORY:Special Ability	TYPE:SpecialQuality.Wild Talent.Utility Wild Talent.Utility Wild Talent Universal	PREVARGTEQ:KineticistLVL_Base,2	PREABILITY:1,CATEGORY=FEAT,Kinetic Kyubi	DEFINE:KineticKyubiSLACount|0	DESC:Element universal; Type utility (Sp); Level 2; Burn 1; You can cast Voluminous Vocabulary as a spell-like ability (DC %1).|12+CON	BONUS:VAR|KineticKyubiSLACount|1	SPELLS:Kinetic Kyubi|CASTERLEVEL=KineticistLVL_Base|Voluminous Vocabulary,12+CON

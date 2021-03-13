@@ -1,0 +1,22 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Kitsune Compendium		SOURCESHORT:EGKC		SOURCEWEB:http://www.everymangaming.com/		SOURCEDATE:2014-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 22 July 2017
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list			Plural description for UI			Display Location
+ABILITYCATEGORY:Kitsune Racial Subtype			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kitsune Racial Subtype		ABILITYLIST:Racial Subtype ~ None	PLURAL:Kitsune Racial Subtypes		DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Kitsune Extra Tail Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:KitsuneExtraTailsBonusUse							PLURAL:Kitsune Extra Tail Bonuses		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Dancing Blade Weapon Group		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DancingBladeWeaponGroupChoice														DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dancing Blade Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Panache.DancingBlade							PLURAL:Dancing Blade Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Dancing Blade Deed Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DancingBladeDeed									PLURAL:Dancing Blade Deed Choices		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Ronin Swashbuckler Favored Weapon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:RoninSwashbucklerFavoredWeapon														DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ronin Swashbuckler Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.RoninSwashbuckler								PLURAL:Ronin Swashbuckler Bonus Feats	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Kitsune Trick Feat Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:KitsuneFeat										PLURAL:Kitsune Trick Feat Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rogue's Finesse Weapon Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:RoguesFinesseWeaponChoice														DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Kitsune Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:KitsuneBloodragerBloodline	ABILITYLIST:Special Bloodline Feat	PLURAL:Kitsune Bloodrager Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Kitsune Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:KitsuneBloodline			ABILITYLIST:Skill Focus(Disguise)	PLURAL:Kitsune Bloodline Feats		DISPLAYLOCATION:Feats

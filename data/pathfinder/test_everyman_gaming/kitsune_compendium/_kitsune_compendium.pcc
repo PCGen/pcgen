@@ -1,0 +1,96 @@
+CAMPAIGN:Kitsune Compendium
+GAMEMODE:Pathfinder
+TYPE:Everyman Gaming
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:8,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Inner Sea World Guide,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Dragon Empires Primer,INCLUDES=Advanced Race Guide,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Everyman Gaming
+PUBNAMESHORT:EG
+PUBNAMEWEB:http://www.everymangaming.com/
+SOURCELONG:Kitsune Compendium
+SOURCESHORT:EGKC
+SOURCEWEB:http://www.everymangaming.com/
+SOURCEDATE:2014-04
+RANK:201404
+ISOGL:YES
+
+COVER:kitsune_compendium.jpg
+LOGO:@/publisher_logos/Everyman_logo.png
+URL:WEBSITE|http://www.everymangaming.com/|Visit Everyman Gaming!
+URL:WEBSITE:Paizo.com|http://paizo.com/products/btpy98re?Kitsune-Compendium|Buy this book from Paizo.com!
+URL:WEBSITE:RPG Now.com|http://www.rpgnow.com/product/134150/Kitsune-Compendium|Buy this pdf from RPGNow!
+URL:WEBSITE:DriveThruRPG.com|http://www.drivethrurpg.com/product/134150/Kitsune-Compendium|Buy this pdf from DriveThruRPG!
+
+DESC:Explore the ecology of the enigmatic kitsune race with the Kitsune Compendium! From the designer who brought you the Pact Magic Unbound series and Guidance, the Kitsune Compendium gives players and GMs alike all of the resources they need to implement this witty, capricious race into their campaign setting.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Anger of Angels. Copyright 2003, Sean K Reynolds.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Book of Fiends. Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb.
+COPYRIGHT:The Book of Hallowed Might. Copyright 2002, Monte J. Cook.
+COPYRIGHT:Monte Cook's Arcana Unearthed. Copyright 2003, Monte J. Cook.
+COPYRIGHT:Path of the Magi. Copyright 2002 Citizen Games/Troll Lord Games; Authors: Mike McArtor, W. Jason Peck, Jeff Quick, and Sean K Reynolds.
+COPYRIGHT:Pathfinder Roleplaying Game Advanced Class Guide. Copyright 2014, Paizo Inc.; Authors: Dennis Baker, Ross Byers, Jesse Benner,Savannah Broadway, Jason Bulmahn, Jim Groves, Tim Hitchcock, Tracy
+COPYRIGHT:Hurley, Jonathan H. Keith, Will McCardell, Dale C. McCoy, Jr., Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Sean K Reynolds, Tork Shaw, Owen K.C. Stephens, and Russ Taylor
+COPYRIGHT:Pathfinder Roleplaying Game Advanced Player's Guide. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulhman.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat. Copyright 2011, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Brian J. Cortijo, Jim Groves, Tim Hitchcock, Richard A. Hunt, Colin McComb, Jason Nelson, Tom Phillips, Patrick Renie, Sean K Reynolds, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Skreyn's Register: The Bonds of Magic. Copyright 2002, Sean K Reynolds.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR
+COPYRIGHT:Ice Golem from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene.
+COPYRIGHT:Iron Cobra from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Philip Masters.
+COPYRIGHT:Shadow Demon from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Neville White.
+COPYRIGHT:Wood Golem from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene and Patrick Lawinger.
+COPYRIGHT:Demodand, Slime from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Forlarren from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Hangman Tree from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Rot Grub from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Troll, Ice from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Troll, Rock from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Angel, Monadic Deva from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Angel, Movanic Deva from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Brownie from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Daemon, Ceustodaemon (Guardian Daemon) from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Daemon, Derghodaemon from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Daemon, Hydrodaemon from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Froghemoth from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Marid from the Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Author: Scott Greene.
+COPYRIGHT:Mihstu from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Nabasu Demon from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Necrophidius from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Simon Tillbrook.
+COPYRIGHT:Sandman from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Scarecrow from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Kitsune Compendium. Copyright 2014, Everyman Gaming, LLC.; Author: Alexander Augunas.
+COPYRIGHT:PCGen dataset conversion for "Kitsune Compendium" Copyright 2017, PCGen Data team (Including, but not limited to Gwen T. (evilpixie87), Paul Grosse, and Andrew Maitland)
+
+#INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
+
+ABILITY:egkc_abilities.lst
+ABILITY:egkc_abilities_class.lst
+ABILITY:egkc_abilities_race.lst
+ABILITYCATEGORY:egkc_abilitycategories.lst
+CLASS:egkc_classes.lst
+DEITY:egkc_deities.lst
+DOMAIN:egkc_domains.lst
+ABILITY:egkc_feats.lst
+SPELL:egkc_spells.lst
+TEMPLATE:egkc_templates.lst
+
+
+# ENTRY DATE: 7-30-2017
+# LST MONKEY: Gwen T.
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# ALPHA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.03
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.3
+# COMMENTS:

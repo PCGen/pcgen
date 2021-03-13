@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Kitsune Compendium	SOURCESHORT:EGKC	SOURCEWEB:http://www.everymangaming.com/	SOURCEDATE:2014-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 22 July 2017
+
+# Deity Name	Product Identity?	Domains																													Description of Deity/Title						FACTSET			Deity Weapon	Align		Source Page		Modify VAR
+Inari Okami		NAMEISPI:YES	DOMAINS:Artifice,Community,Good,Plant,Protection,Agathion Subdomain,Agriculture Subdomain,Family Subdomain,Growth Subdomain,Kami Subdomain,Purity Subdomain|PREALIGN:LG,NG,CG,TN	DESC:God of agriculture, kitsune, prosperity, and rice	FACTSET:Pantheon|Other	DEITYWEAP:Katana	ALIGN:NG	SOURCEPAGE:p.15
+Inari Okami.MOD																																																								BONUS:VAR|InquisitorDomainArtifice,InquisitorDomainCommunity,InquisitorDomainGood,InquisitorDomainPlant,InquisitorDomainProtection|1|PREALIGN:LG,NG,CG,TN
+Inari Okami.MOD																																																								BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainAgricultureSubdomain,InquisitorDomainFamilySubdomain,InquisitorDomainGrowthSubdomain,InquisitorDomainKamiSubdomain,InquisitorDomainPuritySubdomain|1|PREALIGN:LG,NG,CG,TN

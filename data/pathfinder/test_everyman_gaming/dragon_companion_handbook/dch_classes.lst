@@ -1,0 +1,63 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Class Name		Hit Dice	Type			Source Page		Define																								Combat bonus																Save bonus																																																	Modify VAR																																																																																																												FACT
+CLASS:Dragon Paragon	HD:12		TYPE:Monster	SOURCEPAGE:p.12	DEFINE:DragonParagonLVL|0	DEFINE:Caster_Level_DragonParagon|0	DEFINE:CasterLevelBLDragonParagon|0	DEFINE:Caster_Level_BL_Stripped_DragonParagon|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|DragonParagonLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_DragonParagon|Caster_Level_Rogue-CasterLevelBLDragonParagon	BONUS:VAR|Caster_Level_DragonParagon|DragonParagonLVL+Caster_Level_Bonus+CasterLevelBLDragonParagon	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_DragonParagon|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_DragonParagon	FACT:SpellType|Arcane
+# Class Name		Required Race
+CLASS:Dragon Paragon	PRERACE:1,Dragon%,Kobold%
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Dragon Paragon	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
+# Class Name		Spell Stat		Memorize	Caster level										Use Spell List
+CLASS:Dragon Paragon	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Dragon Paragon|Caster_Level_BL_Stripped_DragonParagon	SPELLLIST:2|Sorcerer|Wizard
+###Block
+1	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Weapon and Armor Proficiency
+1	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Dragon Exemplar
+1	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Heritage
+11	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Paragon Presence
+4	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Natural Armor
+4	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Spells
+6	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Blindsense
+7	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Damage Reduction
+###Block
+4	CAST:0,1
+5	CAST:0,1
+6	CAST:0,1
+7	CAST:0,1,1
+8	CAST:0,1,1
+9	CAST:0,2,1
+10	CAST:0,2,1,1
+11	CAST:0,2,1,1
+12	CAST:0,2,2,1
+13	CAST:0,3,2,1,1
+14	CAST:0,3,2,2,1
+15	CAST:0,3,2,2,1
+16	CAST:0,3,3,2,1
+17	CAST:0,4,3,2,1
+18	CAST:0,4,3,2,2
+19	CAST:0,4,3,3,2
+20	CAST:0,4,4,3,2
+###Block
+4	KNOWN:0,2
+5	KNOWN:0,3
+6	KNOWN:0,4
+7	KNOWN:0,4,2
+8	KNOWN:0,4,3
+9	KNOWN:0,5,4
+10	KNOWN:0,5,4,2
+11	KNOWN:0,5,4,3
+12	KNOWN:0,6,5,4
+13	KNOWN:0,6,5,4,2
+14	KNOWN:0,6,5,4,3
+15	KNOWN:0,6,6,5,4
+16	KNOWN:0,6,6,5,4
+17	KNOWN:0,6,6,5,4
+18	KNOWN:0,6,6,6,5
+19	KNOWN:0,6,6,6,5
+20	KNOWN:0,6,6,6,5
+
+
+# Class Name			Output Name				Hit Dice	Type				Max Level	Source Page		Ability					Visible	Combat bonus																	Save bonus																				Modify VAR																																																												FACT
+CLASS:Draconic Companion	OUTPUTNAME:Draconic Companion	HD:12		TYPE:Monster.Companion	MAXLEVEL:20	SOURCEPAGE:p.52	ABILITY:FEAT|AUTOMATIC|CMB Output	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|Companion	FACT:Abb|DC
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Draconic Companion	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device

@@ -1,0 +1,135 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Blank Race Template
+#	SIZE:
+#	SOURCEPAGE:p.
+#	RACETYPE:yyy
+#	MONSTERCLASS:yyy:
+#	TYPE:yyy
+#	RACESUBTYPE:
+#	MOVE:Walk,
+#	BONUS:VAR|Manueverability|
+#	BONUS:VAR|AC_Natural_Armor|0|TYPE=Base
+#	FACE:
+#	REACH:
+#	LEGS:
+#	HANDS:
+#	STARTFEATS:1
+#	NATURALATTACKS:Claw,Natural.Melee.Weapon,*1,1d4
+#	NATURALATTACKS:Bite,Natural.Melee.Weapon,*1,1d6
+#OR	NATURALATTACKS:Claw,Natural.Melee.Weapon,*1,1d4|Bite,Natural.Melee.Weapon,*1,1d6
+#OR	ABILITY:Internal|AUTOMATIC|Bite|Claw
+#	BONUS:STAT|STR|
+#	BONUS:STAT|DEX|
+#	BONUS:STAT|CON|
+#	BONUS:STAT|INT|
+#	BONUS:STAT|WIS|
+#	BONUS:STAT|CHA|
+#	ABILITY:Internal|AUTOMATIC|Racial Traits ~ XXX
+#	CR:
+#	LEVELADJUSTMENT:			//Only for systems where ECL/Level Adjustments are used.
+#	KIT:1|XXX Default
+#	HITDICEADVANCEMENT:		//Only for systems where HD and size are set progression.
+#	FACT:IsPC|True			//6.05.03 or higher only!
+
+#insert your data here
+
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Race File tags" to find
+#out how the tags in the races file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#To learn the basics of coding a race, you can also visit "Help > Documentation > List Files > LST File Class > Lesson 3-6"
+#
+#
+#####Example
+
+#Xill		STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,40				REACH:5	VISION:Darkvision (60')	PREALIGN:2	LANGAUTO:Infernal		BONUS:COMBAT|AC|7|TYPE=NaturalArmor		BONUS:STAT|STR|4	BONUS:STAT|DEX|6	BONUS:STAT|CON|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2		MONCSKILL:Balance|Climb|Diplomacy|Escape Artist|Intimidate|Listen|Move Silently|Sense Motive|Spot|Tumble|Use Rope	AUTO:WEAPONPROF|Longbow|Sword (Short)|TYPE.Martial|TYPE.Simple		LEGS:2	HANDS:4	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4		SAB:Implant (Ex)	SAB:Improved Grab (Ex)	SAB:Paralysis (Ex)	SAB:Planewalk (Su)	SAB:Spell Resistance (Ex)		SR:21		MONSTERCLASS:Outsider:5		RACETYPE:Outsider	HITDICEADVANCEMENT:8,15		LEVELADJUSTMENT:4	CR:6	SOURCEPAGE:MonstersT-Z
+
+#####
+#Xill is the name of the race. It must be the first field on each line, the remaining tags may be of any order.
+#
+#The STARTFEATS tag grants a number of free feats to the race at first level.
+#
+#The SIZE tag determines the size of the Race. (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan,
+#C=Colossal). Size is used in determining to-hit, AC, and affects some skills).
+#
+#The MOVE tag determines the Type and Speed of the different movement types the race has.
+#
+#The FACE tag Describes how much space the creature takes up. For 3.0 rules this tag is used for the Face statistic. For 3.5
+#rules this tag is used for the Space statistic. If only one number is used it is assumed to represent all sides.
+#
+#The REACH tag determines the reach of the Race.
+#
+#The VISION tag is used to grant the specified vision to the character.
+#
+#The PREALIGN tag is used, so it is required that you have a certain alignment to be able to select this race. There is a
+#multitude of existing prerequiste tags in PCGen. If you are looking into the documentation under List File Tag Index, you
+#can find them listed under the topic "PRExxx tags".
+#
+#The LANGAUTO tag is holding a list of languages that the character automatically gains.
+#
+#The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
+#of them, look in the List File Tag Index under the topic "Bonus tags".
+#
+#The MONCSKILL tag is used to grant the listed skills as monster class skills.
+#
+#The AUTO:WEAPONPROF tag is holding a list of weapons that are granted as free weapon proficiencies.
+#
+#The LEGS and HANDS tags set the number of respective limbs that a creature has. The number of legs is used to determine the
+#carrying capacity of a creature, while the number of hands is used for purposes of Multiattack and Multidexterity.
+#
+#The NATURALATTACKS tag defines the non-equipment attacks a race may possess. It follows a pattern of Attack Name, Attack Types,
+#Number of Attacks and Attack Damage.
+#
+#The SA tag is holding a text that will be displayed as Special Ability on the output sheet.
+#
+#The SR tag indicates the Spell Resistance this race bestows.
+#
+#The MONSTERCLASS tag determines the number of Monster Levels the race gets on start. The class must be TYPE:Monster and have a
+#PRERACETYPE that matches the race.
+#
+#The RACETYPE tag defines the Type of creature the race is. This is important for matching up with Monster HD, and for references to
+#race, such as the Rangers Favored Enemy.
+#
+#The LEVELADJUSTMENT tag raises the Effective Character Level (ECL) of the creature by the number supplied.
+#
+#The CR tag sets the Challenge Rating of the creature. For CR's less than 1, fractions are used (1/2, 1/4, 1/8). Note: CR's using
+#fractions must start with a "1/". Expressions such as CR:3/4 or CR:0.5 will not work.
+#
+#The SOURCEPAGE tag can be used to hold a reference to where you can find the race. This will be displayed in PCGen.
+
+#RACE ENTRY TEMPLATE
+
+#yyy
+#SOURCEPAGE:p.
+#KEY:xxx (yyy)
+#SORTKEY:xxx
+#MONSTERCLASS:zzz:
+#RACETYPE:zzz
+#TYPE:zzz
+#RACESUBTYPE:xyz
+#MOVE:
+#FACE:
+#REACH:
+#BONUS:COMBAT|AC|xxy|TYPE=NaturalArmor
+#BONUS:STAT|STR|
+#BONUS:STAT|DEX|
+#BONUS:STAT|CON|
+#BONUS:STAT|INT|
+#BONUS:STAT|WIS|
+#BONUS:STAT|CHA|
+#KIT:1|yyy Default
+#ABILITY:Internal|AUTOMATIC|Racial Traits ~ yyy
+#LANGBONUS:
+#AUTO:LANG|
+
+#yyy = Name of the Creature
+#xxx = Group *(Demon, Devil, Herd Animal, etc)*
+#zzz = Monster Type (Humanoid, Aberration, etc.)
+#xyz = RACESUBTYPEs if applicable
+#xxy = Number, great for double click selection to enter the number (Trust me)

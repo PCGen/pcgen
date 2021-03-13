@@ -1,0 +1,3 @@
+SOURCELONG:Everyman Minis: Kitsune Kineticist Options		SOURCESHORT:EMKKO		SOURCEWEB:http://www.everymangaming.com/		SOURCEDATE:2018-04
+
+Contagious Suggestion		KEY:Wild Talent ~ Contagious Suggestion SLA	CATEGORY:Special Ability	TYPE:SpecialQuality.Wild Talent.Utility Wild Talent.Utility Wild Talent Universal	PREVARGTEQ:KineticistLVL_Base,4	PREABILITY:1,CATEGORY=FEAT,Kinetic Kyubi	DEFINE:KineticKyubiSLACount|0		DESC:Element universal; Type utility (Sp); Level 4; Burn 1; You can cast Contagious Suggestion as a spell-like ability (DC %1).|14+CON	BONUS:VAR|KineticKyubiSLACount|1	SPELLS:Kinetic Kyubi|CASTERLEVEL=KineticistLVL_Base|Contagious Suggestion,14+CON

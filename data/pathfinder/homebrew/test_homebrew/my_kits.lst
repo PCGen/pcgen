@@ -1,0 +1,73 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Starting Kit File tags" to
+#find out how the tags in the kits file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####Example
+
+#STARTPACK:Xill Default	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xill]	VISIBLE:QUALIFY
+#RACE:Xill				!PRERACE:1,%
+#NAME:Xill
+#ALIGN:2
+#SKILL:Climb			RANK:8
+#SKILL:Escape Artist	RANK:8
+#SKILL:Intimidate		RANK:8
+#SKILL:Listen		RANK:8
+#SKILL:Move Silently	RANK:8
+#SKILL:Spot			RANK:8
+#SKILL:Tumble		RANK:8
+#SKILL:Sense Motive	RANK:7
+#SKILL:Balance		RANK:10
+#SKILL:Diplomacy		RANK:2
+#FEAT:Improved Initiative
+#FEAT:Multiattack
+#FEAT:Multiweapon Fighting
+#STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+#GEAR:Longbow		QTY:2	LOCATION:Carried	SIZE:PC
+#GEAR:Sword (Short)	LOCATION:Primary Hand	SIZE:PC
+#GEAR:Sword (Short)	LOCATION:Secondary Hand	SIZE:PC
+
+#####
+#The STARTPACK tag MUST be the FIRST line of a new kit definition. It starts creation of a new kit. All lines following this
+#one are considered part of this kit until a new STARTPACK tag, or the end of the file, is encountered. It also defines the
+#Kit's name.
+#
+#The EQUIPBUY tag sets the percentage that the total cost of all the gear in the kit is discounted (or inflated by). If set
+#to 0 the gear is granted for free. EQUIPBUY must be used in lines that start with STARTPACK.
+#
+#The combination of PREMULT and PRERACE tags is used here to make sure that the kit can only be applied, when either no race
+#has been selected yet or the race is one that can be used with this kit. There is a multitude of existing prerequiste tags
+#in PCGen. If you are looking into the documentation under List File Tag Index, you can find them listed under the topic
+#"PRExxx tags".
+#
+#The VISIBLE tag is used to filter when the kit will be displayed in PCGen. VISIBLE must be used in lines that start with
+#STARTPACK.
+#
+#The RACE tag selects the race for the character.
+#
+#The NAME tag can be used to set the name for the character.
+#
+#The ALIGN tag will give the character the listed alignment.
+#
+#The SKILL and RANK combination will set the Skill rank for the skill, as long as there are sufficient skill points in the
+#skill pool and rank is within the limits for or character of the given level.
+#
+#The FEAT tag will add listed feat, as long as there are sufficient feat points in the feat pool.
+#
+#The STAT line can be used to modify the stats of a character. In the example the stats are set, so the creature will have
+#the values of the default creature that you can see in the RSRD. The given stats and stat bonuses from the race entry will
+#add up to give the wanted results.
+#
+#The GEAR tag can be used to automatically give equipment to a character. It can be stuffed with additional tags, where QTY
+#can be used to give multiple items, LOCATION will equip the item at the wante d location, as long as there is still free
+#space, SIZE can be used to resize the Equipment.

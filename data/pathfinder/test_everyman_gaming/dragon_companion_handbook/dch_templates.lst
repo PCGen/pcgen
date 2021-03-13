@@ -1,0 +1,31 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Template Name			Visible	Auto Language			Bonus Languages		Subrace			Race Subtype
+Auto Lang ~ Dragon		VISIBLE:NO	AUTO:LANG|Common|Draconic
+Bonus Lang ~ Dragon		VISIBLE:NO						LANGBONUS:TYPE=Spoken
+
+Dragon Sept ~ Black		VISIBLE:NO										SUBRACE:Black		RACESUBTYPE:Water
+Dragon Sept ~ Blue		VISIBLE:NO										SUBRACE:Blue		RACESUBTYPE:Earth
+Dragon Sept ~ Brass		VISIBLE:NO										SUBRACE:Brass		RACESUBTYPE:Fire
+Dragon Sept ~ Brine		VISIBLE:NO										SUBRACE:Brine		RACESUBTYPE:Water|Extraplanar
+Dragon Sept ~ Bronze		VISIBLE:NO										SUBRACE:Bronze		RACESUBTYPE:Water
+Dragon Sept ~ Cloud		VISIBLE:NO										SUBRACE:Cloud		RACESUBTYPE:Air|Extraplanar
+Dragon Sept ~ Copper		VISIBLE:NO										SUBRACE:Copper		RACESUBTYPE:Earth
+Dragon Sept ~ Crystal		VISIBLE:NO										SUBRACE:Crystal		RACESUBTYPE:Earth|Extraplanar
+Dragon Sept ~ Forest		VISIBLE:NO										SUBRACE:Forest		RACESUBTYPE:Earth
+Dragon Sept ~ Gold		VISIBLE:NO										SUBRACE:Gold		RACESUBTYPE:Fire
+Dragon Sept ~ Green		VISIBLE:NO										SUBRACE:Green		RACESUBTYPE:Air
+Dragon Sept ~ Lunar		VISIBLE:NO										SUBRACE:Lunar
+Dragon Sept ~ Magma		VISIBLE:NO										SUBRACE:Magma		RACESUBTYPE:Extraplanar|Fire
+Dragon Sept ~ Red			VISIBLE:NO										SUBRACE:Red			RACESUBTYPE:Fire
+Dragon Sept ~ Sea			VISIBLE:NO										SUBRACE:Sea			RACESUBTYPE:Water
+Dragon Sept ~ Silver		VISIBLE:NO										SUBRACE:Silver		RACESUBTYPE:Cold
+Dragon Sept ~ Sky			VISIBLE:NO										SUBRACE:Sky			RACESUBTYPE:Air
+Dragon Sept ~ Solar		VISIBLE:NO										SUBRACE:Solar		RACESUBTYPE:Fire
+Dragon Sept ~ Sovereign		VISIBLE:NO										SUBRACE:Sovereign
+Dragon Sept ~ Time		VISIBLE:NO										SUBRACE:Time
+Dragon Sept ~ Umbral		VISIBLE:NO										SUBRACE:Umbral		RACESUBTYPE:Extraplanar
+Dragon Sept ~ Underworld	VISIBLE:NO										SUBRACE:Underworld	RACESUBTYPE:Fire
+Dragon Sept ~ Void		VISIBLE:NO										SUBRACE:Void
+Dragon Sept ~ Vortex		VISIBLE:NO										SUBRACE:Vortex
+Dragon Sept ~ White		VISIBLE:NO										SUBRACE:White		RACESUBTYPE:Cold

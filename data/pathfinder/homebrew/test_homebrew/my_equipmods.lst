@@ -1,0 +1,69 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Equipment Modification File tags"
+#to find out how the tags in the races file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####Example
+# 6.05.3 Style
+# Masterwork
+#	KEY:Masterwork (Weapon)
+#	COST:0
+#	ITYPE:Masterwork
+#	VISIBLE:QUALIFY
+#	NAMEOPT:NORMAL
+#	SOURCEPAGE:p.
+#	PRETYPE:1,Weapon,Ammunition
+#	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood
+#	BONUS:ITEMCOST|TYPE=Ammunition|6
+#	BONUS:ITEMCOST|TYPE=Weapon|300
+#	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement
+#	ASSIGNTOALL:YES
+
+
+# Old Style
+#Masterwork		KEY:Special Quality ~ Masterwork ~ Weapon	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment	PRETYPE:1,Weapon,Ammunition	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood		BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
+
+#####
+#The first field in the equipmods.lst files must be the name of the modifier, after that, the tags do not need to be in any
+#special order. In the Example the equipmod is named "Masterwork".
+#
+#The KEY tag is a unique descriptor for the modifier. It allows several modifiers to have the same name, which is useful
+#if several are needed for different equipment types. KEY's must be universally unique. Make sure you don't use anything
+#that's is used in any other source you load.
+#
+#The TYPE tag is different in equipmods than in the other files. It does not give the equipment modifier a TYPE that is used
+#for selection, but holds a list of the TYPE's of equipment that the modifier can be applied to.
+#
+#The COST tag is normally used to hold a number or formula that is added to the item cost. In the Example this is 0, so
+#nothing will be added there. This is because the Masterwork equipmod in the example is used for Ammunition and Weapons, which
+#will result in different amounts to be added. The cost is instead handled in BONUS:ITEMCOST tags later in the line.
+#
+#The VISIBLE:QUALIFY tag is used, so this Equipment Modifier will only show up in the Item Customizer, when it is eligible
+#for selection.
+#
+#The ITYPE tag can be used to grant further TYPEs to the item the equipment modifier gets applied to.
+#
+#The NAMEOPT tag is used to determine a naming convention.
+#
+#The SOURCEPAGE tag can be used to hold a reference to where you can find the equipment modifier. This will be displayed
+#in PCGen.
+#
+#The PRETYPE tags are used to make the equipment modifier eligible only if the item has the TYPEs Weapon or Ammunition, but
+#does not have the TYPEs Masterwork, Mithral, Adamantine, or Darkwood. There is a multitude of existing prerequiste tags in
+#PCGen. If you are looking into the documentation under List File Tag Index, you can find them listed under the topic
+#"PRExxx tags".
+#
+#The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
+#of them, look in the List File Tag Index under the topic "Bonus tags".
+#
+#The ASSIGNTOALL tag is for double weapons only. If this tag is present then the modifiers will be applied to both heads.

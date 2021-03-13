@@ -1,0 +1,68 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Template Name	Hit Dice Size	Challenge Rating	Damage Reduction	Level Adjustment	Define				Required AL	Modify VAR					Ability				Race Subtype
+Ninja Monkey	HITDIE:12		CR:2			DR:15/Epic		LEVELADJUSTMENT:2	DEFINE:NinjaMonkeyEvilAura|0	PREALIGN:LE	BONUS:VAR|NinjaMonkeyEvilAura|TL	ABILITY:FEAT|AUTOMATIC|Dodge	RACESUBTYPE:Extraplanar|Evil
+
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Template File tags to find
+#out how the tags in the templates file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####Example
+
+#Vampire		HITDIE:12		CR:2	DR:10/Silver and Magic		LEVELADJUSTMENT:8	TEMPLATE:Undead	TEMPLATE:CHOOSE:Slam (Fine)|Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)	SOURCEPAGE:MonstersT-Z	SAB:Blood Drain (Ex)	SAB:Children of the Night (Su)	SAB:Dominate (Su) DC%|VampireAbilityDC	SAB:Energy Drain (Su)	SAB:Create Spawn (Su)	SAB:Alternate Form (Su)	SAB:Fast Healing 5 (Ex)	SAB:Gaseous Form (Su)	SAB:Energy Resistance Cold/Electricity 10	SAB:Turn Resistance +4 (Ex)	SAB:Spider Climb (Ex)	DEFINE:VampireAbilityDC|0		PREALIGN:2,5,8		BONUS:COMBAT|AC|6|TYPE=NaturalArmor.STACK		BONUS:SKILL|Bluff,Hide,Listen,Move Silently,Search,Sense Motive,Spot|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|VampireAbilityDC|15+CHA			RACETYPE:Undead
+#Vampire Feat	ABILITYLIST:Alertness,Combat Reflexes,Dodge,Improved Initiative,Lightning Reflexes
+
+#####
+#Vampire is the name of the template. It will appear in the templates list on PCGen's Races tab and will be used if a template
+#is added by use of the TEMPLATE tag. The name is the only entry that is mandatory in a template. The other tags are used
+#as they are needed.
+#
+#The HITDIE tag can be used to specify the new Hit Dice size the template grants to the creature.
+#
+#The CR tag increases the Challenge Rating by the given amount.
+#
+#The DR tag defines the damage reduction this template bestows.
+#
+#The LEVELADJUSTMENT tag raises the Effective Character Level (ECL) of the creature by the number supplied, in this case 8.
+#
+#The TEMPLATE tag grants the supplied template to the character. In PCGen Templates are not only the templates as defined
+#in the games, but we use them also as overlays when repetitive data applies to a group of creatures. In this case the Undead
+#template applies the Undead traits to the character.
+#
+#TEMPLATE:CHOOSE will supply a popup window of the choices presented in the tag that are | (pipe) delimited (The user is allowed
+#only ONE choice from the list). The given choices must be existing templates, or they will not be eligible. If only one
+#choice is eligible, the TEMPLATE:CHOOSE tag will automatically select that one and no popup window will appear.
+#
+#The SOURCEPAGE tag can be used to hold a reference to where you can find the template. This will be displayed in PCGen.
+#
+#The SA tag is holding a text that will be displayed as Special Ability on the output sheet. You can have variables displayed
+#in it. In "SAB:Dominate (Su) DC%|VampireAbilityDC" the text after the | (pipe) is a variable name. It will replace the % (percent)
+#sign and display the value of the VampireAbilityDC variable there.
+#
+#The DEFINE tag creates a new variable and sets its initial value.
+#
+#The PREALIGN tag is used, so it is required that you have a certain alignment to be able to select this template. There is a
+#multitude of existing prerequiste tags in PCGen. If you are looking into the documentation under List File Tag Index, you can
+#find them listed under the topic "PRExxx tags".
+#
+#The BONUS tags are another group of similar tags, that grant some form of Bonus to another already existing tag. To read a
+#description of them, look in the List File Tag Index under the topic "Bonus tags".
+#
+#The ABILITY:FEAT|AUTOMATIC tag gives an Ability as a Feat to the character. You can grant multiple Feats by listing them seperated by the | (pipe)
+#delimiter.
+# Format is:
+#	ABILITY:AbilityPool|AbilityNature|AbilityName1|AbilityName2
+#
+#The RACETYPE tag changes the race type of the creature. Each race in PCGen has a RACETYPE tag, when another RACETYPE tag is encounter
+#(such as when a RACETYPE tag exists in a template) the characters race type changes to the newly applied RACETYPE, a character can have only one race type at a time.
+#(RACETYPE is used internally by PCGen for matching up with Monster HD, and for references to race, such as the Rangers Favored Enemy.)

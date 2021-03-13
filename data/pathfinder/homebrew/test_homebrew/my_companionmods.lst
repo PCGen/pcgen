@@ -1,0 +1,77 @@
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Companion Modifications File tags"
+#to find out how the tags in the races file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####1st Example
+
+# Version for 6.05.03 - this is all tab deliminated on one line, newlines to make for easier reading:
+#FOLLOWER:FamiliarLVL=1
+#	TYPE:Familiar
+#	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionEmpathicLink
+#	COPYMASTERBAB:MASTER
+#	COPYMASTERCHECK:MASTER
+#	COPYMASTERHP:max(1,MASTER/2)
+#	USEMASTERSKILL:YES
+#FOLLOWER:FamiliarLVL=1
+#	TYPE:Familiar
+#	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionShareSpells
+#	ABILITY:Special Ability|AUTOMATIC|Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionImprovedEvasion
+#	DEFINESTAT:MINVALUE|INT|5+((1+MASTERVAR("FamiliarLVL"))/2)
+#	BONUS:VAR|AC_Natural_Armor|(1+MASTERVAR("FamiliarLVL"))/2|TYPE=NaturalArmor.STACK
+#	RACETYPE:Animal/Magical Beast	DEFINE:MasterLevel|0
+#	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")
+
+
+
+# Old Version
+#FOLLOWER:FamiliarLVL=1	TYPE:Familiar		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SAB:Empathic Link	SAB:Share Spells	SAB:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical beast
+
+#####
+#
+#####2nd Example
+
+#MASTERBONUSRACE:Bat		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)			ABILITY:FEAT|VIRTUAL|Alertness
+
+
+# This would go in your Ability File - Note we use the naming to prevent stacking. Newest File wins.
+#Familiar (Bat)	CATEGORY:Internal	BONUS:SKILL|Listen|3
+
+#####
+#These files specify the bonuses that "enhanced companions", such as familiars and a Paladin's special mount, receive from
+#associating with the character. Unlike other LST files, these do not start with a name field. The first Example shows the
+#entry for a familiar that is associated with a 1st level wizard/sorcerer. The second entry is for the bonus that a bat grants,
+#if chosen as familiar.
+#
+#The FOLLOWER tag is holding a delimited list of classes or variables. If the "master" meets the required level or value in the
+#tag, then the companion gains all the benefits as described by the other tags in the line.
+#
+#The TYPE tag is used to define what the creature is for purposes of display on the resources tab.
+#
+#The tags COPYMASTERBAB, COPYMASTERCHECK, COPYMASTERHP, and USEMASTERSKILL can be used to define whether the creature uses
+#those values based on its master.
+#
+#The SAB tag is holding a text that will be displayed as Special Ability on the output sheet.
+#
+#The DEFINESTAT:MINVALUE|INT| tag prevents the specified ability score (Intelligence) to be no lower than the indicated value.
+#This allows higher intelligent creature to retain their natural intelligence if higher.
+#
+#The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
+#of them, look in the List File Tag Index under the topic "Bonus tags".
+#
+#The RACETYPE tag changes a regular animal to an "enhanced companion" type.
+#
+#The MASTERBONUSRACE tag is used if you need to define the advantages that the master gains when having that particular races
+#as the given type. (here: Familiar). The following tags are then granted to the master.
+#
+#The ABILITY:FEAT|VIRTUAL| tag is holding a list of feats that the character gains as virtual feats. Virtual Feats are granted to the character
+#regardless of the prerequisites.

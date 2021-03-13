@@ -1,0 +1,70 @@
+# CVS $Revision$ $Author$ -- Fri Dec  9 22:23:18 2005 -- reformated by prettylst.pl v1.35 (build 553)
+CAMPAIGN:My Pathfinder Campaign
+GAMEMODE:Pathfinder
+GENRE:Fantasy
+BOOKTYPE:Homebrew
+SETTING:My Homebrew Campaign
+TYPE:Homebrew.PathfinderHomebrew
+PUBNAMELONG:My Homebrew
+PUBNAMESHORT:Homebrew
+PUBNAMEWEB:http://www.mywebsite.com
+SOURCELONG:My Pathfinder Campaign
+SOURCESHORT:MPC
+SOURCEWEB:http://www.mywebsite.com
+SOURCEDATE:2008-01
+RANK:200801
+ISOGL:NO
+COPYRIGHT:My Pathfinder Campaign, Copyright 2015 by PCGen Team
+
+#INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
+
+ABILITY:my_abilities.lst
+ABILITYCATEGORY:my_abilitycategories.lst
+BIOSET:my_biosettings.lst
+CLASS:my_classes.lst
+COMPANIONMOD:my_companionmods.lst
+DEITY:my_deities.lst
+DOMAIN:my_domains.lst
+EQUIPMENT:my_equip_arms_armor.lst
+EQUIPMENT:my_equip_general.lst
+EQUIPMENT:my_equip_magic_items.lst
+EQUIPMOD:my_equipmods.lst
+ABILITY:my_feats.lst
+KIT:my_kits.lst
+LANGUAGE:my_languages.lst
+RACE:my_races.lst
+SKILL:my_skills.lst
+SPELL:my_spells.lst
+TEMPLATE:my_templates.lst
+
+ARMORPROF:my_profs_armor.lst
+SHIELDPROF:my_profs_shield.lst
+WEAPONPROF:my_profs_weapon.lst
+
+### You can hide TYPEs in the GUI - TYPEs are handy for organization, but some are only used for internal functions.
+#HIDETYPE:EQUIP|SpecialSuppressor
+#HIDETYPE:SKILL|Science
+#HIDETYPE:FEAT|Leadership
+
+#Remove the '#' in front of those lines referring to files that you actually want to load
+#Remember to set the GAMEMODE to the one you really want.
+#Options in the Open Source data are 3e, 35e, Modern, Deadlands, Sidewinder, Spycraft, or Xcrawl.
+
+#If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
+#different. Otherwise if you ever should install a newer version of PCGen into your existing directory or needed to re-install
+#your existing installation of PCGen, your changes would get overwritten and thus be lost.
+
+# ENTRY DATE:
+# LST MONKEY:
+# LICENSE MONKEY:
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version:
+# Updated to work with version: 6.06.01
+# MINVER:6.6
+# MINDEVVER:6.6
+# COMMENTS:

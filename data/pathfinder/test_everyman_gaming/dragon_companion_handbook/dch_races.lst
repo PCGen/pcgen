@@ -1,0 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Race Name	Starting Feats	Move				Stat bonus					Modify VAR				Ability								Nb Legs	Nb Hands	Main Race Type	Type			Challenge Rating	Source Page
+Dragon	STARTFEATS:1	MOVE:Walk,30,Fly,30	BONUS:STAT|STR|2	BONUS:STAT|CHA|2	BONUS:VAR|Manueverability|2	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dragon	LEGS:4	HANDS:2	RACETYPE:Dragon	TYPE:Dragon.PC	CR:0			SOURCEPAGE:p.5	FACT:BaseSize|T
