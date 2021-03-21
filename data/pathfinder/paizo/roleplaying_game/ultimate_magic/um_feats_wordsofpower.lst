@@ -16,7 +16,7 @@ Experimental Spellcaster Rest		CATEGORY:FEAT		TYPE:Internal																					
 # COMMENT: Doesn't police the appropriate level, type (effect), number (1 or 2), or class of words.
 Extra Word					CATEGORY:FEAT		TYPE:General	PREMULT:1,[PRECLASS:1,SPELLCASTER=1],[PREVARGTEQ:CasterLevel_Highest,1]	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,TYPE.WordsOfPower],[PREABILITY:1,CATEGORY=FEAT,Experimental Spellcaster]					DESC:Learn an additional effect word, or two lower-level words.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																		BONUS:ABILITYPOOL|Extra Word|1	SOURCEPAGE:p.166
 # COMMENT: Doesn't police the appropriate level, type (meta), or number of words.
-Meta Word Mastery				CATEGORY:FEAT		TYPE:General	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,TYPE.WordsOfPower],[PREABILITY:1,CATEGORY=FEAT,Experimental Spellcaster]																	DESC:You can use meta words three additional times per day, and learn an additional meta word.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																		BONUS:ABILITYPOOL|Extra Word|1	SOURCEPAGE:p.166
+Meta Word Mastery				CATEGORY:FEAT		TYPE:General	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,TYPE.WordsOfPower],[PREABILITY:1,CATEGORY=FEAT,Experimental Spellcaster]																	DESC:You can use meta words three additional times per day, and learn an additional meta word.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																		BONUS:ABILITYPOOL|Meta Word|1		SOURCEPAGE:p.166	BONUS:VAR|BonusMetaWordsPerDay|3
 
 #
 # End
