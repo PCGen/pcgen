@@ -8,7 +8,7 @@ SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/produ
 #      Wrong number of arguments error when companion loaded
 
 # Class of the Master			Type				Ability																		Define						Bonus Ability Pool				Modify VAR
-FOLLOWER:HunterAnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:FEAT|AUTOMATIC|Outflank|PREABILITY:1,CATEGORY=Special Ability,Hunter Precise Companion Feat ~ Outflank	DEFINE:HunterSkirmisherAnimalTrick|0								BONUS:VAR|HunterSkirmisherAnimalTrick|1	BONUS:VAR|HunterAnimalFocusLVL|mastervar("HunterAnimalFocusLVL")
+FOLLOWER:HunterAnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:FEAT|AUTOMATIC|Outflank|PREABILITY:1,CATEGORY=Special Ability,Hunter Precise Companion Feat ~ Outflank	DEFINE:HunterSkirmisherAnimalTrick|0								BONUS:VAR|HunterSkirmisherAnimalTrick|1	BONUS:VAR|HunterAnimalFocusLVL|mastervar("HunterAnimalFocusLVL")	BONUS:ABILITYPOOL|Companion Skill|HumanHunterFavClassBonus
 #	BONUS:VAR|BonusTricks|mastervar("HunterBonusTricks")
 #	BONUS:ABILITYPOOL|Hunter Animal Focus|mastervar("HunterAnimalFocusACPool")
 
