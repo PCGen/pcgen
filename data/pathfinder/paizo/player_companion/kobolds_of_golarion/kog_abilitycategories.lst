@@ -8,7 +8,7 @@
 
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI				Display Location
 ABILITYCATEGORY:Dragon Herald Patron				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonHeraldPatron		PLURAL:Dragon Herald Patrons				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Dragonmaw Scale Color				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonmawScaleColor	PLURAL:Dragonmaw Scale Colors				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragonmaw Bite Type					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dragonmaw			PLURAL:Dragonmaw Bite Types				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Mixed Scale Color					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MixedScaleColor		PLURAL:Mixed Scale Colors				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Swarm Fighter Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork			PLURAL:Swarm Fighter Teamwork Feats			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Trap Subdomain Supernatural Ranger Trap	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerTrap			PLURAL:Trap Subdomain Supernatural Ranger Traps	DISPLAYLOCATION:Class Features
