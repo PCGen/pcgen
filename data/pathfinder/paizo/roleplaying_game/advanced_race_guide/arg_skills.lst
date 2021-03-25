@@ -2,4 +2,7 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 
 Acrobatics.MOD	SITUATION:in slippery conditions
 Acrobatics.MOD	SITUATION:to move on narrow surfaces and uneven ground
+Acrobatics.MOD	SITUATION:to cross narrow ledges
 Climb.MOD	SITUATION:in slippery conditions
+Spellcraft.MOD	SITUATION:identify a spell being cast
+Stealth.MOD		SITUATION:in desert environments

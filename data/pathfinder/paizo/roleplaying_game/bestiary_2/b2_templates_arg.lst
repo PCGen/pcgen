@@ -8,10 +8,10 @@ Dhampir		VISIBLE:NO	SOURCEPAGE:p.89	RACESUBTYPE:Dhampir
 # Template Name	Unique Key					Visible	Type				FACT
 Dhampir		KEY:Racial Heritage ~ Dhampir		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsDhampir|True
 Fetchling		KEY:Racial Heritage ~ Fetchling	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsFetchling|True
+Ifrit			KEY:Racial Heritage ~ Ifrit		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsIfrit|True
+Oread			KEY:Racial Heritage ~ Oread		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsOread|True
 
 Grippli		KEY:RaceSubtype ~ Grippli		VISIBLE:NO		RACESUBTYPE:Grippli	TYPE:Racial Heritage
-Ifrit			KEY:RaceSubtype ~ Ifrit			VISIBLE:NO		RACESUBTYPE:Ifrit		TYPE:Racial Heritage
-Oread			KEY:RaceSubtype ~ Oread			VISIBLE:NO		RACESUBTYPE:Oread		TYPE:Racial Heritage
 Sylph			KEY:RaceSubtype ~ Sylph			VISIBLE:NO		RACESUBTYPE:Sylph		TYPE:Racial Heritage
 Undine		KEY:RaceSubtype ~ Undine		VISIBLE:NO		RACESUBTYPE:Undine	TYPE:Racial Heritage
 

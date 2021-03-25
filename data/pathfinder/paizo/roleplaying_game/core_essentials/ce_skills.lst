@@ -215,6 +215,7 @@ Survival.MOD			SITUATION:Avoid becoming lost
 Survival.MOD			SITUATION:Darklands
 Survival.MOD			SITUATION:Desert
 Survival.MOD			SITUATION:Find Food
+Survival.MOD			SITUATION:to forage for food
 Survival.MOD			SITUATION:Follow or identify tracks
 Survival.MOD			SITUATION:Follow or identify tracks/Underground
 Survival.MOD			SITUATION:In forests
@@ -243,13 +244,11 @@ Appraise.MOD			SITUATION:Giant subtype
 Perception.MOD			SITUATION:sight-based
 
 
-Acrobatics.MOD			SITUATION:Maintain Balance
 Acrobatics.MOD			SITUATION:on the ground
 Appraise.MOD			SITUATION:Gems
 Bluff.MOD				SITUATION:Fool Someone
 Bluff.MOD				SITUATION:Using voice
 Climb.MOD				SITUATION:With spider legs
-Climb.MOD				SITUATION:Without Rope
 Diplomacy.MOD			SITUATION:Aberrations
 Diplomacy.MOD			SITUATION:Demons
 Diplomacy.MOD			SITUATION:Dromites

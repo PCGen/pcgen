@@ -49,7 +49,7 @@ CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceAbilityS
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceType|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Type|PREVAREQ:Fetchling_ReplaceType,0
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceSize|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Size|PREVAREQ:Fetchling_ReplaceSize,0
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceSpeed|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Speed|PREVAREQ:Fetchling_ReplaceSpeed,0
-CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceDarkvision|0		ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Darkvision|PREVAREQ:Fetchling_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceDarkvision|0		ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Vision|PREVAREQ:Fetchling_ReplaceDarkvision,0
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceLowLightVision|0		ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Low-Light Vision|PREVAREQ:Fetchling_ReplaceLowLightVision,0
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceSkilled|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Skilled|PREVAREQ:Fetchling_ReplaceSkilled,0
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceShadowBlending|0		ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadow Blending|PREVAREQ:Fetchling_ReplaceShadowBlending,0
@@ -78,3 +78,71 @@ CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceShado
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceShadowyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceShadowyResistance=True
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceSpellLikeAbilities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceSpellLikeAbilities=True
 CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceLanguages=True
+
+
+# ------------------------------
+# Ifrit
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceAbilityScores|0							ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Ability Scores|PREVAREQ:Ifrit_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceType|0								ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Type|PREVAREQ:Ifrit_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceSize|0								ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Size|PREVAREQ:Ifrit_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceSpeed|0								ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Speed|PREVAREQ:Ifrit_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceVision|0								ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Vision|PREVAREQ:Ifrit_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceSpellLikeAbility|0						ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Spell-Like Ability|PREVAREQ:Ifrit_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceEnergyResistance|0						ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Energy Resistance|PREVAREQ:Ifrit_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceFireAffinity|0	DEFINE:Ifrit_AlternateAffinity|0	ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Fire Affinity|PREVAREQ:Ifrit_ReplaceFireAffinity,0|PREVAREQ:Ifrit_AlternateAffinity,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceLanguages|0							ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Languages|PREVAREQ:Ifrit_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritDarkvision
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritSLA
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceEnergyResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritEnergyResistance
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceFireAffinity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritFireAffinity
+
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceFireAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceFireAffinity=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceLanguages=True
+
+
+# ------------------------------
+# Oread
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceAbilityScores|0		ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Ability Scores|PREVAREQ:Oread_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceType|0			ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Type|PREVAREQ:Oread_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSize|0			ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Size|PREVAREQ:Oread_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSpeed|0			ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Speed|PREVAREQ:Oread_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceVision|0			ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Vision|PREVAREQ:Oread_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSpellLikeAbility|0	ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Spell-Like Ability|PREVAREQ:Oread_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceEnergyResistance|0	ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Energy Resistance|PREVAREQ:Oread_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceEarthAffinity|0		ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Earth Affinity|PREVAREQ:Oread_ReplaceEarthAffinity,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceLanguages|0		ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Languages|PREVAREQ:Oread_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadDarkvision
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadSLA
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceEnergyResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadEnergyResistance
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceEarthAffinity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadEarthAffinity
+
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceEarthAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceEarthAffinity=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceLanguages=True
