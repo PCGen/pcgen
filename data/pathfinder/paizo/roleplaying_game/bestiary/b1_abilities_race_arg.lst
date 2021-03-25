@@ -6,6 +6,10 @@
 # RACE ABILITIES
 # ==============================
 
+###Block: ABILITY:Internal|AUTOMATIC|Affinity Sorcerer Bonus|PREMULT:2,[PRECLASS:1,Sorcerer=1],[PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ xxx]
+# Ability Name		Category of Ability	Bonus DC				Bonus to spell cast/day																																																																																																																																								Stat bonus						Modify VAR
+Affinity Sorcerer Bonus	CATEGORY:Internal		BONUS:DC|CLASS.Sorcerer|1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=1|1|PREMULT:2,[PREVARGT:CHASCORE,10],[PREVAREQ:(CHA%4),0]	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=2|1|PREMULT:2,[PREVARGT:CHASCORE,10],[PREVAREQ:(CHA%4),1]	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=3|1|PREMULT:2,[PREVARGT:CHASCORE,10],[PREVAREQ:(CHA%4),2]	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=4|1|PREMULT:2,[PREVARGT:CHASCORE,10],[PREVAREQ:(CHA%4),3]	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=5|1|PREMULT:2,[PREVARGT:CHA,0],[PREVAREQ:(CHA%4),0]	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=6|1|PREMULT:2,[PREVARGT:CHA,1],[PREVAREQ:(CHA%4),1]	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=7|1|PREMULT:2,[PREVARGT:CHA,2],[PREVAREQ:(CHA%4),2]	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=8|1|PREMULT:2,[PREVARGT:CHA,3],[PREVAREQ:(CHA%4),3]	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=9|1|PREMULT:2,[PREVARGT:CHA,4],[PREVAREQ:(CHA%4),0]	BONUS:STAT|BASESPELLSTAT;Class=Sorcerer|2	BONUS:VAR|BloodlinePowerTimes|1
+
 # ------------------------------
 # Aasimar
 # ------------------------------
@@ -63,89 +67,88 @@ CATEGORY=Special Ability|Drow ~ Spell-Like Abilities.MOD	DEFINE:Drow_Replace_SLA
 CATEGORY=Special Ability|Universal Monster Rule ~ Light Blindness.MOD	DESC:Abrupt exposure to bright light blinds drow for 1 round; on subsequent rounds, they are dazzled as long as they remain in the affected area.|PREABILITY:1,CATEGORY=Special Ability,Drow ~ Light Blindness
 
 
-###Block: Set up Goblin default abilities
-# Ability Name							Category of Ability	Ability
+# ------------------------------
+# Goblin
+# ------------------------------
 
-#Racial Traits ~ Goblin
-# Ability Name						Category of Ability	Ability
-Racial Traits ~ Goblin					CATEGORY:Internal		ABILITY:Goblin|AUTOMATIC|PlaceHolder ~ Goblin
-CATEGORY=Internal|Racial Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinDarkvision
-CATEGORY=Internal|Racial Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Fast|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinFast
-CATEGORY=Internal|Racial Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinSkilled
+###Block: Racial Abilities ~ grantor/removal MODs in b1_abilities_globalvar.lst
+# Ability Name						Category of Ability	Define																							Template					Modify VAR
+Racial Traits ~ Goblin					CATEGORY:Internal																										TEMPLATE:Racial Heritage ~ Goblin
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD					DEFINE:Goblin_RacialCastingStat|0	DEFINE:Goblin_RacialCastingMod|0	DEFINE:Goblin_RacialCasterlevel|0	DEFINE:Goblin_RacialConcentration|0							BONUS:VAR|Goblin_RacialCastingStat|CHASCORE	BONUS:VAR|Goblin_RacialCastingMod|CHA	BONUS:VAR|Goblin_RacialCasterlevel|TL	BONUS:VAR|Goblin_RacialConcentration|Goblin_RacialCasterlevel+Goblin_RacialCastingMod
 
-PlaceHolder ~ Goblin	CATEGORY:Special Ability	VISIBLE:NO	TYPE:GoblinAlt
-
-
-###Block: Goblin abilities
-# Ability Name	Unique Key			Category of Ability		Type						Description										Bonus to skill					Source Page
-#Skilled		KEY:Goblin ~ Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Goblins gain a +4 racial bonus on Ride and Stealth checks.	BONUS:SKILL|Ride,Stealth|4|TYPE=Racial	SOURCEPAGE:p.18
-
-###Block: Default Goblin Abilities (POOL=3)
-# Ability Name	Unique Key			Category of Ability		Type															Multiple Requirements																				Description										Add to base move			Bonus to skill					Modify VAR				Vision			Source Page
-Fast			KEY:Goblin ~ Fast		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GoblinRacialTrait.GoblinRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Goblin ~ Fast],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinFast]			DESC:Goblins have a base speed of 30 ft.					BONUS:MOVEADD|TYPE.Walk|10																	SOURCEPAGE:p.115
-# COMMENT: Apparently being Fast means we need to drop the goblin speed to 20 for this ability to work
-Darkvision		KEY:Goblin ~ Darkvision	CATEGORY:Special Ability	TYPE:GoblinRacialTrait.GoblinRacialDefault.RacialVision						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Goblin ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinDarkvision]	DESC:Goblins can see in the dark up to 60 feet.																BONUS:VAR|HasRacialVision|1	VISION:Darkvision (60')	SOURCEPAGE:p.115
-Skilled		KEY:Goblin ~ Skilled	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GoblinRacialTrait.GoblinRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Goblin ~ Skilled],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinSkilled]		DESC:Goblins gain a +4 racial bonus on Ride and Stealth checks.						BONUS:SKILL|Ride,Stealth|4|TYPE=Racial										SOURCEPAGE:p.18
+###Block: Default Racial Traits
+# Ability Name					Unique Key				Category of Ability		Type																	Visible		Prohibited Fact							Description																													Template																																			Move			Auto Language	Bonus to skill					Stat bonus						Modify VAR				Vision			Source Page		Aspects
++4 Dexterity, -2 Strength, -2 Charisma	KEY:Goblin ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.Goblin Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Goblin_ReplaceAbilityScores=True	DESC:Goblins are fast, but weak and unpleasant to be around.																																																																					BONUS:STAT|DEX|4	BONUS:STAT|STR,CHA|-2										SOURCEPAGE:p.156
+Goblinoid						KEY:Goblin ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.Goblin Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Goblin_ReplaceType=True		DESC:Goblins are humanoids with the goblinoid subtype.																					TEMPLATE:Goblinoid																																																														SOURCEPAGE:p.156
+Small							KEY:Goblin ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.Goblin Racial Default.SpecialQuality.Racial Size			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Goblin_ReplaceSize=True		DESC:Goblins are Small creatures and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty to their CMB and CMD, and a +4 size bonus on Stealth checks.	TEMPLATE:SIZE_S																																																															SOURCEPAGE:p.156
+Normal Speed					KEY:Goblin ~ Speed		CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.Goblin Racial Default.SpecialQuality.Racial Speed			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Goblin_ReplaceSpeed=True		DESC:Goblins are fast for their size, and have a base speed of 30 feet.																																																							MOVE:Walk,30																											SOURCEPAGE:p.156
+Darkvision						KEY:Goblin ~ Vision		CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.Goblin Racial Default.SpecialQuality.Racial Vision			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Goblin_ReplaceVision=True		DESC:Goblins can see in the dark up to 60 feet.																																																																															BONUS:VAR|HasRacialVision|1	VISION:Darkvision (60)	SOURCEPAGE:p.156
+Skilled						KEY:Goblin ~ Skilled		CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.Goblin Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Goblin_ReplaceSkilled=True		DESC:+4 racial bonus on Ride and Stealth checks.																																																																BONUS:SKILL|Ride,Stealth|4|TYPE=Racial																	SOURCEPAGE:p.156	ASPECT:RacialSkillModifier|+4 Ride, +4 Stealth
+Languages						KEY:Goblin ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.Goblin Racial Default.SpecialQuality.Racial Language		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Goblin_ReplaceLanguages=True	DESC:Goblins begin play speaking Goblin. Goblins with high Intelligence scores can choose any of these bonus languages: Common, Draconic, Dwarven, Gnoll, Gnome, Halfling, Orc.	TEMPLATE:Race Bonus Language ~ Common|Race Bonus Language ~ Draconic|Race Bonus Language ~ Dwarven|Race Bonus Language ~ Gnoll|Race Bonus Language ~ Gnome|Race Bonus Language ~ Halfling|Race Bonus Language ~ Orc				AUTO:LANG|Goblin																								SOURCEPAGE:p.156
 
 
+# ------------------------------
+# Hobgoblin
+# ------------------------------
 
-###Block: Set up Hobgoblin default abilities
-# Ability Name							Category of Ability	Ability
+###Block: Racial Abilities ~ grantor/removal MODs in b1_abilities_globalvar.lst
+# Ability Name						Category of Ability	Define																										Template						Modify VAR
+Racial Traits ~ Hobgoblin				CATEGORY:Internal																													TEMPLATE:Racial Heritage ~ Hobgoblin
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD					DEFINE:Hobgoblin_RacialCastingStat|0	DEFINE:Hobgoblin_RacialCastingMod|0	DEFINE:Hobgoblin_RacialCasterlevel|0	DEFINE:Hobgoblin_RacialConcentration|0								BONUS:VAR|Hobgoblin_RacialCastingStat|CHASCORE	BONUS:VAR|Hobgoblin_RacialCastingMod|CHA	BONUS:VAR|Hobgoblin_RacialCasterlevel|TL	BONUS:VAR|Hobgoblin_RacialConcentration|Hobgoblin_RacialCasterlevel+Hobgoblin_RacialCastingMod
 
-#Racial Traits ~ Hobgoblin
-# Ability Name						Category of Ability	Ability
-Racial Traits ~ Hobgoblin					CATEGORY:Internal
-CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinDarkvision
-CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Sneaky|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinSneaky
-
-###Block: Default Hobgoblin Abilities (POOL=2)
-# Ability Name	Unique Key				Category of Ability		Type																Multiple Requirements																					Description									Bonus to skill				Modify VAR											Vision			Source Page
-Darkvision		KEY:Hobgoblin ~ Darkvision	CATEGORY:Special Ability	TYPE:HobgoblinRacialTrait.HobgoblinRacialDefault.RacialVision						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Hobgoblin ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinDarkvision]	DESC:Hobgoblins can see in the dark up to 60 feet.								BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasRacialVision|1	VISION:Darkvision (60')	SOURCEPAGE:p.121
-#Darkvision 60 ft	KEY:Hobgoblin ~ Darkvision	CATEGORY:Special Ability	TYPE:HobgoblinRacialTrait.HobgoblinRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Hobgoblin ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinDarkvision]																	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|RacialVision|1	VISION:Darkvision (60')	SOURCEPAGE:p.121
-Sneaky		KEY:Hobgoblin ~ Sneaky		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HobgoblinRacialTrait.HobgoblinRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Hobgoblin ~ Sneaky],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinSneaky]			DESC:Hobgoblins gain a +4 racial bonus on Stealth checks.	BONUS:SKILL|Stealth|4|TYPE=Racial																	SOURCEPAGE:p.121
+###Block: Default Racial Traits
+# Ability Name			Unique Key					Category of Ability		Type																		Visible		Prohibited Fact								Description																												Template																									Move			Auto Language		Bonus to skill				Stat bonus									Modify VAR				Vision			Source Page		Aspects
++2 Dexterity, +2 Constitution	KEY:Hobgoblin ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceAbilityScores=True	DESC:Hobgoblins are fast and hardy.																																																															BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial										SOURCEPAGE:p.175
+Goblinoid				KEY:Hobgoblin ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceType=True			DESC:Hobgoblins are humanoids with the goblinoid subtype.																				TEMPLATE:Goblinoid																																																							SOURCEPAGE:p.175
+Medium				KEY:Hobgoblin ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Size			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceSize=True			DESC:Hobgoblins are Medium creatures and have no bonuses or penalties due to their size.															TEMPLATE:SIZE_M																																																								SOURCEPAGE:p.175
+Normal Speed			KEY:Hobgoblin ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Speed			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceSpeed=True		DESC:Hobgoblins have a base speed of 30 feet.																																																MOVE:Walk,30																														SOURCEPAGE:p.175
+Darkvision				KEY:Hobgoblin ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Vision			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceVision=True		DESC:Hobgoblins can see in the dark up to 60 feet.																																																																						BONUS:VAR|HasRacialVision|1	VISION:Darkvision (60)	SOURCEPAGE:p.175
+Sneaky				KEY:Hobgoblin ~ Sneaky			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Hobgoblin_ReplaceSneaky=True		DESC:Hobgoblins receive a +4 racial bonus on Stealth checks.																																																				BONUS:SKILL|Stealth|4|TYPE=Racial																				SOURCEPAGE:p.175	ASPECT:RacialSkillModifier|+4 Stealth
+Languages				KEY:Hobgoblin ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Language		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceLanguages=True		DESC:Hobgoblins begin play speaking Common and Goblin. Hobgoblins with high Intelligence scores can choose from the following: Draconic, Dwarven, Infernal, Giant, and Orc.	TEMPLATE:Race Bonus Language ~ Draconic|Race Bonus Language ~ Dwarven|Race Bonus Language ~ Infernal|Race Bonus Language ~ Giant|Race Bonus Language ~ Orc				AUTO:LANG|Common|Goblin																										SOURCEPAGE:p.175
 
 
-###Block: Set up Kobold default abilities
-# Ability Name							Category of Ability	Ability
+# ------------------------------
+# Kobold
+# ------------------------------
 
-#Racial Traits ~ Kobold
-# Ability Name						Category of Ability	Ability
-Racial Traits ~ Kobold					CATEGORY:Internal
-CATEGORY=Internal|Racial Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Normal Speed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldNormalSpeed
-CATEGORY=Internal|Racial Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldDarkvision
-CATEGORY=Internal|Racial Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldArmor
-CATEGORY=Internal|Racial Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Crafty|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldCrafty
-CATEGORY=Internal|Racial Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Weakness|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldWeakness
+###Block: Racial Abilities ~ grantor/removal MODs in b1_abilities_globalvar.lst
+# Ability Name						Category of Ability	Define																							Template					Modify VAR
+Racial Traits ~ Kobold					CATEGORY:Internal																										TEMPLATE:Racial Heritage ~ Kobold
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD					DEFINE:Kobold_RacialCastingStat|0	DEFINE:Kobold_RacialCastingMod|0	DEFINE:Kobold_RacialCasterlevel|0	DEFINE:Kobold_RacialConcentration|0							BONUS:VAR|Kobold_RacialCastingStat|CHASCORE	BONUS:VAR|Kobold_RacialCastingMod|CHA	BONUS:VAR|Kobold_RacialCasterlevel|TL	BONUS:VAR|Kobold_RacialConcentration|Kobold_RacialCasterlevel+Kobold_RacialCastingMod
 
-###Block: Kobold Abilities
-# Ability Name	Unique Key			Category of Ability		Type						Description											Class Skill				Source Page
-#Crafty		KEY:Crafty	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Craft (Traps) and Stealth are always class skills for a kobold.	CSKILL:Craft (Traps)|Stealth	SOURCEPAGE:p.183
-###Block: Default Kobold Abilities (POOL=5)
-# Ability Name	Unique Key				Category of Ability		Type																		Multiple Requirements																				Description																											Add to base move			Bonus to skill										Modify VAR											Class Skill				Source Page
-Normal Speed	KEY:Kobold ~ Normal Speed	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KoboldRacialTrait.KoboldRacialDefault				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kobold ~ Normal Speed],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldNormalSpeed]	DESC:Kobolds have a base speed of 30 feet.																					BONUS:MOVEADD|TYPE.Walk|10																														SOURCEPAGE:p.133
-Darkvision		KEY:Kobold ~ Darkvision		CATEGORY:Special Ability	TYPE:KoboldRacialTrait.KoboldRacialDefault.RacialVision									PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kobold ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldDarkvision]	DESC:Kobolds can see in the dark up to 60 feet.																																						BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasRacialVision|1						SOURCEPAGE:p.133
-Armor			KEY:Kobold ~ Armor		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KoboldRacialTrait.KoboldRacialDefault				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kobold ~ Armor],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldArmor]			DESC:Kobolds have a +1 natural armor bonus.																																						BONUS:VAR|AC_Natural_Armor|1|TYPE=Base											SOURCEPAGE:p.133
-Crafty		KEY:Kobold ~ Crafty		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KoboldRacialTrait.KoboldRacialDefault				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kobold ~ Crafty],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldCrafty]			DESC:Kobolds gain a +2 racial bonus on Craft (Trapmaking), Perception, and Profession (Miner) checks.  Craft (Traps) and Stealth are always class skills for a kobold.						BONUS:SKILL|Craft (Traps),Perception,Profession (Miner)|2|TYPE=Racial													CSKILL:Craft (Traps)|Stealth	SOURCEPAGE:p.133
-Weakness		KEY:Kobold ~ Weakness		CATEGORY:Special Ability	TYPE:KoboldRacialTrait.KoboldRacialDefault.SpecialQuality.Extraordinary.RacialTrait.WeaknessTrait.Standard	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kobold ~ Weakness],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldWeakness]		DESC:Dazzled in bright light.																																																										SOURCEPAGE:p.133
+###Block: Default Racial Traits
+# Ability Name						Unique Key				Category of Ability		Type																		Visible		Prohibited Fact							Description																													Template																					Auto Language		Ability												Bonus to skill										Stat bonus														Modify VAR						Vision			Source Page		Aspects
++2 Dexterity, -4 Strength, -2 Constitution	KEY:Kobold ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality.Racial Ability Scores		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kobold_ReplaceAbilityScores=True	DESC:Kobolds are fast but weak.																																																																												BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|STR|-4|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial												SOURCEPAGE:p.183
+Reptilian							KEY:Kobold ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality.Racial Type				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kobold_ReplaceType=True		DESC:Kobolds are humanoids with the reptilian subtype.																					TEMPLATE:Reptilian																																																																										SOURCEPAGE:p.183
+Small								KEY:Kobold ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality.Racial Size				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kobold_ReplaceSize=True		DESC:Kobolds are Small and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty to their CMB and CMD, and a +4 size bonus on Stealth checks.			TEMPLATE:SIZE_S																																																																											SOURCEPAGE:p.183
+Normal Speed						KEY:Kobold ~ Speed		CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality.Racial Speed				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kobold_ReplaceSpeed=True		DESC:Kobolds have a base speed of 30 feet.																																																																																																				SOURCEPAGE:p.183
+Darkvision							KEY:Kobold ~ Vision		CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality.Racial Vision				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kobold_ReplaceVision=True		DESC:Kobolds can see in the dark up to 60 feet.																																																																																									BONUS:VAR|HasRacialVision|1			VISION:Darkvision (60)	SOURCEPAGE:p.183
+Armor								KEY:Kobold ~ Armor		CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality									!PREFACT:1,ABILITIES,Kobold_ReplaceArmor=True		DESC:Kobolds have a +1 natural armor bonus.																																																																																									BONUS:VAR|AC_Natural_Armor|1|TYPE=Base					SOURCEPAGE:p.183
+Crafty							KEY:Kobold ~ Crafty		CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality.Special Quality.Special Ability				!PREFACT:1,ABILITIES,Kobold_ReplaceCrafty=True		DESC:Kobolds gain a +2 racial bonus on Craft (trapmaking), Perception, and Profession (miner) checks. Craft (trapmaking) and Stealth are always class skills for a kobold.																												ABILITY:Class Skill|AUTOMATIC|Craft (Traps)|Stealth					BONUS:SKILL|Craft (Traps),Perception,Profession (Miner)|2|TYPE=Racial																											SOURCEPAGE:p.183	ASPECT:RacialSkillModifier|+2 Craft (traps), +2 Perception, +2 Profession (miner)
+Weakness							KEY:Kobold ~ Weakness		CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality									!PREFACT:1,ABILITIES,Kobold_ReplaceWeakness=True	DESC:Light sensitivity.																																																					ABILITY:Special Ability|AUTOMATIC|Universal Monster Rule ~ Light Sensitivity																																							SOURCEPAGE:p.183
+Languages							KEY:Kobold ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Kobold Racial Trait.Kobold Racial Default.SpecialQuality.Racial Language			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kobold_ReplaceLanguages=True	DESC:Kobolds begin play speaking only Draconic. Kobolds who have high Intelligence scores can choose any of the following bonus languages: Common, Dwarven, Gnome, and Undercommon.	TEMPLATE:Race Bonus Language ~ Common|Race Bonus Language ~ Dwarven|Race Bonus Language ~ Gnome|Race Bonus Language ~ Undercommon	AUTO:LANG|Draconic																																																				SOURCEPAGE:p.183
 
-###Block: Set up Orc default abilities
-# Ability Name						Category of Ability	Ability
-#Racial Traits ~ Orc
-# Ability Name					Category of Ability	Ability
-Racial Traits ~ Orc					CATEGORY:Internal
-CATEGORY=Internal|Racial Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcDarkvision
-CATEGORY=Internal|Racial Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Light Sensitivity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcLightSensitivity
-CATEGORY=Internal|Racial Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Ferocity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcFerocity
-CATEGORY=Internal|Racial Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcWeaponFamiliarity
-CATEGORY=Internal|Racial Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Automatic Languages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcAutomaticLanguages
 
-###Block: Default Orc Abilities (POOL=5)
-# Ability Name		Unique Key				Category of Ability		Type																				Multiple Requirements																																												Description																		Auto Language		Auto Weapon Prof				Change Weapon Prof. Category	Vision			Source Page
-Weapon Familiarity	KEY:Orc ~ Weapon Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTraits.OrcRacialTrait.OrcRacialDefault.RacialWeaponFamiliarity			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Orc ~ Weapon Familiarity],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcWeaponFamiliarity]	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcWeaponFamiliarity]	DESC:Orcs are proficient with greataxes and falchions, and treat any weapon with orc in it as a martial weapon.					AUTO:WEAPONPROF|Greataxe|Falchion	CHANGEPROF:TYPE.Orc=Martial					SOURCEPAGE:p.139
-Automatic Languages	KEY:Orc ~ Automatic Languages	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTraits.OrcRacialTrait.OrcRacialDefault							PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Orc ~ Automatic Languages],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcAutomaticLanguages]																								DESC:Orcs can speak Orc and Common.														AUTO:LANG|Orc|Common																SOURCEPAGE:p.139
-Light Sensitivity		KEY:Orc ~ Light Sensitivity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.OrcRacialTrait.OrcRacialDefault.WeaknessTrait.Standard.LightSensitivity	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Orc ~ Light Sensitivity],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcLightSensitivity]																								DESC:Orcs are dazzled in areas of bright sunlight or within the radius of a daylight spell.																							SOURCEPAGE:p.139
-Darkvision			KEY:Orc ~ Darkvision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.OrcRacialTrait.OrcRacialDefault.SensesTrait.Standard				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Orc ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcDarkvision]																										DESC:Orcs can see in the dark up to 60 feet.																											VISION:Darkvision (60')	SOURCEPAGE:p.139
-Ferocity			KEY:Orc ~ Ferocity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.OrcRacialTrait.OrcRacialDefault.OffenseTrait.Standard				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Orc ~ Ferocity],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcFerocity]																											DESC:When below 0 hp can still fight; staggered, loses 1 hp/round.																											SOURCEPAGE:p.139
+# ------------------------------
+# Orc
+# ------------------------------
+
+###Block: Racial Abilities ~ grantor/removal MODs in x_abilities_globalvar.lst
+# Ability Name					Category of Ability	Define																						Template					Modify VAR
+Racial Traits ~ Orc				CATEGORY:Internal																									TEMPLATE:Racial Heritage ~ Orc
+CATEGORY=Internal|Racial Traits ~ Orc.MOD					DEFINE:Orc_RacialCastingStat|0	DEFINE:Orc_RacialCastingMod|0	DEFINE:Orc_RacialCasterlevel|0	DEFINE:Orc_RacialConcentration|0							BONUS:VAR|Orc_RacialCastingStat|CHASCORE	BONUS:VAR|Orc_RacialCastingMod|CHA	BONUS:VAR|Orc_RacialCasterlevel|TL	BONUS:VAR|Orc_RacialConcentration|Orc_RacialCasterlevel+Orc_RacialCastingMod
+
+###Block: Default Racial Traits
+# Ability Name							Unique Key				Category of Ability		Type																Visible		Prohibited Fact								Description																													Template																										Auto Language		Auto Weapon Prof				Ability												Stat bonus											Modify VAR				Change Weapon Prof. Category	Vision			Source Page
++4 Strength, -2 Intelligence, -2 Wisdom, -2 Charisma	KEY:Orc ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Orc_ReplaceAbilityScores=True		DESC:Orcs are brutal and savage.																																																																											BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|-2|TYPE=Racial															SOURCEPAGE:p.222
+Orc									KEY:Orc ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Orc_ReplaceType=True				DESC:Orcs are humanoids with the orc subtype.																							TEMPLATE:Orc																																																																										SOURCEPAGE:p.222
+Medium								KEY:Orc ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality.Racial Size			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Orc_ReplaceSize=True				DESC:Orcs are Medium creatures and have no bonuses or penalties due to their size.																	TEMPLATE:SIZE_M																																																																										SOURCEPAGE:p.222
+Normal Speed							KEY:Orc ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality.Racial Speed			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Orc_ReplaceSpeed=True			DESC:Orcs have a base speed of 30 feet.																																																																																																				SOURCEPAGE:p.222
+Darkvision								KEY:Orc ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality.Racial Vision			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Orc_ReplaceVision=True			DESC:Orcs can see in the dark up to 60 feet.																																																																																					BONUS:VAR|HasRacialVision|1						VISION:Darkvision (60)	SOURCEPAGE:p.222
+Light Sensitivity							KEY:Orc ~ Light Sensitivity	CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Orc_ReplaceLightSensitivity=True		DESC:See universal monster rules.																																																														ABILITY:Special Ability|AUTOMATIC|Universal Monster Rule ~ Light Sensitivity																											SOURCEPAGE:p.222
+Ferocity								KEY:Orc ~ Ferocity		CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Orc_ReplaceFerocity=True			DESC:See universal monster rules.																																																														ABILITY:Special Ability|AUTOMATIC|Universal Monster Rule ~ Ferocity																												SOURCEPAGE:p.222
+Weapon Familiarity						KEY:Orc ~ Weapon Familiarity	CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality.Special Quality					!PREFACT:1,ABILITIES,Orc_ReplaceWeaponFamiliarity=True	DESC:Orcs are always proficient with greataxes and falchions, and treat any weapon with the word "orc" in its name as a martial weapon.																																							AUTO:WEAPONPROF|Greataxe|Falchion																															CHANGEPROF:TYPE.Orc=Martial					SOURCEPAGE:p.222
+Languages								KEY:Orc ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Orc Racial Trait.Orc Racial Default.SpecialQuality.Racial Language		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Orc_ReplaceLanguages=True			DESC:Orcs begin play speaking Common and Orc. Orcs with high Intelligence scores can choose from among the following bonus languages: Dwarven, Giant, Gnoll, Goblin, Undercommon.	TEMPLATE:Race Bonus Language ~ Dwarven|Race Bonus Language ~ Giant|Race Bonus Language ~ Gnoll|Race Bonus Language ~ Goblin|Race Bonus Language ~ Undercommon	AUTO:LANG|Common|Orc																																														SOURCEPAGE:p.222
 
 ###Block: Set up Tengu default abilities
 # Ability Name							Category of Ability	Ability

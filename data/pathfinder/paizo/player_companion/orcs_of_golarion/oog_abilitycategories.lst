@@ -4,4 +4,4 @@
 
 # Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Specific choices list			Plural description for UI	Display Location
 ABILITYCATEGORY:Region of Origin	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:Region								PLURAL:Regions of Origin	DISPLAYLOCATION:Background
-ABILITYCATEGORY:Orc Race Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OrcTrait							PLURAL:Orc Race Traits		DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Orc Race Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Orc Race Trait							PLURAL:Orc Race Traits		DISPLAYLOCATION:Traits
