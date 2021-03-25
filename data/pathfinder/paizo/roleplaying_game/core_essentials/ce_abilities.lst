@@ -910,6 +910,12 @@ CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Slipping|0				A
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_HotClimate|0				ABILITY:Save Bonus|AUTOMATIC|Climate (Hot)|!PREVAREQ:FortSave_vs_HotClimate,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_SwarmsAndVermin|0			ABILITY:Save Bonus|AUTOMATIC|Swarms and Vermin|!PREVAREQ:FortSave_vs_SwarmsAndVermin,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DeathEffects|0				ABILITY:Save Bonus|AUTOMATIC|Death Effects|!PREVAREQ:SaveBonus_vs_DeathEffects,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_NauseatedCondition|0			ABILITY:Save Bonus|AUTOMATIC|Nauseated Condition|!PREVAREQ:SaveBonus_vs_NauseatedCondition,0|!PREVAREQ:SaveBonus_vs_NauseatedCondition,SaveBonus_vs_SickenedCondition
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_SickenedCondition|0			ABILITY:Save Bonus|AUTOMATIC|Sickened Condition|!PREVAREQ:SaveBonus_vs_SickenedCondition,0|!PREVAREQ:SaveBonus_vs_NauseatedCondition,SaveBonus_vs_SickenedCondition
+CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Nauseated or Sickened Conditions|!PREVAREQ:SaveBonus_vs_NauseatedCondition,0|!PREVAREQ:SaveBonus_vs_SickenedCondition,0|PREVAREQ:SaveBonus_vs_NauseatedCondition,SaveBonus_vs_SickenedCondition
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_StarvationAndThirst|0			ABILITY:Save Bonus|AUTOMATIC|Starvation and Thirst|!PREVAREQ:SaveBonus_vs_StarvationAndThirst,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_FatigueAndExhaustion|0		ABILITY:Save Bonus|AUTOMATIC|Fatigue and Exhaustion|!PREVAREQ:SaveBonus_vs_FatigueAndExhaustion,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Altitude|0				ABILITY:Save Bonus|AUTOMATIC|Altitude Fatigue and Sickness|!PREVAREQ:SaveBonus_vs_Altitude,0
 # HA
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_PsychicSpells|0				ABILITY:Save Bonus|AUTOMATIC|Psychic Spells|!PREVAREQ:SaveBonus_vs_PsychicSpells,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_SanityDamage|0				ABILITY:Save Bonus|AUTOMATIC|Sanity Damage|!PREVAREQ:SaveBonus_vs_SanityDamage,0
@@ -947,8 +953,8 @@ Disease and Mind-Affecting		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. dise
 # ARG
 Light Descriptor Effects		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. light effects|SaveBonus_vs_LightEffects|PREVARGTEQ:SaveBonus_vs_LightEffects,0	ASPECT:AllSaveBonus|%1 vs. light effects|SaveBonus_vs_LightEffects|PREVARLT:SaveBonus_vs_LightEffects,0
 Enchantment (Charm and Compulsion)	CATEGORY:Save Bonus	ASPECT:WillSaveBonus|+%1 vs. charm and compulsion spells and spell-like abilities|WillSave_vs_CharmAndCompulsion
-Despair					CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. Despair|SaveBonus_vs_Despair
-Despair and Fear				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. Despair and Fear|max(SaveBonus_vs_Despair,SaveBonus_vs_Fear)
+Despair					CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. despair|SaveBonus_vs_Despair
+Despair and Fear				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. despair and fear|max(SaveBonus_vs_Despair,SaveBonus_vs_Fear)
 Poison ~ Fort				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. poison|FortSave_vs_Poison
 Language Spells				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. language-dependent spells|SaveBonus_vs_LanguageSpells
 Trample					CATEGORY:Save Bonus	ASPECT:RefSaveBonus|+%1 vs. trample attacks|RefSave_vs_Trample
@@ -957,6 +963,12 @@ Slipping and Falling			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to avoid slip
 Climate (Hot)				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. hot climate|FortSave_vs_HotClimate
 Swarms and Vermin				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. poison and distraction ability of swarms and vermin|FortSave_vs_SwarmsAndVermin
 Death Effects				CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. death effects|SaveBonus_vs_DeathEffects
+Nauseated Condition			CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. effects that cause the nauseated condition|SaveBonus_vs_NauseatedCondition
+Sickened Condition			CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. effects that cause the sickened condition|SaveBonus_vs_SickenedCondition
+Nauseated or Sickened Conditions	CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. effects that cause the nauseated or sickened conditions|max(SaveBonus_vs_NauseatedCondition,SaveBonus_vs_SickenedCondition)
+Starvation and Thirst			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. starvation and thirst|SaveBonus_vs_StarvationAndThirst
+Fatigue and Exhaustion			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. fatigue and exhaustion|SaveBonus_vs_FatigueAndExhaustion
+Altitude Fatigue and Sickness		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. altitude fatigue and sickness|SaveBonus_vs_Altitude
 # HA
 Psychic Spells				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. psychic spells and spell-like abilities|SaveBonus_vs_PsychicSpells
 Sanity Damage				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. sanity damage|SaveBonus_vs_SanityDamage

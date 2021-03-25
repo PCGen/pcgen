@@ -31,7 +31,7 @@ ABILITYCATEGORY:Multitalented Mastery Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Catfolk Curiosity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Catfolk Curiosity		PLURAL:Catfolk Curiosity		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ratfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RatfolkRacialTrait		PLURAL:Ratfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kobold Dragon Scale Color	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KoboldDragonScaleColor	PLURAL:Kobold Dragon Scale Colors	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kobold Scale Color		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Kobold Scale Color
 
 ###Block: Featured Races Feat Categories
 ABILITYCATEGORY:Angelic Flesh Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AngelicFleshOption		PLURAL:Angelic Flesh Options		DISPLAYLOCATION:Feats

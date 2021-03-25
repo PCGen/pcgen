@@ -14,6 +14,21 @@ CATEGORY=Special Ability|Ghoul ~ Paralysis.COPY=Bat (Sootwing) ~ Paralysis						
 Poison												KEY:Seru ~ Poison							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Bite or spit venom-injury; save Fort DC 15; frequency 1/minute for 6 minutes; effect 1 Con damage plus blindness for 1 minute; cure 1 save.
 Spit Venom												KEY:Seru ~ Spit Venom						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:As a standard action, a seru can spit venom up to 30 feet. This is a ranged touch attack with no range increment. Any opponent hit by this attack is exposed to the seru's poison.
 
-###Block:
-Oversized Goblin	SOURCEPAGE:p.104	CATEGORY:Special Ability	TYPE:GoblinAlt	COST:0	BONUS:SIZEMOD|NUMBER|1		BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|DEX|-2|TYPE=Racial	BONUS:VAR|SizeIncrease|-1	BONUS:VAR|DamageSizeAdjustment|1	DESC:A few goblins attain a much larger size than their kin. No one is exactly sure why they grow to be giants among their kind, but it’s probably due to a combination of luck, diet, and constant access to food. These goblins are monsters among their own kind, not just in height, but also in girth and in strength. If not cast out for eating all of the tribe’s food, oversized goblins often become the bosses of their tribes, and the most powerful of them become chiefs. Oversized goblins are Medium size, and grow to 4 to 5 feet tall. They tend to be particularly obese, weighing between 225 and 275 pounds. Instead of the normal racial ability score modifiers for goblins, oversized goblins gain a +2 bonus to Strength, a +2 bonus to Dexterity, and a –2 penalty to Charisma.
 
+# ------------------------------
+# Goblin ~ Alternate Racial Traits
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:ABILITYPOOL|Goblin Variant|1
+
+###Block: Alternate Goblin Racial Traits
+# Ability Name	Category of Ability		Type														Visible		Description																																																																																																																																		Ability															Source Page
+Standard Goblin	CATEGORY:Special Ability	TYPE:Goblin Variant											VISIBLE:DISPLAY																																																																																																																																																				SOURCEPAGE:p.104
+Oversized Goblin	CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.SpecialQuality.Special Quality.Goblin Variant				DESC:A few goblins attain a much larger size than their kin. No one is exactly sure why they grow to be giants among their kind, but it's probably due to a combination of luck, diet, and constant access to food. These goblins are monsters among their own kind, not just in height, but also in girth and in strength. If not cast out for eating all of the tribe's food, oversized goblins often become the bosses of their tribes, and the most powerful of them become chiefs.&nl;Oversized goblins are Medium size, and grow to 4 to 5 feet tall. They tend to be particularly obese, weighing between 225 and 275 pounds. Instead of the normal racial ability score modifiers for goblins, oversized goblins gain a +2 bonus to Strength, a +2 bonus to Dexterity, and a -2 penalty to Charisma.	ABILITY:Goblin Racial Trait|AUTOMATIC|Oversized Goblin ~ Ability Scores|Oversized Goblin ~ Size	SOURCEPAGE:p.104
+
+###Block: Replacement Abilities
+# Ability Name					Unique Key						Category of Ability		Type													Visible		Description																	Template		Stat bonus						Source Page		FACT
++2 Strength, +2 Dexterity, -2 Charisma	KEY:Oversized Goblin ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:Oversized goblins gain a +2 bonus to Strength, a +2 bonus to Dexterity, and a -2 penalty to Charisma.				BONUS:STAT|STR,DEX|2	BONUS:STAT|CHA|-2	SOURCEPAGE:p.104	FACT:Goblin_ReplaceAbilityScores|True
+Medium						KEY:Oversized Goblin ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.SpecialQuality.Racial Size			VISIBLE:DISPLAY	DESC:Oversized goblins are Medium creatures and receive no bonuses or penalties due to their size.		TEMPLATE:SIZE_M								SOURCEPAGE:p.104	FACT:Goblin_ReplaceSize|True
