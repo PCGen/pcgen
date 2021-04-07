@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="US-ASCII"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE GENERATOR SYSTEM "./generator.dtd">
+<!-- Names from the Elder Scrolls wiki: https://en.uesp.net/wiki/Lore:Names --> 
 <GENERATOR>
     <RULESET id="tamriel-atmer-male-full-rule" title="Atmer(High elf)" usage="final">
         <CATEGORY title="Fantasy: Tamriel" />
@@ -101,7 +102,7 @@
         </RULE>
     </RULESET>
 
-    <RULESET id="tamriel-argonian-male-rule" title="Argonian (Lizardfolk)">
+    <RULESET id="tamriel-argonian-male-rule" title="Argonian (Lizardfolk)" usage="final">
         <CATEGORY title="Fantasy: Tamriel" />
         <CATEGORY title="All" />
         <CATEGORY title="Fantasy: Other Races" />
@@ -110,14 +111,125 @@
             <GETLIST idref="tamriel-argonian-male" title="Jel Single" />
         </RULE>
         <RULE weight="1">
-            <GETLIST idref="tamriel-argonian-male-prefix" title="Jel Prefix" />
+            <GETLIST idref="tamriel-argonian-prefix" title="Jel Prefix" />
             <HYPHEN />
-            <GETLIST idref="tamriel-argonian-male-suffix" title="Jel Suffix" />
+            <GETLIST idref="tamriel-argonian-suffix" title="Jel Suffix" />
         </RULE>
         <RULE weight="1">
-            <GETLIST idref="tamriel-argonian-tamrelic" title="Tamrelic" />
+            <GETRULE idref="tamriel-argonian-tamrelic-male-rule" title="Tamrelic" />
         </RULE>
     </RULESET>
+    <RULESET id="tamriel-argonian-female-rule" title="Argonian (Lizardfolk)" usage="final">
+        <CATEGORY title="Fantasy: Tamriel" />
+        <CATEGORY title="All" />
+        <CATEGORY title="Fantasy: Other Races" />
+        <CATEGORY title="Sex: Female" />
+        <RULE weight="1">
+            <GETLIST idref="tamriel-argonian-female" title="Jel Single" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="tamriel-argonian-prefix" title="Jel Prefix" />
+            <HYPHEN />
+            <GETLIST idref="tamriel-argonian-suffix" title="Jel Suffix" />
+        </RULE>
+        <RULE weight="1">
+            <GETRULE idref="tamriel-argonian-tamrelic-female-rule" title="Tamrelic" />
+        </RULE>
+    </RULESET>
+    
+    <RULESET id="tamriel-argonian-tamrelic-male-rule" title="Tamrelic" usage="public">
+        <RULE weight="2">
+            <GETLIST idref="tamrelic-argonian-adj-a" title="Adj" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun" />
+        </RULE>
+        <RULE weight="6">
+            <GETLIST idref="tamrelic-argonian-verb-a" title="Verb" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-vn-articles" title="Articles" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun" />
+        </RULE>
+        <RULE weight="8">
+            <GETLIST idref="tamrelic-argonian-verb-a" title="Verb" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-adverb-b" title="Adverb" />
+        </RULE>
+        <RULE weight="2">
+            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-adverb-b" title="Adj" />
+        </RULE>
+        <RULE weight="2">
+            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun A" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-nn-articles" title="Article" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun B" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun A" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun B" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="tamrelic-argonian-male-full" title="Full" />
+        </RULE>
+    </RULESET>
+
+    <RULESET id="tamriel-argonian-tamrelic-female-rule" title="Tamrelic" usage="public">
+        <RULE weight="6">
+            <GETLIST idref="tamrelic-argonian-adj-a" title="Adj" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun" />
+        </RULE>
+        <RULE weight="9">
+            <GETLIST idref="tamrelic-argonian-verb-a" title="Verb" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-vn-articles" title="Articles" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun" />
+        </RULE>
+        <RULE weight="7">
+            <GETLIST idref="tamrelic-argonian-verb-a" title="Verb" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-adverb-b" title="Adverb" />
+        </RULE>
+        <RULE weight="2">
+            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-adverb-b" title="Adj" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun A" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-nn-articles" title="Article" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun B" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun A" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun B" />
+        </RULE>
+        <RULE weight="6">
+            <GETLIST idref="tamrelic-argonian-female-full" title="Full" />
+        </RULE>
+    </RULESET>
+
+    <LIST id="tamrelic-vn-articles" title="Article">
+        <VALUE>With</VALUE>
+        <VALUE>Many</VALUE>
+        <VALUE>no</VALUE>
+        <VALUE>at</VALUE> <!--Awkward at times-->
+        <VALUE>in</VALUE>
+        <VALUE>the</VALUE>
+    </LIST>
+    <LIST id="tamrelic-nn-articles" title="Article">
+        <VALUE>Like</VALUE>
+        <VALUE>in-the</VALUE>
+        <VALUE>of</VALUE>
+    </LIST>
 
     <LIST id="tamriel-argonian-male" title="Jel">
         <VALUE>Asum</VALUE>
@@ -440,65 +552,1303 @@
         <VALUE>Yelus</VALUE>
         <VALUE>Yexil</VALUE>
     </LIST>
-    <LIST id="tamriel-argonian-male-prefix" title="Jel A">
-        <VALUE>An</VALUE>
+    <LIST id="tamriel-argonian-female" title="Jel">
+        <VALUE>Ahaht</VALUE>
+        <VALUE>Akish</VALUE>
+        <VALUE>Banalz</VALUE>
+        <VALUE>Beekatan</VALUE>
+        <VALUE>Eutei</VALUE>
+        <VALUE>Gilm</VALUE>
+        <VALUE>Gish</VALUE>
+        <VALUE>Hul</VALUE>
+        <VALUE>Kasa</VALUE>
+        <VALUE>Milah</VALUE>
+        <VALUE>Nakuma</VALUE>
+        <VALUE>Neesha</VALUE>
+        <VALUE>Nuralg</VALUE>
+        <VALUE>Nush</VALUE>
+        <VALUE>Okur</VALUE>
+        <VALUE>Onasha</VALUE>
+        <VALUE>Shatalg</VALUE>
+        <VALUE>Tasha</VALUE>
+        <VALUE>Wusha</VALUE>
+        <VALUE>Beelei</VALUE>
+        <VALUE>Beewos</VALUE>
+        <VALUE>Bejeen</VALUE>
+        <VALUE>Deetsan</VALUE>
+        <VALUE>Druja</VALUE>
+        <VALUE>Marz</VALUE>
+        <VALUE>Numeen</VALUE>
+        <VALUE>Ocheeva</VALUE>
+        <VALUE>Pasha</VALUE>
+        <VALUE>Rana</VALUE>
+        <VALUE>Shaleez</VALUE>
+        <VALUE>Skaleel</VALUE>
+        <VALUE>Witseidutsei</VALUE>
+        <VALUE>Deeja</VALUE>
+        <VALUE>Keerava</VALUE>
+        <VALUE>Shahvee</VALUE>
+        <VALUE>Wujeeta</VALUE>
+        <VALUE> Ajuxtus</VALUE>
+        <VALUE>Akeenus</VALUE>
+        <VALUE>Akishan</VALUE>
+        <VALUE>Aleeta</VALUE>
+        <VALUE>Aleeto</VALUE>
+        <VALUE>Amatkeeus</VALUE>
+        <VALUE>Amussa</VALUE>
+        <VALUE>Aseis</VALUE>
+        <VALUE>Asheemar</VALUE>
+        <VALUE>Asska</VALUE>
+        <VALUE>Awas</VALUE>
+        <VALUE>Bahrez</VALUE>
+        <VALUE>Baseekus</VALUE>
+        <VALUE>Baseenar</VALUE>
+        <VALUE>Beehuna</VALUE>
+        <VALUE>Beekaw</VALUE>
+        <VALUE>Beela</VALUE>
+        <VALUE>Beexutl</VALUE>
+        <VALUE>Betzi</VALUE>
+        <VALUE>Bezarbeeh</VALUE>
+        <VALUE>Bikusotl</VALUE>
+        <VALUE>Bishalus</VALUE>
+        <VALUE>Bixitleesh</VALUE>
+        <VALUE>Bizara</VALUE>
+        <VALUE>Bokeeus</VALUE>
+        <VALUE>Buki</VALUE>
+        <VALUE>Buxtil</VALUE>
+        <VALUE>Chalaree</VALUE>
+        <VALUE>Chanaius</VALUE>
+        <VALUE>Chaneej</VALUE>
+        <VALUE>Chastul</VALUE>
+        <VALUE>Chaxolee</VALUE>
+        <VALUE>Cheerz</VALUE>
+        <VALUE>Chelni</VALUE>
+        <VALUE>Chexi</VALUE>
+        <VALUE>Chimatei</VALUE>
+        <VALUE>Chirurgeon</VALUE>
+        <VALUE>Choixth</VALUE>
+        <VALUE>Cholasistu</VALUE>
+        <VALUE>Choxi</VALUE>
+        <VALUE>Chunkeesei</VALUE>
+        <VALUE>Churasu</VALUE>
+        <VALUE>Dafeeso</VALUE>
+        <VALUE>Dajaheel</VALUE>
+        <VALUE>Dajaleen</VALUE>
+        <VALUE>Dakee</VALUE>
+        <VALUE>Dakeeto</VALUE>
+        <VALUE>Daleez</VALUE>
+        <VALUE>Damatez</VALUE>
+        <VALUE>Damee</VALUE>
+        <VALUE>Damonalus</VALUE>
+        <VALUE>Dasha</VALUE>
+        <VALUE>Deca*</VALUE>
+        <VALUE>Deegeeta</VALUE>
+        <VALUE>Deel</VALUE>
+        <VALUE>Deemat</VALUE>
+        <VALUE>Deetaku</VALUE>
+        <VALUE>Deetul</VALUE>
+        <VALUE>Deetwos</VALUE>
+        <VALUE>Degadeesh</VALUE>
+        <VALUE>Dergla</VALUE>
+        <VALUE>Deyapa</VALUE>
+        <VALUE>Dokishnaza</VALUE>
+        <VALUE>Dosa</VALUE>
+        <VALUE>Dradeiva</VALUE>
+        <VALUE>Droran</VALUE>
+        <VALUE>Drujal</VALUE>
+        <VALUE>Druxolneeus</VALUE>
+        <VALUE>Easeeto</VALUE>
+        <VALUE>Eatzapa</VALUE>
+        <VALUE>Eukkaneeus</VALUE>
+        <VALUE>Ezei</VALUE>
+        <VALUE>Geeh</VALUE>
+        <VALUE>Ghekuknaza</VALUE>
+        <VALUE>Ghelaha</VALUE>
+        <VALUE>Gideelar</VALUE>
+        <VALUE>Haxara</VALUE>
+        <VALUE>Heenashan</VALUE>
+        <VALUE>Hikinu</VALUE>
+        <VALUE>Hixultvutar</VALUE>
+        <VALUE>Honei</VALUE>
+        <VALUE>Ianix</VALUE>
+        <VALUE>Imhey</VALUE>
+        <VALUE>Inalz</VALUE>
+        <VALUE>Iozukeeus</VALUE>
+        <VALUE>Inue</VALUE>
+        <VALUE>Itzaki</VALUE>
+        <VALUE>Jasaii</VALUE>
+        <VALUE>Jasudei</VALUE>
+        <VALUE>Jeetum</VALUE>
+        <VALUE>Jukka</VALUE>
+        <VALUE>Juutenma</VALUE>
+        <VALUE>Kahei</VALUE>
+        <VALUE>Kaloo</VALUE>
+        <VALUE>Kaska</VALUE>
+        <VALUE>Keeran</VALUE>
+        <VALUE>Keerasa</VALUE>
+        <VALUE>Keesa</VALUE>
+        <VALUE>Keshu</VALUE>
+        <VALUE>Kiurz</VALUE>
+        <VALUE>Kizta</VALUE>
+        <VALUE>Kloxu</VALUE>
+        <VALUE>Klumuk</VALUE>
+        <VALUE>Kudda</VALUE>
+        <VALUE>Kulusi</VALUE>
+        <VALUE>Kunasheeth</VALUE>
+        <VALUE>Kuzei</VALUE>
+        <VALUE>Leetu</VALUE>
+        <VALUE>Lineem</VALUE>
+        <VALUE>Lohulurash</VALUE>
+        <VALUE>Loseitsei</VALUE>
+        <VALUE>Loxaldesh</VALUE>
+        <VALUE>Lunsu</VALUE>
+        <VALUE>Luraxith</VALUE>
+        <VALUE>Lutapeeth</VALUE>
+        <VALUE>Luxultava</VALUE>
+        <VALUE>Makeusta</VALUE>
+        <VALUE>Markka</VALUE>
+        <VALUE>Martul</VALUE>
+        <VALUE>Mateem</VALUE>
+        <VALUE>Matreeka</VALUE>
+        <VALUE>Meelni</VALUE>
+        <VALUE>Meena</VALUE>
+        <VALUE>Meenai</VALUE>
+        <VALUE>Meerana</VALUE>
+        <VALUE>Meetza</VALUE>
+        <VALUE>Mereel</VALUE>
+        <VALUE>Methei</VALUE>
+        <VALUE>Mezatil</VALUE>
+        <VALUE>Milaw</VALUE>
+        <VALUE>Milzus</VALUE>
+        <VALUE>Mimme</VALUE>
+        <VALUE>Misei</VALUE>
+        <VALUE>Mishapa</VALUE>
+        <VALUE>Miuni</VALUE>
+        <VALUE>Muhu</VALUE>
+        <VALUE>Mukka</VALUE>
+        <VALUE>Murrax</VALUE>
+        <VALUE>Mutei</VALUE>
+        <VALUE>Najeepa</VALUE>
+        <VALUE>Nameel</VALUE>
+        <VALUE>Narnum</VALUE>
+        <VALUE>Nasee</VALUE>
+        <VALUE>Natalgreesh</VALUE>
+        <VALUE>Nathrasa</VALUE>
+        <VALUE>Nebaxireet</VALUE>
+        <VALUE>Neeka</VALUE>
+        <VALUE>Neer</VALUE>
+        <VALUE>Neetizei</VALUE>
+        <VALUE>Neetra</VALUE>
+        <VALUE>Niima</VALUE>
+        <VALUE>Nijuna</VALUE>
+        <VALUE>Nijuneel</VALUE>
+        <VALUE>Nojaxia</VALUE>
+        <VALUE>Nokama</VALUE>
+        <VALUE>Nowa</VALUE>
+        <VALUE>Noxutln</VALUE>
+        <VALUE>Nubaree</VALUE>
+        <VALUE>Nukorash</VALUE>
+        <VALUE>Nurdan</VALUE>
+        <VALUE>Nutum</VALUE>
+        <VALUE>Nuwisha</VALUE>
+        <VALUE>Nuxal</VALUE>
+        <VALUE>Oleena</VALUE>
+        <VALUE>Omeeta</VALUE>
+        <VALUE>Osheeja</VALUE>
+        <VALUE>Padeehei</VALUE>
+        <VALUE>Padeel</VALUE>
+        <VALUE>Paheiza</VALUE>
+        <VALUE>Pakee</VALUE>
+        <VALUE>Pameel</VALUE>
+        <VALUE>Pateem</VALUE>
+        <VALUE>Pavu</VALUE>
+        <VALUE>Peekeus</VALUE>
+        <VALUE>Peelgah</VALUE>
+        <VALUE>Pegareem</VALUE>
+        <VALUE>Pinooh</VALUE>
+        <VALUE>Porath</VALUE>
+        <VALUE>Pujeerish</VALUE>
+        <VALUE>Pulaya</VALUE>
+        <VALUE>Puweel</VALUE>
+        <VALUE>Puyatha</VALUE>
+        <VALUE>Raleetal</VALUE>
+        <VALUE>Reekatul</VALUE>
+        <VALUE>Reekaturl</VALUE>
+        <VALUE>Reekeepa</VALUE>
+        <VALUE>Reesa</VALUE>
+        <VALUE>Ruko</VALUE>
+        <VALUE>Rupaheel</VALUE>
+        <VALUE>Rutabeeh</VALUE>
+        <VALUE>Ruxultav</VALUE>
+        <VALUE>Sashee</VALUE>
+        <VALUE>Saxolt</VALUE>
+        <VALUE>Sharava</VALUE>
+        <VALUE>Shatasha</VALUE>
+        <VALUE>Shatuna</VALUE>
+        <VALUE>Sheelahi</VALUE>
+        <VALUE>Shukesh</VALUE>
+        <VALUE>Shuliish</VALUE>
+        <VALUE>Shumeesh</VALUE>
+        <VALUE>Shuxaltsei</VALUE>
+        <VALUE>Simeesh</VALUE>
+        <VALUE>Sisar</VALUE>
+        <VALUE>Skatinava</VALUE>
+        <VALUE>Skeeheieeus</VALUE>
+        <VALUE>Skeetees</VALUE>
+        <VALUE>Solni</VALUE>
+        <VALUE>Sonsu</VALUE>
+        <VALUE>Sulahkeesh</VALUE>
+        <VALUE>Sumanirr</VALUE>
+        <VALUE>Supowateer</VALUE>
+        <VALUE>Shukesh</VALUE>
+        <VALUE>Shuxaltsei</VALUE>
+        <VALUE>Talosha</VALUE>
+        <VALUE>Taxatl</VALUE>
+        <VALUE>Taxilteer</VALUE>
+        <VALUE>Teegya</VALUE>
+        <VALUE>Teeteka</VALUE>
+        <VALUE>Telixith</VALUE>
+        <VALUE>Terameen</VALUE>
+        <VALUE>Tlaiuhticah</VALUE>
+        <VALUE>Tlatiz</VALUE>
+        <VALUE>Tletva</VALUE>
+        <VALUE>Tlixult</VALUE>
+        <VALUE>Tlonkaan</VALUE>
+        <VALUE>Tloxalith</VALUE>
+        <VALUE>Tludul</VALUE>
+        <VALUE>Tsaesh</VALUE>
+        <VALUE>Tseedasi</VALUE>
+        <VALUE>Tseekibeesh</VALUE>
+        <VALUE>Tsleitzei</VALUE>
+        <VALUE>Tsudeereeus</VALUE>
+        <VALUE>Tulut</VALUE>
+        <VALUE>Tumaka</VALUE>
+        <VALUE>Tuwul</VALUE>
+        <VALUE>Uazee</VALUE>
+        <VALUE>Ukara</VALUE>
+        <VALUE>Ukasha</VALUE>
+        <VALUE>Utazaw</VALUE>
+        <VALUE>Utzaei</VALUE>
+        <VALUE>Uxitldish</VALUE>
+        <VALUE>Vaxeeh</VALUE>
+        <VALUE>Veemarz</VALUE>
+        <VALUE>Veesum</VALUE>
+        <VALUE>Veezil</VALUE>
+        <VALUE>Villa</VALUE>
+        <VALUE>Vistha</VALUE>
+        <VALUE>Volahnu</VALUE>
+        <VALUE>Vorh</VALUE>
+        <VALUE>Vukus</VALUE>
+        <VALUE>Vureiem</VALUE>
+        <VALUE>Wahirat</VALUE>
+        <VALUE>Wareem</VALUE>
+        <VALUE>Wawul</VALUE>
+        <VALUE>Weechei</VALUE>
+        <VALUE>Weegam</VALUE>
+        <VALUE>Weewish</VALUE>
+        <VALUE>Wemeerit</VALUE>
+        <VALUE>Wenaxi</VALUE>
+        <VALUE>Wiku</VALUE>
+        <VALUE>Wita</VALUE>
+        <VALUE>Wixil</VALUE>
+        <VALUE>Wusava</VALUE>
+        <VALUE>Xaleez</VALUE>
+        <VALUE>Xamarz</VALUE>
+        <VALUE>Xarei</VALUE>
+        <VALUE>Xeejalish</VALUE>
+        <VALUE>Xeeka</VALUE>
+        <VALUE>Ximukto</VALUE>
+        <VALUE>Xinka</VALUE>
+        <VALUE>Xixuai</VALUE>
+        <VALUE>Xokomar</VALUE>
+        <VALUE>Xowaj</VALUE>
+        <VALUE>Xohaneel</VALUE>
+        <VALUE>Xula</VALUE>
+        <VALUE>Zatzu</VALUE>
+    </LIST>
+    <LIST id="tamriel-argonian-prefix" title="Jel A">
+        <VALUE>Adzi</VALUE>
         <VALUE>Ah</VALUE>
-        <VALUE>Ajum</VALUE>
+        <VALUE>Ahaht</VALUE>
+        <VALUE>Ajim</VALUE>
+        <VALUE>Ajul</VALUE>
+        <VALUE>Am</VALUE>
+        <VALUE>Amel</VALUE>
+        <VALUE>An</VALUE>
+        <VALUE>Anozz</VALUE>
+        <VALUE>Aomee</VALUE>
+        <VALUE>Az</VALUE>
+        <VALUE>Azeez</VALUE>
+        <VALUE>Baar</VALUE>
+        <VALUE>Bar</VALUE>
+        <VALUE>Beek</VALUE>
+        <VALUE>Beel</VALUE>
         <VALUE>Beem</VALUE>
-        <VALUE>Brand</VALUE>
-        <VALUE>Bun</VALUE>
+        <VALUE>Ber</VALUE>
+        <VALUE>Bijum</VALUE>
+        <VALUE>Bur</VALUE>
+        <VALUE>Bura</VALUE>
+        <VALUE>Chana</VALUE>
+        <VALUE>Chanil</VALUE>
+        <VALUE>Chee</VALUE>
+        <VALUE>Cheesh</VALUE>
+        <VALUE>Chukka</VALUE>
+        <VALUE>Dakee</VALUE>
         <VALUE>Dan</VALUE>
         <VALUE>Dar</VALUE>
-        <VALUE>Deetum</VALUE>
+        <VALUE>Dee</VALUE>
+        <VALUE>Deechee</VALUE>
+        <VALUE>Deem</VALUE>
+        <VALUE>Deesh</VALUE>
+        <VALUE>Deet</VALUE>
+        <VALUE>Desh</VALUE>
+        <VALUE>Detu</VALUE>
+        <VALUE>Dosu</VALUE>
         <VALUE>Dreet</VALUE>
-        <VALUE>Effe</VALUE>
-        <VALUE>Eleedal</VALUE>
-        <VALUE>Er</VALUE>
+        <VALUE>Duk</VALUE>
+        <VALUE>Dus</VALUE>
+        <VALUE>Ei</VALUE>
+        <VALUE>El</VALUE>
+        <VALUE>Ereel</VALUE>
+        <VALUE>Fal</VALUE>
         <VALUE>Gah</VALUE>
-        <VALUE>Gam</VALUE>
+        <VALUE>Geeh</VALUE>
         <VALUE>Geel</VALUE>
-        <VALUE>Geem</VALUE>
-        <VALUE>Gajul</VALUE>
-        <VALUE>Gulum</VALUE>
+        <VALUE>Gih</VALUE>
         <VALUE>Gin</VALUE>
         <VALUE>Haj</VALUE>
+        <VALUE>Hal</VALUE>
         <VALUE>Han</VALUE>
+        <VALUE>Hara</VALUE>
+        <VALUE>Heed</VALUE>
+        <VALUE>Heek</VALUE>
         <VALUE>Heem</VALUE>
-        <VALUE>Heir</VALUE>
-        <VALUE>Im</VALUE>
+        <VALUE>Heita</VALUE>
+        <VALUE>Hiis</VALUE>
+        <VALUE>Hul</VALUE>
         <VALUE>Ilas</VALUE>
-        <VALUE>Jeelus</VALUE>
+        <VALUE>Io</VALUE>
+        <VALUE>Itan</VALUE>
+        <VALUE>Ix</VALUE>
         <VALUE>Jaree</VALUE>
-        <VALUE>Jeetum</VALUE>
-        <VALUE>J'ram</VALUE>
+        <VALUE>Jazeez</VALUE>
         <VALUE>Jee</VALUE>
-        <VALUE>Jeer</VALUE>
-        <VALUE>Ja</VALUE>
+        <VALUE>Jeeba</VALUE>
+        <VALUE>Jeed</VALUE>
+        <VALUE>Jeeda</VALUE>
+        <VALUE>Jeelus</VALUE>
+        <VALUE>Jeetum</VALUE>
+        <VALUE>Jotep</VALUE>
+        <VALUE>Jun</VALUE>
         <VALUE>Junal</VALUE>
-        <VALUE>Keerasa</VALUE>
-        <VALUE>Miun</VALUE>
-        <VALUE>Mush</VALUE>
+        <VALUE>Kal</VALUE>
+        <VALUE>Kani</VALUE>
+        <VALUE>Kasa</VALUE>
+        <VALUE>Keel</VALUE>
+        <VALUE>Keema</VALUE>
+        <VALUE>Kizta</VALUE>
+        <VALUE>Kud</VALUE>
+        <VALUE>Lara</VALUE>
+        <VALUE>Leel</VALUE>
+        <VALUE>Lorpat</VALUE>
+        <VALUE>Mach</VALUE>
+        <VALUE>Mahei</VALUE>
+        <VALUE>Mani</VALUE>
+        <VALUE>Marz</VALUE>
+        <VALUE>Mee</VALUE>
+        <VALUE>Meeh</VALUE>
+        <VALUE>Meema</VALUE>
+        <VALUE>Meen</VALUE>
+        <VALUE>Meenai</VALUE>
+        <VALUE>Meer</VALUE>
+        <VALUE>Mewah</VALUE>
+        <VALUE>Mim</VALUE>
+        <VALUE>Mujee</VALUE>
+        <VALUE>Murak</VALUE>
+        <VALUE>Muz</VALUE>
+        <VALUE>Na</VALUE>
+        <VALUE>Nam</VALUE>
+        <VALUE>Neeja</VALUE>
+        <VALUE>Neeta</VALUE>
+        <VALUE>Neeti</VALUE>
+        <VALUE>Nesh</VALUE>
+        <VALUE>Nolu</VALUE>
+        <VALUE>Nomu</VALUE>
+        <VALUE>Nuleem</VALUE>
+        <VALUE>Odeel</VALUE>
         <VALUE>Okan</VALUE>
-        <VALUE>Oleen</VALUE>
+        <VALUE>Olank</VALUE>
         <VALUE>Oleed</VALUE>
-        <VALUE>Olink</VALUE>
+        <VALUE>Oleen</VALUE>
+        <VALUE>On</VALUE>
+        <VALUE>Onai</VALUE>
+        <VALUE>Onurai</VALUE>
+        <VALUE>Otumi</VALUE>
+        <VALUE>Owai</VALUE>
         <VALUE>Pad</VALUE>
-        <VALUE>Porliss</VALUE>
+        <VALUE>Pash</VALUE>
+        <VALUE>Peek</VALUE>
+        <VALUE>Pekai</VALUE>
+        <VALUE>Rabeen</VALUE>
+        <VALUE>Ree</VALUE>
         <VALUE>Reeh</VALUE>
+        <VALUE>Renesh</VALUE>
+        <VALUE>Ruja</VALUE>
+        <VALUE>Sali</VALUE>
+        <VALUE>Sawen</VALUE>
+        <VALUE>Seed</VALUE>
+        <VALUE>Seen</VALUE>
+        <VALUE>Shanil</VALUE>
+        <VALUE>Shazara</VALUE>
+        <VALUE>Sheer</VALUE>
+        <VALUE>Shei</VALUE>
         <VALUE>Silm</VALUE>
+        <VALUE>Slim</VALUE>
+        <VALUE>Supo</VALUE>
+        <VALUE>Tah</VALUE>
         <VALUE>Talen</VALUE>
+        <VALUE>Tana</VALUE>
+        <VALUE>Tar</VALUE>
         <VALUE>Teeba</VALUE>
-        <VALUE>Tee</VALUE>
-        <VALUE>Tum</VALUE>
+        <VALUE>Tem</VALUE>
         <VALUE>Tim</VALUE>
+        <VALUE>Tsona</VALUE>
+        <VALUE>Tumma</VALUE>
+        <VALUE>Tunbam</VALUE>
+        <VALUE>Ukka</VALUE>
+        <VALUE>Ula</VALUE>
+        <VALUE>Uta</VALUE>
+        <VALUE>Uwa</VALUE>
+        <VALUE>Veek</VALUE>
+        <VALUE>Veeka</VALUE>
+        <VALUE>Veest</VALUE>
+        <VALUE>Veth</VALUE>
+        <VALUE>Vetra</VALUE>
         <VALUE>Vistha</VALUE>
-        <VALUE>Wanan</VALUE>
+        <VALUE>Vuh</VALUE>
+        <VALUE>Wanam</VALUE>
         <VALUE>Weebam</VALUE>
+        <VALUE>Weedum</VALUE>
         <VALUE>Wih</VALUE>
         <VALUE>Wud</VALUE>
+        <VALUE>Wuja</VALUE>
         <VALUE>Wuleen</VALUE>
+        <VALUE>Xal</VALUE>
+        <VALUE>Xijai</VALUE>
+        <VALUE>Xil</VALUE>
+        <VALUE>Xugirus</VALUE>
+        <VALUE>Zasha</VALUE>
     </LIST>
-
+    <LIST id="tamriel-argonian-suffix" title="Jel B">
+        <VALUE>Azza</VALUE>
+        <VALUE>Beekus</VALUE>
+        <VALUE>Betu</VALUE>
+        <VALUE>Chuna</VALUE>
+        <VALUE>Crath</VALUE>
+        <VALUE>Dar</VALUE>
+        <VALUE>Deeka</VALUE>
+        <VALUE>Deesei</VALUE>
+        <VALUE>Dimik</VALUE>
+        <VALUE>Dooka</VALUE>
+        <VALUE>Dum</VALUE>
+        <VALUE>Eepa</VALUE>
+        <VALUE>Ei</VALUE>
+        <VALUE>Eix</VALUE>
+        <VALUE>Enoo</VALUE>
+        <VALUE>Ereel</VALUE>
+        <VALUE>Gai</VALUE>
+        <VALUE>Geel</VALUE>
+        <VALUE>Geet</VALUE>
+        <VALUE>Gei</VALUE>
+        <VALUE>Gith</VALUE>
+        <VALUE>Go</VALUE>
+        <VALUE>Goh</VALUE>
+        <VALUE>Halu</VALUE>
+        <VALUE>Hei</VALUE>
+        <VALUE>Hidja</VALUE>
+        <VALUE>Huruk</VALUE>
+        <VALUE>Io</VALUE>
+        <VALUE>Ja</VALUE>
+        <VALUE>Jaa</VALUE>
+        <VALUE>Jah</VALUE>
+        <VALUE>Jahz</VALUE>
+        <VALUE>Jas</VALUE>
+        <VALUE>Jasa</VALUE>
+        <VALUE>Jasaiin</VALUE>
+        <VALUE>Jaseen</VALUE>
+        <VALUE>Jassa</VALUE>
+        <VALUE>Jasuda</VALUE>
+        <VALUE>Jat</VALUE>
+        <VALUE>Jee</VALUE>
+        <VALUE>Jeen</VALUE>
+        <VALUE>Jekka</VALUE>
+        <VALUE>Ju</VALUE>
+        <VALUE>Jush</VALUE>
+        <VALUE>Jusha</VALUE>
+        <VALUE>Kahz</VALUE>
+        <VALUE>Kai</VALUE>
+        <VALUE>Kajul</VALUE>
+        <VALUE>Kasi</VALUE>
+        <VALUE>Kel</VALUE>
+        <VALUE>Kesh</VALUE>
+        <VALUE>Kia</VALUE>
+        <VALUE>Kii</VALUE>
+        <VALUE>Kilaya</VALUE>
+        <VALUE>Kiurz</VALUE>
+        <VALUE>Kur</VALUE>
+        <VALUE>La</VALUE>
+        <VALUE>Lah</VALUE>
+        <VALUE>Lai</VALUE>
+        <VALUE>Lee</VALUE>
+        <VALUE>Lei</VALUE>
+        <VALUE>Li</VALUE>
+        <VALUE>Liurz</VALUE>
+        <VALUE>Loh</VALUE>
+        <VALUE>Lurash</VALUE>
+        <VALUE>Lurasha</VALUE>
+        <VALUE>Ma</VALUE>
+        <VALUE>Maht</VALUE>
+        <VALUE>Majin</VALUE>
+        <VALUE>Makka</VALUE>
+        <VALUE>Malem</VALUE>
+        <VALUE>Malz</VALUE>
+        <VALUE>Maxath</VALUE>
+        <VALUE>Medul</VALUE>
+        <VALUE>Mee</VALUE>
+        <VALUE>Meedish</VALUE>
+        <VALUE>Meema</VALUE>
+        <VALUE>Meen</VALUE>
+        <VALUE>Meena</VALUE>
+        <VALUE>Meenus</VALUE>
+        <VALUE>Meesei</VALUE>
+        <VALUE>Meeus</VALUE>
+        <VALUE>Mei</VALUE>
+        <VALUE>Mere</VALUE>
+        <VALUE>Mota</VALUE>
+        <VALUE>Mudeska</VALUE>
+        <VALUE>Muz</VALUE>
+        <VALUE>Na</VALUE>
+        <VALUE>Naat</VALUE>
+        <VALUE>Nakal</VALUE>
+        <VALUE>Nassa</VALUE>
+        <VALUE>Natoo</VALUE>
+        <VALUE>Naza</VALUE>
+        <VALUE>Neeus</VALUE>
+        <VALUE>Nei</VALUE>
+        <VALUE>Noo</VALUE>
+        <VALUE>Nur</VALUE>
+        <VALUE>Osheeja</VALUE>
+        <VALUE>Osheeka</VALUE>
+        <VALUE>Ra</VALUE>
+        <VALUE>Raj</VALUE>
+        <VALUE>Raniur</VALUE>
+        <VALUE>Ranu</VALUE>
+        <VALUE>Reen</VALUE>
+        <VALUE>Rei</VALUE>
+        <VALUE>Riha</VALUE>
+        <VALUE>Ru</VALUE>
+        <VALUE>Ruul</VALUE>
+        <VALUE>Sa</VALUE>
+        <VALUE>Saak</VALUE>
+        <VALUE>Sakka</VALUE>
+        <VALUE>See</VALUE>
+        <VALUE>Seeba</VALUE>
+        <VALUE>Shah</VALUE>
+        <VALUE>Shehs</VALUE>
+        <VALUE>Shei</VALUE>
+        <VALUE>Sisei</VALUE>
+        <VALUE>Ta</VALUE>
+        <VALUE>Taeed</VALUE>
+        <VALUE>Tah</VALUE>
+        <VALUE>Tan</VALUE>
+        <VALUE>Teel</VALUE>
+        <VALUE>Teeus</VALUE>
+        <VALUE>Tehat</VALUE>
+        <VALUE>Tei</VALUE>
+        <VALUE>Tul</VALUE>
+        <VALUE>Tulm</VALUE>
+        <VALUE>Utha</VALUE>
+        <VALUE>Vata</VALUE>
+        <VALUE>Veidal</VALUE>
+        <VALUE>Vilax</VALUE>
+        <VALUE>Wan</VALUE>
+        <VALUE>Waska</VALUE>
+        <VALUE>Waza</VALUE>
+        <VALUE>Wazei</VALUE>
+        <VALUE>Wei</VALUE>
+        <VALUE>Weska</VALUE>
+        <VALUE>Wulm</VALUE>
+        <VALUE>Xeed</VALUE>
+        <VALUE>Xoc</VALUE>
+        <VALUE>Xu</VALUE>
+        <VALUE>Zaka</VALUE>
+        <VALUE>Zaw</VALUE>
+        <VALUE>Ze</VALUE>
+        <VALUE>Zeeus</VALUE>
+        <VALUE>Zish</VALUE>
+    </LIST>
+    <LIST id="tamrelic-argonian-noun-a" title="Noun">
+        <VALUE>Axe</VALUE>
+        <VALUE>Breezes</VALUE>
+        <VALUE>Cat</VALUE>
+        <VALUE>Chow</VALUE>
+        <VALUE>City</VALUE>
+        <VALUE>Claws</VALUE>
+        <VALUE>Coin</VALUE>
+        <VALUE>Dawn</VALUE>
+        <VALUE>Deep</VALUE>
+        <VALUE>Dusk</VALUE>
+        <VALUE>Dust</VALUE>
+        <VALUE>Egg</VALUE>
+        <VALUE>Eyes</VALUE>
+        <VALUE>Fangs</VALUE>
+        <VALUE>Fire</VALUE>
+        <VALUE>Fish</VALUE>
+        <VALUE>Fly</VALUE>
+        <VALUE>Footfalls</VALUE>
+        <VALUE>Forest</VALUE>
+        <VALUE>Frog</VALUE>
+        <VALUE>Gold</VALUE>
+        <VALUE>Head</VALUE>
+        <VALUE>Heat</VALUE>
+        <VALUE>Hides</VALUE>
+        <VALUE>Honey</VALUE>
+        <VALUE>Iron</VALUE>
+        <VALUE>Knuckle</VALUE>
+        <VALUE>Lizard</VALUE>
+        <VALUE>Mind</VALUE>
+        <VALUE>Mud</VALUE>
+        <VALUE>Murk</VALUE>
+        <VALUE>Mystery</VALUE>
+        <VALUE>Pain</VALUE>
+        <VALUE>Quill</VALUE>
+        <VALUE>Raven</VALUE>
+        <VALUE>River</VALUE>
+        <VALUE>Rope</VALUE>
+        <VALUE>Scale</VALUE>
+        <VALUE>Scales</VALUE>
+        <VALUE>Scar</VALUE>
+        <VALUE>Scent</VALUE>
+        <VALUE>Shade</VALUE>
+        <VALUE>Sister</VALUE>
+        <VALUE>Skink</VALUE>
+        <VALUE>Sky</VALUE>
+        <VALUE>Smokeskin</VALUE>
+        <VALUE>Snail</VALUE>
+        <VALUE>Spark</VALUE>
+        <VALUE>Stones</VALUE>
+        <VALUE>Stream</VALUE>
+        <VALUE>Sun</VALUE>
+        <VALUE>Tale</VALUE>
+        <VALUE>Teeth</VALUE>
+        <VALUE>Tern</VALUE>
+        <VALUE>Tongue</VALUE>
+        <VALUE>Tooth</VALUE>
+        <VALUE>Trouble</VALUE>
+        <VALUE>Watcher</VALUE>
+        <VALUE>Water</VALUE>
+        <VALUE>Wind</VALUE>
+    </LIST>
+    <LIST id="tamrelic-argonian-adj-a" title="Adj" >
+        <VALUE>Amber</VALUE>
+        <VALUE>Appraising</VALUE>
+        <VALUE>Ashen</VALUE>
+        <VALUE>Big</VALUE>
+        <VALUE>Black</VALUE>
+        <VALUE>Blazing</VALUE>
+        <VALUE>Blue</VALUE>
+        <VALUE>Branded</VALUE>
+        <VALUE>Breech</VALUE>
+        <VALUE>Brown</VALUE>
+        <VALUE>Calm</VALUE>
+        <VALUE>Dazzling</VALUE>
+        <VALUE>Dreaded</VALUE>
+        <VALUE>Dull</VALUE>
+        <VALUE>Dusty</VALUE>
+        <VALUE>Eight</VALUE>
+        <VALUE>Eleven</VALUE>
+        <VALUE>Fast</VALUE>
+        <VALUE>Fearless</VALUE>
+        <VALUE>Fine</VALUE>
+        <VALUE>Fish</VALUE>
+        <VALUE>Five</VALUE>
+        <VALUE>Flat</VALUE>
+        <VALUE>Friends</VALUE>
+        <VALUE>Frozen</VALUE>
+        <VALUE>Gentle</VALUE>
+        <VALUE>Glimmer</VALUE>
+        <VALUE>Gnarled</VALUE>
+        <VALUE>Golden</VALUE>
+        <VALUE>Gray</VALUE>
+        <VALUE>Green</VALUE>
+        <VALUE>Grey</VALUE>
+        <VALUE>Hard</VALUE>
+        <VALUE>Hidden</VALUE>
+        <VALUE>High</VALUE>
+        <VALUE>Honest</VALUE>
+        <VALUE>Hunting</VALUE>
+        <VALUE>Iron</VALUE>
+        <VALUE>Keen</VALUE>
+        <VALUE>Lonely</VALUE>
+        <VALUE>Long</VALUE>
+        <VALUE>Low</VALUE>
+        <VALUE>Many</VALUE>
+        <VALUE>Marsh</VALUE>
+        <VALUE>Mirrored</VALUE>
+        <VALUE>Nimble</VALUE>
+        <VALUE>Nine</VALUE>
+        <VALUE>No</VALUE>
+        <VALUE>Oaken</VALUE>
+        <VALUE>One</VALUE>
+        <VALUE>Open</VALUE>
+        <VALUE>Pale</VALUE>
+        <VALUE>Plants</VALUE>
+        <VALUE>Pleasant</VALUE>
+        <VALUE>Poor</VALUE>
+        <VALUE>Proud</VALUE>
+        <VALUE>Purple</VALUE>
+        <VALUE>Red</VALUE>
+        <VALUE>Restless</VALUE>
+        <VALUE>Right</VALUE>
+        <VALUE>Sacred</VALUE>
+        <VALUE>Seven</VALUE>
+        <VALUE>Shadey</VALUE>
+        <VALUE>Sharp</VALUE>
+        <VALUE>Shield</VALUE>
+        <VALUE>Shimmer</VALUE>
+        <VALUE>Shiney</VALUE>
+        <VALUE>Short</VALUE>
+        <VALUE>Silent</VALUE>
+        <VALUE>Silver</VALUE>
+        <VALUE>Six</VALUE>
+        <VALUE>Skattered</VALUE>
+        <VALUE>Slow</VALUE>
+        <VALUE>Smart</VALUE>
+        <VALUE>Smooth</VALUE>
+        <VALUE>Snub</VALUE>
+        <VALUE>Soft</VALUE>
+        <VALUE>Sour</VALUE>
+        <VALUE>Steady</VALUE>
+        <VALUE>Still</VALUE>
+        <VALUE>Stormy</VALUE>
+        <VALUE>Strong</VALUE>
+        <VALUE>Sun</VALUE>
+        <VALUE>Swift</VALUE>
+        <VALUE>Ten</VALUE>
+        <VALUE>Thick</VALUE>
+        <VALUE>Thorned</VALUE>
+        <VALUE>Three</VALUE>
+        <VALUE>Two</VALUE>
+        <VALUE>Warm</VALUE>
+        <VALUE>Wide</VALUE>
+    </LIST>
+    <LIST id="tamrelic-argonian-verb-a" title="Verb" >
+        <VALUE>Argues</VALUE>
+        <VALUE>Barters</VALUE>
+        <VALUE>Basks</VALUE>
+        <VALUE>Bathes</VALUE>
+        <VALUE>Bends</VALUE>
+        <VALUE>Bites</VALUE>
+        <VALUE>Born</VALUE>
+        <VALUE>Borrows</VALUE>
+        <VALUE>Brands</VALUE>
+        <VALUE>Calls</VALUE>
+        <VALUE>Catches</VALUE>
+        <VALUE>Cherishes</VALUE>
+        <VALUE>Chews</VALUE>
+        <VALUE>Claws</VALUE>
+        <VALUE>Conjures</VALUE>
+        <VALUE>Cooks</VALUE>
+        <VALUE>Counts</VALUE>
+        <VALUE>Cuts</VALUE>
+        <VALUE>Dances</VALUE>
+        <VALUE>Delves</VALUE>
+        <VALUE>Doubts</VALUE>
+        <VALUE>Dreams</VALUE>
+        <VALUE>Drifts</VALUE>
+        <VALUE>Drinks</VALUE>
+        <VALUE>Drops</VALUE>
+        <VALUE>Eats</VALUE>
+        <VALUE>Erects</VALUE>
+        <VALUE>Eyes</VALUE>
+        <VALUE>Falls</VALUE>
+        <VALUE>Fetches</VALUE>
+        <VALUE>Fights</VALUE>
+        <VALUE>Fills-Up</VALUE>
+        <VALUE>Finds</VALUE>
+        <VALUE>Flicks</VALUE>
+        <VALUE>Flies</VALUE>
+        <VALUE>Follows</VALUE>
+        <VALUE>Gathers</VALUE>
+        <VALUE>Gazes</VALUE>
+        <VALUE>Grinds</VALUE>
+        <VALUE>Grins</VALUE>
+        <VALUE>Hauls</VALUE>
+        <VALUE>Hears</VALUE>
+        <VALUE>Hears-Voices</VALUE>
+        <VALUE>Hides</VALUE>
+        <VALUE>Hooks</VALUE>
+        <VALUE>Hops</VALUE>
+        <VALUE>Hunts</VALUE>
+        <VALUE>Juggles</VALUE>
+        <VALUE>Laughs</VALUE>
+        <VALUE>Leaks</VALUE>
+        <VALUE>Leaps</VALUE>
+        <VALUE>Learns</VALUE>
+        <VALUE>Leaves</VALUE>
+        <VALUE>Licks</VALUE>
+        <VALUE>Lights</VALUE>
+        <VALUE>Listens</VALUE>
+        <VALUE>Looks</VALUE>
+        <VALUE>Loves</VALUE>
+        <VALUE>Lusts</VALUE>
+        <VALUE>Makes</VALUE>
+        <VALUE>Marches</VALUE>
+        <VALUE>Moves</VALUE>
+        <VALUE>Murmurs</VALUE>
+        <VALUE>Names</VALUE>
+        <VALUE>Paints</VALUE>
+        <VALUE>Peers</VALUE>
+        <VALUE>Picks</VALUE>
+        <VALUE>Plays</VALUE>
+        <VALUE>Plucks</VALUE>
+        <VALUE>Prowls</VALUE>
+        <VALUE>Pulls</VALUE>
+        <VALUE>Releives</VALUE>
+        <VALUE>Rides</VALUE>
+        <VALUE>Rising</VALUE>
+        <VALUE>Runs</VALUE>
+        <VALUE>Sails</VALUE>
+        <VALUE>Scouts</VALUE>
+        <VALUE>Seeks</VALUE>
+        <VALUE>Sees</VALUE>
+        <VALUE>Shakes</VALUE>
+        <VALUE>Shares</VALUE>
+        <VALUE>Sheathes</VALUE>
+        <VALUE>Shines</VALUE>
+        <VALUE>Sings</VALUE>
+        <VALUE>Skips</VALUE>
+        <VALUE>Slays</VALUE>
+        <VALUE>Sleeps</VALUE>
+        <VALUE>Slides</VALUE>
+        <VALUE>Slips</VALUE>
+        <VALUE>Smells</VALUE>
+        <VALUE>Smiles</VALUE>
+        <VALUE>Soars</VALUE>
+        <VALUE>Speaks</VALUE>
+        <VALUE>Spills</VALUE>
+        <VALUE>Stabs</VALUE>
+        <VALUE>Stands</VALUE>
+        <VALUE>Stares</VALUE>
+        <VALUE>Steals-Away</VALUE>
+        <VALUE>Steps</VALUE>
+        <VALUE>Stokes</VALUE>
+        <VALUE>Strikes</VALUE>
+        <VALUE>Studies</VALUE>
+        <VALUE>Summons</VALUE>
+        <VALUE>Swims</VALUE>
+        <VALUE>Takes</VALUE>
+        <VALUE>Tames</VALUE>
+        <VALUE>Tastes</VALUE>
+        <VALUE>Tends</VALUE>
+        <VALUE>Thinks</VALUE>
+        <VALUE>Tips</VALUE>
+        <VALUE>Touches</VALUE>
+        <VALUE>Trades</VALUE>
+        <VALUE>Trills</VALUE>
+        <VALUE>Trips</VALUE>
+        <VALUE>Turns</VALUE>
+        <VALUE>Twains</VALUE>
+        <VALUE>Values</VALUE>
+        <VALUE>Wakes</VALUE>
+        <VALUE>Walks</VALUE>
+        <VALUE>Wallows</VALUE>
+        <VALUE>Wanders</VALUE>
+        <VALUE>Watches</VALUE>
+        <VALUE>Waters</VALUE>
+        <VALUE>Weaves</VALUE>
+        <VALUE>Wins</VALUE>
+        <VALUE>Wonders</VALUE>
+    </LIST>
+    <LIST id="tamrelic-argonian-noun-b" title="Noun" >
+        <VALUE>Aged-Meat</VALUE>
+        <VALUE>All-Colors</VALUE>
+        <VALUE>Ash</VALUE>
+        <VALUE>Ashes</VALUE>
+        <VALUE>Bargains</VALUE>
+        <VALUE>Basket</VALUE>
+        <VALUE>Beast</VALUE>
+        <VALUE>Bellies</VALUE>
+        <VALUE>Belly</VALUE>
+        <VALUE>Better-Deals</VALUE>
+        <VALUE>Bird</VALUE>
+        <VALUE>Biter</VALUE>
+        <VALUE>Blades</VALUE>
+        <VALUE>Blood</VALUE>
+        <VALUE>Blossom</VALUE>
+        <VALUE>Bones</VALUE>
+        <VALUE>Bramman</VALUE>
+        <VALUE>Branch</VALUE>
+        <VALUE>Breath</VALUE>
+        <VALUE>Breeze</VALUE>
+        <VALUE>Burdens</VALUE>
+        <VALUE>Cast</VALUE>
+        <VALUE>Catch</VALUE>
+        <VALUE>Cats</VALUE>
+        <VALUE>Chaser</VALUE>
+        <VALUE>Child</VALUE>
+        <VALUE>Claw</VALUE>
+        <VALUE>Claws</VALUE>
+        <VALUE>Clouds</VALUE>
+        <VALUE>Coin</VALUE>
+        <VALUE>Coins</VALUE>
+        <VALUE>Contests</VALUE>
+        <VALUE>Crabs</VALUE>
+        <VALUE>Crystals</VALUE>
+        <VALUE>Cups</VALUE>
+        <VALUE>Dagger</VALUE>
+        <VALUE>Daggers</VALUE>
+        <VALUE>Danger</VALUE>
+        <VALUE>Dark</VALUE>
+        <VALUE>Dawn</VALUE>
+        <VALUE>Dead-Things</VALUE>
+        <VALUE>Dragons</VALUE>
+        <VALUE>Dreams</VALUE>
+        <VALUE>Drinks</VALUE>
+        <VALUE>Eater</VALUE>
+        <VALUE>Edge</VALUE>
+        <VALUE>Eye</VALUE>
+        <VALUE>Eyes</VALUE>
+        <VALUE>Face</VALUE>
+        <VALUE>Feather</VALUE>
+        <VALUE>Feather-Tail</VALUE>
+        <VALUE>Feet</VALUE>
+        <VALUE>Finder</VALUE>
+        <VALUE>Fingers</VALUE>
+        <VALUE>Fire</VALUE>
+        <VALUE>Fires</VALUE>
+        <VALUE>Fish</VALUE>
+        <VALUE>Fishes</VALUE>
+        <VALUE>Fist</VALUE>
+        <VALUE>Flame</VALUE>
+        <VALUE>Foe</VALUE>
+        <VALUE>Foot</VALUE>
+        <VALUE>Frogs</VALUE>
+        <VALUE>Gears</VALUE>
+        <VALUE>Ghosts</VALUE>
+        <VALUE>Gill</VALUE>
+        <VALUE>Gills</VALUE>
+        <VALUE>Glass</VALUE>
+        <VALUE>Glitter</VALUE>
+        <VALUE>Glory</VALUE>
+        <VALUE>Gloves</VALUE>
+        <VALUE>Gold</VALUE>
+        <VALUE>Grace</VALUE>
+        <VALUE>Grain</VALUE>
+        <VALUE>Grass</VALUE>
+        <VALUE>Graves</VALUE>
+        <VALUE>Guar</VALUE>
+        <VALUE>Hair</VALUE>
+        <VALUE>Hammer</VALUE>
+        <VALUE>Hand</VALUE>
+        <VALUE>Hands</VALUE>
+        <VALUE>Head</VALUE>
+        <VALUE>Heart</VALUE>
+        <VALUE>Heart-and-Head</VALUE>
+        <VALUE>Hearts</VALUE>
+        <VALUE>Heel</VALUE>
+        <VALUE>Hoarder</VALUE>
+        <VALUE>Ice</VALUE>
+        <VALUE>Iron</VALUE>
+        <VALUE>Keels</VALUE>
+        <VALUE>Killer</VALUE>
+        <VALUE>Knife</VALUE>
+        <VALUE>Knuckles</VALUE>
+        <VALUE>Kwama</VALUE>
+        <VALUE>Leagues</VALUE>
+        <VALUE>Leaves</VALUE>
+        <VALUE>Light</VALUE>
+        <VALUE>Lights</VALUE>
+        <VALUE>Longfins</VALUE>
+        <VALUE>Marrow</VALUE>
+        <VALUE>Meat</VALUE>
+        <VALUE>Mender</VALUE>
+        <VALUE>Moon</VALUE>
+        <VALUE>Moss</VALUE>
+        <VALUE>Mouth</VALUE>
+        <VALUE>Mudcrabs</VALUE>
+        <VALUE>Mugs</VALUE>
+        <VALUE>Murk</VALUE>
+        <VALUE>Nails</VALUE>
+        <VALUE>Neck</VALUE>
+        <VALUE>Needle</VALUE>
+        <VALUE>Nets</VALUE>
+        <VALUE>Night</VALUE>
+        <VALUE>Nose</VALUE>
+        <VALUE>Old-Words</VALUE>
+        <VALUE>Path</VALUE>
+        <VALUE>Pebble</VALUE>
+        <VALUE>Plants</VALUE>
+        <VALUE>Plumes</VALUE>
+        <VALUE>Prestidigitator</VALUE>
+        <VALUE>Pride</VALUE>
+        <VALUE>Purpose</VALUE>
+        <VALUE>Reed</VALUE>
+        <VALUE>Regrets</VALUE>
+        <VALUE>River</VALUE>
+        <VALUE>Rivers</VALUE>
+        <VALUE>Root</VALUE>
+        <VALUE>Roots</VALUE>
+        <VALUE>Runner</VALUE>
+        <VALUE>Rushes</VALUE>
+        <VALUE>Sand</VALUE>
+        <VALUE>Sapper</VALUE>
+        <VALUE>Scale</VALUE>
+        <VALUE>Scales</VALUE>
+        <VALUE>Scorpions</VALUE>
+        <VALUE>Sea</VALUE>
+        <VALUE>Seas</VALUE>
+        <VALUE>Seer</VALUE>
+        <VALUE>Shade</VALUE>
+        <VALUE>Shadow</VALUE>
+        <VALUE>Silk</VALUE>
+        <VALUE>Silver</VALUE>
+        <VALUE>Skies</VALUE>
+        <VALUE>Skin</VALUE>
+        <VALUE>Skinned</VALUE>
+        <VALUE>Skips</VALUE>
+        <VALUE>Sky</VALUE>
+        <VALUE>Sleep</VALUE>
+        <VALUE>Snakes</VALUE>
+        <VALUE>Soup</VALUE>
+        <VALUE>Sparks</VALUE>
+        <VALUE>Spine</VALUE>
+        <VALUE>Spines</VALUE>
+        <VALUE>Spinner</VALUE>
+        <VALUE>Spirits</VALUE>
+        <VALUE>Sprout</VALUE>
+        <VALUE>Star</VALUE>
+        <VALUE>Stars</VALUE>
+        <VALUE>Steel</VALUE>
+        <VALUE>Stone</VALUE>
+        <VALUE>Sun</VALUE>
+        <VALUE>Swimmer</VALUE>
+        <VALUE>Tail</VALUE>
+        <VALUE>Things</VALUE>
+        <VALUE>Thoughts</VALUE>
+        <VALUE>Throat</VALUE>
+        <VALUE>Tide</VALUE>
+        <VALUE>Toad</VALUE>
+        <VALUE>Toes</VALUE>
+        <VALUE>Tongue</VALUE>
+        <VALUE>Tongues</VALUE>
+        <VALUE>Tooth</VALUE>
+        <VALUE>Trades</VALUE>
+        <VALUE>Trees</VALUE>
+        <VALUE>Tree's-Shade</VALUE>
+        <VALUE>Trouble</VALUE>
+        <VALUE>Turtles</VALUE>
+        <VALUE>Venom-Tongue</VALUE>
+        <VALUE>Vigor</VALUE>
+        <VALUE>Voice</VALUE>
+        <VALUE>Wader</VALUE>
+        <VALUE>Watcher</VALUE>
+        <VALUE>Water</VALUE>
+        <VALUE>Waters</VALUE>
+        <VALUE>Waves</VALUE>
+        <VALUE>Way</VALUE>
+        <VALUE>Weave</VALUE>
+        <VALUE>Whisper</VALUE>
+        <VALUE>Whispers</VALUE>
+        <VALUE>White-Bird</VALUE>
+        <VALUE>Wind</VALUE>
+        <VALUE>Winding</VALUE>
+        <VALUE>Wit</VALUE>
+        <VALUE>Words</VALUE>
+    </LIST>
+    <LIST id="tamrelic-argonian-adverb-b" title="Adverb" >
+        <VALUE>Across-Water</VALUE>
+        <VALUE>Alone</VALUE>
+        <VALUE>Aplenty</VALUE>
+        <VALUE>at-Night</VALUE>
+        <VALUE>At-Thunder</VALUE>
+        <VALUE>Before-Looking</VALUE>
+        <VALUE>Beneath-Filth</VALUE>
+        <VALUE>By-Moon</VALUE>
+        <VALUE>By-Smell</VALUE>
+        <VALUE>by-Starlight</VALUE>
+        <VALUE>Deeply</VALUE>
+        <VALUE>Down-hills</VALUE>
+        <VALUE>Far</VALUE>
+        <VALUE>Faster</VALUE>
+        <VALUE>Forward</VALUE>
+        <VALUE>From-Afar</VALUE>
+        <VALUE>From-Hope</VALUE>
+        <VALUE>from-shadows</VALUE>
+        <VALUE>In-Alleys</VALUE>
+        <VALUE>In-Blood</VALUE>
+        <VALUE>In-Circles</VALUE>
+        <VALUE>In-Darkness</VALUE>
+        <VALUE>In-Daylight</VALUE>
+        <VALUE>In-Dry-Places</VALUE>
+        <VALUE>In-Gardens</VALUE>
+        <VALUE>In-Marshes</VALUE>
+        <VALUE>In-Moonlight</VALUE>
+        <VALUE>In-Mud</VALUE>
+        <VALUE>In-Puddles</VALUE>
+        <VALUE>In-Sadness</VALUE>
+        <VALUE>In-Sails</VALUE>
+        <VALUE>In-Shadow</VALUE>
+        <VALUE>In-Shadows</VALUE>
+        <VALUE>In-Shallows</VALUE>
+        <VALUE>In-Silence</VALUE>
+        <VALUE>In-Silk</VALUE>
+        <VALUE>In-Snow</VALUE>
+        <VALUE>In-Spells</VALUE>
+        <VALUE>In-Stealth</VALUE>
+        <VALUE>In-Steel</VALUE>
+        <VALUE>In-Still-Water</VALUE>
+        <VALUE>In-Still-Waters</VALUE>
+        <VALUE>In-Sun</VALUE>
+        <VALUE>In-Swells</VALUE>
+        <VALUE>in-Tatters</VALUE>
+        <VALUE>In-the-Air</VALUE>
+        <VALUE>In-Thought</VALUE>
+        <VALUE>In-Tongues</VALUE>
+        <VALUE>In-Water</VALUE>
+        <VALUE>In-Wild</VALUE>
+        <VALUE>Lightly</VALUE>
+        <VALUE>Like-Guar</VALUE>
+        <VALUE>Like-Thunder</VALUE>
+        <VALUE>Loves-Kills</VALUE>
+        <VALUE>Much</VALUE>
+        <VALUE>On-Fish</VALUE>
+        <VALUE>On-Moss</VALUE>
+        <VALUE>On-Sails</VALUE>
+        <VALUE>On-Scales</VALUE>
+        <VALUE>On-Shield</VALUE>
+        <VALUE>On-Wind</VALUE>
+        <VALUE>Over-Dirt</VALUE>
+        <VALUE>Over-Fire</VALUE>
+        <VALUE>Over-Roots</VALUE>
+        <VALUE>Over-Thistle</VALUE>
+        <VALUE>Over-Water</VALUE>
+        <VALUE>Proud</VALUE>
+        <VALUE>Quickly</VALUE>
+        <VALUE>Red</VALUE>
+        <VALUE>Simply</VALUE>
+        <VALUE>Softly</VALUE>
+        <VALUE>So-Sweet</VALUE>
+        <VALUE>Through-Fingers</VALUE>
+        <VALUE>Through-Fog</VALUE>
+        <VALUE>Through-Glass</VALUE>
+        <VALUE>Through-hearts</VALUE>
+        <VALUE>Through-Pain</VALUE>
+        <VALUE>Through-Storms</VALUE>
+        <VALUE>To-Clouds</VALUE>
+        <VALUE>To-Learn</VALUE>
+        <VALUE>To-Nature</VALUE>
+        <VALUE>Too-Long</VALUE>
+        <VALUE>To-Stumps</VALUE>
+        <VALUE>Under-Rocks</VALUE>
+        <VALUE>Under-Stars</VALUE>
+        <VALUE>Unseen</VALUE>
+        <VALUE>When-Sails</VALUE>
+        <VALUE>When-Struck</VALUE>
+        <VALUE>With-drink</VALUE>
+        <VALUE>With-Joy</VALUE>
+        <VALUE>With-Many</VALUE>
+        <VALUE>With-Might</VALUE>
+        <VALUE>With-Open-Eyes</VALUE>
+        <VALUE>With-Questions</VALUE>
+        <VALUE>With-Quickness</VALUE>
+    </LIST>
+    <LIST id="tamrelic-argonian-male-full" title="Full">
+        <VALUE>Also-He-Washes</VALUE>
+        <VALUE>Hides-His-Eyes</VALUE>
+        <VALUE>Hides-His-Foot</VALUE>
+        <VALUE>Only-He-Stands-There</VALUE>
+        <VALUE>Twice-Bitten</VALUE>
+        <VALUE>Wind-In-His-Hair</VALUE>
+        <VALUE>Hauls-Ropes-Faster</VALUE>
+        <VALUE>Hides-His-Heart</VALUE>
+        <VALUE>Deep-In-His-Cups</VALUE>
+        <VALUE>Back-Wash</VALUE>
+        <VALUE>Catches-No-Fish</VALUE>
+        <VALUE>Chow-Chow</VALUE>
+        <VALUE>Dreams-of-Sleep</VALUE>
+        <VALUE>Drops-No-Glass</VALUE>
+        <VALUE>Eager-to-Leave</VALUE>
+        <VALUE>Eats-Loves-Kills</VALUE>
+        <VALUE>Fire-Under-His-Tongue</VALUE>
+        <VALUE>Hands-That-Heal</VALUE>
+        <VALUE>Has-No-Regrets</VALUE>
+        <VALUE>Has-Sugar-In-Him</VALUE>
+        <VALUE>He-Cuts-the-Flesh</VALUE>
+        <VALUE>Last-to-Water</VALUE>
+        <VALUE>Laughs-at-All</VALUE>
+        <VALUE>Leaves-No-Tracks</VALUE>
+        <VALUE>Licks-His-Claws</VALUE>
+        <VALUE>Lusts-For-Peace</VALUE>
+        <VALUE>Makes-No-Soup</VALUE>
+        <VALUE>Moves-Many-Rocks</VALUE>
+        <VALUE>Mud-Suits-Him</VALUE>
+        <VALUE>Narrows-His-Eyes</VALUE>
+        <VALUE>Never-Cold</VALUE>
+        <VALUE>Not-So-Quick</VALUE>
+        <VALUE>Pain-Giver</VALUE>
+        <VALUE>Picks-Many-Fights</VALUE>
+        <VALUE>Sleeps-Beneath-Himself</VALUE>
+        <VALUE>Sometimes-Eats-Fire</VALUE>
+        <VALUE>Speaks-Spells-Gently</VALUE>
+        <VALUE>Thinks-too-Much</VALUE>
+        <VALUE>Under-Clouds-Darkened</VALUE>
+        <VALUE>Walks-Softly</VALUE>
+    </LIST>
+    <LIST id="tamrelic-argonian-female-full" title="Full">
+        <VALUE>Bitten-Once-Shy</VALUE>
+        <VALUE>Calls-to-Nature</VALUE>
+        <VALUE>Changer-of-Minds</VALUE>
+        <VALUE>Dreams-of-Honey-and-Gold</VALUE>
+        <VALUE>Evening-Star-Rising</VALUE>
+        <VALUE>Eyes-of-Steel</VALUE>
+        <VALUE>Far-From-Water</VALUE>
+        <VALUE>Far-Walker</VALUE>
+        <VALUE>From-Deepest-Fathoms</VALUE>
+        <VALUE>Good-with-Numbers</VALUE>
+        <VALUE>Green-Eyes-Wander</VALUE>
+        <VALUE>Has-No-Loom</VALUE>
+        <VALUE>Hides-Her-Heart</VALUE>
+        <VALUE>In-No-Hurry</VALUE>
+        <VALUE>Lifts-Her-Tail</VALUE>
+        <VALUE>Makes-Many-Soups</VALUE>
+        <VALUE>Makes-No-Ripples</VALUE>
+        <VALUE>Makes-One-Soup</VALUE>
+        <VALUE>Many-Eyes</VALUE>
+        <VALUE>Many-Eyes-Watching</VALUE>
+        <VALUE>Moves-Like-Water</VALUE>
+        <VALUE>Not-Really-Here</VALUE>
+        <VALUE>On-Staya Sundew</VALUE>
+        <VALUE>Remains-Silent</VALUE>
+        <VALUE>Scared-of-Snow</VALUE>
+        <VALUE>Seeks-Better-Deals</VALUE>
+        <VALUE>Seeks-Her-Glory</VALUE>
+        <VALUE>Sees-Many-Paths</VALUE>
+        <VALUE>Sheathed-in-Silk</VALUE>
+        <VALUE>She-Who-Gleams</VALUE>
+        <VALUE>Slow-at-Words</VALUE>
+        <VALUE>Strong-With-Tail</VALUE>
+        <VALUE>Swims-to-Sea</VALUE>
+        <VALUE>Tall-Trees-Falling</VALUE>
+        <VALUE>Through-Gilded-Eyes</VALUE>
+        <VALUE>Travelling-New-Woman</VALUE>
+        <VALUE>Under-Root</VALUE>
+        <VALUE>Walks-Lonely-Steps</VALUE>
+        <VALUE>Walks-On-Air</VALUE>
+        <VALUE>Way-with-Words</VALUE>
+        <VALUE>Wine-For-All</VALUE>
+    </LIST>
+ 
 
     <LIST id="tamriel-atmer-title" title="Title">
         <VALUE>of Cloudrest</VALUE>
