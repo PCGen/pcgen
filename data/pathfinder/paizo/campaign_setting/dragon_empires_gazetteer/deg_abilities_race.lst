@@ -8,13 +8,11 @@ Dragon Empire Setting					KEY:Setting Language ~ Dragon Empire Setting	CATEGORY:
 CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Kitsune|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
 CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Nagaji|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
 CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Samsaran|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
-CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																					ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Tengu|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
 CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Wayang|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
 
 Dragon Empire ~ Kitsune													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Kitsune
 Dragon Empire ~ Nagaji													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Nagaji
 Dragon Empire ~ Samsaran												CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Samsaran
-Dragon Empire ~ Tengu													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Tengu
 Dragon Empire ~ Wayang													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Wayang
 
 
@@ -60,28 +58,34 @@ Shards of the Past				KEY:Samsaran ~ Shards of the Past	CATEGORY:Special Ability
 Shards of the Past Bonus									CATEGORY:Special Ability	TYPE:Internal.ShardsBonus											VISIBLE:DISPLAY																																																																																						STACK:NO	MULT:YES	CHOOSE:SKILL|Knowledge%	SELECT:2																												BONUS:SKILL|LIST|2|TYPE=Racial	CSKILL:LIST
 
 
-Racial Traits ~ Tengu										CATEGORY:Internal
-#
-CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Sneaky|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
-CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Gifted Linguist|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
-CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Swordtrained|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordTrained
-CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Natural Attack|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
-CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
+# ------------------------------
+# Tengu
+# ------------------------------
 
-###Block: Tengu Abilities
-# Ability Name						Unique Key				Category of Ability		Type														Multiple Requirements																					Define				Description																			Multiple?	Choose				Selections	Auto Language	Auto Weapon Prof							Ability																					Bonus Ability Pool										Bonus to skill						Modify VAR										Weapon prof. bonus			Vision			Source Page
-Sneaky							KEY:Tengu ~ Sneaky		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TenguRacialTrait.TenguRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tengu ~ Sneaky],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky]									DESC:+2 racial bonus on Perception and Stealth.																																																																					BONUS:SKILL|Perception,Stealth|2|TYPE=Racial																						SOURCEPAGE:p.163
-Low-Light Vision						KEY:Tengu ~ Low-Light Vision	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.TenguRacialTrait.TenguRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tengu ~ Low-Light Vision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision]						DESC:See twice as far in dim light.																																																																															BONUS:VAR|HasLowLightVision|1													VISION:Low-Light Vision	SOURCEPAGE:p.163
-Gifted Linguist						KEY:Tengu ~ Gifted Linguist	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.TenguRacialTrait.TenguRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tengu ~ Gifted Linguist],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist]	DEFINE:TenguLanguageCount|0	DESC:+4 racial bonus on Linguistics checks, and learn one additional language each time you take a rank in Linguistics.																																												BONUS:ABILITYPOOL|Tengu Linguistic Additional Languages|TenguLanguageCount	BONUS:SKILL|Linguistics|4|TYPE=Racial		BONUS:VAR|TenguLanguageCount|skillinfo("TOTALRANK","Linguistics")											SOURCEPAGE:p.163
-Swordtrained						KEY:Tengu ~ Swordtrained	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.TenguRacialTrait.TenguRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tengu ~ Swordtrained],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordtrained]							DESC:Proficient with swordlike weapons.																										AUTO:WEAPONPROF|TYPE=Sword|TYPE=SwordLike|TYPE=Tengu																																												BONUS:VAR|BastardSwordExoticUse|1																SOURCEPAGE:p.163
-Natural Attack						KEY:Tengu ~ Natural Attack	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TenguRacialTrait.TenguRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tengu ~ Natural Attack],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack]							DESC:You have a 1d3 bite attack.																																				ABILITY:Internal|AUTOMATIC|Bite																																																	BONUS:WEAPONPROF=Bite|DAMAGESIZE|-2					SOURCEPAGE:p.163
-# Ability Name						Unique Key				Category of Ability		Type														Multiple Requirements																					Define				Description																			Multiple?	Choose				Selections	Auto Language	Auto Weapon Prof							Ability																					Bonus Ability Pool										Bonus to skill						Modify VAR										Weapon prof. bonus			Vision			Source Page
-Tengu Language Selections									CATEGORY:Special Ability																																																																MULT:YES	CHOOSE:LANG|!PC,TYPE=Spoken	SELECT:1	AUTO:LANG|%LIST
+# This race is found in b1_abilities_race_arg.lst
+###Block: Racial Traits
+# Ability Name							Bonus Ability Pool					Source Page
+CATEGORY=Special Ability|Tengu ~ Ability Scores.MOD									SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Type.MOD											SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Size.MOD											SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Speed.MOD										SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Vision.MOD										SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Sneaky.MOD										SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Gifted Linguist.MOD									SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Swordtrained.MOD									SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD									SOURCEPAGE:p.6
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD		BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
 
-### NOTE: The Gifted Linguist ability places the extra language per skill rank into the 'Add Bonus Language' box, instead of the 'Add Language via Skill' box, the following is an attempt to work around that, but the Choose dialog for Linguistics is not working properly
-#
-#Gifted Linguist		KEY:Gifted Linguist ~ Tengu			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TenguRacialTrait.TenguRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Gifted Linguist ~ Tengu],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist]		BONUS:VAR|LangSelections|1												DESC:Tengus gain a +4 racial bonus on Linguistics checks, and learn two languages each time they gain a rank in Linguistics instead of just a single language.																																							BONUS:SKILL|Linguistics|4|TYPE=Racial																															SOURCEPAGE:p.12
-#Then also modify the Linguistics skill to include DEFNINE:LangSelections|1	SELECT:LangSelections
+###Block: Lanugage Choices
+# Ability Name	Unique Key				Category of Ability	Type				Ability											Modify VAR
+Default		KEY:Tengu ~ Default		CATEGORY:Choice		TYPE:Regional Language
+Dragon Empires	KEY:Tengu ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Dragon Empires Languages	BONUS:VAR|Tengu_AlternateLanguages|1|TYPE=Boolean
+
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type															Visible		Required Var. value			Description																					Template					Auto Language		Source Page
+Languages		KEY:Tengu ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Tengu Racial Trait.Tengu Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	PREVAREQ:Tengu_AlternateLanguages,1	DESC:Tengus begin play speaking Tengu and Tien. Tengus with high Intelligence scores can choose any language as a bonus language.	TEMPLATE:Race Bonus Language ~ All	AUTO:LANG|Tengu|Tien	SOURCEPAGE:p.12
+
+
 
 Racial Traits ~ Wayang										CATEGORY:Internal
 #

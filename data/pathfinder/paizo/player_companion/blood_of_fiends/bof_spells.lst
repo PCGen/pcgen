@@ -10,6 +10,9 @@ Masterpiece (Dance of Kindled Desires)	CLASSES:Bard=3[PRESKILL:1,Perform (Dance)
 Masterpiece (Melody of Frightful Death)	CLASSES:Bard=3[PRESKILL:1,Perform (String Instruments)=7]	SCHOOL:Masterpiece	CASTTIME:1 standard action	SOURCEPAGE:p.28
 Masterpiece (Rheumy Refrain)			CLASSES:Bard=3[PRESKILL:1,Perform (Sing)=5]			SCHOOL:Masterpiece	CASTTIME:1 standard action	SOURCEPAGE:p.28
 
+###Block: Restricted Spells
+Animate Objects.COPY=Animate Objects (Small or Smaller)	CLASSES:.CLEARALL
+
 #
 # End
 #

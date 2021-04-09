@@ -119,16 +119,16 @@ CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceLanguages|1|T
 # ------------------------------
 
 ###Block: Grant Abilities
-# Ability Name						Define						Ability
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceAbilityScores|0		ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Ability Scores|PREVAREQ:Oread_ReplaceAbilityScores,0
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceType|0			ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Type|PREVAREQ:Oread_ReplaceType,0
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSize|0			ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Size|PREVAREQ:Oread_ReplaceSize,0
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSpeed|0			ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Speed|PREVAREQ:Oread_ReplaceSpeed,0
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceVision|0			ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Vision|PREVAREQ:Oread_ReplaceVision,0
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSpellLikeAbility|0	ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Spell-Like Ability|PREVAREQ:Oread_ReplaceSpellLikeAbility,0
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceEnergyResistance|0	ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Energy Resistance|PREVAREQ:Oread_ReplaceEnergyResistance,0
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceEarthAffinity|0		ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Earth Affinity|PREVAREQ:Oread_ReplaceEarthAffinity,0
-CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceLanguages|0		ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Languages|PREVAREQ:Oread_ReplaceLanguages,0
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceAbilityScores|0							ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Ability Scores|PREVAREQ:Oread_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceType|0								ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Type|PREVAREQ:Oread_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSize|0								ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Size|PREVAREQ:Oread_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSpeed|0								ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Speed|PREVAREQ:Oread_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceVision|0								ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Vision|PREVAREQ:Oread_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSpellLikeAbility|0						ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Spell-Like Ability|PREVAREQ:Oread_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceEnergyResistance|0						ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Energy Resistance|PREVAREQ:Oread_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceEarthAffinity|0	DEFINE:Oread_AlternateAffinity|0	ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Earth Affinity|PREVAREQ:Oread_ReplaceEarthAffinity,0|PREVAREQ:Oread_AlternateAffinity,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceLanguages|0							ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Languages|PREVAREQ:Oread_ReplaceLanguages,0
 
 ###Block: Remove Abilities
 # Ability Name						Modify VAR
@@ -146,3 +146,66 @@ CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceSpellLikeAbil
 CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceEnergyResistance=True
 CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceEarthAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceEarthAffinity=True
 CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceLanguages=True
+
+
+# ------------------------------
+# Sylph
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceAbilityScores|0							ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Ability Scores|PREVAREQ:Sylph_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceType|0								ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Type|PREVAREQ:Sylph_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceSize|0								ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Size|PREVAREQ:Sylph_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceSpeed|0								ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Speed|PREVAREQ:Sylph_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceVision|0								ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Vision|PREVAREQ:Sylph_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceSpellLikeAbility|0						ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Spell-Like Ability|PREVAREQ:Sylph_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceEnergyResistance|0						ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Energy Resistance|PREVAREQ:Sylph_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceAirAffinity|0	DEFINE:Sylph_AlternateAffinity|0	ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Air Affinity|PREVAREQ:Sylph_ReplaceAirAffinity,0|PREVAREQ:Sylph_AlternateAffinity,0
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	DEFINE:Sylph_ReplaceLanguages|0							ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Languages|PREVAREQ:Sylph_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphDarkvision
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphSLA
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceEnergyResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphEnergyResistance
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceAirAffinity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphAirAffinity
+
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceAirAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceAirAffinity=True
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD	BONUS:VAR|Sylph_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sylph_ReplaceLanguages=True
+
+
+# ------------------------------
+# Undine
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define												Ability
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceAbilityScores|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Ability Scores|PREVAREQ:Undine_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceType|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Type|PREVAREQ:Undine_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceSize|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Size|PREVAREQ:Undine_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceSpeed|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Speed|PREVAREQ:Undine_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceVision|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Vision|PREVAREQ:Undine_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceSpellLikeAbility|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Spell-Like Ability|PREVAREQ:Undine_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceEnergyResistance|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Energy Resistance|PREVAREQ:Undine_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceWaterAffinity|0	DEFINE:Undine_AlternateAffinity|0	ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Water Affinity|PREVAREQ:Undine_ReplaceWaterAffinity,0|PREVAREQ:Undine_AlternateAffinity,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceLanguages|0								ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Languages|PREVAREQ:Undine_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceWaterAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceWaterAffinity=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceLanguages=True

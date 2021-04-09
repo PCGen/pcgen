@@ -5,6 +5,7 @@
 # ORIGINAL ENTRY DATE: 14 May 2016
 
 ###Block:
-# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Aasimar Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Aasimar Subrace	PLURAL:Aasimar Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Dhampir Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dhampir Subrace	PLURAL:Dhampir Racial Traits	DISPLAYLOCATION:Racial Abilities
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Display Location
+ABILITYCATEGORY:Aasimar Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Aasimar Subrace	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dhampir Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dhampir Subrace	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Tiefling Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Tiefling Subrace	DISPLAYLOCATION:Racial Abilities

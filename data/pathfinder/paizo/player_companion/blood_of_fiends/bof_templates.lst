@@ -9,18 +9,18 @@ SOURCELONG:Pathfinder Player Companion: Blood of Fiends	SOURCESHORT:BOF	SOURCEWE
 Masterpiece Activation Tiefling	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Dance of Kindled Desires|PREMULT:1,[PRESPELL:1,Masterpiece (Dance of Kindled Desires)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Dance of Kindled Desires)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Melody of Frightful Death|PREMULT:1,[PRESPELL:1,Masterpiece (Melody of Frightful Death)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Melody of Frightful Death)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Rheumy Refrain|PREMULT:1,[PRESPELL:1,Masterpiece (Rheumy Refrain)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Rheumy Refrain)]
 
 
-###Block: Subrace
-# Template Name			Unique Key				Visible	Bonus Languages									Subrace
-Asura-Spawn				KEY:Tiefling (Asura-Spawn)	VISIBLE:NO												SUBRACE:Asura-Spawn
-Daemon-Spawn			KEY:Tiefling (Daemon-Spawn)	VISIBLE:NO												SUBRACE:Daemon-Spawn
-Demodand-Spawn			KEY:Tiefling (Demodand-Spawn)	VISIBLE:NO												SUBRACE:Demodand-Spawn
-Demon-Spawn				KEY:Tiefling (Demon-Spawn)	VISIBLE:NO												SUBRACE:Demon-Spawn
-Devil-Spawn				KEY:Tiefling (Devil-Spawn)	VISIBLE:NO												SUBRACE:Devil-Spawn
-Div-Spawn				KEY:Tiefling (Div-Spawn)	VISIBLE:NO												SUBRACE:Div-Spawn
-Kyton-Spawn				KEY:Tiefling (Kyton-Spawn)	VISIBLE:NO												SUBRACE:Kyton-Spawn
-Oni-Spawn				KEY:Tiefling (Oni-Spawn)	VISIBLE:NO												SUBRACE:Oni-Spawn
-Qlippoth-Spawn			KEY:Tiefling (Qlippoth-Spawn)	VISIBLE:NO												SUBRACE:Qlippoth-Spawn
-Rakshasa-Spawn			KEY:Tiefling (Rakshasa-Spawn)	VISIBLE:NO												SUBRACE:Rakshasa-Spawn
+###Block: Tiefling Subraces
+# Template Name	Unique Key				Visible	Source Page		Subrace
+Asura-Spawn		KEY:Tiefling ~ Asura-Spawn	VISIBLE:NO	SOURCEPAGE:p.19	SUBRACE:Asura-Spawn
+Daemon-Spawn	KEY:Tiefling ~ Daemon-Spawn	VISIBLE:NO	SOURCEPAGE:p.19	SUBRACE:Daemon-Spawn
+Demodand-Spawn	KEY:Tiefling ~ Demodand-Spawn	VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Demodand-Spawn
+Demon-Spawn		KEY:Tiefling ~ Demon-Spawn	VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Demon-Spawn
+Devil-Spawn		KEY:Tiefling ~ Devil-Spawn	VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Devil-Spawn
+Div-Spawn		KEY:Tiefling ~ Div-Spawn	VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Div-Spawn
+Kyton-Spawn		KEY:Tiefling ~ Kyton-Spawn	VISIBLE:NO	SOURCEPAGE:p.22	SUBRACE:Kyton-Spawn
+Oni-Spawn		KEY:Tiefling ~ Oni-Spawn	VISIBLE:NO	SOURCEPAGE:p.22	SUBRACE:Oni-Spawn
+Qlippoth-Spawn	KEY:Tiefling ~ Qlippoth-Spawn	VISIBLE:NO	SOURCEPAGE:p.23	SUBRACE:Qlippoth-Spawn
+Rakshasa-Spawn	KEY:Tiefling ~ Rakshasa-Spawn	VISIBLE:NO	SOURCEPAGE:p.23	SUBRACE:Rakshasa-Spawn
 
 Tiefling Bonus Languages						VISIBLE:NO	LANGBONUS:Celestial,Infernal,Abyssal,Auran,Terran,Aquan,Ignan
 
