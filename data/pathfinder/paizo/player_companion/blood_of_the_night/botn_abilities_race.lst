@@ -18,19 +18,19 @@ SOURCELONG:Pathfinder Player Companion: Blood of the Night	SOURCESHORT:BOTN	SOUR
 CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:ABILITYPOOL|Dhampir Subrace|1|TYPE=Base
 
 ###Block: Default Racial Traits
-# Ability Name									Clear Description	Description																																											Source Page
-CATEGORY=Special Ability|Dhampir ~ Ability Scores.MOD			DESC:.CLEAR		DESC:Dhampirs are fast and seductive, but their racial bond to the undead impedes their mortal vigor.																												SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Type.MOD																																																			SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Size.MOD																																																			SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Speed.MOD																																																			SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Vision.MOD																																																			SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Skilled.MOD				DESC:.CLEAR		DESC:+2 racial bonus on Bluff and Perception checks.																																				SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Undead Resistance.MOD																																																	SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Weakness.MOD																																																			SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Negative Energy Affinity.MOD																																																SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Spell-Like Ability.MOD																																																	SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Resist Level Drain.MOD		DESC:.CLEAR		DESC:A dhampir takes no penalties from energy drain effects, though it can still be killed if it accrues more negative levels than it has Hit Dice. After 24 hours, any negative levels a dhampir takes are removed without the need for an additional saving throw.	SOURCEPAGE:Inside Front Cover
-CATEGORY=Special Ability|Dhampir ~ Languages.MOD			DESC:.CLEAR		DESC:Dhampirs begin play speaking Common. Those with high Intelligence scores can choose from any languages (except secret languages, such as Druidic).																			SOURCEPAGE:Inside Front Cover
+# Ability Name									Source Page
+CATEGORY=Special Ability|Dhampir ~ Ability Scores.MOD			SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Type.MOD				SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Size.MOD				SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Speed.MOD				SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Vision.MOD				SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Skilled.MOD				SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Undead Resistance.MOD		SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Weakness.MOD				SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Negative Energy Affinity.MOD	SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Spell-Like Ability.MOD		SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Resist Level Drain.MOD		SOURCEPAGE:Inside Front Cover
+CATEGORY=Special Ability|Dhampir ~ Languages.MOD			SOURCEPAGE:Inside Front Cover
 
 ###Block: Subrace Selection
 # Ability Name	Unique Key			SORTKEY	Category of Ability		Type				Description																																													Source Page				Aspects																												Information

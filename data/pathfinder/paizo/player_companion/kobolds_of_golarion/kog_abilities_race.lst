@@ -10,16 +10,16 @@ SOURCELONG:Pathfinder Player Companion: Kobolds of Golarion	SOURCESHORT:KOG	SOUR
 
 # This race is found in b1_abilities_race_arg.lst
 ###Block: Racial Traits
-# Ability Name							Clear Description	Description																																					Source Page
-CATEGORY=Special Ability|Kobold ~ Ability Scores.MOD																																										SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Type.MOD																																											SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Size.MOD		DESC:.CLEAR		DESC:Kobolds are Small creatures and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty on their combat maneuver checks and to their Combat Maneuver Defense, and a +4 size bonus on Stealth checks.	SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Speed.MOD																																											SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Vision.MOD																																											SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Armor.MOD																																											SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Crafty.MOD		DESC:.CLEAR		DESC:Kobolds gain a +2 racial bonus on Craft (traps), Perception, and Profession (miner) checks. Craft (traps) and Stealth are always class skills for a kobold.												SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Weakness.MOD		DESC:.CLEAR		DESC:Light sensitivity. Kobolds are dazzled in areas of bright sunlight or within the radius of a daylight spell.																				SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Languages.MOD		DESC:.CLEAR		DESC:Kobolds begin play speaking only Draconic. Kobolds with high Intelligence scores can choose from the following: Common, Dwarven, Gnome, and Undercommon.												SOURCEPAGE:Front Inner Cover
+# Ability Name							Source Page
+CATEGORY=Special Ability|Kobold ~ Ability Scores.MOD	SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Type.MOD		SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Size.MOD		SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Speed.MOD		SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Vision.MOD		SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Armor.MOD		SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Crafty.MOD		SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Weakness.MOD		SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Languages.MOD		SOURCEPAGE:Front Inner Cover
 
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key					Category of Ability		Type														Multiple Requirements																						Description																																																																																																																	Stackable?	Multiple?	Choose								Ability													Bonus Ability Pool				Bonus DC				Bonus to skill						Class Skill	Vision			Cost		Source Page		Aspects															FACT

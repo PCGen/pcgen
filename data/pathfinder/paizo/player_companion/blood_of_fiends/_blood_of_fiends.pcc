@@ -6,7 +6,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
@@ -39,15 +41,16 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Fiends" Copyr
 # Data files
 ABILITY:bof_abilities_class.lst
 ABILITY:bof_abilities_race.lst
-ABILITY:bof_abilities_variant.lst
+ABILITY:bof_abilities.lst
 ABILITYCATEGORY:bof_abilitycategories.lst
 CLASS:bof_classes.lst
 DOMAIN:bof_domains.lst
 ABILITY:bof_feats.lst
-#RACE:bof_races.lst
+RACE:bof_races.lst
 SPELL:bof_spells.lst
 TEMPLATE:bof_templates.lst
 
 # support
 ABILITY:support/bof_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/bof_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+CLASS:support/bof_classes_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide

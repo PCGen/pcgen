@@ -28,10 +28,10 @@ ABILITYCATEGORY:Multitalented Mastery Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 
 
 ###Block: Featured Races Racial Trait Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Catfolk Curiosity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Catfolk Curiosity		PLURAL:Catfolk Curiosity		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Ratfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RatfolkRacialTrait		PLURAL:Ratfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kobold Scale Color		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Kobold Scale Color
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list					Plural description for UI	Display Location
+ABILITYCATEGORY:Catfolk Curiosity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Catfolk Curiosity									PLURAL:Catfolk Curiosity	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kobold Scale Color				VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Kobold Scale Color
+ABILITYCATEGORY:Tengu Exotic Weapon Training Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice							ABILITYLIST:Tengu Exotic Weapon Training Choice						DISPLAYLOCATION:Racial Abilities
 
 ###Block: Featured Races Feat Categories
 ABILITYCATEGORY:Angelic Flesh Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AngelicFleshOption		PLURAL:Angelic Flesh Options		DISPLAYLOCATION:Feats
@@ -89,7 +89,6 @@ ABILITYCATEGORY:Mystic Past Life Class			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:N
 ABILITYCATEGORY:Mystic Past Life Add Spells		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells																DISPLAYLOCATION:Racial Abilities
 
 
-ABILITYCATEGORY:Tengu Exotic Weapon Training Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ExoticWeaponProficiencyAmount	CATEGORY:Internal										ABILITYLIST:Tengu Exotic Weapon Training Choice							DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Oracle Non-Proficient Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_OracleNonProficient		CATEGORY:Internal			TYPE:Oracle NWP																			DISPLAYLOCATION:Class Features
 
 

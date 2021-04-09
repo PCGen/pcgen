@@ -44,4 +44,4 @@ Wall of Brine										TYPE:Arcane.Divine		CLASSES:Ranger=3|Druid,Magus,Shaman,S
 Zephyr's Fleetness									TYPE:Divine				CLASSES:Ranger=3												SCHOOL:Transmutation					DESCRIPTOR:Air						COMPS:V,S		CASTTIME:1 round			RANGE:Long				TARGETAREA:(CASTERLEVEL/2) creatures								DURATION:(CASTERLEVEL) minutes							SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	PREABILITY:1,CATEGORY=Background,Keleshite					SOURCEPAGE:p.223	DESC:You can call upon the spirits of the air to grant agility to your allies. Each target gains a +30 foot enhancement bonus to its land speed and fly speed (if any). Each target can also move (and charge) through difficult terrain without penalty.
 
 # Undine Alternate Spell-Like Ability
-Summon Nature's Ally I.COPY=Summon Nature's Ally I (dolphins only)
+Summon Nature's Ally I.COPY=Summon Nature's Ally I (dolphins only)	CLASSES:.CLEARALL
