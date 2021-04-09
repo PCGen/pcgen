@@ -1,0 +1,30 @@
+SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0	SOURCEDATE:2012-01
+
+
+# ------------------------------
+# Tengu
+# ------------------------------
+
+# This race is found in b1_abilities_race_arg.lst
+###Block: Racial Traits
+# Ability Name							Bonus Ability Pool					Source Page
+CATEGORY=Special Ability|Tengu ~ Ability Scores.MOD									SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Type.MOD											SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Size.MOD											SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Speed.MOD										SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Vision.MOD										SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Sneaky.MOD										SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Gifted Linguist.MOD									SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Swordtrained.MOD									SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD									SOURCEPAGE:p.6
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD		BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Lanugage Choices
+# Ability Name	Unique Key				Category of Ability	Type				Ability											Modify VAR
+Default		KEY:Tengu ~ Default		CATEGORY:Choice		TYPE:Regional Language
+Dragon Empires	KEY:Tengu ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Dragon Empires Languages	BONUS:VAR|Tengu_AlternateLanguages|1|TYPE=Boolean
+
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type															Visible		Required Var. value			Description																					Template					Auto Language		Source Page
+Languages		KEY:Tengu ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Tengu Racial Trait.Tengu Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	PREVAREQ:Tengu_AlternateLanguages,1	DESC:Tengus begin play speaking Tengu and Tien. Tengus with high Intelligence scores can choose any language as a bonus language.	TEMPLATE:Race Bonus Language ~ All	AUTO:LANG|Tengu|Tien	SOURCEPAGE:p.6
+

@@ -79,6 +79,7 @@ DATACONTROL:b3__datacontrols.lst
 #KIT:b3_kits_race.lst
 LANGUAGE:b3_languages.lst
 #RACE:b3_races.lst
+SKILL:b3_skills.lst
 #TEMPLATE:b3_templates.lst
 #WEAPONPROF:b3_profs_weapon.lst
 

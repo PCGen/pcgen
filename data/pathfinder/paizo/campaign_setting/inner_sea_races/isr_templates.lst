@@ -38,6 +38,19 @@ Moroi-Born		KEY:Dhampir ~ Moroi-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Moroi-B
 Nosferatu-Born	KEY:Dhampir ~ Nosferatu-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Nosferatu-Born
 Vetala-Born		KEY:Dhampir ~ Vetala-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Vetala-Born
 
+###Block: Tiefling Subraces
+# Template Name	Unique Key				Visible	Source Page		Subrace
+Asura-Spawn		KEY:Tiefling ~ Asura-Spawn	VISIBLE:NO	SOURCEPAGE:p.251	SUBRACE:Asura-Spawn
+Daemon-Spawn	KEY:Tiefling ~ Daemon-Spawn	VISIBLE:NO	SOURCEPAGE:p.251	SUBRACE:Daemon-Spawn
+Demodand-Spawn	KEY:Tiefling ~ Demodand-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Demodand-Spawn
+Demon-Spawn		KEY:Tiefling ~ Demon-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Demon-Spawn
+Devil-Spawn		KEY:Tiefling ~ Devil-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Devil-Spawn
+Div-Spawn		KEY:Tiefling ~ Div-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Div-Spawn
+Kyton-Spawn		KEY:Tiefling ~ Kyton-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Kyton-Spawn
+Oni-Spawn		KEY:Tiefling ~ Oni-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Oni-Spawn
+Qlippoth-Spawn	KEY:Tiefling ~ Qlippoth-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Qlippoth-Spawn
+Rakshasa-Spawn	KEY:Tiefling ~ Rakshasa-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Rakshasa-Spawn
+
 # ==============================
 # New Race Support
 # ==============================

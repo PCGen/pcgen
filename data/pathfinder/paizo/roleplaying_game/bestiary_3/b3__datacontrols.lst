@@ -1,17 +1,42 @@
 
-###Block: Racial Identifiers
-FACTDEF:TEMPLATE|IsCatfolk				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Catfolk		EXPLANATION:Determines whether the character is a Catfolk
 
+# ------------------------------
+# Catfolk
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsCatfolk	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Catfolk	EXPLANATION:Determines whether the character is a Catfolk
 
 ###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Catfolk_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Catfolk_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Type			EXPLANATION:Replaces the Catfolk Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Size			EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Speed			EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Vision			EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceCatsLuck		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Cat's Luck		EXPLANATION:Replaces the Cat's Luck Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceNaturalHunter	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Natural Hunter	EXPLANATION:Replaces the Natural Hunter Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSprinter		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Sprinter		EXPLANATION:Replaces the Sprinter Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Languages		EXPLANATION:Replaces the Languages Racial Trait
 
-# Aasimar
-FACTDEF:ABILITY|Catfolk_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Ability Scores		EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Catfolk_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Type				EXPLANATION:Replaces the Catfolk Racial Trait
-FACTDEF:ABILITY|Catfolk_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Size				EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Catfolk_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Catfolk_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Vision				EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Catfolk_ReplaceCatsLuck			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Cat's Luck			EXPLANATION:Replaces the Cat's Luck Racial Trait
-FACTDEF:ABILITY|Catfolk_ReplaceNaturalHunter		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Natural Hunter		EXPLANATION:Replaces the Natural Hunter Racial Trait
-FACTDEF:ABILITY|Catfolk_ReplaceSprinter			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Sprinter			EXPLANATION:Replaces the Sprinter Racial Trait
-FACTDEF:ABILITY|Catfolk_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Languages			EXPLANATION:Replaces the Languages Racial Trait
+
+# ------------------------------
+# Ratfolk
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsRatfolk	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Ratfolk	EXPLANATION:Determines whether the character is a Ratfolk
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Ratfolk_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Ability Scores	EXPLANATION:Repalces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Type			EXPLANATION:Repalces the Type Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Size			EXPLANATION:Repalces the Size Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Speed			EXPLANATION:Repalces the Speed Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Vision			EXPLANATION:Repalces the Vision Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceRodentEmpathy	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Rodent Empathy	EXPLANATION:Repalces the Rodent Empathy Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceSwarming		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Swarming		EXPLANATION:Repalces the Swarming Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceTinker		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Tinker			EXPLANATION:Repalces the Tinker Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Languages		EXPLANATION:Repalces the Languages Racial Trait

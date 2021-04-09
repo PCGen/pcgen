@@ -19,13 +19,3 @@ Merfolk		KEY:Racial Heritage ~ Merfolk		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsM
 Tengu			KEY:Racial Heritage ~ Tengu		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTengu|True
 Tiefling		KEY:Racial Heritage ~ Tiefling	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTiefling|True
 Svirfneblin		KEY:Racial Heritage ~ Svirfneblin	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSvirfneblin|True
-
-
-
-###Block: Tiefling Subrace
-# Template Name	Unique Key			Visible
-Tiefling		KEY:Tiefling (Base)	VISIBLE:NO
-
-###Block: Tengu
-# Template Name			Visible	Auto Language		Bonus Languages
-Default Language ~ Tengu	VISIBLE:NO	AUTO:LANG|Common|Tengu	LANGBONUS:TYPE=Spoken

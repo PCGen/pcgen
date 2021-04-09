@@ -1,9 +1,6 @@
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
-###Block: Creature Subtypes
-# Template Name	Visible	Race Subtype
-Catfolk			VISIBLE:NO	RACESUBTYPE:Catfolk
-
 ###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
 # Template Name	Unique Key					Visible	Type				FACT
 Catfolk		KEY:Racial Heritage ~ Catfolk		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsCatfolk|True
+Ratfolk		KEY:Racial Heritage ~ Ratfolk		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsRatfolk|True

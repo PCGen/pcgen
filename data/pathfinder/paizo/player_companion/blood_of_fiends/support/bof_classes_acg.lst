@@ -1,0 +1,8 @@
+SOURCELONG:Pathfinder Player Companion: Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz	SOURCEDATE:2012-04
+
+
+###Block: Bardic Masterpiece activation
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Tiefling
