@@ -199,3 +199,79 @@ CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceLightSensitivity|
 CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceFerocity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceFerocity=True
 CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceWeaponFamiliarity=True
 CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceLanguages=True
+
+
+# ------------------------------
+# Tengu
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceAbilityScores|0							ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Ability Scores|PREVAREQ:Tengu_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceType|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Type|PREVAREQ:Tengu_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceSize|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Size|PREVAREQ:Tengu_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceSpeed|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Speed|PREVAREQ:Tengu_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceVision|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Vision|PREVAREQ:Tengu_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceSneaky|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Sneaky|PREVAREQ:Tengu_ReplaceSneaky,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceGiftedLinguist|0						ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Gifted Linguist|PREVAREQ:Tengu_ReplaceGiftedLinguist,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceSwordtrained|0							ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Swordtrained|PREVAREQ:Tengu_ReplaceSwordtrained,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceNaturalWeapon|0							ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Natural Weapon|PREVAREQ:Tengu_ReplaceNaturalWeapon,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceLanguages|0	DEFINE:Tengu_AlternateLanguages|0	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Languages|PREVAREQ:Tengu_ReplaceLanguages,0|PREVAREQ:Tengu_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSneaky|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceGiftedLinguist|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSwordtrained|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordtrained
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceNaturalWeapon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
+
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSneaky|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceSneaky=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceGiftedLinguist|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceGiftedLinguist=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSwordtrained|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceSwordtrained=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceNaturalWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceNaturalWeapon=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceLanguages=True
+
+
+# ------------------------------
+# Tiefling
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability																			FACT
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceAbilityScores|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Ability Scores|PREVAREQ:Tiefling_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceType|0				ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Type|PREVAREQ:Tiefling_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSize|0				ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Size|PREVAREQ:Tiefling_ReplaceSize,0						FACT:RaceSizeAllowed_Medium|True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSpeed|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Speed|PREVAREQ:Tiefling_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceVision|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Vision|PREVAREQ:Tiefling_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSkilled|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|PREVAREQ:Tiefling_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSpellLikeAbility|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|PREVAREQ:Tiefling_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceFiendishResistance|0	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Resistance|PREVAREQ:Tiefling_ReplaceFiendishResistance,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceFiendishSorcery|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Sorcery|PREVAREQ:Tiefling_ReplaceFiendishSorcery,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceLanguages|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Languages|PREVAREQ:Tiefling_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceAbilityScores|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingStats
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSkilled|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishSorcery|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceLanguages|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
+
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSkilled=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceFiendishResistance=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishSorcery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceFiendishSorcery=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceLanguages=True

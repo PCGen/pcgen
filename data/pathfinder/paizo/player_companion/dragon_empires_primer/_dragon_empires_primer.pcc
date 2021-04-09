@@ -8,6 +8,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
 PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
@@ -39,6 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dragon Empires Primer"
 
 ABILITY:dep_abilities.lst
 ABILITY:dep_abilities_class.lst
+ABILITY:dep_abilities_race.lst
 ABILITYCATEGORY:dep_abilitycategories.lst
 CLASS:dep_classes.lst
 DOMAIN:dep_domains.lst

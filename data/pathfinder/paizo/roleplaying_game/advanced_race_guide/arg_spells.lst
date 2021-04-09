@@ -227,3 +227,4 @@ Shadow Anchor	TYPE:Arcane	CLASSES:Bard,Sorcerer,Witch,Wizard=2	SCHOOL:Illusion	S
 #
 
 Corruption Resistance.COPY=Corruption Resistance (Evil)	CLASSES:.CLEARALL
+Speak with Animals.COPY=Speak with Animals (birds or other flying animals only)	CLASSES:.CLEARALL

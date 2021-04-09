@@ -152,7 +152,6 @@ Perception.MOD			SITUATION:Underground
 Perception.MOD			SITUATION:Underwater
 Perception.MOD			SITUATION:When listening
 Perception.MOD			SITUATION:When using blindsense
-Perception.MOD			SITUATION:sight- and hearing-based
 Ride.MOD				SITUATION:Samurai Mount
 Sense Motive.MOD			SITUATION:Secret Messages
 Sense Motive.MOD			SITUATION:Sense Enchantment
