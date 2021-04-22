@@ -2,20 +2,20 @@
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
 
-# Adaro
-# Language				Type					Required Ability
-Speak with Sharks			TYPE:Spoken				PREABILITY:1,CATEGORY=Internal,Speak with Sharks
-
+# Language				Type
 Adlet					TYPE:Spoken.Written.Read
+Catfolk				TYPE:Spoken.Written.Read
 Garuda				TYPE:Spoken.Written.Read
+Girtablilu				TYPE:Spoken.Written.Read
 Kech					TYPE:Spoken.Written.Read
 Sasquatch				TYPE:Spoken.Written.Read
 Shae					TYPE:Spoken.Written.Read
 Tanuki				TYPE:Spoken.Written.Read
 Thriae				TYPE:Spoken.Written.Read
 Truespeech				TYPE:Spoken.Written.Read
+Vanaran				TYPE:Spoken.Written.Read
+Vishkanya				TYPE:Spoken.Written.Read
 Yithian				TYPE:Spoken.Written.Read
-Girtablilu				TYPE:Spoken.Written.Read
 
 Aklo (cannot speak)		TYPE:Understand
 Aquan (cannot speak)		TYPE:Understand

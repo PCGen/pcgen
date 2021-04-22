@@ -37,19 +37,25 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dragon Empires Primer"
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+DATACONTROL:dep__datacontrols.lst
 
-ABILITY:dep_abilities.lst
 ABILITY:dep_abilities_class.lst
+ABILITY:dep_abilities_globalvar_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
+ABILITY:dep_abilities_race_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 ABILITY:dep_abilities_race.lst
+ABILITY:dep_abilities.lst
+ABILITY:dep_feats.lst
+ABILITYCATEGORY:dep_abilitycategories_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 ABILITYCATEGORY:dep_abilitycategories.lst
 CLASS:dep_classes.lst
 DOMAIN:dep_domains.lst
-ABILITY:dep_feats.lst
 KIT:dep_kits.lst
 LANGUAGE:dep_languages.lst
+RACE:dep_races_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 RACE:dep_races.lst
 SKILL:dep_skills.lst
 SPELL:dep_spells.lst
+TEMPLATE:dep_templates_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 TEMPLATE:dep_templates.lst
 
 WEAPONPROF:dep_profs_weapon.lst

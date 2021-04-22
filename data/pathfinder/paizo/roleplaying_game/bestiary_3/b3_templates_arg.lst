@@ -1,6 +1,33 @@
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Adlet			VISIBLE:NO	SOURCEPAGE:p.303	RACESUBTYPE:Adlet
+Asura			VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Asura
+Behemoth		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Behemoth
+Catfolk		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Catfolk
+Clockwork		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Clockwork
+Demodand		VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Demodand
+Div			VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Div
+Kami			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Kami
+Kyton			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Kyton
+Leshy			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Leshy
+Oni			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Oni
+Rakshasa		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Rakshasa
+Ratfolk		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Ratfolk
+Sasquatch		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Sasquatch
+Vanara		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Vanara
+Vishkanya		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Vishkanya
+
 ###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
 # Template Name	Unique Key					Visible	Type				FACT
 Catfolk		KEY:Racial Heritage ~ Catfolk		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsCatfolk|True
 Ratfolk		KEY:Racial Heritage ~ Ratfolk		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsRatfolk|True
+Suli			KEY:Racial Heritage ~ Suli		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSuli|True
+Vanara		KEY:Racial Heritage ~ Vanara		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsVanara|True
+Vishkanya		KEY:Racial Heritage ~ Vishkanya	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsVishkanya|True
+
+###Block: Languages
+Bonus Language ~ Catfolk		VISIBLE:NO	LANGBONUS:Catfolk
+Bonus Language ~ Vanaran		VISIBLE:NO	LANGBONUS:Vanaran
+Bonus Language ~ Vishkanya		VISIBLE:NO	LANGBONUS:Vishkanya

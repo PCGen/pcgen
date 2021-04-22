@@ -166,7 +166,7 @@ Specialized Ability Score Selection ~ Mental										CATEGORY:Internal		TYPE:Sp
 # Ability Name		Unique Key					Category of Ability		Type										Multiple Requirements																					Description		Auto Language	Ability									Bonus Ability Pool											Modify VAR					Cost
 Standard Languages	KEY:Racial Language ~ Standard	CATEGORY:Special Ability	TYPE:RacialQuality.LanguageQuality																																AUTO:LANG|Common											BONUS:ABILITYPOOL|Language|1	BONUS:ABILITYPOOL|Race Builder Bonus Race Languages|7
 # Ability Name		Unique Key					Category of Ability		Type										Multiple Requirements																					Description		Auto Language	Ability									Bonus Ability Pool											Modify VAR					Cost
-Linguist			KEY:Racial Language ~ Linguist	CATEGORY:Special Ability	TYPE:RacialQuality.LanguageQuality.RacialQualityLanguage	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Linguist],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.RacialQualityLanguage]	DESC:[Cost: %1]|1	AUTO:LANG|Common	ABILITY:Internal|AUTOMATIC|Race Bonus Language ~ All Spoken	BONUS:ABILITYPOOL|Language|1										BONUS:VAR|ARG_RaceBuilderPoints|-1	COST:0
+Linguist			KEY:Racial Language ~ Linguist	CATEGORY:Special Ability	TYPE:RacialQuality.LanguageQuality.RacialQualityLanguage	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Linguist],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.RacialQualityLanguage]	DESC:[Cost: %1]|1	AUTO:LANG|Common	ABILITY:Internal|AUTOMATIC|Bonus Language ~ Any Spoken	BONUS:ABILITYPOOL|Language|1										BONUS:VAR|ARG_RaceBuilderPoints|-1	COST:0
 Xenophobic			KEY:Racial Language ~ Xenophobic	CATEGORY:Special Ability	TYPE:RacialQuality.LanguageQuality.RacialQualityLanguage	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Xenophobic],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.RacialQualityLanguage]																	BONUS:ABILITYPOOL|Language|1	BONUS:ABILITYPOOL|Race Builder Bonus Race Languages|4							COST:0
 
 
@@ -617,30 +617,30 @@ Not Slowed By Encumberance	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
 ###Block: Language Bonus Selections - Race Grant
-#XXX		TYPE:RaceBuilderBonusLang		TEMPLATE:Race Bonus Language ~ xxx
+#XXX		TYPE:RaceBuilderBonusLang		TEMPLATE:Bonus Language ~ xxx
 # Ability Name				Unique Key					Category of Ability	Type					Multiple?	Choose				Template							Auto Language
-Race Bonus Language ~ All Spoken							CATEGORY:Internal														TEMPLATE:Race Bonus Language ~ All Spoken
+Bonus Language ~ Any Spoken							CATEGORY:Internal														TEMPLATE:Bonus Language ~ Any Spoken
 # Core Rule Book
-Abyssal											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Abyssal
-Aklo												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Aklo
-Aquan												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Aquan
-Auran												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Auran
-Celestial											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Celestial
-Common											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Common
-Draconic											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Draconic
-Dwarven											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Dwarven
-Elven												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Elven
-Giant												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Giant
-Gnoll												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Gnoll
-Gnome												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Gnome
-Goblin											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Goblin
-Halfling											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Halfling
-Ignan												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Ignan
-Infernal											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Infernal
-Orc												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Orc
-Sylvan											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Sylvan
-Terran											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Terran
-Undercommon											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Undercommon
+Abyssal											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Abyssal
+Aklo												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Aklo
+Aquan												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Aquan
+Auran												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Auran
+Celestial											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Celestial
+Common											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Common
+Draconic											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Draconic
+Dwarven											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Dwarven
+Elven												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Elven
+Giant												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Giant
+Gnoll												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Gnoll
+Gnome												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Gnome
+Goblin											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Goblin
+Halfling											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Halfling
+Ignan												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Ignan
+Infernal											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Infernal
+Orc												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Orc
+Sylvan											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Sylvan
+Terran											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Terran
+Undercommon											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Undercommon
 
 
 Choose Language				KEY:Race Builder ~ Choose Language	CATEGORY:Internal		TYPE:RaceBuilderLang		MULT:YES	CHOOSE:LANG|!PC,TYPE=Spoken									AUTO:LANG|%LIST

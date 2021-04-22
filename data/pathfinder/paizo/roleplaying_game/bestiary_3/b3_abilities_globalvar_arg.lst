@@ -65,3 +65,94 @@ CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceRodentEmp
 CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceSwarming|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceSwarming=True
 CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceTinker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceTinker=True
 CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceLanguages=True
+
+
+# ------------------------------
+# Suli
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceAbilityScores|0		ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Ability Scores|PREVAREQ:Suli_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceType|0			ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Type|PREVAREQ:Suli_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceSize|0			ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Size|PREVAREQ:Suli_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceSpeed|0			ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Speed|PREVAREQ:Suli_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceVision|0			ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Vision|PREVAREQ:Suli_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceNegotiator|0		ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Negotiator|PREVAREQ:Suli_ReplaceNegotiator,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceElementalAssault|0	ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Elemental Assault|PREVAREQ:Suli_ReplaceElementalAssault,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceEnergyResistance|0	ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Energy Resistance|PREVAREQ:Suli_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceLanguages|0		ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Languages|PREVAREQ:Suli_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceNegotiator|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceNegotiator=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceElementalAssault|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceElementalAssault=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceLanguages=True
+
+
+# ------------------------------
+# Vanara
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	DEFINE:Vanara_ReplaceAbilityScores|0	ABILITY:Vanara Racial Trait|AUTOMATIC|Vanara ~ Ability Scores|PREVAREQ:Vanara_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	DEFINE:Vanara_ReplaceType|0			ABILITY:Vanara Racial Trait|AUTOMATIC|Vanara ~ Type|PREVAREQ:Vanara_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	DEFINE:Vanara_ReplaceSize|0			ABILITY:Vanara Racial Trait|AUTOMATIC|Vanara ~ Size|PREVAREQ:Vanara_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	DEFINE:Vanara_ReplaceSpeed|0			ABILITY:Vanara Racial Trait|AUTOMATIC|Vanara ~ Speed|PREVAREQ:Vanara_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	DEFINE:Vanara_ReplaceVision|0			ABILITY:Vanara Racial Trait|AUTOMATIC|Vanara ~ Vision|PREVAREQ:Vanara_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	DEFINE:Vanara_ReplaceNimble|0			ABILITY:Vanara Racial Trait|AUTOMATIC|Vanara ~ Nimble|PREVAREQ:Vanara_ReplaceNimble,0
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	DEFINE:Vanara_ReplacePrehensileTail|0	ABILITY:Vanara Racial Trait|AUTOMATIC|Vanara ~ Prehensile Tail|PREVAREQ:Vanara_ReplacePrehensileTail,0
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	DEFINE:Vanara_ReplaceLanguages|0		ABILITY:Vanara Racial Trait|AUTOMATIC|Vanara ~ Languages|PREVAREQ:Vanara_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	BONUS:VAR|Vanara_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanara_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	BONUS:VAR|Vanara_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanara_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	BONUS:VAR|Vanara_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanara_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	BONUS:VAR|Vanara_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanara_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	BONUS:VAR|Vanara_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanara_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	BONUS:VAR|Vanara_ReplaceNimble|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanara_ReplaceNimble=True
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	BONUS:VAR|Vanara_ReplacePrehensileTail|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanara_ReplacePrehensileTail=True
+CATEGORY=Internal|Racial Traits ~ Vanara.MOD	BONUS:VAR|Vanara_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanara_ReplaceLanguages=True
+
+
+# ------------------------------
+# Vishkanya
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceAbilityScores|0		ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Ability Scores|PREVAREQ:Vishkanya_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceType|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Type|PREVAREQ:Vishkanya_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceSize|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Size|PREVAREQ:Vishkanya_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceSpeed|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Speed|PREVAREQ:Vishkanya_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceVision|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Vision|PREVAREQ:Vishkanya_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceKeenSenses|0		ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Keen Senses|PREVAREQ:Vishkanya_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceLimber|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Limber|PREVAREQ:Vishkanya_ReplaceLimber,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplacePoisonResistance|0	ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Poison Resistance|PREVAREQ:Vishkanya_ReplacePoisonResistance,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplacePoisonUse|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Poison Use|PREVAREQ:Vishkanya_ReplacePoisonUse,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceToxic|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Toxic|PREVAREQ:Vishkanya_ReplaceToxic,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceWeaponFamiliarity|0	ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Weapon Familiarity|PREVAREQ:Vishkanya_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceLanguages|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Languages|PREVAREQ:Vishkanya_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceKeenSenses=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceLimber|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceLimber=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplacePoisonResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplacePoisonResistance=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplacePoisonUse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplacePoisonUse=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceToxic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceToxic=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceLanguages=True
