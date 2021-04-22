@@ -47,6 +47,28 @@ FACTDEF:ABILITY|Fetchling_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELEC
 
 
 # ------------------------------
+# Grippli
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsGrippli	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Grippli	EXPLANATION:Determines whether the character is a Grippli
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Grippli_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceNaturalClimber		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Natural Climber	EXPLANATION:Replaces the Natural Climber Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceCamouflage			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Camouflage		EXPLANATION:Replaces the Camouflage Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceSwampStride		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Swamp Stride		EXPLANATION:Replaces the Swamp Stride Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Languages		EXPLANATION:Replaces the Languages Racial Trait
+
+
+# ------------------------------
 # Ifrit
 # ------------------------------
 
@@ -56,15 +78,15 @@ FACTDEF:TEMPLATE|IsIfrit	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YE
 
 ###Block: Racial Traits
 # Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
-FACTDEF:ABILITY|Ifrit_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Ability Scores		EXPLANATION:Repalces the Ability Scores Racial Trait
-FACTDEF:ABILITY|Ifrit_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Type			EXPLANATION:Repalces the Type Racial Trait
-FACTDEF:ABILITY|Ifrit_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Size			EXPLANATION:Repalces the Size Racial Trait
-FACTDEF:ABILITY|Ifrit_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Speed			EXPLANATION:Repalces the Speed Racial Trait
-FACTDEF:ABILITY|Ifrit_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Vision			EXPLANATION:Repalces the Vision Racial Trait
-FACTDEF:ABILITY|Ifrit_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Spell-Like Ability	EXPLANATION:Repalces the Spell-Like Ability Racial Trait
-FACTDEF:ABILITY|Ifrit_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Energy Resistance	EXPLANATION:Repalces the Energy Resistance Racial Trait
-FACTDEF:ABILITY|Ifrit_ReplaceFireAffinity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Fire Affinity		EXPLANATION:Repalces the Fire Affinity Racial Trait
-FACTDEF:ABILITY|Ifrit_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Languages			EXPLANATION:Repalces the Languages Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Ability Scores		EXPLANATION:Replaces the Ability Scores Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Spell-Like Ability	EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Energy Resistance	EXPLANATION:Replaces the Energy Resistance Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceFireAffinity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Fire Affinity		EXPLANATION:Replaces the Fire Affinity Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Languages			EXPLANATION:Replaces the Languages Racial Trait
 
 
 # ------------------------------
@@ -77,15 +99,15 @@ FACTDEF:TEMPLATE|IsOread	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YE
 
 ###Block: Racial Traits
 # Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
-FACTDEF:ABILITY|Oread_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Ability Scores		EXPLANATION:Repalces the Dual Talent Racial Trait
-FACTDEF:ABILITY|Oread_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Type			EXPLANATION:Repalces the Type Racial Trait
-FACTDEF:ABILITY|Oread_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Size			EXPLANATION:Repalces the Size Racial Trait
-FACTDEF:ABILITY|Oread_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Speed			EXPLANATION:Repalces the Speed Racial Trait
-FACTDEF:ABILITY|Oread_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Vision			EXPLANATION:Repalces the Vision Racial Trait
-FACTDEF:ABILITY|Oread_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Spell-Like Ability	EXPLANATION:Repalces the Spell-Like Ability Racial Trait
-FACTDEF:ABILITY|Oread_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Energy Resistance	EXPLANATION:Repalces the Energy Resistance Racial Trait
-FACTDEF:ABILITY|Oread_ReplaceEarthAffinity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Earth Affinity		EXPLANATION:Repalces the Earth Affinity Racial Trait
-FACTDEF:ABILITY|Oread_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Languages			EXPLANATION:Repalces the Languages Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Spell-Like Ability	EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Energy Resistance	EXPLANATION:Replaces the Energy Resistance Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceEarthAffinity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Earth Affinity		EXPLANATION:Replaces the Earth Affinity Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Languages			EXPLANATION:Replaces the Languages Racial Trait
 
 
 # ------------------------------
@@ -94,19 +116,19 @@ FACTDEF:ABILITY|Oread_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABL
 
 ###Block: Racial Identifiers
 # Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
-FACTDEF:TEMPLATE|IsSylph	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Sylph	EXPLANATION:Determines whether the character is an Sylph
+FACTDEF:TEMPLATE|IsSylph	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Sylph	EXPLANATION:Determines whether the character is a Sylph
 
 ###Block: Racial Traits
 # Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
-FACTDEF:ABILITY|Sylph_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Ability Scores		EXPLANATION:Repalces the Dual Talent Racial Trait
-FACTDEF:ABILITY|Sylph_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Type			EXPLANATION:Repalces the Type Racial Trait
-FACTDEF:ABILITY|Sylph_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Size			EXPLANATION:Repalces the Size Racial Trait
-FACTDEF:ABILITY|Sylph_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Speed			EXPLANATION:Repalces the Speed Racial Trait
-FACTDEF:ABILITY|Sylph_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Vision			EXPLANATION:Repalces the Vision Racial Trait
-FACTDEF:ABILITY|Sylph_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Spell-Like Ability	EXPLANATION:Repalces the Spell-Like Ability Racial Trait
-FACTDEF:ABILITY|Sylph_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Energy Resistance	EXPLANATION:Repalces the Energy Resistance Racial Trait
-FACTDEF:ABILITY|Sylph_ReplaceAirAffinity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Air Affinity		EXPLANATION:Repalces the Air Affinity Racial Trait
-FACTDEF:ABILITY|Sylph_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Languages			EXPLANATION:Repalces the Languages Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Spell-Like Ability	EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Energy Resistance	EXPLANATION:Replaces the Energy Resistance Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceAirAffinity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Air Affinity		EXPLANATION:Replaces the Air Affinity Racial Trait
+FACTDEF:ABILITY|Sylph_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Sylph Languages			EXPLANATION:Replaces the Languages Racial Trait
 
 
 # ------------------------------
@@ -121,12 +143,12 @@ FACTDEF:TEMPLATE|IsUndine	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:Y
 
 # Undine
 # Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
-FACTDEF:ABILITY|Undine_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Ability Scores		EXPLANATION:Repalces the Dual Talent Racial Trait
-FACTDEF:ABILITY|Undine_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Type			EXPLANATION:Repalces the Type Racial Trait
-FACTDEF:ABILITY|Undine_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Size			EXPLANATION:Repalces the Size Racial Trait
-FACTDEF:ABILITY|Undine_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Speed			EXPLANATION:Repalces the Speed Racial Trait
-FACTDEF:ABILITY|Undine_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Vision			EXPLANATION:Repalces the Vision Racial Trait
-FACTDEF:ABILITY|Undine_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Spell-Like Ability	EXPLANATION:Repalces the Spell-Like Ability Racial Trait
-FACTDEF:ABILITY|Undine_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Energy Resistance	EXPLANATION:Repalces the Energy Resistance Racial Trait
-FACTDEF:ABILITY|Undine_ReplaceWaterAffinity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Water Affinity		EXPLANATION:Repalces the Water Affinity Racial Trait
-FACTDEF:ABILITY|Undine_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Languages		EXPLANATION:Repalces the Languages Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Spell-Like Ability	EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Energy Resistance	EXPLANATION:Replaces the Energy Resistance Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceWaterAffinity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Water Affinity		EXPLANATION:Replaces the Water Affinity Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Languages		EXPLANATION:Replaces the Languages Racial Trait

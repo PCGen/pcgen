@@ -6,7 +6,8 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -55,10 +56,12 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+DATACONTROL:iswg__datacontrols.lst
 
 # Data files
 ABILITY:iswg_abilities.lst
 ABILITY:iswg_abilities_class.lst
+ABILITY:iswg_abilities_globalvar.lst
 ABILITY:iswg_abilities_race.lst
 ABILITYCATEGORY:iswg_abilitycategories.lst
 CLASS:iswg_classes.lst
@@ -76,6 +79,7 @@ KIT:iswg_kits_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 LANGUAGE:iswg_languages.lst
 RACE:iswg_races.lst
 RACE:iswg_races_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+SKILL:iswg_skills.lst
 SPELL:iswg_spells.lst
 TEMPLATE:iswg_templates.lst
 ARMORPROF:iswg_profs_armor.lst

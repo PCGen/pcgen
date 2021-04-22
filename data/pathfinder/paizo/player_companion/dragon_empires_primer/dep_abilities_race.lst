@@ -2,6 +2,60 @@ SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer	SOURCESHORT:DEP	SO
 
 
 # ------------------------------
+# Kitsune
+# ------------------------------
+
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability												Modify VAR
+Golarion		KEY:Kitsune ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Kitsune
+Dragon Empires	KEY:Kitsune ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Kitsune	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Dragon Empires Languages	BONUS:VAR|Kitsune_AlternateLanguages|1|TYPE=Boolean
+
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																						Template																																											Auto Language		Source Page
+Languages		KEY:Kitsune ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Kitsune Racial Trait.Kitsune Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kitsune_ReplaceLanguages=True	PREVAREQ:Kitsune_AlternateLanguages,1	DESC:Kitsune begin play speaking Tien and Senzar. Kitsune with high Intelligence scores can choose bonus languages from the following: any human tongue, Aklo, Celestial, Elven, Gnome, Nagaji, Samsaran, Sylvan, Tengu, and Wayang.	TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Aklo|Bonus Language ~ Celestial|Bonus Language ~ Elven|Bonus Language ~ Gnome|Bonus Language ~ Nagaji|Bonus Language ~ Samsaran|Bonus Language ~ Sylvan|Bonus Language ~ Tengu|Bonus Language ~ Wayang	AUTO:LANG|Tien|Senzar	SOURCEPAGE:p.4
+
+
+# ------------------------------
+# Nagaji
+# ------------------------------
+
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
+Golarion		KEY:Nagaji ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Nagaji
+Dragon Empires	KEY:Nagaji ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Nagaji	ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Dragon Empires Languages	BONUS:VAR|Nagaji_AlternateLanguages|1|TYPE=Boolean
+
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																									Template																																																				Auto Language		Source Page
+Languages		KEY:Nagaji ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Nagaji Racial Trait.Nagaji Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Nagaji_ReplaceLanguages=True	PREVAREQ:Nagaji_AlternateLanguages,1	DESC:Nagaji begin play speaking Nagaji and Tien. Nagaji with high Intelligence scores can choose bonus languages from the following: any human tongue, Abyssal, Aklo, Celestial, Draconic, Giant, Infernal, Samsaran, Senzar, Sylvan, Tengu, and Wayang.	TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Abyssal|Bonus Language ~ Aklo|Bonus Language ~ Celestial|Bonus Language ~ Draconic|Bonus Language ~ Giant|Bonus Language ~ Infernal|Bonus Language ~ Samsaran|Bonus Language ~ Senzar|Bonus Language ~ Sylvan|Bonus Language ~ Tengu|Bonus Language ~ Wayang	AUTO:LANG|Nagaji|Tien	SOURCEPAGE:p.4
+
+
+# ------------------------------
+# Samsaran
+# ------------------------------
+
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race		Ability												Modify VAR
+Golarion		KEY:Samsaran ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Samsaran
+Dragon Empires	KEY:Samsaran ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Samsaran	ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Dragon Empires Languages	BONUS:VAR|Samsaran_AlternateLanguages|1|TYPE=Boolean
+
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																												Template																																																											Auto Language		Source Page
+Languages		KEY:Samsaran ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Samsaran Racial Trait.Samsaran Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Samsaran_ReplaceLanguages=True	PREVAREQ:Samsaran_AlternateLanguages,1	DESC:Samsarans begin play speaking Samsaran and Tien. Samsarans with high Intelligence scores can choose bonus languages from the following: any human tongue, Abyssal, Aquan, Auran, Celestial, Draconic, Giant, Ignan, Infernal, Nagaji, Senzar, Tengu, Terran, and Wayang.	TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Abyssal|Bonus Language ~ Aquan|Bonus Language ~ Auran|Bonus Language ~ Celestial|Bonus Language ~ Draconic|Bonus Language ~ Giant|Bonus Language ~ Ignan|Bonus Language ~ Infernal|Bonus Language ~ Nagaji|Bonus Language ~ Senzar|Bonus Language ~ Tengu|Bonus Language ~ Terran|Bonus Language ~ Wayang	AUTO:LANG|Samsaran|Tien	SOURCEPAGE:p.5
+
+
+# ------------------------------
 # Tengu
 # ------------------------------
 
@@ -19,12 +73,29 @@ CATEGORY=Special Ability|Tengu ~ Swordtrained.MOD									SOURCEPAGE:p.6
 CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD									SOURCEPAGE:p.6
 CATEGORY=Internal|Racial Traits ~ Tengu.MOD		BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
 
-###Block: Lanugage Choices
-# Ability Name	Unique Key				Category of Ability	Type				Ability											Modify VAR
-Default		KEY:Tengu ~ Default		CATEGORY:Choice		TYPE:Regional Language
-Dragon Empires	KEY:Tengu ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Dragon Empires Languages	BONUS:VAR|Tengu_AlternateLanguages|1|TYPE=Boolean
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
+Golarion		KEY:Tengu ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Tengu
+Dragon Empires	KEY:Tengu ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Tengu	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Dragon Empires Languages	BONUS:VAR|Tengu_AlternateLanguages|1|TYPE=Boolean
 
 ###Block: Region-Specific Languages
-# Ability Name	Unique Key						Category of Ability		Type															Visible		Required Var. value			Description																					Template					Auto Language		Source Page
-Languages		KEY:Tengu ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Tengu Racial Trait.Tengu Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	PREVAREQ:Tengu_AlternateLanguages,1	DESC:Tengus begin play speaking Tengu and Tien. Tengus with high Intelligence scores can choose any language as a bonus language.	TEMPLATE:Race Bonus Language ~ All	AUTO:LANG|Tengu|Tien	SOURCEPAGE:p.6
+# Ability Name	Unique Key						Category of Ability		Type															Visible		Required Var. value			Description																					Template				Auto Language		Source Page
+Languages		KEY:Tengu ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Tengu Racial Trait.Tengu Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	PREVAREQ:Tengu_AlternateLanguages,1	DESC:Tengus begin play speaking Tengu and Tien. Tengus with high Intelligence scores can choose any language as a bonus language.	TEMPLATE:Bonus Language ~ Any Spoken	AUTO:LANG|Tengu|Tien	SOURCEPAGE:p.6
 
+
+# ------------------------------
+# Wayang
+# ------------------------------
+
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
+Golarion		KEY:Wayang ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Wayang
+Dragon Empires	KEY:Wayang ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Wayang	ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Dragon Empires Languages	BONUS:VAR|Wayang_AlternateLanguages|1|TYPE=Boolean
+
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																				Template																																												Auto Language		Source Page
+Languages		KEY:Wayang ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Wayang Racial Trait.Wayang Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Wayang_ReplaceLanguages=True	PREVAREQ:Wayang_AlternateLanguages,1	DESC:Wayangs begin play speaking Tien and Wayang. Wayangs with high Intelligence scores can choose from the following: any human tongue, Abyssal, Aklo, Draconic, Goblin, Infernal, Nagaji, Samsaran, Senzar, and Tengu.	TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Abyssal|Bonus Language ~ Aklo|Bonus Language ~ Draconic|Bonus Language ~ Goblin|Bonus Language ~ Infernal|Bonus Language ~ Nagaji|Bonus Language ~ Samsaran|Bonus Language ~ Senzar|Bonus Language ~ Tengu	AUTO:LANG|Tien|Wayang	SOURCEPAGE:p.6

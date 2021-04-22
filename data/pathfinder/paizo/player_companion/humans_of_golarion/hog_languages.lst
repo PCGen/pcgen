@@ -14,11 +14,11 @@ Vudrani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
 
 ###Block: Ancient Languages
 # Language		Product Identity?	Type
-Ancient Osiriani	NAMEISPI:YES	TYPE:Spoken.Written.Read
-Azlanti		NAMEISPI:YES	TYPE:Spoken.Written.Read
-Jistka		NAMEISPI:YES	TYPE:Spoken.Written.Read
-Tekritanin		NAMEISPI:YES	TYPE:Spoken.Written.Read
-Thassilonian	NAMEISPI:YES	TYPE:Spoken.Written.Read
+Ancient Osiriani	NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage
+Azlanti		NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage
+Jistka		NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage
+Tekritanin		NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage
+Thassilonian	NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage
 
 ###Block: Other Languages
 # Language	Product Identity?	Type

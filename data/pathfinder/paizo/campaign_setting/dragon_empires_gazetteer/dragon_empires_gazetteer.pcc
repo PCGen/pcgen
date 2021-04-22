@@ -43,16 +43,23 @@ DESC:It is a land where honorable samurai wage war against devious ninja. Where 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+DATACONTROL:deg__datacontrols.lst
 
-ABILITY:deg_abilities.lst
+ABILITY:deg_abilities_globalvar_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
+ABILITY:deg_abilities_race_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 ABILITY:deg_abilities_race.lst
+ABILITY:deg_abilities.lst
+ABILITYCATEGORY:deg_abilitycategories_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 ABILITYCATEGORY:deg_abilitycategories.lst
 BIOSET:deg_biosettings.lst
 DEITY:deg_deities.lst
 DOMAIN:deg_domains.lst
 LANGUAGE:deg_languages.lst
+RACE:deg_races_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 RACE:deg_races.lst
+SKILL:deg_skills.lst
 SPELL:deg_spells.lst
+TEMPLATE:deg_templates_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 TEMPLATE:deg_templates.lst
 
 # ENTRY DATE:

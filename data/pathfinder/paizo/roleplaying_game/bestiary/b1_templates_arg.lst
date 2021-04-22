@@ -14,8 +14,24 @@ Duergar		KEY:Racial Heritage ~ Duergar		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsD
 Goblin		KEY:Racial Heritage ~ Goblin		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGoblin|True
 Hobgoblin		KEY:Racial Heritage ~ Hobgoblin	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsHobgoblin|True
 Kobold		KEY:Racial Heritage ~ Kobold		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsKobold|True
-#Orc - this is in ce_templates.lst
 Merfolk		KEY:Racial Heritage ~ Merfolk		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsMerfolk|True
+#Orc - this is in ce_templates.lst
+Svirfneblin		KEY:Racial Heritage ~ Svirfneblin	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSvirfneblin|True
 Tengu			KEY:Racial Heritage ~ Tengu		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTengu|True
 Tiefling		KEY:Racial Heritage ~ Tiefling	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTiefling|True
-Svirfneblin		KEY:Racial Heritage ~ Svirfneblin	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSvirfneblin|True
+
+###Block: Languages
+# Template Name				Visible	Bonus Languages
+Bonus Language ~ Aboleth		VISIBLE:NO	LANGBONUS:Aboleth
+Bonus Language ~ Boggard		VISIBLE:NO	LANGBONUS:Boggard
+Bonus Language ~ Cyclops		VISIBLE:NO	LANGBONUS:Cyclops
+Bonus Language ~ Dark Folk		VISIBLE:NO	LANGBONUS:Dark Folk
+Bonus Language ~ Drow			VISIBLE:NO	LANGBONUS:Drow
+Bonus Language ~ Drow Sign Language	VISIBLE:NO	LANGBONUS:Drow Sign Language
+Bonus Language ~ Pidgin of Giant	VISIBLE:NO	LANGBONUS:Pidgin of Giant
+Bonus Language ~ Sahuagin		VISIBLE:NO	LANGBONUS:Sahuagin
+Bonus Language ~ Sphinx			VISIBLE:NO	LANGBONUS:Sphinx
+Bonus Language ~ Tengu			VISIBLE:NO	LANGBONUS:Tengu
+Bonus Language ~ Treant			VISIBLE:NO	LANGBONUS:Treant
+Bonus Language ~ Vegepygmy		VISIBLE:NO	LANGBONUS:Vegepygmy
+Bonus Language ~ Worg			VISIBLE:NO	LANGBONUS:Worg

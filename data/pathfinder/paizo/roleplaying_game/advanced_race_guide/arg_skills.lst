@@ -1,11 +1,17 @@
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 
+###Block: Situational Modifiers
 Acrobatics.MOD	SITUATION:in slippery conditions
-Acrobatics.MOD	SITUATION:to move on narrow surfaces and uneven ground
 Acrobatics.MOD	SITUATION:to cross narrow ledges
+Acrobatics.MOD	SITUATION:to move on narrow surfaces and uneven ground
+Bluff.MOD		SITUATION:against sexually attracted creatures
 Bluff.MOD		SITUATION:to fool an opponent
 Climb.MOD		SITUATION:in slippery conditions
+Disguise.MOD	SITUATION:to appear human
+Handle Animal.MOD	SITUATION:against reptiles
 Perception.MOD	SITUATION:based on sight or hearing
+Perception.MOD	SITUATION:in dim light or darkness
 Spellcraft.MOD	SITUATION:identify a spell being cast
 Stealth.MOD		SITUATION:in desert environments
+Stealth.MOD		SITUATION:in dim light or darkness
 Stealth.MOD		SITUATION:in underwater environments

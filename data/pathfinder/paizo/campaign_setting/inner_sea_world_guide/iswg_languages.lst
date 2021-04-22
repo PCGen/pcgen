@@ -16,13 +16,14 @@ Vudrani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.
 
 ###Block: Ancient Languages
 # Language		Product Identity?	Type					Source Page
-Ancient Osiriani	NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Azlanti		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Jistka		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Tekritanin		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Thassilonian	NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
+Ancient Osiriani	NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage	SOURCEPAGE:p.251
+Azlanti		NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage	SOURCEPAGE:p.251
+Jistka		NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage	SOURCEPAGE:p.251
+Tekritanin		NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage	SOURCEPAGE:p.251
+Thassilonian	NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage	SOURCEPAGE:p.251
 
 ###Block: Other Languages
 # Language	Product Identity?	Type					Source Page
 Necril				TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
 Orvian	NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
+Strix					TYPE:Spoken.Written.Read

@@ -1,6 +1,0 @@
-SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
-
-###Block: Racial Spell Variants
-# Spell Name										Output Name														Classes of caster	Description
-Disguise Self.COPY=Disguise Self (humanoid only)																			CLASSES:.CLEARALL	DESC:You make yourself--including clothing, armor, weapons, and equipment--look different.
-Plane Shift.COPY=Plane Shift (self only/to Shadow or Material Plane)	OUTPUTNAME:Plane Shift (self only, to the Plane of Shadow or the Material Plane only)	CLASSES:.CLEARALL	DESC:You move yourself or some other creature to another plane of existence or alternate dimension.
