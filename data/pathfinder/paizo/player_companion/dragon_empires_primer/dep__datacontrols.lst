@@ -1,0 +1,86 @@
+
+
+# ------------------------------
+# Kitsune
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsKitsune	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Kitsune	EXPLANATION:Determines whether the character is a Kitsune
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Kitsune_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceChangeShape	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Change Shape		EXPLANATION:Replaces the Change Shape Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceAgile		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Agile			EXPLANATION:Replaces the Agile Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceKitsuneMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Kitsune Magic		EXPLANATION:Replaces the Kitsune Magic Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceNaturalWeapons	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Natural Weapons	EXPLANATION:Replaces the Natural Weapons Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Languages		EXPLANATION:Replaces the Languages Racial Trait
+
+
+# ------------------------------
+# Nagaji
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsNagaji	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Nagaji	EXPLANATION:Determines whether the character is a Nagaji
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Nagaji_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceArmoredScales	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Armored Scales		EXPLANATION:Replaces the Armored Scales Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceResistant		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Resistant		EXPLANATION:Replaces the Resistant Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSerpentsSense	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Serpent's Sense	EXPLANATION:Replaces the Serpent's Sense Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Languages		EXPLANATION:Replaces the Languages Racial Trait
+
+
+# ------------------------------
+# Samsaran
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsSamsaran	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Samsaran	EXPLANATION:Determines whether the character is a Samsaran
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Samsaran_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceType		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSize		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceLifebound		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Lifebound		EXPLANATION:Replaces the Lifebound Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSamsaranMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Samsaran Magic	EXPLANATION:Replaces the Samsaran Magic Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceShardsOfThePast	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Shards of the Past	EXPLANATION:Replaces the Shards of the Past Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Languages		EXPLANATION:Replaces the Languages Racial Trait
+
+
+# ------------------------------
+# Wayang
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsWayang	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Wayang	EXPLANATION:Determines whether the character is a Wayang
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Wayang_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLightAndDark	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Light and Dark		EXPLANATION:Replaces the Light and Dark Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLurker		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Lurker			EXPLANATION:Replaces the Lurker Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceShadowMagic		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Shadow Magic		EXPLANATION:Replaces the Shadow Magic Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceShadowResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Shadow Resistance	EXPLANATION:Replaces the Shadow Resistance Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Languages		EXPLANATION:Replaces the Languages Racial Trait

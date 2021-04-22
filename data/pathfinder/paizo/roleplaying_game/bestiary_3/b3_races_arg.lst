@@ -1,4 +1,3 @@
-#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21640 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
@@ -8,8 +7,7 @@ SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8od
 ###BLOCK: Base Races
 # Race Name	SORTKEY		Starting Feats	Base size		Move			Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
 Catfolk	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Catfolk	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Featured	SOURCEPAGE:p.47	FACT:IsPC|true
-Ratfolk	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,0			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Ratfolk	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Featured	SOURCEPAGE:p.231	FACT:IsPC|True
-
-Suli		STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGBONUS:Aquan,Auran,Draconic,Ignan,Terran						BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Suli		RACETYPE:Outsider	RACESUBTYPE:Native	TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.202	FACT:BaseSize|M	FACT:IsPC|true
-Vanara	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGBONUS:Aklo,Celestial,Elven,Gnome,Goblin,Sylvan					BONUS:STAT|DEX,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common|Vanaran	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Vanara	RACETYPE:Humanoid	RACESUBTYPE:Vanara	TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.206	FACT:BaseSize|M	FACT:IsPC|true
-Vishkanya	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGBONUS:Aklo,Draconic,Elven,Goblin,Sylvan,Undercommon				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Vishkanya	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Vishkanya	RACETYPE:Humanoid	RACESUBTYPE:Vishkanya	TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.208	FACT:BaseSize|M	FACT:IsPC|true
+Ratfolk	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,0		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Ratfolk	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Featured	SOURCEPAGE:p.231	FACT:IsPC|True
+Suli		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Suli		LEGS:2	HANDS:2	RACETYPE:Outsider	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.258	FACT:IsPC|True
+Vanara	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Vanara	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.280	FACT:IsPC|True
+Vishkanya	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Vishkanya	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.281	FACT:IsPC|True

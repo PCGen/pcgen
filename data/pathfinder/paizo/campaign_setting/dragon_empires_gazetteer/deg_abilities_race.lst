@@ -1,62 +1,59 @@
-#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
-# Ability Name						Unique Key							Category of Ability	Type					Description											Template					Ability																					Bonus Ability Pool							Modify VAR
-Dragon Empire Setting					KEY:Setting Language ~ Dragon Empire Setting	CATEGORY:Internal		TYPE:RaceLanguageSelection	DESC:Grants the race the default race language of the core supplements.
+
+# ------------------------------
+# Kitsune
+# ------------------------------
+
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability												Modify VAR
+Golarion		KEY:Kitsune ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Kitsune
+Dragon Empires	KEY:Kitsune ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Kitsune	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Dragon Empires Languages	BONUS:VAR|Kitsune_AlternateLanguages|1|TYPE=Boolean
+
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																						Template																																											Auto Language		Source Page
+Languages		KEY:Kitsune ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Kitsune Racial Trait.Kitsune Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kitsune_ReplaceLanguages=True	PREVAREQ:Kitsune_AlternateLanguages,1	DESC:Kitsune begin play speaking Tien and Senzar. Kitsune with high Intelligence scores can choose bonus languages from the following: any human tongue, Aklo, Celestial, Elven, Gnome, Nagaji, Samsaran, Sylvan, Tengu, and Wayang.	TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Aklo|Bonus Language ~ Celestial|Bonus Language ~ Elven|Bonus Language ~ Gnome|Bonus Language ~ Nagaji|Bonus Language ~ Samsaran|Bonus Language ~ Sylvan|Bonus Language ~ Tengu|Bonus Language ~ Wayang	AUTO:LANG|Tien|Senzar	SOURCEPAGE:p.9
 
 
-CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Kitsune|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
-CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Nagaji|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
-CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Samsaran|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
-CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Wayang|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
+# ------------------------------
+# Nagaji
+# ------------------------------
 
-Dragon Empire ~ Kitsune													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Kitsune
-Dragon Empire ~ Nagaji													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Nagaji
-Dragon Empire ~ Samsaran												CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Samsaran
-Dragon Empire ~ Wayang													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Wayang
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
 
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
+Golarion		KEY:Nagaji ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Nagaji
+Dragon Empires	KEY:Nagaji ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Nagaji	ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Dragon Empires Languages	BONUS:VAR|Nagaji_AlternateLanguages|1|TYPE=Boolean
 
-Racial Traits ~ Kitsune													CATEGORY:Internal
-#
-CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
-CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
-CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
-CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapon|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons
-
-###Block: Kitsune Abilities
-# Ability Name						Unique Key				Category of Ability		Type															Multiple Requirements																					Innate Spells											Description																																																																											Ability																					Bonus DC				Bonus to skill					Natural Attacks
-Change Shape						KEY:Kitsune ~ Change Shape	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Supernatural.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Change Shape],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape]															DESC:A kitsune can assume the appearance of a single human form of the same sex,this form is static, and cannot be changed each time the kitsune assumes this form. A kitsune in human form cannot make its bite attack, but gains a +10 racial bonus on Disguise checks made to appear human. Changing from human to kitsune shape is a standard action. This ability otherwise functions as alter self, save that the kitsune does not adjust its ability scores.
-Agile								KEY:Kitsune ~ Agile		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Agile],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile]																	DESC:Kitsune receive a +2 racial bonus on Acrobatics checks.																																																																																													BONUS:SKILL|Acrobatics|2|TYPE=Racial
-Kitsune Magic						KEY:Kitsune ~ Kitsune Magic	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.KitsuneRacialTrait.KitsuneRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Kitsune Magic],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic]		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Dancing Lights,10+CHA|PRESTAT:1,CHA=11	DESC:Kitsune add +1 to the DC of any saving throws against enchantment spells that they cast. Kitsune with a Charisma of 11 or higher also gain a spell-like ability.																																																																							BONUS:DC|SCHOOL.Enchantment|1
-Natural Weapon						KEY:Kitsune ~ Natural Weapon	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Natural Weapon],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons]														DESC:A kitsune has a bite attack in its natural form. This bite does a base of 1d4 points of damage on a hit. This is a primary attack, or a secondary attack if the kitsune wields a manufactured weapon.																																																																													NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																									Template																																																				Auto Language		Source Page
+Languages		KEY:Nagaji ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Nagaji Racial Trait.Nagaji Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Nagaji_ReplaceLanguages=True	PREVAREQ:Nagaji_AlternateLanguages,1	DESC:Nagaji begin play speaking Nagaji and Tien. Nagaji with high Intelligence scores can choose bonus languages from the following: any human tongue, Abyssal, Aklo, Celestial, Draconic, Giant, Infernal, Samsaran, Senzar, Sylvan, Tengu, and Wayang.	TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Abyssal|Bonus Language ~ Aklo|Bonus Language ~ Celestial|Bonus Language ~ Draconic|Bonus Language ~ Giant|Bonus Language ~ Infernal|Bonus Language ~ Samsaran|Bonus Language ~ Senzar|Bonus Language ~ Sylvan|Bonus Language ~ Tengu|Bonus Language ~ Wayang	AUTO:LANG|Nagaji|Tien	SOURCEPAGE:p.4
 
 
+# ------------------------------
+# Samsaran
+# ------------------------------
 
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
 
-Racial Traits ~ Nagaji										CATEGORY:Internal
-#
-CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Armored Scales|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales
-CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Resistant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant
-CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Serpent's Sense|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense
-###Block: Nagaji Abilities
-# Ability Name						Unique Key				Category of Ability		Type															Multiple Requirements																					Description																				Ability																						Combat bonus						Bonus to skill					Aspects
-Armored Scales						KEY:Nagaji ~ Armored Scales	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nagaji ~ Armored Scales],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales]	DESC:Nagaji have a +1 Natural Armor bonus from their scaly flesh.																																		BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
-Resistant							KEY:Nagaji ~ Resistant		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nagaji ~ Resistant],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant]			DESC:Nagaji receive a +2 racial saving throw bonus against mind-affecting effects and poison.																																												ASPECT:SaveBonus|+2 vs Mind-affecting effects; +2 vs Poison
-Serpent's Sense						KEY:Nagaji ~ Serpent's Sense	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nagaji ~ Serpent's Sense],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense]	DESC:Nagaji receive a +2 racial bonus on Handle Animal checks against reptiles, and a +2 racial bonus on Perception checks.																																BONUS:SKILL|Perception|2|TYPE=Racial
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race		Ability												Modify VAR
+Golarion		KEY:Samsaran ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Samsaran
+Dragon Empires	KEY:Samsaran ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Samsaran	ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Dragon Empires Languages	BONUS:VAR|Samsaran_AlternateLanguages|1|TYPE=Boolean
 
-Racial Traits ~ Samsaran									CATEGORY:Internal
-#
-CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Lifebound|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound
-CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Samsaran Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic
-CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Shards of the Past|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsofthePast
-###Block: Samsaran Abilities
-# Ability Name						Unique Key					Category of Ability		Type															Visible		Multiple Requirements																						Innate Spells														Description																																											Stackable?	Multiple?	Choose			Selections	Ability																				Bonus Ability Pool			Bonus to skill				Class Skill	Aspects
-Lifebound							KEY:Samsaran ~ Lifebound		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SamsaranRacialTrait.SamsaranRacialDefault				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran ~ Lifebound],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound]																			DESC:Samsarans gain a +2 racial bonus on all saving throws made to resist death effects, saving throws against negative energy effects, Fortitude saves made to remove negative levels, and Constitution checks made to stabilize if reduced to negative hit points.																																														ASPECT:SaveBonus|+2 vs Death Effects, Negative Energy; +2 to Fortitude Saves to remove negative levels; +2 to Con checks to Stabilize
-Samsaran Magic						KEY:Samsaran ~ Samsaran Magic		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.SamsaranRacialTrait.SamsaranRacialDefault				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran ~ Samsaran Magic],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic]			SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Comprehend Languages|Deathwatch|Stabilize|PRESTAT:1,CHA=11	DESC:Samsarans with a Charisma score of 11 or higher gain spell-like abilities
-Shards of the Past					KEY:Samsaran ~ Shards of the Past	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SamsaranRacialTrait.SamsaranRacialDefault				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran ~ Shards of the Past],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsofthePast]																	DESC:A samsaran's past lives grant her bonuses on two particular Knowledge skills. A samsaran chooses two Knowledge skills, she gains a +2 racial bonus on both of these skills, and they are treated as class skills regardless of what class she actually takes.																																BONUS:ABILITYPOOL|Shards Bonus|1
-
-Shards of the Past Bonus										CATEGORY:Special Ability	TYPE:Internal.ShardsBonus											VISIBLE:DISPLAY																																																																																						STACK:NO	MULT:YES	CHOOSE:SKILL|Knowledge%	SELECT:2																												BONUS:SKILL|LIST|2|TYPE=Racial	CSKILL:LIST
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																												Template																																																											Auto Language		Source Page
+Languages		KEY:Samsaran ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Samsaran Racial Trait.Samsaran Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Samsaran_ReplaceLanguages=True	PREVAREQ:Samsaran_AlternateLanguages,1	DESC:Samsarans begin play speaking Samsaran and Tien. Samsarans with high Intelligence scores can choose bonus languages from the following: any human tongue, Abyssal, Aquan, Auran, Celestial, Draconic, Giant, Ignan, Infernal, Nagaji, Senzar, Tengu, Terran, and Wayang.	TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Abyssal|Bonus Language ~ Aquan|Bonus Language ~ Auran|Bonus Language ~ Celestial|Bonus Language ~ Draconic|Bonus Language ~ Giant|Bonus Language ~ Ignan|Bonus Language ~ Infernal|Bonus Language ~ Nagaji|Bonus Language ~ Senzar|Bonus Language ~ Tengu|Bonus Language ~ Terran|Bonus Language ~ Wayang	AUTO:LANG|Samsaran|Tien	SOURCEPAGE:p.5
 
 
 # ------------------------------
@@ -77,30 +74,29 @@ CATEGORY=Special Ability|Tengu ~ Swordtrained.MOD									SOURCEPAGE:p.6
 CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD									SOURCEPAGE:p.6
 CATEGORY=Internal|Racial Traits ~ Tengu.MOD		BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
 
-###Block: Lanugage Choices
-# Ability Name	Unique Key				Category of Ability	Type				Ability											Modify VAR
-Default		KEY:Tengu ~ Default		CATEGORY:Choice		TYPE:Regional Language
-Dragon Empires	KEY:Tengu ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Dragon Empires Languages	BONUS:VAR|Tengu_AlternateLanguages|1|TYPE=Boolean
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
+Golarion		KEY:Tengu ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Tengu
+Dragon Empires	KEY:Tengu ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Tengu	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Dragon Empires Languages	BONUS:VAR|Tengu_AlternateLanguages|1|TYPE=Boolean
 
 ###Block: Region-Specific Languages
-# Ability Name	Unique Key						Category of Ability		Type															Visible		Required Var. value			Description																					Template					Auto Language		Source Page
-Languages		KEY:Tengu ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Tengu Racial Trait.Tengu Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	PREVAREQ:Tengu_AlternateLanguages,1	DESC:Tengus begin play speaking Tengu and Tien. Tengus with high Intelligence scores can choose any language as a bonus language.	TEMPLATE:Race Bonus Language ~ All	AUTO:LANG|Tengu|Tien	SOURCEPAGE:p.12
+# Ability Name	Unique Key						Category of Ability		Type															Visible		Required Var. value			Description																					Template				Auto Language		Source Page
+Languages		KEY:Tengu ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Tengu Racial Trait.Tengu Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	PREVAREQ:Tengu_AlternateLanguages,1	DESC:Tengus begin play speaking Tengu and Tien. Tengus with high Intelligence scores can choose any language as a bonus language.	TEMPLATE:Bonus Language ~ Any Spoken	AUTO:LANG|Tengu|Tien	SOURCEPAGE:p.12
 
 
+# ------------------------------
+# Wayang
+# ------------------------------
 
-Racial Traits ~ Wayang										CATEGORY:Internal
-#
-CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Light and Dark|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightAndDark
-CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Lurker|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker
-CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic
-CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance
-###Block: Wayang Abilities
-# Ability Name	Unique Key					Category of Ability		Type															Multiple Requirements																						Innate Spells																		Description																																											Bonus DC				Bonus to skill						Aspects
-Light and Dark	KEY:Wayang ~ Light and Dark		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Supernatural.WayangRacialTrait.WayangRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Light and Dark],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightandDark]																						DESC:Once per day as an immediate action, a wayang can treat positive and negative energy effects as if the wayang were an undead creature, taking damage from positive energy and healing damage from negative energy. This ability lasts for 1 minute once activated.
-Lurker		KEY:Wayang ~ Lurker			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.WayangRacialTrait.WayangRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Lurker],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker]																									DESC:Wayang receive a +2 racial bonus on Perception and Stealth checks.																																						BONUS:SKILL|Perception,Stealth|2|TYPE=Racial
-Shadow Magic	KEY:Wayang ~ Shadow Magic		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.WayangRacialTrait.WayangRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Shadow Magic],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic]			SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Ghost Sound,10+CHA|Pass without Trace,11+CHA|Ventriloquism,CHA+11|PRESTAT:1,CHA=11	DESC:Wayang add +1 to the DC of any saving throws against shadow spells that they cast. Wayang with a Charisma of 11 or higher also gain spell-like abilities.																		BONUS:DC|SUBSCHOOL.Shadow|1
-Shadow Resistance	KEY:Wayang ~ Shadow Resistance	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.WayangRacialTrait.WayangRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Shadow Resistance],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance]																					DESC:Wayangs get a +2 racial saving throw bonus against spells of the shadow subschool.																																											ASPECT:SaveBonus|+2 vs. shadow spells or effects
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
 
+###Block: Language Choices
+# Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
+Golarion		KEY:Wayang ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Wayang
+Dragon Empires	KEY:Wayang ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Wayang	ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Dragon Empires Languages	BONUS:VAR|Wayang_AlternateLanguages|1|TYPE=Boolean
 
-
-#Block: Racial Traits
+###Block: Region-Specific Languages
+# Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																				Template																																												Auto Language		Source Page
+Languages		KEY:Wayang ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:RacialTraits.Wayang Racial Trait.Wayang Racial Default.SpecialQuality.Racial Language	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Wayang_ReplaceLanguages=True	PREVAREQ:Wayang_AlternateLanguages,1	DESC:Wayangs begin play speaking Tien and Wayang. Wayangs with high Intelligence scores can choose from the following: any human tongue, Abyssal, Aklo, Draconic, Goblin, Infernal, Nagaji, Samsaran, Senzar, and Tengu.	TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Abyssal|Bonus Language ~ Aklo|Bonus Language ~ Draconic|Bonus Language ~ Goblin|Bonus Language ~ Infernal|Bonus Language ~ Nagaji|Bonus Language ~ Samsaran|Bonus Language ~ Senzar|Bonus Language ~ Tengu	AUTO:LANG|Tien|Wayang	SOURCEPAGE:p.13

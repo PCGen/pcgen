@@ -3,10 +3,6 @@
 # ORIGINAL ENTRY: "Swiftbrook"
 # ORIGINAL ENTRY DATE: 7 January 2014
 
-###Block:
-# Spell Name					Type				Classes of caster			School			Sub-School			Components		Casting Time	Range		Target Area or Effect			Duration											Save Info		Spell Resistance	Description
-Summon Monster III.COPY=Summon Monster III (Lantern Archon Only)		CLASSES:.CLEARALL	DESC:.CLEAR	DESC:This spell functions like summon monster III, except that you can only summon one lantern archon.
-
 
 ###Block: Bardic Masterpiece spell placeholders
 # Spell Name						Classes of caster													School			Casting Time		Source Page

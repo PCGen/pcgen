@@ -297,32 +297,33 @@ Wild Shape Medium Animal (Stingray)			LEGS:0	HANDS:0	VISIBLE:EXPORT	TEMPLATE:Wil
 
 Wild Shape Huge Animal (Allosaurus)			LEGS:2			VISIBLE:EXPORT	TEMPLATE:Wild Shape (Huge Animal)	SOURCEPAGE:TODO						PREVARGTEQ:WildShapeProgression,1								BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))													ABILITY:Special Ability|AUTOMATIC|Grab	ABILITY:Special Ability|AUTOMATIC|Scent	ABILITY:Special Ability|AUTOMATIC|Pounce|PREVARGTEQ:WildShapeProgression,1	ABILITY:Special Ability|AUTOMATIC|Rake	ABILITY:Internal|AUTOMATIC|Bite|Talons																MOVE:Walk,50			TYPE:WildshapeTemplate.WildshapeHuge	VISION:Low-Light Vision	NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
 
-#Race Bonus Language ~ xxx		VISIBLE:NO		LANGBONUS:
 
-# Core Rule Book Languages
-Race Bonus Language ~ Abyssal								VISIBLE:NO																																																																																																					LANGBONUS:Abyssal
-Race Bonus Language ~ Aklo								VISIBLE:NO																																																																																																					LANGBONUS:Aklo
-Race Bonus Language ~ Aquan								VISIBLE:NO																																																																																																					LANGBONUS:Aquan
-Race Bonus Language ~ Auran								VISIBLE:NO																																																																																																					LANGBONUS:Auran
-Race Bonus Language ~ Celestial							VISIBLE:NO																																																																																																					LANGBONUS:Celestial
-Race Bonus Language ~ Common								VISIBLE:NO																																																																																																					LANGBONUS:Common
-Race Bonus Language ~ Draconic							VISIBLE:NO																																																																																																					LANGBONUS:Draconic
-Race Bonus Language ~ Dwarven								VISIBLE:NO																																																																																																					LANGBONUS:Dwarven
-Race Bonus Language ~ Elven								VISIBLE:NO																																																																																																					LANGBONUS:Elven
-Race Bonus Language ~ Giant								VISIBLE:NO																																																																																																					LANGBONUS:Giant
-Race Bonus Language ~ Gnoll								VISIBLE:NO																																																																																																					LANGBONUS:Gnoll
-Race Bonus Language ~ Gnome								VISIBLE:NO																																																																																																					LANGBONUS:Gnome
-Race Bonus Language ~ Goblin								VISIBLE:NO																																																																																																					LANGBONUS:Goblin
-Race Bonus Language ~ Halfling							VISIBLE:NO																																																																																																					LANGBONUS:Halfling
-Race Bonus Language ~ Ignan								VISIBLE:NO																																																																																																					LANGBONUS:Ignan
-Race Bonus Language ~ Infernal							VISIBLE:NO																																																																																																					LANGBONUS:Infernal
-Race Bonus Language ~ Orc								VISIBLE:NO																																																																																																					LANGBONUS:Orc
-Race Bonus Language ~ Sylvan								VISIBLE:NO																																																																																																					LANGBONUS:Sylvan
-Race Bonus Language ~ Terran								VISIBLE:NO																																																																																																					LANGBONUS:Terran
-Race Bonus Language ~ Undercommon							VISIBLE:NO																																																																																																					LANGBONUS:Undercommon
-Race Bonus Language ~ All								VISIBLE:NO																																																																																																					LANGBONUS:ALL
-Bonus Language ~ Any Spoken								VISIBLE:NO																																																																																																					LANGBONUS:TYPE=Spoken
-
+#Bonus Language ~ xxx		VISIBLE:NO		LANGBONUS:
+###Block: Core Rule Book Languages
+# Template Name				Visible	Bonus Languages
+Bonus Language ~ Abyssal		VISIBLE:NO	LANGBONUS:Abyssal
+Bonus Language ~ Aklo			VISIBLE:NO	LANGBONUS:Aklo
+Bonus Language ~ Aquan			VISIBLE:NO	LANGBONUS:Aquan
+Bonus Language ~ Auran			VISIBLE:NO	LANGBONUS:Auran
+Bonus Language ~ Celestial		VISIBLE:NO	LANGBONUS:Celestial
+Bonus Language ~ Common			VISIBLE:NO	LANGBONUS:Common
+Bonus Language ~ Draconic		VISIBLE:NO	LANGBONUS:Draconic
+Bonus Language ~ Dwarven		VISIBLE:NO	LANGBONUS:Dwarven
+Bonus Language ~ Elven			VISIBLE:NO	LANGBONUS:Elven
+Bonus Language ~ Giant			VISIBLE:NO	LANGBONUS:Giant
+Bonus Language ~ Gnoll			VISIBLE:NO	LANGBONUS:Gnoll
+Bonus Language ~ Gnome			VISIBLE:NO	LANGBONUS:Gnome
+Bonus Language ~ Goblin			VISIBLE:NO	LANGBONUS:Goblin
+Bonus Language ~ Halfling		VISIBLE:NO	LANGBONUS:Halfling
+Bonus Language ~ Ignan			VISIBLE:NO	LANGBONUS:Ignan
+Bonus Language ~ Infernal		VISIBLE:NO	LANGBONUS:Infernal
+Bonus Language ~ Orc			VISIBLE:NO	LANGBONUS:Orc
+Bonus Language ~ Sylvan			VISIBLE:NO	LANGBONUS:Sylvan
+Bonus Language ~ Terran			VISIBLE:NO	LANGBONUS:Terran
+Bonus Language ~ Undercommon		VISIBLE:NO	LANGBONUS:Undercommon
+Bonus Language ~ All			VISIBLE:NO	LANGBONUS:ALL
+Bonus Language ~ Any Spoken		VISIBLE:NO	LANGBONUS:TYPE=Spoken
+Bonus Language ~ Any Human Language	VISIBLE:NO	LANGBONUS:TYPE=ModernHumanLanguage,TYPE=HumanRegional,TYPE=Human
 
 
 

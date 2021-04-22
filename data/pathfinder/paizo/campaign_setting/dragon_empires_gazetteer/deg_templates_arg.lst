@@ -1,0 +1,9 @@
+
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
+# Template Name	Unique Key					Visible	Type				FACT
+Kitsune		KEY:Racial Heritage ~ Kitsune		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsKitsune|True
+Nagaji		KEY:Racial Heritage ~ Nagaji		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsNagaji|True
+Samsaran		KEY:Racial Heritage ~ Samsaran	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSamsaran|True
+Wayang		KEY:Racial Heritage ~ Wayang		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsWayang|True

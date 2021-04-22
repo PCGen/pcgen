@@ -44,6 +44,11 @@ Regional Affinity (Xa Hoi)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.20	LANGBONUS:D
 Regional Affinity (Xidao)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.21	LANGBONUS:Aquan,Tien														REGION:Xidao
 Regional Affinity (Zi Ha)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.21	LANGBONUS:Giant,Hon-La,Samsaran,Tien											REGION:Zi Ha
 
+###Block: Languages
+# Template Name		Visible	Bonus Languages
+Bonus Language ~ Senzar	VISIBLE:NO	LANGBONUS:Senzar
+Bonus Language ~ Wayang	VISIBLE:NO	LANGBONUS:Wayang
+
 #
 # End
 #

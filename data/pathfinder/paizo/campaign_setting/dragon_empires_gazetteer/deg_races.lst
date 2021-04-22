@@ -1,14 +1,7 @@
-#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
-# Race Name	Starting Feats	Size		Move			Reach		Stat bonus						Ability								Main Race Type	Type			Template		Challenge Rating	Source, Long Desc.			Source, Short Desc.	FACT
-Kitsune	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kitsune	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Kitsune	CR:1/2		SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG		FACT:BaseSize|M	FACT:IsPC|true
-Nagaji	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Nagaji	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Nagaji	CR:1/2		SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG		FACT:BaseSize|M	FACT:IsPC|true
-Samsaran	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	BONUS:STAT|INT,WIS|2	BONUS:STAT|CON|-2	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Samsaran	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Samsaran	CR:1/2		SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG		FACT:BaseSize|M	FACT:IsPC|true
-Tengu.MOD	SOURCEPAGE:p.12
-Wayang	STARTFEATS:1	SIZE:S	MOVE:Walk,20	REACH:5	BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wayang	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Wayang	CR:1/2		SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG		FACT:BaseSize|S	FACT:IsPC|true
 ###Block: Add Ethnicity
 # Race Name		Template
 Human.MOD		TEMPLATE:Human Ethnicity

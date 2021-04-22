@@ -243,6 +243,7 @@ Teleporting Burst				CATEGORY:Ability Focus	TYPE:Ability Focus
 Terrifying Croak				CATEGORY:Ability Focus	TYPE:Ability Focus
 Terror					CATEGORY:Ability Focus	TYPE:Ability Focus
 Thunderbolt					CATEGORY:Ability Focus	TYPE:Ability Focus
+Toxic						CATEGORY:Ability Focus	TYPE:Ability Focus
 Toxic Skin					CATEGORY:Ability Focus	TYPE:Ability Focus
 Trample					CATEGORY:Ability Focus	TYPE:Ability Focus
 Trill						CATEGORY:Ability Focus	TYPE:Ability Focus
@@ -887,6 +888,7 @@ Rules ~ Preview Sheet - Use Alternative Spell Listing Method	CATEGORY:Internal		
 # Ability Name					Category of Ability	Define								Ability
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Save Bonus Tracker
 Save Bonus Tracker				CATEGORY:Internal
+# CR - PZO1110
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Poison|0					ABILITY:Save Bonus|AUTOMATIC|Poison|!PREVAREQ:SaveBonus_vs_Poison,0|!PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Spells|0					ABILITY:Save Bonus|AUTOMATIC|Spells|!PREVAREQ:SaveBonus_vs_Spells,0|!PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
 CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Poison and Spells|!PREVAREQ:SaveBonus_vs_Poison,0|!PREVAREQ:SaveBonus_vs_Spells,0|PREVAREQ:SaveBonus_vs_Poison,SaveBonus_vs_Spells
@@ -902,7 +904,7 @@ CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_LightEffects|0	
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:WillSave_vs_CharmAndCompulsion|0			ABILITY:Save Bonus|AUTOMATIC|Enchantment (Charm and Compulsion)|!PREVAREQ:WillSave_vs_CharmAndCompulsion,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Despair|0					ABILITY:Save Bonus|AUTOMATIC|Despair|!PREVAREQ:SaveBonus_vs_Despair,0|!PREVAREQ:SaveBonus_vs_Despair,SaveBonus_vs_Fear
 CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Despair and Fear|!PREVAREQ:SaveBonus_vs_Despair,0|!PREVAREQ:SaveBonus_vs_Fear,0|PREVAREQ:SaveBonus_vs_Despair,SaveBonus_vs_Fear
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_Poison|0					ABILITY:Save Bonus|AUTOMATIC|Poison ~ Fort|!PREVAREQ:FortSave_vs_Poison,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_Poison|0					ABILITY:Save Bonus|AUTOMATIC|Fort vs Poison|!PREVAREQ:FortSave_vs_Poison,0|!PREVAREQ:FortSave_vs_Poison,FortSave_vs_Disease
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_LanguageSpells|0			ABILITY:Save Bonus|AUTOMATIC|Language Spells|!PREVAREQ:SaveBonus_vs_LanguageSpells,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:RefSave_vs_Trample|0					ABILITY:Save Bonus|AUTOMATIC|Trample|!PREVAREQ:RefSave_vs_Trample,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_ColdClimate|0				ABILITY:Save Bonus|AUTOMATIC|Climate (Cold)|!PREVAREQ:FortSave_vs_ColdClimate,0
@@ -916,17 +918,25 @@ CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMAT
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_StarvationAndThirst|0			ABILITY:Save Bonus|AUTOMATIC|Starvation and Thirst|!PREVAREQ:SaveBonus_vs_StarvationAndThirst,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_FatigueAndExhaustion|0		ABILITY:Save Bonus|AUTOMATIC|Fatigue and Exhaustion|!PREVAREQ:SaveBonus_vs_FatigueAndExhaustion,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Altitude|0				ABILITY:Save Bonus|AUTOMATIC|Altitude Fatigue and Sickness|!PREVAREQ:SaveBonus_vs_Altitude,0
-# MC - 1130
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_NonAbolethEnchantments|0		ABILITY:Save Bonus|AUTOMATIC|Non-Aboleth Enchantments|!PREVAREQ:SaveBonus_vs_NonAbolethEnchantments,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_AbolethEnchantments|0			ABILITY:Save Bonus|AUTOMATIC|Aboleth Enchantments|!PREVAREQ:SaveBonus_vs_AbolethEnchantments,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_AbolethSpells|0				ABILITY:Save Bonus|AUTOMATIC|Aboleth Spells|!PREVAREQ:SaveBonus_vs_AbolethSpells,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_NegativeEnergy|0			ABILITY:Save Bonus|AUTOMATIC|Negative Energy Effects|!PREVAREQ:SaveBonus_vs_NegativeEnergy,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_NegativeLevels|0				ABILITY:Save Bonus|AUTOMATIC|Fort vs Negative Levels|!PREVAREQ:FortSave_vs_NegativeLevels,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_Disease|0					ABILITY:Save Bonus|AUTOMATIC|Fort vs Disease|!PREVAREQ:FortSave_vs_Disease,0|!PREVAREQ:FortSave_vs_Disease,FortSave_vs_Poison
+CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Fort vs Disease and Poison|!PREVAREQ:FortSave_vs_Disease,0|!PREVAREQ:FortSave_vs_Poison,0|PREVAREQ:FortSave_vs_Disease,FortSave_vs_Poison
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_ShadowSpells|0				ABILITY:Save Bonus|AUTOMATIC|Shadow Spells|!PREVAREQ:SaveBonus_vs_ShadowSpells,0
+# MC - PZO1130
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_AlchemicalWeapons|0			ABILITY:Save Bonus|AUTOMATIC|Alchemical Weapons|!PREVAREQ:SaveBonus_vs_AlchemicalWeapons,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_PotionsElixirs|0			ABILITY:Save Bonus|AUTOMATIC|Potions or Elixirs|!PREVAREQ:SaveBonus_vs_PotionsElixirs,0
-# HA - 1135
+# HA - PZO1135
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_PsychicSpells|0				ABILITY:Save Bonus|AUTOMATIC|Psychic Spells|!PREVAREQ:SaveBonus_vs_PsychicSpells,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_SanityDamage|0				ABILITY:Save Bonus|AUTOMATIC|Sanity Damage|!PREVAREQ:SaveBonus_vs_SanityDamage,0
 ### Campaign Setting
 # ISR - PZO9280
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DivineSpells|0				ABILITY:Save Bonus|AUTOMATIC|Divine Spells|!PREVAREQ:SaveBonus_vs_DivineSpells,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Divination|0				ABILITY:Save Bonus|AUTOMATIC|Divination Spells and Effects|!PREVAREQ:SaveBonus_vs_Divination,0|!PREVAREQ:SaveBonus_vs_Enchantments,SaveBonus_vs_Divination
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Divination|0				ABILITY:Save Bonus|AUTOMATIC|Enchantment and Divination|!PREVAREQ:SaveBonus_vs_Enchantments,0|!PREVAREQ:SaveBonus_vs_Divination,0|PREVAREQ:SaveBonus_vs_Enchantments,SaveBonus_vs_Divination
+CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Enchantment and Divination|!PREVAREQ:SaveBonus_vs_Enchantments,0|!PREVAREQ:SaveBonus_vs_Divination,0|PREVAREQ:SaveBonus_vs_Enchantments,SaveBonus_vs_Divination
 ### Player Companion
 # Blood of Fiends - PZO9423
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_GazeAttacks|0				ABILITY:Save Bonus|AUTOMATIC|Gaze Attacks|!PREVAREQ:SaveBonus_vs_GazeAttacks,0
@@ -938,8 +948,6 @@ CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Curses|0					AB
 # Blood of the Night - PZO9427
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_SonicEffectsAndSpells|0		ABILITY:Save Bonus|AUTOMATIC|Sonic Effects and Spells|!PREVAREQ:SaveBonus_vs_SonicEffectsAndSpells,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_PositiveEnergyDamageEffects|0	ABILITY:Save Bonus|AUTOMATIC|Positive Energy Damage Effects|!PREVAREQ:SaveBonus_vs_PositiveEnergyDamageEffects,0
-# Bastards of Golarion - PZO9442
-CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:FortSave_vs_DiseaseAndPoison|0			ABILITY:Save Bonus|AUTOMATIC|Disease and Poison|!PREVAREQ:FortSave_vs_DiseaseAndPoison,0
 # Blood of Shadows - PZO9466
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_NegativeLevels|0			ABILITY:Save Bonus|AUTOMATIC|Negative Levels|!PREVAREQ:SaveBonus_vs_NegativeLevels,0
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_TrapsUnderground|0			ABILITY:Save Bonus|AUTOMATIC|Traps (Underground)|!PREVAREQ:SaveBonus_vs_TrapsUnderground,0
@@ -962,20 +970,28 @@ Light Descriptor Effects		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. light 
 Enchantment (Charm and Compulsion)	CATEGORY:Save Bonus	ASPECT:WillSaveBonus|+%1 vs. charm and compulsion spells and spell-like abilities|WillSave_vs_CharmAndCompulsion
 Despair					CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. despair|SaveBonus_vs_Despair
 Despair and Fear				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. despair and fear|max(SaveBonus_vs_Despair,SaveBonus_vs_Fear)
-Poison ~ Fort				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. poison|FortSave_vs_Poison
+Fort vs Poison				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. poison|FortSave_vs_Poison
 Language Spells				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. language-dependent spells|SaveBonus_vs_LanguageSpells
 Trample					CATEGORY:Save Bonus	ASPECT:RefSaveBonus|+%1 vs. trample attacks|RefSave_vs_Trample
 Climate (Cold)				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. cold climate|FortSave_vs_ColdClimate
 Slipping and Falling			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to avoid slipping and falling|SaveBonus_vs_Slipping
 Climate (Hot)				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. hot climate|FortSave_vs_HotClimate
 Swarms and Vermin				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. poison and distraction ability of swarms and vermin|FortSave_vs_SwarmsAndVermin
-Death Effects				CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. death effects|SaveBonus_vs_DeathEffects
-Nauseated Condition			CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. effects that cause the nauseated condition|SaveBonus_vs_NauseatedCondition
-Sickened Condition			CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. effects that cause the sickened condition|SaveBonus_vs_SickenedCondition
-Nauseated or Sickened Conditions	CATEGORY:Save Bonus	ASPECT:AllSAveBonus|+%1 vs. effects that cause the nauseated or sickened conditions|max(SaveBonus_vs_NauseatedCondition,SaveBonus_vs_SickenedCondition)
+Death Effects				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. death effects|SaveBonus_vs_DeathEffects
+Nauseated Condition			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. effects that cause the nauseated condition|SaveBonus_vs_NauseatedCondition
+Sickened Condition			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. effects that cause the sickened condition|SaveBonus_vs_SickenedCondition
+Nauseated or Sickened Conditions	CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. effects that cause the nauseated or sickened conditions|max(SaveBonus_vs_NauseatedCondition,SaveBonus_vs_SickenedCondition)
 Starvation and Thirst			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. starvation and thirst|SaveBonus_vs_StarvationAndThirst
 Fatigue and Exhaustion			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. fatigue and exhaustion|SaveBonus_vs_FatigueAndExhaustion
 Altitude Fatigue and Sickness		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. altitude fatigue and sickness|SaveBonus_vs_Altitude
+Non-Aboleth Enchantments		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. non-aboleth enchantment spells and effects|SaveBonus_vs_NonAbolethEnchantments
+Aboleth Enchantments			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. aboleth enchantment spells and effects|SaveBonus_vs_AbolethEnchantments|PREVARGTEQ:SaveBonus_vs_AbolethEnchantments,1	ASPECT:AllSaveBonus|%1 vs. aboleth enchantment spells and effects|SaveBonus_vs_AbolethEnchantments|PREVARLT:SaveBonus_vs_AbolethEnchantments,0
+Aboleth Spells				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. aboleth spells, spell-like abilities, and supernatural abilities|SaveBonus_vs_AbolethSpells
+Negative Energy Effects			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. negative energy effects|SaveBonus_vs_NegativeEnergy
+Fort vs Negative Levels			CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 to remove negative levels|FortSave_vs_NegativeLevels
+Fort vs Disease				CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. disease|FortSave_vs_Disease
+Fort vs Disease and Poison		CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. disease and poison|max(FortSave_vs_Disease,FortSave_vs_Poison)
+Shadow Spells				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. shadow spells|SaveBonus_vs_ShadowSpells
 # MC - 1130
 Alchemical Weapons			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. alchemical weapons|SaveBonus_vs_AlchemicalWeapons
 Potions or Elixirs			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. harmful effects from drinking potions or elixirs|SaveBonus_vs_PotionsElixirs
@@ -998,8 +1014,6 @@ Curses					CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. curses|SaveBonus_vs_C
 # Blood of the Night - PZO9427
 Sonic Effects And Spells		CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. sonic effects and spells|SaveBonus_vs_SonicEffectsAndSpells|PREVARGTEQ:SaveBonus_vs_SonicEffectsAndSpells,0	ASPECT:AllSaveBonus|%1 vs. sonic effects and spells|SaveBonus_vs_SonicEffectsAndSpells|PREVARLT:SaveBonus_vs_SonicEffectsAndSpells,0
 Positive Energy Damage Effects	CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. positive energy damage effects|SaveBonus_vs_PositiveEnergyDamageEffects|PREVARGTEQ:SaveBonus_vs_PositiveEnergyDamageEffects,0	ASPECT:AllSaveBonus|%1 vs. positive energy damage effects|SaveBonus_vs_PositiveEnergyDamageEffects|PREVARLT:SaveBonus_vs_PositiveEnergyDamageEffects,0
-# Bastards of Golarion - PZO9442
-Disease and Poison			CATEGORY:Save Bonus	ASPECT:FortSaveBonus|+%1 vs. disease and poison|FortSave_vs_DiseaseAndPoison
 # Blood of Shadows - PZO9466
 Negative Levels				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 to remove negative levels|SaveBonus_vs_NegativeLevels
 Traps (Underground)			CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. traps and hazards when underground|SaveBonus_vs_TrapsUnderground

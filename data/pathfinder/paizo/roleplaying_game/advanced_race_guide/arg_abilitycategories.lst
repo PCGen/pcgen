@@ -1,4 +1,3 @@
-#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
@@ -7,11 +6,9 @@
 
 ###Block: Racial Traits ability categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI				Display Location
-ABILITYCATEGORY:Hag Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait							PLURAL:Hag Racial Traits				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Shards of the Past Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge						PLURAL:Shards of the Past Knowledge Skills	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Suli Language Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliLanguage								PLURAL:Suli Language Choices				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vishkanya Perform Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaPerformSkill						PLURAL:Vishkanya Perform Skill Bonuses		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Umbral Scion Spell							PLURAL:Umbral Scion Spells				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shards of the Past Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	PLURAL:Shards of the Past Knowledge Skills	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Vishkanya Perform Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaPerformSkill	PLURAL:Vishkanya Perform Skill Bonuses		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Umbral Scion Spell		PLURAL:Umbral Scion Spells				DISPLAYLOCATION:Feats
 
 ###Block: Feats
 ABILITYCATEGORY:Elven Spirit Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elven Magic			PLURAL:Elven Spirit Choices				DISPLAYLOCATION:Feats
@@ -40,8 +37,31 @@ ABILITYCATEGORY:Catfolk Exemplar Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ABILITYCATEGORY:Blood Drinker Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BloodDrinkerType		PLURAL:Blood Drinker Types		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Orc Weapon Expertise	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OrcWeaponExpertise		PLURAL:Orc Weapon Expertise		DISPLAYLOCATION:Racial Abilities
 
+###Block: Uncommon Races Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Changeling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Changeling Racial Trait	PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gillman Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gillman Racial Trait	PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kitsune Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kitsune Racial Trait	PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Nagaji Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Nagaji Racial Trait	PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Samsaran Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Samsaran Racial Trait	PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Strix Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Strix Racial Trait		PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wayang Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wayang Racial Trait	PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
 
-###Block: Uncommon Races ability categories
+ABILITYCATEGORY:Wyvaran Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait	PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
+
+###Block: Uncommon Races Racial Trait Ability Categories
+# Ability Category									Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Changeling Hag Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Hag Racial Trait										PLURAL:Changeling Hag Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Duergar Dwarf Traits (Replaces Stability)			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Replaces Dwarf Stability															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Duergar Dwarf Traits (Replaces Duergar Immunities)	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Replaces Dwarf Hardy															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Samsaran Shards of the Past Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Samsaran ~ Shards of the Past							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Class						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class														DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Base Int						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Int														DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Base Wis						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Wis														DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Base Cha						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Cha														DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Add Spells					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells														DISPLAYLOCATION:Racial Abilities
+
+###Block: Uncommon Races Feat Categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
 ABILITYCATEGORY:Mother's Gift Option			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MothersGiftOption			PLURAL:Mother's Gift Options	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Shaitan Binder Eidolon Stat Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShaitanBinderEidolonStatBonus	PLURAL:Eidolon Stat Bonuses	DISPLAYLOCATION:Racial Abilities
@@ -66,17 +86,6 @@ ABILITYCATEGORY:Canine Ferocity Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 ABILITYCATEGORY:Elven Arcana Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElvenArcanaSpellChoice					PLURAL:Elven Arcana Spell Choices		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Reincarnated Oracle Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ReincarnatedOracleRevelation.GeneralRevelation	PLURAL:Reincarnated Oracle Revelations	DISPLAYLOCATION:Class Abilities
 
-###Block:
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object					Specific choices list					Plural description for UI		Display Location
-ABILITYCATEGORY:Changeling Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ChangelingRacialTrait											PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gillman Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:GillmanRacialTrait												PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kitsune Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:KitsuneRacialTrait												PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Nagaji Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:NagajiRacialTrait												PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Samsaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:SamsaranRacialTrait											PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Strix Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:StrixRacialTrait												PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wayang Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:WayangRacialTrait												PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wyvaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait											PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
-
 
 ABILITYCATEGORY:Paladin Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance																DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Druid Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:DruidFavoredEnergyResistance																DISPLAYLOCATION:Class Features
@@ -85,8 +94,6 @@ ABILITYCATEGORY:Sorcerer Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 ABILITYCATEGORY:Far Traveler Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Far Traveler Selection											PLURAL:Far Traveler Selections	DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Mystic Past Life Class			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class																DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Mystic Past Life Add Spells		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells																DISPLAYLOCATION:Racial Abilities
 
 
 ABILITYCATEGORY:Oracle Non-Proficient Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_OracleNonProficient		CATEGORY:Internal			TYPE:Oracle NWP																			DISPLAYLOCATION:Class Features
@@ -163,7 +170,6 @@ ABILITYCATEGORY:Canine Ferocity Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 
 ABILITYCATEGORY:Humanoid Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Special Ability	TYPE:Humanoid Subrace																												DISPLAYLOCATION:Race Builder Design
 
-ABILITYCATEGORY:Shards Bonus						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ShardsBonus																								PLURAL:Shards Bonuses		DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Outsider Plane Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:Outsider Plane Choice																											DISPLAYLOCATION:Race Builder Design
 
@@ -179,11 +185,14 @@ ABILITYCATEGORY:Human Racial Subtype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 
 
 ###Block: Builder Support
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list						Plural description for UI	Display Location
-ABILITYCATEGORY:Builder Racial Trait ~ Natural Attack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Builder Racial Trait ~ Natural Attack															DISPLAYLOCATION:Race Builder Design
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list						Display Location
+ABILITYCATEGORY:Builder Racial Trait ~ Natural Attack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Builder Racial Trait ~ Natural Attack										DISPLAYLOCATION:Race Builder Design
 
 
-ABILITYCATEGORY:Gathlain Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gathlain Racial Trait													PLURAL:Gathlain Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Trox Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trox Racial Trait														PLURAL:Trox Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wyrwood Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyrwood Racial Trait													PLURAL:Wyrwood Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wyvaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait													PLURAL:Wyvaran Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gathlain Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gathlain Racial Trait		PLURAL:Gathlain Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Trox Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trox Racial Trait			PLURAL:Trox Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wyrwood Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyrwood Racial Trait		PLURAL:Wyrwood Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wyvaran Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait		PLURAL:Wyvaran Racial Traits	DISPLAYLOCATION:Racial Abilities
+
+
+

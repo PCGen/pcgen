@@ -1,0 +1,156 @@
+
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+
+# ------------------------------
+# Changeling
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name							Define						Ability
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceAbilityScores|0	ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Ability Scores|PREVAREQ:Changeling_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceType|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Type|PREVAREQ:Changeling_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceSize|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Size|PREVAREQ:Changeling_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceSpeed|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Speed|PREVAREQ:Changeling_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceVision|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Vision|PREVAREQ:Changeling_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceHagRacialTrait|0	ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Hag Racial Trait|PREVAREQ:Changeling_ReplaceHagRacialTrait,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceClaws|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Claws|PREVAREQ:Changeling_ReplaceClaws,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceNaturalArmor|0	ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Natural Armor|PREVAREQ:Changeling_ReplaceNaturalArmor,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceLanguages|0	ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Languages|PREVAREQ:Changeling_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name							Modify VAR
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingDarkvision
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceHagRacialTrait|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingHagRacialTrait
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceClaws|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingClaws
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceNaturalArmor|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingNaturalArmor
+
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceHagRacialTrait|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceHagRacialTrait=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceClaws|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceClaws=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceNaturalArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceNaturalArmor=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceLanguages=True
+
+
+# ------------------------------
+# Kitsune
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceAbilityScores|0						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Ability Scores|PREVAREQ:Kitsune_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceType|0								ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Type|PREVAREQ:Kitsune_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceSize|0								ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Size|PREVAREQ:Kitsune_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceSpeed|0								ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Speed|PREVAREQ:Kitsune_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceVision|0							ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Vision|PREVAREQ:Kitsune_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceChangeShape|0							ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|PREVAREQ:Kitsune_ReplaceChangeShape,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceAgile|0								ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|PREVAREQ:Kitsune_ReplaceAgile,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceKitsuneMagic|0						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|PREVAREQ:Kitsune_ReplaceKitsuneMagic,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceNaturalWeapons|0						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapons|PREVAREQ:Kitsune_ReplaceNaturalWeapons,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceLanguages|0	DEFINE:Kitsune_AlternateLanguages|0	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Languages|PREVAREQ:Kitsune_ReplaceLanguages,0|PREVAREQ:Kitsune_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceChangeShape|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceChangeShape=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceAgile|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceAgile=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceKitsuneMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceKitsuneMagic=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceNaturalWeapons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceNaturalWeapons=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceLanguages=True
+
+
+# ------------------------------
+# Nagaji
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceAbilityScores|0						ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Ability Scores|PREVAREQ:Nagaji_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceType|0								ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Type|PREVAREQ:Nagaji_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceSize|0								ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Size|PREVAREQ:Nagaji_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceSpeed|0								ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Speed|PREVAREQ:Nagaji_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceVision|0								ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Vision|PREVAREQ:Nagaji_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceArmoredScales|0						ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Armored Scales|PREVAREQ:Nagaji_ReplaceArmoredScales,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceResistant|0							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Resistant|PREVAREQ:Nagaji_ReplaceResistant,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceSerpentsSense|0						ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Serpent's Sense|PREVAREQ:Nagaji_ReplaceSerpentsSense,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceLanguages|0	DEFINE:Nagaji_AlternateLanguages|0	ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Languages|PREVAREQ:Nagaji_ReplaceLanguages,0|PREVAREQ:Nagaji_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceArmoredScales|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceArmoredScales=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceResistant|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceResistant=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceSerpentsSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceSerpentsSense=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceLanguages=True
+
+
+# ------------------------------
+# Samsaran
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define												Ability																						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceAbilityScores|0							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Ability Scores|PREVAREQ:Samsaran_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceType|0									ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Type|PREVAREQ:Samsaran_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceSize|0									ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Size|PREVAREQ:Samsaran_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceSpeed|0								ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Speed|PREVAREQ:Samsaran_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceVision|0								ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Vision|PREVAREQ:Samsaran_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceLifebound|0								ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Lifebound|PREVAREQ:Samsaran_ReplaceLifebound,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceSamsaranMagic|0							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Samsaran Magic|PREVAREQ:Samsaran_ReplaceSamsaranMagic,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceShardsOfThePast|0																														BONUS:ABILITYPOOL|Samsaran Shards of the Past Skills|1|PREVAREQ:Samsaran_ReplaceShardsOfThePast,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceLanguages|0	DEFINE:Samsaran_AlternateLanguages|0	ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Languages|PREVAREQ:Samsaran_ReplaceLanguages,0|PREVAREQ:Samsaran_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceLifebound|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceLifebound=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceSamsaranMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceSamsaranMagic=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceShardsOfThePast|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceShardsOfThePast=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceLanguages=True
+
+
+# ------------------------------
+# Wayang
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceAbilityScores|0						ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Ability Scores|PREVAREQ:Wayang_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceType|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Type|PREVAREQ:Wayang_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceSize|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Size|PREVAREQ:Wayang_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceSpeed|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Speed|PREVAREQ:Wayang_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceVision|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Vision|PREVAREQ:Wayang_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceLightAndDark|0							ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Light and Dark|PREVAREQ:Wayang_ReplaceLightAndDark,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceLurker|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Lurker|PREVAREQ:Wayang_ReplaceLurker,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceShadowMagic|0							ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Magic|PREVAREQ:Wayang_ReplaceShadowMagic,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceShadowResistance|0						ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Resistance|PREVAREQ:Wayang_ReplaceShadowResistance,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceLanguages|0	DEFINE:Wayang_AlternateLanguages|0	ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Languages|PREVAREQ:Wayang_ReplaceLanguages,0|PREVAREQ:Wayang_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceLightAndDark|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceLightAndDark=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceLurker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceLurker=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceShadowMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceShadowMagic=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceShadowResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceShadowResistance=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceLanguages=True

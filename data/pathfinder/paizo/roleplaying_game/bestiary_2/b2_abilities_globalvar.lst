@@ -81,6 +81,42 @@ CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceLangu
 
 
 # ------------------------------
+# Grippli
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceAbilityScores|0	ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Ability Scores|PREVAREQ:Grippli_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceType|0			ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Type|PREVAREQ:Grippli_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceSize|0			ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Size|PREVAREQ:Grippli_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceSpeed|0			ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Speed|PREVAREQ:Grippli_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceVision|0		ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Vision|PREVAREQ:Grippli_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceNaturalClimber|0	ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Natural Climber|PREVAREQ:Grippli_ReplaceNaturalClimber,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceCamouflage|0		ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Camouflage|PREVAREQ:Grippli_ReplaceCamouflage,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceSwampStride|0		ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Swamp Stride|PREVAREQ:Grippli_ReplaceSwampStride,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceWeaponFamiliarity|0	ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Weapon Familiarity|PREVAREQ:Grippli_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	DEFINE:Grippli_ReplaceLanguages|0		ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Languages|PREVAREQ:Grippli_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliDarkvision
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceCamouflage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliCamouflage
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceSwampStride|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliSwampStride
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliWeaponFamiliarity
+
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceNaturalClimber|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceNaturalClimber=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceCamouflage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceCamouflage=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceSwampStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceSwampStride=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD	BONUS:VAR|Grippli_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Grippli_ReplaceLanguages=True
+
+
+# ------------------------------
 # Ifrit
 # ------------------------------
 
