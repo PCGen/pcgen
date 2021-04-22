@@ -5,7 +5,18 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 STATUS:BETA
-PRECAMPAIGN:9,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Intrigue,INCLUDES=Advanced Race Guide,INCLUDES=Advanced Class Guide,INCLUDES=Occult Adventures
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+PRECAMPAIGN:1,INCLUDES=Occult Adventures
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 #PUBNAMEWEB:http://www.paizo.com
@@ -66,6 +77,7 @@ ABILITY:support/botb_feats_mtt.lst|PRECAMPAIGN:1,INCLUDES=Melee Tactics Toolbox
 ABILITY:support/botb_feats_potr.lst|PRECAMPAIGN:1,INCLUDES=People of the River
 ABILITY:support/botb_feats_rtt.lst|PRECAMPAIGN:1,INCLUDES=Ranged Tactics Toolbox
 
+ABILITY:support/dep_feats_botb.lst|!PRECAMPAIGN:1,INCLUDES=Dragon Empires Primer
 
 
 

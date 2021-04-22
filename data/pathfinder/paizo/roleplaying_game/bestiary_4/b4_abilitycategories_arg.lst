@@ -2,23 +2,22 @@
 # CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
 
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
-ABILITYCATEGORY:Hag Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait		PLURAL:Hag Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Shards Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShardsBonus			PLURAL:Shards Bonuses		DISPLAYLOCATION:Racial Abilities
+###Block: Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Changeling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Changeling Racial Trait	PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gathlain Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gathlain Racial Trait	PLURAL:Gathlain Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gillman Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gillman Racial Trait	PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kasatha Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kasatha Racial Trait	PLURAL:Kasatha Racial Trait		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kitsune Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kitsune Racial Trait	PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Nagaji Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Nagaji Racial Trait	PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Samsaran Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Samsaran Racial Trait	PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Strix Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Strix Racial Trait		PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Trox Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trox Racial Trait		PLURAL:Trox Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wayang Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wayang Racial Trait	PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wyrwood Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyrwood Racial Trait	PLURAL:Wyrwood Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wyvaran Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait	PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Gathlain Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gathlain Racial Trait		PLURAL:Gathlain Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Trox Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trox Racial Trait			PLURAL:Trox Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wyrwood Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyrwood Racial Trait		PLURAL:Wyrwood Racial Traits	DISPLAYLOCATION:Racial Abilities
-
-
-ABILITYCATEGORY:Changeling Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ChangelingRacialTrait											PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gillman Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:GillmanRacialTrait												PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kitsune Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:KitsuneRacialTrait												PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Nagaji Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:NagajiRacialTrait												PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Samsaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:SamsaranRacialTrait											PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Strix Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:StrixRacialTrait												PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wayang Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:WayangRacialTrait												PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wyvaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait											PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kasatha Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Kasatha Racial Trait											PLURAL:Kasatha Racial Trait		DISPLAYLOCATION:Racial Abilities
-
-
+###Block: Racial Trait Ability Categories
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Changeling Hag Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Hag Racial Trait								PLURAL:Changeling Hag Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Samsaran Shards of the Past Skills	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Samsaran ~ Shards of the Past							DISPLAYLOCATION:Racial Abilities

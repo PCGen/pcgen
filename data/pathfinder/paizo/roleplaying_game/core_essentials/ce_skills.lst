@@ -114,7 +114,6 @@ Disguise.MOD			SITUATION:While using change shape ability
 Disguise.MOD			SITUATION:as original race
 Escape Artist.MOD			SITUATION:Escape manacles or ropes
 Handle Animal.MOD			SITUATION:Push Animal
-Handle Animal.MOD			SITUATION:Reptiles
 Heal.MOD				SITUATION:Animal
 Heal.MOD				SITUATION:Treat disease and poison
 Intimidate.MOD			SITUATION:Demoralize Animal
@@ -139,7 +138,6 @@ Linguistics.MOD			SITUATION:Decipher unfamiliar languages
 Perception.MOD			SITUATION:Blindsense
 Perception.MOD			SITUATION:Determine Food Spoiled
 Perception.MOD			SITUATION:Identify Potion
-Perception.MOD			SITUATION:In dim light or darkness
 Perception.MOD			SITUATION:Notice Creatures Underwater
 Perception.MOD			SITUATION:to notice flying creatures
 Perception.MOD			SITUATION:Notice Hidden Object
@@ -173,7 +171,7 @@ Stealth.MOD				SITUATION:In caverns
 Stealth.MOD				SITUATION:In darkness
 Stealth.MOD				SITUATION:In deserts
 Stealth.MOD				SITUATION:In dim light
-Stealth.MOD				SITUATION:In dim light or darkness
+Stealth.MOD				SITUATION:in dim light or darkness
 Stealth.MOD				SITUATION:In forests
 Stealth.MOD				SITUATION:In hilly or rocky areas
 Stealth.MOD				SITUATION:In lair

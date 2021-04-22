@@ -2132,6 +2132,5 @@ Malediction									CLASSES:Sorcerer,Witch,Wizard=3[PREVAREQ:Heroic,1]			SCHOOL:
 Severed Fate								CLASSES:Witch=2|Cleric=3[PREVAREQ:Heroic,1]				SCHOOL:Enchantment					COMPS:V, S		CASTTIME:1 standard action	RANGE:Close	ITEM:Potion	TARGETAREA:One living creature									DURATION:(CASTERLEVEL*10) minutes						SAVEINFO:Will negates			SPELLRES:Yes	SOURCEPAGE:p.324	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/advancedNewRules.html#severed-fate			DESC:Target is shaken and cannot use hero points.
 Unravel Destiny								CLASSES:Cleric,Sorcerer,Witch,Wizard=3[PREVAREQ:Heroic,1]		SCHOOL:Divination						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close	ITEM:Potion	TARGETAREA:One creature											DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates			SPELLRES:Yes	SOURCEPAGE:p.325	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/advancedNewRules.html#unravel-destiny		DESC:Target gets -2 on ability checks, attack rolls, saving throws, and skill check per hero point it possesses and takes 2d6 damage when spending hero points.
 
-#
-# End
-#
+###Block: Restricted Spells
+Corruption Resistance.COPY=Corruption Resistance (Evil)	CLASSES:.CLEARALL

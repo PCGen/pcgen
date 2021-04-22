@@ -5,7 +5,7 @@ SOURCELONG:Pathfinder Player Companion: Blood of the Beast	SOURCESHORT:BOTB	SOUR
 # ORIGINAL ENTRY DATE: 14 March 2017
 
 # Language		Product Identity?	Type
-Common					TYPE:Spoken.Written.Read.ModernHumanLanguage
+Common					TYPE:Spoken.Written.Read.ModernHumanLanguage.HumanRegional.Human
 Dtang			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
 Erutaki		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
 Hallit		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage

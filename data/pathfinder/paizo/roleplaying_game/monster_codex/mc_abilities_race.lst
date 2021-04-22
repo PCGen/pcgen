@@ -1,21 +1,24 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
 
-# Ability Name											Unique Key				Output Name			Category of Ability		Type						Description																														Ability																	Aspects
-Racial Traits ~ Bat (Sootwing)																		CATEGORY:Internal																																								ABILITY:Special Ability|AUTOMATIC|Bat (Sootwing) ~ Disease|Bat (Sootwing) ~ Paralysis|Channel Resistance
-Racial Traits ~ Seru																			CATEGORY:Internal																																								ABILITY:Special Ability|AUTOMATIC|Seru ~ Poison|Seru ~ Spit Venom|Scent|Telepathy
 
-#Bat (Sootwing)
-Disease												KEY:Bat (Sootwing) ~ Disease					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Ghoul Fever; See Pathfinder RPG Bestiary 146.
-CATEGORY=Special Ability|Ghoul ~ Paralysis.COPY=Bat (Sootwing) ~ Paralysis						OUTPUTNAME:Paralysis																																																													ASPECT:Ability Benefit|(1d4+1 rounds, DC %1, elves are immune to this effect)|GhoulParalysisDC
-
-#Seru
-Poison												KEY:Seru ~ Poison							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Bite or spit venom-injury; save Fort DC 15; frequency 1/minute for 6 minutes; effect 1 Con damage plus blindness for 1 minute; cure 1 save.
-Spit Venom												KEY:Seru ~ Spit Venom						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:As a standard action, a seru can spit venom up to 30 feet. This is a ranged touch attack with no range increment. Any opponent hit by this attack is exposed to the seru's poison.
+# ==============================
+# RACE ABILITIES
+# ==============================
 
 
 # ------------------------------
-# Goblin ~ Alternate Racial Traits
+# Duergar
+# ------------------------------
+
+###Block: Alternate Racial Traits
+# Ability Name	Unique Key					Category of Ability		Type												Multiple Requirements																				Description																																																																									Ability											Cost		FACT
+Ironskinned		KEY:Duergar ~ Ironskinned		CATEGORY:Special Ability	TYPE:RacialTraits.Duergar Racial Trait.SpecialQuality.Special Quality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Ironskinned],[!PREFACT:1,ABILITIES,Duergar_ReplaceSLAEnlargePerson=True]		DESC:The soul of the earth infuses some duergar, giving them the ability to harden their skin. Duergar with this racial trait can use ironskin once per day as a spell-like ability, using their character level as their caster level.	DESC:This racial trait replaces the enlarge person spell-like ability.|!PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Ironskinned														ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Ironskin			COST:0	FACT:Duergar_ReplaceSLAEnlargePerson|True
+Twilight-Touched	KEY:Duergar ~ Twilight-Touched	CATEGORY:Special Ability	TYPE:RacialTraits.Duergar Racial Trait.SpecialQuality.Special Quality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Twilight-Touched],[!PREFACT:1,ABILITIES,Duergar_ReplaceSLAInvisibility=True]	DESC:While most duergar have the power to become invisible, a few are instead able to extinguish the light around them. Duergar with this racial trait can use dust of twilight (Pathfinder RPG Advanced Player's Guide) once per day as a spell-like ability, using their character level as their caster level.	DESC:This racial trait replaces the invisibility spell-like ability.|!PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Twilight-Touched	ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Dust of Twilight	COST:0	FACT:Duergar_ReplaceSLAInvisibility|True
+
+
+# ------------------------------
+# Goblin
 # ------------------------------
 
 ###Block: Racial Traits
@@ -31,3 +34,62 @@ Oversized Goblin	CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.
 # Ability Name					Unique Key						Category of Ability		Type													Visible		Description																	Template		Stat bonus						Source Page		FACT
 +2 Strength, +2 Dexterity, -2 Charisma	KEY:Oversized Goblin ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:Oversized goblins gain a +2 bonus to Strength, a +2 bonus to Dexterity, and a -2 penalty to Charisma.				BONUS:STAT|STR,DEX|2	BONUS:STAT|CHA|-2	SOURCEPAGE:p.104	FACT:Goblin_ReplaceAbilityScores|True
 Medium						KEY:Oversized Goblin ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Goblin Racial Trait.SpecialQuality.Racial Size			VISIBLE:DISPLAY	DESC:Oversized goblins are Medium creatures and receive no bonuses or penalties due to their size.		TEMPLATE:SIZE_M								SOURCEPAGE:p.104	FACT:Goblin_ReplaceSize|True
+
+
+# ------------------------------
+# Ratfolk
+# ------------------------------
+
+###Block: Alternate Racial Traits
+# Ability Name	Unique Key					Category of Ability		Type												Multiple Requirements																							Description																																																																																																																																								Ability																		Modify VAR																	Cost		Source Page		Aspects																							FACT
+Cheek Pouches	KEY:Ratfolk ~ Cheek Pouches		CATEGORY:Special Ability	TYPE:RacialTraits.Ratfolk Racial Trait.SpecialQuality.Special Quality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Ratfolk ~ Cheek Pouches],[!PREFACT:1,ABILITIES,Ratfolk_ReplaceSwarming=True]						DESC:Some ratfolk have developed stretchy cheek pouches that they can use to hold and carry small loads up to 1 cubic foot in volume and 10 pounds in weight, such as light weapons, potions, scrolls, and similar objects. Such a ratfolk can transfer a held object to his cheek pouches or extract an object from his cheek pouches as a swift action. As a move action that provokes an attack of opportunity, the ratfolk can instead massage all of the items held in the cheek pouches onto the ground in the square it occupies. As long as the ratfolk has at least one object in its cheek pouches, its speech is difficult to understand, and it has a 20%% spell failure chance when casting spells with verbal components.	DESC:This racial trait replaces swarming.|!PREABILITY:1,CATEGORY=Special Ability,Ratfolk ~ Cheek Pouches																																						COST:0	SOURCEPAGE:p.176																									FACT:Ratfolk_ReplaceSwarming|True
+Cleanliness		KEY:Ratfolk ~ Cleanliness		CATEGORY:Special Ability	TYPE:RacialTraits.Ratfolk Racial Trait.SpecialQuality.Special Quality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Ratfolk ~ Cleanliness],[!PREFACT:1,ABILITIES,Ratfolk_ReplaceRodentEmpathy=True]					DESC:Ratfolk strive to keep themselves and each other immaculately clean, to make it difficult for disease to spread. A ratfolk with this racial trait gains a +2 bonus on saving throws against disease, and whenever she exceeds the save DC to recover from a disease effect by 5 or more, she is treated as though she had succeeded at two consecutive saving throws.	DESC:This racial trait replaces rodent empathy.|!PREABILITY:1,CATEGORY=Special Ability,Ratfolk ~ Cleanliness																																																																													BONUS:VAR|SaveBonus_vs_Disease|2|TYPE=Racial											COST:0	SOURCEPAGE:p.176	ASPECT:SaveBonus|+2 bonus on saving throws against disease.															FACT:Ratfolk_ReplaceRodentEmpathy|True
+Lab Rat		KEY:Ratfolk ~ Lab Rat			CATEGORY:Special Ability	TYPE:RacialTraits.Ratfolk Racial Trait.SpecialQuality.Special Quality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Ratfolk ~ Lab Rat],[!PREFACT:1,ABILITIES,Ratfolk_ReplaceTinker=True]							DESC:For every ingenious ratfolk inventor, there is another who must inevitably test the invention. Those who survive enough experiments sometimes develop strange metabolic quirks that grant them heightened resilience and, on occasion, fortunate side effects when consuming alchemical or magical draughts. As a result, they gain a +1 racial bonus on saving throws against poison, alchemical weapons, and harmful effects from drinking potions or elixirs. In addition, once per day such a ratfolk can either increase the caster level of a potion he consumes by 1 or double the duration of an alchemical remedy he consumes or applies to himself (to a maximum of 4 hours).	DESC:This racial trait replaces tinker.|!PREABILITY:1,CATEGORY=Special Ability,Ratfolk ~ Lab Rat																												BONUS:VAR|SaveBonus_vs_Poison,SaveBonus_vs_AlchemicalWeapons,SaveBonus_vs_PotionsElixirs|1|TYPE=Racial	COST:0	SOURCEPAGE:p.176	ASPECT:SaveBonus|+1 racial bonus on saving throws against poison, alchemical weapons, and harmful effects from drinking potions or elixirs.	FACT:Ratfolk_ReplaceTinker|True
+Surface Sprinter	KEY:Ratfolk ~ Surface Sprinter	CATEGORY:Special Ability	TYPE:RacialTraits.Ratfolk Racial Trait.SpecialQuality.Special Quality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Ratfolk ~ Surface Sprinter],[!PREFACT:1,ABILITIES,Ratfolk_ReplaceSpeed=True,Ratfolk_ReplaceVision=True]	DESC:Some ratfolk spend as much time as they can aboveground and become very fast runners. This comes at the cost of their night vision, which becomes less acute after years of sunlight. These ratfolk gain low-light vision and have a base speed of 30 feet.	DESC:This racial trait replaces darkvision and slow speed.|!PREABILITY:1,CATEGORY=Special Ability,Ratfolk ~ Surface Sprinter																																																																										ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Surface Sprinter ~ Speed|Ratfolk ~ Surface Sprinter ~ Vision																			COST:0	SOURCEPAGE:p.176																									FACT:Ratfolk_ReplaceSpeed|True	FACT:Ratfolk_ReplaceVision|True
+
+###Block: Replacement Abilities
+# Ability Name	Unique Key						Category of Ability		Type												Visible		Required Fact											Description												Move			Modify VAR				Vision			Source Page
+Normal Speed	KEY:Ratfolk ~ Surface Sprinter ~ Speed	CATEGORY:Special Ability	TYPE:RacialTraits.Ratfolk Racial Trait.SpecialQuality.Racial Speed	VISIBLE:DISPLAY	PREFACT:1,ABILITIES,Ratfolk_ReplaceSpeed=True						DESC:Surface sprinter ratfolk have a base speed of 30 feet.				MOVE:Walk,30										SOURCEPAGE:p.231
+Low-Light Vision	KEY:Ratfolk ~ Surface Sprinter ~ Vision	CATEGORY:Special Ability	TYPE:RacialTraits.Ratfolk Racial Trait.SpecialQuality.Racial Vision	VISIBLE:DISPLAY	PREFACT:1,ABILITIES,Ratfolk_ReplaceSpeed=True,Ratfolk_ReplaceVision=True	DESC:In dim light, surface sprinter ratfolk can see twice as far as humans.				BONUS:VAR|HasRacialVision|1	VISION:Low-Light Vision	SOURCEPAGE:p.231
+
+
+# ==============================
+# MONSTER ABILITIES
+# ==============================
+
+
+# ------------------------------
+# Sootwing Bat
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name				Category of Ability	Ability
+Racial Traits ~ Bat (Sootwing)	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Bat (Sootwing) ~ Disease|Bat (Sootwing) ~ Paralysis|Channel Resistance
+
+###Block: Special Abilities
+# Ability Name																Unique Key				Output Name			Category of Ability		Type						Description										Modify VAR																				Aspects
+Disease																	KEY:Bat (Sootwing) ~ Disease					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Ghoul Fever; See Pathfinder RPG Bestiary entry on ghouls.																						ASPECT:NaturalAttackBonus|Bite
+CATEGORY=Special Ability|Universal Monster Rule ~ Paralysis (Supernatural).COPY=Bat (Sootwing) ~ Paralysis						OUTPUTNAME:Paralysis																							BONUS:VAR|UMR_Paralysis_DurationDice|1	BONUS:VAR|UMR_Paralysis_DurationDieSize|4	BONUS:VAR|UMR_Paralysis_DurationBonus|1	ASPECT:Ability Benefit|(%1d%2+%3 rounds, DC %4, elves are immune to this effect)|UMR_Paralysis_DurationDice|UMR_Paralysis_DurationDieSize|UMR_Paralysis_DurationBonus|UMR_Paralysis_DC	ASPECT:NaturalAttackBonus|Bite
+
+
+# ------------------------------
+# Seru
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name		Category of Ability	Ability
+Racial Traits ~ Seru	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Seru ~ Poison|Seru ~ Spit Venom|Scent|Telepathy
+
+###Block: Special Abilities
+# Ability Name	Unique Key			Category of Ability		Type						Description
+Poison		KEY:Seru ~ Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Bite or spit venom-injury; save Fort DC 15; frequency 1/minute for 6 minutes; effect 1 Con damage plus blindness for 1 minute; cure 1 save.
+Spit Venom		KEY:Seru ~ Spit Venom	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:As a standard action, a seru can spit venom up to 30 feet. This is a ranged touch attack with no range increment. Any opponent hit by this attack is exposed to the seru's poison.
+
+
+# ==============================
+# RACIAL SPELL-LIKE ABILITIES
+# ==============================
+
+###Block: Racial Spell-Like Abilities L2 ~ Ironskin,Ironskin,2
+# Ability Name	Unique Key				Category of Ability		Type						Serves As							Define																																											Innate Spells																																																																																								Modify VAR
+Ironskin		KEY:Racial SLA ~ Ironskin	CATEGORY:Spell-Like Ability	TYPE:Racial Spell-Like Ability	SERVESAS:ABILITY=Spell-Like Ability|Ironskin	DEFINE:RacialSLA_Ironskin_LVL|0	DEFINE:RacialSLA_Ironskin_SpellLVL|0	DEFINE:RacialSLA_Ironskin_Times|0	DEFINE:RacialSLA_Ironskin_DCMod|0	DEFINE:RacialSLA_Ironskin_DC|0	DEFINE:RacialSLA_Ironskin_AtWill|0	DEFINE:RacialSLA_Ironskin_Constant|0	SPELLS:Racial|TIMES=RacialSLA_Ironskin_Times|TIMEUNIT=Day|CASTERLEVEL=RacialSLA_Ironskin_LVL|Ironskin,RacialSLA_Ironskin_DC|PREVAREQ:RacialSLA_Ironskin_AtWill,0|PREVAREQ:RacialSLA_Ironskin_Constant,0	SPELLS:Racial|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=RacialSLA_Ironskin_LVL|Ironskin,RacialSLA_Ironskin_DC|PREVAREQ:RacialSLA_Ironskin_AtWill,1|PREVAREQ:RacialSLA_Ironskin_Constant,0	SPELLS:Racial|TIMES=ATWILL|TIMEUNIT=Constant|CASTERLEVEL=RacialSLA_Ironskin_LVL|Ironskin,RacialSLA_Ironskin_DC|PREVAREQ:RacialSLA_Ironskin_Constant,1	BONUS:VAR|RacialSLA_Ironskin_LVL|TL|TYPE=Base	BONUS:VAR|RacialSLA_Ironskin_SpellLVL|2	BONUS:VAR|RacialSLA_Ironskin_Times|1|TYPE=Base	BONUS:VAR|RacialSLA_Ironskin_DCMod|CHA|TYPE=Base	BONUS:VAR|RacialSLA_Ironskin_DC|10+RacialSLA_Ironskin_SpellLVL+RacialSLA_Ironskin_DCMod
