@@ -323,6 +323,41 @@
         </RULE>
     </RULESET>
 
+    <RULESET id="tamriel-dunmer-male-rule" title="Dunmer (Dark Elf)" usage="final">
+        <CATEGORY title="Fantasy: Tamriel" />
+        <CATEGORY title="All" />
+        <CATEGORY title="Fantasy: Elven" />
+        <CATEGORY title="Sex: Male" />
+        <RULE>
+            <GETRULE idref="tamriel-dunmer-male-given-rule" title="Given" />
+            <SPACE />
+            <GETRULE idref="tamriel-dunmer-surname-rule" title="Family" />
+        </RULE>
+
+    </RULESET>
+    <RULESET id="tamriel-dunmer-female-rule" title="Dunmer (Dark Elf)" usage="final">
+        <CATEGORY title="Fantasy: Tamriel" />
+        <CATEGORY title="All" />
+        <CATEGORY title="Fantasy: Elven" />
+        <CATEGORY title="Sex: Female" />
+        <RULE>
+            <GETRULE idref="tamriel-dunmer-female-given-rule" title="Given" />
+            <SPACE />
+            <GETRULE idref="tamriel-dunmer-surname-rule" title="Family" />
+        </RULE>
+    </RULESET>
+    <RULESET id="tamriel-dunmer-male-given-rule" title="Given" usage="public">
+
+    </RULESET>
+    <RULESET id="tamriel-dunmer-female-given-rule" title="Given" usage="public">
+        
+    </RULESET>
+    <RULESET id="tamriel-dunmer-surname-rule" title="Surname" usage="public">
+        
+    </RULESET>
+
+
+
     <LIST id="tamrelic-vn-articles" title="Article">
         <VALUE>With</VALUE>
         <VALUE>Many</VALUE>
