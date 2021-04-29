@@ -1,0 +1,13 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - grimreaper
+  ignore:
+  - dependency-name: jep:jep
+    versions:
+    - "> 2.4.1"
