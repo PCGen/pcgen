@@ -1,0 +1,7 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/PCGen-base"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
