@@ -3,7 +3,4 @@
 SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0	SOURCEDATE:2012-01
 # Original Entry by:Stefan Radermacher
 
-
-#
-# End
-#
+Handle Animal.MOD	SITUATION:against reptiles

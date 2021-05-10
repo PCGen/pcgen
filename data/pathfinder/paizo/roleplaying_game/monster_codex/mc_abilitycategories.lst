@@ -6,3 +6,5 @@ ABILITYCATEGORY:Apocalypse Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Apocalypse Mystery Energy Type	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ApocalypseMysteryEnergyType															PLURAL:Apocalypse Mystery Energy Types	DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Ancient Guardian Domain Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DruidDomainSelection																							DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Goblin Variant						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Goblin Variant										PLURAL:Goblin Variants			DISPLAYLOCATION:Racial Abilities

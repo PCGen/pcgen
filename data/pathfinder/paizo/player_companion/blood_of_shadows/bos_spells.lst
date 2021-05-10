@@ -40,5 +40,3 @@ First World Revisions.MOD																																																							
 ###Block: Racial Spell Variants
 # Spell Name								Output Name												Classes of caster	Description
 Alter Self.COPY=Alter Self ~ Flexible Half-Breed		OUTPUTNAME:Alter Self (Human, Drow, or Elf)						CLASSES:.CLEARALL	DESC:You can assume the form of any Small or Medium creature of the humanoid type.
-Nondetection.COPY=Nondetection (self only)																CLASSES:.CLEARALL	DESC:The warded creature or object becomes difficult to detect by divination spells such as clairaudience/clairvoyance, locate object, and detect spells.
-Plane Shift.COPY=Plane Shift (to Shadow or Material Plane)	OUTPUTNAME:Plane Shift (to the Plane of Shadow or the Material Plane only)	CLASSES:.CLEARALL	DESC:You move yourself or some other creature to another plane of existence or alternate dimension.

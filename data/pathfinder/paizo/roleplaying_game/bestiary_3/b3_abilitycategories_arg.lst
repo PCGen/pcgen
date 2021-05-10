@@ -1,13 +1,14 @@
 # CVS $Revision: 21669 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
 
-###Block: Base Races
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI		Display Location
-ABILITYCATEGORY:Catfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Catfolk Racial Trait					PLURAL:Catfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Suli Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliRacialTrait						PLURAL:Suli Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vanara Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VanaraRacialTrait						PLURAL:Vanara Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vishkanya Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaRacialTrait					PLURAL:Vishkanya Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Ratfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RatfolkRacialTrait						PLURAL:Ratfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
+###Block: Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Catfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Catfolk Racial Trait	PLURAL:Catfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ratfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Ratfolk Racial Trait	PLURAL:Ratfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Suli Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Suli Racial Trait		PLURAL:Suli Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Vanara Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Vanara Racial Trait	PLURAL:Vanara Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Vishkanya Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Vishkanya Racial Trait	PLURAL:Vishkanya Racial Traits	DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Suli Language Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliLanguage							PLURAL:Suli Language Choices		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Hag Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait						PLURAL:Hag Racial Traits		DISPLAYLOCATION:Racial Abilities
+###Block: Racial Trait Ability Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Suli Language Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice		TYPE:Suli Language Choice	PLURAL:Suli Language Choices	DISPLAYLOCATION:Racial Abilities

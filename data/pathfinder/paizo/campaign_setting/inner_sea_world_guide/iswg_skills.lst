@@ -1,0 +1,6 @@
+
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+
+###Block: Situational Modifiers
+Perception.MOD	SITUATION:in dim light or darkness
+Stealth.MOD		SITUATION:in dim light or darkness

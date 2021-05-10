@@ -10,10 +10,6 @@ SOURCELONG:Pathfinder Player Companion: Blood of Fiends	SOURCESHORT:BOF	SOURCEWE
 CLASS:Bard.MOD
 1	TEMPLATE:Masterpiece Activation Tiefling
 
-# Class Name
-CLASS:Skald.MOD
-1	TEMPLATE:Masterpiece Activation Tiefling
-
 #
 # End
 #

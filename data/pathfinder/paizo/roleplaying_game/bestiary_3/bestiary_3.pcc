@@ -81,6 +81,7 @@ EQUIPMOD:b3_equipmods.lst
 KIT:b3_kits_race.lst
 LANGUAGE:b3_languages.lst
 RACE:b3_races.lst
+SKILL:b3_skills.lst
 TEMPLATE:b3_templates.lst
 WEAPONPROF:b3_profs_weapon.lst
 
@@ -89,6 +90,8 @@ ABILITY:b3_abilities_globalvar_arg.lst
 ABILITY:b3_abilities_race_arg.lst
 ABILITYCATEGORY:b3_abilitycategories_arg.lst
 RACE:b3_races_arg.lst
+TEMPLATE:b3_templates_arg.lst
+
 
 ABILITY:b3_abilities_companion.lst
 KIT:b3_kits_companion.lst
