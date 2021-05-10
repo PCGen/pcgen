@@ -9,19 +9,34 @@ Catfolk.MOD		SOURCEPAGE:p.91
 Dhampir.MOD		SOURCEPAGE:p.97
 Drow.MOD		SOURCEPAGE:p.103
 Fetchling.MOD	SOURCEPAGE:p.109
+Goblin.MOD		SOURCEPAGE:p.115
+Hobgoblin.MOD	SOURCEPAGE:p.121
+Ifrit.MOD		SOURCEPAGE:p.127
+Kobold.MOD		SOURCEPAGE:p.133
+Orc.MOD		SOURCEPAGE:p.139
+Oread.MOD		SOURCEPAGE:p.145
+Ratfolk.MOD		SOURCEPAGE:p.151
+Sylph.MOD		SOURCEPAGE:p.157
+Tengu.MOD		SOURCEPAGE:P.163
+Tiefling.MOD	SOURCEPAGE:P.169
+Undine.MOD		SOURCEPAGE:p.175
 
-# Race Name		Unique Key	Starting Feats	Size		Move				Reach		Required Gender	Bonus Languages									Stat bonus											Modify VAR													Auto Language			Ability																	Nb Legs	Nb Hands	Define				Main Race Type			Race Subtype				Type				Challenge Rating	Source Page		Bonus language			FACT
-Changeling				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5	PREGENDER:F		LANGBONUS:Aklo,Draconic,Dwarven,Elven,Giant,Gnoll,Goblin,Orc	BONUS:STAT|WIS,CHA|2	BONUS:STAT|CON|-2																				AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Changeling																			RACETYPE:Humanoid			RACESUBTYPE:Changeling			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.184	BONUS:LANGUAGES|NUMBER|1	FACT:BaseSize|M	FACT:IsPC|true
-Gillman				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5				LANGBONUS:Aklo,Aquan,Draconic,Elven						BONUS:STAT|CON,CHA|2	BONUS:STAT|WIS|-2																				AUTO:LANG|Common|Aboleth	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gillman																			RACETYPE:Humanoid									TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.188						FACT:BaseSize|M	FACT:IsPC|true
-# COMMENT: Bonus languages include "any human language".
-Kitsune				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5															BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2																									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kitsune																			RACETYPE:Humanoid			RACESUBTYPE:Kitsune|Shapechanger	TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.192						FACT:BaseSize|M	FACT:IsPC|true
-Nagaji				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5															BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2																									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Nagaji																				RACETYPE:Humanoid			RACESUBTYPE:Reptilian			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.196						FACT:BaseSize|M	FACT:IsPC|true
-# COMMENT: Bonus languages include "any human language".
-# COMMENT: Bonus languages include Nagaji; not even the Nagaji speak Nagaji.  Removed from list until further clarification.
-Samsaran				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5															BONUS:STAT|WIS,INT|2	BONUS:STAT|CON|-2																									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Samsaran																			RACETYPE:Humanoid			RACESUBTYPE:Samsaran			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.198						FACT:BaseSize|M	FACT:IsPC|true
-Strix					STARTFEATS:1	SIZE:M	MOVE:Walk,30,Fly,60	REACH:5				LANGBONUS:Auran,Common,Draconic,Giant,Gnome,Goblin,Infernal		BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2							BONUS:VAR|Maneuverability|3										AUTO:LANG|Strix			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Strix	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability					DEFINE:Maneuverability|0	RACETYPE:Humanoid			RACESUBTYPE:Strix				TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.200						FACT:BaseSize|M	FACT:IsPC|true
-# COMMENT: Bonus languages include Nagaji; not even the Nagaji speak Nagaji.  Removed from list until further clarification.
-Wayang				STARTFEATS:1	SIZE:S	MOVE:Walk,20		REACH:5															BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2																									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wayang																				RACETYPE:Humanoid			RACESUBTYPE:Wayang			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.210						FACT:BaseSize|S	FACT:IsPC|true
+###Block: Uncommon Races
+# Race Name		SORTKEY		Starting Feats	Base size		Move			Required Gender	Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
+Changeling		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	PREGENDER:F		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Changeling	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.184	FACT:IsPC|True
+Duergar.MOD																																					SOURCEPAGE:p.186
+Gillman		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gillman	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.188	FACT:IsPC|True
+Grippli.MOD																																					SOURCEPAGE:p.190
+Kitsune		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kitsune	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.192	FACT:IsPC|True
+Merfolk.MOD																																					SOURCEPAGE:p.194
+Nagaji		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Nagaji	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.196	FACT:IsPC|True
+Samsaran		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Samsaran	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.198	FACT:IsPC|True
+Strix			SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Strix	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.200	FACT:IsPC|True
+Suli.MOD																																					SOURCEPAGE:p.202
+Svirfneblin.MOD																																				SOURCEPAGE:p.204
+Vanara.MOD																																					SOURCEPAGE:p.206
+Vishkanya.MOD																																				SOURCEPAGE:p.208
+Wayang		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,20				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wayang	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.274	FACT:IsPC|True
 
 # Race Name		Unique Key	Starting Feats	Size		Move				Reach		Required Gender	Bonus Languages									Stat bonus											Modify VAR													Auto Language			Ability																	Nb Legs	Nb Hands	Define				Main Race Type			Race Subtype				Type				Challenge Rating	Source Page		Bonus language			FACT
 Race Builder	KEY:Race	STARTFEATS:1			MOVE:Walk,30																																																	ABILITY:Internal|AUTOMATIC|Rules ~ Use Race Builder System																																												FACT:BaseSize|T	FACT:IsPC|true
@@ -33,36 +48,9 @@ Wyrwood				STARTFEATS:1	SIZE:S	MOVE:Walk,30		REACH:5															BONUS:STAT|DE
 Wyvaran				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5																																														ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wyvaran										LEGS:2	HANDS:2						RACETYPE:Dragon									TYPE:Dragon			CR:0			SOURCEPAGE:p.238						FACT:BaseSize|M
 
 ###Block: Mods to change the sort order
-# Race Name		SORTKEY
-# Featured
 # Race Name		SORTKEY		FACT
-Goblin.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Hobgoblin.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
-Ifrit.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Kobold.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Orc.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Oread.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Ratfolk.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Sylph.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Tengu.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Tiefling.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
-Undine.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
 
 # Uncommon
-Changeling.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
-Duergar.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Gillman.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Grippli.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Kitsune.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Merfolk.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Nagaji.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Samsaran.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
-Strix.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Suli.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Svirfneblin.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
-Vanara.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Vishkanya.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
-Wayang.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
 
 # Race Builder
 Gathlain.MOD	SORTKEY:a_base_pc	FACT:IsPC|true

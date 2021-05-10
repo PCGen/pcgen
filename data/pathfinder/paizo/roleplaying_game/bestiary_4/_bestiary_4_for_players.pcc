@@ -1,0 +1,106 @@
+CAMPAIGN:Bestiary 4 (Player Options Only)
+KEY:Bestiary 4 ~ Player Options Only
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+#PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+!PRECAMPAIGN:1,INCLUDES=Bestiary 4
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Bestiary 4
+SOURCESHORT:B4
+SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4
+SOURCEDATE:2013-10
+RANK:201310
+ISOGL:YES
+
+COVER:bestiary_4.jpg
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy91ds|Buy this publication from Paizo Publishing!
+URL:Amazon.com|https://amzn.com/1601255756|Buy this book from Amazon.com!
+DESC:Untold Horrors! Confront the creatures that go bump in the night! Bestiary 4 presents hundreds of new monsters for use in the Pathfinder Roleplaying Game. Within this tome of terrors you'll find pitiless psychopomps and blood-drinking nosferatu, insectile formians and faceless nightgaunts, and even unique mythological horrors like Spring- Heeled Jack and Grendel himself. Yet not every creature need be an enemy, as mighty empyreal lords, primeval outer dragons, and valorous swan maidens enlist you in their epic battles!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v l.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook Copyright 2009, Paizo Publishing, LLC; Authors: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary Copyright 2009,  Paizo Publishing, LLC; Authors: Jason Bulmahn, Brian Cortijo, Adam Daigle, Mike Ferguson, Joshua J. Frost, James Jacobs, Rob McCreary, Erik Mona, Sean K Reynolds, F. Wesley Schneider, Lisa Stephens, James L. Sutter, and Greg A. Vaughn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 2 Copyright 2010,  Paizo Publishing, LLC; Authors: Wolfgang Baur, Jason Bulmahn, Adam Daigle, Graeme Davis, Crystal Frasier, Joshua J. Frost, Tim Hitchcock, Brandon Hodge, James Jacobs, Steve Kenson, Hal Maclean, Martin Mason, Rob McCreary, Erik Mona, Jason Nelson, Patrick Renie, Sean K Reynolds, F. Wesley Schneider, Owen K.C. Stephens, James L. Sutter, Russ Taylor, and Greg A. Vaughan, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 3 Copyright 2011,  Paizo Publishing, LLC; Authors: Jesse Benner, Jason Bulmahn, Adam Daigle, James Jacobs, Michael Kenway, Rob McCreary, Patrick Renie, Chris Sims, F. Wesley Schneider, James L. Sutter, and Russ Taylor, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 4 Copyright 2013,  Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Savannah Broadway, Ross Byers, Adam Daigle, Tim Hitchcock, Tracy Hurley, James Jacobs, Matt James, Rob McCreary, Jason Nelson, Tom Phillips, Stephen Radney-MacFarland, Sean K Reynolds, F. Wesley Schneider, Tork Shaw, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Mythic Adventures  Copyright 2013, Paizo Publishing, LLC; Authors: Jason Bulmahn, Stephen Radney-MacFarland, Sean K Reynolds, Dennis Baker, Jesse Benner, Ben Bruck, Jim Groves, Tim H itchcock, Tracy Hurley, Jonathan Keith, Jason Nelson, Tom Phillips, Ryan Macklin, F. Wesley Schneider, Amber Scott, Tork Shaw, Russ Taylor, and Ray Vallese.
+COPYRIGHT:Advanced Bestiary Copyright 2004, Green Ronin Publishing, LLC; Author: Matt Sernett.
+COPYRIGHT:Death Dog from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene, based on original material by Underworld Oracle.
+COPYRIGHT:Demon Lord, Kostchtchie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demon Lord, Pazuzu from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Executioner's Hood from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Flumph from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowell and Douglas Naismith.
+COPYRIGHT:Lurker Above from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Trapper from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 4" Copyright 2013, PCGen Data team (Including, but not limited to Eric Smith (maredudd), & Gwen T. (evilpixie87)).
+
+DATACONTROL:b4__datacontrols.lst
+
+ABILITY:b4_abilities_class.lst
+ABILITY:b4_abilities_companion.lst
+#ABILITY:b4_abilities_race.lst
+ABILITY:b4_abilities_race_ce_companion.lst
+#ABILITY:b4_abilities_races_ce.lst
+#ABILITYCATEGORY:b4_abilitycategories.lst
+ABILITYCATEGORY:b4_abilitycategories_companion.lst
+COMPANIONMOD:b4_companionmods.lst
+DOMAIN:b4_domains.lst
+EQUIPMENT:b4_equip_arms_armor.lst
+EQUIPMENT:b4_equip_magic_items.lst
+EQUIPMOD:b4_equipmods.lst
+ABILITY:b4_feats.lst
+KIT:b4_kits_companion.lst
+#KIT:b4_kits_race.lst
+LANGUAGE:b4_languages.lst
+WEAPONPROF:b4_profs_weapon.lst
+#RACE:b4_races.lst
+RACE:b4_races_companion.lst
+SKILL:b4_skills.lst
+SPELL:b4_spells_companion.lst
+#SPELL:b4_spells_modified.lst
+#TEMPLATE:b4_templates.lst
+TEMPLATE:b4_templates_companion.lst
+
+ABILITY:b4_abilities_globalvar_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
+ABILITY:b4_abilities_race_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
+ABILITYCATEGORY:b4_abilitycategories_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
+RACE:b4_races_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
+TEMPLATE:b4_templates_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
+
+# Support
+#ABILITY:support/b4_abilities_race_ma.lst|PRECAMPAIGN:1,Mythic Adventures
+#SPELL:support/b4_spells_modified_ma.lst|PRECAMPAIGN:1,Mythic Adventures
+
+#FORWARDREF:ABILITY=Special Ability|Mythic Power,Surge
+#FORWARDREF:ABILITY=Mythic Feat|Alertness,Cleave,Combat Reflexes,Critical Focus,Deadly Aim,Great Fortitude,Improved Critical (ballista (heavy)),Improved Critical (slam),Improved Initiative,Improved Sunder,Iron Will,Lightning Reflexes,Persuasive,Point-Blank Shot,Power Attack,Skill Focus (Stealth),Toughness,Weapon Finesse,Weapon Focus (claw),Weapon Focus (mandibles),Weapon Focus (Pincer),Vital Strike,Improved Critical (mace (heavy)),Weapon Focus (Slam),Weapon Focus (Spear)
+
+
+# ENTRY DATE: 2016-06
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paule Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.06.01
+# Updated to work with version: -
+# MINVER:6.06
+# MINDEVVER:6.06.01
+# COMMENTS:

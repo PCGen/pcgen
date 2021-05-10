@@ -3,5 +3,5 @@
 
 
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
-ABILITYCATEGORY:Goblin Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GoblinTrait			PLURAL:Goblin Race Traits	DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Goblin Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Goblin Race Trait			PLURAL:Goblin Race Traits	DISPLAYLOCATION:Traits
 ABILITYCATEGORY:Familiar Bonus Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClassSkillBonus	PLURAL:Familiar Bonus Skills	DISPLAYLOCATION:Racial Abilities

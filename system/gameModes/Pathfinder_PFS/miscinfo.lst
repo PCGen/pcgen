@@ -132,7 +132,7 @@ CLASSTYPE:Companion	CRFORMULA:NONE	ISMONSTER:YES	XPPENALTY:NO
 #AC Types
 ACTYPE:Total				ADD:TOTAL		REMOVE:TouchMisc|CMD
 # Since TouchMisc should only add to the Touch, and not the total AC I'm deviating from the standard and using Remove in the Total.
-ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:TouchMisc|CMD	REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:TouchMisc	REMOVE:CMD|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed	REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement|CMD	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
 ACTYPE:TouchMisc				ADD:TouchMisc
 ACTYPE:Base					ADD:Base
@@ -208,6 +208,8 @@ WIELDCATEGORY:OneHandOnlyTooLarge		HANDS:999
 WIELDCATEGORY:TwoHandsOnly			HANDS:2
 WIELDCATEGORY:TwoHandsOnlyTooSmall		HANDS:999
 WIELDCATEGORY:TwoHandsOnlyTooLarge		HANDS:999
+WIELDCATEGORY:OneHandedNoSize			HANDS:1
+WIELDCATEGORY:TwoHandedNoSize			HANDS:2
 
 # Light weapon vs PC size changes
 WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
@@ -234,8 +236,6 @@ WIELDCATEGORY:TwoHandsOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHan
 # Other
 WIELDCATEGORY:OneHandOnly	PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHandOnlyTooSmall
 WIELDCATEGORY:OneHandOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHandOnlyTooLarge
-
-
 
 #
 # Wield Category Steps

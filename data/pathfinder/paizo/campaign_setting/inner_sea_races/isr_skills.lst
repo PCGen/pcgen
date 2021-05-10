@@ -1,9 +1,11 @@
 SOURCELONG:Inner Sea Races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races	SOURCEDATE:2015-09
 
 
+Acrobatics.MOD		SITUATION:to maintain balance
 Acrobatics.MOD		SITUATION:to move on narrow or slippery surfaces
 Bluff.MOD			SITUATION:to feign ignorance
 Climb.MOD			SITUATION:on docks and ships
+Climb.MOD			SITUATION:without rope
 Knowledge (Arcana).MOD	SITUATION:to identify unique magical effects
 Knowledge (Arcana).MOD	SITUATION:to independently research spells
 Perception.MOD		SITUATION:related to structures

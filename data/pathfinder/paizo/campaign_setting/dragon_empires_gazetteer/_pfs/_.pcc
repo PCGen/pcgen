@@ -8,7 +8,10 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,Pathfinder Society Core Assumption
-PRECAMPAIGN:2,INCLUDES=Inner Sea World Guide,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo

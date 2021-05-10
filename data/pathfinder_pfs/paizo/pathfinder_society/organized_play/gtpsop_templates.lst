@@ -14,5 +14,5 @@ PFS Starting Gold	VISIBLE:NO	KIT:1|Starting Gold ~ PFS
 #Starting Gold CRB ~ Average.MOD		!PRECHARACTERTYPE:1,PC
 
 ###Block:
-# Template Name						Visible	!PRECHARACTERTYPE		Bonus Languages
-Race Bonus Language ~ Modern Human Language	VISIBLE:NO	!PRECHARACTERTYPE:1,PC	LANGBONUS:TYPE=ModernHumanLanguage
+# Template Name					Visible	!PRECHARACTERTYPE		Bonus Languages
+Bonus Language ~ Modern Human Language	VISIBLE:NO	!PRECHARACTERTYPE:1,PC	LANGBONUS:TYPE=ModernHumanLanguage

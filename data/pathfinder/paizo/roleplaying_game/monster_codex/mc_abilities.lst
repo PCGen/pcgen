@@ -1,0 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
+
+
+# ==============================
+# INNATE SPELL-LIKE ABILITIES
+# ==============================
+
+###Block: Innate Spell-Like Abilities L2 ~ Ironskin,Ironskin,2
+# Ability Name	Category of Ability		Type						Define																																				Innate Spells																																																																												Modify VAR
+Ironskin		CATEGORY:Spell-Like Ability	TYPE:Innate Spell-Like Ability	DEFINE:SLA_Ironskin_LVL|0	DEFINE:SLA_Ironskin_SpellLVL|0	DEFINE:SLA_Ironskin_Times|0	DEFINE:SLA_Ironskin_DCMod|0	DEFINE:SLA_Ironskin_DC|0	DEFINE:SLA_Ironskin_AtWill|0	DEFINE:SLA_Ironskin_Constant|0	SPELLS:Innate|TIMES=SLA_Ironskin_Times|TIMEUNIT=Day|CASTERLEVEL=SLA_Ironskin_LVL|Ironskin,SLA_Ironskin_DC|PREVAREQ:SLA_Ironskin_AtWill,0|PREVAREQ:SLA_Ironskin_Constant,0	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=SLA_Ironskin_LVL|Ironskin,SLA_Ironskin_DC|PREVAREQ:SLA_Ironskin_AtWill,1|PREVAREQ:SLA_Ironskin_Constant,0	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Constant|CASTERLEVEL=SLA_Ironskin_LVL|Ironskin,SLA_Ironskin_DC|PREVAREQ:SLA_Ironskin_Constant,1	BONUS:VAR|SLA_Ironskin_LVL|TL|TYPE=Base	BONUS:VAR|SLA_Ironskin_SpellLVL|2	BONUS:VAR|SLA_Ironskin_Times|1|TYPE=Base	BONUS:VAR|SLA_Ironskin_DCMod|CHA|TYPE=Base	BONUS:VAR|SLA_Ironskin_DC|10+SLA_Ironskin_SpellLVL+SLA_Ironskin_DCMod

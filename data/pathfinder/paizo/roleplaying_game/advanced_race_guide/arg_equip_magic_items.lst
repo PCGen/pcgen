@@ -90,4 +90,4 @@ Trapmaker's Sack														TYPE:Magic.Wondrous						COST:20000	WT:2										
 Wound Paste															TYPE:Magic.Wondrous.Consumable				COST:50	WT:0.5																					SOURCEPAGE:p.125																																																																																																								SPROP:Acts as a stabilize spell when slathered on a dying creature. Contains 5 doses.
 
 #
-Darksire Amulet.MOD	BONUS:VAR|TieflingFiendishResistanceBonusBase|5|PRERACE:1,Tiefling	BONUS:SITUATION|Diplomacy=influence evil outsiders|4|TYPE=Insight
+Darksire Amulet.MOD	BONUS:VAR|Tiefling_FiendishResistance_Bonus|5|PRERACE:1,Tiefling	BONUS:SITUATION|Diplomacy=influence evil outsiders|4|TYPE=Insight

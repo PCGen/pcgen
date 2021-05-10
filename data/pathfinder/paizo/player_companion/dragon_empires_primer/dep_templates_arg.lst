@@ -1,0 +1,14 @@
+
+SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0	SOURCEDATE:2012-01
+
+###Block: Languages
+# Template Name			Visible	Bonus Languages
+Bonus Language ~ Nagaji		VISIBLE:NO	LANGBONUS:Nagaji
+Bonus Language ~ Samsaran	VISIBLE:NO	LANGBONUS:Samsaran
+
+###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
+# Template Name	Unique Key					Visible	Type				FACT
+Kitsune		KEY:Racial Heritage ~ Kitsune		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsKitsune|True
+Nagaji		KEY:Racial Heritage ~ Nagaji		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsNagaji|True
+Samsaran		KEY:Racial Heritage ~ Samsaran	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSamsaran|True
+Wayang		KEY:Racial Heritage ~ Wayang		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsWayang|True

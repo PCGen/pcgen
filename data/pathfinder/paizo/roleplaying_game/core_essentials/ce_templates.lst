@@ -1210,6 +1210,10 @@ Wild Hunt		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Wild Hunt
 
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Strix			VISIBLE:NO	SOURCEPAGE:p.200	RACESUBTYPE:Strix
+
 ###Block: Special Subtypes - ARG 216
 # Template Name	Visible	Source Page		Race Subtype
 Half-Construct	VISIBLE:NO	SOURCEPAGE:p.216	RACESUBTYPE:Half-Construct
@@ -1241,6 +1245,12 @@ Halfling		KEY:Racial Heritage ~ Halfling	VISIBLE:NO	TYPE:Racial Heritage	FACT:Is
 Human			KEY:Racial Heritage ~ Human		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsHuman|True
 Orc			KEY:Racial Heritage ~ Orc		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsOrc|True
 
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
+# Template Name	Unique Key					Visible	FACT
+Outsider		KEY:Racial Heritage ~ Outsider	VISIBLE:NO	FACT:IsOutsider|True
+Native		KEY:Racial Heritage ~ Native		VISIBLE:NO	FACT:IsNative|True
 
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
 
@@ -1307,27 +1317,3 @@ Legs ~ 26						LEGS:26			VISIBLE:NO
 Legs ~ 27						LEGS:27			VISIBLE:NO
 Legs ~ 28						LEGS:28			VISIBLE:NO
 
-
-Race Bonus Language ~ Aboleth							VISIBLE:NO	LANGBONUS:Aboleth
-Race Bonus Language ~ Boggard							VISIBLE:NO	LANGBONUS:Boggard
-Race Bonus Language ~ Cyclops							VISIBLE:NO	LANGBONUS:Cyclops
-Race Bonus Language ~ Dark Folk						VISIBLE:NO	LANGBONUS:Dark Folk
-Race Bonus Language ~ Drow							VISIBLE:NO	LANGBONUS:Drow
-Race Bonus Language ~ Drow Sign Language					VISIBLE:NO	LANGBONUS:Drow Sign Language
-Race Bonus Language ~ Pidgin of Giant					VISIBLE:NO	LANGBONUS:Pidgin of Giant
-Race Bonus Language ~ Sahuagin						VISIBLE:NO	LANGBONUS:Sahuagin
-Race Bonus Language ~ Sphinx							VISIBLE:NO	LANGBONUS:Sphinx
-Race Bonus Language ~ Tengu							VISIBLE:NO	LANGBONUS:Tengu
-Race Bonus Language ~ Treant							VISIBLE:NO	LANGBONUS:Treant
-Race Bonus Language ~ Vegepygmy						VISIBLE:NO	LANGBONUS:Vegepygmy
-Race Bonus Language ~ Worg							VISIBLE:NO	LANGBONUS:Worg
-Race Bonus Language ~ Daemon							VISIBLE:NO	LANGBONUS:Daemon
-Race Bonus Language ~ D'ziriak						VISIBLE:NO	LANGBONUS:D'ziriak
-Race Bonus Language ~ Grippli							VISIBLE:NO	LANGBONUS:Grippli
-Race Bonus Language ~ Protean							VISIBLE:NO	LANGBONUS:Protean
-Race Bonus Language ~ Catfolk							VISIBLE:NO	LANGBONUS:Catfolk
-Race Bonus Language ~ Samsaran						VISIBLE:NO	LANGBONUS:Samsaran
-Race Bonus Language ~ Strix							VISIBLE:NO	LANGBONUS:Strix
-Race Bonus Language ~ Vanaran							VISIBLE:NO	LANGBONUS:Vanaran
-Race Bonus Language ~ Vishkanya						VISIBLE:NO	LANGBONUS:Vishkanya
-Race Bonus Language ~ Wayang							VISIBLE:NO	LANGBONUS:Wayang
