@@ -34,7 +34,7 @@ plugins {
 }
 
 javafx {
-    version = "14.0.1"
+    version = "16"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 
     //Check if running in ide. If so bundles javafx in to jar. If not only compiles so that runtime can add different platform javafx later.
@@ -193,7 +193,7 @@ dependencies {
 
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.7.2'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.2'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.7.1'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.7.2'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.7.2'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.2'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
