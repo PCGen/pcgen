@@ -38,6 +38,18 @@ Moroi-Born		KEY:Dhampir ~ Moroi-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Moroi-B
 Nosferatu-Born	KEY:Dhampir ~ Nosferatu-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Nosferatu-Born
 Vetala-Born		KEY:Dhampir ~ Vetala-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Vetala-Born
 
+###Block: Skinwalker Subraces
+# Template Name				Source Page
+Skinwalker ~ Werebat-Kin.MOD		SOURCEPAGE:p.248
+Skinwalker ~ Werebear-Kin.MOD		SOURCEPAGE:p.248
+Skinwalker ~ Wereboar-Kin.MOD		SOURCEPAGE:p.248
+Skinwalker ~ Werecrocodile-Kin.MOD	SOURCEPAGE:p.249
+Skinwalker ~ Wererat-Kin.MOD		SOURCEPAGE:p.249
+Skinwalker ~ Wereshark-Kin.MOD	SOURCEPAGE:p.249
+Skinwalker ~ Weretiger-Kin.MOD	SOURCEPAGE:p.249
+Skinwalker ~ Werewolf-Kin.MOD		SOURCEPAGE:p.249
+
+
 ###Block: Tiefling Subraces
 # Template Name	Unique Key				Visible	Source Page		Subrace
 Asura-Spawn		KEY:Tiefling ~ Asura-Spawn	VISIBLE:NO	SOURCEPAGE:p.251	SUBRACE:Asura-Spawn
@@ -50,13 +62,6 @@ Kyton-Spawn		KEY:Tiefling ~ Kyton-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Kyto
 Oni-Spawn		KEY:Tiefling ~ Oni-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Oni-Spawn
 Qlippoth-Spawn	KEY:Tiefling ~ Qlippoth-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Qlippoth-Spawn
 Rakshasa-Spawn	KEY:Tiefling ~ Rakshasa-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Rakshasa-Spawn
-
-# ==============================
-# New Race Support
-# ==============================
-
-Male Lashunta																		GENDERLOCK:Male
-Female Lashunta																		GENDERLOCK:Female
 
 # ==============================
 # Bonus Languages

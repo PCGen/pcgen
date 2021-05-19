@@ -54,31 +54,6 @@ GENDER:Neuter
 NAME:Stalk Beetle
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Blighted Fey Satyr	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Satyr],[!PRERACE:1,%]	SOURCEPAGE:p.6
-RACE:Satyr	!PRERACE:1,%
-GENDER:Male
-NAME:Blighted Fey Satyr
-ALIGN:CE
-STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-TEMPLATE:Blighted Fey
-SKILL:Bluff					RANK:8
-SKILL:Diplomacy				RANK:8
-SKILL:Disguise				RANK:2
-SKILL:Intimidate				RANK:5
-SKILL:Knowledge (Nature)		RANK:6
-SKILL:Perception				RANK:6
-SKILL:Perform (Wind Instruments)	RANK:8
-SKILL:Stealth				RANK:8
-SKILL:Survival				RANK:5
-ABILITY:CATEGORY=FEAT|Dodge
-ABILITY:CATEGORY=FEAT|Mobility
-ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
-ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Dagger							LOCATION:Primary Hand
-GEAR:Shortbow						LOCATION:Carried
-GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
-
 
 STARTPACK:Cayhound Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cayhound],[!PRERACE:1,%]	SOURCEPAGE:p.8
 ALIGN:CG
@@ -337,7 +312,7 @@ CLASS:Wizard	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Wizard
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Use Magic Device)
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
-ABILITY:CATEGORY=Lashunta Knowledge Bonus|Lashunta ~ Knowledge Bonus (Knowledge (Arcana))
+ABILITY:CATEGORY=Lashunta Knowledgeable Selection|Lashunta ~ Knowledgeable Selection (Knowledge (Arcana))
 LANGBONUS:Celestial|Draconic|Common
 SKILL:Diplomacy			RANK:1
 SKILL:Handle Animal		RANK:1
@@ -405,28 +380,6 @@ GEAR:Bracers of Armor +6	QTY:1	SIZE:PC	LOCATION:Equipped
 GEAR:Mirror of Life Trapping	QTY:1	SIZE:PC	LOCATION:Carried
 GEAR:Ring of Evasion		QTY:1	SIZE:PC	LOCATION:Equipped
 GEAR:Ring of Protection +5	QTY:1	SIZE:PC	LOCATION:Equipped
-
-STARTPACK:Gnoll Mutant	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gnoll],[!PRERACE:1,%]	SOURCEPAGE:p.28
-ALIGN:CE
-RACE:Gnoll	!PRERACE:1,%
-GENDER:Male
-NAME:Mana Wastes Mutant Gnoll
-CLASS:Fighter	LEVEL:2
-TEMPLATE:Mana Wastes Mutant
-ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Mutant Deformity|Mana Wastes Mutant ~ Deformed Arm
-ABILITY:CATEGORY=Mutant Special Ability|Mana Wastes Mutant ~ Disease
-SKILL:Perception	RANK:4
-SKILL:Stealth	RANK:3
-SKILL:Survival	RANK:2
-ABILITY:CATEGORY=FEAT|Iron Will
-ABILITY:CATEGORY=FEAT|Power Attack
-ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
-ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
-STAT:STR=9|DEX=14|CON=13|INT=12|WIS=15|CHA=10
-GEAR:Breastplate	QTY:1	SIZE:PC	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
-GEAR:Longsword	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Mantis (Deadly) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mantis (Deadly)],[!PRERACE:1,%]	SOURCEPAGE:p.30
 ALIGN:TN

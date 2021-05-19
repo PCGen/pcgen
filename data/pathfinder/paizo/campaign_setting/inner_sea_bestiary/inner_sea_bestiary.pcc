@@ -6,7 +6,12 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -41,8 +46,14 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyr
 
 ABILITY:isb_abilities_race.lst
 ABILITYCATEGORY:isb_abilitycategories.lst
+KIT:isb_kits_race_b1.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 KIT:isb_kits_race.lst
-LANGUAGE:isb_languages.lst
-SKILL:isb_skills.lst
 RACE:isb_races.lst
+SKILL:isb_skills.lst
 TEMPLATE:isb_templates.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_lashunta_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey goblin\_monkeygoblin_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\syrinx\_syrinx_race.pcc

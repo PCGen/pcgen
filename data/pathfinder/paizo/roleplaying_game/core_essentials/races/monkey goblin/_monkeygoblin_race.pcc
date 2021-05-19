@@ -1,0 +1,23 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ monkey goblin race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Monkey Goblin
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:monkeygoblin__datacontrols.lst
+
+# Data Files
+ABILITY:monkeygoblin_abilities_globalvar.lst
+ABILITY:monkeygoblin_abilities_race.lst
+ABILITYCATEGORY:monkeygoblin_abilitycategories.lst
+RACE:monkeygoblin_races.lst
+TEMPLATE:monkeygoblin_templates.lst

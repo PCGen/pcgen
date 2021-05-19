@@ -1,0 +1,5 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Type				FACT
+Gathlain		KEY:Racial Heritage ~ Gathlain	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGathlain|True

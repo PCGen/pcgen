@@ -1,17 +1,18 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-# Equipment Name				Unique Key			Required Weapon Proficiency			Type					Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Size		Source Page		Special Property
-Kasatha Spinal Sword							PROFICIENCY:WEAPON|Kasatha Spinal Sword	TYPE:Exotic.Piercing.Slashing	COST:50	WT:3		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	EQMOD:Special Quality ~ Fragile	WIELD:Light		SIZE:M				SPROP:The save DC of a nonmagical injury poison applied to a kasatha spinal sword increases by 2. Kasathas treat kasatha spinal swords as martial weapons.
+###Block: Racial Equipment
+# Equipment Name			Required Weapon Proficiency			Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Size		Source Page		Special Property
+Kasatha Spinal Sword		PROFICIENCY:WEAPON|Kasatha Spinal Sword	TYPE:Weapon.Resizable.Melee.Exotic.OneHanded.Piercing.Slashing.Sword	COST:50	WT:3		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	EQMOD:Special Quality ~ Fragile	WIELD:Light		SIZE:M	SOURCEPAGE:p.9	SPROP:The save DC of a nonmagical injury poison applied to a kasatha spinal sword increases by 2. Kasathas treat kasatha spinal swords as martial weapons.
 
-# Interstellar Equipment
+###Block: Interstellar Equipment
 Anchoring Balloon															TYPE:Goods.Tools	COST:300	WT:25																			SOURCEPAGE:p.19
 Compressed Air															TYPE:Goods.Tools	COST:50	WT:10																			SOURCEPAGE:p.19
 Leg Stabilizers															TYPE:Goods.Tools	COST:1000	WT:2																			SOURCEPAGE:p.19
 Rations, Space (per day)		KEY:Rations (Space/Day)								TYPE:Goods.Food.Resizable.Consumable	COST:1	WT:0.5																		SOURCEPAGE:p.19
 Traveler's Pocket Watch														TYPE:Goods.Tools	COST:1000	WT:1																			SOURCEPAGE:p.19
 
-# Atronomical Equipment
+###Block: Atronomical Equipment
 Cosmogram																TYPE:Goods.Tools	COST:200	WT:0.5																		SOURCEPAGE:p.26
 Orrery (Tellurium)														TYPE:Goods.Tools	COST:100	WT:2																			SOURCEPAGE:p.26
 Orrery (Calculating Tellurium)												TYPE:Goods.Tools	COST:200	WT:2																			SOURCEPAGE:p.26
@@ -24,7 +25,7 @@ Telescope (x10)															TYPE:Goods.Tools	COST:2000	WT:12																		
 Telescope (x50)															TYPE:Goods.Tools	COST:4000	WT:23																			SOURCEPAGE:p.27
 Telescope (x250)															TYPE:Goods.Tools	COST:8000	WT:44																			SOURCEPAGE:p.27
 
-# Interstellar Magic Items
+###Block: Interstellar Magic Items
 Astrologer's Telescope														TYPE:Magic.Wondrous	COST:54000	WT:30																			SOURCEPAGE:p.30
 Harvesting Lens															TYPE:Magic.Wondrous	COST:5400	WT:1																			SOURCEPAGE:p.30
 Lens of Starsight															TYPE:Magic.Wondrous	COST:2600	WT:1																			SOURCEPAGE:p.30

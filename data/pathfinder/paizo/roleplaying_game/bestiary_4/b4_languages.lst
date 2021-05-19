@@ -5,7 +5,6 @@ SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91d
 # Language				Product Identity?	Type
 Brethedan				NAMEISPI:YES	TYPE:Spoken.Written.Read
 Elder Thing							TYPE:Spoken.Written.Read
-Kasatha				NAMEISPI:YES	TYPE:Spoken.Written.Read
 Mi-Go					NAMEISPI:YES	TYPE:Spoken
 Nagaji							TYPE:Spoken.Written.Read
 Samsaran							TYPE:Spoken.Written.Read

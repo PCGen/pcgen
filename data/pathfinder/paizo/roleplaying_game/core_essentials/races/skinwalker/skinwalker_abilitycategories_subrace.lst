@@ -1,0 +1,5 @@
+
+
+###Block: Racial Trait Categories
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Skinwalker Heritage	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Skinwalker Subrace	PLURAL:Skinwalker Heritages	DISPLAYLOCATION:Racial Abilities

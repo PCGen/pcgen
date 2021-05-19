@@ -1067,20 +1067,20 @@ Resolute Creature		VISIBLE:YES	DR:5/Chaotic|PRELEVEL:MIN=5	SOURCEPAGE:p.292	DEFI
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Creature Types
-# Template Name		Visible	Main Race Type
-Aberration			VISIBLE:NO	RACETYPE:Aberration
-Animal			VISIBLE:NO	RACETYPE:Animal
-Construct			VISIBLE:NO	RACETYPE:Construct
-Dragon			VISIBLE:NO	RACETYPE:Dragon
-Fey				VISIBLE:NO	RACETYPE:Fey
-Humanoid			VISIBLE:NO	RACETYPE:Humanoid
-Magical Beast		VISIBLE:NO	RACETYPE:Magical Beast
-Monstrous Humanoid	VISIBLE:NO	RACETYPE:Monstrous Humanoid
-Ooze				VISIBLE:NO	RACETYPE:Ooze
-Outsider			VISIBLE:NO	RACETYPE:Outsider
-Plant				VISIBLE:NO	RACETYPE:Plant
-Undead			VISIBLE:NO	RACETYPE:Undead
-Vermin			VISIBLE:NO	RACETYPE:Vermin
+# Template Name		Visible	Main Race Type			FACT
+Aberration			VISIBLE:NO	RACETYPE:Aberration		FACT:IsAberration|True
+Animal			VISIBLE:NO	RACETYPE:Animal			FACT:IsAnimal|True
+Construct			VISIBLE:NO	RACETYPE:Construct		FACT:IsConstruct|True
+Dragon			VISIBLE:NO	RACETYPE:Dragon			FACT:IsDragon|True
+Fey				VISIBLE:NO	RACETYPE:Fey			FACT:IsFey|True
+Humanoid			VISIBLE:NO	RACETYPE:Humanoid			FACT:IsHumanoid|True
+Magical Beast		VISIBLE:NO	RACETYPE:Magical Beast		FACT:IsMagicalBeast|True
+Monstrous Humanoid	VISIBLE:NO	RACETYPE:Monstrous Humanoid	FACT:IsMonstrousHumanoid|True
+Ooze				VISIBLE:NO	RACETYPE:Ooze			FACT:IsOoze|True
+Outsider			VISIBLE:NO	RACETYPE:Outsider			FACT:IsOutsider|True
+Plant				VISIBLE:NO	RACETYPE:Plant			FACT:IsPlant|True
+Undead			VISIBLE:NO	RACETYPE:Undead			FACT:IsUndead|True
+Vermin			VISIBLE:NO	RACETYPE:Vermin			FACT:IsVermin|True
 
 ###Block: Creature Subtypes
 # Template Name	Visible	Source Page		Ability					Race Subtype
@@ -1117,20 +1117,20 @@ Swarm			VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Swarm
 Water			VISIBLE:NO	SOURCEPAGE:p.313							RACESUBTYPE:Water
 
 ###Block: Augmented Subtypes
-# Template Name				Visible	Race Subtype
-Augmented (Aberration)			VISIBLE:NO	RACESUBTYPE:Augmented (Aberration)
-Augmented (Animal)			VISIBLE:NO	RACESUBTYPE:Augmented (Animal)
-Augmented (Construct)			VISIBLE:NO	RACESUBTYPE:Augmented (Construct)
-Augmented (Dragon)			VISIBLE:NO	RACESUBTYPE:Augmented (Dragon)
-Augmented (Fey)				VISIBLE:NO	RACESUBTYPE:Augmented (Fey)
-Augmented (Humanoid)			VISIBLE:NO	RACESUBTYPE:Augmented (Humanoid)
-Augmented (Magical Beast)		VISIBLE:NO	RACESUBTYPE:Augmented (Magical Beast)
-Augmented (Monstrous Humanoid)	VISIBLE:NO	RACESUBTYPE:Augmented (Monstrous Humanoid)
-Augmented (Ooze)				VISIBLE:NO	RACESUBTYPE:Augmented (Ooze)
-Augmented (Outsider)			VISIBLE:NO	RACESUBTYPE:Augmented (Outsider)
-Augmented (Plant)				VISIBLE:NO	RACESUBTYPE:Augmented (Plant)
-Augmented (Undead)			VISIBLE:NO	RACESUBTYPE:Augmented (Undead)
-Augmented (Vermin)			VISIBLE:NO	RACESUBTYPE:Augmented (Vermin)
+# Template Name				Visible	Race Subtype						FACT
+Augmented (Aberration)			VISIBLE:NO	RACESUBTYPE:Augmented (Aberration)			FACT:IsAberration|True
+Augmented (Animal)			VISIBLE:NO	RACESUBTYPE:Augmented (Animal)			FACT:IsAnimal|True
+Augmented (Construct)			VISIBLE:NO	RACESUBTYPE:Augmented (Construct)			FACT:IsConstruct|True
+Augmented (Dragon)			VISIBLE:NO	RACESUBTYPE:Augmented (Dragon)			FACT:IsDragon|True
+Augmented (Fey)				VISIBLE:NO	RACESUBTYPE:Augmented (Fey)				FACT:IsFey|True
+Augmented (Humanoid)			VISIBLE:NO	RACESUBTYPE:Augmented (Humanoid)			FACT:IsHumanoid|True
+Augmented (Magical Beast)		VISIBLE:NO	RACESUBTYPE:Augmented (Magical Beast)		FACT:IsMagicalBeast|True
+Augmented (Monstrous Humanoid)	VISIBLE:NO	RACESUBTYPE:Augmented (Monstrous Humanoid)	FACT:IsMonstrousHumanoid|True
+Augmented (Ooze)				VISIBLE:NO	RACESUBTYPE:Augmented (Ooze)				FACT:IsOoze|True
+Augmented (Outsider)			VISIBLE:NO	RACESUBTYPE:Augmented (Outsider)			FACT:IsOutsider|True
+Augmented (Plant)				VISIBLE:NO	RACESUBTYPE:Augmented (Plant)				FACT:IsPlant|True
+Augmented (Undead)			VISIBLE:NO	RACESUBTYPE:Augmented (Undead)			FACT:IsUndead|True
+Augmented (Vermin)			VISIBLE:NO	RACESUBTYPE:Augmented (Vermin)			FACT:IsVermin|True
 
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
 

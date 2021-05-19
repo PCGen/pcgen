@@ -2,7 +2,4 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location
-ABILITYCATEGORY:Skinwalker Heritage		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:Skinwalker Subrace				PLURAL:Skinwalker Heritages		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Skinwalker Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait			PLURAL:Skinwalker Racial Traits	DISPLAYLOCATION:Racial Abilities
-
 ABILITYCATEGORY:Lunar Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LunarRevelation.GeneralRevelation	PLURAL:Lunar Mystery Revelations	DISPLAYLOCATION:Class Features

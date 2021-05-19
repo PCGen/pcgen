@@ -3281,3 +3281,15 @@ CATEGORY=Internal|Bloodline Tracker.MOD					DEFINE:Sorcerer_BloodlineFeat_SkillF
 
 ###Block:
 Skill Focus (Disguise)		KEY:Sorcerer Bloodline Feat ~ Skill Focus (Disguise)		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_SkillFocusDisguise,1		ABILITY:FEAT|AUTOMATIC|Skill Focus (Disguise)														DESC:You are particularly adept at the Disguise skill.					BENEFIT:You get a +3 bonus on all checks involving the chosen skill. If you have 10 or more ranks in that skill, this bonus increases to +6.
+
+###Block: Universal Bonuses
+#Block: Animal Tricks - 3 for Int 1 or 6 for Int 2
+# Ability Name			Category of Ability		Type			Visible		Ability									Bonus Ability Pool
+Animal Tricks and Training	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Companion ~ Bonus Tricks	BONUS:ABILITYPOOL|Animal Trick|1	BONUS:ABILITYPOOL|Animal Trick|2|PRESTAT:1,INT=1|!PRETEMPLATE:1,No Intelligence Score	BONUS:ABILITYPOOL|Animal Trick|(INTSCORE-1)*3|PRESTAT:1,INT=2|!PRETEMPLATE:1,No Intelligence Score
+
+###Block: Wildshape
+# Ability Name		Category of Ability	Move
+Wildshape 2 ~ Eagle	CATEGORY:Internal		MOVE:Fly,60
+Wildshape 3 ~ Eagle	CATEGORY:Internal		MOVE:Fly,80
+Wildshape 2 ~ Gar		CATEGORY:Internal		MOVE:Swim,60
+Wildshape 3 ~ Squid	CATEGORY:Internal		MOVE:Jet,240

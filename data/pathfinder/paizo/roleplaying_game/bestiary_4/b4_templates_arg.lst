@@ -9,7 +9,6 @@ Changeling		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Changeling
 Colossus		VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Colossus
 Great Old One	VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Great Old One
 Kaiju			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Kaiju
-Kasatha		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Kasatha
 Kitsune		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Kitsune
 Mythic		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Mythic
 Psychopomp		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Psychopomp
@@ -26,10 +25,8 @@ Wayang		KEY:Racial Heritage ~ Wayang		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsWay
 
 ###Block: Languages
 # Template Name			Visible	Bonus Languages
-Bonus Language ~ Kasatha	VISIBLE:NO	LANGBONUS:Draconic,Dwarven,Gnoll,Orc,Sphinx
 Bonus Language ~ Nagaji		VISIBLE:NO	LANGBONUS:Nagaji
 Bonus Language ~ Samsaran	VISIBLE:NO	LANGBONUS:Samsaran
-Bonus Language ~ Tengu		VISIBLE:NO	LANGBONUS:Tengu
 Bonus Language ~ Wayang		VISIBLE:NO	LANGBONUS:Wayang
 
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10

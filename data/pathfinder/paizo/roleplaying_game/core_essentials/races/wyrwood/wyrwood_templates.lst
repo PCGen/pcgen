@@ -1,0 +1,5 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Type				FACT
+Wyrwood		KEY:Racial Heritage ~ Wyrwood	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsWyrwood|True

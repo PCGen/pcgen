@@ -1,0 +1,20 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Type				FACT
+Lashunta		KEY:Racial Heritage ~ Lashunta	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsLashunta|True
+
+
+###Block: Languages
+# Template Name			Visible	Bonus Languages
+Bonus Language ~ Lashunta	VISIBLE:NO	LANGBONUS:Lashunta
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Lashunta		VISIBLE:NO	RACESUBTYPE:Lashunta
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Lashunta		KEY:Race Builder Subtype ~ Lashunta	VISIBLE:NO	RACESUBTYPE:Lashunta	TYPE:Race Builder Subtype

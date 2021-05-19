@@ -1,4 +1,4 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Weapon Name		Type
-Kasatha Spinal Sword	TYPE:Exotic
+Kasatha Spinal Sword	TYPE:Exotic.OneHanded.Melee.Piercing.Slashing.MeleeSlashing.MeleePiercing.Sword.Kasatha	HANDS:1

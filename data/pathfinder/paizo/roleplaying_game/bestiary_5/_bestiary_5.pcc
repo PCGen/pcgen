@@ -1,4 +1,4 @@
-CAMPAIGN:Bestiary 5 (Player Options Only)
+CAMPAIGN:Bestiary 5 (Only Player Options Implemented)
 KEY:Bestiary 5
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
@@ -7,7 +7,12 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:4,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -51,6 +56,10 @@ RACE:b5_races_companion.lst
 RACE:b5_races_pc.lst
 SKILL:b5_skills.lst
 SPELL:b5_spells_modified.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race.pcc
 
 
 # Support

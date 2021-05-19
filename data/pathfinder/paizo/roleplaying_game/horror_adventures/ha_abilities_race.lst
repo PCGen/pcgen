@@ -197,8 +197,8 @@ Water						KEY:Elf Sorcerer FCB ~ Favored Terrain ~ Water				CATEGORY:Special Ab
 # Racial Type Traits
 # ==============================
 
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Deep One|PRERACE:1,RACESUBTYPE=Deep One
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Hive|PRERACE:1,RACESUBTYPE=Hive
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Deep One|PRERACE:1,RACESUBTYPE=Deep One|PRECHARACTERTYPE:1,NPC,Monster
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Hive|PRERACE:1,RACESUBTYPE=Hive|PRECHARACTERTYPE:1,NPC,Monster
 
 Deep One Traits				KEY:Race Subtype ~ Deep One							CATEGORY:Special Ability	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Deep One|PRERULE:1,DISPLAYTYPETRAITS	BONUS:VAR|HasLowlightVision|1|TYPE=Base
 Deep One Traits				KEY:Traits Output ~ Deep One							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEPAGE:p.233	DESC:Creatures with the deep one subtype have low-light vision.

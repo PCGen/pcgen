@@ -1,0 +1,27 @@
+
+
+# ------------------------------
+# Gathlain
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	DEFINE:Gathlain_ReplaceAbilityScores|0		ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Ability Scores|PREVAREQ:Gathlain_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	DEFINE:Gathlain_ReplaceType|0				ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Type|PREVAREQ:Gathlain_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	DEFINE:Gathlain_ReplaceSize|0				ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Size|PREVAREQ:Gathlain_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	DEFINE:Gathlain_ReplaceSpeed|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Speed|PREVAREQ:Gathlain_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	DEFINE:Gathlain_ReplaceVision|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Vision|PREVAREQ:Gathlain_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	DEFINE:Gathlain_ReplaceNaturalArmor|0		ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Natural Armor|PREVAREQ:Gathlain_ReplaceNaturalArmor,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	DEFINE:Gathlain_ReplaceSpellLikeAbilities|0	ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Spell-Like Abilities|PREVAREQ:Gathlain_ReplaceSpellLikeAbilities,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	DEFINE:Gathlain_ReplaceLanguages|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Languages|PREVAREQ:Gathlain_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	BONUS:VAR|Gathlain_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gathlain_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	BONUS:VAR|Gathlain_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gathlain_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	BONUS:VAR|Gathlain_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gathlain_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	BONUS:VAR|Gathlain_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gathlain_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	BONUS:VAR|Gathlain_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gathlain_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	BONUS:VAR|Gathlain_ReplaceNaturalArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gathlain_ReplaceNaturalArmor=True
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	BONUS:VAR|Gathlain_ReplaceSpellLikeAbilities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gathlain_ReplaceSpellLikeAbilities=True
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD	BONUS:VAR|Gathlain_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gathlain_ReplaceLanguages=True

@@ -1,0 +1,21 @@
+
+
+# ------------------------------
+# Skinwalker
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsSkinwalker	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Skinwalker	EXPLANATION:Determines whether the character is a Skinwalker
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|Skinwalker_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Skinwalker_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Type				EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Skinwalker_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Size				EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Skinwalker_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Skinwalker_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Skinwalker_ReplaceAnimalMinded		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Animal-Minded		EXPLANATION:Replaces the Animal-Minded Racial Trait
+FACTDEF:ABILITY|Skinwalker_ReplaceChangeShape		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Change Shape		EXPLANATION:Replaces the Change Shape Racial Trait
+FACTDEF:ABILITY|Skinwalker_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Spell-Like Ability	EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Skinwalker_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Skinwalker Languages			EXPLANATION:Replaces the Languages Racial Trait
