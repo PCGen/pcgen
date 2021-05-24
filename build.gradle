@@ -34,7 +34,7 @@ plugins {
 }
 
 javafx {
-    version = "14.0.1"
+    version = "16"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 
     //Check if running in ide. If so bundles javafx in to jar. If not only compiles so that runtime can add different platform javafx later.
