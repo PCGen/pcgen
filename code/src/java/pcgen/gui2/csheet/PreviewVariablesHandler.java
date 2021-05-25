@@ -1,12 +1,13 @@
 package pcgen.gui2.csheet;
 
-import com.sun.webkit.dom.HTMLInputElementImpl;
+import pcgen.facade.core.CharacterFacade;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.events.EventTarget;
 import org.w3c.dom.html.HTMLInputElement;
-import pcgen.facade.core.CharacterFacade;
 
 /**
  * A {@link ChangeListener} that decorates a new document in context to automatically save inputs tagged with "target_var"
@@ -30,14 +31,14 @@ public class PreviewVariablesHandler implements ChangeListener<Document>
         NodeList elements = newDoc.getElementsByTagName("input");
         for (int i = 0; i < elements.getLength(); i++)
         {
-            HTMLInputElementImpl element = (HTMLInputElementImpl) elements.item(i);
+            HTMLInputElement element = (HTMLInputElement) elements.item(i);
             String key = getInputKey(element);
             if (key == null || key.isEmpty())
             {
                 continue;
             }
             setInputValue(element, character.getPreviewSheetVar(key));
-            element.addEventListener("change", evt ->
+            ((EventTarget) element).addEventListener("change", evt ->
             {
                 HTMLInputElement input = (HTMLInputElement) evt.getCurrentTarget();
                 character.addPreviewSheetVar(getInputKey(input), getInputValue(input));
