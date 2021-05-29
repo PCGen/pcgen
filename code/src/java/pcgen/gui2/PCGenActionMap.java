@@ -241,8 +241,6 @@ public final class PCGenActionMap extends ActionMap
 	private static final class DebugAction extends PCGenAction
 	{
 
-		private DebugDialog dialog;
-
 		private DebugAction()
 		{
 			super("mnuToolsLog", LOG_COMMAND, "F10");
@@ -252,13 +250,7 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			GuiAssertions.assertIsNotJavaFXThread();
-			Platform.runLater(() -> {
-				if (dialog == null)
-				{
-					dialog = new DebugDialog();
-				}
-				dialog.show();
-			});
+			Platform.runLater(DebugDialog::show);
 		}
 
 	}
