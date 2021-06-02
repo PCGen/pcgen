@@ -124,4 +124,4 @@ Advanced Player's Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bu
 
 Orac1e‘s Curse, copyright 2014 by RJ Grady, published by Tripod Machine.
 
-PCGen dataset conversion for "Orac1e‘s Curse" Copyright 2020, PCGen Data team (Including, but not limited to pokemonpasta)
+PCGen dataset conversion for "Orac1e‘s Curse" Copyright 2020, PCGen Data team (Including, but not limited to pokemonpasta, Paul Grosse, and Andrew Maitland)

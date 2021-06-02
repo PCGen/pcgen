@@ -63,7 +63,7 @@ COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors Complete Copyright 2011, 
 COPYRIGHT:Pathﬁnder Roleplaying Game Mythic Adventures Copyright 2013, Paizo Publishing, LLC; Authors: Jason Bulmahn, Stephen Radney-MacFarland, Sean K Reynolds, Dennis Baker, Jesse Benner, Ben Bruck, Jim Groves, Tim Hitchcock, Tracy Hurley, Jonathan Keith, Jason Nelson, Tom Phillips, Ryan Maeklin, F. Wesley Schneider, Amber Scott, Tork Shaw, Russ Taylor, and Ray Vallese.
 COPYRIGHT:Advanced Player's Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn.
 COPYRIGHT:Oracle's Curse, copyright 2014 by RJ Grady, published by Tripod Machine.
-COPYRIGHT:PCGen dataset conversion for "Orac1e's Curse" Copyright 2020, PCGen Data team (Including, but not limited to pokemonpasta)
+COPYRIGHT:PCGen dataset conversion for "Orac1e's Curse" Copyright 2020, PCGen Data team (Including, but not limited to pokemonpasta, Paul Grosse, and Andrew Maitland)
 
 
 #NB: Bestiary 3 is added with INCLUDE tags as monster "Rot Grub Swarm" in Oracle's Curse also exists exactly the same in Bestiary 3
@@ -77,3 +77,17 @@ SKILL:oc_skills.lst
 
 
 
+###Block: Revisions
+
+INFOTEXT:Supports 6.08.00
+# ENTRY DATE: 2020-06
+# LST MONKEY: pokemonpasta
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.8
+# MINDEVVER:6.08.00
+# COMMENTS:
