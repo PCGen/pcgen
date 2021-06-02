@@ -1,0 +1,14 @@
+# Tue Mar  2 16:53:22 2021 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+#Original Entry date: 5.2.21
+SOURCELONG:Advanced Feats: Visions of the Oracle	SOURCESHORT:VOTO
+
+###Block: Conditional Curse Feat
+# Ability Name		Unique Key					Category of Ability		Type						Required Ability								Bonus Ability Pool
+Night and Day		KEY:Conditional Curse ~ Night and Day		CATEGORY:Special Ability	TYPE:ConditionalCursePairSelection												BONUS:ABILITYPOOL|Conditional Curse Still Suffer Selection|1
+Inside and Outside	KEY:Conditional Curse ~ Inside and Outside	CATEGORY:Special Ability	TYPE:ConditionalCursePairSelection												BONUS:ABILITYPOOL|Conditional Curse Still Suffer Selection|1
+
+Night			KEY:Conditional Curse ~ Night			CATEGORY:Special Ability	TYPE:ConditionalCurseStillSufferSelection	PREABILITY:1,CATEGORY=Special Ability,Conditional Curse ~ Night and Day
+Day			KEY:Conditional Curse ~ Day			CATEGORY:Special Ability	TYPE:ConditionalCurseStillSufferSelection	PREABILITY:1,CATEGORY=Special Ability,Conditional Curse ~ Night and Day
+Inside			KEY:Conditional Curse ~ Inside			CATEGORY:Special Ability	TYPE:ConditionalCurseStillSufferSelection	PREABILITY:1,CATEGORY=Special Ability,Conditional Curse ~ Inside and Outside
+Outside			KEY:Conditional Curse ~ Outside			CATEGORY:Special Ability	TYPE:ConditionalCurseStillSufferSelection	PREABILITY:1,CATEGORY=Special Ability,Conditional Curse ~ Inside and Outside
