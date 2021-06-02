@@ -24,10 +24,25 @@ COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.;
 COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams
 COPYRIGHT:Netbook of Feats, Authors: Rafael Arrais, Carl Cramér, Eric D. Harry, John O. Lamping, Sébastien Adhikari, Jonathan D. Woolley, Jason D. Kemp, Jerry M. Chaney II, Bradley H. Bemis Jr.
 COPYRIGHT:Advanced Feats: Visions of the Oracle. Author: Sigfried Trent Copyright 2011, Open Design LLC, www.koboldquarterly.com. All rights reserved.
-COPYRIGHT:PCGen dataset conversion for "Advanced Feats: Visions of the Oracle" Copyright 2021, PCGen Data team (Including, but not limited to pokemonpasta).
+COPYRIGHT:PCGen dataset conversion for "Advanced Feats: Visions of the Oracle" Copyright 2021, PCGen Data team (Including, but not limited to pokemonpasta, Paul Grosse, and Andrew Maitland).
 
 ABILITY:voto_abilities.lst
 ABILITY:voto_abilities_class.lst
 ABILITY:voto_feats.lst
 ABILITYCATEGORY:voto_abilitycategories.lst
 SKILL:voto_skills.lst
+
+###Block: Revisions
+
+INFOTEXT:Supports 6.08.00
+# ENTRY DATE: 2020-06
+# LST MONKEY: pokemonpasta
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.8
+# MINDEVVER:6.08.00
+# COMMENTS:

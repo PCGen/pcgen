@@ -44,4 +44,4 @@ Netbook of Feats, Authors: Rafael Arrais, Carl Cramér, Eric D. Harry, John O. L
 
 Advanced Feats: Visions of the Oracle. Author: Sigfried Trent Copyright 2011, Open Design LLC, www.koboldquarterly.com. All rights reserved.
 
-PCGen dataset conversion for "Advanced Feats: Visions of the Oracle" Copyright 2021, PCGen Data team (Including, but not limited to pokemonpasta).
+PCGen dataset conversion for "Advanced Feats: Visions of the Oracle" Copyright 2021, PCGen Data team (Including, but not limited to pokemonpasta, Paul Grosse, and Andrew Maitland).
