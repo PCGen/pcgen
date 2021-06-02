@@ -1,0 +1,8 @@
+# Tue Mar  2 16:53:22 2021 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+#Original Entry date: 6.2.21
+SOURCELONG:Advanced Feats: Visions of the Oracle	SOURCESHORT:VOTO
+
+#Strange Revelation Implementation as Revelation
+# Ability Name		Unique Key					Category of Ability		Type						Required Ability				Bonus Ability Pool
+Strange Revelation	KEY:Oracle Revelation ~ Strange Revelation	CATEGORY:Special Ability	TYPE:OracleClassFeatures.GeneralRevelation	PREABILITY:1,CATEGORY=FEAT,Strange Revelation	BONUS:ABILITYPOOL|Strange Revelation Choice|1
