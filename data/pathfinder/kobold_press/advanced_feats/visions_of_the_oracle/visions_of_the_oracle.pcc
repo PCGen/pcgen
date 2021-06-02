@@ -1,0 +1,33 @@
+# Tue Mar  2 16:53:22 2021 -- reformatted by PCGen TidyLst v1.04.00
+CAMPAIGN:Visions of the Oracle
+KEY:Advanced Feats ~ Visions of the Oracle
+
+BOOKTYPE:Supplement
+GAMEMODE:Pathfinder
+STATUS:BETA
+GENRE:Fantasy
+TYPE:Kobold Press.Visions of the Oracle
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PUBNAMELONG:Kobold Press
+PUBNAMESHORT:Kobold
+SOURCELONG:Advanced Feats: Visions of the Oracle
+SOURCESHORT:VOTO
+
+COVER:visions_of_the_oracle.jpg
+DESC:Continuing the hugely popular Advanced Feats series, the Visions of the Oracle takes a deeper look at this spontaneous divine class. Visions offers 30 game-tested feats, 3 rock-solid character builds, plus a class overview, analysis, and designer commentary. Feats include everything from Battlecaster and Mystic Retribution to Quick Healing, Prophetic Dreamer, and Tactical Spellcasting. With 17 pages of advanced Pathfinder Roleplaying Game options for anyone playing an oracle, Visions of the Oracle includes both feats made to order for every official Mystery and a range of more general feats.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Advanced Player's Guide. Copyright 2011 Paizo Publishing, LLC; Author: Jason Bulmahn
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams
+COPYRIGHT:Netbook of Feats, Authors: Rafael Arrais, Carl Cramér, Eric D. Harry, John O. Lamping, Sébastien Adhikari, Jonathan D. Woolley, Jason D. Kemp, Jerry M. Chaney II, Bradley H. Bemis Jr.
+COPYRIGHT:Advanced Feats: Visions of the Oracle. Author: Sigfried Trent Copyright 2011, Open Design LLC, www.koboldquarterly.com. All rights reserved.
+COPYRIGHT:PCGen dataset conversion for "Advanced Feats: Visions of the Oracle" Copyright 2021, PCGen Data team (Including, but not limited to pokemonpasta).
+
+ABILITY:voto_abilities.lst
+ABILITY:voto_abilities_class.lst
+ABILITY:voto_feats.lst
+ABILITYCATEGORY:voto_abilitycategories.lst
+SKILL:voto_skills.lst
