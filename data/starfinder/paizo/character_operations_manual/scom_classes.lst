@@ -1,0 +1,97 @@
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define		Combat bonus																	Bonus to HP										Save bonus																																																	Modify VAR																																																								Template			FACT
+CLASS:Biohacker		HD:1		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.40	DEFINE:BiohackerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:HP|CURRENTMAX|5*BiohackerLVL	BONUS:HP|ALTHP|6*BiohackerLVL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|BiohackerLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	TEMPLATE:Class ~ Biohacker	FACT:KeyAbilityScore|INT or WIS	FACT:Abb|Bio	FACT:ClassType|PC
+
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Biohacker		STARTSKILLPTS:4	CSKILL:Bluff|Computers|Culture|Diplomacy|Engineering|Life Science|Medicine|Perception|Physical Science|TYPE=Profession|Sense Motive|Sleight of Hand
+###Block - Class Features
+1	ABILITY:Class|AUTOMATIC|Biohacker
+
+###Block
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ CUSTOM MICROLAB
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ BIOHACKS
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ Basic Booster
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ Basic Inhibitor
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ Minor Booster
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ Minor Inhibitor
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ INJECTION EXPERT
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ PRIMARY FIELD OF STUDY
+1	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ SCIENTIFIC METHOD
+2	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ THEOREM
+3	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ SPARK OF INGENUITY
+3	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ WEAPON SPECIALIZATION
+7	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ SECONDARY FIELD OF STUDY
+13	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ TERTIARY FIELD OF STUDY
+19	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ RESOLVE ANALYSIS
+20	ABILITY:Biohacker Class Feature|AUTOMATIC|Biohacker Class Feature ~ SUPERSERUM
+
+# End Biohacker
+
+
+CLASS:Vanguard		HD:1		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.50	DEFINE:VanguardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:HP|CURRENTMAX|6*VanguardLVL	BONUS:HP|ALTHP|7*VanguardLVL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|VanguardLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	TEMPLATE:Class ~ Vanguard	FACT:KeyAbilityScore|CON	FACT:Abb|Van	FACT:ClassType|PC
+
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Vanguard		STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Culture|Diplomacy|Intimidate|Life Science|Medicine|Mysticism|Perception|TYPE=Profession|Stealth|Survival
+###Block - Class Features
+1	ABILITY:Class|AUTOMATIC|Vanguard
+
+###Block
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ ENTROPIC POOL
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ ENTROPIC STRIKE
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ FIRST VANGUARD ASPECT
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ Aspect Insight
+4	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ Aspect Embodiment
+12	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ Aspect Catalyst
+18	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ Aspect Finale
+2	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ MITIGATE
+2	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ VANGUARD DISCIPLINE
+3	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ REACTIVE
+3	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ WEAPON SPECIALIZATION
+5	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ ENTROPIC ATTUNEMENT
+7	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ UNCANNY AGILITY
+8	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ SECOND VANGUARD ASPECT
+11	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ FLASHING STRIKES
+15	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ UNCANNY SPEED
+19	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ AGENT OF CHANGE
+20	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard Class Feature ~ INVULNERABILITY
+
+# End Vanguard
+
+CLASS:Witchwarper	HD:1		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.59	DEFINE:WitchwarperLVL|0	DEFINE:CasterLevelBLWitchwarper|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:HP|CURRENTMAX|4*WitchwarperLVL	BONUS:HP|ALTHP|5*WitchwarperLVL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|WitchwarperLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_Witchwarper|CL+Caster_Level_Bonus+CasterLevelBLWitchwarper	BONUS:VAR|CasterLevelBL_Witchwarper|charbonusto("PCLEVEL","Witchwarper")	BONUS:VAR|Caster_Level_Highest__All|Caster_Level_Witchwarper|TYPE=Base	TEMPLATE:Class ~ Witchwarper	FACT:KeyAbilityScore|CHA	FACT:Abb|WRP	FACT:ClassType|PC	FACT:SpellType|Spell
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Witchwarper	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Culture|Diplomacy|Intimidate|Mysticism|Physical Science|TYPE=Profession
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Witchwarper	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Witchwarper|Caster_Level_Witchwarper
+###Block: Proficiencies
+1	ABILITY:Class|AUTOMATIC|Witchwarper
+###Block: Cast & Known Progression
+1	CAST:0,2			KNOWN:4,2
+2	CAST:0,2			KNOWN:5,3
+3	CAST:0,3			KNOWN:6,4
+4	CAST:0,3,2			KNOWN:6,4,2
+5	CAST:0,4,2			KNOWN:6,4,3
+6	CAST:0,4,3			KNOWN:6,4,4
+7	CAST:0,4,3,2		KNOWN:6,5,4,2
+8	CAST:0,4,4,2		KNOWN:6,5,4,3
+9	CAST:0,5,4,3		KNOWN:6,5,4,4
+10	CAST:0,5,4,3,2		KNOWN:6,5,5,4,2
+11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
+13	CAST:0,5,5,4,3,2		KNOWN:6,6,5,5,4,2
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3
+15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
+16	CAST:0,5,5,5,4,3,2	KNOWN:6,6,6,5,5,4,2
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+###Block: Class Features
+1	ABILITY:Witchwarper Class Feature|AUTOMATIC|Witchwarper Class Feature ~ INFINITE WORLDS
+2	ABILITY:Witchwarper Class Feature|AUTOMATIC|Witchwarper Class Feature ~ PARADIGM SHIFT
+3	ABILITY:Witchwarper Class Feature|AUTOMATIC|Witchwarper Class Feature ~ COMPOUND SIGHT
+3	ABILITY:Witchwarper Class Feature|AUTOMATIC|Witchwarper Class Feature ~ WEAPON SPECIALIZATION
+6	ABILITY:Witchwarper Class Feature|AUTOMATIC|Witchwarper Class Feature ~ ALTERNATE OUTCOME
+19	ABILITY:Witchwarper Class Feature|AUTOMATIC|Witchwarper Class Feature ~ UNFOLD EXISTENCES
+20	ABILITY:Witchwarper Class Feature|AUTOMATIC|Witchwarper Class Feature ~ REALITY STUTTER
+
+# end Witchwarper
+
