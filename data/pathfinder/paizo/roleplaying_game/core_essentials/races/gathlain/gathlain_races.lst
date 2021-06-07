@@ -1,0 +1,5 @@
+
+
+###Block: Player Race
+# Race Name	SORTKEY		Starting Feats	Base size		Move		Ability								Nb Legs	Nb Hands	Main Race Type	Type			Source Page		FACT
+Gathlain	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,0	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gathlain	LEGS:2	HANDS:2	RACETYPE:Fey	TYPE:Base.PC	SOURCEPAGE:p.xx	FACT:IsPC|True

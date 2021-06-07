@@ -1,0 +1,23 @@
+KEY:support ~ kasatha race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Kasatha
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:kasatha__datacontrols.lst
+
+# Data Files
+ABILITY:kasatha_abilities_globalvar.lst
+ABILITY:kasatha_abilities_race.lst
+ABILITYCATEGORY:kasatha_abilitycategories.lst
+LANGUAGE:kasatha_languages.lst
+RACE:kasatha_races.lst
+TEMPLATE:kasatha_templates.lst

@@ -1,0 +1,5 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Type				FACT
+Aquatic Elf		KEY:Racial Heritage ~ Aquatic Elf	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsAquaticElf|True

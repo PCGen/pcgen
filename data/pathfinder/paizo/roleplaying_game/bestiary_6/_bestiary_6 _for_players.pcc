@@ -1,0 +1,86 @@
+CAMPAIGN:Bestiary 6 (Player Options Only)
+KEY:Bestiary 6 ~ Player Options Only
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Bestiary 6
+SOURCESHORT:B6
+SOURCEWEB:http://paizo.com/products/btpy9r1y
+SOURCEDATE:2017-05
+RANK:201705
+ISOGL:YES
+
+COVER:bestiary_6.jpg
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9r1y|Buy this publication from Paizo Publishing!
+DESC:Bow Down in Fear! Monsters have long stalked us in the darkness. Within this book, you’ll find a host of these creatures for use in the Pathfinder Roleplaying Game. Face off against archdevils and the Horsemen of the Apocalypse, planar dragons and the legendary wild hunt, proteans and psychopomps, and hundreds more! Some creatures, such as the capricious taniwha, the mysterious green man, or the powerful empyreal lords, might even be willing to provide your heroes aid—if they deserve it!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v l.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Book of Fiends Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb.
+COPYRIGHT:Brownie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Daemon, Ceustodaemon (Guardian Daemon) from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowall.
+COPYRIGHT:Daemon, Derghodaemon from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Daemon, Hydrodaemon from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demon, Shadow from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Neville White.
+COPYRIGHT:Giant, Wood from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Wizards of the Coast.
+COPYRIGHT:Gryph from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Peter Brown.
+COPYRIGHT:Huecuva from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Underworld Oracle.
+COPYRIGHT:Iron Cobra from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Philip Masters.
+COPYRIGHT:Jubilex from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pazuzu from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Russet Mold from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Scarecrow from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Slithering Tracker from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Thessalhydra from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax and Wizards of the Coast.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Zombie, Juju from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 6 Copyright 2017, Paizo Inc.; Authors: Robert Brookes, Benjamin Bruck, John Compton, Paris Crenshaw, Adam Daigle, Crystal Frasier, James Jacobs, Thurston Hillman, Tim Hitchcock, Brandon Hodge, Jason Keeley, Isabelle Lee, Jason Nelson, Tim Nightengale, F. Wesley Schneider, David Schwartz, Mark Seifter, Todd Stewart, Josh Vogt, and Linda Zayas-Palmer.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 6" Copyright 2018, PCGen Data team (Including, but not limited to Gwen T. (evilpixie87), Paul Grosse, and Andrew Maitland).
+
+ABILITY:b6_abilities_class.lst
+ABILITY:b6_abilities_companion.lst
+ABILITY:b6_abilities_race_pc.lst
+ABILITY:b6_abilities_race.lst
+ABILITY:b6_feats.lst
+DEITY:b6_deities.lst
+DOMAIN:b6_domains.lst
+KIT:b6_kits_companion.lst
+RACE:b6_races_companion.lst
+RACE:b6_races_pc.lst
+SKILL:b6_skills.lst
+SPELL:b6_spells.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey goblin\_monkeygoblin_race.pcc
+
+
+
+# ENTRY DATE: 2018-01
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.06.01
+# Updated to work with version: -
+# MINVER:6.06
+# MINDEVVER:6.06.01
+# COMMENTS: 
+

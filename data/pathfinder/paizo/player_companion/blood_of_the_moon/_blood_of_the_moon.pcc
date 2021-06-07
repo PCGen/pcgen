@@ -12,7 +12,9 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:3,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -40,15 +42,20 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Blood of th
 #EXTRAFILE:OGL.txt
 
 # Data files
-ABILITY:botm_abilities_trait.lst
+ABILITY:botm_abilities_class.lst
+ABILITY:botm_abilities_race.lst
+ABILITY:botm_abilities.lst
+ABILITY:botm_feats.lst
 ABILITYCATEGORY:botm_abilitycategories.lst
-BIOSET:botm_biosettings.lst
 EQUIPMENT:botm_equip_general.lst
 EQUIPMENT:botm_equip_magic_items.lst
-ABILITY:botm_feats.lst
 RACE:botm_races.lst
 SPELL:botm_spells.lst
 TEMPLATE:botm_templates.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race_subrace.pcc
+
 
 # ENTRY DATE: 2015-01
 # LST MONKEY: Andrew Maitland

@@ -1465,11 +1465,14 @@ Summon Monster VIII (Elementals Only)			TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL
 
 ###Block: Restricted Use Spells
 Animate Objects.COPY=Animate Objects (Small or Smaller)																				CLASSES:.CLEARALL
+Charm Animal.COPY=Charm Animal (aquatic animals only)																					CLASSES:.CLEARALL
 Disguise Self.COPY=Disguise Self (humanoid only)																					CLASSES:.CLEARALL
 Nondetection.COPY=Nondetection (self only)																						CLASSES:.CLEARALL
 Plane Shift.COPY=Plane Shift (self only/to Shadow or Material Plane)			OUTPUTNAME:Plane Shift (self only, to the Plane of Shadow or the Material Plane only)	CLASSES:.CLEARALL
 Plane Shift.COPY=Plane Shift (to Shadow or Material Plane)					OUTPUTNAME:Plane Shift (to the Plane of Shadow or the Material Plane only)			CLASSES:.CLEARALL
 Speak with Animals.COPY=Speak with Animals (aquatic animals only)																			CLASSES:.CLEARALL
 Speak with Animals.COPY=Speak with Animals (birds or other flying animals only)																CLASSES:.CLEARALL
+Speak with Animals.COPY=Speak with Animals (pigs and boars only)																			CLASSES:.CLEARALL
+Speak with Animals.COPY=Speak with Animals (rodents only)																				CLASSES:.CLEARALL
 Summon Monster III.COPY=Summon Monster III (lantern archon only)																			CLASSES:.CLEARALL
 Summon Nature's Ally I.COPY=Summon Nature's Ally I (dolphins only)																		CLASSES:.CLEARALL

@@ -1,13 +1,15 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
 ##Skinwalker is copied from BotM to avoid conflicts
+
+###Block: Player Races
 # Race Name		Starting Feats	Move				Reach		Modify VAR				Ability									Nb Legs	Nb Hands	Main Race Type	Race Subtype				Type			Source Page		FACT
-Android		STARTFEATS:1	MOVE:Walk,30		REACH:5						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Android		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Android			TYPE:Humanoid.PC	SOURCEPAGE:p.19	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
+Android.MOD																																										SOURCEPAGE:p.19
 Astomoi		STARTFEATS:1	MOVE:Walk,30		REACH:5						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Astomoi		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Astomoi			TYPE:Humanoid.PC	SOURCEPAGE:p.37	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
 Caligni		STARTFEATS:1	MOVE:Walk,30		REACH:5						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Caligni		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Dark Folk			TYPE:Humanoid.PC	SOURCEPAGE:p.66	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
 Deep One Hybrid	STARTFEATS:1	MOVE:Walk,20,Swim,30	REACH:5						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Deep One Hybrid	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Deep One|Human		TYPE:Humanoid.PC	SOURCEPAGE:p.70	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
-Ghoran		STARTFEATS:1	MOVE:Walk,30		REACH:5						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Ghoran			LEGS:2	HANDS:2	RACETYPE:Plant							TYPE:Plant.PC	SOURCEPAGE:p.119	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
+Ghoran.MOD																																										SOURCEPAGE:p.119
 Orang-Pendak	STARTFEATS:1	MOVE:Walk,30		REACH:5						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Orang-Pendak		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Sasquatch			TYPE:Humanoid.PC	SOURCEPAGE:p.186	FACT:BaseSize|S	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
 Reptoid		STARTFEATS:1	MOVE:Walk,30		REACH:5						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Reptoid		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Reptilian|Shapechanger	TYPE:Humanoid.PC	SOURCEPAGE:p.202	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
 Shabti		STARTFEATS:1	MOVE:Walk,30		REACH:5						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Shabti			LEGS:2	HANDS:2	RACETYPE:Outsider	RACESUBTYPE:Native			TYPE:Outsider.PC	SOURCEPAGE:p.227	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
-Skinwalker		STARTFEATS:1	MOVE:Walk,30		REACH:5	BONUS:VAR|HasLowlightVision|1	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Skinwalker		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Shapechanger|Skinwalker	TYPE:Humanoid.PC	SOURCEPAGE:p.233	FACT:BaseSize|M	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|True
+Skinwalker.MOD																																									SOURCEPAGE:p.233
