@@ -1,0 +1,84 @@
+CAMPAIGN:Bestiary 5 (Player Options Only)
+KEY:Bestiary 5 ~ Player Options Only
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Bestiary 5
+SOURCESHORT:B5
+SOURCEWEB:http://paizo.com/products/btpy9g9x
+SOURCEDATE:2015-12
+RANK:201512
+ISOGL:YES
+
+COVER:bestiary_5.jpg
+
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9g9x|Buy this publication from Paizo Publishing!
+URL:Amazon.com|https://amzn.com/1601255756|Buy this book from Amazon.com!
+DESC:Beyond the veil! Creatures strange beyond imagining and more terrifying than any nightmare lurk in the dark corners of the world and the weird realms beyond. Within this book, you'll find hundreds of monsters for use in the Pathfinder Roleplaying Game. Face off against devils and dragons, deep ones and brain moles, robots and gremlins, and myriad other menaces! Yet not every creature needs to be an enemy, as whimsical liminal sprites, helpful moon dogs, and regal seilenoi all stand ready to aid you on your quests—if you prove yourself worthy.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v l.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Aerial Servant from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; Published and distributed by Frog God Games; Authors: Clark Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Jubilex from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Moon Dog from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Muckdweller from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 5 Copyright 2015, Paizo Inc.; Authors: Dennis Baker, Jesse Benner, John Bennett, Logan Bonner, Creighton Broadhurst, Robert Brookes, Benjamin Bruck, Jason Bulmahn, Adam Daigle, Thurston Hillman, Eric Hindley, Joe Homes, James Jacobs, Amanda Hamon Kunz, Ben McFarland, Jason Nelson, Thom Phillips, Stephen Radney-MacFarland, Alistair Rigg, Alex Riggs, David N. Ross, Wes Schneider, David Schwartz, Mark Seifter, Mike Shel, James L. Sutter, and Linda Zayas-Palmer.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 5" Copyright 2018, PCGen Data team (Including, but not limited to Gwen T. (evilpixie87)).
+
+ABILITY:b5_abilities_companion.lst
+ABILITY:b5_abilities_race.lst
+ABILITY:b5_abilities_race_pc.lst
+ABILITYCATEGORY:b5_abilitycategories.lst
+ABILITYCATEGORY:b5_abilitycategories_pc.lst
+COMPANIONMOD:b5_companionmods.lst
+ABILITY:b5_feats.lst
+KIT:b5_kits_companion.lst
+LANGUAGE:b5_languages.lst
+RACE:b5_races_companion.lst
+RACE:b5_races_pc.lst
+SKILL:b5_skills.lst
+SPELL:b5_spells_modified.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race.pcc
+
+
+# Support
+ABILITY:support/b5_abilities_race_oa.lst|PRECAMPAIGN:1,Occult Adventures
+ABILITY:support/b5_feats_oa.lst|PRECAMPAIGN:1,Occult Adventures
+KIT:support/b5_kits_companion_oa.lst|PRECAMPAIGN:1,Occult Adventures
+RACE:support/b5_races_companion_oa.lst|PRECAMPAIGN:1,Occult Adventures
+
+
+# ENTRY DATE: 2018-01
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse (Nylanfs)
+# RELEASE REVIEW #
+# BETA: Andrew Maitland (LegacyKing)
+# RELEASE:
+# Built for PCGen Version: 6.07.07
+# Updated to work with version: -
+# MINVER:6.07
+# MINDEVVER:6.07.07
+# COMMENTS:
+
+

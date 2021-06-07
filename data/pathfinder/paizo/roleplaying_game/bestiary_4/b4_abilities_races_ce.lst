@@ -77,11 +77,11 @@ Unnatural Aura																							CATEGORY:Special Ability	TYPE:SpecialQualit
 
 ###Block: B4 Race Subtypes
 # Ability Name			Ability
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Colossus|PRERACE:1,RACESUBTYPE=Colossus
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Formian|PRERACE:1,RACESUBTYPE=Formian
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Great Old One|PRERACE:1,RACESUBTYPE=Great Old One
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Kaiju|PRERACE:1,RACESUBTYPE=Kaiju
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Psychopomp|PRERACE:1,RACESUBTYPE=Psychopomp
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Colossus|PRERACE:1,RACESUBTYPE=Colossus|PRECHARACTERTYPE:1,NPC,Monster
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Formian|PRERACE:1,RACESUBTYPE=Formian|PRECHARACTERTYPE:1,NPC,Monster
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Great Old One|PRERACE:1,RACESUBTYPE=Great Old One|PRECHARACTERTYPE:1,NPC,Monster
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Kaiju|PRERACE:1,RACESUBTYPE=Kaiju|PRECHARACTERTYPE:1,NPC,Monster
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Psychopomp|PRERACE:1,RACESUBTYPE=Psychopomp|PRECHARACTERTYPE:1,NPC,Monster
 
 ###Block:
 # Ability Name		Unique Key					Category of Ability		Visible	Innate Spells									Template													Auto Language					Ability																																																																																																					Modify VAR																																																																			Damage Reduction

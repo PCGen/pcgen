@@ -1,0 +1,29 @@
+
+
+# ------------------------------
+# Trox
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceAbilityScores|0		ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Ability Scores|PREVAREQ:Trox_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceType|0			ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Type|PREVAREQ:Trox_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceSize|0			ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Size|PREVAREQ:Trox_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceSpeed|0			ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Speed|PREVAREQ:Trox_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceVision|0			ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Vision|PREVAREQ:Trox_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceBurrow|0			ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Burrow|PREVAREQ:Trox_ReplaceBurrow,0
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceFrenzy|0			ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Frenzy|PREVAREQ:Trox_ReplaceFrenzy,0
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceGrabbingAppendages|0	ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Grabbing Appendages|PREVAREQ:Trox_ReplaceGrabbingAppendages,0
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	DEFINE:Trox_ReplaceLanguages|0		ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Languages|PREVAREQ:Trox_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceBurrow|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceBurrow=True
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceFrenzy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceFrenzy=True
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceGrabbingAppendages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceGrabbingAppendages=True
+CATEGORY=Internal|Racial Traits ~ Trox.MOD	BONUS:VAR|Trox_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Trox_ReplaceLanguages=True

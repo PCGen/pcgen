@@ -1,5 +1,0 @@
-#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
-
-# Ability Name			Unique Key							Category of Ability		Type																					Description										Template				Ability																															Stat bonus									Cost		Source Page		INFO
-Werecrocodile-kin (Alternate)	KEY:Skinwalker ~ Werecrocodile-Kin (ISR)		CATEGORY:Internal			TYPE:Skinwalker Subrace																													TEMPLATE:Werecrocodile-Kin	ABILITY:Skinwalker Racial Trait|AUTOMATIC|Werecrocodile-Kin ~ Ability Scores (ISR)|Werecrocodile-Kin ~ Animal-Minded|Werecrocodile-Kin ~ Spell-Like Ability|Werecrocodile-Kin ~ Change Shape											COST:1	SOURCEPAGE:p.249
-Alternate Ability Modifiers	KEY:Werecrocodile-Kin ~ Ability Scores (ISR)	CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Werecrocodile-Kin Heritage (ISR).SpecialQuality.Racial Ability Scores	DESC:+2 Constitution, -2 Wisdom (+2 Strength while shapechanged)																																						BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial			SOURCEPAGE:p.249	INFO:Racial Points|1

@@ -1,0 +1,21 @@
+
+
+# ------------------------------
+# Triaxian
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsTriaxian	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Triaxian	EXPLANATION:Determines whether the character is a Triaxian
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Triaxian_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Triaxian_ReplaceType		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Triaxian_ReplaceSize		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Triaxian_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Triaxian_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Triaxian_ReplaceKeenSenses	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Keen Senses		EXPLANATION:Replaces the Keen Senses Racial Trait
+FACTDEF:ABILITY|Triaxian_ReplaceBonusFeat		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Bonus Feat		EXPLANATION:Replaces the Bonus Feat Racial Trait
+FACTDEF:ABILITY|Triaxian_ReplaceSeasoned		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Seasoned		EXPLANATION:Replaces the Seasoned Racial Trait
+FACTDEF:ABILITY|Triaxian_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Triaxian Languages		EXPLANATION:Replaces the Languages Racial Trait

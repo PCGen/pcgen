@@ -47,8 +47,6 @@ ABILITYCATEGORY:Samsaran Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		
 ABILITYCATEGORY:Strix Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Strix Racial Trait		PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Wayang Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wayang Racial Trait	PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Wyvaran Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait	PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
-
 ###Block: Uncommon Races Racial Trait Ability Categories
 # Ability Category									Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list				Plural description for UI		Display Location
 ABILITYCATEGORY:Changeling Hag Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Hag Racial Trait										PLURAL:Changeling Hag Racial Traits	DISPLAYLOCATION:Racial Abilities
@@ -187,12 +185,3 @@ ABILITYCATEGORY:Human Racial Subtype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 ###Block: Builder Support
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list						Display Location
 ABILITYCATEGORY:Builder Racial Trait ~ Natural Attack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Builder Racial Trait ~ Natural Attack										DISPLAYLOCATION:Race Builder Design
-
-
-ABILITYCATEGORY:Gathlain Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gathlain Racial Trait		PLURAL:Gathlain Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Trox Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trox Racial Trait			PLURAL:Trox Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wyrwood Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyrwood Racial Trait		PLURAL:Wyrwood Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wyvaran Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait		PLURAL:Wyvaran Racial Traits	DISPLAYLOCATION:Racial Abilities
-
-
-

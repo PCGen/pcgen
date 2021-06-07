@@ -1,0 +1,25 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ syrinx race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Syrinx
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:syrinx__datacontrols.lst
+
+# Data Files
+ABILITY:syrinx_abilities_globalvar.lst
+ABILITY:syrinx_abilities_race.lst
+ABILITYCATEGORY:syrinx_abilitycategories.lst
+LANGUAGE:syrinx_languages.lst
+RACE:syrinx_races.lst
+SKILL:syrinx_skills.lst
+TEMPLATE:syrinx_templates.lst

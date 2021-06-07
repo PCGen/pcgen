@@ -1,0 +1,23 @@
+
+
+# ------------------------------
+# Ghoran
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsGhoran	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Ghoran	EXPLANATION:Determines whether the character is a Ghoran
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Ghoran_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceNaturalArmor	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran +2 Natural Armor	EXPLANATION:Replaces the +2 Natural Armor Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceDelicious		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Delicious		EXPLANATION:Replaces the Delicious Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceNaturalMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Natural Magic		EXPLANATION:Replaces the Natural Magic Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceSeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Seed			EXPLANATION:Replaces the Seed Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceLightDependent	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Light Dependent	EXPLANATION:Replaces the Light Dependent Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplacePastLifeKnowledge	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Past-Life Knowledge	EXPLANATION:Replaces the Past-Life Knowledge Racial Trait
+FACTDEF:ABILITY|Ghoran_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ghoran Languages		EXPLANATION:Replaces the Languages Racial Trait

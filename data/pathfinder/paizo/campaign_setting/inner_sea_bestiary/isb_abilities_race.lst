@@ -4,29 +4,27 @@ SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/product
 
 # Original Entry by: Scott Meyer
 
-###Block: Android Abilities
-# Ability Name					Category of Ability	Ability
-Racial Traits ~ Android				CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Android ~ Default
 
-Android ~ Default					CATEGORY:Internal
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Attribute Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidAttributeBonus
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Exceptional Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidExceptionSenses
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Constructed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidConstructed
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Emotionless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidEmotionless
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Nanite Surge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidNaniteSurge
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Languages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidLanguages
+# ==============================
+# RACE ABILITIES
+# ==============================
 
-###Block: Default Traits
-# Ability Name						Unique Key					Category of Ability		Type									Define				Description																																																																																																						Template						Auto Language	Bonus to skill					Stat bonus										Modify VAR											Source Page		Aspects
-+2 Dexterity, +2 Intelligence, -2 Charisma	KEY:Android ~ Attribute Bonus		CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:Androids have swift reflexes and are very intelligent, but have difficulty relating to others.																																																																																																								BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial													SOURCEPAGE:p.6
-Exceptional Senses					KEY:Android ~ Exceptional Senses	CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:Androids have darkvision to a range of 60 feet and low-light vision. They also gain a +2 racial bonus on Perception checks.																																																																																												BONUS:SKILL|Perception|2|TYPE=Racial												BONUS:VAR|HasLowlightVision|1	BONUS:VAR|DarkvisionRange|60|TYPE=Base	SOURCEPAGE:p.6
-Constructed							KEY:Android ~ Constructed		CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:For the purposes of effects targeting creatures by type (such as a ranger's favored enemy and bane weapons), androids count as both humanoids and constructs. Androids gain a +4 racial bonus on all saving throws against	DESC: mind-affecting effects,|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless	DESC: paralysis, poison, and stun effects, are not subject to fatigue or exhaustion, and are immune to disease and sleep effects. Androids	DESC: can never gain morale bonuses, and are immune to fear effects and all emotion-based effects.|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless																																									SOURCEPAGE:p.6	ASPECT:SaveBonus|+4 racial bonus on all saving throws against mind-affecting effects, paralysis, poison, and stun effects, are not subject to fatigue or exhaustion, and are immune to disease and sleep effects. Androids can never gain morale bonuses, and are immune to fear effects and all emotion-based effects.|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless	ASPECT:SaveBonus|+4 racial bonus on all saving throws against paralysis, poison, and stun effects, are not subject to fatigue or exhaustion, and are immune to disease and sleep effects.|PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless
-Emotionless							KEY:Android ~ Emotionless		CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:Androids have problems processing emotions properly, and thus take a -4 penalty on Sense Motive checks.																																																																																															BONUS:SKILL|Sense Motive|-4																										SOURCEPAGE:p.6
-Nanite Surge						KEY:Android ~ Nanite Surge		CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality.Nanite Surge	DEFINE:NaniteSurgeTimes|0	DESC:An android's body is infused with nanites. Once per day as an immediate action, an android can cause her nanites to surge, granting a bonus equal to 3 + the android's character level on any one d20 roll; this ability must be activated before the roll is made. When an android uses this power, her circuitry-tattoos glow with light equivalent to that of a torch in illumination for 1 round.																																																																		BONUS:VAR|NaniteSurgeTimes|1								SOURCEPAGE:p.6	ASPECT:NAME|Nanite Surge %1/day|NaniteSurgeTimes
-Languages							KEY:Android ~ Languages			CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:Androids begin play speaking Common. Androids with high Intelligence can choose any languages they want (except secret languages, such as Druidic).																																																																														TEMPLATE:Bonus Language ~ Any Spoken	AUTO:LANG|Common																															SOURCEPAGE:p.6
+# ------------------------------
+# Android
+# ------------------------------
 
-# Removal of certain Android items in Constructed and complete removal of Emotionless
-Empathy													CATEGORY:Special Ability	TYPE:Emotionless
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Android ~ Ability Scores.MOD	SOURCEPAGE:p.3
+CATEGORY=Special Ability|Android ~ Type.MOD		SOURCEPAGE:p.3
+CATEGORY=Special Ability|Android ~ Size.MOD		SOURCEPAGE:p.3
+CATEGORY=Special Ability|Android ~ Speed.MOD		SOURCEPAGE:p.3
+CATEGORY=Special Ability|Android ~ Vision.MOD		SOURCEPAGE:p.3
+CATEGORY=Special Ability|Android ~ Constructed.MOD	SOURCEPAGE:p.3
+CATEGORY=Special Ability|Android ~ Emotionless.MOD	SOURCEPAGE:p.3
+CATEGORY=Special Ability|Android ~ Nanite Surge.MOD	SOURCEPAGE:p.3
+CATEGORY=Special Ability|Android ~ Languages.MOD	SOURCEPAGE:p.3
+
 
 ###Block: Apostasy Wraith Abilities
 # Ability Name	Unique Key						Category of Ability		Type						Description																																																																																								Source Page
@@ -79,44 +77,48 @@ Energy Drain		KEY:Fungus Queen ~ Energy Drain		CATEGORY:Special Ability	TYPE:Spe
 Plant Empathy		KEY:Fungus Queen ~ Plant Empathy		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																									DESC:The Fungus Queen can use Diplomacy to improve the attitude of a plant creature. She gains a +4 racial bonus on this check.																																																																SOURCEPAGE:p.12
 Sporepod			KEY:Fungus Queen ~ Sporepod			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																																									DESC:The Fungus Queen can instantly travel to one of her spore pods or use them to make tentacle attacks. The Fungus Queen can maintain %1 spore pods.|CHA																																																												SOURCEPAGE:p.12
 
-###Block: Ghoran Abilities
-# Ability Name						Unique Key					Category of Ability		Type												Innate Spells																Description																														Ability																					Modify VAR						Class Skill			Source Page
-Racial Traits ~ Ghoran											CATEGORY:Internal
 
-# Ability Name						Unique Key					Category of Ability		Type												Innate Spells																Description																														Ability																					Modify VAR						Class Skill			Source Page
-Delicious							KEY:Ghoran ~ Delicious			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:-2 on Escape Artist and CMD to escape a grapple by creatures with a bite attack with the grab ability.																																															SOURCEPAGE:p.14
-Ghorus Seed							KEY:Ghoran ~ Ghorus Seed		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:After 2d6 days, a healthy duplicate of the original grows save that the duplicate may reallocate all of its skill ranks upon sprouting. Expelling the seed causes 1 negative level.																																		SOURCEPAGE:p.14
-Light Dependant						KEY:Ghoran ~ Light Dependant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:Take 1d4 Con damage each day they go without exposure to sunlight.																																																					SOURCEPAGE:p.14
-Natural Armor						KEY:Ghoran ~ Natural Armor		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:Ghorans have tough, rugged skin, granting a +2 bonus on natural armor.																																									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base					SOURCEPAGE:p.14
-Natural Magic						KEY:Ghoran ~ Natural Magic		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.GhoranRacialTrait.GhoranRacialDefault	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Detect Poison,10+CHA|Goodberry,11+CHA|Purify Food and Drink,10+CHA	DESC:Ghorans gains spell-like abilities																																																										SOURCEPAGE:p.14
-Past-Life Knowledge					KEY:Ghoran ~ Past-Life Knowledge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:Treat all Knowledge skills as class skills																																																					CSKILL:TYPE=Knowledge	SOURCEPAGE:p.14
+# ------------------------------
+# Ghoran
+# ------------------------------
 
-CATEGORY=Internal|Racial Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Delicious|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranDelicious
-CATEGORY=Internal|Racial Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Ghorus Seed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranGhorusSeed
-CATEGORY=Internal|Racial Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Light Dependant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranLightDependant
-CATEGORY=Internal|Racial Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranNaturalArmor
-CATEGORY=Internal|Racial Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Natural Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranNaturalMagic
-CATEGORY=Internal|Racial Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Past-Life Knowledge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranPastLifeKnowledge
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Ghoran ~ Ability Scores.MOD		SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Type.MOD			SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Size.MOD			SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Speed.MOD			SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ +2 Natural Armor.MOD	SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Delicious.MOD			SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Natural Magic.MOD		SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Seed.MOD			SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Light Dependent.MOD		SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Past-Life Knowledge.MOD	SOURCEPAGE:p.14
+CATEGORY=Special Ability|Ghoran ~ Languages.MOD			SOURCEPAGE:p.14
 
 ###Block: Giant (Shadow) Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																							Auto Weapon Prof					Add									Source Page
 Militant		KEY:Shadow Giant ~ Militant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Proficient with all simple and martial weapons and 1 exotic weapon of choice.											AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:ABILITY|FEAT|VIRTUAL|Exotic Weapon Proficiency	SOURCEPAGE:p.15
 Shadow Cloak	KEY:Shadow Giant ~ Shadow Cloak	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:In any illumination other than direct sunlight, a shadow giant can cloak itself in moving shadows as per Blur for 1d6+6 rounds 3/day.																	SOURCEPAGE:p.15
 
-###Block: Goblin (Monkey) Abilities
-# Ability Name							Unique Key					Category of Ability		Type														Description																				Move			Ability																						Bonus to skill						Modify VAR					Source Page
-Racial Traits ~ Monkey Goblin											CATEGORY:Internal
-# Ability Name	Unique Key					Category of Ability		Type											Description																													Source Page
 
-Acrobatic								KEY:Monkey Goblin ~ Acrobatic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault	DESC:Monkey goblins gain a +2 racial bonus on Acrobatics and Stealth checks.																																			BONUS:SKILL|Acrobatics,Stealth|2|TYPE=Racial							SOURCEPAGE:p.16
-Fearless								KEY:Monkey Goblin ~ Fearless		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault	DESC:Monkey goblins gain a +2 racial bonus on all saving throws against fear.																																											BONUS:VAR|FearResistanceBonus|2	SOURCEPAGE:p.16
-Natural Climber							KEY:Monkey Goblin ~ Natural Climber	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault	DESC:Monkey goblins have a climb speed of 30 feet.													MOVE:Climb,30																																						SOURCEPAGE:p.16
-Prehensile Tail							KEY:Monkey Goblin ~ Prehensile Tail	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault	DESC:Monkey Goblins cannot wield weapons with their tails but they can use them to retrieve small objects as a swift action																																									SOURCEPAGE:p.16
+# ------------------------------
+# Goblin, Monkey
+# ------------------------------
 
-CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Acrobatic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinAcrobatic
-CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Fearless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinFearless
-CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Natural Climber|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinNaturalClimber
-CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Prehensile Tail|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinPrehensileTail
+###Block: Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Monkey Goblin ~ Ability Scores.MOD		SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Type.MOD			SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Size.MOD			SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Speed.MOD			SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Vision.MOD			SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Acrobatic.MOD		SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Fearless.MOD			SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Natural Climber.MOD	SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Prehensile Tail.MOD	SOURCEPAGE:p.16
+CATEGORY=Special Ability|Monkey Goblin ~ Languages.MOD		SOURCEPAGE:p.16
+
 
 ###Block: Golem (Marrowstone) Abilities
 # Ability Name	Unique Key						Category of Ability		Type						Description																																																																							Source Page
@@ -169,29 +171,23 @@ Unnerving Gaze		KEY:Termagant ~ Unnerving Gaze	CATEGORY:Special Ability	TYPE:Spe
 Regeneration		KEY:Termagant ~ Regeneration		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyHP	DEFINE:RegenerationRate|0	DESC:You are difficult to kill. You heal damage at %1 points per round, as with fast healing, but you cannot die as long as your regeneration is still functioning (although you still fall unconscious when their hit points are below 0). Damage from silver weapons or good weapons and spells causes your regeneration to stop functioning on the round following the attack. During this round, you cannot heal any damage and can die normally. Attack forms that don't deal hit point damage are not healed by regeneration. Regeneration also does not restore hit points lost from starvation, thirst, or suffocation. You can regrow lost portions of you body and can reattach severed limbs or body parts if they are brought together within 1 hour of severing. Severed parts that are not reattached wither and die normally.|RegenerationRate	BONUS:VAR|RegenerationRate|10	SOURCEPAGE:p.303	ASPECT:Ability Benefit|%1 (silver or good)|RegenerationRate
 Bleed Damage		KEY:Termagent ~ Bleed Damage		CATEGORY:Special Ability	TYPE:SpecialAttack										DESC:Termagent slam attacks do 2d6 bleed additional damage																																																																																																																																							SOURCEPAGE:p.24
 
-###Block: Lashunta Abilities
-# Ability Name					Category of Ability	Ability
-Racial Traits ~ Lashunta				CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Lashunta ~ Default
-Lashunta ~ Default				CATEGORY:Internal
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ +2 Intelligence
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Sexual Dimorphism
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Lashunta Magic
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Limited Telepathy
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Knowledgeable
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Languages
 
-###Block: Default Traits
-# Ability Name	Unique Key					Category of Ability		Type									Innate Spells																			Description																																																				Stat bonus																															Source Page
-+2 Intelligence	KEY:Lashunta ~ +2 Intelligence	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																								DESC:Lashunta are almost universally intelligent and eager to learn.																																										BONUS:STAT|INT|2|TYPE=Racial																												SOURCEPAGE:p.10
-Sexual Dimorphism	KEY:Lashunta ~ Sexual Dimorphism	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																								DESC:Male and female lashunta have very different body and personality types, more so than most humanoid species. Male lashunta are muscular (+2 Strength) and often brash and unobservant (-2 Wisdom). Female lashunta, though beautiful and commanding (+2 Charisma), lack the males' rugged builds (-2 Constitution).	BONUS:STAT|STR|2|TYPE=Racial|PREGENDER:Male	BONUS:STAT|WIS|-2|TYPE=Racial|PREGENDER:Male	BONUS:STAT|CHA|2|TYPE=Racial|PREGENDER:Female	BONUS:STAT|CON|-2|TYPE=Racial|PREGENDER:Female	SOURCEPAGE:p.10
-Lashunta Magic	KEY:Lashunta ~ Lashunta Magic		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality.Supernatural	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Daze,10+CHA|Mage Hand	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Thoughts	DESC:A lashunta with an Intelligence score of 11 or higher gains the following spell-like abilities: At will- daze, mane hand; 1/day-detect thoughts. The caster level for these effects is equal to the lashunta's character level.																																															SOURCEPAGE:p.10
-Limited Telepathy	KEY:Lashunta ~ Limited Telepathy	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality.Supernatural																						DESC:A lashunta is able to mentally communicate with any creature within 30 feet with whom she shares a language. This is otherwise identical to telepathy (Pathfinder RPG Bestiary 305).																																																							SOURCEPAGE:p.10
-Knowledgeable	KEY:Lashunta ~ Knowledgeable		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																								DESC:A lashunta gains a +2 racial bonus to any one Knowledge skill.																																																																										SOURCEPAGE:p.10
-Languages		KEY:Lashunta ~ Languages		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																								DESC:Lashunta begin play speaking Elven and Lashunta. Lashunta with high Intelligence scores can choose any languages (except secret languages, such as Druidic).																																																											SOURCEPAGE:p.10
+# ------------------------------
+# Lashunta
+# ------------------------------
 
-###Block: Lashunta Knowledge Bonus
-# Ability Name	Unique Key					Category of Ability		Type					Visible		Stackable?	Multiple?	Choose				Bonus to skill
-Knowledge Bonus	KEY:Lashunta ~ Knowledge Bonus	CATEGORY:Special Ability	TYPE:LashuntaKnowledgeBonus	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILL|%LIST|2
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Lashunta ~ Ability Scores.MOD	SOURCEPAGE:p.25
+CATEGORY=Special Ability|Lashunta ~ Type.MOD			SOURCEPAGE:p.25
+CATEGORY=Special Ability|Lashunta ~ Size.MOD			SOURCEPAGE:p.25
+CATEGORY=Special Ability|Lashunta ~ Speed.MOD			SOURCEPAGE:p.25
+CATEGORY=Special Ability|Lashunta ~ Sexual Dimorphism.MOD	SOURCEPAGE:p.25
+CATEGORY=Special Ability|Lashunta ~ Lashunta Magic.MOD	SOURCEPAGE:p.25
+CATEGORY=Special Ability|Lashunta ~ Knowledgeable.MOD		SOURCEPAGE:p.25
+CATEGORY=Special Ability|Lashunta ~ Limited Telepathy.MOD	SOURCEPAGE:p.25
+CATEGORY=Special Ability|Lashunta ~ Languages.MOD		SOURCEPAGE:p.25
+
 
 ###Block: Lorthact Abilities
 # Ability Name		Unique Key						Category of Ability		Type						Innate Spells																																																																																																					Description																																																																			Ability																														Modify VAR																Source Page
@@ -348,18 +344,25 @@ Navigational Awareness	KEY:Star Monarch ~ Navigational Awareness	CATEGORY:Specia
 Starflight			KEY:Star Monarch ~ Starflight			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																								DESC:Star Monarchs can survive in the void of space.																						SOURCEPAGE:p.50
 Toxic Flesh			KEY:Star Monarch ~ Toxic Flesh		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																								DESC:A creature injecting any part of a Star Monarch becomes sickened for 1d4 rounds and is affected as though it had consumed a dose of Arsenic (Fort DC 20 negates).			SOURCEPAGE:p.50
 
-###Block: Syrinx Abilities
-# Ability Name						Unique Key					Category of Ability		Type												Description															Ability																					Source Page		Aspects
-Racial Traits ~ Syrinx											CATEGORY:Internal
-# Ability Name						Unique Key					Category of Ability		Type												Description															Ability																					Source Page		Aspects
-Nocturnal							KEY:Syrinx ~ Nocturnal			CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault			DESC:+2 on Perception and Stealth checks at night.																														SOURCEPAGE:p.51
-Pride								KEY:Syrinx ~ Pride			CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault			DESC:Syrinx receive a +2 racial bonus on saving throws against mind-affecting effects .																								SOURCEPAGE:p.51	ASPECT:SaveBonus|+2 vs Mind-Affecting
-Speak with Avians						KEY:Syrinx ~ Speak with Avians	CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault.Extraordinary	DESC:Syrinx can speak with all birds of the animal creature type and bird-like magical beasts																							SOURCEPAGE:p.51
 
-CATEGORY=Internal|Racial Traits ~ Syrinx.MOD																																								ABILITY:Special Ability|AUTOMATIC|Maneuverability (Average)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxManeuverability
-CATEGORY=Internal|Racial Traits ~ Syrinx.MOD																																								ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Nocturnal|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxNocturnal
-CATEGORY=Internal|Racial Traits ~ Syrinx.MOD																																								ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Pride|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxPride
-CATEGORY=Internal|Racial Traits ~ Syrinx.MOD																																								ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Speak with Avians|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxSpeakWithAvians
+# ------------------------------
+# Syrinx
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Syrinx ~ Ability Scores.MOD		SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Type.MOD			SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Size.MOD			SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Speed.MOD			SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Flight.MOD			SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Low-Light Vision.MOD	SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Darkvision.MOD		SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Nocturnal.MOD			SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Pride.MOD			SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Speak with Avians.MOD	SOURCEPAGE:p.51
+CATEGORY=Special Ability|Syrinx ~ Languages.MOD			SOURCEPAGE:p.51
+
 
 ###Block: Thin Man Abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description																																																																				Source Page
@@ -434,10 +437,7 @@ Incendiary Grasp			KEY:Zelishkar ~ Incendiary Grasp		CATEGORY:Special Ability	TY
 Immunity to Bleed Effects														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity										DESC:You are never affected by bleed effects.																																																																																																																																																													SOURCEPAGE:p.46	ASPECT:Immunity|Bleed Effects
 Immunity to Turning															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity										DESC:You are never affected by turning.																																																																																																																																																														SOURCEPAGE:p.46	ASPECT:Immunity|Turning
 Immunity to Permanent Wounds														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity										DESC:You are never affected by permanent wounds.																																																																																																																																																												SOURCEPAGE:p.46	ASPECT:Immunity|Permanent Wounds
-Immunity to Emotion Effects														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity										DESC:You are never affected by emotion-based effects.																																																																																																																																																												SOURCEPAGE:p.3	ASPECT:Immunity|Emotion
 Regeneration					KEY:Good ~ Regeneration								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyHP			DEFINE:RegenerationRate|0			DESC:You are difficult to kill. You heal damage at %1 points per round, as with fast healing, but you cannot die as long as your regeneration is still functioning (although you still fall unconscious when their hit points are below 0). Damage from good weapons or spells causes your regeneration to stop functioning on the round following the attack. During this round, you cannot heal any damage and can die normally. Attack forms that don't deal hit point damage are not healed by regeneration. Regeneration also does not restore hit points lost from starvation, thirst, or suffocation. You can regrow lost portions of you body and can reattach severed limbs or body parts if they are brought together within 1 hour of severing. Severed parts that are not reattached wither and die normally.|RegenerationRate																								BONUS:VAR|RegenerationRate|5	SOURCEPAGE:p.303	ASPECT:Ability Benefit|%1 (good weapons or spells)|RegenerationRate
 Resistance to Mind-Affecting														CATEGORY:Special Ability									VISIBLE:NO	DEFINE:MindAffectingResistanceBonus|0																																																																																																																																									ABILITY:Special Ability|VIRTUAL|Resistance to Mind-Affecting ~ Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Mind-Affecting
 Resistance to Mind-Affecting ~ Output					OUTPUTNAME:Resistance to Mind-Affecting	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance										DESC:You may add %1 points to any saving throw to resist Mind-Affecting effects.|MindAffectingResistanceBonus																																																																																																																																																					ASPECT:Resistance|MindAffecting	ASPECT:SaveBonus|+%1 vs Mind-Affecting|MindAffectingResistanceBonus
-Resistance to Fear															CATEGORY:Special Ability									VISIBLE:NO	DEFINE:FearResistanceBonus|0																																																																																																																																											ABILITY:Special Ability|VIRTUAL|Resistance to Fear ~ Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Fear
-Resistance to Fear ~ Output							OUTPUTNAME:Resistance to Fear			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance										DESC:You may add %1 points to any saving throw to resist Fear effects.|FearResistanceBonus																																																																																																																																																								ASPECT:Resistance|Fear	ASPECT:SaveBonus|+%1 vs Fear|FearResistanceBonus
 Can't Be Disarmed																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DEFINE:CantBeDisarmed|0				DESC:A creature with this ability cannot be disarmed.																																																																																																																																																							BONUS:VAR|CantBeDisarmed|1

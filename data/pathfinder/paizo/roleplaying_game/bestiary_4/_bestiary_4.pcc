@@ -78,6 +78,12 @@ SPELL:b4_spells_modified.lst
 TEMPLATE:b4_templates.lst
 TEMPLATE:b4_templates_companion.lst
 
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gathlain\_gathlain_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kasatha\_kasatha_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\trox\_trox_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyrwood\_wyrwood_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyvaran\_wyvaran_race.pcc
+
 ABILITY:b4_abilities_globalvar_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
 ABILITY:b4_abilities_race_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
 ABILITYCATEGORY:b4_abilitycategories_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide

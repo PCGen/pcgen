@@ -2,19 +2,17 @@
 # CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
 
+
 #These races copied from ARG to avoid conflics
-# Race Name	Starting Feats	Size		Move				Reach		Required Gender	Bonus Languages									Change Weapon Prof. Category			Stat bonus											Modify VAR													Auto Language			Ability								Nb Legs	Nb Hands	Main Race Type			Race Subtype				Type				Challenge Rating	Source Page		Bonus language			FACT
-Changeling	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	PREGENDER:F		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Changeling	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.29	FACT:IsPC|True
-Kitsune	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kitsune	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.175	FACT:IsPC|True
-Nagaji	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Nagaji	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.196	FACT:IsPC|True
-Samsaran	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Samsaran	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.198	FACT:IsPC|True
-Trox		STARTFEATS:1	SIZE:L	MOVE:Walk,30		REACH:10																						BONUS:STAT|STR|6	BONUS:STAT|INT|-2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-2	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|AC_Natural_Armor|0|TYPE=Base	AUTO:LANG|Common|Xenophobic	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Trox		LEGS:2	HANDS:2	RACETYPE:Monstrous Humanoid	RACESUBTYPE:Trox				TYPE:Monstrous Humanoid	CR:0			SOURCEPAGE:p.264						FACT:BaseSize|L
-Wayang	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,20				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wayang	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.274	FACT:IsPC|True
-Wyrwood	STARTFEATS:1	SIZE:S	MOVE:Walk,30		REACH:5																						BONUS:STAT|DEX|2	BONUS:STAT|INT|2	BONUS:STAT|CHA|-2																		AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wyrwood	LEGS:2	HANDS:2	RACETYPE:Construct								TYPE:Construct		CR:0			SOURCEPAGE:p.280						FACT:BaseSize|S
-Wyvaran	STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5																																																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wyvaran	LEGS:2	HANDS:2	RACETYPE:Dragon									TYPE:Dragon			CR:0			SOURCEPAGE:p.281						FACT:BaseSize|M
-
-#Copied from Ultimate Wilderness to avoid conflics
-Gathlain	STARTFEATS:1	SIZE:S	MOVE:Walk,30,Fly,40	REACH:5																																																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gathlain	LEGS:2	HANDS:2	RACETYPE:Fey									TYPE:Fey.PC						SOURCEPAGE:p.122						FACT:BaseSize|S	FACT:Hands|2	FACT:Legs|2	FACT:IsPC|true
-
-#Copied from People of the Stars to avoid conflics
-Kasatha	STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5															CHANGEPROF:Kasatha Spinal Sword=Martial																																ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kasatha	LEGS:2	HANDS:4	RACETYPE:Humanoid			RACESUBTYPE:Kasatha			TYPE:Humanoid					SOURCEPAGE:p.174						FACT:BaseSize|M	FACT:IsPC|true
+###Block: Player Races
+# Race Name		SORTKEY		Starting Feats	Base size		Size		Move			Reach		Required Gender	Stat bonus											Modify VAR													Auto Language			Ability								Nb Legs	Nb Hands	Main Race Type			Race Subtype	Type				Challenge Rating	Source Page		FACT
+Changeling		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M			MOVE:Walk,30			PREGENDER:F																																	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Changeling	LEGS:2	HANDS:2	RACETYPE:Humanoid						TYPE:Base.PC.Uncommon				SOURCEPAGE:p.29	FACT:IsPC|True
+Gathlain.MOD																																																																															SOURCEPAGE:p.122
+Kasatha.MOD																																																																																SOURCEPAGE:p.174
+Kitsune		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M			MOVE:Walk,30																																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kitsune	LEGS:2	HANDS:2	RACETYPE:Humanoid						TYPE:Base.PC.Uncommon				SOURCEPAGE:p.175	FACT:IsPC|True
+Nagaji		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M			MOVE:Walk,30																																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Nagaji	LEGS:2	HANDS:2	RACETYPE:Humanoid						TYPE:Base.PC.Uncommon				SOURCEPAGE:p.196	FACT:IsPC|True
+Samsaran		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M			MOVE:Walk,30																																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Samsaran	LEGS:2	HANDS:2	RACETYPE:Humanoid						TYPE:Base.PC.Uncommon				SOURCEPAGE:p.198	FACT:IsPC|True
+Trox.MOD																																																																																SOURCEPAGE:p.264
+Wayang		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S			MOVE:Walk,20																																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wayang	LEGS:2	HANDS:2	RACETYPE:Humanoid						TYPE:Base.PC.Uncommon				SOURCEPAGE:p.274	FACT:IsPC|True
+Wyrwood.MOD																																																																																SOURCEPAGE:p.280
+Wyvaran.MOD																																																																																SOURCEPAGE:p.281
