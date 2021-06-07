@@ -33,7 +33,6 @@ import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.coreview.CoreViewFrame;
 import pcgen.gui2.dialog.DataInstaller;
-import pcgen.gui2.dialog.ExportDialog;
 import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui2.dialog.PrintPreviewDialog;
 import pcgen.gui2.solverview.SolverViewFrame;
@@ -44,6 +43,7 @@ import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.dialog.CalculatorDialogController;
 import pcgen.gui3.dialog.DebugDialog;
+import pcgen.gui3.dialog.ExportDialogController;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
@@ -655,7 +655,10 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			ExportDialog.showExportDialog(frame);
+			GuiAssertions.assertIsNotJavaFXThread();
+			JFXPanelFromResource
+					jfxPanelFromResource = new JFXPanelFromResource(ExportDialogController.class, "ExportDialog.fxml");
+			jfxPanelFromResource.showAsStage("Export a PC or Party");
 		}
 
 	}
