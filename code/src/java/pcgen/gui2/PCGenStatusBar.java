@@ -34,6 +34,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.StatusWorker;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
+import pcgen.gui3.dialog.DebugDialog;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
@@ -77,7 +78,7 @@ public final class PCGenStatusBar extends JPanel
 		//todo: calculate this rather than hard code
 		wrappedButton.setMaximumSize(new Dimension(750, 20000000));
 		add(wrappedButton);
-		loadStatusButton.setOnAction(this::loadStatusLabelAction);
+		loadStatusButton.setOnAction(PCGenStatusBar::loadStatusLabelAction);
 	}
 
 	public void setContextMessage(String message)
@@ -169,7 +170,7 @@ public final class PCGenStatusBar extends JPanel
 	 */
 	public void startShowingProgress(final String msg, boolean indeterminate)
 	{
-		if (!PCGenStatusBar.this.isValid())
+		if (!this.isValid())
 		{
 			// Do nothing if called during startup or shutdown
 			return;
@@ -197,8 +198,8 @@ public final class PCGenStatusBar extends JPanel
 	/**
 	 * Shows the log window when the load status icon is clicked.
 	 */
-	private void loadStatusLabelAction(final ActionEvent actionEvent)
+	private static void loadStatusLabelAction(final ActionEvent actionEvent)
 	{
-		frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
+		DebugDialog.show();
 	}
 }
