@@ -4097,4 +4097,10 @@ public class CharacterFacadeImpl
 	{
 		theCharacter.addPreviewSheetVar(key, value);
 	}
+
+	@Override
+	public String toString()
+	{
+		return this.name.toString();
+	}
 }
