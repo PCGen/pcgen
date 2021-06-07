@@ -1,10 +1,7 @@
-#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
-ABILITYCATEGORY:Against the Technic League Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Against the Technic League						DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Skymetal Smith Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Skymetal Smith								DISPLAYLOCATION:Traits
-
-ABILITYCATEGORY:Android Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Android Racial Trait		PLURAL:Android Racial Traits	DISPLAYLOCATION:Racial Abilities
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Against the Technic League Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Against the Technic League	DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Skymetal Smith Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Skymetal Smith			DISPLAYLOCATION:Traits

@@ -1,0 +1,20 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Type				FACT
+Kasatha		KEY:Racial Heritage ~ Kasatha	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsKasatha|True
+
+
+###Block: Languages
+# Template Name			Visible	Bonus Languages
+Bonus Language ~ Kasatha	VISIBLE:NO	LANGBONUS:Kasatha
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Kasatha		VISIBLE:NO	RACESUBTYPE:Kasatha
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Kasatha		KEY:Race Builder Subtype ~ Kasatha	VISIBLE:NO	RACESUBTYPE:Kasatha	TYPE:Race Builder Subtype

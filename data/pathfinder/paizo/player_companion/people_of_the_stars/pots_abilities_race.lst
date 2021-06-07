@@ -1,105 +1,95 @@
-#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
-# Ability Name					Category of Ability	Ability
-Racial Traits ~ Android				CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Android ~ Default
 
-Android ~ Default					CATEGORY:Internal
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Attribute Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AttributeBonus
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Exceptional Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ExceptionSenses
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Constructed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Constructed
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Emotionless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Nanite Surge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaniteSurge
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Languages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Languages
+# ==============================
+# RACE ABILITIES
+# ==============================
 
-###Block: Default Traits
-# Ability Name						Unique Key					Category of Ability		Type									Define				Description																																																																																																						Template						Auto Language	Bonus to skill					Stat bonus										Modify VAR											Source Page		Aspects
-+2 Dexterity, +2 Intelligence, -2 Charisma	KEY:Android ~ Attribute Bonus		CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:Androids have swift reflexes and are very intelligent, but have difficulty relating to others.																																																																																																								BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial													SOURCEPAGE:p.6
-Exceptional Senses					KEY:Android ~ Exceptional Senses	CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:Androids have darkvision to a range of 60 feet and low-light vision. They also gain a +2 racial bonus on Perception checks.																																																																																												BONUS:SKILL|Perception|2|TYPE=Racial												BONUS:VAR|HasLowlightVision|1	BONUS:VAR|DarkvisionRange|60|TYPE=Base	SOURCEPAGE:p.6
-Constructed							KEY:Android ~ Constructed		CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:For the purposes of effects targeting creatures by type (such as a ranger's favored enemy and bane weapons), androids count as both humanoids and constructs. Androids gain a +4 racial bonus on all saving throws against	DESC: mind-affecting effects,|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless	DESC: paralysis, poison, and stun effects, are not subject to fatigue or exhaustion, and are immune to disease and sleep effects. Androids	DESC: can never gain morale bonuses, and are immune to fear effects and all emotion-based effects.|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless																																									SOURCEPAGE:p.6	ASPECT:SaveBonus|+4 racial bonus on all saving throws against mind-affecting effects, paralysis, poison, and stun effects, are not subject to fatigue or exhaustion, and are immune to disease and sleep effects. Androids can never gain morale bonuses, and are immune to fear effects and all emotion-based effects.|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless	ASPECT:SaveBonus|+4 racial bonus on all saving throws against paralysis, poison, and stun effects, are not subject to fatigue or exhaustion, and are immune to disease and sleep effects.|PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless
-Emotionless							KEY:Android ~ Emotionless		CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:Androids have problems processing emotions properly, and thus take a -4 penalty on Sense Motive checks.																																																																																															BONUS:SKILL|Sense Motive|-4																										SOURCEPAGE:p.6
-Nanite Surge						KEY:Android ~ Nanite Surge		CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality.Nanite Surge	DEFINE:NaniteSurgeTimes|0	DESC:An android's body is infused with nanites. Once per day as an immediate action, an android can cause her nanites to surge, granting a bonus equal to 3 + the android's character level on any one d20 roll; this ability must be activated before the roll is made. When an android uses this power, her circuitry-tattoos glow with light equivalent to that of a torch in illumination for 1 round.																																																																		BONUS:VAR|NaniteSurgeTimes|1								SOURCEPAGE:p.6	ASPECT:NAME|Nanite Surge %1/day|NaniteSurgeTimes
-Languages							KEY:Android ~ Languages			CATEGORY:Special Ability	TYPE:Android Racial Trait.SpecialQuality								DESC:Androids begin play speaking Common. Androids with high Intelligence can choose any languages they want (except secret languages, such as Druidic).																																																																														TEMPLATE:Bonus Language ~ Any Spoken	AUTO:LANG|Common																															SOURCEPAGE:p.6
+# ------------------------------
+# Android
+# ------------------------------
 
-# Removal of certain Android items in Constructed and complete removal of Emotionless
-Empathy													CATEGORY:Special Ability	TYPE:Emotionless
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Android ~ Ability Scores.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Type.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Size.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Speed.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Vision.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Constructed.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Emotionless.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Nanite Surge.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Languages.MOD	SOURCEPAGE:p.6
 
-###Block: Racial Traits ~ Kasatha
-# Ability Name					Category of Ability	Ability
-Racial Traits ~ Kasatha				CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Kasatha ~ Default
-Kasatha ~ Default					CATEGORY:Internal
-CATEGORY=Internal|Kasatha ~ Default.MOD					ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Attribute Bonus
-CATEGORY=Internal|Kasatha ~ Default.MOD					ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Defensive Training
-CATEGORY=Internal|Kasatha ~ Default.MOD					ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Desert Runner
-CATEGORY=Internal|Kasatha ~ Default.MOD					ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Desert Stride
-CATEGORY=Internal|Kasatha ~ Default.MOD					ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Jumper
-CATEGORY=Internal|Kasatha ~ Default.MOD					ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Multi-Armed
-CATEGORY=Internal|Kasatha ~ Default.MOD					ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Stalker
-CATEGORY=Internal|Kasatha ~ Default.MOD					ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Languages
 
-###Block: Default Traits
-# Ability Name		Unique Key					Category of Ability		Type										Description																																			Template					Auto Language			Combat bonus			Stat bonus					Class Skill				Source Page
-+2 Dexterity, +2 Wisdom	KEY:Kasatha ~ Attribute Bonus		CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality				DESC:Kasathas are nimble and perceptive.																																														BONUS:STAT|DEX,WIS|2|TYPE=Racial						SOURCEPAGE:p.8
-Defensive Training	KEY:Kasatha ~ Defensive Training	CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary	DESC:Kasathas have a +2 dodge bonus to Armor Class.																																							BONUS:COMBAT|AC|2|TYPE=Dodge												SOURCEPAGE:p.8
-Desert Runner		KEY:Kasatha ~ Desert Runner		CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary	DESC:Kasathas have a +4 racial bonus on Constitution checks and Fortitude saves to avoid fatigue, exhaustion, and other ill effects from running, forced marches, starvation, thirst, and hot or cold environments.																												SOURCEPAGE:p.8
-Desert Stride		KEY:Kasatha ~ Desert Stride		CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary	DESC:Kasathas move through nonmagical difficult terrain in desert environments at normal speed.																																																SOURCEPAGE:p.8
-Jumper			KEY:Kasatha ~ Jumper			CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary	DESC:Kasathas are always considered to have a running start when attempting Acrobatics checks to jump.																																														SOURCEPAGE:p.8
-Multi-Armed			KEY:Kasatha ~ Multi-Armed		CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary	DESC:A kasatha has four arms. One hand is considered its primary hand; all others are considered off hands. It can use any of its hands for other purposes that require free hands.																																		SOURCEPAGE:p.8
-Stalker			KEY:Kasatha ~ Stalker			CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary	DESC:Perception and Stealth are class skills for kasathas.																																																	CSKILL:Perception|Stealth	SOURCEPAGE:p.8
-Languages			KEY:Kasatha ~ Languages			CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality				DESC:Kasathas speak Common and Kasatha. A kasatha with a high Intelligence score can choose from the following: Dwarven, Draconic, Gnoll, Ore, and Sphinx.											TEMPLATE:Bonus Language ~ Kasatha	AUTO:LANG|Common|Kasatha																	SOURCEPAGE:p.8
+# ------------------------------
+# Kasatha
+# ------------------------------
 
-###Block: Lashunta
-# Ability Name					Category of Ability	Ability
-Racial Traits ~ Lashunta			CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Lashunta ~ Default
-Lashunta ~ Default				CATEGORY:Internal
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ +2 Intelligence
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Sexual Dimorphism
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Lashunta Magic
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Limited Telepathy
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Knowledgeable
-CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Languages
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Kasatha ~ Ability Scores.MOD		SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Type.MOD			SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Size.MOD			SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Speed.MOD			SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Defensive Training.MOD	SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Desert Runner.MOD		SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Desert Stride.MOD		SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Jumper.MOD			SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Multi-Armed.MOD		SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Stalker.MOD			SOURCEPAGE:p.8
+CATEGORY=Special Ability|Kasatha ~ Languages.MOD		SOURCEPAGE:p.8
 
-###Block: Default Traits
-# Ability Name	Unique Key					Category of Ability		Type										Innate Spells																			Description																																																				Stat bonus																															Source Page
-+2 Intelligence	KEY:Lashunta ~ +2 Intelligence	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																									DESC:Lashunta are almost universally intelligent and eager to learn.																																										BONUS:STAT|INT|2|TYPE=Racial																												SOURCEPAGE:p.10
-Sexual Dimorphism	KEY:Lashunta ~ Sexual Dimorphism	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																									DESC:Male and female lashunta have very different body and personality types, more so than most humanoid species. Male lashunta are muscular (+2 Strength) and often brash and unobservant (-2 Wisdom). Female lashunta, though beautiful and commanding (+2 Charisma), lack the males' rugged builds (-2 Constitution).	BONUS:STAT|STR|2|TYPE=Racial|PREGENDER:Male	BONUS:STAT|WIS|-2|TYPE=Racial|PREGENDER:Male	BONUS:STAT|CHA|2|TYPE=Racial|PREGENDER:Female	BONUS:STAT|CON|-2|TYPE=Racial|PREGENDER:Female	SOURCEPAGE:p.10
-Lashunta Magic	KEY:Lashunta ~ Lashunta Magic		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality.Supernatural	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Daze,10+CHA|Mage Hand	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Thoughts	DESC:A lashunta with an Intelligence score of 11 or higher gains the following spell-like abilities: At will- daze, mane hand; 1/day-detect thoughts. The caster level for these effects is equal to the lashunta's character level.																																															SOURCEPAGE:p.10
-Limited Telepathy	KEY:Lashunta ~ Limited Telepathy	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality.Supernatural																						DESC:A lashunta is able to mentally communicate with any creature within 30 feet with whom she shares a language. This is otherwise identical to telepathy (Pathfinder RPG Bestiary 305).																																																							SOURCEPAGE:p.10
-Knowledgeable	KEY:Lashunta ~ Knowledgeable		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																									DESC:A lashunta gains a +2 racial bonus to any one Knowledge skill.																																																																										SOURCEPAGE:p.10
-Languages		KEY:Lashunta ~ Languages		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																									DESC:Lashunta begin play speaking Elven and Lashunta. Lashunta with high Intelligence scores can choose any languages (except secret languages, such as Druidic).																																																											SOURCEPAGE:p.10
 
-###Block: Triaxian
-# Ability Name					Category of Ability	Ability
-Racial Traits ~ Triaxian			CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Triaxian ~ Default
-Triaxian ~ Default				CATEGORY:Internal
+# ------------------------------
+# Lashunta
+# ------------------------------
 
-CATEGORY=Internal|Triaxian ~ Default.MOD					ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Attribute Bonus
-CATEGORY=Internal|Triaxian ~ Default.MOD					ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Low-Light Vision
-CATEGORY=Internal|Triaxian ~ Default.MOD					ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Keen Senses
-CATEGORY=Internal|Triaxian ~ Default.MOD					ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Bonus Feat
-CATEGORY=Internal|Triaxian ~ Default.MOD					ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Seasoned
-CATEGORY=Internal|Triaxian ~ Default.MOD					ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Languages
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Lashunta ~ Ability Scores.MOD	SOURCEPAGE:p.10
+CATEGORY=Special Ability|Lashunta ~ Type.MOD			SOURCEPAGE:p.10
+CATEGORY=Special Ability|Lashunta ~ Size.MOD			SOURCEPAGE:p.10
+CATEGORY=Special Ability|Lashunta ~ Speed.MOD			SOURCEPAGE:p.10
+CATEGORY=Special Ability|Lashunta ~ Sexual Dimorphism.MOD	SOURCEPAGE:p.10
+CATEGORY=Special Ability|Lashunta ~ Lashunta Magic.MOD	SOURCEPAGE:p.10
+CATEGORY=Special Ability|Lashunta ~ Knowledgeable.MOD		SOURCEPAGE:p.10
+CATEGORY=Special Ability|Lashunta ~ Limited Telepathy.MOD	SOURCEPAGE:p.10
+CATEGORY=Special Ability|Lashunta ~ Languages.MOD		SOURCEPAGE:p.10
 
-###Block: Default Traits
-# Ability Name					Unique Key					Category of Ability		Type										Description																																																																																																Template						Auto Language		Bonus Ability Pool		Bonus to skill			Stat bonus										Modify VAR				Source Page
-+2 Constitution, +2 Wisdom, -2 Strength	KEY:Triaxian ~ Attribute Bonus	CATEGORY:Special Ability	TYPE:Triaxian Racial Trait.SpecialQuality				DESC:Triaxians are a hardy and wily race, as befits their constantly changing environment, but their lean forms have trouble maintaining large amounts of muscle mass.																																																																																											BONUS:STAT|CON,WIS|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial						SOURCEPAGE:p.12
-Low-Light Vision					KEY:Triaxian ~ Low-Light Vision	CATEGORY:Special Ability	TYPE:Triaxian Racial Trait.SpecialQuality				DESC:In dim light, Triaxians can see twice as far as humans.																																																																																																																							BONUS:VAR|HasLowlightVision|1	SOURCEPAGE:p.12
-Keen Senses						KEY:Triaxian ~ Keen Senses		CATEGORY:Special Ability	TYPE:Triaxian Racial Trait.SpecialQuality				DESC:Triaxians' senses grant them a +2 bonus on Perception checks.																																																																																																						BONUS:SKILL|Perception|2																	SOURCEPAGE:p.12
-Bonus Feat						KEY:Triaxian ~ Bonus Feat		CATEGORY:Special Ability	TYPE:Triaxian Racial Trait.SpecialQuality				DESC:Triaxians select one extra feat at ist level.																																																																																																				BONUS:ABILITYPOOL|FEAT|1																						SOURCEPAGE:p.12
-Seasoned						KEY:Triaxian ~ Seasoned			CATEGORY:Special Ability	TYPE:Triaxian Racial Trait.SpecialQuality.Extraordinary	DESC:Depending on whether they are Summerborn or Winterborn, Triaxians suffer no harm from hot or cold environments. Summerborn can exist comfortably in conditions between 90 and no degrees Fahrenheit without having to attempt Fortitude saves due to the environment. Winterborn can exist comfortably in conditions between 40 and 0 degrees Fahrenheit without having to attempt Fortitude saves. When in conditions of severe cold or heat, Triaxians have to attempt Fortitude saves only once per hour instead of once every io minutes. Transitional Triaxians do not have this ability.																																						SOURCEPAGE:p.12
-Languages						KEY:Triaxian ~ Languages		CATEGORY:Special Ability	TYPE:Triaxian Racial Trait.SpecialQuality				DESC:Triaxians speak Triaxian (the common trade language of Triaxus). Triaxians with high Intelligence scores can choose any languages (except secret languages, such as Druidic).																																																																				TEMPLATE:Bonus Language ~ Any Spoken	AUTO:LANG|Triaxian																											SOURCEPAGE:p.12
+
+# ------------------------------
+# Triaxian
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Triaxian ~ Ability Scores.MOD	SOURCEPAGE:p.12
+CATEGORY=Special Ability|Triaxian ~ Type.MOD			SOURCEPAGE:p.12
+CATEGORY=Special Ability|Triaxian ~ Size.MOD			SOURCEPAGE:p.12
+CATEGORY=Special Ability|Triaxian ~ Speed.MOD			SOURCEPAGE:p.12
+CATEGORY=Special Ability|Triaxian ~ Vision.MOD			SOURCEPAGE:p.12
+CATEGORY=Special Ability|Triaxian ~ Keen Senses.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Triaxian ~ Bonus Feat.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Triaxian ~ Seasoned.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Triaxian ~ Languages.MOD		SOURCEPAGE:p.12
+
+
+# ==============================
+# RACE TRAITS
+# ==============================
 
 ###Block: Traits (Race)
 # Ability Name		Unique Key					Category of Ability		Type											Multiple Requirements																										Required Race		Description																																																																																																				Source Page
-Cellular Match		KEY:Trait ~ Cellular Match		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.AndroidTrait		PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Cellular Match],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Android		DESC:Whenever you are affected by a polymorph spell or effect, your nanites adjust completely at a molecular level. For the duration of the polymorph effect, you are treated as only a humanoid for the purpose of effects that target creatures by type. For example, a ranger's favored enemy bonus against constructs wouldn't apply to you while you are polymorphed, but nor would spells such as make whole. This trait modifies part of the android's constructed racial trait, but otherwise that trait is unchanged (a polymorphed android still can't gain morale bonuses, is still immune to fear, and so on).	SOURCEPAGE:p.7
-Nanite Revival		KEY:Trait ~ Nanite Revival		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.AndroidTrait		PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Nanite Revival],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Android		DESC:You can instinctively activate your nanites to save your life. Once per day as an immediate action, you can command your nanites to stabilize you while you are dying, even while unconscious or helpless. This does not count as a use of your nanite surge ability.																																																									SOURCEPAGE:p.7
-Adroit			KEY:Trait ~ Adroit			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.KasathaTrait		PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Adroit],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]			PRERACE:1,Kasatha		DESC:If one of your hands is free and your base attack bonus is +1 or higher, you can draw a weapon as a free action combined with any move action (including move actions to direct spells, manipulate items, stand up, and so on).																																																															SOURCEPAGE:p.9
-Spidery Climber		KEY:Trait ~ Spidery Climber		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.KasathaTrait		PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Spidery Climber],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Kasatha		DESC:More hands means more handholds. You gain a +1 trait bonus on Climb checks. In addition, as long as you have two hands free, the DC to catch yourself on a wall while falling is equal to the wall's DC + 10, and the DC to catch yourself on a slope is equal to the slope's DC + 5.																																																						SOURCEPAGE:p.9
-Skilled Telepath		KEY:Trait ~ Skilled Telepath		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.LashuntaTrait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Skilled Telepath],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Lashunta	DESC:The range of your limited telepathy racial ability increases by 5 feet.																																																																																									SOURCEPAGE:p.11
-Tactile Telekinesis	KEY:Trait ~ Tactile Telekinesis	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.LashuntaTrait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Tactile Telekinesis],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PRERACE:1,Lashunta	DESC:Once per day as a swift action, you can add a trait bonus equal to your Intelligence modifier on Strength checks and Strength-based skill checks you attempt before the beginning of your next turn.																																																																				SOURCEPAGE:p.11
-Transitional		KEY:Trait ~ Transitional		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.TriaxianTrait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Transitional],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Triaxian	DESC:As a Transitional Triaxian, you are attuned to the weather no matter what world you stand upon. Once per day when you attempt a Survival check to predict the weather, you can add a trait bonus equal to 3 + 1/2 your character level. In addition, you gain a +1 trait bonus on Fortitude saves against the effects of cold and hot weather.																																													SOURCEPAGE:p.9
-Triaxian Dragonslayer	KEY:Trait ~ Triaxian Dragonslayer	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.TriaxianTrait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Triaxian Dragonslayer],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PRERACE:1,Triaxian	DESC:You receive a +2 trait bonus on saving throws against the spells and spell-like abilities of dragons and a +1 trait bonus on caster level checks to overcome dragons' spell resistance.																																																																						SOURCEPAGE:p.9
+Cellular Match		KEY:Trait ~ Cellular Match		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.Android Race Trait		PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Cellular Match],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Android		DESC:Whenever you are affected by a polymorph spell or effect, your nanites adjust completely at a molecular level. For the duration of the polymorph effect, you are treated as only a humanoid for the purpose of effects that target creatures by type. For example, a ranger's favored enemy bonus against constructs wouldn't apply to you while you are polymorphed, but nor would spells such as make whole. This trait modifies part of the android's constructed racial trait, but otherwise that trait is unchanged (a polymorphed android still can't gain morale bonuses, is still immune to fear, and so on).	SOURCEPAGE:p.7
+Nanite Revival		KEY:Trait ~ Nanite Revival		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.Android Race Trait		PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Nanite Revival],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Android		DESC:You can instinctively activate your nanites to save your life. Once per day as an immediate action, you can command your nanites to stabilize you while you are dying, even while unconscious or helpless. This does not count as a use of your nanite surge ability.																																																									SOURCEPAGE:p.7
+Adroit			KEY:Trait ~ Adroit			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.Kasatha Race Trait		PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Adroit],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]			PRERACE:1,Kasatha		DESC:If one of your hands is free and your base attack bonus is +1 or higher, you can draw a weapon as a free action combined with any move action (including move actions to direct spells, manipulate items, stand up, and so on).																																																															SOURCEPAGE:p.9
+Spidery Climber		KEY:Trait ~ Spidery Climber		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.Kasatha Race Trait		PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Spidery Climber],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Kasatha		DESC:More hands means more handholds. You gain a +1 trait bonus on Climb checks. In addition, as long as you have two hands free, the DC to catch yourself on a wall while falling is equal to the wall's DC + 10, and the DC to catch yourself on a slope is equal to the slope's DC + 5.																																																						SOURCEPAGE:p.9
+Skilled Telepath		KEY:Trait ~ Skilled Telepath		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.Lashunta Race Trait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Skilled Telepath],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Lashunta	DESC:The range of your limited telepathy racial ability increases by 5 feet.																																																																																									SOURCEPAGE:p.11
+Tactile Telekinesis	KEY:Trait ~ Tactile Telekinesis	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.Lashunta Race Trait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Tactile Telekinesis],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PRERACE:1,Lashunta	DESC:Once per day as a swift action, you can add a trait bonus equal to your Intelligence modifier on Strength checks and Strength-based skill checks you attempt before the beginning of your next turn.																																																																				SOURCEPAGE:p.11
+Transitional		KEY:Trait ~ Transitional		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.Triaxian Race Trait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Transitional],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]		PRERACE:1,Triaxian	DESC:As a Transitional Triaxian, you are attuned to the weather no matter what world you stand upon. Once per day when you attempt a Survival check to predict the weather, you can add a trait bonus equal to 3 + 1/2 your character level. In addition, you gain a +1 trait bonus on Fortitude saves against the effects of cold and hot weather.																																													SOURCEPAGE:p.9
+Triaxian Dragonslayer	KEY:Trait ~ Triaxian Dragonslayer	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SpecialQuality.RaceTrait.Triaxian Race Trait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Triaxian Dragonslayer],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PRERACE:1,Triaxian	DESC:You receive a +2 trait bonus on saving throws against the spells and spell-like abilities of dragons and a +1 trait bonus on caster level checks to overcome dragons' spell resistance.																																																																						SOURCEPAGE:p.9
 
 
 ###Block: Side Bar traits

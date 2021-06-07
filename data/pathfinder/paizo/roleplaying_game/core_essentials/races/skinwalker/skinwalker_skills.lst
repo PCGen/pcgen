@@ -1,0 +1,6 @@
+
+
+###Block: Situational Modifiers
+# Skill Name	Situational Skill
+Perception.MOD	SITUATION:at night
+Stealth.MOD		SITUATION:in urban environments

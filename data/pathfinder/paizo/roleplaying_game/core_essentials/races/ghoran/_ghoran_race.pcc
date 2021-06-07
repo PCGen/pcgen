@@ -1,0 +1,22 @@
+KEY:support ~ ghoran race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# ghoran
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:ghoran__datacontrols.lst
+
+# Data Files
+ABILITY:ghoran_abilities_globalvar.lst
+ABILITY:ghoran_abilities_race.lst
+ABILITYCATEGORY:ghoran_abilitycategories.lst
+RACE:ghoran_races.lst
+TEMPLATE:ghoran_templates.lst

@@ -2,6 +2,10 @@
 # CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
 
+# ==============================
+# RACE ABILITIES
+# ==============================
+
 
 # ------------------------------
 # Changeling
@@ -13,7 +17,7 @@ SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91d
 Racial Traits ~ Changeling					CATEGORY:Internal																														TEMPLATE:Racial Heritage ~ Changeling
 CATEGORY=Internal|Racial Traits ~ Changeling.MOD					DEFINE:Changeling_RacialCastingStat|0	DEFINE:Changeling_RacialCastingMod|0	DEFINE:Changeling_RacialCasterlevel|0	DEFINE:Changeling_RacialConcentration|0								BONUS:VAR|Changeling_RacialCastingStat|CHASCORE	BONUS:VAR|Changeling_RacialCastingMod|CHA	BONUS:VAR|Changeling_RacialCasterlevel|TL	BONUS:VAR|Changeling_RacialConcentration|Changeling_RacialCasterlevel+Changeling_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key					Category of Ability		Type																		Visible		Prohibited Fact								Description																																							Template																																Move			Auto Language	Ability					Bonus Ability Pool					Stat bonus										Modify VAR						Vision			Source Page		Bonus language
 +2 Wisdom, +2 Charisma, -2 Constitution	KEY:Changeling ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Changeling Racial Trait.Changeling Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Changeling_ReplaceAbilityScores=True	DESC:Changelings are frail, but are clever and comely.																																																																																				BONUS:STAT|WIS,CHA|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial												SOURCEPAGE:p.29
 Medium						KEY:Changeling ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Changeling Racial Trait.Changeling Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Changeling_ReplaceType=True		DESC:Changelings are Medium creatures and have no bonuses or penalties due to their size.																										TEMPLATE:Humanoid|Changeling																																																																							SOURCEPAGE:p.29
@@ -31,48 +35,40 @@ Green Widow (Green Hag)			KEY:Changeling ~ Green Hag Green Widow		OUTPUTNAME:Gre
 Hulking Changeling (Annis Hag)	KEY:Changeling ~ Annis Hag Hulking Changeling	OUTPUTNAME:Hulking Changeling	CATEGORY:Special Ability	TYPE:RacialTraits.Hag Racial Trait.SpecialQuality.Special Quality.Applied Bonus								DESC:The changeling gains a +1 racial bonus on melee damage rolls.																	BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Racial																							SOURCEPAGE:p.29
 Sea Lungs (Sea Hag)			KEY:Changeling ~ Sea Hag Sea Lungs			OUTPUTNAME:Sea Lungs		CATEGORY:Special Ability	TYPE:RacialTraits.Hag Racial Trait.SpecialQuality.Special Quality				DEFINE:Changeling_SeaLungs_Duration|0	DESC:The changeling can hold her breath for a number of rounds equal to 3 x her Constitution before she risks drowning.&nl;(%1 rounds)|Changeling_SeaLungs_Duration																					BONUS:VAR|Changeling_SeaLungs_Duration|3*CONSCORE	SOURCEPAGE:p.29
 
-###Block: Gathlain - Copied from Ultimate Wilderness to prevent  possible conflicts
-Racial Traits ~ Gathlain													CATEGORY:Internal
 
-#Default  Abilities
-+2 Dexterity, +2 Charisma, -2 Constitution	KEY:Gathlain ~ Ability Scores				CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Gathlain Racial Trait.Gathlain Racial Default.Racial Ability Scores																																																																	DESC:Gathlains are quick, with dynamic and engaging personalities, but are rather fragile.																																																																																																																																																																																		BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CHA|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial																				SOURCEPAGE:p.122
-Small								KEY:Gathlain ~ Size					CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Gathlain Racial Trait.Gathlain Racial Default.Racial Size																																																																		DESC:Gathlains are Small and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty on combat maneuver checks and to CMD, a +2 bonus on Fly checks, and a +4 size bonus on Stealth checks.																																																																																																																																																																																																SOURCEPAGE:p.122
-Normal Speed						KEY:Gathlain ~ Speed					CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Gathlain Racial Trait.Gathlain Racial Default.Racial Speed																																																																		DESC:Gathlains have a base speed of 30 feet and a fly speed of 40 feet (poor maneuverability).																																																																																																																																																																																																	BONUS:VAR|Maneuverability|2|TYPE=Base													SOURCEPAGE:p.122
-Low-Light Vision						KEY:Gathlain ~ Vision					CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Gathlain Racial Trait.Gathlain Racial Default.Extraordinary.Racial Vision																																																																DESC:Gathlains can see twice as far as humans in dim light.																																																																																																																																																																																																							BONUS:VAR|HasLowlightVision|1|TYPE=Base													SOURCEPAGE:p.122
-Natural Armor						KEY:Gathlain ~ Natural Armor				CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Gathlain Racial Trait.Gathlain Racial Default																																																																				DESC:Gathlains have a +1 natural armor bonus.																																																																																																																																																																																																									BONUS:VAR|AC_Natural_Armor|1|TYPE=Base													SOURCEPAGE:p.122
-Spell-Like Abilities					KEY:Gathlain ~ Spell-Like Abilities			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Gathlain Racial Trait.Gathlain Racial Default																																										SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Entangle	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Feather Step|!PREABILITY:1,CATEGORY=Special Ability,Gathlain ~ Titled	DESC:1/day--entangle, feather step (caster level equals the gathlain's character level).|!PREABILITY:1,CATEGORY=Special Ability,Gathlain ~ Titled	DESC:1/day--entangle (caster level equals the gathlain's character level).|PREABILITY:1,CATEGORY=Special Ability,Gathlain ~ Titled																																																																																																																																																																																					SOURCEPAGE:p.122
-Languages							KEY:Gathlain ~ Languages				CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Gathlain Racial Trait.Gathlain Racial Default.Racial Language																																																																		DESC:Gathlains speak Common and Sylvan. A gathlain with a high Intelligence score can choose from the following languages: Draconic, Elven, Goblin, Halfling, and Orc.																																																																TEMPLATE:Bonus Language ~ Draconic|Bonus Language ~ Elven|Bonus Language ~ Goblin|Bonus Language ~ Halfling|Bonus Language ~ Orc				AUTO:LANG|Common|Sylvan																																																																																																								SOURCEPAGE:p.122
+# ------------------------------
+# Gathlain
+# ------------------------------
 
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																													DEFINE:Gathlain_ReplaceAbilityScores|0																																																																																																																																																									ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Ability Scores|PREVAREQ:Gathlain_ReplaceAbilityScores,0
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																													DEFINE:Gathlain_ReplaceSize|0																																																																																																																																																											ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Size|PREVAREQ:Gathlain_ReplaceSize,0
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																													DEFINE:Gathlain_ReplaceSpeed|0																																																																																																																																																										ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Speed|PREVAREQ:Gathlain_ReplaceSpeed,0
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																													DEFINE:Gathlain_ReplaceVision|0																																																																																																																																																										ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Vision|PREVAREQ:Gathlain_ReplaceVision,0
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																													DEFINE:Gathlain_ReplaceNaturalArmor|0																																																																																																																																																									ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Natural Armor|PREVAREQ:Gathlain_ReplaceNaturalArmor,0
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																													DEFINE:Gathlain_ReplaceSpellLikeAbilities|0																																																																																																																																																								ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Spell-Like Abilities|PREVAREQ:Gathlain_ReplaceSpellLikeAbilities,0
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																													DEFINE:Gathlain_ReplaceLanguages|0																																																																																																																																																										ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Languages|PREVAREQ:Gathlain_ReplaceLanguages,0
+###Block: Racial Traits ~ Race files in core_essentials\races\gathlain\
+# Ability Name									Source Page
+CATEGORY=Special Ability|Gathlain ~ Ability Scores.MOD		SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Type.MOD				SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Size.MOD				SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Speed.MOD				SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Vision.MOD				SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Natural Armor.MOD			SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Spell-Like Abilities.MOD	SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Languages.MOD			SOURCEPAGE:p.122
 
-#Kasatha - Copied from People of the Stars to prevent  possible conflicts
-Racial Traits ~ Kasatha													CATEGORY:Internal																																																																																																																																																																																																																	ABILITY:Internal|AUTOMATIC|Kasatha ~ Default
-Kasatha ~ Default														CATEGORY:Internal
 
-#Default  Abilities
-+2 Dexterity, +2 Wisdom					KEY:Kasatha ~ Attribute Bonus				CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality																																																																											DESC:Kasathas are nimble and perceptive.																																																																																																																																																																																											BONUS:STAT|DEX,WIS|2|TYPE=Racial																													SOURCEPAGE:p.174
-Defensive Training					KEY:Kasatha ~ Defensive Training			CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary																																																																									DESC:Kasathas have a +2 dodge bonus to Armor Class.																																																																																																																																																										BONUS:COMBAT|AC|2|TYPE=Dodge																																																													SOURCEPAGE:p.174
-Desert Runner						KEY:Kasatha ~ Desert Runner				CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary																																																																									DESC:Kasathas have a +4 racial bonus on Constitution checks and Fortitude saves to avoid fatigue, exhaustion, and other ill effects from running, forced marches, starvation, thirst, and hot or cold environments.																																																																																																																																																																																																SOURCEPAGE:p.174
-Desert Stride						KEY:Kasatha ~ Desert Stride				CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary																																																																									DESC:Kasathas move through nonmagical difficult terrain in desert environments at normal speed.																																																																																																																																																																																																																				SOURCEPAGE:p.174
-Jumper							KEY:Kasatha ~ Jumper					CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary																																																																									DESC:Kasathas are always considered to have a running start when attempting Acrobatics checks to jump.																																																																																																																																																																																																																		SOURCEPAGE:p.174
-Multi-Armed							KEY:Kasatha ~ Multi-Armed				CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary																																																																									DESC:A kasatha has four arms. One hand is considered its primary hand; all others are considered off hands. It can use any of its hands for other purposes that require free hands.																																																																																																																																																																																																						SOURCEPAGE:p.174
-Stalker							KEY:Kasatha ~ Stalker					CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality.Extraordinary																																																																									DESC:Perception and Stealth are class skills for kasathas.																																																																																																																																																																																																																					CSKILL:Perception|Stealth	SOURCEPAGE:p.174
-Languages							KEY:Kasatha ~ Languages					CATEGORY:Special Ability	TYPE:Kasatha Racial Trait.SpecialQuality																																																																											DESC:Kasathas speak Common and Kasatha. A kasatha with a high Intelligence score can choose from the following: Dwarven, Draconic, Gnoll, Ore, and Sphinx.																																																																		TEMPLATE:Bonus Language ~ Kasatha																								AUTO:LANG|Common|Kasatha																																																																																																							SOURCEPAGE:p.174
+# ------------------------------
+# Kasatha
+# ------------------------------
 
-CATEGORY=Internal|Kasatha ~ Default.MOD																																																																																																																																																																																																																													ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Attribute Bonus
-CATEGORY=Internal|Kasatha ~ Default.MOD																																																																																																																																																																																																																													ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Defensive Training
-CATEGORY=Internal|Kasatha ~ Default.MOD																																																																																																																																																																																																																													ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Desert Runner
-CATEGORY=Internal|Kasatha ~ Default.MOD																																																																																																																																																																																																																													ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Desert Stride
-CATEGORY=Internal|Kasatha ~ Default.MOD																																																																																																																																																																																																																													ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Jumper
-CATEGORY=Internal|Kasatha ~ Default.MOD																																																																																																																																																																																																																													ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Multi-Armed
-CATEGORY=Internal|Kasatha ~ Default.MOD																																																																																																																																																																																																																													ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Stalker
-CATEGORY=Internal|Kasatha ~ Default.MOD																																																																																																																																																																																																																													ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Languages
+###Block: Racial Traits ~ Race files in core_essentials\races\kasatha\
+# Ability Name								Source Page
+CATEGORY=Special Ability|Kasatha ~ Ability Scores.MOD		SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Type.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Size.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Speed.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Defensive Training.MOD	SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Desert Runner.MOD		SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Desert Stride.MOD		SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Jumper.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Multi-Armed.MOD		SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Stalker.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Languages.MOD		SOURCEPAGE:p.174
 
 
 # ------------------------------
@@ -83,7 +79,7 @@ CATEGORY=Internal|Kasatha ~ Default.MOD																																									
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
 Racial Traits ~ Kitsune	CATEGORY:Internal		DEFINE:Kitsune_RacialCastingStat|0	DEFINE:Kitsune_RacialCastingMod|0	DEFINE:Kitsune_RacialCasterlevel|0	DEFINE:Kitsune_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Kitsune	BONUS:VAR|Kitsune_RacialCastingStat|CHASCORE	BONUS:VAR|Kitsune_RacialCastingMod|CHA	BONUS:VAR|Kitsune_RacialCasterlevel|TL	BONUS:VAR|Kitsune_RacialConcentration|Kitsune_RacialCasterlevel+Kitsune_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																					Visible		Prohibited Fact								Description																																																																							Template																											Move			Auto Language		Ability													Bonus DC				Bonus to skill					Stat bonus										Modify VAR											Weapon prof. bonus			Vision			Source Page		Aspects
 +2 Dexterity, +2 Charisma, -2 Strength	KEY:Kitsune ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Kitsune Racial Trait.Kitsune Racial Default.SpecialQuality.Racial Ability Scores					VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kitsune_ReplaceAbilityScores=True	DESC:Kitsune are agile and companionable, but tend to be physically weak.																																																																																																																									BONUS:STAT|DEX,CHA|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial																							SOURCEPAGE:p.175
 Kitsune						KEY:Kitsune ~ Type		CATEGORY:Special Ability	TYPE:RacialTraits.Kitsune Racial Trait.Kitsune Racial Default.SpecialQuality.Racial Type							VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kitsune_ReplaceType=True			DESC:Kitsune are humanoids with the kitsune and shapechanger subtypes.																																																													TEMPLATE:Humanoid|Kitsune|Shapechanger																																																																																								SOURCEPAGE:p.175
@@ -105,7 +101,7 @@ Languages						KEY:Kitsune ~ Languages		CATEGORY:Special Ability	TYPE:RacialTrai
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
 Racial Traits ~ Nagaji	CATEGORY:Internal		DEFINE:Nagaji_RacialCastingStat|0	DEFINE:Nagaji_RacialCastingMod|0	DEFINE:Nagaji_RacialCasterlevel|0	DEFINE:Nagaji_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Nagaji	BONUS:VAR|Nagaji_RacialCastingStat|CHASCORE	BONUS:VAR|Nagaji_RacialCastingMod|CHA	BONUS:VAR|Nagaji_RacialCasterlevel|TL	BONUS:VAR|Nagaji_RacialConcentration|Nagaji_RacialCasterlevel+Nagaji_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																	Visible		Prohibited Fact							Description																																			Template																																				Move			Auto Language		Bonus to Situation								Bonus to skill					Stat bonus										Modify VAR											Vision			Source Page		Aspects
 +2 Strength, +2 Charisma, -2 Intelligence	KEY:Nagaji ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Nagaji Racial Trait.Nagaji Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Nagaji_ReplaceAbilityScores=True	DESC:Nagaji are strong and have forceful personalities, but they tend to ignore logic and mock scholarly pursuits.																																																																															BONUS:STAT|STR,CHA|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial																	SOURCEPAGE:p.196
 Medium						KEY:Nagaji ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Nagaji Racial Trait.Nagaji Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Nagaji_ReplaceType=True		DESC:Nagaji are Medium creatures and have no bonuses or penalties due to their size.																						TEMPLATE:Humanoid|Reptilian																																																																																					SOURCEPAGE:p.196
@@ -126,7 +122,7 @@ Languages						KEY:Nagaji ~ Languages		CATEGORY:Special Ability	TYPE:RacialTrait
 # Ability Name			Category of Ability	Define																								Template					Modify VAR
 Racial Traits ~ Samsaran	CATEGORY:Internal		DEFINE:Samsaran_RacialCastingStat|0	DEFINE:Samsaran_RacialCastingMod|0	DEFINE:Samsaran_RacialCasterlevel|0	DEFINE:Samsaran_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Samsaran	BONUS:VAR|Samsaran_RacialCastingStat|CHASCORE	BONUS:VAR|Samsaran_RacialCastingMod|CHA	BONUS:VAR|Samsaran_RacialCasterlevel|TL	BONUS:VAR|Samsaran_RacialConcentration|Samsaran_RacialCasterlevel+Samsaran_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name						Unique Key					Category of Ability		Type																			Visible		Prohibited Fact								Description																																									Multiple?	Choose														Selections	Template																																																			Move			Auto Language			Ability																						Bonus to skill				Stat bonus										Modify VAR																	Class Skill	Vision			Source Page		Aspects
 +2 Intelligence, +2 Wisdom, -2 Constitution	KEY:Samsaran ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Samsaran Racial Trait.Samsaran Racial Default.SpecialQuality.Racial Ability Scores			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Samsaran_ReplaceAbilityScores=True	DESC:Samsarans are insightful and strong-minded, but with frail bodies.																																																																																																																																											BONUS:STAT|INT,WIS|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial																									SOURCEPAGE:p.198
 Samsaran							KEY:Samsaran ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Samsaran Racial Trait.Samsaran Racial Default.SpecialQuality.Racial Type				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Samsaran_ReplaceType=True			DESC:Samsarans are humanoids with the samsaran subtype.																																																				TEMPLATE:Humanoid|Samsaran																																																																																																																								SOURCEPAGE:p.198
@@ -139,18 +135,21 @@ Shards of the Past					KEY:Samsaran ~ Shards of the Past	CATEGORY:Special Abilit
 Languages							KEY:Samsaran ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Samsaran Racial Trait.Samsaran Racial Default.SpecialQuality.Racial Language				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Samsaran_ReplaceLanguages=True		DESC:Samsarans begin play speaking Common and Samsaran. Samsarans with high Intelligence scores can choose from the following languages: any human language, Abyssal, Aquan, Auran, Celestial, Draconic, Giant, Ignan, Infernal, Nagaji, Tengu, and Terran.																				TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Abyssal|Bonus Language ~ Aquan|Bonus Language ~ Auran|Bonus Language ~ Celestial|Bonus Language ~ Draconic|Bonus Language ~ Giant|Bonus Language ~ Ignan|Bonus Language ~ Infernal|Bonus Language ~ Nagaji|Bonus Language ~ Tengu|Bonus Language ~ Terran				AUTO:LANG|Common|Samsaran																																																																	SOURCEPAGE:p.198
 
 
+# ------------------------------
+# Trox
+# ------------------------------
 
-#Trox - Copied from ARG to prevent  possible conflicts
-Racial Traits ~ Trox													CATEGORY:Internal
-
-#Default  Abilities
-Burrow							KEY:Trox ~ Burrow						CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault																																																																									DESC:Trox have a burrow speed of 20 feet.																																																																																																															MOVE:Burrow,30																																																																																																												SOURCEPAGE:p.264
-Frenzy							KEY:Trox ~ Frenzy						CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault																																																																									DESC:Once per day when a trox takes damage, it flies into a frenzy for 1 minute, gaining a +2 racial bonus to Constitution and Strength, but a -2 penalty to their AC.																																																																																																																																																																																																							SOURCEPAGE:p.264
-Grabbing Appendages					KEY:Trox ~ Grabbing Appendages			CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault																																																																									DESC:A trox's smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.																																																																																																																																																																																																		SOURCEPAGE:p.264		ABILITY:FEAT|AUTOMATIC|Improved Grapple
-
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																																																																																																																																																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Burrow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxBurrow
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																																																																																																																																																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Frenzy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxFrenzy
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																																																																																																																																																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Grabbing Appendages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxGrabbingAppendages
+###Block: Racial Traits ~ Race files in core_essentials\races\trox\
+# Ability Name								Source Page
+CATEGORY=Special Ability|Trox ~ Ability Scores.MOD		SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Type.MOD				SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Size.MOD				SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Speed.MOD				SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Vision.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Burrow.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Frenzy.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Grabbing Appendages.MOD	SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Languages.MOD			SOURCEPAGE:p.264
 
 
 # ------------------------------
@@ -161,7 +160,7 @@ CATEGORY=Internal|Racial Traits ~ Trox.MOD																																						
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
 Racial Traits ~ Wayang	CATEGORY:Internal		DEFINE:Wayang_RacialCastingStat|0	DEFINE:Wayang_RacialCastingMod|0	DEFINE:Wayang_RacialCasterlevel|0	DEFINE:Wayang_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Wayang	BONUS:VAR|Wayang_RacialCastingStat|CHASCORE	BONUS:VAR|Wayang_RacialCastingMod|CHA	BONUS:VAR|Wayang_RacialCasterlevel|TL	BONUS:VAR|Wayang_RacialConcentration|Wayang_RacialCasterlevel+Wayang_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key					Category of Ability		Type																		Visible		Prohibited Fact								Description																																																																							Template																																								Move			Auto Language		Ability																						Bonus DC				Bonus to skill						Stat bonus										Modify VAR								Vision			Source Page		Aspects
 +2 Dexterity, +2 Intelligence, -2 Wisdom	KEY:Wayang ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Wayang Racial Trait.Wayang Racial Default.SpecialQuality.Racial Ability Scores		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Wayang_ReplaceAbilityScores=True		DESC:Wayangs are nimble and cagey, but their perception of the world is clouded by shadows.																																																																																																																																													BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial														SOURCEPAGE:p.274
 Wayang						KEY:Wayang ~ Type				CATEGORY:Special Ability	TYPE:RacialTraits.Wayang Racial Trait.Wayang Racial Default.SpecialQuality.Racial Type				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Wayang_ReplaceType=True			DESC:Wayangs are humanoids with the wayang subtype.																																																																TEMPLATE:Humanoid|Wayang																																																																																																								SOURCEPAGE:p.274
@@ -175,39 +174,33 @@ Shadow Resistance					KEY:Wayang ~ Shadow Resistance	CATEGORY:Special Ability	TY
 Languages						KEY:Wayang ~ Languages			CATEGORY:Special Ability	TYPE:RacialTraits.Wayang Racial Trait.Wayang Racial Default.SpecialQuality.Racial Language			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Wayang_ReplaceLanguages=True		DESC:Wayangs begin play speaking Common and Wayang. Wayangs with high Intelligence scores can choose from the following languages: any human language, Abyssal, Aklo, Draconic, Goblin, Infernal, Nagaji, Samsaran, and Tengu.																																			TEMPLATE:Bonus Language ~ Any Human Language|Bonus Language ~ Abyssal|Bonus Language ~ Aklo|Bonus Language ~ Draconic|Bonus Language ~ Goblin|Bonus Language ~ Infernal|Bonus Language ~ Nagaji|Bonus Language ~ Samsaran|Bonus Language ~ Tengu				AUTO:LANG|Common|Wayang																																																													SOURCEPAGE:p.274
 
 
-#Wyrwood - Copied from ARG to prevent  possible conflicts
-Racial Traits ~ Wyrwood													CATEGORY:Internal
+# ------------------------------
+# Wyrwood
+# ------------------------------
 
-#Default  Abilities
-Senses							KEY:Wyrwood ~ Senses					CATEGORY:Special Ability	TYPE:Wyrwood Racial Trait.SpecialQuality.WyrwoodRacialDefault																																																																								DESC:Wyrwoods have low-light vision and can see in the dark up to 60 feet.																																																																																																																																																																																																				BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base						SOURCEPAGE:p.280
+###Block: Racial Traits ~ Race files in core_essentials\races\wyrwood\
+# Ability Name								Source Page
+CATEGORY=Special Ability|Wyrwood ~ Ability Scores.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Type.MOD			SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Size.MOD			SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Speed.MOD			SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Darkvision.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Low-Light Vision.MOD	SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Languages.MOD		SOURCEPAGE:p.280
 
-CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD																																																																																																																																																																																																																												ABILITY:Special Ability|AUTOMATIC|Wyrwood ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyrwoodSenses
 
-# ==============================
+# ------------------------------
 # Wyvaran
-# ==============================
+# ------------------------------
 
-###Block: Racial Abilities
-# Ability Name						Category of Ability	Define												Ability
-Racial Traits ~ Wyvaran					CATEGORY:Internal
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceAbilityScores|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Ability Scores|PREVAREQ:Wyvaran_ReplaceAbilityScores,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceType|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Type|PREVAREQ:Wyvaran_ReplaceType,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSize|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Size|PREVAREQ:Wyvaran_ReplaceSize,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSpeed|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Speed|PREVAREQ:Wyvaran_ReplaceSpeed,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceFlight|0								ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Flight|PREVAREQ:Wyvaran_ReplaceFlight,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSlappingTail|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Slapping Tail|PREVAREQ:Wyvaran_ReplaceSlappingTail,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceDarkvision|0								ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Darkvision|PREVAREQ:Wyvaran_ReplaceDarkvision,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceLowLightVision|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Low-Light Vision|PREVAREQ:Wyvaran_ReplaceLowLightVision,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceLanguages|0	DEFINE:Wyvaran_ReplaceBaseLanguages|0	ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Languages|PREVAREQ:Wyvaran_ReplaceLanguages,0
-
-###Block: Racial Defaults
-# Ability Name					Unique Key					Category of Ability		Type																		Define					Description																													Template																								Move		Auto Language									Ability						Stat bonus										Modify VAR							Vision							Source, Long Desc.		Source, Short Desc.	Source URI														Source Page		Aspects									Source Pub. Date
-+2 Dexterity, +2 Wisdom, -2 Intelligence	KEY:Wyvaran ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Ability Scores								DESC:Wyvarans have a reptilian grace and a strong will, but are a little dim-witted.																																																													BONUS:STAT|DEX,WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial																	SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
-Dragon						KEY:Wyvaran ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Type.Racial Subtype							DESC:Wyvarans have the dragon type.																									TEMPLATE:Dragon																																																																						SOURCELONG:Inner Sea Races	SOURCESHORT:ISR		SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races	SOURCEPAGE:p.254											SOURCEDATE:2015-09
-Medium						KEY:Wyvaran ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Size										DESC:Wyvarans are Medium creatures and have no bonuses or penalties due to their size.																																																																																								SOURCELONG:Inner Sea Races	SOURCESHORT:ISR		SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races	SOURCEPAGE:p.254											SOURCEDATE:2015-09
-Normal Speed					KEY:Wyvaran ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Speed										DESC:Wyvarans have a base speed of 30 feet.																																																																																															SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
-Flight						KEY:Wyvaran ~ Flight			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality												DESC:Wyvarans have dragonlike wings that grant them a fly speed of 30 feet with clumsy maneuverability.																																						MOVE:Fly,30																														BONUS:VAR|Manueverability|1|TYPE=Base										SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
-Slapping Tail					KEY:Wyvaran ~ Slapping Tail		CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialAttack.Extraordinary										DESC:Wyvarans have a tail attack they can only use when making attacks of opportunity. This slapping tail attack deals 1d8 points of damage plus the wyvaran's Strength modifier.																																							ABILITY:Internal|AUTOMATIC|Tail Slap																												SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
-Darkvision						KEY:Wyvaran ~ Darkvision		CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Vision.Vision		DEFINE:Wyvaran_Darkvision_Range|0	DESC:Wyvarans can see in the dark up to 60 feet.																																																																														BONUS:VAR|Wyvaran_Darkvision_Range|60|TYPE=Base	VISION:Darkvision (Wyvaran_Darkvision_Range)	SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281	ASPECT:Vision|Darkvision %1 ft.|Wyvaran_Darkvision_Range	SOURCEDATE:2013-10
-Low-Light Vision					KEY:Wyvaran ~ Low-Light Vision	CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Vision.Vision								DESC:Wyvarans have low-light vision.																																																																																								VISION:Low-Light Vision					SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281	ASPECT:Vision|Low-Light Vision					SOURCEDATE:2013-10
-Languages						KEY:Wyvaran ~ Languages			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Language									DESC:Wyvarans speak Common and Draconic. A wyvaran with a high Intelligence score can choose from the following: Dwarven, Elven, Gnome, Goblin, and Orc.					TEMPLATE:Bonus Language ~ Dwarven|Bonus Language ~ Elven|Bonus Language ~ Gnome|Bonus Language ~ Goblin|Bonus Language ~ Orc			AUTO:LANG|Common|Draconic|PREVAREQ:Wyvaran_ReplaceBaseLanguages,0																																			SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
+###Block: Racial Traits ~ Race files in core_essentials\races\wyvaran\
+# Ability Name								Source Page
+CATEGORY=Special Ability|Wyvaran ~ Ability Scores.MOD		SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Type.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Size.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Speed.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Flight.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Slapping Tail.MOD		SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Darkvision.MOD		SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Low-Light Vision.MOD	SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Languages.MOD		SOURCEPAGE:p.281

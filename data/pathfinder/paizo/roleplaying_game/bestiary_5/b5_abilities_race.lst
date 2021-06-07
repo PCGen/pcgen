@@ -88,7 +88,7 @@ Feather Fall									KEY:Feather Fall ~ Constant								CATEGORY:Special Ability
 
 ###Block: Creature Subtype Traits
 # Ability Name			Unique Key				Category of Ability		Visible	Auto Language					Ability																																							Modify VAR																																									Spell Res.
-CATEGORY=Internal|Default.MOD																				ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Sahkil|PRERACE:1,RACESUBTYPE=Sahkil
+CATEGORY=Internal|Default.MOD																				ABILITY:Special Ability|AUTOMATIC|Race Subtype ~ Sahkil|PRERACE:1,RACESUBTYPE=Sahkil|PRECHARACTERTYPE:1,NPC,Monster
 
 Sahkil Traits			KEY:Race Subtype ~ Sahkil	CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Abyssal|Celestial|Infernal	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Sahkil|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|TYPE=SahkilSubtypeTrait|Immunity to Death Effects|Immunity to Fear|Immunity to Disease|Immunity to Poison|Telepathy	BONUS:VAR|HasLowlightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ElectricityResistanceBonus|10|TYPE=Resistance	BONUS:VAR|SonicResistanceBonus|10|TYPE=Resistance	SR:11+CR
 

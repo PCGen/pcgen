@@ -5,7 +5,6 @@
 
 ###Block: Racial Traits
 # Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Gathlain Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Gathlain Racial Trait	PLURAL:Gathlain Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ghoran Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Ghoran Racial Trait	PLURAL:Ghoran Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Vine Leshy Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Vine Leshy Racial Trait	PLURAL:Vine Leshy Racial Traits	DISPLAYLOCATION:Racial Abilities
 

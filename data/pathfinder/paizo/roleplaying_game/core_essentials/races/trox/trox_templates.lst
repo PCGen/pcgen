@@ -1,0 +1,5 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Type				FACT
+Trox			KEY:Racial Heritage ~ Trox	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTrox|True

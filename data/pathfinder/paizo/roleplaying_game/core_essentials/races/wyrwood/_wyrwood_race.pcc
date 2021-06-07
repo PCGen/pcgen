@@ -1,0 +1,23 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ wyrwood race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Wyrwood
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:wyrwood__datacontrols.lst
+
+# Data Files
+ABILITY:wyrwood_abilities_globalvar.lst
+ABILITY:wyrwood_abilities_race.lst
+ABILITYCATEGORY:wyrwood_abilitycategories.lst
+RACE:wyrwood_races.lst
+TEMPLATE:wyrwood_templates.lst

@@ -1,0 +1,29 @@
+
+
+# ------------------------------
+# Android
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceAbilityScores|0	ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Ability Scores|PREVAREQ:Android_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceType|0			ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Type|PREVAREQ:Android_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceSize|0			ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Size|PREVAREQ:Android_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceSpeed|0			ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Speed|PREVAREQ:Android_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceVision|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Vision|PREVAREQ:Android_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceConstructed|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Constructed|PREVAREQ:Android_ReplaceConstructed,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceEmotionless|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Emotionless|PREVAREQ:Android_ReplaceEmotionless,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceNaniteSurge|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Nanite Surge|PREVAREQ:Android_ReplaceNaniteSurge,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD	DEFINE:Android_ReplaceLanguages|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Languages|PREVAREQ:Android_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceConstructed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceConstructed=True
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceEmotionless|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceEmotionless=True
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceNaniteSurge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceNaniteSurge=True
+CATEGORY=Internal|Racial Traits ~ Android.MOD	BONUS:VAR|Android_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Android_ReplaceLanguages=True

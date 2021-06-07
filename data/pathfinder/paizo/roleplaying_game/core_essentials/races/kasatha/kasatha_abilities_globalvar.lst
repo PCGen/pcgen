@@ -1,0 +1,33 @@
+
+
+# ------------------------------
+# Kasatha
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceAbilityScores|0	ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Ability Scores|PREVAREQ:Kasatha_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceType|0			ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Type|PREVAREQ:Kasatha_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceSize|0			ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Size|PREVAREQ:Kasatha_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceSpeed|0			ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Speed|PREVAREQ:Kasatha_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceDefensiveTraining|0	ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Defensive Training|PREVAREQ:Kasatha_ReplaceDefensiveTraining,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceDesertRunner|0	ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Desert Runner|PREVAREQ:Kasatha_ReplaceDesertRunner,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceDesertStride|0	ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Desert Stride|PREVAREQ:Kasatha_ReplaceDesertStride,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceJumper|0		ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Jumper|PREVAREQ:Kasatha_ReplaceJumper,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceMultiArmed|0		ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Multi-Armed|PREVAREQ:Kasatha_ReplaceMultiArmed,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceStalker|0		ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Stalker|PREVAREQ:Kasatha_ReplaceStalker,0
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	DEFINE:Kasatha_ReplaceLanguages|0		ABILITY:Kasatha Racial Trait|AUTOMATIC|Kasatha ~ Languages|PREVAREQ:Kasatha_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceDefensiveTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceDefensiveTraining=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceDesertRunner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceDesertRunner=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceDesertStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceDesertStride=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceJumper|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceJumper=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceMultiArmed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceMultiArmed=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceStalker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceStalker=True
+CATEGORY=Internal|Racial Traits ~ Kasatha.MOD	BONUS:VAR|Kasatha_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kasatha_ReplaceLanguages=True

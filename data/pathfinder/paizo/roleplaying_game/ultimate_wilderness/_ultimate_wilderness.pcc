@@ -6,8 +6,16 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 STATUS:BETA
-PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -72,6 +80,9 @@ RACE:uw_races_companion.lst
 SKILL:uw_skills.lst
 SPELL:uw_spells.lst
 TEMPLATE:uw_templates.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gathlain\_gathlain_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
 
 ABILITY:support/uw_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 ABILITY:support/uw_abilities_class_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies

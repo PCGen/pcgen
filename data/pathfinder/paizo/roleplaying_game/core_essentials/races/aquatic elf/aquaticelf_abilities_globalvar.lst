@@ -1,0 +1,35 @@
+
+
+# ------------------------------
+# Aquatic Elf
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name							Define							Ability
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceAbilityScores|0		ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Ability Scores|PREVAREQ:AquaticElf_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceType|0			ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Type|PREVAREQ:AquaticElf_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceSize|0			ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Size|PREVAREQ:AquaticElf_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceSpeed|0			ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Speed|PREVAREQ:AquaticElf_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceVision|0			ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Vision|PREVAREQ:AquaticElf_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceSwimSpeed|0		ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Swim Speed|PREVAREQ:AquaticElf_ReplaceSwimSpeed,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceAmphibious|0		ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Amphibious|PREVAREQ:AquaticElf_ReplaceAmphibious,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceElvenImmunities|0	ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Elven Immunities|PREVAREQ:AquaticElf_ReplaceElvenImmunities,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceElvenMagic|0		ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Elven Magic|PREVAREQ:AquaticElf_ReplaceElvenMagic,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceKeenSenses|0		ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Keen Senses|PREVAREQ:AquaticElf_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceWeaponFamiliarity|0	ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Weapon Familiarity|PREVAREQ:AquaticElf_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	DEFINE:AquaticElf_ReplaceLanguages|0		ABILITY:Aquatic Elf Racial Trait|AUTOMATIC|Aquatic Elf ~ Languages|PREVAREQ:AquaticElf_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name							Modify VAR
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceSwimSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceSwimSpeed=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceAmphibious|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceAmphibious=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceElvenImmunities|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceElvenImmunities=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceElvenMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceElvenMagic=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceKeenSenses=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Aquatic Elf.MOD	BONUS:VAR|AquaticElf_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,AquaticElf_ReplaceLanguages=True

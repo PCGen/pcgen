@@ -8,6 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -43,15 +44,17 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: People of the Star
 ABILITY:pots_abilities_class.lst
 ABILITY:pots_abilities_feat.lst
 ABILITY:pots_abilities_race.lst
-ABILITYCATEGORY:pots_abilitycategories.lst
 DEITY:pots_deities.lst
 DOMAIN:pots_domains.lst
 EQUIPMENT:pots_equip.lst
-LANGUAGE:pots_languages.lst
 WEAPONPROF:pots_profs_weapon.lst
 RACE:pots_races.lst
 SPELL:pots_spells.lst
-TEMPLATE:pots_templates.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kasatha\_kasatha_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_lashunta_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\triaxian\_triaxian_race.pcc
 
 
 EQUIPMOD:@\pathfinder\paizo\roleplaying_game\ultimate_combat\uc_equipmods.lst|(INCLUDE:Special Quality ~ Fragile)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat

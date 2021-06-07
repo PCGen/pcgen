@@ -1,0 +1,29 @@
+
+
+# ------------------------------
+# Triaxian
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceAbilityScores|0	ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Ability Scores|PREVAREQ:Triaxian_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceType|0			ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Type|PREVAREQ:Triaxian_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceSize|0			ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Size|PREVAREQ:Triaxian_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceSpeed|0		ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Speed|PREVAREQ:Triaxian_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceVision|0		ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Vision|PREVAREQ:Triaxian_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceKeenSenses|0		ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Keen Senses|PREVAREQ:Triaxian_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceBonusFeat|0		ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Bonus Feat|PREVAREQ:Triaxian_ReplaceBonusFeat,0
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceSeasoned|0		ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Seasoned|PREVAREQ:Triaxian_ReplaceSeasoned,0
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	DEFINE:Triaxian_ReplaceLanguages|0		ABILITY:Triaxian Racial Trait|AUTOMATIC|Triaxian ~ Languages|PREVAREQ:Triaxian_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceKeenSenses=True
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceBonusFeat|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceBonusFeat=True
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceSeasoned|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceSeasoned=True
+CATEGORY=Internal|Racial Traits ~ Triaxian.MOD	BONUS:VAR|Triaxian_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Triaxian_ReplaceLanguages=True
