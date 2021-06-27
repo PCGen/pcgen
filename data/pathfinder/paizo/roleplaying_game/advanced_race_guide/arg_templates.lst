@@ -63,18 +63,17 @@ Adlet			KEY:Race Builder Subtype ~ Adlet		VISIBLE:NO					RACESUBTYPE:Adlet			TYP
 Catfolk		KEY:Race Builder Subtype ~ Catfolk		VISIBLE:NO					RACESUBTYPE:Catfolk		TYPE:Race Builder Subtype
 Dark Folk		KEY:Race Builder Subtype ~ Dark Folk	VISIBLE:NO					RACESUBTYPE:Dark Folk		TYPE:Race Builder Subtype
 Goblinoid		KEY:Race Builder Subtype ~ Goblinoid	VISIBLE:NO					RACESUBTYPE:Goblinoid		TYPE:Race Builder Subtype
-Kasatha		KEY:Race Builder Subtype ~ Kasatha		VISIBLE:NO					RACESUBTYPE:Kasatha		TYPE:Race Builder Subtype.Racial Heritage
 Kitsune		KEY:Race Builder Subtype ~ Kitsune		VISIBLE:NO					RACESUBTYPE:Kitsune		TYPE:Race Builder Subtype
 Orc			KEY:Race Builder Subtype ~ Orc		VISIBLE:NO					RACESUBTYPE:Orc			TYPE:Race Builder Subtype
 Ratfolk		KEY:Race Builder Subtype ~ Ratfolk		VISIBLE:NO					RACESUBTYPE:Ratfolk		TYPE:Race Builder Subtype
-Samsaran		KEY:Race Builder Subtype ~ Samsaran		VISIBLE:NO					RACESUBTYPE:Samsaran		TYPE:Race Builder Subtype.Racial Heritage
+Samsaran		KEY:Race Builder Subtype ~ Samsaran		VISIBLE:NO					RACESUBTYPE:Samsaran		TYPE:Race Builder Subtype
 Sasquatch		KEY:Race Builder Subtype ~ Sasquatch	VISIBLE:NO					RACESUBTYPE:Sasquatch		TYPE:Race Builder Subtype
-Vanara		KEY:Race Builder Subtype ~ Vanara		VISIBLE:NO					RACESUBTYPE:Vanara		TYPE:Race Builder Subtype.Racial Heritage
-Vishkanya		KEY:Race Builder Subtype ~ Vishkanya	VISIBLE:NO					RACESUBTYPE:Vishkanya		TYPE:Race Builder Subtype.Racial Heritage
+Vanara		KEY:Race Builder Subtype ~ Vanara		VISIBLE:NO					RACESUBTYPE:Vanara		TYPE:Race Builder Subtype
+Vishkanya		KEY:Race Builder Subtype ~ Vishkanya	VISIBLE:NO					RACESUBTYPE:Vishkanya		TYPE:Race Builder Subtype
 Changeling		KEY:Race Builder Subtype ~ Changeling	VISIBLE:NO					RACESUBTYPE:Changeling		TYPE:Race Builder Subtype
 Reptilian		KEY:Race Builder Subtype ~ Reptilian	VISIBLE:NO					RACESUBTYPE:Reptilian		TYPE:Race Builder Subtype
-Strix			KEY:Race Builder Subtype ~ Strix		VISIBLE:NO					RACESUBTYPE:Strix			TYPE:Race Builder Subtype.Racial Heritage
-Wayang		KEY:Race Builder Subtype ~ Wayang		VISIBLE:NO					RACESUBTYPE:Wayang		TYPE:Race Builder Subtype.Racial Heritage
+Strix			KEY:Race Builder Subtype ~ Strix		VISIBLE:NO					RACESUBTYPE:Strix			TYPE:Race Builder Subtype
+Wayang		KEY:Race Builder Subtype ~ Wayang		VISIBLE:NO					RACESUBTYPE:Wayang		TYPE:Race Builder Subtype
 Aquatic		KEY:Race Builder Subtype ~ Aquatic		VISIBLE:NO					RACESUBTYPE:Aquatic		TYPE:Race Builder Subtype
 Shapechanger	KEY:Race Builder Subtype ~ Shapechanger	VISIBLE:NO					RACESUBTYPE:Shapechanger	TYPE:Race Builder Subtype
 Giant			KEY:Race Builder Subtype ~ Giant		VISIBLE:NO					RACESUBTYPE:Giant			TYPE:Race Builder Subtype
@@ -83,9 +82,7 @@ Reptilian		KEY:Race Builder Subtype ~ Reptilian	VISIBLE:NO					RACESUBTYPE:Repti
 Dhampir		KEY:Race Builder Subtype ~ Dhampir		VISIBLE:NO					RACESUBTYPE:Dhampir		TYPE:Race Builder Subtype
 Grippli		KEY:Race Builder Subtype ~ Grippli		VISIBLE:NO					RACESUBTYPE:Grippli		TYPE:Race Builder Subtype
 Cold			KEY:Race Builder Subtype ~ Cold		VISIBLE:NO					RACESUBTYPE:Cold			TYPE:Race Builder Subtype
-Android		KEY:Race Builder Subtype ~ Android		VISIBLE:NO					RACESUBTYPE:Android		TYPE:Race Builder Subtype
-Lashunta		KEY:Race Builder Subtype ~ Lashunta		VISIBLE:NO					RACESUBTYPE:Lashunta		TYPE:Race Builder Subtype.Racial Heritage
-Triaxian		KEY:Race Builder Subtype ~ Triaxian		VISIBLE:NO					RACESUBTYPE:Triaxian		TYPE:Race Builder Subtype.Racial Heritage
+
 Snillorg		KEY:Race Builder Subtype ~ Snillorg		VISIBLE:NO					RACESUBTYPE:Snillorg		TYPE:Race Builder Subtype
 Zif			KEY:Race Builder Subtype ~ Zif		VISIBLE:NO					RACESUBTYPE:Zif			TYPE:Race Builder Subtype
 Taddol		KEY:Race Builder Subtype ~ Taddol		VISIBLE:NO					RACESUBTYPE:Taddol		TYPE:Race Builder Subtype

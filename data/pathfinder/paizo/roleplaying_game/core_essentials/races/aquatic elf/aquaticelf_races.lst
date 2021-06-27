@@ -1,0 +1,5 @@
+
+
+###Block: Playable Races
+# Race Name		SORTKEY		Unique Key		Output Name			Starting Feats	Base size		Move			Ability									Nb Legs	Nb Hands	Main Race Type	Type			Source Page		FACT
+Elf, Aquatic	SORTKEY:a_base_pc	KEY:Elf (Aquatic)	OUTPUTNAME:Aquatic Elf	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Aquatic Elf	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC	SOURCEPAGE:p.xx	FACT:IsPC|True

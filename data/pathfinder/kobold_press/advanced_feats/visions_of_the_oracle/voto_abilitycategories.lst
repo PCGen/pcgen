@@ -1,0 +1,9 @@
+# Tue Mar  2 16:53:22 2021 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+#Original Entry date: 5.2.21
+
+# Ability Category						Visible		Editable?	Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI				Display Location
+ABILITYCATEGORY:Conditional Curse Pair Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:ConditionalCursePairSelection		PLURAL:Conditional Curse Pair Selections		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Conditional Curse Still Suffer Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:ConditionalCurseStillSufferSelection	PLURAL:Conditional Curse Still Suffer Selections	DISPLAYLOCATION:Feats
+#Strange Revelation Choose from all Revelations
+ABILITYCATEGORY:Strange Revelation Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:OracleRevelation				PLURAL:Strange Revelation Choices			DISPLAYLOCATION:Class Features

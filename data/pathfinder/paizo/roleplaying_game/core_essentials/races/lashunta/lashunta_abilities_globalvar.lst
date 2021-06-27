@@ -1,0 +1,29 @@
+
+
+# ------------------------------
+# Lashunta
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceAbilityScores|0	ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Ability Scores|PREVAREQ:Lashunta_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceType|0			ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Type|PREVAREQ:Lashunta_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceSize|0			ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Size|PREVAREQ:Lashunta_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceSpeed|0		ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Speed|PREVAREQ:Lashunta_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceSexualDimorphism|0	ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Sexual Dimorphism|PREVAREQ:Lashunta_ReplaceSexualDimorphism,0
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceLashuntaMagic|0	ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Lashunta Magic|PREVAREQ:Lashunta_ReplaceLashuntaMagic,0
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceKnowledgeable|0	ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Knowledgeable|PREVAREQ:Lashunta_ReplaceKnowledgeable,0
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceLimitedTelepathy|0	ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Limited Telepathy|PREVAREQ:Lashunta_ReplaceLimitedTelepathy,0
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	DEFINE:Lashunta_ReplaceLanguages|0		ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Languages|PREVAREQ:Lashunta_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceSexualDimorphism|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceSexualDimorphism=True
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceLashuntaMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceLashuntaMagic=True
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceKnowledgeable|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceKnowledgeable=True
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceLimitedTelepathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceLimitedTelepathy=True
+CATEGORY=Internal|Racial Traits ~ Lashunta.MOD	BONUS:VAR|Lashunta_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Lashunta_ReplaceLanguages=True

@@ -1,0 +1,76 @@
+#ABILITYCATEGORY:Theme Benefit
+ABILITYCATEGORY:ATHLETE Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:ATHLETE Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:GRIFTER Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:GRIFTER Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:GUARD Theme Benefit					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:GUARD Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:LAW OFFICER Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:LAW OFFICER Theme Benefit																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:NOBLE SCION Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:NOBLE SCION Theme Benefit																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:SENSATE Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:SENSATE Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:STREET RAT Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:STREET RAT Theme Benefit																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Athlete Theme Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Athlete Theme Skill																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Athlete +1 Ability Score				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Athlete +1 Ability Score																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Grifter Theme Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Grifter Theme Skill																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Guard +1 Ability Score				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Guard +1 Ability Score																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Noble Scion Theme Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Noble Scion Theme Skill																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Acrobatics Specialty				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:Acrobatics Specialty																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Athletics Specialty					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:Athletics Specialty																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bluff Specialty					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:Bluff Specialty																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Diplomacy Specialty					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:Diplomacy Specialty																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Android Xenometric Race				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Android Xenometric Race																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Crew Member Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Crew Member Skill																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Observant Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Observant Skill																																																																																												DISPLAYLOCATION:Character
+
+# Class
+ABILITYCATEGORY:Biohacker Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Biohacker Class Feature																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vanguard Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Vanguard Class Feature																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Witchwarper Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Witchwarper Class Feature																																																																																										DISPLAYLOCATION:Character
+
+# Archetype
+ABILITYCATEGORY:Biohacker Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Biohacker Archetype																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vanguard Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Vanguard Archetype																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Witchwarper Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Witchwarper Archetype																																																																																											DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Biohacker Key Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Biohacker Key Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Biohacker Scientific Method			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Biohacker Scientific Method																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Biohacker Field of Study				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Biohacker Field of Study																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Biohacker Field of Study Booster		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Biohacker Field of Study Booster																																																																																									DISPLAYLOCATION:Character
+ABILITYCATEGORY:Biohacker Field of Study Inhibitor		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Biohacker Field of Study Inhibitor																																																																																									DISPLAYLOCATION:Character
+ABILITYCATEGORY:Biohacker Field of Study Breakthrough		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Biohacker Field of Study Breakthrough																																																																																								DISPLAYLOCATION:Character
+ABILITYCATEGORY:Biohacker Theorem					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Biohacker Theorem																																																																																												DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:First Vanguard Aspect				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:First Vanguard Aspect																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Second Vanguard Aspect				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Second Vanguard Aspect																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vanguard Discipline					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Vanguard Discipline																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vanguard Aspect					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Vanguard Aspect																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Entropic Attunement					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Entropic Attunement																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vanguard Property Attunement			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Vanguard Property Attunement																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vanguard Crit Attunement				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Vanguard Crit Attunement																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Witchwarper Paradigm Shift			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Witchwarper Paradigm Shift																																																																																										DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Crusader Connection Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Crusader Connection Power																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Melophile Connection Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Melophile Connection Power																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warmonger Connection Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Warmonger Connection Power																																																																																										DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Ambusher Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Ambusher FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Battlemaster Fighting Style			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Battlemaster FIGHTING STYLE																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fourfold Tactician Fighting Style		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Fourfold Tactician FIGHTING STYLE																																																																																									DISPLAYLOCATION:Character
+ABILITYCATEGORY:Hunter Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Hunter FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Qi Adept Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Qi Adept FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Squad Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Squad FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Wrathful Warrior Fighting Style			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Wrathful Warrior FIGHTING STYLE																																																																																									DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Environmental Adaptations				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Feat						TYPE:Environmental Adaptations																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Nanite Integrations					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Nanite Integrations																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Combat Expertise					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Combat Expertise																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Experimental Armor					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Experimental Armor																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Experimental Weapon					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Experimental Weapon																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Operative Stunt					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Operative Stunt																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Cache Hacks						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Cache Hacks																																																																																													DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bellflower Training Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Bellflower Training Feat																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Backstabber Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Backstabber Feat																																																																																												DISPLAYLOCATION:Character

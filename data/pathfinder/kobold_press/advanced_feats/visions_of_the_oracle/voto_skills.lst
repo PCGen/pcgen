@@ -1,0 +1,8 @@
+# Tue Mar  2 16:53:22 2021 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+#Original Entry Date: 6.2.21
+SOURCELONG:Advanced Feats: Visions of the Oracle	SOURCESHORT:VOTO
+
+# Skill Name		Situational Skill
+Spellcraft.MOD		SITUATION:Record Spell from Scroll in Spellbook
+Use Magic Device.MOD	SITUATION:Activate Scrolls

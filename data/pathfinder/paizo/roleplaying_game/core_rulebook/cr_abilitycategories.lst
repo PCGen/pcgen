@@ -76,13 +76,13 @@ ABILITYCATEGORY:Wizard Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACT
 
 ###Block: Racial Traits Categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
-ABILITYCATEGORY:Dwarf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dwarf Racial Trait.DwarfRacialTrait		PLURAL:Dwarf Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Elf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elf Racial Trait.ElfRacialTrait		PLURAL:Elf Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gnome Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gnome Racial Trait.GnomeRacialTrait		PLURAL:Gnome Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Elf Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Elf Racial Trait.HalfElfRacialTrait		PLURAL:Half-Elf Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Orc Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Racial Trait.HalfOrcRacialTrait		PLURAL:Half-Orc Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Halfling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Halfling Racial Trait.HalflingRacialTrait	PLURAL:Halfling Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Human Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Human Racial Trait.HumanRacialTrait		PLURAL:Human Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dwarf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dwarf Racial Trait.Dwarf Racial Trait		PLURAL:Dwarf Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elf Racial Trait.Elf Racial Trait		PLURAL:Elf Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gnome Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gnome Racial Trait.Gnome Racial Trait		PLURAL:Gnome Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Elf Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Elf Racial Trait.Half-Elf Racial Trait		PLURAL:Half-Elf Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Orc Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Racial Trait.Half-Orc Racial Trait		PLURAL:Half-Orc Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Halfling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Halfling Racial Trait.Halfling Racial Trait	PLURAL:Halfling Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Human Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Human Racial Trait.Human Racial Trait		PLURAL:Human Racial Traits	DISPLAYLOCATION:Racial Abilities
 
 ###Block: Monster Trait Display
 # Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI	Display Location

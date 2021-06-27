@@ -1,0 +1,20 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Type				FACT
+Triaxian		KEY:Racial Heritage ~ Triaxian	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTriaxian|True
+
+
+###Block: Languages
+# Template Name			Visible	Bonus Languages
+Bonus Language ~ Triaxian	VISIBLE:NO	LANGBONUS:Triaxian
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Triaxian		VISIBLE:NO	RACESUBTYPE:Triaxian
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Triaxian		KEY:Race Builder Subtype ~ Triaxian	VISIBLE:NO	RACESUBTYPE:Triaxian	TYPE:Race Builder Subtype

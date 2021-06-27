@@ -32,34 +32,52 @@ import javafx.stage.Stage;
  * UI Loader for the DebugDialog
  * Primary difference from {@see JFXPanelFromResource} is that
  * it tells the controller when its hidden to shut off the timers.
+ * It is also a singleton and only ever shows a single stage.
  */
-public class DebugDialog
+public final class DebugDialog
 {
-	private final Stage primaryStage;
 
-	public DebugDialog()
+	private static Stage primaryStage = null;
+
+	private DebugDialog()
+	{
+	}
+
+	/**
+	 * gets the stage associated with the debug dialog.
+	 * must be synchronized as it inits primaryStage.
+	 */
+	private static synchronized Stage getStage()
 	{
 		GuiAssertions.assertIsJavaFXThread();
+		if (primaryStage != null)
+		{
+			return primaryStage;
+		}
 		FXMLLoader loader = new FXMLLoader();
 		loader.setResources(LanguageBundle.getBundle());
-		loader.setLocation(getClass().getResource("DebugDialog.fxml"));
+		loader.setLocation(DebugDialog.class.getResource("DebugDialog.fxml"));
 		primaryStage = new Stage();
 		final Scene scene;
 		try
 		{
 			scene = loader.load();
-		} catch (IOException e)
+		}
+		catch (IOException e)
 		{
 			Logging.errorPrint("failed to load debugdialog", e);
-			return;
+			// this can only happen with invalid fxml above and can't actually happen in real life
+			throw new RuntimeException(e);
 		}
 		primaryStage.setScene(scene);
 		DebugDialogController controller = loader.getController();
 		primaryStage.setOnShown(e -> controller.initTimer());
+		return primaryStage;
 	}
 
-	public void show()
+	public static void show()
 	{
-		primaryStage.show();
+		GuiAssertions.assertIsJavaFXThread();
+		getStage().show();
 	}
 }

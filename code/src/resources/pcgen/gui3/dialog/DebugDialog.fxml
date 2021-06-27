@@ -24,68 +24,66 @@
 <Scene xmlns="http://javafx.com/javafx/11.0.1"
        xmlns:fx="http://javafx.com/fxml/1"
        fx:controller="pcgen.gui3.dialog.DebugDialogController">
-    <AnchorPane>
-        <VBox>
-            <BorderPane>
-                <center>
-                    <TextArea BorderPane.alignment="CENTER" fx:id="logText" editable="false"/>
-                </center>
-                <bottom>
-                    <Button text="%in_mnuToolsClear"
-                            mnemonicParsing="true"
-                            BorderPane.alignment="CENTER"
-                            onAction="#clearLogs"/>
-                </bottom>
-            </BorderPane>
-            <BorderPane>
-                <center>
-                    <TableView fx:id="memoryTable" BorderPane.alignment="CENTER" id="memoryTable">
-                        <columns>
-                            <TableColumn id="memoryType" text="">
-                                <cellValueFactory>
-                                    <MapValueFactory key="memoryType"/>
-                                </cellValueFactory>
-                            </TableColumn>
-                            <TableColumn id="memoryInitial" text="Initial">
-                                <cellValueFactory>
-                                    <MapValueFactory key="memoryInitial"/>
-                                </cellValueFactory>
-                            </TableColumn>
-                            <TableColumn id="memoryUsed" text="Used">
-                                <cellValueFactory>
-                                    <MapValueFactory key="memoryUsed"/>
-                                </cellValueFactory>
-                            </TableColumn>
-                            <TableColumn id="memoryCommitted" text="Committed">
-                                <cellValueFactory>
-                                    <MapValueFactory key="memoryCommitted"/>
-                                </cellValueFactory>
-                            </TableColumn>
-                            <TableColumn id="memoryMax" text="Max">
-                                <cellValueFactory>
-                                    <MapValueFactory key="memoryMax"/>
-                                </cellValueFactory>
-                            </TableColumn>
-                            <TableColumn id="memoryPercentUsed" text="\% Used">
-                                <cellValueFactory>
-                                    <MapValueFactory key="memoryPercentUsed"/>
-                                </cellValueFactory>
-                            </TableColumn>
-                        </columns>
-                    </TableView>
-                </center>
-                <bottom>
-                    <Button onAction="#runGC"
-                            text="%in_mnuToolsGC"
-                            BorderPane.alignment="CENTER"
-                            mnemonicParsing="true">
-                        <Tooltip text="%in_mnuToolsLogTip"/>
-                    </Button>
-                </bottom>
-            </BorderPane>
-        </VBox>
-        <stylesheets>
-            <URL value="@DebugDialog.css"/>
-        </stylesheets>
-    </AnchorPane>
+    <VBox>
+        <BorderPane>
+            <center>
+                <TextArea BorderPane.alignment="CENTER" fx:id="logText" editable="false"/>
+            </center>
+            <bottom>
+                <Button text="%in_mnuToolsClear"
+                        mnemonicParsing="true"
+                        BorderPane.alignment="CENTER"
+                        onAction="#clearLogs"/>
+            </bottom>
+        </BorderPane>
+        <BorderPane>
+            <center>
+                <TableView fx:id="memoryTable" BorderPane.alignment="CENTER" id="memoryTable">
+                    <columns>
+                        <TableColumn id="memoryType" text="">
+                            <cellValueFactory>
+                                <MapValueFactory key="memoryType"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn id="memoryInitial" text="Initial">
+                            <cellValueFactory>
+                                <MapValueFactory key="memoryInitial"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn id="memoryUsed" text="Used">
+                            <cellValueFactory>
+                                <MapValueFactory key="memoryUsed"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn id="memoryCommitted" text="Committed">
+                            <cellValueFactory>
+                                <MapValueFactory key="memoryCommitted"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn id="memoryMax" text="Max">
+                            <cellValueFactory>
+                                <MapValueFactory key="memoryMax"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn id="memoryPercentUsed" text="\% Used">
+                            <cellValueFactory>
+                                <MapValueFactory key="memoryPercentUsed"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </center>
+            <bottom>
+                <Button onAction="#runGC"
+                        text="%in_mnuToolsGC"
+                        BorderPane.alignment="CENTER"
+                        mnemonicParsing="true">
+                    <Tooltip text="%in_mnuToolsLogTip"/>
+                </Button>
+            </bottom>
+        </BorderPane>
+    </VBox>
+    <stylesheets>
+        <URL value="@DebugDialog.css"/>
+    </stylesheets>
 </Scene>
