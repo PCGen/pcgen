@@ -951,8 +951,8 @@ public class Gui2InfoFactory implements InfoFactory
 			if (!bString.isEmpty())
 			{
 				b.appendSpacer();
-				b.appendI18nElement("in_igInfoLabelTextRange", bString + //$NON-NLS-1$
-					Globals.getGameModeUnitSet().getDistanceUnit());
+				b.appendI18nElement("in_igInfoLabelTextRange", bString //$NON-NLS-1$
+					+ Globals.getGameModeUnitSet().getDistanceUnit());
 			}
 		}
 

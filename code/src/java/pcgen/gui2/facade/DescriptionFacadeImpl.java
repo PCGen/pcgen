@@ -126,7 +126,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 
 	/**
 	 * @param noteName
-	 * @param value
+	 * @param key
 	 * @return note
 	 */
 	private NoteItem createDefaultNote(String noteName, PCStringKey key)

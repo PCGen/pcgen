@@ -759,7 +759,8 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Add Plus calculation.
-	 * @param aString
+	 * @param type
+	 * @param formula
 	 */
 	public void addPlusCalculation(Type type, String formula)
 	{
@@ -773,7 +774,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Add a Weapon Category.
-	 * @param aString
+	 * @param category
 	 */
 	public void addWeaponCategory(Type category)
 	{
@@ -782,7 +783,8 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Add a Weapon Type.
-	 * @param aString
+	 * @param type
+	 * @param abbrev
 	 */
 	public void addWeaponType(Type type, String abbrev)
 	{
