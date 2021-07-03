@@ -50,6 +50,7 @@ description = """PCGen"""
 
 defaultTasks 'build'
 
+// Java 14 would be 1.14, Java 16 would be 1.16 and so forth
 sourceCompatibility = "1.16"
 targetCompatibility = "1.16"
 
