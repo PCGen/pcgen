@@ -6,7 +6,7 @@ dist: xenial
 matrix:
   include:
   - os: linux
-    jdk: openjdk14
+    jdk: openjdk16
   - os: osx
     osx_image: xcode12
     if: tag IS present
