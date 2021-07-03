@@ -101,6 +101,7 @@ run {
     doFirst {
         //-ea enables assertions
         jvmArgs = ["-ea",
+                   "--enable-preview",
                    "--module-path",
                    "${projectDir}/mods/lib/",
                    "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
