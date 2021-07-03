@@ -3,9 +3,12 @@
 SOURCELONG:Pathfinder Player Companion: Legacy of Dragons	SOURCESHORT:LoD	SOURCEWEB:http://paizo.com/products/btpy9nfl?Pathfinder-Player-Companion-Legacy-of-Dragons	SOURCEDATE:2016-08
 # Original Entry By: Gwen T. (evilpixie87)
 
+###Block: Situational Modifiers
 # Skill Name		Situational Skill
 Diplomacy.MOD		SITUATION:Influence Dragon
-Diplomacy.MOD		SITUATION:Make requests
+Diplomacy.MOD		SITUATION:when making requests
 Knowledge (Arcana).MOD	SITUATION:checks related to dragons
-Sleight of Hand.MOD	SITUATION:Take items from others
+Sleight of Hand.MOD	SITUATION:to steal objects
+Sleight of Hand.MOD	SITUATION:to take items from other creatures
+Stealth.MOD			SITUATION:to hide objects
 Survival.MOD		SITUATION:Track Dragon

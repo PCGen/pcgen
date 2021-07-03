@@ -1,0 +1,29 @@
+
+
+# ------------------------------
+# Wyvaran
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceAbilityScores|0	ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Ability Scores|PREVAREQ:Wyvaran_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceType|0			ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Type|PREVAREQ:Wyvaran_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceSize|0			ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Size|PREVAREQ:Wyvaran_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceSpeed|0			ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Speed|PREVAREQ:Wyvaran_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceFlight|0		ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Flight|PREVAREQ:Wyvaran_ReplaceFlight,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceSlappingTail|0	ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Slapping Tail|PREVAREQ:Wyvaran_ReplaceSlappingTail,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceDarkvision|0		ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Darkvision|PREVAREQ:Wyvaran_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceLowLightVision|0	ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Low-Light Vision|PREVAREQ:Wyvaran_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	DEFINE:Wyvaran_ReplaceLanguages|0		ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Languages|PREVAREQ:Wyvaran_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceFlight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceFlight=True
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceSlappingTail|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceSlappingTail=True
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceDarkvision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceDarkvision=True
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceLowLightVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceLowLightVision=True
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD	BONUS:VAR|Wyvaran_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyvaran_ReplaceLanguages=True

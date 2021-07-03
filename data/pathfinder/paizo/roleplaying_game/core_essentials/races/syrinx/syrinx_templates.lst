@@ -1,0 +1,21 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Type				FACT
+Syrinx		KEY:Racial Heritage ~ Syrinx	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSyrinx|True
+
+
+###Block: Languages
+# Template Name		Visible	Bonus Languages
+Bonus Language ~ Strix	VISIBLE:NO	LANGBONUS:Strix
+Bonus Language ~ Syrinx	VISIBLE:NO	LANGBONUS:Syrinx
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Syrinx		VISIBLE:NO	RACESUBTYPE:Syrinx
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Syrinx		KEY:Race Builder Subtype ~ Syrinx	VISIBLE:NO	RACESUBTYPE:Syrinx	TYPE:Race Builder Subtype

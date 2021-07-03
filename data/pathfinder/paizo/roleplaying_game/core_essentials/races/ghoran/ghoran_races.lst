@@ -1,0 +1,5 @@
+
+
+###Block: Player Race
+# Race Name	SORTKEY		Starting Feats	Base size		Move		Ability								Nb Legs	Nb Hands	Main Race Type	Type			Source Page		FACT
+Ghoran	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,0	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Ghoran	LEGS:2	HANDS:2	RACETYPE:Plant	TYPE:Base.PC	SOURCEPAGE:p.xx	FACT:IsPC|True

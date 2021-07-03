@@ -1,0 +1,22 @@
+KEY:support ~ gathlain race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Gathlain
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:gathlain__datacontrols.lst
+
+# Data Files
+ABILITY:gathlain_abilities_globalvar.lst
+ABILITY:gathlain_abilities_race.lst
+ABILITYCATEGORY:gathlain_abilitycategories.lst
+RACE:gathlain_races.lst
+TEMPLATE:gathlain_templates.lst

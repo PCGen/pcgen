@@ -1,4 +1,4 @@
-CAMPAIGN:Bestiary 6 (Player Options Only)
+CAMPAIGN:Bestiary 6 (Only Player Options Implemented)
 KEY:Bestiary 6
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
@@ -7,7 +7,10 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:4,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -55,14 +58,18 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 6" 
 
 ABILITY:b6_abilities_class.lst
 ABILITY:b6_abilities_companion.lst
+ABILITY:b6_abilities_race_pc.lst
 ABILITY:b6_abilities_race.lst
+ABILITY:b6_feats.lst
 DEITY:b6_deities.lst
 DOMAIN:b6_domains.lst
-ABILITY:b6_feats.lst
 KIT:b6_kits_companion.lst
 RACE:b6_races_companion.lst
+RACE:b6_races_pc.lst
 SKILL:b6_skills.lst
 SPELL:b6_spells.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey goblin\_monkeygoblin_race.pcc
 
 
 

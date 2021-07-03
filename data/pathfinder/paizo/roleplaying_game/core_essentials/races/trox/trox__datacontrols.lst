@@ -1,0 +1,21 @@
+
+
+# ------------------------------
+# Trox
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name			Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsTrox	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Trox	EXPLANATION:Determines whether the character is a Trox
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Trox_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Trox_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Type				EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Trox_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Size				EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Trox_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Trox_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Trox_ReplaceBurrow			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Burrow			EXPLANATION:Replaces the Burrow Racial Trait
+FACTDEF:ABILITY|Trox_ReplaceFrenzy			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Frenzy			EXPLANATION:Replaces the Frenzy Racial Trait
+FACTDEF:ABILITY|Trox_ReplaceGrabbingAppendages	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Grabbing Appendages	EXPLANATION:Replaces the Grabbing Appendages Racial Trait
+FACTDEF:ABILITY|Trox_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Trox Languages			EXPLANATION:Replaces the Languages Racial Trait

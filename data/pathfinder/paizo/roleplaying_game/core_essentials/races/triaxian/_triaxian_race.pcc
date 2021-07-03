@@ -1,0 +1,24 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ triaxian race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Triaxian
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:triaxian__datacontrols.lst
+
+# Data Files
+ABILITY:triaxian_abilities_globalvar.lst
+ABILITY:triaxian_abilities_race.lst
+ABILITYCATEGORY:triaxian_abilitycategories.lst
+LANGUAGE:triaxian_languages.lst
+RACE:triaxian_races.lst
+TEMPLATE:triaxian_templates.lst

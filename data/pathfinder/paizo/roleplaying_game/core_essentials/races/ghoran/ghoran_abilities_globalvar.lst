@@ -1,0 +1,33 @@
+
+
+# ------------------------------
+# Ghoran
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceAbilityScores|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Ability Scores|PREVAREQ:Ghoran_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceType|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Type|PREVAREQ:Ghoran_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceSize|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Size|PREVAREQ:Ghoran_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceSpeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Speed|PREVAREQ:Ghoran_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceNaturalArmor|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ +2 Natural Armor|PREVAREQ:Ghoran_ReplaceNaturalArmor,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceDelicious|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Delicious|PREVAREQ:Ghoran_ReplaceDelicious,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceNaturalMagic|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Magic|PREVAREQ:Ghoran_ReplaceNaturalMagic,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceSeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Seed|PREVAREQ:Ghoran_ReplaceSeed,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceLightDependent|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Light Dependent|PREVAREQ:Ghoran_ReplaceLightDependent,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplacePastLifeKnowledge|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Past-Life Knowledge|PREVAREQ:Ghoran_ReplacePastLifeKnowledge,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	DEFINE:Ghoran_ReplaceLanguages|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Languages|PREVAREQ:Ghoran_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceNaturalArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceNaturalArmor=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceDelicious|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceDelicious=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceNaturalMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceNaturalMagic=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceSeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceSeed=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceLightDependent|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceLightDependent=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplacePastLifeKnowledge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplacePastLifeKnowledge=True
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD	BONUS:VAR|Ghoran_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ghoran_ReplaceLanguages=True

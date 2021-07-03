@@ -1,0 +1,62 @@
+
+
+# ------------------------------
+# Skinwalker
+# ------------------------------
+
+###Block: Racial Abilities ~ grantor/removal MODs in x_abilities_globalvar.lst
+# Ability Name			Category of Ability	Define																											Template						Modify VAR
+Racial Traits ~ Skinwalker	CATEGORY:Internal		DEFINE:Skinwalker_RacialCastingStat|0	DEFINE:Skinwalker_RacialCastingMod|0	DEFINE:Skinwalker_RacialCasterlevel|0	DEFINE:Skinwalker_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Skinwalker	BONUS:VAR|Skinwalker_RacialCastingStat|WISSCORE	BONUS:VAR|Skinwalker_RacialCastingMod|WIS	BONUS:VAR|Skinwalker_RacialCasterlevel|TL	BONUS:VAR|Skinwalker_RacialConcentration|Skinwalker_RacialCasterlevel+Skinwalker_RacialCastingMod
+
+###Block: Racial Traits
+# Ability Name												Unique Key					Category of Ability		Type																											Visible		Prohibited Fact									Define		Description																																																																																																													Template						Move			Auto Language	Ability														Bonus to skill					Stat bonus									Modify VAR											Vision			Source Page		Aspects											Information
++2 Wisdom, -2 Intelligence, +2 to One Physical Ability Score While in Bestial Form	KEY:Skinwalker ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality.Racial Ability Scores										VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Skinwalker_ReplaceAbilityScores=True					DESC:Skinwalkers are attuned to the natural order and value passion above reason. Their bestial forms strengthen their bodies in various ways.																																																																																																																										BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial																	SOURCEPAGE:p.xx
+Shapechanger												KEY:Skinwalker ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality.Racial Type												VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Skinwalker_ReplaceType=True						DESC:Skinwalkers are humanoids with the shapechanger and skinwalker subtypes. A shapechanger is automatically proficient with simple weapons.																																																																																							TEMPLATE:Humanoid|Shapechanger|Skinwalker							ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple																																									SOURCEPAGE:p.xx
+Medium													KEY:Skinwalker ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality.Racial Size												VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Skinwalker_ReplaceSize=True						DESC:Skinwalkers are Medium creatures and have no bonuses or penalties due to their size.																																																																																																TEMPLATE:SIZE_M																																																											SOURCEPAGE:p.xx
+Normal Speed												KEY:Skinwalker ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality.Racial Speed												VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Skinwalker_ReplaceSpeed=True			DEFINE:MOVEBASE|0	DESC:Skinwalkers have a base speed of 30 feet.																																																																																																														MOVE:Walk,30																																				BONUS:VAR|MOVEBASE|30													SOURCEPAGE:p.xx
+Low-Light Vision												KEY:Skinwalker ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality.Racial Vision											VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Skinwalker_ReplaceVision=True						DESC:Skinwalkers can see twice as far as humans can in dim light.																																																																																																																																																	BONUS:VAR|HasRacialVision|1								VISION:Low-Light Vision	SOURCEPAGE:p.xx
+Animal-Minded												KEY:Skinwalker ~ Animal-Minded	CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality	TYPE:BuilderFeatSkillTrait												!PREFACT:1,ABILITIES,Skinwalker_ReplaceAnimalMinded=True					DESC:Skinwalkers have a +2 racial bonus on Handle Animal checks and on wild empathy checks.																																																																																																																											BONUS:SKILL|Handle Animal|2|TYPE=Racial											BONUS:VAR|ARG_RaceBuilderPoints|-2	BONUS:VAR|WildEmpathy|2|TYPE=Racial					SOURCEPAGE:p.xx	ASPECT:Racial Points|2	ASPECT:RacialSkillModifier|+2 Handle Animal	INFO:Racial Points|2
+Change Shape												KEY:Skinwalker ~ Change Shape		CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality.Special Quality.Special Ability.Supernatural	TYPE:BuilderMagicalTrait				!PREFACT:1,ABILITIES,Skinwalker_ReplaceChangeShape=True					DESC:A skinwalker can change shape to a bestial form as a standard action. In bestial form, a skinwalker gains a +2 racial bonus to his choice of Strength, Dexterity, or Constitution. While in this form, a skinwalker also takes on an animalistic feature that provides a special effect. Each time a skinwalker assumes bestial form, he can choose to gain two claw attacks that each deal 1d4 points of damage, 60 foot darkvision, or a +1 natural armor bonus. These benefits last until the skinwalker returns to his humanoid form as a swift action. A skinwalker must first return to his humanoid form before changing to bestial form again to change benefits.														ABILITY:Skinwalker Racial Trait|AUTOMATIC|TYPE=Skinwalker Change Shape Default																			BONUS:VAR|ARG_RaceBuilderPoints|-5											SOURCEPAGE:p.xx	ASPECT:Racial Points|5									INFO:Racial Points|5
+Spell-Like Ability											KEY:Skinwalker ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality																	!PREFACT:1,ABILITIES,Skinwalker_ReplaceSpellLikeAbility=True				DESC:A skinwalker with a Wisdom score of 11 or higher can use speak with animals once per day as a spell-like ability, using his Wisdom modifier to determine his concentration checks. The caster level for this ability is equal to the skinwalker's character level.																																																																																ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Speak with Animals|PRESTAT:1,WIS=11																		BONUS:VAR|RacialSLA_SpeakWithAnimals_DCMod|WIS-CHA|TYPE=Base						SOURCEPAGE:p.xx
+Languages													KEY:Skinwalker ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.Skinwalker Racial Default.SpecialQuality.Racial Language											VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Skinwalker_ReplaceLanguages=True						DESC:Skinwalkers all begin play speaking Common. Skinwalkers with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).																																																																																		TEMPLATE:Bonus Language ~ Any Spoken				AUTO:LANG|Common																																																	SOURCEPAGE:p.xx
+
+###Block: Favored Enemies
+# Ability Name		Unique Key							Category of Ability		Type														Define						Description																																																						Modify VAR									Source, Long Desc.		Source, Short Desc.	Source URI							Source Page		Source Pub. Date		Aspects
+Humanoid (Shapechanger)	KEY:Favored Enemy ~ Humanoid (Shapechanger)	CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidShapechanger|0	DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against Shapechangers. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidShapechanger	BONUS:VAR|FavoredHumanoidShapechanger|FavoredBaseBonus	SOURCELONG:Core Rulebook	SOURCESHORT:CR		SOURCEWEB:https://paizo.com/products/btpy88yj	SOURCEPAGE:p.64	SOURCEDATE:2009-08	ASPECT:Ability Benefit|+%1|FavoredHumanoidShapechanger	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against Shapechanger.|FavoredHumanoidShapechanger	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against Shapechanger.|FavoredHumanoidShapechanger
+
+###Block: Adopted Trait Race Selections
+# Ability Name							Unique Key				Category of Ability		Type					Multiple?	Choose											Ability
+Skinwalker								KEY:Adopted Race ~ Skinwalker	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Skinwalker Race Trait	ABILITY:Traits|VIRTUAL|%LIST
+CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Skinwalker Race Trait
+
+
+# ------------------------------
+# Skinwalker ~ Default
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name	Unique Key				SORTKEY	Category of Ability		Type				Aspects
+Skinwalker		KEY:Skinwalker ~ Default	SORTKEY:1	CATEGORY:Special Ability	TYPE:Skinwalker Subrace	ASPECT:Alternate Ability Modifiers|+2 Wisdom, -2 Intelligence, +2 to One Physical Ability Score While Shapechanged.	ASPECT:Alternate Skill Modifiers|Handle Animal, wild empathy.	ASPECT:Alternate Spell-Like Ability|Speak with animals 1/day.	ASPECT:Alternate Bestial Features|2 claw attacks that each deal 1d4 points of damage, darkvision to a range of 60 feet, +1 racial bonus to natural armor.
+
+###Block: Change Shape Abilities
+# Ability Name										Type
+CATEGORY=Special Ability|Skinwalker ~ Change Shape (Claw).MOD		TYPE:Skinwalker Change Shape Default
+CATEGORY=Special Ability|Skinwalker ~ Change Shape (Constitution).MOD	TYPE:Skinwalker Change Shape Default
+CATEGORY=Special Ability|Skinwalker ~ Change Shape (Darkvision).MOD	TYPE:Skinwalker Change Shape Default
+CATEGORY=Special Ability|Skinwalker ~ Change Shape (Dexterity).MOD	TYPE:Skinwalker Change Shape Default
+CATEGORY=Special Ability|Skinwalker ~ Change Shape (Natural Armor).MOD	TYPE:Skinwalker Change Shape Default
+CATEGORY=Special Ability|Skinwalker ~ Change Shape (Strength).MOD		TYPE:Skinwalker Change Shape Default
+
+
+# ------------------------------
+# Abilities
+# ------------------------------
+
+###Block: Skinwalker Change Shape Tempbonus Abilities
+# Ability Name						Unique Key							Category of Ability		Type					Visible	Define							Ability													Temporary Bonus
+Change Shape (2 Claw Attacks)				KEY:Skinwalker ~ Change Shape (Claw)		CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait	VISIBLE:NO	DEFINE:Skinwalker_ChangeShape_ActivateClaw|0	ABILITY:Internal|AUTOMATIC|Claw|PREVARGTEQ:Skinwalker_ChangeShape_ActivateClaw,1	TEMPBONUS:PC|VAR|Skinwalker_ChangeShape_ActivateClaw|1|TYPE=Boolean
+Change Shape (Ability Modifier Constitution)	KEY:Skinwalker ~ Change Shape (Constitution)	CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait	VISIBLE:NO																							TEMPBONUS:PC|STAT|CON|2|TYPE=Racial
+Change Shape (Ability Modifier Dexterity)		KEY:Skinwalker ~ Change Shape (Dexterity)		CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait	VISIBLE:NO																							TEMPBONUS:PC|STAT|DEX|2|TYPE=Racial
+Change Shape (Ability Modifier Strength)		KEY:Skinwalker ~ Change Shape (Strength)		CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait	VISIBLE:NO																							TEMPBONUS:PC|STAT|STR|2|TYPE=Racial
+Change Shape (Darkvision)				KEY:Skinwalker ~ Change Shape (Darkvision)	CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait	VISIBLE:NO	DEFINE:DarkvisionRange|0																		TEMPBONUS:PC|VISION|Darkvision|60
+Change Shape (Natural Armor)				KEY:Skinwalker ~ Change Shape (Natural Armor)	CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait	VISIBLE:NO																							TEMPBONUS:PC|VAR|AC_Natural_Armor|1|TYPE=Racial

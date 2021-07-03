@@ -1,0 +1,24 @@
+SOURCELONG:Bestiary 6	SOURCESHORT:B6	SOURCEWEB:http://paizo.com/products/btpy9r1y	SOURCEDATE:2017-05
+
+
+# ==============================
+# RACE ABILITIES
+# ==============================
+
+
+# ------------------------------
+# Goblin, Monkey
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Monkey Goblin ~ Ability Scores.MOD		SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Type.MOD			SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Size.MOD			SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Speed.MOD			SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Vision.MOD			SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Acrobatic.MOD		SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Fearless.MOD			SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Natural Climber.MOD	SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Prehensile Tail.MOD	SOURCEPAGE:p.138
+CATEGORY=Special Ability|Monkey Goblin ~ Languages.MOD		SOURCEPAGE:p.138

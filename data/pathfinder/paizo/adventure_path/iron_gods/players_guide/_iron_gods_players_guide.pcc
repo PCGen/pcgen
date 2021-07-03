@@ -26,22 +26,24 @@ URL:Paizo Publishing|http://paizo.com/products/btpy98lf?Pathfinder-Adventure-Pat
 DESC: The Iron Gods Player's Guide gives players all the spoiler-free information, inspiration, and new rules they'll need to create characters prepared for delving into the adventure and mysteries of the Iron Gods Adventure Path.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
-COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
-COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Iron Gods Player's Guide � 2014, Paizo Inc.; Authors: Adam Daigle and James Jacobs.
-COPYRIGHT:PCGen dataset conversion for "Iron Gods Player's Guide" Copyright 2015, PCGen Data Team (including, but not limited to Andrew (LegacyKing Maitland)
+COPYRIGHT:Open Game License v 1.0a (c) 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document (c) 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Iron Gods Player's Guide (c) 2014, Paizo Inc.; Authors: Adam Daigle and James Jacobs.
+COPYRIGHT:PCGen dataset conversion for "Iron Gods Player's Guide" Copyright 2015, PCGen Data Team (including, but not limited to Andrew (LegacyKing Maitland))
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
 # Data Files
-ABILITY:ig_abilities.lst
 ABILITY:ig_abilities_feat.lst
+ABILITY:ig_abilities_race.lst
+ABILITY:ig_abilities.lst
 ABILITYCATEGORY:ig_abilitycategories.lst
 LANGUAGE:ig_languages.lst
+RACE:ig_races.lst
 SKILL:ig_skills.lst
-TEMPLATE:ig_templates.lst
-# Android mentioned in sidebar, but lacks details
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
 
 
 # ENTRY DATE: 2015-01

@@ -1,0 +1,25 @@
+
+
+# ------------------------------
+# Wyrwood
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	DEFINE:Wyrwood_ReplaceAbilityScores|0	ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Ability Scores|PREVAREQ:Wyrwood_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	DEFINE:Wyrwood_ReplaceType|0			ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Type|PREVAREQ:Wyrwood_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	DEFINE:Wyrwood_ReplaceSize|0			ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Size|PREVAREQ:Wyrwood_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	DEFINE:Wyrwood_ReplaceSpeed|0			ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Speed|PREVAREQ:Wyrwood_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	DEFINE:Wyrwood_ReplaceDarkvision|0		ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Darkvision|PREVAREQ:Wyrwood_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	DEFINE:Wyrwood_ReplaceLowLightVision|0	ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Low-Light Vision|PREVAREQ:Wyrwood_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	DEFINE:Wyrwood_ReplaceLanguages|0		ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Languages|PREVAREQ:Wyrwood_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	BONUS:VAR|Wyrwood_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyrwood_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	BONUS:VAR|Wyrwood_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyrwood_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	BONUS:VAR|Wyrwood_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyrwood_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	BONUS:VAR|Wyrwood_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyrwood_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	BONUS:VAR|Wyrwood_ReplaceDarkvision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyrwood_ReplaceDarkvision=True
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	BONUS:VAR|Wyrwood_ReplaceLowLightVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyrwood_ReplaceLowLightVision=True
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD	BONUS:VAR|Wyrwood_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wyrwood_ReplaceLanguages=True

@@ -1,0 +1,23 @@
+
+
+# ------------------------------
+# Kasatha
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsKasatha	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Kasatha	EXPLANATION:Determines whether the character is a Kasatha
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Kasatha_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceDefensiveTraining	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Defensive Training	EXPLANATION:Replaces the Defensive Training Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceDesertRunner		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Desert Runner		EXPLANATION:Replaces the Desert Runner Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceDesertStride		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Desert Stride		EXPLANATION:Replaces the Desert Stride Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceJumper			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Jumper			EXPLANATION:Replaces the Jumper Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceMultiArmed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Multi-Armed		EXPLANATION:Replaces the Multi-Armed Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceStalker			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Stalker			EXPLANATION:Replaces the Stalker Racial Trait
+FACTDEF:ABILITY|Kasatha_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kasatha Languages		EXPLANATION:Replaces the Languages Racial Trait
