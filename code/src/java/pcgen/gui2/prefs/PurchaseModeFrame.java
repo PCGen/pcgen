@@ -736,7 +736,7 @@ public final class PurchaseModeFrame extends JDialog
 			LanguageBundle.getString("in_Prefs_cost")}; //$NON-NLS-1$
 		private Object[][] currentValues;
 		private Object[][] savedValues;
-		private final Class<?>[] types = new Class[]{Integer.class, Integer.class};
+		private final Class<?>[] types = {Integer.class, Integer.class};
 		private int currentPurchaseScoreMax = 10;
 		private int currentPurchaseScoreMin = 10; // Start at the average stat
 		private int savedPurchaseScoreMax = 0;

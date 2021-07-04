@@ -2655,10 +2655,13 @@ public final class Equipment extends PObject
 
 	/**
 	 * Description of the Method
-	 * 
+	 *
+	 * FIXME: PMD Check is false as the parent of this class does implement Cloneable, so we suppress the warning
+	 *
 	 * @return Description of the Return Value
 	 */
 	@Override
+	@SuppressWarnings("PMD.CloneMethodMustImplementCloneable")
 	public Equipment clone()
 	{
 		Equipment eq = null;

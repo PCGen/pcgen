@@ -1164,7 +1164,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			String intString = TermUtilities.extractContentsOfBrackets(expressionString, src, 24);
 
-			int[] nums = new int[]{-1};
+			int[] nums = {-1};
 
 			if (intString.length() > 1 && intString.startsWith("."))
 			{
@@ -1205,7 +1205,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			String intString = TermUtilities.extractContentsOfBrackets(expressionString, src, 16);
 
-			int[] nums = new int[]{-1};
+			int[] nums = {-1};
 
 			if (intString.length() > 1 && intString.startsWith("."))
 			{

@@ -666,9 +666,9 @@ allprojects {
                 "--module-path", "${projectDir}/mods/lib/",
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
 
-                //Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
-                '--add-exports','javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
-                '--add-opens','javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+                // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
+                '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
+                '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
                 '--enable-preview'
         ]
     }
@@ -687,6 +687,9 @@ allprojects {
     // https://youtrack.jetbrains.com/issue/KT-46165
     tasks.withType(org.gradle.jvm.tasks.Jar) {
         duplicatesStrategy = DuplicatesStrategy.WARN
+    }
+    tasks.withType(JavaExec) {
+        jvmArgs += '--enable-preview'
     }
 }
 

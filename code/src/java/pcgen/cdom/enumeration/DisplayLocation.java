@@ -25,11 +25,11 @@ import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * 
  * This Class is a Type Safe Constant. It is designed to hold DisplayLocations
  * in a type-safe fashion, so that they can be quickly compared and use less
  * memory when identical DisplayLocations exist.
  */
+@SuppressWarnings("PMD.EQ_COMPARETO_USE_OBJECT_EQUALS")
 public final class DisplayLocation implements TypeSafeConstant, Comparable<DisplayLocation>
 {
 	/**
@@ -173,4 +173,5 @@ public final class DisplayLocation implements TypeSafeConstant, Comparable<Displ
 		 */
 		return fieldName.compareTo(type.fieldName);
 	}
+	
 }
