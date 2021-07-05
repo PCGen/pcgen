@@ -21,6 +21,7 @@
 package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
+import pcgen.output.channel.compat.HeightCompat;
 
 public class PCHeightTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
@@ -32,7 +33,7 @@ public class PCHeightTermEvaluator extends BasePCDTermEvaluator implements TermE
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return (float) display.getHeight();
+		return (float) HeightCompat.getCurrentHeight(display.getCharID());
 	}
 
 	@Override

@@ -37,4 +37,6 @@ Wall of Split Illumination		TYPE:Arcane.Divine.Psychic	CLASSES:Bard,Cleric,Inqui
 
 First World Revisions.MOD																																																																																																								DESC:The wayang loses her darkvision racial trait and gains the low-light vision racial trait in its place. The alignment and personality of the wayang are not affected by the transformation, but the spell conceals her alignment as per undetectable alignment. Unlike ancestral regression, this spell grants the target a +20 bonus on Disguise checks to pass as a gnome; even though the wayang appears as a gnomish analog of herself, the differences between gnomes and wayangs are great enough that she cannot be mistaken for a gnome by other wayangs who know her.
 
-Alter Self.COPY=Alter Self ~ Flexible Half-Breed	OUTPUTNAME:Alter Self (Human, Drow, or Elf)	CLASSES:.CLEARALL
+###Block: Racial Spell Variants
+# Spell Name								Output Name												Classes of caster	Description
+Alter Self.COPY=Alter Self ~ Flexible Half-Breed		OUTPUTNAME:Alter Self (Human, Drow, or Elf)						CLASSES:.CLEARALL	DESC:You can assume the form of any Small or Medium creature of the humanoid type.

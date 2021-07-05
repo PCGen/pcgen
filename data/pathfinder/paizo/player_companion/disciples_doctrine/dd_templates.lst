@@ -1,0 +1,10 @@
+SOURCELONG:Pathfinder Player Companion: Disciple's Doctrine	SOURCESHORT:DD	SOURCEWEB:http://paizo.com/products/btpy9xew	SOURCEDATE:2018-01
+# ORIGINAL ENTRY: Jason D. (GrimaceJD)
+# ORIGINAL ENTRY DATE: 27 June 2019
+
+# ==============================
+# Masterpiece Activation
+# ==============================
+
+# Template Name							Visible		Ability
+Masterpiece Activation DiscipleDoctrine	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Kaminari Drums|PREMULT:1,[PRESPELL:1,Masterpiece (Kaminari Drums)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Kaminari Drums)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Spirit of the Horse|PREMULT:1,[PRESPELL:1,Masterpiece (Spirit of the Horse)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Spirit of the Horse)]

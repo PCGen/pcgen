@@ -40,6 +40,7 @@ DATACONTROL:uc__datacontrols.lst
 ABILITY:uc_abilities_globalvar.lst
 
 
+ABILITY:uc_abilities.lst
 ABILITY:uc_abilities_class.lst
 ABILITY:uc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:uc_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide

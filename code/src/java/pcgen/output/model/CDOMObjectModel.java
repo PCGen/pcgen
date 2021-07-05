@@ -17,6 +17,8 @@
  */
 package pcgen.output.model;
 
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObject;
@@ -34,7 +36,7 @@ import freemarker.template.TemplateScalarModel;
  * A CDOMObjectModel is a wrapper around a CDOMObject which serves as a
  * TemplateHashModel to expose the appropriate objects within the CDOMObject.
  */
-public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
+public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel, Iterable<CDOMObject>
 {
 	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 
@@ -90,16 +92,22 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 	}
 
 	@Override
-	public boolean isEmpty() throws TemplateModelException
+	public boolean isEmpty()
 	{
 		//Never empty because we have "key"
 		return false;
 	}
 
 	@Override
-	public String getAsString() throws TemplateModelException
+	public String getAsString()
 	{
 		return cdo.getDisplayName();
+	}
+
+	@Override
+	public Iterator<CDOMObject> iterator()
+	{
+		return Collections.singleton(cdo).iterator();
 	}
 
 }

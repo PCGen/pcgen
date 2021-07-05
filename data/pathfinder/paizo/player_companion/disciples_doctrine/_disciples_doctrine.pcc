@@ -1,0 +1,73 @@
+CAMPAIGN:Disciple's Doctrine
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+GENRE:Fantasy
+STATUS:BETA
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Player Companion: Disciple's Doctrine
+SOURCESHORT:DD
+SOURCEWEB:http://paizo.com/products/btpy9xew
+SOURCEDATE:2018-01
+ISOGL:YES
+
+COVER:disciples_doctrine.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btq01vb0|Buy this publication from Paizo Publishing!
+DESC:Having faith doesn't always mean worshiping a deity. From the far-flung corners of Golarion to the center of its major cities, many adherents find faith in small congregations dedicated to obscure beliefs and complex philosophies. Pathfinder Player Companion: Disciple's Doctrine explores a dozen of these cults and traditions, including such groups as the Esoteric Order of the Palatine Eye, Magnimar's mystery cults, the Oracular Council of Po Li in Tian Xia, the Prophets of Kalistrade, and many more. Learn more about these lesser-known groups, and discover the class and character options that true faith and deep traditions can unlock.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Disciple's Doctrine Copyright 2018, Paizo Inc.; Authors: Saif Ansari, Mara Lynn Butler, Jeffrey Hersh, Andrew Hoskins, Lyz Liddell, Luis Loza, and Linda Zayas-Palmer
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Disciple's Doctrine" Copyright 2019, PCGen Data team (Including, but not limited to Jason D.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:dd_abilities.lst
+ABILITY:dd_abilities_class.lst
+ABILITYCATEGORY:dd_abilitycategories.lst
+CLASS:dd_classes.lst
+EQUIPMENT:dd_equip_general.lst
+ABILITY:dd_feats.lst
+SPELL:dd_spells.lst
+TEMPLATE:dd_templates.lst
+
+#support
+ABILITY:support/dd_abilities_class_aqua.lst|PRECAMPAIGN:1,INCLUDES=Aquatic Adventures
+ABILITY:support/dd_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+ABILITY:support/dd_abilities_class_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide,INCLUDES=Inner Sea Gods
+ABILITYCATEGORY:support/dd_abilitycategories_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+SPELL:support/dd_spells_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+
+# ENTRY DATE: 2019-06-27
+# LST MONKEY: Jason D.
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:
+# MINDEVVER:
+# COMMENTS:
+
+
+
+
+
+

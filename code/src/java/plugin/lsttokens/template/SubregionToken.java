@@ -17,8 +17,7 @@
  */
 package plugin.lsttokens.template;
 
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SubRegion;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -52,7 +51,7 @@ public class SubregionToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 		else
 		{
-			context.getObjectContext().put(template, ObjectKey.SUBREGION, SubRegion.getConstant(value));
+			context.getObjectContext().put(template, StringKey.SUBREGION, value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -60,7 +59,7 @@ public class SubregionToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		SubRegion subregion = context.getObjectContext().getObject(pct, ObjectKey.SUBREGION);
+		String subregion = context.getObjectContext().getString(pct, StringKey.SUBREGION);
 		if (subregion == null)
 		{
 			// Okay, nothing set

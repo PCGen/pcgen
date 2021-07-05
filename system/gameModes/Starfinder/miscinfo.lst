@@ -202,6 +202,8 @@ ACTYPE:RaceAC				ADD:RaceAC
 # Solarian Die Track	1,6  ,9.  12, 13, 14, 15, 16,17, 18,  19,  20
 BASEDICE:1d5	UP:1d6,2d6,3d6,4d6,5d6,6d6,7d6,8d6,9d6,10d6,11d6,12d6
 
+# Vanguard Die Trackpcgen
+BASEDICE:1d2	UP:1d3,1d4,1d6,2d6,3d6,4d6,5d6,6d6,7d6,8d6,9d6,10d6,11d6,12d6
 
 #1d6 at 6th level, 9th level, 12th level, and every level thereafter.
 

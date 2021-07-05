@@ -1,0 +1,391 @@
+
+# ------------------------------
+# Aasimar
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability																			FACT
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceAbilityScores|0		ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Ability Scores|PREVAREQ:Aasimar_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceType|0				ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Type|PREVAREQ:Aasimar_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceSize|0				ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Size|PREVAREQ:Aasimar_ReplaceSize,0						FACT:RaceSizeAllowed_Medium|True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceSpeed|0				ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Speed|PREVAREQ:Aasimar_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceVision|0			ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Vision|PREVAREQ:Aasimar_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceSkilled|0			ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Skilled|PREVAREQ:Aasimar_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceSpellLikeAbility|0		ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Spell-Like Ability|PREVAREQ:Aasimar_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceCelestialResistance|0	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Celestial Resistance|PREVAREQ:Aasimar_ReplaceCelestialResistance,0
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceLanguages|0			ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Languages|PREVAREQ:Aasimar_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSkilled|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSkilled
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSLA
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceCelestialResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialResistance
+
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSkilled=True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceCelestialResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceCelestialResistance=True
+CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceLanguages=True
+
+
+# ------------------------------
+# Drow
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceAbilityScores|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Ability Scores|PREVAREQ:Drow_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceType|0			ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Type|PREVAREQ:Drow_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceSize|0			ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Size|PREVAREQ:Drow_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceSpeed|0			ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Speed|PREVAREQ:Drow_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceVision|0			ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Vision|PREVAREQ:Drow_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceDrowImmunities|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Drow Immunities|PREVAREQ:Drow_ReplaceDrowImmunities,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceKeenSenses|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Keen Senses|PREVAREQ:Drow_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceSpellResistance|0	ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Spell Resistance|PREVAREQ:Drow_ReplaceSpellResistance,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceSpellLikeAbilities|0	ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Spell-Like Abilities|PREVAREQ:Drow_ReplaceSpellLikeAbilities,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceLightBlindness|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Light Blindness|PREVAREQ:Drow_ReplaceLightBlindness,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplacePoisonUse|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Poison Use|PREVAREQ:Drow_ReplacePoisonUse,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceWeaponFamiliarity|0	ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Weapon Familiarity|PREVAREQ:Drow_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceLanguages|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Languages|PREVAREQ:Drow_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowDarkvision
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceDrowImmunities|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowImmunities
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceKeenSenses|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowKeenSenses
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSpellResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowSpellResistance
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSpellLikeAbilities|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowSLAs
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceLightBlindness|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowLightBlindness
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplacePoisonUse|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowPoisonUse
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowWeaponFamiliarity
+
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceDrowImmunities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceDrowImmunities=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceKeenSenses=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSpellResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceSpellResistance=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSpellLikeAbilities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceSpellLikeAbilities=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceLightBlindness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceLightBlindness=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplacePoisonUse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplacePoisonUse=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceLanguages=True
+
+
+# ------------------------------
+# Duergar
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceAbilityScores|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Ability Scores|PREVAREQ:Duergar_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceType|0				ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Type|PREVAREQ:Duergar_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSize|0				ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Size|PREVAREQ:Duergar_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSpeed|0				ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Speed|PREVAREQ:Duergar_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceVision|0			ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Vision|PREVAREQ:Duergar_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceDuergarImmunities|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Duergar Immunities|PREVAREQ:Duergar_ReplaceDuergarImmunities,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceStability|0			ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Stability|PREVAREQ:Duergar_ReplaceStability,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSpellLikeAbilities|0	ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Spell-Like Abilities|PREVAREQ:Duergar_ReplaceSpellLikeAbilities,0|PREVAREQ:Duergar_ReplaceSLAEnlargePerson,0|PREVAREQ:Duergar_ReplaceSLAInvisibility,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSLAEnlargePerson|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Spell-Like Ability ~ Enlarge Person|PREVAREQ:Duergar_ReplaceSpellLikeAbilities,0|PREVAREQ:Duergar_ReplaceSLAEnlargePerson,0|PREVAREQ:Duergar_ReplaceSLAInvisibility,1
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSLAInvisibility|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Spell-Like Ability ~ Invisibility|PREVAREQ:Duergar_ReplaceSpellLikeAbilities,0|PREVAREQ:Duergar_ReplaceSLAInvisibility,0|PREVAREQ:Duergar_ReplaceSLAEnlargePerson,1
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceLightSensitivity|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Light Sensitivity|PREVAREQ:Duergar_ReplaceLightSensitivity,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceLanguages|0			ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Languages|PREVAREQ:Duergar_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSpeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSlowAndSteady
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSuperiorDarkvision
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceDuergarImmunities|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarDuergarImmunities
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceStability|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarStability
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSLAInvisibility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAInvisibility
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSLAEnlargePerson|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAEnlargePerson
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceLightSensitivity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarLightSensitivity
+
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceDuergarImmunities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceDuergarImmunities=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceStability|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceStability=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSpellLikeAbilities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSpellLikeAbilities=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSLAEnlargePerson|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSLAEnlargePerson=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSLAInvisibility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSLAInvisibility=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceLightSensitivity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceLightSensitivity=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceLanguages=True
+
+
+# ------------------------------
+# Goblin
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	DEFINE:Goblin_ReplaceAbilityScores|0	ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Ability Scores|PREVAREQ:Goblin_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	DEFINE:Goblin_ReplaceType|0			ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Type|PREVAREQ:Goblin_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	DEFINE:Goblin_ReplaceSize|0			ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Size|PREVAREQ:Goblin_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	DEFINE:Goblin_ReplaceSpeed|0			ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Speed|PREVAREQ:Goblin_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	DEFINE:Goblin_ReplaceVision|0			ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Vision|PREVAREQ:Goblin_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	DEFINE:Goblin_ReplaceSkilled|0		ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Skilled|PREVAREQ:Goblin_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	DEFINE:Goblin_ReplaceLanguages|0		ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Languages|PREVAREQ:Goblin_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinDarkvision
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceSpeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinFast
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceSkilled|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinSkilled
+
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Goblin_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Goblin_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Goblin_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Goblin_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Goblin_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Goblin_ReplaceSkilled=True
+CATEGORY=Internal|Racial Traits ~ Goblin.MOD	BONUS:VAR|Goblin_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Goblin_ReplaceLanguages=True
+
+
+# ------------------------------
+# Hobgoblin
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceAbilityScores|0	ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Ability Scores|PREVAREQ:Hobgoblin_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceType|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Type|PREVAREQ:Hobgoblin_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceSize|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Size|PREVAREQ:Hobgoblin_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceSpeed|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Speed|PREVAREQ:Hobgoblin_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceVision|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Vision|PREVAREQ:Hobgoblin_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceSneaky|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Sneaky|PREVAREQ:Hobgoblin_ReplaceSneaky,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceLanguages|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Languages|PREVAREQ:Hobgoblin_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinDarkvision
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceSneaky|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinSneaky
+
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceSneaky|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceSneaky=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceLanguages=True
+
+
+# ------------------------------
+# Kobold
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceAbilityScores|0	ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Ability Scores|PREVAREQ:Kobold_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceType|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Type|PREVAREQ:Kobold_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceSize|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Size|PREVAREQ:Kobold_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceSpeed|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Speed|PREVAREQ:Kobold_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceVision|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Vision|PREVAREQ:Kobold_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceArmor|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Armor|PREVAREQ:Kobold_ReplaceArmor,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceCrafty|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Crafty|PREVAREQ:Kobold_ReplaceCrafty,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceWeakness|0		ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Weakness|PREVAREQ:Kobold_ReplaceWeakness,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceLanguages|0		ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Languages|PREVAREQ:Kobold_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceArmor=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceCrafty|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceCrafty=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceWeakness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceWeakness=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceLanguages=True
+
+
+# ------------------------------
+# Merfolk
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceAbilityScores|0	ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Ability Scores|PREVAREQ:Merfolk_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceType|0			ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Type|PREVAREQ:Merfolk_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceSize|0			ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Size|PREVAREQ:Merfolk_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceSpeed|0			ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Speed|PREVAREQ:Merfolk_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceVision|0		ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Vision|PREVAREQ:Merfolk_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceAmphibious|0		ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Amphibious|PREVAREQ:Merfolk_ReplaceAmphibious,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceArmor|0			ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Armor|PREVAREQ:Merfolk_ReplaceArmor,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceLegless|0		ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Legless|PREVAREQ:Merfolk_ReplaceLegless,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceLanguages|0		ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Languages|PREVAREQ:Merfolk_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLowLightVision
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceAmphibious|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkAmphibious
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceArmor|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkArmor
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceLegless|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLegless
+
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceAmphibious|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceAmphibious=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceArmor=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceLegless|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceLegless=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceLanguages=True
+
+
+# ------------------------------
+# Orc
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name					Define						Ability
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceAbilityScores|0		ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Ability Scores|PREVAREQ:Orc_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceType|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Type|PREVAREQ:Orc_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceSize|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Size|PREVAREQ:Orc_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceSpeed|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Speed|PREVAREQ:Orc_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceVision|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Vision|PREVAREQ:Orc_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceLightSensitivity|0	ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Light Sensitivity|PREVAREQ:Orc_ReplaceLightSensitivity,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceFerocity|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Ferocity|PREVAREQ:Orc_ReplaceFerocity,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceWeaponFamiliarity|0	ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Weapon Familiarity|PREVAREQ:Orc_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceLanguages|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Languages|PREVAREQ:Orc_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name					Modify VAR
+
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcDarkvision
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceLightSensitivity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcLightSensitivity
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceFerocity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcFerocity
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceWeaponFamiliarity|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceLanguages|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcAutomaticLanguages
+
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceLightSensitivity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceLightSensitivity=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceFerocity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceFerocity=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceLanguages=True
+
+
+# ------------------------------
+# Svirfneblin
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name							Define							Ability
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceAbilityScores|0		ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Ability Scores|PREVAREQ:Svirfneblin_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceType|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Type|PREVAREQ:Svirfneblin_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSize|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Size|PREVAREQ:Svirfneblin_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSpeed|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Speed|PREVAREQ:Svirfneblin_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceVision|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Vision|PREVAREQ:Svirfneblin_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceDefensiveTraining|0	ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Defensive Training|PREVAREQ:Svirfneblin_ReplaceDefensiveTraining,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceFortunate|0		ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Fortunate|PREVAREQ:Svirfneblin_ReplaceFortunate,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSkilled|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Skilled|PREVAREQ:Svirfneblin_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceHatred|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Hatred|PREVAREQ:Svirfneblin_ReplaceHatred,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceStonecunning|0		ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Stonecunning|PREVAREQ:Svirfneblin_ReplaceStonecunning,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSpellResistance|0	ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Spell Resistance|PREVAREQ:Svirfneblin_ReplaceSpellResistance,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSvirfneblinMagic|0	ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Svirfneblin Magic|PREVAREQ:Svirfneblin_ReplaceSvirfneblinMagic,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceLanguages|0		ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Languages|PREVAREQ:Svirfneblin_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name							Modify VAR
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceDefensiveTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceDefensiveTraining=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceFortunate|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceFortunate=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSkilled=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceHatred|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceHatred=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceStonecunning|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceStonecunning=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSpellResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSpellResistance=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSvirfneblinMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSvirfneblinMagic=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceLanguages=True
+
+
+# ------------------------------
+# Tengu
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceAbilityScores|0							ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Ability Scores|PREVAREQ:Tengu_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceType|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Type|PREVAREQ:Tengu_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceSize|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Size|PREVAREQ:Tengu_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceSpeed|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Speed|PREVAREQ:Tengu_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceVision|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Vision|PREVAREQ:Tengu_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceSneaky|0								ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Sneaky|PREVAREQ:Tengu_ReplaceSneaky,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceGiftedLinguist|0						ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Gifted Linguist|PREVAREQ:Tengu_ReplaceGiftedLinguist,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceSwordtrained|0							ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Swordtrained|PREVAREQ:Tengu_ReplaceSwordtrained,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceNaturalWeapon|0							ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Natural Weapon|PREVAREQ:Tengu_ReplaceNaturalWeapon,0
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	DEFINE:Tengu_ReplaceLanguages|0	DEFINE:Tengu_AlternateLanguages|0	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Languages|PREVAREQ:Tengu_ReplaceLanguages,0|PREVAREQ:Tengu_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSneaky|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceGiftedLinguist|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSwordtrained|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordtrained
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceNaturalWeapon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
+
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSneaky|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceSneaky=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceGiftedLinguist|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceGiftedLinguist=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceSwordtrained|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceSwordtrained=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceNaturalWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceNaturalWeapon=True
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:VAR|Tengu_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tengu_ReplaceLanguages=True
+
+
+# ------------------------------
+# Tiefling
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability																			FACT
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceAbilityScores|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Ability Scores|PREVAREQ:Tiefling_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceType|0				ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Type|PREVAREQ:Tiefling_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSize|0				ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Size|PREVAREQ:Tiefling_ReplaceSize,0						FACT:RaceSizeAllowed_Medium|True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSpeed|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Speed|PREVAREQ:Tiefling_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceVision|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Vision|PREVAREQ:Tiefling_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSkilled|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|PREVAREQ:Tiefling_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSpellLikeAbility|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|PREVAREQ:Tiefling_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceFiendishResistance|0	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Resistance|PREVAREQ:Tiefling_ReplaceFiendishResistance,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceFiendishSorcery|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Sorcery|PREVAREQ:Tiefling_ReplaceFiendishSorcery,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceLanguages|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Languages|PREVAREQ:Tiefling_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceAbilityScores|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingStats
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSkilled|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishSorcery|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceLanguages|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
+
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSkilled=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceFiendishResistance=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishSorcery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceFiendishSorcery=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceLanguages=True

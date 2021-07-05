@@ -23,7 +23,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A EqTypeActor is designed to return the types of a piece of equipment.
@@ -34,7 +33,7 @@ import freemarker.template.TemplateModelException;
 public class EqTypeActor implements OutputActor<Equipment>
 {
 	@Override
-	public TemplateModel process(CharID id, Equipment eq) throws TemplateModelException
+	public TemplateModel process(CharID id, Equipment eq)
 	{
 		//Our own ListModel so that we end up wrapping subcontents on "our terms"
 		return new CollectionModel(id, eq.typeList());

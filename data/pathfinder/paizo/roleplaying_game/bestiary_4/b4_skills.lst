@@ -2,17 +2,21 @@
 # CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
 
-# Skill Name	Key Stat	Untrained?		Type					Var. Must Be Lower			Source Page		Situational Skill						Bonus to skill																																				Temporary effect description													Temporary Bonus
-Craft (Wood)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.91									BONUS:SKILL|Craft (Wood)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Wood)|PRESKILL:1,Craft (Wood)=1																							TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Wood)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CraftToolsWood
-Craft (Wood).MOD																												BONUS:SKILL|Craft (Wood)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Wood))	BONUS:SKILL|Craft (Wood)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Wood))|PRESKILL:1,Craft (Wood)=10
+###Block: New Skills
+# Skill Name	Key Stat	Untrained?		Type					Var. Must Be Lower			Source Page		Bonus to skill																																				Temporary effect description													Temporary Bonus
+Craft (Wood)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.91	BONUS:SKILL|Craft (Wood)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Wood)|PRESKILL:1,Craft (Wood)=1																							TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Wood)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CraftToolsWood
+Craft (Wood).MOD																				BONUS:SKILL|Craft (Wood)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Wood))	BONUS:SKILL|Craft (Wood)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Wood))|PRESKILL:1,Craft (Wood)=10
 
-Acrobatics.MOD																				SITUATION:When boating
-Bluff.MOD																					SITUATION:When playing dead
-Diplomacy.MOD																				SITUATION:Rats
-Disguise.MOD																				SITUATION:Appear as a humanoid
-Perception.MOD																				SITUATION:Sound-based checks
-Stealth.MOD																					SITUATION:In fog or mist
-Stealth.MOD																					SITUATION:In trees
-Stealth.MOD																					SITUATION:Submerged in molten rock or metal
-Stealth.MOD																					SITUATION:When burrowing
-Survival.MOD																				SITUATION:When boating
+###Block: Situational Modifiers
+Acrobatics.MOD	SITUATION:When boating
+Bluff.MOD		SITUATION:against sexually attracted creatures
+Bluff.MOD		SITUATION:When playing dead
+Diplomacy.MOD	SITUATION:Rats
+Disguise.MOD	SITUATION:Appear as a humanoid
+Handle Animal.MOD	SITUATION:against reptiles
+Perception.MOD	SITUATION:Sound-based checks
+Stealth.MOD		SITUATION:In fog or mist
+Stealth.MOD		SITUATION:In trees
+Stealth.MOD		SITUATION:Submerged in molten rock or metal
+Stealth.MOD		SITUATION:When burrowing
+Survival.MOD	SITUATION:When boating

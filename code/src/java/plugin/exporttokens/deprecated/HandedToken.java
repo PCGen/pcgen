@@ -18,7 +18,6 @@
  */
 package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -38,11 +37,7 @@ public class HandedToken extends AbstractExportToken
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
-		String retString = "";
-		if (!display.getSuppressBioField(BiographyField.HANDED))
-		{
-			retString = HandedCompat.getCurrentHandedness(display.getCharID()).toString();
-		}
-		return retString;
+		return HandedCompat
+			.getCurrentHandedness(display.getCharID()).toString();
 	}
 }

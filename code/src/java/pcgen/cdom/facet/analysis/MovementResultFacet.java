@@ -18,11 +18,13 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import pcgen.base.util.NamedValue;
@@ -36,7 +38,6 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Equipment;
@@ -62,7 +63,6 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	private BaseMovementFacet baseMovementFacet;
 	private RaceFacet raceFacet;
 	private TemplateFacet templateFacet;
-	private DeityFacet deityFacet;
 	private EquipmentFacet equipmentFacet;
 	private BonusCheckingFacet bonusCheckingFacet;
 	private UnencumberedArmorFacet unencumberedArmorFacet;
@@ -291,12 +291,13 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 
 		public List<NamedValue> getMovementValues(CharID id)
 		{
-			List<NamedValue> list = new ArrayList<>();
+			Set<NamedValue> set = new TreeSet<>(new MoveSorter());
 			for (MovementType moveType : moveRates.keySet())
 			{
-				list.add(new NamedValue(moveType.toString(), movementOfType(id, moveType)));
+				String moveName = moveType.toString();
+				set.add(new NamedValue(moveName, movementOfType(id, moveType)));
 			}
-			return list;
+			return new ArrayList<>(set);
 		}
 
 		/**
@@ -605,11 +606,6 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		this.templateFacet = templateFacet;
 	}
 
-	public void setDeityFacet(DeityFacet deityFacet)
-	{
-		this.deityFacet = deityFacet;
-	}
-
 	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
 	{
 		this.equipmentFacet = equipmentFacet;
@@ -649,7 +645,6 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(2000, this);
-		deityFacet.addDataFacetChangeListener(2000, this);
 		templateFacet.addDataFacetChangeListener(2000, this);
 	}
 
@@ -686,4 +681,24 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			copymci.moveRates.putAll(mci.moveRates);
 		}
 	}
+	
+	private class MoveSorter implements Comparator<NamedValue>
+	{
+
+		@Override
+		public int compare(NamedValue o1, NamedValue o2)
+		{
+			if (o1.getName().equals("Walk"))
+			{
+				return -1;
+			}
+			if (o2.getName().equals("Walk"))
+			{
+				return 1;
+			}
+			return o1.getName().compareTo(o2.getName());
+		}
+		
+	}
+	
 }

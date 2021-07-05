@@ -6,7 +6,4 @@
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Mutant Special Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MutantSpecialAbility		PLURAL:Mutant Special Abilities		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Mutant Deformity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MutantDeformity			PLURAL:Mutant Deformities			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Lashunta Knowledge Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LashuntaKnowledgeBonus		PLURAL:Lashunta Knowledge Bonuses		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Petrified Maiden Weapon Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PetrifiedMaidenWeaponSelection	PLURAL:Petrified Maiden Weapon Selections	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Android Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Android Racial Trait		PLURAL:Android Racial Traits			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Lashunta Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait		PLURAL:Lashunta Racial Traits			DISPLAYLOCATION:Racial Abilities

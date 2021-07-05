@@ -138,7 +138,7 @@ CLASS:Druid		SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|L
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																		Modify VAR																																																																Monster Role	FACT
 CLASS:Fighter	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:FighterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FighterLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Skill	FACT:ClassType|PC	FACT:Abb|Ftr
 # Class Name	Skill Pts/Lvl
-CLASS:Fighter	STARTSKILLPTS:2
+CLASS:Fighter	STARTSKILLPTS:FighterSkillPoints	DEFINE:FighterSkillPoints|0	BONUS:VAR|FighterSkillPoints|2
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Fighter
 

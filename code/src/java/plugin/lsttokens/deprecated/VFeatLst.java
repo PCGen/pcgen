@@ -18,7 +18,6 @@
 package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -39,17 +38,10 @@ public class VFeatLst extends AbstractNonEmptyToken<CDOMObject>
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
-		try
+		if (!context.processToken(obj, "ABILITY", "FEAT|VIRTUAL|" + value))
 		{
-			if (!context.processToken(obj, "ABILITY", "FEAT|VIRTUAL|" + value))
-			{
-				Logging.replayParsedMessages();
-				return new ParseResult.Fail("Delegation Error from VFEAT");
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from VFEAT: " + e.getLocalizedMessage());
+			Logging.replayParsedMessages();
+			return new ParseResult.Fail("Delegation Error from VFEAT");
 		}
 		return ParseResult.SUCCESS;
 	}

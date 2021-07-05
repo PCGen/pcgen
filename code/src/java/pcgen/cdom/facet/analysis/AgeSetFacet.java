@@ -26,13 +26,14 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.util.CControl;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.Race;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.publish.OutputDB;
 
 /**
@@ -42,8 +43,6 @@ import pcgen.output.publish.OutputDB;
 public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 		implements DataFacetChangeListener<CharID, Object>, ItemFacet<CharID, AgeSet>
 {
-	private AgeFacet ageFacet;
-
 	private RegionFacet regionFacet;
 
 	private RaceFacet raceFacet;
@@ -143,7 +142,7 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 			return 0;
 		}
 
-		int pcAge = ageFacet.getAge(id);
+		int pcAge = (Integer) ChannelUtilities.readControlledChannel(id, CControl.AGEINPUT);
 		int ageSet = -1;
 
 		for (String s : values)
@@ -167,11 +166,6 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 		}
 
 		return ageSet;
-	}
-
-	public void setAgeFacet(AgeFacet ageFacet)
-	{
-		this.ageFacet = ageFacet;
 	}
 
 	public void setRegionFacet(RegionFacet regionFacet)
@@ -199,7 +193,6 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 	{
 		raceFacet.addDataFacetChangeListener(this);
 		regionFacet.addDataFacetChangeListener(this);
-		ageFacet.addDataFacetChangeListener(this);
 		bioSetFacet.addDataFacetChangeListener(this);
 		OutputDB.register("ageset", this);
 	}

@@ -1,0 +1,156 @@
+
+
+# ==============================
+# RACE ABILITIES
+# ==============================
+
+# ------------------------------
+# Skinwalker
+# ------------------------------
+
+###Block: Racial Abilities
+# Ability Name							Ability																			Bonus Ability Pool				FACT
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Size (Small)|PREABILITY:1,CATEGORY=Racial Size,Race Size ~ S	BONUS:ABILITYPOOL|Race Size Selection|1	FACT:RaceSizeAllowed_Small|True
+
+# This race is found in skinwalker_abilities_race_arg.lst
+###Block: Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Skinwalker ~ Ability Scores.MOD		SOURCEPAGE:p.7
+CATEGORY=Special Ability|Skinwalker ~ Type.MOD				SOURCEPAGE:p.7
+CATEGORY=Special Ability|Skinwalker ~ Size.MOD				SOURCEPAGE:p.7
+CATEGORY=Special Ability|Skinwalker ~ Speed.MOD				SOURCEPAGE:p.7
+CATEGORY=Special Ability|Skinwalker ~ Vision.MOD			SOURCEPAGE:p.7
+CATEGORY=Special Ability|Skinwalker ~ Animal-Minded.MOD		SOURCEPAGE:p.7
+CATEGORY=Special Ability|Skinwalker ~ Change Shape.MOD		SOURCEPAGE:p.7
+CATEGORY=Special Ability|Skinwalker ~ Spell-Like Ability.MOD	SOURCEPAGE:p.7
+CATEGORY=Special Ability|Skinwalker ~ Languages.MOD			SOURCEPAGE:p.7
+
+###Block: Replacement Abilities
+# Ability Name	Unique Key				Category of Ability		Type												Visible		Description																																					Template		Modify VAR							Source Page
+Small			KEY:Skinwalker ~ Size (Small)	CATEGORY:Special Ability	TYPE:RacialTraits.Skinwalker Racial Trait.SpecialQuality.Racial Size	VISIBLE:DISPLAY	DESC:Some Skinwalkers are Small creatures and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty to their Combat Maneuver Bonus and Combat Maneuver Defense, and a +4 size bonus on Stealth checks.	TEMPLATE:SIZE_S	BONUS:VAR|Skinwalker_ReplaceSize|1|TYPE=Boolean	SOURCEPAGE:p.7
+
+
+# ------------------------------
+# Skinwalker ~ Werebat-Kin
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name							Source Page
+CATEGORY=Special Ability|Skinwalker ~ Werebat-Kin.MOD	SOURCEPAGE:p.8
+
+###Block: Replacement Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Werebat-Kin ~ Ability Scores.MOD		SOURCEPAGE:p.8
+CATEGORY=Special Ability|Werebat-Kin ~ Animal-Minded.MOD		SOURCEPAGE:p.8
+CATEGORY=Special Ability|Werebat-Kin ~ Change Shape.MOD		SOURCEPAGE:p.8
+CATEGORY=Special Ability|Werebat-Kin ~ Spell-Like Ability.MOD	SOURCEPAGE:p.8
+
+
+# ------------------------------
+# Skinwalker ~ Werebear-Kin
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name								Source Page
+CATEGORY=Special Ability|Skinwalker ~ Werebear-Kin.MOD	SOURCEPAGE:p.10
+
+###Block: Replacement Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Werebear-Kin ~ Ability Scores.MOD		SOURCEPAGE:p.10
+CATEGORY=Special Ability|Werebear-Kin ~ Animal-Minded.MOD		SOURCEPAGE:p.10
+CATEGORY=Special Ability|Werebear-Kin ~ Change Shape.MOD		SOURCEPAGE:p.10
+CATEGORY=Special Ability|Werebear-Kin ~ Spell-Like Ability.MOD	SOURCEPAGE:p.10
+
+
+# ------------------------------
+# Skinwalker ~ Wereboar-Kin
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name								Source Page
+CATEGORY=Special Ability|Skinwalker ~ Wereboar-Kin.MOD	SOURCEPAGE:p.12
+
+###Block: Replacement Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Wereboar-Kin ~ Ability Scores.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Wereboar-Kin ~ Animal-Minded.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Wereboar-Kin ~ Change Shape.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Wereboar-Kin ~ Spell-Like Ability.MOD	SOURCEPAGE:p.12
+
+
+# ------------------------------
+# Skinwalker ~ Werecrocodile-Kin
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name								Source Page
+CATEGORY=Special Ability|Skinwalker ~ Werecrocodile-Kin.MOD	SOURCEPAGE:p.14
+
+###Block: Replacement Racial Traits
+# Ability Name										Source Page
+CATEGORY=Special Ability|Werecrocodile-Kin ~ Ability Scores.MOD		SOURCEPAGE:p.14
+CATEGORY=Special Ability|Werecrocodile-Kin ~ Animal-Minded.MOD		SOURCEPAGE:p.14
+CATEGORY=Special Ability|Werecrocodile-Kin ~ Change Shape.MOD		SOURCEPAGE:p.14
+CATEGORY=Special Ability|Werecrocodile-Kin ~ Spell-Like Ability.MOD	SOURCEPAGE:p.14
+
+
+# ------------------------------
+# Skinwalker ~ Wererat-Kin
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name							Source Page
+CATEGORY=Special Ability|Skinwalker ~ Wererat-Kin.MOD	SOURCEPAGE:p.16
+
+###Block: Replacement Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Wererat-Kin ~ Ability Scores.MOD		SOURCEPAGE:p.16
+CATEGORY=Special Ability|Wererat-Kin ~ Animal-Minded.MOD		SOURCEPAGE:p.16
+CATEGORY=Special Ability|Wererat-Kin ~ Change Shape.MOD		SOURCEPAGE:p.16
+CATEGORY=Special Ability|Wererat-Kin ~ Spell-Like Ability.MOD	SOURCEPAGE:p.16
+
+
+# ------------------------------
+# Skinwalker ~ Wereshark-Kin
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name								Source Page
+CATEGORY=Special Ability|Skinwalker ~ Wereshark-Kin.MOD	SOURCEPAGE:p.18
+
+###Block: Replacement Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Wereshark-Kin ~ Ability Scores.MOD		SOURCEPAGE:p.18
+CATEGORY=Special Ability|Wereshark-Kin ~ Animal-Minded.MOD		SOURCEPAGE:p.18
+CATEGORY=Special Ability|Wereshark-Kin ~ Change Shape.MOD		SOURCEPAGE:p.18
+CATEGORY=Special Ability|Wereshark-Kin ~ Spell-Like Ability.MOD	SOURCEPAGE:p.18
+
+# ------------------------------
+# Skinwalker ~ Weretiger-Kin
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name								Source Page
+CATEGORY=Special Ability|Skinwalker ~ Weretiger-Kin.MOD	SOURCEPAGE:p.20
+
+###Block: Replacement Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Weretiger-Kin ~ Ability Scores.MOD		SOURCEPAGE:p.20
+CATEGORY=Special Ability|Weretiger-Kin ~ Animal-Minded.MOD		SOURCEPAGE:p.20
+CATEGORY=Special Ability|Weretiger-Kin ~ Change Shape.MOD		SOURCEPAGE:p.20
+CATEGORY=Special Ability|Weretiger-Kin ~ Spell-Like Ability.MOD	SOURCEPAGE:p.20
+
+# ------------------------------
+# Skinwalker ~ Skinwalker ~ Werewolf-Kin
+# ------------------------------
+
+###Block: Subrace Selection
+# Ability Name								Source Page
+CATEGORY=Special Ability|Skinwalker ~ Werewolf-Kin.MOD	SOURCEPAGE:p.22
+
+###Block: Replacement Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Werewolf-Kin ~ Ability Scores.MOD		SOURCEPAGE:p.22
+CATEGORY=Special Ability|Werewolf-Kin ~ Animal-Minded.MOD		SOURCEPAGE:p.22
+CATEGORY=Special Ability|Werewolf-Kin ~ Change Shape.MOD		SOURCEPAGE:p.22
+CATEGORY=Special Ability|Werewolf-Kin ~ Spell-Like Ability.MOD	SOURCEPAGE:p.22

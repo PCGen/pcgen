@@ -2,4 +2,9 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Language	Type
-Xenophobic	TYPE:Spoken.Written.Read
+Azlanti	NAMEISPI:YES	TYPE:Spoken.Written.Read.AncientLanguage
+Nagaji				TYPE:Spoken.Written.Read
+Samsaran				TYPE:Spoken.Written.Read
+Strix					TYPE:Spoken.Written.Read
+Wayang				TYPE:Spoken.Written.Read
+Xenophobic				TYPE:Spoken.Written.Read

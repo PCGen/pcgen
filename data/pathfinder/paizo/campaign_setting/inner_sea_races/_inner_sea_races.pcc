@@ -7,12 +7,15 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
-PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -66,9 +69,21 @@ SKILL:isr_skills.lst
 SPELL:isr_spells.lst
 TEMPLATE:isr_templates.lst
 
-ABILITY:support/abilities_pots.lst|PRECAMPAIGN:1,INCLUDES=People of the Stars
-ABILITY:support/isr_abilities_botm.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
-ABILITY:support/isr_abilities_botn.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Night
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\aquatic elf\_aquaticelf_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gathlain\_gathlain_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kasatha\_kasatha_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_lashunta_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey goblin\_monkeygoblin_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race_subrace.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\syrinx\_syrinx_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\triaxian\_triaxian_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\trox\_trox_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyrwood\_wyrwood_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyvaran\_wyvaran_race.pcc
+
 
 FORWARDREF:CLASSSPELLLIST|Bloodrager,Shaman
 FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist

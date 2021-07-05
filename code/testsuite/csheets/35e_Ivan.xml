@@ -43,14 +43,14 @@ BIO
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
-			<name></name>
+			<name>None</name>
 			<alignment></alignment>
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
-			<source></source>
+			<source>PCGen Team - PCGen Testing Set</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -320,7 +320,7 @@ BIO
 		</skillpoints>
 		<list_mods>Athletics +1, Uber Scripting from five ranks in Test Coding Script +1</list_mods>
 		<max_class_skill_level>6</max_class_skill_level>
-		<max_cross_class_skill_level>3</max_cross_class_skill_level>
+		<max_cross_class_skill_level>3.0</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>

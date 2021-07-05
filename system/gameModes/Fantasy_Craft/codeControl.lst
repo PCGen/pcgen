@@ -1,3 +1,5 @@
-# This is a YES/NO code control to enable "Domain" throughout a game mode
-DOMAINFEATURE:YES
+# This is a YES/NO code control to enable "Alignment" throughout a game mode
+ALIGNMENTFEATURE:NO
 
+# This is a YES/NO code control to enable "Domain" throughout a game mode
+DOMAINFEATURE:NO

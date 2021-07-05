@@ -27,12 +27,12 @@ public class DomainTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Domain>
 {
 
-	static DomainToken pca = new DomainToken();
+	private static final DomainToken PCA = new DomainToken();
 
 	@Override
 	public Chooser<Domain> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

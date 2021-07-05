@@ -28,12 +28,12 @@ public class SpellLevelTokenTest extends
 		AbstractPersistentChoiceActorTestCase<SpellLevel>
 {
 
-	static SpellLevelToken pca = new SpellLevelToken();
+	private static final SpellLevelToken PCA = new SpellLevelToken();
 
 	@Override
 	public Chooser<SpellLevel> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

@@ -1,0 +1,21 @@
+
+
+# ------------------------------
+# Lashunta
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsLashunta	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Lashunta	EXPLANATION:Determines whether the character is a Lashunta
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Lashunta_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Lashunta_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Lashunta_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Lashunta_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Lashunta_ReplaceSexualDimorphism	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Sexual Dimorphism	EXPLANATION:Replaces the Sexual Dimorphism Racial Trait
+FACTDEF:ABILITY|Lashunta_ReplaceLashuntaMagic		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Lashunta Magic	EXPLANATION:Replaces the Lashunta Magic Racial Trait
+FACTDEF:ABILITY|Lashunta_ReplaceKnowledgeable		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Knowledgeable	EXPLANATION:Replaces the Knowledgeable Racial Trait
+FACTDEF:ABILITY|Lashunta_ReplaceLimitedTelepathy	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Limited Telepathy	EXPLANATION:Replaces the Limited Telepathy Racial Trait
+FACTDEF:ABILITY|Lashunta_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Lashunta Languages		EXPLANATION:Replaces the Languages Racial Trait

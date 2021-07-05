@@ -115,6 +115,11 @@ public final class CControl
 	public static final String COSTMULTIPLIER = "COSTMULTIPLIER";
 
 	/**
+	 * Code Control for the Age Input Channel.
+	 */
+	public static final CControl AGEINPUT = new CControl("AGEINPUT", "Age", Optional.empty(), "NUMBER", true, false);
+
+	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment", Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);
@@ -125,10 +130,35 @@ public final class CControl
 	public static final String ALIGNMENTFEATURE = "ALIGNMENTFEATURE";
 
 	/**
+	 * Code Control for the Hair Style Input Channel.
+	 */
+	public static final CControl CHARACTERTYPE = new CControl("CHARACERTYPE", "CharacterType", Optional.empty(), "STRING", true, false);
+	
+	/**
 	 * Enable/Disable the DomainFeature
 	 */
 	public static final String DOMAINFEATURE = "DOMAINFEATURE";
 
+	/**
+	 * Code control for the Deity of a PC.
+	 */
+	public static final CControl DEITYINPUT = new CControl("DEITYINPUT", "Deity", Optional.of("DOMAINFEATURE"), "DEITY", true, true);
+
+	/**
+	 * Code Control for the Gold Input Channel.
+	 */
+	public static final CControl GOLDINPUT = new CControl("GOLDINPUT", "Gold", Optional.empty(), "NUMBER", true, false);
+	
+	/**
+	 * Code Control for the Hair Color Input Channel.
+	 */
+	public static final CControl HAIRCOLORINPUT = new CControl("HAIRCOLORINPUT", "HairColor", Optional.empty(), "STRING", true, false);
+
+	/**
+	 * Code Control for the Hair Style Input Channel.
+	 */
+	public static final CControl HAIRSTYLEINPUT = new CControl("HAIRSTYLEINPUT", "HairStyle", Optional.empty(), "STRING", true, false);
+	
 	/**
 	 * Code control for the Handedness of a PC.
 	 */
@@ -139,6 +169,16 @@ public final class CControl
 	 */
 	public static final CControl AVAILHANDEDNESS = new CControl("AVAILHANDEDNESS", "AvailableHandedness", Optional.empty(), "ARRAY[HANDED]", true, false);
 
+	/**
+	 * Code Control for the Height Input Channel.
+	 */
+	public static final CControl HEIGHTINPUT = new CControl("HEIGHTINPUT", "Height", Optional.empty(), "NUMBER", true, false);
+	
+	/**
+	 * Code Control for the Skin Color Input Channel.
+	 */
+	public static final CControl SKINCOLORINPUT = new CControl("SKINCOLORINPUT", "SkinColor", Optional.empty(), "STRING", true, false);
+	
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code
 	 * Control is already used internally and is overridden by data (rather than just

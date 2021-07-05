@@ -7,3 +7,9 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # Ability Name			Category of Ability		Type
 Remove Human Skill Bonus	CATEGORY:Special Ability	TYPE:HumanSkillBonus
 #COMMENT: This makes humans work correctly in eclipse
+
+Race Traits ~ Psicrystal				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted|Psicrystal ~ Skills
+
+# Psicrystal
+Sighted			KEY:Psicrystal ~ Sighted			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:Although it has no physical sensory organs, a psicrystal can telepathically sense its environment as well as a creature with normal vision and hearing. Darkness (even supernatural darkness) is irrelevant, as are areas of supernatural silence, though a psicrystal still can't discern invisible or ethereal beings. A psicrystal's sighted range is 40 feet.
+Skills			KEY:Psicrystal ~ Skills				CATEGORY:Special Ability	TYPE:SpecialQuality							DESC:A psicrystal has the same skill ranks as its owner, except that it has a minimum of 4 ranks each in Spot, Listen, Move Silently, and Search. (Even if its owner has no ranks in these skills, a psicrystal has 4 ranks in each.) A psicrystal uses its own ability modifiers on skill checks.																																																																										BONUS:SKILL|Spot|4|-min(4,skillinfo("TOTALRANK","Spot"))	BONUS:SKILL|Listen|4|-min(4,skillinfo("TOTALRANK","Listen"))	BONUS:SKILL|Move Silently|4|-min(4,skillinfo("TOTALRANK","Move Silently"))	BONUS:SKILL|Search|4|-min(4,skillinfo("TOTALRANK","Search"))

@@ -1,180 +1,222 @@
 
 ###Block: Racial Traits - Featured Races
 
-# Aasimar
-FACTDEF:ABILITY|Aasimar_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Ability Scores		EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Aasimar_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Type				EXPLANATION:Replaces the Native Outsider Racial Trait
-FACTDEF:ABILITY|Aasimar_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Size				EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Aasimar_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Aasimar_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Vision				EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Aasimar_ReplaceSkilled			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Skilled				EXPLANATION:Replaces the Skilled Racial Trait
-FACTDEF:ABILITY|Aasimar_ReplaceSpellLikeAbility		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Spell-Like Ability		EXPLANATION:Replaces the Spell-Like Ability Racial Trait
-FACTDEF:ABILITY|Aasimar_ReplaceCelestialResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Celestial Resistance	EXPLANATION:Replaces the Celestial Resistance Racial Trait
-FACTDEF:ABILITY|Aasimar_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Languages			EXPLANATION:Replaces the Languages Racial Trait
+# Aasimar - B1
 
-# Catfolk
+# Catfolk - B3
 
-# Dhampir
+# Dhampir - B2
 
-# Drow
-FACTDEF:ABILITY|Drow_ReplaceAbilityScores			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Ability Scores			EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Drow_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Type					EXPLANATION:Replaces the Elf Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Size					EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceSpeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceVision				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Vision				EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceDrowImmunities		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Drow Immunities			EXPLANATION:Replaces the Drow Immunities Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceKeenSenses			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Keen Senses			EXPLANATION:Replaces the Keen Senses Racial Trait
-FACTDEF:ABILITY|Drow_ReplacePoisonUse			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Poison Use				EXPLANATION:Replaces the Poison Use Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceSpellResistance		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Spell Resistance			EXPLANATION:Replaces the Spell Resistance Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceSpellLikeAbility		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Spell-Like Ability		EXPLANATION:Replaces the Spell-Like Ability Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceLightBlindness		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Light Blindness			EXPLANATION:Replaces the Light Blindness Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceWeaponFamiliarity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Weapon Familiarity		EXPLANATION:Replaces the Weapon Familiarity Racial Trait
-FACTDEF:ABILITY|Drow_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Languages				EXPLANATION:Replaces the Languages Racial Trait
+# Drow - B1
 
-# Fetchling
+# Fetchling - B2
 
-# Goblin
-FACTDEF:ABILITY|Goblin_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Ability Scores			EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Goblin_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Type				EXPLANATION:Replaces the Goblinoid Racial Trait
-FACTDEF:ABILITY|Goblin_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Size				EXPLANATION:Replaces the Small Racial Trait
-FACTDEF:ABILITY|Goblin_ReplaceSpeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Goblin_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Vision				EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Goblin_ReplaceSkilled			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Skilled				EXPLANATION:Replaces the Skilled Racial Trait
-FACTDEF:ABILITY|Goblin_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Languages			EXPLANATION:Replaces the Languages Racial Trait
+# Goblin - B1
 
-# Hobgoblin
-FACTDEF:ABILITY|Hobgoblin_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Ability Scores		EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Hobgoblin_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Type				EXPLANATION:Replaces the Goblinoid Racial Trait
-FACTDEF:ABILITY|Hobgoblin_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Size				EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Hobgoblin_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Hobgoblin_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Vision			EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Hobgoblin_ReplaceSneaky			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Sneaky			EXPLANATION:Replaces the Sneaky Racial Trait
-FACTDEF:ABILITY|Hobgoblin_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Languages			EXPLANATION:Replaces the Languages Racial Trait
+# Hobgoblin - B1
 
-# Ifrit
+# Ifrit - B2
 
-# Kobold
-FACTDEF:ABILITY|Kobold_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Ability Scores			EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Kobold_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Type				EXPLANATION:Replaces the Reptilian Racial Trait
-FACTDEF:ABILITY|Kobold_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Size				EXPLANATION:Replaces the Small Racial Trait
-FACTDEF:ABILITY|Kobold_ReplaceSpeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Kobold_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Vision				EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Kobold_ReplaceArmor				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Armor				EXPLANATION:Replaces the Armor Racial Trait
-FACTDEF:ABILITY|Kobold_ReplaceCrafty			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Crafty				EXPLANATION:Replaces the Crafty Racial Trait
-FACTDEF:ABILITY|Kobold_ReplaceWeakness			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Weakness				EXPLANATION:Replaces the Weakness Racial Trait
-FACTDEF:ABILITY|Kobold_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Languages			EXPLANATION:Replaces the Languages Racial Trait
+# Kobold - B1
 
-# Orc
-FACTDEF:ABILITY|Orc_ReplaceAbilityScores			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Ability Scores			EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Orc_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Type					EXPLANATION:Replaces the Orc Racial Trait
-FACTDEF:ABILITY|Orc_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Size					EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Orc_ReplaceSpeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Speed					EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Orc_ReplaceVision				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Vision				EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Orc_ReplaceLightSensitivity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Light Sensitivity			EXPLANATION:Replaces the Light Sensitivity Racial Trait
-FACTDEF:ABILITY|Orc_ReplaceFerocity				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Ferocity				EXPLANATION:Replaces the Ferocity Racial Trait
-FACTDEF:ABILITY|Orc_ReplaceWeaponFamiliarity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Weapon Familiarity		EXPLANATION:Replaces the Weapon Familiarity Racial Trait
-FACTDEF:ABILITY|Orc_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Orc Languages				EXPLANATION:Replaces the Languages Racial Trait
+# Orc - B1
 
-# Oread
+# Oread - B2
 
-# Ratfolk
+# Ratfolk - B3
 
-# Sylph
+# Sylph - B2
 
-# Tengu
-FACTDEF:ABILITY|Tengu_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Ability Scores			EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Tengu_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Type				EXPLANATION:Replaces the Tengu Racial Trait
-FACTDEF:ABILITY|Tengu_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Size				EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Tengu_ReplaceSpeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Tengu_ReplaceVision				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Vision				EXPLANATION:Replaces the Senses Racial Trait
-FACTDEF:ABILITY|Tengu_ReplaceSneaky				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Sneaky				EXPLANATION:Replaces the Sneaky Racial Trait
-FACTDEF:ABILITY|Tengu_ReplaceGiftedLinguist		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Gifted Linguist			EXPLANATION:Replaces the Gifted Linguist Racial Trait
-FACTDEF:ABILITY|Tengu_ReplaceSwordtrained			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Swordtrained			EXPLANATION:Replaces the Swordtrained Racial Trait
-FACTDEF:ABILITY|Tengu_ReplaceNaturalWeapon		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Natural Weapon			EXPLANATION:Replaces the Natural Weapon Racial Trait
-FACTDEF:ABILITY|Tengu_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Languages				EXPLANATION:Replaces the Languages Racial Trait
+# Tengu - B1 / Alternate Languages in DEP/DEG
 
-# Tiefling
-FACTDEF:ABILITY|Tiefling_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Ability Scores		EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Tiefling_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Type				EXPLANATION:Replaces the Native Outsider Racial Trait
-FACTDEF:ABILITY|Tiefling_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Size				EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Tiefling_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
-FACTDEF:ABILITY|Tiefling_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Vision				EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Tiefling_ReplaceSkilled			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Skilled			EXPLANATION:Replaces the Skilled Racial Trait
-FACTDEF:ABILITY|Tiefling_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Spell-Like Ability		EXPLANATION:Replaces the Spell-Like Ability Racial Trait
-FACTDEF:ABILITY|Tiefling_ReplaceFiendishResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Fiendish Resistance	EXPLANATION:Replaces the Fiendish Resistance Racial Trait
-FACTDEF:ABILITY|Tiefling_ReplaceFiendishSorcery		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Fiendish Sorcery		EXPLANATION:Replaces the Fiendish Sorcery Racial Trait
-FACTDEF:ABILITY|Tiefling_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Languages			EXPLANATION:Replaces the Languages Racial Trait
+# Tiefling - B1
 
-# Undine
+# Undine - B2
 
 ###Block: Racial Traits - Uncommon Races
 
-# Changeling
 
-# Duergar
-FACTDEF:ABILITY|Duergar_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Ability Scores		EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Duergar_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Type				EXPLANATION:Replaces the Dwarf Racial Trait
-FACTDEF:ABILITY|Duergar_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Size				EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Duergar_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Speed				EXPLANATION:Replaces the Slow and Steady Racial Trait
-FACTDEF:ABILITY|Duergar_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Vision				EXPLANATION:Replaces the Superior Darkvision Racial Trait
-FACTDEF:ABILITY|Duergar_ReplaceDuergarImmunities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Duergar Immunities		EXPLANATION:Replaces the Duergar Immunities Racial Trait
-FACTDEF:ABILITY|Duergar_ReplaceStability			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Stability			EXPLANATION:Replaces the Stability Racial Trait
-FACTDEF:ABILITY|Duergar_ReplaceSpellLikeAbility		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Spell-Like Ability		EXPLANATION:Replaces the Spell-Like Ability Racial Trait
-FACTDEF:ABILITY|Duergar_ReplaceLightSensitivity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Light Sensitivity		EXPLANATION:Replaces the Light Sensitivity Racial Trait
-FACTDEF:ABILITY|Duergar_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Languages			EXPLANATION:Replaces the Languages Racial Trait
+# ------------------------------
+# Changeling - Also B4
+# ------------------------------
 
-# Gillman
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsChangeling	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Changeling	EXPLANATION:Determines whether the character is a Changeling
 
-# Grippli
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Changeling_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Speed		EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Vision		EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceHagRacialTrait	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Hag Trait		EXPLANATION:Replaces the Hag Trait Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceClaws			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Claws		EXPLANATION:Replaces the Claws Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceNaturalArmor		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Natural Armor	EXPLANATION:Replaces the Natural Armor Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Languages		EXPLANATION:Replaces the Languages Racial Trait
 
-# Kitsune
 
-# Merfolk
-FACTDEF:ABILITY|Merfolk_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Ability Scores		EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Merfolk_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Type				EXPLANATION:Replaces the Aquatic Racial Trait
-FACTDEF:ABILITY|Merfolk_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Size				EXPLANATION:Replaces the Medium Racial Trait
-FACTDEF:ABILITY|Merfolk_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Speed				EXPLANATION:Replaces the Slow Speed Racial Trait
-FACTDEF:ABILITY|Merfolk_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Vision				EXPLANATION:Replaces the Low-Light Vision Racial Trait
-FACTDEF:ABILITY|Merfolk_ReplaceAmphibious			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Amphibious			EXPLANATION:Replaces the Amphibious Racial Trait
-FACTDEF:ABILITY|Merfolk_ReplaceArmor			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Armor				EXPLANATION:Replaces the Armor Racial Trait
-FACTDEF:ABILITY|Merfolk_ReplaceLegless			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Legless				EXPLANATION:Replaces the Legless Racial Trait
-FACTDEF:ABILITY|Merfolk_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Languages			EXPLANATION:Replaces the Languages Racial Trait
+# ------------------------------
+# Duergar - B1
+# ------------------------------
 
-# Nagaji
 
-# Samsaran
+# ------------------------------
+# Gillman - Also ISWG
+# ------------------------------
 
-# Strix
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsGillman	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gillman	EXPLANATION:Determines whether the character is a Gillman
 
-# Suli
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|Gillman_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Type				EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Size				EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Speed				EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceAmphibious			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Amphibious			EXPLANATION:Replaces the Amphibious Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceEnchantmentResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Enchantment Resistance	EXPLANATION:Replaces the Enchantment Resistance Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceServitor			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Servitor			EXPLANATION:Replaces the Servitor Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceWaterDependent		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Water Dependent		EXPLANATION:Replaces the Water Dependent Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Languages			EXPLANATION:Replaces the Languages Racial Trait
 
-# Svirfneblin
-FACTDEF:ABILITY|Svirfneblin_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Ability Scores		EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Svirfneblin_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Type			EXPLANATION:Replaces the Gnome Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Size			EXPLANATION:Replaces the Small Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Speed			EXPLANATION:Replaces the Slow Speed Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Vision			EXPLANATION:Replaces the Senses Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceDefensiveTraining	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Defensive Training	EXPLANATION:Replaces the Defensive Training Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceFortunate		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Fortunate			EXPLANATION:Replaces the Fortunate Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceSkilled		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Skilled			EXPLANATION:Replaces the Skilled Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceHatred			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Hatred			EXPLANATION:Replaces the Hatred Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceStonecunning		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Stonecunning		EXPLANATION:Replaces the Stonecunning Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceSpellResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Spell Resistance	EXPLANATION:Replaces the Spell Resistance Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceSvirfneblinMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Svirfneblin Magic	EXPLANATION:Replaces the Svirfneblin Magic Racial Trait
-FACTDEF:ABILITY|Svirfneblin_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Languages			EXPLANATION:Replaces the Languages Racial Trait
 
-# Vanara
+# ------------------------------
+# Grippli - B2
+# ------------------------------
 
-# Vishkanya
 
-# Wayang
-FACTDEF:ABILITY|Wayang_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Ability Scores			EXPLANATION:Replaces the Ability Scores
-FACTDEF:ABILITY|Wayang_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Type				EXPLANATION:Replaces the Wayang Racial Trait
-FACTDEF:ABILITY|Wayang_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Size				EXPLANATION:Replaces the Small Racial Trait
-FACTDEF:ABILITY|Wayang_ReplaceSpeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Speed				EXPLANATION:Replaces the Slow Speed Racial Trait
-FACTDEF:ABILITY|Wayang_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Vision				EXPLANATION:Replaces the Darkvision Racial Trait
-FACTDEF:ABILITY|Wayang_ReplaceLightAndDark		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Light and Dark			EXPLANATION:Replaces the Light and Dark Racial Trait
-FACTDEF:ABILITY|Wayang_ReplaceLurker			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Lurker				EXPLANATION:Replaces the Lurker Racial Trait
-FACTDEF:ABILITY|Wayang_ReplaceShadowMagic			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Shadow Magic			EXPLANATION:Replaces the Shadow Magic Racial Trait
-FACTDEF:ABILITY|Wayang_ReplaceShadowResistance		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Shadow Resistance		EXPLANATION:Replaces the Shadow Resistance Racial Trait
-FACTDEF:ABILITY|Wayang_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Languages			EXPLANATION:Replaces the Languages Racial Trait
+# ------------------------------
+# Kitsune - Also in B4 / Alternate Languages in DEP/DEG
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsKitsune	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Kitsune	EXPLANATION:Determines whether the character is a Kitsune
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Kitsune_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceChangeShape	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Change Shape		EXPLANATION:Replaces the Change Shape Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceAgile		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Agile			EXPLANATION:Replaces the Agile Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceKitsuneMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Kitsune Magic		EXPLANATION:Replaces the Kitsune Magic Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceNaturalWeapons	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Natural Weapons	EXPLANATION:Replaces the Natural Weapons Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Languages		EXPLANATION:Replaces the Languages Racial Trait
+
+
+# ------------------------------
+# Merfolk - B1
+# ------------------------------
+
+
+# ------------------------------
+# Nagaji - Also in B4 / Alternate Languages in DEP/DEG
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsNagaji	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Nagaji	EXPLANATION:Determines whether the character is a Nagaji
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Nagaji_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceArmoredScales	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Armored Scales		EXPLANATION:Replaces the Armored Scales Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceResistant		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Resistant		EXPLANATION:Replaces the Resistant Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSerpentsSense	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Serpent's Sense	EXPLANATION:Replaces the Serpent's Sense Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Languages		EXPLANATION:Replaces the Languages Racial Trait
+
+
+# ------------------------------
+# Samsaran - Also in B4 / Alternate Languages in DEP/DEG
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsSamsaran	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Samsaran	EXPLANATION:Determines whether the character is a Samsaran
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Samsaran_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceType		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSize		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceLifebound		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Lifebound		EXPLANATION:Replaces the Lifebound Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSamsaranMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Samsaran Magic	EXPLANATION:Replaces the Samsaran Magic Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceShardsOfThePast	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Shards of the Past	EXPLANATION:Replaces the Shards of the Past Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Languages		EXPLANATION:Replaces the Languages Racial Trait
+
+
+# ------------------------------
+# Strix - Also ISWG
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsStrix	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Strix	EXPLANATION:Determines whether the character is a Strix
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname						Explanation
+FACTDEF:ABILITY|Strix_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Type		EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Size		EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Speed		EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceLowLightVision	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Vision		EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceFlight			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Flight		EXPLANATION:Replaces the Flight Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceDarkvision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Darkvision	EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceHatred			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Hatred		EXPLANATION:Replaces the Hatred Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceNocturnal		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Nocturnal		EXPLANATION:Replaces the Nocturnal Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceSuspicious		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Suspicious	EXPLANATION:Replaces the Suspicious Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Languages		EXPLANATION:Replaces the Languages Racial Trait
+
+
+# ------------------------------
+# Suli - B3
+# ------------------------------
+
+
+# ------------------------------
+# Svirfneblin - B1
+# ------------------------------
+
+
+# ------------------------------
+# Vanara - B3
+# ------------------------------
+
+
+# ------------------------------
+# Vishkanya - B3
+# ------------------------------
+
+
+# ------------------------------
+# Wayang - Also in B4 / Alternate Languages in DEP/DEG
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsWayang	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Wayang	EXPLANATION:Determines whether the character is a Wayang
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Wayang_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLightAndDark	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Light and Dark		EXPLANATION:Replaces the Light and Dark Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLurker		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Lurker			EXPLANATION:Replaces the Lurker Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceShadowMagic		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Shadow Magic		EXPLANATION:Replaces the Shadow Magic Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceShadowResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Shadow Resistance	EXPLANATION:Replaces the Shadow Resistance Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Languages		EXPLANATION:Replaces the Languages Racial Trait

@@ -29,7 +29,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -128,16 +127,9 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements C
 		derivative.put(IntegerKey.HD_MAX, maxhd);
 		context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
 		context.getObjectContext().addToList(template, ListKey.HD_TEMPLATES, derivative);
-		try
+		if (context.processToken(derivative, typeStr, argument))
 		{
-			if (context.processToken(derivative, typeStr, argument))
-			{
-				return ParseResult.SUCCESS;
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getMessage());
+			return ParseResult.SUCCESS;
 		}
 		return ParseResult.INTERNAL_ERROR;
 	}

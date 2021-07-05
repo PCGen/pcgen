@@ -42,7 +42,7 @@ public class HdToken implements CDOMPrimaryToken<PCClass>
 		try
 		{
 			int in = Integer.parseInt(value);
-			if ((int) in <= 0)
+			if (in <= 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " must be an integer > 0");
 			}

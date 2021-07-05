@@ -207,6 +207,30 @@ public final class ChannelUtilities
 
 	/**
 	 * Sets up the given DataFacetChangeListener to receive a DataFacetChangeEvent when
+	 * the value of the given channel on the given PC changes. This provides compatibility
+	 * for facets that wish to listen to the new variable system.
+	 * 
+	 * Note that this currently supports Item-based channels, not lists
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter on which the channel should be watched
+	 * @param codeControl
+	 *            The name of the channel to be watched
+	 * @param listener
+	 *            The listener to receive an event when the value of the channel changes
+	 * @param priority
+	 *            The priority of the listener for receiving changes (The lower the
+	 *            priority the earlier in the list the new listener will get advised of
+	 *            the change)
+	 */
+	public static void watchChannel(PlayerCharacter pc, CControl codeControl,
+		DataFacetChangeListener<CharID, ?> listener, int priority)
+	{
+		ChannelUtilities.watchChannel(pc.getCharID(), pc.getControl(codeControl), listener, priority);
+	}
+
+	/**
+	 * Sets up the given DataFacetChangeListener to receive a DataFacetChangeEvent when
 	 * the value of a channel changes. This provides compatibility for facets that wish to
 	 * listen to the new variable system.
 	 * 

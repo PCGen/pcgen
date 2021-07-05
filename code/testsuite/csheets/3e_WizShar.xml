@@ -36,14 +36,14 @@ BIO
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
-			<name></name>
+			<name>None</name>
 			<alignment></alignment>
-			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
-			<holyitem></holyitem>
+			<description>Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html</description>
+			<domainlist>Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water</domainlist>
+			<favoredweapon>ANY</favoredweapon>
+			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
-			<source></source>
+			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -305,7 +305,7 @@ BIO
 		</skillpoints>
 		<list_mods>Bluff +2, Craft (Carpentry) +5, Craft (Gemcutting) +5, Literacy +1</list_mods>
 		<max_class_skill_level>4</max_class_skill_level>
-		<max_cross_class_skill_level>2</max_cross_class_skill_level>
+		<max_cross_class_skill_level>2.0</max_cross_class_skill_level>
 		<skill>
 			<name>Appraise</name>
 			<ranks>0.0</ranks>

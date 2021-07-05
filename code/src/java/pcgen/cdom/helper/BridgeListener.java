@@ -46,6 +46,11 @@ public class BridgeListener
 	private final CharID id;
 
 	/**
+	 * The source granting the variable this BridgeListener maintains
+	 */
+	private final Object source;
+
+	/**
 	 * Constructs a new BridgeListener for the given CharID which will use the given
 	 * AbstractSourcedListFacet
 	 * 
@@ -56,26 +61,26 @@ public class BridgeListener
 	 *            Facet events
 	 */
 	public BridgeListener(CharID id,
-		AbstractSourcedListFacet<CharID, PCGenScoped> variableBridgeFacet)
+		AbstractSourcedListFacet<CharID, PCGenScoped> variableBridgeFacet, Object source)
 	{
 		this.variableBridgeFacet = Objects.requireNonNull(variableBridgeFacet);
 		this.id = Objects.requireNonNull(id);
+		this.source = Objects.requireNonNull(source);
 	}
 
 	@Override
 	public void variableChanged(VariableChangeEvent<Object> vcEvent)
 	{
-		processChange(vcEvent.getOldValue(), vcEvent.getNewValue(),
-			vcEvent.getSource());
+		processChange(vcEvent.getOldValue(), vcEvent.getNewValue());
 	}
 
 	@Override
 	public void referenceChanged(ReferenceEvent<Object> e)
 	{
-		processChange(e.getOldReference(), e.getNewReference(), e.getSource());
+		processChange(e.getOldReference(), e.getNewReference());
 	}
 
-	private void processChange(Object oldValue, Object newValue, Object source)
+	private void processChange(Object oldValue, Object newValue)
 	{
 		/*
 		 * CONSIDER This is a hard-coding based on array - which is quirky
@@ -107,7 +112,7 @@ public class BridgeListener
 	@Override
 	public int hashCode()
 	{
-		return id.hashCode() * 31 + variableBridgeFacet.hashCode();
+		return (id.hashCode() * 31 + variableBridgeFacet.hashCode()) * 31 + source.hashCode();
 	}
 
 	@Override
@@ -117,7 +122,8 @@ public class BridgeListener
 		{
 			BridgeListener other = (BridgeListener) obj;
 			return id.equals(other.id)
-				&& variableBridgeFacet.equals(other.variableBridgeFacet);
+				&& variableBridgeFacet.equals(other.variableBridgeFacet)
+				&& source.equals(other.source);
 		}
 		return false;
 	}

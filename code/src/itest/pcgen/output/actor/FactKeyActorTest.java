@@ -27,6 +27,7 @@ import pcgen.core.Race;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -40,6 +41,12 @@ class FactKeyActorTest extends AbstractOutputTestCase
 	{
 		OutputDB.reset();
 		DF.init();
+	}
+
+	@AfterAll
+	static void classTearDown()
+	{
+		OutputDB.reset();
 	}
 
 	@Test

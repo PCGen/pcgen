@@ -9,6 +9,9 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,Pathfinder Society Core Assumption
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo

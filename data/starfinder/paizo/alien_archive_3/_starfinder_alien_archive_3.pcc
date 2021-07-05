@@ -1,0 +1,58 @@
+# Sun Aug 23 16:50:57 2020 -- reformatted by PCGen TidyLst v1.04.00
+CAMPAIGN:Starfinder Alien Archive 3
+KEY:Starfinder Alien Archive 3
+RANK:1
+BOOKTYPE:Supplement
+GAMEMODE:Starfinder
+STATUS:BETA
+TYPE:Paizo.Core
+PRECAMPAIGN:1,INCLUDES=Starfinder Core Rulebook
+SOURCELONG:Starfinder Alien Archive 3
+SOURCESHORT:saa3
+SOURCEDATE:2019-01
+PUBNAMELONG:Paizo
+PUBNAMESHORT:PZO
+PUBNAMEWEB:http://www.paizo.com
+COPYRIGHT:Copyright 2018, Paizo, Inc.
+
+
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+INFOTEXT:Hi, this is AN ALPHA RELEASE - This Set is Released to the PUBLIC as-is, without any guarantee of functionality. The PCGen team welcomes all feedback, to make this a stable BETA release in the upcoming weeks.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.System Reference Document &copy; 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.Starfinder Core Rulebook &copy; 2017, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Amanda Hamon Kunz, Jason Keeley, Robert G. McCreary, Stephen Radney-MacFarland, Mark Seifter, Owen K.C. Stephens, and James L. Sutter, with Alexander Augunas, Judy Bauer, John Compton, Adam Daigle, Crystal Frasier, Lissa Guillet, Thurston Hillman, Erik Mona, Mark Moreland, Jessica Price, F. Wesley Schneider, Amber E. Scott, and Josh Vogt.
+COPYRIGHT:Starfinder Alien Archive 3 Copyright 2018, Paizo Inc.; Authors: Alexander Augunas, Kate Baker, John Compton, Adam Daigle, Brian Duckwitz, Eleanor Ferron, Amanda Hamon Kunz, James Jacobs, Mikko Kallio, Jason Keeley, Lyz Liddell, Ron Lundeen, Robert G. McCreary, Mark Moreland, Matt Morris, Adrian Ng, Joe Pasini, Lacy Pellazar, David N. Ross, Stephen Rowe, Chris Sims, Owen K.C. Stephens, James L. Sutter, and Russ Taylor
+
+COPYRIGHT:PCGen dataset conversion for "Starfinder Alien Archive 3" Copyright 2019, PCGen Data team (Including, but not limited to Brad Grinstead, supernovajm, Paul Grosse, and Andrew Maitland).
+
+
+
+# COVER should be cover_gameMode_pub_book.file
+COVER:PZO7111_180.jpg
+# LOGO should be logo_pub.file
+LOGO:*/_images/logo/Paizo_Publishing.png
+
+INFOTEXT:Starfinder Alien Archive 3
+
+DATACONTROL:saa3__datacontrols.lst
+
+ABILITY:saa3_abilities.lst
+ABILITYCATEGORY:saa3_abilitycategories.lst
+RACE:saa3_races.lst
+TEMPLATE:saa3_templates.lst
+
+
+###Block: Revisions
+
+INFOTEXT:Supports 6.08.00
+# ENTRY DATE: 2019-01
+# LST MONKEY: Brad "bigrin42" Grinstead
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.8
+# MINDEVVER:6.08.00
+# COMMENTS:

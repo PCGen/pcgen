@@ -1,0 +1,9 @@
+
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###Block:
+# Race Name	SORTKEY		Starting Feats	Base size		Move			Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
+Kitsune	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kitsune	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.9	FACT:IsPC|True
+Nagaji	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Nagaji	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.10	FACT:IsPC|True
+Samsaran	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Samsaran	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.11	FACT:IsPC|True
+Wayang	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,20	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wayang	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.13	FACT:IsPC|True

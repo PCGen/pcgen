@@ -1,0 +1,17 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Type				FACT
+Skinwalker		KEY:Racial Heritage ~ Skinwalker	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSkinwalker|True
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger
+Skinwalker		VISIBLE:NO	RACESUBTYPE:Skinwalker
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key						Visible	Race Subtype			Type
+Shapechanger	KEY:Race Builder Subtype ~ Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger	TYPE:Race Builder Subtype
+Skinwalker		KEY:Race Builder Subtype ~ Skinwalker	VISIBLE:NO	RACESUBTYPE:Skinwalker		TYPE:Race Builder Subtype

@@ -21,7 +21,6 @@ import java.util.Objects;
 
 import pcgen.cdom.base.Category;
 
-import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 
 /**
@@ -47,7 +46,7 @@ public class CategoryModel implements TemplateScalarModel
 	}
 
 	@Override
-	public String getAsString() throws TemplateModelException
+	public String getAsString()
 	{
 		return category.getDisplayName();
 	}

@@ -5,18 +5,18 @@
 
 # Weapon Name			Unique Key					Type																	Nb Hands
 Atlatl										TYPE:StoneAge.Martial.Piercing.Ranged.Thrown
-Blunderbuss										TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm								HANDS:2
+Blunderbuss										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm								HANDS:2
 Bo Staff										TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Blocking.Double.Monk
 Nine Ring Broadsword		KEY:Broadsword (Nine Ring)		TYPE:Eastern.Melee.Martial.OneHanded.Monk.Tengu.Sword.Bladeheavy
-Buckler Gun										TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
+Buckler Gun										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm
 Butterfly Sword									TYPE:Eastern.Melee.Martial.Light.Monk.Tengu.Sword.Bladelight
-Culverin										TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm								HANDS:2
+Culverin										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm								HANDS:2
 Dan Bong										TYPE:Eastern.Melee.Exotic.Light.Bludgeoning.Blocking.Monk.Ranged.Thrown.Close
 Double Chicken Saber								TYPE:Eastern.Melee.Martial.OneHanded.Disarm.Monk.Tengu.Sword.Bladeheavy
-Double Hackbut									TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm								HANDS:2
+Double Hackbut									TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm								HANDS:2
 Emei Piercer									TYPE:Eastern.Melee.Exotic.Light.Piercing.Monk.Close
 Fighting Fan									TYPE:Eastern.Melee.Exotic.Light.Slashing.Piercing.Distracting.Monk.Close
-Fire Lance										TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm								HANDS:2
+Fire Lance										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm								HANDS:2
 Flying Blade									TYPE:GladiatorMelee.Exotic.Slashing.Performance.Reach.TwoHanded.Tengu.Sword.Flail
 Harpoon										TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple.Spear
 Hooked Axe										TYPE:GladiatorMelee.Exotic.Slashing.Performance.Disarm.Trip.OneHanded.Axe.Polearm
@@ -37,33 +37,33 @@ Mattock										TYPE:Piercing.Martial.Fragile.Axe
 Mere Club										TYPE:StoneAge.Simple.Bludgeoning.Piercing.Fragile.Close.Hammer
 Meteor Hammer									TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Reach.Trip.Flail
 Monk's Spade									TYPE:Eastern.Melee.Martial.TwoHanded.Double.Monk.Polearm
-Musket										TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket							HANDS:2
-Axe Musket				KEY:Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket							HANDS:2
-Double-Barreled Musket		KEY:Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket							HANDS:2
-Warhammer Musket			KEY:Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket							HANDS:2
+Musket										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Musket							HANDS:2
+Axe Musket				KEY:Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Musket							HANDS:2
+Double-Barreled Musket		KEY:Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Musket							HANDS:2
+Warhammer Musket			KEY:Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Musket							HANDS:2
 Naginata										TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Samurai.Polearm
 Nine-Section Whip									TYPE:Eastern.Melee.Exotic.OneHanded.Bludgeoning.Blocking.Distracting.Monk.Trip.Flail
 Nodachi										TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Polearm.Bladeheavy
 Pata											TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light.Axe.Bladelight
-Pepperbox										TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
-Pistol										TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Coat Pistol				KEY:Pistol (Coat)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Dagger Pistol			KEY:Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Double-Barreled Pistol		KEY:Pistol (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Dragon Pistol			KEY:Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Sword Cane Pistol			KEY:Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pepperbox										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm
+Pistol										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Coat Pistol				KEY:Pistol (Coat)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Dagger Pistol			KEY:Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Double-Barreled Pistol		KEY:Pistol (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Dragon Pistol			KEY:Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Sword Cane Pistol			KEY:Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
 Poisoned Sand Tube								TYPE:Eastern.Ranged.Martial.Thrown
 Quadrens										TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light.Bladelight
-Revolver										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver.OneHandedFireArm
+Revolver										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.Revolver.OneHandedFireArm
 Rhomphaia										TYPE:Piercing.Slashing.Martial.Brace.Fragile.Reach
-Rifle											TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle.TwoHandedFireArm							HANDS:2
+Rifle											TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.Rifle.TwoHandedFireArm							HANDS:2
 Rope Dart										TYPE:Eastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk.Thrown
 Sansetsukon										TYPE:Eastern.Melee.Martial.TwoHanded.Blocking.Disarm.Monk.Flail
 Scizore										TYPE:GladiatorMelee.Martial.Piercing.Performance.OneHanded.Close
 Scorpion Whip									TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Flail
 Shang Gou										TYPE:Eastern.Melee.Martial.Light.Disarm.Trip.Monk
 Shotel										TYPE:GladiatorMelee.Exotic.Piercing.Performance.OneHanded.Bladeheavy
-Shotgun										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireArm					HANDS:2
+Shotgun										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.Shotgun.Scatter.TwoHandedFireArm					HANDS:2
 Sibat											TYPE:Eastern.Melee.Martial.OneHanded.Spear
 Sica											TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Bladelight
 Seven-Branched Sword		KEY:Sword (Seven-Branched)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Disarm.Monk.Tengu.Sword.Bladeheavy

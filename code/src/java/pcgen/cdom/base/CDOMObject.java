@@ -32,6 +32,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import org.jetbrains.annotations.NotNull;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
@@ -727,6 +728,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	 * @param mapKey The MapKey we are retrieving
 	 * @return The set of keys.
 	 */
+	@NotNull
 	public final <K, V> Set<K> getKeysFor(MapKey<K, V> mapKey)
 	{
 		return mapChar == null ? Collections.emptySet() : mapChar.getKeysFor(mapKey);

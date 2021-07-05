@@ -6,35 +6,38 @@
  */
 
 checkstyle {
-	configFile = new File('code/standards/checkstyle.xml')
-	configProperties = [samedir: "${rootDir}/code/standards"]
-	showViolations = true
-	toolVersion = '8.20'
-	sourceSets = []
+    configFile = new File('code/standards/checkstyle.xml')
+    configProperties = [samedir: "${rootDir}/code/standards"]
+    showViolations = true
+    toolVersion = '8.44'
+    sourceSets = []
 }
 
 pmd {
-	// turn off the default rules
-	ruleSets = []
-	ruleSetFiles = files('code/standards/ruleset.xml')
-	consoleOutput = true
-	sourceSets = []
-	toolVersion = "6.14.0"
-	incrementalAnalysis = true
+    // turn off the default rules
+    ruleSets = []
+    ruleSetFiles = files('code/standards/ruleset.xml')
+    consoleOutput = true
+    sourceSets = []
+    toolVersion = "6.21.0"
+    incrementalAnalysis = true
 }
 
+// TODO fix the 52 outstanding bugs and then remove the ignoreFailures
 spotbugs {
-	excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
-	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
-	reportLevel = 'low'
-	ignoreFailures = true
+    excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
+    omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
+    reportLevel = 'low'
+    ignoreFailures = true
 }
 
 spotbugsMain {
-	reports {
-		xml.enabled = false
-		html.enabled = true
-		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
-	}
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
+    }
 }
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain'] }
+task allReports {
+    dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain']
+}

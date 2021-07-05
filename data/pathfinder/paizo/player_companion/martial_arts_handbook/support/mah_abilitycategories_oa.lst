@@ -1,0 +1,7 @@
+#SOURCELONG:Pathfinder Player Companion: Martial Arts Handbook	SOURCESHORT:MAH	SOURCEWEB:http://paizo.com/products/btq01vb0	SOURCEDATE:2018-11
+# ORIGINAL ENTRY: Jason D. (GrimaceJD)
+# ORIGINAL ENTRY DATE: 04 March 2019
+
+# Ability Category								Visible			Editable?			Change Pool?		Fractional values?			Category of Object					Type of Object							Specific choices list						Plural description for UI				Display Location
+ABILITYCATEGORY:Master's Strike				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:Unchained Style Strike												PLURAL:Unchained Style Strikes	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Master's Style Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:MotMStyle															PLURAL:Master's Style Feats		DISPLAYLOCATION:Class Features

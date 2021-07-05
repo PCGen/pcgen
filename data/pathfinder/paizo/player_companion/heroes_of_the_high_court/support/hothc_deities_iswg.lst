@@ -1,0 +1,7 @@
+SOURCELONG:Heroes of the High Court	SOURCESHORT:HOTHC	SOURCEWEB:http://paizo.com/products/btpy9qhp	SOURCEDATE:02-2017
+
+Dispater.MOD			DOMAINS:Sovereignty Subdomain|PREALIGN:LN,LE,NE
+Lissala.MOD				DOMAINS:Sovereignty Subdomain|PREALIGN:LN,LE,NE
+
+Dispater.MOD			BONUS:VAR|InquisitorSovereigntySubdomain|1|PREALIGN:LN,LE,NE
+Lissala.MOD				BONUS:VAR|InquisitorSovereigntySubdomain|1|PREALIGN:LN,LE,NE

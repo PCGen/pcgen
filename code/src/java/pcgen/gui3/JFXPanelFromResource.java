@@ -20,6 +20,7 @@ package pcgen.gui3;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 import pcgen.system.LanguageBundle;
@@ -48,6 +49,7 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 	public JFXPanelFromResource(Class<? extends T> klass, String resourceName)
 	{
 		URL resource = klass.getResource(resourceName);
+		Objects.requireNonNull(resource);
 		Logging.debugPrint(String.format("location for %s (%s) is %s", resourceName, klass, resource));
 		fxmlLoader.setLocation(resource);
 		fxmlLoader.setResources(LanguageBundle.getBundle());

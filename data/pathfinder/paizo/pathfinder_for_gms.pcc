@@ -42,5 +42,22 @@ PCC:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/bestiary_2.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/_ultimate_combat.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/_ultimate_magic.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
+# Using new file style
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_4/_bestiary_4.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_5/_bestiary_5.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_6/_bestiary_6.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_intrigue/_ultimate_intrigue.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_wilderness/_ultimate_wilderness.pcc
+
+FORWARDREF:SPELL|Telepathy
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+FORWARDREF:ABILITY=Special Ability|Mythic Power,Surge
+
 
 FORWARDREF:CLASSSPELLLIST|Magus

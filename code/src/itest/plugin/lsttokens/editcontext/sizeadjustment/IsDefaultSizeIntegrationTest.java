@@ -28,6 +28,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.sizeadjustment.IsdefaultsizeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class IsDefaultSizeIntegrationTest extends
@@ -38,6 +39,7 @@ public class IsDefaultSizeIntegrationTest extends
 	private static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

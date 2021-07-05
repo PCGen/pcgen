@@ -31,6 +31,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ProhibitSpellIntegrationTest extends
@@ -44,6 +45,7 @@ public class ProhibitSpellIntegrationTest extends
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

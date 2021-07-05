@@ -1,0 +1,93 @@
+CAMPAIGN:Oracle's Curse
+KEY:Oracle's Curse
+
+BOOKTYPE:Supplement
+GAMEMODE:Pathfinder
+STATUS:BETA
+GENRE:Fantasy
+TYPE:Tripod Machine.Pathfinder RPG
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PUBNAMELONG:Tripod Machine
+PUBNAMESHORT:Tripod Machine
+SOURCELONG:Oracle's Curse
+SOURCESHORT:OC
+
+COVER:oracle's_curse.jpg
+DESC:The oracle is an instant classic, uniting fun play with a strong thematic hook in the form of a divine curse. Explore new options for the oracle's curse like foretold, ravenous, or waking dreams. For the Pathfinder Roleplaying Game.
+
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathﬁnder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvennale, Travis Hawvennale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Pathﬁnder Roleplaying Game Bestiary, Copyright 2009, Paizo Publishing, LLC; Author Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathﬁnder Roleplaying Game Bestiary 2, Copyright 2010, Paizo Publishing, LLC; Authors Wolfgang Baur, Jason Bulmahn, Adam Daigle, Graeme Davis, Crystal Frasier, Joshua J. Frost, Tim Hitchcock, Brandon Hodge, James Jacobs, Steve Kenson, Hal MacLean, Martin Mason, Rob McCreary, Erik Mona, Jason Nelson, Patrick Renie, Sean K Reynolds, F. Wesley Schneider, Owen K.C. Stephens, James L. Sutter, Russ Taylor, and Greg A. Vaughan, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathﬁnder Roleplaying Game Bestiary 3, Copyright 2011, Paizo Publishing, LLC; Authors Jesse Benner, Jason Bulmahn, Adam Daigle, James Jacobs, Michael Kenway, Rob McCreary, Patrick Renie, Chris Sims, F. Wesley Schneider, James L. Sutter, and Russ Taylor, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Fiends, Copyright 2003, Green Ronin Publishing; Authors Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb.
+COPYRIGHT:Kobold Quarterly Issue 7, Copyright 2008, Open Design LLC, www.kobo1dquarter1y.com; Authors John Baichtal, Wolfgang Baur, Ross Byers, Matthew Cicci, John Flemming, Jeremy Jones, Derek Kagemann, Phillip Larwood, Richard Pett, and Stan!
+COPYRIGHT:The Tome of Horrors III, Copyright 2005, Necromancer Games, Inc.; Author Scott Greene.
+COPYRIGHT:Adherer from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Authors Scott Greene and Clark Peterson, based on original material by Guy Shearer.
+COPYRIGHT:Animal Lord from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Ascomid from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Atomie from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Axe Beak from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Carbuncle from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Authors Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Caryatid Column from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Jean Wells.
+COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demodand, Shaggy from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demodand, Slimy from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demodand, Tarry from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Dire Corby from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Jeff Wyndham.
+COPYRIGHT:Disenchanter from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Dragon, Faerie from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Brian Jaeger and Gary Gygax.
+COPYRIGHT:Flail Snail from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Simon Tilbrook.
+COPYRIGHT:Flumph from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Ian McDowell and Douglas Naismith.
+COPYRIGHT:Foo Creature from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Hueeuva from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Underworld Oracle.
+COPYRIGHT:Jackalwere from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Kamadan from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Nick Louth.
+COPYRIGHT:Kech from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Marid from the Tome of Horrors III, Copyright 2005, Necromancer Games, Inc.; Author Scott Greene.
+COPYRIGHT:Rot Grub from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Wolf-In—Sheep’s—C1othing from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demodand, Slime from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Forlarren from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone.
+COPYRIGHT:Hangman Tree from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Rot Gnib from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Troll, Ice from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Russell Cole.
+COPYRIGHT:Troll, Rock from the Tome ofHorrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene.
+COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Pathﬁnder Roleplaying Game Mythic Adventures Copyright 2013, Paizo Publishing, LLC; Authors: Jason Bulmahn, Stephen Radney-MacFarland, Sean K Reynolds, Dennis Baker, Jesse Benner, Ben Bruck, Jim Groves, Tim Hitchcock, Tracy Hurley, Jonathan Keith, Jason Nelson, Tom Phillips, Ryan Maeklin, F. Wesley Schneider, Amber Scott, Tork Shaw, Russ Taylor, and Ray Vallese.
+COPYRIGHT:Advanced Player's Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:Oracle's Curse, copyright 2014 by RJ Grady, published by Tripod Machine.
+COPYRIGHT:PCGen dataset conversion for "Orac1e's Curse" Copyright 2020, PCGen Data team (Including, but not limited to pokemonpasta, Paul Grosse, and Andrew Maitland)
+
+
+#NB: Bestiary 3 is added with INCLUDE tags as monster "Rot Grub Swarm" in Oracle's Curse also exists exactly the same in Bestiary 3
+ABILITY:oc_abilities_class.lst
+ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilities_race.lst|(INCLUDE:CATEGORY=Internal,Racial Traits ~ Parasite (Rot Grub Swarm)|CATEGORY=Special Ability,Rot Grub Swarm ~ Infestation)
+ABILITYCATEGORY:oc_abilitycategories.lst
+KIT:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_kits_race.lst|(INCLUDE:Parasite (Rot Grub Swarm) Default)
+RACE:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_races.lst|(INCLUDE:Parasite (Rot Grub Swarm))
+SKILL:oc_skills.lst
+
+
+
+
+###Block: Revisions
+
+INFOTEXT:Supports 6.08.00
+# ENTRY DATE: 2020-06
+# LST MONKEY: pokemonpasta
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.8
+# MINDEVVER:6.08.00
+# COMMENTS:

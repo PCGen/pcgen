@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.math.BigDecimal;
 import java.util.Collections;
 
 import pcgen.ControlTestSupport;
@@ -34,7 +33,6 @@ import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -51,7 +49,6 @@ import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
@@ -60,6 +57,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -73,12 +71,15 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.chooser.ChooserFactory;
+
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
@@ -98,6 +99,8 @@ import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.language.PCToken;
 
 import compare.InequalityTesterInst;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
@@ -135,7 +138,7 @@ public abstract class AbstractSaveRestoreTest
 	protected CharID id;
 
 	@BeforeAll
-	public static void setUpBeforeClass()
+	public static void classSetUp()
 	{
 		TokenRegistration.register(new LevelToken());
 		TokenRegistration.register(new MinxpToken());
@@ -205,7 +208,6 @@ public abstract class AbstractSaveRestoreTest
 	protected ClassFacet classFacet;
 	private ClassLevelFacet classLevelFacet;
 	private CompanionModFacet companionModFacet;
-	private DeityFacet deityFacet;
 	private DomainFacet domainFacet;
 	private ExpandedCampaignFacet expandedCampaignFacet;
 	private LanguageFacet languageFacet;
@@ -243,7 +245,6 @@ public abstract class AbstractSaveRestoreTest
 		classFacet = FacetLibrary.getFacet(ClassFacet.class);
 		classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
 		companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
-		deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 		domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 		expandedCampaignFacet =
 				FacetLibrary.getFacet(ExpandedCampaignFacet.class);
@@ -263,10 +264,19 @@ public abstract class AbstractSaveRestoreTest
 		gameMode.clearLoadContext();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
 
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		context = Globals.getContext();
+		AbstractReferenceContext ref = context.getReferenceContext();
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 
-		context = Globals.getContext();
+		Deity none = new Deity();
+		none.setName("None");
+		ref.importObject(none);
+
+		ControlTestSupport.enableFeature(context, CControl.DOMAINFEATURE);
+
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(Deity.class));
+
 		FormatSupport.addBasicDefaults(context);
 		FormatSupport.addNoneAsDefault(context,
 			context.getReferenceContext().getManufacturer(PCAlignment.class));
@@ -332,6 +342,22 @@ public abstract class AbstractSaveRestoreTest
 		ChooserFactory.setDelegate(new MockUIDelegate());
 	}
 
+	@AfterAll
+	static void classTearDown()
+	{
+		TokenRegistration.clearTokens();
+	}
+	
+	@AfterEach
+	void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		context = null;
+		pc = null;
+		reloadedPC = null;
+		id = null;
+	}
+
 	protected void runRoundRobin(Runnable preEqualityCleanup)
 	{
 		runRoundRobin(preEqualityCleanup, false);
@@ -381,14 +407,13 @@ public abstract class AbstractSaveRestoreTest
 	private void setBoilerplate()
 	{
 		pc.setRace(human);
-		pc.setHeight(0);
-		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
+		HeightCompat.setCurrentHeight(pc.getCharID(), 0);
+		pc.setWeight(0);
 		pc.setAllowDebt(false);
 		HandedCompat.setCurrentHandedness(pc.getCharID(), Handed.Right);
 		pc.setGender(Gender.Male);
 		pc.setIgnoreCost(false);
-		pc.setPCAttribute(NumericPCAttribute.AGE, 0);
-		pc.setGold(BigDecimal.ZERO);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 0);
 		pc.setXP(0);
 		pc.setRegion(Region.getConstant(Constants.NONE));
 
@@ -401,19 +426,16 @@ public abstract class AbstractSaveRestoreTest
 		pc.setStringFor(PCStringKey.PERSONALITY1, "");
 		pc.setStringFor(PCStringKey.EYECOLOR, "");
 		pc.setStringFor(PCStringKey.PLAYERSNAME, "");
-		pc.setStringFor(PCStringKey.HAIRSTYLE, "");
 		pc.setStringFor(PCStringKey.PHOBIAS, "");
 		pc.setStringFor(PCStringKey.LOCATION, "");
 		pc.setStringFor(PCStringKey.NAME, "");
 		pc.setStringFor(PCStringKey.COMPANIONS, "");
-		pc.setStringFor(PCStringKey.SKINCOLOR, "");
 		pc.setStringFor(PCStringKey.CATCHPHRASE, "");
 		pc.setStringFor(PCStringKey.BIO, "");
 		pc.setStringFor(PCStringKey.GMNOTES, "");
 		pc.setStringFor(PCStringKey.BIRTHPLACE, "");
 		pc.setStringFor(PCStringKey.ASSETS, "");
 		pc.setStringFor(PCStringKey.SPEECHTENDENCY, "");
-		pc.setStringFor(PCStringKey.HAIRCOLOR, "");
 		pc.setStringFor(PCStringKey.PERSONALITY2, "");
 		pc.setStringFor(PCStringKey.TABNAME, "");
 	}

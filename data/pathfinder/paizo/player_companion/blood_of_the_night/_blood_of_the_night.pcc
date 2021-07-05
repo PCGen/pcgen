@@ -6,7 +6,10 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 STATUS:BETA
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary 2,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
@@ -40,6 +43,7 @@ ABILITY:botn_abilities_race.lst
 ABILITY:botn_feats.lst
 ABILITYCATEGORY:botn_abilitycategories.lst
 EQUIPMENT:botn_equip_general.lst
+RACE:botn_races.lst
 SPELL:botn_spells.lst
 TEMPLATE:botn_templates.lst
 

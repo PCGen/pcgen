@@ -1,4 +1,4 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-# Race Name		Var. Min. Value					Type
-Skinwalker.MOD	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1	TYPE:PFSNotLegal
+# Race Name		Type
+Skinwalker.MOD	TYPE:PFSNotLegal

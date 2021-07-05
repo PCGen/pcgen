@@ -3,5 +3,5 @@
 # SVN $Revision: 21684 $ $Author: spraynpray $
 SOURCELONG:Guide To Pathfinder Society Organized Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2014-08
 
-STARTPACK:Starting Gold PFS	TYPE:Starting.Gold	VISIBLE:YES	APPLY:INSTANT
+STARTPACK:Starting Gold ~ PFS	TYPE:Starting.Gold	VISIBLE:YES	APPLY:INSTANT	PREPCLEVEL:MIN=1,MAX=1
 FUNDS:gp	QTY:150

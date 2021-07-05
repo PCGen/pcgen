@@ -80,4 +80,4 @@ Trickery.MOD		PREMULT:1,[PREDOMAIN:1,Trickery],[PREVARLT:TrickeryDomain,1]
 War.MOD			PREMULT:1,[PREDOMAIN:1,War],[PREVARLT:WarDomain,1]
 Water.MOD			PREMULT:1,[PREDOMAIN:1,Water],[PREVARLT:WaterDomain,1]
 Weather.MOD			PREMULT:1,[PREDOMAIN:1,Weather],[PREVARLT:WeatherDomain,1]
-Death (Pharasma).MOD													BONUS:VAR|DomainTaken|1
+Death Pharasma.MOD													BONUS:VAR|DomainTaken|1

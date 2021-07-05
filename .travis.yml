@@ -6,21 +6,30 @@ dist: xenial
 matrix:
   include:
   - os: linux
-    jdk: openjdk13
-  allow_failures:
+    jdk: openjdk16
   - os: osx
-    osx_image: xcode9
+    osx_image: xcode12
+    if: tag IS present
 
 script: ./gradlew clean build copyToOutput test compileSlowtest datatest pfinttest allReports buildDist buildNsis pcgenRelease
 # Do not use itest, requires release notes
 
+addons:
+  homebrew:
+    packages:
+      - nsis
+      - scons
+      - mingw-w64
+      - zlib
+      - https://sourceforge.net/p/nsis/code/HEAD/tree/web-scripts/trunk/cppunit.rb?format=raw
+
 before_install:
-- sudo apt-get update
-- sudo apt-get install lib32z1 lib32ncurses5 nsis
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get update; fi
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install lib32z1 lib32ncurses5 nsis; fi
 - export PERL_MM_USE_DEFAULT=1
 - chmod +x gradlew;
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install scons zlib1g-dev libcppunit-dev; fi
-- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; brew install https://sourceforge.net/p/nsis/code/HEAD/tree/web-scripts/trunk/cppunit.rb?format=raw; brew install scons mingw-w64 zlib; fi
+#- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install https://sourceforge.net/p/nsis/code/HEAD/tree/web-scripts/trunk/cppunit.rb?format=raw; fi
 install:
 - wget -O /tmp/zlib.zip "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip?r=&ts=1403402496&use_mirror=hivelocity"
 - mkdir /tmp/zlib
@@ -34,16 +43,14 @@ cache:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
 
-before_deploy:
-- "./gradlew pcgenRelease"
-
 deploy:
   provider: releases
   api_key:
-    secure: vcWcTepSQfgZTbLrC2jbJKLFB8pho72dz00vqUyWjtilvLcbOYVgVWgE5U5zjPV+VS5j4cj93sMWv74dpwamXGv/kIld7fQlpVkMELtK5AkRa2bjOMi0BHk54K8gcGOG//Gen/3gdBJfV1kYcsOhC2Rc4t4pcY2rkW534NLUxdg=
-    file_glob: true
-    file: build/release/*
-    skip_cleanup: true
+    secure: blUnOKKmO2mypu8ZZwn6rGh0z78sZtRya6zsuqBQcysY+N/opeG9WpQQyergenrDW9M3NPUAsqNL+46SOIsbk/8M10txOaEjnuiGiq5UwRFZMkTbc3/0fGBZRVIHEcImmEkVqRZD6Fpr5j9nhm1MKoUjdr/QYBnQ4mmHtzHkrv4=
+  file_glob: true
+  file: build/release/*
+  skip_cleanup: true
   on:
     repo: PCGen/pcgen
     tags: true
+    all_branches: true

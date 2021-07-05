@@ -1,0 +1,33 @@
+
+
+# ------------------------------
+# Syrinx
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceAbilityScores|0	ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Ability Scores|PREVAREQ:Syrinx_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceType|0			ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Type|PREVAREQ:Syrinx_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceSize|0			ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Size|PREVAREQ:Syrinx_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceSpeed|0			ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Speed|PREVAREQ:Syrinx_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceFlight|0			ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Flight|PREVAREQ:Syrinx_ReplaceFlight,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceLowLightVision|0	ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Low-Light Vision|PREVAREQ:Syrinx_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceDarkvision|0		ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Darkvision|PREVAREQ:Syrinx_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceNocturnal|0		ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Nocturnal|PREVAREQ:Syrinx_ReplaceNocturnal,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplacePride|0			ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Pride|PREVAREQ:Syrinx_ReplacePride,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceSpeakWithAvians|0	ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Speak with Avians|PREVAREQ:Syrinx_ReplaceSpeakWithAvians,0
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	DEFINE:Syrinx_ReplaceLanguages|0		ABILITY:Syrinx Racial Trait|AUTOMATIC|Syrinx ~ Languages|PREVAREQ:Syrinx_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceFlight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceFlight=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceLowLightVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceLowLightVision=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceDarkvision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceDarkvision=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceNocturnal|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceNocturnal=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplacePride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplacePride=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceSpeakWithAvians|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceSpeakWithAvians=True
+CATEGORY=Internal|Racial Traits ~ Syrinx.MOD	BONUS:VAR|Syrinx_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Syrinx_ReplaceLanguages=True

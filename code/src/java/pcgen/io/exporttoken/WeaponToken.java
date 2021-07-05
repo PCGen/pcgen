@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
@@ -42,6 +43,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
@@ -2548,21 +2550,12 @@ public class WeaponToken extends Token
 
 	private static String weaponTypes(Equipment eq, boolean primary)
 	{
-		StringBuilder wt = new StringBuilder(10);
-		StringTokenizer aTok = new StringTokenizer(SettingsHandler.getGameAsProperty().get().getWeaponTypes(), "|", false);
-
-		while (aTok.countTokens() >= 2)
-		{
-			String type = aTok.nextToken();
-			String abbrev = aTok.nextToken();
-
-			if (eq.isType(type, primary))
-			{
-				wt.append(abbrev);
-			}
-		}
-
-		return wt.toString();
+		GameMode game = SettingsHandler.getGameAsProperty().get();
+		TreeSet<String> set = game.getWeaponTypes().stream()
+			.filter(type -> eq.isType(type, primary))
+			.map(type -> game.getWeaponTypeAbbrev(type))
+			.collect(Collectors.toCollection(() -> new TreeSet<>()));
+		return StringUtil.join(set, "");
 	}
 
 	/**

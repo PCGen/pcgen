@@ -28,9 +28,9 @@ Net (Base).COPY=Devil Catcher								EQMOD:Special Ability ~ +1 ~ Weapon.Special
 Parade.COPY=Eagle Knight Dress Uniform		NAMEISPI:YES	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|14000															SOURCEPAGE:p.76
 Gray Maiden Plate.COPY=Maiden's Panoply					EQMOD:Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|20000															SOURCEPAGE:p.87
 Hellknight Plate.COPY=Gelugon Plate						EQMOD:Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|49800															SOURCEPAGE:p.97
-Elven Chain (Base).COPY=Elven Vengeance						EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|7000															SOURCEPAGE:p.115
-Hide (Base).COPY=Mammoth Hide								EQMOD:Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|5500															SOURCEPAGE:p.134		BONUS:EQMARMOR|ACCHECK|2
-Leather (Base).COPY=Red Stalker Armor						EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|1860															SOURCEPAGE:p.159
+Chainmail (Base).COPY=Elven Vengeance					TYPE:.CLEAR	TYPE:Armor.Medium.ArmorProfLight.Suit	EQMOD:Material ~ Mithril ~ Armor / Medium.Special Ability ~ Enhancement Cost|1000	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|7000															SOURCEPAGE:p.115
+Hide Armor (Base).COPY=Mammoth Hide								EQMOD:Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|5500															SOURCEPAGE:p.134		BONUS:EQMARMOR|ACCHECK|2
+Leather Armor (Base).COPY=Red Stalker Armor						EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|1860															SOURCEPAGE:p.159
 
 Heavy Steel Shield (Base).COPY=Maiden's Aegis					EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ Enhancement Cost|5000															SOURCEPAGE:p.87
 

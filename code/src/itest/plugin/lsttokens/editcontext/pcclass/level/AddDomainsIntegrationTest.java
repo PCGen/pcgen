@@ -19,6 +19,7 @@ package plugin.lsttokens.editcontext.pcclass.level;
 
 import java.net.URISyntaxException;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pcgen.cdom.inst.PCClassLevel;
@@ -39,6 +40,7 @@ public class AddDomainsIntegrationTest extends
 	private static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

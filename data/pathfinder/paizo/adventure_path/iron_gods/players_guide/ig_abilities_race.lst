@@ -1,0 +1,21 @@
+
+
+# ==============================
+# RACE ABILITIES
+# ==============================
+
+# ------------------------------
+# Android
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Android ~ Ability Scores.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Type.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Size.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Speed.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Vision.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Constructed.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Emotionless.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Nanite Surge.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Android ~ Languages.MOD	SOURCEPAGE:p.6

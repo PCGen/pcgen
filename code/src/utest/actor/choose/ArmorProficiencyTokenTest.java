@@ -27,12 +27,12 @@ public class ArmorProficiencyTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<ArmorProf>
 {
 
-	static ArmorProficiencyToken pca = new ArmorProficiencyToken();
+	private static final ArmorProficiencyToken PCA = new ArmorProficiencyToken();
 
 	@Override
 	public Chooser<ArmorProf> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

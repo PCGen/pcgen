@@ -22,7 +22,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.VisibleToModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * An IsVisibleToActor is designed to process an interpolation and convert the Visibility
@@ -34,7 +33,7 @@ import freemarker.template.TemplateModelException;
 public class IsVisibleToActor implements OutputActor<CDOMObject>
 {
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d)
 	{
 		return new VisibleToModel(d.getSafe(ObjectKey.VISIBILITY));
 	}

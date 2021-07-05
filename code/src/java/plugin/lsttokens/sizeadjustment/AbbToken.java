@@ -19,7 +19,6 @@ package plugin.lsttokens.sizeadjustment;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.SizeAdjustment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -45,16 +44,9 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements C
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
 	{
-		try
+		if (!context.processToken(size, "KEY", value))
 		{
-			if (!context.processToken(size, "KEY", value))
-			{
-				return new ParseResult.Fail("Internal Error");
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getLocalizedMessage());
+			return new ParseResult.Fail("Internal Error");
 		}
 		context.getObjectContext().put(size, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;

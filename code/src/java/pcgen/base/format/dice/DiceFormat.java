@@ -32,7 +32,7 @@ public class DiceFormat implements FormatManager<Dice>
 	@Override
 	public Dice convert(String inputStr)
 	{
-		int dLoc = inputStr.indexOf("d");
+		int dLoc = inputStr.indexOf('d');
 		int sides;
 		int quantity;
 		if (dLoc == -1)
@@ -66,8 +66,8 @@ public class DiceFormat implements FormatManager<Dice>
 	public String unconvert(Dice d)
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(d.getQuantity());
-		int sides = d.getDie().getSides();
+		sb.append(d.quantity());
+		int sides = d.die().sides();
 		if (sides != 1)
 		{
 			sb.append('d');

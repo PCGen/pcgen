@@ -49,7 +49,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 			try
 			{
 				lim = Integer.parseInt(value);
-				if ((int) lim <= 0)
+				if (lim <= 0)
 				{
 					return new ParseResult.Fail("Value less than 1 is not valid for " + getTokenName() + ": " + value);
 				}

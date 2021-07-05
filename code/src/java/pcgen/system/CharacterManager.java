@@ -18,7 +18,6 @@
 package pcgen.system;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -400,7 +399,7 @@ public final class CharacterManager
 			{
 				((CharacterFacadeImpl) character).save();
 			}
-			catch (final NullPointerException | IOException e)
+			catch (final NullPointerException e)
 			{
 				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
 				delegate.showErrorMessage(Constants.APPLICATION_NAME, "Could not save " + character.getNameRef().get());

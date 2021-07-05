@@ -29,42 +29,42 @@ import pcgen.system.LanguageBundle;
 public class PreSpellCastTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
-	{
+    @Override
+    public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+    {
 
-		final int requiredNumber = Integer.parseInt(prereq.getOperand());
-		final String prereqSpellType = prereq.getKey();
-		int runningTotal = 0;
+        final int requiredNumber = Integer.parseInt(prereq.getOperand());
+        final String prereqSpellType = prereq.getKey();
+        int runningTotal = 0;
 
-		for (PCClass aClass : display.getClassSet())
-		{
-			if (prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
-			{
-				runningTotal++;
-			}
-		}
+        for (PCClass aClass : display.getClassSet())
+        {
+            if (prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
+            {
+                runningTotal++;
+            }
+        }
 
-		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
-		return countedTotal(prereq, runningTotal);
-	}
+        runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
+        return countedTotal(prereq, runningTotal);
+    }
 
-	/**
-	 * Get the type of prerequisite handled by this token.
-	 * @return the type of prerequisite handled by this token.
-	 */
-	@Override
-	public String kindHandled()
-	{
-		return "spellcast.type"; //$NON-NLS-1$
-	}
+    /**
+     * Get the type of prerequisite handled by this token.
+     *
+     * @return the type of prerequisite handled by this token.
+     */
+    @Override
+    public String kindHandled()
+    {
+        return "spellcast.type"; //$NON-NLS-1$
+    }
 
-	@Override
-	public String toHtmlString(final Prerequisite prereq)
-	{
-		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey()};
-		return LanguageBundle.getFormattedString("PreSpellCast.toHtml", args); //$NON-NLS-1$
-	}
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+    {
+        final Object[] args = {prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey()};
+        return LanguageBundle.getFormattedString("PreSpellCast.toHtml", args); //$NON-NLS-1$
+    }
 
 }

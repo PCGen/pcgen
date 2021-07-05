@@ -27,7 +27,7 @@ public class SchoolsTokenTest extends
 		AbstractPersistentChoiceActorTestCase<SpellSchool>
 {
 
-	static final SchoolsToken PCA = new SchoolsToken();
+	private static final SchoolsToken PCA = new SchoolsToken();
 
 	@Override
 	public Chooser<SpellSchool> getActor()

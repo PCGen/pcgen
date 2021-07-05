@@ -28,7 +28,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PlayerCharacter;
@@ -46,8 +45,6 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private RaceFacet raceFacet;
-
-	private DeityFacet deityFacet;
 
 	private TemplateFacet templateFacet;
 
@@ -157,11 +154,6 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 		this.raceFacet = raceFacet;
 	}
 
-	public void setDeityFacet(DeityFacet deityFacet)
-	{
-		this.deityFacet = deityFacet;
-	}
-
 	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
 	{
 		this.formulaResolvingFacet = formulaResolvingFacet;
@@ -186,7 +178,6 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
-		deityFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);
 	}
 }

@@ -70,24 +70,28 @@ Regional Affinity (Varisia)								VISIBLE:NO	SOURCEPAGE:p.194	LANGBONUS:Shoanti
 Regional Affinity (Worldwound)							VISIBLE:NO	SOURCEPAGE:p.198	LANGBONUS:Abyssal,Hallit			REGION:The Worldwound
 
 
-Gillman						KEY:RaceSubtype ~ Gillman	VISIBLE:NO																	RACESUBTYPE:Gillman	TYPE:Racial Heritage
-Strix							KEY:RaceSubtype ~ Strix		VISIBLE:NO																	RACESUBTYPE:Strix		TYPE:Racial Heritage
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Type				FACT
+Gillman		KEY:Racial Heritage ~ Gillman	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGillman|True
+Strix			KEY:Racial Heritage ~ Strix	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsStrix|True
 
 ###Block: Bonus Languages
-Race Bonus Language ~ Ancient Osiriani					VISIBLE:NO				LANGBONUS:Ancient Osiriani
-Race Bonus Language ~ Azlanti							VISIBLE:NO				LANGBONUS:Azlanti
-Race Bonus Language ~ Hallit							VISIBLE:NO				LANGBONUS:Hallit
-Race Bonus Language ~ Jistka							VISIBLE:NO				LANGBONUS:Jistka
-Race Bonus Language ~ Kelish							VISIBLE:NO				LANGBONUS:Kelish
-Race Bonus Language ~ Necril							VISIBLE:NO				LANGBONUS:Necril
-Race Bonus Language ~ Orvian							VISIBLE:NO				LANGBONUS:Orvian
-Race Bonus Language ~ Osiriani						VISIBLE:NO				LANGBONUS:Osiriani
-Race Bonus Language ~ Polyglot						VISIBLE:NO				LANGBONUS:Polyglot
-Race Bonus Language ~ Shadowtongue						VISIBLE:NO				LANGBONUS:Shadowtongue
-Race Bonus Language ~ Shoanti							VISIBLE:NO				LANGBONUS:Shoanti
-Race Bonus Language ~ Skald							VISIBLE:NO				LANGBONUS:Skald
-Race Bonus Language ~ Tekritanin						VISIBLE:NO				LANGBONUS:Tekritanin
-Race Bonus Language ~ Thassilonian						VISIBLE:NO				LANGBONUS:Thassilonian
-Race Bonus Language ~ Tien							VISIBLE:NO				LANGBONUS:Tien
-Race Bonus Language ~ Varisian						VISIBLE:NO				LANGBONUS:Varisian
-Race Bonus Language ~ Vudrani							VISIBLE:NO				LANGBONUS:Vudrani
+# Template Name				Visible	Bonus Languages
+Bonus Language ~ Ancient Osiriani	VISIBLE:NO	LANGBONUS:Ancient Osiriani
+Bonus Language ~ Azlanti		VISIBLE:NO	LANGBONUS:Azlanti
+Bonus Language ~ Hallit			VISIBLE:NO	LANGBONUS:Hallit
+Bonus Language ~ Jistka			VISIBLE:NO	LANGBONUS:Jistka
+Bonus Language ~ Kelish			VISIBLE:NO	LANGBONUS:Kelish
+Bonus Language ~ Necril			VISIBLE:NO	LANGBONUS:Necril
+Bonus Language ~ Orvian			VISIBLE:NO	LANGBONUS:Orvian
+Bonus Language ~ Osiriani		VISIBLE:NO	LANGBONUS:Osiriani
+Bonus Language ~ Polyglot		VISIBLE:NO	LANGBONUS:Polyglot
+Bonus Language ~ Shadowtongue		VISIBLE:NO	LANGBONUS:Shadowtongue
+Bonus Language ~ Shoanti		VISIBLE:NO	LANGBONUS:Shoanti
+Bonus Language ~ Skald			VISIBLE:NO	LANGBONUS:Skald
+Bonus Language ~ Tekritanin		VISIBLE:NO	LANGBONUS:Tekritanin
+Bonus Language ~ Thassilonian		VISIBLE:NO	LANGBONUS:Thassilonian
+Bonus Language ~ Tien			VISIBLE:NO	LANGBONUS:Tien
+Bonus Language ~ Varisian		VISIBLE:NO	LANGBONUS:Varisian
+Bonus Language ~ Vudrani		VISIBLE:NO	LANGBONUS:Vudrani

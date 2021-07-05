@@ -58,6 +58,7 @@ public class FormatSupport
 			() -> new OrderedPair(0, 0));
 		varContext.addDefault(FormatUtilities.NUMBER_MANAGER, () -> 0);
 		varContext.addDefault(FormatUtilities.STRING_MANAGER, () -> "");
+		varContext.addDefault(FormatUtilities.BOOLEAN_MANAGER, () -> false);
 	}
 
 }

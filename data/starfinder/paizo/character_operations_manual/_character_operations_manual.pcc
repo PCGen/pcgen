@@ -1,0 +1,79 @@
+
+CAMPAIGN:Starfinder Character Operations Manual
+KEY:Starfinder Character Operations Manual
+BOOKTYPE:Supplement
+GAMEMODE:Starfinder
+STATUS:BETA
+TYPE:Paizo.Core
+PRECAMPAIGN:1,INCLUDES=Starfinder Core Rulebook
+SOURCELONG:Starfinder Character Operations Manual
+SOURCESHORT:SCOM
+SOURCEDATE:2020-01
+RANK:202001
+PUBNAMELONG:Paizo
+PUBNAMESHORT:PZO
+PUBNAMEWEB:http://www.paizo.com
+COPYRIGHT:Copyright 2019, Paizo, Inc.
+
+
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+INFOTEXT:Hi, this is AN ALPHA RELEASE - This Set is Released to the PUBLIC as-is, without any guarantee of functionality. The PCGen team welcomes all feedback, to make this a stable BETA release in the upcoming weeks.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a © 2000, Wizards of the Coast, Inc. System Reference Document © 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Starfinder Core Rulebook © 2017, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Amanda Hamon Kunz, Jason Keeley, Robert G. McCreary, Stephen Radney-MacFarland, Mark Seifter, Owen K.C. Stephens, and James L. Sutter, with Alexander Augunas, Judy Bauer, John Compton, Adam Daigle, Crystal Frasier, Lissa Guillet, Thurston Hillman, Erik Mona, Mark Moreland, Jessica Price, F. Wesley Schneider, Amber E. Scott, and Josh Vogt.
+COPYRIGHT:Starfinder Character Operations Manual © 2019, Paizo Inc.; Authors: Alexander Augunas, Kate Baker, Simone Dietzler, Jennifer Dworschack-Kinter, Leo Glass, Sasha Lindley Hall, Amanda Hamon, Vanessa Hoskins, Jenny Jarzabski, Jason Keeley, Lyz Liddell, Luis Loza, Ron Lundeen, Crystal Malarsky, Robert G. McCreary, Conor J. Owens, Joe Pasini, Owen K.C. Stephens, Jason Tondro, and Landon Winkler.
+COPYRIGHT:PCGen dataset conversion for "Starfinder Character Operations Manual" Copyright 2020, PCGen Data team (Including, but not limited to Brad Grinstead, Paul Grosse, and Andrew Maitland).
+
+
+# COVER should be cover_gameMode_pub_book.file
+COVER:PZO7112_cover.jpg
+# LOGO should be logo_pub.file
+LOGO:*/_images/logo/Paizo_Publishing.png
+
+INFOTEXT:Starfinder Character Operations Manual
+
+VARIABLE:scom__variables.lst
+DATACONTROL:scom__datacontrols.lst
+CLASS:scom_classes.lst
+
+ABILITY:scom_abilities.lst
+ABILITY:scom_abilities_class.lst
+ABILITY:scom_abilities_race.lst
+ABILITY:scom_feats.lst
+ABILITYCATEGORY:scom_abilitycategories.lst
+RACE:scom_races.lst
+
+EQUIPMENT:scom_equip.lst
+EQUIPMENT:scom_equip_gear.lst
+EQUIPMENT:scom_equip_magic.lst
+
+EQUIPMOD:scom_equipmods.lst
+
+KIT:scom_kits.lst
+
+SHIELDPROF:scom_profs_shield.lst
+ARMORPROF:scom_profs_armor.lst
+WEAPONPROF:scom_profs_weapon.lst
+
+TEMPLATE:scom_templates.lst
+SPELL:scom_spells.lst
+
+SPELL:support/scom_spells_aa.lst|PRECAMPAIGN:1,INCLUDES=Starfinder Alien Archive
+ABILITY:support/scom_feats_spw.lst|PRECAMPAIGN:1,INCLUDES=Starfinder Pact Worlds
+
+
+###Block: Revisions
+
+INFOTEXT:Supports 6.08.00
+# ENTRY DATE: 2020-01
+# LST MONKEY: Brad "bigrin42" Grinstead
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.8
+# MINDEVVER:6.08.00
+# COMMENTS:

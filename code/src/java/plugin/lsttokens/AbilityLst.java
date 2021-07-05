@@ -320,19 +320,11 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				if (csa.getSource().equals(getTokenName()))
 				{
-					try
-					{
-						AbilitySelector as = (AbilitySelector) csa;
-						String sb = as.getAbilityCategory().getLSTformat(false) + Constants.PIPE
-								+ as.getNature() + Constants.PIPE
-								+ as.getLstFormat();
-						returnSet.add(sb);
-					}
-					catch (PersistenceLayerException e)
-					{
-						context.addWriteMessage(getTokenName() + " encountered error: " + e.getMessage());
-						return null;
-					}
+					AbilitySelector as = (AbilitySelector) csa;
+					String sb = as.getAbilityCategory().getLSTformat(false) + Constants.PIPE
+							+ as.getNature() + Constants.PIPE
+							+ as.getLstFormat();
+					returnSet.add(sb);
 				}
 			}
 		}

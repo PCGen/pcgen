@@ -1,7 +1,8 @@
 # CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: David R. Bender
-
+STARTPACK:A Test
+STAT:INT=0
 
 ### Monk Flurry of Blows Issue
 STARTPACK:Monk Flurry of Blows	VISIBLE:NO	APPLY:INSTANT	TOTALCOST:0

@@ -5,8 +5,3 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 
 # Ability Name	Category of Ability	Type				Description																											Cost		Source Page
 Rabies		CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Fort DC 14; Onset 2d6 weeks; Frequency 1/day; Effect 1 Con damage plus 1d3 Wis damage (minimum reduction to 1 Wis); Cure 2 consecutive saves	COST:0	SOURCEPAGE:p.87
-
-
-###Block:
-# Ability Name			Define
-CATEGORY=Internal|Default.MOD	DEFINE:QualifyAsHumanoid|0

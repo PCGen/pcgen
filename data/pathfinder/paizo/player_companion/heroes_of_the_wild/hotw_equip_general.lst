@@ -37,7 +37,7 @@ Winterbite													TYPE:Goods.Herbalism.Consumable																		COST:1	W
 Bogstrider Boots												TYPE:Magic.Wondrous.Boot																			COST:10000	WT:1																																																				SOURCEPAGE:p.28
 Fan of Autumn												TYPE:Magic.Wondrous																				COST:6000	WT:1																																																				SOURCEPAGE:p.28
 Frostwild Bridle												TYPE:Magic.Wondrous.Headgear																			COST:48000	WT:2																																																				SOURCEPAGE:p.28
-Gauntlets of Twisting Vines										TYPE:Magic.Wondrous.Glove																			COST:5000	WT:2																																																				SOURCEPAGE:p.28
+Gauntlets of Twisting Vines										TYPE:Magic.Wondrous.Glove																			COST:5000	WT:2																																																				SOURCEPAGE:p.28	BONUS:VAR|CMB_Grapple,CMB_Disarm,CMB_Steal|2|TYPE=Circumstance		SPROP:1/day tie up pinned opponent
 Greensurge Bomb												TYPE:Magic.Wondrous.Consumable																		COST:750	WT:1																																																				SOURCEPAGE:p.28
 Moss Cloak													TYPE:Magic.Wondrous.Cloak																			COST:18700	WT:5																																																				SOURCEPAGE:p.29
 Storm Goggles												TYPE:Magic.Wondrous.Eyegear																			COST:6000	WT:0																																																				SOURCEPAGE:p.29

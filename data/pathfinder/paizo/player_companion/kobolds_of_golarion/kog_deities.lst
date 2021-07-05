@@ -4,6 +4,10 @@ SOURCELONG:Pathfinder Player Companion: Kobolds of Golarion	SOURCESHORT:KOG	SOUR
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 9 May 2016
 
+###Block: Kobold Deities
+# Deity Name	Product Identity?	Domains								Description of Deity/Title						Align		Source Page
+Andirifkhu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Luck,Trickery|PREALIGN:NE,CN,CE	DESC:Patron of sadists and mariliths, promotes torture	ALIGN:CE	SOURCEPAGE:p.12
+
 # ==============================
 # Deity Subdomain Access
 # ==============================

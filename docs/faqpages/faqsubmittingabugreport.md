@@ -1,6 +1,6 @@
 # The JIRA issue tracker
 
-The PCGen project uses a system named `JIRA`, located at [jira.pcgen.org](http://jira.pcgen.org), to track bug reports and feature requests (*issues*).
+The PCGen project uses a system named `JIRA`, located at [pcgenorg.atlassian.net](http://pcgenorg.atlassian.net), to track bug reports and feature requests (*issues*).
 
 This page explains how to submit bug reports or feature requests for the PCGen project.
 
