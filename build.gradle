@@ -465,8 +465,8 @@ task downloadJRE {
 }
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
-    //def major = "16-0-1"
-    def major = "16"
+
+    def major = "16" // Had to use 16 as opposed to 16.0.1 as the Gluon download URL is based off the major ver only
     def archs = ['x64', 'x86']
     def osList = ["windows", "mac", "linux"]
 

@@ -207,7 +207,8 @@ class PluginClassLoader extends PCGenTask
                 jarFiles.add(file);
             }
         }
-		else {
+		else
+		{
 		    Logging.errorPrint("pluginFiles array was NULL after trying to load the plugins from the plugin class loader");
         }
 	}
