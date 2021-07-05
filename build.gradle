@@ -374,6 +374,8 @@ build {
     it.dependsOn 'copyToOutput'
 }
 
+// TODO This clean isn not as nuclear as it perhaps should be.  For jlink and friends to work when you get odd Zip errors
+// you will also need to clean out .grade/ output/ bin/ jre/ and mods/
 clean {
     it.dependsOn 'clean-plugins'
     it.dependsOn 'cleanOutput'
@@ -648,7 +650,7 @@ allprojects {
         options.addBooleanOption('Xdoclint:none', true)
     }
     tasks.withType(Test) {
-        maxHeapSize = "512m"
+        maxHeapSize = "1024m"
         maxParallelForks = 1
         enableAssertions = true
         testLogging {
@@ -690,6 +692,7 @@ allprojects {
     }
     tasks.withType(JavaExec) {
         jvmArgs += '--enable-preview'
+        maxHeapSize = "2048m"
     }
 }
 
