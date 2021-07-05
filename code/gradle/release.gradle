@@ -503,5 +503,3 @@ task updateVersionToNext doLast {
     updateVersion()
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
 }
-
-

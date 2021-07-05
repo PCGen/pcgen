@@ -18,44 +18,6 @@ package pcgen.base.format.dice;
 /**
  * A Die is an object with a given quantity of sequentially numbered sides, starting at 1.
  */
-public class Die
+public record Die(int sides)
 {
-
-	/**
-	 * The number of sides on this Die.
-	 */
-	private final int sides;
-
-	/**
-	 * Constructs a new Die with the given number of sides.
-	 * 
-	 * @param sides
-	 *            The number of sides on the Die
-	 */
-	public Die(int sides)
-	{
-		this.sides = sides;
-	}
-
-	/**
-	 * Returns the number of sides on the Die.
-	 * 
-	 * @return The number of sides on the Die
-	 */
-	public int getSides()
-	{
-		return sides;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return 73489 + sides;
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		return (o instanceof Die) && (((Die) o).sides == sides);
-	}
 }

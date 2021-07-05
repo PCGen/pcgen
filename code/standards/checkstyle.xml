@@ -8,6 +8,10 @@
   <module name="SuppressionFilter">
     <property name="file" value="${samedir}/checkstyle-suppressions.xml"/>
   </module>
+  <module name="LineLength">
+    <property name="tabWidth" value="4"/>
+    <property name="max" value="201"/>
+  </module>
   <module name="SuppressWarningsFilter"/>
   <module name="TreeWalker">
     <property name="severity" value="error"/>
@@ -15,21 +19,13 @@
     <module name="UpperEll"/>
     <module name="IllegalImport"/>
     <module name="JavadocMethod">
-      <property name="scope" value="public"/>
-      <property name="allowMissingJavadoc" value="true" />
-      <property name="allowUndeclaredRTE" value="true"/>
       <property name="allowMissingParamTags" value="true"/>
       <property name="allowMissingReturnTag" value="true"/>
-      <property name="allowMissingPropertyJavadoc" value="true"/>
     </module>
     <module name="PackageName"/>
     <module name="AvoidStarImport"/>
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
-    <module name="LineLength">
-      <property name="tabWidth" value="4"/>
-      <property name="max" value="201"/>
-    </module>
     <module name="EmptyForIteratorPad"/>
     <module name="NoWhitespaceAfter"/>
     <module name="OperatorWrap"/>

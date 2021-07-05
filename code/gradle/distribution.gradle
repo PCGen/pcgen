@@ -55,11 +55,11 @@ ext {
         from('code') {
             include 'LICENSE'
 
-        eachFile{ file ->
-            if(file.getName().endsWith(".sh")) {
-                file.setMode(0755)
+            eachFile{ file ->
+                if(file.getName().endsWith(".sh")) {
+                    file.setMode(0755)
+                }
             }
-        }
         }
     }
 
@@ -91,16 +91,17 @@ applicationDistribution.with(programScriptImage)
 applicationDistribution.with(programDistsImage)
 
 application{
-    //Output the startScripts (.bat and .sh) in main distribute folder rather than .bin
+    // Output the startScripts (.bat and .sh) in main distribute folder rather than .bin
     executableDir = ""
     applicationDefaultJvmArgs = ["-Dsun.java2d.d3d=false"]
 }
 
 run {
-    //Required to fixed incorrectly added "--module-path" and adds correct modules.
+    // Required to fixed incorrectly added "--module-path" and adds correct modules.
     doFirst {
-        //-ea enables assertions
+        // -ea enables assertions
         jvmArgs = ["-ea",
+                   "--enable-preview",
                    "--module-path",
                    "${projectDir}/mods/lib/",
                    "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
@@ -121,8 +122,7 @@ installDist.doLast{
 
 [distZip, distTar, installDist]*.dependsOn createExe
 
-task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', \
-'copyToOutput']) {
+task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput']) {
     classifier = 'test'
     into(zipRootFolder) {
         with dataDistsImage
@@ -167,7 +167,6 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', \
-'runtimeZip']) {
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'runtimeZip']) {
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }

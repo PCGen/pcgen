@@ -50,8 +50,11 @@ description = """PCGen"""
 
 defaultTasks 'build'
 
-sourceCompatibility = "1.11"
-targetCompatibility = "1.11"
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(16)
+    }
+}
 
 ext {
     binDir = "code/bin"
@@ -188,7 +191,7 @@ dependencies {
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version:'21.0.1'
     compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
-    compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.2.3'
+    compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.3.0'
 
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.7.2'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.2'
@@ -219,6 +222,7 @@ ext {
 
 jar {
     it.dependsOn 'jar-all-plugins'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // If we detect duplicate JARs ignore the subsequent ones
     manifest {
         attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
@@ -227,7 +231,6 @@ jar {
         configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
     }
 }
-
 
 runtime {
     options = ['--compress', '2']
@@ -353,7 +356,6 @@ task qbuild(type: Copy, dependsOn: [copyToOutput, jar]) {
     mustRunAfter clean
 }
 
-
 task cleanOutput(type: Delete) {
     description="Clean up things copied to the output folder by the build"
     delete outputDir
@@ -372,6 +374,8 @@ build {
     it.dependsOn 'copyToOutput'
 }
 
+// TODO This clean isn not as nuclear as it perhaps should be.  For jlink and friends to work when you get odd Zip errors
+// you will also need to clean out .grade/ output/ bin/ jre/ and mods/
 clean {
     it.dependsOn 'clean-plugins'
     it.dependsOn 'cleanOutput'
@@ -381,9 +385,9 @@ clean {
 build.mustRunAfter clean
 
 task downloadJRE {
-    def major = 14
+    def major = 16
     def archs = ['x64','x32']
-    def osList = ['windows', 'mac','linux']
+    def osList = ['windows', 'mac', 'linux']
     def extension = 'zip'
     osList.each{
         def os = "${it}"
@@ -460,9 +464,9 @@ task downloadJRE {
     }
 }
 
-
 task downloadJavaFXModules(dependsOn: downloadJRE) {
-    def major = "14-0-1"
+    //def major = "16-0-1"
+    def major = "16"
     def archs = ['x64', 'x86']
     def osList = ["windows", "mac", "linux"]
 
@@ -567,9 +571,7 @@ tasks.runtime.dependsOn(downloadJavaFXModules)
 
 test {
     exclude 'pcgen/testsupport/**'
-
     useJUnitPlatform()
-
 }
 
 task itest(type: Test, dependsOn: [jar]) {
@@ -648,7 +650,7 @@ allprojects {
         options.addBooleanOption('Xdoclint:none', true)
     }
     tasks.withType(Test) {
-        maxHeapSize = "512m"
+        maxHeapSize = "1024m"
         maxParallelForks = 1
         enableAssertions = true
         testLogging {
@@ -666,14 +668,15 @@ allprojects {
                 "--module-path", "${projectDir}/mods/lib/",
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
 
-                //Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
-                '--add-exports','javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
-                '--add-opens','javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
-
+                // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
+                '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
+                '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+                '--enable-preview'
         ]
     }
     tasks.withType(JavaCompile) {
         doFirst {
+            it.options.compilerArgs.add('--enable-preview')
 
             if (name.toLowerCase().contains("test")) {
                 options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
@@ -687,11 +690,16 @@ allprojects {
     tasks.withType(org.gradle.jvm.tasks.Jar) {
         duplicatesStrategy = DuplicatesStrategy.WARN
     }
+    tasks.withType(JavaExec) {
+        jvmArgs += '--enable-preview'
+        maxHeapSize = "2048m"
+    }
 }
 
 dependencyUpdates {
     revision='release'
 }
+
 dependencyUpdates.resolutionStrategy {
     componentSelection { rules ->
         rules.all { ComponentSelection selection ->
@@ -731,7 +739,6 @@ idea {
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
-
 
 apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
