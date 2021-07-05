@@ -222,7 +222,7 @@ ext {
 
 jar {
     it.dependsOn 'jar-all-plugins'
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // If we detect duplicate JARs ignore the subsequent ones
     manifest {
         attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
