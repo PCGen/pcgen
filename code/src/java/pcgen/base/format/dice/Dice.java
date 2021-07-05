@@ -19,26 +19,18 @@ import java.util.Objects;
 
 /**
  * Dice represents a quantity of Die instances (e.g. 5d6)
+ * die The underlying Die size for this Dice object.
+ * quantity - The quantity of times the given Die size is in this Dice object.
  */
-public class Dice
-{
-	/**
-	 * The underlying Die size for this Dice object.
-	 */
-	private final Die die;
 
-	/**
-	 * The quantity of times the given Die size is in this Dice object.
-	 */
-	private final int quantity;
+public record Dice(int quantity, Die die)
+{
 
 	/**
 	 * Constructs a new Dice object with the given quantity of the given Die size
-	 * 
-	 * @param quantity
-	 *            The quantity of times the given Die size is in this Dice object
-	 * @param die
-	 *            The underlying Die size for this Dice object
+	 *
+	 * @param quantity The quantity of times the given Die size is in this Dice object
+	 * @param die      The underlying Die size for this Dice object
 	 */
 	public Dice(int quantity, Die die)
 	{
@@ -50,40 +42,5 @@ public class Dice
 		this.die = Objects.requireNonNull(die);
 	}
 
-	/**
-	 * Returns the underlying Die size for this Dice.
-	 * 
-	 * @return The underlying Die size for this Dice
-	 */
-	public Die getDie()
-	{
-		return die;
-	}
 
-	/**
-	 * Returns the quantity of times the Die size is in this Dice.
-	 * 
-	 * @return The quantity of times the Die size is in this Dice
-	 */
-	public int getQuantity()
-	{
-		return quantity;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return quantity - die.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o instanceof Dice)
-		{
-			Dice other = (Dice) o;
-			return (other.quantity == quantity) && other.die.equals(die);
-		}
-		return false;
-	}
 }

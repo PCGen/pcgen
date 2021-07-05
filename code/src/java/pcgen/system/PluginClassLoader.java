@@ -195,15 +195,21 @@ class PluginClassLoader extends PCGenTask
 			return;
 		}
 		File[] pluginFiles = pluginDir.listFiles(PluginClassLoader.PLUGIN_FILTER);
-		for (final File file : pluginFiles)
-		{
-			if (file.isDirectory())
-			{
-				findJarFiles(file);
-				continue;
-			}
-			jarFiles.add(file);
-		}
+		if (pluginFiles != null)
+        {
+            for (final File file : pluginFiles)
+            {
+                if (file.isDirectory())
+                {
+                    findJarFiles(file);
+                    continue;
+                }
+                jarFiles.add(file);
+            }
+        }
+		else {
+		    Logging.errorPrint("pluginFiles array was NULL after trying to load the plugins from the plugin class loader");
+        }
 	}
 
 	private void loadClasses()
