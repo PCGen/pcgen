@@ -20,7 +20,7 @@ Syringe spear, paragon				KEY:Syringe spear (paragon)			PROFICIENCY:WEAPON|Syrin
 
 ###Block:ADVANCED MELEE WEAPONS
 
-Entropic Strike												PROFICIENCY:WEAPON|Entropic Strike					TYPE:Weapon.Melee.Special.Vanguard																															DAMAGE:1d2																									SPROP:Deals magical acid and/or B damage vs EAC 			PART:1|MODIFY:Damage|SET|1d2		BONUS:WEAPON|DAMAGESIZE|EntropicStrikeDamageProgression	BONUS:WEAPON|DAMAGE|CON-STR	BONUS:WEAPON|DAMAGE|STR||PREVARGTEQ:VanguardLVL,10	PART:1|MODIFY:Damage|SET|1d2
+Entropic Strike												PROFICIENCY:WEAPON|Entropic Strike					TYPE:Weapon.Melee.Special.Vanguard.Operative																													DAMAGE:1d2																									SPROP:Deals magical acid and/or B damage vs EAC 			PART:1|MODIFY:Damage|SET|1d2		BONUS:WEAPON|DAMAGESIZE|EntropicStrikeDamageProgression	BONUS:WEAPON|DAMAGE|CON-STR	BONUS:WEAPON|DAMAGE|STR||PREVARGTEQ:VanguardLVL,10
 
 #One-Handed Weapons
 #Uncategorized
