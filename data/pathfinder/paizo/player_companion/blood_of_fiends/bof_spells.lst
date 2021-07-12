@@ -6,9 +6,9 @@ SOURCELONG:Pathfinder Player Companion: Blood of Fiends	SOURCESHORT:BOF	SOURCEWE
 
 ###Block: Bardic Masterpiece spell placeholders
 # Spell Name					Classes of caster								School			Casting Time			Source Page
-Masterpiece (Dance of Kindled Desires)	CLASSES:Bard=3[PRESKILL:1,Perform (Dance)=5]			SCHOOL:Masterpiece	CASTTIME:3 full rounds		SOURCEPAGE:p.28
+Masterpiece (Dance of Kindled Desires)	CLASSES:Bard=2[PRESKILL:1,Perform (Dance)=5]			SCHOOL:Masterpiece	CASTTIME:3 full rounds		SOURCEPAGE:p.28
 Masterpiece (Melody of Frightful Death)	CLASSES:Bard=3[PRESKILL:1,Perform (String Instruments)=7]	SCHOOL:Masterpiece	CASTTIME:1 standard action	SOURCEPAGE:p.28
-Masterpiece (Rheumy Refrain)			CLASSES:Bard=3[PRESKILL:1,Perform (Sing)=5]			SCHOOL:Masterpiece	CASTTIME:1 standard action	SOURCEPAGE:p.28
+Masterpiece (Rheumy Refrain)			CLASSES:Bard=2[PRESKILL:1,Perform (Sing)=5]			SCHOOL:Masterpiece	CASTTIME:1 standard action	SOURCEPAGE:p.28
 
 #
 # End
