@@ -9,7 +9,7 @@
  */
 
 plugins {
-    id 'com.gradle.build-scan' version '3.6.2'
+    id 'com.gradle.build-scan' version '3.6.3'
     id "ca.coglinc2.javacc" version "3.0.0"
     id 'java'
     id 'eclipse'
