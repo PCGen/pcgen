@@ -24,11 +24,13 @@ import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.PCGenUIManager;
-import pcgen.gui2.dialog.ExportDialog;
 import pcgen.gui2.dialog.PrintPreviewDialog;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.behavior.EnabledOnlyWithCharacter;
 import pcgen.gui3.behavior.EnabledOnlyWithSources;
+import pcgen.gui3.dialog.ExportDialogController;
 import pcgen.system.LanguageBundle;
 
 import javafx.event.ActionEvent;
@@ -135,7 +137,10 @@ public final class PCGenToolBar
 
 	private void onExport(final ActionEvent actionEvent)
 	{
-		SwingUtilities.invokeLater(() -> ExportDialog.showExportDialog(rootFrame));
+		GuiAssertions.assertIsNotJavaFXThread();
+		JFXPanelFromResource
+				jfxPanelFromResource = new JFXPanelFromResource(ExportDialogController.class, "ExportDialog.fxml");
+		jfxPanelFromResource.showAsStage("Export a PC or Party");
 	}
 
 	private void onPreferences(final ActionEvent actionEvent)

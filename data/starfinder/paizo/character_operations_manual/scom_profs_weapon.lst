@@ -1,0 +1,73 @@
+# Original Entry by: tx6195
+
+Entropic Strike	TYPE:Entropic Strike.ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+###Block:BASIC MELEE WEAPONS
+#One-Handed Weapons
+#Weapon Name				Type
+Syringe stick (standard)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Syringe stick (sharp-pointed)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Syringe stick (hyper-pointed)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Syringe stick (ultra-pointed)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Syringe stick (supreme-pointed)	TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+
+# Two-Handed Weapons
+Syringe spear (tactical)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Syringe spear (advanced)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Syringe spear (elite)			TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Syringe spear (paragon)			TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+
+###Block:ADVANCED MELEE WEAPONS
+#One-Handed Weapons
+Needler estoc (standard)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Needler estoc (sharp-pointed)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Needler estoc (hyper-pointed)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Needler estoc (ultra-pointed)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Needler estoc (supreme-pointed)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Needler estoc (master-pointed)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#Two-Handed Weapons
+Capture pole (enforcement-class)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Capture pole (apprehension-class)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Capture pole (imprisonment-class)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Capture pole (domination-class)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Capture pole (overlord-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+###Block:SMALL ARMS
+#One-Handed Weapons
+Solarian Flare				TYPE:Solarian Weapon.SMALL ARMS
+#Disintegrator
+Caustoject (liquidator)			TYPE:SMALL ARMS
+Glove needler (tactical)		TYPE:SMALL ARMS
+Caustoject (decimator)			TYPE:SMALL ARMS
+Glove needler (advanced)		TYPE:SMALL ARMS
+Caustoject (executioner)		TYPE:SMALL ARMS
+Glove needler (elite)			TYPE:SMALL ARMS
+Caustoject (eradicator)			TYPE:SMALL ARMS
+Glove needler (paragon)			TYPE:SMALL ARMS
+
+#Projectile
+Cestus pistol (tactical)		TYPE:SMALL ARMS
+Needler pistol (tactical)		TYPE:SMALL ARMS
+Needler pistol (advanced)		TYPE:SMALL ARMS
+Cestus pistol (advanced)		TYPE:SMALL ARMS
+Needler pistol (elite)			TYPE:SMALL ARMS
+Cestus pistol (elite)			TYPE:SMALL ARMS
+Needler pistol (paragon)		TYPE:SMALL ARMS
+Cestus pistol (paragon)			TYPE:SMALL ARMS
+Needler pistol (supreme)		TYPE:SMALL ARMS
+
+###Block:LONG ARMS
+#Two-Handed Weapons
+#Disintegrator				TYPE:LONGARMS
+Caustolance (liquidator)		TYPE:LONGARMS	
+Caustolance (decimator)			TYPE:LONGARMS
+Caustolance (executioner)		TYPE:LONGARMS
+Caustolance (eradicator)		TYPE:LONGARMS
+
+#Projectile
+Needler rifle (tactical)		TYPE:LONGARMS
+Needler rifle (advanced)		TYPE:LONGARMS
+Needler rifle (elite)			TYPE:LONGARMS
+Needler rifle (paragon)			TYPE:LONGARMS
+Needler rifle (supreme)			TYPE:LONGARMS

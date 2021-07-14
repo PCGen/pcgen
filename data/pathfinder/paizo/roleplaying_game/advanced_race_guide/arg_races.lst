@@ -40,20 +40,3 @@ Wayang		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,20				ABILITY:I
 
 # Race Name		Unique Key	Starting Feats	Size		Move				Reach		Required Gender	Bonus Languages									Stat bonus											Modify VAR													Auto Language			Ability																	Nb Legs	Nb Hands	Define				Main Race Type			Race Subtype				Type				Challenge Rating	Source Page		Bonus language			FACT
 Race Builder	KEY:Race	STARTFEATS:1			MOVE:Walk,30																																																	ABILITY:Internal|AUTOMATIC|Rules ~ Use Race Builder System																																												FACT:BaseSize|T	FACT:IsPC|true
-
-### Race Builder Races - Generic
-Gathlain				STARTFEATS:1	SIZE:S	MOVE:Walk,30,Fly,40	REACH:5															BONUS:STAT|DEX|2	BONUS:STAT|CON|-2	BONUS:STAT|CHA|2				BONUS:VAR|HasLowlightVision|1	BONUS:VAR|Manueverability|2					AUTO:LANG|Common|Sylvan		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gathlain										LEGS:2	HANDS:2						RACETYPE:Fey			RACESUBTYPE:Gathlain			TYPE:Fey			CR:0			SOURCEPAGE:p.230						FACT:BaseSize|S
-Trox					STARTFEATS:1	SIZE:L	MOVE:Walk,30		REACH:10															BONUS:STAT|STR|6	BONUS:STAT|INT|-2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-2	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|AC_Natural_Armor|0|TYPE=Base	AUTO:LANG|Common|Xenophobic	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Trox											LEGS:2	HANDS:2						RACETYPE:Monstrous Humanoid	RACESUBTYPE:Trox				TYPE:Monstrous Humanoid	CR:0			SOURCEPAGE:p.234						FACT:BaseSize|L
-Wyrwood				STARTFEATS:1	SIZE:S	MOVE:Walk,30		REACH:5															BONUS:STAT|DEX|2	BONUS:STAT|INT|2	BONUS:STAT|CHA|-2																		AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wyrwood										LEGS:2	HANDS:2						RACETYPE:Construct								TYPE:Construct		CR:0			SOURCEPAGE:p.237						FACT:BaseSize|S
-Wyvaran				STARTFEATS:1	SIZE:M	MOVE:Walk,30		REACH:5																																														ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wyvaran										LEGS:2	HANDS:2						RACETYPE:Dragon									TYPE:Dragon			CR:0			SOURCEPAGE:p.238						FACT:BaseSize|M
-
-###Block: Mods to change the sort order
-# Race Name		SORTKEY		FACT
-
-# Uncommon
-
-# Race Builder
-Gathlain.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
-Trox.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Wyrwood.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
-Wyvaran.MOD		SORTKEY:a_base_pc	FACT:IsPC|true

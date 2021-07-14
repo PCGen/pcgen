@@ -1,0 +1,23 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ aquatic elf race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Aquatic Elf
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:aquaticelf__datacontrols.lst
+
+# Data Files
+ABILITY:aquaticelf_abilities_globalvar.lst
+ABILITY:aquaticelf_abilities_race.lst
+ABILITYCATEGORY:aquaticelf_abilitycategories.lst
+RACE:aquaticelf_races.lst
+TEMPLATE:aquaticelf_templates.lst

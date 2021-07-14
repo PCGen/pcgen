@@ -269,6 +269,7 @@ task genDataList doLast {
     publisherMap.put("vigilance_press","Vigilance Press");
     publisherMap.put("wizards_of_the_coast","Wizards of the Coast");
     publisherMap.put("lpj_design","Louis Porter Jr. Design");
+    publisherMap.put("tripod_machine","Tripod Machine");
     publisherMap.put("total_party_kill_games","Total Party Kill Games");
     publisherMap.put("starfinder","Starfinder");
     File out =new File("$projectDir/installers/win-installer/includes/data.nsh")
@@ -502,5 +503,3 @@ task updateVersionToNext doLast {
     updateVersion()
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
 }
-
-

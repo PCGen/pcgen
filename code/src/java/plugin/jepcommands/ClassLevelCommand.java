@@ -76,7 +76,7 @@ public class ClassLevelCommand extends PCGenCommand
 			return updated;
 		}
 
-		final Number result = new Double(pc.getClassLevelString(src, false));
+		final Number result = Double.valueOf(pc.getClassLevelString(src, false));
 		jep.addVariable("CL", result.doubleValue());
 
 		return true;
@@ -175,7 +175,7 @@ public class ClassLevelCommand extends PCGenCommand
 			}
 		}
 
-		Double result = new Double(pc.getClassLevelString(cl, false));
+		Double result = Double.valueOf(pc.getClassLevelString(cl, false));
 		inStack.push(result);
 	}
 

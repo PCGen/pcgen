@@ -87,6 +87,11 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return false;
 	}
 
+	@Override
+	public int hashCode() {
+		return format.hashCode() + (31 * inherent) + (31 * priority);
+	}
+
 	public static FormulaModifier<Number> getAddModifier(String modInstructions,
 		FormatManager<Number> formatManager)
 	{
@@ -201,7 +206,6 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		};
 	}
 
-
 	public static AbstractModifier<Number> add(final ComplexNEPFormula<?> value, int priority)
 	{
 		return new AbstractModifier<Number>(2, FormatUtilities.NUMBER_MANAGER, priority)
@@ -271,6 +275,11 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 				return super.equals(o) && (psn.value == value);
 			}
 			return false;
+		}
+
+		@Override
+		public int hashCode() {
+			return super.hashCode() + (31 * value);
 		}
 
 		@Override

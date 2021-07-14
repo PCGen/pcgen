@@ -1,0 +1,20 @@
+
+
+# ------------------------------
+# Gathlain
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsGathlain	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gathlain	EXPLANATION:Determines whether the character is a Gathlain
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|Gathlain_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gathlain Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Gathlain_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gathlain Type				EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Gathlain_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gathlain Size				EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Gathlain_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gathlain Speed				EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Gathlain_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gathlain Vision				EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Gathlain_ReplaceNaturalArmor		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gathlain Natural Armor		EXPLANATION:Replaces the Natural Armor Racial Trait
+FACTDEF:ABILITY|Gathlain_ReplaceSpellLikeAbilities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gathlain Spell-Like Abilities	EXPLANATION:Replaces the Spell-Like Abilities Racial Trait
+FACTDEF:ABILITY|Gathlain_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gathlain Languages			EXPLANATION:Replaces the Languages Racial Trait

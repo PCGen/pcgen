@@ -1,0 +1,17 @@
+
+
+# ==============================
+# Racial Trait Support
+# ==============================
+
+###Block: Subraces
+# Template Name	Unique Key					Visible	Subrace
+Werebat-Kin		KEY:Skinwalker ~ Werebat-Kin		VISIBLE:NO	SUBRACE:Werebat-Kin
+Werebear-Kin	KEY:Skinwalker ~ Werebear-Kin		VISIBLE:NO	SUBRACE:Werebear-Kin
+Wereboar-Kin	KEY:Skinwalker ~ Wereboar-Kin		VISIBLE:NO	SUBRACE:Wereboar-Kin
+Werecrocodile-Kin	KEY:Skinwalker ~ Werecrocodile-Kin	VISIBLE:NO	SUBRACE:Werecrocodile-Kin
+Wereraptor-Kin	KEY:Skinwalker ~ Wereraptor-Kin	VISIBLE:NO	SUBRACE:Wereraptor-Kin
+Wererat-Kin		KEY:Skinwalker ~ Wererat-Kin		VISIBLE:NO	SUBRACE:Wererat-Kin
+Wereshark-Kin	KEY:Skinwalker ~ Wereshark-Kin	VISIBLE:NO	SUBRACE:Wereshark-Kin
+Weretiger-Kin	KEY:Skinwalker ~ Weretiger-Kin	VISIBLE:NO	SUBRACE:Weretiger-Kin
+Werewolf-Kin	KEY:Skinwalker ~ Werewolf-Kin		VISIBLE:NO	SUBRACE:Werewolf-Kin

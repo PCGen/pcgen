@@ -249,7 +249,7 @@ Languages		KEY:Scion of Humanity ~ Languages	CATEGORY:Special Ability	TYPE:Racia
 # ------------------------------
 
 # This race is found in b3_abilities_race_arg.lst
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Catfolk ~ Ability Scores.MOD	SOURCEPAGE:p.91
 CATEGORY=Special Ability|Catfolk ~ Type.MOD		SOURCEPAGE:p.91
@@ -281,7 +281,7 @@ Grant Class Skill Knowledge (History & Local)	KEY:Curiosity ~ Class Skill		CATEG
 # ------------------------------
 
 # This race is found in b2_abilities_race_arg.lst
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name									Source Page
 CATEGORY=Special Ability|Dhampir ~ Ability Scores.MOD			SOURCEPAGE:p.97
 CATEGORY=Special Ability|Dhampir ~ Type.MOD				SOURCEPAGE:p.97
@@ -692,7 +692,7 @@ Water Sense			KEY:Undine ~ Water Sense		CATEGORY:Special Ability	TYPE:RacialTrai
 Racial Traits ~ Changeling					CATEGORY:Internal																														TEMPLATE:Racial Heritage ~ Changeling
 CATEGORY=Internal|Racial Traits ~ Changeling.MOD					DEFINE:Changeling_RacialCastingStat|0	DEFINE:Changeling_RacialCastingMod|0	DEFINE:Changeling_RacialCasterlevel|0	DEFINE:Changeling_RacialConcentration|0								BONUS:VAR|Changeling_RacialCastingStat|CHASCORE	BONUS:VAR|Changeling_RacialCastingMod|CHA	BONUS:VAR|Changeling_RacialCasterlevel|TL	BONUS:VAR|Changeling_RacialConcentration|Changeling_RacialCasterlevel+Changeling_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key					Category of Ability		Type																		Visible		Prohibited Fact								Description																																							Template																																Move			Auto Language	Ability					Bonus Ability Pool					Stat bonus										Modify VAR						Vision			Source Page		Bonus language
 +2 Wisdom, +2 Charisma, -2 Constitution	KEY:Changeling ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Changeling Racial Trait.Changeling Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Changeling_ReplaceAbilityScores=True	DESC:Changelings are frail, but are clever and comely.																																																																																				BONUS:STAT|WIS,CHA|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial												SOURCEPAGE:p.184
 Medium						KEY:Changeling ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Changeling Racial Trait.Changeling Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Changeling_ReplaceType=True		DESC:Changelings are Medium creatures and have no bonuses or penalties due to their size.																										TEMPLATE:Humanoid|Changeling																																																																							SOURCEPAGE:p.184
@@ -756,7 +756,7 @@ Dwarf Traits (Replaces Duergar Immunities)	KEY:Duergar ~ Dwarf Traits (Replaces 
 Racial Traits ~ Gillman					CATEGORY:Internal																											TEMPLATE:Racial Heritage ~ Gillman
 CATEGORY=Internal|Racial Traits ~ Gillman.MOD					DEFINE:Gillman_RacialCastingStat|0	DEFINE:Gillman_RacialCastingMod|0	DEFINE:Gillman_RacialCasterlevel|0	DEFINE:Gillman_RacialConcentration|0							BONUS:VAR|Gillman_RacialCastingStat|CHASCORE	BONUS:VAR|Gillman_RacialCastingMod|CHA	BONUS:VAR|Gillman_RacialCasterlevel|TL	BONUS:VAR|Gillman_RacialConcentration|Gillman_RacialCasterlevel+Gillman_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key						Category of Ability		Type																	Visible		Prohibited Fact									Description																																																																												Template																	Move				Auto Language			Ability					Stat bonus										Modify VAR																			Source Page		Aspects
 +2 Constitution, +2 Charisma, -2 Wisdom	KEY:Gillman ~ Ability Scores			CATEGORY:Special Ability	TYPE:RacialTraits.Gillman Racial Trait.Gillman Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Gillman_ReplaceAbilityScores=True		DESC:Gillmen are vigorous and beautiful, but their domination by the aboleths has made them weak-willed.																																																																																													BONUS:STAT|CON,CHA|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial																					SOURCEPAGE:p.188
 Aquatic						KEY:Gillman ~ Type				CATEGORY:Special Ability	TYPE:RacialTraits.Gillman Racial Trait.Gillman Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Gillman_ReplaceType=True				DESC:Gillmen are humanoids with the aquatic subtype.																																																																					TEMPLATE:Humanoid|Aquatic																																																												SOURCEPAGE:p.188
@@ -818,7 +818,7 @@ Grippli Poison	KEY:Grippli ~ Toxic Skin ~ Grippli Poison	CATEGORY:Special Abilit
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
 Racial Traits ~ Kitsune	CATEGORY:Internal		DEFINE:Kitsune_RacialCastingStat|0	DEFINE:Kitsune_RacialCastingMod|0	DEFINE:Kitsune_RacialCasterlevel|0	DEFINE:Kitsune_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Kitsune	BONUS:VAR|Kitsune_RacialCastingStat|CHASCORE	BONUS:VAR|Kitsune_RacialCastingMod|CHA	BONUS:VAR|Kitsune_RacialCasterlevel|TL	BONUS:VAR|Kitsune_RacialConcentration|Kitsune_RacialCasterlevel+Kitsune_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																					Visible		Prohibited Fact								Description																																																																							Template																											Move			Auto Language		Ability													Bonus DC				Bonus to skill					Stat bonus										Modify VAR											Weapon prof. bonus			Vision			Source Page		Aspects
 +2 Dexterity, +2 Charisma, -2 Strength	KEY:Kitsune ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Kitsune Racial Trait.Kitsune Racial Default.SpecialQuality.Racial Ability Scores					VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kitsune_ReplaceAbilityScores=True	DESC:Kitsune are agile and companionable, but tend to be physically weak.																																																																																																																									BONUS:STAT|DEX,CHA|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial																							SOURCEPAGE:p.192
 Kitsune						KEY:Kitsune ~ Type		CATEGORY:Special Ability	TYPE:RacialTraits.Kitsune Racial Trait.Kitsune Racial Default.SpecialQuality.Racial Type							VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Kitsune_ReplaceType=True			DESC:Kitsune are humanoids with the kitsune and shapechanger subtypes.																																																													TEMPLATE:Humanoid|Kitsune|Shapechanger																																																																																								SOURCEPAGE:p.192
@@ -869,7 +869,7 @@ Strongtail		KEY:Merfolk ~ Strongtail	CATEGORY:Special Ability	TYPE:RacialTraits.
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
 Racial Traits ~ Nagaji	CATEGORY:Internal		DEFINE:Nagaji_RacialCastingStat|0	DEFINE:Nagaji_RacialCastingMod|0	DEFINE:Nagaji_RacialCasterlevel|0	DEFINE:Nagaji_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Nagaji	BONUS:VAR|Nagaji_RacialCastingStat|CHASCORE	BONUS:VAR|Nagaji_RacialCastingMod|CHA	BONUS:VAR|Nagaji_RacialCasterlevel|TL	BONUS:VAR|Nagaji_RacialConcentration|Nagaji_RacialCasterlevel+Nagaji_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																	Visible		Prohibited Fact							Description																																			Template																																				Move			Auto Language		Bonus to Situation								Bonus to skill					Stat bonus										Modify VAR											Vision			Source Page		Aspects
 +2 Strength, +2 Charisma, -2 Intelligence	KEY:Nagaji ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Nagaji Racial Trait.Nagaji Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Nagaji_ReplaceAbilityScores=True	DESC:Nagaji are strong and have forceful personalities, but they tend to ignore logic and mock scholarly pursuits.																																																																															BONUS:STAT|STR,CHA|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial																	SOURCEPAGE:p.196
 Medium						KEY:Nagaji ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Nagaji Racial Trait.Nagaji Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Nagaji_ReplaceType=True		DESC:Nagaji are Medium creatures and have no bonuses or penalties due to their size.																						TEMPLATE:Humanoid|Reptilian																																																																																					SOURCEPAGE:p.196
@@ -894,7 +894,7 @@ Hypnotic Gaze	KEY:Nagaji ~ Hypnotic Gaze	CATEGORY:Special Ability	TYPE:RacialTra
 # Ability Name			Category of Ability	Define																								Template					Modify VAR
 Racial Traits ~ Samsaran	CATEGORY:Internal		DEFINE:Samsaran_RacialCastingStat|0	DEFINE:Samsaran_RacialCastingMod|0	DEFINE:Samsaran_RacialCasterlevel|0	DEFINE:Samsaran_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Samsaran	BONUS:VAR|Samsaran_RacialCastingStat|CHASCORE	BONUS:VAR|Samsaran_RacialCastingMod|CHA	BONUS:VAR|Samsaran_RacialCasterlevel|TL	BONUS:VAR|Samsaran_RacialConcentration|Samsaran_RacialCasterlevel+Samsaran_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name						Unique Key					Category of Ability		Type																			Visible		Prohibited Fact								Description																																									Multiple?	Choose														Selections	Template																																																			Move			Auto Language			Ability																						Bonus to skill				Stat bonus										Modify VAR																	Class Skill	Vision			Source Page		Aspects
 +2 Intelligence, +2 Wisdom, -2 Constitution	KEY:Samsaran ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Samsaran Racial Trait.Samsaran Racial Default.SpecialQuality.Racial Ability Scores			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Samsaran_ReplaceAbilityScores=True	DESC:Samsarans are insightful and strong-minded, but with frail bodies.																																																																																																																																											BONUS:STAT|INT,WIS|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial																									SOURCEPAGE:p.198
 Samsaran							KEY:Samsaran ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Samsaran Racial Trait.Samsaran Racial Default.SpecialQuality.Racial Type				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Samsaran_ReplaceType=True			DESC:Samsarans are humanoids with the samsaran subtype.																																																				TEMPLATE:Humanoid|Samsaran																																																																																																																								SOURCEPAGE:p.198
@@ -1035,7 +1035,7 @@ Spells added to Anti-Paladin	KEY:Mystic Past Life Add ~ Anti-Paladin	CATEGORY:Sp
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
 Racial Traits ~ Strix	CATEGORY:Internal		DEFINE:Strix_RacialCastingStat|0	DEFINE:Strix_RacialCastingMod|0	DEFINE:Strix_RacialCasterlevel|0	DEFINE:Strix_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Strix	BONUS:VAR|Strix_RacialCastingStat|CHASCORE	BONUS:VAR|Strix_RacialCastingMod|CHA	BONUS:VAR|Strix_RacialCasterlevel|TL	BONUS:VAR|Strix_RacialConcentration|Strix_RacialCasterlevel+Strix_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name			Unique Key				Category of Ability		Type																				Visible		Prohibited Fact							Description																															Template																																	Move			Auto Language	Bonus to Situation														Stat bonus									Modify VAR							Vision			Source Page		Aspects
 +2 Dexterity, -2 Charisma	KEY:Strix ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Strix Racial Trait.Strix Racial Default.SpecialQuality.Racial Ability Scores					VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Strix_ReplaceAbilityScores=True	DESC:Strix are swift and elusive, but tend to be stubborn and swift to anger.																																																																													BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial													SOURCEPAGE:p.200
 Strix					KEY:Strix ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Strix Racial Trait.Strix Racial Default.SpecialQuality.Racial Type						VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Strix_ReplaceType=True		DESC:Strix are humanoids with the strix subtype																									TEMPLATE:Humanoid|Strix																																																																												SOURCEPAGE:p.200
@@ -1178,7 +1178,7 @@ Subtle Appearance	KEY:Vishkanya ~ Subtle Appearance	CATEGORY:Special Ability	TYP
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
 Racial Traits ~ Wayang	CATEGORY:Internal		DEFINE:Wayang_RacialCastingStat|0	DEFINE:Wayang_RacialCastingMod|0	DEFINE:Wayang_RacialCasterlevel|0	DEFINE:Wayang_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Wayang	BONUS:VAR|Wayang_RacialCastingStat|CHASCORE	BONUS:VAR|Wayang_RacialCastingMod|CHA	BONUS:VAR|Wayang_RacialCasterlevel|TL	BONUS:VAR|Wayang_RacialConcentration|Wayang_RacialCasterlevel+Wayang_RacialCastingMod
 
-###Block: Default Racial Traits
+###Block: Racial Traits
 # Ability Name					Unique Key					Category of Ability		Type																		Visible		Prohibited Fact								Description																																																																							Template																																								Move			Auto Language		Ability																						Bonus DC				Bonus to skill						Stat bonus										Modify VAR								Vision			Source Page		Aspects
 +2 Dexterity, +2 Intelligence, -2 Wisdom	KEY:Wayang ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Wayang Racial Trait.Wayang Racial Default.SpecialQuality.Racial Ability Scores		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Wayang_ReplaceAbilityScores=True		DESC:Wayangs are nimble and cagey, but their perception of the world is clouded by shadows.																																																																																																																																													BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial														SOURCEPAGE:p.210
 Wayang						KEY:Wayang ~ Type				CATEGORY:Special Ability	TYPE:RacialTraits.Wayang Racial Trait.Wayang Racial Default.SpecialQuality.Racial Type				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Wayang_ReplaceType=True			DESC:Wayangs are humanoids with the wayang subtype.																																																																TEMPLATE:Humanoid|Wayang																																																																																																								SOURCEPAGE:p.210
@@ -1194,74 +1194,6 @@ Languages						KEY:Wayang ~ Languages			CATEGORY:Special Ability	TYPE:RacialTrai
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key					Category of Ability		Type															Multiple Requirements																				Description																																																																													Cost		Source Page		Aspects								FACT
 Dissolution's Child	KEY:Wayang ~ Dissolution's Child	CATEGORY:Special Ability	TYPE:RacialTraits.Wayang Racial Trait.SpecialQuality.Special Quality.Special Ability	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Dissolution's Child],[!PREFACT:1,ABILITIES,Wayang_ReplaceShadowMagic=True]	DESC:Once per day, you may change your appearance to look as if you were little more than a 4-foot-tall area of shadow. Your physical form still exists and you are not incorporeal--only your appearance changes. This works like invisibility, except it only lasts %1 rounds (1 round per level, maximum 5 rounds). This is a supernatural ability.|min(TL,5)	DESC:This racial trait replaces shadow magic.|!PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Dissolution's Child	COST:0	SOURCEPAGE:p.210	ASPECT:CheckType|Uses per Day	ASPECT:CheckCount|%1|1	FACT:Wayang_ReplaceShadowMagic|True
-
-
-#Racial Traits ~ Gathlain
-# Ability Name						Unique Key					Category of Ability		Type										Multiple Requirements																					Description																																																													Ability																			Cost		Source Page
-Racial Traits ~ Gathlain											CATEGORY:Internal	TEMPLATE:Bonus Language ~ Draconic|Bonus Language ~ Elven|Bonus Language ~ Goblin|Bonus Language ~ Halfling|Bonus Language ~ Orc	AUTO:LANG|Common|Sylvan
-
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Gathlain Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GathlainMagic
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalArmor
-
-###Block: Default Gathlain Abilities
-# Ability Name					Unique Key				Category of Ability		Type											Innate Spells								Description																												Ability																					Modify VAR						Source Page
-Gathlain Magic					KEY:Gathlain ~ Gathlain Magic	CATEGORY:Special Ability	TYPE:Gathlain Racial Trait.SpecialQuality.GathlainRacialDefault	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Entangle|Feather Step	DESC:Gathlains have a +1 natural armor bonus.																																																			SOURCEPAGE:p.230
-Natural Armor					KEY:Gathlain ~ Natural Armor	CATEGORY:Special Ability	TYPE:Gathlain Racial Trait.SpecialQuality.GathlainRacialDefault											DESC:Gathlains can cast entangle and feather step APG each once per day as spell-like abilities. The caster level for each is equal to the gathlain's character level.																							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base	SOURCEPAGE:p.230
-
-
-#Racial Traits ~ Trox
-# Ability Name					Unique Key				Category of Ability		Type											Innate Spells								Description																												Ability																					Modify VAR						Source Page
-Racial Traits ~ Trox									CATEGORY:Internal
-
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Burrow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxBurrow
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Frenzy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxFrenzy
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Grabbing Appendages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxGrabbingAppendages
-
-###Block: Default Trox Abilities
-# Ability Name						Unique Key					Category of Ability		Type									Description																																	Move			Ability																		Source Page
-Burrow							KEY:Trox ~ Burrow				CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:Trox have a burrow speed of 20 feet.																												MOVE:Burrow,30																				SOURCEPAGE:p.234
-Frenzy							KEY:Trox ~ Frenzy				CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:Once per day when a trox takes damage, it flies into a frenzy for 1 minute, gaining a +2 racial bonus to Constitution and Strength, but a -2 penalty to their AC.																												SOURCEPAGE:p.234
-Grabbing Appendages					KEY:Trox ~ Grabbing Appendages	CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:A trox's smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.																							SOURCEPAGE:p.234	ABILITY:FEAT|AUTOMATIC|Improved Grapple
-
-
-#Racial Traits ~ Wyrwood
-# Ability Name						Unique Key					Category of Ability		Type									Description																																	Move			Ability																		Source Page
-Racial Traits ~ Wyrwood											CATEGORY:Internal
-CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD																																																										ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyrwoodSenses
-
-###Block: Default Wyrwood Abilities
-# Ability Name	Unique Key			Category of Ability		Type										Description												Modify VAR													Source Page
-Senses		KEY:Wyrwood ~ Senses	CATEGORY:Special Ability	TYPE:Wyrwood Racial Trait.SpecialQuality.WyrwoodRacialDefault	DESC:Wyrwoods have low-light vision and can see in the dark up to 60 feet.	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base	SOURCEPAGE:p.237
-
-
-# ==============================
-# Wyvaran
-# ==============================
-
-###Block: Racial Abilities
-# Ability Name						Category of Ability	Define												Ability
-Racial Traits ~ Wyvaran					CATEGORY:Internal
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceAbilityScores|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Ability Scores|PREVAREQ:Wyvaran_ReplaceAbilityScores,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceType|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Type|PREVAREQ:Wyvaran_ReplaceType,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSize|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Size|PREVAREQ:Wyvaran_ReplaceSize,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSpeed|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Speed|PREVAREQ:Wyvaran_ReplaceSpeed,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceFlight|0								ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Flight|PREVAREQ:Wyvaran_ReplaceFlight,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSlappingTail|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Slapping Tail|PREVAREQ:Wyvaran_ReplaceSlappingTail,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceDarkvision|0								ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Darkvision|PREVAREQ:Wyvaran_ReplaceDarkvision,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceLowLightVision|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Low-Light Vision|PREVAREQ:Wyvaran_ReplaceLowLightVision,0
-CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceLanguages|0	DEFINE:Wyvaran_ReplaceBaseLanguages|0	ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Languages|PREVAREQ:Wyvaran_ReplaceLanguages,0
-
-###Block: Racial Defaults
-# Ability Name					Unique Key					Category of Ability		Type																		Define					Description																													Template																								Move		Auto Language									Ability						Stat bonus										Modify VAR							Vision							Source, Long Desc.		Source, Short Desc.	Source URI														Source Page		Aspects									Source Pub. Date
-+2 Dexterity, +2 Wisdom, -2 Intelligence	KEY:Wyvaran ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Ability Scores								DESC:Wyvarans have a reptilian grace and a strong will, but are a little dim-witted.																																																													BONUS:STAT|DEX,WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial																	SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
-Dragon						KEY:Wyvaran ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Type.Racial Subtype							DESC:Wyvarans have the dragon type.																									TEMPLATE:Dragon																																																																						SOURCELONG:Inner Sea Races	SOURCESHORT:ISR		SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races	SOURCEPAGE:p.254											SOURCEDATE:2015-09
-Medium						KEY:Wyvaran ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Size										DESC:Wyvarans are Medium creatures and have no bonuses or penalties due to their size.																																																																																								SOURCELONG:Inner Sea Races	SOURCESHORT:ISR		SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races	SOURCEPAGE:p.254											SOURCEDATE:2015-09
-Normal Speed					KEY:Wyvaran ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Speed										DESC:Wyvarans have a base speed of 30 feet.																																																																																															SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
-Flight						KEY:Wyvaran ~ Flight			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality												DESC:Wyvarans have dragonlike wings that grant them a fly speed of 30 feet with clumsy maneuverability.																																						MOVE:Fly,30																														BONUS:VAR|Manueverability|1|TYPE=Base										SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
-Slapping Tail					KEY:Wyvaran ~ Slapping Tail		CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialAttack.Extraordinary										DESC:Wyvarans have a tail attack they can only use when making attacks of opportunity. This slapping tail attack deals 1d8 points of damage plus the wyvaran's Strength modifier.																																							ABILITY:Internal|AUTOMATIC|Tail Slap																												SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
-Darkvision						KEY:Wyvaran ~ Darkvision		CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Vision.Vision		DEFINE:Wyvaran_Darkvision_Range|0	DESC:Wyvarans can see in the dark up to 60 feet.																																																																														BONUS:VAR|Wyvaran_Darkvision_Range|60|TYPE=Base	VISION:Darkvision (Wyvaran_Darkvision_Range)	SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281	ASPECT:Vision|Darkvision %1 ft.|Wyvaran_Darkvision_Range	SOURCEDATE:2013-10
-Low-Light Vision					KEY:Wyvaran ~ Low-Light Vision	CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Vision.Vision								DESC:Wyvarans have low-light vision.																																																																																								VISION:Low-Light Vision					SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281	ASPECT:Vision|Low-Light Vision					SOURCEDATE:2013-10
-Languages						KEY:Wyvaran ~ Languages			CATEGORY:Special Ability	TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Language									DESC:Wyvarans speak Common and Draconic. A wyvaran with a high Intelligence score can choose from the following: Dwarven, Elven, Gnome, Goblin, and Orc.					TEMPLATE:Bonus Language ~ Dwarven|Bonus Language ~ Elven|Bonus Language ~ Gnome|Bonus Language ~ Goblin|Bonus Language ~ Orc			AUTO:LANG|Common|Draconic|PREVAREQ:Wyvaran_ReplaceBaseLanguages,0																																			SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEPAGE:p.281											SOURCEDATE:2013-10
 
 
 ###Block: Ability Mods
@@ -1524,14 +1456,16 @@ Bonus Summoner Eidolon DR				KEY:Favored Class Bonus ~ Summoner ~ Aasimar	CATEGO
 
 ###Block: Catfolk
 # Ability Name						Unique Key							Category of Ability		Type										Required Ability								Required Class			Required Race					Define							Description																																										Stackable?	Multiple?	Choose		Ability											Bonus Ability Pool					Bonus to Situation																				Modify VAR												Source Page
-Bonus Bard Bardic Knowledge				KEY:Favored Class Bonus ~ Bard ~ Catfolk		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard	PREABILITY:1,CATEGORY=Special Ability,Bardic Knowledge	PRECLASS:1,Bard=1			PRERACE:1,Catfolk,RACESUBTYPE=Catfolk	DEFINE:BardicKnowledgeFavoredClassBonusLVL|0	DESC:Bard: Add +1/2 to the bard's bardic knowledge bonus.																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Favored Class Bonus to Bardic Knowledge																																BONUS:VAR|BardicKnowledgeFavoredClassBonusLVL|1						SOURCEPAGE:p.92
-Favored Class Bonus to Bardic Knowledge										CATEGORY:Internal																																																																																								MULT:NO																																															BONUS:VAR|BardicKnowledgeSkillBonus|BardicKnowledgeFavoredClassBonusLVL/2
+Bonus Bard Bardic Knowledge				KEY:Favored Class Bonus ~ Bard ~ Catfolk		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard	PREABILITY:1,CATEGORY=Special Ability,Bardic Knowledge	PRECLASS:1,Bard=1			PRERACE:1,Catfolk,RACESUBTYPE=Catfolk	DEFINE:BardicKnowledgeFavoredClassBonusLVL|0	DESC:Bard: Add +1/2 to the bard's bardic knowledge bonus.																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Catfolk Favored Class Bonus Tracker																																BONUS:VAR|BardicKnowledgeFavoredClassBonusLVL|1						SOURCEPAGE:p.92
 Bonus Cavalier Banner Bonus				KEY:Favored Class Bonus ~ Cavalier ~ Catfolk	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier											PRECLASS:1,TYPE.Cavalier=1	PRERACE:1,Catfolk,RACESUBTYPE=Catfolk									DESC:Cavalier: Add +1/4 to the cavalier's banner bonus.																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																												BONUS:VAR|Bonus_Cavalier_Banner_Count_four|1						SOURCEPAGE:p.92
 Bonus Druid Animal companion HP			KEY:Favored Class Bonus ~ Druid ~ Catfolk		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid											PRECLASS:1,Druid=1		PRERACE:1,Catfolk,RACESUBTYPE=Catfolk									DESC:Druid: Add +1 hit points to the druid's animal companion. If the druid ever replaces her animal companion, the new animal companion gains these bonus hit points.																STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																									SOURCEPAGE:p.92
 Bonus Oracle Spell Known				KEY:Favored Class Bonus ~ Oracle ~ Catfolk	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle											PRECLASS:1,Oracle=1		PRERACE:1,Catfolk,RACESUBTYPE=Catfolk									DESC:Oracle: Add one spell known from the oracle spell list. This spell must be at least one level below the highest spell level the oracle can cast.																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:ABILITYPOOL|Oracle Favored Bonus Spell|1																																					SOURCEPAGE:p.92
 Bonus Ranger Catfolk Critical Confirmation	KEY:Favored Class Bonus ~ Ranger ~ Catfolk	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger											PRECLASS:1,Ranger=1		PRERACE:1,Catfolk,RACESUBTYPE=Catfolk									DESC:Ranger: Choose a weapon from the following list: claws, kukri, longbow, longsword, short spear, or shortbow. Add +1/2 on critical hit confirmation rolls made while using that weapon (maximum bonus of +4). This bonus does not stack with Critical Focus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																									SOURCEPAGE:p.92
-Bonus Rogue Feint and Pickpocket Checks		KEY:Favored Class Bonus ~ Rogue ~ Catfolk		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue											PRECLASS:1,TYPE.Rogue=1		PRERACE:1,Catfolk,RACESUBTYPE=Catfolk	DEFINE:Bonus_Rogue_Skills_Catfolk|0			DESC:Rogue: Add a +1/2 bonus on Bluff checks to feint and Sleight of Hands checks to pickpocket.																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																					BONUS:SITUATION|Bluff=Feint|Bonus_Rogue_Skills_Catfolk/2	BONUS:SITUATION|Sleight of Hand=Pick Pocket|Bonus_Rogue_Skills_Catfolk/2	BONUS:VAR|Bonus_Rogue_Skills_Catfolk|1							SOURCEPAGE:p.92
+Bonus Rogue Feint and Pickpocket Checks		KEY:Favored Class Bonus ~ Rogue ~ Catfolk		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue											PRECLASS:1,TYPE.Rogue=1		PRERACE:1,Catfolk,RACESUBTYPE=Catfolk	DEFINE:Bonus_Rogue_Skills_Catfolk|0			DESC:Rogue: Add a +1/2 bonus on Bluff checks to feint and Sleight of Hands checks to pickpocket.																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																									SOURCEPAGE:p.92	ABILITY:Internal|AUTOMATIC|Catfolk Favored Class Bonus Tracker	BONUS:VAR|Bonus_Rogue_Skills_Catfolk|1
 Bonus Sorcerer Bloodline Power Times		KEY:Favored Class Bonus ~ Sorcerer ~ Catfolk	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer											PRECLASS:1,Sorcerer=1		PRERACE:1,Catfolk,RACESUBTYPE=Catfolk									DESC:Sorcerer: Select one bloodline power at 1st level that is normally usable a number of times equal to 3 + the sorcerer's Charisma modifier. The sorcerer adds + 1/2 to the number of uses per day of that bloodline power.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																									SOURCEPAGE:p.92
+
+#
+Catfolk Favored Class Bonus Tracker			KEY:Catfolk Favored Class Bonus Tracker		CATEGORY:Internal				BONUS:SITUATION|Bluff=Feint|Bonus_Rogue_Skills_Catfolk/2	BONUS:SITUATION|Sleight of Hand=Pick Pocket|Bonus_Rogue_Skills_Catfolk/2	BONUS:VAR|BardicKnowledgeSkillBonus|BardicKnowledgeFavoredClassBonusLVL/2
 
 ###Block: Dhampir
 # Ability Name						Unique Key							Category of Ability		Type											Required Class		Required Race					Define						Description																Stackable?	Multiple?	Choose		Modify VAR						Source Page		Aspects
@@ -1807,9 +1741,9 @@ Bonus Summoner Eidolon Skill Point	KEY:Favored Class Bonus ~ Summoner ~ Wayang	C
 
 ###Block: ARG Race Builder Examples:
 # Ability Name		Category of Ability	Ability
-Racial Traits ~ Kasatha	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Defensive Training (Greater)|Builder Racial Trait ~ Desert Runner|Builder Racial Trait ~ Jumper|Builder Racial Trait ~ Multi-Armed|Builder Racial Trait ~ Multi-Armed|Builder Racial Trait ~ Stalker
-Racial Traits ~ Trox	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Frenzy|Builder Racial Trait ~ Grappling Appendages
-Racial Traits ~ Wyvaran	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Slapping Tail
+Race Builder ~ Kasatha	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Defensive Training (Greater)|Builder Racial Trait ~ Desert Runner|Builder Racial Trait ~ Jumper|Builder Racial Trait ~ Multi-Armed|Builder Racial Trait ~ Multi-Armed|Builder Racial Trait ~ Stalker
+Race Builder ~ Trox	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Frenzy|Builder Racial Trait ~ Grappling Appendages
+Race Builder ~ Wyvaran	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Slapping Tail
 
 ###Block: Kitsune Oracle Non-Weapon Proficiency Support
 
@@ -2152,81 +2086,69 @@ Trailblazer		KEY:Human Racial Subtype ~ Trailblazer				CATEGORY:Special Ability	
 Versatile Human	KEY:Human Racial Subtype ~ Versatile Human			CATEGORY:Special Ability	TYPE:Human Racial Subtype.SpecialQuality		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Human Racial Subtype ~ Versatile Human],[!PREFACT:1,ABILITIES,Human_ReplaceAbilityScores=true,Human_ReplaceBonusFeat=true,Human_ReplaceSkilled=true]																	DESC:While they lack some of the training of other humans, the natural talents of versatile humans more than make up for this lack. Replace the +2 bonus to any ability score, the skilled racial trait, and the bonus feat racial trait with dual talent.																																																																			TEMPLATE:Versatile Human	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Dual Talent										SOURCEPAGE:p.73
 
 
-###Block: Adoptive Race
-# Ability Name	Unique Key					Category of Ability		Type			Description		Multiple?	Choose											Ability
-Aasimar		KEY:Adopted Race ~ Aasimar		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Aasimar Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Catfolk		KEY:Adopted Race ~ Catfolk		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Catfolk Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Changeling		KEY:Adopted Race ~ Changeling		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=ChangelingTrait		ABILITY:Traits|VIRTUAL|%LIST
-Dhampir		KEY:Adopted Race ~ Dhampir		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Dhampir Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Duergar		KEY:Adopted Race ~ Duergar		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Duergar Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Drow			KEY:Adopted Race ~ Drow			CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Drow Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Fetchling		KEY:Adopted Race ~ Fetchling		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Fetchling Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Goblin		KEY:Adopted Race ~ Goblin		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Goblin Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Hobgoblin		KEY:Adopted Race ~ Hobgoblin		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Hobgoblin Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Ifrit			KEY:Adopted Race ~ Ifrit		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Ifrit Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Kobold		KEY:Adopted Race ~ Kobold		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Kobold Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Orc			KEY:Adopted Race ~ Orc			CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Orc Race Trait			ABILITY:Traits|VIRTUAL|%LIST
-Oread			KEY:Adopted Race ~ Oread		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Oread Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Ratfolk		KEY:Adopted Race ~ Ratfolk		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Ratfolk Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Sylph			KEY:Adopted Race ~ Sylph		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Sylph Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Tengu			KEY:Adopted Race ~ Tengu		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Tengu Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Tiefling		KEY:Adopted Race ~ Tiefling		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Tiefling Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Undine		KEY:Adopted Race ~ Undine		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Undine Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Gillman		KEY:Adopted Race ~ Gillman		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Gillman Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Grippli		KEY:Adopted Race ~ Grippli		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Grippli Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Kitsune		KEY:Adopted Race ~ Kitsune		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Kitsune Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Merfolk		KEY:Adopted Race ~ Merfolk		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Merfolk Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Nagaji		KEY:Adopted Race ~ Nagaji		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Nagaji Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Samsaran		KEY:Adopted Race ~ Samsaran		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Samsaran Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Strix			KEY:Adopted Race ~ Strix		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Strix Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Suli			KEY:Adopted Race ~ Suli			CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Suli Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Svirfneblin		KEY:Adopted Race ~ Svirfneblin	CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Svirfneblin Race Trait	ABILITY:Traits|VIRTUAL|%LIST
-Vanara		KEY:Adopted Race ~ Vanara		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Vanara Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Vishkanya		KEY:Adopted Race ~ Vishkanya		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Vishkanya Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Wayang		KEY:Adopted Race ~ Wayang		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Wayang Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Gathlain		KEY:Adopted Race ~ Gathlain		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=GathlainTrait			ABILITY:Traits|VIRTUAL|%LIST
-Trox			KEY:Adopted Race ~ Trox			CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=TroxTrait			ABILITY:Traits|VIRTUAL|%LIST
-Wyrwood		KEY:Adopted Race ~ Wyrwood		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=WyrwoodTrait			ABILITY:Traits|VIRTUAL|%LIST
-Wyvaran		KEY:Adopted Race ~ Wyvaran		CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=WyvaranTrait			ABILITY:Traits|VIRTUAL|%LIST
+###Block: Adopted Trait Race Selections
+# Ability Name							Unique Key					Category of Ability		Type					Multiple?	Choose											Ability
+Aasimar								KEY:Adopted Race ~ Aasimar		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Aasimar Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Catfolk								KEY:Adopted Race ~ Catfolk		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Catfolk Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Changeling								KEY:Adopted Race ~ Changeling		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=ChangelingTrait		ABILITY:Traits|VIRTUAL|%LIST
+Dhampir								KEY:Adopted Race ~ Dhampir		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Dhampir Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Duergar								KEY:Adopted Race ~ Duergar		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Duergar Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Drow									KEY:Adopted Race ~ Drow			CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Drow Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Fetchling								KEY:Adopted Race ~ Fetchling		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Fetchling Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Goblin								KEY:Adopted Race ~ Goblin		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Goblin Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Hobgoblin								KEY:Adopted Race ~ Hobgoblin		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Hobgoblin Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Ifrit									KEY:Adopted Race ~ Ifrit		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Ifrit Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Kobold								KEY:Adopted Race ~ Kobold		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Kobold Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Orc									KEY:Adopted Race ~ Orc			CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Orc Race Trait			ABILITY:Traits|VIRTUAL|%LIST
+Oread									KEY:Adopted Race ~ Oread		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Oread Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Ratfolk								KEY:Adopted Race ~ Ratfolk		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Ratfolk Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Sylph									KEY:Adopted Race ~ Sylph		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Sylph Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Tengu									KEY:Adopted Race ~ Tengu		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Tengu Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Tiefling								KEY:Adopted Race ~ Tiefling		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Tiefling Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Undine								KEY:Adopted Race ~ Undine		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Undine Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Gillman								KEY:Adopted Race ~ Gillman		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Gillman Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Grippli								KEY:Adopted Race ~ Grippli		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Grippli Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Kitsune								KEY:Adopted Race ~ Kitsune		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Kitsune Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Merfolk								KEY:Adopted Race ~ Merfolk		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Merfolk Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Nagaji								KEY:Adopted Race ~ Nagaji		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Nagaji Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Samsaran								KEY:Adopted Race ~ Samsaran		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Samsaran Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Strix									KEY:Adopted Race ~ Strix		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Strix Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Suli									KEY:Adopted Race ~ Suli			CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Suli Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Svirfneblin								KEY:Adopted Race ~ Svirfneblin	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Svirfneblin Race Trait	ABILITY:Traits|VIRTUAL|%LIST
+Vanara								KEY:Adopted Race ~ Vanara		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Vanara Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Vishkanya								KEY:Adopted Race ~ Vishkanya		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Vishkanya Race Trait		ABILITY:Traits|VIRTUAL|%LIST
+Wayang								KEY:Adopted Race ~ Wayang		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Wayang Race Trait		ABILITY:Traits|VIRTUAL|%LIST
 
-###Block: Placeholder
-# Ability Name							Unique Key				Category of Ability		Type
-No Race Trait Available						KEY:No Race Trait Available	CATEGORY:Special Ability
-#
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Aasimar Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Catfolk Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:ChangelingTrait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Dhampir Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Drow Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Duergar Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Fetchling Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:GathlainTrait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Gillman Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Goblin Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Grippli Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Hobgoblin Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Ifrit Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Kitsune Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Kobold Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Merfolk Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Nagaji Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Orc Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Oread Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Ratfolk Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Samsaran Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Strix Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Suli Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Svirfneblin Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Sylph Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Tengu Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Tiefling Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:TroxTrait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Undine Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Vanara Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Vishkanya Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Wayang Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:WyrwoodTrait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:WyvaranTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Aasimar Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Catfolk Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:ChangelingTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Dhampir Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Drow Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Duergar Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Fetchling Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Gillman Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Goblin Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Grippli Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Hobgoblin Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Ifrit Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Kitsune Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Kobold Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Merfolk Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Nagaji Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Orc Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Oread Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Ratfolk Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Samsaran Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Strix Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Suli Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Svirfneblin Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Sylph Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Tengu Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Tiefling Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Undine Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Vanara Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Vishkanya Race Trait
+CATEGORY=Special Ability|No Race Trait Available.MOD												TYPE:Wayang Race Trait
 
 
 # ==============================

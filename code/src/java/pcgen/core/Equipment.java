@@ -2655,10 +2655,13 @@ public final class Equipment extends PObject
 
 	/**
 	 * Description of the Method
-	 * 
+	 *
+	 * FIXME: PMD Check is false as the parent of this class does implement Cloneable, so we suppress the warning
+	 *
 	 * @return Description of the Return Value
 	 */
 	@Override
+	@SuppressWarnings("PMD.CloneMethodMustImplementCloneable")
 	public Equipment clone()
 	{
 		Equipment eq = null;
@@ -5698,7 +5701,7 @@ public final class Equipment extends PObject
 	 * Reduce/increase damage for modified size as per DMG p.162
 	 *
 	 * @param aDamage The base damage
-	 * @param aSize   The size to adjust for
+	 * @param newSizeInt The size to adjust for
 	 * @return     The adjusted damage
 	 */
 	private String adjustDamage(final String aDamage, int newSizeInt)
@@ -5718,7 +5721,7 @@ public final class Equipment extends PObject
 	/**
 	 * Gets the damageAdjustedForSize attribute of the Equipment object
 	 *
-	 * @param aSize
+	 * @param newSizeInt
 	 *           The size to adjust for
 	 * @param bPrimary
 	 *           If true get the damage for the primary head, otherwise

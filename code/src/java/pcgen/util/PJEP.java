@@ -273,7 +273,7 @@ public final class PJEP extends JEP
 					cl += ";BEFORELEVEL=" + param2.toString();
 				}
 
-				inStack.push(new Double(aPC.getClassLevelString(cl, false)));
+				inStack.push(Double.valueOf(aPC.getClassLevelString(cl, false)));
 			}
 			else
 			{

@@ -65,7 +65,7 @@ public class AlignmentToken extends Token
 
 	/**
 	 * Get Alignment Short Token
-	 * @param display
+	 * @param pc
 	 * @return Alignment Short Token
 	 */
 	public static String getShortToken(PlayerCharacter pc)
