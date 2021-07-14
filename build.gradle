@@ -164,7 +164,7 @@ compileJava {
 * https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
 */
 dependencies {
-    implementation group: 'commons-io', name: 'commons-io', version:'2.10.0'
+    implementation group: 'commons-io', name: 'commons-io', version:'2.11.0'
 
     implementation group: 'org.springframework', name: 'spring-web', version:'5.3.8'
     implementation group: 'org.springframework', name: 'spring-beans', version:'5.3.8'
