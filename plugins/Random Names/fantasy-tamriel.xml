@@ -138,38 +138,38 @@
     </RULESET>
     <RULESET id="tamriel-argonian-tamrelic-male-rule" title="Tamrelic" usage="public">
         <RULE weight="2">
-            <GETLIST idref="tamrelic-argonian-adj-a" title="Adj" />
+            <GETLIST idref="tamrelic-adj-a" title="Adj" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun" />
+            <GETLIST idref="tamrelic-noun-b" title="Noun" />
         </RULE>
         <RULE weight="6">
-            <GETLIST idref="tamrelic-argonian-verb-a" title="Verb" />
+            <GETLIST idref="tamrelic-verb-a" title="Verb" />
             <HYPHEN />
             <GETLIST idref="tamrelic-vn-articles" title="Articles" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun" />
+            <GETLIST idref="tamrelic-noun-b" title="Noun" />
         </RULE>
         <RULE weight="8">
-            <GETLIST idref="tamrelic-argonian-verb-a" title="Verb" />
+            <GETLIST idref="tamrelic-verb-a" title="Verb" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-adverb-b" title="Adverb" />
+            <GETLIST idref="tamrelic-adverb-b" title="Adverb" />
         </RULE>
         <RULE weight="2">
-            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun" />
+            <GETLIST idref="tamrelilic-noun-a" title="Noun" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-adverb-b" title="Adj" />
+            <GETLIST idref="tamrelic-adverb-b" title="Adj" />
         </RULE>
         <RULE weight="2">
-            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun A" />
+            <GETLIST idref="tamrelilic-noun-a" title="Noun A" />
             <HYPHEN />
             <GETLIST idref="tamrelic-nn-articles" title="Article" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun B" />
+            <GETLIST idref="tamrelic-noun-b" title="Noun B" />
         </RULE>
         <RULE weight="1">
-            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun A" />
+            <GETLIST idref="tamrelilic-noun-a" title="Noun A" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun B" />
+            <GETLIST idref="tamrelic-noun-b" title="Noun B" />
         </RULE>
         <RULE weight="1">
             <GETLIST idref="tamrelic-argonian-male-full" title="Full" />
@@ -177,38 +177,38 @@
     </RULESET>
     <RULESET id="tamriel-argonian-tamrelic-female-rule" title="Tamrelic" usage="public">
         <RULE weight="6">
-            <GETLIST idref="tamrelic-argonian-adj-a" title="Adj" />
+            <GETLIST idref="tamrelic-adj-a" title="Adj" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun" />
+            <GETLIST idref="tamrelic-noun-b" title="Noun" />
         </RULE>
         <RULE weight="9">
-            <GETLIST idref="tamrelic-argonian-verb-a" title="Verb" />
+            <GETLIST idref="tamrelic-verb-a" title="Verb" />
             <HYPHEN />
             <GETLIST idref="tamrelic-vn-articles" title="Articles" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun" />
+            <GETLIST idref="tamrelic-noun-b" title="Noun" />
         </RULE>
         <RULE weight="7">
-            <GETLIST idref="tamrelic-argonian-verb-a" title="Verb" />
+            <GETLIST idref="tamrelic-verb-a" title="Verb" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-adverb-b" title="Adverb" />
+            <GETLIST idref="tamrelic-adverb-b" title="Adverb" />
         </RULE>
         <RULE weight="2">
-            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun" />
+            <GETLIST idref="tamrelilic-noun-a" title="Noun" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-adverb-b" title="Adj" />
+            <GETLIST idref="tamrelic-adverb-b" title="Adj" />
         </RULE>
         <RULE weight="1">
-            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun A" />
+            <GETLIST idref="tamrelilic-noun-a" title="Noun A" />
             <HYPHEN />
             <GETLIST idref="tamrelic-nn-articles" title="Article" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun B" />
+            <GETLIST idref="tamrelic-noun-b" title="Noun B" />
         </RULE>
         <RULE weight="1">
-            <GETLIST idref="tamrelic-argonian-noun-a" title="Noun A" />
+            <GETLIST idref="tamrelilic-noun-a" title="Noun A" />
             <HYPHEN />
-            <GETLIST idref="tamrelic-argonian-noun-b" title="Noun B" />
+            <GETLIST idref="tamrelic-noun-b" title="Noun B" />
         </RULE>
         <RULE weight="6">
             <GETLIST idref="tamrelic-argonian-female-full" title="Full" />
@@ -399,11 +399,70 @@
         
     </RULESET>
 
+    <RULESET id="tamriel-kajiit-male-rule" title="Kajiit (Catfolk)" usage="final">
+        <CATEGORY title="Fantasy: Tamriel" />
+        <CATEGORY title="All" />
+        <CATEGORY title="Fantasy: Catfolk" />
+        <CATEGORY title="Sex: Male" />
+        <RULE weight="12">
+            <GETLIST idref="tamriel-kajiit-male-prefix" title="Honorific" />
+            <GETRULE idref="tamriel-kajiit-male-core" title="Core" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="tamriel-kajiit-male-prefix" title="Honorific A" />
+            <GETRULE idref="tamriel-kajiit-male-core" title="Core" />
+            <GETLIST idref="tamriel-kajiit-male-suffix" title="Honorific B" />
+        </RULE>
+        <RULE weight="3">
+            <GETLIST idref="tamrelic-adj-a" title="Adj" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-noun-b" title="Noun" />
+        </RULE>
+        <RULE weight="2">
+            <GETLIST idref="tamrelilic-noun-a" title="Noun" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-adverb-b" title="Adj" />
+        </RULE>
+        <RULE weight="12">
+            <GETRULE idref="tamriel-kajiit-male-core" title="Core" />
+            <GETLIST idref="tamriel-kajiit-male-suffix" title="Honorific B" />
+        </RULE>
+    </RULESET>
+    <RULESET id="tamriel-kajiit-female-rule" title="Kajiit (Catfolk)" usage="final">
+        <CATEGORY title="Fantasy: Tamriel" />
+        <CATEGORY title="All" />
+        <CATEGORY title="Fantasy: Catfolk" />
+        <CATEGORY title="Sex: Female" />
+        <RULE weight="12">
+            <GETLIST idref="tamriel-kajiit-female-prefix" title="Honorific" />
+            <GETRULE idref="tamriel-kajiit-female-core" title="Core" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="tamriel-kajiit-female-prefix" title="Honorific A" />
+            <GETRULE idref="tamriel-kajiit-female-core" title="Core" />
+            <GETLIST idref="tamriel-kajiit-female-suffix" title="Honorific B" />
+        </RULE>
+        <RULE weight="12">
+            <GETLIST idref="tamriel-kajiit-female-core" title="Core" />
+
+            <GETLIST idref="tamriel-kajiit-female-suffix" title="Honorific B" />
+        </RULE>
+        <RULE weight="3">
+            <GETLIST idref="tamrelic-adj-a" title="Adj" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-noun-b" title="Noun" />
+        </RULE>
+        <RULE weight="2">
+            <GETLIST idref="tamrelic-noun-a" title="Noun" />
+            <HYPHEN />
+            <GETLIST idref="tamrelic-adverb-b" title="Adj" />
+        </RULE>
+    </RULESET>
 
 
     <LIST id="tamrelic-vn-articles" title="Article">
-        <VALUE>With</VALUE>
-        <VALUE>Many</VALUE>
+        <VALUE>with</VALUE>
+        <VALUE>many</VALUE>
         <VALUE>no</VALUE>
         <VALUE>at</VALUE> <!--Awkward at times-->
         <VALUE>in</VALUE>
@@ -3485,7 +3544,7 @@
         <VALUE>Zeeus</VALUE>
         <VALUE>Zish</VALUE>
     </LIST>
-    <LIST id="tamrelic-argonian-noun-a" title="Noun">
+    <LIST id="tamrelilic-noun-a" title="Noun">
         <VALUE>Axe</VALUE>
         <VALUE>Breezes</VALUE>
         <VALUE>Cat</VALUE>
@@ -3547,7 +3606,7 @@
         <VALUE>Water</VALUE>
         <VALUE>Wind</VALUE>
     </LIST>
-    <LIST id="tamrelic-argonian-adj-a" title="Adj" >
+    <LIST id="tamrelic-adj-a" title="Adj" >
         <VALUE>Amber</VALUE>
         <VALUE>Appraising</VALUE>
         <VALUE>Ashen</VALUE>
@@ -3640,7 +3699,7 @@
         <VALUE>Warm</VALUE>
         <VALUE>Wide</VALUE>
     </LIST>
-    <LIST id="tamrelic-argonian-verb-a" title="Verb" >
+    <LIST id="tamrelic-verb-a" title="Verb" >
         <VALUE>Argues</VALUE>
         <VALUE>Barters</VALUE>
         <VALUE>Basks</VALUE>
@@ -3768,7 +3827,7 @@
         <VALUE>Wins</VALUE>
         <VALUE>Wonders</VALUE>
     </LIST>
-    <LIST id="tamrelic-argonian-noun-b" title="Noun" >
+    <LIST id="tamrelic-noun-b" title="Noun" >
         <VALUE>Aged-Meat</VALUE>
         <VALUE>All-Colors</VALUE>
         <VALUE>Ash</VALUE>
@@ -3964,7 +4023,7 @@
         <VALUE>Wit</VALUE>
         <VALUE>Words</VALUE>
     </LIST>
-    <LIST id="tamrelic-argonian-adverb-b" title="Adverb" >
+    <LIST id="tamrelic-adverb-b" title="Adverb" >
         <VALUE>Across-Water</VALUE>
         <VALUE>Alone</VALUE>
         <VALUE>Aplenty</VALUE>
@@ -14543,6 +14602,1062 @@
         <VALUE>Wisnewski</VALUE>
         <VALUE>Wotrus</VALUE>
     </LIST>
+
+    <LIST id="tamriel-kajiit-male-core" title="Core">
+        <VALUE>Abal</VALUE>
+        <VALUE>Abazdul</VALUE>
+        <VALUE>Abazkier</VALUE>
+        <VALUE>Abizag</VALUE>
+        <VALUE>Abiznaz</VALUE>
+        <VALUE>Abizza</VALUE>
+        <VALUE>Aburapli</VALUE>
+        <VALUE>Aburzin</VALUE>
+        <VALUE>Adahni</VALUE>
+        <VALUE>Adainat</VALUE>
+        <VALUE>Adainji</VALUE>
+        <VALUE>Adainril</VALUE>
+        <VALUE>Adainurr</VALUE>
+        <VALUE>Adaishir</VALUE>
+        <VALUE>Adib</VALUE>
+        <VALUE>Adibazal</VALUE>
+        <VALUE>Adineta</VALUE>
+        <VALUE>Adubaer</VALUE>
+        <VALUE>Adubid</VALUE>
+        <VALUE>Adusaar</VALUE>
+        <VALUE>Adusharu</VALUE>
+        <VALUE>Ahainar</VALUE>
+        <VALUE>Ahirkin</VALUE>
+        <VALUE>Ahirunz</VALUE>
+        <VALUE>Ahman</VALUE>
+        <VALUE>Ahmanaz</VALUE>
+        <VALUE>Aiq</VALUE>
+        <VALUE>Airal</VALUE>
+        <VALUE>Aishar</VALUE>
+        <VALUE>Akhmar</VALUE>
+        <VALUE>Alar</VALUE>
+        <VALUE>Alathur</VALUE>
+        <VALUE>Amajhan</VALUE>
+        <VALUE>Amar</VALUE>
+        <VALUE>Amarbak</VALUE>
+        <VALUE>Amartash</VALUE>
+        <VALUE>Amsaad</VALUE>
+        <VALUE>Amsha</VALUE>
+        <VALUE>Amu</VALUE>
+        <VALUE>An</VALUE>
+        <VALUE>Anat</VALUE>
+        <VALUE>Andal</VALUE>
+        <VALUE>Aneshi</VALUE>
+        <VALUE>Anil</VALUE>
+        <VALUE>Anjiir</VALUE>
+        <VALUE>Aranak</VALUE>
+        <VALUE>Arbhu</VALUE>
+        <VALUE>Arbhuz</VALUE>
+        <VALUE>Arbim</VALUE>
+        <VALUE>Ariashurr</VALUE>
+        <VALUE>Arisho</VALUE>
+        <VALUE>Arolluz</VALUE>
+        <VALUE>Aroz'lai</VALUE>
+        <VALUE>Arresh</VALUE>
+        <VALUE>Arukhaz</VALUE>
+        <VALUE>Arum-Khal</VALUE>
+        <VALUE>Arusha</VALUE>
+        <VALUE>Asal</VALUE>
+        <VALUE>Asaldak</VALUE>
+        <VALUE>Asalkin</VALUE>
+        <VALUE>Asazeh</VALUE>
+        <VALUE>Ashal</VALUE>
+        <VALUE>Ashalha</VALUE>
+        <VALUE>Atahrashi</VALUE>
+        <VALUE>Athask</VALUE>
+        <VALUE>Atirr</VALUE>
+        <VALUE>Az</VALUE>
+        <VALUE>Azalil</VALUE>
+        <VALUE>Azarati</VALUE>
+        <VALUE>Azazi</VALUE>
+        <VALUE>Azbiasur</VALUE>
+        <VALUE>Azbishan</VALUE>
+        <VALUE>Azbishaz</VALUE>
+        <VALUE>Azbisnor</VALUE>
+        <VALUE>Azdanati</VALUE>
+        <VALUE>Azdanten</VALUE>
+        <VALUE>Azelbar</VALUE>
+        <VALUE>Azezik</VALUE>
+        <VALUE>Azezin</VALUE>
+        <VALUE>Azimaz</VALUE>
+        <VALUE>Azimsun</VALUE>
+        <VALUE>Azin</VALUE>
+        <VALUE>Azramdu</VALUE>
+        <VALUE>Azrid</VALUE>
+        <VALUE>Azsu</VALUE>
+        <VALUE>Azurdat</VALUE>
+        <VALUE>Azzaril</VALUE>
+        <VALUE>Ba</VALUE>
+        <VALUE>Baad</VALUE>
+        <VALUE>Baa'jhan</VALUE>
+        <VALUE>Baana</VALUE>
+        <VALUE>Baanluk</VALUE>
+        <VALUE>Baanu</VALUE>
+        <VALUE>Baasha</VALUE>
+        <VALUE>Badurr</VALUE>
+        <VALUE>Baezad</VALUE>
+        <VALUE>Bahluk</VALUE>
+        <VALUE>Bahzahar</VALUE>
+        <VALUE>Bahzdal</VALUE>
+        <VALUE>Baizad</VALUE>
+        <VALUE>Bakamaiq</VALUE>
+        <VALUE>Bakha</VALUE>
+        <VALUE>Bakhati</VALUE>
+        <VALUE>Bakhig</VALUE>
+        <VALUE>Bakhum</VALUE>
+        <VALUE>Balag</VALUE>
+        <VALUE>Balku</VALUE>
+        <VALUE>Bamak</VALUE>
+        <VALUE>Bar</VALUE>
+        <VALUE>Barri</VALUE>
+        <VALUE>Barros</VALUE>
+        <VALUE>Barza</VALUE>
+        <VALUE>Bashshi</VALUE>
+        <VALUE>Bazhar</VALUE>
+        <VALUE>Berantin</VALUE>
+        <VALUE>Bezjhan</VALUE>
+        <VALUE>Bezur</VALUE>
+        <VALUE>Bhak</VALUE>
+        <VALUE>Bhisha</VALUE>
+        <VALUE>Bih</VALUE>
+        <VALUE>Bil</VALUE>
+        <VALUE>Bilam</VALUE>
+        <VALUE>Birakh</VALUE>
+        <VALUE>Birjhan</VALUE>
+        <VALUE>Birkhu</VALUE>
+        <VALUE>Biro</VALUE>
+        <VALUE>Birun</VALUE>
+        <VALUE>Biz</VALUE>
+        <VALUE>Bizahad</VALUE>
+        <VALUE>Bizahen</VALUE>
+        <VALUE>Bizaku</VALUE>
+        <VALUE>Bizalar</VALUE>
+        <VALUE>Bizurr</VALUE>
+        <VALUE>Bizuruna</VALUE>
+        <VALUE>Bulag</VALUE>
+        <VALUE>Bunul</VALUE>
+        <VALUE>Burakgum</VALUE>
+        <VALUE>Buzan</VALUE>
+        <VALUE>Buzul</VALUE>
+        <VALUE>Cherjhad</VALUE>
+        <VALUE>Chezan</VALUE>
+        <VALUE>Chirrdazi</VALUE>
+        <VALUE>Dablir</VALUE>
+        <VALUE>Dagaril</VALUE>
+        <VALUE>Dahl</VALUE>
+        <VALUE>Dahli</VALUE>
+        <VALUE>Dahnkin</VALUE>
+        <VALUE>Dak'radhi</VALUE>
+        <VALUE>Dalac</VALUE>
+        <VALUE>Dalag</VALUE>
+        <VALUE>Daldurr</VALUE>
+        <VALUE>Dalffer</VALUE>
+        <VALUE>Dalrar</VALUE>
+        <VALUE>Dalsa</VALUE>
+        <VALUE>Dara</VALUE>
+        <VALUE>Darak</VALUE>
+        <VALUE>Darakuz</VALUE>
+        <VALUE>Darit</VALUE>
+        <VALUE>Darkhu</VALUE>
+        <VALUE>Darr</VALUE>
+        <VALUE>Darsha</VALUE>
+        <VALUE>Darsho</VALUE>
+        <VALUE>Darzi</VALUE>
+        <VALUE>Dathal</VALUE>
+        <VALUE>Datharr</VALUE>
+        <VALUE>Dathtesh</VALUE>
+        <VALUE>Dato</VALUE>
+        <VALUE>Dazash</VALUE>
+        <VALUE>Dazh</VALUE>
+        <VALUE>Dazul</VALUE>
+        <VALUE>Dazur</VALUE>
+        <VALUE>Der</VALUE>
+        <VALUE>Desbar</VALUE>
+        <VALUE>Dhanim</VALUE>
+        <VALUE>Dhanji</VALUE>
+        <VALUE>Dhannar</VALUE>
+        <VALUE>Dharo</VALUE>
+        <VALUE>Didakah</VALUE>
+        <VALUE>Dir</VALUE>
+        <VALUE>Dirsherr</VALUE>
+        <VALUE>Dran</VALUE>
+        <VALUE>Dran</VALUE>
+        <VALUE>Dras</VALUE>
+        <VALUE>Drasji</VALUE>
+        <VALUE>Droa</VALUE>
+        <VALUE>Dru</VALUE>
+        <VALUE>Duharr</VALUE>
+        <VALUE>Dul</VALUE>
+        <VALUE>Dulan</VALUE>
+        <VALUE>Dular</VALUE>
+        <VALUE>Dulini</VALUE>
+        <VALUE>Dumiwa</VALUE>
+        <VALUE>Duzal</VALUE>
+        <VALUE>Duzh</VALUE>
+        <VALUE>Duzkier</VALUE>
+        <VALUE>Eeja</VALUE>
+        <VALUE>Eilam</VALUE>
+        <VALUE>Eilirarr</VALUE>
+        <VALUE>Eilun</VALUE>
+        <VALUE>Eldazo</VALUE>
+        <VALUE>Elhirr</VALUE>
+        <VALUE>Eljhan</VALUE>
+        <VALUE>Elthar</VALUE>
+        <VALUE>Eludin</VALUE>
+        <VALUE>Eluzard</VALUE>
+        <VALUE>Elzhar</VALUE>
+        <VALUE>Enak</VALUE>
+        <VALUE>Enik</VALUE>
+        <VALUE>Eraral</VALUE>
+        <VALUE>Esalo</VALUE>
+        <VALUE>Esan</VALUE>
+        <VALUE>Esjero</VALUE>
+        <VALUE>Essh</VALUE>
+        <VALUE>Ethad</VALUE>
+        <VALUE>Ez</VALUE>
+        <VALUE>Ezudash</VALUE>
+        <VALUE>Ezudiwa</VALUE>
+        <VALUE>Ezzag</VALUE>
+        <VALUE>Farahn</VALUE>
+        <VALUE>Feduzdal</VALUE>
+        <VALUE>Fel</VALUE>
+        <VALUE>Feluz</VALUE>
+        <VALUE>Fezdal</VALUE>
+        <VALUE>Fezez</VALUE>
+        <VALUE>Fezi</VALUE>
+        <VALUE>Fez'skar</VALUE>
+        <VALUE>Fezzam</VALUE>
+        <VALUE>Fimaz</VALUE>
+        <VALUE>Gha</VALUE>
+        <VALUE>Ghadffer</VALUE>
+        <VALUE>Ghaim</VALUE>
+        <VALUE>Ghal</VALUE>
+        <VALUE>Ghaldu</VALUE>
+        <VALUE>Ghalsu</VALUE>
+        <VALUE>Ghalzaz</VALUE>
+        <VALUE>Ghamar</VALUE>
+        <VALUE>Ghanar</VALUE>
+        <VALUE>Ghanor</VALUE>
+        <VALUE>Gharesh</VALUE>
+        <VALUE>Ghasta</VALUE>
+        <VALUE>Gohjin</VALUE>
+        <VALUE>Grishka</VALUE>
+        <VALUE>Habais</VALUE>
+        <VALUE>Habasi</VALUE>
+        <VALUE>Hadalun</VALUE>
+        <VALUE>Hadam</VALUE>
+        <VALUE>Hadamlur</VALUE>
+        <VALUE>Hadamn</VALUE>
+        <VALUE>Hadamo</VALUE>
+        <VALUE>Hadaz</VALUE>
+        <VALUE>Haduras</VALUE>
+        <VALUE>Haibak</VALUE>
+        <VALUE>Haibarr</VALUE>
+        <VALUE>Haibzur</VALUE>
+        <VALUE>Hainab</VALUE>
+        <VALUE>Hainat</VALUE>
+        <VALUE>Hairan</VALUE>
+        <VALUE>Halakakuz</VALUE>
+        <VALUE>Halakalal</VALUE>
+        <VALUE>Halako</VALUE>
+        <VALUE>Halaral</VALUE>
+        <VALUE>Halash</VALUE>
+        <VALUE>Halin</VALUE>
+        <VALUE>Halinad</VALUE>
+        <VALUE>Halinjirr</VALUE>
+        <VALUE>Halinuk</VALUE>
+        <VALUE>Halzom</VALUE>
+        <VALUE>Hamansu</VALUE>
+        <VALUE>Hamiral</VALUE>
+        <VALUE>Hamiran</VALUE>
+        <VALUE>Hamirjirr</VALUE>
+        <VALUE>Hamsanam</VALUE>
+        <VALUE>Hamus</VALUE>
+        <VALUE>Hanillal</VALUE>
+        <VALUE>Hanilzur</VALUE>
+        <VALUE>Hanir</VALUE>
+        <VALUE>Hantharr</VALUE>
+        <VALUE>Haraddal</VALUE>
+        <VALUE>Harashur</VALUE>
+        <VALUE>Harra</VALUE>
+        <VALUE>Harzad</VALUE>
+        <VALUE>Harzdak</VALUE>
+        <VALUE>Harzli</VALUE>
+        <VALUE>Hassa</VALUE>
+        <VALUE>Hassi</VALUE>
+        <VALUE>Hassiri</VALUE>
+        <VALUE>Hassrid</VALUE>
+        <VALUE>Hazad</VALUE>
+        <VALUE>Hazak</VALUE>
+        <VALUE>Hazazhur</VALUE>
+        <VALUE>Hazazi</VALUE>
+        <VALUE>Hazaznaz</VALUE>
+        <VALUE>Hemakar</VALUE>
+        <VALUE>Hilan</VALUE>
+        <VALUE>Hillaz</VALUE>
+        <VALUE>Himalaz</VALUE>
+        <VALUE>Himalirr</VALUE>
+        <VALUE>Himalzur</VALUE>
+        <VALUE>Himathati</VALUE>
+        <VALUE>Hinirlit</VALUE>
+        <VALUE>Hiralit</VALUE>
+        <VALUE>Hirish</VALUE>
+        <VALUE>Hirr</VALUE>
+        <VALUE>Hizdak</VALUE>
+        <VALUE>Hizhikar</VALUE>
+        <VALUE>Hizurr</VALUE>
+        <VALUE>Hulzar</VALUE>
+        <VALUE>Hunal</VALUE>
+        <VALUE>Hurkhu</VALUE>
+        <VALUE>Hurr</VALUE>
+        <VALUE>Hursh</VALUE>
+        <VALUE>Hurzarr</VALUE>
+        <VALUE>Hurzhar</VALUE>
+        <VALUE>Hurzjhad</VALUE>
+        <VALUE>Huthak</VALUE>
+        <VALUE>Huzd</VALUE>
+        <VALUE>Huzzin</VALUE>
+        <VALUE>Iduthal</VALUE>
+        <VALUE>Ilagurr</VALUE>
+        <VALUE>Ilazun</VALUE>
+        <VALUE>Imeretto</VALUE>
+        <VALUE>Inalzh</VALUE>
+        <VALUE>Inalzin</VALUE>
+        <VALUE>Indal</VALUE>
+        <VALUE>Indalhur</VALUE>
+        <VALUE>Indalzahr</VALUE>
+        <VALUE>Indur</VALUE>
+        <VALUE>Inis</VALUE>
+        <VALUE>Inisashu</VALUE>
+        <VALUE>Inishez</VALUE>
+        <VALUE>Inishzhar</VALUE>
+        <VALUE>Iragahr</VALUE>
+        <VALUE>Irgazaar</VALUE>
+        <VALUE>Irgazdul</VALUE>
+        <VALUE>Irgun</VALUE>
+        <VALUE>Isadati</VALUE>
+        <VALUE>Ishu</VALUE>
+        <VALUE>Itzi-da</VALUE>
+        <VALUE>Izabid</VALUE>
+        <VALUE>Izan</VALUE>
+        <VALUE>Izanden</VALUE>
+        <VALUE>Izandskar</VALUE>
+        <VALUE>Izaniran</VALUE>
+        <VALUE>Izanji</VALUE>
+        <VALUE>Iziran</VALUE>
+        <VALUE>Izishir</VALUE>
+        <VALUE>Jaddha</VALUE>
+        <VALUE>Jahlar</VALUE>
+        <VALUE>Jairan</VALUE>
+        <VALUE>Jalan</VALUE>
+        <VALUE>Jarakh</VALUE>
+        <VALUE>Jaram</VALUE>
+        <VALUE>Jarka</VALUE>
+        <VALUE>Jarsha</VALUE>
+        <VALUE>Jaruk</VALUE>
+        <VALUE>Jash</VALUE>
+        <VALUE>Jathim</VALUE>
+        <VALUE>Jazha</VALUE>
+        <VALUE>Jha</VALUE>
+        <VALUE>Jhad</VALUE>
+        <VALUE>Jhad</VALUE>
+        <VALUE>Jharish</VALUE>
+        <VALUE>Jherahn</VALUE>
+        <VALUE>Jherak</VALUE>
+        <VALUE>Jidarr</VALUE>
+        <VALUE>Jidid</VALUE>
+        <VALUE>Jilan</VALUE>
+        <VALUE>Jinninji</VALUE>
+        <VALUE>Jiren</VALUE>
+        <VALUE>Jirr</VALUE>
+        <VALUE>Jobai</VALUE>
+        <VALUE>Jobasha</VALUE>
+        <VALUE>Jodhur</VALUE>
+        <VALUE>Jora</VALUE>
+        <VALUE>Joshur</VALUE>
+        <VALUE>Joto</VALUE>
+        <VALUE>Jul</VALUE>
+        <VALUE>Jurak</VALUE>
+        <VALUE>Juz</VALUE>
+        <VALUE>Kagadur</VALUE>
+        <VALUE>Kagazmar</VALUE>
+        <VALUE>Kagik</VALUE>
+        <VALUE>Kagun</VALUE>
+        <VALUE>Kalgur</VALUE>
+        <VALUE>Kalim</VALUE>
+        <VALUE>Kam</VALUE>
+        <VALUE>Kamu</VALUE>
+        <VALUE>Kankhu</VALUE>
+        <VALUE>Kanniz</VALUE>
+        <VALUE>Kanoo</VALUE>
+        <VALUE>Kanrel</VALUE>
+        <VALUE>Kansur</VALUE>
+        <VALUE>Kanzin</VALUE>
+        <VALUE>Kara</VALUE>
+        <VALUE>Kardru</VALUE>
+        <VALUE>Kargand</VALUE>
+        <VALUE>Kargik</VALUE>
+        <VALUE>Kargiz</VALUE>
+        <VALUE>Kargn</VALUE>
+        <VALUE>Karim</VALUE>
+        <VALUE>Karpu</VALUE>
+        <VALUE>Karzik</VALUE>
+        <VALUE>Karzskar</VALUE>
+        <VALUE>Kasan</VALUE>
+        <VALUE>Kashraska</VALUE>
+        <VALUE>Kaszo</VALUE>
+        <VALUE>Katinal</VALUE>
+        <VALUE>Kaushjh</VALUE>
+        <VALUE>Kaushur</VALUE>
+        <VALUE>Kazafar</VALUE>
+        <VALUE>Kazahn</VALUE>
+        <VALUE>Kazbur</VALUE>
+        <VALUE>Keeaz</VALUE>
+        <VALUE>Kesh</VALUE>
+        <VALUE>Kesh</VALUE>
+        <VALUE>Keshazh</VALUE>
+        <VALUE>Keshlar</VALUE>
+        <VALUE>Khad</VALUE>
+        <VALUE>Khajin</VALUE>
+        <VALUE>Khakidan</VALUE>
+        <VALUE>Khalin</VALUE>
+        <VALUE>Khar</VALUE>
+        <VALUE>Kharad</VALUE>
+        <VALUE>Kharez</VALUE>
+        <VALUE>Khari</VALUE>
+        <VALUE>Khariz</VALUE>
+        <VALUE>Kharjan</VALUE>
+        <VALUE>Khasar</VALUE>
+        <VALUE>Khasda</VALUE>
+        <VALUE>Khaz</VALUE>
+        <VALUE>Kheran</VALUE>
+        <VALUE>Kheriwa</VALUE>
+        <VALUE>Khunz</VALUE>
+        <VALUE>Khunzar</VALUE>
+        <VALUE>Khunzum</VALUE>
+        <VALUE>Khuz</VALUE>
+        <VALUE>Khuzig</VALUE>
+        <VALUE>Kier</VALUE>
+        <VALUE>Kigum</VALUE>
+        <VALUE>Kikurr</VALUE>
+        <VALUE>Kinaro</VALUE>
+        <VALUE>Kinrai</VALUE>
+        <VALUE>Kirrdul</VALUE>
+        <VALUE>Kirrsi</VALUE>
+        <VALUE>Kirun</VALUE>
+        <VALUE>Kithiriz</VALUE>
+        <VALUE>Kiturr</VALUE>
+        <VALUE>Kizmar</VALUE>
+        <VALUE>Kizrue</VALUE>
+        <VALUE>Korabi</VALUE>
+        <VALUE>Kothah</VALUE>
+        <VALUE>Kothre</VALUE>
+        <VALUE>Kul</VALUE>
+        <VALUE>Kulan</VALUE>
+        <VALUE>Kuld</VALUE>
+        <VALUE>Kumurr</VALUE>
+        <VALUE>Kunaar</VALUE>
+        <VALUE>Kundurr</VALUE>
+        <VALUE>Kunerr</VALUE>
+        <VALUE>Kur</VALUE>
+        <VALUE>Kuralit</VALUE>
+        <VALUE>Kurnamu</VALUE>
+        <VALUE>Kurnasiran</VALUE>
+        <VALUE>Kusirnaz</VALUE>
+        <VALUE>Kuzo</VALUE>
+        <VALUE>Lak</VALUE>
+        <VALUE>Lakm</VALUE>
+        <VALUE>Laknar</VALUE>
+        <VALUE>Lakurr</VALUE>
+        <VALUE>Lanbaar</VALUE>
+        <VALUE>Lankin</VALUE>
+        <VALUE>Lansur</VALUE>
+        <VALUE>Laur</VALUE>
+        <VALUE>Lharahad</VALUE>
+        <VALUE>Lharlis</VALUE>
+        <VALUE>Linhir</VALUE>
+        <VALUE>Linihar</VALUE>
+        <VALUE>Linihi</VALUE>
+        <VALUE>Lojaku</VALUE>
+        <VALUE>Lufras</VALUE>
+        <VALUE>Luk</VALUE>
+        <VALUE>Mabit</VALUE>
+        <VALUE>Mabkir</VALUE>
+        <VALUE>Madarbhu</VALUE>
+        <VALUE>Maelen</VALUE>
+        <VALUE>Maesar</VALUE>
+        <VALUE>Magarak</VALUE>
+        <VALUE>Magundim</VALUE>
+        <VALUE>Maguzak</VALUE>
+        <VALUE>Maguzas</VALUE>
+        <VALUE>Mah</VALUE>
+        <VALUE>Mahazza</VALUE>
+        <VALUE>Mahirr</VALUE>
+        <VALUE>Mahur</VALUE>
+        <VALUE>Makam</VALUE>
+        <VALUE>Makid</VALUE>
+        <VALUE>Makkhzahr</VALUE>
+        <VALUE>Makm</VALUE>
+        <VALUE>Maladdak</VALUE>
+        <VALUE>Maladdiq</VALUE>
+        <VALUE>Maladkhu</VALUE>
+        <VALUE>Malahbu</VALUE>
+        <VALUE>Malathan</VALUE>
+        <VALUE>Malathum</VALUE>
+        <VALUE>Malihaz</VALUE>
+        <VALUE>Malirzen</VALUE>
+        <VALUE>Malirzzaka</VALUE>
+        <VALUE>Malisu</VALUE>
+        <VALUE>Malizaz</VALUE>
+        <VALUE>Malizluz</VALUE>
+        <VALUE>Malkish</VALUE>
+        <VALUE>Manadzur</VALUE>
+        <VALUE>Manasi</VALUE>
+        <VALUE>Mani</VALUE>
+        <VALUE>Maniz</VALUE>
+        <VALUE>Manradh</VALUE>
+        <VALUE>Manuk</VALUE>
+        <VALUE>Marafi</VALUE>
+        <VALUE>Marakar</VALUE>
+        <VALUE>Marash</VALUE>
+        <VALUE>Marnub</VALUE>
+        <VALUE>Marzak</VALUE>
+        <VALUE>Marzula</VALUE>
+        <VALUE>Masrabal</VALUE>
+        <VALUE>Mathad</VALUE>
+        <VALUE>Mathal</VALUE>
+        <VALUE>Mazag</VALUE>
+        <VALUE>Mazalish</VALUE>
+        <VALUE>Mazalkir</VALUE>
+        <VALUE>Mazar</VALUE>
+        <VALUE>Mazdurr</VALUE>
+        <VALUE>Mazha</VALUE>
+        <VALUE>Mazil</VALUE>
+        <VALUE>Mazilbin</VALUE>
+        <VALUE>Mazir</VALUE>
+        <VALUE>Mazirul</VALUE>
+        <VALUE>Mazirzin</VALUE>
+        <VALUE>Mazou</VALUE>
+        <VALUE>Mazram</VALUE>
+        <VALUE>Mazuk</VALUE>
+        <VALUE>Mazurr</VALUE>
+        <VALUE>Meashu</VALUE>
+        <VALUE>Mehdir</VALUE>
+        <VALUE>Mezha</VALUE>
+        <VALUE>Mhad</VALUE>
+        <VALUE>Mhirr</VALUE>
+        <VALUE>Miczen</VALUE>
+        <VALUE>Mikarash</VALUE>
+        <VALUE>Mikarur</VALUE>
+        <VALUE>Milaggul</VALUE>
+        <VALUE>Mim</VALUE>
+        <VALUE>Minal</VALUE>
+        <VALUE>Minbazal</VALUE>
+        <VALUE>Minshak</VALUE>
+        <VALUE>Mirarbinat</VALUE>
+        <VALUE>Mirarkier</VALUE>
+        <VALUE>Mirarro</VALUE>
+        <VALUE>Misanir</VALUE>
+        <VALUE>Misapan</VALUE>
+        <VALUE>Misar</VALUE>
+        <VALUE>Mishdu</VALUE>
+        <VALUE>Mishzin</VALUE>
+        <VALUE>Mizaraben</VALUE>
+        <VALUE>Mizarati</VALUE>
+        <VALUE>Mizarbuk</VALUE>
+        <VALUE>Mizarjirr</VALUE>
+        <VALUE>Mizarr</VALUE>
+        <VALUE>Mizashur</VALUE>
+        <VALUE>Mizibir</VALUE>
+        <VALUE>Mizibuk</VALUE>
+        <VALUE>Mizul</VALUE>
+        <VALUE>Mizzik</VALUE>
+        <VALUE>Mohkhu</VALUE>
+        <VALUE>Mohsaz</VALUE>
+        <VALUE>Moj</VALUE>
+        <VALUE>Mojakuz</VALUE>
+        <VALUE>Mojaluz</VALUE>
+        <VALUE>Mojha</VALUE>
+        <VALUE>Mojzin</VALUE>
+        <VALUE>Mo'khu</VALUE>
+        <VALUE>Monam</VALUE>
+        <VALUE>Mulabez</VALUE>
+        <VALUE>Mulabus</VALUE>
+        <VALUE>Mulabzag</VALUE>
+        <VALUE>Mulamin</VALUE>
+        <VALUE>Mulamurr</VALUE>
+        <VALUE>Munalur</VALUE>
+        <VALUE>Munanir</VALUE>
+        <VALUE>Munu</VALUE>
+        <VALUE>Munyat</VALUE>
+        <VALUE>Muram</VALUE>
+        <VALUE>Muramskar</VALUE>
+        <VALUE>Murdan</VALUE>
+        <VALUE>Muriman</VALUE>
+        <VALUE>Murimdak</VALUE>
+        <VALUE>Muruddal</VALUE>
+        <VALUE>Muslabeh</VALUE>
+        <VALUE>Muslabliz</VALUE>
+        <VALUE>Muzur</VALUE>
+        <VALUE>Muzzi</VALUE>
+        <VALUE>Nabal</VALUE>
+        <VALUE>Naburr</VALUE>
+        <VALUE>Nadara</VALUE>
+        <VALUE>Nagaddu</VALUE>
+        <VALUE>Na'jh</VALUE>
+        <VALUE>Naki</VALUE>
+        <VALUE>Nakjhan</VALUE>
+        <VALUE>Nakkhu</VALUE>
+        <VALUE>Nakm</VALUE>
+        <VALUE>Nakra</VALUE>
+        <VALUE>Nanaglar</VALUE>
+        <VALUE>Nanah</VALUE>
+        <VALUE>Nansiska</VALUE>
+        <VALUE>Naraku</VALUE>
+        <VALUE>Narbhulad</VALUE>
+        <VALUE>Narkir</VALUE>
+        <VALUE>Narluz</VALUE>
+        <VALUE>Narril</VALUE>
+        <VALUE>Na'ruzz</VALUE>
+        <VALUE>Nashaar</VALUE>
+        <VALUE>Nashi</VALUE>
+        <VALUE>Nasimar</VALUE>
+        <VALUE>Nasir</VALUE>
+        <VALUE>Naz</VALUE>
+        <VALUE>Nezashul</VALUE>
+        <VALUE>Nezashun</VALUE>
+        <VALUE>Nezhad</VALUE>
+        <VALUE>Nibihu</VALUE>
+        <VALUE>Nirajlar</VALUE>
+        <VALUE>Nishzo</VALUE>
+        <VALUE>Nizil</VALUE>
+        <VALUE>Nshur</VALUE>
+        <VALUE>Nuhar</VALUE>
+        <VALUE>Nulk</VALUE>
+        <VALUE>Nur</VALUE>
+        <VALUE>Nurad</VALUE>
+        <VALUE>Nurud</VALUE>
+        <VALUE>Nurzo</VALUE>
+        <VALUE>Nuzhi</VALUE>
+        <VALUE>Nuziwa</VALUE>
+        <VALUE>Nuzon</VALUE>
+        <VALUE>Nuzuk</VALUE>
+        <VALUE>Oblan</VALUE>
+        <VALUE>Ohamatur</VALUE>
+        <VALUE>Ojik</VALUE>
+        <VALUE>Omrasha</VALUE>
+        <VALUE>Omu</VALUE>
+        <VALUE>Pacrooti</VALUE>
+        <VALUE>Palka</VALUE>
+        <VALUE>Palkun</VALUE>
+        <VALUE>Palmur</VALUE>
+        <VALUE>Panizir</VALUE>
+        <VALUE>Pillazh</VALUE>
+        <VALUE>Pinar</VALUE>
+        <VALUE>Pinirrerr</VALUE>
+        <VALUE>Pinumar</VALUE>
+        <VALUE>Pinumur</VALUE>
+        <VALUE>Purcy</VALUE>
+        <VALUE>Puzhbar</VALUE>
+        <VALUE>Qa</VALUE>
+        <VALUE>Qa'jahd</VALUE>
+        <VALUE>Qanar</VALUE>
+        <VALUE>Qanliz</VALUE>
+        <VALUE>Qa'tesh</VALUE>
+        <VALUE>Rabamak</VALUE>
+        <VALUE>Rabamjhad</VALUE>
+        <VALUE>Raban</VALUE>
+        <VALUE>Rabbi</VALUE>
+        <VALUE>Radah</VALUE>
+        <VALUE>Radash</VALUE>
+        <VALUE>Radirr</VALUE>
+        <VALUE>Raebanji</VALUE>
+        <VALUE>Ragariz</VALUE>
+        <VALUE>Rah</VALUE>
+        <VALUE>Rahti</VALUE>
+        <VALUE>Rainazh</VALUE>
+        <VALUE>Rajarkir</VALUE>
+        <VALUE>Rak</VALUE>
+        <VALUE>Rakazsa</VALUE>
+        <VALUE>Rakazuz</VALUE>
+        <VALUE>Rakgul</VALUE>
+        <VALUE>Rakhad</VALUE>
+        <VALUE>Rakhhi</VALUE>
+        <VALUE>Rakhz</VALUE>
+        <VALUE>Rakzzin</VALUE>
+        <VALUE>Ralkash</VALUE>
+        <VALUE>Ralkluz</VALUE>
+        <VALUE>Randru</VALUE>
+        <VALUE>Ranul</VALUE>
+        <VALUE>Ranza</VALUE>
+        <VALUE>Rasha</VALUE>
+        <VALUE>Rashi</VALUE>
+        <VALUE>Rathad</VALUE>
+        <VALUE>Rathra</VALUE>
+        <VALUE>Rathsaz</VALUE>
+        <VALUE>Rathul</VALUE>
+        <VALUE>Rathzin</VALUE>
+        <VALUE>Rathzo</VALUE>
+        <VALUE>Rava</VALUE>
+        <VALUE>Raverr</VALUE>
+        <VALUE>Ravius</VALUE>
+        <VALUE>Ravzo</VALUE>
+        <VALUE>Raynan</VALUE>
+        <VALUE>Razigad</VALUE>
+        <VALUE>Razirr</VALUE>
+        <VALUE>Razum</VALUE>
+        <VALUE>Razur</VALUE>
+        <VALUE>Reh</VALUE>
+        <VALUE>Rehan</VALUE>
+        <VALUE>Ren</VALUE>
+        <VALUE>Ren</VALUE>
+        <VALUE>Renaku</VALUE>
+        <VALUE>Renji</VALUE>
+        <VALUE>Renzaiq</VALUE>
+        <VALUE>Renzir</VALUE>
+        <VALUE>Rezirjhan</VALUE>
+        <VALUE>Ribazh</VALUE>
+        <VALUE>Ribazhur</VALUE>
+        <VALUE>Rid-Thar-ri'Datta</VALUE>
+        <VALUE>Rihahaz</VALUE>
+        <VALUE>Rinam</VALUE>
+        <VALUE>Rinambar</VALUE>
+        <VALUE>Rinami</VALUE>
+        <VALUE>Rinbu</VALUE>
+        <VALUE>Riska</VALUE>
+        <VALUE>Rit</VALUE>
+        <VALUE>Rul</VALUE>
+        <VALUE>Runik</VALUE>
+        <VALUE>Runji</VALUE>
+        <VALUE>Runtash</VALUE>
+        <VALUE>Saad</VALUE>
+        <VALUE>Saad</VALUE>
+        <VALUE>Sabanurr</VALUE>
+        <VALUE>Sabashhad</VALUE>
+        <VALUE>Sabashur</VALUE>
+        <VALUE>Sabra</VALUE>
+        <VALUE>Saddha</VALUE>
+        <VALUE>Saenssar</VALUE>
+        <VALUE>Safik</VALUE>
+        <VALUE>Safir</VALUE>
+        <VALUE>Sahalu</VALUE>
+        <VALUE>Sahar</VALUE>
+        <VALUE>Sahaz</VALUE>
+        <VALUE>Sahban</VALUE>
+        <VALUE>Sakhar</VALUE>
+        <VALUE>Sakjhera</VALUE>
+        <VALUE>Salk</VALUE>
+        <VALUE>Salkalar</VALUE>
+        <VALUE>Salku</VALUE>
+        <VALUE>Sallit</VALUE>
+        <VALUE>Sallum</VALUE>
+        <VALUE>Sallunas</VALUE>
+        <VALUE>Sama</VALUE>
+        <VALUE>Samamar</VALUE>
+        <VALUE>Samardan</VALUE>
+        <VALUE>Sanadarin</VALUE>
+        <VALUE>Sanarskar</VALUE>
+        <VALUE>Sanaz</VALUE>
+        <VALUE>Sandu</VALUE>
+        <VALUE>Sansen</VALUE>
+        <VALUE>Sanuzh</VALUE>
+        <VALUE>Sanzagh</VALUE>
+        <VALUE>Sanzan</VALUE>
+        <VALUE>Saparr</VALUE>
+        <VALUE>Sarazi</VALUE>
+        <VALUE>Sarshaar</VALUE>
+        <VALUE>Sarshar</VALUE>
+        <VALUE>Sattah</VALUE>
+        <VALUE>Satuhaz</VALUE>
+        <VALUE>Sava</VALUE>
+        <VALUE>Savar</VALUE>
+        <VALUE>Savfer</VALUE>
+        <VALUE>Saviwa</VALUE>
+        <VALUE>Saz</VALUE>
+        <VALUE>Semusa</VALUE>
+        <VALUE>Senadon</VALUE>
+        <VALUE>Senun</VALUE>
+        <VALUE>Serarbar</VALUE>
+        <VALUE>Shaasharr</VALUE>
+        <VALUE>Shaashuz</VALUE>
+        <VALUE>Shadda</VALUE>
+        <VALUE>Shajamah</VALUE>
+        <VALUE>Shajirr</VALUE>
+        <VALUE>Shalapaar</VALUE>
+        <VALUE>Shalirr</VALUE>
+        <VALUE>Shalubar</VALUE>
+        <VALUE>Shalur</VALUE>
+        <VALUE>Shamal</VALUE>
+        <VALUE>Shamuniz</VALUE>
+        <VALUE>Shan</VALUE>
+        <VALUE>Shan</VALUE>
+        <VALUE>Shando</VALUE>
+        <VALUE>Shani</VALUE>
+        <VALUE>Shanji</VALUE>
+        <VALUE>Shansi</VALUE>
+        <VALUE>Shantin</VALUE>
+        <VALUE>Shapal</VALUE>
+        <VALUE>Shar</VALUE>
+        <VALUE>Sharad</VALUE>
+        <VALUE>Sharadd</VALUE>
+        <VALUE>Sharazka</VALUE>
+        <VALUE>Sharazzur</VALUE>
+        <VALUE>Sharsheh</VALUE>
+        <VALUE>Sharul</VALUE>
+        <VALUE>Shavir</VALUE>
+        <VALUE>Shavn</VALUE>
+        <VALUE>Shazar</VALUE>
+        <VALUE>Shelad</VALUE>
+        <VALUE>Shelzaka</VALUE>
+        <VALUE>Shikruz</VALUE>
+        <VALUE>Shiladur</VALUE>
+        <VALUE>Shiluk</VALUE>
+        <VALUE>Shiniraer</VALUE>
+        <VALUE>Shinizahr</VALUE>
+        <VALUE>Shintah</VALUE>
+        <VALUE>Shirnama</VALUE>
+        <VALUE>Sholani</VALUE>
+        <VALUE>Sholas</VALUE>
+        <VALUE>Sholbi</VALUE>
+        <VALUE>Sholm</VALUE>
+        <VALUE>Shul</VALUE>
+        <VALUE>Shumishun</VALUE>
+        <VALUE>Shuzaad</VALUE>
+        <VALUE>Shuzul</VALUE>
+        <VALUE>Sibud</VALUE>
+        <VALUE>Sigul</VALUE>
+        <VALUE>Silat</VALUE>
+        <VALUE>Silhu</VALUE>
+        <VALUE>Sind</VALUE>
+        <VALUE>Sinin</VALUE>
+        <VALUE>Sinud</VALUE>
+        <VALUE>Srozom</VALUE>
+        <VALUE>Sso</VALUE>
+        <VALUE>Subid</VALUE>
+        <VALUE>Suhr</VALUE>
+        <VALUE>Sumantharr</VALUE>
+        <VALUE>Tabe</VALUE>
+        <VALUE>Tabil</VALUE>
+        <VALUE>Tadh</VALUE>
+        <VALUE>Tagin</VALUE>
+        <VALUE>Tahar</VALUE>
+        <VALUE>Tahuda</VALUE>
+        <VALUE>Tajahir</VALUE>
+        <VALUE>Takaano</VALUE>
+        <VALUE>Takaman</VALUE>
+        <VALUE>Takanasur</VALUE>
+        <VALUE>Takanazh</VALUE>
+        <VALUE>Takanradh</VALUE>
+        <VALUE>Tamanat</VALUE>
+        <VALUE>Tamruz</VALUE>
+        <VALUE>Tamshur</VALUE>
+        <VALUE>Tand</VALUE>
+        <VALUE>Tarak</VALUE>
+        <VALUE>Taraz</VALUE>
+        <VALUE>Tarazur</VALUE>
+        <VALUE>Tarazuril</VALUE>
+        <VALUE>Tarlar</VALUE>
+        <VALUE>Tasam</VALUE>
+        <VALUE>Tasarr</VALUE>
+        <VALUE>Tashdu</VALUE>
+        <VALUE>Tasheer</VALUE>
+        <VALUE>Tashmin</VALUE>
+        <VALUE>Tashpir</VALUE>
+        <VALUE>Tazzhid</VALUE>
+        <VALUE>Tesh</VALUE>
+        <VALUE>Thalar</VALUE>
+        <VALUE>Thannar</VALUE>
+        <VALUE>Thengil</VALUE>
+        <VALUE>Thri</VALUE>
+        <VALUE>Tiburr</VALUE>
+        <VALUE>Tishi</VALUE>
+        <VALUE>Todrick</VALUE>
+        <VALUE>Touraz</VALUE>
+        <VALUE>Tsin'roh</VALUE>
+        <VALUE>Tubidan</VALUE>
+        <VALUE>Tulashurr</VALUE>
+        <VALUE>Tullar</VALUE>
+        <VALUE>Turan</VALUE>
+        <VALUE>Turo</VALUE>
+        <VALUE>Turshan</VALUE>
+        <VALUE>Turuk</VALUE>
+        <VALUE>Tuzil</VALUE>
+        <VALUE>Ubrarig</VALUE>
+        <VALUE>Ubraz</VALUE>
+        <VALUE>Udoro</VALUE>
+        <VALUE>Ulabael</VALUE>
+        <VALUE>Ulibaz</VALUE>
+        <VALUE>Ulularr</VALUE>
+        <VALUE>Ululmalit</VALUE>
+        <VALUE>Umjh</VALUE>
+        <VALUE>Unnur</VALUE>
+        <VALUE>Urjabhi</VALUE>
+        <VALUE>Urjen</VALUE>
+        <VALUE>Urjorad</VALUE>
+        <VALUE>Uzarnaym</VALUE>
+        <VALUE>Uzarrur</VALUE>
+        <VALUE>Uzernurr</VALUE>
+        <VALUE>Uzrum</VALUE>
+        <VALUE>Uzurnarr</VALUE>
+        <VALUE>Vabin</VALUE>
+        <VALUE>Valam</VALUE>
+        <VALUE>Valirr</VALUE>
+        <VALUE>Vand</VALUE>
+        <VALUE>Vanez</VALUE>
+        <VALUE>Vasha</VALUE>
+        <VALUE>Vashai</VALUE>
+        <VALUE>Vashpar</VALUE>
+        <VALUE>Vassa</VALUE>
+        <VALUE>Vija</VALUE>
+        <VALUE>Vijari</VALUE>
+        <VALUE>Virr</VALUE>
+        <VALUE>Virzum</VALUE>
+        <VALUE>Wadar</VALUE>
+        <VALUE>Wadaril</VALUE>
+        <VALUE>Wadarkier</VALUE>
+        <VALUE>Whickmuz</VALUE>
+        <VALUE>Yaharati</VALUE>
+        <VALUE>Yan</VALUE>
+        <VALUE>Yanabil</VALUE>
+        <VALUE>Yanabir</VALUE>
+        <VALUE>Yanalir</VALUE>
+        <VALUE>Yandzir</VALUE>
+        <VALUE>Yandzum</VALUE>
+        <VALUE>Yanudi</VALUE>
+        <VALUE>Yashinzhi</VALUE>
+        <VALUE>Yazhin</VALUE>
+        <VALUE>Yena</VALUE>
+        <VALUE>Yenar</VALUE>
+        <VALUE>Zaadha</VALUE>
+        <VALUE>Zaadzin</VALUE>
+        <VALUE>Zababi</VALUE>
+        <VALUE>Zaban</VALUE>
+        <VALUE>Zaban</VALUE>
+        <VALUE>Zabaseh</VALUE>
+        <VALUE>Zabashl</VALUE>
+        <VALUE>Zabka</VALUE>
+        <VALUE>Zabluk</VALUE>
+        <VALUE>Zabzhar</VALUE>
+        <VALUE>Zad</VALUE>
+        <VALUE>Zaddu</VALUE>
+        <VALUE>Zadrahd</VALUE>
+        <VALUE>Zadraska</VALUE>
+        <VALUE>Zagh</VALUE>
+        <VALUE>Zah</VALUE>
+        <VALUE>Zah</VALUE>
+        <VALUE>Zahalar</VALUE>
+        <VALUE>Zaham</VALUE>
+        <VALUE>Zahn</VALUE>
+        <VALUE>Zahr</VALUE>
+        <VALUE>Zahsbi</VALUE>
+        <VALUE>Zaka</VALUE>
+        <VALUE>Zakar</VALUE>
+        <VALUE>Zakbar</VALUE>
+        <VALUE>Zal</VALUE>
+        <VALUE>Zalkir</VALUE>
+        <VALUE>Zalun</VALUE>
+        <VALUE>Zamarak</VALUE>
+        <VALUE>Zamha</VALUE>
+        <VALUE>Zamhirr</VALUE>
+        <VALUE>Zan</VALUE>
+        <VALUE>Zandal</VALUE>
+        <VALUE>Zandur</VALUE>
+        <VALUE>Zan'hi</VALUE>
+        <VALUE>Zan'ikh</VALUE>
+        <VALUE>Zantan</VALUE>
+        <VALUE>Zaorir</VALUE>
+        <VALUE>Zaraer</VALUE>
+        <VALUE>Zaram</VALUE>
+        <VALUE>Zaram</VALUE>
+        <VALUE>Zarbi'dahuz</VALUE>
+        <VALUE>Zarbidan</VALUE>
+        <VALUE>Zarbidiran</VALUE>
+        <VALUE>Zargal</VALUE>
+        <VALUE>Zargha</VALUE>
+        <VALUE>Zarkier</VALUE>
+        <VALUE>Zarnor</VALUE>
+        <VALUE>Zarzi</VALUE>
+        <VALUE>Zayan</VALUE>
+        <VALUE>Zaydak</VALUE>
+        <VALUE>Zayhba</VALUE>
+        <VALUE>Zaymar</VALUE>
+        <VALUE>Zebiden</VALUE>
+        <VALUE>Zemiran</VALUE>
+        <VALUE>Zemirum</VALUE>
+        <VALUE>Zhaaruis</VALUE>
+        <VALUE>Zhahassa</VALUE>
+        <VALUE>Zhar</VALUE>
+        <VALUE>Zharahn</VALUE>
+        <VALUE>Zharim</VALUE>
+        <VALUE>Zhibaral</VALUE>
+        <VALUE>Zhid</VALUE>
+        <VALUE>Zhiranaz</VALUE>
+        <VALUE>Zhiraz</VALUE>
+        <VALUE>Zhirr</VALUE>
+        <VALUE>Ziakar</VALUE>
+        <VALUE>Zibam</VALUE>
+        <VALUE>Zidal</VALUE>
+        <VALUE>Zidluk</VALUE>
+        <VALUE>Zihlran</VALUE>
+        <VALUE>Zin</VALUE>
+        <VALUE>Zinki</VALUE>
+        <VALUE>Zino</VALUE>
+        <VALUE>Zoadran</VALUE>
+        <VALUE>Zum</VALUE>
+        <VALUE>Zumir</VALUE>
+        <VALUE>Zur</VALUE>
+        <VALUE>Zuraar</VALUE>
+        <VALUE>Zurnash</VALUE>
+        <VALUE>Zurro</VALUE>
+        <VALUE>Zurso</VALUE>
+        <VALUE>Zurud</VALUE>
+        <VALUE>Zuzik</VALUE>
+    </LIST>
+    <LIST id="tamriel-kajiit-male-prefix" title="Honorific Prefix">
+        <VALUE>Ab'</VALUE>
+        <VALUE>Ak'</VALUE>
+        <VALUE>Akh'</VALUE>
+        <VALUE>Do<SUBVALUE type="meaning">master of martial arts, renowned warrior: </SUBVALUE></VALUE>
+        <VALUE>Do'<SUBVALUE type="meaning">master of martial arts, renowned warrior: </SUBVALUE></VALUE>
+        <VALUE>Dro'<SUBVALUE type="meaning">Wise and witted, elder, patriarch or matriarch, grandparent: </SUBVALUE></VALUE>
+        <VALUE>Fa'</VALUE>
+        <VALUE>J'<SUBVALUE type="meaning">Young adult, bachelor, unexperienced: </SUBVALUE></VALUE>
+        <VALUE>Jo'<SUBVALUE type="meaning">Graceful, wizard, physician, scholar: </SUBVALUE></VALUE>
+        <VALUE>M'<SUBVALUE type="meaning">Child, virgin, apprentice, unexperienced: </SUBVALUE></VALUE>
+        <VALUE>Ma'<SUBVALUE type="meaning">Child, virgin, apprentice, unexperienced: </SUBVALUE></VALUE>
+        <VALUE>R'<SUBVALUE type="meaning">leader of soldiers, trade or governance: </SUBVALUE></VALUE>
+        <VALUE>Ra'<SUBVALUE type="meaning">leader of soldiers, trade or governance: </SUBVALUE></VALUE>
+        <VALUE>Ri'<SUBVALUE type="meaning"> rarely awarded title for great leaders; chieftain, king, speaker: </SUBVALUE></VALUE>
+        <VALUE>S'<SUBVALUE type="meaning">Adult: </SUBVALUE></VALUE>
+        <VALUE>Za'</VALUE>
+    </LIST>
+    <LIST id="tamriel-kajiit-male-suffix" title="Honorific Suffix">
+        <VALUE>argo</VALUE>
+        <VALUE>-argo</VALUE>
+        <VALUE>'dar<SUBVALUE type="meaning">; nimble fingered, lithe of tongue, inquisitive, acquisitive, clever</SUBVALUE></VALUE>
+        <VALUE>-dar<SUBVALUE type="meaning">; nimble fingered, lithe of tongue, inquisitive, acquisitive, clever</SUBVALUE></VALUE>
+        <VALUE>-do<SUBVALUE type="meaning">; master of martial arts, renowned warrior</SUBVALUE></VALUE>
+        <VALUE>-dro<SUBVALUE type="meaning">; master of martial arts, renowned warrior</SUBVALUE></VALUE>
+        <VALUE>dul</VALUE>
+        <VALUE>-ja<SUBVALUE type="meaning">; Young adult, bachelor, unexperienced</SUBVALUE></VALUE>
+        <VALUE>ji<SUBVALUE type="meaning">; Young adult, bachelor, unexperienced</SUBVALUE></VALUE>
+        <VALUE>-ji<SUBVALUE type="meaning">; Young adult, bachelor, unexperienced</SUBVALUE></VALUE>
+        <VALUE>jo<SUBVALUE type="meaning">; Graceful, wizard, physician, scholar</SUBVALUE></VALUE>
+        <VALUE>-jo<SUBVALUE type="meaning">; Graceful, wizard, physician, scholar</SUBVALUE></VALUE>
+        <VALUE>ku</VALUE>
+        <VALUE>ma<SUBVALUE type="meaning">; Child, virgin, apprentice, unexperienced</SUBVALUE></VALUE>
+        <VALUE>ra<SUBVALUE type="meaning">;  leader of soldiers, trade or governance</SUBVALUE></VALUE>
+        <VALUE>-ra<SUBVALUE type="meaning">;  leader of soldiers, trade or governance</SUBVALUE></VALUE>
+        <VALUE>ri<SUBVALUE type="meaning">; chieftain, king, speaker</SUBVALUE></VALUE>
+        <VALUE>-ri<SUBVALUE type="meaning">; chieftain, king, speaker</SUBVALUE></VALUE>
+        <VALUE>sa<SUBVALUE type="meaning">; Adult</SUBVALUE></VALUE>
+        <VALUE>-sa<SUBVALUE type="meaning">; Adult</SUBVALUE></VALUE>
+    </LIST>
+
 
 
 
