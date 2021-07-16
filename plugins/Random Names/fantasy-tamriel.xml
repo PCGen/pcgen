@@ -15658,18 +15658,18 @@
         <VALUE>-sa<SUBVALUE type="meaning">; Adult</SUBVALUE></VALUE>
     </LIST>
     <LIST id="tamriel-kajiit-female-prefix" title="Honorific Prefix">
-        <VALUE>Da'<SUBVALUE type="meaning"></SUBVALUE></VALUE>
-        <VALUE>Dar<SUBVALUE type="meaning"></SUBVALUE></VALUE>
-        <VALUE>Ko'<SUBVALUE type="meaning"></SUBVALUE></VALUE>
-        <VALUE>La'<SUBVALUE type="meaning"></SUBVALUE></VALUE>
-        <VALUE>M'<SUBVALUE type="meaning"></SUBVALUE></VALUE>
-        <VALUE>Ma'<SUBVALUE type="meaning"></SUBVALUE></VALUE>
-        <VALUE>S'<SUBVALUE type="meaning"></SUBVALUE></VALUE>
+        <VALUE>Da'<SUBVALUE type="meaning">master of Khajiiti martial arts, renowned warrior, elite guard</SUBVALUE></VALUE>
+        <VALUE>Dar<SUBVALUE type="meaning">nimble fingered, lithe of tongue, inquisitive, acquisitive, clever: </SUBVALUE></VALUE>
+        <VALUE>Ko'<SUBVALUE type="meaning">Graceful, wizard, physician, scholar: </SUBVALUE></VALUE>
+        <VALUE>La'<SUBVALUE type="meaning">Unmarried, graceful maiden, virgin: </SUBVALUE></VALUE>
+        <VALUE>M'<SUBVALUE type="meaning">Child, virgin, apprentice, unexperienced: </SUBVALUE></VALUE>
+        <VALUE>Ma'<SUBVALUE type="meaning">Child, virgin, apprentice, unexperienced: </SUBVALUE></VALUE>
+        <VALUE>S'<SUBVALUE type="meaning">Adult: </SUBVALUE></VALUE>
         <VALUE>Ka'</VALUE>
-        <VALUE>J'<SUBVALUE type="meaning"></SUBVALUE></VALUE>
-        <VALUE>Dar'<SUBVALUE type="meaning"></SUBVALUE></VALUE>
+        <VALUE>J'<SUBVALUE type="meaning">Young adult, bachelor, unexperienced: </SUBVALUE></VALUE>
+        <VALUE>Dar'<SUBVALUE type="meaning">nimble fingered, lithe of tongue, inquisitive, acquisitive, clever: </SUBVALUE></VALUE>
         <VALUE>Ka</VALUE>
-        <VALUE>Si<SUBVALUE type="meaning"></SUBVALUE></VALUE>
+        <VALUE>Si<SUBVALUE type="meaning">Adult: </SUBVALUE></VALUE>
     </LIST>
     <LIST id="tamriel-kajiit-female-core" title="Core">
         <VALUE>Aahin</VALUE>
