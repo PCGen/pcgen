@@ -5,6 +5,8 @@
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list			Plural description for UI			Display Location
 ABILITYCATEGORY:Kitsune Racial Subtype			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kitsune Racial Subtype		ABILITYLIST:Racial Subtype ~ None	PLURAL:Kitsune Racial Subtypes		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kitsune Versatility				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Kitsune ~ Versatility (Two Favored)|Kitsune ~ Versatility (HP and Skill)					PLURAL:Kitsune Versatility			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Heritage Focus Skill Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Heritage Focus ~ Disguise|Heritage Focus ~ Knowledge (Nature)|Heritage Focus ~ Stealth			PLURAL:Heritage Focus Skill focuses		DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Kitsune Extra Tail Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:KitsuneExtraTailsBonusUse							PLURAL:Kitsune Extra Tail Bonuses		DISPLAYLOCATION:Class Features
 
