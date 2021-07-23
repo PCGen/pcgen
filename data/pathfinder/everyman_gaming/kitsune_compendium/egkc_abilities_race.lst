@@ -33,6 +33,11 @@ Disguise										KEY:Heritage Focus ~ Disguise							CATEGORY:Internal			ABILIT
 Knowledge (Nature)								KEY:Heritage Focus ~ Knowledge (Nature)					CATEGORY:Internal			ABILITY:FEAT|AUTOMATIC|Skill Focus (Knowledge (Nature))	CSKILL:Knowledge (Nature)
 Stealth										KEY:Heritage Focus ~ Stealth							CATEGORY:Internal			ABILITY:FEAT|AUTOMATIC|Skill Focus (Stealth)			CSKILL:Stealth
 
+###Block: Heritage Focus
+Disguise										KEY:Heritage Focus ~ Disguise							CATEGORY:Internal			ABILITY:FEAT|AUTOMATIC|Skill Focus (Disguise)			CSKILL:Disguise
+Knowledge (Nature)								KEY:Heritage Focus ~ Knowledge (Nature)					CATEGORY:Internal			ABILITY:FEAT|AUTOMATIC|Skill Focus (Knowledge (Nature))	CSKILL:Knowledge (Nature)
+Stealth										KEY:Heritage Focus ~ Stealth							CATEGORY:Internal			ABILITY:FEAT|AUTOMATIC|Skill Focus (Stealth)			CSKILL:Stealth
+
 ##Alternate Racial Trait Support##
 Kitsune Versatility Bonus																		CATEGORY:Special Ability	TYPE:FavoredClassBonus												VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Versatility (HP and Skill)																																																																																																																																																																								DESC:Gain both +1 hit point and +1 skill rank.																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom																																																																														BONUS:HP|CURRENTMAX|1																																																		BONUS:SKILLRANK|LIST|1
 CATEGORY=Special Ability|Favored Class Bonus ~ Hit Point.MOD																																																!PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Versatility (HP and Skill)
