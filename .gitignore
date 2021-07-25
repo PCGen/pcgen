@@ -99,3 +99,9 @@ pcgendev.iml
 # Misc
 jre/
 code/manifest-tests
+.gitignore~
+..gitignore.un~
+*.un~
+*.lst~
+*.pcc~
+*.swp
