@@ -30,6 +30,7 @@
 			<GETLIST idref="fantasy-nouns2" title="Noun"/>
 		</RULE>
 	</RULESET>
+	
 	<RULESET id="fantasy-general-town-rule" title="Fantasy Towns" usage="final">
 		<CATEGORY title="Fantasy: Other"/>
 		<CATEGORY title="All"/>
@@ -89,10 +90,9 @@
 			<GETLIST idref="arabic-historical-location-rule" title="Historical Arabic Location"/>
 		</RULE>
 	</RULESET>
-	<RULESET id="fantasy-general-elf-male" title="Elven" usage="final">
+	<RULESET id="fantasy-general-elf-male" title="Consolidated Elven" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Elven" />
-		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="5">
 			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
@@ -102,6 +102,9 @@
 		</RULE>
 		<RULE weight="3">
 			<GETLIST idref="tamriel-bosmer-male-full-rule" title="Bosmer (Wood Elf)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-dunmer-male-rule" title="Dunmer (Dark Elf)" />
 		</RULE>
 		<RULE weight="5">
 			<GETRULE idref="deverry-fantasy-elven-male-rule" title="Deverry" />
@@ -125,10 +128,9 @@
 			<GETRULE idref="middle-earth-fantasy-elven-male-rule" title="Middle-Earth" />
 		</RULE>
 	</RULESET>
-	<RULESET id="fantasy-general-elf-female" title="Elven" usage="final">
+	<RULESET id="fantasy-general-elf-female" title="Consolidated Elven" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Elven" />
-		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="2">
 			<GETRULE idref="alver-fantasy-rule" title="Alver" />
@@ -141,6 +143,9 @@
 		</RULE>
 		<RULE weight="3">
 			<GETLIST idref="tamriel-bosmer-female-full-rule" title="Bosmer (Wood Elf)" />
+		</RULE>
+		<RULE weight="3" >
+			<GETRULE idref="tamriel-dunmer-female-rule" title="Dunmer (Dark Elf)" />
 		</RULE>
 		<RULE weight="4">
 			<GETRULE idref="middle-earth-fantasy-elven-female-rule" title="Middle-Earth" />
@@ -161,10 +166,9 @@
 			<GETRULE idref="deverry-fantasy-elven-female-rule" title="Deverry" />
 		</RULE>
 	</RULESET>
-	<RULESET id="fantasy-general-dwarf-male" title="Dwarven" usage="final">
+	<RULESET id="fantasy-general-dwarf-male" title="Consolidated Dwarven" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Dwarven" />
-		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
 			<GETRULE idref="cg-fantasy-dwarf-male-rule" title="General Dwarf" />
@@ -182,10 +186,9 @@
 			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
 		</RULE>		
 	</RULESET>
-	<RULESET id="fantasy-general-dwarf-female" title="Dwarven" usage="final"> 
+	<RULESET id="fantasy-general-dwarf-female" title="Consolidated Dwarven" usage="final"> 
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Dwarven" />
-		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
 			<GETRULE idref="cg-fantasy-dwarf-female-rule" title="General Dwarf" />
@@ -204,10 +207,9 @@
 		</RULE>	
 	</RULESET>
 	
-	<RULESET id="fantasy-general-halfling-male" title="Halfling" usage="final">
+	<RULESET id="fantasy-general-halfling-male" title="Consolidated Halfling" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Halfling" />
-		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="1">
 			<GETRULE idref="cg-fantasy-halfling-male-rule" title="General Halfling" />
@@ -219,10 +221,9 @@
 			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
 		</RULE>
 	</RULESET>
-	<RULESET id="fantasy-general-halfling-female" title="Halfling" usage="final">
+	<RULESET id="fantasy-general-halfling-female" title="Consolidated Halfling" usage="final">
 		<CATEGORY title="All"/>
 		<CATEGORY title="Fantasy: Halfling" />
-		<CATEGORY title="Consolidated Fantasy" />
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="1">
 			<GETRULE idref="cg-fantasy-halfling-female-rule" title="General Halfling" />
@@ -235,6 +236,117 @@
 		</RULE>
 	</RULESET>
 
+	<RULESET id="fantasy-general-orc-male" title="Consolidated Orcish" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Orc" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE>
+			<GETRULE idref="orc-fantasy-rule" title="Orcish" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="fantasy_craft-orc" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-orc-male-rule" title="Orsimer (Tamriel)" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-bbn-male-rule" title="Mar Barbarian" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-evil-rule" title="Mar Evil" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-standard-male-rule" title="Mar Standard" />
+		</RULE>		
+	</RULESET>
+	<RULESET id="fantasy-general-orc-female" title="Consolidated Orcish" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Orc" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE>
+			<GETRULE idref="orc-fantasy-rule" title="Orcish" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="fantasy_craft-orc" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-orc-female-rule" title="Orsimer (Tamriel)" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-bbn-female-rule" title="Mar Barbarian" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-evil-rule" title="Mar Evil" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-standard-female-rule" title="Mar Standard" />
+		</RULE>		
+	</RULESET>
+
+	<RULESET id="fantasy-general-human-male" title="Consolodated Fantasy Human" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE>
+			<GETRULE idref="mar-knightly-male-rule" title="Mar Knightly" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-wizard-male-rule" title="Mar Wizard" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-human-male-rule" title="Mar Human" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-breton-male-rule" title="Breton (Tamriel)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-imperial-male-rule" title="Imperial (Tamriel" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-nord-male-rule" title="Nord (Tamriel)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-redguard-male-rule" title="Redguard (Tamriel)" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="fantasy_craft-human-male" title="Fantasy Craft" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="deverry-fantasy-male-rule" title="Deverry" />
+		</RULE>
+	</RULESET>
+	<RULESET id="fantasy-general-human-female" title="Consolodated Fantasy Human" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE>
+			<GETRULE idref="mar-knightly-female-rule" title="Mar Knightly" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-wizard-female-rule" title="Mar Wizard" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-human-female-rule" title="Mar Human" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-breton-female-rule" title="Breton (Tamriel)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-imperial-female-rule" title="Imperial (Tamriel" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-nord-female-rule" title="Nord (Tamriel)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-redguard-female-rule" title="Redguard (Tamriel)" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="fantasy_craft-human-female" title="Fantasy Craft" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="deverry-fantasy-female-rule" title="Deverry" />
+		</RULE>
+	</RULESET>
 
 	<LIST id="fantasy-s" title="'s">
 		<VALUE>'s</VALUE>

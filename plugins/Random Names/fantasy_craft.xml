@@ -361,6 +361,7 @@
 	</RULESET>
 	<RULESET id="fantasy_craft-orc" title="Fantasy Craft: Orc" usage="final">
 		<CATEGORY title="Fantasy Craft"/>
+		<CATEGORY title="Fantasy: Orc" />
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="8">
