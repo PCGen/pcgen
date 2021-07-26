@@ -243,7 +243,7 @@
 	<RULESET id="orc-fantasy-rule" title="Orc" usage="final">
 		<!-- Namefile for orc first names by Johan Danforth and Tobias Petersson -->
 		<CATEGORY title="Fantasy: Half-Orc" />
-		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="Fantasy: Orc" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Female"/>
 		<CATEGORY title="Sex: Male"/>

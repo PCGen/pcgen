@@ -402,7 +402,7 @@
     <RULESET id="tamriel-kajiit-male-rule" title="Kajiit (Catfolk)" usage="final">
         <CATEGORY title="Fantasy: Tamriel" />
         <CATEGORY title="All" />
-        <CATEGORY title="Fantasy: Catfolk" />
+        <CATEGORY title="Fantasy: Other Races" />
         <CATEGORY title="Sex: Male" />
         <RULE weight="12">
             <GETLIST idref="tamriel-kajiit-male-prefix" title="Honorific" />
@@ -431,7 +431,7 @@
     <RULESET id="tamriel-kajiit-female-rule" title="Kajiit (Catfolk)" usage="final">
         <CATEGORY title="Fantasy: Tamriel" />
         <CATEGORY title="All" />
-        <CATEGORY title="Fantasy: Catfolk" />
+        <CATEGORY title="Fantasy: Other Races" />
         <CATEGORY title="Sex: Female" />
         <RULE weight="12">
             <GETLIST idref="tamriel-kajiit-female-prefix" title="Honorific" />
@@ -508,7 +508,7 @@
             <GETLIST idref="tamriel-orc-female-given" title="Matronym" />
         </RULE>
     </RULESET>
-    <RULESET id="tamriel-orc-female-rule" title="Osimer (Orc)" usage="final">
+    <RULESET id="tamriel-orc-female-rule" title="Orsimer (Orc)" usage="final">
         <CATEGORY title="Fantasy: Tamriel" />
         <CATEGORY title="Fantasy: Orc" />
         <CATEGORY title="All"/>
