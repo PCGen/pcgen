@@ -207,13 +207,40 @@
 		<VALUE>filius</VALUE>
 	</LIST>
 	<LIST id="pictish-female-given" title="Given">
+		<VALUE>Alpia</VALUE>
+		<VALUE>Aebbe</VALUE>
 		<VALUE>Bodicca</VALUE>
 		<VALUE>Barita</VALUE>
+		<VALUE>Brigid</VALUE>
+		<VALUE>Caintigern</VALUE>
+		<VALUE>Caintighearnd</VALUE>
 		<VALUE>Cartimandua</VALUE>
+		<VALUE>Coblaith</VALUE>
+		<VALUE>Conchenn</VALUE>
 		<VALUE>Cunoarda</VALUE>
 		<VALUE>Cunovinda</VALUE>
 		<VALUE>Cvinda</VALUE>
+		<VALUE>Darlugdach</VALUE>
+		<VALUE>Derile</VALUE>
+		<VALUE>Derelei</VALUE>
+		<VALUE>Derilei</VALUE>
+		<VALUE>Domelch</VALUE>
+		<VALUE>Eithne</VALUE>
+		<VALUE>Ethne</VALUE>
+		<VALUE>Eithni</VALUE>
+		<VALUE>Eurgein</VALUE>
+		<VALUE>Gemma</VALUE>
 		<VALUE>Huctia</VALUE>
+		<VALUE>Kentigerna</VALUE>
+		<VALUE>Ligach</VALUE>
+		<VALUE>Mael Muire</VALUE>
+		<VALUE>Maithgemm</VALUE>
+		<VALUE>Modwenna</VALUE>
+		<VALUE>Monenna</VALUE>
+		<VALUE>Modwen</VALUE>
+		<VALUE>Mongfind</VALUE>
+		<VALUE>Nadbroicc</VALUE>
+		<VALUE>Nectudad</VALUE>
 		<VALUE>Tancorix</VALUE>
 		<VALUE>Verctissa</VALUE>
 		<VALUE>Verica</VALUE>
@@ -658,4 +685,3 @@
 		<VALUE>Uetla</VALUE>
 	</LIST>
 </GENERATOR>
-
