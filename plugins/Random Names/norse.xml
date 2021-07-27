@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+    <RULESET id="norse-viking-male" title="Viking" usage="final">
+        <CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+        <CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+        <CATEGORY title="All"/>
+        <CATEGORY title="Sex: Male" />
+        <RULE weight="10">
+            <GETLIST idref="viking-male-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-description" title="Descriptive" />
+        </RULE>
+        <RULE weight="16">
+            <GETLIST idref="viking-male-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-male-suffix" title="Suffix" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="viking-male-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-male-suffix" title="Suffix" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Ancestral Patronym" />
+            <GETLIST idref="norse-patrynomic-ancestral-suffix" title="Suffix" />
+        </RULE>
+    </RULESET>
+    <RULESET id="norse-viking-female" title="Viking" usage="final">
+        <CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+        <CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+        <CATEGORY title="All"/>
+        <CATEGORY title="Sex: Female" />
+        <RULE weight="5">
+            <GETLIST idref="viking-female-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-description" title="Descriptive" />
+        </RULE>
+        <RULE weight="2">
+            <GETLIST idref="viking-female-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-female-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-female-suffix" title="Suffix" />
+        </RULE>
+        <RULE weight="16">
+            <GETLIST idref="viking-female-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-female-suffix" title="Suffix" />
+        </RULE>
+        <RULE weight="1">
+            <GETLIST idref="viking-female-given" title="Given" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Patronym" />
+            <GETLIST idref="norse-patrynomic-female-suffix" title="Suffix" />
+            <SPACE />
+            <GETLIST idref="viking-male-given" title="Ancestral Patronym" />
+            <GETLIST idref="norse-patrynomic-ancestral-suffix" title="Suffix" />
+        </RULE>
+    </RULESET>
+
+    <!-- names taken primarily from https://babynames.net/boy/old-norse -->
+    <LIST id="viking-male-given" title="Male Given">
+        <VALUE>Ake<SUBVALUE type="meaning">forbear</SUBVALUE></VALUE>
+        <VALUE>Åge</VALUE>
+        <VALUE>Amundr</VALUE>
+        <VALUE>Asketill</VALUE>
+        <VALUE>Arne<SUBVALUE type="meaning">eagle</SUBVALUE></VALUE>
+        <VALUE>Arvid<SUBVALUE type="meaning">tree of the eagle</SUBVALUE></VALUE>
+        <VALUE>Asger<SUBVALUE type="meaning">spear of God</SUBVALUE></VALUE>
+        <VALUE>Asmund<SUBVALUE type="meaning">divine protection</SUBVALUE></VALUE>
+        <VALUE>Audun<SUBVALUE type="meaning">affluent friend</SUBVALUE></VALUE>
+        <VALUE>Balder<SUBVALUE type="meaning">bearer of light</SUBVALUE></VALUE>
+        <VALUE>Bard<SUBVALUE type="meaning">battle against peace</SUBVALUE></VALUE>
+        <VALUE>Birger<SUBVALUE type="meaning">keeper</SUBVALUE></VALUE>
+        <VALUE>Bjorn<SUBVALUE type="meaning">bear</SUBVALUE></VALUE>
+        <VALUE>Bjørn<SUBVALUE type="meaning">bear</SUBVALUE></VALUE>
+        <VALUE>Bjarke<SUBVALUE type="meaning">bear</SUBVALUE></VALUE>
+        <VALUE>Bjarni<SUBVALUE type="meaning">little bear</SUBVALUE></VALUE>
+        <VALUE>Bjarte<SUBVALUE type="meaning">bright man</SUBVALUE></VALUE>
+        <VALUE>Brandt</VALUE>
+        <VALUE>Brynjar</VALUE>
+        <VALUE>Calder</VALUE>
+        <VALUE>Canute</VALUE>
+        <VALUE>Colborn</VALUE>
+        <VALUE>Colden</VALUE>
+        <VALUE>Krosbyr</VALUE>
+        <VALUE>Cuyler</VALUE>
+        <VALUE>Dag</VALUE>
+        <VALUE>Dagfinn</VALUE>
+        <VALUE>Dorsteinn</VALUE>
+        <VALUE>Eerikki</VALUE>
+        <VALUE>Egil</VALUE>
+        <VALUE>Einar</VALUE>
+        <VALUE>Eindride</VALUE>
+        <VALUE>Eirik</VALUE>
+        <VALUE>Elof</VALUE>
+        <VALUE>Eluf</VALUE>
+        <VALUE>Erland</VALUE>
+        <VALUE>Erling</VALUE>
+        <VALUE>Even</VALUE>
+        <VALUE>Fjall</VALUE>
+        <VALUE>Fiskr</VALUE>
+        <VALUE>Folke</VALUE>
+        <VALUE>Freyr</VALUE>
+        <VALUE>Fritjof</VALUE>
+        <VALUE>Frode</VALUE>
+        <VALUE>Geir</VALUE>
+        <VALUE>Gosta</VALUE>
+        <VALUE>Gorm</VALUE>
+        <VALUE>Gudbrandt</VALUE>
+        <VALUE>Gulbrand</VALUE>
+        <VALUE>Gunner</VALUE>
+        <VALUE>Gunne</VALUE>
+        <VALUE>Gustav</VALUE>
+        <VALUE>Hacke</VALUE>
+        <VALUE>Hafdan</VALUE>
+        <VALUE>Halvdan</VALUE>
+        <VALUE>Harald</VALUE>
+        <VALUE>Hagen</VALUE>
+        <VALUE>Hakon</VALUE>
+        <VALUE>Haldor</VALUE>
+        <VALUE>Halstein</VALUE>
+        <VALUE>Halvar</VALUE>
+        <VALUE>Hamundr</VALUE>
+        <VALUE>Herleifr</VALUE>
+        <VALUE>Hjalmar</VALUE>
+        <VALUE>Holger<SUBVALUE type="pronounciation">HAWL-ger</SUBVALUE></VALUE>
+        <VALUE>Holmr</VALUE>
+        <VALUE>Ingvar</VALUE>
+        <VALUE>Ingemar</VALUE>
+        <VALUE>Inge</VALUE>
+        <VALUE>Ingfred</VALUE>
+        <VALUE>Inghard</VALUE>
+        <VALUE>Ingolf</VALUE>
+        <VALUE>Iver</VALUE>
+        <VALUE>Jari<SUBVALUE type="pronounciation">YAWR-ee</SUBVALUE></VALUE>
+        <VALUE>Jerrik<SUBVALUE type="pronounciation">YEHR-rek</SUBVALUE></VALUE>
+        <VALUE>Jerker<SUBVALUE type="pronounciation">YEHR-ker</SUBVALUE><SUBVALUE type="meaning">Forever king</SUBVALUE></VALUE>
+        <VALUE>Kare<SUBVALUE type="pronounciation">KAH-re</SUBVALUE></VALUE>
+        <VALUE>Knud</VALUE>
+        <VALUE>Kjeld</VALUE>
+        <VALUE>Knut</VALUE>
+        <VALUE>Leif</VALUE>
+        <VALUE>Loki</VALUE>
+        <VALUE>Njal</VALUE>
+        <VALUE>Odin</VALUE>
+        <VALUE>Olaf</VALUE>
+        <VALUE>Olin</VALUE>
+        <VALUE>Ødger</VALUE>
+        <VALUE>Olle</VALUE>
+        <VALUE>Osmund</VALUE>
+        <VALUE>Ove</VALUE>
+        <VALUE>Roar</VALUE>
+        <VALUE>Rune<SUBVALUE type="pronounciation">RUN-e</SUBVALUE></VALUE>
+        <VALUE>Rangvald</VALUE>
+        <VALUE>Raulf</VALUE>
+        <VALUE>Sigurd</VALUE>
+        <VALUE>Sten</VALUE>
+        <VALUE>Skarde</VALUE>
+        <VALUE>Sune</VALUE>
+        <VALUE>Svend</VALUE>
+        <VALUE>Stigr</VALUE>
+        <VALUE>Sture</VALUE>
+        <VALUE>Thor</VALUE>
+        <VALUE>Tarben</VALUE>
+        <VALUE>Torsten</VALUE>
+        <VALUE>Torvaldr</VALUE>
+        <VALUE>Tormundr</VALUE>
+        <VALUE>Torbjorn</VALUE>
+        <VALUE>Tore<SUBVALUE type="pronounciation">TOR-e</SUBVALUE></VALUE>
+        <VALUE>Troels</VALUE>
+        <VALUE>Toke<SUBVALUE type="pronounciation">TOK-e</SUBVALUE></VALUE>
+        <VALUE>Trygve</VALUE>
+        <VALUE>Tue<SUBVALUE type="pronounciation">TOO-eh</SUBVALUE></VALUE>
+        <VALUE>Tyr</VALUE>
+        <VALUE>Ulf</VALUE>
+    </LIST>
+
+    <LIST id="viking-female-given" title="Female Given">
+        <VALUE>Alfhild</VALUE>
+        <VALUE>Alvida</VALUE>
+        <VALUE>Ase<SUBVALUE type="pronounciation">AH-she</SUBVALUE><SUBVALUE type="meaning">goddess</SUBVALUE></VALUE>
+        <VALUE>Astrid</VALUE>
+        <VALUE>Aslaug</VALUE>
+        <VALUE>Asta</VALUE>
+        <VALUE>Audhild</VALUE>
+        <VALUE>Bergljot<SUBVALUE type="meaning">Light will save</SUBVALUE></VALUE>
+        <VALUE>Bodil<SUBVALUE type="meaning">pennance, fight</SUBVALUE></VALUE>
+        <VALUE>Brenna</VALUE>
+        <VALUE>Borghild</VALUE>
+        <VALUE>Dagmar</VALUE>
+        <VALUE>Dagny</VALUE>
+        <VALUE>Dalia</VALUE>
+        <VALUE>Erykah</VALUE>
+        <VALUE>Eerika</VALUE>
+        <VALUE>Eira</VALUE>
+        <VALUE>Embla</VALUE>
+        <VALUE>Eydis</VALUE>
+        <VALUE>Freja</VALUE>
+        <VALUE>Frida</VALUE>
+        <VALUE>Gerd</VALUE>
+        <VALUE>Gunborg</VALUE>
+        <VALUE>Gertrud</VALUE>
+        <VALUE>Gudrun</VALUE>
+        <VALUE>Gull</VALUE>
+        <VALUE>Gunhild</VALUE>
+        <VALUE>Gunvor</VALUE>
+        <VALUE>Gyda</VALUE>
+        <VALUE>Hege</VALUE>
+        <VALUE>Hilda</VALUE>
+        <VALUE>Helga</VALUE>
+        <VALUE>Helle<SUBVALUE type="pronounciation">HE-leh</SUBVALUE></VALUE>
+        <VALUE>Herta</VALUE>
+        <VALUE>Hillevi</VALUE>
+        <VALUE>Inga</VALUE>
+        <VALUE>Ingeborg</VALUE>
+        <VALUE>Inger</VALUE>
+        <VALUE>Ingrid</VALUE>
+        <VALUE>Inkeri</VALUE>
+        <VALUE>Jorunn</VALUE>
+        <VALUE>Kelsey<SUBVALUE type="meaning"> from the island of ships</SUBVALUE></VALUE>
+        <VALUE>Kari</VALUE>
+        <VALUE>Liv<SUBVALUE type="meaning">Life</SUBVALUE></VALUE>
+        <VALUE>Magnhild</VALUE>
+        <VALUE>Olga</VALUE>
+        <VALUE>Oydis</VALUE>
+        <VALUE>Ragna</VALUE>
+        <VALUE>Randi</VALUE>
+        <VALUE>Revna <SUBVALUE type="meaning">Raven</SUBVALUE></VALUE>
+        <VALUE>Sassa</VALUE>
+        <VALUE>Sif</VALUE>
+        <VALUE>Signe</VALUE>
+        <VALUE>Sigrid</VALUE>
+        <VALUE>Sigfrid</VALUE>
+        <VALUE>Sigrun</VALUE>
+        <VALUE>Solveig</VALUE>
+        <VALUE>Solvej</VALUE>
+        <VALUE>Sylvi</VALUE>
+        <VALUE>Thora</VALUE>
+        <VALUE>Thyra</VALUE>
+        <VALUE>Tone<SUBVALUE type="pronounciation">TAW-ne</SUBVALUE></VALUE>
+        <VALUE>Torborg</VALUE>
+        <VALUE>Tordis</VALUE>
+        <VALUE>Torhild</VALUE>
+        <VALUE>Tove<SUBVALUE type="pronounciation">TAW-ve</SUBVALUE></VALUE>
+        <VALUE>Thurid</VALUE>
+        <VALUE>Ulfhild</VALUE>
+        <VALUE>Yrsa</VALUE>
+        <VALUE>Ylva</VALUE>
+    </LIST>
+
+    <LIST id="viking-description" title="Descriptive">
+        <VALUE>the Red</VALUE>
+        <VALUE>the Left-handed</VALUE>
+        <VALUE>the Black</VALUE>
+        <VALUE>the Kind</VALUE>
+        <VALUE>the Lame</VALUE>
+        <VALUE>the Right-handed</VALUE>
+        <VALUE>the Boneless</VALUE>
+        <VALUE>the Brave</VALUE>
+        <VALUE>One-Eye</VALUE>
+        <VALUE>One-fist</VALUE>
+        <VALUE>Axe-Bearer</VALUE>
+        <VALUE>Hammer-fist</VALUE>
+        <VALUE>Shield-Breaker</VALUE>
+        <VALUE>the Fair</VALUE>
+        <VALUE>the Judge</VALUE>
+        <VALUE>the Wise</VALUE>
+        <VALUE>the Fool</VALUE>
+        <VALUE>the Honorable</VALUE>
+        <VALUE>the Ruthless</VALUE>
+        <VALUE>the White</VALUE>
+        <VALUE>the Strong</VALUE>
+        <VALUE>the Lesser</VALUE>
+        <VALUE>the Conqueror</VALUE>
+        <VALUE>the Weak</VALUE>
+        <VALUE>the Greater</VALUE>
+    </LIST>
+    <LIST id="norse-patrynomic-male-suffix" title="Patrynomic">
+        <VALUE>sson<SUBVALUE type="meaning">'s son</SUBVALUE></VALUE>
+    </LIST>
+    <LIST id="norse-patrynomic-female-suffix" title="Patrynomic">
+        <VALUE>sdottir<SUBVALUE type="meaning">'s daughter</SUBVALUE></VALUE>
+    </LIST>
+    <LIST id="norse-patrynomic-ancestral-suffix" title="Acestral">
+        <VALUE>ssonar<SUBVALUE type="meaning">'s grandchild</SUBVALUE></VALUE>
+    </LIST>
+    
+</GENERATOR>

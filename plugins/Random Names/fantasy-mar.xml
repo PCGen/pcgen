@@ -79,7 +79,6 @@
 		<CATEGORY title="Fantasy: Half-Elven" />
 		<CATEGORY title="Fantasy: Half-Orc" />
 		<CATEGORY title="Fantasy: Halfling"/>
-		<CATEGORY title="Fantasy: Other Races" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male" />
 		<RULE weight="85">
@@ -123,7 +122,6 @@
 		<CATEGORY title="Fantasy: Half-Elven" />
 		<CATEGORY title="Fantasy: Half-Orc" />
 		<CATEGORY title="Fantasy: Halfling"/>
-		<CATEGORY title="Fantasy: Other Races" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male" />
 		<RULE weight="15">
@@ -157,7 +155,6 @@
 		<CATEGORY title="Fantasy: Half-Elven" />
 		<CATEGORY title="Fantasy: Half-Orc" />
 		<CATEGORY title="Fantasy: Halfling"/>
-		<CATEGORY title="Fantasy: Other Races" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Female" />
 		<RULE weight="15">
@@ -305,7 +302,6 @@
 		<CATEGORY title="Fantasy: Half-Elven" />
 		<CATEGORY title="Fantasy: Half-Orc" />
 		<CATEGORY title="Fantasy: Halfling"/>
-		<CATEGORY title="Fantasy: Other Races" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male" />
 		<CATEGORY title="Sex: Female" />
@@ -318,7 +314,8 @@
 		</RULE>
 	</RULESET>
 
-	<RULESET id="mar-standard-rule" title="Mar Standard" usage="final">
+	
+	<RULESET id="mar-standard-male-rule" title="Mar Standard" usage="final">
 		<CATEGORY title="Fantasy: Human" />
 		<CATEGORY title="Fantasy: Dwarven"/>
 		<CATEGORY title="Fantasy: Elven"/>
@@ -326,10 +323,8 @@
 		<CATEGORY title="Fantasy: Half-Elven" />
 		<CATEGORY title="Fantasy: Half-Orc" />
 		<CATEGORY title="Fantasy: Halfling"/>
-		<CATEGORY title="Fantasy: Other Races" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male" />
-		<CATEGORY title="Sex: Female" />
 		<RULE weight="1">
 			<GETLIST idref="mar-name-full" title="Full" />
 		</RULE>
@@ -338,6 +333,26 @@
 			<GETLIST idref="mar-name-male-human-syl2" title="Syllable 2" />
 		</RULE>
 	</RULESET>
+	
+	<RULESET id="mar-standard-female-rule" title="Mar Standard" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="1">
+			<GETLIST idref="mar-name-full" title="Full" />
+		</RULE>
+		<RULE weight="9">
+			<GETLIST idref="mar-name-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-human-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
 
 
 	<LIST id="mar-draconic-full" title="Full">
@@ -1021,4 +1036,3 @@
 	</LIST>
 
 </GENERATOR>
-
